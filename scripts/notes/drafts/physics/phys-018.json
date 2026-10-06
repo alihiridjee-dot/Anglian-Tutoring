@@ -8,73 +8,153 @@
     {
       "heading": "Electrical power",
       "blocks": [
-        { "type": "paragraph", "text": "Power links the energy changes in a circuit device to the potential difference across it and the current in it." },
+        {
+          "type": "paragraph",
+          "text": "Power links the energy changes in a circuit device to the potential difference across it and the current in it."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Power", "meaning": "The energy transferred per second. It is measured in watts, W." },
-            { "term": "Watt", "meaning": "The unit of power. One watt is one joule per second." }
+            {
+              "term": "Power",
+              "meaning": "The energy transferred per second. It is measured in watts, W."
+            },
+            {
+              "term": "Watt",
+              "meaning": "The unit of power. One watt is one joule per second."
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Power from potential difference and current",
           "formula": "power = potential difference × current    (P = V I)",
-          "where": ["power, P, in watts, W", "potential difference, V, in volts, V", "current, I, in amperes, A (amp is acceptable)"]
+          "where": [
+            "power, P, in watts, W",
+            "potential difference, V, in volts, V",
+            "current, I, in amperes, A (amp is acceptable)"
+          ]
         },
         {
           "type": "equation",
           "label": "Power from current and resistance",
           "formula": "power = current² × resistance    (P = I²R)",
-          "where": ["power, P, in watts, W", "current, I, in amperes, A", "resistance, R, in ohms, Ω"]
+          "where": [
+            "power, P, in watts, W",
+            "current, I, in amperes, A",
+            "resistance, R, in ohms, Ω"
+          ]
         },
         {
           "type": "equation",
           "label": "Power from energy and time",
           "formula": "power = energy transferred ÷ time    (P = E / t)",
-          "where": ["power, P, in watts, W", "energy transferred, E, in joules, J", "time, t, in seconds, s"]
+          "where": [
+            "power, P, in watts, W",
+            "energy transferred, E, in joules, J",
+            "time, t, in seconds, s"
+          ]
         },
-        { "type": "paragraph", "text": "Use P = I²R when you are given the current and the resistance but not the potential difference. Square the current before you multiply." },
+        {
+          "type": "paragraph",
+          "text": "Use P = I²R when you are given the current and the resistance but not the potential difference. Square the current before you multiply."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "slider",
             "alt": "Change the current and the resistance of a device and see the power for P = I x V and P = I squared x R.",
             "inputs": [
-              { "id": "I", "label": "Current", "unit": "A", "min": 0.5, "max": 10, "step": 0.5, "value": 2 },
-              { "id": "R", "label": "Resistance", "unit": "Ω", "min": 1, "max": 25, "step": 1, "value": 15 }
+              {
+                "id": "I",
+                "label": "Current",
+                "unit": "A",
+                "min": 0.5,
+                "max": 10,
+                "step": 0.5,
+                "value": 2
+              },
+              {
+                "id": "R",
+                "label": "Resistance",
+                "unit": "Ω",
+                "min": 1,
+                "max": 25,
+                "step": 1,
+                "value": 15
+              }
             ],
             "outputs": [
-              { "label": "Potential difference, V = I × R", "unit": "V", "formula": "I * R", "decimals": 1 },
-              { "label": "Power, P = I × V", "unit": "W", "formula": "I * (I * R)", "decimals": 1 },
-              { "label": "Power, P = I² × R", "unit": "W", "formula": "I^2 * R", "decimals": 1 }
+              {
+                "label": "Potential difference, V = I × R",
+                "unit": "V",
+                "formula": "I * R",
+                "decimals": 1
+              },
+              {
+                "label": "Power, P = I × V",
+                "unit": "W",
+                "formula": "I * (I * R)",
+                "decimals": 1
+              },
+              {
+                "label": "Power, P = I² × R",
+                "unit": "W",
+                "formula": "I^2 * R",
+                "decimals": 1
+              }
             ]
           }
         },
-        { "type": "paragraph", "text": "For the same resistance, double the current and the power goes up four times, because the current is squared." },
+        {
+          "type": "paragraph",
+          "text": "For the same resistance, double the current and the power goes up four times, because the current is squared."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "practice",
             "alt": "Calculate the current in a kettle from its power and the mains potential difference.",
             "question": "A kettle has a power of {P} W. It works from the 230 V mains supply. Calculate the current in the kettle.",
-            "variables": [{ "id": "P", "min": 1000, "max": 3000, "step": 100 }],
-            "answer": { "formula": "P / 230", "unit": "A", "decimals": 1 },
-            "working": [
-              "Use P = V I, so I = P ÷ V.",
-              "I = {P} ÷ 230",
-              "I = {answer} A"
-            ]
+            "variables": [
+              {
+                "id": "P",
+                "min": 1000,
+                "max": 3000,
+                "step": 100
+              }
+            ],
+            "answer": {
+              "formula": "P / 230",
+              "unit": "A",
+              "decimals": 1
+            },
+            "working": ["Use P = V I, so I = P ÷ V.", "I = {P} ÷ 230", "I = {answer} A"]
           }
         },
-        { "type": "subheading", "text": "Working out an answer" },
+        {
+          "type": "subheading",
+          "text": "Working out an answer"
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Convert units.", "text": "Change mW to W and kW to W before you start. 340 mW = 0.34 W." },
-            { "lead": "Choose the equation.", "text": "Current and resistance given: P = I²R. Potential difference and current given: P = V I." },
-            { "lead": "Substitute.", "text": "A current of 4 A and a resistance of 25 Ω gives P = 4² × 25." },
-            { "lead": "Calculate and add the unit.", "text": "P = 16 × 25 = 400 W." }
+            {
+              "lead": "Convert units.",
+              "text": "Change mW to W and kW to W before you start. 340 mW = 0.34 W."
+            },
+            {
+              "lead": "Choose the equation.",
+              "text": "Current and resistance given: P = I²R. Potential difference and current given: P = V I."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "A current of 4 A and a resistance of 25 Ω gives P = 4² × 25."
+            },
+            {
+              "lead": "Calculate and add the unit.",
+              "text": "P = 16 × 25 = 400 W."
+            }
           ]
         },
         {
@@ -90,8 +170,14 @@
     {
       "heading": "The heating effect of a current",
       "blocks": [
-        { "type": "paragraph", "text": "When there is a current in a resistor, there is an energy transfer that heats the resistor. This section explains why." },
-        { "type": "subheading", "text": "Why a current heats a wire" },
+        {
+          "type": "paragraph",
+          "text": "When there is a current in a resistor, there is an energy transfer that heats the resistor. This section explains why."
+        },
+        {
+          "type": "subheading",
+          "text": "Why a current heats a wire"
+        },
         {
           "type": "list",
           "items": [
@@ -101,8 +187,14 @@
             "Thermal energy is dissipated to the surroundings."
           ]
         },
-        { "type": "paragraph", "text": "This is work done against electrical resistance. A higher resistance means more collisions, so more energy is transferred as heat." },
-        { "type": "subheading", "text": "A filament lamp" },
+        {
+          "type": "paragraph",
+          "text": "This is work done against electrical resistance. A higher resistance means more collisions, so more energy is transferred as heat."
+        },
+        {
+          "type": "subheading",
+          "text": "A filament lamp"
+        },
         {
           "type": "list",
           "items": [
@@ -111,16 +203,28 @@
             "The resistance of the filament increases."
           ]
         },
-        { "type": "subheading", "text": "Useful and unwanted heating" },
+        {
+          "type": "subheading",
+          "text": "Useful and unwanted heating"
+        },
         {
           "type": "table",
           "columns": ["Advantage", "Disadvantage"],
           "rows": [
-            ["Kettles, toasters and heaters work by the heating effect.", "Energy is wasted as heat in wires and appliances."],
-            ["Filament lamps give out light because the filament is hot.", "Wires can overheat and damage the wiring."]
+            [
+              "Kettles, toasters and heaters work by the heating effect.",
+              "Energy is wasted as heat in wires and appliances."
+            ],
+            [
+              "Filament lamps give out light because the filament is hot.",
+              "Wires can overheat and damage the wiring."
+            ]
           ]
         },
-        { "type": "subheading", "text": "Reducing unwanted energy transfer" },
+        {
+          "type": "subheading",
+          "text": "Reducing unwanted energy transfer"
+        },
         {
           "type": "list",
           "items": [
@@ -160,67 +264,26 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.2.4.1", "AQA T 6.2.4.1"],
-      "exam_phrases": [
-        "power = potential difference × current",
-        "power = (current)² × resistance",
-        "P = V I",
-        "P = I²R",
-        "340 mW = 0.34 W",
-        "lower potential difference across the cable",
-        "it is more efficient"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Substituting 340 mW as 340 in P = I²R.",
-          "right": "Convert first: 340 mW = 0.34 W. The conversion earns its own mark, and an unconverted value only earns method marks."
-        },
-        {
-          "wrong": "Writing P = 0.75 × R when the current is 0.75 A and the equation is P = I²R.",
-          "right": "Square the current: P = 0.75² × R."
-        },
-        {
-          "wrong": "P = 7.254",
-          "right": "The unit is a mark. Write P = 7.254 W."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "02bfab1a-4b1f-4164-ae75-6a9c87186e6b",
         "source": "AQA jun 2024, Paper 1 (H), Q5.2",
         "question": "The vending machine identifies the value of the coin by measuring the resistance of the coin. The power dissipated by the coin is 340 mW when the current in the coin is 0.75 A. Calculate the resistance of the coin.",
         "marks": 4,
-        "answer_points": [
-          "340 mW = 0.34 W",
-          "0.34 = 0.75² × R",
-          "R = 0.34 / 0.75²",
-          "R = 0.60 Ω"
-        ],
+        "answer_points": ["340 mW = 0.34 W", "0.34 = 0.75² × R", "R = 0.34 / 0.75²", "R = 0.60 Ω"],
         "tip": "One mark each for the conversion, the substitution, the rearrangement and the answer."
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 10.22", "EDEX 10.23", "EDEX 10.24", "EDEX 10.25", "EDEX 10.26", "EDEX 10.28", "EDEX 10.29", "EDEX 10.30", "EDEX 10.31"],
-      "exam_phrases": [
-        "heating (of the filament)",
-        "because of more collisions",
-        "of electrons (with ions / atoms / other electrons)",
-        "the electrons collide with the ions in the lattice",
-        "the collisions make the ions vibrate more",
-        "thick(er) wires have low(er) resistance",
-        "less thermal energy transferred (in the wires)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The resistance of the lamp increases because the voltage increases.",
-          "right": "Explain the cause: the filament heats up, so there are more collisions of electrons with ions."
-        },
-        {
-          "wrong": "I = 1.9 / 230 = 0.0083 A for a 1.9 kW kettle.",
-          "right": "Convert 1.9 kW to 1900 W first. I = 1900 / 230 = 8.3 A."
-        },
-        {
-          "wrong": "P = 0.12 × 0.24 = 0.29 W for a lamp with 0.24 V across it and 0.12 A in it.",
-          "right": "A power-of-ten error loses a mark. 0.12 × 0.24 = 0.0288 W, which is 0.029 W."
-        }
+      "spec_codes": [
+        "EDEX 10.22",
+        "EDEX 10.23",
+        "EDEX 10.24",
+        "EDEX 10.25",
+        "EDEX 10.26",
+        "EDEX 10.28",
+        "EDEX 10.29",
+        "EDEX 10.30",
+        "EDEX 10.31"
       ],
       "worked_example": {
         "exemplar_id": "c2b27ca1-380a-4415-a41e-dd62ddd30116",
@@ -237,38 +300,12 @@
     },
     "ocr": {
       "spec_codes": ["OCR P3.2l"],
-      "exam_phrases": [
-        "P = IV",
-        "P = I²R",
-        "current = power / potential difference",
-        "the power would be higher",
-        "the water would heat up quicker",
-        "more water could be heated (in the same time)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "You should use a higher current because it would get hotter.",
-          "right": "Answers such as hotter or more dangerous are ignored. Say that the power would be higher, so the water heats up quicker."
-        },
-        {
-          "wrong": "P = I²R = 0.25 × 16 = 4 W",
-          "right": "Square the current: 0.25² × 16 = 1 W."
-        },
-        {
-          "wrong": "I = 2.083 A when the question asks for 2 significant figures.",
-          "right": "Round as asked: 2.1 A. There is a mark for the rounded answer."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "2984fe7e-dcbc-44a2-bb9d-946078209f61",
         "source": "OCR jun 2018, Paper 3, Q16(c)(ii)",
         "question": "Component X has a resistance of 16 Ω when a current of 0.25 A flows. Calculate the power of component X when a current of 0.25 A flows.",
         "marks": 3,
-        "answer_points": [
-          "P = I²R",
-          "P = 0.25² × 16",
-          "P = 1 W"
-        ],
+        "answer_points": ["P = I²R", "P = 0.25² × 16", "P = 1 W"],
         "tip": "Full marks for the correct answer of 1 W. You are given the current and the resistance, so use P = I²R."
       }
     }

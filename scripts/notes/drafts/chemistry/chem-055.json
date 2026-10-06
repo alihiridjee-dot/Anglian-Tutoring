@@ -8,13 +8,25 @@
     {
       "heading": "Ions in an aqueous solution",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers why a solution has more ions than the compound alone." },
+        {
+          "type": "paragraph",
+          "text": "This section covers why a solution has more ions than the compound alone."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Aqueous solution", "meaning": "A substance dissolved in water." },
-            { "term": "Discharged", "meaning": "An ion that gains or loses electrons at an electrode and forms an atom or molecule." },
-            { "term": "Halide ion", "meaning": "A negative ion of a halogen, such as chloride, bromide or iodide." }
+            {
+              "term": "Aqueous solution",
+              "meaning": "A substance dissolved in water."
+            },
+            {
+              "term": "Discharged",
+              "meaning": "An ion that gains or loses electrons at an electrode and forms an atom or molecule."
+            },
+            {
+              "term": "Halide ion",
+              "meaning": "A negative ion of a halogen, such as chloride, bromide or iodide."
+            }
           ]
         },
         {
@@ -47,8 +59,14 @@
     {
       "heading": "Predicting the products",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers the rules for the product at each electrode, using inert electrodes and a solution of one compound." },
-        { "type": "subheading", "text": "At the negative electrode (cathode)" },
+        {
+          "type": "paragraph",
+          "text": "This section covers the rules for the product at each electrode, using inert electrodes and a solution of one compound."
+        },
+        {
+          "type": "subheading",
+          "text": "At the negative electrode (cathode)"
+        },
         {
           "type": "list",
           "items": [
@@ -58,7 +76,10 @@
             "Copper is seen as a pink-brown solid on the electrode."
           ]
         },
-        { "type": "subheading", "text": "At the positive electrode (anode)" },
+        {
+          "type": "subheading",
+          "text": "At the positive electrode (anode)"
+        },
         {
           "type": "list",
           "items": [
@@ -86,8 +107,14 @@
                 "scene": {
                   "kind": "electrolysis",
                   "ions": ["Na⁺", "Cl⁻"],
-                  "negative": { "product": "Hydrogen", "form": "gas" },
-                  "positive": { "product": "Chlorine", "form": "gas" }
+                  "negative": {
+                    "product": "Hydrogen",
+                    "form": "gas"
+                  },
+                  "positive": {
+                    "product": "Chlorine",
+                    "form": "gas"
+                  }
                 }
               },
               {
@@ -100,8 +127,15 @@
                 "scene": {
                   "kind": "electrolysis",
                   "ions": ["Cu²⁺", "SO₄²⁻"],
-                  "negative": { "product": "Copper", "form": "metal", "metal": "copper" },
-                  "positive": { "product": "Oxygen", "form": "gas" }
+                  "negative": {
+                    "product": "Copper",
+                    "form": "metal",
+                    "metal": "copper"
+                  },
+                  "positive": {
+                    "product": "Oxygen",
+                    "form": "gas"
+                  }
                 }
               },
               {
@@ -114,8 +148,14 @@
                 "scene": {
                   "kind": "electrolysis",
                   "ions": ["Na⁺", "SO₄²⁻"],
-                  "negative": { "product": "Hydrogen", "form": "gas" },
-                  "positive": { "product": "Oxygen", "form": "gas" }
+                  "negative": {
+                    "product": "Hydrogen",
+                    "form": "gas"
+                  },
+                  "positive": {
+                    "product": "Oxygen",
+                    "form": "gas"
+                  }
                 }
               },
               {
@@ -128,8 +168,15 @@
                 "scene": {
                   "kind": "electrolysis",
                   "ions": ["Cu²⁺", "Cl⁻"],
-                  "negative": { "product": "Copper", "form": "metal", "metal": "copper" },
-                  "positive": { "product": "Chlorine", "form": "gas" }
+                  "negative": {
+                    "product": "Copper",
+                    "form": "metal",
+                    "metal": "copper"
+                  },
+                  "positive": {
+                    "product": "Chlorine",
+                    "form": "gas"
+                  }
                 }
               },
               {
@@ -142,8 +189,15 @@
                 "scene": {
                   "kind": "electrolysis",
                   "ions": ["K⁺", "Br⁻"],
-                  "negative": { "product": "Hydrogen", "form": "gas" },
-                  "positive": { "product": "Bromine", "form": "solution", "colour": "orange" }
+                  "negative": {
+                    "product": "Hydrogen",
+                    "form": "gas"
+                  },
+                  "positive": {
+                    "product": "Bromine",
+                    "form": "solution",
+                    "colour": "orange"
+                  }
                 }
               },
               {
@@ -156,8 +210,15 @@
                 "scene": {
                   "kind": "electrolysis",
                   "ions": ["K⁺", "I⁻"],
-                  "negative": { "product": "Hydrogen", "form": "gas" },
-                  "positive": { "product": "Iodine", "form": "solution", "colour": "brown" }
+                  "negative": {
+                    "product": "Hydrogen",
+                    "form": "gas"
+                  },
+                  "positive": {
+                    "product": "Iodine",
+                    "form": "solution",
+                    "colour": "brown"
+                  }
                 }
               }
             ]
@@ -175,8 +236,14 @@
     {
       "heading": "Explaining why hydrogen or oxygen forms",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers the explanation that exam questions ask for." },
-        { "type": "subheading", "text": "Hydrogen at the negative electrode" },
+        {
+          "type": "paragraph",
+          "text": "This section covers the explanation that exam questions ask for."
+        },
+        {
+          "type": "subheading",
+          "text": "Hydrogen at the negative electrode"
+        },
         {
           "type": "list",
           "items": [
@@ -186,7 +253,10 @@
             "(Higher tier) H⁺ ions gain electrons. They are reduced."
           ]
         },
-        { "type": "subheading", "text": "Oxygen at the positive electrode" },
+        {
+          "type": "subheading",
+          "text": "Oxygen at the positive electrode"
+        },
         {
           "type": "list",
           "items": [
@@ -196,7 +266,10 @@
             "(Higher tier) OH⁻ ions lose electrons. They are oxidised."
           ]
         },
-        { "type": "subheading", "text": "The solution left behind" },
+        {
+          "type": "subheading",
+          "text": "The solution left behind"
+        },
         {
           "type": "list",
           "items": [
@@ -236,29 +309,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.4.3.4", "AQA T 5.4.3.4"],
-      "exam_phrases": [
-        "water (molecules) break down to produce H⁺ and OH⁻ (ions)",
-        "hydrogen ions are attracted to the negative electrode",
-        "hydrogen is less reactive than sodium",
-        "OH⁻ ions are oxidised / lose electrons",
-        "sodium ions and hydroxide ions are left (in solution)",
-        "(positive electrode) bubbles / effervescence / fizzing",
-        "(negative electrode) (pink / orange / red / brown) solid"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Oxygen is produced because there is no halide in the solution.",
-          "right": "This is ignored by the mark scheme. Explain with ions: water breaks down to give OH⁻ ions, which are attracted to the positive electrode, where they lose electrons (are oxidised)."
-        },
-        {
-          "wrong": "The product at the positive electrode of potassium bromide solution is bromide.",
-          "right": "Bromide is not accepted. The product is bromine. The product at the negative electrode is hydrogen."
-        },
-        {
-          "wrong": "Sodium chloride solution gives sodium at the negative electrode.",
-          "right": "Hydrogen is produced instead of sodium, because sodium is more reactive than hydrogen."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "2a1a8b99-bbb1-481c-b29c-8f8ec58f8e65",
         "source": "AQA jun 2021, Paper 1 (H), Q05.3",
@@ -275,28 +325,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.25"],
-      "exam_phrases": [
-        "hydrogen ions attracted to cathode / negatively charged electrode",
-        "(two) hydrogen ions gain (two) electrons / are reduced / form hydrogen molecules",
-        "the copper ions are positive so are reduced at the cathode",
-        "hydrogen / H₂",
-        "so that they do not react (with the electrolyte / products)",
-        "twice as much hydrogen produced as oxygen"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Sodium ions gain electrons at the cathode to make the hydrogen.",
-          "right": "References to sodium ions are ignored. Hydrogen ions are attracted to the cathode, where they gain electrons and form hydrogen molecules."
-        },
-        {
-          "wrong": "Copper is formed at the anode.",
-          "right": "Copper ions are positive, so they are reduced at the cathode."
-        },
-        {
-          "wrong": "The volume of hydrogen is 4 cm³ and the volume of oxygen is 2 cm³.",
-          "right": "Quoting two figures is not enough. State the ratio: twice as much hydrogen as oxygen, or 2 : 1."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "372bdf16-fd7c-4cb3-bd62-19ada72c71eb",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q3(a)(ii)",
@@ -312,7 +340,10 @@
         {
           "heading": "Water acidified with sulfuric acid",
           "blocks": [
-            { "type": "paragraph", "text": "Edexcel also asks about the electrolysis of water that has been acidified with sulfuric acid, using inert electrodes." },
+            {
+              "type": "paragraph",
+              "text": "Edexcel also asks about the electrolysis of water that has been acidified with sulfuric acid, using inert electrodes."
+            },
             {
               "type": "list",
               "items": [
@@ -328,28 +359,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR C3.4c"],
-      "exam_phrases": [
-        "hydrogen is produced (at the cathode) if ions from a more reactive metal (than hydrogen) are present",
-        "only 1 ion is discharged at each electrode",
-        "discharge is based on the reactivity series",
-        "less reactive ions are discharged in preference",
-        "hydrogen is less reactive than sodium",
-        "Cu²⁺, SO₄²⁻, H⁺, OH⁻"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Copper sulfate solution contains only Cu²⁺ and SO₄²⁻ ions.",
-          "right": "It also contains H⁺ and OH⁻ from water. All four ions are needed for full marks. Two or three correct ions earn 1 mark."
-        },
-        {
-          "wrong": "The more reactive ion is discharged at the negative electrode.",
-          "right": "Less reactive ions are discharged in preference. Hydrogen is less reactive than sodium, so hydrogen forms from sodium chloride solution. Copper is less reactive than hydrogen, so copper forms from copper sulfate solution."
-        },
-        {
-          "wrong": "Chlorine gas is dangerous.",
-          "right": "Dangerous and hazardous are ignored. Say that chlorine is a toxic gas."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "9f60a13f-8728-41b3-811d-43e1eb28890a",
         "source": "OCR jun 2022, Paper 3, Q19(b)",

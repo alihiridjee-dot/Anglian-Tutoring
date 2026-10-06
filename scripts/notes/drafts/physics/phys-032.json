@@ -35,31 +35,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Particle",
-            "Where it is",
-            "Relative charge",
-            "Relative mass"
-          ],
+          "columns": ["Particle", "Where it is", "Relative charge", "Relative mass"],
           "rows": [
-            [
-              "Proton",
-              "In the nucleus",
-              "+1",
-              "1"
-            ],
-            [
-              "Neutron",
-              "In the nucleus",
-              "0",
-              "1"
-            ],
-            [
-              "Electron",
-              "Orbiting the nucleus",
-              "-1",
-              "Very small"
-            ]
+            ["Proton", "In the nucleus", "+1", "1"],
+            ["Neutron", "In the nucleus", "0", "1"],
+            ["Electron", "Orbiting the nucleus", "-1", "Very small"]
           ]
         },
         {
@@ -117,17 +97,13 @@
           "type": "equation",
           "label": "Diameter",
           "formula": "diameter = 2 × radius",
-          "where": [
-            "diameter and radius are in metres (m)."
-          ]
+          "where": ["diameter and radius are in metres (m)."]
         },
         {
           "type": "equation",
           "label": "Length of a line of atoms",
           "formula": "length = number of atoms × diameter of one atom",
-          "where": [
-            "length and diameter are in metres (m)."
-          ]
+          "where": ["length and diameter are in metres (m)."]
         },
         {
           "type": "diagram",
@@ -194,31 +170,19 @@
           "diagram": {
             "kind": "compare",
             "alt": "Compare an electron absorbing radiation with an electron emitting radiation.",
-            "items": [
-              "Absorbs radiation",
-              "Emits radiation"
-            ],
+            "items": ["Absorbs radiation", "Emits radiation"],
             "rows": [
               {
                 "feature": "Energy of the electron",
-                "values": [
-                  "Increases",
-                  "Decreases"
-                ]
+                "values": ["Increases", "Decreases"]
               },
               {
                 "feature": "Electron moves",
-                "values": [
-                  "Further from the nucleus",
-                  "Closer to the nucleus"
-                ]
+                "values": ["Further from the nucleus", "Closer to the nucleus"]
               },
               {
                 "feature": "New energy level",
-                "values": [
-                  "Higher",
-                  "Lower"
-                ]
+                "values": ["Higher", "Lower"]
               }
             ]
           }
@@ -263,27 +227,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.4.1.1",
-        "AQA T 6.4.1.1"
-      ],
-      "exam_phrases": [
-        "to move to a higher energy level an electron absorbs energy from electromagnetic radiation",
-        "to move to a lower energy level an electron emits energy in the form of electromagnetic radiation",
-        "absorbs energy by collision with another electron",
-        "diameter = 0.18/6000",
-        "0.000 030 (nm)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "An electron moves to a higher energy level when it emits radiation.",
-          "right": "It is the other way round. An electron absorbs electromagnetic radiation to move up and emits it to move down."
-        },
-        {
-          "wrong": "An electron changes energy level by emitting or absorbing radiation.",
-          "right": "This earns only one mark. Say which happens for the move up (absorbs) and which for the move down (emits)."
-        }
-      ],
+      "spec_codes": ["AQA 4.4.1.1", "AQA T 6.4.1.1"],
       "worked_example": {
         "exemplar_id": "edcff7ae-2e96-47f0-881e-aad89bd8110c",
         "source": "AQA jun 2023, Paper 1 (H), Q08.6",
@@ -308,27 +252,6 @@
         "EDEX 6.9",
         "EDEX 10.1"
       ],
-      "exam_phrases": [
-        "same number / amount of electrons and protons",
-        "UV/energy absorbed by electrons",
-        "electrons change orbit/energy level/shell",
-        "electrons emit energy/ move to lower energy level/fall down/de-excite",
-        "ratio = 10⁻¹⁰ / 10⁻¹⁵"
-      ],
-      "mistakes": [
-        {
-          "wrong": "An atom has no charge because the neutrons are neutral.",
-          "right": "Neutrons are ignored here. The answer is the same number of electrons and protons."
-        },
-        {
-          "wrong": "The ratio of the radius of the atom to the radius of the nucleus is 10⁻¹⁵ : 10⁻¹⁰.",
-          "right": "This is the ratio the wrong way round and earns only 1 mark. The atom is larger, so the ratio is 10⁻¹⁰ ÷ 10⁻¹⁵ = 10⁵."
-        },
-        {
-          "wrong": "An atom has no charge because the neutrons are positive and negative.",
-          "right": "This is rejected. Neutrons have no charge at all."
-        }
-      ],
       "extra": [
         {
           "heading": "Positrons",
@@ -339,32 +262,12 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Particle",
-                "Relative charge",
-                "Relative mass"
-              ],
+              "columns": ["Particle", "Relative charge", "Relative mass"],
               "rows": [
-                [
-                  "Proton",
-                  "+1",
-                  "1"
-                ],
-                [
-                  "Neutron",
-                  "0",
-                  "1"
-                ],
-                [
-                  "Electron",
-                  "-1",
-                  "Very small"
-                ],
-                [
-                  "Positron",
-                  "+1",
-                  "Very small (the same as an electron)"
-                ]
+                ["Proton", "+1", "1"],
+                ["Neutron", "0", "1"],
+                ["Electron", "-1", "Very small"],
+                ["Positron", "+1", "Very small (the same as an electron)"]
               ]
             }
           ]
@@ -383,34 +286,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P1.1b",
-        "OCR P1.1c",
-        "OCR P6.1h",
-        "OCR P6.1i"
-      ],
-      "exam_phrases": [
-        "Positively (charged nucleus)",
-        "Negatively (charged electrons)",
-        "Almost all of the mass of an atom is in the nucleus",
-        "Electrons move from a higher energy level to a lower energy level and emit light",
-        "Electron absorbs or gains energy",
-        "Electron escapes / leaves the atom"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Molecule length = 20 × 1.0 × 10⁻¹⁰ = 2.0 × 10⁻⁹ m, using the radius.",
-          "right": "The radius is not doubled to a diameter, so this earns only 1 mark. Length = 2 × 1.0 × 10⁻¹⁰ × 20 = 4.0 × 10⁻⁹ m."
-        },
-        {
-          "wrong": "The molecule is 40 × 10⁻¹⁰ m long.",
-          "right": "This is not standard form and earns only 1 mark. Write 4.0 × 10⁻⁹ m."
-        },
-        {
-          "wrong": "When an electron absorbs radiation it only moves to a higher energy level.",
-          "right": "Two effects are credited: the electron becomes excited and moves to a higher level, or it escapes from the atom, which makes the atom an ion."
-        }
-      ],
+      "spec_codes": ["OCR P1.1b", "OCR P1.1c", "OCR P6.1h", "OCR P6.1i"],
       "worked_example": {
         "exemplar_id": "86d18641-8108-4af5-81ab-b09ceb5eb9f6",
         "source": "OCR jun 2025, Paper 3, Q18(c)",

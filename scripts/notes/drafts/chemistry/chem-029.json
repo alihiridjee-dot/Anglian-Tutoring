@@ -3,97 +3,84 @@
   "concept_id": "chem-029",
   "subject": "chemistry",
   "title": "Relative formula mass and percentage by mass",
-  "key_idea": "The relative formula mass (Mr) of a compound is the sum of the relative atomic masses of all the atoms in its formula. The percentage by mass of an element is its share of the Mr, written as a percentage.",
+  "key_idea": "The relative formula mass (Mr) of a compound is the sum of the relative atomic masses (Ar) of all the atoms in its formula. The percentage by mass of an element is its share of the Mr, written as a percentage.",
   "sections": [
     {
-      "heading": "Relative formula mass",
+      "heading": "Relative atomic mass and relative formula mass",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Every atom has a relative atomic mass (Ar). Adding the Ar values of all the atoms in a formula gives the relative formula mass."
+          "text": "Atoms are too small to weigh in grams, so chemists compare them using relative masses. This section covers how to work out Mr from a formula."
         },
         {
           "type": "definitions",
           "items": [
             {
               "term": "Relative atomic mass (Ar)",
-              "meaning": "The average mass of an atom of an element compared with a carbon-12 atom, which is 12. It is given in the question or on the periodic table."
+              "meaning": "The average mass of an atom of an element compared with one twelfth of the mass of a carbon-12 atom. It is given in the periodic table."
             },
             {
               "term": "Relative formula mass (Mr)",
-              "meaning": "The sum of the relative atomic masses of the atoms in the numbers shown in the formula."
-            },
-            {
-              "term": "Relative molecular mass",
-              "meaning": "The relative formula mass of a molecule. It is worked out in the same way."
+              "meaning": "The sum of the Ar values of all the atoms in the formula of a compound. For a molecule it is also called the relative molecular mass."
             }
           ]
+        },
+        {
+          "type": "equation",
+          "label": "Relative formula mass",
+          "where": [
+            "Ar and Mr have no units.",
+            "Use the small numbers in the formula to count atoms."
+          ],
+          "formula": "Mr = sum of the Ar of every atom in the formula"
         },
         {
           "type": "steps",
           "items": [
             {
               "lead": "Count the atoms.",
-              "text": "A small number applies to the atom or bracket in front of it. In Ca(OH)₂ there is 1 Ca, 2 O and 2 H."
+              "text": "Mg(OH)₂ has 1 Mg, 2 O and 2 H. The 2 outside the bracket multiplies everything inside."
             },
             {
-              "lead": "Multiply.",
-              "text": "Multiply each Ar by the number of atoms of that element."
+              "lead": "Multiply by Ar.",
+              "text": "Ar: Mg = 24, O = 16, H = 1. So 24 + (2 × 16) + (2 × 1)."
             },
             {
               "lead": "Add.",
-              "text": "Add the results. Mr has no units."
+              "text": "24 + 32 + 2 = 58, so Mr = 58."
             }
-          ]
-        },
-        {
-          "type": "equation",
-          "label": "Worked example: Mr of carbonic acid, H₂CO₃",
-          "formula": "Mr = (1 × 2) + 12 + (16 × 3) = 62",
-          "where": [
-            "Ar of H = 1, with 2 hydrogen atoms.",
-            "Ar of C = 12, with 1 carbon atom.",
-            "Ar of O = 16, with 3 oxygen atoms."
           ]
         },
         {
           "type": "list",
           "items": [
-            "For a bracket, multiply everything inside it. In Mg(NO₃)₂ there are 2 N and 6 O.",
-            "In a balanced equation, the Mr of the reactants, in the quantities shown, adds up to the Mr of the products.",
-            "Use the Ar values given in the question, or on the periodic table."
+            "A bracket with a number after it multiplies every atom inside the bracket.",
+            "In a balanced equation, the Mr values of the reactants add up to the same total as the Mr values of the products.",
+            "If you know the Mr and all the other Ar values, you can find an unknown Ar by subtraction."
           ]
         },
         {
-          "type": "diagram",
-          "diagram": {
-            "kind": "practice",
-            "alt": "Calculate the relative formula mass of an alkane.",
-            "question": "An alkane has the general formula CₙH₂ₙ₊₂. Calculate the relative formula mass of the alkane with {c} carbon atoms in each molecule. (Relative atomic masses: C = 12, H = 1)",
-            "variables": [
-              {
-                "id": "c",
-                "min": 1,
-                "max": 8,
-                "step": 1
-              }
-            ],
-            "answer": {
-              "formula": "12 * c + 1 * (2 * c + 2)",
-              "decimals": 0
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find an unknown Ar.",
+              "text": "A Group 2 carbonate XCO₃ has Mr = 84. Ar: C = 12, O = 16."
             },
-            "working": [
-              "Carbon: {c} × 12",
-              "Hydrogen: (2 × {c}) + 2 atoms, each with Ar 1",
-              "Mr = (12 × {c}) + (1 × ((2 × {c}) + 2)) = {answer}"
-            ]
-          }
+            {
+              "lead": "Mr of the carbonate part.",
+              "text": "12 + (3 × 16) = 60."
+            },
+            {
+              "lead": "Subtract.",
+              "text": "Ar of X = 84 − 60 = 24. X is magnesium."
+            }
+          ]
         },
         {
           "type": "key-points",
           "items": [
-            "Mr is the sum of the Ar values of all the atoms in the formula.",
-            "Multiply by the number of atoms, including those inside brackets.",
+            "Mr is the sum of the Ar of all the atoms in the formula.",
+            "A number outside a bracket multiplies everything inside it.",
             "Mr has no units."
           ]
         }
@@ -104,72 +91,69 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "The percentage by mass of an element shows how much of a compound's mass is that element."
+          "text": "The percentage by mass tells you how much of a compound's mass is one element. This section covers the calculation and what you can do with it."
         },
         {
           "type": "equation",
-          "label": "Percentage by mass of an element in a compound",
+          "label": "Percentage by mass of an element",
           "formula": "percentage by mass = (Ar × number of atoms of the element ÷ Mr of the compound) × 100",
-          "where": [
-            "Ar is the relative atomic mass of the element.",
-            "Mr is the relative formula mass of the whole compound.",
-            "The answer is a percentage (%)."
-          ]
+          "where": ["Ar of the element, from the periodic table.", "Mr of the whole compound."]
         },
         {
           "type": "steps",
           "items": [
             {
               "lead": "Mass of the element.",
-              "text": "Ar × number of atoms. For oxygen in Li₂SO₄: 4 × 16 = 64."
+              "text": "Lithium sulfate, Li₂SO₄, has 4 oxygen atoms. 4 × 16 = 64."
             },
             {
-              "lead": "Mr of the compound.",
-              "text": "Use the Mr given, or work it out. For Li₂SO₄ it is 110."
+              "lead": "Divide by Mr.",
+              "text": "The Mr of Li₂SO₄ is 110. 64 ÷ 110 = 0.5818."
             },
             {
-              "lead": "Divide and multiply.",
-              "text": "64 ÷ 110 × 100 = 58.18, which is 58 % to 2 significant figures."
+              "lead": "Multiply by 100.",
+              "text": "0.5818 × 100 = 58.18, which is 58% to 2 significant figures."
             }
           ]
         },
         {
           "type": "list",
           "items": [
-            "The percentages of all the elements in a compound add up to 100 %.",
-            "If a percentage is given, find the mass of an element as a share of a sample. Mass of element = percentage ÷ 100 × mass of sample.",
-            "The mass of the other element is the total mass minus the mass you found."
+            "Use the number of atoms of the element, not just one atom. The answer must be less than 100%.",
+            "Check your answer to the number of significant figures the question asks for."
           ]
+        },
+        {
+          "type": "subheading",
+          "text": "Mass of an element in a sample"
+        },
+        {
+          "type": "paragraph",
+          "text": "Use the same fraction to find the mass of an element in a given mass of compound. Butane, C₄H₁₀, has Mr = 58. Ar: C = 12."
         },
         {
           "type": "diagram",
           "diagram": {
+            "alt": "Practise calculating the mass of carbon in a sample of butane.",
             "kind": "practice",
-            "alt": "Calculate the percentage by mass of oxygen in a compound.",
-            "question": "A compound has a relative formula mass of {mr}. Each formula unit contains {n} oxygen atoms. Calculate the percentage by mass of oxygen in the compound. (Relative atomic mass: O = 16)",
-            "variables": [
-              {
-                "id": "n",
-                "min": 1,
-                "max": 3,
-                "step": 1
-              },
-              {
-                "id": "mr",
-                "min": 100,
-                "max": 200,
-                "step": 10
-              }
-            ],
             "answer": {
-              "formula": "16 * n / mr * 100",
-              "unit": "%",
+              "unit": "g",
+              "formula": "4 * 12 / 58 * m",
               "decimals": 1
             },
             "working": [
-              "Mass of oxygen = {n} × 16",
-              "Percentage = (mass of oxygen ÷ {mr}) × 100",
-              "Percentage by mass of oxygen = {answer} %"
+              "Mass of carbon in one Mr = 4 × 12 = 48",
+              "Fraction that is carbon = 48 ÷ 58",
+              "Mass of carbon = 48 ÷ 58 × {m} = **{answer} g**"
+            ],
+            "question": "Butane has the formula C₄H₁₀. Its relative formula mass is 58. Calculate the mass of carbon in **{m} g** of butane. (Ar: C = 12)",
+            "variables": [
+              {
+                "id": "m",
+                "max": 200,
+                "min": 50,
+                "step": 10
+              }
             ]
           }
         },
@@ -177,8 +161,8 @@
           "type": "key-points",
           "items": [
             "Percentage by mass = (Ar × number of atoms ÷ Mr) × 100.",
-            "Use the number of atoms of the element in the formula.",
-            "Give the answer to the number of significant figures asked for."
+            "Multiply the Ar by the number of atoms of that element.",
+            "The same fraction gives the mass of an element in a sample."
           ]
         }
       ]
@@ -187,87 +171,39 @@
   "checks": [
     {
       "q": "Calculate the relative formula mass of calcium hydroxide, Ca(OH)₂. (Ar: Ca = 40, O = 16, H = 1)",
-      "a": "40 + (16 + 1) × 2 = 40 + 34 = 74",
+      "a": "40 + (2 × 16) + (2 × 1) = 74.",
       "marks": 2
     },
     {
-      "q": "Calculate the percentage by mass of magnesium in magnesium oxide, MgO. (Ar: Mg = 24, O = 16)",
-      "a": "Mr = 24 + 16 = 40. Percentage = 24 ÷ 40 × 100 = 60 %.",
-      "marks": 3
+      "q": "Calculate the percentage by mass of oxygen in magnesium oxide, MgO. (Ar: Mg = 24, O = 16)",
+      "a": "Mr = 24 + 16 = 40. 16 ÷ 40 × 100 = 40%.",
+      "marks": 2
     },
     {
-      "q": "A compound is 34.4 % iron by mass. Calculate the mass of iron in 125 g of the compound.",
-      "a": "34.4 ÷ 100 × 125 = 43 g",
+      "q": "Magnesium hydroxide, Mg(OH)₂, has Mr = 58. Calculate the percentage by mass of hydrogen in it. (Ar: H = 1)",
+      "a": "There are 2 hydrogen atoms, so 2 × 1 = 2. 2 ÷ 58 × 100 = 3.4%.",
       "marks": 2
     }
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.3.1.2",
-        "AQA T 5.3.1.2"
-      ],
-      "exam_phrases": [
-        "(Mr =) (1 × 2) + 12 + (16 × 3)",
-        "(Ar O × 4 =) 4 × 16",
-        "(percentage of oxygen =) 64 ÷ 110 × 100",
-        "allow correct use of an incorrectly determined mass of oxygen",
-        "allow an answer correctly rounded to 3 significant figures from an incorrect calculation",
-        "(Mr Fe₃O₄ =) 232"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Percentage of iron in Fe₃O₄ = 56 ÷ 232 × 100.",
-          "right": "Use the number of atoms. Three iron atoms give 3 × 56 = 168, so 168 ÷ 232 × 100 = 72.4 %."
-        },
-        {
-          "wrong": "Percentage of oxygen in Li₂SO₄ = 16 ÷ 110 × 100.",
-          "right": "There are four oxygen atoms. The mass of oxygen is 4 × 16 = 64, so 64 ÷ 110 × 100 = 58 %."
-        },
-        {
-          "wrong": "58.18 % given when the question asks for 2 significant figures.",
-          "right": "The last mark is for rounding as asked: 58 %. Always check the number of significant figures."
-        }
-      ],
+      "spec_codes": ["AQA 4.3.1.2", "AQA T 5.3.1.2"],
       "worked_example": {
-        "exemplar_id": "546119c2-1e43-452e-84fa-3d26f380502c",
-        "source": "AQA jun 2024, Paper 1 (H), Q07.5",
-        "question": "The most common oxides of iron are Fe₂O₃ and Fe₃O₄.\n\nCalculate the percentage (%) by mass of iron in Fe₃O₄.\n\nRelative atomic masses (Ar): O = 16, Fe = 56\n\nPercentage by mass of iron = _____ %",
-        "marks": 3,
+        "exemplar_id": "ba378f38-db96-4c5c-94ca-439611bb44b5",
+        "source": "AQA jun 2023, Paper 1 (H), Q02.3",
+        "question": "Calculate the percentage by mass of oxygen in lithium sulfate (Li₂SO₄).\n\nRelative atomic mass (Ar): O = 16\n\nRelative formula mass (Mr): Li₂SO₄ = 110\n\nGive your answer to 2 significant figures.",
+        "marks": 4,
         "answer_points": [
-          "Mr of Fe₃O₄ = (3 × 56) + (4 × 16) = 232 (1)",
-          "% Fe = (3 × 56 ÷ 232) × 100 = (168 ÷ 232) × 100 (1)",
-          "= 72.4 % (1)"
+          "Ar of O × 4 = 4 × 16 = 64 (1)",
+          "Percentage of oxygen = 64 ÷ 110 × 100 (1)",
+          "= 58.18 (1)",
+          "= 58 (%) (1)"
         ],
-        "tip": "A correctly calculated value from an incorrect Mr still earns credit if the working uses the given Ar values."
+        "tip": "Marks are given for the mass of oxygen, the fraction, the unrounded value and the rounded answer."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 1.43"
-      ],
-      "exam_phrases": [
-        "2 × 23 + 12 + 3 × 16 = 106",
-        "46 / 106 = 0.4339622642",
-        "0.4339622642 × 100 = 43.4",
-        "34.4 × 125 / 100 = 43 (mass of iron)",
-        "125 − 43 = 82 (mass of chlorine)",
-        "if Mr incorrect, must show working to allow ECF"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Percentage of sodium in Na₂CO₃ = 23 ÷ 106 × 100 = 21.7 %.",
-          "right": "There are two sodium atoms. Use 46 ÷ 106 × 100 = 43.4 %. The answer 21.7 earns 2 marks, not 3."
-        },
-        {
-          "wrong": "Mass of chlorine = 34.4 × 125 ÷ 100.",
-          "right": "34.4 % is the iron. Mass of iron = 43 g. Then mass of chlorine = 125 − 43 = 82 g."
-        },
-        {
-          "wrong": "Writing only the final answer after a long Mr calculation, with a wrong Mr.",
-          "right": "Show the working. If the Mr is wrong, marks can only follow through when the working is shown."
-        }
-      ],
+      "spec_codes": ["EDEX 1.43"],
       "worked_example": {
         "exemplar_id": "7e437f33-ec11-4789-95a3-78640946e73c",
         "source": "EDEXCEL jun 2024, Paper 1 (H), Q3(b)",
@@ -276,54 +212,30 @@
         "answer_points": [
           "Mr = 2 × 23 + 12 + 3 × 16 = 106 (1)",
           "46 ÷ 106 = 0.4339622642 (1)",
-          "0.4339622642 × 100 = 43.4 % (1)"
+          "0.4339622642 × 100 = 43.4 (1)"
         ],
-        "tip": "43.4 with or without working scores 3. Show the working in case the answer is wrong."
+        "tip": "The correct answer, 43.4, scores all three marks even without working."
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C2.1c"
-      ],
-      "exam_phrases": [
-        "(6 × 12) + (8 × 1) + (7 × 16) = 192",
-        "(1 × 40.1) + [(16.0 + 1.0) × 2]",
-        "correct use of number of atoms",
-        "correct use of Ar",
-        "((2 × 55.8) / 213.6) × 100",
-        "ignore any units given"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Mr of Ca(OH)₂ = 40.1 + 16.0 + 1.0 = 57.1.",
-          "right": "The bracket applies to O and H. Use correct number of atoms: (1 × 40.1) + [(16.0 + 1.0) × 2] = 74.1."
-        },
-        {
-          "wrong": "Percentage of iron in rust = 55.8 ÷ 213.6 × 100, using one iron atom.",
-          "right": "The mass of iron is 2 × 55.8, not 55.8. Use (2 × 55.8) ÷ 213.6 × 100 = 52.25 %, to 2 decimal places."
-        },
-        {
-          "wrong": "Mr of C₆H₈O₇ = 192 g.",
-          "right": "Mr has no units. Units given are ignored, but do not add them."
-        }
-      ],
+      "spec_codes": ["OCR C2.1c"],
       "worked_example": {
         "exemplar_id": "a6118302-5fbf-4332-b9fa-218a79f068f3",
         "source": "OCR jun 2024, Paper 1, Q23(d)",
         "question": "Calculate the relative formula mass of a (C₂H₅)₂O molecule.\n\nRelative atomic mass (Ar): C = 12.0, H = 1.0, O = 16.0",
         "marks": 3,
         "answer_points": [
-          "Carbon: 4 × 12.0 = 48.0 (1)",
-          "Hydrogen: 10 × 1.0 = 10.0 (1)",
-          "Mr = 48.0 + 10.0 + 16.0 = 74.0 (1)"
+          "4 × 12.0 = 48.0 (or 2 × 12.0 = 24.0) (1)",
+          "10 × 1.0 = 10.0 (or 5 × 1.0 = 5.0) (1)",
+          "48.0 + 10.0 + 16.0 = 74.0 (1)"
         ],
-        "tip": "The bracket is multiplied by 2, so there are 4 C and 10 H. The answer 74 with no working scores 3 marks."
+        "tip": "Count each type of atom first, then add."
       }
     }
   },
   "meta": {
     "status": "draft",
-    "written_by": "sonnet-5-5",
+    "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "9e257fbc-d158-4b11-8bf1-8be56a4d0b0b",
@@ -332,7 +244,7 @@
       "45fa3927-17d8-481c-892d-2eb8d6f1f143"
     ],
     "exemplar_ids": [
-      "546119c2-1e43-452e-84fa-3d26f380502c",
+      "ba378f38-db96-4c5c-94ca-439611bb44b5",
       "7e437f33-ec11-4789-95a3-78640946e73c",
       "a6118302-5fbf-4332-b9fa-218a79f068f3"
     ],

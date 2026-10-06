@@ -94,11 +94,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Dialysis",
-            "Kidney transplant"
-          ],
+          "columns": ["Feature", "Dialysis", "Kidney transplant"],
           "rows": [
             [
               "Time and travel",
@@ -115,11 +111,7 @@
               "Skin is punctured repeatedly and blood meets a machine, so infection and blood clots are possible",
               "One operation, with a risk from surgery and the anaesthetic"
             ],
-            [
-              "Diet",
-              "Diet is restricted",
-              "Less or no restriction"
-            ],
+            ["Diet", "Diet is restricted", "Less or no restriction"],
             [
               "Drugs",
               "May need anti-clotting drugs",
@@ -138,10 +130,7 @@
             "kind": "sort",
             "alt": "Sort statements into dialysis and kidney transplant.",
             "prompt": "Which treatment does each statement describe?",
-            "groups": [
-              "Dialysis",
-              "Kidney transplant"
-            ],
+            "groups": ["Dialysis", "Kidney transplant"],
             "items": [
               {
                 "text": "Needs regular, long visits to hospital",
@@ -208,37 +197,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 5.11"
-      ],
-      "exam_phrases": [
-        "changes in concentrations / levels of substances / urea are minimised",
-        "not repeatedly puncturing skin",
-        "less / no chance of infection / blood clots",
-        "no need for regular / long hospital visits",
-        "may be rejected",
-        "need to keep taking anti-rejection drugs or immunosuppressants",
-        "(suitable) donor may not be available / need for tissue matching",
-        "maintains correct concentration of substances in blood / body"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A kidney transplant is better because it is cheaper.",
-          "right": "Cheaper on its own is ignored. Say it is cheaper in the long term, and give another point."
-        },
-        {
-          "wrong": "A transplant is better because there is less chance of infection.",
-          "right": "The explanation must match the reason. Give the reason as not repeatedly puncturing the skin, or blood not being in contact with a machine, then the lower chance of infection or blood clots."
-        },
-        {
-          "wrong": "A transplant is better because you do not have to go to hospital so often.",
-          "right": "When a question says do not refer to cost or convenience, hospital visits earn no marks. Give biological reasons, such as urea and other substances kept at a steady level."
-        },
-        {
-          "wrong": "Dialysis is bad and a transplant is good.",
-          "right": "A full evaluation needs points for and against a transplant before the judgement."
-        }
-      ],
+      "spec_codes": ["AQA 5.11"],
       "worked_example": {
         "exemplar_id": "f9487938-3e54-433d-819c-f0c87c63217e",
         "source": "AQA jun 2019, Paper 2 (H), Q06.4",
@@ -254,33 +213,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 7.21B"
-      ],
-      "exam_phrases": [
-        "blood is separated from the dialysis solution by a (partially permeable) membrane",
-        "urea moves out of the blood / into the dialysis solution",
-        "by diffusion across the membrane",
-        "down a concentration gradient",
-        "fresh dialysis fluid is pumped through to maintain the concentration gradient",
-        "blood is filtered (in a dialysis machine)",
-        "excess ions / named ions, such as sodium and chloride",
-        "the kidney is less likely to be rejected"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Dialysis only removes urea.",
-          "right": "Name the other unwanted substances too: excess ions, such as sodium and chloride, and other toxic substances, such as alcohol."
-        },
-        {
-          "wrong": "A twin could donate a kidney because twins are the same.",
-          "right": "Say the twin's tissues or cells have the same or similar genes or antigens, so they will not cause an immune response and the kidney is less likely to be rejected. The donor can also live well with one kidney."
-        },
-        {
-          "wrong": "Urea moves into the dialysis fluid.",
-          "right": "Also say how: by diffusion across the membrane, down a concentration gradient. Fresh dialysis fluid keeps the gradient."
-        }
-      ],
+      "spec_codes": ["EDEX 7.21B"],
       "worked_example": {
         "exemplar_id": "1ad5e0f1-cbe9-4bf9-984c-dca0306740fe",
         "source": "EDEXCEL jun 2018, Paper 2 (F), Q7(c)",

@@ -85,15 +85,7 @@
               "label": "Time",
               "min": 0,
               "max": 60,
-              "ticks": [
-                0,
-                10,
-                20,
-                30,
-                40,
-                50,
-                60
-              ],
+              "ticks": [0, 10, 20, 30, 40, 50, 60],
               "unit": "days"
             },
             "y": {
@@ -103,50 +95,17 @@
               {
                 "name": "Antibodies in the blood",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    5,
-                    0.05
-                  ],
-                  [
-                    10,
-                    0.2
-                  ],
-                  [
-                    15,
-                    0.3
-                  ],
-                  [
-                    22,
-                    0.2
-                  ],
-                  [
-                    30,
-                    0.12
-                  ],
-                  [
-                    32,
-                    0.5
-                  ],
-                  [
-                    35,
-                    0.9
-                  ],
-                  [
-                    42,
-                    0.85
-                  ],
-                  [
-                    50,
-                    0.6
-                  ],
-                  [
-                    60,
-                    0.4
-                  ]
+                  [0, 0],
+                  [5, 0.05],
+                  [10, 0.2],
+                  [15, 0.3],
+                  [22, 0.2],
+                  [30, 0.12],
+                  [32, 0.5],
+                  [35, 0.9],
+                  [42, 0.85],
+                  [50, 0.6],
+                  [60, 0.4]
                 ]
               }
             ],
@@ -258,32 +217,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 3.4",
-        "AQA T 4.3.1.7"
-      ],
-      "exam_phrases": [
-        "dead / inactive / weakened form of pathogen is introduced / injected",
-        "white blood cells produce antibodies",
-        "the antibodies produced are specific / correct",
-        "reference to memory cells made",
-        "on secondary exposure antibodies are produced faster",
-        "less chance of non-immune / unvaccinated individuals being exposed to pathogen"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Phagocytes produce the antibodies after a vaccine.",
-          "right": "Phagocytes do not produce antibodies. Say white blood cells or lymphocytes produce antibodies."
-        },
-        {
-          "wrong": "The vaccine contains dead measles, or you inject the disease.",
-          "right": "Say the vaccine contains a dead, inactive or weakened pathogen (virus) or its antigens, not the disease itself."
-        },
-        {
-          "wrong": "Most people are immune so they do not get it.",
-          "right": "A reference to the organism is needed. Say most people are immune so there is less chance of unvaccinated people being exposed to the virus."
-        }
-      ],
+      "spec_codes": ["AQA 3.4", "AQA T 4.3.1.7"],
       "worked_example": {
         "exemplar_id": "0c084486-f8a1-450b-828a-de801cb3ebc9",
         "source": "AQA jun 2024, Paper 1 (H), Q3.3",
@@ -300,32 +234,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.14",
-        "EDEX 5.15B"
-      ],
-      "exam_phrases": [
-        "they are immune (to the bacterium)",
-        "the vaccination contained an antigen",
-        "memory lymphocytes",
-        "leading to the production of antibodies",
-        "leading to a secondary (immune) response",
-        "most people are immunised / high level of immunity in the population"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Herd immunity means that people who are not vaccinated are immune.",
-          "right": "Non-vaccinated people are protected because they are less likely to come into contact with the pathogen. They are not immune themselves."
-        },
-        {
-          "wrong": "Some people are not immunised because they didn't get a vaccine.",
-          "right": "This is ignored. Give a reason, such as concern about side effects, a medical reason, being too young or having no access to healthcare."
-        },
-        {
-          "wrong": "Herd immunity means that most people are immunised.",
-          "right": "This is only half the answer. Add that non-immunised people are protected because they are less likely to come into contact with the pathogen, or because it is less likely to spread."
-        }
-      ],
+      "spec_codes": ["EDEX 5.14", "EDEX 5.15B"],
       "worked_example": {
         "exemplar_id": "163afc43-0683-442d-9d9c-b412b2f4b0be",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q3(a)",
@@ -341,30 +250,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.3o"
-      ],
-      "exam_phrases": [
-        "vaccine contains weakened / dead / inactive pathogen",
-        "(formation of) memory cells",
-        "infected with the real pathogen then antibodies are produced faster / in larger numbers",
-        "(more) people were immune / vaccinated",
-        "idea of herd immunity"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The antibodies become memory cells.",
-          "right": "Antibodies do not become memory cells. Memory cells are formed by white blood cells, and they allow antibodies to be produced faster next time."
-        },
-        {
-          "wrong": "The vaccine contains a dead version of the disease or measles.",
-          "right": "Say it contains a weakened or dead pathogen (virus), or the pathogen's antigens."
-        },
-        {
-          "wrong": "The vaccine kills the pathogen quicker.",
-          "right": "This is ignored. Say that antibodies are produced faster or in larger numbers when the real pathogen is met."
-        }
-      ],
+      "spec_codes": ["OCR 6.3o"],
       "worked_example": {
         "exemplar_id": "e02a8753-836b-4569-80be-cfc70feddf0f",
         "source": "OCR jun 2022, Paper 4, Q21(a)",

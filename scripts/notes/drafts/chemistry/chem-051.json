@@ -8,13 +8,25 @@
     {
       "heading": "Measuring pH",
       "blocks": [
-        { "type": "paragraph", "text": "The pH scale runs from 0 to 14 and measures how acidic or alkaline a solution is. This section covers how to measure it." },
+        {
+          "type": "paragraph",
+          "text": "The pH scale runs from 0 to 14 and measures how acidic or alkaline a solution is. This section covers how to measure it."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "pH scale", "meaning": "A scale from 0 to 14 that measures acidity or alkalinity." },
-            { "term": "Universal indicator", "meaning": "A mixture of dyes that gives a range of colours across the pH scale." },
-            { "term": "pH probe (pH meter)", "meaning": "An electronic probe that gives the pH as a number." }
+            {
+              "term": "pH scale",
+              "meaning": "A scale from 0 to 14 that measures acidity or alkalinity."
+            },
+            {
+              "term": "Universal indicator",
+              "meaning": "A mixture of dyes that gives a range of colours across the pH scale."
+            },
+            {
+              "term": "pH probe (pH meter)",
+              "meaning": "An electronic probe that gives the pH as a number."
+            }
           ]
         },
         {
@@ -42,16 +54,46 @@
             "prompt": "Sort each reading into the right group",
             "groups": ["Acidic", "Neutral", "Alkaline"],
             "items": [
-              { "text": "pH 2", "group": 0 },
-              { "text": "Universal indicator turns red", "group": 0 },
-              { "text": "Excess H⁺ ions", "group": 0 },
-              { "text": "pH 7", "group": 1 },
-              { "text": "Universal indicator turns green", "group": 1 },
-              { "text": "pH probe reads 7", "group": 1 },
-              { "text": "pH 9", "group": 2 },
-              { "text": "pH 14", "group": 2 },
-              { "text": "Universal indicator turns purple", "group": 2 },
-              { "text": "Excess OH⁻ ions", "group": 2 }
+              {
+                "text": "pH 2",
+                "group": 0
+              },
+              {
+                "text": "Universal indicator turns red",
+                "group": 0
+              },
+              {
+                "text": "Excess H⁺ ions",
+                "group": 0
+              },
+              {
+                "text": "pH 7",
+                "group": 1
+              },
+              {
+                "text": "Universal indicator turns green",
+                "group": 1
+              },
+              {
+                "text": "pH probe reads 7",
+                "group": 1
+              },
+              {
+                "text": "pH 9",
+                "group": 2
+              },
+              {
+                "text": "pH 14",
+                "group": 2
+              },
+              {
+                "text": "Universal indicator turns purple",
+                "group": 2
+              },
+              {
+                "text": "Excess OH⁻ ions",
+                "group": 2
+              }
             ]
           }
         },
@@ -67,15 +109,33 @@
     {
       "heading": "The practical: adding a base to an acid",
       "blocks": [
-        { "type": "paragraph", "text": "This practical records how the pH of dilute hydrochloric acid changes as powdered calcium hydroxide or calcium oxide is added." },
+        {
+          "type": "paragraph",
+          "text": "This practical records how the pH of dilute hydrochloric acid changes as powdered calcium hydroxide or calcium oxide is added."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Measure the acid.", "text": "Use a measuring cylinder to put a fixed volume of dilute hydrochloric acid into a beaker." },
-            { "lead": "Measure the starting pH.", "text": "Place a drop on universal indicator paper with a glass rod, or use a pH probe." },
-            { "lead": "Add a portion of base.", "text": "Add a measured portion of the powder, for example 0.1 g, and stir." },
-            { "lead": "Measure the pH again.", "text": "Use a new piece of indicator paper each time." },
-            { "lead": "Repeat.", "text": "Keep adding portions and measuring the pH until it stops changing." }
+            {
+              "lead": "Measure the acid.",
+              "text": "Use a measuring cylinder to put a fixed volume of dilute hydrochloric acid into a beaker."
+            },
+            {
+              "lead": "Measure the starting pH.",
+              "text": "Place a drop on universal indicator paper with a glass rod, or use a pH probe."
+            },
+            {
+              "lead": "Add a portion of base.",
+              "text": "Add a measured portion of the powder, for example 0.1 g, and stir."
+            },
+            {
+              "lead": "Measure the pH again.",
+              "text": "Use a new piece of indicator paper each time."
+            },
+            {
+              "lead": "Repeat.",
+              "text": "Keep adding portions and measuring the pH until it stops changing."
+            }
           ]
         },
         {
@@ -91,15 +151,46 @@
           "diagram": {
             "kind": "line-graph",
             "alt": "A sketch (shape only, not real data) of a curve showing pH rising from low to above 7 as portions of base are added, then levelling off.",
-            "x": { "label": "Portions of base added", "min": 0, "max": 10, "ticks": [0, 2, 4, 6, 8, 10] },
-            "y": { "label": "pH" },
+            "x": {
+              "label": "Portions of base added",
+              "min": 0,
+              "max": 10,
+              "ticks": [0, 2, 4, 6, 8, 10]
+            },
+            "y": {
+              "label": "pH"
+            },
             "series": [
-              { "name": "pH", "points": [[0, 0.1], [2, 0.18], [4, 0.3], [6, 0.55], [7, 0.78], [8, 0.86], [10, 0.88]] }
+              {
+                "name": "pH",
+                "points": [
+                  [0, 0.1],
+                  [2, 0.18],
+                  [4, 0.3],
+                  [6, 0.55],
+                  [7, 0.78],
+                  [8, 0.86],
+                  [10, 0.88]
+                ]
+              }
             ],
-            "markers": [{ "x": 5.6, "label": "Neutral: pH 7" }],
+            "markers": [
+              {
+                "x": 5.6,
+                "label": "Neutral: pH 7"
+              }
+            ],
             "bands": [
-              { "from": 0, "to": 5.6, "label": "Acidic" },
-              { "from": 5.6, "to": 10, "label": "Alkaline" }
+              {
+                "from": 0,
+                "to": 5.6,
+                "label": "Acidic"
+              },
+              {
+                "from": 5.6,
+                "to": 10,
+                "label": "Alkaline"
+              }
             ]
           }
         },
@@ -115,7 +206,10 @@
     {
       "heading": "Explaining the change in pH",
       "blocks": [
-        { "type": "paragraph", "text": "The pH changes because hydrogen ions are used up. Explain it in three parts: start, reaction and end." },
+        {
+          "type": "paragraph",
+          "text": "The pH changes because hydrogen ions are used up. Explain it in three parts: start, reaction and end."
+        },
         {
           "type": "list",
           "items": [
@@ -167,28 +261,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.4.2.4", "AQA T 5.4.2.4"],
-      "exam_phrases": [
-        "(indicator) universal, (result) (green to) red / orange / yellow",
-        "(blue) litmus (turns) red",
-        "blue / violet / purple, (the solution is) alkaline / contains OH⁻ ions",
-        "(at start) value in range 12–14",
-        "(at end) value in range 0–3",
-        "universal indicator: red in nitric acid, purple or blue in ammonia solution"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Universal indicator turns green in an acid such as nitric acid.",
-          "right": "Green is not accepted for an acid. Acids give red, and orange or yellow are allowed."
-        },
-        {
-          "wrong": "A pH meter is an indicator that tests if a solution is acidic.",
-          "right": "A pH meter is ignored when the question asks for an indicator. Name one: universal indicator (green to red, orange or yellow), blue litmus (turns red) or methyl orange (turns red)."
-        },
-        {
-          "wrong": "When sulfuric acid is added to sodium hydroxide until it is in excess, the pH ends at 7.",
-          "right": "With the acid in excess the end value is in the range 0–3. The start value is in the range 12–14."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "efb26df8-c079-4ffd-b085-001b8814753c",
         "source": "AQA jun 2020, Paper 1 (H), Q04.6",
@@ -203,33 +275,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.6"],
-      "exam_phrases": [
-        "stir / swirl / shake (the beaker)",
-        "to ensure that the mixture is evenly spread",
-        "to make substances {react / dissolve} / to speed up the {reaction / dissolving}",
-        "measure the {mass / amount} of the base / use a balance",
-        "{hydrogen ions / H⁺} {reacted / neutralised}",
-        "{concentration falls / fewer} H⁺ / {concentration rises / more} OH⁻",
-        "excess OH⁻ ions / (excess of) hydroxide ions have pH > 7"
-      ],
-      "mistakes": [
-        {
-          "wrong": "To make sure the reaction is complete, wait until the powder disappears.",
-          "right": "'Wait' is ignored. After adding the base, stir, swirl or shake the beaker (mixing or warming is also allowed)."
-        },
-        {
-          "wrong": "The mixture is stirred to make it a fair test.",
-          "right": "'More accurate', 'valid' and 'fair test' are ignored. Say the mixture is evenly spread, or that stirring speeds up the reaction or dissolving."
-        },
-        {
-          "wrong": "The pH increases because the mixture becomes less acidic.",
-          "right": "'Is less acidic' and 'becomes alkaline' are ignored. Describing the pattern also scores nothing. Link to ions: H⁺ ions react with OH⁻, so the H⁺ concentration falls."
-        },
-        {
-          "wrong": "The measuring of the base could be improved by using a scale.",
-          "right": "Say what you would do: measure the mass of the base and use a balance, instead of a spatula full each time."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "1a3fdf4b-0eb2-48bd-9d92-a8d332268389",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q2(d)(iii)",
@@ -245,28 +290,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR C3.3k"],
-      "exam_phrases": [
-        "add universal indicator solution / pH paper",
-        "identify colour produced",
-        "match to colour chart to determine pH",
-        "pH meter / pH probe",
-        "wash the probe with water, put the probe into the solution",
-        "pH probe 7, universal indicator green"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Use litmus paper to measure the pH of the buttermilk.",
-          "right": "Litmus is not allowed. Use universal indicator with a colour chart, or a pH probe that gives the pH as a number."
-        },
-        {
-          "wrong": "Put the pH probe straight into the solution.",
-          "right": "Two marks are given: wash the probe with water, then put it into the solution (calibrating the meter is also allowed)."
-        },
-        {
-          "wrong": "A neutral solution turns universal indicator yellow.",
-          "right": "A neutral solution has a pH probe reading of 7 and universal indicator is green."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "f301fa42-72ee-4287-b743-a30cb50ce749",
         "source": "OCR sample null, Paper 1, Q19(c)",

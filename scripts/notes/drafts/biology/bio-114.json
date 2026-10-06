@@ -51,12 +51,7 @@
             "kind": "sequence",
             "alt": "Put the levels of organisation in order, from a single organism up to a whole ecosystem.",
             "prompt": "Put these levels of organisation in order, from smallest to largest.",
-            "steps": [
-              "Organism",
-              "Population",
-              "Community",
-              "Ecosystem"
-            ]
+            "steps": ["Organism", "Population", "Community", "Ecosystem"]
           }
         },
         {
@@ -94,19 +89,10 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Organisms",
-            "Compete for"
-          ],
+          "columns": ["Organisms", "Compete for"],
           "rows": [
-            [
-              "Plants",
-              "Light, space, water and mineral ions from the soil"
-            ],
-            [
-              "Animals",
-              "Food, mates and territory"
-            ]
+            ["Plants", "Light, space, water and mineral ions from the soil"],
+            ["Animals", "Food, mates and territory"]
           ]
         },
         {
@@ -173,24 +159,15 @@
           "diagram": {
             "kind": "compare",
             "alt": "A comparison of parasitism and mutualism by who benefits and who is harmed.",
-            "items": [
-              "Parasitism",
-              "Mutualism"
-            ],
+            "items": ["Parasitism", "Mutualism"],
             "rows": [
               {
                 "feature": "Who benefits?",
-                "values": [
-                  "The parasite",
-                  "Both organisms"
-                ]
+                "values": ["The parasite", "Both organisms"]
               },
               {
                 "feature": "Who is harmed?",
-                "values": [
-                  "The host",
-                  "Neither"
-                ]
+                "values": ["The host", "Neither"]
               },
               {
                 "feature": "Example",
@@ -239,37 +216,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 7.1",
-        "AQA T 4.7.1.1"
-      ],
-      "exam_phrases": [
-        "organisms / species are always being added / removed",
-        "so population sizes not (fairly) constant",
-        "may be a predator therefore control prey population",
-        "may be prey so provide energy to predator",
-        "may maintain biodiversity",
-        "many seeds mean many new plants so will out-compete other species",
-        "competition for light / water / ions / minerals / space"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Weeds and crop plants compete for sun.",
-          "right": "\"Sun\" on its own is ignored. Write (sun)light."
-        },
-        {
-          "wrong": "Plants compete for food.",
-          "right": "\"Food\" is ignored. Name what plants compete for: light, water, ions / minerals / salts or space."
-        },
-        {
-          "wrong": "Plants compete for carbon dioxide.",
-          "right": "Carbon dioxide is ignored. Choose from light, water, ions / minerals / salts or space."
-        },
-        {
-          "wrong": "An animal species is important because it is prey and provides food for a predator.",
-          "right": "\"Provide food to predator\" is ignored. Say prey provide energy to the predator."
-        }
-      ],
+      "spec_codes": ["AQA 7.1", "AQA T 4.7.1.1"],
       "worked_example": {
         "exemplar_id": "cee99778-6b72-4e9f-b7dc-2aa720ea18a6",
         "source": "AQA jun 2024, Paper 2 (F), Q03.4",
@@ -286,34 +233,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.1",
-        "EDEX 9.3",
-        "EDEX 9.4"
-      ],
-      "exam_phrases": [
-        "parasites live in / on their host",
-        "parasites feed off their host",
-        "the tree is the host",
-        "the mistletoe gains nutrients / water from the tree",
-        "the tree is damaged by the mistletoe",
-        "competition between species for resources",
-        "signal crayfish may carry microorganisms / parasites which cause disease in the indigenous population"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Mites are parasites because they are small animals that feed on blood.",
-          "right": "Also say that they live on (or in) the slug, which is the host. Both living in / on the host and feeding off it are needed for 2 marks."
-        },
-        {
-          "wrong": "The mistletoe and the tree both gain from living together.",
-          "right": "The mistletoe gains nutrients or water, and the tree is damaged. Any indication of harm is accepted."
-        },
-        {
-          "wrong": "Signal crayfish reduce the native crayfish only by eating them.",
-          "right": "A different reason is needed: competition between species for resources, or signal crayfish carrying parasites or microorganisms that cause disease."
-        }
-      ],
+      "spec_codes": ["EDEX 9.1", "EDEX 9.3", "EDEX 9.4"],
       "worked_example": {
         "exemplar_id": "adb24a42-e6ba-4632-9c20-8e007aedd573",
         "source": "EDEXCEL nov 2021, Paper 2 (F), Q2(c)(ii)",
@@ -327,33 +247,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 4.1e",
-        "OCR 4.1g"
-      ],
-      "exam_phrases": [
-        "an organism that lives on / in a (host) organism",
-        "parasite benefits at the expense of its host",
-        "an organism that feeds on a living organism",
-        "an organism that causes harm to a living organism",
-        "competition for water / minerals / light / space",
-        "buddleia outcompetes other plants",
-        "buddleia has reduced biodiversity"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A parasite is an organism that feeds on another organism.",
-          "right": "This is ignored unless qualified. Say it feeds on a living organism, or causes it harm, or lives on or in a host."
-        },
-        {
-          "wrong": "The invading plant is only harmful, because it makes other plants decrease.",
-          "right": "A top answer gives both sides: it is a food source and shelter for other species (a \"friend\") and it outcompetes other plants (a \"pest\")."
-        },
-        {
-          "wrong": "Other plants decrease because buddleia competes with them.",
-          "right": "Say what for. Competition is for water, minerals, light or space."
-        }
-      ],
+      "spec_codes": ["OCR 4.1e", "OCR 4.1g"],
       "worked_example": {
         "exemplar_id": "87a08034-9302-4a87-bb3f-578daf7aa7a3",
         "source": "OCR jun 2023, Paper 2, Q19(b)",

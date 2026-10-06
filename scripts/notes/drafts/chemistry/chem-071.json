@@ -37,19 +37,10 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Reaction",
-            "Catalyst"
-          ],
+          "columns": ["Reaction", "Catalyst"],
           "rows": [
-            [
-              "Making ammonia in the Haber process",
-              "Iron"
-            ],
-            [
-              "Decomposition of hydrogen peroxide",
-              "Manganese dioxide"
-            ],
+            ["Making ammonia in the Haber process", "Iron"],
+            ["Decomposition of hydrogen peroxide", "Manganese dioxide"],
             [
               "Removing nitrogen monoxide and carbon monoxide from car exhausts",
               "The metal catalyst in a catalytic converter"
@@ -112,11 +103,7 @@
             "options": [
               {
                 "label": "Exothermic, no catalyst",
-                "results": [
-                  "Higher",
-                  "Lower energy",
-                  "Slower"
-                ],
+                "results": ["Higher", "Lower energy", "Slower"],
                 "scene": {
                   "kind": "energy-profile",
                   "direction": "exothermic"
@@ -124,11 +111,7 @@
               },
               {
                 "label": "Exothermic, with a catalyst",
-                "results": [
-                  "**Lower**",
-                  "Same as without a catalyst",
-                  "**Faster**"
-                ],
+                "results": ["**Lower**", "Same as without a catalyst", "**Faster**"],
                 "scene": {
                   "kind": "energy-profile",
                   "direction": "exothermic",
@@ -137,11 +120,7 @@
               },
               {
                 "label": "Endothermic, no catalyst",
-                "results": [
-                  "Higher",
-                  "Higher energy",
-                  "Slower"
-                ],
+                "results": ["Higher", "Higher energy", "Slower"],
                 "scene": {
                   "kind": "energy-profile",
                   "direction": "endothermic"
@@ -149,11 +128,7 @@
               },
               {
                 "label": "Endothermic, with a catalyst",
-                "results": [
-                  "**Lower**",
-                  "Same as without a catalyst",
-                  "**Faster**"
-                ],
+                "results": ["**Lower**", "Same as without a catalyst", "**Faster**"],
                 "scene": {
                   "kind": "energy-profile",
                   "direction": "endothermic",
@@ -227,32 +202,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.1.4",
-        "AQA T 5.6.1.4"
-      ],
-      "exam_phrases": [
-        "provides a different / alternative reaction pathway",
-        "(which has a) lower activation energy",
-        "(a substance that) increases the rate of reaction",
-        "and is not used up during the reaction",
-        "increases the rate of the reaction",
-        "(equilibrium position) does not change (Higher tier)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A catalyst is a substance that increases the rate of a reaction and does not take part in the reaction.",
-          "right": "Does not take part in the reaction is ignored. Say it increases the rate and is not used up during the reaction."
-        },
-        {
-          "wrong": "A catalyst increases the rate because there are more collisions.",
-          "right": "References to collisions are ignored for this question. Say it provides a different reaction pathway with a lower activation energy."
-        },
-        {
-          "wrong": "(Higher tier) A catalyst moves the position of equilibrium to the right.",
-          "right": "The position of equilibrium does not change. A catalyst increases the rate of the forward and the reverse reaction by the same amount."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.1.4", "AQA T 5.6.1.4"],
       "worked_example": {
         "exemplar_id": "497ad19b-0962-4a44-9b15-2c49f5086c08",
         "source": "AQA jun 2025, Paper 2 (H), Q4.7",
@@ -267,34 +217,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 7.6",
-        "EDEX 7.7",
-        "EDEX 7.8"
-      ],
-      "exam_phrases": [
-        "makes it faster / increases rate / lowers activation energy",
-        "does not alter the products of the reaction",
-        "unchanged (mass of catalyst)",
-        "use a known mass of catalyst; find the mass of the catalyst before the reaction",
-        "after the reaction filter, wash and dry",
-        "the reaction proceeds by an alternative route, which reduces the activation energy",
-        "yeast contains an enzyme (alcoholic drinks)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The effect of a catalyst is that it is not used up.",
-          "right": "Being not used up is ignored when asked for the effect. Say it makes the reaction faster, increases the rate, or lowers the activation energy."
-        },
-        {
-          "wrong": "A catalyst speeds up the reaction time.",
-          "right": "Speeds up reaction time is ignored. Say it speeds up the reaction, or gives a shorter reaction time."
-        },
-        {
-          "wrong": "To find the mass of the catalyst, filter the mixture and weigh the filter paper and solid straight away.",
-          "right": "The solid will still be wet. Dry the filter paper and catalyst before finding their mass."
-        }
-      ],
+      "spec_codes": ["EDEX 7.6", "EDEX 7.7", "EDEX 7.8"],
       "worked_example": {
         "exemplar_id": "6b90e987-3dc3-497b-ba43-36e42ecc782c",
         "source": "EDEXCEL jun 2019, Paper 2 (F), Q6(f)(ii)",
@@ -309,28 +232,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C5.2f",
-        "OCR C5.2g",
-        "OCR C5.2h",
-        "OCR C5.2i"
-      ],
-      "exam_phrases": [
-        "substance that speeds up a reaction",
-        "(but) is not used up in the reaction / not chemically changed",
-        "provides an alternative (reaction) pathway",
-        "with a lower activation energy"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A catalyst speeds up a reaction and doesn't take part in the reaction.",
-          "right": "Does not take part in the reaction is not allowed. Say it is not used up in the reaction, or not chemically changed."
-        },
-        {
-          "wrong": "A catalytic converter speeds up the reaction because the catalyst has a larger surface area.",
-          "right": "References to a larger surface area are ignored. Say it provides an alternative pathway with a lower activation energy."
-        }
-      ],
+      "spec_codes": ["OCR C5.2f", "OCR C5.2g", "OCR C5.2h", "OCR C5.2i"],
       "worked_example": {
         "exemplar_id": "2f731c3b-a532-4305-899d-ec8e04d8aa58",
         "source": "OCR jun 2022, Paper 4, Q18(g)(i)",

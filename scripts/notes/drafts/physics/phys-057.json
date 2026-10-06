@@ -3,7 +3,7 @@
   "concept_id": "phys-057",
   "subject": "physics",
   "title": "Newton's second law and inertia",
-  "key_idea": "The resultant force on an object equals its mass times its acceleration, F = m × a. Acceleration is proportional to force and inversely proportional to mass. (Higher tier) Inertial mass measures how hard it is to change an object's velocity.",
+  "key_idea": "The resultant force on an object equals its mass times its acceleration, F = m × a. Acceleration is proportional to force and inversely proportional to mass. (AQA: Higher tier) Inertial mass measures how hard it is to change an object's velocity.",
   "sections": [
     {
       "heading": "Newton's second law",
@@ -168,11 +168,7 @@
               "unit": "N",
               "decimals": 0
             },
-            "working": [
-              "F = m × a",
-              "F = {m} × {a}",
-              "F = {answer} N"
-            ]
+            "working": ["F = m × a", "F = {m} × {a}", "F = {answer} N"]
           }
         },
         {
@@ -186,7 +182,7 @@
       ]
     },
     {
-      "heading": "Inertia and inertial mass (Higher tier)",
+      "heading": "Inertia and inertial mass (AQA: Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -226,9 +222,9 @@
         {
           "type": "key-points",
           "items": [
-            "(Higher tier) Inertia is the tendency to keep the same velocity.",
-            "(Higher tier) Inertial mass = force ÷ acceleration.",
-            "(Higher tier) Bigger inertial mass means a bigger force for the same acceleration."
+            "(AQA: Higher tier) Inertia is the tendency to keep the same velocity.",
+            "(AQA: Higher tier) Inertial mass = force ÷ acceleration.",
+            "(AQA: Higher tier) Bigger inertial mass means a bigger force for the same acceleration."
           ]
         }
       ]
@@ -246,36 +242,14 @@
       "marks": 2
     },
     {
-      "q": "(Higher tier) Explain why a lorry needs a bigger force than a car to get the same acceleration.",
+      "q": "(AQA: Higher tier) Explain why a lorry needs a bigger force than a car to get the same acceleration.",
       "a": "The lorry has a bigger (inertial) mass, so by F = m × a it needs a bigger force.",
       "marks": 2
     }
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.6.2",
-        "AQA T 6.5.4.2"
-      ],
-      "exam_phrases": [
-        "resultant force = mass × acceleration",
-        "a measure of how difficult it is to change the velocity of an object",
-        "the ratio of force over acceleration"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The acceleration is 0.625 m/s², so I have finished.",
-          "right": "Round to the significant figures asked for: 0.63 m/s². The rounding is a separate mark."
-        },
-        {
-          "wrong": "A force of −4500 N must be wrong because forces cannot be negative.",
-          "right": "A negative sign shows the force acts against the motion. −4500 N is accepted, as is 4500 N."
-        },
-        {
-          "wrong": "The mass of the trolley must be written as 0.30 kg exactly.",
-          "right": "0.3 kg is also accepted."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.6.2", "AQA T 6.5.4.2"],
       "worked_example": {
         "exemplar_id": "a63b8eb2-767a-45d5-9f60-cea5afdd560a",
         "source": "AQA jun 2020, Paper 2 (H), Q01.7",
@@ -295,7 +269,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(Higher tier) Inertial mass is a measure of how difficult it is to change the velocity of an object. It is defined as the ratio of force over acceleration."
+              "text": "(AQA: Higher tier) Inertial mass is a measure of how difficult it is to change the velocity of an object. It is defined as the ratio of force over acceleration."
             },
             {
               "type": "paragraph",
@@ -313,29 +287,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.15",
-        "EDEX 2.22"
-      ],
-      "exam_phrases": [
-        "a measure of how difficult it is to change the velocity of an object",
-        "the ratio of force over acceleration",
-        "newtons"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The force is 0.2 Ns.",
-          "right": "Do not allow Ns. The unit of force is N or newtons."
-        },
-        {
-          "wrong": "F = 0.10 × 2.0 = 2 N.",
-          "right": "A power of ten wrong scores 1 mark at most. 0.10 × 2.0 = 0.20 N."
-        },
-        {
-          "wrong": "F = 0.20, so the answer is complete without a unit.",
-          "right": "The unit is a separate mark. Write N or newtons."
-        }
-      ],
+      "spec_codes": ["EDEX 2.15", "EDEX 2.22"],
       "worked_example": {
         "exemplar_id": "d21aa28f-faa1-4d9a-a50a-945767ac2b3e",
         "source": "EDEXCEL jun 2018, Paper 1 (F), Q1(c)",
@@ -350,27 +302,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P2.2i",
-        "OCR P2.2j",
-        "OCR P2.2l"
-      ],
-      "exam_phrases": [
-        "F = ma / force = mass x acceleration",
-        "reducing mass means the same engine force will cause greater acceleration",
-        "Mass / inertia of child is lower",
-        "Less force is needed (for the same deceleration)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A lighter car needs less force for the same acceleration.",
-          "right": "Start with F = ma. With the same engine force, a smaller mass gives a greater acceleration."
-        },
-        {
-          "wrong": "The answer is 0.8.",
-          "right": "The answer is 800 kg. Writing 0.8 scores only two of the three marks."
-        }
-      ],
+      "spec_codes": ["OCR P2.2i", "OCR P2.2j", "OCR P2.2l"],
       "worked_example": {
         "exemplar_id": "3c22ba54-07f1-4f7d-9dfd-9a370eae6de4",
         "source": "OCR jun 2018, Paper 2, Q22(b)",

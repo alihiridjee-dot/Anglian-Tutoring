@@ -39,55 +39,15 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Prefix",
-            "Symbol",
-            "Multiplier",
-            "Example"
-          ],
+          "columns": ["Prefix", "Symbol", "Multiplier", "Example"],
           "rows": [
-            [
-              "giga",
-              "G",
-              "1 000 000 000 (10⁹)",
-              "1 GHz = 1 000 000 000 Hz"
-            ],
-            [
-              "mega",
-              "M",
-              "1 000 000 (10⁶)",
-              "1 MJ = 1 000 000 J"
-            ],
-            [
-              "kilo",
-              "k",
-              "1000 (10³)",
-              "1 kW = 1000 W"
-            ],
-            [
-              "centi",
-              "c",
-              "0.01 (10⁻²)",
-              "1 cm = 0.01 m"
-            ],
-            [
-              "milli",
-              "m",
-              "0.001 (10⁻³)",
-              "1 mA = 0.001 A"
-            ],
-            [
-              "micro",
-              "μ",
-              "0.000 001 (10⁻⁶)",
-              "1 μA = 0.000 001 A"
-            ],
-            [
-              "nano",
-              "n",
-              "0.000 000 001 (10⁻⁹)",
-              "1 nm = 0.000 000 001 m"
-            ]
+            ["giga", "G", "1 000 000 000 (10⁹)", "1 GHz = 1 000 000 000 Hz"],
+            ["mega", "M", "1 000 000 (10⁶)", "1 MJ = 1 000 000 J"],
+            ["kilo", "k", "1000 (10³)", "1 kW = 1000 W"],
+            ["centi", "c", "0.01 (10⁻²)", "1 cm = 0.01 m"],
+            ["milli", "m", "0.001 (10⁻³)", "1 mA = 0.001 A"],
+            ["micro", "μ", "0.000 001 (10⁻⁶)", "1 μA = 0.000 001 A"],
+            ["nano", "n", "0.000 000 001 (10⁻⁹)", "1 nm = 0.000 000 001 m"]
           ]
         },
         {
@@ -250,72 +210,18 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.6.1",
-        "AQA T 6.5.4.1"
-      ],
-      "exam_phrases": [
-        "s = 300 000 000 × 0.000009",
-        "distance = 300 000 × 500",
-        "2.5 minutes = 150 s",
-        "3.6 × 10^17 = 3.0 × 10^8 × t",
-        "Give your answer to 2 significant figures"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Light takes 500 s to travel at 300 000 km/s, so the distance is 150 000 000 m.",
-          "right": "The speed is in kilometres per second, so the distance is in kilometres: 150 000 000 km."
-        },
-        {
-          "wrong": "A skydiver accelerates for 2.5 minutes, so I put t = 2.5 into the equation.",
-          "right": "Convert the time to seconds first: 2.5 minutes = 150 s."
-        },
-        {
-          "wrong": "The time is 1.941 s, so I will leave it like that.",
-          "right": "The question asked for 2 significant figures, so the answer is 1.9 s."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.6.1", "AQA T 6.5.4.1"],
       "worked_example": {
         "exemplar_id": "fb4fd50d-de53-4bdc-88b4-152e9b65fc1d",
         "source": "AQA jun 2023, Paper 2 (F), Q05.4",
         "question": "Microwaves from a mobile phone take 0.000 009 s to reach a mobile phone mast.\nspeed of microwaves = 300 000 000 m/s\n\nCalculate the distance between the mobile phone and the mobile phone mast.\nUse the equation: distance = speed × time",
         "marks": 2,
-        "answer_points": [
-          "s = 300 000 000 × 0.000009",
-          "s = 2700 (m)"
-        ],
+        "answer_points": ["s = 300 000 000 × 0.000009", "s = 2700 (m)"],
         "tip": "One mark for the correct substitution and one mark for the answer, 2700 m."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 1.1",
-        "EDEX 1.2",
-        "EDEX 1.3",
-        "EDEX 1.4"
-      ],
-      "exam_phrases": [
-        "convert either distance or time",
-        "(130 km =) 130 × 1000 (m) or 130 000 (m)",
-        "(1 h =) 60 × 60 (s) or 3600 (s)",
-        "(130 km/h =) 36(.1) (m/s)",
-        "(31 m/s =) 110 (km/h)",
-        "(0.74 + 0.69 + 0.81) ÷ 3"
-      ],
-      "mistakes": [
-        {
-          "wrong": "To change 130 km/h into m/s, just multiply by 1000.",
-          "right": "Change both units. Multiply by 1000 for the km, and divide by 3600 for the hour: 130 km/h is about 36 m/s."
-        },
-        {
-          "wrong": "The average of 0.74 s, 0.69 s and 0.81 s is 0.746 666 s.",
-          "right": "Round to match the data. 0.74, 0.69 and 0.81 have 2 significant figures, so the mean is 0.75 s."
-        },
-        {
-          "wrong": "31 m/s is less than 130 km/h because 31 is less than 130.",
-          "right": "The units are different. Convert one speed first, then compare: 31 m/s is 110 km/h, which is less than 130 km/h."
-        }
-      ],
+      "spec_codes": ["EDEX 1.1", "EDEX 1.2", "EDEX 1.3", "EDEX 1.4"],
       "worked_example": {
         "exemplar_id": "61734656-80f0-48af-bf80-2593f7909e7b",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q3(a)(ii)",
@@ -331,29 +237,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P2.1c",
-        "OCR P8.1c"
-      ],
-      "exam_phrases": [
-        "conversion from non-SI to SI units",
-        "convert units and to compute rates",
-        "(Mass = 60 ÷ 1000 =) 0.06 (kg)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "70 mph is 70 × 1600 = 112 000 m/s.",
-          "right": "A mile is 1600 m, but an hour is 3600 s. Divide by 3600 as well to get metres per second."
-        },
-        {
-          "wrong": "1.5 mW is 1500 W.",
-          "right": "Milli means one thousandth. 1.5 mW = 0.0015 W."
-        },
-        {
-          "wrong": "2 kW is 0.002 W.",
-          "right": "Kilo means one thousand. 2 kW = 2000 W."
-        }
-      ]
+      "spec_codes": ["OCR P2.1c", "OCR P8.1c"]
     }
   },
   "meta": {

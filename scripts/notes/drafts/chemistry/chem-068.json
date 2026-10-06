@@ -14,12 +14,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Method",
-            "Reaction signs",
-            "What you measure",
-            "Apparatus"
-          ],
+          "columns": ["Method", "Reaction signs", "What you measure", "Apparatus"],
           "rows": [
             [
               "Volume of gas",
@@ -54,9 +49,7 @@
           "type": "equation",
           "label": "Sodium thiosulfate and hydrochloric acid",
           "formula": "Na₂S₂O₃(aq) + 2HCl(aq) → 2NaCl(aq) + SO₂(g) + H₂O(l) + S(s)",
-          "where": [
-            "S(s) is the solid sulfur that makes the mixture cloudy"
-          ]
+          "where": ["S(s) is the solid sulfur that makes the mixture cloudy"]
         },
         {
           "type": "diagram",
@@ -244,34 +237,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.1.2",
-        "AQA T 5.6.1.2"
-      ],
-      "exam_phrases": [
-        "measure (indicated) volume of sodium thiosulfate",
-        "place on cross",
-        "measure time for cross to become no longer visible",
-        "repeat and find mean",
-        "change ratio of sodium thiosulfate volume : water volume",
-        "(gas) syringe",
-        "stopclock / stopwatch",
-        "sulfur (formed) ... precipitate / solid / insoluble"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The solution becomes cloudy because sulfur is formed.",
-          "right": "This earns 1 of the 2 marks. Also say that the sulfur is a precipitate, a solid, or insoluble."
-        },
-        {
-          "wrong": "Change the concentration of both the sodium thiosulfate and the hydrochloric acid.",
-          "right": "Change only the concentration of sodium thiosulfate. The concentration and volume of hydrochloric acid are control variables."
-        },
-        {
-          "wrong": "Use a different total volume of solution in each experiment.",
-          "right": "Keep the total volume of sodium thiosulfate solution the same. Change the ratio of thiosulfate volume to water volume."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.1.2", "AQA T 5.6.1.2"],
       "worked_example": {
         "exemplar_id": "05e17128-dcec-44c9-ab9e-acc4161a2283",
         "source": "AQA jun 2018, Paper 2 (H), Q05.2",
@@ -291,34 +257,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 7.1",
-        "EDEX 7.2"
-      ],
-      "exam_phrases": [
-        "flask placed over / in front of a cross",
-        "measure time",
-        "when the cross is obscured",
-        "100 cm³ measuring cylinder / (gas) syringe",
-        "smaller gradations / higher resolution",
-        "conical flask in a water bath",
-        "stopwatch / clock",
-        "magnesium has gone / no more bubbles"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Keep the acid at 45 °C by heating it with a Bunsen burner throughout.",
-          "right": "Heating with a Bunsen burner is rejected, and warm water alone is not enough. Put the conical flask in a water bath."
-        },
-        {
-          "wrong": "An upturned burette would measure the gas better than a 250 cm³ measuring cylinder.",
-          "right": "An upturned burette is rejected. Use a 100 cm³ measuring cylinder or a gas syringe."
-        },
-        {
-          "wrong": "A gas syringe is better because it is easier to use.",
-          "right": "Easier to use is ignored. Say it has smaller gradations or a higher resolution, so it is more precise."
-        }
-      ],
+      "spec_codes": ["EDEX 7.1", "EDEX 7.2"],
       "worked_example": {
         "exemplar_id": "602bb273-a37d-474e-87ed-4cba193e66eb",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q6(a)(ii)",
@@ -333,25 +272,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C5.2a"
-      ],
-      "exam_phrases": [
-        "(gas) syringe / (upturned) burette",
-        "idea that the mass of the gas is too small (to measure accurately)",
-        "1.67 × 10⁻³ (g/s)",
-        "3 significant figures and standard form"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Measuring the loss in mass would not work well because it is difficult to measure.",
-          "right": "Difficult to measure and not accurate are ignored without a reason. Say the mass of the gas is too small to measure accurately."
-        },
-        {
-          "wrong": "The mean rate is 1.6 × 10⁻³ g/s, or 1.7 × 10⁻³ g/s.",
-          "right": "Give 3 significant figures: 1.67 × 10⁻³. Writing 1.6 × 10⁻³ is ignored, and 1.7 × 10⁻³ loses the final mark."
-        }
-      ],
+      "spec_codes": ["OCR C5.2a"],
       "worked_example": {
         "exemplar_id": "77a0ee1f-f1e1-4d04-a2aa-477cb1c8090f",
         "source": "OCR jun 2019, Paper 4, Q19(d)",

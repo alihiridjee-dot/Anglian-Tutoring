@@ -25,9 +25,7 @@
           "type": "equation",
           "label": "Percentage lost",
           "formula": "percentage lost = ((previous level − next level) ÷ previous level) × 100",
-          "where": [
-            "previous level and next level, in the same unit"
-          ]
+          "where": ["previous level and next level, in the same unit"]
         },
         {
           "type": "steps",
@@ -212,38 +210,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 7.12"
-      ],
-      "exam_phrases": [
-        "respiration or respiring",
-        "excretion (by the animal)",
-        "non-eaten parts",
-        "egestion / faeces",
-        "not all parts are absorbed / digested",
-        "carbon dioxide from respiration",
-        "urea from excretion",
-        "less energy lost as heat",
-        "less energy lost in movement"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Respiration produces energy, so energy is lost.",
-          "right": "\"Respiration produces / makes / creates energy\" is not accepted. Say that biomass is lost as carbon dioxide from respiration, or that energy is lost as heat or in movement."
-        },
-        {
-          "wrong": "Cows reared indoors are more efficient because less energy is lost.",
-          "right": "\"Less energy lost\" on its own is ignored. Say less energy is lost as heat, and less energy is lost in movement."
-        },
-        {
-          "wrong": "Some of the insects' biomass is lost as energy.",
-          "right": "References to loss of energy are ignored when the question asks about biomass. Name what is lost: carbon dioxide from respiration, urea from excretion, or parts not absorbed or digested."
-        },
-        {
-          "wrong": "The percentage of biomass lost is 98.81%.",
-          "right": "Round as the question asks. To 2 significant figures the answer is 99%."
-        }
-      ],
+      "spec_codes": ["AQA 7.12"],
       "worked_example": {
         "exemplar_id": "4f825a34-cc23-4ae9-aa40-37bfcd9ea09b",
         "source": "AQA jun 2018, Paper 2 (H), Q07.2",
@@ -304,31 +271,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.8B"
-      ],
-      "exam_phrases": [
-        "not all the mass of the leaves is transferred to the snails",
-        "some of the leaves were not digested / absorbed",
-        "some of the leaves were excreted / egested",
-        "some mass was used up in respiration / providing energy",
-        "some mass / energy was used up by the snail moving",
-        "leaf mass may be digested by decomposers"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The energy transferred to the chipmunks is 9 262.5 kJ.",
-          "right": "Give the answer to the nearest whole number as asked: 9 263 kJ."
-        },
-        {
-          "wrong": "The caterpillar's mass went up by 1.5 g, so it ate 1.5 g of nettles.",
-          "right": "The 1.5 g gain is only 10% of the food eaten. Multiply by 10: 1.5 × 10 = 15 g."
-        },
-        {
-          "wrong": "All of the mass the leaves lose becomes extra mass of the snails.",
-          "right": "The snails gain less than the leaves lose. Explain why: some leaf was not digested or was egested or excreted, some was used in respiration or movement, and decomposers may break some down."
-        }
-      ],
+      "spec_codes": ["EDEX 9.8B"],
       "worked_example": {
         "exemplar_id": "77dfe0f0-2b36-4269-a803-a6bcf2b263f1",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q4(a)(iii)",
@@ -367,27 +310,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 4.1j"
-      ],
-      "exam_phrases": [
-        "insecticides will kill insect pests",
-        "less leaves will be eaten",
-        "more food / glucose / biomass made by photosynthesis",
-        "more plant growth / food / biomass for cattle",
-        "more biomass passes through the agricultural food chain",
-        "cattle receive more energy for growth"
-      ],
-      "mistakes": [
-        {
-          "wrong": "GM plants that make insecticide have more biomass because they kill insects.",
-          "right": "Link the ideas. The insecticide kills pests, so fewer leaves are eaten and there is more photosynthesis. So more biomass passes along the food chain to the cattle and then to humans."
-        },
-        {
-          "wrong": "The GM plants photosynthesise more, so there is more biomass.",
-          "right": "Explain with both photosynthesis and the function of the insecticide, and link them to the food chain, to reach the top level."
-        }
-      ]
+      "spec_codes": ["OCR 4.1j"]
     }
   },
   "meta": {

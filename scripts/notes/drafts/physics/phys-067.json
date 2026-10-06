@@ -51,10 +51,7 @@
           "type": "equation",
           "label": "Period",
           "formula": "period = 1 ÷ frequency",
-          "where": [
-            "period, T, in seconds (s)",
-            "frequency, f, in hertz (Hz)"
-          ]
+          "where": ["period, T, in seconds (s)", "frequency, f, in hertz (Hz)"]
         },
         {
           "type": "steps",
@@ -341,37 +338,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.1.2",
-        "AQA T 6.6.1.2"
-      ],
-      "exam_phrases": [
-        "measure the distance travelled by a wave using a metre rule",
-        "measure the time taken with a timer / stopwatch",
-        "divide the distance by the time",
-        "count the number of waves that pass a given point",
-        "frequency is number of waves divided by time taken",
-        "take a photograph of the shadow on the screen",
-        "dividing time by 2 or multiply distance by 2 for echo method"
-      ],
-      "mistakes": [
-        {
-          "wrong": "To find the wave speed, divide the distance by the time.",
-          "right": "This mark depends on the first two. First say you measure the distance with a metre rule and the time with a stopwatch, then divide."
-        },
-        {
-          "wrong": "To measure the frequency and wavelength, I would put a metre rule on the screen and measure the wavelength.",
-          "right": "Both quantities must be described. Say how to find the frequency too: count the waves passing a point and divide by the time."
-        },
-        {
-          "wrong": "The speed of sound is the distance from me to the wall divided by the time to the echo.",
-          "right": "For an echo, multiply the distance by 2, or divide the time by 2."
-        },
-        {
-          "wrong": "wave speed = 0.064",
-          "right": "The unit is awarded a mark of its own. Write 0.064 m/s."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.1.2", "AQA T 6.6.1.2"],
       "worked_example": {
         "exemplar_id": "7500efce-d100-4697-b74f-e6b630da3b89",
         "source": "AQA jun 2021, Paper 2 (H), Q06.3",
@@ -386,33 +353,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 4.7",
-        "EDEX 4.17"
-      ],
-      "exam_phrases": [
-        "use (wave) speed = distance / time",
-        "find relevant time",
-        "measure specified distance",
-        "count number of waves in specified time",
-        "measure across more than one (wavelength)",
-        "divide by the number of wavelengths",
-        "use a camera / strobe (so the waves are not moving)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "To find the speed of the ripples, measure the wavelength.",
-          "right": "The distance must be a specified distance the wave travels, such as the radius of the pond. The wavelength is not accepted as the distance."
-        },
-        {
-          "wrong": "Make the wavelength bigger so it is easier to measure.",
-          "right": "The answer must be about measuring. Measure across more than one wavelength and divide by the number of wavelengths."
-        },
-        {
-          "wrong": "Percentage difference = (343 − 240) ÷ 240 × 100 = 43%.",
-          "right": "Divide by the accepted value, not the student's value: 103 ÷ 343 × 100 = 30%. Dividing by 240 gets 1 mark."
-        }
-      ],
+      "spec_codes": ["EDEX 4.7", "EDEX 4.17"],
       "worked_example": {
         "exemplar_id": "97da703a-2286-46b0-aeeb-893397417012",
         "source": "EDEXCEL jun 2024, Paper 1 (F), Q5(e)(i)",

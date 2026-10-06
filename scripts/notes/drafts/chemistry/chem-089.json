@@ -23,31 +23,13 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Metal ion",
-            "Flame colour"
-          ],
+          "columns": ["Metal ion", "Flame colour"],
           "rows": [
-            [
-              "Lithium, Li⁺",
-              "Crimson"
-            ],
-            [
-              "Sodium, Na⁺",
-              "Yellow"
-            ],
-            [
-              "Potassium, K⁺",
-              "Lilac"
-            ],
-            [
-              "Calcium, Ca²⁺",
-              "Orange-red"
-            ],
-            [
-              "Copper, Cu²⁺",
-              "Green"
-            ]
+            ["Lithium, Li⁺", "Crimson"],
+            ["Sodium, Na⁺", "Yellow"],
+            ["Potassium, K⁺", "Lilac"],
+            ["Calcium, Ca²⁺", "Orange-red"],
+            ["Copper, Cu²⁺", "Green"]
           ]
         },
         {
@@ -56,15 +38,11 @@
             "kind": "predictor",
             "alt": "Pick a metal ion to see its flame colour.",
             "prompt": "Pick a metal ion",
-            "result_labels": [
-              "Flame colour"
-            ],
+            "result_labels": ["Flame colour"],
             "options": [
               {
                 "label": "Lithium, Li⁺",
-                "results": [
-                  "**Crimson**"
-                ],
+                "results": ["**Crimson**"],
                 "scene": {
                   "kind": "flame",
                   "colour": "crimson"
@@ -72,9 +50,7 @@
               },
               {
                 "label": "Sodium, Na⁺",
-                "results": [
-                  "**Yellow**"
-                ],
+                "results": ["**Yellow**"],
                 "scene": {
                   "kind": "flame",
                   "colour": "yellow"
@@ -82,9 +58,7 @@
               },
               {
                 "label": "Potassium, K⁺",
-                "results": [
-                  "**Lilac**"
-                ],
+                "results": ["**Lilac**"],
                 "scene": {
                   "kind": "flame",
                   "colour": "lilac"
@@ -92,9 +66,7 @@
               },
               {
                 "label": "Calcium, Ca²⁺",
-                "results": [
-                  "**Orange-red**"
-                ],
+                "results": ["**Orange-red**"],
                 "scene": {
                   "kind": "flame",
                   "colour": "orange-red"
@@ -102,9 +74,7 @@
               },
               {
                 "label": "Copper, Cu²⁺",
-                "results": [
-                  "**Green**"
-                ],
+                "results": ["**Green**"],
                 "scene": {
                   "kind": "flame",
                   "colour": "green"
@@ -205,27 +175,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.8.3.1"
-      ],
-      "exam_phrases": [
-        "put sample on (metal) wire",
-        "hold wire in (blue / non-luminous) flame",
-        "(test) flame test ... (result) yellow (flame)",
-        "lilac (flame)",
-        "did not clean the metal wire (between tests)",
-        "(flame) colours are mixed / blended / masked"
-      ],
-      "mistakes": [
-        {
-          "wrong": "To describe a flame test: clean the wire, put the sample on it and hold it in the flame.",
-          "right": "References to cleaning are ignored in this answer. The marks are for putting the sample on the (metal) wire and holding the wire in the blue (non-luminous) flame."
-        },
-        {
-          "wrong": "It is difficult to identify the ions in fireworks because the flame colours are hard to tell apart.",
-          "right": "'Hard to distinguish' is ignored. The flame colours are masked: they mix or blend, and you can only see one colour."
-        }
-      ],
+      "spec_codes": ["AQA 4.8.3.1"],
       "worked_example": {
         "exemplar_id": "c5488ff9-8a2f-41d0-a1d1-cddcca0f141e",
         "source": "AQA jun 2019, Paper 2 (F), Q09.1",
@@ -242,31 +192,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.2C"
-      ],
-      "exam_phrases": [
-        "(dip) flame test wire into dilute hydrochloric acid, then into the substance",
-        "hold (the wire) in the flame / at the tip of the (blue) cone, as it is hotter",
-        "to clean the wire / to prevent contamination of sample",
-        "so that the solid vaporises more easily / sticks onto the wire",
-        "if flame is yellow - sodium ... lilac - potassium ... orange-red - calcium",
-        "red flame - lithium ... blue-green flame - copper"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Hold the wire above the Bunsen flame.",
-          "right": "Hold the wire in the flame, at the tip of the blue cone, because it is hotter. This gives a bright flame colour."
-        },
-        {
-          "wrong": "The second dip in hydrochloric acid cleans the wire again.",
-          "right": "The wire is cleaned at the start. The second dip is so that the solid vaporises more easily and sticks onto the wire."
-        },
-        {
-          "wrong": "A wooden splint soaked briefly in water is a good way to hold the sample.",
-          "right": "A wooden splint can burn and interfere with the flame colour. Use a (nichrome) metal wire instead."
-        }
-      ],
+      "spec_codes": ["EDEX 9.2C"],
       "worked_example": {
         "exemplar_id": "235f8d71-8b39-44f6-bf07-50aa380bc62b",
         "source": "EDEXCEL jun 2022, Paper 2 (H), Q4(b)(ii)",
@@ -281,32 +207,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C4.2c",
-        "OCR C4.2e"
-      ],
-      "exam_phrases": [
-        "Use a flame test wire",
-        "Moisten wire and dip into sample",
-        "Introduce sample into blue flame of Bunsen burner",
-        "Test – flame test; Result – yellow or orange (flame)",
-        "A red flame indicates lithium ions",
-        "moisten splint with water, dip into solid, put in blue Bunsen flame"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Sodium ions must give a yellow flame, so an orange flame means the ion is not sodium.",
-          "right": "A yellow or orange flame is accepted for sodium ions. The result mark depends on naming the flame test."
-        },
-        {
-          "wrong": "Dip the dry wire into the sample.",
-          "right": "Moisten the wire first, then dip it into the sample."
-        },
-        {
-          "wrong": "Put the sample into the yellow flame of the Bunsen burner.",
-          "right": "Introduce the sample into the blue flame of the Bunsen burner."
-        }
-      ],
+      "spec_codes": ["OCR C4.2c", "OCR C4.2e"],
       "worked_example": {
         "exemplar_id": "4b5429af-6610-42a2-be4d-78aaab42d184",
         "source": "OCR sample null, Paper 2, Q16(b)",

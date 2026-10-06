@@ -72,11 +72,7 @@
               "unit": "J",
               "decimals": 0
             },
-            "working": [
-              "Ek = ½ × m × v²",
-              "Ek = 0.5 × {m} × {v}²",
-              "Ek = {answer} J"
-            ]
+            "working": ["Ek = ½ × m × v²", "Ek = 0.5 × {m} × {v}²", "Ek = {answer} J"]
           }
         },
         {
@@ -284,74 +280,18 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.1.1.2",
-        "AQA T 6.1.1.2"
-      ],
-      "exam_phrases": [
-        "Ep = 60 × 9.8 × 1.5",
-        "Ek = 0.5 × 50 × 7²",
-        "5040 = 0.5 × m × 12²",
-        "m = 5040 / (0.5 × 12²)",
-        "0.049 = 0.050 × 9.8 × h",
-        "h = 0.049 / (0.050 × 9.8)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Ek = 0.5 × 50 × 7 = 175 J.",
-          "right": "The speed must be squared: Ek = 0.5 × 50 × 7² = 1225 J."
-        },
-        {
-          "wrong": "m = 5040 × 0.5 × 12², because I multiply to find the mass.",
-          "right": "Rearrange first. m = 5040 / (0.5 × 12²) = 70 kg."
-        },
-        {
-          "wrong": "The stairs are 175 cm high, so ΔEp = 60 × 9.8 × 175.",
-          "right": "Convert the height to metres first. 175 cm = 1.75 m."
-        }
-      ],
+      "spec_codes": ["AQA 4.1.1.2", "AQA T 6.1.1.2"],
       "worked_example": {
         "exemplar_id": "2021d0ca-bf24-4f3c-91d6-864ac9180814",
         "source": "AQA jun 2021, Paper 1 (F), Q07.3",
         "question": "At the instant a diver hits the water, the kinetic energy of the diver is 5040 J.\nThe speed of the diver is 12 m/s.\n\nCalculate the mass of the diver.",
         "marks": 3,
-        "answer_points": [
-          "5040 = 0.5 × m × 12²",
-          "m = 5040 / (0.5 × 12²)",
-          "m = 70 (kg)"
-        ],
+        "answer_points": ["5040 = 0.5 × m × 12²", "m = 5040 / (0.5 × 12²)", "m = 70 (kg)"],
         "tip": "One mark for the substitution, one for the rearrangement and one for the answer."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 3.1",
-        "EDEX 3.2",
-        "EDEX 8.8",
-        "EDEX 8.9"
-      ],
-      "exam_phrases": [
-        "KE = ½ × m × v²",
-        "(KE =) ½ × 70 × 8²",
-        "(ΔPE) = mgh",
-        "1300 = 7 × 10 × h",
-        "(v² =) 2800 × 2 / 85",
-        "(ΔGPE) = 72 × 10 × 7.0"
-      ],
-      "mistakes": [
-        {
-          "wrong": "KE = ½ × 70 × 8 = 280 J.",
-          "right": "Square the speed. KE = ½ × 70 × 8² = 2240 J, which rounds to 2200 J."
-        },
-        {
-          "wrong": "ΔGPE = 72 × 7.0 = 504 J.",
-          "right": "Include g. An answer without the value of g (10 N/kg) is not accepted: 72 × 10 × 7.0 = 5040 J."
-        },
-        {
-          "wrong": "v = 2800 × 2 / 85 = 66 m/s.",
-          "right": "That is v². Take the square root to get v = 8.1 m/s."
-        }
-      ],
+      "spec_codes": ["EDEX 3.1", "EDEX 3.2", "EDEX 8.8", "EDEX 8.9"],
       "worked_example": {
         "exemplar_id": "5b5e0607-06f2-4530-b052-f735ec83c8f5",
         "source": "EDEXCEL jun 2018, Paper 1 (H), Q7(c)(i)",
@@ -366,33 +306,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P7.1d",
-        "OCR P7.1e",
-        "OCR P2.2n"
-      ],
-      "exam_phrases": [
-        "kinetic energy (J) = 0.5 × mass (kg) × (speed (m/s))²",
-        "KE = 0.5 × 2.0 × 3.0²",
-        "gravitational potential energy = m × g × h",
-        "20 × 10 × 16",
-        "rock has more energy in its gravitational store",
-        "rock transfers more energy (to the water)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The rock dropped from higher hits the water harder.",
-          "right": "Say which stores. The rock has more energy in its gravitational store, then more in its kinetic store, and transfers more energy to the water."
-        },
-        {
-          "wrong": "The kinetic energy of the trolley is 0.5 × 2.0 × 3.0 = 3 J.",
-          "right": "Square the speed: 0.5 × 2.0 × 3.0² = 9 J."
-        },
-        {
-          "wrong": "A motor transferring 4.3 kJ transfers 4.3 J.",
-          "right": "Convert kilojoules to joules. 4.3 kJ = 4300 J."
-        }
-      ],
+      "spec_codes": ["OCR P7.1d", "OCR P7.1e", "OCR P2.2n"],
       "worked_example": {
         "exemplar_id": "17c794f3-d723-4374-b0d3-d3dc48682f9c",
         "source": "OCR jun 2019, Paper 3, Q21(b)(ii)",

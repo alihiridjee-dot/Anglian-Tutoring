@@ -33,9 +33,7 @@
           "type": "equation",
           "label": "Mean",
           "formula": "mean = total of the readings ÷ number of readings",
-          "where": [
-            "readings in the same unit, such as °C or g"
-          ]
+          "where": ["readings in the same unit, such as °C or g"]
         },
         {
           "type": "list",
@@ -74,9 +72,7 @@
           "type": "equation",
           "label": "Uncertainty",
           "formula": "uncertainty = largest difference between a reading and the mean",
-          "where": [
-            "readings and mean in the same unit"
-          ]
+          "where": ["readings and mean in the same unit"]
         },
         {
           "type": "subheading",
@@ -209,31 +205,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.3.1.4",
-        "AQA T 5.3.1.4"
-      ],
-      "exam_phrases": [
-        "(0.3 °C) is the uncertainty",
-        "(because 0.3 °C) is the range about the mean value",
-        "values are a maximum of 0.3 °C either side of the mean",
-        "37.5 (°C) ± 0.3 (°C)",
-        "do not include the anomalous result"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The mean highest temperature is 37.5 °C.",
-          "right": "When asked to include the uncertainty, a separate mark is for giving it: 37.5 ± 0.3 °C."
-        },
-        {
-          "wrong": "The ± 0.3 °C shows that the student made a mistake.",
-          "right": "It is the uncertainty. It is the range about the mean value, with readings up to 0.3 °C either side of the mean."
-        },
-        {
-          "wrong": "Mean decrease in mass = (0.84 + 0.79 + 0.86 + 0.47) ÷ 4 = 0.74 g.",
-          "right": "The anomalous result is not included. Mean = (0.84 + 0.79 + 0.86) ÷ 3 = 0.83 g."
-        }
-      ],
+      "spec_codes": ["AQA 4.3.1.4", "AQA T 5.3.1.4"],
       "worked_example": {
         "exemplar_id": "b9bbf9f7-5620-48d2-96ad-96a967285202",
         "source": "AQA jun 2024, Paper 1 (H), Q04.5",
@@ -256,9 +228,7 @@
       "81eacb10-a1f3-42d1-888f-ab9eec83e404",
       "9b619373-4a93-4ade-a84b-55c549b3259a"
     ],
-    "exemplar_ids": [
-      "b9bbf9f7-5620-48d2-96ad-96a967285202"
-    ],
+    "exemplar_ids": ["b9bbf9f7-5620-48d2-96ad-96a967285202"],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-03"
   }

@@ -27,32 +27,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Name",
-            "Formula",
-            "Carbon atoms"
-          ],
+          "columns": ["Name", "Formula", "Carbon atoms"],
           "rows": [
-            [
-              "Methanoic acid",
-              "HCOOH",
-              "1"
-            ],
-            [
-              "Ethanoic acid",
-              "CH₃COOH",
-              "2"
-            ],
-            [
-              "Propanoic acid",
-              "CH₃CH₂COOH",
-              "3"
-            ],
-            [
-              "Butanoic acid",
-              "CH₃CH₂CH₂COOH",
-              "4"
-            ]
+            ["Methanoic acid", "HCOOH", "1"],
+            ["Ethanoic acid", "CH₃COOH", "2"],
+            ["Propanoic acid", "CH₃CH₂COOH", "3"],
+            ["Butanoic acid", "CH₃CH₂CH₂COOH", "4"]
           ]
         },
         {
@@ -69,11 +49,7 @@
             "kind": "sort",
             "alt": "Sort formulae into alcohols, carboxylic acids and neither.",
             "prompt": "Sort each formula into the right group.",
-            "groups": [
-              "Alcohol",
-              "Carboxylic acid",
-              "Neither"
-            ],
+            "groups": ["Alcohol", "Carboxylic acid", "Neither"],
             "items": [
               {
                 "text": "CH₃OH",
@@ -179,11 +155,11 @@
       ]
     },
     {
-      "heading": "Carboxylic acids are weak acids (Higher tier)",
+      "heading": "Carboxylic acids are weak acids (AQA: Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) A weak acid ionises only partly in water. Ethanoic acid is a weak acid."
+          "text": "(AQA: Higher tier) A weak acid ionises only partly in water. Ethanoic acid is a weak acid."
         },
         {
           "type": "definitions",
@@ -216,38 +192,23 @@
           "diagram": {
             "kind": "compare",
             "alt": "A strong acid compared with a weak carboxylic acid at the same concentration.",
-            "items": [
-              "Strong acid",
-              "Weak acid (ethanoic acid)"
-            ],
+            "items": ["Strong acid", "Weak acid (ethanoic acid)"],
             "rows": [
               {
                 "feature": "Ionisation",
-                "values": [
-                  "Complete",
-                  "Incomplete (partial)"
-                ]
+                "values": ["Complete", "Incomplete (partial)"]
               },
               {
                 "feature": "pH at the same concentration",
-                "values": [
-                  "Lower",
-                  "Higher"
-                ]
+                "values": ["Lower", "Higher"]
               },
               {
                 "feature": "Concentration of hydrogen ions",
-                "values": [
-                  "Higher",
-                  "Lower"
-                ]
+                "values": ["Higher", "Lower"]
               },
               {
                 "feature": "Rate with a carbonate",
-                "values": [
-                  "Faster",
-                  "Slower"
-                ]
+                "values": ["Faster", "Slower"]
               }
             ]
           }
@@ -259,7 +220,7 @@
         {
           "type": "key-points",
           "items": [
-            "(Higher tier) Carboxylic acids are weak acids because they ionise only partly.",
+            "(AQA: Higher tier) Carboxylic acids are weak acids because they ionise only partly.",
             "The reaction is reversible, shown by ⇌.",
             "A weaker acid has a higher pH and a lower concentration of hydrogen ions."
           ]
@@ -279,40 +240,14 @@
       "marks": 2
     },
     {
-      "q": "(Higher tier) Explain why ethanoic acid is a weak acid.",
+      "q": "(AQA: Higher tier) Explain why ethanoic acid is a weak acid.",
       "a": "It is only partly (incompletely) ionised in water, because the ionisation reaction is reversible.",
       "marks": 2
     }
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.2.4"
-      ],
-      "exam_phrases": [
-        "incomplete / partial ionisation",
-        "(because) reaction is reversible / in equilibrium",
-        "(methanoic acid) has a lower pH",
-        "(methanoic acid) is a stronger acid",
-        "higher concentration of hydrogen ions",
-        "more collisions per unit time",
-        "mass decreases because carbon dioxide is produced and escapes",
-        "propanoic acid"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The mass decreases because a gas is produced and escapes.",
-          "right": "Saying the gas escapes scores only 1 of the 3 marks. Name it: carbon dioxide is produced and carbon dioxide escapes from the flask."
-        },
-        {
-          "wrong": "The equation shows ethanoic acid is weak because it is only partly ionised.",
-          "right": "Partial ionisation earns one mark. Also say the reaction is reversible (or in equilibrium), shown by the ⇌ arrow."
-        },
-        {
-          "wrong": "Methanoic acid reacts faster because it is a stronger acid.",
-          "right": "A stronger acid or lower pH earns one mark. Go on to say it has a higher concentration of hydrogen ions, so more collisions per unit time."
-        }
-      ],
+      "spec_codes": ["AQA 4.7.2.4"],
       "worked_example": {
         "exemplar_id": "d3d0cb0d-32ea-4b02-9877-08ebdec085e9",
         "source": "AQA jun 2020, Paper 2 (H), Q7.4",
@@ -327,30 +262,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.29C",
-        "EDEX 9.30C",
-        "EDEX 9.31C"
-      ],
-      "exam_phrases": [
-        "(add) sodium carbonate (or any suitable carbonate)",
-        "carboxylic acid sample effervesces",
-        "blue litmus turns red",
-        "alkane and alkene give no effervescence",
-        "alkene changes from orange to colourless",
-        "alkane (and carboxylic acid) stay orange",
-        "sodium butanoate + carbon dioxide + water"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Use bromine water to test for the carboxylic acid.",
-          "right": "Bromine water identifies the alkene: it changes from orange to colourless. The alkane and the carboxylic acid stay orange. Test the acid with a carbonate or litmus."
-        },
-        {
-          "wrong": "State the tests and results only, with no equations.",
-          "right": "The question asks for balanced equations. For example, 2C₃H₇COOH + Na₂CO₃ → 2C₃H₇COONa + CO₂ + H₂O."
-        }
-      ],
+      "spec_codes": ["EDEX 9.29C", "EDEX 9.30C", "EDEX 9.31C"],
       "worked_example": {
         "exemplar_id": "2728f0cf-0cca-45b9-b112-810aa2412995",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q*10(b)",
@@ -368,28 +280,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.2b",
-        "OCR C6.2c"
-      ],
-      "exam_phrases": [
-        "add sodium carbonate (or any suitable carbonate)",
-        "ethanoic acid effervesces / fizzing observed",
-        "acids react with carbonates to give off carbon dioxide",
-        "use of universal indicator to identify ethanoic acid",
-        "bromine water stays orange",
-        "bromine water is decolourised"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Pentane and pentene both decolourise bromine water.",
-          "right": "Alkanes do not react with bromine water. Only the alkene turns it from orange to colourless."
-        },
-        {
-          "wrong": "Describe a test but do not say which liquid each result identifies.",
-          "right": "The top level needs the tests, the results and an identification of each of the three samples, with balanced symbol equations."
-        }
-      ],
+      "spec_codes": ["OCR C6.2b", "OCR C6.2c"],
       "worked_example": {
         "exemplar_id": "c6047c52-9df1-4df8-97c6-055eaee064bc",
         "source": "OCR nov 2020, Paper 4, Q20(c)",

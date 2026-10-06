@@ -8,16 +8,37 @@
     {
       "heading": "The main energy resources",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers the energy resources available on Earth and the difference between renewable and non-renewable." },
+        {
+          "type": "paragraph",
+          "text": "This section covers the energy resources available on Earth and the difference between renewable and non-renewable."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Renewable resource", "meaning": "One that is being, or can be, replenished as it is used." },
-            { "term": "Non-renewable resource", "meaning": "One that is finite: it cannot be replaced as fast as it is used." },
-            { "term": "Fossil fuels", "meaning": "Coal, oil and gas." },
-            { "term": "Bio-fuel", "meaning": "Fuel made from plant or animal material." },
-            { "term": "Geothermal", "meaning": "Energy from hot rocks underground." },
-            { "term": "Reliable", "meaning": "A resource whose supply is predictable, so it can generate when needed." }
+            {
+              "term": "Renewable resource",
+              "meaning": "One that is being, or can be, replenished as it is used."
+            },
+            {
+              "term": "Non-renewable resource",
+              "meaning": "One that is finite: it cannot be replaced as fast as it is used."
+            },
+            {
+              "term": "Fossil fuels",
+              "meaning": "Coal, oil and gas."
+            },
+            {
+              "term": "Bio-fuel",
+              "meaning": "Fuel made from plant or animal material."
+            },
+            {
+              "term": "Geothermal",
+              "meaning": "Energy from hot rocks underground."
+            },
+            {
+              "term": "Reliable",
+              "meaning": "A resource whose supply is predictable, so it can generate when needed."
+            }
           ]
         },
         {
@@ -28,21 +49,57 @@
             "prompt": "Renewable or non-renewable?",
             "groups": ["Renewable", "Non-renewable"],
             "items": [
-              { "text": "Wind", "group": 0 },
-              { "text": "Tides", "group": 0 },
-              { "text": "Water waves", "group": 0 },
-              { "text": "The Sun (solar)", "group": 0 },
-              { "text": "Hydroelectricity", "group": 0 },
-              { "text": "Geothermal", "group": 0 },
-              { "text": "Bio-fuel", "group": 0 },
-              { "text": "Coal", "group": 1 },
-              { "text": "Oil", "group": 1 },
-              { "text": "Natural gas", "group": 1 },
-              { "text": "Nuclear fuel (uranium)", "group": 1 }
+              {
+                "text": "Wind",
+                "group": 0
+              },
+              {
+                "text": "Tides",
+                "group": 0
+              },
+              {
+                "text": "Water waves",
+                "group": 0
+              },
+              {
+                "text": "The Sun (solar)",
+                "group": 0
+              },
+              {
+                "text": "Hydroelectricity",
+                "group": 0
+              },
+              {
+                "text": "Geothermal",
+                "group": 0
+              },
+              {
+                "text": "Bio-fuel",
+                "group": 0
+              },
+              {
+                "text": "Coal",
+                "group": 1
+              },
+              {
+                "text": "Oil",
+                "group": 1
+              },
+              {
+                "text": "Natural gas",
+                "group": 1
+              },
+              {
+                "text": "Nuclear fuel (uranium)",
+                "group": 1
+              }
             ]
           }
         },
-        { "type": "subheading", "text": "What the resources are used for" },
+        {
+          "type": "subheading",
+          "text": "What the resources are used for"
+        },
         {
           "type": "list",
           "items": [
@@ -64,8 +121,14 @@
     {
       "heading": "Reliability and environmental impact",
       "blocks": [
-        { "type": "paragraph", "text": "Resources differ in how reliably they supply energy and in the harm they cause." },
-        { "type": "subheading", "text": "Reliability" },
+        {
+          "type": "paragraph",
+          "text": "Resources differ in how reliably they supply energy and in the harm they cause."
+        },
+        {
+          "type": "subheading",
+          "text": "Reliability"
+        },
         {
           "type": "list",
           "items": [
@@ -75,13 +138,22 @@
             "Fossil fuel and nuclear power stations burn or use stored fuel, so they can generate when needed, apart from maintenance. Their fuel is finite."
           ]
         },
-        { "type": "subheading", "text": "Environmental impact" },
+        {
+          "type": "subheading",
+          "text": "Environmental impact"
+        },
         {
           "type": "table",
           "columns": ["Resource", "Environmental impact"],
           "rows": [
-            ["Fossil fuels", "Carbon dioxide increases global warming (the greenhouse effect). Sulfur dioxide and nitrogen oxides cause acid rain. Particulates can harm living organisms."],
-            ["Nuclear fuel", "No carbon dioxide produced. Radioactive waste is produced, stays dangerous for a long time and needs safe storage. There is a risk of accidents."],
+            [
+              "Fossil fuels",
+              "Carbon dioxide increases global warming (the greenhouse effect). Sulfur dioxide and nitrogen oxides cause acid rain. Particulates can harm living organisms."
+            ],
+            [
+              "Nuclear fuel",
+              "No carbon dioxide produced. Radioactive waste is produced, stays dangerous for a long time and needs safe storage. There is a risk of accidents."
+            ],
             ["Wind", "Visual pollution, noise pollution and danger to birds."],
             ["Hydroelectricity", "Land is flooded behind the dam, causing loss of habitat."]
           ]
@@ -99,7 +171,10 @@
     {
       "heading": "Patterns and trends in use",
       "blocks": [
-        { "type": "paragraph", "text": "The mix of energy resources changes over time. Renewables now provide a growing fraction of electricity in many countries." },
+        {
+          "type": "paragraph",
+          "text": "The mix of energy resources changes over time. Renewables now provide a growing fraction of electricity in many countries."
+        },
         {
           "type": "list",
           "items": [
@@ -144,28 +219,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.1.3", "AQA T 6.1.3"],
-      "exam_phrases": [
-        "(an energy resource that is) replenished (as it is used)",
-        "(an energy resource that is) finite",
-        "wind is unreliable",
-        "wind turbines don't turn when the wind is too strong / weak",
-        "carbon dioxide increases global warming",
-        "visual pollution"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Renewable resources have an infinite supply and never run out.",
-          "right": "Say that a renewable resource is replenished as it is used, and a non-renewable resource is finite or has a limited supply."
-        },
-        {
-          "wrong": "Fossil fuels cause pollution.",
-          "right": "Name the impact and its effect: carbon dioxide increases global warming, or sulfur dioxide increases acid rain."
-        },
-        {
-          "wrong": "Wind could not meet the demand because of the weather.",
-          "right": "Weather conditions unqualified are ignored. Say it was not windy, or the turbines do not turn when the wind is too strong or too weak."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "cd20cf5d-feec-44c3-8e28-504edd6ac784",
         "source": "AQA jun 2022, Paper 1 (H), Q01.2",
@@ -181,27 +234,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.13", "EDEX 3.14", "EDEX 6.36P"],
-      "exam_phrases": [
-        "oil, (natural) gas, coal, nuclear / uranium",
-        "radioactive substances",
-        "carbon dioxide",
-        "increased use of renewables / decrease use of non-renewables",
-        "no carbon emissions"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Two non-renewable sources are fossil fuels and coal.",
-          "right": "Coal is a fossil fuel, so that scores 1 mark. Give two different sources, such as fossil fuel and nuclear."
-        },
-        {
-          "wrong": "Burning oil and nuclear fuel both produce pollution.",
-          "right": "Name the waste. Nuclear fuel produces radioactive substances (nuclear waste) and burning oil produces carbon dioxide."
-        },
-        {
-          "wrong": "Nuclear fuel is a renewable resource.",
-          "right": "Nuclear fuel (uranium) is a non-renewable energy source."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "bb32c6d5-6984-4c96-9168-3bfb3b035ca7",
         "source": "EDEXCEL nov 2020, Paper 1 (F), Q7(c)",
@@ -216,28 +248,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR P8.2a", "OCR P8.2b"],
-      "exam_phrases": [
-        "fossil fuel may run out / is non-renewable / be in short supply / become very costly",
-        "(increased) greenhouse gases / global warming / carbon dioxide / climate change / acid rain",
-        "to reduce reliance on / use of fossil fuels",
-        "to reduce energy bills / sell electricity (back to national grid)",
-        "no carbon dioxide produced",
-        "radioactive / nuclear waste produced"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Fossil fuels are bad for the environment.",
-          "right": "Just pollution or bad for the environment is ignored. Name the damage, such as global warming, climate change or acid rain."
-        },
-        {
-          "wrong": "More people use solar panels because people are more green.",
-          "right": "That is ignored. Give a reason such as lower energy bills, grants, cheaper panels or reduced use of fossil fuels."
-        },
-        {
-          "wrong": "Nuclear power is bad because it is dangerous.",
-          "right": "Just dangerous is ignored. Say radioactive waste is produced, there is a danger of exposure to radiation, or it is expensive to build."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "c5104231-d1d3-4459-bdec-43567165c2f8",
         "source": "OCR jun 2018, Paper 4, Q16(b)(i)",

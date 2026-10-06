@@ -8,13 +8,25 @@
     {
       "heading": "Charging by friction",
       "blocks": [
-        { "type": "paragraph", "text": "When certain insulating materials are rubbed together, they become electrically charged. This section covers how." },
+        {
+          "type": "paragraph",
+          "text": "When certain insulating materials are rubbed together, they become electrically charged. This section covers how."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Insulator", "meaning": "A material that does not conduct. Static charge only builds up on insulators." },
-            { "term": "Electron", "meaning": "A negatively charged particle. Electrons are the only charges that move." },
-            { "term": "Earthing", "meaning": "Connecting an object to the ground with a conductor so that excess charge can flow away." }
+            {
+              "term": "Insulator",
+              "meaning": "A material that does not conduct. Static charge only builds up on insulators."
+            },
+            {
+              "term": "Electron",
+              "meaning": "A negatively charged particle. Electrons are the only charges that move."
+            },
+            {
+              "term": "Earthing",
+              "meaning": "Connecting an object to the ground with a conductor so that excess charge can flow away."
+            }
           ]
         },
         {
@@ -41,7 +53,10 @@
             ]
           }
         },
-        { "type": "paragraph", "text": "Only electrons move. Any mention of positive charges or positive electrons moving scores no marks." },
+        {
+          "type": "paragraph",
+          "text": "Only electrons move. Any mention of positive charges or positive electrons moving scores no marks."
+        },
         {
           "type": "key-points",
           "items": [
@@ -55,7 +70,10 @@
     {
       "heading": "Attraction and repulsion",
       "blocks": [
-        { "type": "paragraph", "text": "When two charged objects are brought close together, they exert a force on each other without touching. This is a non-contact force." },
+        {
+          "type": "paragraph",
+          "text": "When two charged objects are brought close together, they exert a force on each other without touching. This is a non-contact force."
+        },
         {
           "type": "list",
           "items": [
@@ -71,16 +89,37 @@
             "prompt": "Do these attract or repel?",
             "groups": ["Attract", "Repel"],
             "items": [
-              { "text": "Two negatively charged plastic rods", "group": 1 },
-              { "text": "A positive rod and a negative rod", "group": 0 },
-              { "text": "Two positively charged balloons", "group": 1 },
-              { "text": "Strands of hair that all have the same charge", "group": 1 },
-              { "text": "A positively charged comb and a piece of paper", "group": 0 },
-              { "text": "A negatively charged balloon and a positively charged cloth", "group": 0 }
+              {
+                "text": "Two negatively charged plastic rods",
+                "group": 1
+              },
+              {
+                "text": "A positive rod and a negative rod",
+                "group": 0
+              },
+              {
+                "text": "Two positively charged balloons",
+                "group": 1
+              },
+              {
+                "text": "Strands of hair that all have the same charge",
+                "group": 1
+              },
+              {
+                "text": "A positively charged comb and a piece of paper",
+                "group": 0
+              },
+              {
+                "text": "A negatively charged balloon and a positively charged cloth",
+                "group": 0
+              }
             ]
           }
         },
-        { "type": "subheading", "text": "Evidence for the forces" },
+        {
+          "type": "subheading",
+          "text": "Evidence for the forces"
+        },
         {
           "type": "list",
           "items": [
@@ -89,7 +128,10 @@
             "A student's hair stands on end when each hair has the same charge."
           ]
         },
-        { "type": "subheading", "text": "Why a charged object attracts a neutral one" },
+        {
+          "type": "subheading",
+          "text": "Why a charged object attracts a neutral one"
+        },
         {
           "type": "list",
           "items": [
@@ -110,8 +152,14 @@
     {
       "heading": "Sparks, earthing and everyday uses",
       "blocks": [
-        { "type": "paragraph", "text": "Charge can build up on an object and then flow away. This section covers sparks, earthing, uses and dangers." },
-        { "type": "subheading", "text": "Sparks and shocks" },
+        {
+          "type": "paragraph",
+          "text": "Charge can build up on an object and then flow away. This section covers sparks, earthing, uses and dangers."
+        },
+        {
+          "type": "subheading",
+          "text": "Sparks and shocks"
+        },
         {
           "type": "list",
           "items": [
@@ -122,7 +170,10 @@
             "The negative base of a cloud induces a positive charge on the ground. A large potential difference builds up, the air becomes ionised and electrons travel to the ground."
           ]
         },
-        { "type": "subheading", "text": "Earthing" },
+        {
+          "type": "subheading",
+          "text": "Earthing"
+        },
         {
           "type": "list",
           "items": [
@@ -130,7 +181,10 @@
             "A carpet with thin copper wires is a conductor, so charge does not build up on a person."
           ]
         },
-        { "type": "subheading", "text": "Dangers of sparking" },
+        {
+          "type": "subheading",
+          "text": "Dangers of sparking"
+        },
         {
           "type": "list",
           "items": [
@@ -139,7 +193,10 @@
             "The pipe and the vehicle are connected by a metal wire to earth, so they are at the same potential and no charge builds up."
           ]
         },
-        { "type": "subheading", "text": "Uses of static charge" },
+        {
+          "type": "subheading",
+          "text": "Uses of static charge"
+        },
         {
           "type": "list",
           "items": [
@@ -180,29 +237,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.2.5.1"],
-      "exam_phrases": [
-        "electrons transferred from the cloth (to the rod)",
-        "electrons are negatively charged",
-        "there are more positive charges than negative charges on the cloth",
-        "there is a potential difference between the student and the tap",
-        "which causes electrons / charges to transfer from the student",
-        "a force of repulsion",
-        "the rods have the same charge"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Positive charge is transferred from the rod to the cloth.",
-          "right": "Any mention of the transfer of positive charge scores 0. Only electrons move."
-        },
-        {
-          "wrong": "The student gets a shock because the tap is charged.",
-          "right": "The tap is not charged. The tap is earthed. There is a potential difference between the student and the tap, so electrons transfer."
-        },
-        {
-          "wrong": "The cloth is positive because it has gained positive electrons.",
-          "right": "There are no positive electrons. The cloth lost electrons, so it has more positive charges than negative charges."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "41a0547d-f89c-47bf-98f6-418c8880e558",
         "source": "AQA jun 2022, Paper 1 (H), Q05.1",
@@ -217,29 +251,14 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 11.1P", "EDEX 11.2P", "EDEX 11.3P", "EDEX 11.4P", "EDEX 11.5P", "EDEX 11.6P", "EDEX 11.7P"],
-      "exam_phrases": [
-        "friction (between cloth and comb)",
-        "transfer of electrons / charge",
-        "electrons carry a negative charge",
-        "leaving excess positive charge on the comb",
-        "a negative charge is induced on the part of the paper closest to the comb",
-        "opposite charges attract",
-        "electrons / negative charges move down the wire / to earth"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Positive electrons move from the comb to the cloth.",
-          "right": "Reference to positive electrons or positive charge moving loses the mark. Electrons carry a negative charge and move from the comb to the cloth."
-        },
-        {
-          "wrong": "The comb picks up paper because the paper is positive.",
-          "right": "Explain induction: a negative charge is induced on the part of the paper closest to the comb, and opposite charges attract."
-        },
-        {
-          "wrong": "When the spark jumps, positive charges move down the wire to earth.",
-          "right": "Reject positive charge moving. Electrons (negative charges) move down the wire to earth."
-        }
+      "spec_codes": [
+        "EDEX 11.1P",
+        "EDEX 11.2P",
+        "EDEX 11.3P",
+        "EDEX 11.4P",
+        "EDEX 11.5P",
+        "EDEX 11.6P",
+        "EDEX 11.7P"
       ],
       "worked_example": {
         "exemplar_id": "2111c247-9048-4c8e-a87a-5e2296c2545d",
@@ -257,28 +276,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR P3.1a", "OCR P3.1b", "OCR P3.1c"],
-      "exam_phrases": [
-        "equal numbers of protons and electrons",
-        "so the effects of positive charges and negative charges cancel out",
-        "electrons are transferred",
-        "different numbers of protons and electrons",
-        "negative charges / electrons can move",
-        "rub the balloon (against the cloth)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Only positive charges can move.",
-          "right": "Negative charges, the electrons, can move."
-        },
-        {
-          "wrong": "The ruler becomes charged because protons move from the cloth.",
-          "right": "Protons and positive charges do not move and are not accepted. Electrons are transferred, so the numbers of positive and negative charges are no longer equal."
-        },
-        {
-          "wrong": "A plastic ruler is not normally charged because it has no positive or negative charges in it.",
-          "right": "It has equal numbers of protons and electrons, so the effects of the positive and negative charges cancel out."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "470270d3-f73d-448a-bf67-1faa1f27bae0",
         "source": "OCR nov 2020, Paper 1, Q22(a)(ii)",

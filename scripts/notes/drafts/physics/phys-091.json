@@ -63,55 +63,31 @@
             "kind": "predictor",
             "alt": "Pick a galaxy to see how the observed wavelength and frequency of its light change.",
             "prompt": "Pick a galaxy",
-            "result_labels": [
-              "Observed wavelength",
-              "Observed frequency",
-              "Shift in the spectrum"
-            ],
+            "result_labels": ["Observed wavelength", "Observed frequency", "Shift in the spectrum"],
             "options": [
               {
                 "label": "A galaxy moving towards the Earth",
-                "results": [
-                  "Decreased",
-                  "Increased",
-                  "Towards shorter wavelengths"
-                ],
+                "results": ["Decreased", "Increased", "Towards shorter wavelengths"],
                 "explanation": "A source moving towards the observer has its waves squashed together."
               },
               {
                 "label": "A galaxy not moving relative to the Earth",
-                "results": [
-                  "Unchanged",
-                  "Unchanged",
-                  "None"
-                ],
+                "results": ["Unchanged", "Unchanged", "None"],
                 "explanation": "With no relative motion there is no change."
               },
               {
                 "label": "A nearby galaxy moving away",
-                "results": [
-                  "Increased a little",
-                  "Decreased a little",
-                  "Small red-shift"
-                ],
+                "results": ["Increased a little", "Decreased a little", "Small red-shift"],
                 "explanation": "A source moving away has its waves stretched."
               },
               {
                 "label": "A distant galaxy moving away",
-                "results": [
-                  "Increased more",
-                  "Decreased more",
-                  "Larger red-shift"
-                ],
+                "results": ["Increased more", "Decreased more", "Larger red-shift"],
                 "explanation": "The further away the galaxy, the faster it moves and the bigger the increase in wavelength."
               },
               {
                 "label": "A much more distant galaxy",
-                "results": [
-                  "Increased most",
-                  "Decreased most",
-                  "Largest red-shift"
-                ],
+                "results": ["Increased most", "Decreased most", "Largest red-shift"],
                 "explanation": "The most distant galaxies are moving away the fastest."
               }
             ]
@@ -176,27 +152,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.8.2"
-      ],
-      "exam_phrases": [
-        "wavelength (seems to have) decreased",
-        "frequency (seems to have) increased",
-        "an increase in wavelength",
-        "distant galaxies are moving away from our galaxy",
-        "a very distant galaxy moves faster",
-        "expanding at an ever greater rate"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Light from a galaxy moving towards the Earth has a longer wavelength.",
-          "right": "A galaxy moving towards us has its wavelength decrease. Red-shift, an increase in wavelength, is for galaxies moving away."
-        },
-        {
-          "wrong": "The wavelength and the frequency both increase.",
-          "right": "They change in opposite directions. For a source moving towards the observer the wavelength decreases and the frequency increases."
-        }
-      ],
+      "spec_codes": ["AQA 4.8.2"],
       "extra": [
         {
           "heading": "Other ideas",
@@ -221,29 +177,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 7.11P",
-        "EDEX 7.12P",
-        "EDEX 7.13P",
-        "EDEX 7.14P"
-      ],
-      "exam_phrases": [
-        "an increase in wavelength (of light)",
-        "shows galaxies are moving away (from Earth)",
-        "more distant galaxies have a bigger red shift",
-        "more distant galaxies are moving faster",
-        "galaxies are getting further apart"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The light is shifted to the red end of the spectrum, so the Universe is expanding.",
-          "right": "On its own, 'shift to the red end of the spectrum' is ignored when explaining expansion. State the increase in wavelength, which shows galaxies are moving away."
-        },
-        {
-          "wrong": "Stars are moving away from the Earth.",
-          "right": "References to objects, stars or planets are ignored. Write about galaxies."
-        }
-      ],
+      "spec_codes": ["EDEX 7.11P", "EDEX 7.12P", "EDEX 7.13P", "EDEX 7.14P"],
       "worked_example": {
         "exemplar_id": "3195f79b-2b51-4230-b3ad-429537fc4cb0",
         "source": "EDEXCEL jun 2024, Paper 1 (H), Q1(c)(ii)",
@@ -258,27 +192,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P8.3a"
-      ],
-      "exam_phrases": [
-        "(all galaxies) showed red-shift",
-        "Hubble measured the wavelength / frequency of light",
-        "a longer wavelength / lower frequency",
-        "the redshift for galaxy B is greater than for galaxy A",
-        "galaxies are moving away from the Earth",
-        "galaxy B is moving faster"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Galaxy A is moving towards the Earth because its wavelength is longer.",
-          "right": "This is not allowed. Both lines show red-shift, so both galaxies are moving away from the Earth."
-        },
-        {
-          "wrong": "Galaxy B has the longer wavelength, so it is moving more slowly.",
-          "right": "A larger red-shift means a faster speed. Galaxy B is moving faster, and it is further away."
-        }
-      ],
+      "spec_codes": ["OCR P8.3a"],
       "extra": [
         {
           "heading": "Models",

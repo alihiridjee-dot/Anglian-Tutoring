@@ -1,0 +1,300 @@
+{
+  "format": 1,
+  "concept_id": "bio-091",
+  "subject": "biology",
+  "title": "DNA structure and the genetic code",
+  "key_idea": "DNA is a polymer of **nucleotides**, each made of a sugar, a phosphate and one of four bases. The bases pair A with T and C with G. In a gene, each group of three bases codes for one amino acid, and the order of amino acids decides the protein.",
+  "sections": [
+    {
+      "heading": "Nucleotides and base pairing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "DNA is built from repeating units called nucleotides. This section covers what a nucleotide contains and how the two strands match up."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Nucleotide",
+              "meaning": "One unit of DNA: a sugar, a phosphate group and one base."
+            },
+            {
+              "term": "Complementary bases",
+              "meaning": "Bases that pair across the two strands: A with T, and C with G."
+            },
+            {
+              "term": "Hydrogen bond",
+              "meaning": "The weak bond that joins the two bases in a pair."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each nucleotide has a **sugar** and a **phosphate** group. These are the same in every nucleotide.",
+            "Each nucleotide also has one of four **bases**: A (adenine), C (cytosine), G (guanine) or T (thymine).",
+            "There are four different nucleotides, one for each base.",
+            "The sugars and phosphates make the backbone of each strand.",
+            "The two strands are linked by pairs of bases, held together by weak hydrogen bonds."
+          ]
+        },
+        {
+          "type": "table",
+          "rows": [
+            ["A (adenine)", "T (thymine)"],
+            ["C (cytosine)", "G (guanine)"]
+          ],
+          "columns": ["Base", "Pairs with"]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A nucleotide is a sugar, a phosphate and one base.",
+            "There are four bases: A, C, G and T.",
+            "A pairs with T and C with G."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Working with base pairs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Because the pairing is fixed, you can work out one strand from the other. You can also work out the percentage of each base."
+        },
+        {
+          "type": "subheading",
+          "text": "Writing the complementary strand"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Take each base in turn.",
+              "text": "The strand reads T C A G."
+            },
+            {
+              "lead": "Swap it for its partner.",
+              "text": "T becomes A, C becomes G, A becomes T and G becomes C."
+            },
+            {
+              "lead": "Write the new strand.",
+              "text": "The complementary strand is A G T C."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Percentages of bases"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The amount of A equals the amount of T.",
+            "The amount of C equals the amount of G.",
+            "All four bases add up to 100%."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Double the known pair.",
+              "text": "A sample has 15% adenine, so it also has 15% thymine. Together A and T make 30%."
+            },
+            {
+              "lead": "Subtract from 100.",
+              "text": "100 - 30 = 70%. This is C and G together."
+            },
+            {
+              "lead": "Halve it.",
+              "text": "C and G are equal, so guanine is 70 ÷ 2 = 35%."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Practise working out the percentage of guanine from the percentage of adenine in a DNA sample.",
+            "kind": "practice",
+            "answer": {
+              "unit": "%",
+              "formula": "50 - A",
+              "decimals": 0
+            },
+            "working": [
+              "A pairs with T, so thymine is also {A}%",
+              "A + T = {A}% + {A}%",
+              "C + G = 100% minus (A + T)",
+              "C and G are equal, so G is half of C + G = **{answer}**"
+            ],
+            "question": "A sample of DNA has **{A}%** adenine (A). Calculate the percentage of guanine (G).",
+            "variables": [
+              {
+                "id": "A",
+                "max": 40,
+                "min": 10,
+                "step": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Swap each base for its partner to write the complementary strand.",
+            "A = T and C = G, so work out the pair, then halve what is left."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The genetic code and protein shape",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The order of bases in a gene is a code. It decides the protein that is made. This section covers how."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A group of **three bases** is called a triplet (codon).",
+            "Each triplet codes for **one amino acid**.",
+            "The order of the triplets decides the **sequence** of amino acids in the protein.",
+            "The chain of amino acids folds into a specific **shape**.",
+            "The shape decides what the protein can do, such as an enzyme's active site fitting its substrate."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Bases that code for a protein",
+          "where": [
+            "number of bases in the length of DNA that codes for the protein",
+            "number of amino acids in the protein"
+          ],
+          "formula": "number of bases = 3 × number of amino acids"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Insulin has 51 amino acids.",
+              "text": "Each needs one triplet of 3 bases."
+            },
+            {
+              "lead": "Multiply.",
+              "text": "51 × 3 = 153 bases."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "If the code changes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A change in the base sequence of the DNA changes the order of amino acids.",
+            "A different amino acid sequence can change the shape of the protein.",
+            "An enzyme with a different shape may have an active site that its substrate no longer fits.",
+            "Some parts of DNA do not code for proteins. They can switch genes on and off."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Three bases (a triplet) code for one amino acid.",
+            "The order of bases decides the order of amino acids, and so the shape of the protein.",
+            "Change the code and the protein may no longer work."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the structure of a nucleotide.",
+      "a": "A phosphate group attached to a sugar, which has one of four bases attached (A, C, G or T).",
+      "marks": 3
+    },
+    {
+      "q": "One strand of DNA has the base sequence T T G A. Write the complementary strand.",
+      "a": "A A C T.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how a change of one base in a gene could stop the enzyme it codes for working.",
+      "a": "It gives a different triplet, which codes for a different amino acid. This changes the shape of the enzyme's active site, so the substrate no longer fits.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 6.5"],
+      "worked_example": {
+        "exemplar_id": "15de4743-6153-4fc3-bbab-20d8090e2a92",
+        "source": "AQA jun 2020, Paper 2 (H), Q04.2",
+        "question": "DNA is a polymer of nucleotides.\n\nDescribe the structure of a nucleotide.",
+        "marks": 4,
+        "answer_points": [
+          "A phosphate (group).",
+          "The phosphate is attached to a sugar.",
+          "The sugar has one of four bases attached to it.",
+          "The bases are A, C, G and T (adenine, cytosine, guanine and thymine)."
+        ],
+        "tip": "One mark for each part. Name all four bases, with the correct spelling of thymine."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.7B", "EDEX 3.4"],
+      "worked_example": {
+        "exemplar_id": "d5fd2b74-9070-4839-9573-95b0c4bcb9ec",
+        "source": "EDEXCEL nov 2020, Paper 1 (H), Q10(c)",
+        "question": "One cause of colour blindness is a change in the DNA sequence of a gene.\nThis results in the production of a different protein in cone cells in the retina of the eye.\n\nExplain how a change in the DNA sequence of a gene can result in the production of a different protein.",
+        "marks": 4,
+        "answer_points": [
+          "It changes the sequence of the mRNA.",
+          "The mRNA is produced in transcription.",
+          "This leads to a different amino acid in the polypeptide sequence.",
+          "The amino acid is added by tRNA, during translation, at the ribosome.",
+          "It changes the shape or function of the protein, so a cone cell does not detect the coloured light correctly."
+        ],
+        "tip": "Any four of the five points score. Link them in order: DNA, mRNA, amino acid, protein shape."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 1.2c", "OCR 1.2e"],
+      "worked_example": {
+        "exemplar_id": "dfb0fc70-71c1-484b-8582-d946a54210a3",
+        "source": "OCR jun 2022, Paper 3, Q23(b)",
+        "question": "Describe how the triplet code determines the structure of a protein.",
+        "marks": 2,
+        "answer_points": [
+          "Each triplet (3 bases, a codon) codes for one amino acid.",
+          "The order of the triplet codes determines the sequence of amino acids.",
+          "The sequence of amino acids determines the protein structure (which protein is made)."
+        ],
+        "tip": "Any two of the three points score, one mark each."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "d185a254-38b1-4eca-921c-2e250a18e7df",
+      "d8964e83-1011-42d7-a53a-6d19222dd09f",
+      "95f9d46b-2c54-4a73-857b-7e152a880cf5"
+    ],
+    "exemplar_ids": [
+      "15de4743-6153-4fc3-bbab-20d8090e2a92",
+      "d5fd2b74-9070-4839-9573-95b0c4bcb9ec",
+      "dfb0fc70-71c1-484b-8582-d946a54210a3"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

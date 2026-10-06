@@ -49,51 +49,27 @@
             "kind": "predictor",
             "alt": "Choose a boundary a wave crosses and see the change in speed, direction and wavelength.",
             "prompt": "Pick a boundary the wave crosses",
-            "result_labels": [
-              "Speed",
-              "Direction",
-              "Wavelength"
-            ],
+            "result_labels": ["Speed", "Direction", "Wavelength"],
             "options": [
               {
                 "label": "Light: air into glass",
-                "results": [
-                  "Decreases",
-                  "Bends towards the normal",
-                  "Decreases"
-                ]
+                "results": ["Decreases", "Bends towards the normal", "Decreases"]
               },
               {
                 "label": "Light: glass into air",
-                "results": [
-                  "Increases",
-                  "Bends away from the normal",
-                  "Increases"
-                ]
+                "results": ["Increases", "Bends away from the normal", "Increases"]
               },
               {
                 "label": "Light: air into glass, along the normal",
-                "results": [
-                  "Decreases",
-                  "No change in direction",
-                  "Decreases"
-                ]
+                "results": ["Decreases", "No change in direction", "Decreases"]
               },
               {
                 "label": "Water wave: deep water into shallow water",
-                "results": [
-                  "Decreases",
-                  "Bends towards the normal",
-                  "Decreases"
-                ]
+                "results": ["Decreases", "Bends towards the normal", "Decreases"]
               },
               {
                 "label": "Water wave: shallow water into deep water",
-                "results": [
-                  "Increases",
-                  "Bends away from the normal",
-                  "Increases"
-                ]
+                "results": ["Increases", "Bends away from the normal", "Increases"]
               }
             ]
           }
@@ -186,15 +162,9 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Waves",
-            "What can happen"
-          ],
+          "columns": ["Waves", "What can happen"],
           "rows": [
-            [
-              "Visible light",
-              "Transmitted by glass, which also refracts it."
-            ],
+            ["Visible light", "Transmitted by glass, which also refracts it."],
             [
               "Ultraviolet",
               "Absorbed by some sunglasses lenses, while some visible light passes through."
@@ -203,10 +173,7 @@
               "Infrared",
               "Absorbed or blocked by objects such as an armchair. It needs a clear line of sight."
             ],
-            [
-              "Radio waves",
-              "Pass through objects such as an armchair."
-            ]
+            ["Radio waves", "Pass through objects such as an armchair."]
           ]
         },
         {
@@ -252,32 +219,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.2.2",
-        "AQA T 6.6.2.2"
-      ],
-      "exam_phrases": [
-        "speed / velocity in the glass is lower",
-        "the edge of the wave(front) entering the glass slows down",
-        "the part of the wave(front) in the air continues at the higher speed",
-        "every point on the wave (front) enters the shallow water at the same time",
-        "every point slows down at the same time",
-        "one end of the wavefront slows before the other end"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The light refracts because its speed changes.",
-          "right": "Speed changes is not enough. Say that the speed is lower in the glass."
-        },
-        {
-          "wrong": "The light slows down in glass, so it bends.",
-          "right": "Two more marks need the wavefront: the edge entering the glass slows first, while the part still in the air continues at the higher speed."
-        },
-        {
-          "wrong": "The wavefronts do not refract because they are parallel to the boundary.",
-          "right": "Say why: every point on the wavefront enters the new material at the same time, so every point slows down at the same time."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.2.2", "AQA T 6.6.2.2"],
       "worked_example": {
         "exemplar_id": "fe15ffe9-4d6d-4cb4-85fd-07a62dd392bb",
         "source": "AQA jun 2019, Paper 2 (H), Q07.1",
@@ -303,30 +245,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 4.10",
-        "EDEX 4.11",
-        "EDEX 5.13",
-        "EDEX 5.14"
-      ],
-      "exam_phrases": [
-        "(the colours have) different wavelengths",
-        "different wavelengths / colours travel at different speeds",
-        "so refract by different amounts",
-        "infrared is absorbed / blocked",
-        "radio waves can go through",
-        "infrared requires line-of-sight"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The colours of white light bend by different amounts because they are different colours.",
-          "right": "The question asks for speed. Say that the colours have different wavelengths, so they travel at different speeds, so they refract by different amounts."
-        },
-        {
-          "wrong": "The infrared signal is blocked by the armchair.",
-          "right": "This gets only 1 of 2 marks. Compare with radio waves, which go through, and give a reason such as different wavelengths or line of sight."
-        }
-      ],
+      "spec_codes": ["EDEX 4.10", "EDEX 4.11", "EDEX 5.13", "EDEX 5.14"],
       "worked_example": {
         "exemplar_id": "12a6430c-cf01-40b7-830f-90e55bcb5699",
         "source": "EDEXCEL jun 2018, Paper 1 (H), Q5(c)",
@@ -361,32 +280,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P5.3a",
-        "OCR P5.3b"
-      ],
-      "exam_phrases": [
-        "Glass is more (optically) dense than air",
-        "The speed of light is lower in glass",
-        "(the light) slows down",
-        "different wavelengths / frequencies",
-        "the amount the speed changes (in glass) is different for each colour",
-        "red light slows down the least"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Light refracts because glass is less optically dense than air.",
-          "right": "Glass is more optically dense than air, so the speed of light is lower in glass."
-        },
-        {
-          "wrong": "Light refracts because its speed is higher in the glass.",
-          "right": "The speed of light is lower in glass."
-        },
-        {
-          "wrong": "Red light has a shorter wavelength than green light, so it refracts differently.",
-          "right": "Red light has the longer wavelength and slows down the least in glass."
-        }
-      ],
+      "spec_codes": ["OCR P5.3a", "OCR P5.3b"],
       "worked_example": {
         "exemplar_id": "1d8efa40-bf6a-48ed-a9ba-11b2d1b4a130",
         "source": "OCR jun 2024, Paper 4, Q22(b)",

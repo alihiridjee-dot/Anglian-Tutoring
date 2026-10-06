@@ -31,7 +31,7 @@
             "Measure the quantity of a reactant used up, or the quantity of a product formed, over time.",
             "The quantity can be a **mass in grams** or a **volume in cm³**.",
             "The unit of rate follows from the units used: g/s or cm³/s. If the time is in minutes, the unit is g/min or cm³/min.",
-            "(Higher tier) The quantity can also be in moles, so the unit of rate is mol/s."
+            "(AQA: Higher tier) The quantity can also be in moles, so the unit of rate is mol/s."
           ]
         },
         {
@@ -90,10 +90,7 @@
               "unit": "cm³/s",
               "decimals": 2
             },
-            "working": [
-              "mean rate = volume ÷ time",
-              "mean rate = {v} ÷ {t} = {answer} cm³/s"
-            ]
+            "working": ["mean rate = volume ÷ time", "mean rate = {v} ÷ {t} = {answer} cm³/s"]
           }
         },
         {
@@ -122,15 +119,7 @@
               "label": "Time",
               "min": 0,
               "max": 120,
-              "ticks": [
-                0,
-                20,
-                40,
-                60,
-                80,
-                100,
-                120
-              ],
+              "ticks": [0, 20, 40, 60, 80, 100, 120],
               "unit": "s"
             },
             "y": {
@@ -140,38 +129,14 @@
               {
                 "name": "Product",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    10,
-                    0.35
-                  ],
-                  [
-                    20,
-                    0.58
-                  ],
-                  [
-                    40,
-                    0.8
-                  ],
-                  [
-                    60,
-                    0.92
-                  ],
-                  [
-                    80,
-                    0.98
-                  ],
-                  [
-                    100,
-                    1
-                  ],
-                  [
-                    120,
-                    1
-                  ]
+                  [0, 0],
+                  [10, 0.35],
+                  [20, 0.58],
+                  [40, 0.8],
+                  [60, 0.92],
+                  [80, 0.98],
+                  [100, 1],
+                  [120, 1]
                 ]
               }
             ],
@@ -224,14 +189,14 @@
               "text": "Draw a right-angled triangle under the tangent, as large as you can."
             },
             {
-              "lead": "Find the gradient (Higher tier).",
+              "lead": "Find the gradient (AQA: Higher tier).",
               "text": "Divide the change on the vertical axis by the change on the horizontal axis."
             }
           ]
         },
         {
           "type": "equation",
-          "label": "Gradient of a tangent (Higher tier)",
+          "label": "Gradient of a tangent (AQA: Higher tier)",
           "formula": "rate at that time = change in quantity ÷ change in time",
           "where": [
             "change in quantity, read from the vertical axis, in g or cm³",
@@ -243,7 +208,7 @@
           "items": [
             "A steeper line means a faster rate. A flat line means the reaction has finished.",
             "The slope of a tangent measures the rate at one time.",
-            "(Higher tier) Calculate the gradient of the tangent to find the rate."
+            "(AQA: Higher tier) Calculate the gradient of the tangent to find the rate."
           ]
         }
       ]
@@ -293,28 +258,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.1.1",
-        "AQA T 5.6.1.1"
-      ],
-      "exam_phrases": [
-        "draw tangent at 15 s",
-        "calculate gradient",
-        "(0.78 + 0.81 + 0.81) / 3",
-        "(46 + 47 + 49) / 3",
-        "47 (cm³) (2 sf)",
-        "a straight line drawn on the curve at 15 s"
-      ],
-      "mistakes": [
-        {
-          "wrong": "To find the mean of four trials, I added all four values, including the anomalous one, and divided by 4.",
-          "right": "Leave out the anomalous result. Including it gives only 1 of the marks: the mean rate must come from the three results that fit the pattern."
-        },
-        {
-          "wrong": "The mean of 46, 47 and 49 is 47.3333 cm³, so I wrote 47.3333.",
-          "right": "The question asked for 2 significant figures, so the answer is 47 cm³. An answer of 47.3 gets only 1 of the 2 marks."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.1.1", "AQA T 5.6.1.1"],
       "worked_example": {
         "exemplar_id": "c997fc4e-d93e-4fcf-883a-11ae4ede3f2c",
         "source": "AQA jun 2023, Paper 2 (H), Q01.2",
@@ -331,26 +275,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 7.5"
-      ],
-      "exam_phrases": [
-        "rate = volume / time",
-        "volume of gas produced in 1 minute / 1 minute",
-        "conversion of time from minutes into seconds",
-        "5 × 60 = 300 (seconds)",
-        "cm³ s⁻¹"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Rate = 90 ÷ 5 = 18 cm³/s, using the time in minutes.",
-          "right": "The unit asked for is cm³ s⁻¹, so convert the time to seconds first: 5 × 60 = 300 s. Using 5 minutes loses a mark."
-        },
-        {
-          "wrong": "Rate = 300 ÷ 90 = 3.33.",
-          "right": "Rate = volume ÷ time. Dividing time by volume is upside down and loses a mark."
-        }
-      ],
+      "spec_codes": ["EDEX 7.5"],
       "worked_example": {
         "exemplar_id": "198ed042-e1e2-4154-84ad-5699caa9de7c",
         "source": "EDEXCEL nov 2020, Paper 2 (F), Q9(a)(ii)",
@@ -365,15 +290,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C5.2b"
-      ],
-      "exam_phrases": [
-        "1/t is proportional to rate",
-        "gradient of the graph",
-        "rate of reaction graphs"
-      ],
-      "mistakes": [],
+      "spec_codes": ["OCR C5.2b"],
       "extra": [
         {
           "heading": "Using 1/t as a measure of rate",

@@ -16,41 +16,26 @@
           "type": "equation",
           "label": "Hydrogen reacting with oxygen",
           "formula": "hydrogen + oxygen → water",
-          "where": [
-            "water is the only product",
-            "in symbols: 2H₂ + O₂ → 2H₂O"
-          ]
+          "where": ["water is the only product", "in symbols: 2H₂ + O₂ → 2H₂O"]
         },
         {
           "type": "diagram",
           "diagram": {
             "kind": "compare",
             "alt": "Petrol and hydrogen compared as car fuels.",
-            "items": [
-              "Petrol",
-              "Hydrogen"
-            ],
+            "items": ["Petrol", "Hydrogen"],
             "rows": [
               {
                 "feature": "Product when used",
-                "values": [
-                  "Carbon dioxide and water",
-                  "Water only"
-                ]
+                "values": ["Carbon dioxide and water", "Water only"]
               },
               {
                 "feature": "State at room temperature",
-                "values": [
-                  "Liquid",
-                  "Gas"
-                ]
+                "values": ["Liquid", "Gas"]
               },
               {
                 "feature": "Storage",
-                "values": [
-                  "Easy to store in a tank",
-                  "Large volume, so difficult to store"
-                ]
+                "values": ["Easy to store in a tank", "Large volume, so difficult to store"]
               },
               {
                 "feature": "Source",
@@ -61,17 +46,11 @@
               },
               {
                 "feature": "Filling stations",
-                "values": [
-                  "Widely available",
-                  "Not many"
-                ]
+                "values": ["Widely available", "Not many"]
               },
               {
                 "feature": "Hazard",
-                "values": [
-                  "Flammable",
-                  "Flammable and explosive"
-                ]
+                "values": ["Flammable", "Flammable and explosive"]
               }
             ]
           }
@@ -98,10 +77,7 @@
             "kind": "sort",
             "alt": "Sort statements into advantages and disadvantages of hydrogen as a car fuel.",
             "prompt": "Sort each statement into an advantage or a disadvantage of using hydrogen rather than petrol.",
-            "groups": [
-              "Advantage of hydrogen",
-              "Disadvantage of hydrogen"
-            ],
+            "groups": ["Advantage of hydrogen", "Disadvantage of hydrogen"],
             "items": [
               {
                 "text": "The only product is water",
@@ -172,36 +148,14 @@
   ],
   "boards": {
     "edexcel": {
-      "spec_codes": [
-        "EDEX 8.14"
-      ],
-      "exam_phrases": [
-        "water is the (only) product",
-        "storage of hydrogen is difficult because it is a gas",
-        "hydrogen is flammable",
-        "fuel cells are expensive to manufacture",
-        "hydrogen and oxygen must be supplied",
-        "either can be chosen as the preferable one but suitable reasons must be given"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Hydrogen is better than petrol.",
-          "right": "A conclusion needs reasons. For the top level, describe three advantages or disadvantages, then evaluate them to reach a conclusion."
-        },
-        {
-          "wrong": "Hydrogen is a gas.",
-          "right": "Link the fact to its effect: storage of hydrogen is difficult because it is a gas. The explained point scores more than a statement."
-        }
-      ]
+      "spec_codes": ["EDEX 8.14"]
     }
   },
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": [
-      "30313bfc-b728-438f-97f4-80e6ba0644af"
-    ],
+    "spec_point_ids": ["30313bfc-b728-438f-97f4-80e6ba0644af"],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-01"

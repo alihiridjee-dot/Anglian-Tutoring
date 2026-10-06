@@ -146,14 +146,7 @@
               "label": "Time in use",
               "min": 0,
               "max": 10,
-              "ticks": [
-                0,
-                2,
-                4,
-                6,
-                8,
-                10
-              ],
+              "ticks": [0, 2, 4, 6, 8, 10],
               "unit": "hours"
             },
             "y": {
@@ -163,26 +156,11 @@
               {
                 "name": "Non-rechargeable cell",
                 "points": [
-                  [
-                    0,
-                    0.8
-                  ],
-                  [
-                    5,
-                    0.8
-                  ],
-                  [
-                    7,
-                    0.5
-                  ],
-                  [
-                    9,
-                    0.15
-                  ],
-                  [
-                    10,
-                    0
-                  ]
+                  [0, 0.8],
+                  [5, 0.8],
+                  [7, 0.5],
+                  [9, 0.15],
+                  [10, 0]
                 ]
               }
             ],
@@ -211,27 +189,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Type of battery",
-            "Rechargeable?",
-            "An advantage"
-          ],
+          "columns": ["Type of battery", "Rechargeable?", "An advantage"],
           "rows": [
-            [
-              "Zinc-carbon",
-              "No",
-              "Cheap"
-            ],
-            [
-              "Alkaline",
-              "No",
-              "Long lasting"
-            ],
-            [
-              "Nickel-metal hydride",
-              "Yes",
-              "Does not have to be thrown away"
-            ]
+            ["Zinc-carbon", "No", "Cheap"],
+            ["Alkaline", "No", "Long lasting"],
+            ["Nickel-metal hydride", "Yes", "Does not have to be thrown away"]
           ]
         },
         {
@@ -263,36 +225,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.2.1"
-      ],
-      "exam_phrases": [
-        "the higher the (positive) voltage, the more reactive the metal",
-        "the metals have the largest difference in reactivity",
-        "two different metals are needed to produce a voltage",
-        "a reactant is used up",
-        "the reaction is not reversible",
-        "the chemical reaction is reversed",
-        "electrolysis uses electricity to produce a chemical reaction; cells use a chemical reaction to produce electricity"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A cell with two copper electrodes would give a voltage of about 0.5 V.",
-          "right": "The voltage is 0 V. Two different metals are needed to produce a voltage."
-        },
-        {
-          "wrong": "Alkaline batteries can be recharged because the reaction can be reversed.",
-          "right": "Alkaline batteries are non-rechargeable. The reaction is not reversible, so they cannot be recharged."
-        },
-        {
-          "wrong": "When a rechargeable cell is recharged, the chemical reaction goes faster.",
-          "right": "The chemical reaction is reversed when an external electrical current is supplied. Faster is ignored."
-        },
-        {
-          "wrong": "The voltage of a cell depends only on the type of electrode and electrolyte.",
-          "right": "Other factors count too, such as the temperature or concentration of the electrolyte."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.2.1"],
       "worked_example": {
         "exemplar_id": "ff504168-e3a4-423e-bbb1-6b9f24b3d976",
         "source": "AQA jun 2024, Paper 1 (H), Q06.1",
@@ -307,25 +240,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.25C"
-      ],
-      "exam_phrases": [
-        "starts bright, becomes dimmer, goes out (over time)",
-        "bright light at the start, fades, then goes out",
-        "shows a constant voltage",
-        "the voltage decreases to 0 (V)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The bulb gets brighter over time.",
-          "right": "Getting brighter is ignored. The bulb starts bright, becomes dimmer, then goes out."
-        },
-        {
-          "wrong": "The voltmeter reading increases when the cell is first connected.",
-          "right": "An initial increase is ignored. Describe a constant voltage, then a decrease to 0 V."
-        }
-      ],
+      "spec_codes": ["EDEX 5.25C"],
       "worked_example": {
         "exemplar_id": "c0be2602-19a9-4515-aeca-f14dfb34a506",
         "source": "EDEXCEL jun 2024, Paper 1 (H), Q1(a)",
@@ -341,28 +256,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.2p"
-      ],
-      "exam_phrases": [
-        "a chemical cell produces a potential difference (voltage) until one of the reactants is completely used up",
-        "the potential difference decreases once the reactants are used up",
-        "the voltage is 0 V once the reactants are used up"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A chemical cell produces a voltage indefinitely.",
-          "right": "A cell produces a voltage only until one of the reactants is completely used up."
-        },
-        {
-          "wrong": "A chemical cell produces a voltage once all of the reactants are used up.",
-          "right": "The voltage is produced while the reactants are being used. Once a reactant is used up, the voltage falls."
-        },
-        {
-          "wrong": "The potential difference of a cell stays the same, or increases, once the reactants are used up.",
-          "right": "The potential difference decreases, reaching 0 V, once the reactants are used up."
-        }
-      ],
+      "spec_codes": ["OCR C6.2p"],
       "worked_example": {
         "exemplar_id": "3f152c00-ad76-45fd-844a-5e75e793fe78",
         "source": "OCR jun 2023, Paper 4, Q9",

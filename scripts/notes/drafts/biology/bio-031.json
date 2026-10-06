@@ -8,12 +8,21 @@
     {
       "heading": "How coronary heart disease develops",
       "blocks": [
-        { "type": "paragraph", "text": "The coronary arteries supply the heart muscle with blood. This section covers what happens when they become blocked." },
+        {
+          "type": "paragraph",
+          "text": "The coronary arteries supply the heart muscle with blood. This section covers what happens when they become blocked."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Coronary heart disease", "meaning": "A disease where layers of fatty material build up inside the coronary arteries and narrow them." },
-            { "term": "Cholesterol", "meaning": "A fatty substance in the blood. High levels add to the fatty material in the arteries." }
+            {
+              "term": "Coronary heart disease",
+              "meaning": "A disease where layers of fatty material build up inside the coronary arteries and narrow them."
+            },
+            {
+              "term": "Cholesterol",
+              "meaning": "A fatty substance in the blood. High levels add to the fatty material in the arteries."
+            }
           ]
         },
         {
@@ -52,19 +61,50 @@
     {
       "heading": "Treatments",
       "blocks": [
-        { "type": "paragraph", "text": "Treatments fall into three groups: drugs, surgery or mechanical devices, and lifestyle changes. Exam questions ask you to weigh up the benefits and risks." },
+        {
+          "type": "paragraph",
+          "text": "Treatments fall into three groups: drugs, surgery or mechanical devices, and lifestyle changes. Exam questions ask you to weigh up the benefits and risks."
+        },
         {
           "type": "table",
           "columns": ["Treatment", "What it does", "Benefit", "Risk or disadvantage"],
           "rows": [
-            ["Statins (drug)", "Reduce blood cholesterol, which slows the build-up of fatty material.", "Easy to take, not invasive and low cost.", "Possible side effects such as muscle pain. Take time to work and must be taken long term."],
-            ["Stent", "A tube that holds a blocked coronary artery open.", "Blood flow to the heart muscle increases straight away. Recovery is rapid.", "Risk of infection, bleeding or a blood clot from the operation."],
-            ["Bypass surgery", "A section of blood vessel is used to go round a narrowed or blocked artery.", "Restores blood flow to the heart muscle.", "Major surgery, with a risk of infection, bleeding or blood clots. Recovery is slower than for a stent."],
-            ["Valve replacement", "Replaces a valve that does not open fully or that leaks, using a biological or mechanical valve.", "The new valve opens fully and does not leak, so blood flows in the right direction.", "Risks of surgery. A mechanical valve can cause blood clots, so medication may be needed long term."],
-            ["Transplant or artificial heart", "A donor heart (or heart and lungs) replaces a failing heart. An artificial heart keeps a patient alive while waiting for a transplant, or lets the heart rest to help recovery.", "A transplant can save the life of a patient with heart failure. An artificial heart gives time while waiting for a donor.", "Risks of surgery. A donor organ must be found, and the body may reject it. An artificial heart risks infection and blood clots."]
+            [
+              "Statins (drug)",
+              "Reduce blood cholesterol, which slows the build-up of fatty material.",
+              "Easy to take, not invasive and low cost.",
+              "Possible side effects such as muscle pain. Take time to work and must be taken long term."
+            ],
+            [
+              "Stent",
+              "A tube that holds a blocked coronary artery open.",
+              "Blood flow to the heart muscle increases straight away. Recovery is rapid.",
+              "Risk of infection, bleeding or a blood clot from the operation."
+            ],
+            [
+              "Bypass surgery",
+              "A section of blood vessel is used to go round a narrowed or blocked artery.",
+              "Restores blood flow to the heart muscle.",
+              "Major surgery, with a risk of infection, bleeding or blood clots. Recovery is slower than for a stent."
+            ],
+            [
+              "Valve replacement",
+              "Replaces a valve that does not open fully or that leaks, using a biological or mechanical valve.",
+              "The new valve opens fully and does not leak, so blood flows in the right direction.",
+              "Risks of surgery. A mechanical valve can cause blood clots, so medication may be needed long term."
+            ],
+            [
+              "Transplant or artificial heart",
+              "A donor heart (or heart and lungs) replaces a failing heart. An artificial heart keeps a patient alive while waiting for a transplant, or lets the heart rest to help recovery.",
+              "A transplant can save the life of a patient with heart failure. An artificial heart gives time while waiting for a donor.",
+              "Risks of surgery. A donor organ must be found, and the body may reject it. An artificial heart risks infection and blood clots."
+            ]
           ]
         },
-        { "type": "subheading", "text": "Lifestyle changes" },
+        {
+          "type": "subheading",
+          "text": "Lifestyle changes"
+        },
         {
           "type": "list",
           "items": [
@@ -104,28 +144,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 2.8", "AQA T 4.2.2.4"],
-      "exam_phrases": [
-        "fatty deposits in coronary arteries",
-        "reduced blood / oxygen / glucose to the heart (muscle / tissue / cells)",
-        "less (aerobic) respiration",
-        "decrease blood cholesterol",
-        "blocked artery is held open",
-        "side effects eg muscle pain"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A blocked artery means the heart gets no blood.",
-          "right": "Say reduced blood flow, so less oxygen and glucose reach the heart muscle. Then link this to less respiration and less energy."
-        },
-        {
-          "wrong": "Statins and stents are both better because they treat heart disease.",
-          "right": "Evaluate both. For top marks give advantages and disadvantages of each treatment, then a judgement."
-        },
-        {
-          "wrong": "Statins remove fat from the arteries.",
-          "right": "Say statins decrease blood cholesterol and slow down the build-up of fatty material in the arteries."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "04939cd2-7a1b-4424-8643-c5ec6676af28",
         "source": "AQA jun 2021, Paper 1 (H), Q05.4",
@@ -144,23 +162,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.25"],
-      "exam_phrases": [
-        "surgery to treat narrow or blocked arteries",
-        "lifestyle changes including healthy diet / more exercise",
-        "(life-long) medication to prevent blood clots",
-        "reduce blood pressure",
-        "stents / bypass surgery"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Treatment is just medicine.",
-          "right": "Name all three groups: surgery (such as stents or bypass), lifestyle changes, and life-long medication."
-        },
-        {
-          "wrong": "Lifestyle changes include being healthy.",
-          "right": "Give an example: a healthy diet, more exercise or stopping smoking."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "19edfdd4-fb3b-46e2-9957-1a348d9dcb3d",
         "source": "EDEXCEL nov 2020, Paper 1 (H), Q9(c)",
@@ -176,24 +177,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 6.3s"],
-      "exam_phrases": [
-        "fat blocking the blood vessels that supply the heart muscle",
-        "not enough glucose or oxygen for respiration",
-        "heart attack",
-        "avoids an operation",
-        "could be side effects of the drug",
-        "must take it on a regular basis"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A disadvantage of statins is that they are not a cure.",
-          "right": "Give a clear disadvantage: there could be side effects (such as liver damage or an upset stomach), or it must be taken on a regular basis, so a person may forget."
-        },
-        {
-          "wrong": "Heart disease is caused by cholesterol blocking the veins.",
-          "right": "Fat blocks the blood vessels (the coronary arteries) that supply the heart muscle. The muscle then lacks glucose and oxygen for respiration."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "0cdbed55-32af-45d5-a83e-32eb5de0a677",
         "source": "OCR jun 2018, Paper 2, Q22(c)(ii)",

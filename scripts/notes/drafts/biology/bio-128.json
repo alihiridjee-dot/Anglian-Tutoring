@@ -119,10 +119,7 @@
             "kind": "sort",
             "alt": "Sort statements into benefits of conservation and challenges of conservation.",
             "prompt": "Sort each statement into a benefit or a challenge of maintaining biodiversity.",
-            "groups": [
-              "Benefit",
-              "Challenge"
-            ],
+            "groups": ["Benefit", "Challenge"],
             "items": [
               {
                 "text": "Keeps food webs working",
@@ -188,36 +185,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 7.10",
-        "AQA T 4.7.3.6"
-      ],
-      "exam_phrases": [
-        "breeding programmes (for endangered species)",
-        "rewilding / regeneration of habitats / hedgerows / meadows",
-        "(reintroducing) wider field margins",
-        "plant a variety of crops",
-        "more / different types of food available",
-        "more / different types of habitat / shelter or nest sites available"
-      ],
-      "mistakes": [
-        {
-          "wrong": "To increase biodiversity in the UK, protect or conserve habitats.",
-          "right": "This is ignored. Give a specific action, such as planting trees, rewilding, wider field margins, planting a variety of crops or breeding programmes."
-        },
-        {
-          "wrong": "To increase biodiversity in the UK, reduce carbon dioxide emissions and stop global warming.",
-          "right": "References to carbon dioxide, greenhouse gases or global warming are ignored here. Give an action that directly helps wildlife."
-        },
-        {
-          "wrong": "More trees means more animals because there is more food available.",
-          "right": "\"More food available\" is ignored. Say more or different types of food, or more or different types of habitat or shelter."
-        },
-        {
-          "wrong": "To increase biodiversity, recycle more.",
-          "right": "Recycling is ignored in this answer."
-        }
-      ],
+      "spec_codes": ["AQA 7.10", "AQA T 4.7.3.6"],
       "worked_example": {
         "exemplar_id": "83a2c2ff-5838-4580-97da-bc9d0f47a150",
         "source": "AQA jun 2025, Paper 2 (H), Q05.3",
@@ -236,31 +204,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.10"
-      ],
-      "exam_phrases": [
-        "increase numbers of endangered species / prevent extinction",
-        "controlled breeding programmes / reduction in poaching / maintaining habitats",
-        "removes carbon dioxide and releases oxygen",
-        "maintains the food web",
-        "maintains genetic diversity",
-        "generating income to fund conservation projects through zoos / animal parks / ecotourism"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Trees improve the air.",
-          "right": "Name the gases. Trees take in carbon dioxide and release oxygen. Top-level answers need both named atmospheric gases."
-        },
-        {
-          "wrong": "Animal conservation saves animals.",
-          "right": "Say how it helps biodiversity: protecting endangered species from hunting, maintaining habitats and controlled breeding. Then say why, for example the effect on food webs."
-        },
-        {
-          "wrong": "The percentage increase in the number of males is 210 ÷ 11 = 19.09%.",
-          "right": "Multiply by 100. 210 ÷ 11 × 100 = 1909%. The value 19.09 gains only 2 of the 3 marks."
-        }
-      ],
+      "spec_codes": ["EDEX 9.10"],
       "worked_example": {
         "exemplar_id": "8dd4856e-28cd-4352-a652-326d63900b62",
         "source": "EDEXCEL jun 2022, Paper 2 (H), Q9(c)",
@@ -315,27 +259,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.1c"
-      ],
-      "exam_phrases": [
-        "idea to see (threatened) habitats / (endangered) species / ecosystems / nature",
-        "to raise money / employment / profit / donation",
-        "the elephants are protected (from hunting)",
-        "they receive money / employment due to the tourists",
-        "salt marshes are rare habitats",
-        "they contain plants that do not live anywhere else"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Ecotourism is when tourists visit a country.",
-          "right": "Include both ideas: people see threatened habitats, species or nature, and it raises money, jobs or profit. It can also be in a way that conserves the habitat."
-        },
-        {
-          "wrong": "A disadvantage of relocating elephants is that they are not adapted to the new location, or that they disrupt food chains.",
-          "right": "This is ignored, as is saying they will not survive. Say it is expensive or difficult to transport them, they may be distressed or families split up, or they may spread disease or eat crops in the new place."
-        }
-      ],
+      "spec_codes": ["OCR 6.1c"],
       "worked_example": {
         "exemplar_id": "595a5354-9379-4179-a67d-c345cd486989",
         "source": "OCR jun 2019, Paper 2, Q19(d)",
@@ -361,11 +285,7 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Method",
-                "What it involves",
-                "A disadvantage"
-              ],
+              "columns": ["Method", "What it involves", "A disadvantage"],
               "rows": [
                 [
                   "Culling",

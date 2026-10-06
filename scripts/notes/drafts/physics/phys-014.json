@@ -78,11 +78,7 @@
               "unit": "Ω",
               "decimals": 1
             },
-            "working": [
-              "R = V ÷ I",
-              "R = {V} ÷ {I}",
-              "R = {answer} Ω"
-            ]
+            "working": ["R = V ÷ I", "R = {V} ÷ {I}", "R = {answer} Ω"]
           }
         },
         {
@@ -163,36 +159,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.2.1.3",
-        "AQA T 6.2.1.3",
-        "AQA 4.2.1.4",
-        "AQA T 6.2.1.4"
-      ],
-      "exam_phrases": [
-        "length varied by moving crocodile clips",
-        "current measured with ammeter",
-        "potential difference measured with voltmeter",
-        "use V = IR to calculate resistance",
-        "repeat readings of current and pd for each length and mean values calculated",
-        "ensure values of current are low to minimise heating of wire",
-        "ensure circuit is disconnected between readings",
-        "remove any anomalous readings"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The variable resistor is adjusted to keep the potential difference the same.",
-          "right": "It changes the resistance of the circuit to keep the current the same, so the temperature of the wire is kept constant."
-        },
-        {
-          "wrong": "The student only records the current for each length.",
-          "right": "Measurements are needed for both: current with an ammeter and potential difference with a voltmeter. Then calculate resistance for each length."
-        },
-        {
-          "wrong": "The circuit is left connected between readings to save time.",
-          "right": "Disconnect the circuit between readings so the wire does not heat up."
-        }
-      ],
+      "spec_codes": ["AQA 4.2.1.3", "AQA T 6.2.1.3", "AQA 4.2.1.4", "AQA T 6.2.1.4"],
       "worked_example": {
         "exemplar_id": "73934c46-064d-4b38-a0b3-96f2ad459e2c",
         "source": "AQA jun 2020, Paper 1 (H), Q03.1",
@@ -207,34 +174,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 10.17",
-        "EDEX 10.21"
-      ],
-      "exam_phrases": [
-        "measure current with ammeter",
-        "measure potential difference with voltmeter",
-        "calculate the resistance",
-        "metre rule / crocodile clip",
-        "(variable) resistor increases the resistance (of the circuit)",
-        "keeps the current constant / smaller",
-        "current increases the temperature of the wire",
-        "(collect data in a) short time"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A data logger is more accurate and more precise than meters.",
-          "right": "Accuracy and precision are ignored. Say it collects data in a short time, measures current and voltage at the same time, or collects more data pairs."
-        },
-        {
-          "wrong": "The extra apparatus needed to change the length of wire is an ohmmeter or multimeter.",
-          "right": "Additional electrical devices such as an ohmmeter or multimeter are ignored. Give a metre rule, crocodile clip, wire cutters or more wire."
-        },
-        {
-          "wrong": "A circuit diagram with a lamp and meters is enough to vary the potential difference.",
-          "right": "The circuit needs a means of varying potential difference, such as a variable resistor, as well as the power supply, ammeter, voltmeter and lamp."
-        }
-      ],
+      "spec_codes": ["EDEX 10.17", "EDEX 10.21"],
       "worked_example": {
         "exemplar_id": "f4481dfd-e4fe-44e8-a9e4-b120a9afe29f",
         "source": "EDEXCEL jun 2023, Paper 2 (F), Q8(c)(iv)",
@@ -249,29 +189,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P3.2f"
-      ],
-      "exam_phrases": [
-        "Change lamp for a (fixed) resistor",
-        "Measure current for different potential differences",
-        "To change the current in the circuit",
-        "repeat the experiment"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A variable resistor is used to change the potential difference of the battery.",
-          "right": "A variable resistor is used to change the current in the circuit."
-        },
-        {
-          "wrong": "A variable resistor is used to change the temperature of the circuit.",
-          "right": "A variable resistor changes the current in the circuit, not its temperature."
-        },
-        {
-          "wrong": "To test a fixed resistor, just change the lamp for a resistor.",
-          "right": "Two marks are needed: change the lamp for a (fixed) resistor, and measure the current for different potential differences."
-        }
-      ],
+      "spec_codes": ["OCR P3.2f"],
       "worked_example": {
         "exemplar_id": "95ba9a1c-7409-4d77-b13b-c1b73ecdfa0b",
         "source": "OCR nov 2020, Paper 1, Q17(b)(iii)",

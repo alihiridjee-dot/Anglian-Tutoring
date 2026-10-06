@@ -3,18 +3,30 @@
   "concept_id": "chem-056",
   "subject": "chemistry",
   "title": "Half equations at the electrodes",
-  "key_idea": "(Higher tier) A half equation shows what happens to one ion at one electrode. At the cathode, positive ions gain electrons, which is reduction. At the anode, negative ions lose electrons, which is oxidation. Both the atoms and the charges must balance.",
+  "key_idea": "(AQA: Higher tier) A half equation shows what happens to one ion at one electrode. At the cathode, positive ions gain electrons, which is reduction. At the anode, negative ions lose electrons, which is oxidation. Both the atoms and the charges must balance.",
   "sections": [
     {
       "heading": "Reduction and oxidation at the electrodes",
       "blocks": [
-        { "type": "paragraph", "text": "(Higher tier) This section covers what happens to ions at each electrode." },
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) This section covers what happens to ions at each electrode."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Half equation", "meaning": "An equation for the reaction of one ion at one electrode, showing the electrons gained or lost." },
-            { "term": "Reduction", "meaning": "A reaction in which electrons are gained." },
-            { "term": "Oxidation", "meaning": "A reaction in which electrons are lost." }
+            {
+              "term": "Half equation",
+              "meaning": "An equation for the reaction of one ion at one electrode, showing the electrons gained or lost."
+            },
+            {
+              "term": "Reduction",
+              "meaning": "A reaction in which electrons are gained."
+            },
+            {
+              "term": "Oxidation",
+              "meaning": "A reaction in which electrons are lost."
+            }
           ]
         },
         {
@@ -37,27 +49,53 @@
     {
       "heading": "Writing half equations",
       "blocks": [
-        { "type": "paragraph", "text": "(Higher tier) This section covers how to write and balance a half equation." },
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) This section covers how to write and balance a half equation."
+        },
         {
           "type": "equation",
           "label": "A half equation at the cathode (reduction)",
           "formula": "Cu²⁺ + 2e⁻ → Cu",
-          "where": ["Cu²⁺ is the copper ion, with a 2+ charge", "e⁻ is an electron, on the left because it is gained", "Cu is a copper atom"]
+          "where": [
+            "Cu²⁺ is the copper ion, with a 2+ charge",
+            "e⁻ is an electron, on the left because it is gained",
+            "Cu is a copper atom"
+          ]
         },
         {
           "type": "equation",
           "label": "A half equation at the anode (oxidation)",
           "formula": "2Cl⁻ → Cl₂ + 2e⁻",
-          "where": ["Cl⁻ is the chloride ion, with a 1− charge", "Cl₂ is a chlorine molecule", "e⁻ is an electron, on the right because it is lost"]
+          "where": [
+            "Cl⁻ is the chloride ion, with a 1− charge",
+            "Cl₂ is a chlorine molecule",
+            "e⁻ is an electron, on the right because it is lost"
+          ]
         },
-        { "type": "paragraph", "text": "The electrons go on the left for a gain and on the right for a loss. A loss can also be written as a subtraction on the left, for example 2Cl⁻ − 2e⁻ → Cl₂." },
+        {
+          "type": "paragraph",
+          "text": "The electrons go on the left for a gain and on the right for a loss. A loss can also be written as a subtraction on the left, for example 2Cl⁻ − 2e⁻ → Cl₂."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Write the species", "text": "O²⁻ → O₂." },
-            { "lead": "Balance the atoms", "text": "Two oxide ions are needed to make one O₂ molecule: 2O²⁻ → O₂." },
-            { "lead": "Balance the charge", "text": "The left side has a charge of 4−. The right side has no charge. Add 4 electrons on the right." },
-            { "lead": "Write the answer", "text": "2O²⁻ → O₂ + 4e⁻." }
+            {
+              "lead": "Write the species",
+              "text": "O²⁻ → O₂."
+            },
+            {
+              "lead": "Balance the atoms",
+              "text": "Two oxide ions are needed to make one O₂ molecule: 2O²⁻ → O₂."
+            },
+            {
+              "lead": "Balance the charge",
+              "text": "The left side has a charge of 4−. The right side has no charge. Add 4 electrons on the right."
+            },
+            {
+              "lead": "Write the answer",
+              "text": "2O²⁻ → O₂ + 4e⁻."
+            }
           ]
         },
         {
@@ -74,7 +112,10 @@
             ["Anode", "4OH⁻ → O₂ + 2H₂O + 4e⁻", "Oxidation"]
           ]
         },
-        { "type": "paragraph", "text": "The Zn²⁺, Al³⁺ and O²⁻ equations apply to molten compounds. In aqueous solution, H⁺ ions are discharged instead of ions of metals more reactive than hydrogen." },
+        {
+          "type": "paragraph",
+          "text": "The Zn²⁺, Al³⁺ and O²⁻ equations apply to molten compounds. In aqueous solution, H⁺ ions are discharged instead of ions of metals more reactive than hydrogen."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -83,14 +124,38 @@
             "prompt": "Which electrode does each half equation happen at?",
             "groups": ["Cathode (reduction)", "Anode (oxidation)"],
             "items": [
-              { "text": "Cu²⁺ + 2e⁻ → Cu", "group": 0 },
-              { "text": "Al³⁺ + 3e⁻ → Al", "group": 0 },
-              { "text": "2H⁺ + 2e⁻ → H₂", "group": 0 },
-              { "text": "Zn²⁺ + 2e⁻ → Zn", "group": 0 },
-              { "text": "2Cl⁻ → Cl₂ + 2e⁻", "group": 1 },
-              { "text": "2Br⁻ → Br₂ + 2e⁻", "group": 1 },
-              { "text": "2O²⁻ → O₂ + 4e⁻", "group": 1 },
-              { "text": "4OH⁻ → O₂ + 2H₂O + 4e⁻", "group": 1 }
+              {
+                "text": "Cu²⁺ + 2e⁻ → Cu",
+                "group": 0
+              },
+              {
+                "text": "Al³⁺ + 3e⁻ → Al",
+                "group": 0
+              },
+              {
+                "text": "2H⁺ + 2e⁻ → H₂",
+                "group": 0
+              },
+              {
+                "text": "Zn²⁺ + 2e⁻ → Zn",
+                "group": 0
+              },
+              {
+                "text": "2Cl⁻ → Cl₂ + 2e⁻",
+                "group": 1
+              },
+              {
+                "text": "2Br⁻ → Br₂ + 2e⁻",
+                "group": 1
+              },
+              {
+                "text": "2O²⁻ → O₂ + 4e⁻",
+                "group": 1
+              },
+              {
+                "text": "4OH⁻ → O₂ + 2H₂O + 4e⁻",
+                "group": 1
+              }
             ]
           }
         },
@@ -125,28 +190,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.4.3.5", "AQA T 5.4.3.5"],
-      "exam_phrases": [
-        "negative electrode: Cu²⁺ + 2e⁻ → Cu",
-        "positive electrode: 2Cl⁻ → Cl₂ + 2e⁻",
-        "2Br⁻ → Br₂ + 2e⁻",
-        "Al³⁺ + 3e⁻ → Al",
-        "2O²⁻ → O₂ + 4e⁻",
-        "reduction (as H⁺ ions) gain electrons"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The reaction at the negative electrode is electrolysis.",
-          "right": "Electrolysis is ignored. Say reduction, because the H⁺ ions gain electrons."
-        },
-        {
-          "wrong": "Cl⁻ → Cl₂ + e⁻",
-          "right": "This is not balanced. Only 1 of the 2 marks can be given for Cl₂ and e⁻. Balance it: 2Cl⁻ → Cl₂ + 2e⁻."
-        },
-        {
-          "wrong": "Copper ions are oxidised at the negative electrode.",
-          "right": "This is not accepted. Copper ions gain electrons, so they are reduced."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "a4b58e04-e2ee-4814-b962-e70ca8fd7df4",
         "source": "AQA jun 2019, Paper 1 (H), Q05.3",
@@ -161,60 +204,17 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.27", "EDEX 3.29"],
-      "exam_phrases": [
-        "Zn²⁺ + 2e⁻ → Zn",
-        "2H⁺ + 2e⁻ → H₂",
-        "2Br⁻ → Br₂ + 2e⁻",
-        "4OH⁻ → O₂ + 2H₂O + 4e⁻",
-        "correct species in the correct place",
-        "balancing of correct species in correct place"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Zn²⁺ → Zn + 2e⁻ for the change at the cathode.",
-          "right": "The reverse reaction scores 0. Zinc ions gain electrons, so the electrons are on the left: Zn²⁺ + 2e⁻ → Zn."
-        },
-        {
-          "wrong": "Zn²⁺ → Zn − 2e⁻",
-          "right": "This scores 0. A subtraction of electrons on the right is not accepted for a gain of electrons."
-        },
-        {
-          "wrong": "4OH⁻ → O₂ + 4e⁻",
-          "right": "Water is missing. The correct species are O₂ and 2H₂O, and the full answer is 4OH⁻ → O₂ + 2H₂O + 4e⁻. Marks are given for the species and for the balancing."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "b5512029-de5c-457f-953f-ce621567ac28",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q3(d)",
         "question": "When molten zinc chloride is electrolysed, zinc ions, Zn²⁺, form zinc atoms.\n\nWrite the half equation for this reaction.",
         "marks": 2,
-        "answer_points": [
-          "Zn²⁺ + 2e⁻ → Zn."
-        ],
+        "answer_points": ["Zn²⁺ + 2e⁻ → Zn."],
         "tip": "1 mark for the correct species in the correct place and 1 mark for balancing. State symbols are ignored."
       }
     },
     "ocr": {
       "spec_codes": ["OCR C3.1b", "OCR C3.4d"],
-      "exam_phrases": [
-        "Cr → Cr³⁺ + 3e⁻",
-        "Cr³⁺ + 3e⁻ → Cr",
-        "2H⁺ + 2e⁻ → H₂",
-        "2Br⁻ − 2e⁻ → Br₂",
-        "Al³⁺ + 3e⁻ → Al",
-        "allow any correct multiple, including fractions",
-        "use e⁻ to represent an electron"
-      ],
-      "mistakes": [
-        {
-          "wrong": "2H⁺ and 2e⁻ → H₂",
-          "right": "Do not use 'and' or '&' instead of '+'. Write 2H⁺ + 2e⁻ → H₂."
-        },
-        {
-          "wrong": "My formulae are wrong but the numbers balance, so I get the balancing mark.",
-          "right": "The balancing mark depends on the correct formulae. A balanced equation with only a minor error in a subscript or formula can still earn 1 mark."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "1d57cad7-5c50-4e5f-8bf3-b1ec4fd3c839",
         "source": "OCR jun 2025, Paper 3, Q23(c)",

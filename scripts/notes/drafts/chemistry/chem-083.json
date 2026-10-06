@@ -3,14 +3,14 @@
   "concept_id": "chem-083",
   "subject": "chemistry",
   "title": "Condensation polymerisation",
-  "key_idea": "(Higher tier) (Separate science) Condensation polymerisation uses monomers with two functional groups each. They join in a chain and usually lose a small molecule such as water each time a link forms. A diol and a dicarboxylic acid make a polyester.",
+  "key_idea": "(AQA: Higher tier) (Separate science) Condensation polymerisation uses monomers with two functional groups each. They join in a chain and usually lose a small molecule such as water each time a link forms. A diol and a dicarboxylic acid make a polyester.",
   "sections": [
     {
       "heading": "How condensation polymers form",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) (Separate science) Condensation polymerisation involves monomers with two functional groups. When they react they join together and usually lose a small molecule such as water."
+          "text": "(AQA: Higher tier) (Separate science) Condensation polymerisation involves monomers with two functional groups. When they react they join together and usually lose a small molecule such as water."
         },
         {
           "type": "definitions",
@@ -89,10 +89,7 @@
           "diagram": {
             "kind": "compare",
             "alt": "Addition polymerisation compared with condensation polymerisation.",
-            "items": [
-              "Addition",
-              "Condensation"
-            ],
+            "items": ["Addition", "Condensation"],
             "rows": [
               {
                 "feature": "Monomers",
@@ -110,10 +107,7 @@
               },
               {
                 "feature": "Repeating unit",
-                "values": [
-                  "Same atoms as the monomer",
-                  "Not the same atoms as the monomers"
-                ]
+                "values": ["Same atoms as the monomer", "Not the same atoms as the monomers"]
               }
             ]
           }
@@ -121,7 +115,7 @@
         {
           "type": "key-points",
           "items": [
-            "(Higher tier) Condensation monomers have two functional groups each.",
+            "(AQA: Higher tier) Condensation monomers have two functional groups each.",
             "A diol and a dicarboxylic acid make a polyester and water.",
             "One water molecule forms for every ester link."
           ]
@@ -131,41 +125,24 @@
   ],
   "checks": [
     {
-      "q": "(Higher tier) What is made, apart from a polyester, when a diol reacts with a dicarboxylic acid?",
+      "q": "(AQA: Higher tier) What is made, apart from a polyester, when a diol reacts with a dicarboxylic acid?",
       "a": "Water, one molecule for each ester link formed.",
       "marks": 1
     },
     {
-      "q": "(Higher tier) Why is the formation of a polyester called condensation polymerisation?",
+      "q": "(AQA: Higher tier) Why is the formation of a polyester called condensation polymerisation?",
       "a": "The monomers join together and lose a small molecule (water) each time a link forms.",
       "marks": 2
     },
     {
-      "q": "(Higher tier) Give two differences between the monomers of addition polymers and condensation polymers.",
+      "q": "(AQA: Higher tier) Give two differences between the monomers of addition polymers and condensation polymers.",
       "a": "Addition monomers are all the same and have a C=C. Condensation monomers are two different molecules, each with two functional groups.",
       "marks": 2
     }
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.3.2"
-      ],
-      "exam_phrases": [
-        "(polyester is) thermosoftening / thermoplastic",
-        "(polyester has) no cross-links",
-        "intermolecular forces are weak"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Polyester melts when heated because the covalent bonds in the chains break.",
-          "right": "Do not accept breaking covalent bonds or breaking chains. Polyester has no cross-links, so the intermolecular forces are weak."
-        },
-        {
-          "wrong": "Polyester is thermoforming.",
-          "right": "Thermoforming is ignored. Say it is thermosoftening (thermoplastic)."
-        }
-      ],
+      "spec_codes": ["AQA 4.7.3.2"],
       "worked_example": {
         "exemplar_id": "a43ecb8e-b8b1-4dbc-97e9-b3ad91eaf72f",
         "source": "AQA jun 2019, Paper 2 (H), Q06.4",
@@ -197,27 +174,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.22C"
-      ],
-      "exam_phrases": [
-        "only one monomer",
-        "monomer is an alkene / unsaturated / has C=C",
-        "two / different monomers",
-        "one monomer is (di)alcohol",
-        "one monomer is (di)carboxylic acid",
-        "each monomer molecule has (two) functional groups (at each end)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Condensation polymers are made from a single monomer with a C=C bond.",
-          "right": "That describes addition monomers. Condensation uses two different monomers, one a (di)alcohol and one a (di)carboxylic acid."
-        },
-        {
-          "wrong": "Each condensation monomer has one functional group.",
-          "right": "Each monomer molecule has two functional groups, one at each end, such as 2 × –OH or 2 × –COOH."
-        }
-      ],
+      "spec_codes": ["EDEX 9.22C"],
       "worked_example": {
         "exemplar_id": "26ae8a7b-7e3e-42cf-830e-4d9a9a4a08a4",
         "source": "EDEXCEL jun 2024, Paper 2 (H), Q10(c)",
@@ -232,33 +189,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.2e",
-        "OCR C6.2f"
-      ],
-      "exam_phrases": [
-        "pouring one solution on top of the other solution so mixing is minimised",
-        "(film of) nylon forms at the interface of the layers",
-        "picking up the nylon with tweezers",
-        "lifting and drawing out a thread of nylon slowly",
-        "washing the thread of nylon",
-        "avoid naked flames because the solvent is highly flammable",
-        "wear gloves / eye protection because reagents are corrosive"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Make nylon by mixing the two solutions together in a beaker.",
-          "right": "Just mixing the solutions is ignored. Pour one solution on top of the other so mixing is minimised, and nylon forms at the interface."
-        },
-        {
-          "wrong": "Wear gloves to protect your hands.",
-          "right": "Gloves to protect hands is ignored on its own. Say gloves are worn to avoid damage to skin because the reagents are corrosive."
-        },
-        {
-          "wrong": "Avoid heat sources when making nylon.",
-          "right": "Avoid heat sources is ignored. Say avoid naked flames because the solvent is highly flammable."
-        }
-      ],
+      "spec_codes": ["OCR C6.2e", "OCR C6.2f"],
       "worked_example": {
         "exemplar_id": "bc568666-a13e-4b21-b9b2-6570862ec58d",
         "source": "OCR jun 2018, Paper 4, Q22(f)(i)",

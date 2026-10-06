@@ -99,7 +99,7 @@
         },
         {
           "type": "paragraph",
-          "text": "(Higher tier) Accommodation is the change in the shape of the lens that lets the eye focus on objects at different distances. The ciliary muscles and suspensory ligaments control it."
+          "text": "Accommodation is the change in the shape of the lens that lets the eye focus on objects at different distances. The ciliary muscles and suspensory ligaments control it."
         },
         {
           "type": "diagram",
@@ -107,12 +107,7 @@
             "kind": "predictor",
             "alt": "A predictor: pick a situation and see how the iris, ciliary muscles, suspensory ligaments and lens respond.",
             "prompt": "Pick what the eye is looking at.",
-            "result_labels": [
-              "Pupil",
-              "Ciliary muscles",
-              "Suspensory ligaments",
-              "Lens"
-            ],
+            "result_labels": ["Pupil", "Ciliary muscles", "Suspensory ligaments", "Lens"],
             "options": [
               {
                 "label": "A bright light",
@@ -187,33 +182,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 5.5"
-      ],
-      "exam_phrases": [
-        "ciliary muscles contract",
-        "suspensory ligaments loosen / slacken",
-        "lens thickens / becomes more curved",
-        "(thicker) lens is more convergent (light refracted more)",
-        "light rays / image focused on the retina",
-        "muscles in the iris contract and reduce the size of the pupil",
-        "(cells in) the retina sensitive to light",
-        "impulse passes along a (sensory) neurone, along the optic nerve"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The suspensory ligaments relax and the lens gets thicker.",
-          "right": "Relax is not accepted. Say the suspensory ligaments loosen or slacken, and the lens becomes thicker or more curved."
-        },
-        {
-          "wrong": "The lens becomes bigger to focus on a near object.",
-          "right": "Bigger is ignored. Say the lens becomes fatter, thicker or more rounded."
-        },
-        {
-          "wrong": "In bright light the ciliary muscles contract so less light enters.",
-          "right": "Ciliary muscles contracting is not accepted. The muscles in the iris contract, reducing the size of the pupil."
-        }
-      ],
+      "spec_codes": ["AQA 5.5"],
       "worked_example": {
         "exemplar_id": "5f03b7fb-b868-4f16-be9c-3143d2070927",
         "source": "AQA jun 2019, Paper 2 (H), Q04.1",
@@ -231,32 +200,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.15B"
-      ],
-      "exam_phrases": [
-        "cone cells are responsible for colour vision",
-        "rod cells detect the intensity of light",
-        "(both) send impulses to the brain",
-        "light rays are refracted / bent at the cornea / by the lens",
-        "light rays converge / focus on the retina",
-        "the pupil gets smaller",
-        "(circular) muscles contract; radial muscles relax"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Light is refracted by the iris to focus it on the retina.",
-          "right": "Any reference to light being refracted by the iris is rejected. Light is refracted at the cornea and by the lens."
-        },
-        {
-          "wrong": "Rod cells are responsible for colour vision.",
-          "right": "Cone cells are responsible for colour vision. Rod cells detect the intensity of light."
-        },
-        {
-          "wrong": "The pupil gets smaller in bright light.",
-          "right": "This is only part of the answer. Also say that the iris changes shape (circular muscles contract, radial muscles relax), which reduces the light entering the eye."
-        }
-      ],
+      "spec_codes": ["EDEX 2.15B"],
       "worked_example": {
         "exemplar_id": "6f5145ca-b81a-4421-9d2a-ada8da6cff15",
         "source": "EDEXCEL nov 2020, Paper 1 (F), Q7(b)",
@@ -273,30 +217,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 3.1d"
-      ],
-      "exam_phrases": [
-        "the retina is light sensitive / is where the receptors are found / is where the image is formed",
-        "if damaged it may not detect light / the image",
-        "rod cells can work in dim light but cannot detect colour",
-        "the iris controls the amount of light entering the eye / pupil",
-        "large eyes so more light can enter the eye (in low light levels)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "If the retina is damaged, the image will not form.",
-          "right": "This is ignored. Say that the retina may not detect the light or the image, or that information could not be sent to the brain."
-        },
-        {
-          "wrong": "Rod cells have broken down.",
-          "right": "Repeating the question is ignored. Explain that rods work in dim light but cannot detect colour, and cones are still working."
-        },
-        {
-          "wrong": "Owls have a small eye to body mass ratio, so they hunt at night.",
-          "right": "This is not allowed. Owls have a large eye size compared with body mass, so more light can enter the eye."
-        }
-      ],
+      "spec_codes": ["OCR 3.1d"],
       "worked_example": {
         "exemplar_id": "b91b23f0-4243-47c4-9b44-44ae5b52372f",
         "source": "OCR jun 2018, Paper 4, Q18(b)(ii)",

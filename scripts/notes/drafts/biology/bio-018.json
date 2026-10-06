@@ -8,15 +8,33 @@
     {
       "heading": "From cells to organisms",
       "blocks": [
-        { "type": "paragraph", "text": "Cells are the basic building blocks of all living organisms. This section covers each level and how they fit together." },
+        {
+          "type": "paragraph",
+          "text": "Cells are the basic building blocks of all living organisms. This section covers each level and how they fit together."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Cell", "meaning": "The basic building block of all living organisms." },
-            { "term": "Tissue", "meaning": "A group of cells with a similar structure and function." },
-            { "term": "Organ", "meaning": "A group of different tissues working together to do a specific job." },
-            { "term": "Organ system", "meaning": "A group of organs working together to do a job for the whole body." },
-            { "term": "Organism", "meaning": "A living thing, made of organ systems working together." }
+            {
+              "term": "Cell",
+              "meaning": "The basic building block of all living organisms."
+            },
+            {
+              "term": "Tissue",
+              "meaning": "A group of cells with a similar structure and function."
+            },
+            {
+              "term": "Organ",
+              "meaning": "A group of different tissues working together to do a specific job."
+            },
+            {
+              "term": "Organ system",
+              "meaning": "A group of organs working together to do a job for the whole body."
+            },
+            {
+              "term": "Organism",
+              "meaning": "A living thing, made of organ systems working together."
+            }
           ]
         },
         {
@@ -40,8 +58,14 @@
     {
       "heading": "Examples in animals and plants",
       "blocks": [
-        { "type": "paragraph", "text": "Every level has examples you need to be able to name. Animals and plants are organised in the same way." },
-        { "type": "subheading", "text": "In animals" },
+        {
+          "type": "paragraph",
+          "text": "Every level has examples you need to be able to name. Animals and plants are organised in the same way."
+        },
+        {
+          "type": "subheading",
+          "text": "In animals"
+        },
         {
           "type": "list",
           "items": [
@@ -51,7 +75,10 @@
             "The digestive system is an organ system. Several organs work together to digest and absorb food."
           ]
         },
-        { "type": "subheading", "text": "In plants" },
+        {
+          "type": "subheading",
+          "text": "In plants"
+        },
         {
           "type": "list",
           "items": [
@@ -72,7 +99,10 @@
     {
       "heading": "Size order",
       "blocks": [
-        { "type": "paragraph", "text": "Exam questions ask you to put structures in order of size. Each level is made of the level before it, so it is always larger." },
+        {
+          "type": "paragraph",
+          "text": "Exam questions ask you to put structures in order of size. Each level is made of the level before it, so it is always larger."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -112,43 +142,12 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 2.1", "AQA T 4.2.1"],
-      "exam_phrases": [
-        "a group of the same / similar cells",
-        "a group of cells with a (similar / specific) function",
-        "a group of tissues working together is an organ",
-        "it is made up of (different) tissues that perform specific functions",
-        "circulatory / circulation (system)",
-        "small intestine"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A tissue is a group of cells.",
-          "right": "\"A group of cells\" on its own is ignored. Say a group of the same or similar cells, or a group of cells with a similar function."
-        },
-        {
-          "wrong": "The heart is part of the blood system.",
-          "right": "\"Blood system\" is ignored. Say the circulatory system (cardiovascular is also accepted)."
-        },
-        {
-          "wrong": "The root hair cell is the plant organ that absorbs water from the soil.",
-          "right": "\"Root hair\" is not accepted. The organ is the root."
-        },
-        {
-          "wrong": "Blood is an animal organ.",
-          "right": "\"Blood\" is ignored when naming an organ. Name the heart, lung, liver, kidney, brain, stomach, intestine, pancreas, bladder or skin."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "0e397f32-b50c-4580-aa5f-9f5ce923ba8d",
         "source": "AQA jun 2019, Paper 1 (F), Q3.1",
         "question": "Write the biological structures from the box in the correct size order.\n\ncell   nucleus   organ   tissue\n\nSmallest\n\nLargest",
         "marks": 3,
-        "answer_points": [
-          "Smallest: nucleus",
-          "Then: cell",
-          "Then: tissue",
-          "Largest: organ"
-        ],
+        "answer_points": ["Smallest: nucleus", "Then: cell", "Then: tissue", "Largest: organ"],
         "tip": "All four in the correct order scores full marks. One mark is given for each consecutive pair in the right order."
       }
     }

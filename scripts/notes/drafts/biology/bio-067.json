@@ -112,38 +112,23 @@
           "diagram": {
             "kind": "compare",
             "alt": "A comparison of a reflex action and a voluntary action.",
-            "items": [
-              "Reflex action",
-              "Voluntary action"
-            ],
+            "items": ["Reflex action", "Voluntary action"],
             "rows": [
               {
                 "feature": "Speed",
-                "values": [
-                  "Very fast",
-                  "Slower"
-                ]
+                "values": ["Very fast", "Slower"]
               },
               {
                 "feature": "Conscious brain",
-                "values": [
-                  "Not involved",
-                  "Involved: you think and decide"
-                ]
+                "values": ["Not involved", "Involved: you think and decide"]
               },
               {
                 "feature": "Control",
-                "values": [
-                  "Automatic",
-                  "Under conscious control"
-                ]
+                "values": ["Automatic", "Under conscious control"]
               },
               {
                 "feature": "Purpose",
-                "values": [
-                  "Protects the body from harm",
-                  "Any deliberate action"
-                ]
+                "values": ["Protects the body from harm", "Any deliberate action"]
               }
             ]
           }
@@ -187,36 +172,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 5.3",
-        "AQA T 4.5.2"
-      ],
-      "exam_phrases": [
-        "fast / rapid",
-        "protects (from danger / harm)",
-        "automatic / involuntary or not under conscious control",
-        "does not involve thought / thinking",
-        "receptor detects the stimulus",
-        "(electrical) impulses pass along neurones",
-        "sensory to relay to motor neurones",
-        "synapse between neurones where a chemical crosses the gap",
-        "synapses in the spinal cord / CNS",
-        "effector is a muscle (muscle contraction)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A reflex action is an action that protects you.",
-          "right": "The word action is ignored. Say it is a response or reaction, and that it is automatic, involuntary or not under conscious control."
-        },
-        {
-          "wrong": "The receptor in the finger detects pain.",
-          "right": "Pain is ignored. Say the receptor in the skin detects the stimulus, such as heat or a temperature change."
-        },
-        {
-          "wrong": "The synapses are in the brain.",
-          "right": "Brain is ignored. Say the synapses are in the spinal cord or CNS."
-        }
-      ],
+      "spec_codes": ["AQA 5.3", "AQA T 4.5.2"],
       "worked_example": {
         "exemplar_id": "c4c9ce36-77a1-4969-86e8-a8517c8f2f24",
         "source": "AQA jun 2021, Paper 2 (H), Q06.2",
@@ -234,34 +190,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.14"
-      ],
-      "exam_phrases": [
-        "stimulus detected by a receptor",
-        "sensory neurone transfers the signal to the CNS / spinal cord / relay neurone",
-        "signal is transferred to a motor neurone",
-        "the motor neurone transmits the signal to the effector",
-        "the effector produces the response",
-        "myelin sheath speeds up the transmission of the electrical impulse",
-        "bypasses the brain / involuntary / subconscious",
-        "faster response / quick reaction",
-        "to protect the body from harm"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A reflex arc protects the body.",
-          "right": "Link it to speed. It is an involuntary process that bypasses the brain, so there is a faster response and the body is protected from harm."
-        },
-        {
-          "wrong": "Messages are sent from the brain to the muscles along a sensory neurone.",
-          "right": "Messages go as electrical impulses along a motor neurone to the effector."
-        },
-        {
-          "wrong": "A reflex arc is a voluntary response to danger.",
-          "right": "It is involuntary (or subconscious), and it bypasses the brain or parts of the brain."
-        }
-      ],
+      "spec_codes": ["EDEX 2.14"],
       "worked_example": {
         "exemplar_id": "68ea843a-2ea4-496b-9089-f67172a61928",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q9(c)",
@@ -279,33 +208,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 3.1c"
-      ],
-      "exam_phrases": [
-        "detected by receptors in the skin",
-        "impulse sent along a sensory neurone to the spinal cord / CNS",
-        "impulse sent along a motor neurone to the muscles / effectors",
-        "in the correct sequence",
-        "to avoid (further) damage",
-        "the reaction needs to be rapid",
-        "the brain would slow down the reaction time",
-        "bypasses the brain"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The impulse goes along the sensory neurone to the brain, then to the muscle.",
-          "right": "Brain is ignored in a reflex. Say the impulse goes to the spinal cord or CNS."
-        },
-        {
-          "wrong": "Receptors, motor neurone, sensory neurone, effector.",
-          "right": "The marks are only given when the points are in the correct sequence: receptor, sensory neurone, CNS, motor neurone, effector."
-        },
-        {
-          "wrong": "A reflex is important because it is quick.",
-          "right": "Give the reasons: to avoid further damage, the reaction needs to be rapid, and the brain would slow down the reaction time."
-        }
-      ],
+      "spec_codes": ["OCR 3.1c"],
       "worked_example": {
         "exemplar_id": "23751969-6171-47c0-84a3-e2bb77caaa30",
         "source": "OCR sample None, Paper 3, Q19(a)",

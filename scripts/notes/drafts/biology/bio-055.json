@@ -8,28 +8,53 @@
     {
       "heading": "The photosynthesis equation",
       "blocks": [
-        { "type": "paragraph", "text": "Photosynthesis is a chemical reaction. This section covers what goes in, what comes out and how to write it." },
+        {
+          "type": "paragraph",
+          "text": "Photosynthesis is a chemical reaction. This section covers what goes in, what comes out and how to write it."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Photosynthesis", "meaning": "The reaction in plants and algae that makes glucose and oxygen from carbon dioxide and water, using light energy." },
-            { "term": "Chlorophyll", "meaning": "The green substance that absorbs light for photosynthesis." },
-            { "term": "Chloroplast", "meaning": "The part of a plant or algal cell that contains chlorophyll, where photosynthesis happens." }
+            {
+              "term": "Photosynthesis",
+              "meaning": "The reaction in plants and algae that makes glucose and oxygen from carbon dioxide and water, using light energy."
+            },
+            {
+              "term": "Chlorophyll",
+              "meaning": "The green substance that absorbs light for photosynthesis."
+            },
+            {
+              "term": "Chloroplast",
+              "meaning": "The part of a plant or algal cell that contains chlorophyll, where photosynthesis happens."
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Word equation for photosynthesis",
           "formula": "carbon dioxide + water → glucose + oxygen",
-          "where": ["carbon dioxide and water are the reactants", "glucose and oxygen are the products", "light energy is needed, and chlorophyll absorbs it (both are written above the arrow)"]
+          "where": [
+            "carbon dioxide and water are the reactants",
+            "glucose and oxygen are the products",
+            "light energy is needed, and chlorophyll absorbs it (both are written above the arrow)"
+          ]
         },
         {
           "type": "equation",
           "label": "Symbol equation for photosynthesis",
           "formula": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
-          "where": ["CO₂ is carbon dioxide", "H₂O is water", "C₆H₁₂O₆ is glucose", "O₂ is oxygen", "the reaction is endothermic, with light and chlorophyll above the arrow"]
+          "where": [
+            "CO₂ is carbon dioxide",
+            "H₂O is water",
+            "C₆H₁₂O₆ is glucose",
+            "O₂ is oxygen",
+            "the reaction is endothermic, with light and chlorophyll above the arrow"
+          ]
         },
-        { "type": "paragraph", "text": "Sort each substance below by whether photosynthesis takes it in or makes it." },
+        {
+          "type": "paragraph",
+          "text": "Sort each substance below by whether photosynthesis takes it in or makes it."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -38,11 +63,26 @@
             "prompt": "Does photosynthesis take it in, or make it?",
             "groups": ["Taken in", "Made"],
             "items": [
-              { "text": "Carbon dioxide", "group": 0 },
-              { "text": "Water", "group": 0 },
-              { "text": "Light energy", "group": 0 },
-              { "text": "Glucose", "group": 1 },
-              { "text": "Oxygen", "group": 1 }
+              {
+                "text": "Carbon dioxide",
+                "group": 0
+              },
+              {
+                "text": "Water",
+                "group": 0
+              },
+              {
+                "text": "Light energy",
+                "group": 0
+              },
+              {
+                "text": "Glucose",
+                "group": 1
+              },
+              {
+                "text": "Oxygen",
+                "group": 1
+              }
             ]
           }
         },
@@ -59,11 +99,17 @@
     {
       "heading": "An endothermic reaction in the chloroplasts",
       "blocks": [
-        { "type": "paragraph", "text": "Photosynthesis needs energy. This section covers where the energy comes from and where the reaction happens." },
+        {
+          "type": "paragraph",
+          "text": "Photosynthesis needs energy. This section covers where the energy comes from and where the reaction happens."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Endothermic", "meaning": "A reaction that takes in energy from the surroundings." }
+            {
+              "term": "Endothermic",
+              "meaning": "A reaction that takes in energy from the surroundings."
+            }
           ]
         },
         {
@@ -87,12 +133,21 @@
     {
       "heading": "Producers and biomass",
       "blocks": [
-        { "type": "paragraph", "text": "Photosynthesis is how energy from light enters living things. This section covers why plants and algae matter to every food chain." },
+        {
+          "type": "paragraph",
+          "text": "Photosynthesis is how energy from light enters living things. This section covers why plants and algae matter to every food chain."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Producer", "meaning": "An organism that makes its own food, here by photosynthesis." },
-            { "term": "Biomass", "meaning": "The mass of living material." }
+            {
+              "term": "Producer",
+              "meaning": "An organism that makes its own food, here by photosynthesis."
+            },
+            {
+              "term": "Biomass",
+              "meaning": "The mass of living material."
+            }
           ]
         },
         {
@@ -134,31 +189,10 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.1", "AQA T 4.4.1.1"],
-      "exam_phrases": [
-        "carbon dioxide and water (in either order)",
-        "glucose + oxygen",
-        "light is captured / trapped / absorbed by chlorophyll / chloroplasts",
-        "(algae carry out) photosynthesis, which produces oxygen",
-        "light (allow sunlight)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Plants get energy for photosynthesis from the sun.",
-          "right": "\"Sun\" on its own is ignored. Say light or sunlight, and add that it is absorbed by chlorophyll or chloroplasts."
-        },
-        {
-          "wrong": "The light is absorbed and then the carbon dioxide and water react to make glucose.",
-          "right": "A description of the later parts of the reaction is ignored when the question asks how energy is gained. Answer the question: light is absorbed by chlorophyll or chloroplasts."
-        },
-        {
-          "wrong": "I ticked carbon dioxide, glucose and oxygen as the products of photosynthesis.",
-          "right": "An extra tick cancels marks. Glucose and oxygen are the only two products. Carbon dioxide is a reactant."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "37a795eb-646c-4b5a-92a8-6a5722f65733",
         "source": "AQA jun 2023, Paper 1 (F), Q03.1",
-        "question": "Photosynthesis produces oxygen.\n\nComplete the word equation for photosynthesis.\n\nChoose answers from the box.\n\ncarbon dioxide   fat   glucose\nnitrogen   protein   water\n\n______ + ______ -> ______ + oxygen",
+        "question": "Photosynthesis produces oxygen.\n\nComplete the word equation for photosynthesis.\n\nChoose answers from the box.\n\ncarbon dioxide   fat   glucose\nnitrogen   protein   water\n\n______ + ______ → ______ + oxygen",
         "marks": 3,
         "answer_points": [
           "carbon dioxide (left-hand side, 1 mark).",
@@ -170,23 +204,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.1", "EDEX 6.2"],
-      "exam_phrases": [
-        "have chlorophyll / chloroplasts",
-        "(by) photosynthesis",
-        "absorbing / using (sun)light",
-        "(to react) water with carbon dioxide",
-        "photosynthesis took place (using up the carbon dioxide)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The plants make glucose by photosynthesis.",
-          "right": "This is only one mark. A \"describe\" answer needs two points from: chlorophyll or chloroplasts, photosynthesis, absorbing light, and water reacting with carbon dioxide."
-        },
-        {
-          "wrong": "In the tube kept in the dark, photosynthesis produced carbon dioxide, so the indicator changed colour.",
-          "right": "Photosynthesis did not take place in the dark. Respiration produced the carbon dioxide. In the light, photosynthesis used up carbon dioxide."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "31a9fa3e-2215-4bc8-b883-90abf4810088",
         "source": "EDEXCEL nov 2021, Paper 2 (F), Q8(a)",
@@ -201,23 +218,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 1.4a", "OCR 1.4b", "OCR 1.4c"],
-      "exam_phrases": [
-        "light is absorbed / collected by chlorophyll / chloroplasts",
-        "it takes place in the chloroplasts",
-        "light energy splits water",
-        "reactants: carbon dioxide and water",
-        "respiration is also occurring, so some oxygen is used up"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Photosynthesis occurs in chlorophyll.",
-          "right": "\"Occurs in chlorophyll\" is ignored. Photosynthesis takes place in the chloroplasts. Chlorophyll absorbs the light."
-        },
-        {
-          "wrong": "The volume of oxygen given off is a true measure of the rate of photosynthesis.",
-          "right": "Respiration is also occurring and uses up some oxygen. The oxygen given out is the net production, not the true rate."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "d2d9b868-83f3-435f-92e4-40da0549fe55",
         "source": "OCR jun 2025, Paper 3, Q19(a)",
@@ -236,7 +236,10 @@
         {
           "heading": "The two stages of photosynthesis",
           "blocks": [
-            { "type": "paragraph", "text": "Photosynthesis happens in two stages. This section gives a short description of each." },
+            {
+              "type": "paragraph",
+              "text": "Photosynthesis happens in two stages. This section gives a short description of each."
+            },
             {
               "type": "list",
               "items": [

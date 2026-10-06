@@ -8,7 +8,10 @@
     {
       "heading": "What the practical investigates",
       "blocks": [
-        { "type": "paragraph", "text": "Potato cells have a partially permeable membrane, so water moves across it by **osmosis**. This section covers what to expect and which variables matter." },
+        {
+          "type": "paragraph",
+          "text": "Potato cells have a partially permeable membrane, so water moves across it by **osmosis**. This section covers what to expect and which variables matter."
+        },
         {
           "type": "table",
           "columns": ["Solution outside the potato", "Water movement", "Mass of the potato"],
@@ -18,15 +21,27 @@
             ["More concentrated than the cell contents", "Water leaves the potato", "Goes down"]
           ]
         },
-        { "type": "paragraph", "text": "The concentration where the mass does not change matches the concentration inside the potato cells." },
-        { "type": "subheading", "text": "The variables" },
+        {
+          "type": "paragraph",
+          "text": "The concentration where the mass does not change matches the concentration inside the potato cells."
+        },
+        {
+          "type": "subheading",
+          "text": "The variables"
+        },
         {
           "type": "table",
           "columns": ["Type of variable", "In this investigation"],
           "rows": [
             ["Independent (what you change)", "The concentration of the salt or sugar solution"],
-            ["Dependent (what you measure)", "The mass of the potato piece, used to find the percentage change in mass"],
-            ["Control (kept the same)", "Same type of potato, no skin, same size and mass of piece, same volume of solution, same time in the solution, same temperature, same solute"]
+            [
+              "Dependent (what you measure)",
+              "The mass of the potato piece, used to find the percentage change in mass"
+            ],
+            [
+              "Control (kept the same)",
+              "Same type of potato, no skin, same size and mass of piece, same volume of solution, same time in the solution, same temperature, same solute"
+            ]
           ]
         },
         {
@@ -42,7 +57,10 @@
     {
       "heading": "The method",
       "blocks": [
-        { "type": "paragraph", "text": "Follow these steps in order." },
+        {
+          "type": "paragraph",
+          "text": "Follow these steps in order."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -62,16 +80,40 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Prepare the potato.", "text": "Use the same potato. Remove the skin, because water cannot move through it. Cut equal pieces, for example with a cork borer." },
-            { "lead": "Prepare the solutions.", "text": "Label a tube for each concentration (at least three, ideally five), including 0.0 mol/dm³ (distilled water). Use the same volume in each, enough to cover the piece." },
-            { "lead": "Weigh the pieces.", "text": "Dry each piece on a paper towel. Weigh it and record the starting mass." },
-            { "lead": "Start.", "text": "Put one piece in each tube, fully submerged, all at the same temperature." },
-            { "lead": "Wait.", "text": "Leave them for the same time, at least 10 minutes. Longer gives larger changes." },
-            { "lead": "Reweigh.", "text": "Remove each piece and blot it dry in the same way. Weigh it and record the final mass." },
-            { "lead": "Repeat.", "text": "Do each concentration at least three times so that you can calculate a mean." }
+            {
+              "lead": "Prepare the potato.",
+              "text": "Use the same potato. Remove the skin, because water cannot move through it. Cut equal pieces, for example with a cork borer."
+            },
+            {
+              "lead": "Prepare the solutions.",
+              "text": "Label a tube for each concentration (at least three, ideally five), including 0.0 mol/dm³ (distilled water). Use the same volume in each, enough to cover the piece."
+            },
+            {
+              "lead": "Weigh the pieces.",
+              "text": "Dry each piece on a paper towel. Weigh it and record the starting mass."
+            },
+            {
+              "lead": "Start.",
+              "text": "Put one piece in each tube, fully submerged, all at the same temperature."
+            },
+            {
+              "lead": "Wait.",
+              "text": "Leave them for the same time, at least 10 minutes. Longer gives larger changes."
+            },
+            {
+              "lead": "Reweigh.",
+              "text": "Remove each piece and blot it dry in the same way. Weigh it and record the final mass."
+            },
+            {
+              "lead": "Repeat.",
+              "text": "Do each concentration at least three times so that you can calculate a mean."
+            }
           ]
         },
-        { "type": "paragraph", "text": "Blot each piece dry. Water left on the surface adds to the mass and gives a false result." },
+        {
+          "type": "paragraph",
+          "text": "Blot each piece dry. Water left on the surface adds to the mass and gives a false result."
+        },
         {
           "type": "key-points",
           "items": [
@@ -85,7 +127,10 @@
     {
       "heading": "Results and calculations",
       "blocks": [
-        { "type": "paragraph", "text": "Work out the change in mass for each piece. Then use percentage change, so that pieces with different starting masses can be compared." },
+        {
+          "type": "paragraph",
+          "text": "Work out the change in mass for each piece. Then use percentage change, so that pieces with different starting masses can be compared."
+        },
         {
           "type": "equation",
           "label": "Percentage change in mass",
@@ -95,20 +140,41 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Change.", "text": "A piece goes from 7.96 g to 8.21 g. The change is 0.25 g." },
-            { "lead": "Calculate.", "text": "0.25 ÷ 7.96 × 100 = 3.14%." },
-            { "lead": "Sign.", "text": "A gain is positive. A loss is negative, written with a minus sign." }
+            {
+              "lead": "Change.",
+              "text": "A piece goes from 7.96 g to 8.21 g. The change is 0.25 g."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "0.25 ÷ 7.96 × 100 = 3.14%."
+            },
+            {
+              "lead": "Sign.",
+              "text": "A gain is positive. A loss is negative, written with a minus sign."
+            }
           ]
         },
-        { "type": "paragraph", "text": "Round to the number of significant figures the question asks for." },
+        {
+          "type": "paragraph",
+          "text": "Round to the number of significant figures the question asks for."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Mean", "meaning": "The total of the repeats divided by the number of repeats." },
-            { "term": "Anomalous result", "meaning": "A result that does not fit the pattern. Leave it out of the mean." }
+            {
+              "term": "Mean",
+              "meaning": "The total of the repeats divided by the number of repeats."
+            },
+            {
+              "term": "Anomalous result",
+              "meaning": "A result that does not fit the pattern. Leave it out of the mean."
+            }
           ]
         },
-        { "type": "subheading", "text": "The graph" },
+        {
+          "type": "subheading",
+          "text": "The graph"
+        },
         {
           "type": "list",
           "items": [
@@ -132,17 +198,35 @@
     {
       "heading": "Evaluating the investigation",
       "blocks": [
-        { "type": "paragraph", "text": "Exam questions ask how reliable the results are and how to improve them." },
+        {
+          "type": "paragraph",
+          "text": "Exam questions ask how reliable the results are and how to improve them."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Repeatable", "meaning": "The same person gets the same result when they repeat the experiment." },
-            { "term": "Reproducible", "meaning": "A different person, or different equipment or method, gets the same result." },
-            { "term": "Random error", "meaning": "An error that changes from piece to piece, such as excess liquid left on a piece." },
-            { "term": "Systematic error", "meaning": "An error that is the same every time, such as an uncalibrated balance." }
+            {
+              "term": "Repeatable",
+              "meaning": "The same person gets the same result when they repeat the experiment."
+            },
+            {
+              "term": "Reproducible",
+              "meaning": "A different person, or different equipment or method, gets the same result."
+            },
+            {
+              "term": "Random error",
+              "meaning": "An error that changes from piece to piece, such as excess liquid left on a piece."
+            },
+            {
+              "term": "Systematic error",
+              "meaning": "An error that is the same every time, such as an uncalibrated balance."
+            }
           ]
         },
-        { "type": "subheading", "text": "Improvements" },
+        {
+          "type": "subheading",
+          "text": "Improvements"
+        },
         {
           "type": "list",
           "items": [
@@ -153,8 +237,14 @@
             "Repeat readings to spot anomalous results."
           ]
         },
-        { "type": "subheading", "text": "Boiled potato control" },
-        { "type": "paragraph", "text": "A boiled potato shows no change in mass. Boiling damages the membrane, so it is no longer partially permeable." },
+        {
+          "type": "subheading",
+          "text": "Boiled potato control"
+        },
+        {
+          "type": "paragraph",
+          "text": "A boiled potato shows no change in mass. Boiling damages the membrane, so it is no longer partially permeable."
+        },
         {
           "type": "key-points",
           "items": [
@@ -186,30 +276,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 1.11", "AQA T 4.1.3.2"],
-      "exam_phrases": [
-        "measure and record the mass of the potato pieces",
-        "use at least 3 different concentrations of salt solution",
-        "blot the potato pieces dry",
-        "repeat each concentration and calculate the mean change in mass",
-        "keep the potato pieces in the solutions for the same amount of time",
-        "percentage change takes account of the different starting masses",
-        "the concentration where the line crosses zero percentage change",
-        "the membrane was damaged or leaky"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The size of the potato was a control variable.",
-          "right": "\"Size of potato\" is ignored. Say the size of the piece of potato, the type of potato, the volume of solution, or the time the pieces are left in the solution."
-        },
-        {
-          "wrong": "The boiled carrot did not change in mass because its cells are dead.",
-          "right": "\"Dead cells\" is ignored. Say that the membrane was damaged or leaky, so it was no longer partially permeable."
-        },
-        {
-          "wrong": "Dry the potato because water left on it would make the mass lower.",
-          "right": "Water left on would make the mass higher or affect it. This answer is not accepted."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "b20e00fb-c9b8-4d6b-b035-a206bc2fdf12",
         "source": "AQA jun 2024, Paper 1 (H), Q05.1",
@@ -229,30 +295,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 1.16", "EDEX 1.17"],
-      "exam_phrases": [
-        "different salt concentrations between the dilute and the concentrated solution",
-        "make repeated readings at each concentration / find an average",
-        "plot a graph to find the concentration with no mass change",
-        "where the line crosses the x axis",
-        "dry the cube / check the balance is on zero",
-        "distilled water used as a control to compare",
-        "a single result could be anomalous / to calculate a mean",
-        "cut from the same carrot / same variety"
-      ],
-      "mistakes": [
-        {
-          "wrong": "0.8 ÷ 4.2 × 100 = 19.048%",
-          "right": "Round to the number of significant figures asked for, here 2, giving 19%. Without the rounding the final mark is lost."
-        },
-        {
-          "wrong": "Repeat the investigation to make the measurement of mass more accurate.",
-          "right": "Repeating is ignored for accuracy of a mass reading. Dry the piece, or check that the balance reads zero."
-        },
-        {
-          "wrong": "Percentage change = change in mass ÷ final mass × 100.",
-          "right": "Divide by the mass at the start. Percentage change = change in mass ÷ mass at the start × 100."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "ee79f4bf-a75a-40fe-bf9a-9abe9b828925",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q8(a)(iv)",
@@ -270,30 +312,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 7.2"],
-      "exam_phrases": [
-        "use a (measuring) balance",
-        "measure the mass of the cube at the start and at the end",
-        "blot or dry the outside of the cubes",
-        "repeat the experiment / take repeat readings",
-        "another student conducts the experiment / use different equipment",
-        "the same water potential, so no net water loss or gain",
-        "percentage change allows comparison even if the original sizes are different",
-        "excess fluid is a random error, an uncalibrated scale is a systematic error"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Make the cubes the same mass and measure the volume of the solutions.",
-          "right": "This is ignored when finding percentage change. Use a balance, measure the mass of each cube at the start and at the end, and blot the cubes dry."
-        },
-        {
-          "wrong": "To check the data is repeatable and reproducible, compare the results.",
-          "right": "\"Compare the results\" is ignored. Repeatable: repeat the experiment. Reproducible: another student does it, or different equipment or a different method is used."
-        },
-        {
-          "wrong": "The amount of solution is a control variable.",
-          "right": "\"Amount of solution\" is ignored. Write the volume of the solution, the temperature, the time in the solution, or the size of the cubes."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "a4f69bdc-b1af-4c06-baba-6b79c080e469",
         "source": "OCR jun 2024, Paper 1, Q22(a)",

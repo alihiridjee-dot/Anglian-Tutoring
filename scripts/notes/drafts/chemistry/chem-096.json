@@ -71,10 +71,7 @@
             "kind": "sort",
             "alt": "Sort human activities by the greenhouse gas they add to the atmosphere.",
             "prompt": "Sort each activity by the main greenhouse gas it adds.",
-            "groups": [
-              "Adds carbon dioxide",
-              "Adds methane"
-            ],
+            "groups": ["Adds carbon dioxide", "Adds methane"],
             "items": [
               {
                 "text": "Burning coal to generate electricity",
@@ -245,30 +242,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.9.2.2",
-        "AQA T 5.9.2.2"
-      ],
-      "exam_phrases": [
-        "(increased population so) more energy required",
-        "more (fossil) fuels burned",
-        "more farmland required, so more deforestation",
-        "more food required, so more methane-producing food production",
-        "more waste produced, which produces more methane on decomposition",
-        "reduce livestock farming",
-        "reduce the amount of rubbish going to landfill",
-        "use methane from landfill as an energy source"
-      ],
-      "mistakes": [
-        {
-          "wrong": "More people means more carbon dioxide.",
-          "right": "Link the population to a need. More energy is required, so more fossil fuels are burned. Or more farmland is required, so there is more deforestation."
-        },
-        {
-          "wrong": "More people means more methane.",
-          "right": "Link it to food or waste. More food is required, so more beef cattle or rice. Or more waste is produced, which gives more methane on decomposition."
-        }
-      ],
+      "spec_codes": ["AQA 4.9.2.2", "AQA T 5.9.2.2"],
       "worked_example": {
         "exemplar_id": "7dbb639f-0b01-450d-ac34-a760975f929f",
         "source": "AQA jun 2023, Paper 2 (H), Q04.2",
@@ -282,35 +256,13 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 8.25"
-      ],
-      "exam_phrases": [
-        "carbon dioxide is a greenhouse gas",
-        "greenhouse gases cause global warming",
-        "effects of global warming, such as sea levels rising",
-        "to nearest whole number",
-        "answer of 45 alone with or without working scores (2)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Increase = 416.56 − 371.17 = 45.39 ppm.",
-          "right": "The question asks for the nearest whole number. One mark is for the correct rounding: 45 ppm."
-        },
-        {
-          "wrong": "Carbon dioxide causes climate change by damaging the ozone layer.",
-          "right": "References to the ozone layer are ignored. Say that carbon dioxide is a greenhouse gas and greenhouse gases cause global warming."
-        }
-      ],
+      "spec_codes": ["EDEX 8.25"],
       "worked_example": {
         "exemplar_id": "5e26b255-e471-4c79-a342-3a5fe148f5a4",
         "source": "EDEXCEL jun 2023, Paper 2 (F), Q4(d)(i)",
         "question": "Many people are concerned by the increasing amount of carbon dioxide in the atmosphere.\n\nThe amount of carbon dioxide in the atmosphere is measured in parts per million (ppm).\n\nThe amount of carbon dioxide in the atmosphere in June 2001 and in June 2021 was:\n\nJune 2001: 371.17 ppm\nJune 2021: 416.56 ppm\n\nCalculate the increase in the amount of carbon dioxide, in ppm, from June 2001 to June 2021.\n\nGive your answer to the nearest whole number.",
         "marks": 2,
-        "answer_points": [
-          "416.56 − 371.17 = 45.39",
-          "= 45 ppm (to the nearest whole number)"
-        ],
+        "answer_points": ["416.56 − 371.17 = 45.39", "= 45 ppm (to the nearest whole number)"],
         "tip": "45 on its own scores both marks. One mark is for correct rounding of the difference of the two numbers."
       },
       "extra": [
@@ -330,32 +282,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.3d"
-      ],
-      "exam_phrases": [
-        "(increased population so) more energy required",
-        "(so) more (fossil) fuels burned",
-        "more farmland or land for housing / industry required, so more deforestation",
-        "CO₂ emissions are only from the UK and not a global figure",
-        "there is a lag between CO₂ emissions impacting on global sea levels",
-        "none of the data refers to climate change or global temperature",
-        "the data is for one city and not a global figure"
-      ],
-      "mistakes": [
-        {
-          "wrong": "More people means more respiration, so more carbon dioxide.",
-          "right": "Answers in terms of respiration are ignored. Say that more energy is required, so more fossil fuels are burned, or that more land is cleared by deforestation."
-        },
-        {
-          "wrong": "The problem with the data is that other factors may affect sea levels.",
-          "right": "That is ignored. Say that the emissions are only from the UK and not a global figure, or that there is a lag between emissions and their effect."
-        },
-        {
-          "wrong": "The data does not support the view. No.",
-          "right": "No mark is given for no on its own. Give a reason: the data is for one city, or none of it refers to global temperature."
-        }
-      ],
+      "spec_codes": ["OCR C6.3d"],
       "worked_example": {
         "exemplar_id": "e60126bb-82a1-4661-a91e-24a76bed96a8",
         "source": "OCR jun 2025, Paper 4, Q23(a)",

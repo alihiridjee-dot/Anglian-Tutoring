@@ -81,12 +81,7 @@
           "type": "equation",
           "label": "Aerobic respiration in symbols",
           "formula": "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O",
-          "where": [
-            "C₆H₁₂O₆ is glucose",
-            "O₂ is oxygen",
-            "CO₂ is carbon dioxide",
-            "H₂O is water"
-          ]
+          "where": ["C₆H₁₂O₆ is glucose", "O₂ is oxygen", "CO₂ is carbon dioxide", "H₂O is water"]
         },
         {
           "type": "diagram",
@@ -94,11 +89,7 @@
             "kind": "sort",
             "alt": "Sort each substance by whether aerobic respiration uses it, makes it, or does not involve it.",
             "prompt": "Sort the substances for aerobic respiration",
-            "groups": [
-              "Used up (reactants)",
-              "Made (products)",
-              "Not part of aerobic respiration"
-            ],
+            "groups": ["Used up (reactants)", "Made (products)", "Not part of aerobic respiration"],
             "items": [
               {
                 "text": "Glucose",
@@ -183,37 +174,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5",
-        "AQA T 4.4.2.1"
-      ],
-      "exam_phrases": [
-        "(more) respiration (in mitochondria)",
-        "(which) releases more energy",
-        "(so the heart) muscle contracts",
-        "oxygen is needed for (aerobic) respiration",
-        "to release / transfer energy",
-        "glucose + oxygen → carbon dioxide + water",
-        "movement / muscle contraction / keeping warm / active transport / building larger molecules"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Respiration produces energy.",
-          "right": "\"Energy produced / made / created\" is not accepted. Say energy is released or transferred."
-        },
-        {
-          "wrong": "Heart cells have many mitochondria because they need a lot of anaerobic respiration.",
-          "right": "Anaerobic respiration is not accepted here. Mitochondria are the site of aerobic respiration, which releases more energy for the muscle to contract."
-        },
-        {
-          "wrong": "Heart cells have many mitochondria because mitochondria provide more energy for respiration.",
-          "right": "\"Provides more energy for respiration\" is not accepted. Mitochondria are where respiration happens, and respiration releases the energy."
-        },
-        {
-          "wrong": "The energy from respiration is used for metabolism and growth.",
-          "right": "\"Metabolism\" unqualified and \"growth\" are ignored. Give a specific use: movement, muscle contraction, keeping warm, active transport or building larger molecules."
-        }
-      ],
+      "spec_codes": ["AQA 4.5", "AQA T 4.4.2.1"],
       "worked_example": {
         "exemplar_id": "cb8e0754-bef4-4f1f-ae8c-cc2fbd96cffa",
         "source": "AQA jun 2025, Paper 1 (H), Q01.3",
@@ -228,27 +189,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 8.9"
-      ],
-      "exam_phrases": [
-        "to release energy",
-        "for metabolic processes / chemical reactions",
-        "respiration supplies energy (to muscles / cells)",
-        "(more) respiration occurs",
-        "(more respiration) requires oxygen",
-        "chemical / enzyme / metabolic reactions are increased at higher temperatures"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Respiration is essential because it gives living things energy.",
-          "right": "Two marks are available: to release energy, and for metabolic processes or chemical reactions. Name a use, for example movement."
-        },
-        {
-          "wrong": "The athlete breathes faster to get more energy.",
-          "right": "Breathing faster absorbs more oxygen, so more respiration can occur and more energy is released. Or it removes more carbon dioxide from the extra respiration."
-        }
-      ],
+      "spec_codes": ["EDEX 8.9"],
       "worked_example": {
         "exemplar_id": "3bf4ca4f-b741-4f3e-ba0f-47c99ee71630",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q6(a)(ii)",
@@ -263,32 +204,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 1.3a",
-        "OCR 1.3b"
-      ],
-      "exam_phrases": [
-        "respiration is a universal chemical process",
-        "all organisms need to respire",
-        "plants need (to produce) ATP",
-        "breakdown / use of glucose to release / transfer / provide energy",
-        "producing ATP",
-        "energy stored as ATP"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Cellular respiration produces energy.",
-          "right": "\"Produces energy\" is not allowed. Say glucose is broken down to release, transfer or provide energy, or that ATP is produced."
-        },
-        {
-          "wrong": "Plants do not respire. They photosynthesise instead.",
-          "right": "Respiration is a universal chemical process, so plants respire too. They need ATP, for example for active transport, protein synthesis or cell division."
-        },
-        {
-          "wrong": "Plants use the ATP from respiration for growth.",
-          "right": "\"Growth\" unqualified is ignored. Give a named use of ATP or energy, such as active transport, protein synthesis or cell division."
-        }
-      ],
+      "spec_codes": ["OCR 1.3a", "OCR 1.3b"],
       "worked_example": {
         "exemplar_id": "1819bea2-2acf-46cd-a5e8-abaaed32ca04",
         "source": "OCR jun 2023, Paper 3, Q25(a)",

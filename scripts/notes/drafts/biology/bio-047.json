@@ -132,69 +132,18 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 3.3",
-        "AQA T 4.3.1.6"
-      ],
-      "exam_phrases": [
-        "engulf pathogens",
-        "produce antibodies",
-        "produce antitoxins",
-        "(antibodies) attach to invading cells",
-        "(antitoxins) neutralise toxins / poisons",
-        "produce memory cells",
-        "(so) immune response is faster",
-        "immune system is damaged / weakened"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Phagocytosis helps because white blood cells produce antibodies.",
-          "right": "Phagocytosis is engulfing. Say more pathogens are engulfed and killed by phagocytes, so there is less damage to cells, tissues or organs."
-        },
-        {
-          "wrong": "Lymphocytes engulf the pathogen.",
-          "right": "Lymphocytes do not engulf. It is phagocytes that engulf pathogens. Lymphocytes produce antibodies."
-        },
-        {
-          "wrong": "A vaccine works because the person is immune.",
-          "right": "Describe both responses. White blood cells produce specific antibodies and memory cells after the vaccine. If the pathogen enters later, the correct antibodies are produced sooner and in greater numbers, so it is destroyed faster."
-        }
-      ],
+      "spec_codes": ["AQA 3.3", "AQA T 4.3.1.6"],
       "worked_example": {
         "exemplar_id": "6693ebed-02cc-45ee-b3f5-9737f75d4617",
         "source": "AQA jun 2018, Paper 1 (F), Q01.2",
         "question": "White blood cells help to defend the body against pathogens. How do the white blood cells do this?",
         "marks": 3,
-        "answer_points": [
-          "Engulf pathogens.",
-          "Produce antibodies.",
-          "Produce antitoxins."
-        ],
+        "answer_points": ["Engulf pathogens.", "Produce antibodies.", "Produce antitoxins."],
         "tip": "One mark each for three correct ideas. Do not add extra incorrect ideas, as these can cancel marks."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.13"
-      ],
-      "exam_phrases": [
-        "antigens are on the bacteria, detected by WBCs / phagocytes",
-        "antibodies are produced by lymphocytes",
-        "antibodies surround / cover / inactivate the antigens / pathogens",
-        "memory lymphocytes / cells are produced",
-        "memory lymphocytes produce antibodies faster / in greater numbers",
-        "cause a secondary response"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The immune system produces antigens to destroy the pathogen.",
-          "right": "\"Antigens\" is rejected as a way the immune system responds. The pathogen has antigens, and the body responds by producing antibodies."
-        },
-        {
-          "wrong": "White blood cells defend the body.",
-          "right": "\"WBC\" on its own is ignored. Say what they do: lymphocytes produce antibodies, phagocytes engulf pathogens, memory cells give a secondary response."
-        }
-      ],
+      "spec_codes": ["EDEX 5.13"],
       "worked_example": {
         "exemplar_id": "7a0393aa-e533-4144-8d3b-13ab3ec1f8a4",
         "source": "EDEXCEL nov 2020, Paper 1 (F), Q8(c)",
@@ -212,32 +161,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.3j",
-        "OCR 6.3l"
-      ],
-      "exam_phrases": [
-        "antigens",
-        "white blood cells produce antibodies",
-        "antibodies attach / bind to the antigen",
-        "broken down / engulfed by phagocytes / white blood cells",
-        "platelets clot the blood",
-        "forms a scab / prevents bleeding"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Antibodies engulf the invading cells.",
-          "right": "Do not allow antibodies or lymphocytes engulf. Phagocytes or white blood cells engulf, and white blood cells produce the antibodies."
-        },
-        {
-          "wrong": "Phagocytes produce antibodies.",
-          "right": "Do not allow phagocytes produce antibodies. Antibodies are made by white blood cells (lymphocytes)."
-        },
-        {
-          "wrong": "An antibody attacks or fights germs.",
-          "right": "\"Attack\", \"fight\" and \"germs\" are ignored. An antibody is a protein molecule made by the immune system that destroys pathogens, clumps them together or attaches to antigens."
-        }
-      ],
+      "spec_codes": ["OCR 6.3j", "OCR 6.3l"],
       "worked_example": {
         "exemplar_id": "ec77e3f2-32a7-4c04-be4f-931e8626ce79",
         "source": "OCR jun 2018, Paper 4, Q22(a)",

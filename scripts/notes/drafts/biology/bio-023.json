@@ -8,17 +8,28 @@
     {
       "heading": "The three types of digestive enzyme",
       "blocks": [
-        { "type": "paragraph", "text": "Digestive enzymes convert food into small soluble molecules that can be absorbed into the blood. Each type acts on one type of food." },
+        {
+          "type": "paragraph",
+          "text": "Digestive enzymes convert food into small soluble molecules that can be absorbed into the blood. Each type acts on one type of food."
+        },
         {
           "type": "table",
           "columns": ["Enzyme", "Breaks down", "Into", "Made in"],
           "rows": [
-            ["Amylase (a carbohydrase)", "Starch", "Sugars", "Salivary glands, pancreas, small intestine"],
+            [
+              "Amylase (a carbohydrase)",
+              "Starch",
+              "Sugars",
+              "Salivary glands, pancreas, small intestine"
+            ],
             ["Proteases", "Proteins", "Amino acids", "Stomach, pancreas, small intestine"],
             ["Lipases", "Lipids (fats)", "Fatty acids and glycerol", "Pancreas, small intestine"]
           ]
         },
-        { "type": "paragraph", "text": "Carbohydrases break down carbohydrates to simple sugars. Amylase is the carbohydrase that breaks down starch." },
+        {
+          "type": "paragraph",
+          "text": "Carbohydrases break down carbohydrates to simple sugars. Amylase is the carbohydrase that breaks down starch."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -27,14 +38,38 @@
             "prompt": "Amylase, protease or lipase?",
             "groups": ["Amylase", "Protease", "Lipase"],
             "items": [
-              { "text": "Starch is the substrate", "group": 0 },
-              { "text": "Made in the salivary glands", "group": 0 },
-              { "text": "Protein is the substrate", "group": 1 },
-              { "text": "Produces amino acids", "group": 1 },
-              { "text": "Made in the stomach", "group": 1 },
-              { "text": "Fat is the substrate", "group": 2 },
-              { "text": "Produces fatty acids and glycerol", "group": 2 },
-              { "text": "Produces sugars", "group": 0 }
+              {
+                "text": "Starch is the substrate",
+                "group": 0
+              },
+              {
+                "text": "Made in the salivary glands",
+                "group": 0
+              },
+              {
+                "text": "Protein is the substrate",
+                "group": 1
+              },
+              {
+                "text": "Produces amino acids",
+                "group": 1
+              },
+              {
+                "text": "Made in the stomach",
+                "group": 1
+              },
+              {
+                "text": "Fat is the substrate",
+                "group": 2
+              },
+              {
+                "text": "Produces fatty acids and glycerol",
+                "group": 2
+              },
+              {
+                "text": "Produces sugars",
+                "group": 0
+              }
             ]
           }
         },
@@ -51,11 +86,17 @@
     {
       "heading": "Bile",
       "blocks": [
-        { "type": "paragraph", "text": "Bile is made in the liver and stored in the gall bladder. It is released into the small intestine, where it helps lipase." },
+        {
+          "type": "paragraph",
+          "text": "Bile is made in the liver and stored in the gall bladder. It is released into the small intestine, where it helps lipase."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Emulsification", "meaning": "Breaking large droplets of fat into many small droplets." }
+            {
+              "term": "Emulsification",
+              "meaning": "Breaking large droplets of fat into many small droplets."
+            }
           ]
         },
         {
@@ -94,7 +135,10 @@
     {
       "heading": "Using the products of digestion",
       "blocks": [
-        { "type": "paragraph", "text": "The small molecules from digestion are absorbed into the blood. The body uses them to build new molecules, and some are used in respiration." },
+        {
+          "type": "paragraph",
+          "text": "The small molecules from digestion are absorbed into the blood. The body uses them to build new molecules, and some are used in respiration."
+        },
         {
           "type": "table",
           "columns": ["Built from digestion products", "Made of"],
@@ -107,8 +151,14 @@
         {
           "type": "definitions",
           "items": [
-            { "term": "Monomer", "meaning": "A small molecule that joins with many others to make a polymer, for example an amino acid." },
-            { "term": "Polymer", "meaning": "A large molecule made of many monomers joined together, for example a protein." }
+            {
+              "term": "Monomer",
+              "meaning": "A small molecule that joins with many others to make a polymer, for example an amino acid."
+            },
+            {
+              "term": "Polymer",
+              "meaning": "A large molecule made of many monomers joined together, for example a protein."
+            }
           ]
         },
         {
@@ -118,7 +168,10 @@
             "Amino acids are joined to make the proteins the body needs for growth, such as muscle."
           ]
         },
-        { "type": "subheading", "text": "Evidence that lipase works" },
+        {
+          "type": "subheading",
+          "text": "Evidence that lipase works"
+        },
         {
           "type": "list",
           "items": [
@@ -158,30 +211,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 2.4", "AQA T 4.2.2.1"],
-      "exam_phrases": [
-        "(protein) broken down into amino acids",
-        "(fat) broken down into fatty acids and glycerol",
-        "(protease) produced in the stomach / pancreas / small intestine",
-        "(lipase) produced by the pancreas / small intestine",
-        "(bile) produced by the liver, released from the gall bladder",
-        "bile emulsifies fats",
-        "creates a larger surface area (of fat)",
-        "neutralises acid to provide the correct pH for enzymes"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Bile breaks down fat into fatty acids.",
-          "right": "A description of chemical breakdown is not accepted for bile. Bile emulsifies fat, breaking large droplets into smaller droplets. Lipase breaks the fat down into fatty acids and glycerol."
-        },
-        {
-          "wrong": "Less bile is produced, so there is less emulsification.",
-          "right": "\"Less or no bile produced\" is ignored when a tube is blocked. Say no or less bile reaches the small intestine."
-        },
-        {
-          "wrong": "The enzyme that digests starch is amylose.",
-          "right": "\"Amylose\" is not accepted. The enzyme is amylase. Carbohydrase is also accepted."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "4ccaec4c-fe80-4f55-86ff-6de99cdb0b6e",
         "source": "AQA jun 2021, Paper 1 (H), Q07.7",
@@ -199,30 +228,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 1.12"],
-      "exam_phrases": [
-        "(fats are digested by) enzyme / lipase into glycerol and fatty acids",
-        "bile emulsifies fats",
-        "lipase digests fat / lipid, forming fatty acids",
-        "fatty acids are acidic, lowering the pH of the mixture",
-        "there was no substrate (no fat) so no fatty acids were produced",
-        "starch fits into the active site",
-        "bonds between glucose molecules in starch are broken",
-        "polymer broken down into monomers"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Carbohydrase breaks down fat.",
-          "right": "Carbohydrase does not break down fat. Lipase does. Amylase and protease do not break down fat either."
-        },
-        {
-          "wrong": "Sugars are produced when a protein is broken down.",
-          "right": "Amino acids are produced when a protein is broken down. Fatty acids and starch are not."
-        },
-        {
-          "wrong": "Trypsin digests fibre.",
-          "right": "Trypsin is a protease and digests proteins. Fibre is not broken down by enzymes."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "51b24e35-7391-463a-9a0e-d05ff1375329",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q6(b)(i)",
@@ -238,29 +243,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 1.3d", "OCR 1.3e", "OCR 1.3f"],
-      "exam_phrases": [
-        "sugars are the monomers",
-        "sugars are joined together to make the polymer (cellulose)",
-        "large molecules made of smaller molecules are polymers",
-        "the smaller molecules, or amino acids, are monomers",
-        "glucose / sugar (the monomer of starch)",
-        "fatty acids are obtained by breaking down larger molecules, from lipids",
-        "using lipase / an enzyme"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Starch is made from disaccharides.",
-          "right": "\"Disaccharides\" is ignored. The monomers of starch are glucose or sugar. Monosaccharide is also allowed."
-        },
-        {
-          "wrong": "Sugars are the polymer that join to make cellulose.",
-          "right": "Sugars are the monomers. They join together to make the polymer, cellulose."
-        },
-        {
-          "wrong": "Amino acids are the polymers that make up a protein.",
-          "right": "A large molecule made of smaller molecules is a polymer, so the protein is the polymer. The smaller molecules, the amino acids, are the monomers."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "efba3ddd-6c4c-486f-a736-dbf37a2b6846",
         "source": "OCR nov 2021, Paper 1, Q16(b)(v)",

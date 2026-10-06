@@ -82,15 +82,9 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Part",
-            "What it does"
-          ],
+          "columns": ["Part", "What it does"],
           "rows": [
-            [
-              "Fuel (uranium-235)",
-              "Nuclei absorb neutrons and split, releasing energy."
-            ],
+            ["Fuel (uranium-235)", "Nuclei absorb neutrons and split, releasing energy."],
             [
               "Moderator (graphite)",
               "Slows down the neutrons, so they are more likely to be absorbed and cause fission."
@@ -99,10 +93,7 @@
               "Control rods",
               "Absorb neutrons. Pushed in, they leave fewer neutrons for the chain reaction, so fewer fissions."
             ],
-            [
-              "Coolant",
-              "Carries the thermal energy away from the reactor."
-            ]
+            ["Coolant", "Carries the thermal energy away from the reactor."]
           ]
         },
         {
@@ -229,27 +220,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.4.4.1"
-      ],
-      "exam_phrases": [
-        "a neutron is absorbed by a (large) nucleus",
-        "the nucleus splits into two (smaller) nuclei",
-        "releasing energy (and gamma rays)",
-        "and (two / three) neutrons",
-        "neutron absorbed by a uranium nucleus",
-        "gamma rays (are emitted)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "An atom absorbs a neutron and the atom splits in two.",
-          "right": "A description in terms of only atoms loses the first two marks. Say a nucleus absorbs a neutron and the nucleus splits into two smaller nuclei."
-        },
-        {
-          "wrong": "A uranium nucleus absorbs a proton, and X-rays are released.",
-          "right": "A uranium nucleus absorbs a neutron. The electromagnetic radiation released is gamma rays."
-        }
-      ],
+      "spec_codes": ["AQA 4.4.4.1"],
       "worked_example": {
         "exemplar_id": "72f0aada-69eb-4665-8f2b-dcce84edbf6d",
         "source": "AQA jun 2020, Paper 1 (H), Q05.3",
@@ -274,30 +245,6 @@
         "EDEX 6.41P",
         "EDEX 6.42P"
       ],
-      "exam_phrases": [
-        "neutrons emitted in one fission go on to hit other U-235 nuclei",
-        "chain reaction",
-        "(control rods) absorb neutrons",
-        "(so) fewer neutrons available for chain reaction",
-        "the moderator slows down neutrons, so they are more likely to cause fission",
-        "kinetic energy (of fission fragments) transferred to thermal energy (of coolant)",
-        "no carbon emissions so does not contribute towards global warming",
-        "radioactive substances"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The control rods slow down the neutrons.",
-          "right": "The moderator slows down the neutrons. The control rods absorb neutrons."
-        },
-        {
-          "wrong": "Pushing the control rods in slows down the chain reaction.",
-          "right": "This is ignored as it only repeats the question. Explain that the rods absorb neutrons, so fewer neutrons are available for the chain reaction."
-        },
-        {
-          "wrong": "Using nuclear fuel produces carbon dioxide as a harmful waste product.",
-          "right": "Burning oil produces carbon dioxide. Using nuclear fuel produces radioactive substances, or nuclear waste."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "2dcde7fc-faba-4ab0-ad5f-1e6930786b9a",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q10(c)",
@@ -313,32 +260,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P6.2d"
-      ],
-      "exam_phrases": [
-        "releases more / several (> 1) neutrons",
-        "each (additional) neutron can be absorbed by another nucleus",
-        "no carbon dioxide produced / does not contribute to global warming",
-        "small quantities of fuel needed",
-        "radioactive / nuclear waste produced",
-        "expensive to build",
-        "risk of accident (and after-effects) / uncontrollable (chain reaction)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "In a chain reaction the nucleus releases another neutron.",
-          "right": "This is ignored. The nucleus releases more than one neutron, and each additional neutron is absorbed by another nucleus."
-        },
-        {
-          "wrong": "The neutron hits the nucleus.",
-          "right": "This is ignored. Say the neutron is absorbed by the nucleus."
-        },
-        {
-          "wrong": "Nuclear power is dangerous.",
-          "right": "This is ignored. Say there is a risk of an accident or of exposure to radiation, or that radioactive waste is produced."
-        }
-      ],
+      "spec_codes": ["OCR P6.2d"],
       "worked_example": {
         "exemplar_id": "9e56300b-cc07-4f33-8725-a1cb1c949378",
         "source": "OCR jun 2025, Paper 2, Q21(a)",

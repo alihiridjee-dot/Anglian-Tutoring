@@ -86,27 +86,15 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Symptom",
-            "Region damaged"
-          ],
+          "columns": ["Symptom", "Region damaged"],
           "rows": [
-            [
-              "Difficulty controlling balance",
-              "Cerebellum"
-            ],
-            [
-              "Memory, language or decision-making problems",
-              "Cerebral cortex"
-            ],
+            ["Difficulty controlling balance", "Cerebellum"],
+            ["Memory, language or decision-making problems", "Cerebral cortex"],
             [
               "Loss of sight, if the back of the cerebral hemispheres (occipital lobe) is damaged",
               "Cerebral cortex (cerebral hemispheres)"
             ],
-            [
-              "Heart rate and breathing rate affected",
-              "Medulla"
-            ]
+            ["Heart rate and breathing rate affected", "Medulla"]
           ]
         },
         {
@@ -147,55 +135,18 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 5.4"
-      ],
-      "exam_phrases": [
-        "cerebral cortex (allow cerebrum / cerebral hemispheres)",
-        "cerebellum",
-        "balance"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The cerebellum is the part of the brain that makes a decision.",
-          "right": "The part that makes decisions is the cerebral cortex. Cerebrum and cerebral hemispheres are also allowed."
-        },
-        {
-          "wrong": "The cerebral cortex controls balance when riding a bicycle.",
-          "right": "Balance is controlled by the cerebellum."
-        }
-      ],
+      "spec_codes": ["AQA 5.4"],
       "worked_example": {
         "exemplar_id": "be18b959-6d41-43a8-845c-743afede4901",
         "source": "AQA jun 2020, Paper 2 (H), Q06.2",
         "question": "Name the part of the brain that is responsible for making a decision.",
         "marks": 1,
-        "answer_points": [
-          "The cerebral cortex."
-        ],
+        "answer_points": ["The cerebral cortex."],
         "tip": "Cerebrum and cerebral hemisphere(s) are also allowed."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.10B"
-      ],
-      "exam_phrases": [
-        "the occipital lobe is in the cerebral hemispheres",
-        "damage to the occipital lobe affects (eye)sight / vision",
-        "being able to see",
-        "answer in standard form: 1.84 × 10⁸"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The occipital lobe is part of the cerebellum.",
-          "right": "The occipital lobe is not in the medulla oblongata, the cerebellum or the hypothalamus. It is in the cerebral hemispheres."
-        },
-        {
-          "wrong": "The difference is 18.4 × 10⁷.",
-          "right": "Standard form needs one digit before the decimal point: 1.84 × 10⁸. The answer 18.4 × 10⁷ gets only 1 of the 2 marks."
-        }
-      ],
+      "spec_codes": ["EDEX 2.10B"],
       "worked_example": {
         "exemplar_id": "a24fb923-1427-4b80-b8d0-5fe19db0e182",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q10(a)(i)",
@@ -209,27 +160,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 3.1f"
-      ],
-      "exam_phrases": [
-        "cerebellum: coordinates conscious movement",
-        "cerebrum: responsible for learning, language and memory",
-        "medulla: controls heart rate and breathing rate",
-        "cerebral cortex / cerebrum controls voluntary movement",
-        "cerebrum processes vision",
-        "the cerebellum controls balance / co-ordination"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The cerebrum controls heart rate and breathing rate.",
-          "right": "Heart rate and breathing rate are controlled by the medulla."
-        },
-        {
-          "wrong": "The cerebellum is responsible for learning, language and memory.",
-          "right": "These are functions of the cerebrum. The cerebellum coordinates conscious movement and balance."
-        }
-      ],
+      "spec_codes": ["OCR 3.1f"],
       "worked_example": {
         "exemplar_id": "9d1f167c-9a37-4561-872a-3edd0e1cd75c",
         "source": "OCR jun 2023, Paper 4, Q17(c)",

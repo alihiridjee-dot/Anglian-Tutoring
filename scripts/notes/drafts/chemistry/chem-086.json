@@ -64,38 +64,23 @@
           "diagram": {
             "kind": "compare",
             "alt": "Comparing an ordinary mixture such as crude oil with a formulation.",
-            "items": [
-              "Ordinary mixture (crude oil)",
-              "Formulation"
-            ],
+            "items": ["Ordinary mixture (crude oil)", "Formulation"],
             "rows": [
               {
                 "feature": "Designed for a specific purpose",
-                "values": [
-                  "No",
-                  "Yes"
-                ]
+                "values": ["No", "Yes"]
               },
               {
                 "feature": "Useful product",
-                "values": [
-                  "Not as it is",
-                  "Yes"
-                ]
+                "values": ["Not as it is", "Yes"]
               },
               {
                 "feature": "Quantities of components",
-                "values": [
-                  "Not carefully measured",
-                  "Carefully measured"
-                ]
+                "values": ["Not carefully measured", "Carefully measured"]
               },
               {
                 "feature": "Composition each time",
-                "values": [
-                  "Can vary",
-                  "The same"
-                ]
+                "values": ["Can vary", "The same"]
               }
             ]
           }
@@ -120,10 +105,7 @@
           "type": "equation",
           "formula": "percentage by mass = (mass of component ÷ total mass of the formulation) × 100",
           "label": "Percentage by mass",
-          "where": [
-            "mass of component in grams (g)",
-            "total mass of the formulation in grams (g)"
-          ]
+          "where": ["mass of component in grams (g)", "total mass of the formulation in grams (g)"]
         },
         {
           "type": "steps",
@@ -207,30 +189,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.8.1.2",
-        "AQA T 5.8.1.2"
-      ],
-      "exam_phrases": [
-        "(crude oil is a mixture but) not a useful product",
-        "(crude oil is) not designed for a specific purpose",
-        "(and) not mixed in carefully measured quantities",
-        "not the same composition all the time"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Crude oil is not a formulation because it is not a mixture.",
-          "right": "Crude oil is a mixture, but it is not a useful product and not designed for a specific purpose."
-        },
-        {
-          "wrong": "A formulation is any mixture.",
-          "right": "A formulation is designed as a useful product and mixed in carefully measured quantities."
-        },
-        {
-          "wrong": "Percentage of methanol = 23.3 ÷ 265.5 × 100, dividing by the mass of ethanol only.",
-          "right": "Divide by the total mass of every component: 23.3 ÷ (265.5 + 23.3 + 3.0 + 1.5) × 100 = 7.9%."
-        }
-      ],
+      "spec_codes": ["AQA 4.8.1.2", "AQA T 5.8.1.2"],
       "worked_example": {
         "exemplar_id": "0e939e18-424d-4198-840d-3dee7a2c1e27",
         "source": "AQA jun 2023, Paper 2 (H), Q03.1",
@@ -244,31 +203,13 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C2.1e"
-      ],
-      "exam_phrases": [
-        "A formulation has a specific / consistent proportion of components",
-        "Formulation (the name for a mixture where substances are combined in exact amounts)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A formulation is the same as any other mixture.",
-          "right": "A formulation has a specific, consistent proportion of components."
-        },
-        {
-          "wrong": "The amounts of each component in a formulation can change from batch to batch.",
-          "right": "The proportions of the components are specific and consistent, so each batch is the same."
-        }
-      ],
+      "spec_codes": ["OCR C2.1e"],
       "worked_example": {
         "exemplar_id": "97488cec-32a2-4e3e-8a31-12a2530f9590",
         "source": "OCR nov 2021, Paper 3, Q21(b)",
         "question": "When a painkiller is sold to the public, it is sold as a formulation, not as a pure substance.\n\nExplain how a formulation and a mixture are different.",
         "marks": 1,
-        "answer_points": [
-          "A formulation has a specific, consistent proportion of components."
-        ],
+        "answer_points": ["A formulation has a specific, consistent proportion of components."],
         "tip": "One mark: the idea of fixed, exact proportions is what separates a formulation from a mixture."
       }
     }

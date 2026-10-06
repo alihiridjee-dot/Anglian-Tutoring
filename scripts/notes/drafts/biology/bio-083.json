@@ -3,14 +3,14 @@
   "concept_id": "bio-083",
   "subject": "biology",
   "title": "Using hormones to treat infertility",
-  "key_idea": "(Higher tier) Infertility can be treated with hormones. FSH and LH, or clomifene, make eggs mature and be released. In IVF, eggs are fertilised in a laboratory and one or two embryos are put in the uterus. IVF has benefits, risks and ethical issues.",
+  "key_idea": "(AQA: Higher tier) Infertility can be treated with hormones. FSH and LH, or clomifene, make eggs mature and be released. In IVF, eggs are fertilised in a laboratory and one or two embryos are put in the uterus. IVF has benefits, risks and ethical issues.",
   "sections": [
     {
       "heading": "Fertility drugs",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) Some women are infertile because they do not release eggs. Hormones can help."
+          "text": "(AQA: Higher tier) Some women are infertile because they do not release eggs. Hormones can help."
         },
         {
           "type": "definitions",
@@ -58,7 +58,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) In IVF, eggs are fertilised outside the body. Put the stages in order."
+          "text": "(AQA: Higher tier) In IVF, eggs are fertilised outside the body. Put the stages in order."
         },
         {
           "type": "diagram",
@@ -98,14 +98,11 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) Exam questions ask for both sides. Think about patients and doctors."
+          "text": "(AQA: Higher tier) Exam questions ask for both sides. Think about patients and doctors."
         },
         {
           "type": "table",
-          "columns": [
-            "Benefits",
-            "Risks and concerns"
-          ],
+          "columns": ["Benefits", "Risks and concerns"],
           "rows": [
             [
               "Gives a woman the chance to have a baby of her own",
@@ -158,34 +155,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA T 4.5.3.5",
-        "AQA 5.13"
-      ],
-      "exam_phrases": [
-        "FSH and LH given / injected to stimulate maturation of egg(s)",
-        "(collected) egg(s) are fertilised (in laboratory)",
-        "fertilised egg undergoes mitosis / develops into an embryo",
-        "(one or two) embryo(s) inserted into uterus / womb",
-        "so more eggs present therefore higher chance of fertilisation",
-        "progesterone / oestrogen maintain uterus lining",
-        "multiple births are a risk to mother / baby",
-        "embryos are created but not used"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The eggs are fertilised in the fallopian tube.",
-          "right": "In IVF the eggs are fertilised in the laboratory, outside the body. Fertilisation in the fallopian tube is not accepted."
-        },
-        {
-          "wrong": "The foetus is inserted into the uterus.",
-          "right": "Embryos, tiny balls of cells, are inserted into the uterus. Foetus is not accepted."
-        },
-        {
-          "wrong": "IVF is unethical.",
-          "right": "\"Unethical\" on its own is ignored. Say that embryos are created but not used. Side effects unqualified is also ignored, so name the stress, low success rate or multiple births."
-        }
-      ],
+      "spec_codes": ["AQA T 4.5.3.5", "AQA 5.13"],
       "worked_example": {
         "exemplar_id": "ce520e47-873a-4c25-a3b0-1d849c634e97",
         "source": "AQA jun 2024, Paper 2 (H), Q03.5",
@@ -201,27 +171,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 7.8"
-      ],
-      "exam_phrases": [
-        "clomifene is a fertility drug that causes the pituitary gland to release more FSH and LH",
-        "so more eggs are matured in the follicle",
-        "causes the release of FSH, stimulating eggs to develop",
-        "IVF involves fertilisation outside the body",
-        "a fertilised egg can be implanted directly into the uterus",
-        "if Fallopian tubes are blocked there can still be pregnancy"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Clomifene is a fertility drug that replaces FSH and LH.",
-          "right": "Clomifene causes the pituitary gland to release more FSH and LH, so more eggs are matured in the follicle. It does not fertilise eggs. Fertilisation outside the body is IVF."
-        },
-        {
-          "wrong": "Answers that explain only IVF, or only clomifene, can reach the top level.",
-          "right": "Level 3 needs a detailed explanation of both IVF and clomifene therapy, so cover both."
-        }
-      ],
+      "spec_codes": ["EDEX 7.8"],
       "worked_example": {
         "exemplar_id": "f0a3141c-756c-412c-886d-7cf7953ae409",
         "source": "EDEXCEL nov 2021, Paper 2 (H), Q6(c)",
@@ -237,26 +187,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 3.2f"
-      ],
-      "exam_phrases": [
-        "FSH and LH used",
-        "FSH leads to ripening of the follicle",
-        "LH causes ovulation",
-        "hCG causes the egg to mature inside the follicle",
-        "stimulate egg production / development"
-      ],
-      "mistakes": [
-        {
-          "wrong": "hCG causes ovulation.",
-          "right": "LH causes ovulation. In the IVF procedure, hCG triggers the final stage of egg development, so the eggs are matured before collection."
-        },
-        {
-          "wrong": "In IVF, FSH is used to maintain the uterus lining.",
-          "right": "FSH stimulates the female to produce a large number of immature eggs. Progesterone maintains the uterus lining after the eggs are collected."
-        }
-      ],
+      "spec_codes": ["OCR 3.2f"],
       "worked_example": {
         "exemplar_id": "79d41654-c914-41c7-840c-a92b27c19160",
         "source": "OCR jun 2018, Paper 3, Q20(d)(iii)",

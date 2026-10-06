@@ -3,7 +3,7 @@
   "concept_id": "phys-086",
   "subject": "physics",
   "title": "Generators and microphones",
-  "key_idea": "An alternator and a dynamo are generators. A coil turns in a magnetic field and a p.d. is induced. An alternator gives a.c. and a dynamo gives d.c. A microphone uses the same effect to turn sound waves into a varying current.",
+  "key_idea": "(AQA: Higher tier) An alternator and a dynamo are generators. A coil turns in a magnetic field and a p.d. is induced. An alternator gives a.c. and a dynamo gives d.c. A microphone uses the same effect to turn sound waves into a varying current.",
   "sections": [
     {
       "heading": "Alternators and dynamos",
@@ -72,13 +72,7 @@
               "label": "Time",
               "min": 0,
               "max": 2,
-              "ticks": [
-                0,
-                0.5,
-                1,
-                1.5,
-                2
-              ],
+              "ticks": [0, 0.5, 1, 1.5, 2],
               "unit": "turns of the coil"
             },
             "y": {
@@ -89,275 +83,77 @@
               {
                 "name": "Alternator (a.c.)",
                 "points": [
-                  [
-                    0.0,
-                    0.5
-                  ],
-                  [
-                    0.0625,
-                    0.672
-                  ],
-                  [
-                    0.125,
-                    0.818
-                  ],
-                  [
-                    0.1875,
-                    0.916
-                  ],
-                  [
-                    0.25,
-                    0.95
-                  ],
-                  [
-                    0.3125,
-                    0.916
-                  ],
-                  [
-                    0.375,
-                    0.818
-                  ],
-                  [
-                    0.4375,
-                    0.672
-                  ],
-                  [
-                    0.5,
-                    0.5
-                  ],
-                  [
-                    0.5625,
-                    0.328
-                  ],
-                  [
-                    0.625,
-                    0.182
-                  ],
-                  [
-                    0.6875,
-                    0.084
-                  ],
-                  [
-                    0.75,
-                    0.05
-                  ],
-                  [
-                    0.8125,
-                    0.084
-                  ],
-                  [
-                    0.875,
-                    0.182
-                  ],
-                  [
-                    0.9375,
-                    0.328
-                  ],
-                  [
-                    1.0,
-                    0.5
-                  ],
-                  [
-                    1.0625,
-                    0.672
-                  ],
-                  [
-                    1.125,
-                    0.818
-                  ],
-                  [
-                    1.1875,
-                    0.916
-                  ],
-                  [
-                    1.25,
-                    0.95
-                  ],
-                  [
-                    1.3125,
-                    0.916
-                  ],
-                  [
-                    1.375,
-                    0.818
-                  ],
-                  [
-                    1.4375,
-                    0.672
-                  ],
-                  [
-                    1.5,
-                    0.5
-                  ],
-                  [
-                    1.5625,
-                    0.328
-                  ],
-                  [
-                    1.625,
-                    0.182
-                  ],
-                  [
-                    1.6875,
-                    0.084
-                  ],
-                  [
-                    1.75,
-                    0.05
-                  ],
-                  [
-                    1.8125,
-                    0.084
-                  ],
-                  [
-                    1.875,
-                    0.182
-                  ],
-                  [
-                    1.9375,
-                    0.328
-                  ],
-                  [
-                    2.0,
-                    0.5
-                  ]
+                  [0, 0.5],
+                  [0.0625, 0.672],
+                  [0.125, 0.818],
+                  [0.1875, 0.916],
+                  [0.25, 0.95],
+                  [0.3125, 0.916],
+                  [0.375, 0.818],
+                  [0.4375, 0.672],
+                  [0.5, 0.5],
+                  [0.5625, 0.328],
+                  [0.625, 0.182],
+                  [0.6875, 0.084],
+                  [0.75, 0.05],
+                  [0.8125, 0.084],
+                  [0.875, 0.182],
+                  [0.9375, 0.328],
+                  [1, 0.5],
+                  [1.0625, 0.672],
+                  [1.125, 0.818],
+                  [1.1875, 0.916],
+                  [1.25, 0.95],
+                  [1.3125, 0.916],
+                  [1.375, 0.818],
+                  [1.4375, 0.672],
+                  [1.5, 0.5],
+                  [1.5625, 0.328],
+                  [1.625, 0.182],
+                  [1.6875, 0.084],
+                  [1.75, 0.05],
+                  [1.8125, 0.084],
+                  [1.875, 0.182],
+                  [1.9375, 0.328],
+                  [2, 0.5]
                 ]
               },
               {
                 "name": "Dynamo (d.c.)",
                 "points": [
-                  [
-                    0.0,
-                    0.5
-                  ],
-                  [
-                    0.0625,
-                    0.672
-                  ],
-                  [
-                    0.125,
-                    0.818
-                  ],
-                  [
-                    0.1875,
-                    0.916
-                  ],
-                  [
-                    0.25,
-                    0.95
-                  ],
-                  [
-                    0.3125,
-                    0.916
-                  ],
-                  [
-                    0.375,
-                    0.818
-                  ],
-                  [
-                    0.4375,
-                    0.672
-                  ],
-                  [
-                    0.5,
-                    0.5
-                  ],
-                  [
-                    0.5625,
-                    0.672
-                  ],
-                  [
-                    0.625,
-                    0.818
-                  ],
-                  [
-                    0.6875,
-                    0.916
-                  ],
-                  [
-                    0.75,
-                    0.95
-                  ],
-                  [
-                    0.8125,
-                    0.916
-                  ],
-                  [
-                    0.875,
-                    0.818
-                  ],
-                  [
-                    0.9375,
-                    0.672
-                  ],
-                  [
-                    1.0,
-                    0.5
-                  ],
-                  [
-                    1.0625,
-                    0.672
-                  ],
-                  [
-                    1.125,
-                    0.818
-                  ],
-                  [
-                    1.1875,
-                    0.916
-                  ],
-                  [
-                    1.25,
-                    0.95
-                  ],
-                  [
-                    1.3125,
-                    0.916
-                  ],
-                  [
-                    1.375,
-                    0.818
-                  ],
-                  [
-                    1.4375,
-                    0.672
-                  ],
-                  [
-                    1.5,
-                    0.5
-                  ],
-                  [
-                    1.5625,
-                    0.672
-                  ],
-                  [
-                    1.625,
-                    0.818
-                  ],
-                  [
-                    1.6875,
-                    0.916
-                  ],
-                  [
-                    1.75,
-                    0.95
-                  ],
-                  [
-                    1.8125,
-                    0.916
-                  ],
-                  [
-                    1.875,
-                    0.818
-                  ],
-                  [
-                    1.9375,
-                    0.672
-                  ],
-                  [
-                    2.0,
-                    0.5
-                  ]
+                  [0, 0.5],
+                  [0.0625, 0.672],
+                  [0.125, 0.818],
+                  [0.1875, 0.916],
+                  [0.25, 0.95],
+                  [0.3125, 0.916],
+                  [0.375, 0.818],
+                  [0.4375, 0.672],
+                  [0.5, 0.5],
+                  [0.5625, 0.672],
+                  [0.625, 0.818],
+                  [0.6875, 0.916],
+                  [0.75, 0.95],
+                  [0.8125, 0.916],
+                  [0.875, 0.818],
+                  [0.9375, 0.672],
+                  [1, 0.5],
+                  [1.0625, 0.672],
+                  [1.125, 0.818],
+                  [1.1875, 0.916],
+                  [1.25, 0.95],
+                  [1.3125, 0.916],
+                  [1.375, 0.818],
+                  [1.4375, 0.672],
+                  [1.5, 0.5],
+                  [1.5625, 0.672],
+                  [1.625, 0.818],
+                  [1.6875, 0.916],
+                  [1.75, 0.95],
+                  [1.8125, 0.916],
+                  [1.875, 0.818],
+                  [1.9375, 0.672],
+                  [2, 0.5]
                 ]
               }
             ]
@@ -414,31 +210,19 @@
           "diagram": {
             "kind": "compare",
             "alt": "A microphone and a loudspeaker compared: their input, output and the effect each uses.",
-            "items": [
-              "Microphone",
-              "Loudspeaker"
-            ],
+            "items": ["Microphone", "Loudspeaker"],
             "rows": [
               {
                 "feature": "Input",
-                "values": [
-                  "Sound waves",
-                  "Alternating current"
-                ]
+                "values": ["Sound waves", "Alternating current"]
               },
               {
                 "feature": "Output",
-                "values": [
-                  "Alternating current or p.d. signal",
-                  "Sound waves"
-                ]
+                "values": ["Alternating current or p.d. signal", "Sound waves"]
               },
               {
                 "feature": "Effect used",
-                "values": [
-                  "Generator effect",
-                  "Motor effect"
-                ]
+                "values": ["Generator effect", "Motor effect"]
               },
               {
                 "feature": "What vibrates",
@@ -480,33 +264,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.3.2",
-        "AQA 4.7.3.3"
-      ],
-      "exam_phrases": [
-        "every half turn the potential difference reverses direction",
-        "so (every half turn) the current changes direction",
-        "each half-revolution, (the two halves of) the commutator switch brushes / contacts",
-        "the direction of the induced current does not reverse every half rotation",
-        "sound (waves) cause the diaphragm to vibrate",
-        "the diaphragm causes the coil / wire to vibrate",
-        "inducing an alternating current (in the circuit)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The diaphragm moves and this makes a current.",
-          "right": "'Diaphragm moves' is not enough. Say that sound waves cause the diaphragm to vibrate, which causes the coil to vibrate in the magnetic field."
-        },
-        {
-          "wrong": "The coil moves up and down in the microphone.",
-          "right": "Do not accept 'moves up and down'. Say the coil or wire vibrates, moving through the magnetic field or cutting field lines."
-        },
-        {
-          "wrong": "The dynamo gives a direct current because the coil only turns one way.",
-          "right": "The commutator is what matters. Each half turn it switches contacts, so the current in the circuit does not reverse."
-        }
-      ],
+      "spec_codes": ["AQA 4.7.3.2", "AQA 4.7.3.3"],
       "extra": [
         {
           "heading": "Tier",
@@ -533,28 +291,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 13.3P",
-        "EDEX 13.4P"
-      ],
-      "exam_phrases": [
-        "(alternating) current produces a (changing) magnetic field around the coil",
-        "the force on the coil / cone (continuously) changes direction",
-        "the coil oscillates in a magnetic field",
-        "generates an alternating p.d. / alternating current / signal",
-        "frequency / amplitude of the alternating p.d. depends on the frequency / amplitude of the sound",
-        "electromagnetic induction in a microphone"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A loudspeaker makes sound and a microphone picks sound up.",
-          "right": "These are basic facts and only reach Level 1. Add the principle (motor effect in a loudspeaker, electromagnetic induction in a microphone) and the details of the coil and magnet."
-        },
-        {
-          "wrong": "The current in the loudspeaker makes the cone vibrate.",
-          "right": "Link the steps in order. The alternating current gives a changing field around the coil, the coil is in a magnetic field so there is a force, the force changes direction, and the coil and cone vibrate."
-        }
-      ],
+      "spec_codes": ["EDEX 13.3P", "EDEX 13.4P"],
       "worked_example": {
         "exemplar_id": "d65d82b3-01e8-4574-be6a-6ba966fea55f",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q7(b)",
@@ -571,36 +308,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P4.2f",
-        "OCR P4.2j"
-      ],
-      "exam_phrases": [
-        "alternator output is alternating current / a.c.",
-        "dynamo output is direct current / d.c.",
-        "the dynamo uses a split-ring commutator and the alternator uses slip rings",
-        "a microphone converts sound waves into current / p.d. / electrical signal",
-        "a speaker converts current / p.d. / electrical signal into sound waves",
-        "potential difference / voltage is induced across the ends of the wire"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A resistance is induced across the ends of the wire.",
-          "right": "A potential difference (voltage) is induced across the ends of the wire. A current is also allowed."
-        },
-        {
-          "wrong": "A microphone is similar to a motor.",
-          "right": "A microphone is similar to a generator (or dynamo). It uses electromagnetic induction."
-        },
-        {
-          "wrong": "A dynamo and an alternator both use electromagnetism.",
-          "right": "This is not credited. Give a specific similarity, such as both rotate a coil in a magnetic field, or both induce a potential difference or current when rotated."
-        },
-        {
-          "wrong": "A microphone changes sound energy into electrical energy.",
-          "right": "References to energy are ignored when comparing the two devices. Say a microphone converts sound waves into a current, p.d. or signal."
-        }
-      ],
+      "spec_codes": ["OCR P4.2f", "OCR P4.2j"],
       "worked_example": {
         "exemplar_id": "b2923f90-ab4f-4030-a2be-d620e13a7507",
         "source": "OCR jun 2023, Paper 3, Q20(a)",

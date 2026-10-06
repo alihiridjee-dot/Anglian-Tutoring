@@ -70,14 +70,7 @@
               "label": "Time",
               "min": 0,
               "max": 10,
-              "ticks": [
-                0,
-                2,
-                4,
-                6,
-                8,
-                10
-              ],
+              "ticks": [0, 2, 4, 6, 8, 10],
               "unit": "min"
             },
             "y": {
@@ -87,30 +80,12 @@
               {
                 "name": "Temperature",
                 "points": [
-                  [
-                    0,
-                    0.1
-                  ],
-                  [
-                    1.5,
-                    0.3
-                  ],
-                  [
-                    3,
-                    0.3
-                  ],
-                  [
-                    6,
-                    0.7
-                  ],
-                  [
-                    8.5,
-                    0.7
-                  ],
-                  [
-                    10,
-                    0.9
-                  ]
+                  [0, 0.1],
+                  [1.5, 0.3],
+                  [3, 0.3],
+                  [6, 0.7],
+                  [8.5, 0.7],
+                  [10, 0.9]
                 ]
               }
             ],
@@ -157,10 +132,7 @@
             "kind": "sort",
             "alt": "Sort each change into kinetic energy changing or potential energy changing.",
             "prompt": "Which energy of the particles changes? Sort each example.",
-            "groups": [
-              "Kinetic energy changes",
-              "Potential energy changes"
-            ],
+            "groups": ["Kinetic energy changes", "Potential energy changes"],
             "items": [
               {
                 "text": "Water warms from 20 °C to 25 °C",
@@ -219,32 +191,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.3.2.1",
-        "AQA T 6.3.2.1"
-      ],
-      "exam_phrases": [
-        "the (mean) kinetic energy of the particles increases",
-        "which increases the (internal) energy of the water",
-        "the potential energy of the particles increases",
-        "the kinetic energy of the particles does not change (as temperature does not change)",
-        "so the internal energy increases",
-        "the (mean) speed of the particles increases"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The kinetic energy increases.",
-          "right": "This is not enough on its own. Say the (mean) kinetic energy of the particles increases, which increases the internal energy of the water."
-        },
-        {
-          "wrong": "As the water is heated, the particles vibrate more.",
-          "right": "Vibrating is not accepted. Say the (mean) speed or kinetic energy of the particles increases."
-        },
-        {
-          "wrong": "The kinetic energy of the particles increases as the liquid nitrogen turns to a gas.",
-          "right": "The temperature does not change, so the kinetic energy does not change. The potential energy increases, so the internal energy increases."
-        }
-      ],
+      "spec_codes": ["AQA 4.3.2.1", "AQA T 6.3.2.1"],
       "worked_example": {
         "exemplar_id": "1cf92678-08bd-4447-b537-420412b41df3",
         "source": "AQA jun 2025, Paper 1 (H), Q08.2",
@@ -259,47 +206,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 14.6"
-      ],
-      "exam_phrases": [
-        "change in temperature",
-        "change of state",
-        "no change in temperature (during a change of state)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Heating a substance always raises its temperature.",
-          "right": "Heating either raises the temperature or produces a change of state. During a change of state the temperature does not change."
-        }
-      ]
+      "spec_codes": ["EDEX 14.6"]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P1.2c"
-      ],
-      "exam_phrases": [
-        "energy transferred electrically from the supply to the heating element",
-        "thermal energy store of the water increases",
-        "energy is needed to change the state of a material",
-        "energy is needed to break / weaken the bonds between particles",
-        "overcome attractive forces",
-        "increases temperature"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The water gets hotter by conduction and convection.",
-          "right": "Write about energy stores. Energy is transferred to the thermal energy store of the element, and then to the thermal energy store of the water. Conduction and convection are ignored."
-        },
-        {
-          "wrong": "The solid needs energy to make its particles move faster, so its temperature rises.",
-          "right": "At the melting point the vaccine remains solid. The energy is needed to change the state, by breaking or weakening the bonds between particles and overcoming the attractive forces."
-        },
-        {
-          "wrong": "When the thermal energy store of a rocket increases, its speed increases.",
-          "right": "When the thermal energy store increases, the temperature increases. The rocket gets hotter."
-        }
-      ],
+      "spec_codes": ["OCR P1.2c"],
       "worked_example": {
         "exemplar_id": "76ee8714-93df-4842-8e63-b1bdf8862fac",
         "source": "OCR jun 2023, Paper 3, Q23(b)(i)",

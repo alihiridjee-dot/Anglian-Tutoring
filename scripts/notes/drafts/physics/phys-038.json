@@ -61,10 +61,7 @@
             "kind": "sort",
             "alt": "Sort sources of background radiation into natural and man-made.",
             "prompt": "Is each source of background radiation natural or man-made?",
-            "groups": [
-              "Natural",
-              "Man-made"
-            ],
+            "groups": ["Natural", "Man-made"],
             "items": [
               {
                 "text": "Cosmic rays",
@@ -253,31 +250,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.4.3.1"
-      ],
-      "exam_phrases": [
-        "yearly dose = 0.003 × 365",
-        "(well) below the lowest dose with evidence of causing cancer / harm",
-        "corrected count rate = 13.35 (per second)",
-        "nuclear accidents",
-        "(medical) x-rays or radiotherapy",
-        "people are able to compare a radiation risk / dose / hazard to the radiation dose from (eating) bananas"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The count rate for the rock is 819 ÷ 60 + 0.30 = 13.95 counts per second.",
-          "right": "Background radiation is subtracted, not added: 13.65 − 0.30 = 13.35 counts per second. The answer 13.95 scores 2 of the 3 marks."
-        },
-        {
-          "wrong": "Radioactive waste from nuclear power stations is another man-made source of background radiation.",
-          "right": "When waste is already given, it is ignored. Name another source, such as medical X-rays, radiotherapy, nuclear weapons testing or a named nuclear accident."
-        },
-        {
-          "wrong": "The dose is 0.003 mSv, which is a small number, so the householder is safe.",
-          "right": "Work out the yearly dose (0.003 × 365 = 1.095 mSv), then compare it with the lowest dose with evidence of causing cancer (100 mSv)."
-        }
-      ],
+      "spec_codes": ["AQA 4.4.3.1"],
       "worked_example": {
         "exemplar_id": "7993383f-f29b-46c4-8a0a-be78be2df66c",
         "source": "AQA jun 2023, Paper 1 (H), Q05.8",
@@ -292,30 +265,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 6.12",
-        "EDEX 6.13"
-      ],
-      "exam_phrases": [
-        "background radiation",
-        "cosmic (rays)",
-        "rocks / ground",
-        "radon",
-        "(nuclear) power stations",
-        "nuclear tests / nuclear waste",
-        "nuclear accidents (Chernobyl, Fukushima etc)",
-        "medical (X-rays, radiotherapy)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Two sources of background radiation are alpha and beta radiation.",
-          "right": "Alpha, beta and gamma are ignored. They are types of radiation, not sources. Name a source, such as cosmic rays, rocks or radon."
-        },
-        {
-          "wrong": "The detector still gives a reading because the source is not completely removed.",
-          "right": "Give the reason that the reading is not zero: background radiation. A named source of background radiation is also accepted."
-        }
-      ],
+      "spec_codes": ["EDEX 6.12", "EDEX 6.13"],
       "worked_example": {
         "exemplar_id": "b74d6b1f-fec5-42e2-ac79-bd02ce13491f",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q3(b)(ii)",

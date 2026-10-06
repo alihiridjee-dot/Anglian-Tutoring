@@ -22,10 +22,7 @@
             "kind": "predictor",
             "alt": "Pick a type of electromagnetic wave to see its uses and why it suits the job.",
             "prompt": "Pick a type of electromagnetic wave",
-            "result_labels": [
-              "Uses",
-              "Why it suits the job (Higher tier)"
-            ],
+            "result_labels": ["Uses", "Why it suits the job (AQA: Higher tier)"],
             "options": [
               {
                 "label": "Radio waves",
@@ -99,11 +96,11 @@
       ]
     },
     {
-      "heading": "Why a wave suits its use (Higher tier)",
+      "heading": "Why a wave suits its use (AQA: Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) This section covers giving a brief reason why a type of wave suits its job."
+          "text": "(AQA: Higher tier) This section covers giving a brief reason why a type of wave suits its job."
         },
         {
           "type": "list",
@@ -116,12 +113,12 @@
         },
         {
           "type": "paragraph",
-          "text": "(Higher tier) Always link the property of the wave to the job it does."
+          "text": "(AQA: Higher tier) Always link the property of the wave to the job it does."
         },
         {
           "type": "key-points",
           "items": [
-            "(Higher tier) Explain a use by naming the property that makes the wave suitable.",
+            "(AQA: Higher tier) Explain a use by naming the property that makes the wave suitable.",
             "X-rays are absorbed by bone but pass through soft tissue.",
             "Hotter objects emit more infrared."
           ]
@@ -202,32 +199,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.2.4",
-        "AQA T 6.6.2.4"
-      ],
-      "exam_phrases": [
-        "oscillations in electrical circuits",
-        "the radio waves have the same frequency as the oscillations",
-        "(alternating) current induced (in the electrical circuit)",
-        "X-rays are absorbed by bone but can pass through flesh",
-        "different temperatures emit different intensities of infrared",
-        "data is transmitted / detected"
-      ],
-      "mistakes": [
-        {
-          "wrong": "X-rays show bones because they are reflected by bone.",
-          "right": "Reflected is not accepted. X-rays are absorbed by bone and pass through soft tissue."
-        },
-        {
-          "wrong": "X-rays pass through tissue, so bones show up.",
-          "right": "'Pass through tissue' is not enough. Say they pass through soft tissue (skin, muscle, flesh) but are absorbed by bone."
-        },
-        {
-          "wrong": "The radio waves make an alternating current in the receiver with a different frequency.",
-          "right": "The induced alternating current has the same frequency as the radio wave."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.2.4", "AQA T 6.6.2.4"],
       "worked_example": {
         "exemplar_id": "46d01f25-f796-4987-8d35-92d3c81e7004",
         "source": "AQA jun 2020, Paper 2 (H), Q5.1",
@@ -245,39 +217,14 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(Higher tier) Radio waves can be produced by oscillations in electrical circuits and can induce oscillations when absorbed. Brief explanations of why each wave suits its use are also Higher tier."
+              "text": "(AQA: Higher tier) Radio waves can be produced by oscillations in electrical circuits and can induce oscillations when absorbed. Brief explanations of why each wave suits its use are also Higher tier."
             }
           ]
         }
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.22",
-        "EDEX 5.23"
-      ],
-      "exam_phrases": [
-        "(X-rays) pass through / penetrate (the bags / cases)",
-        "to see contents / to show objects of greater density",
-        "radio waves are produced by oscillating electrons / alternating current (ac)",
-        "current flows up and down in a (transmitting) aerial",
-        "the frequency of the radio waves corresponds to the oscillation frequency",
-        "gamma rays produced in the nucleus"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Radio waves are produced by electrons in circuits.",
-          "right": "This only repeats the question and earns nothing. Say the electrons oscillate: an alternating current flows up and down the aerial."
-        },
-        {
-          "wrong": "X-rays and radio waves are both produced by oscillating electrons.",
-          "right": "Radio waves come from oscillating electrons in circuits. X-rays come from electrons changing energy levels in an atom."
-        },
-        {
-          "wrong": "X-rays are used on bags because they bounce off the contents.",
-          "right": "X-rays pass through (penetrate) the bags, so the contents can be seen and objects of greater density show up."
-        }
-      ],
+      "spec_codes": ["EDEX 5.22", "EDEX 5.23"],
       "worked_example": {
         "exemplar_id": "7a4b34b7-cca9-4263-b31d-3eda0f53c328",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q9(c)",
@@ -295,28 +242,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P5.2g",
-        "OCR P5.2j"
-      ],
-      "exam_phrases": [
-        "A.C. / (electrical / electron / particle) oscillations",
-        "alternating currents / oscillations produce (radio) waves / electromagnetic radiation",
-        "radiotherapy / killing cancer cells",
-        "irradiating food / sterilisation of instruments",
-        "tracer / medical imaging",
-        "scanning metals / non-destructive testing"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The transmission line produces radio waves because it carries a high voltage.",
-          "right": "The line carries an alternating current (electrons oscillate). Alternating currents or oscillations produce radio waves."
-        },
-        {
-          "wrong": "Two uses of gamma rays are killing cancer cells and treating tumours.",
-          "right": "These are the same use. Give two different ones, such as radiotherapy and sterilising food or instruments."
-        }
-      ],
+      "spec_codes": ["OCR P5.2g", "OCR P5.2j"],
       "worked_example": {
         "exemplar_id": "b6dae34e-7b75-4997-874d-d0b589ebdba3",
         "source": "OCR jun 2019, Paper 4, Q20(a)",

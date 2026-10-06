@@ -8,13 +8,25 @@
     {
       "heading": "What cancer is",
       "blocks": [
-        { "type": "paragraph", "text": "Cancer is a non-communicable disease. It starts when changes in a cell lead to uncontrolled growth and division." },
+        {
+          "type": "paragraph",
+          "text": "Cancer is a non-communicable disease. It starts when changes in a cell lead to uncontrolled growth and division."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Mutation", "meaning": "A change in a cell's DNA or genes." },
-            { "term": "Tumour", "meaning": "A lump of abnormal cells formed by uncontrolled cell division." },
-            { "term": "Carcinogen", "meaning": "Something that can damage DNA and cause cancer." }
+            {
+              "term": "Mutation",
+              "meaning": "A change in a cell's DNA or genes."
+            },
+            {
+              "term": "Tumour",
+              "meaning": "A lump of abnormal cells formed by uncontrolled cell division."
+            },
+            {
+              "term": "Carcinogen",
+              "meaning": "Something that can damage DNA and cause cancer."
+            }
           ]
         },
         {
@@ -39,7 +51,10 @@
     {
       "heading": "Benign and malignant tumours",
       "blocks": [
-        { "type": "paragraph", "text": "There are two types of tumour. Only malignant tumours are cancers." },
+        {
+          "type": "paragraph",
+          "text": "There are two types of tumour. Only malignant tumours are cancers."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -47,10 +62,28 @@
             "alt": "Benign tumours compared with malignant tumours.",
             "items": ["Benign tumour", "Malignant tumour"],
             "rows": [
-              { "feature": "Cells", "values": ["Abnormal, but more similar to normal cells", "Cancer cells"] },
-              { "feature": "Where it stays", "values": ["Contained in one area, usually within a membrane", "Invades neighbouring tissues"] },
-              { "feature": "Spread", "values": ["Does not spread to other parts of the body", "Cells spread in the blood to other parts of the body"] },
-              { "feature": "Secondary tumours", "values": ["Do not form", "Can form"] }
+              {
+                "feature": "Cells",
+                "values": ["Abnormal, but more similar to normal cells", "Cancer cells"]
+              },
+              {
+                "feature": "Where it stays",
+                "values": [
+                  "Contained in one area, usually within a membrane",
+                  "Invades neighbouring tissues"
+                ]
+              },
+              {
+                "feature": "Spread",
+                "values": [
+                  "Does not spread to other parts of the body",
+                  "Cells spread in the blood to other parts of the body"
+                ]
+              },
+              {
+                "feature": "Secondary tumours",
+                "values": ["Do not form", "Can form"]
+              }
             ]
           }
         },
@@ -70,14 +103,38 @@
             "prompt": "Benign, malignant or both?",
             "groups": ["Benign", "Malignant", "Both"],
             "items": [
-              { "text": "Contained in one area", "group": 0 },
-              { "text": "Invades neighbouring tissues", "group": 1 },
-              { "text": "Can form secondary tumours", "group": 1 },
-              { "text": "Caused by uncontrolled cell division", "group": 2 },
-              { "text": "Cells travel in the blood to other parts of the body", "group": 1 },
-              { "text": "Does not spread to other parts of the body", "group": 0 },
-              { "text": "Made of abnormal cells", "group": 2 },
-              { "text": "A cancer", "group": 1 }
+              {
+                "text": "Contained in one area",
+                "group": 0
+              },
+              {
+                "text": "Invades neighbouring tissues",
+                "group": 1
+              },
+              {
+                "text": "Can form secondary tumours",
+                "group": 1
+              },
+              {
+                "text": "Caused by uncontrolled cell division",
+                "group": 2
+              },
+              {
+                "text": "Cells travel in the blood to other parts of the body",
+                "group": 1
+              },
+              {
+                "text": "Does not spread to other parts of the body",
+                "group": 0
+              },
+              {
+                "text": "Made of abnormal cells",
+                "group": 2
+              },
+              {
+                "text": "A cancer",
+                "group": 1
+              }
             ]
           }
         },
@@ -94,8 +151,14 @@
     {
       "heading": "Risk factors",
       "blocks": [
-        { "type": "paragraph", "text": "Scientists have found lifestyle risk factors and genetic risk factors for different types of cancer." },
-        { "type": "subheading", "text": "Lifestyle and environment" },
+        {
+          "type": "paragraph",
+          "text": "Scientists have found lifestyle risk factors and genetic risk factors for different types of cancer."
+        },
+        {
+          "type": "subheading",
+          "text": "Lifestyle and environment"
+        },
         {
           "type": "list",
           "items": [
@@ -105,7 +168,10 @@
             "Obesity is linked to a higher risk of cancer."
           ]
         },
-        { "type": "subheading", "text": "Genetic" },
+        {
+          "type": "subheading",
+          "text": "Genetic"
+        },
         {
           "type": "list",
           "items": [
@@ -144,23 +210,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 2.10", "AQA T 4.2.2.7"],
-      "exam_phrases": [
-        "uncontrolled cell division / growth",
-        "invade neighbouring tissues",
-        "(tumour) cells spread to different parts of the body / tissues in the blood",
-        "can form secondary tumours",
-        "result from changes in the cell / DNA / genes",
-        "benign tumours stay in one place"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Malignant tumours are more harmful than benign tumours.",
-          "right": "References to the level of harm are ignored. Say that malignant tumours invade neighbouring tissues, spread in the blood and form secondary tumours."
-        },
-        {
-          "wrong": "The Sun causes skin cancer.",
-          "right": "\"Sun\" on its own is ignored. Say exposure to UV light or sunlight, or ionising radiation, causes cell, DNA or gene damage."
-        }      ],
       "worked_example": {
         "exemplar_id": "0b454788-a233-49d4-bdb6-2ace08b9700e",
         "source": "AQA jun 2022, Paper 1 (H), Q5.1",
@@ -182,24 +231,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 2.4"],
-      "exam_phrases": [
-        "cell division is uncontrolled",
-        "mutations in DNA",
-        "creates a mass / large number of cells / tumour",
-        "cancer cells divide uncontrollably / have mutations",
-        "the cell cycle is quicker / doesn't stop",
-        "cells triggered to divide by mitosis"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Cancer is caused by a mutation.",
-          "right": "When asked for the effect on cell division, \"mutation\" or \"tumour\" alone is ignored. Say cell division is uncontrolled or increased."
-        },
-        {
-          "wrong": "Cancer cells just grow.",
-          "right": "Say the cells divide, multiply or reproduce rapidly, or that they will not stop dividing."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "4d9e7f6e-ccd4-4fa2-a44a-1929129c0fca",
         "source": "EDEXCEL nov 2020, Paper 1 (H), Q9(a)(i)",
@@ -215,28 +246,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 6.3u"],
-      "exam_phrases": [
-        "grow / divide in an uncontrolled way",
-        "form tumours",
-        "mutations / change in DNA / genes",
-        "rapid / uncontrolled (cell) division",
-        "less chance of mutations",
-        "less likely to get cancer / tumours"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Cancer cells reproduce.",
-          "right": "\"Reproduce\" is ignored. Say the cells divide, replicate, multiply or undergo mitosis in an uncontrolled way."
-        },
-        {
-          "wrong": "Cancer cells just grow.",
-          "right": "\"Grow\" unqualified is ignored. Say they grow or divide in an uncontrolled way."
-        },
-        {
-          "wrong": "Slowing the cell cycle stops cells dividing uncontrollably.",
-          "right": "\"Stops\" or \"prevents\" division is ignored. Say it slows down cell division, so cells are less likely to divide uncontrollably."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "29bef832-1059-48b3-b262-389f59de66f0",
         "source": "OCR nov 2021, Paper 4, Q19(a)",

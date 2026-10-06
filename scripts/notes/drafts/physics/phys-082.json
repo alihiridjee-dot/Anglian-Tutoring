@@ -80,65 +80,41 @@
             "kind": "predictor",
             "alt": "Pick a change to a solenoid and see the effect on the strength and direction of its magnetic field.",
             "prompt": "Change the electromagnet",
-            "result_labels": [
-              "Strength of the field",
-              "Direction of the field"
-            ],
+            "result_labels": ["Strength of the field", "Direction of the field"],
             "options": [
               {
                 "label": "Increase the current",
-                "results": [
-                  "Stronger",
-                  "Unchanged"
-                ],
+                "results": ["Stronger", "Unchanged"],
                 "explanation": "A bigger current gives a stronger field."
               },
               {
                 "label": "Decrease the current",
-                "results": [
-                  "Weaker",
-                  "Unchanged"
-                ],
+                "results": ["Weaker", "Unchanged"],
                 "explanation": "A smaller current gives a weaker field."
               },
               {
                 "label": "Add more turns of wire",
-                "results": [
-                  "Stronger",
-                  "Unchanged"
-                ],
+                "results": ["Stronger", "Unchanged"],
                 "explanation": "More turns increase the magnetic effect."
               },
               {
                 "label": "Insert an iron core",
-                "results": [
-                  "Stronger",
-                  "Unchanged"
-                ],
+                "results": ["Stronger", "Unchanged"],
                 "explanation": "The iron core becomes magnetised."
               },
               {
                 "label": "Reverse the current",
-                "results": [
-                  "Unchanged",
-                  "Reversed"
-                ],
+                "results": ["Unchanged", "Reversed"],
                 "explanation": "The poles swap."
               },
               {
                 "label": "Wind the coil the opposite way",
-                "results": [
-                  "Unchanged",
-                  "Reversed"
-                ],
+                "results": ["Unchanged", "Reversed"],
                 "explanation": "The poles swap."
               },
               {
                 "label": "Move the electromagnet further from the iron",
-                "results": [
-                  "Weaker force on the iron",
-                  "Unchanged"
-                ],
+                "results": ["Weaker force on the iron", "Unchanged"],
                 "explanation": "The field is weaker further from the coil."
               }
             ]
@@ -210,34 +186,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.2.1",
-        "AQA T 6.7.2.1"
-      ],
-      "exam_phrases": [
-        "increase the current",
-        "insert an iron core",
-        "increase the number of turns",
-        "a magnetic field is produced around the coil",
-        "the iron core becomes magnetised",
-        "electromagnet is easy to demagnetise",
-        "so the paper clips have the same weight / mass",
-        "changed two (independent) variables (at the same time)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The method is not valid because it is not a fair test.",
-          "right": "Current and number of turns were both changed at the same time, so the effect of each cannot be known. Only change one variable at a time."
-        },
-        {
-          "wrong": "The paper clips must be the same size so the results are accurate.",
-          "right": "They must be the same size so they have the same weight or mass. This allows results for different numbers of turns to be compared fairly. Saying accurate is ignored."
-        },
-        {
-          "wrong": "An electromagnet is used because it is stronger than a permanent magnet.",
-          "right": "It is easy to demagnetise (it can be switched off), so the separated metal is easy to remove. Saying it is stronger earns only 1 mark if nothing else is credited."
-        }
-      ],
+      "spec_codes": ["AQA 4.7.2.1", "AQA T 6.7.2.1"],
       "extra": [
         {
           "heading": "Electromagnetic devices (Separate science)",
@@ -288,31 +237,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 12.7",
-        "EDEX 12.8",
-        "EDEX 12.9"
-      ],
-      "exam_phrases": [
-        "put wire through card / near card",
-        "put iron filings on card / around wire",
-        "connect wire to power pack",
-        "switch on or reference to current / charges flowing (in wire)",
-        "pattern seen in filings – circles / lines / onion",
-        "(single compass) record field at one location",
-        "find how field continues",
-        "connect the dots"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The current flows through the iron filings.",
-          "right": "The current is in the wire. The filings only show the shape of the field. Current in the filings is not accepted."
-        },
-        {
-          "wrong": "Use iron nails to show the shape of the field.",
-          "right": "Use only the equipment listed: wire, power pack, card and iron filings. Other apparatus is ignored."
-        }
-      ],
+      "spec_codes": ["EDEX 12.7", "EDEX 12.8", "EDEX 12.9"],
       "worked_example": {
         "exemplar_id": "b222be2c-e68c-4702-acf5-14d5018df178",
         "source": "EDEXCEL jun 2019, Paper 2 (F), Q3(b)",
@@ -349,34 +274,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P4.1e",
-        "OCR P4.1f",
-        "OCR P4.1g"
-      ],
-      "exam_phrases": [
-        "Place the plotting compass onto the cardboard sheet",
-        "Mark the direction of the compass needle (with a dot)",
-        "Move the plotting compass to another of these marks and repeat",
-        "Connect the marks together to show the field",
-        "As the number of turns increases the number of paperclips picked up increases",
-        "(directly) proportional",
-        "Keep the current the same"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A voltage flows through a solenoid and creates a magnetic field.",
-          "right": "A current flows through the solenoid. Voltage does not flow."
-        },
-        {
-          "wrong": "The magnetic field can be increased by decreasing the number of turns.",
-          "right": "Increasing the number of turns, or increasing the current, increases the field."
-        },
-        {
-          "wrong": "There is a positive correlation between the number of turns and the paperclips.",
-          "right": "Positive correlation is ignored. Say they are directly proportional: doubling the turns doubles the number of paperclips."
-        }
-      ],
+      "spec_codes": ["OCR P4.1e", "OCR P4.1f", "OCR P4.1g"],
       "worked_example": {
         "exemplar_id": "3b9ac6d9-3e9a-46b2-881e-fc531c82e91a",
         "source": "OCR jun 2024, Paper 1, Q23(b)(i)",

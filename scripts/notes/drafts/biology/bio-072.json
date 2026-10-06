@@ -8,12 +8,21 @@
     {
       "heading": "Why temperature is controlled and how a change is detected",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) Body temperature is kept steady because enzymes need the right temperature. This section covers why, and what detects a change." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Body temperature is kept steady because enzymes need the right temperature. This section covers why, and what detects a change."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Thermoregulation", "meaning": "Controlling the temperature inside the body." },
-            { "term": "Hypothalamus", "meaning": "The part of the brain that monitors temperature and coordinates the responses." }
+            {
+              "term": "Thermoregulation",
+              "meaning": "Controlling the temperature inside the body."
+            },
+            {
+              "term": "Hypothalamus",
+              "meaning": "The part of the brain that monitors temperature and coordinates the responses."
+            }
           ]
         },
         {
@@ -24,7 +33,10 @@
             "Exercise releases heat from respiration, so the body must be able to lose heat as well as keep it."
           ]
         },
-        { "type": "subheading", "text": "Detecting a change" },
+        {
+          "type": "subheading",
+          "text": "Detecting a change"
+        },
         {
           "type": "list",
           "items": [
@@ -45,15 +57,27 @@
     {
       "heading": "When the body is too hot",
       "blocks": [
-        { "type": "paragraph", "text": "When temperature rises, the body increases the heat it loses from the skin. Two responses do this." },
+        {
+          "type": "paragraph",
+          "text": "When temperature rises, the body increases the heat it loses from the skin. Two responses do this."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Vasodilation", "meaning": "The blood vessels (capillaries) supplying the skin widen, so more blood flows through them." },
-            { "term": "Sweating", "meaning": "Sweat glands release sweat onto the skin surface." }
+            {
+              "term": "Vasodilation",
+              "meaning": "The blood vessels (capillaries) supplying the skin widen, so more blood flows through them."
+            },
+            {
+              "term": "Sweating",
+              "meaning": "Sweat glands release sweat onto the skin surface."
+            }
           ]
         },
-        { "type": "subheading", "text": "Sweating" },
+        {
+          "type": "subheading",
+          "text": "Sweating"
+        },
         {
           "type": "list",
           "items": [
@@ -62,7 +86,10 @@
             "Evaporation transfers heat from the body to the surroundings, so the body cools."
           ]
         },
-        { "type": "subheading", "text": "Vasodilation" },
+        {
+          "type": "subheading",
+          "text": "Vasodilation"
+        },
         {
           "type": "list",
           "items": [
@@ -83,7 +110,10 @@
     {
       "heading": "When the body is too cold",
       "blocks": [
-        { "type": "paragraph", "text": "When temperature falls, the body reduces heat loss and makes more heat. Try sorting the responses." },
+        {
+          "type": "paragraph",
+          "text": "When temperature falls, the body reduces heat loss and makes more heat. Try sorting the responses."
+        },
         {
           "type": "list",
           "items": [
@@ -101,15 +131,42 @@
             "prompt": "Sort each response: does it happen when the body is too hot or too cold?",
             "groups": ["Too hot", "Too cold"],
             "items": [
-              { "text": "Sweat glands release sweat", "group": 0 },
-              { "text": "Vasodilation of blood vessels in the skin", "group": 0 },
-              { "text": "More blood flows near the skin surface", "group": 0 },
-              { "text": "Sweat evaporates and takes heat from the body", "group": 0 },
-              { "text": "Vasoconstriction of blood vessels in the skin", "group": 1 },
-              { "text": "Less blood flows near the skin surface", "group": 1 },
-              { "text": "Skeletal muscles contract rapidly (shivering)", "group": 1 },
-              { "text": "Sweating is reduced or stops", "group": 1 },
-              { "text": "Hairs in the skin stand on end", "group": 1 }
+              {
+                "text": "Sweat glands release sweat",
+                "group": 0
+              },
+              {
+                "text": "Vasodilation of blood vessels in the skin",
+                "group": 0
+              },
+              {
+                "text": "More blood flows near the skin surface",
+                "group": 0
+              },
+              {
+                "text": "Sweat evaporates and takes heat from the body",
+                "group": 0
+              },
+              {
+                "text": "Vasoconstriction of blood vessels in the skin",
+                "group": 1
+              },
+              {
+                "text": "Less blood flows near the skin surface",
+                "group": 1
+              },
+              {
+                "text": "Skeletal muscles contract rapidly (shivering)",
+                "group": 1
+              },
+              {
+                "text": "Sweating is reduced or stops",
+                "group": 1
+              },
+              {
+                "text": "Hairs in the skin stand on end",
+                "group": 1
+              }
             ]
           }
         },
@@ -143,29 +200,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 5.6"],
-      "exam_phrases": [
-        "more blood flow near surface (of skin) / more blood flow to the skin",
-        "more heat / energy is lost (from the blood)",
-        "cools blood which cools the body",
-        "(more) sweating, because exercise releases heat / need to cool the body",
-        "respiration / metabolism releases heat (which increases body temperature)",
-        "increases the rate of chemical reactions / increases enzyme activity",
-        "blood is cooled at the stomach / mouth, (cooled) blood flows to the brain"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Vasodilation moves the blood vessels nearer to the surface of the skin.",
-          "right": "This is not accepted. Blood vessels do not move. Say that more blood flows near the surface of the skin, so more heat is lost."
-        },
-        {
-          "wrong": "Respiration produces energy, which warms the body.",
-          "right": "\"Energy produced / made / created\" is not accepted. Say that respiration or metabolism releases heat, or releases energy."
-        },
-        {
-          "wrong": "Vasodilation cools the body.",
-          "right": "\"Cools blood / body\" on its own is ignored. Explain it: more blood flows near the skin surface, so more heat is lost from the blood, which cools the body."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "6d96a072-5c5f-462b-aa84-a52829618a62",
         "source": "AQA jun 2022, Paper 2 (H), Q08.4",
@@ -181,25 +215,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.11B", "EDEX 7.12B"],
-      "exam_phrases": [
-        "vasodilation acts to cool the body down",
-        "more blood flows near the surface of the skin",
-        "less blood flows through the shunt valve",
-        "causing increased thermal energy loss",
-        "sweat is released onto (the surface of) the skin, which evaporates, that cools the body / removes heat",
-        "(uncontrolled) muscle contraction, heat generated, so body temperature increases",
-        "(internal) temperature is kept at the optimum / 37 °C for enzyme action"
-      ],
-      "mistakes": [
-        {
-          "wrong": "During vasodilation the blood vessels move closer to the surface of the skin.",
-          "right": "\"Moving blood vessels\" is rejected. Say the capillaries widen near the surface of the skin, so more blood flows there."
-        },
-        {
-          "wrong": "In hot weather the muscle relaxes and the hairs lie flat. Sweat is produced and the capillaries widen.",
-          "right": "Listing responses only reaches the lower levels. Link each one to heat loss, for example: hairs lie flat, less air is trapped, there is less insulation, so more heat is lost."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "6ac19253-9fe7-49b6-b418-5d1bfb1977db",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q6(b)(ii)",
@@ -217,7 +232,10 @@
         {
           "heading": "Skin structures in hot weather (Edexcel)",
           "blocks": [
-            { "type": "paragraph", "text": "Edexcel explains hot-weather responses structure by structure. Link each structure to how it causes heat loss." },
+            {
+              "type": "paragraph",
+              "text": "Edexcel explains hot-weather responses structure by structure. Link each structure to how it causes heat loss."
+            },
             {
               "type": "list",
               "items": [
@@ -233,29 +251,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 3.3b"],
-      "exam_phrases": [
-        "shivering increases metabolic rate / respiration",
-        "shivering generates more heat",
-        "vasoconstriction decreases blood flow to the skin surface",
-        "vasoconstriction reduces heat loss",
-        "sweat glands close / reduced sweating",
-        "hairs in skin become erect",
-        "increases sweat production; vasodilation of blood vessels"
-      ],
-      "mistakes": [
-        {
-          "wrong": "In the cold the blood vessels move away from the skin and the fingers go pale and blue.",
-          "right": "\"Blood vessels move\" and \"go pale / blue / cold extremities\" are ignored. Say vasoconstriction decreases blood flow to the skin surface, so less heat is lost."
-        },
-        {
-          "wrong": "Hypothermia is harmful because it denatures enzymes.",
-          "right": "\"Denatures enzymes\" is not allowed for a low temperature. Say it affects enzymes and slows or stops the rate of reactions, so respiration and metabolism slow down."
-        },
-        {
-          "wrong": "I ticked three boxes to cool the athlete down, to be safe.",
-          "right": "When two ticks are asked for, each extra tick cancels a marking point. Tick only two: increased sweat production and vasodilation of blood vessels."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "5dbd2ee5-786d-4670-891d-c008b0c8f08b",
         "source": "OCR jun 2022, Paper 1, Q19(a)(iii)",
@@ -273,7 +268,10 @@
         {
           "heading": "Skin changes in cold environments (OCR)",
           "blocks": [
-            { "type": "paragraph", "text": "OCR also asks for changes in the skin in the cold, apart from blood flow." },
+            {
+              "type": "paragraph",
+              "text": "OCR also asks for changes in the skin in the cold, apart from blood flow."
+            },
             {
               "type": "list",
               "items": [

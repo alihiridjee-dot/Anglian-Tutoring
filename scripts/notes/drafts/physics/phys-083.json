@@ -3,14 +3,14 @@
   "concept_id": "phys-083",
   "subject": "physics",
   "title": "The motor effect",
-  "key_idea": "(Higher tier) A wire carrying a current in a magnetic field experiences a force, and the magnet experiences an equal and opposite force. Fleming's left-hand rule gives the direction of the force. For a wire at right angles to the field, F = B × I × l.",
+  "key_idea": "(AQA: Higher tier) A wire carrying a current in a magnetic field experiences a force, and the magnet experiences an equal and opposite force. Fleming's left-hand rule gives the direction of the force. For a wire at right angles to the field, F = B × I × l.",
   "sections": [
     {
       "heading": "What the motor effect is",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) A wire carrying a current in a magnetic field experiences a force. This is the motor effect."
+          "text": "(AQA: Higher tier) A wire carrying a current in a magnetic field experiences a force. This is the motor effect."
         },
         {
           "type": "definitions",
@@ -48,7 +48,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) Fleming's left-hand rule gives the direction of the force. Use your left hand."
+          "text": "(AQA: Higher tier) Fleming's left-hand rule gives the direction of the force. Use your left hand."
         },
         {
           "type": "steps",
@@ -85,7 +85,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) For a conductor at right angles to the magnetic field, the force depends on the field, the current and the length in the field."
+          "text": "(AQA: Higher tier) For a conductor at right angles to the magnetic field, the force depends on the field, the current and the length in the field."
         },
         {
           "type": "equation",
@@ -156,7 +156,7 @@
                 "label": "Magnetic flux density",
                 "unit": "T",
                 "min": 0.1,
-                "max": 1.0,
+                "max": 1,
                 "step": 0.1,
                 "value": 0.3
               },
@@ -258,35 +258,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.2.2",
-        "AQA T 6.7.2.2"
-      ],
-      "exam_phrases": [
-        "use (Fleming's) left hand rule",
-        "first finger in the direction of the field lines",
-        "second finger in the direction of current",
-        "thumb will show the direction of the force",
-        "reverse the direction of the current",
-        "reverse the direction of the magnetic field",
-        "there is a magnetic field due to the (permanent) magnets",
-        "the current in the wire produces a magnetic field",
-        "the wire must experience an equal and opposite force"
-      ],
-      "mistakes": [
-        {
-          "wrong": "B = 0.092 ÷ (4.6 × 80) = 0.00025 T.",
-          "right": "Convert the length first: 80 mm = 0.080 m. Then B = 0.092 ÷ (4.6 × 0.080) = 0.25 T."
-        },
-        {
-          "wrong": "The reading on the balance increased because the wire got heavier.",
-          "right": "The downward force on the balance increased. The wire experiences an equal and opposite force, which is upwards."
-        },
-        {
-          "wrong": "B = 360, so 0.072 = 360 × I × 0.050.",
-          "right": "Convert 360 mT to 0.360 T. Then I = 0.072 ÷ (0.360 × 0.050) = 4.0 A."
-        }
-      ],
+      "spec_codes": ["AQA 4.7.2.2", "AQA T 6.7.2.2"],
       "worked_example": {
         "exemplar_id": "a5db4218-4be2-4142-830f-dfb7c5332835",
         "source": "AQA jun 2019, Paper 2 (H), Q04.3",
@@ -302,35 +274,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 12.10",
-        "EDEX 12.11",
-        "EDEX 12.12",
-        "EDEX 12.13"
-      ],
-      "exam_phrases": [
-        "first finger, second finger and thumb (of left-hand) held mutually perpendicular",
-        "first finger (is in the direction of) magnetic field",
-        "second finger (is in the direction of) current",
-        "thumb (is in the) direction of force / motion",
-        "magnetic fields interact",
-        "weight / gravitational force (downwards on upper magnet)",
-        "forces equal size / in equilibrium"
-      ],
-      "mistakes": [
-        {
-          "wrong": "I = 0.045 ÷ (0.72 × 30) = 0.002 A.",
-          "right": "Convert 30 mm to 0.030 m. Then I = 0.045 ÷ (0.72 × 0.030) = 2.1 A."
-        },
-        {
-          "wrong": "B = 1.11 × 10⁻⁵ ÷ (93.1 × 0.600) = 2.0 × 10⁻⁷ T.",
-          "right": "Convert 93.1 mA to 93.1 × 10⁻³ A. Then B = 2.0 × 10⁻⁴ T. A power-of-ten error scores 1 mark only."
-        },
-        {
-          "wrong": "Only an upward magnetic force acts on the floating magnet.",
-          "right": "The weight (gravitational force) also acts downwards. The forces are equal in size, so the magnet floats."
-        }
-      ],
+      "spec_codes": ["EDEX 12.10", "EDEX 12.11", "EDEX 12.12", "EDEX 12.13"],
       "extra": [
         {
           "heading": "Another unit for flux density",
@@ -356,45 +300,13 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P4.2a",
-        "OCR P4.2b",
-        "OCR P4.2c"
-      ],
-      "exam_phrases": [
-        "the magnet will exert a force on the wire",
-        "(current in the wire) creates a magnetic field",
-        "the magnetic fields of the magnet and wire interact",
-        "F = BIL",
-        "increase the current (in the coil)",
-        "increase the number of coils",
-        "increase the length of the coil (in the magnetic field)",
-        "increase the strength of the magnet / magnetic field"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Use a bigger magnet to increase the force on the coil.",
-          "right": "Increase the strength of the magnet or magnetic field. The size of the magnet is ignored."
-        },
-        {
-          "wrong": "Add an iron core to the coil to increase the force.",
-          "right": "Increase the current, the number of coils, the length of coil in the field or the strength of the magnet. An iron core is ignored."
-        },
-        {
-          "wrong": "F = 1.125 N.",
-          "right": "Give the answer to the number of significant figures asked for. To 2 significant figures F = 1.1 N."
-        }
-      ],
+      "spec_codes": ["OCR P4.2a", "OCR P4.2b", "OCR P4.2c"],
       "worked_example": {
         "exemplar_id": "93729033-66aa-4515-ab11-3ed449698b43",
         "source": "OCR nov 2021, Paper 3, Q20(b)",
         "question": "A wire of length 0.25 m experiences a force of 0.15 N when a current of 5.0 A flows.\n\nCalculate the magnetic flux density of the field.\n\nUse an equation from the data sheet to help you.",
         "marks": 3,
-        "answer_points": [
-          "F = BIL, so B = F ÷ (I × L)",
-          "B = 0.15 ÷ (5.0 × 0.25)",
-          "B = 0.12 T"
-        ],
+        "answer_points": ["F = BIL, so B = F ÷ (I × L)", "B = 0.15 ÷ (5.0 × 0.25)", "B = 0.12 T"],
         "tip": "Check the answer line first: 0.12 T scores all 3 marks."
       }
     }

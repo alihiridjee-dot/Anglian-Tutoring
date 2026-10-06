@@ -3,14 +3,14 @@
   "concept_id": "bio-081",
   "subject": "biology",
   "title": "Hormone interactions in the menstrual cycle",
-  "key_idea": "(Higher tier) The four hormones act on each other. FSH stimulates oestrogen, high oestrogen stimulates LH, and LH causes ovulation. Oestrogen inhibits FSH, and progesterone inhibits FSH and LH, so no more eggs mature.",
+  "key_idea": "(AQA: Higher tier) The four hormones act on each other. FSH stimulates oestrogen, high oestrogen stimulates LH, and LH causes ovulation. Oestrogen inhibits FSH, and progesterone inhibits FSH and LH, so no more eggs mature.",
   "sections": [
     {
       "heading": "How the hormones interact",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) Each hormone either stimulates or inhibits another. The basic job of each hormone is in the previous note."
+          "text": "(AQA: Higher tier) Each hormone either stimulates or inhibits another. The basic job of each hormone is in the previous note."
         },
         {
           "type": "definitions",
@@ -27,32 +27,16 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Hormone",
-            "Stimulates",
-            "Inhibits"
-          ],
+          "columns": ["Hormone", "Stimulates", "Inhibits"],
           "rows": [
             [
               "FSH",
               "Egg maturing in a follicle; oestrogen from the ovaries",
               "No other hormone in this chain"
             ],
-            [
-              "Oestrogen",
-              "Thickening of the uterus lining; LH",
-              "FSH"
-            ],
-            [
-              "LH",
-              "Ovulation (release of the egg)",
-              "No other hormone in this chain"
-            ],
-            [
-              "Progesterone",
-              "Maintenance of the uterus lining",
-              "FSH and LH"
-            ]
+            ["Oestrogen", "Thickening of the uterus lining; LH", "FSH"],
+            ["LH", "Ovulation (release of the egg)", "No other hormone in this chain"],
+            ["Progesterone", "Maintenance of the uterus lining", "FSH and LH"]
           ]
         },
         {
@@ -87,7 +71,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) Graphs show each hormone level across the cycle. This graph shows the typical shapes, not exact values."
+          "text": "(AQA: Higher tier) Graphs show each hormone level across the cycle. This graph shows the typical shapes, not exact values."
         },
         {
           "type": "diagram",
@@ -98,13 +82,7 @@
               "label": "Day of the cycle",
               "min": 0,
               "max": 28,
-              "ticks": [
-                0,
-                7,
-                14,
-                21,
-                28
-              ],
+              "ticks": [0, 7, 14, 21, 28],
               "unit": "days"
             },
             "y": {
@@ -114,137 +92,50 @@
               {
                 "name": "FSH",
                 "points": [
-                  [
-                    0,
-                    0.4
-                  ],
-                  [
-                    4,
-                    0.45
-                  ],
-                  [
-                    8,
-                    0.3
-                  ],
-                  [
-                    12,
-                    0.2
-                  ],
-                  [
-                    14,
-                    0.3
-                  ],
-                  [
-                    16,
-                    0.12
-                  ],
-                  [
-                    21,
-                    0.1
-                  ],
-                  [
-                    28,
-                    0.2
-                  ]
+                  [0, 0.4],
+                  [4, 0.45],
+                  [8, 0.3],
+                  [12, 0.2],
+                  [14, 0.3],
+                  [16, 0.12],
+                  [21, 0.1],
+                  [28, 0.2]
                 ]
               },
               {
                 "name": "LH",
                 "points": [
-                  [
-                    0,
-                    0.1
-                  ],
-                  [
-                    10,
-                    0.12
-                  ],
-                  [
-                    12,
-                    0.25
-                  ],
-                  [
-                    14,
-                    1
-                  ],
-                  [
-                    16,
-                    0.25
-                  ],
-                  [
-                    21,
-                    0.12
-                  ],
-                  [
-                    28,
-                    0.1
-                  ]
+                  [0, 0.1],
+                  [10, 0.12],
+                  [12, 0.25],
+                  [14, 1],
+                  [16, 0.25],
+                  [21, 0.12],
+                  [28, 0.1]
                 ]
               },
               {
                 "name": "Oestrogen",
                 "points": [
-                  [
-                    0,
-                    0.1
-                  ],
-                  [
-                    5,
-                    0.2
-                  ],
-                  [
-                    10,
-                    0.55
-                  ],
-                  [
-                    13,
-                    0.9
-                  ],
-                  [
-                    15,
-                    0.35
-                  ],
-                  [
-                    21,
-                    0.55
-                  ],
-                  [
-                    25,
-                    0.3
-                  ],
-                  [
-                    28,
-                    0.12
-                  ]
+                  [0, 0.1],
+                  [5, 0.2],
+                  [10, 0.55],
+                  [13, 0.9],
+                  [15, 0.35],
+                  [21, 0.55],
+                  [25, 0.3],
+                  [28, 0.12]
                 ]
               },
               {
                 "name": "Progesterone",
                 "points": [
-                  [
-                    0,
-                    0.05
-                  ],
-                  [
-                    13,
-                    0.05
-                  ],
-                  [
-                    15,
-                    0.15
-                  ],
-                  [
-                    21,
-                    0.8
-                  ],
-                  [
-                    25,
-                    0.4
-                  ],
-                  [
-                    28,
-                    0.08
-                  ]
+                  [0, 0.05],
+                  [13, 0.05],
+                  [15, 0.15],
+                  [21, 0.8],
+                  [25, 0.4],
+                  [28, 0.08]
                 ]
               }
             ],
@@ -280,7 +171,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) If an egg is fertilised, the lining of the uterus must be kept. The hormone levels stay different from a normal cycle."
+          "text": "(AQA: Higher tier) If an egg is fertilised, the lining of the uterus must be kept. The hormone levels stay different from a normal cycle."
         },
         {
           "type": "list",
@@ -320,33 +211,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 5.12",
-        "AQA T 4.5.3.3"
-      ],
-      "exam_phrases": [
-        "FSH stimulates maturation of egg / ovum / follicle",
-        "oestrogen inhibits FSH production and stimulates LH production",
-        "LH stimulates ovulation",
-        "progesterone inhibits FSH and LH production",
-        "oestrogen and progesterone maintain the uterus lining",
-        "FSH stimulates oestrogen from the ovaries",
-        "progesterone is secreted by the (empty) follicle / corpus luteum"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Oestrogen stimulates FSH.",
-          "right": "Oestrogen inhibits FSH production and stimulates LH production."
-        },
-        {
-          "wrong": "Progesterone stimulates LH, which causes ovulation.",
-          "right": "Progesterone inhibits FSH and LH production. LH, stimulated by oestrogen, causes ovulation."
-        },
-        {
-          "wrong": "On day 14 LH is released, then on day 21 progesterone is released.",
-          "right": "Reference to days of the cycle is ignored. Say what each hormone does, in the correct order, and where it is produced."
-        }
-      ],
+      "spec_codes": ["AQA 5.12", "AQA T 4.5.3.3"],
       "worked_example": {
         "exemplar_id": "cf7d1ce0-15e0-4fd2-8b1a-6c9dcb21889d",
         "source": "AQA jun 2021, Paper 2 (H), Q06.4",
@@ -363,28 +228,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 7.5"
-      ],
-      "exam_phrases": [
-        "FSH causes the egg / follicle to mature",
-        "FSH stimulates oestrogen",
-        "high levels of oestrogen",
-        "LH surge causes the egg to be released",
-        "oestrogen inhibits FSH",
-        "progesterone inhibits FSH / LH",
-        "progesterone levels remain high to maintain the lining of the uterus"
-      ],
-      "mistakes": [
-        {
-          "wrong": "There are four hormones: oestrogen, progesterone, FSH and LH.",
-          "right": "Listing hormones scores only at Level 1. Link at least three hormones to their role and the gland that releases them, in a logical order."
-        },
-        {
-          "wrong": "LH controls ovulation and the uterus thickening.",
-          "right": "LH causes ovulation. Oestrogen, from the ovaries, causes the lining of the uterus to thicken."
-        }
-      ],
+      "spec_codes": ["EDEX 7.5"],
       "worked_example": {
         "exemplar_id": "32540e13-af55-45c6-b305-42b73e18af07",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q9(c)",
@@ -402,34 +246,13 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 3.2d"
-      ],
-      "exam_phrases": [
-        "oestrogen / FSH / LH peak immediately before ovulation",
-        "oestrogen thickens / repairs (the lining of) the uterus",
-        "oestrogen inhibits FSH / LH",
-        "progesterone maintains the lining / stops the lining breaking down",
-        "progesterone inhibits the release of FSH / the development of a follicle"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Progesterone thickens the lining of the uterus.",
-          "right": "\"Thickens the lining\" is ignored for progesterone. Say it maintains the lining, or stops it breaking down."
-        },
-        {
-          "wrong": "Progesterone has no effect on the other hormones.",
-          "right": "A higher-level answer says progesterone inhibits the release of FSH, so the development of a follicle in the ovary is inhibited and egg production slows."
-        }
-      ],
+      "spec_codes": ["OCR 3.2d"],
       "worked_example": {
         "exemplar_id": "7429d96c-91b2-4044-9c51-936000055bcc",
         "source": "OCR jun 2019, Paper 3, Q19(a)(ii)",
         "question": "Name two hormones that peak immediately before ovulation.",
         "marks": 1,
-        "answer_points": [
-          "Any two from: oestrogen, FSH, LH."
-        ],
+        "answer_points": ["Any two from: oestrogen, FSH, LH."],
         "tip": "One mark for any two of the three named hormones."
       }
     }

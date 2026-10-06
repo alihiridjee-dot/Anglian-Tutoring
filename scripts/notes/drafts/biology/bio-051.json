@@ -129,31 +129,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 3.7"
-      ],
-      "exam_phrases": [
-        "protein / antigen injected into mouse",
-        "extract / collect (mouse) lymphocytes that make a specific antibody",
-        "lymphocytes are combined with a tumour cell to create a hybridoma",
-        "(hybridoma) cloned to create many cells that produce the antibody",
-        "all the cells make the same antibody",
-        "the antibody is (collected and) purified"
-      ],
-      "mistakes": [
-        {
-          "wrong": "White blood cells are combined with tumour cells.",
-          "right": "\"White blood cells\" is ignored here. Say lymphocytes (T or B lymphocytes) are combined with tumour or cancer cells to make hybridoma cells."
-        },
-        {
-          "wrong": "The stem cells are cloned to make the antibodies.",
-          "right": "Cloning the original stem cells is not credited. It is the hybridoma that is cloned."
-        },
-        {
-          "wrong": "A tumour cell is added.",
-          "right": "\"Tumour\" unqualified is ignored. Say the lymphocyte is combined with a tumour cell to make a hybridoma."
-        }
-      ],
+      "spec_codes": ["AQA 3.7"],
       "worked_example": {
         "exemplar_id": "a83505e3-72be-4c7f-8a8e-23735d2bd6fd",
         "source": "AQA jun 2022, Paper 1 (H), Q07.7",
@@ -169,38 +145,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.21B"
-      ],
-      "exam_phrases": [
-        "hybridoma cells that divide rapidly",
-        "lymphocytes fused with tumour cells to make hybridoma cells"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Monoclonal antibodies are made by lymphocytes alone.",
-          "right": "A lymphocyte is fused with a tumour cell to make a hybridoma cell. It divides rapidly, so the antibody can be made in large amounts."
-        }
-      ]
+      "spec_codes": ["EDEX 5.21B"]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.3m"
-      ],
-      "exam_phrases": [
-        "(inject) drug into mice",
-        "lymphocytes made / collected",
-        "fuse with tumour cells",
-        "hybridoma cells made",
-        "hybridoma make antibodies against the drug",
-        "does not use mice"
-      ],
-      "mistakes": [
-        {
-          "wrong": "People prefer the bacteria method because of religion.",
-          "right": "References to religion or \"playing god\" are ignored. Say the method does not use mice or animals, which some people think is cruel or unethical."
-        }
-      ],
+      "spec_codes": ["OCR 6.3m"],
       "worked_example": {
         "exemplar_id": "47244ade-2313-4020-82c4-f38ae56caa53",
         "source": "OCR jun 2018, Paper 4, Q22(b)",

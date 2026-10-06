@@ -27,35 +27,14 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Moving",
-            "Typical speed"
-          ],
+          "columns": ["Moving", "Typical speed"],
           "rows": [
-            [
-              "Walking",
-              "1.5 m/s"
-            ],
-            [
-              "Running",
-              "3 m/s"
-            ],
-            [
-              "Cycling",
-              "6 m/s"
-            ],
-            [
-              "Wind (a breezy day)",
-              "5 m/s"
-            ],
-            [
-              "Car on a main road",
-              "25 m/s"
-            ],
-            [
-              "Sound in air",
-              "330 m/s"
-            ]
+            ["Walking", "1.5 m/s"],
+            ["Running", "3 m/s"],
+            ["Cycling", "6 m/s"],
+            ["Wind (a breezy day)", "5 m/s"],
+            ["Car on a main road", "25 m/s"],
+            ["Sound in air", "330 m/s"]
           ]
         },
         {
@@ -212,11 +191,7 @@
               "unit": "m/s²",
               "decimals": 2
             },
-            "working": [
-              "a = Δv ÷ t",
-              "a = 6 ÷ {t}",
-              "a = {answer} m/s²"
-            ]
+            "working": ["a = Δv ÷ t", "a = 6 ÷ {t}", "a = {answer} m/s²"]
           }
         },
         {
@@ -261,26 +236,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.6.1",
-        "AQA T 6.5.4.1"
-      ],
-      "exam_phrases": [
-        "330 m/s",
-        "about four times faster",
-        "athlete's swimming speed = typical walking speed",
-        "3.0 (m/s) for a person running"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A swimmer at 1.5 m/s is faster than a typical walker.",
-          "right": "A typical walking speed is 1.5 m/s, so the swimming speed is equal to it."
-        },
-        {
-          "wrong": "A typical person runs at about 1.5 m/s.",
-          "right": "1.5 m/s is a walking speed. A typical running speed is about 3 m/s."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.6.1", "AQA T 6.5.4.1"],
       "worked_example": {
         "exemplar_id": "61630483-28f6-4522-8118-e6ffa4df5246",
         "source": "AQA jun 2025, Paper 2 (H), Q01.3",
@@ -295,25 +251,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.12",
-        "EDEX 2.13"
-      ],
-      "exam_phrases": [
-        "1.0 m/s for a person walking",
-        "an Olympic sprinter's pace",
-        "an insect crawling pace"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A person walks at 10 m/s.",
-          "right": "10 m/s is an Olympic sprinter's pace, far too fast for walking. A typical walking speed is about 1.5 m/s."
-        },
-        {
-          "wrong": "A person walks at 0.1 m/s.",
-          "right": "0.1 m/s is an insect crawling pace, 1 metre every 10 s. A person walks about 1 m/s or more."
-        }
-      ],
+      "spec_codes": ["EDEX 2.12", "EDEX 2.13"],
       "worked_example": {
         "exemplar_id": "4528cbe2-5790-4d01-8328-349751a3517c",
         "source": "EDEXCEL jun 2018, Paper 1 (F), Q1(a)",
@@ -340,25 +278,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P8.1a",
-        "OCR P8.1b"
-      ],
-      "exam_phrases": [
-        "Estimate for time = 2 – 12 seconds",
-        "their estimate of time",
-        "0.5 – 3(.0) m / s²"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The cyclist takes 60 s to reach 6 m/s, so the acceleration is 0.1 m/s².",
-          "right": "Choose a realistic time. Cyclists take about 2 to 12 s, which gives 0.5 to 3 m/s²."
-        },
-        {
-          "wrong": "The acceleration is 6 m/s².",
-          "right": "6 m/s is the change in velocity. Divide it by the estimated time to get the acceleration."
-        }
-      ],
+      "spec_codes": ["OCR P8.1a", "OCR P8.1b"],
       "worked_example": {
         "exemplar_id": "1ff35a4a-84ae-45d8-992f-5933c20b74ce",
         "source": "OCR jun 2022, Paper 2, Q17(e)",

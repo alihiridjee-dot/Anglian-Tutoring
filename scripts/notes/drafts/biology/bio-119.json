@@ -108,10 +108,7 @@
             "kind": "sort",
             "alt": "Sort each process into whether it removes carbon dioxide from the air or adds carbon dioxide to the air.",
             "prompt": "Does each process remove carbon dioxide from the air or add it?",
-            "groups": [
-              "Removes carbon dioxide",
-              "Adds carbon dioxide"
-            ],
+            "groups": ["Removes carbon dioxide", "Adds carbon dioxide"],
             "items": [
               {
                 "text": "Photosynthesis in leaves",
@@ -169,34 +166,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 7.5",
-        "AQA T 4.7.2.2"
-      ],
-      "exam_phrases": [
-        "decay / decomposition of leaves",
-        "respiration (by microorganisms / decomposers)",
-        "respiration releases carbon dioxide",
-        "carbon dioxide is used in photosynthesis",
-        "taken in through stomata / leaves",
-        "to make glucose / carbohydrate",
-        "plants are eaten / consumed by animals",
-        "(respiration) releases carbon dioxide back into the atmosphere"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Plants take in carbon dioxide through their roots.",
-          "right": "Carbon dioxide absorbed in the roots is not accepted. It is taken in through the stomata or leaves."
-        },
-        {
-          "wrong": "Worms and insects respire and release carbon dioxide when they break down the leaves.",
-          "right": "Respiration by worms, detritivores or insects is ignored. The respiration that is credited is by microorganisms or decomposers."
-        },
-        {
-          "wrong": "Carbon is cycled when plants take in carbon dioxide for photosynthesis.",
-          "right": "A top answer must consider photosynthesis and at least one other process, such as feeding, decay or respiration, with accurate detail."
-        }
-      ],
+      "spec_codes": ["AQA 7.5", "AQA T 4.7.2.2"],
       "worked_example": {
         "exemplar_id": "5ffad999-331b-48dd-9f61-a56ffe55ac95",
         "source": "AQA jun 2022, Paper 2 (H), Q01.5",
@@ -212,34 +182,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.12",
-        "EDEX 9.13"
-      ],
-      "exam_phrases": [
-        "release carbon dioxide from respiration",
-        "cabbages take in carbon dioxide for photosynthesis",
-        "when organisms die decomposers release carbon dioxide",
-        "squirrels eat cabbages / plants which contain carbon",
-        "egestion releases carbon (into the soil)",
-        "burning fossil fuels releases carbon dioxide",
-        "the oceans can absorb carbon dioxide",
-        "carbon can be stored in carbonate rocks"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Squirrels and earthworms release carbon dioxide.",
-          "right": "The mark needs the process: they release carbon dioxide from respiration."
-        },
-        {
-          "wrong": "Cabbages contribute to the carbon cycle by taking in carbon dioxide.",
-          "right": "Link it to photosynthesis: cabbages take in carbon dioxide for photosynthesis."
-        },
-        {
-          "wrong": "Carbon is cycled only by plants, animals and decomposers.",
-          "right": "A top answer also includes an abiotic process, such as burning fossil fuels, absorption by the oceans, or volcanoes."
-        }
-      ],
+      "spec_codes": ["EDEX 9.12", "EDEX 9.13"],
       "worked_example": {
         "exemplar_id": "d42859e0-aa6b-4e85-b032-daea079dff61",
         "source": "EDEXCEL jun 2019, Paper 2 (H), Q2(b)",
@@ -277,33 +220,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 4.1b",
-        "OCR 4.1c"
-      ],
-      "exam_phrases": [
-        "bacteria / fungi",
-        "respiration",
-        "(re)cycled",
-        "idea of recycling in nature",
-        "named example of a recycled substance, e.g. carbon / nitrogen",
-        "mineral being returned to the soil / environment",
-        "for photosynthesis / production of proteins in plants"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Decomposition is caused by detritivores such as worms.",
-          "right": "Detritivores are not allowed. Decomposition is caused by microorganisms such as bacteria or fungi."
-        },
-        {
-          "wrong": "Decomposition allows minerals to be conserved in nature.",
-          "right": "Conserved and stored are ignored. Say the minerals are recycled, reused or reabsorbed."
-        },
-        {
-          "wrong": "Decomposition returns nutrients to the soil.",
-          "right": "\"Nutrients\" alone is ignored. Name a substance such as carbon dioxide or nitrates, or say a mineral is returned to the soil."
-        }
-      ],
+      "spec_codes": ["OCR 4.1b", "OCR 4.1c"],
       "worked_example": {
         "exemplar_id": "b6002457-dfbd-489c-be41-acec5834d009",
         "source": "OCR jun 2018, Paper 4, Q20(c)",

@@ -127,42 +127,22 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Fraction",
-            "Molecules",
-            "Use"
-          ],
+          "columns": ["Fraction", "Molecules", "Use"],
           "rows": [
             [
               "Gases (including LPG, liquefied petroleum gas)",
               "smallest, lowest boiling point",
               "domestic heating and cooking"
             ],
-            [
-              "Petrol",
-              "small",
-              "fuel for cars"
-            ],
-            [
-              "Kerosene",
-              "medium",
-              "fuel for aircraft"
-            ],
-            [
-              "Diesel oil",
-              "larger",
-              "fuel for some cars and trains"
-            ],
+            ["Petrol", "small", "fuel for cars"],
+            ["Kerosene", "medium", "fuel for aircraft"],
+            ["Diesel oil", "larger", "fuel for some cars and trains"],
             [
               "Fuel oil (heavy fuel oil)",
               "large",
               "fuel for large ships and in some power stations"
             ],
-            [
-              "Bitumen",
-              "largest, highest boiling point",
-              "surfacing roads and roofs"
-            ]
+            ["Bitumen", "largest, highest boiling point", "surfacing roads and roofs"]
           ]
         },
         {
@@ -203,36 +183,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.1.2",
-        "AQA T 5.7.1.2"
-      ],
-      "exam_phrases": [
-        "crude oil is heated to vaporise (the hydrocarbons)",
-        "there is a temperature gradient in the (fractionating) column",
-        "the column gets cooler going up",
-        "(vapours) condense at different levels / heights",
-        "(because of their) different boiling points",
-        "(diesel oil has a) lower boiling point / range than heavy fuel oil"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Crude oil is cracked to separate it into fractions.",
-          "right": "Fractional distillation separates crude oil. A reference to cracking in a description of fractional distillation is incorrect and limits the answer to 3 marks."
-        },
-        {
-          "wrong": "Bitumen is not used as a fuel because it takes more energy to burn.",
-          "right": "This is not accepted. Say bitumen is too viscous, not very flammable, or has too high a boiling point."
-        },
-        {
-          "wrong": "Diesel oil collects between kerosene and heavy fuel oil because of its melting point.",
-          "right": "Melting points are ignored. Compare boiling points: diesel oil has a lower boiling point than heavy fuel oil and a higher one than kerosene."
-        },
-        {
-          "wrong": "Diesel oil collects there because its chains are longer, so the forces between its molecules are stronger.",
-          "right": "When the question says to use the table of boiling points, references to chain length and intermolecular forces are ignored. Compare the boiling points."
-        }
-      ],
+      "spec_codes": ["AQA 4.7.1.2", "AQA T 5.7.1.2"],
       "worked_example": {
         "exemplar_id": "4a63a998-5ed4-4a53-9fea-268c1020e967",
         "source": "AQA jun 2020, Paper 2 (H), Q05.2",
@@ -248,29 +199,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 8.3",
-        "EDEX 8.4",
-        "EDEX 8.5"
-      ],
-      "exam_phrases": [
-        "kerosene: (fuel for) aircraft / jets / lamps / cooking / heaters",
-        "diesel oil: (fuel for) cars / trains / trucks / lorries / vehicles / tractors",
-        "heated",
-        "condensed",
-        "gas / gases (the fraction with the smallest molecules)",
-        "high(er) boiling point (kerosene compared with petrol)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Kerosene is used as a fuel for trains.",
-          "right": "Trains and boats are rejected for kerosene. Say aircraft or jets, lamps, cooking or heaters."
-        },
-        {
-          "wrong": "Diesel oil is used as a fuel for engines and machines.",
-          "right": "Generic uses such as factories, machines, engines and fuel are ignored. Name the vehicle, for example cars, trains, lorries or ships."
-        }
-      ],
+      "spec_codes": ["EDEX 8.3", "EDEX 8.4", "EDEX 8.5"],
       "worked_example": {
         "exemplar_id": "995ca2b6-ca7c-4a18-ae60-07cc0acf50b7",
         "source": "EDEXCEL jun 2019, Paper 2 (H), Q2(b)(i)",
@@ -284,34 +213,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.2j",
-        "OCR C6.2k"
-      ],
-      "exam_phrases": [
-        "(fractionating) column has a temperature gradient",
-        "(the column is) cooler at the top",
-        "molecules / fractions have different boiling points",
-        "condense at different levels (in the fractionating column)",
-        "larger molecules have higher boiling points",
-        "intermolecular forces between larger molecules are stronger",
-        "the stronger the intermolecular forces the higher the boiling point",
-        "more energy is required to break these forces"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Fractional distillation works because the fractions have different melting points.",
-          "right": "Different melting points alone is not allowed. Say the hydrocarbons have different boiling points."
-        },
-        {
-          "wrong": "The LPG fraction rises because the covalent bonds in its molecules are weak.",
-          "right": "References to covalent bonds are not allowed. Say the intermolecular forces between the smaller molecules are weaker."
-        },
-        {
-          "wrong": "Nonane is highest in the column because it has a low boiling point.",
-          "right": "A low boiling point is ignored unless it is linked to size. Say it has the lowest boiling point because it is the smallest molecule."
-        }
-      ],
+      "spec_codes": ["OCR C6.2j", "OCR C6.2k"],
       "worked_example": {
         "exemplar_id": "b6719088-53c2-41d5-bc1d-b4e10d8680ac",
         "source": "OCR jun 2018, Paper 4, Q16(b)",

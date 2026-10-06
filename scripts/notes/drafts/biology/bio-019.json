@@ -78,27 +78,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Food molecule",
-            "Broken down by",
-            "Into"
-          ],
+          "columns": ["Food molecule", "Broken down by", "Into"],
           "rows": [
-            [
-              "Carbohydrates, such as starch",
-              "Carbohydrases, such as amylase",
-              "Simple sugars"
-            ],
-            [
-              "Proteins",
-              "Proteases",
-              "Amino acids"
-            ],
-            [
-              "Lipids (fats)",
-              "Lipases",
-              "Glycerol and fatty acids"
-            ]
+            ["Carbohydrates, such as starch", "Carbohydrases, such as amylase", "Simple sugars"],
+            ["Proteins", "Proteases", "Amino acids"],
+            ["Lipids (fats)", "Lipases", "Glycerol and fatty acids"]
           ]
         },
         {
@@ -177,36 +161,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 2.2",
-        "AQA T 4.2.2.1"
-      ],
-      "exam_phrases": [
-        "salivary glands, pancreas and small intestine",
-        "(hydrochloric) acid provides the correct pH for protease (in the stomach)",
-        "(protease) produced in the stomach / pancreas / small intestine",
-        "(bile) produced by the liver",
-        "(villi) have microvilli to increase surface area",
-        "good blood supply to maintain a diffusion gradient"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The enzyme that digests starch is amylose.",
-          "right": "\"Amylose\" is not accepted. The enzyme is amylase. Carbohydrase is also accepted."
-        },
-        {
-          "wrong": "The tubing in the model represents the large intestine.",
-          "right": "The large intestine is not accepted. The partially permeable tubing represents the small intestine, and the water outside it represents the blood."
-        },
-        {
-          "wrong": "Digested food is absorbed in the intestine.",
-          "right": "\"Intestine\" on its own is ignored. Say the small intestine."
-        },
-        {
-          "wrong": "Amylase is made in the salivary glands.",
-          "right": "The salivary glands are not the only source. Amylase is made in the salivary glands, the pancreas and the small intestine."
-        }
-      ],
+      "spec_codes": ["AQA 2.2", "AQA T 4.2.2.1"],
       "worked_example": {
         "exemplar_id": "f925ad12-fc55-4b31-8295-3b009f471c25",
         "source": "AQA jun 2022, Paper 1 (F), Q1.3",
@@ -229,9 +184,7 @@
       "82cd7442-3455-4be9-87fc-894abcf02e5d",
       "c874b05f-5fb0-4430-b94e-f1edc32f9be2"
     ],
-    "exemplar_ids": [
-      "f925ad12-fc55-4b31-8295-3b009f471c25"
-    ],
+    "exemplar_ids": ["f925ad12-fc55-4b31-8295-3b009f471c25"],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-01"
   }

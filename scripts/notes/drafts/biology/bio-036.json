@@ -8,12 +8,21 @@
     {
       "heading": "Root hair cells",
       "blocks": [
-        { "type": "paragraph", "text": "Root hair cells are in the roots. They take in water and mineral ions from the soil." },
+        {
+          "type": "paragraph",
+          "text": "Root hair cells are in the roots. They take in water and mineral ions from the soil."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Osmosis", "meaning": "The movement of water across a partially permeable membrane." },
-            { "term": "Active transport", "meaning": "Moving substances against a concentration gradient, using energy from respiration." }
+            {
+              "term": "Osmosis",
+              "meaning": "The movement of water across a partially permeable membrane."
+            },
+            {
+              "term": "Active transport",
+              "meaning": "Moving substances against a concentration gradient, using energy from respiration."
+            }
           ]
         },
         {
@@ -40,7 +49,10 @@
     {
       "heading": "Xylem and phloem",
       "blocks": [
-        { "type": "paragraph", "text": "Xylem and phloem are the plant's transport tissues. They run through the roots, stem and leaves." },
+        {
+          "type": "paragraph",
+          "text": "Xylem and phloem are the plant's transport tissues. They run through the roots, stem and leaves."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -48,15 +60,39 @@
             "alt": "Xylem compared with phloem.",
             "items": ["Xylem", "Phloem"],
             "rows": [
-              { "feature": "Transports", "values": ["Water and mineral ions", "Dissolved sugars (sucrose)"] },
-              { "feature": "Direction", "values": ["Upwards: roots to stem and leaves", "Up and down: from the leaves to the rest of the plant"] },
-              { "feature": "Cells", "values": ["Dead", "Living"] },
-              { "feature": "Structure", "values": ["Hollow tubes strengthened with lignin, no end walls", "Tubes of elongated cells with pores in the end walls"] },
-              { "feature": "Process", "values": ["Transpiration stream", "Translocation"] }
+              {
+                "feature": "Transports",
+                "values": ["Water and mineral ions", "Dissolved sugars (sucrose)"]
+              },
+              {
+                "feature": "Direction",
+                "values": [
+                  "Upwards: roots to stem and leaves",
+                  "Up and down: from the leaves to the rest of the plant"
+                ]
+              },
+              {
+                "feature": "Cells",
+                "values": ["Dead", "Living"]
+              },
+              {
+                "feature": "Structure",
+                "values": [
+                  "Hollow tubes strengthened with lignin, no end walls",
+                  "Tubes of elongated cells with pores in the end walls"
+                ]
+              },
+              {
+                "feature": "Process",
+                "values": ["Transpiration stream", "Translocation"]
+              }
             ]
           }
         },
-        { "type": "subheading", "text": "Xylem adaptations" },
+        {
+          "type": "subheading",
+          "text": "Xylem adaptations"
+        },
         {
           "type": "list",
           "items": [
@@ -65,7 +101,10 @@
             "Made of dead cells."
           ]
         },
-        { "type": "subheading", "text": "How water moves up the xylem" },
+        {
+          "type": "subheading",
+          "text": "How water moves up the xylem"
+        },
         {
           "type": "list",
           "items": [
@@ -74,7 +113,10 @@
             "It evaporates and leaves the leaf through the stomata. This movement is the **transpiration stream**."
           ]
         },
-        { "type": "subheading", "text": "Phloem adaptations" },
+        {
+          "type": "subheading",
+          "text": "Phloem adaptations"
+        },
         {
           "type": "list",
           "items": [
@@ -92,14 +134,38 @@
             "prompt": "Xylem, phloem or both?",
             "groups": ["Xylem", "Phloem", "Both"],
             "items": [
-              { "text": "Transports water and mineral ions", "group": 0 },
-              { "text": "Transports dissolved sugars", "group": 1 },
-              { "text": "Made of dead cells with lignin", "group": 0 },
-              { "text": "Pores in the end walls", "group": 1 },
-              { "text": "Tubular", "group": 2 },
-              { "text": "Moves substances up and down the plant", "group": 1 },
-              { "text": "Part of the transpiration stream", "group": 0 },
-              { "text": "Found in roots, stems and leaves", "group": 2 }
+              {
+                "text": "Transports water and mineral ions",
+                "group": 0
+              },
+              {
+                "text": "Transports dissolved sugars",
+                "group": 1
+              },
+              {
+                "text": "Made of dead cells with lignin",
+                "group": 0
+              },
+              {
+                "text": "Pores in the end walls",
+                "group": 1
+              },
+              {
+                "text": "Tubular",
+                "group": 2
+              },
+              {
+                "text": "Moves substances up and down the plant",
+                "group": 1
+              },
+              {
+                "text": "Part of the transpiration stream",
+                "group": 0
+              },
+              {
+                "text": "Found in roots, stems and leaves",
+                "group": 2
+              }
             ]
           }
         },
@@ -134,28 +200,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 2.12", "AQA T 4.2.3.2", "AQA T 4.2.3.1"],
-      "exam_phrases": [
-        "xylem is made of dead cells and phloem is made of living cells",
-        "phloem cells have pores in their end walls",
-        "xylem transports water / mineral ions and phloem transports (dissolved) sugars",
-        "composed of hollow tubes so no obstruction to water flow",
-        "has lignin to hold tubes open",
-        "xylem transports unidirectionally and phloem transports bidirectionally"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Water is transported through the plant by translocation.",
-          "right": "Translocation is the movement of dissolved sugars in the phloem. Water moves in the xylem."
-        },
-        {
-          "wrong": "Xylem has thick walls so it is strong.",
-          "right": "\"Thick walls\" is ignored. Say xylem has lignin to hold the tubes open or strengthen them."
-        },
-        {
-          "wrong": "Phloem transports glucose and ions.",
-          "right": "Glucose is ignored for translocation, and ions are carried in the xylem. Say phloem transports dissolved sugars or sucrose."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "6cc326cd-fb46-4835-a5b9-aab44395b278",
         "source": "AQA jun 2021, Paper 1 (H), Q06.6",
@@ -177,28 +221,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.7", "EDEX 6.8"],
-      "exam_phrases": [
-        "increases the surface area for absorption of water / mineral ions",
-        "thin cell wall so the distance is shorter",
-        "contains many mitochondria to release energy for active transport",
-        "xylem: dead cells, lignified walls, hollow tube",
-        "phloem: living cells, sieve tubes, carries sucrose",
-        "by active transport against the concentration gradient"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Nitrate ions are absorbed by osmosis.",
-          "right": "Osmosis is rejected for ions. Say active transport (low to high concentration, using energy), or diffusion down the concentration gradient."
-        },
-        {
-          "wrong": "Phloem carries water to the leaves.",
-          "right": "Phloem carrying water is rejected. Water travels in the xylem. Phloem carries sucrose."
-        },
-        {
-          "wrong": "Root hair cells have chloroplasts to make food.",
-          "right": "Roots grow underground where there is no light, so they cannot photosynthesise and have no chloroplasts."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "3c414913-d64f-4700-b649-df1aa988c4c7",
         "source": "EDEXCEL jun 2024, Paper 2 (H), Q7(b)(ii)",
@@ -231,28 +253,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 2.2f", "OCR 2.2h"],
-      "exam_phrases": [
-        "root hairs absorb water",
-        "root hairs absorb minerals",
-        "plant might wilt / grow slower / less photosynthesis",
-        "xylem transports water / mineral ions",
-        "phloem transports sugars",
-        "less sugar translocated to other parts"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Xylem transports sugars up and down the plant.",
-          "right": "Xylem transports water and mineral ions, one way (upwards). Sugars are transported in the phloem."
-        },
-        {
-          "wrong": "Root hairs must be kept undamaged so the plant survives.",
-          "right": "\"Plant survival\" is ignored. Say root hairs absorb water and minerals, so the plant might wilt, grow slower or photosynthesise less."
-        },
-        {
-          "wrong": "Greenfly damage plants by taking water and minerals from the xylem.",
-          "right": "Greenfly pierce the phloem and remove sugar. Less is left for growth and for respiration."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "bdaaf491-dc6e-4d6f-8bf2-8f4f206f2501",
         "source": "OCR nov 2021, Paper 1, Q18(c)",

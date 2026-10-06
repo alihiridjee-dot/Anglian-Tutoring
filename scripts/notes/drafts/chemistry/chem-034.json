@@ -3,44 +3,52 @@
   "concept_id": "chem-034",
   "subject": "chemistry",
   "title": "Limiting reactants",
-  "key_idea": "The reactant that is completely used up is the limiting reactant. It limits the amount of product, and the reaction stops when it runs out. The mass of product depends on the limiting reactant, not the reactant in excess.",
+  "key_idea": "(AQA: Higher tier) In a reaction with two reactants, one is often in excess. The reactant that is completely used up is the limiting reactant. It limits the amount of product, so the amount of product is worked out from the limiting reactant.",
   "sections": [
     {
-      "heading": "Excess and limiting reactants",
+      "heading": "Limiting and excess reactants",
       "blocks": [
-        { "type": "paragraph", "text": "(Higher tier) Reactants are not always mixed in the exact amounts the equation needs. One reactant usually runs out first." },
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) Reactants are not always mixed in exactly the right amounts. This section covers what happens when one runs out first."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Limiting reactant", "meaning": "The reactant that is completely used up. It limits the amount of product." },
-            { "term": "Excess reactant", "meaning": "A reactant that is left over when the reaction stops." }
+            {
+              "term": "Limiting reactant",
+              "meaning": "The reactant that is completely used up. It limits the amount of products."
+            },
+            {
+              "term": "Excess reactant",
+              "meaning": "The reactant that is left over when the reaction stops."
+            }
           ]
         },
         {
           "type": "list",
           "items": [
-            "Chemists often use an excess of one reactant to make sure all of the other reactant is used up.",
+            "An excess of one reactant is often used to make sure all of the other reactant reacts.",
             "When the limiting reactant is used up, the reaction stops.",
-            "The mass of product is controlled by the reactant that is **not** in excess.",
-            "Adding more of the excess reactant does not make more product."
+            "Adding more of the excess reactant does not make more product.",
+            "Adding more of the limiting reactant makes more product."
           ]
         },
-        { "type": "subheading", "text": "Why the reaction slows and stops" },
         {
-          "type": "list",
-          "items": [
-            "As the reaction goes on, there are fewer particles of the limiting reactant in the mixture.",
-            "Collisions between the reacting particles become less frequent, so the rate decreases.",
-            "The reaction stops when the limiting reactant is used up.",
-            "Solid left over at the end shows that the solid was in excess. For example, marble chips left in acid mean the acid was the limiting reactant."
-          ]
+          "type": "equation",
+          "label": "Magnesium and hydrochloric acid",
+          "where": [
+            "1 mol of Mg needs 2 mol of HCl.",
+            "0.5 mol of Mg and 0.5 mol of HCl: only 0.25 mol of Mg can react, so Mg is in excess."
+          ],
+          "formula": "Mg + 2HCl → MgCl₂ + H₂"
         },
         {
           "type": "key-points",
           "items": [
-            "The limiting reactant is used up first and limits the amount of product.",
-            "The reaction stops when the limiting reactant runs out.",
-            "A reactant left over at the end is the one in excess."
+            "The limiting reactant is used up first.",
+            "The limiting reactant decides how much product forms.",
+            "The excess reactant is left over."
           ]
         }
       ]
@@ -48,133 +56,82 @@
     {
       "heading": "Finding the limiting reactant",
       "blocks": [
-        { "type": "paragraph", "text": "(Higher tier) Compare the amounts in moles, not the masses. The balanced equation tells you how many moles of one reactant react with each mole of another." },
         {
-          "type": "equation",
-          "label": "Amount in moles",
-          "formula": "moles = mass ÷ Mr",
-          "where": ["moles is the amount of substance in mol", "mass is in grams (g)", "Mr is the relative formula mass"]
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) Compare the moles you have with the moles the equation needs. The ratio from the equation is essential."
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Moles.", "text": "Work out the moles of each reactant from its mass." },
-            { "lead": "Ratio.", "text": "Use the equation to find the moles of the second reactant needed to react with all of the first." },
-            { "lead": "Compare.", "text": "If there are fewer moles than are needed, that reactant is the limiting reactant." },
-            { "lead": "Conclude.", "text": "The other reactant is in excess." }
+            {
+              "lead": "Equation.",
+              "text": "2Al + Fe₂O₃ → 2Fe + Al₂O₃. The mixture is 1.00 kg of Al and 3.00 kg of Fe₂O₃. Ar: Al = 27, Fe = 56, O = 16."
+            },
+            {
+              "lead": "Moles of each.",
+              "text": "Mr of Fe₂O₃ = 160. Fe₂O₃: 3000 ÷ 160 = 18.75 mol. Al: 1000 ÷ 27 = 37.0 mol."
+            },
+            {
+              "lead": "Use the ratio.",
+              "text": "18.75 mol of Fe₂O₃ needs 2 × 18.75 = 37.5 mol of Al."
+            },
+            {
+              "lead": "Compare.",
+              "text": "There is only 37.0 mol of Al, which is less than 37.5 mol. Aluminium is the limiting reactant."
+            }
           ]
         },
-        { "type": "subheading", "text": "Worked example" },
-        { "type": "paragraph", "text": "4.8 g of magnesium burns in 8.0 g of oxygen. 2Mg + O₂ → 2MgO. Ar: Mg = 24, O = 16." },
-        {
-          "type": "steps",
-          "items": [
-            { "lead": "Moles of Mg.", "text": "4.8 ÷ 24 = 0.20 mol." },
-            { "lead": "Moles of O₂.", "text": "Mr of O₂ = 32, so 8.0 ÷ 32 = 0.25 mol." },
-            { "lead": "Ratio.", "text": "2 mol Mg reacts with 1 mol O₂, so 0.20 mol Mg needs 0.10 mol O₂." },
-            { "lead": "Compare.", "text": "0.25 mol O₂ is more than the 0.10 mol needed. Oxygen is in excess and magnesium is the limiting reactant." }
-          ]
-        },
-        {
-          "type": "diagram",
-          "diagram": {
-            "kind": "practice",
-            "alt": "Practise finding the moles of hydrogen made when one of two reactants is limiting.",
-            "question": "Mg + 2HCl → MgCl₂ + H₂. **{a}** mol of magnesium reacts with **{b}** mol of hydrochloric acid. Calculate the maximum amount of hydrogen made, in mol.",
-            "variables": [
-              { "id": "a", "min": 0.1, "max": 0.5, "step": 0.1 },
-              { "id": "b", "min": 0.2, "max": 1.0, "step": 0.1 }
-            ],
-            "answer": { "formula": "min(a, b / 2)", "unit": "mol", "decimals": 2 },
-            "working": [
-              "1 mol of Mg makes 1 mol of H₂. 2 mol of HCl also makes 1 mol of H₂.",
-              "Mg could make {a} mol of H₂. HCl could make {b} ÷ 2 mol of H₂.",
-              "The smaller amount is the limit: **{answer}** mol of H₂."
-            ]
-          }
-        },
-        {
-          "type": "key-points",
-          "items": [
-            "Convert masses to moles before comparing reactants.",
-            "Use the ratio in the equation to see which reactant is short.",
-            "The reactant that would run out first is the limiting reactant."
-          ]
-        }
-      ]
-    },
-    {
-      "heading": "Mass of product from the limiting reactant",
-      "blocks": [
-        { "type": "paragraph", "text": "(Higher tier) The maximum mass of product is found from the limiting reactant, never from the excess." },
-        {
-          "type": "equation",
-          "label": "Mass of product",
-          "formula": "mass = moles × Mr",
-          "where": ["mass is in grams (g)", "moles is the moles of product, found from the limiting reactant and the equation ratio", "Mr is the relative formula mass of the product"]
-        },
-        {
-          "type": "steps",
-          "items": [
-            { "lead": "Limiting reactant.", "text": "Find it by comparing moles." },
-            { "lead": "Product moles.", "text": "Use the equation ratio from the limiting reactant to the product." },
-            { "lead": "Mass.", "text": "Multiply the moles of product by its Mr." }
-          ]
-        },
-        { "type": "paragraph", "text": "In the example above, 0.20 mol Mg makes 0.20 mol MgO (a 2 : 2 ratio). Mr of MgO = 40, so the mass is 0.20 × 40 = 8.0 g." },
-        {
-          "type": "diagram",
-          "diagram": {
-            "kind": "practice",
-            "alt": "Practise finding the maximum mass of magnesium oxide from masses of magnesium and oxygen.",
-            "question": "2Mg + O₂ → 2MgO. **{m}** g of magnesium reacts with **{o}** g of oxygen. Calculate the maximum mass of magnesium oxide made. Ar: Mg = 24, O = 16.",
-            "variables": [
-              { "id": "m", "min": 4.8, "max": 19.2, "step": 2.4 },
-              { "id": "o", "min": 2, "max": 10, "step": 2 }
-            ],
-            "answer": { "formula": "min(m / 24, o / 16) * 40", "unit": "g", "decimals": 1 },
-            "working": [
-              "Moles of Mg = {m} ÷ 24. Moles of O₂ = {o} ÷ 32.",
-              "2 mol Mg make 2 mol MgO. 1 mol O₂ makes 2 mol MgO.",
-              "The smaller amount of MgO limits the reaction. Mass = moles of MgO × 40 = **{answer}** g."
-            ]
-          }
-        },
-        {
-          "type": "key-points",
-          "items": [
-            "Work out the product from the limiting reactant only.",
-            "Mass = moles of product × Mr of product."
-          ]
-        }
-      ]
-    },
-    {
-      "heading": "Using masses to find an equation",
-      "blocks": [
-        { "type": "paragraph", "text": "(Higher tier) The masses of reactants and products give the moles of each. The ratio of the moles is the ratio of the numbers in the balanced equation." },
-        {
-          "type": "steps",
-          "items": [
-            { "lead": "Moles.", "text": "Convert each mass to moles." },
-            { "lead": "Ratio.", "text": "Divide by the smallest number of moles. If the ratio is not whole numbers, multiply to make it whole." },
-            { "lead": "Equation.", "text": "Use the ratio as the numbers in front of the formulae." }
-          ]
-        },
-        { "type": "paragraph", "text": "Example: 2.7 g of aluminium (Ar = 27) reacts with excess copper chloride to make 9.525 g of copper (Ar = 63.5)." },
         {
           "type": "list",
           "items": [
-            "Moles of Al = 2.7 ÷ 27 = 0.10 mol. Moles of Cu = 9.525 ÷ 63.5 = 0.15 mol.",
-            "The ratio Al : Cu is 0.10 : 0.15, which is 1 : 1.5. Multiply by 2 to get 2 : 3.",
-            "So the equation is 2Al + 3CuCl₂ → 3Cu + 2AlCl₃."
+            "Do not compare the moles directly. 37.0 is not the same as 18.75, but the equation needs twice as many moles of Al.",
+            "Do not decide by the masses alone. Convert to moles first."
           ]
+        },
+        {
+          "type": "subheading",
+          "text": "Calculating the product"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use the moles of the **limiting** reactant and the ratio to find the moles of product.",
+            "For 108 g of Al (4 mol) with 1.21 kg of CuCl₂ in 2Al + 3CuCl₂ → 3Cu + 2AlCl₃: 4 mol of Al makes 6 mol of Cu, but 8.996 mol of CuCl₂ could make 8.996 mol.",
+            "Al is limiting, so the mass of Cu = 6 × 63.5 = 381 g."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Practise finding the moles of hydrogen made when one reactant limits the reaction.",
+            "kind": "practice",
+            "answer": {
+              "unit": "mol",
+              "formula": "min(m / 24, 0.4 / 2)",
+              "decimals": 2
+            },
+            "working": [
+              "Moles of Mg = {m} ÷ 24. Mg : H₂ = 1 : 1, so Mg could make {m} ÷ 24 mol of H₂",
+              "HCl : H₂ = 2 : 1, so 0.40 mol of HCl could make 0.40 ÷ 2 = 0.20 mol of H₂",
+              "The limiting reactant gives the smaller amount: **{answer} mol**"
+            ],
+            "question": "Mg + 2HCl → MgCl₂ + H₂. **{m} g** of magnesium (Ar = 24) reacts with 0.40 mol of hydrochloric acid. Calculate the number of moles of hydrogen made.",
+            "variables": [
+              {
+                "id": "m",
+                "max": 7.2,
+                "min": 2.4,
+                "step": 1.2
+              }
+            ]
+          }
         },
         {
           "type": "key-points",
           "items": [
-            "Moles of each substance come from mass ÷ Mr.",
-            "The mole ratio gives the numbers in the balanced equation."
+            "Moles of each reactant, then use the equation ratio.",
+            "The reactant that runs out first is limiting.",
+            "Use the limiting reactant to find the amount of product."
           ]
         }
       ]
@@ -182,132 +139,71 @@
   ],
   "checks": [
     {
-      "q": "What is meant by the term limiting reactant?",
-      "a": "The reactant that is used up first (completely used up in the reaction). It limits the amount of product, so the reaction stops when it runs out.",
+      "q": "What is a limiting reactant?",
+      "a": "The reactant that is completely used up, so it limits the amount of product formed.",
       "marks": 1
     },
     {
-      "q": "Marble chips are left in the flask when a reaction with hydrochloric acid stops. Explain why the reaction stops.",
-      "a": "All of the acid has been used up. The acid is the limiting reactant and the marble chips are in excess.",
-      "marks": 1
+      "q": "0.5 mol of hydrochloric acid is mixed with 0.5 mol of magnesium: Mg + 2HCl → MgCl₂ + H₂. Which is in excess?",
+      "a": "Magnesium. 0.5 mol of HCl reacts with only 0.25 mol of Mg, so Mg is in excess.",
+      "marks": 2
     },
     {
-      "q": "Mg + 2HCl → MgCl₂ + H₂. 0.30 mol of magnesium reacts with 0.50 mol of hydrochloric acid. Which is the limiting reactant, and how many moles of hydrogen are made?",
-      "a": "0.30 mol Mg needs 0.60 mol HCl, but only 0.50 mol is present, so hydrochloric acid is the limiting reactant. 0.50 ÷ 2 = 0.25 mol of H₂ is made.",
-      "marks": 3
+      "q": "Why is it wrong to say 18.75 mol of Fe₂O₃ is limiting because 18.75 is less than 37.0 mol of Al in 2Al + Fe₂O₃ → 2Fe + Al₂O₃?",
+      "a": "The equation needs 2 mol of Al for each 1 mol of Fe₂O₃. 18.75 mol of Fe₂O₃ needs 37.5 mol of Al, so Al is limiting.",
+      "marks": 2
     }
   ],
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.3.2.4", "AQA T 5.3.2.4"],
-      "exam_phrases": [
-        "(identifying limiting reactant) 4 moles Al gives 6 moles Cu; 8.996 moles CuCl2 gives 8.996 moles Cu",
-        "therefore aluminium is the limiting reactant",
-        "37.0 mol is less than the (2 × 18.75 =) 37.5 mol (aluminium needed)",
-        "iron oxide is in excess because 18.75 mol is more than the (37.0/2 =) 18.5 mol (iron oxide needed)",
-        "fewer particles (of acid / magnesium) as reaction progresses",
-        "less frequent collisions",
-        "reaction stops due to limiting factor / reagent"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The reaction stops because the reactants are used up.",
-          "right": "Name the reactant. Say the (hydrochloric) acid is used up, or that it is the limiting reactant. 'Reactants used up' alone is ignored."
-        },
-        {
-          "wrong": "The rate decreases because there are fewer collisions.",
-          "right": "'Fewer collisions' alone is ignored. Say there are fewer particles, so the collisions are less frequent."
-        },
-        {
-          "wrong": "Iron oxide is limiting because 18.75 mol of Fe₂O₃ is fewer moles than 37.0 mol of Al.",
-          "right": "Use the 2 : 1 ratio in the equation. 18.75 mol of Fe₂O₃ needs 2 × 18.75 = 37.5 mol of Al, but only 37.0 mol is present, so aluminium is limiting."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "fb5039c7-5d6d-4f41-a394-568e28bf15df",
         "source": "AQA jun 2020, Paper 1 (H), Q6.2",
-        "question": "A mixture contains 1.00 kg of aluminium and 3.00 kg of iron oxide.\n\nThe equation for the reaction is:\n\n2 Al + Fe₂O₃ → 2 Fe + Al₂O₃\n\nRelative atomic masses (Ar): O = 16, Al = 27, Fe = 56\n\nShow that aluminium is the limiting reactant.",
+        "question": "A mixture contains 1.00 kg of aluminium and 3.00 kg of iron oxide.\n\nThe equation for the reaction is:\n\n2Al + Fe₂O₃ → 2Fe + Al₂O₃\n\nRelative atomic masses (Ar): O = 16, Al = 27, Fe = 56\n\nShow that aluminium is the limiting reactant.",
         "marks": 4,
         "answer_points": [
-          "Mr of Fe₂O₃ = 160.",
-          "Moles of Fe₂O₃ = 3000 ÷ 160 = 18.75 mol.",
-          "Moles of Al = 1000 ÷ 27 = 37.0 mol.",
-          "Aluminium is limiting because 37.0 mol is less than the 37.5 mol (2 × 18.75) needed. Or iron oxide is in excess because 18.75 mol is more than the 18.5 mol (37.0 ÷ 2) needed."
+          "Mr of Fe₂O₃ = 160 (1)",
+          "Moles of Fe₂O₃ = 3000 ÷ 160 = 18.75 mol (1)",
+          "Moles of Al = 1000 ÷ 27 = 37.0 mol (1)",
+          "Aluminium is limiting because 37.0 mol is less than the 2 × 18.75 = 37.5 mol needed (1)"
         ],
-        "tip": "One mark each. Change kg to g, find the moles of both, then use the 2 : 1 ratio to compare."
+        "tip": "Saying that the iron oxide is in excess, because 18.75 mol is more than the 18.5 mol needed, also scores the last mark."
       }
     },
     "edexcel": {
       "spec_codes": ["EDEX 1.52"],
-      "exam_phrases": [
-        "the equation shows two HCl reacting with one Mg",
-        "ratio is 2:1",
-        "1 mol HCl reacts with 0.5 mol of Mg",
-        "0.5 mol HCl reacts with 0.25 mol Mg"
-      ],
-      "mistakes": [
-        {
-          "wrong": "0.5 mol of HCl and 0.5 mol of Mg are the same amount, so both are used up.",
-          "right": "The equation has 2 HCl for every 1 Mg. 0.5 mol of HCl reacts with only 0.25 mol of Mg, so magnesium is in excess."
-        },
-        {
-          "wrong": "Magnesium is in excess because there is more magnesium.",
-          "right": "Say why, using the ratio. The equation shows two HCl reacting with one Mg, so 1 mol of HCl needs only 0.5 mol of Mg."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "c07f6686-ba36-425f-bd4e-bb8424bd3423",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q9(b)(ii)",
-        "question": "The balanced equation for a reaction is\nMg + 2HCl → MgCl₂ + H₂\n\nIn a further experiment, 0.5 mol of hydrochloric acid, HCl, were mixed with 0.5 mol of magnesium, Mg.\nUse the equation to show that, in this experiment, the magnesium is in excess.",
+        "question": "The balanced equation for this reaction is\n\nMg + 2HCl → MgCl₂ + H₂\n\nIn a further experiment, 0.5 mol of hydrochloric acid, HCl, were mixed with 0.5 mol of magnesium, Mg.\n\nUse the equation to show that, in this experiment, the magnesium is in excess.",
         "marks": 1,
         "answer_points": [
-          "The equation shows two HCl reacting with one Mg (ratio 2 : 1).",
-          "So 0.5 mol of HCl reacts with only 0.25 mol of Mg, and magnesium is in excess."
+          "The equation shows two HCl reacting with one Mg, so 0.5 mol of HCl reacts with 0.25 mol of Mg. There is 0.5 mol of Mg, so Mg is in excess."
         ],
-        "tip": "The mark is for the 2 : 1 ratio. Say it, then use it with the amounts given."
+        "tip": "Any one of: ratio 2 : 1, 1 mol HCl reacts with 0.5 mol Mg, or 0.5 mol HCl reacts with 0.25 mol Mg."
       }
     },
     "ocr": {
       "spec_codes": ["OCR C3.1k"],
-      "exam_phrases": [
-        "limiting reactant is the reactant that is used up first",
-        "limiting reactant has fewer moles (than other reactants)",
-        "reaction stops once limiting reactant is consumed or used up",
-        "marble chips are left over at the end of the reaction / marble chips are in excess",
-        "all the (dilute hydrochloric) acid was used up",
-        "moles of acid / HCl = 35.0 ÷ 1000 x 0.075"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The reaction stops because the marble is used up.",
-          "right": "This is ignored. Say all of the dilute hydrochloric acid was used up, or that the acid was the limiting reactant."
-        },
-        {
-          "wrong": "The student can tell the acid is limiting because it was used up first.",
-          "right": "This is ignored. Say marble chips are left over at the end, so the marble chips are in excess."
-        },
-        {
-          "wrong": "Moles of acid = 35.0 × 0.075 = 2.625.",
-          "right": "Convert cm³ to dm³ first by dividing by 1000. Using cm³ instead of dm³ gives only 1 mark for the two moles calculations."
-        }
-      ],
       "worked_example": {
-        "exemplar_id": "970f82c8-2932-4f05-b57a-c92f92332d77",
-        "source": "OCR jun 2019, Paper 4, Q22(b)(i)",
-        "question": "A student reacts sodium hydroxide solution with dilute hydrochloric acid.\n\nNaOH + HCl → NaCl + H₂O\n\n35.0 cm³ of 0.075 mol / dm³ hydrochloric acid, HCl, are added to 25.0 cm³ of 0.100 mol / dm³ sodium hydroxide solution, NaOH.\n\nUse the information to determine which reactant is in excess.",
-        "marks": 3,
+        "exemplar_id": "e10748c6-64ab-4dd9-90ff-379a2f7f80fa",
+        "source": "OCR jun 2024, Paper 3, Q22(c)(ii)",
+        "question": "The student reacts the magnesium carbonate they have made with hydrochloric acid.\n\nThe student uses 0.2 mol of hydrochloric acid in the reaction. The hydrochloric acid is the limiting reagent.\n\nAt the end of the reaction, 0.82 g of magnesium carbonate is left unreacted.\n\nCalculate the mass of magnesium carbonate that the student uses in the reaction.\n\nRelative atomic mass (Ar): C = 12.0, Mg = 24.3, O = 16.0",
+        "marks": 4,
         "answer_points": [
-          "Moles of acid (HCl) = 35.0 ÷ 1000 × 0.075 = 0.002625 mol.",
-          "Moles of alkali (NaOH) = 25.0 ÷ 1000 × 0.100 = 0.0025 mol.",
-          "The acid is in excess (the ratio is 1 : 1, and there are more moles of acid)."
+          "0.1 mol of MgCO₃ reacts with 0.2 mol of HCl (the 1 : 2 mole ratio) (1)",
+          "Mr of MgCO₃ = 84.3 (1)",
+          "Mass of MgCO₃ that reacted = 0.1 × 84.3 = 8.43 g (1)",
+          "Mass of MgCO₃ used = 8.43 + 0.82 = 9.25 g (1)"
         ],
-        "tip": "Convert each volume to dm³ and work out both amounts in moles before you compare them."
+        "tip": "The correct answer, 9.25 g, scores all four marks."
       }
     }
   },
   "meta": {
     "status": "draft",
-    "written_by": "sonnet-5-5",
+    "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-01",
@@ -319,7 +215,7 @@
     "exemplar_ids": [
       "fb5039c7-5d6d-4f41-a394-568e28bf15df",
       "c07f6686-ba36-425f-bd4e-bb8424bd3423",
-      "970f82c8-2932-4f05-b57a-c92f92332d77"
+      "e10748c6-64ab-4dd9-90ff-379a2f7f80fa"
     ]
   }
 }

@@ -83,11 +83,7 @@
             "kind": "sort",
             "alt": "Sort each description into the use of monoclonal antibodies it belongs to: pregnancy testing, diagnosis, or treatment.",
             "prompt": "Which use does each description belong to?",
-            "groups": [
-              "Pregnancy testing",
-              "Diagnosis",
-              "Treatment"
-            ],
+            "groups": ["Pregnancy testing", "Diagnosis", "Treatment"],
             "items": [
               {
                 "text": "Binds to a hormone in urine",
@@ -155,31 +151,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 3.8"
-      ],
-      "exam_phrases": [
-        "bind fluorescent dye to mAbs",
-        "mAbs will bind to pathogens and show up under the microscope",
-        "monoclonal antibody is attached to radioactive substance / toxin / drug / chemical",
-        "monoclonal antibody will (only) attach to / target (antigen on) cancer cells",
-        "stop them growing / dividing",
-        "monoclonal antibodies are complementary (in shape) to (liver) antigen"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Add the monoclonal antibodies and the dye to the slide.",
-          "right": "Adding them unbound is ignored. The dye is bound to the antibody first, then the fluorescent antibodies are put on the slide."
-        },
-        {
-          "wrong": "The monoclonal antibody is the same shape as the antigen.",
-          "right": "This is not accepted. The antibody is complementary in shape to the antigen."
-        },
-        {
-          "wrong": "The antibodies released by phagocytes cannot bind to the donor cells.",
-          "right": "Phagocytes do not release antibodies. Say antibodies released by white blood cells (lymphocytes) cannot bind to the cells."
-        }
-      ],
+      "spec_codes": ["AQA 3.8"],
       "worked_example": {
         "exemplar_id": "db3da9c7-f0db-4491-b8df-4b6e2f69906d",
         "source": "AQA jun 2019, Paper 1 (H), Q08.8",
@@ -194,27 +166,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.22B"
-      ],
-      "exam_phrases": [
-        "(pregnancy test detects) a hormone in urine",
-        "(hormone / antigen) binds to the antibody (on the test)",
-        "which have a coloured (bead) attached to them",
-        "there are immobile antibodies (in the test window)",
-        "the shape of the antibody is complementary to the A antigen",
-        "it will not bind to the B antigen"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The pregnancy test detects pregnancy.",
-          "right": "Say what is detected: a hormone (hCG) in urine, which binds to antibodies that have a coloured bead attached."
-        },
-        {
-          "wrong": "The antibody does not react with blood group B because it does not match.",
-          "right": "Explain: the shape of the antibody is complementary to the A antigen, the B antigen has a different shape, so the antibody will not bind to it."
-        }
-      ],
+      "spec_codes": ["EDEX 5.22B"],
       "worked_example": {
         "exemplar_id": "4fb08ca5-dbf9-4351-b431-e85646bdf026",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q10(c)",
@@ -230,22 +182,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.3n"
-      ],
-      "exam_phrases": [
-        "pregnancy testing",
-        "detecting diseases / cancer",
-        "treating disease / cancer",
-        "pathogen identification",
-        "drug testing"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Monoclonal antibodies are used in medicine.",
-          "right": "Be specific. Name a use: pregnancy testing, detecting diseases or cancer, or treating disease or cancer."
-        }
-      ],
+      "spec_codes": ["OCR 6.3n"],
       "worked_example": {
         "exemplar_id": "42bc5ad0-2303-4a37-b369-665cbd59d2e2",
         "source": "OCR nov 2020, Paper 4, Q20(b)(i)",

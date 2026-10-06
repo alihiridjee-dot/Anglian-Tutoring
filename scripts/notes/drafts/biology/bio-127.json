@@ -39,19 +39,13 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Gas",
-            "Human sources"
-          ],
+          "columns": ["Gas", "Human sources"],
           "rows": [
             [
               "Carbon dioxide",
               "Burning fuels, for example in cars and power stations. Deforestation. Burning and decay of peat. Respiration of farm animals."
             ],
-            [
-              "Methane",
-              "Farming cows. Rice paddy fields. Rotting vegetables in landfill."
-            ]
+            ["Methane", "Farming cows. Rice paddy fields. Rotting vegetables in landfill."]
           ]
         },
         {
@@ -183,36 +177,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 7.9",
-        "AQA T 4.7.3.5"
-      ],
-      "exam_phrases": [
-        "(higher CO2 concentration causes) global warming",
-        "less carbon dioxide absorbed / used (by plants)",
-        "(due to) less photosynthesis",
-        "ice caps melting",
-        "rise in sea levels",
-        "change in species distribution"
-      ],
-      "mistakes": [
-        {
-          "wrong": "An effect of climate change is that temperatures increase.",
-          "right": "Increased temperature and greenhouse gas references are ignored. Give an effect such as ice caps melting, rise in sea levels, extreme weather or loss of biodiversity."
-        },
-        {
-          "wrong": "Factories increase the concentration of carbon dioxide in the atmosphere.",
-          "right": "\"Factories\" on its own is ignored. Name combustion, such as burning fuels, driving cars or power stations, or give deforestation."
-        },
-        {
-          "wrong": "A higher temperature causes forest fires, so organisms die.",
-          "right": "Forest fires and \"death\" on their own are ignored. Say loss of habitat, migration or change in distribution, or extinction through lack of water or food or increased disease."
-        },
-        {
-          "wrong": "Burning or decaying peat releases methane.",
-          "right": "This point is ignored. Burning or decay of peat produces carbon dioxide. Methane released from the peat bog is a separate point."
-        }
-      ],
+      "spec_codes": ["AQA 7.9", "AQA T 4.7.3.5"],
       "worked_example": {
         "exemplar_id": "d9dee04f-fab4-4504-b12d-595bb71a91be",
         "source": "AQA jun 2021, Paper 2 (F), Q07.3",
@@ -239,9 +204,7 @@
       "71a93be3-b8d4-49fa-856e-3f4b38456027",
       "3068b47b-b814-4c5c-a649-2481ebfb13bf"
     ],
-    "exemplar_ids": [
-      "d9dee04f-fab4-4504-b12d-595bb71a91be"
-    ],
+    "exemplar_ids": ["d9dee04f-fab4-4504-b12d-595bb71a91be"],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-01"
   }

@@ -212,31 +212,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.7.3"
-      ],
-      "exam_phrases": [
-        "increases the time taken (for the driver to come to a stop)",
-        "the rate of change of momentum decreases",
-        "the force (on the driver) is reduced",
-        "the change of momentum is the same but over a greater time",
-        "F = 700 / 0.28",
-        "180 ms = 0.18 s"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The air bag slows down time.",
-          "right": "Slows down time is not accepted. Say the air bag increases the time taken for the collision or for the driver to stop."
-        },
-        {
-          "wrong": "The flexible bumper reduces the impact.",
-          "right": "Reduces impact is insufficient. Say it increases the time of the collision, so the rate of change of momentum decreases, reducing the force on the people."
-        },
-        {
-          "wrong": "800 = 32 × v ÷ 180, so v = 4500 m/s.",
-          "right": "Convert 180 ms to 0.18 s first. Then v = 800 × 0.18 ÷ 32 = 4.5 m/s. An answer of 4500 scores 3 marks out of 4."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.7.3"],
       "worked_example": {
         "exemplar_id": "0f15e369-42f0-4568-a3c6-fbf0c7b0f680",
         "source": "AQA jun 2025, Paper 2 (H), Q06.2",
@@ -262,31 +238,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.26"
-      ],
-      "exam_phrases": [
-        "F = (mv − mu) / t",
-        "F = ∆p / t",
-        "F = m∆v / t",
-        "conversion of time to s",
-        "0.075 × (15.0 + 8.2) / 0.012",
-        "with a consistent equation linking chosen factor to force"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A ball arrives at 8.2 m/s and leaves at 15 m/s the other way, so Δv = 15 − 8.2 = 6.8 m/s.",
-          "right": "The ball reverses direction, so add the velocities: Δv = 15 + 8.2 = 23.2 m/s. Using 6.8 gives 42.5 N, which scores 2 marks at most. The answer is 145 N."
-        },
-        {
-          "wrong": "The ball is in contact for 12 ms, so t = 12 in the equation.",
-          "right": "Convert to seconds: 12 ms = 0.012 s. The right digits with the wrong power of ten score 2 marks at most."
-        },
-        {
-          "wrong": "The weight of the car affects the force in the collision.",
-          "right": "Weight is not accepted. Name the mass, velocity, acceleration or momentum, and link it to the force with an equation such as F = ma."
-        }
-      ],
+      "spec_codes": ["EDEX 2.26"],
       "worked_example": {
         "exemplar_id": "f7db3661-6211-4089-a29c-d130a6df98bc",
         "source": "EDEXCEL jun 2024, Paper 1 (H), Q9(b)",
@@ -301,27 +253,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P2.2l"
-      ],
-      "exam_phrases": [
-        "Acceleration will increase",
-        "Force = mass × acceleration",
-        "So greater force (acting on occupants)",
-        "this could lead to injury",
-        "Rate of change of momentum is greater",
-        "Force = rate of change of momentum"
-      ],
-      "mistakes": [
-        {
-          "wrong": "If the time taken to stop is much smaller, the force on the people is smaller.",
-          "right": "A much smaller time means a greater acceleration, so by F = ma there is a greater force on the occupants. This could lead to injury."
-        },
-        {
-          "wrong": "The driver says the new braking system is ten times safer because the stopping time is ten times shorter.",
-          "right": "A ten times shorter stopping time means a force ten times greater on the people in the car (F = m a). This can lead to injury, so it is not ten times safer."
-        }
-      ],
+      "spec_codes": ["OCR P2.2l"],
       "worked_example": {
         "exemplar_id": "2e251c3a-c2f3-4007-a70e-892adb18c7c9",
         "source": "OCR nov 2021, Paper 4, Q22(c)",

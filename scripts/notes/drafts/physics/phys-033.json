@@ -212,33 +212,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.4.1.2",
-        "AQA T 6.4.1.2"
-      ],
-      "exam_phrases": [
-        "(atoms of an element with) the same number of protons",
-        "but a different number of neutrons",
-        "same atomic number",
-        "positive charge is provided by protons",
-        "the atom becomes a positive ion",
-        "the atom loses an electron",
-        "number of neutrons"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Isotopes have the same number of protons and neutrons.",
-          "right": "This is not accepted. Isotopes have the same number of protons and a different number of neutrons."
-        },
-        {
-          "wrong": "All atoms of an element have the same positive charge because they have the same number of protons and neutrons.",
-          "right": "Do not accept protons and neutrons together. The positive charge is provided by protons, and every atom of the element has the same number of them."
-        },
-        {
-          "wrong": "Isotopes of an element have a different number of electrons.",
-          "right": "Reference to electrons is ignored. The difference is the number of neutrons."
-        }
-      ],
+      "spec_codes": ["AQA 4.4.1.2", "AQA T 6.4.1.2"],
       "worked_example": {
         "exemplar_id": "9a1e7744-b2a7-4dbe-bdb2-6b17ca3226cd",
         "source": "AQA jun 2018, Paper 1 (F), Q5.1",
@@ -252,27 +226,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 6.3",
-        "EDEX 6.4"
-      ],
-      "exam_phrases": [
-        "same number of protons",
-        "different number of neutrons",
-        "same atomic number",
-        "different mass number",
-        "7 neutrons and 6 electrons"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A similarity between fluorine-19 and a radioactive isotope of fluorine is the same number of neutrons.",
-          "right": "The neutrons are what differ. The marks are for the same number of protons (the same atomic number) and a different number of neutrons (a different mass number)."
-        },
-        {
-          "wrong": "Carbon-13 has 6 neutrons and carbon-14 has 8 neutrons.",
-          "right": "Both numbers in a column must be correct for the mark. Carbon-13 has 13 - 6 = 7 neutrons."
-        }
-      ],
+      "spec_codes": ["EDEX 6.3", "EDEX 6.4"],
       "worked_example": {
         "exemplar_id": "bb71e86b-1eb5-4ca5-960a-e18addb89362",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q3(a)",
@@ -286,32 +240,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P6.1a",
-        "OCR P6.1b",
-        "OCR P6.1c"
-      ],
-      "exam_phrases": [
-        "(same) number of protons",
-        "(different) number of neutrons",
-        "mass number",
-        "different number of nucleons",
-        "different numbers of neutrons"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Carbon-14 and carbon-12 have the same number of neutrons.",
-          "right": "This is not allowed. They have the same number of protons and a different number of neutrons."
-        },
-        {
-          "wrong": "Carbon-14 and carbon-12 have a different number of protons.",
-          "right": "This is not allowed. Carbon-14 and carbon-12 both have 6 protons."
-        },
-        {
-          "wrong": "The two isotopes have a different number of protons and neutrons.",
-          "right": "This is unclear and not allowed. Name the particle that changes: it is only the neutrons."
-        }
-      ],
+      "spec_codes": ["OCR P6.1a", "OCR P6.1b", "OCR P6.1c"],
       "worked_example": {
         "exemplar_id": "7f8c72c0-a02d-4629-be56-ef989267864e",
         "source": "OCR jun 2025, Paper 2, Q18(a)",

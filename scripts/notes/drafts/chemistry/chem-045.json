@@ -8,13 +8,25 @@
     {
       "heading": "Hydrogen ions and hydroxide ions",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers the ions that make a solution acidic or alkaline." },
+        {
+          "type": "paragraph",
+          "text": "This section covers the ions that make a solution acidic or alkaline."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Acid", "meaning": "A substance that produces hydrogen ions, H⁺, in aqueous solution." },
-            { "term": "Alkali", "meaning": "A substance whose aqueous solution contains hydroxide ions, OH⁻." },
-            { "term": "Neutralisation", "meaning": "The reaction of an acid with an alkali to form a salt and water." }
+            {
+              "term": "Acid",
+              "meaning": "A substance that produces hydrogen ions, H⁺, in aqueous solution."
+            },
+            {
+              "term": "Alkali",
+              "meaning": "A substance whose aqueous solution contains hydroxide ions, OH⁻."
+            },
+            {
+              "term": "Neutralisation",
+              "meaning": "The reaction of an acid with an alkali to form a salt and water."
+            }
           ]
         },
         {
@@ -29,7 +41,11 @@
           "type": "equation",
           "label": "Neutralisation (ionic equation)",
           "formula": "H⁺ + OH⁻ → H₂O",
-          "where": ["H⁺: hydrogen ion from the acid", "OH⁻: hydroxide ion from the alkali", "H₂O: water"]
+          "where": [
+            "H⁺: hydrogen ion from the acid",
+            "OH⁻: hydroxide ion from the alkali",
+            "H₂O: water"
+          ]
         },
         {
           "type": "key-points",
@@ -43,7 +59,10 @@
     {
       "heading": "The pH scale",
       "blocks": [
-        { "type": "paragraph", "text": "The pH scale from 0 to 14 measures how acidic or alkaline a solution is." },
+        {
+          "type": "paragraph",
+          "text": "The pH scale from 0 to 14 measures how acidic or alkaline a solution is."
+        },
         {
           "type": "list",
           "items": [
@@ -63,12 +82,84 @@
             "prompt": "Pick a solution",
             "result_labels": ["Type of solution", "Ion present in excess", "Universal indicator"],
             "options": [
-              { "label": "pH 1", "results": ["Very acidic", "**H⁺** ions", "Red"], "scene": { "kind": "tubes", "tubes": [{ "label": "pH 1", "colour": "red" }] } },
-              { "label": "pH 3", "results": ["Acidic", "**H⁺** ions", "Orange"], "scene": { "kind": "tubes", "tubes": [{ "label": "pH 3", "colour": "orange" }] } },
-              { "label": "pH 5", "results": ["Slightly acidic", "**H⁺** ions", "Yellow"], "scene": { "kind": "tubes", "tubes": [{ "label": "pH 5", "colour": "yellow" }] } },
-              { "label": "pH 7", "results": ["Neutral", "Equal numbers of H⁺ and OH⁻ ions", "Green"], "scene": { "kind": "tubes", "tubes": [{ "label": "pH 7", "colour": "green" }] } },
-              { "label": "pH 11", "results": ["Alkaline", "**OH⁻** ions", "Blue"], "scene": { "kind": "tubes", "tubes": [{ "label": "pH 11", "colour": "blue" }] } },
-              { "label": "pH 14", "results": ["Very alkaline", "**OH⁻** ions", "Purple"], "scene": { "kind": "tubes", "tubes": [{ "label": "pH 14", "colour": "purple" }] } }
+              {
+                "label": "pH 1",
+                "results": ["Very acidic", "**H⁺** ions", "Red"],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "pH 1",
+                      "colour": "red"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "pH 3",
+                "results": ["Acidic", "**H⁺** ions", "Orange"],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "pH 3",
+                      "colour": "orange"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "pH 5",
+                "results": ["Slightly acidic", "**H⁺** ions", "Yellow"],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "pH 5",
+                      "colour": "yellow"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "pH 7",
+                "results": ["Neutral", "Equal numbers of H⁺ and OH⁻ ions", "Green"],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "pH 7",
+                      "colour": "green"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "pH 11",
+                "results": ["Alkaline", "**OH⁻** ions", "Blue"],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "pH 11",
+                      "colour": "blue"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "pH 14",
+                "results": ["Very alkaline", "**OH⁻** ions", "Purple"],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "pH 14",
+                      "colour": "purple"
+                    }
+                  ]
+                }
+              }
             ]
           }
         },
@@ -84,7 +175,10 @@
     {
       "heading": "Indicators and measuring pH",
       "blocks": [
-        { "type": "paragraph", "text": "An indicator changes colour depending on whether a solution is acidic or alkaline." },
+        {
+          "type": "paragraph",
+          "text": "An indicator changes colour depending on whether a solution is acidic or alkaline."
+        },
         {
           "type": "table",
           "columns": ["Indicator", "In acid", "In alkali"],
@@ -106,9 +200,18 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Test.", "text": "Use a glass rod to place a drop of the solution onto universal indicator paper." },
-            { "lead": "Observe.", "text": "Look at the colour produced on the paper." },
-            { "lead": "Compare.", "text": "Compare the colour with the pH chart to read the approximate pH." }
+            {
+              "lead": "Test.",
+              "text": "Use a glass rod to place a drop of the solution onto universal indicator paper."
+            },
+            {
+              "lead": "Observe.",
+              "text": "Look at the colour produced on the paper."
+            },
+            {
+              "lead": "Compare.",
+              "text": "Compare the colour with the pH chart to read the approximate pH."
+            }
           ]
         },
         {
@@ -141,29 +244,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.4.2.4", "AQA T 5.4.2.4"],
-      "exam_phrases": [
-        "H+ (ions in acids); OH– (ions in alkalis)",
-        "universal indicator: green to red / orange / yellow in acid",
-        "blue / violet / purple (in alkali)",
-        "(the solution is) alkaline; contains OH– ions",
-        "H+ + OH– → H2O",
-        "pH 7 (green, neutral)",
-        "neutralisation"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Universal indicator turns green in nitric acid.",
-          "right": "Green is not accepted for an acid. Universal indicator is red in acid (orange or yellow also allowed). Green is neutral."
-        },
-        {
-          "wrong": "A pH meter can be used to test if a solution is acidic.",
-          "right": "A pH meter is ignored here. Name an indicator and its result: universal (green to red, orange or yellow), litmus (turns red) or methyl orange (turns red)."
-        },
-        {
-          "wrong": "The pH at the start is 1 and at the end is 13 when sulfuric acid is added to sodium hydroxide.",
-          "right": "The alkali comes first, so the start is 12 to 14. With excess acid the end is 0 to 3. The values must be in this order."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "2168a08c-9e39-4474-a761-ed3c62070390",
         "source": "AQA jun 2024, Paper 1 (H), Q02.3",
@@ -178,29 +258,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.1", "EDEX 3.2", "EDEX 3.3", "EDEX 3.4"],
-      "exam_phrases": [
-        "(observe / look at) colour produced on (universal indicator) paper",
-        "compare to pH {chart / scale}",
-        "litmus paper only shows if the solution is {acidic / alkaline}",
-        "does not show how acidic or alkaline the solution is",
-        "pH meter / pH probe",
-        "phenolphthalein from {magenta / pink} to colourless",
-        "H+"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Litmus paper is not suitable because it is not accurate.",
-          "right": "Not precise or accurate is ignored. Say litmus only shows whether a solution is acidic or alkaline, not how acidic or alkaline."
-        },
-        {
-          "wrong": "Use an indicator to measure the pH.",
-          "right": "Indicator alone, or another named indicator, is not allowed. Use a pH meter or probe, or universal indicator or pH paper."
-        },
-        {
-          "wrong": "Phenolphthalein goes from colourless to pink as the acid neutralises the alkali.",
-          "right": "It is pink or magenta in alkali and goes colourless as the alkali is neutralised. Both starting and final colours are needed."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "47599955-d978-414d-ac43-1349e8d088b8",
         "source": "EDEXCEL jun 2022, Paper 1 (F), Q8(b)(ii)",
@@ -215,28 +272,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR C3.3c", "OCR C3.3h", "OCR C3.3i"],
-      "exam_phrases": [
-        "hydrogen ion / H+ (makes a substance acidic)",
-        "hydroxide / OH– ions (in alkalis)",
-        "universal indicator turns red in acid and green in neutral solutions",
-        "universal indicator is blue in alkali",
-        "any value < 7 (acidic)",
-        "lemon juice (lowest pH, most acidic)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Universal indicator turns yellow in alkali.",
-          "right": "Universal indicator is blue (or purple) in alkali, not yellow."
-        },
-        {
-          "wrong": "Solutions of alkalis contain H⁺ ions.",
-          "right": "Solutions of alkalis contain hydroxide ions, OH⁻. Hydrogen ions make a substance acidic."
-        },
-        {
-          "wrong": "Universal indicator is blue when a solution is neutral.",
-          "right": "Universal indicator is green when a solution is neutral, at pH 7."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "2e9d7a3c-b85f-4475-ac18-8f21ea80473e",
         "source": "OCR jun 2024, Paper 1, Q17(b)",

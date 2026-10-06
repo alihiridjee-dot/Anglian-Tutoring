@@ -43,10 +43,7 @@
           "diagram": {
             "kind": "compare",
             "alt": "A table comparing nuclear fission and nuclear fusion.",
-            "items": [
-              "Nuclear fission",
-              "Nuclear fusion"
-            ],
+            "items": ["Nuclear fission", "Nuclear fusion"],
             "rows": [
               {
                 "feature": "What happens",
@@ -64,24 +61,15 @@
               },
               {
                 "feature": "Chain reaction",
-                "values": [
-                  "Yes. It has to be controlled",
-                  "No"
-                ]
+                "values": ["Yes. It has to be controlled", "No"]
               },
               {
                 "feature": "Energy per kilogram of fuel",
-                "values": [
-                  "Large",
-                  "Even larger"
-                ]
+                "values": ["Large", "Even larger"]
               },
               {
                 "feature": "Conditions",
-                "values": [
-                  "Lower temperature and pressure",
-                  "Very high temperature and pressure"
-                ]
+                "values": ["Lower temperature and pressure", "Very high temperature and pressure"]
               },
               {
                 "feature": "Waste",
@@ -148,10 +136,7 @@
             "kind": "sort",
             "alt": "Sort statements into fission and fusion.",
             "prompt": "Does each statement describe fission or fusion?",
-            "groups": [
-              "Fission",
-              "Fusion"
-            ],
+            "groups": ["Fission", "Fusion"],
             "items": [
               {
                 "text": "A large nucleus splits",
@@ -210,26 +195,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.4.4.2"
-      ],
-      "exam_phrases": [
-        "light(er) nuclei fuse",
-        "to form heavier nuclei / elements",
-        "some of the mass (of the nuclei) is converted into energy (of radiation)",
-        "joining together of nuclei",
-        "the total mass of the particles decreases"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Nuclear fusion is the joining together of atoms.",
-          "right": "Atoms are not accepted. Fusion is the joining together of nuclei."
-        },
-        {
-          "wrong": "In fusion the nuclei bond or collide to make a heavier nucleus.",
-          "right": "Bonding and colliding are ignored. Say the lighter nuclei fuse to form heavier nuclei."
-        }
-      ],
+      "spec_codes": ["AQA 4.4.4.2"],
       "worked_example": {
         "exemplar_id": "c0c4ce41-3791-4a0c-8677-aadac2856665",
         "source": "AQA jun 2025, Paper 1 (H), Q05.2",
@@ -244,36 +210,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 6.43P",
-        "EDEX 6.44P",
-        "EDEX 6.45P",
-        "EDEX 6.46P"
-      ],
-      "exam_phrases": [
-        "(high temperature means) high energy to overcome (force of) repulsion",
-        "between nuclei / because they both have the same charge",
-        "(smaller) nuclei come together / join to produce a larger nucleus",
-        "needing high temperature / pressure",
-        "energy released",
-        "decrease in mass",
-        "problem of containment",
-        "results had not been peer reviewed"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Energy is created in a fusion reaction.",
-          "right": "Created is ignored. Say energy is released, and that there is a decrease in mass."
-        },
-        {
-          "wrong": "The nuclei bond together.",
-          "right": "Say fuse, not bond. Add the idea of joining to produce a larger nucleus."
-        },
-        {
-          "wrong": "Fusion is when particles fuse together.",
-          "right": "Saying fuse together only restates the word. Say that smaller nuclei come together to produce a larger nucleus."
-        }
-      ],
+      "spec_codes": ["EDEX 6.43P", "EDEX 6.44P", "EDEX 6.45P", "EDEX 6.46P"],
       "worked_example": {
         "exemplar_id": "d036c69f-f7f3-4c3c-82ee-5155427923aa",
         "source": "EDEXCEL jun 2018, Paper 1 (H), Q10(a)(i)",
@@ -336,28 +273,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P6.2e"
-      ],
-      "exam_phrases": [
-        "two nuclei combine (at very high temperature)",
-        "in fusion nuclei join / in fission nuclei split",
-        "larger / heavier nucleus forms in fusion",
-        "fusion occurs at higher temperatures or pressures",
-        "fission causes a chain reaction / fusion does not cause a chain reaction",
-        "both convert mass to energy",
-        "slightly radioactive with short half life"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Nuclear fusion is when two molecules or particles join.",
-          "right": "Molecules, particles and ions are ignored. Say two nuclei, or two atoms, combine."
-        },
-        {
-          "wrong": "Fusion power stations already generate electricity.",
-          "right": "Only fission reactors are used at present to produce electricity."
-        }
-      ],
+      "spec_codes": ["OCR P6.2e"],
       "worked_example": {
         "exemplar_id": "0b8ee910-4037-445f-b9b5-7f2084802565",
         "source": "OCR jun 2025, Paper 4, Q21(b)",

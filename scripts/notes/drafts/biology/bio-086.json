@@ -8,7 +8,10 @@
     {
       "heading": "Auxins",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) Auxins are used to control the growth of weeds and to grow new plants from cuttings." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Auxins are used to control the growth of weeds and to grow new plants from cuttings."
+        },
         {
           "type": "list",
           "items": [
@@ -31,7 +34,10 @@
     {
       "heading": "Gibberellins and ethene",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) Gibberellins act on seeds, flowers and fruit. Ethene ripens fruit." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Gibberellins act on seeds, flowers and fruit. Ethene ripens fruit."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -40,18 +46,45 @@
             "prompt": "Which hormone is used for each job?",
             "groups": ["Auxin", "Gibberellin", "Ethene"],
             "items": [
-              { "text": "Selective weedkiller", "group": 0 },
-              { "text": "Rooting powder for cuttings", "group": 0 },
-              { "text": "Make dormant seeds germinate", "group": 1 },
-              { "text": "Promote flower production", "group": 1 },
-              { "text": "Increase fruit size", "group": 1 },
-              { "text": "Ripen fruit that was picked unripe", "group": 2 },
-              { "text": "Ripen tomatoes more quickly", "group": 2 },
-              { "text": "Released by bananas, so other fruits ripen faster", "group": 2 }
+              {
+                "text": "Selective weedkiller",
+                "group": 0
+              },
+              {
+                "text": "Rooting powder for cuttings",
+                "group": 0
+              },
+              {
+                "text": "Make dormant seeds germinate",
+                "group": 1
+              },
+              {
+                "text": "Promote flower production",
+                "group": 1
+              },
+              {
+                "text": "Increase fruit size",
+                "group": 1
+              },
+              {
+                "text": "Ripen fruit that was picked unripe",
+                "group": 2
+              },
+              {
+                "text": "Ripen tomatoes more quickly",
+                "group": 2
+              },
+              {
+                "text": "Released by bananas, so other fruits ripen faster",
+                "group": 2
+              }
             ]
           }
         },
-        { "type": "subheading", "text": "Gibberellins" },
+        {
+          "type": "subheading",
+          "text": "Gibberellins"
+        },
         {
           "type": "list",
           "items": [
@@ -60,7 +93,10 @@
             "Sprayed onto flowers before pollination, they stimulate the development of seedless fruit."
           ]
         },
-        { "type": "subheading", "text": "Ethene" },
+        {
+          "type": "subheading",
+          "text": "Ethene"
+        },
         {
           "type": "list",
           "items": [
@@ -81,7 +117,10 @@
     {
       "heading": "Testing a weedkiller",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) A weedkiller trial compares weeds in treated and untreated areas." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) A weedkiller trial compares weeds in treated and untreated areas."
+        },
         {
           "type": "list",
           "items": [
@@ -95,7 +134,11 @@
           "type": "equation",
           "label": "Percentage decrease",
           "formula": "percentage decrease = (mean at start − mean after) ÷ mean at start × 100",
-          "where": ["mean number of weeds per quadrat at the start", "mean number of weeds per quadrat after the time", "percentage decrease, in %"]
+          "where": [
+            "mean number of weeds per quadrat at the start",
+            "mean number of weeds per quadrat after the time",
+            "percentage decrease, in %"
+          ]
         },
         {
           "type": "diagram",
@@ -104,10 +147,24 @@
             "alt": "Calculate the percentage decrease in the mean number of weeds per quadrat.",
             "question": "A selective weedkiller is sprayed on a lawn. The mean number of weeds per quadrat is **{s}** before spraying and **{a}** two weeks after. Calculate the percentage decrease in the mean number of weeds. Give your answer to 1 decimal place.",
             "variables": [
-              { "id": "s", "min": 10, "max": 50, "step": 10 },
-              { "id": "a", "min": 1, "max": 9, "step": 1 }
+              {
+                "id": "s",
+                "min": 10,
+                "max": 50,
+                "step": 10
+              },
+              {
+                "id": "a",
+                "min": 1,
+                "max": 9,
+                "step": 1
+              }
             ],
-            "answer": { "formula": "(s - a) / s * 100", "unit": "%", "decimals": 1 },
+            "answer": {
+              "formula": "(s - a) / s * 100",
+              "unit": "%",
+              "decimals": 1
+            },
             "working": [
               "Decrease = {s} − {a}",
               "Percentage decrease = decrease ÷ {s} × 100 = **{answer}** %"
@@ -144,29 +201,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 5.16"],
-      "exam_phrases": [
-        "auxin: to stimulate root growth in plant cuttings",
-        "weed killers; rooting (powders); growth in tissue culture",
-        "gibberellin: to promote seed germination",
-        "gibberellins: to increase fruit size; to promote flower production",
-        "ethene: to reduce the time taken for fruit to ripen",
-        "ethene is released from bananas",
-        "as a control / comparison, to show results are due to weed killer"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Auxin is used to grow shoots.",
-          "right": "Reference to shoots is ignored. Give the uses: weed killers, rooting powders to grow plants from cuttings, or growth in tissue culture."
-        },
-        {
-          "wrong": "Gibberellin is used to make tomatoes ripen faster.",
-          "right": "Ethene reduces the time taken for fruit to ripen. Gibberellin promotes seed germination."
-        },
-        {
-          "wrong": "The area sprayed with water is a control variable.",
-          "right": "A control variable is not accepted. The water is the control, used for comparison, so the results can be shown to be due to the weed killer."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "76fef712-7775-47ff-9250-dc7093b19dc1",
         "source": "AQA jun 2018, Paper 2 (H), Q06.6",
@@ -182,29 +216,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.16B"],
-      "exam_phrases": [
-        "auxins used in selective weed killers",
-        "these act on broad leaf plants / only act on the weeds, causing them to overgrow",
-        "selective weedkillers do not kill grass plants",
-        "rooting powder stimulates the growth of roots",
-        "gibberellins stimulate germination in dormant seeds",
-        "gibberellins stimulate the development of seedless fruits",
-        "ethene: unripe fruit is harvested, then ethene is added so the fruit ripens for selling"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Gibberellins are used in selective weedkillers and rooting powders.",
-          "right": "Selective weedkillers and rooting powders use auxins. Gibberellins cause germination and flower and fruit formation."
-        },
-        {
-          "wrong": "Selective weedkillers kill every plant, including the grass.",
-          "right": "Selective weedkillers contain auxins, which act on broad-leaf plants, the weeds. They do not kill grass plants."
-        },
-        {
-          "wrong": "Ethene makes seeds germinate faster.",
-          "right": "Gibberellins make seeds germinate faster. Ethene causes fruit ripening."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "19489064-fcba-49eb-808e-c232afaa7709",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q7(b)",
@@ -221,22 +232,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 3.2i"],
-      "exam_phrases": [
-        "selective weedkillers and rooting powders usually contain auxin",
-        "flowers are sprayed with auxin or gibberellins to produce fruits without seeds",
-        "fruits are exposed to ethene to make them ripen",
-        "gibberellins make seeds break dormancy"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Selective weedkillers and rooting powders contain gibberellins.",
-          "right": "Selective weedkillers and rooting powders usually contain auxin."
-        },
-        {
-          "wrong": "After picking, fruits are exposed to auxin to make them ripen.",
-          "right": "Fruits are exposed to ethene to make them ripen."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "f22dc986-35be-4dc4-ba79-8f230541d3aa",
         "source": "OCR jun 2024, Paper 3, Q20(a)",
@@ -256,8 +251,26 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": ["aa1ce410-a47a-4103-975c-379f67bae908", "7f5d2497-ab99-4fa3-8856-736dc5764187", "1927aa68-f751-4f89-bd6d-a7d2731cd0cb"],
-    "exemplar_ids": ["76fef712-7775-47ff-9250-dc7093b19dc1", "19489064-fcba-49eb-808e-c232afaa7709", "f22dc986-35be-4dc4-ba79-8f230541d3aa", "920a1564-3593-45ad-b98c-9089dd19d7a9", "af3873d8-a0f1-4d0e-82b1-a847de36fb89", "37e4e145-281f-42ee-9a4f-f1f9e1952ea4", "60dafae8-8d2f-4dde-ab30-93da2d9a534f", "135fd1b6-b999-4200-941f-cb430185a51e", "293d2f77-ea0f-4602-b6c0-aaa210163f27", "c413f160-00c7-4769-82e2-a0119032d839", "a0304e75-f981-4275-bb1e-18202b7edd80", "735657fb-6583-4106-8623-598f8dc9de6d", "2e45dafd-1438-4496-b75b-f62565ec274b"],
+    "spec_point_ids": [
+      "aa1ce410-a47a-4103-975c-379f67bae908",
+      "7f5d2497-ab99-4fa3-8856-736dc5764187",
+      "1927aa68-f751-4f89-bd6d-a7d2731cd0cb"
+    ],
+    "exemplar_ids": [
+      "76fef712-7775-47ff-9250-dc7093b19dc1",
+      "19489064-fcba-49eb-808e-c232afaa7709",
+      "f22dc986-35be-4dc4-ba79-8f230541d3aa",
+      "920a1564-3593-45ad-b98c-9089dd19d7a9",
+      "af3873d8-a0f1-4d0e-82b1-a847de36fb89",
+      "37e4e145-281f-42ee-9a4f-f1f9e1952ea4",
+      "60dafae8-8d2f-4dde-ab30-93da2d9a534f",
+      "135fd1b6-b999-4200-941f-cb430185a51e",
+      "293d2f77-ea0f-4602-b6c0-aaa210163f27",
+      "c413f160-00c7-4769-82e2-a0119032d839",
+      "a0304e75-f981-4275-bb1e-18202b7edd80",
+      "735657fb-6583-4106-8623-598f8dc9de6d",
+      "2e45dafd-1438-4496-b75b-f62565ec274b"
+    ],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-01"
   }

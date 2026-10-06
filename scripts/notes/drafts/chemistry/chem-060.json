@@ -44,32 +44,16 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Type of change",
-            "Example",
-            "Temperature"
-          ],
+          "columns": ["Type of change", "Example", "Temperature"],
           "rows": [
-            [
-              "Salt dissolving in water",
-              "Ammonium nitrate",
-              "Falls: endothermic"
-            ],
-            [
-              "Salt dissolving in water",
-              "Calcium chloride",
-              "Rises: exothermic"
-            ],
+            ["Salt dissolving in water", "Ammonium nitrate", "Falls: endothermic"],
+            ["Salt dissolving in water", "Calcium chloride", "Rises: exothermic"],
             [
               "Neutralisation",
               "Dilute sulfuric acid with potassium hydroxide solution",
               "Rises: exothermic"
             ],
-            [
-              "Displacement",
-              "Magnesium powder with copper sulfate solution",
-              "Rises: exothermic"
-            ],
+            ["Displacement", "Magnesium powder with copper sulfate solution", "Rises: exothermic"],
             [
               "Acid with a carbonate",
               "Citric acid with sodium hydrogencarbonate solution",
@@ -132,10 +116,7 @@
           "type": "equation",
           "label": "Mean temperature change",
           "formula": "mean = sum of the results ÷ number of results",
-          "where": [
-            "results are the temperature changes, in °C",
-            "leave out any anomalous result"
-          ]
+          "where": ["results are the temperature changes, in °C", "leave out any anomalous result"]
         },
         {
           "type": "steps",
@@ -191,28 +172,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.1.1",
-        "AQA T 5.5.1.1"
-      ],
-      "exam_phrases": [
-        "polystyrene is a better (thermal) insulator",
-        "reduces energy exchange / loss (to the surroundings)",
-        "measure the highest temperature reached",
-        "repeat the experiment and calculate the mean (ignoring anomalous results)",
-        "use the same volume (of copper sulfate solution)",
-        "(0.3 °C) is the uncertainty, the range about the mean value"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Add different masses of ammonium nitrate to water and measure the temperature.",
-          "right": "Say how the temperature change is found with each mass: the same volume of water each time, the initial and final temperature, then the difference."
-        },
-        {
-          "wrong": "The temperature falls after 7 minutes because the reaction has become endothermic.",
-          "right": "The reaction has finished or stopped. The solution then cools back to room temperature as energy is lost to the surroundings."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.1.1", "AQA T 5.5.1.1"],
       "worked_example": {
         "exemplar_id": "4e539719-04c4-48ea-bb36-945b8fc09053",
         "source": "AQA jun 2019, Paper 1 (H), Q02.6",
@@ -231,30 +191,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 7.9"
-      ],
-      "exam_phrases": [
-        "polystyrene is an insulator / poor conductor (of heat)",
-        "reduces heat / energy loss / transfer",
-        "temperature change = final − initial, with a sign and a unit",
-        "a temperature rise is a positive change; a fall is a negative change",
-        "measure the initial temperature, add the solid and stir, then measure the final temperature"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Polystyrene is better because it keeps the temperature in, or because glass breaks.",
-          "right": "Say polystyrene is a (better) insulator, so it reduces heat loss. Keeping the temperature in and breakability are ignored."
-        },
-        {
-          "wrong": "Salt R warms the water from 20.0 °C to 23.0 °C, so its temperature change is −3.0 °C.",
-          "right": "A rise is a positive change: +3.0 °C. Giving −3.0 for a rise is rejected."
-        },
-        {
-          "wrong": "The temperature changed by 2.5 when it fell from 18.6 °C to 16.1 °C.",
-          "right": "Give a sign and a unit: −2.5 °C. Leaving off the sign or the unit loses marks."
-        }
-      ],
+      "spec_codes": ["EDEX 7.9"],
       "worked_example": {
         "exemplar_id": "264de51c-7b47-40bf-82a8-6fe329655b3f",
         "source": "EDEXCEL jun 2022, Paper 2 (F), Q4(b)(iv)",
@@ -269,28 +206,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C3.2a"
-      ],
-      "exam_phrases": [
-        "pour copper sulfate solution into an insulated cup",
-        "measure / record the start temperature",
-        "add the powder and stir",
-        "put on a lid",
-        "measure / record the maximum / final temperature",
-        "repeat the experiment (three times)",
-        "calculate the temperature change"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Take the thermometer out of the beaker and then read it for the end temperature.",
-          "right": "Leave the thermometer in the reaction mixture. Otherwise the temperature at the end will be inaccurate."
-        },
-        {
-          "wrong": "The temperature keeps rising as more and more acid is added to the alkali.",
-          "right": "The temperature increases, then decreases once the reaction is complete (after 20 cm³ of acid in the data given)."
-        }
-      ],
+      "spec_codes": ["OCR C3.2a"],
       "worked_example": {
         "exemplar_id": "63cbe95e-46aa-4bbd-b5b0-f8fe259f0f69",
         "source": "OCR jun 2025, Paper 3, Q18(a)",

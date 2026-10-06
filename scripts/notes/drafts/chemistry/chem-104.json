@@ -42,9 +42,7 @@
           "type": "equation",
           "label": "Rusting of iron",
           "formula": "iron + oxygen + water → hydrated iron(III) oxide (rust)",
-          "where": [
-            "Both oxygen and water must be present."
-          ]
+          "where": ["Both oxygen and water must be present."]
         },
         {
           "type": "diagram",
@@ -52,45 +50,27 @@
             "kind": "predictor",
             "alt": "Pick the conditions for an iron nail and see whether it rusts.",
             "prompt": "Pick the conditions around an iron nail",
-            "result_labels": [
-              "Does the nail rust?",
-              "Why"
-            ],
+            "result_labels": ["Does the nail rust?", "Why"],
             "options": [
               {
                 "label": "Air and water",
-                "results": [
-                  "Yes",
-                  "Both oxygen and water are present."
-                ]
+                "results": ["Yes", "Both oxygen and water are present."]
               },
               {
                 "label": "Air only (drying agent in a stoppered tube)",
-                "results": [
-                  "No",
-                  "There is no water."
-                ]
+                "results": ["No", "There is no water."]
               },
               {
                 "label": "Water only (boiled water with a layer of oil)",
-                "results": [
-                  "No",
-                  "Boiling removes dissolved air and the oil stops air getting in."
-                ]
+                "results": ["No", "Boiling removes dissolved air and the oil stops air getting in."]
               },
               {
                 "label": "Air and water, nail coated in paint",
-                "results": [
-                  "No",
-                  "The paint is a barrier to oxygen and water."
-                ]
+                "results": ["No", "The paint is a barrier to oxygen and water."]
               },
               {
                 "label": "Air and water, nail coated in zinc and then scratched",
-                "results": [
-                  "No",
-                  "Zinc is more reactive than iron, so it corrodes instead."
-                ]
+                "results": ["No", "Zinc is more reactive than iron, so it corrodes instead."]
               }
             ]
           }
@@ -158,10 +138,7 @@
             "kind": "sort",
             "alt": "Sort each method of corrosion prevention into barrier or sacrificial protection.",
             "prompt": "Which type of protection is each method?",
-            "groups": [
-              "Barrier",
-              "Sacrificial protection"
-            ],
+            "groups": ["Barrier", "Sacrificial protection"],
             "items": [
               {
                 "text": "Painting a bridge",
@@ -220,33 +197,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.10.3.1"
-      ],
-      "exam_phrases": [
-        "acts as a barrier",
-        "prevents air / oxygen / water reaching the aluminium / metal",
-        "magnesium is more reactive (than iron)",
-        "provides sacrificial protection",
-        "corrodes / reacts instead of iron / steel",
-        "three test tubes containing nails",
-        "stoppered test tube with drying agent",
-        "test tube with boiled water sealed with oil"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The oxide coating on aluminium provides sacrificial protection.",
-          "right": "Sacrificial protection is not accepted here. The oxide coating acts as a barrier that stops air, oxygen and water reaching the aluminium."
-        },
-        {
-          "wrong": "The magnesium protects the steel by forming a protective layer.",
-          "right": "References to protective layers are ignored. Magnesium is more reactive than iron, so it corrodes or reacts instead of the steel."
-        },
-        {
-          "wrong": "The oxide coating stops the aluminium from rusting.",
-          "right": "References to rusting are not accepted. Rusting is the corrosion of iron. Say the coating prevents oxygen and water reaching the metal."
-        }
-      ],
+      "spec_codes": ["AQA 4.10.3.1"],
       "worked_example": {
         "exemplar_id": "439ffd4f-c2fd-4931-85df-099300ec3bed",
         "source": "AQA jun 2019, Paper 2 (F), Q06.1",
@@ -263,36 +214,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.2C",
-        "EDEX 5.3C",
-        "EDEX 5.4C"
-      ],
-      "exam_phrases": [
-        "reaction of a metal with oxygen / oxidation",
-        "paint excludes / acts as a barrier / protective layer",
-        "air / oxygen excluded",
-        "water excluded",
-        "zinc is more reactive (than iron)",
-        "so reacts instead",
-        "zinc is sacrificial",
-        "improves the appearance / shiny",
-        "improves resistance to corrosion"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Corrosion is rusting.",
-          "right": "Rusting is ignored in a definition of corrosion. Say it is the reaction of a metal with oxygen, or oxidation of the metal."
-        },
-        {
-          "wrong": "The zinc layer rusts instead of the iron.",
-          "right": "Zinc rusts is rejected. Zinc corrodes in preference to iron, because it is more reactive."
-        },
-        {
-          "wrong": "Electroplating makes the object more valuable.",
-          "right": "This is ignored. Electroplating improves the appearance, improves resistance to corrosion, or lets a cheaper base metal look like a more expensive metal."
-        }
-      ],
+      "spec_codes": ["EDEX 5.2C", "EDEX 5.3C", "EDEX 5.4C"],
       "worked_example": {
         "exemplar_id": "3bdcc0b8-ec69-4c91-a687-fc2eb6014d2f",
         "source": "EDEXCEL jun 2018, Paper 1 (H), Q1(c)",
@@ -306,33 +228,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.1p",
-        "OCR C6.1q"
-      ],
-      "exam_phrases": [
-        "prevents water (reaching the iron)",
-        "prevents air / oxygen (reaching the iron)",
-        "stopping air and/or water reaching the iron",
-        "zinc is more reactive (than iron)",
-        "zinc corrodes instead of iron",
-        "zinc acts as a sacrificial metal",
-        "water is needed for corrosion"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Oil lubricates the chain, so it does not absorb water.",
-          "right": "This is ignored. Oil prevents water and air or oxygen reaching the iron, and that is what scores."
-        },
-        {
-          "wrong": "The scratched galvanised bucket does not rust because the zinc coating still covers the iron.",
-          "right": "The iron is exposed. It does not rust because zinc is more reactive, so zinc corrodes instead of the iron. Marks are for the explanation."
-        },
-        {
-          "wrong": "Metals corrode faster the higher they are in the reactivity series.",
-          "right": "Results can show that the rate of corrosion is not related to the reactivity series, for example for copper or aluminium."
-        }
-      ],
+      "spec_codes": ["OCR C6.1p", "OCR C6.1q"],
       "worked_example": {
         "exemplar_id": "e4c5c224-d7cc-4e8e-89ef-69a06238154a",
         "source": "OCR sample null, Paper 4, Q24(b)",

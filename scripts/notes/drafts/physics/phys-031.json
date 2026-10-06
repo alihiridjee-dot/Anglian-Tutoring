@@ -3,12 +3,15 @@
   "concept_id": "phys-031",
   "subject": "physics",
   "title": "Gas pressure, volume and doing work on a gas",
-  "key_idea": "(Separate science) A gas can be compressed or expanded by pressure changes. At constant temperature, **pressure × volume = constant**. Doing work on a gas, such as pumping a bicycle tyre, increases its internal energy and its temperature.",
+  "key_idea": "(Separate science) A gas can be compressed or expanded by pressure changes. At constant temperature, **pressure × volume = constant**. (AQA: Higher tier) Doing work on a gas, such as pumping a bicycle tyre, increases its internal energy and its temperature.",
   "sections": [
     {
       "heading": "Pressure on surfaces and compressing gases",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) This section covers the direction of the force from a gas and what happens when a gas is compressed or expanded." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers the direction of the force from a gas and what happens when a gas is compressed or expanded."
+        },
         {
           "type": "list",
           "items": [
@@ -30,8 +33,14 @@
     {
       "heading": "Pressure and volume at constant temperature",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) Here the mass of gas and its temperature stay the same. Only the volume changes." },
-        { "type": "subheading", "text": "Why the pressure changes" },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Here the mass of gas and its temperature stay the same. Only the volume changes."
+        },
+        {
+          "type": "subheading",
+          "text": "Why the pressure changes"
+        },
         {
           "type": "list",
           "items": [
@@ -45,17 +54,17 @@
         {
           "type": "definitions",
           "items": [
-            { "term": "Pressure", "meaning": "The total force on a surface for every unit of area, p = F ÷ A." }
+            {
+              "term": "Pressure",
+              "meaning": "The total force on a surface for every unit of area, p = F ÷ A."
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Pressure and volume of a fixed mass of gas at constant temperature",
           "formula": "p × V = constant",
-          "where": [
-            "p = pressure, in pascals (Pa)",
-            "V = volume, in metres cubed (m³)"
-          ]
+          "where": ["p = pressure, in pascals (Pa)", "V = volume, in metres cubed (m³)"]
         },
         {
           "type": "equation",
@@ -71,10 +80,22 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Data", "text": "A gas at 150 000 Pa has a volume of 0.040 m³. It is compressed to 0.025 m³ at the same temperature." },
-            { "lead": "Substitute", "text": "150 000 × 0.040 = p₂ × 0.025" },
-            { "lead": "Rearrange", "text": "p₂ = (150 000 × 0.040) ÷ 0.025" },
-            { "lead": "Answer", "text": "p₂ = 240 000 Pa" }
+            {
+              "lead": "Data",
+              "text": "A gas at 150 000 Pa has a volume of 0.040 m³. It is compressed to 0.025 m³ at the same temperature."
+            },
+            {
+              "lead": "Substitute",
+              "text": "150 000 × 0.040 = p₂ × 0.025"
+            },
+            {
+              "lead": "Rearrange",
+              "text": "p₂ = (150 000 × 0.040) ÷ 0.025"
+            },
+            {
+              "lead": "Answer",
+              "text": "p₂ = 240 000 Pa"
+            }
           ]
         },
         {
@@ -83,11 +104,29 @@
             "kind": "slider",
             "alt": "Change the volume of a fixed mass of gas at constant temperature and see the pressure change.",
             "inputs": [
-              { "id": "V", "label": "Volume of gas", "unit": "m³", "min": 0.01, "max": 0.06, "step": 0.005, "value": 0.03 }
+              {
+                "id": "V",
+                "label": "Volume of gas",
+                "unit": "m³",
+                "min": 0.01,
+                "max": 0.06,
+                "step": 0.005,
+                "value": 0.03
+              }
             ],
             "outputs": [
-              { "label": "Pressure (100 000 Pa at 0.030 m³)", "unit": "Pa", "formula": "3000 / V", "decimals": 0 },
-              { "label": "Pressure × volume", "unit": "Pa m³", "formula": "3000 / V * V", "decimals": 0 }
+              {
+                "label": "Pressure (100 000 Pa at 0.030 m³)",
+                "unit": "Pa",
+                "formula": "3000 / V",
+                "decimals": 0
+              },
+              {
+                "label": "Pressure × volume",
+                "unit": "Pa m³",
+                "formula": "3000 / V * V",
+                "decimals": 0
+              }
             ]
           }
         },
@@ -98,10 +137,24 @@
             "alt": "Calculate the new pressure of a gas after it is compressed at constant temperature.",
             "question": "A gas at a pressure of {p} Pa has a volume of 0.060 m³. It is compressed to {V} m³ at constant temperature. Calculate the new pressure.",
             "variables": [
-              { "id": "p", "min": 100000, "max": 300000, "step": 50000 },
-              { "id": "V", "min": 0.02, "max": 0.05, "step": 0.01 }
+              {
+                "id": "p",
+                "min": 100000,
+                "max": 300000,
+                "step": 50000
+              },
+              {
+                "id": "V",
+                "min": 0.02,
+                "max": 0.05,
+                "step": 0.01
+              }
             ],
-            "answer": { "formula": "p * 0.06 / V", "unit": "Pa", "decimals": 0 },
+            "answer": {
+              "formula": "p * 0.06 / V",
+              "unit": "Pa",
+              "decimals": 0
+            },
             "working": [
               "p₁ × V₁ = p₂ × V₂",
               "{p} × 0.060 = p₂ × {V}",
@@ -122,11 +175,17 @@
     {
       "heading": "Doing work on a gas",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science, Higher tier for AQA) Compressing a gas quickly transfers energy to it and can raise its temperature." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science, Higher tier for AQA) Compressing a gas quickly transfers energy to it and can raise its temperature."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Work", "meaning": "The transfer of energy by a force." }
+            {
+              "term": "Work",
+              "meaning": "The transfer of energy by a force."
+            }
           ]
         },
         {
@@ -170,30 +229,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.3.3.2", "AQA 4.3.3.3"],
-      "exam_phrases": [
-        "(air) particles are closer together",
-        "frequency of collisions between air particles and the syringe walls increased",
-        "larger (total) force on a smaller (surface) area",
-        "pressure is the total force per unit area",
-        "when the volume is halved the pressure doubles",
-        "the mean speed of the particles stays the same",
-        "work is done on the air",
-        "so the temperature (of the air) increases"
-      ],
-      "mistakes": [
-        {
-          "wrong": "When the plunger is pushed in, the particles move faster so they collide more often.",
-          "right": "The temperature is constant, so the kinetic energy does not change. The collision mark is not credited if linked to an increase in kinetic energy. Say the particles are closer together."
-        },
-        {
-          "wrong": "When the volume is halved, the pressure is halved.",
-          "right": "Pressure × volume is constant. When the volume is halved the pressure doubles."
-        },
-        {
-          "wrong": "Pumping more air into a tyre raises the pressure because the air particles move faster.",
-          "right": "The temperature and volume do not change. There are more particles, so more collisions with the walls per second. Do not link it to temperature or speed."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "6c366ab6-f89e-4797-81ab-17b8e0d87d34",
         "source": "AQA jun 2020, Paper 1 (H), Q10.2",
@@ -210,29 +245,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 14.16P", "EDEX 14.17P", "EDEX 14.18P", "EDEX 14.19P", "EDEX 14.20P"],
-      "exam_phrases": [
-        "P₁ × V₁ = P₂ × V₂",
-        "particles in (rapid) (random) motion collide with the walls of the container",
-        "when the volume decreases the rate / frequency of collisions increases",
-        "force on the walls increases so pressure increases",
-        "pressure = force / area",
-        "work is done (in compressing the air)",
-        "increases the kinetic energy of the (air) particles"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The particles collide more, so the pressure rises.",
-          "right": "This is a limited answer. Also say the particles are in random motion and collide with the walls, exerting a force. When the volume decreases the rate of collisions increases, so the force on the walls and the pressure increase."
-        },
-        {
-          "wrong": "The air in the bicycle pump gets warm because of friction.",
-          "right": "Ignore friction. Work is done in compressing the air, which increases the kinetic energy of the air particles."
-        },
-        {
-          "wrong": "Substituting correctly but giving the volume as 12 litres instead of 1.2 litres.",
-          "right": "A power-of-ten error loses a mark. Check the size: the pressure is four times larger, so the volume is a quarter of 4.8 litres. Keep the same unit for V₁ and V₂."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "a18a6dfc-9698-4dcc-bf31-1091090d2272",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q1(b)(iii)",
@@ -247,29 +259,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR P1.3c", "OCR P1.3d", "OCR P1.3e"],
-      "exam_phrases": [
-        "the pressure halves / reduces / decreases",
-        "the rate of collisions with the sides of the container decreases",
-        "less frequent collisions / more time between collisions",
-        "work is being done on the gas",
-        "the average speed of the particles increases",
-        "the kinetic energy of the particles increases",
-        "pressure × volume = constant"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The particles are less likely to hit the sides of the container.",
-          "right": "Less likely is ignored. Say there are fewer collisions, or less frequent collisions, with the sides."
-        },
-        {
-          "wrong": "A bicycle pump gets warmer because heat comes from the tyre.",
-          "right": "Heat transfer from the tyre is ignored. Say work is being done on the gas, so the speed and kinetic energy of the particles increase."
-        },
-        {
-          "wrong": "If the volume of a gas is halved, the number of collisions per second is halved.",
-          "right": "The number of collisions per second is doubled, and so is the pressure."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "6acaa177-9df0-479f-befd-02a89994e7a5",
         "source": "OCR jun 2024, Paper 3, Q20(b)(i)",

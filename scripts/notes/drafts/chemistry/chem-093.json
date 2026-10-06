@@ -169,28 +169,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.8.3.6",
-        "AQA 4.8.3.7"
-      ],
-      "exam_phrases": [
-        "(more) sensitive",
-        "(more) accurate",
-        "fast(er)",
-        "small(er) sample",
-        "greater resolution",
-        "flame emission spectroscopy"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A flame test and flame emission spectroscopy are the same method.",
-          "right": "They are two different methods. In flame emission spectroscopy the light from the flame is passed through a spectroscope, which gives a line spectrum."
-        },
-        {
-          "wrong": "Instrumental methods are more accurate because they can use a smaller sample.",
-          "right": "A smaller sample is credited as sensitive. For accurate, greater resolution is allowed."
-        }
-      ],
+      "spec_codes": ["AQA 4.8.3.6", "AQA 4.8.3.7"],
       "worked_example": {
         "exemplar_id": "b71002f1-cf7a-43ad-8a2f-d085925a3f96",
         "source": "AQA jun 2024, Paper 2 (H), Q04.6",
@@ -205,26 +184,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.8C",
-        "EDEX 9.9C"
-      ],
-      "exam_phrases": [
-        "flame photometer",
-        "two (sets of) emissions",
-        "flame emission spectroscopy / spectroscope",
-        "compare emission to reference samples"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Do a flame test to show that potassium and sodium ions are both present.",
-          "right": "A flame test is ignored. Use a flame photometer (or flame emission spectroscopy) and look for two sets of emissions."
-        },
-        {
-          "wrong": "A flame photometer gives one colour for the sample.",
-          "right": "It gives emissions for each ion. A sample with two metal ions shows two sets of emissions, which can be compared with reference samples."
-        }
-      ],
+      "spec_codes": ["EDEX 9.8C", "EDEX 9.9C"],
       "worked_example": {
         "exemplar_id": "3d713ae0-602b-4bc6-b5f9-958d3e9994ba",
         "source": "EDEXCEL jun 2019, Paper 2 (H), Q10(a)",
@@ -256,26 +216,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C4.2f",
-        "OCR C4.2g"
-      ],
-      "exam_phrases": [
-        "(more) sensitive / can analyse small(er) amounts",
-        "(more) accurate / reliable / less error",
-        "fast(er) / can run all the time / automated",
-        "more samples can be processed in the same time or a shorter time"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Instrumental methods are more precise.",
-          "right": "More precise is ignored. Say more accurate."
-        },
-        {
-          "wrong": "Instrumental methods are more efficient, easier and safer.",
-          "right": "More efficient, easier and safer are ignored. Give sensitive, accurate or faster."
-        }
-      ],
+      "spec_codes": ["OCR C4.2f", "OCR C4.2g"],
       "worked_example": {
         "exemplar_id": "886a8bc5-578c-4929-befd-0db943996f58",
         "source": "OCR jun 2025, Paper 2, Q21(b)",

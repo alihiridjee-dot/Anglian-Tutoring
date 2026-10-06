@@ -8,12 +8,21 @@
     {
       "heading": "Direct and alternating current",
       "blocks": [
-        { "type": "paragraph", "text": "A current can flow one way, or it can keep changing direction. The two types are named by what the charge does." },
+        {
+          "type": "paragraph",
+          "text": "A current can flow one way, or it can keep changing direction. The two types are named by what the charge does."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Direct current (d.c.)", "meaning": "The movement of charge in one direction only. Cells and batteries supply direct current." },
-            { "term": "Alternating current (a.c.)", "meaning": "The movement of charge changes direction, over and over." }
+            {
+              "term": "Direct current (d.c.)",
+              "meaning": "The movement of charge in one direction only. Cells and batteries supply direct current."
+            },
+            {
+              "term": "Alternating current (a.c.)",
+              "meaning": "The movement of charge changes direction, over and over."
+            }
           ]
         },
         {
@@ -29,17 +38,45 @@
           "diagram": {
             "kind": "line-graph",
             "alt": "A direct potential difference stays constant in one direction. An alternating potential difference swings positive and negative over time.",
-            "x": { "label": "Time", "min": 0, "max": 0.04, "ticks": [0, 0.01, 0.02, 0.03, 0.04], "unit": "s" },
-            "y": { "label": "Potential difference", "zero": 0.5 },
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 0.04,
+              "ticks": [0, 0.01, 0.02, 0.03, 0.04],
+              "unit": "s"
+            },
+            "y": {
+              "label": "Potential difference",
+              "zero": 0.5
+            },
             "series": [
-              { "name": "d.c.", "points": [[0, 0.8], [0.04, 0.8]] },
+              {
+                "name": "d.c.",
+                "points": [
+                  [0, 0.8],
+                  [0.04, 0.8]
+                ]
+              },
               {
                 "name": "a.c.",
                 "points": [
-                  [0, 0.5], [0.0025, 0.783], [0.005, 0.9], [0.0075, 0.783], [0.01, 0.5],
-                  [0.0125, 0.217], [0.015, 0.1], [0.0175, 0.217], [0.02, 0.5], [0.0225, 0.783],
-                  [0.025, 0.9], [0.0275, 0.783], [0.03, 0.5], [0.0325, 0.217], [0.035, 0.1],
-                  [0.0375, 0.217], [0.04, 0.5]
+                  [0, 0.5],
+                  [0.0025, 0.783],
+                  [0.005, 0.9],
+                  [0.0075, 0.783],
+                  [0.01, 0.5],
+                  [0.0125, 0.217],
+                  [0.015, 0.1],
+                  [0.0175, 0.217],
+                  [0.02, 0.5],
+                  [0.0225, 0.783],
+                  [0.025, 0.9],
+                  [0.0275, 0.783],
+                  [0.03, 0.5],
+                  [0.0325, 0.217],
+                  [0.035, 0.1],
+                  [0.0375, 0.217],
+                  [0.04, 0.5]
                 ]
               }
             ]
@@ -58,7 +95,10 @@
     {
       "heading": "The UK mains supply",
       "blocks": [
-        { "type": "paragraph", "text": "The electricity supplied to homes in the UK is a.c. Two values describe it." },
+        {
+          "type": "paragraph",
+          "text": "The electricity supplied to homes in the UK is a.c. Two values describe it."
+        },
         {
           "type": "list",
           "items": [
@@ -74,12 +114,30 @@
             "prompt": "Direct current or alternating current?",
             "groups": ["d.c.", "a.c."],
             "items": [
-              { "text": "Charge flows in one direction only", "group": 0 },
-              { "text": "Supplied by a cell or battery", "group": 0 },
-              { "text": "The output of a phone charger", "group": 0 },
-              { "text": "The movement of charge changes direction", "group": 1 },
-              { "text": "The UK domestic mains supply", "group": 1 },
-              { "text": "50 Hz and about 230 V", "group": 1 }
+              {
+                "text": "Charge flows in one direction only",
+                "group": 0
+              },
+              {
+                "text": "Supplied by a cell or battery",
+                "group": 0
+              },
+              {
+                "text": "The output of a phone charger",
+                "group": 0
+              },
+              {
+                "text": "The movement of charge changes direction",
+                "group": 1
+              },
+              {
+                "text": "The UK domestic mains supply",
+                "group": 1
+              },
+              {
+                "text": "50 Hz and about 230 V",
+                "group": 1
+              }
             ]
           }
         },
@@ -113,24 +171,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.2.3.1", "AQA T 6.2.3.1"],
-      "exam_phrases": [
-        "direct potential difference is always in the same direction",
-        "alternating potential difference changes direction",
-        "alternating (potential difference) continuously changes direction",
-        "50 (Hz)",
-        "230 (V)",
-        "about 230 (V)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The mains supply has a frequency of 230 Hz and a potential difference of 50 V.",
-          "right": "Frequency 50 Hz, potential difference 230 V. When the question asks for frequency first, answer in that order."
-        },
-        {
-          "wrong": "The unit of frequency is written as 50 on its own.",
-          "right": "The unit is a separate mark. Write 50 Hz or 50 hertz."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "ca0e6a9f-38a5-4712-83a8-3e2d7d418839",
         "source": "AQA jun 2019, Paper 1 (H), Q03.3",
@@ -145,18 +185,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 10.33", "EDEX 10.34", "EDEX 10.35", "EDEX 10.36"],
-      "exam_phrases": [
-        "d.c. - (current) in one direction only",
-        "a.c. - (current) changes direction",
-        "one way; both ways",
-        "50 Hz"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Electricity supplied to homes has a frequency of 230 Hz.",
-          "right": "The frequency of the mains is 50 Hz. 230 is the potential difference, in volts."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "5f660e5e-0fc8-4b47-9168-827b95feabca",
         "source": "EDEXCEL jun 2022, Paper 2 (F), Q8(d)",
@@ -171,23 +199,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR P8.2g", "OCR P8.2h"],
-      "exam_phrases": [
-        "one direction or polarity",
-        "(continually) changes direction or polarity",
-        "dc only positive / only negative",
-        "current / voltage alternates",
-        "positive and negative"
-      ],
-      "mistakes": [
-        {
-          "wrong": "d.c. is when electricity flows in one direction.",
-          "right": "The word electricity is ignored. Say the current, voltage or charge flow has one direction."
-        },
-        {
-          "wrong": "d.c. must always be positive.",
-          "right": "d.c. has one direction or polarity. It can be only positive or only negative. a.c. alternates between positive and negative."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "43da21ff-d900-4611-bde4-1ee0965438ca",
         "source": "OCR jun 2018, Paper 2, Q23(c)(iii)",

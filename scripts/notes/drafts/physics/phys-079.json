@@ -60,11 +60,7 @@
             "options": [
               {
                 "label": "Matt black",
-                "results": [
-                  "Best absorber",
-                  "Best emitter",
-                  "Cools fastest"
-                ],
+                "results": ["Best absorber", "Best emitter", "Cools fastest"],
                 "explanation": "Black and matt: both help."
               },
               {
@@ -87,11 +83,7 @@
               },
               {
                 "label": "Shiny silver",
-                "results": [
-                  "Poorest absorber",
-                  "Poorest emitter",
-                  "Cools slowest"
-                ],
+                "results": ["Poorest absorber", "Poorest emitter", "Cools slowest"],
                 "explanation": "Shiny and light: the poorest at both."
               }
             ]
@@ -116,19 +108,10 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Variable",
-            "In this investigation"
-          ],
+          "columns": ["Variable", "In this investigation"],
           "rows": [
-            [
-              "Independent",
-              "The surface: its colour or how shiny it is."
-            ],
-            [
-              "Dependent",
-              "The temperature of the water, or the infrared reading from a detector."
-            ],
+            ["Independent", "The surface: its colour or how shiny it is."],
+            ["Dependent", "The temperature of the water, or the infrared reading from a detector."],
             [
               "Control",
               "Distance from the heater or detector, volume of water, starting temperature, shape and size of container, time."
@@ -290,32 +273,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.2.2",
-        "AQA T 6.6.2.2"
-      ],
-      "exam_phrases": [
-        "black surfaces are good absorbers (and emitters of infrared)",
-        "white surfaces are poor absorbers (and emitters of infrared)",
-        "matt surfaces absorb more (infrared) than shiny surfaces of the same colour",
-        "each cube emits infrared at the same rate that it absorbs infrared",
-        "add an equal volume of (hot) water to each flask",
-        "the distance between the IR detector and the flask should be the same each time"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The black cube absorbs more heat than the white cube.",
-          "right": "Write about infrared radiation: black surfaces are good absorbers and emitters of infrared radiation. References to heat are ignored."
-        },
-        {
-          "wrong": "The temperature stops rising because the cube cannot absorb any more.",
-          "right": "At constant temperature each cube emits infrared at the same rate that it absorbs infrared."
-        },
-        {
-          "wrong": "A black surface always emits more infrared than a white surface.",
-          "right": "Surface finish matters too. With a detector reading to 1 °C, shiny black and matt white both read 66 °C, so this cannot be concluded."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.2.2", "AQA T 6.6.2.2"],
       "worked_example": {
         "exemplar_id": "38d5909b-6c24-4c45-aba6-c814bc66f358",
         "source": "AQA jun 2025, Paper 2 (H), Q5.5",
@@ -331,27 +289,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.19P"
-      ],
-      "exam_phrases": [
-        "distance / separation",
-        "time (exposure)",
-        "cools more slowly",
-        "the curve will be above the first one (starting at the same point)",
-        "poor conductor / reduces energy loss / (good) insulator",
-        "same height as detector"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The silver can loses heat more slowly, so its curve is lower.",
-          "right": "Describe the curve, not the process. It starts at the same point and stays above the black curve, because the silver can cools more slowly."
-        },
-        {
-          "wrong": "The curve for the silver can starts at a lower temperature.",
-          "right": "It starts at the same point as the first curve. It then falls less steeply."
-        }
-      ],
+      "spec_codes": ["EDEX 5.19P"],
       "worked_example": {
         "exemplar_id": "46f418eb-7106-4cd4-838a-a6a7342512af",
         "source": "EDEXCEL jun 2018, Paper 1 (F), Q3(a)(iv)",
@@ -369,9 +307,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": [
-      "9c02dcdb-ea91-4850-b402-0e26e063f32a"
-    ],
+    "spec_point_ids": ["9c02dcdb-ea91-4850-b402-0e26e063f32a"],
     "exemplar_ids": [
       "38d5909b-6c24-4c45-aba6-c814bc66f358",
       "46f418eb-7106-4cd4-838a-a6a7342512af"

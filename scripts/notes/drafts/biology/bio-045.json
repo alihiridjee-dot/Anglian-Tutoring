@@ -85,27 +85,15 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Lytic pathway",
-            "Lysogenic pathway"
-          ],
+          "columns": ["Feature", "Lytic pathway", "Lysogenic pathway"],
           "rows": [
             [
               "Viral genetic material",
               "Used straight away to make new viruses",
               "Inserted into the genome of the host"
             ],
-            [
-              "New viruses made",
-              "Straight away",
-              "Not at first"
-            ],
-            [
-              "Host cell",
-              "Lysed",
-              "Survives and divides"
-            ]
+            ["New viruses made", "Straight away", "Not at first"],
+            ["Host cell", "Lysed", "Survives and divides"]
           ]
         },
         {
@@ -151,31 +139,7 @@
   ],
   "boards": {
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.7B"
-      ],
-      "exam_phrases": [
-        "virus inserts its genetic material into the host cell",
-        "uses the host cell machinery / organelles / resources",
-        "virus components are assembled inside the cell",
-        "cell lyses to release the virus",
-        "lysogenic (pathway)",
-        "bacteriophage do not affect animal cells"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The virus enters a cell and reproduces, divides and grows.",
-          "right": "\"The virus enters a cell\" and \"reproduces / divides / grows\" are ignored. Say it uses the host cell machinery to make viral components, which assemble inside the cell."
-        },
-        {
-          "wrong": "The host lyses and the viruses are released.",
-          "right": "\"The host lyses\" is ignored. Say the cell lyses (or the host cell bursts) to release the viruses."
-        },
-        {
-          "wrong": "In the lytic pathway the viral genetic material joins the host genome and waits.",
-          "right": "That is lysogenic. A lytic answer uses the host cell machinery at once, assembles new viruses and lyses the cell, with no lysogenic steps."
-        }
-      ],
+      "spec_codes": ["EDEX 5.7B"],
       "worked_example": {
         "exemplar_id": "02dd7fa2-3ea6-4377-b7c7-4953b6956e27",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q10(b)",
@@ -195,12 +159,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": [
-      "383f28b5-cbc1-472e-a45e-ba627aa98548"
-    ],
-    "exemplar_ids": [
-      "02dd7fa2-3ea6-4377-b7c7-4953b6956e27"
-    ],
+    "spec_point_ids": ["383f28b5-cbc1-472e-a45e-ba627aa98548"],
+    "exemplar_ids": ["02dd7fa2-3ea6-4377-b7c7-4953b6956e27"],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-01"
   }

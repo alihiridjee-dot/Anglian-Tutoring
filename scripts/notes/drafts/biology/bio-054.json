@@ -56,10 +56,7 @@
             "kind": "sort",
             "alt": "Sort each plant defence into a physical or mechanical defence or a chemical defence.",
             "prompt": "Is the defence physical or mechanical, or chemical?",
-            "groups": [
-              "Physical or mechanical",
-              "Chemical"
-            ],
+            "groups": ["Physical or mechanical", "Chemical"],
             "items": [
               {
                 "text": "Waxy cuticle on the leaf",
@@ -132,26 +129,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 3.10"
-      ],
-      "exam_phrases": [
-        "physical response",
-        "chemical response",
-        "thick, waxy layer on the leaf surface is physical",
-        "berries that are poisonous are chemical",
-        "bark on trees that falls off is physical"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A thick, waxy layer on a leaf is a chemical response.",
-          "right": "A thick, waxy layer on the leaf surface and bark that falls off are physical responses. Poisonous berries are a chemical response."
-        },
-        {
-          "wrong": "Bark that falls off a tree is a chemical response.",
-          "right": "Bark is a physical barrier, so bark on trees that falls off is a physical response."
-        }
-      ],
+      "spec_codes": ["AQA 3.10"],
       "worked_example": {
         "exemplar_id": "8386c918-eecc-46db-9294-c0dfaa491601",
         "source": "AQA jun 2022, Paper 1 (H), Q04.1",
@@ -166,25 +144,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.9B",
-        "EDEX 5.10B"
-      ],
-      "exam_phrases": [
-        "plant leaves have waxy cuticles",
-        "waxy cuticles are impermeable",
-        "cell walls are made of cellulose and are difficult for pests or pathogens to penetrate",
-        "some plants have spines or hairs which deter pests",
-        "production of chemicals which are toxic to pests and pathogens",
-        "chemicals have anti-microbial properties",
-        "unpleasant taste / smell which deters pests"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The mouthpart goes through the cell membrane.",
-          "right": "The cell membrane is ignored here. The physical barriers a pest gets through are the waxy cuticle and the cell wall."
-        }
-      ],
+      "spec_codes": ["EDEX 5.9B", "EDEX 5.10B"],
       "worked_example": {
         "exemplar_id": "39aeb17d-7d49-41a3-a909-3ffd378d25ea",
         "source": "EDEXCEL jun 2018, Paper 1 (F), Q7(b)",
@@ -202,21 +162,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.3g",
-        "OCR 6.3h"
-      ],
-      "exam_phrases": [
-        "leaf cuticle",
-        "cell wall",
-        "antimicrobial substances"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A waxy cuticle is a chemical defence.",
-          "right": "The leaf cuticle and the cell wall are physical defences. Antimicrobial substances are chemical defences."
-        }
-      ]
+      "spec_codes": ["OCR 6.3g", "OCR 6.3h"]
     }
   },
   "meta": {

@@ -8,14 +8,29 @@
     {
       "heading": "Tropisms and auxin",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) Plant hormones control and coordinate growth. A tropism is a growth response to a stimulus." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Plant hormones control and coordinate growth. A tropism is a growth response to a stimulus."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Tropism", "meaning": "A growth response of part of a plant to a stimulus." },
-            { "term": "Phototropism", "meaning": "A growth response to light." },
-            { "term": "Gravitropism (geotropism)", "meaning": "A growth response to gravity." },
-            { "term": "Auxin", "meaning": "A plant hormone that makes cells elongate." }
+            {
+              "term": "Tropism",
+              "meaning": "A growth response of part of a plant to a stimulus."
+            },
+            {
+              "term": "Phototropism",
+              "meaning": "A growth response to light."
+            },
+            {
+              "term": "Gravitropism (geotropism)",
+              "meaning": "A growth response to gravity."
+            },
+            {
+              "term": "Auxin",
+              "meaning": "A plant hormone that makes cells elongate."
+            }
           ]
         },
         {
@@ -38,14 +53,21 @@
     {
       "heading": "Phototropism and gravitropism",
       "blocks": [
-        { "type": "paragraph", "text": "Pick a situation to see where the auxin goes and how the plant responds." },
+        {
+          "type": "paragraph",
+          "text": "Pick a situation to see where the auxin goes and how the plant responds."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "predictor",
             "alt": "Pick a plant situation and see where the auxin collects and how the plant grows.",
             "prompt": "Pick a situation",
-            "result_labels": ["Where the auxin collects", "Which side grows faster", "What happens"],
+            "result_labels": [
+              "Where the auxin collects",
+              "Which side grows faster",
+              "What happens"
+            ],
             "options": [
               {
                 "label": "Shoot with light from one side",
@@ -74,7 +96,10 @@
             ]
           }
         },
-        { "type": "subheading", "text": "Why phototropism helps a plant survive" },
+        {
+          "type": "subheading",
+          "text": "Why phototropism helps a plant survive"
+        },
         {
           "type": "list",
           "items": [
@@ -83,7 +108,10 @@
             "So the plant produces more glucose."
           ]
         },
-        { "type": "subheading", "text": "Investigating phototropism" },
+        {
+          "type": "subheading",
+          "text": "Investigating phototropism"
+        },
         {
           "type": "list",
           "items": [
@@ -107,7 +135,10 @@
     {
       "heading": "Other plant hormones",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) Gibberellins and ethene control other processes. Their commercial uses are in the next note." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Gibberellins and ethene control other processes. Their commercial uses are in the next note."
+        },
         {
           "type": "list",
           "items": [
@@ -146,30 +177,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 5.15"],
-      "exam_phrases": [
-        "uneven distribution of auxin",
-        "more auxin on the lower side",
-        "upper side grows faster / more (than lower)",
-        "growth (response) due to gravity",
-        "leaves receive / absorb more light",
-        "(so) more photosynthesis",
-        "(so plant) produces more glucose",
-        "geotropism / gravitropism, stimulus: gravity"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Geotropism is when shoots grow upwards.",
-          "right": "Geotropism is a growth response due to gravity. The direction of growth is ignored, so define it as a growth response to gravity."
-        },
-        {
-          "wrong": "More auxin on the upper side makes the root bend.",
-          "right": "More auxin on the upper side is ignored. Say there is more auxin on the lower side, so the upper side grows faster than the lower side."
-        },
-        {
-          "wrong": "Keep the light the same in all groups as a control variable.",
-          "right": "Light is not accepted as a control variable when light direction is being investigated. Keep temperature, water, species and age of the plant the same."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "3e4288fd-de98-4521-bb98-c240803d488c",
         "source": "AQA jun 2019, Paper 2 (H), Q03.3",
@@ -185,23 +192,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.15B"],
-      "exam_phrases": [
-        "phototropism is controlled by the hormone auxin",
-        "auxins move to the shaded side of the shoot",
-        "causing cell elongation",
-        "causing the shoot to bend towards the light",
-        "auxin building up on the shaded side"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Auxin moves to the lit side and makes those cells grow more.",
-          "right": "Auxin moves to, or builds up on, the shaded side of the shoot. It causes elongation there, so the shoot bends towards the light."
-        },
-        {
-          "wrong": "The stem elongates, so the sunflower turns.",
-          "right": "\"Plant or stem elongation\" is ignored. Say cell elongation, on the shaded part of the stem."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "8bfa112c-44e4-4796-8d32-7461a89ee21e",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q7(c)",
@@ -217,29 +207,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 3.2g", "OCR 3.2h"],
-      "exam_phrases": [
-        "the stem bends / grows upwards",
-        "negatively geotropic / gravitropic: the stem grows away from gravity",
-        "auxin gathers on / diffuses to the lower side of the stem",
-        "causes more cell elongation",
-        "gibberellins break seed dormancy / elongation of shoots",
-        "ethene stimulates fruit ripening",
-        "controlling germination, fruit ripening, flower opening, shedding of leaves"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The stem bends towards the light because of phototropism.",
-          "right": "In a gravity investigation, reference to phototropism or bending towards the light is not allowed. Say the stem is negatively gravitropic, growing away from gravity."
-        },
-        {
-          "wrong": "Auxins are produced on the lower side of the stem.",
-          "right": "\"Auxins are produced on the lower side\" is ignored. Say auxin gathers on, diffuses to or passes to the lower side."
-        },
-        {
-          "wrong": "Gibberellins stimulate fruit ripening.",
-          "right": "Fruit ripening is not allowed for gibberellins. Gibberellins break seed dormancy or elongate shoots. Ethene stimulates fruit ripening."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "35f1cceb-56b0-4753-b9cd-7a3e7911a4c5",
         "source": "OCR jun 2022, Paper 3, Q18(a)",
@@ -259,8 +226,26 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": ["8bf36646-c41e-417b-9272-c363b7f1f3af", "8094b288-066f-496b-8e92-21797758dcf0", "e938ff97-171d-4e5d-9deb-39dcacc2a6e5", "15c8430a-c762-4f89-b7d9-63450cebc60e"],
-    "exemplar_ids": ["3e4288fd-de98-4521-bb98-c240803d488c", "8bfa112c-44e4-4796-8d32-7461a89ee21e", "35f1cceb-56b0-4753-b9cd-7a3e7911a4c5", "90363719-4789-48de-acfe-5875e859213a", "426a05d6-1e19-4115-9d9c-1a87393e5a50", "be13a12c-c925-4e22-b098-b77e812c2321", "86a7ce77-143e-4423-8385-869bbdc3afb9", "158ea8fd-2408-48dc-9192-40a9e72e56e7", "cfe57c97-7f64-40f1-bed4-5ed18c8d386c", "0df22414-3a17-44b6-988d-35c58de9f382", "172e23c8-388a-413c-b027-9f54027ba098", "fd2cfcce-9322-4e18-958c-ff1ae9db375e"],
+    "spec_point_ids": [
+      "8bf36646-c41e-417b-9272-c363b7f1f3af",
+      "8094b288-066f-496b-8e92-21797758dcf0",
+      "e938ff97-171d-4e5d-9deb-39dcacc2a6e5",
+      "15c8430a-c762-4f89-b7d9-63450cebc60e"
+    ],
+    "exemplar_ids": [
+      "3e4288fd-de98-4521-bb98-c240803d488c",
+      "8bfa112c-44e4-4796-8d32-7461a89ee21e",
+      "35f1cceb-56b0-4753-b9cd-7a3e7911a4c5",
+      "90363719-4789-48de-acfe-5875e859213a",
+      "426a05d6-1e19-4115-9d9c-1a87393e5a50",
+      "be13a12c-c925-4e22-b098-b77e812c2321",
+      "86a7ce77-143e-4423-8385-869bbdc3afb9",
+      "158ea8fd-2408-48dc-9192-40a9e72e56e7",
+      "cfe57c97-7f64-40f1-bed4-5ed18c8d386c",
+      "0df22414-3a17-44b6-988d-35c58de9f382",
+      "172e23c8-388a-413c-b027-9f54027ba098",
+      "fd2cfcce-9322-4e18-958c-ff1ae9db375e"
+    ],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-01"
   }

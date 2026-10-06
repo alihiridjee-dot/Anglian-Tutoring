@@ -243,32 +243,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.2.1",
-        "AQA T 6.6.2.1"
-      ],
-      "exam_phrases": [
-        "they travel at the same speed (in a vacuum / air)",
-        "they can travel through a vacuum",
-        "they are transverse (waves)",
-        "they are electromagnetic (waves)",
-        "different types of electromagnetic waves have a different frequency and a different wavelength",
-        "gamma has a higher frequency / a shorter wavelength"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Radio waves and gamma rays are similar because both can be reflected and refracted.",
-          "right": "Reflection and refraction are ignored for this question. Give the shared properties: same speed in a vacuum, can travel through a vacuum, transverse and electromagnetic."
-        },
-        {
-          "wrong": "Different types of electromagnetic wave travel at different speeds.",
-          "right": "In a vacuum or air they all travel at the same speed. They differ in frequency and wavelength."
-        },
-        {
-          "wrong": "Radio waves and gamma rays need a medium to travel through.",
-          "right": "They do not need a medium. They can travel through a vacuum."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.2.1", "AQA T 6.6.2.1"],
       "worked_example": {
         "exemplar_id": "ca9e5750-b38f-4425-8792-7f240c8c7969",
         "source": "AQA jun 2024, Paper 2 (H), Q06.1",
@@ -284,79 +259,18 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.7",
-        "EDEX 5.8",
-        "EDEX 5.10",
-        "EDEX 5.11",
-        "EDEX 5.12"
-      ],
-      "exam_phrases": [
-        "transverse",
-        "radio waves and light waves travel at the same speed (in space)",
-        "X-rays always have a higher frequency than microwaves",
-        "infrared",
-        "thermal",
-        "all electromagnetic waves travel at the same speed"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Radio waves take 40 minutes from Jupiter and light takes 8 minutes from the Sun, so radio waves are slower.",
-          "right": "Radio waves and light travel at the same speed in space. Jupiter is 40 ÷ 8 = 5 times further away."
-        },
-        {
-          "wrong": "In a vacuum, X-rays and microwaves have the same frequency.",
-          "right": "They have the same speed. X-rays always have a higher frequency than microwaves."
-        },
-        {
-          "wrong": "A fire mostly emits chemical waves and transfers infrared energy to the hands.",
-          "right": "The fire mostly emits infrared waves, and these transfer thermal energy to the hands."
-        }
-      ],
+      "spec_codes": ["EDEX 5.7", "EDEX 5.8", "EDEX 5.10", "EDEX 5.11", "EDEX 5.12"],
       "worked_example": {
         "exemplar_id": "a9253cd4-c6eb-4bb0-9406-64d79c355c14",
         "source": "EDEXCEL jun 2024, Paper 1 (F), Q1(a)",
         "question": "This question is about the electromagnetic spectrum.\n\nX-rays and microwaves are both parts of the electromagnetic spectrum.\n\nUse words from the list to complete the sentences.\n\namplitude   frequency   longitudinal   speed   transverse   wavelength\n\nX-rays and microwaves are both _____ waves.\n\nIn a vacuum, x-rays and microwaves always have the same _____.\n\nX-rays always have a higher _____ than microwaves.",
         "marks": 3,
-        "answer_points": [
-          "transverse",
-          "speed",
-          "frequency"
-        ],
+        "answer_points": ["transverse", "speed", "frequency"],
         "tip": "One mark for each word. The words must be in the correct order."
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P5.2a",
-        "OCR P5.2b",
-        "OCR P5.2c",
-        "OCR P5.2d",
-        "OCR P5.2e",
-        "OCR P5.2f"
-      ],
-      "exam_phrases": [
-        "(wavelength =) velocity ÷ frequency",
-        "both travel at the same speed / speed of light (in a vacuum)",
-        "X-ray has higher frequency / shorter wavelength",
-        "visible light has a larger frequency (than infrared)",
-        "we can only see a small part of the EM spectrum",
-        "new inventions / technology were needed to detect beyond visible light"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Visible light has a shorter frequency than infrared.",
-          "right": "Do not write longer or shorter frequency. Visible light has a larger (higher) frequency and a shorter wavelength than infrared."
-        },
-        {
-          "wrong": "The difference between X-rays and visible light is that we can see visible light and cannot see X-rays.",
-          "right": "This is not allowed as a difference. Say X-rays have a higher frequency, a shorter wavelength or more energy."
-        },
-        {
-          "wrong": "Infrared cannot be seen because it is not visible to the eye.",
-          "right": "This is ignored. Say our eyes can only detect a limited range of electromagnetic waves, and infrared is outside that range."
-        }
-      ],
+      "spec_codes": ["OCR P5.2a", "OCR P5.2b", "OCR P5.2c", "OCR P5.2d", "OCR P5.2e", "OCR P5.2f"],
       "worked_example": {
         "exemplar_id": "0d8d02c2-17c0-4f30-b042-e6f6d04d09a4",
         "source": "OCR jun 2018, Paper 4, Q18(a)(ii)",

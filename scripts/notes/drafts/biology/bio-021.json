@@ -8,12 +8,21 @@
     {
       "heading": "Temperature",
       "blocks": [
-        { "type": "paragraph", "text": "Temperature changes how fast the molecules move, and it can change the shape of the enzyme. Try the slider to see both effects." },
+        {
+          "type": "paragraph",
+          "text": "Temperature changes how fast the molecules move, and it can change the shape of the enzyme. Try the slider to see both effects."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Optimum", "meaning": "The temperature or pH at which an enzyme works fastest." },
-            { "term": "Denatured", "meaning": "The active site has changed shape, so the substrate no longer fits and the enzyme cannot work." }
+            {
+              "term": "Optimum",
+              "meaning": "The temperature or pH at which an enzyme works fastest."
+            },
+            {
+              "term": "Denatured",
+              "meaning": "The active site has changed shape, so the substrate no longer fits and the enzyme cannot work."
+            }
           ]
         },
         {
@@ -22,7 +31,15 @@
             "kind": "slider",
             "alt": "Change the temperature and watch the enzyme. The rate rises towards the optimum, then falls sharply as the active site changes shape.",
             "inputs": [
-              { "id": "T", "label": "Temperature", "unit": "°C", "min": 0, "max": 70, "step": 5, "value": 37 }
+              {
+                "id": "T",
+                "label": "Temperature",
+                "unit": "°C",
+                "min": 0,
+                "max": 70,
+                "step": 5,
+                "value": 37
+              }
             ],
             "outputs": [
               {
@@ -32,10 +49,18 @@
                 "decimals": 0
               }
             ],
-            "scene": { "kind": "enzyme", "condition": "T", "optimum": 37, "denatures_at": 17 }
+            "scene": {
+              "kind": "enzyme",
+              "condition": "T",
+              "optimum": 37,
+              "denatures_at": 17
+            }
           }
         },
-        { "type": "subheading", "text": "Below the optimum" },
+        {
+          "type": "subheading",
+          "text": "Below the optimum"
+        },
         {
           "type": "list",
           "items": [
@@ -44,7 +69,10 @@
             "The reaction is slow, but the enzyme is not denatured."
           ]
         },
-        { "type": "subheading", "text": "Above the optimum" },
+        {
+          "type": "subheading",
+          "text": "Above the optimum"
+        },
         {
           "type": "list",
           "items": [
@@ -66,7 +94,10 @@
     {
       "heading": "pH",
       "blocks": [
-        { "type": "paragraph", "text": "Each enzyme works best at one pH. Values above or below the optimum reduce the rate." },
+        {
+          "type": "paragraph",
+          "text": "Each enzyme works best at one pH. Values above or below the optimum reduce the rate."
+        },
         {
           "type": "list",
           "items": [
@@ -89,7 +120,10 @@
     {
       "heading": "Substrate concentration",
       "blocks": [
-        { "type": "paragraph", "text": "More substrate means more collisions with active sites, until every active site is in use." },
+        {
+          "type": "paragraph",
+          "text": "More substrate means more collisions with active sites, until every active site is in use."
+        },
         {
           "type": "list",
           "items": [
@@ -112,7 +146,10 @@
     {
       "heading": "Calculating the rate of reaction",
       "blocks": [
-        { "type": "paragraph", "text": "Rate tells you how fast a reaction goes. You often work it out from the time taken or the amount of product." },
+        {
+          "type": "paragraph",
+          "text": "Rate tells you how fast a reaction goes. You often work it out from the time taken or the amount of product."
+        },
         {
           "type": "equation",
           "label": "Rate from the time taken",
@@ -123,14 +160,26 @@
           "type": "equation",
           "label": "Rate from the amount",
           "formula": "rate = amount ÷ time",
-          "where": ["amount of substrate digested or product made, for example in g or cm³", "time, for example in minutes or s"]
+          "where": [
+            "amount of substrate digested or product made, for example in g or cm³",
+            "time, for example in minutes or s"
+          ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Time taken.", "text": "A potato disc rises in 75 seconds in 25% hydrogen peroxide." },
-            { "lead": "Calculate.", "text": "1 ÷ 75 = 0.01333." },
-            { "lead": "Round.", "text": "To 3 decimal places the rate is 0.013 s⁻¹." }
+            {
+              "lead": "Time taken.",
+              "text": "A potato disc rises in 75 seconds in 25% hydrogen peroxide."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "1 ÷ 75 = 0.01333."
+            },
+            {
+              "lead": "Round.",
+              "text": "To 3 decimal places the rate is 0.013 s⁻¹."
+            }
           ]
         },
         {
@@ -139,12 +188,20 @@
             "kind": "practice",
             "alt": "Practise calculating a rate of reaction from the time taken.",
             "question": "A potato disc takes **{t} seconds** to rise in hydrogen peroxide solution. Calculate the rate of reaction in s⁻¹, using rate = 1 ÷ time. Give your answer to 3 decimal places.",
-            "variables": [{ "id": "t", "min": 40, "max": 100, "step": 5 }],
-            "answer": { "formula": "1 / t", "unit": "s⁻¹", "decimals": 3 },
-            "working": [
-              "Rate = 1 ÷ time",
-              "Rate = 1 ÷ {t} = **{answer}** s⁻¹"
-            ]
+            "variables": [
+              {
+                "id": "t",
+                "min": 40,
+                "max": 100,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "1 / t",
+              "unit": "s⁻¹",
+              "decimals": 3
+            },
+            "working": ["Rate = 1 ÷ time", "Rate = 1 ÷ {t} = **{answer}** s⁻¹"]
           }
         },
         {
@@ -177,34 +234,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 2.5", "AQA T 4.2.2.1"],
-      "exam_phrases": [
-        "amylase / starch molecules have low (kinetic) energy",
-        "fewer (enzyme-substrate) collisions",
-        "fewer enzyme-substrate complexes are formed",
-        "(close to) the optimum / best temperature for the enzyme",
-        "the amylase has been denatured",
-        "the shape of the active site changes",
-        "(so) the substrate can no longer fit / bind",
-        "at extreme pH values the enzyme is denatured"
-      ],
-      "mistakes": [
-        {
-          "wrong": "At 80 °C the amylase was killed.",
-          "right": "\"Killed\" or \"has died\" is not accepted. Enzymes are not alive. Say the amylase is denatured, or that the shape of the active site has changed."
-        },
-        {
-          "wrong": "No carbon dioxide was produced at 2 °C because the enzymes were denatured.",
-          "right": "Denatured is not accepted for a very low temperature. Say it was too cold for the enzymes to work, or that there were no successful collisions."
-        },
-        {
-          "wrong": "The plant was denatured at 45 °C.",
-          "right": "\"The plant\" or \"the cells\" denatured is not accepted. Enzymes are denatured. Say the enzymes in the plant became destroyed and the active site changed shape."
-        },
-        {
-          "wrong": "The timing might be inaccurate because of human error.",
-          "right": "\"Human error\" unqualified is ignored. Say that deciding when the colour has changed is subjective, or based on opinion."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "6942a23d-7a2e-4cd2-9a7c-0b9f33dbf2ff",
         "source": "AQA jun 2021, Paper 1 (H), Q05.7",
@@ -222,34 +251,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 1.8", "EDEX 1.9", "EDEX 1.11"],
-      "exam_phrases": [
-        "enzymes have an optimum temperature",
-        "enzyme activity increases as temperature increases (up to the optimum)",
-        "the temperature is above the optimum, so the enzyme denatures",
-        "the active site changes shape, so no enzyme-substrate complexes form",
-        "more active sites of the enzyme are filled",
-        "increased chance of collisions with the active site",
-        "the curve flattens",
-        "1.5 ÷ 42 = 0.0357 = 0.04 g per minute"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The lipase was killed by boiling.",
-          "right": "\"Killed\" is rejected. Say the enzyme is denatured, because the temperature is above the optimum, so the active site changes shape."
-        },
-        {
-          "wrong": "The same volume of lactose was used to make it a fair test.",
-          "right": "\"Fair test\", \"accurate\" and \"reliable\" are ignored. Say lactose is the substrate and a controlled variable, so the results can be compared and a valid conclusion drawn."
-        },
-        {
-          "wrong": "Boiling changes the shape of the protein, so it cannot be digested.",
-          "right": "References to the protein changing shape are ignored. It is the enzyme, and its active site, that changes shape, so the substrate does not fit."
-        },
-        {
-          "wrong": "Rate = 1 ÷ 75 = 0.01333 s⁻¹.",
-          "right": "Give the correct number of decimal places. For 3 decimal places the answer is 0.013 s⁻¹. The second mark is for the correct rounding."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "d85db5fb-6932-4682-b42b-ca849799ffa4",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q5(c)(ii)",
@@ -264,29 +265,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 1.2g"],
-      "exam_phrases": [
-        "increased kinetic energy, so more collisions",
-        "more enzyme-substrate complexes forming",
-        "particles moving more slowly, so less frequent collisions",
-        "the enzyme is denatured",
-        "the shape of the active site has changed / it cannot bind to the substrate",
-        "the optimum pH is between 6 and 8",
-        "below the optimum the enzymes were working too slowly"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Acid pollution kills the enzymes.",
-          "right": "\"Kills enzymes\" or \"enzymes die\" is not allowed. Say the enzymes work slower or stop working, or that they are denatured because the active site changes shape."
-        },
-        {
-          "wrong": "Hypothermia is harmful because it denatures enzymes.",
-          "right": "\"Denatures enzymes\" is not allowed for a low body temperature. Say it affects the enzymes and slows or stops the rate of reactions, so metabolism and respiration slow down."
-        },
-        {
-          "wrong": "Increasing the temperature gives the particles more energy, so there are more collisions.",
-          "right": "\"More energy\" is ignored. Say increased kinetic energy, or that the particles move faster, so there is a greater chance of the substrate colliding with the active site."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "04e9e6a0-7df3-4ec8-8517-ac6b60d816cb",
         "source": "OCR jun 2023, Paper 3, Q20(a)",

@@ -59,11 +59,7 @@
             "kind": "sort",
             "alt": "Sort each statement into the type of medicine it describes: antibiotic, painkiller or antiseptic.",
             "prompt": "Which type of medicine does each statement describe?",
-            "groups": [
-              "Antibiotic",
-              "Painkiller",
-              "Antiseptic"
-            ],
+            "groups": ["Antibiotic", "Painkiller", "Antiseptic"],
             "items": [
               {
                 "text": "Kills bacteria inside the body",
@@ -163,32 +159,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 3.5",
-        "AQA T 4.3.1.8"
-      ],
-      "exam_phrases": [
-        "do not prescribe antibiotics for viral infections",
-        "because antibiotics do not kill viruses",
-        "make sure the patient finishes the course",
-        "any bacteria left may develop resistance, survive and reproduce",
-        "current / available antibiotics do not kill (certain) bacteria",
-        "some diseases become more difficult to treat"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Doctors are concerned because more people become ill.",
-          "right": "This is ignored. Say that current antibiotics do not kill certain bacteria, so some diseases become more difficult to cure or treat."
-        },
-        {
-          "wrong": "Doctors should give antibiotics for a cold or flu to help the patient get better.",
-          "right": "Colds and flu are caused by viruses, and antibiotics do not kill viruses. Mild infections also get better because of the body's normal immune system."
-        },
-        {
-          "wrong": "Clean the hospital to remove bacteria.",
-          "right": "\"Clean\" on its own is ignored. Be specific: use antibacterial or alcohol hand wash between patients, use disinfectant on wards, and isolate patients with the resistant strain."
-        }
-      ],
+      "spec_codes": ["AQA 3.5", "AQA T 4.3.1.8"],
       "worked_example": {
         "exemplar_id": "d3b68048-13ea-48ee-93d9-dda812ec9ed8",
         "source": "AQA jun 2018, Paper 2 (H), Q02",
@@ -206,30 +177,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.16"
-      ],
-      "exam_phrases": [
-        "they inhibit processes (in bacteria)",
-        "so bacteria are destroyed / are killed / growth stops / reproduction stops",
-        "antibiotics do not affect the host cell",
-        "it is killed / inhibited by antibiotics",
-        "because chlamydia is caused by bacteria"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Antibiotics inhibit the bacteria.",
-          "right": "\"Inhibit the bacteria\" or \"inhibit cell processes\" on its own is ignored. Say that antibiotics inhibit processes in the bacteria so they are killed or stop growing or reproducing."
-        },
-        {
-          "wrong": "Antibiotics kill bacteria and viruses.",
-          "right": "Antibiotics only treat bacterial infections. Chlamydia can be treated because it is caused by bacteria."
-        },
-        {
-          "wrong": "Antibiotics work by killing any cell they meet.",
-          "right": "Antibiotics do not affect or damage the host (human) cells, which is why they can be used inside the body."
-        }
-      ],
+      "spec_codes": ["EDEX 5.16"],
       "worked_example": {
         "exemplar_id": "79039139-54d2-4d9a-8b34-c010b3e0e2a3",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q3(b)(ii)",
@@ -244,31 +192,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.3o"
-      ],
-      "exam_phrases": [
-        "a chemical (usually) made by fungi / microbes",
-        "that kills (other) microbes / kills bacteria",
-        "does not destroy viruses",
-        "would not give antibiotics / (would give) an antiviral",
-        "(viruses) are not destroyed by antibiotics",
-        "wants to avoid the spread of antibiotic resistant (bacteria)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Doctors do not give antibiotics for a virus because the virus can become antibiotic resistant.",
-          "right": "Viruses do not become antibiotic resistant. Bacteria do. Say antibiotics do not kill viruses and that doctors want to avoid the spread of resistant bacteria."
-        },
-        {
-          "wrong": "The doctor would give a vaccine to treat a viral disease.",
-          "right": "A vaccine is ignored. Say the doctor would give an antiviral, not an antibiotic."
-        },
-        {
-          "wrong": "An antibiotic is a chemical that kills any microbe, including viruses.",
-          "right": "An antibiotic is a chemical, usually made by fungi or microbes, that kills bacteria. It does not destroy viruses."
-        }
-      ],
+      "spec_codes": ["OCR 6.3o"],
       "worked_example": {
         "exemplar_id": "cc614c10-dad0-42f5-b10c-9cb377c4fae1",
         "source": "OCR jun 2025, Paper 2, Q22(b)(ii)",

@@ -1,0 +1,253 @@
+{
+  "format": 1,
+  "concept_id": "bio-088",
+  "subject": "biology",
+  "title": "Advantages and disadvantages of sexual and asexual reproduction",
+  "key_idea": "**Sexual reproduction** gives variation, so some offspring survive a change or a disease, but it is slower. **Asexual reproduction** is fast and keeps useful features, but the identical offspring can all be killed by the same disease or change.",
+  "sections": [
+    {
+      "heading": "Sexual reproduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sexual reproduction mixes genes from two parents. This section covers what that gives an organism, and what it costs."
+        },
+        {
+          "type": "subheading",
+          "text": "Advantages"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It produces **genetic variation** in the offspring.",
+            "So some offspring are better adapted and survive a disease, an environmental change or a selection pressure.",
+            "Variation allows **evolution** by natural selection.",
+            "Plants make seeds that can be dispersed to new areas. The offspring can colonise new places or escape an adverse event where the parent grew.",
+            "Many seeds or offspring are made, so it is more likely that some survive."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Disadvantages"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A mate has to be found.",
+            "Fertilisation or pollination takes time, so the process is slower.",
+            "Offspring can have features that are less advantageous than those of the parents."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Variation is the key advantage: some offspring survive when conditions change.",
+            "Variation allows evolution.",
+            "It is slower and needs a mate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Asexual reproduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Asexual reproduction copies one parent by mitosis. This section covers why that is quick, and why it is risky."
+        },
+        {
+          "type": "subheading",
+          "text": "Advantages"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Only one parent is needed, so there is no need to find a mate or to rely on pollinators.",
+            "It is **faster**: there is no need to wait for flowers, fruits or seeds.",
+            "Many offspring are produced, and they can colonise the local area.",
+            "It uses less energy and fewer materials, because no gametes, flowers or seeds are made.",
+            "The offspring are identical, so they keep the **desired characteristics** of the parent.",
+            "The offspring are well adapted to the environment the parent already lives in."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Disadvantages"
+        },
+        {
+          "type": "list",
+          "items": [
+            "There is no genetic variation, so there are no new characteristics.",
+            "All the offspring are susceptible to the same **disease**, so one pathogen can kill them all.",
+            "They cannot survive an environmental change if the parent could not.",
+            "The gene pool is reduced."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Asexual reproduction is fast, needs one parent and keeps useful features.",
+            "Identical offspring are all equally at risk from one disease or one change.",
+            "In an answer, say the consequence of being identical, not just that they are identical."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Organisms that use both types",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some organisms use both types of reproduction, at different times. Each type is used when it helps most."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Malarial protists reproduce asexually and sexually during their life cycle.",
+            "Many fungi reproduce both asexually and sexually.",
+            "Strawberry plants reproduce sexually using flowers, fruits and seeds.",
+            "Strawberry plants also reproduce asexually using **runners**. Mitosis makes the new cells, and the parent passes sugar and water to the new plant.",
+            "Bluebells reproduce sexually by making seeds and asexually by making new bulbs.",
+            "Duckweed usually divides into two, and only occasionally reproduces sexually by growing flowers."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Sort each statement into sexual reproduction or asexual reproduction.",
+            "kind": "sort",
+            "items": [
+              {
+                "text": "Offspring show variation, so some may survive a disease",
+                "group": 0
+              },
+              {
+                "text": "A mate has to be found",
+                "group": 0
+              },
+              {
+                "text": "Seeds are dispersed to colonise new areas",
+                "group": 0
+              },
+              {
+                "text": "It allows evolution by natural selection",
+                "group": 0
+              },
+              {
+                "text": "All the offspring may be killed by the same disease",
+                "group": 1
+              },
+              {
+                "text": "It is a quicker process",
+                "group": 1
+              },
+              {
+                "text": "Only one parent is needed",
+                "group": 1
+              },
+              {
+                "text": "The offspring keep the parent's desired characteristics",
+                "group": 1
+              },
+              {
+                "text": "It takes less energy because no flowers or seeds are made",
+                "group": 1
+              }
+            ],
+            "groups": ["Sexual reproduction", "Asexual reproduction"],
+            "prompt": "Which type of reproduction does each statement describe?"
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Malarial protists, many fungi and strawberry plants all use both types.",
+            "Asexual reproduction copies a successful parent. Sexual reproduction gives variation."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give one advantage and one disadvantage of sexual reproduction.",
+      "a": "Advantage: it produces genetic variation, so some offspring are more likely to survive a disease or environmental change. Disadvantage: a mate must be found, or it takes longer.",
+      "marks": 2
+    },
+    {
+      "q": "Banana plants are grown by asexual reproduction. Explain why one disease could kill all the plants on a farm.",
+      "a": "The plants are all genetically identical (clones), so they all have the same genes and are all susceptible to the same disease.",
+      "marks": 2
+    },
+    {
+      "q": "Give two advantages of asexual reproduction for a strawberry plant.",
+      "a": "Any two from: it is faster; many offspring are produced; only one parent is needed (no pollinators); the offspring are identical and well adapted to the environment; the offspring receive water and sugars from the parent; less energy is needed.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 6.3"],
+      "worked_example": {
+        "exemplar_id": "b9c90893-aa1c-4d10-87a7-26e5ac7066a6",
+        "source": "AQA jun 2018, Paper 2 (H), Q05.3",
+        "question": "Bluebell plants grow in woodlands in the UK. Bluebells can reproduce sexually by producing seeds.\n\nExplain why sexual reproduction is an advantage for bluebells.",
+        "marks": 4,
+        "answer_points": [
+          "There is genetic variation in the offspring.",
+          "So the better adapted bluebells survive (natural selection, survival of the fittest).",
+          "Seeds are dispersed, so bluebells colonise new areas or escape an adverse event in the original area.",
+          "Many offspring are made, so there is a higher probability that some will survive."
+        ],
+        "tip": "One mark for each point. Write about bluebells: a general answer scores a maximum of 3."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.1B", "EDEX 3.2B"],
+      "worked_example": {
+        "exemplar_id": "3867ec41-d6b3-4e22-878d-715b492fb897",
+        "source": "EDEXCEL nov 2021, Paper 1 (H), Q7(c)",
+        "question": "Discuss the advantages and disadvantages of sexual reproduction and asexual reproduction.",
+        "marks": 6,
+        "answer_points": [
+          "Sexual reproduction, advantages: it creates variation in a species, some organisms can survive a selection pressure, and it allows evolution.",
+          "Sexual reproduction, disadvantages: a mate must be found, fertilisation or pollination takes time so the process is slower, and offspring can have features less advantageous than the parents.",
+          "Asexual reproduction, advantages: there is no need to find a mate, there is a rapid reproductive cycle, and organisms with the beneficial characteristics of the parent can be produced.",
+          "Asexual reproduction, disadvantages: there is no variation, and a selection pressure could affect all the organisms of a species."
+        ],
+        "tip": "Marked in levels. For Level 3 (5 to 6 marks) cover both types, give advantages and disadvantages, and include the consequences of being genetically identical or genetically different."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 5.1f"],
+      "worked_example": {
+        "exemplar_id": "40bc3d46-c570-42f6-84d4-55d5c7d6328f",
+        "source": "OCR sample, Paper 2, Q19(a)",
+        "question": "In many countries, people rely on bananas for food.\nBlack sigatoka is a disease of banana plants.\nThe disease is caused by a fungus.\n\nBanana plants grown by farmers are usually produced asexually.\nThis process uses mitosis.\nThis means that, if one banana plant dies of black sigatoka, all the bananas can die.\n\nExplain why.",
+        "marks": 1,
+        "answer_points": [
+          "All the plants are genetically identical (clones), so they all have the same genes."
+        ],
+        "tip": "The mark is for the idea that the plants are all genetically identical."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "fed78ab4-3d06-4d86-96c4-b3613d3e57fc",
+      "78337f75-8a34-406c-9300-46f87d66c75e",
+      "b19fc5b3-a389-472e-aa5a-355a03cbeee3",
+      "d65313c5-4ab5-4b9f-8e03-f9e88613b80b"
+    ],
+    "exemplar_ids": [
+      "b9c90893-aa1c-4d10-87a7-26e5ac7066a6",
+      "3867ec41-d6b3-4e22-878d-715b492fb897",
+      "40bc3d46-c570-42f6-84d4-55d5c7d6328f"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

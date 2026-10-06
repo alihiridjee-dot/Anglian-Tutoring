@@ -8,13 +8,25 @@
     {
       "heading": "The three wires",
       "blocks": [
-        { "type": "paragraph", "text": "Most appliances connect to the mains through a three-core cable. Each wire has colour-coded insulation and a different job." },
+        {
+          "type": "paragraph",
+          "text": "Most appliances connect to the mains through a three-core cable. Each wire has colour-coded insulation and a different job."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Live wire", "meaning": "Carries the alternating potential difference from the supply." },
-            { "term": "Neutral wire", "meaning": "Completes the circuit." },
-            { "term": "Earth wire", "meaning": "A safety wire that stops the appliance becoming live." }
+            {
+              "term": "Live wire",
+              "meaning": "Carries the alternating potential difference from the supply."
+            },
+            {
+              "term": "Neutral wire",
+              "meaning": "Completes the circuit."
+            },
+            {
+              "term": "Earth wire",
+              "meaning": "A safety wire that stops the appliance becoming live."
+            }
           ]
         },
         {
@@ -41,11 +53,26 @@
             "alt": "Tap each part of a mains plug and cable to see what it does, then test yourself.",
             "prompt": "Tap a part of the plug circuit to see its job.",
             "parts": [
-              { "name": "Live wire (brown)", "detail": "Carries the alternating potential difference from the supply. It is at about 230 V compared with earth." },
-              { "name": "Neutral wire (blue)", "detail": "Completes the circuit. It is at, or close to, 0 V." },
-              { "name": "Earth wire (green and yellow)", "detail": "A safety wire at 0 V. It carries a current only if there is a fault, and stops the case becoming live." },
-              { "name": "Fuse", "detail": "A thin wire in the live wire. It melts and breaks the circuit when the current is too large." },
-              { "name": "Switch", "detail": "Fitted in the live wire, so that an appliance that is switched off is disconnected from the 230 V." }
+              {
+                "name": "Live wire (brown)",
+                "detail": "Carries the alternating potential difference from the supply. It is at about 230 V compared with earth."
+              },
+              {
+                "name": "Neutral wire (blue)",
+                "detail": "Completes the circuit. It is at, or close to, 0 V."
+              },
+              {
+                "name": "Earth wire (green and yellow)",
+                "detail": "A safety wire at 0 V. It carries a current only if there is a fault, and stops the case becoming live."
+              },
+              {
+                "name": "Fuse",
+                "detail": "A thin wire in the live wire. It melts and breaks the circuit when the current is too large."
+              },
+              {
+                "name": "Switch",
+                "detail": "Fitted in the live wire, so that an appliance that is switched off is disconnected from the 230 V."
+              }
             ]
           }
         },
@@ -62,15 +89,27 @@
     {
       "heading": "Earth wires, fuses and circuit breakers",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers what happens in a fault, and how the safety features protect the user and the wiring." },
+        {
+          "type": "paragraph",
+          "text": "This section covers what happens in a fault, and how the safety features protect the user and the wiring."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Fuse", "meaning": "A wire that melts when the current gets too great, breaking the circuit." },
-            { "term": "Circuit breaker", "meaning": "A switch that turns the circuit off when the current is too large. It can be reset." }
+            {
+              "term": "Fuse",
+              "meaning": "A wire that melts when the current gets too great, breaking the circuit."
+            },
+            {
+              "term": "Circuit breaker",
+              "meaning": "A switch that turns the circuit off when the current is too large. It can be reset."
+            }
           ]
         },
-        { "type": "subheading", "text": "A fault with a metal case" },
+        {
+          "type": "subheading",
+          "text": "A fault with a metal case"
+        },
         {
           "type": "list",
           "items": [
@@ -93,7 +132,10 @@
             ]
           }
         },
-        { "type": "subheading", "text": "How a fuse or circuit breaker protects" },
+        {
+          "type": "subheading",
+          "text": "How a fuse or circuit breaker protects"
+        },
         {
           "type": "list",
           "items": [
@@ -103,8 +145,14 @@
             "Choose a fuse rated just above the normal current. A current of 2.3 A needs a 5 A fuse, not a fuse with a lower rating or a much higher one."
           ]
         },
-        { "type": "paragraph", "text": "Fuses and switches go in the live wire. If they were in the neutral wire, the appliance would still be connected to the live wire when it is off." },
-        { "type": "subheading", "text": "Appliances without an earth wire" },
+        {
+          "type": "paragraph",
+          "text": "Fuses and switches go in the live wire. If they were in the neutral wire, the appliance would still be connected to the live wire when it is off."
+        },
+        {
+          "type": "subheading",
+          "text": "Appliances without an earth wire"
+        },
         {
           "type": "list",
           "items": [
@@ -126,7 +174,10 @@
     {
       "heading": "Why the live wire is dangerous",
       "blocks": [
-        { "type": "paragraph", "text": "The live wire is at about 230 V and the person touching it is at earth potential. This section covers why that matters." },
+        {
+          "type": "paragraph",
+          "text": "The live wire is at about 230 V and the person touching it is at earth potential. This section covers why that matters."
+        },
         {
           "type": "list",
           "items": [
@@ -136,7 +187,10 @@
             "Any connection between the live wire and earth is dangerous, because a large current can flow through whatever makes the connection."
           ]
         },
-        { "type": "paragraph", "text": "This is why a circuit should be disconnected from the mains before anyone works on a switch or other part of it." },
+        {
+          "type": "paragraph",
+          "text": "This is why a circuit should be disconnected from the mains before anyone works on a switch or other part of it."
+        },
         {
           "type": "key-points",
           "items": [
@@ -168,29 +222,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.2.3.2", "AQA T 6.2.3.2"],
-      "exam_phrases": [
-        "Earth wire: green and yellow",
-        "Live wire: brown",
-        "Neutral wire: blue",
-        "230 (V) and 50 (Hz)",
-        "to stop the metal case of the toaster becoming live if a fault occurs",
-        "the charge flows through the earth wire (instead of the person)",
-        "the resistance of the earth wire is much less than that of a person"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The earth wire and the neutral wire are wrongly connected.",
-          "right": "This is ignored. Say what to do: swap the blue wire and the green and yellow wire, so that blue goes to the neutral pin and green and yellow goes to the earth pin."
-        },
-        {
-          "wrong": "The potential difference between the neutral wire and the earth wire is 230 V.",
-          "right": "It is 0 V. The 230 V is between the live wire and the neutral wire, or the live wire and earth."
-        },
-        {
-          "wrong": "It is dangerous if the live wire touches the metal case.",
-          "right": "Say what the danger is: there is a risk of electric shock (or electrocution) to a person who touches the case."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "9067ff27-e96d-4c2c-88df-d5a2eb8908be",
         "source": "AQA jun 2020, Paper 1 (H), Q09.2",
@@ -206,29 +237,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 10.37", "EDEX 10.38", "EDEX 10.39", "EDEX 10.40", "EDEX 10.41"],
-      "exam_phrases": [
-        "if the current is too large",
-        "(fuse) melts / breaks",
-        "stops current OR switches off (current / circuit)",
-        "large current to earth through (low resistance) earth wire",
-        "case is kept at same potential as earth",
-        "disconnects mains supply to kettle",
-        "live and neutral"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The fuse melts when the voltage is too high.",
-          "right": "References to p.d. or voltage are ignored. Say that the fuse melts when the current is too large."
-        },
-        {
-          "wrong": "The other two wires in the plug are positive and negative.",
-          "right": "The terms positive and negative are not used for wires in a mains cable. The other two wires are live and neutral."
-        },
-        {
-          "wrong": "A fuse with a lower rating than the normal current of 2.3 A is a good choice.",
-          "right": "A fuse with a smaller value than the normal current would melt in normal use. Choose a value just above it, such as a 5 A fuse."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "d464d7e7-e7c4-4042-badc-610414999d28",
         "source": "EDEXCEL jun 2024, Paper 2 (F), Q6(c)(ii)",
@@ -243,29 +251,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR P8.2i", "OCR P8.2j"],
-      "exam_phrases": [
-        "prevents user from getting electric shock (if there is a fault)",
-        "plastic case is an insulator (so earth wire not required)",
-        "earth wire carries current to Earth",
-        "prevents projector becoming live",
-        "appliance is double insulated",
-        "230 (V)",
-        "(electric) shock / electrocution"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A high potential difference is dangerous.",
-          "right": "Unqualified answers such as dangerous, injury or death are ignored. Say that it can cause an electric shock or electrocution."
-        },
-        {
-          "wrong": "The potential difference between the earth wire and the neutral wire is 230 V.",
-          "right": "The neutral wire is at or close to earth potential, so it is about 0 V. The potential difference between the earth wire and the live wire is 230 V."
-        },
-        {
-          "wrong": "A plastic case does not need an earth wire because plastic is not dangerous.",
-          "right": "Say that the plastic case is an insulator (it does not conduct), so there is no shock and no earth wire is needed."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "edd5008d-566d-480a-989e-fce3f8528126",
         "source": "OCR nov 2020, Paper 2, Q21(c)(ii)",

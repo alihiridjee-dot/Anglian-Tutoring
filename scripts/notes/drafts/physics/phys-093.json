@@ -57,10 +57,7 @@
           "diagram": {
             "kind": "compare",
             "alt": "A telescope on the ground compared with a telescope in space.",
-            "items": [
-              "Telescope on Earth",
-              "Telescope in space"
-            ],
+            "items": ["Telescope on Earth", "Telescope in space"],
             "rows": [
               {
                 "feature": "Atmosphere",
@@ -71,10 +68,7 @@
               },
               {
                 "feature": "Image clarity",
-                "values": [
-                  "Reduced by atmospheric distortion",
-                  "Improved"
-                ]
+                "values": ["Reduced by atmospheric distortion", "Improved"]
               },
               {
                 "feature": "Wavelengths",
@@ -85,17 +79,11 @@
               },
               {
                 "feature": "Interference",
-                "values": [
-                  "Dust, clouds and light pollution",
-                  "Much less"
-                ]
+                "values": ["Dust, clouds and light pollution", "Much less"]
               },
               {
                 "feature": "Sky coverage",
-                "values": [
-                  "Part of the sky at a time",
-                  "Can view the whole sky"
-                ]
+                "values": ["Part of the sky at a time", "Can view the whole sky"]
               }
             ]
           }
@@ -129,28 +117,7 @@
   ],
   "boards": {
     "edexcel": {
-      "spec_codes": [
-        "EDEX 7.19P"
-      ],
-      "exam_phrases": [
-        "telescopes are above the Earth / in space / outside the Earth's atmosphere",
-        "less interference from dust / clouds",
-        "wavelengths that are absorbed by the Earth's atmosphere (microwaves / IR / UV)",
-        "can view the whole sky",
-        "the atmosphere absorbs / scatters light",
-        "improves clarity of images",
-        "light pollution"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A telescope in space is closer to the object it is observing.",
-          "right": "This is not accepted. Say it is above the Earth's atmosphere, so the light is not absorbed or scattered."
-        },
-        {
-          "wrong": "A space telescope avoids the atmosphere, so it can see more.",
-          "right": "Say what is gained. It improves the clarity of images, avoids interference from dust, clouds and light pollution, and can detect wavelengths the atmosphere absorbs."
-        }
-      ],
+      "spec_codes": ["EDEX 7.19P"],
       "worked_example": {
         "exemplar_id": "8cd80839-f9bd-4984-892e-d9c554b29ba3",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q6(c)",
@@ -171,12 +138,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": [
-      "ccc15f12-e18e-49a1-b60e-61517dd2ab40"
-    ],
-    "exemplar_ids": [
-      "8cd80839-f9bd-4984-892e-d9c554b29ba3"
-    ],
+    "spec_point_ids": ["ccc15f12-e18e-49a1-b60e-61517dd2ab40"],
+    "exemplar_ids": ["8cd80839-f9bd-4984-892e-d9c554b29ba3"],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-03"
   }

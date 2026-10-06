@@ -8,7 +8,10 @@
     {
       "heading": "Choosing the reactants",
       "blocks": [
-        { "type": "paragraph", "text": "Soluble salts can be made from an acid and a solid insoluble in water: a metal, metal oxide, metal hydroxide or metal carbonate." },
+        {
+          "type": "paragraph",
+          "text": "Soluble salts can be made from an acid and a solid insoluble in water: a metal, metal oxide, metal hydroxide or metal carbonate."
+        },
         {
           "type": "table",
           "columns": ["Salt wanted", "Acid", "Solid"],
@@ -28,14 +31,31 @@
             "With copper carbonate, the green solid disappears, the mixture fizzes and a blue solution forms."
           ]
         },
-        { "type": "equation", "label": "Copper oxide with sulfuric acid", "formula": "copper oxide + sulfuric acid → copper sulfate + water" },
-        { "type": "equation", "label": "Copper carbonate with sulfuric acid", "formula": "copper carbonate + sulfuric acid → copper sulfate + water + carbon dioxide" },
+        {
+          "type": "equation",
+          "label": "Copper oxide with sulfuric acid",
+          "formula": "copper oxide + sulfuric acid → copper sulfate + water"
+        },
+        {
+          "type": "equation",
+          "label": "Copper carbonate with sulfuric acid",
+          "formula": "copper carbonate + sulfuric acid → copper sulfate + water + carbon dioxide"
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Excess", "meaning": "More of a reactant than is needed, so some is left over when the reaction stops." },
-            { "term": "Filtrate", "meaning": "The solution that passes through the filter paper." },
-            { "term": "Crystallisation", "meaning": "Forming solid crystals from a solution, by evaporating some of the water and cooling." }
+            {
+              "term": "Excess",
+              "meaning": "More of a reactant than is needed, so some is left over when the reaction stops."
+            },
+            {
+              "term": "Filtrate",
+              "meaning": "The solution that passes through the filter paper."
+            },
+            {
+              "term": "Crystallisation",
+              "meaning": "Forming solid crystals from a solution, by evaporating some of the water and cooling."
+            }
           ]
         },
         {
@@ -50,7 +70,10 @@
     {
       "heading": "The method and the reason for each step",
       "blocks": [
-        { "type": "paragraph", "text": "This is the method for pure, dry copper sulfate crystals from copper oxide and sulfuric acid. It works for any insoluble solid." },
+        {
+          "type": "paragraph",
+          "text": "This is the method for pure, dry copper sulfate crystals from copper oxide and sulfuric acid. It works for any insoluble solid."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -71,12 +94,30 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Warm the acid.", "text": "Use a Bunsen burner or a water bath. This speeds up the reaction." },
-            { "lead": "Add the solid, stirring.", "text": "Keep adding until some solid remains. For a carbonate, there is also no more fizzing." },
-            { "lead": "Filter.", "text": "This removes the excess solid. The filtrate is only salt and water." },
-            { "lead": "Evaporate.", "text": "Heat the filtrate gently in an evaporating basin, on a water bath or electric heater, until crystals start to form. Do not heat to dryness." },
-            { "lead": "Crystallise.", "text": "Leave the solution to cool so crystals grow." },
-            { "lead": "Dry.", "text": "Pat the crystals dry between filter papers, or leave them in a warm place." }
+            {
+              "lead": "Warm the acid.",
+              "text": "Use a Bunsen burner or a water bath. This speeds up the reaction."
+            },
+            {
+              "lead": "Add the solid, stirring.",
+              "text": "Keep adding until some solid remains. For a carbonate, there is also no more fizzing."
+            },
+            {
+              "lead": "Filter.",
+              "text": "This removes the excess solid. The filtrate is only salt and water."
+            },
+            {
+              "lead": "Evaporate.",
+              "text": "Heat the filtrate gently in an evaporating basin, on a water bath or electric heater, until crystals start to form. Do not heat to dryness."
+            },
+            {
+              "lead": "Crystallise.",
+              "text": "Leave the solution to cool so crystals grow."
+            },
+            {
+              "lead": "Dry.",
+              "text": "Pat the crystals dry between filter papers, or leave them in a warm place."
+            }
           ]
         },
         {
@@ -92,7 +133,10 @@
     {
       "heading": "When the reactant is soluble: titration",
       "blocks": [
-        { "type": "paragraph", "text": "Soluble alkalis such as sodium hydroxide, potassium hydroxide and ammonia solution cannot be added in excess and filtered off. Titration is used instead." },
+        {
+          "type": "paragraph",
+          "text": "Soluble alkalis such as sodium hydroxide, potassium hydroxide and ammonia solution cannot be added in excess and filtered off. Titration is used instead."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -100,10 +144,22 @@
             "alt": "Comparing making a salt from an insoluble solid and from a soluble alkali.",
             "items": ["Insoluble solid", "Soluble alkali"],
             "rows": [
-              { "feature": "How to know the acid is used up", "values": ["Some solid is left over", "Indicator changes colour in a titration"] },
-              { "feature": "Removing the excess", "values": ["Filter off the excess solid", "No excess: use the exact volumes found"] },
-              { "feature": "Indicator in the final mixture", "values": ["No indicator needed", "Leave the indicator out"] },
-              { "feature": "Next step", "values": ["Evaporate and crystallise", "Evaporate and crystallise"] }
+              {
+                "feature": "How to know the acid is used up",
+                "values": ["Some solid is left over", "Indicator changes colour in a titration"]
+              },
+              {
+                "feature": "Removing the excess",
+                "values": ["Filter off the excess solid", "No excess: use the exact volumes found"]
+              },
+              {
+                "feature": "Indicator in the final mixture",
+                "values": ["No indicator needed", "Leave the indicator out"]
+              },
+              {
+                "feature": "Next step",
+                "values": ["Evaporate and crystallise", "Evaporate and crystallise"]
+              }
             ]
           }
         },
@@ -147,29 +203,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.4.2.3", "AQA T 5.4.2.3"],
-      "exam_phrases": [
-        "use zinc carbonate and hydrochloric acid",
-        "continue adding until the zinc carbonate is in excess",
-        "shown by excess solid and no more effervescence",
-        "filter (the reaction mixture) to remove the excess zinc carbonate",
-        "heat the solution using a water bath or electric heater to crystallisation point",
-        "leave the solution to crystallise",
-        "pat crystals dry with filter paper"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Heat the solution with a Bunsen burner until all the liquid is gone.",
-          "right": "Heat gently or partially evaporate, then leave to crystallise. Heating to dryness scores at most one mark, and only if no other mark is earned."
-        },
-        {
-          "wrong": "Add calcium carbonate to hydrochloric acid to make copper sulfate.",
-          "right": "The method must use the correct chemicals: sulfuric acid, and copper carbonate or copper oxide. For the top level the correct chemicals must be chosen."
-        },
-        {
-          "wrong": "Filter the mixture to remove impurities.",
-          "right": "'To remove impurities' is ignored. Filter to remove the excess magnesium oxide (the excess solid)."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "50f1105c-cf60-4748-a8fa-945b5966c76f",
         "source": "AQA jun 2023, Paper 1 (H), Q03.1",
@@ -188,30 +221,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.15", "EDEX 3.16", "EDEX 3.17"],
-      "exam_phrases": [
-        "filter mixture to remove excess copper carbonate",
-        "pour into an evaporating basin, heat on a water bath",
-        "until half volume / concentrated / crystals start to appear around the edge",
-        "allow to cool and crystallise",
-        "dry crystals between filter papers",
-        "when some powder remains in the beaker (after stirring)",
-        "all the acid is neutralised / has reacted",
-        "the same volumes (from the titration) but leaving out the indicator"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Stop adding copper oxide when the fizzing stops.",
-          "right": "A metal oxide does not fizz. Stop when some powder remains in the beaker after stirring, showing copper oxide is in excess and all the acid has reacted."
-        },
-        {
-          "wrong": "Evaporate the solution from the titration to get the salt.",
-          "right": "That solution contains the indicator, which would contaminate the salt. Mix the same volumes again without the indicator."
-        },
-        {
-          "wrong": "Heat the solution until all the water has gone.",
-          "right": "Heating to dryness is rejected. Heat to concentrate the solution, then cool and crystallise."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "e2b8c0a8-babd-44a9-b16a-28f6fa45e75f",
         "source": "EDEXCEL nov 2020, Paper 1 (F), Q9(b)(ii)",
@@ -230,29 +239,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR C3.3d"],
-      "exam_phrases": [
-        "an excess of zinc oxide must be added",
-        "so the reaction is complete / all the nitric acid is reacted",
-        "filter off the excess zinc oxide",
-        "evaporate off some of the water",
-        "allow to crystallise",
-        "pH paper / pH probe is used to show the solution made is neutral",
-        "dry in a warm oven / air drying / leave on filter paper"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Boil the solution until the crystals form.",
-          "right": "Boiling is not allowed. Evaporate or heat the solution to form a saturated solution, then cool it slowly."
-        },
-        {
-          "wrong": "The crystals should be dried.",
-          "right": "'Just crystals should be dried' is ignored. Say how: in a warm oven, air drying, or leave on filter paper."
-        },
-        {
-          "wrong": "To make ammonium sulfate, add ammonia solution to sulfuric acid with indicator, then evaporate.",
-          "right": "Titrate to find the volumes needed for complete neutralisation, then add these volumes without the indicator and evaporate slowly."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "232a6150-be82-4dac-852b-9453cf5c806b",
         "source": "OCR sample null, Paper 3, Q21(b)",

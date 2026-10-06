@@ -8,12 +8,21 @@
     {
       "heading": "Properties of the alkali metals",
       "blocks": [
-        { "type": "paragraph", "text": "The alkali metals are lithium, sodium, potassium, rubidium, caesium and francium. This section covers their physical properties." },
+        {
+          "type": "paragraph",
+          "text": "The alkali metals are lithium, sodium, potassium, rubidium, caesium and francium. This section covers their physical properties."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Alkali metals", "meaning": "The elements in Group 1 of the periodic table." },
-            { "term": "Alkaline", "meaning": "A solution containing hydroxide ions (OH⁻), with a pH above 7." }
+            {
+              "term": "Alkali metals",
+              "meaning": "The elements in Group 1 of the periodic table."
+            },
+            {
+              "term": "Alkaline",
+              "meaning": "A solution containing hydroxide ions (OH⁻), with a pH above 7."
+            }
           ]
         },
         {
@@ -40,7 +49,10 @@
     {
       "heading": "Reactions of the alkali metals",
       "blocks": [
-        { "type": "paragraph", "text": "The alkali metals react with oxygen, chlorine and water. In each reaction the metal atoms lose their outer electron." },
+        {
+          "type": "paragraph",
+          "text": "The alkali metals react with oxygen, chlorine and water. In each reaction the metal atoms lose their outer electron."
+        },
         {
           "type": "table",
           "columns": ["Reacts with", "Product", "Example"],
@@ -50,7 +62,10 @@
             ["Chlorine", "Metal chloride (a white solid)", "2Na + Cl₂ → 2NaCl"]
           ]
         },
-        { "type": "subheading", "text": "Reaction with water" },
+        {
+          "type": "subheading",
+          "text": "Reaction with water"
+        },
         {
           "type": "list",
           "items": [
@@ -107,7 +122,10 @@
             ]
           }
         },
-        { "type": "subheading", "text": "Reaction with chlorine" },
+        {
+          "type": "subheading",
+          "text": "Reaction with chlorine"
+        },
         {
           "type": "list",
           "items": [
@@ -129,13 +147,25 @@
     {
       "heading": "Reactivity down the group",
       "blocks": [
-        { "type": "paragraph", "text": "Reactivity increases going down Group 1. The reason is in the electrons." },
+        {
+          "type": "paragraph",
+          "text": "Reactivity increases going down Group 1. The reason is in the electrons."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "More shells.", "text": "Atoms lower down the group have more shells, so the outer electron is further from the nucleus." },
-            { "lead": "Less attraction.", "text": "There is more shielding, so the attraction between the nucleus and the outer electron is less." },
-            { "lead": "Lost more easily.", "text": "The outer electron is lost more easily, so the metal is more reactive." }
+            {
+              "lead": "More shells.",
+              "text": "Atoms lower down the group have more shells, so the outer electron is further from the nucleus."
+            },
+            {
+              "lead": "Less attraction.",
+              "text": "There is more shielding, so the attraction between the nucleus and the outer electron is less."
+            },
+            {
+              "lead": "Lost more easily.",
+              "text": "The outer electron is lost more easily, so the metal is more reactive."
+            }
           ]
         },
         {
@@ -177,29 +207,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.1.2.5", "AQA T 5.1.2.5"],
-      "exam_phrases": [
-        "the outer electron is further from the nucleus",
-        "less attraction between the nucleus and the outer electron",
-        "the atom loses an electron more easily",
-        "effervescence / bubbles / fizzing",
-        "(potassium) floats / moves around / melts / becomes smaller",
-        "blue / violet / purple, because the solution is alkaline",
-        "2K + 2H₂O → 2KOH + H₂"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Potassium is more reactive because the nucleus attracts its outer electron more strongly.",
-          "right": "Incorrect attractions are not accepted. Down the group the attraction between the nucleus and the outer electron is less."
-        },
-        {
-          "wrong": "When potassium reacts with water, a gas is produced.",
-          "right": "'Gas produced' is ignored as an observation. Say effervescence, bubbles or fizzing. The colour of the flame is also ignored."
-        },
-        {
-          "wrong": "Universal indicator in potassium hydroxide solution turns red.",
-          "right": "It turns blue, violet or purple, because the solution is alkaline (it contains hydroxide ions)."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "f734e464-20db-4914-9b5f-61c0a91bbe76",
         "source": "AQA jun 2021, Paper 1 (H), Q04.3",
@@ -216,28 +223,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.2", "EDEX 6.3", "EDEX 6.4", "EDEX 6.5"],
-      "exam_phrases": [
-        "outer electron closer to the nucleus",
-        "so more attraction for the outer electron",
-        "the electron is harder to lose",
-        "1 electron in the outer shell",
-        "metal disappears, moves around, fizzing, flame, explodes",
-        "melting points decrease down the group"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Lithium is less reactive than potassium because it has fewer outer shells.",
-          "right": "'Less outer shells' is rejected. Lithium has fewer shells, so its outer electron is closer to the nucleus."
-        },
-        {
-          "wrong": "Potassium and caesium are in the same group because they have the same number of electrons.",
-          "right": "This is rejected. They have the same number of electrons, one, in the outer shell."
-        },
-        {
-          "wrong": "Rubidium sinks in water and gives off hydrogen.",
-          "right": "Floating or sinking, and the name of the gas, are ignored. Say it disappears, moves around, fizzes, burns with a flame or explodes."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "9a8c85cd-17b0-44b7-a733-a2960890c5ae",
         "source": "EDEXCEL jun 2019, Paper 2 (H), Q6(b)(ii)",
@@ -253,28 +238,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR C4.1a", "OCR C4.1b"],
-      "exam_phrases": [
-        "outer shell electron is further from the nucleus",
-        "less attraction between the nucleus and the outer shell electron / more shielding",
-        "outer electron is lost more easily",
-        "reacts violently / sparks / ignites / explodes",
-        "lilac flame",
-        "low density / low melting point"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The outer electron is lost more quickly down the group.",
-          "right": "'More quickly' is ignored. Say the outer electron is lost more easily."
-        },
-        {
-          "wrong": "Group 1 elements are more reactive down the group because of weaker intermolecular forces.",
-          "right": "References to intermolecular forces are not allowed. Explain using the outer shell electron and its attraction to the nucleus."
-        },
-        {
-          "wrong": "The atoms get larger, so they are more reactive.",
-          "right": "A larger radius or more shells is accepted, but you must refer to the outer shell electron at least once to score all 3 marks."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "f9d3766d-6ce6-444a-a1bb-18c5ecc4b463",
         "source": "OCR jun 2024, Paper 2, Q21(b)(ii)",

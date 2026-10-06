@@ -145,10 +145,7 @@
             "kind": "sort",
             "alt": "Sort statements into reasons for tropical deforestation and effects of deforestation.",
             "prompt": "Sort each statement into a reason for deforestation or an effect of it.",
-            "groups": [
-              "Reason for deforestation",
-              "Effect of deforestation"
-            ],
+            "groups": ["Reason for deforestation", "Effect of deforestation"],
             "items": [
               {
                 "text": "Land for cattle",
@@ -219,37 +216,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA T 4.7.3.3",
-        "AQA T 4.7.3.4",
-        "AQA 7.8"
-      ],
-      "exam_phrases": [
-        "decay / burning of peat releases carbon dioxide",
-        "which is increasing global warming",
-        "(burning peat) releases / increases carbon dioxide",
-        "respiration of microorganisms releases carbon dioxide",
-        "less trees to take in carbon dioxide for photosynthesis",
-        "loss of habitat leading to reduced biodiversity"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Peat bogs release carbon dioxide into the atmosphere.",
-          "right": "This is not accepted. Say that the decay or burning of peat releases carbon dioxide."
-        },
-        {
-          "wrong": "Burning peat releases carbon.",
-          "right": "This is ignored. Say that it releases carbon dioxide. Saying that peat contains carbon dioxide is not accepted either."
-        },
-        {
-          "wrong": "The carbon dioxide from peat causes climate change.",
-          "right": "\"Causes climate change\" is ignored here. Say that carbon dioxide causes global warming, is a greenhouse gas or causes the greenhouse effect."
-        },
-        {
-          "wrong": "Intensive farming damages the environment because it takes nutrients out of the soil.",
-          "right": "\"Nutrients\" is ignored. Say that it takes minerals from the soil, leads to soil erosion, or that fertilisers pollute water."
-        }
-      ],
+      "spec_codes": ["AQA T 4.7.3.3", "AQA T 4.7.3.4", "AQA 7.8"],
       "worked_example": {
         "exemplar_id": "fc093c93-efdc-4e75-8916-00a9b1899609",
         "source": "AQA jun 2020, Paper 2 (H), Q07.1",
@@ -276,9 +243,7 @@
       "59766875-7065-43a7-8f85-f941dba48a2c",
       "f4608979-2a30-4f18-9700-87662ba8adca"
     ],
-    "exemplar_ids": [
-      "fc093c93-efdc-4e75-8916-00a9b1899609"
-    ],
+    "exemplar_ids": ["fc093c93-efdc-4e75-8916-00a9b1899609"],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-01"
   }

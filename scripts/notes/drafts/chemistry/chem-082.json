@@ -75,27 +75,15 @@
             "kind": "predictor",
             "alt": "Pick a monomer to see the polymer, its repeating unit and a use.",
             "prompt": "Pick a monomer",
-            "result_labels": [
-              "Polymer",
-              "Repeating unit",
-              "Example use"
-            ],
+            "result_labels": ["Polymer", "Repeating unit", "Example use"],
             "options": [
               {
                 "label": "Ethene, CH₂=CH₂",
-                "results": [
-                  "Poly(ethene)",
-                  "–CH₂–CH₂–",
-                  "Plastic bags and bottles"
-                ]
+                "results": ["Poly(ethene)", "–CH₂–CH₂–", "Plastic bags and bottles"]
               },
               {
                 "label": "Propene, CH₂=CHCH₃",
-                "results": [
-                  "Poly(propene)",
-                  "–CH₂–CH(CH₃)–",
-                  "Crates and ropes"
-                ]
+                "results": ["Poly(propene)", "–CH₂–CH(CH₃)–", "Crates and ropes"]
               },
               {
                 "label": "Chloroethene, CH₂=CHCl",
@@ -107,11 +95,7 @@
               },
               {
                 "label": "Tetrafluoroethene, CF₂=CF₂",
-                "results": [
-                  "Poly(tetrafluoroethene), PTFE",
-                  "–CF₂–CF₂–",
-                  "Coating for frying pans"
-                ]
+                "results": ["Poly(tetrafluoroethene), PTFE", "–CF₂–CF₂–", "Coating for frying pans"]
               }
             ]
           }
@@ -166,22 +150,10 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Polymer",
-            "Use",
-            "Properties that suit it"
-          ],
+          "columns": ["Polymer", "Use", "Properties that suit it"],
           "rows": [
-            [
-              "Poly(ethene)",
-              "Plastic bags and bottles",
-              "Flexible, unreactive, waterproof"
-            ],
-            [
-              "Poly(propene)",
-              "Crates and ropes",
-              "Flexible, waterproof, unreactive"
-            ],
+            ["Poly(ethene)", "Plastic bags and bottles", "Flexible, unreactive, waterproof"],
+            ["Poly(propene)", "Crates and ropes", "Flexible, waterproof, unreactive"],
             [
               "Poly(chloroethene) (PVC)",
               "Window frames, water pipes, insulation for electrical wires",
@@ -232,72 +204,18 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.3.1"
-      ],
-      "exam_phrases": [
-        "monomers",
-        "many",
-        "polymers",
-        "alkene",
-        "monomer",
-        "propene"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A hexene molecule in poly(hexene) is a polymer.",
-          "right": "A hexene molecule is an alkene and a monomer. Many monomers join to make the polymer."
-        },
-        {
-          "wrong": "Poly(propene) is made from propane.",
-          "right": "The alkene used to produce poly(propene) is propene, which has the C=C."
-        }
-      ],
+      "spec_codes": ["AQA 4.7.3.1"],
       "worked_example": {
         "exemplar_id": "5b943dba-e620-4ab7-a12a-fd43c88ebf65",
         "source": "AQA jun 2018, Paper 2 (F), Q06.3",
         "question": "Disposable cups are made from coated paper or poly(styrene).\n\nComplete the sentences.\nChoose answers from the box.\n\nceramics   composites   four   many   monomers   polymers   two\n\nPoly(styrene) is produced from small molecules called ______ .\nWhen poly(styrene) is made, ______ styrene molecules join to form large molecules.\nThese large molecules are called ______ .",
         "marks": 3,
-        "answer_points": [
-          "monomers",
-          "many",
-          "polymers"
-        ],
+        "answer_points": ["monomers", "many", "polymers"],
         "tip": "One mark for each word. The words must be in this order."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.17C",
-        "EDEX 9.18C",
-        "EDEX 9.19C",
-        "EDEX 9.20C",
-        "EDEX 9.21C"
-      ],
-      "exam_phrases": [
-        "double bond (in monomer) breaks / opens up",
-        "monomers link / join together",
-        "to form a (long) chain",
-        "non-toxic so stops food being poisonous",
-        "unreactive so it does not react with the food",
-        "does not conduct electricity / insulator",
-        "slippery / non-stick",
-        "high melting point"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A plastic food wrapping must be strong, cheap or transparent.",
-          "right": "Strong, tough, transparent and cheap are ignored. Give a property with a linked reason, such as flexible so it can wrap all around the food."
-        },
-        {
-          "wrong": "A plastic wrapping stops food going off.",
-          "right": "Stops food going off is ignored. Say it is impermeable to air, which stops food oxidation or reaction with air."
-        },
-        {
-          "wrong": "PTFE is used on pans because it is strong and has a high boiling point.",
-          "right": "Strong and high boiling point are ignored. Say it is non-stick or slippery, or has a high melting point."
-        }
-      ],
+      "spec_codes": ["EDEX 9.17C", "EDEX 9.18C", "EDEX 9.19C", "EDEX 9.20C", "EDEX 9.21C"],
       "worked_example": {
         "exemplar_id": "42c82a9a-16dd-44e6-be10-cef1c8a505bb",
         "source": "EDEXCEL jun 2023, Paper 2 (F), Q10(c)(ii)",
@@ -312,21 +230,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.2d",
-        "OCR C6.2g"
-      ],
-      "exam_phrases": [
-        "alkenes react with bromine water / bromine water is decolourised",
-        "bromine water changes from orange to colourless",
-        "alkanes do not react with bromine water"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Alkanes and alkenes both decolourise bromine water.",
-          "right": "Alkanes do not react with bromine water. Only an alkene, which has C=C like a monomer, turns it from orange to colourless."
-        }
-      ],
+      "spec_codes": ["OCR C6.2d", "OCR C6.2g"],
       "extra": [
         {
           "heading": "OCR only: writing a polymer",

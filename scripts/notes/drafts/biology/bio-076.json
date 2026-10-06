@@ -8,7 +8,10 @@
     {
       "heading": "Water balance",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) Water and ions are gained and lost every day. This section covers where they go and what happens if the balance is wrong." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Water and ions are gained and lost every day. This section covers where they go and what happens if the balance is wrong."
+        },
         {
           "type": "table",
           "columns": ["Water is gained from", "Water is lost through"],
@@ -29,9 +32,18 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Total gained.", "text": "Food and drink 2.4 litres plus 0.3 litres from respiration = 2.7 litres." },
-            { "lead": "Other losses.", "text": "Skin and lungs 1.0 litre plus faeces 0.1 litres = 1.1 litres." },
-            { "lead": "Urine.", "text": "If the balance is steady, urine = 2.7 − 1.1 = 1.6 litres." }
+            {
+              "lead": "Total gained.",
+              "text": "Food and drink 2.4 litres plus 0.3 litres from respiration = 2.7 litres."
+            },
+            {
+              "lead": "Other losses.",
+              "text": "Skin and lungs 1.0 litre plus faeces 0.1 litres = 1.1 litres."
+            },
+            {
+              "lead": "Urine.",
+              "text": "If the balance is steady, urine = 2.7 − 1.1 = 1.6 litres."
+            }
           ]
         },
         {
@@ -41,10 +53,24 @@
             "alt": "Practise working out the volume of urine from the water gained and lost in a day.",
             "question": "In one day a person gains **{fd} litres** of water in food and drink and 0.3 litres from respiration. They lose **{sk} litres** through the skin and lungs and 0.1 litres in faeces. Their water balance is steady. Calculate the volume of urine they produce, in litres.",
             "variables": [
-              { "id": "fd", "min": 1.8, "max": 2.6, "step": 0.1 },
-              { "id": "sk", "min": 0.7, "max": 1.2, "step": 0.1 }
+              {
+                "id": "fd",
+                "min": 1.8,
+                "max": 2.6,
+                "step": 0.1
+              },
+              {
+                "id": "sk",
+                "min": 0.7,
+                "max": 1.2,
+                "step": 0.1
+              }
             ],
-            "answer": { "formula": "fd + 0.3 - sk - 0.1", "unit": "litres", "decimals": 1 },
+            "answer": {
+              "formula": "fd + 0.3 - sk - 0.1",
+              "unit": "litres",
+              "decimals": 1
+            },
             "working": [
               "Water gained = {fd} + 0.3 litres",
               "Water lost, not counting urine = {sk} + 0.1 litres",
@@ -64,13 +90,24 @@
     {
       "heading": "Water and ions in body cells",
       "blocks": [
-        { "type": "paragraph", "text": "Animal cells have no cell wall, so water entering or leaving them by osmosis changes them." },
+        {
+          "type": "paragraph",
+          "text": "Animal cells have no cell wall, so water entering or leaving them by osmosis changes them."
+        },
         {
           "type": "table",
           "columns": ["Blood compared with the cells", "Water moves", "Effect on the cell"],
           "rows": [
-            ["More dilute, for example low sodium ion level", "Into the cells by osmosis", "The cell swells and may burst (lysis)"],
-            ["More concentrated, for example high blood glucose or dehydration", "Out of the cells by osmosis", "The cell shrinks and shrivels"]
+            [
+              "More dilute, for example low sodium ion level",
+              "Into the cells by osmosis",
+              "The cell swells and may burst (lysis)"
+            ],
+            [
+              "More concentrated, for example high blood glucose or dehydration",
+              "Out of the cells by osmosis",
+              "The cell shrinks and shrivels"
+            ]
           ]
         },
         {
@@ -85,21 +122,42 @@
     {
       "heading": "Making and removing urea",
       "blocks": [
-        { "type": "paragraph", "text": "Proteins are made of amino acids. The body cannot store excess amino acids, so it gets rid of them." },
+        {
+          "type": "paragraph",
+          "text": "Proteins are made of amino acids. The body cannot store excess amino acids, so it gets rid of them."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Urea", "meaning": "A waste substance made when excess amino acids are broken down in the liver." },
-            { "term": "Filtration", "meaning": "Small molecules such as urea, glucose and water are forced out of the blood in the kidney. Useful ones are reabsorbed later." }
+            {
+              "term": "Urea",
+              "meaning": "A waste substance made when excess amino acids are broken down in the liver."
+            },
+            {
+              "term": "Filtration",
+              "meaning": "Small molecules such as urea, glucose and water are forced out of the blood in the kidney. Useful ones are reabsorbed later."
+            }
           ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Breakdown.", "text": "Excess amino acids are broken down in the liver. Urea is made." },
-            { "lead": "Transport.", "text": "The urea is carried in the blood to the kidneys." },
-            { "lead": "Filtering.", "text": "The kidneys filter the urea out of the blood. It is not reabsorbed." },
-            { "lead": "Excretion.", "text": "The urea leaves the body in the urine." }
+            {
+              "lead": "Breakdown.",
+              "text": "Excess amino acids are broken down in the liver. Urea is made."
+            },
+            {
+              "lead": "Transport.",
+              "text": "The urea is carried in the blood to the kidneys."
+            },
+            {
+              "lead": "Filtering.",
+              "text": "The kidneys filter the urea out of the blood. It is not reabsorbed."
+            },
+            {
+              "lead": "Excretion.",
+              "text": "The urea leaves the body in the urine."
+            }
           ]
         },
         {
@@ -132,28 +190,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 5.10"],
-      "exam_phrases": [
-        "(more) sweating, because exercise releases heat / need to cool the body",
-        "more energy needed, so more (aerobic) respiration",
-        "increased breathing (rate / depth) to supply oxygen or remove carbon dioxide / water",
-        "blood entering the kidneys goes through filtration",
-        "glucose is not found in urine because of reabsorption",
-        "passes through the filter in the kidney, (some / all) not reabsorbed back into the blood"
-      ],
-      "mistakes": [
-        {
-          "wrong": "More water is lost by breathing because more energy is needed for respiration.",
-          "right": "\"Energy needed for respiration\" and \"energy production\" are not accepted. Say more energy is needed, so more (aerobic) respiration, so breathing rate or depth increases."
-        },
-        {
-          "wrong": "More water is lost through the skin during the race because the blood vessels dilate and energy is produced.",
-          "right": "Vasodilation and vasoconstriction are ignored here, and \"energy being produced\" is not accepted. Say more sweating, because exercise releases heat and the body needs to cool."
-        },
-        {
-          "wrong": "A toxic substance is in the urine because it is not absorbed into the blood.",
-          "right": "\"Not absorbed into the blood\" is ignored. Say it passes through the filter in the kidney and is not reabsorbed back into the blood."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "7cebf4de-baa3-445d-8d89-33a5124f3283",
         "source": "AQA jun 2018, Paper 2 (F), Q11.4",
@@ -169,24 +205,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.22B", "EDEX 7.10B"],
-      "exam_phrases": [
-        "(urea) is produced in the liver from (excess) amino acids / protein",
-        "excess amino acids are broken down into urea",
-        "deamination",
-        "transported in the blood to the kidney",
-        "enter the nephron during ultrafiltration",
-        "not reabsorbed back into the blood"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Urea is made in the kidneys from carbohydrates.",
-          "right": "State where and how: urea is produced in the liver from excess amino acids (or protein). The process is called deamination."
-        },
-        {
-          "wrong": "The urine has a high concentration of urea because the urea is reabsorbed into the blood.",
-          "right": "Urea passes through the nephron and is not reabsorbed back into the blood. It forms urine in the collecting duct."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "c4bb07c5-0cf7-4c05-ad6e-886c8b688f87",
         "source": "EDEXCEL jun 2022, Paper 2 (H), Q10(c)",
@@ -206,25 +224,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 3.3g", "OCR 3.3f", "OCR 3.3j"],
-      "exam_phrases": [
-        "(water lost) in sweat when running / exercising",
-        "the water concentration in the blood falls",
-        "the kidney (tubules) will reabsorb more water into the blood",
-        "making the urine more concentrated, a lower volume of urine",
-        "water enters cells by osmosis; lysis may happen",
-        "water moves from (body) cells into the blood, by osmosis",
-        "the blood has a higher concentration, so a lower water potential"
-      ],
-      "mistakes": [
-        {
-          "wrong": "High blood glucose makes the blood thicker, so water leaves the cells.",
-          "right": "Reference to the viscosity of blood is ignored. Say the blood has a higher concentration of sugar, so a lower water potential, and water moves out of the cells by osmosis."
-        },
-        {
-          "wrong": "Low sodium ion levels make the blood more concentrated, so water leaves the body cells.",
-          "right": "Low sodium makes the blood less concentrated, with a higher water potential. Water enters the cells by osmosis and they may burst (lysis)."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "0226b3ae-140c-416d-a2f5-cfc2540eed08",
         "source": "OCR jun 2023, Paper 1, Q18(b)(ii)",
@@ -244,7 +243,10 @@
         {
           "heading": "Temperature and osmotic challenges (OCR)",
           "blocks": [
-            { "type": "paragraph", "text": "OCR links exercise, sweating and drinks to the water and salt balance of the body." },
+            {
+              "type": "paragraph",
+              "text": "OCR links exercise, sweating and drinks to the water and salt balance of the body."
+            },
             {
               "type": "list",
               "items": [

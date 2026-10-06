@@ -117,17 +117,11 @@
             "kind": "predictor",
             "alt": "Pick a threat to food security and see what changes and how it affects the amount of food.",
             "prompt": "Pick a threat to food security.",
-            "result_labels": [
-              "What changes",
-              "Effect on food security"
-            ],
+            "result_labels": ["What changes", "Effect on food security"],
             "options": [
               {
                 "label": "Population growth",
-                "results": [
-                  "More people to feed",
-                  "Less food to go round unless production rises"
-                ]
+                "results": ["More people to feed", "Less food to go round unless production rises"]
               },
               {
                 "label": "More meat in diets",
@@ -213,27 +207,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 7.13"
-      ],
-      "exam_phrases": [
-        "less land required",
-        "(so) more space for crops (for humans)",
-        "less methane (from animals) therefore less global warming",
-        "less harmful effects of global warming on (human) food production",
-        "less energy lost as heat",
-        "less energy lost in movement"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Rearing cows indoors is more efficient because less energy is produced.",
-          "right": "\"Energy produced / made / created\" is not accepted. Say less energy is lost as heat, and less energy is lost in movement."
-        },
-        {
-          "wrong": "A disadvantage of rearing cows indoors is that it is cruel and costs more.",
-          "right": "\"Cruelty\" and \"cost\" unqualified are ignored. Say disease spreads more easily or more antibiotics are used, the cost of heating, lighting, food or drugs, or aggression and stress reduce productivity."
-        }
-      ],
+      "spec_codes": ["AQA 7.13"],
       "worked_example": {
         "exemplar_id": "dff5d7da-ad76-496d-a96b-1f5a4dc696a4",
         "source": "AQA jun 2020, Paper 2 (H), Q07.3",
@@ -249,32 +223,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.11B"
-      ],
-      "exam_phrases": [
-        "there will be less food for people to eat",
-        "farming meat does not produce as much food (per acre as arable farming)",
-        "more land used for meat farming / animal feed",
-        "less arable land / food (crops) grown for humans",
-        "food prices will increase",
-        "poor people can't obtain / afford as much food",
-        "food security will be reduced"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A mould killed the potatoes in Ireland.",
-          "right": "State the effect on food security. Food security decreased because there was less food or a reduced variety of food, as potatoes could not be harvested or food could not be obtained from other countries."
-        },
-        {
-          "wrong": "Lower crop yields mean people do not have food.",
-          "right": "Link the steps. Food security is reduced, as there is less food. Food prices increase, so poor people cannot afford as much food and may be malnourished."
-        },
-        {
-          "wrong": "Growing biofuel crops is only a disadvantage because it uses land.",
-          "right": "The top level needs at least three points including at least one advantage and one disadvantage, each linked to a detail."
-        }
-      ],
+      "spec_codes": ["EDEX 9.11B"],
       "worked_example": {
         "exemplar_id": "227b599e-12fa-4c01-be12-7cc16f4735c4",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q4(d)(ii)",
@@ -298,10 +247,7 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Advantage",
-                "Disadvantage"
-              ],
+              "columns": ["Advantage", "Disadvantage"],
               "rows": [
                 [
                   "Provides jobs and money for the local economy",
@@ -348,33 +294,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.2a"
-      ],
-      "exam_phrases": [
-        "food security",
-        "disease / predators",
-        "pests / pathogens / invasive species",
-        "increasing population means there is less food to go round",
-        "new pests and pathogens will result in lower yields of crops",
-        "changes to the environment / weather might reduce crop yields",
-        "costs of agricultural inputs may be too high for farmers to afford",
-        "they can reproduce / breed very quickly"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Biotic factors such as drought can prevent a population being fed.",
-          "right": "Biotic factors are living ones. Give disease, predators, pests, pathogens or invasive species."
-        },
-        {
-          "wrong": "If soil lacks minerals, minerals can be added.",
-          "right": "\"Minerals\" is ignored. Add fertilisers, manure or compost, or name nitrates or phosphates."
-        },
-        {
-          "wrong": "Fewer people in Haiti are short of food than in the USA, because 5.5 million is less than 10.0 million.",
-          "right": "Compare the percentage and the number. A much larger percentage of people in Haiti (48% against 3%) are short of food, but more people in the USA (10.0 million against 5.5 million)."
-        }
-      ],
+      "spec_codes": ["OCR 6.2a"],
       "worked_example": {
         "exemplar_id": "d9775ce8-ea52-4775-9f81-a9192d6cc3e0",
         "source": "OCR jun 2024, Paper 2, Q23(c)",

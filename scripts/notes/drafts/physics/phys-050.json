@@ -3,18 +3,30 @@
   "concept_id": "phys-050",
   "subject": "physics",
   "title": "Pressure and pressure in liquids",
-  "key_idea": "(Separate science) Pressure is force per unit area, **p = F ÷ A**. A fluid pushes at right angles on any surface it touches. In a liquid, pressure increases with depth and with density, **p = h × ρ × g**.",
+  "key_idea": "(Separate science) Pressure is force per unit area, **p = F ÷ A**. A fluid pushes at right angles on any surface it touches. (AQA: Higher tier) In a liquid, pressure increases with depth and with density, **p = h × ρ × g**.",
   "sections": [
     {
       "heading": "Pressure, force and area",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) This section covers what pressure is and how to calculate it from a force and an area." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers what pressure is and how to calculate it from a force and an area."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Fluid", "meaning": "A liquid or a gas." },
-            { "term": "Pressure", "meaning": "The force acting normally (at right angles) on each unit of area of a surface." },
-            { "term": "Pascal (Pa)", "meaning": "The unit of pressure. One pascal is one newton per square metre (N/m²)." }
+            {
+              "term": "Fluid",
+              "meaning": "A liquid or a gas."
+            },
+            {
+              "term": "Pressure",
+              "meaning": "The force acting normally (at right angles) on each unit of area of a surface."
+            },
+            {
+              "term": "Pascal (Pa)",
+              "meaning": "The unit of pressure. One pascal is one newton per square metre (N/m²)."
+            }
           ]
         },
         {
@@ -49,9 +61,18 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Write the equation.", "text": "p = F ÷ A" },
-            { "lead": "Substitute.", "text": "A tank bottom of area 0.80 m² has a force of 2400 N on it: p = 2400 ÷ 0.80" },
-            { "lead": "Evaluate.", "text": "p = 3000 Pa" }
+            {
+              "lead": "Write the equation.",
+              "text": "p = F ÷ A"
+            },
+            {
+              "lead": "Substitute.",
+              "text": "A tank bottom of area 0.80 m² has a force of 2400 N on it: p = 2400 ÷ 0.80"
+            },
+            {
+              "lead": "Evaluate.",
+              "text": "p = 3000 Pa"
+            }
           ]
         },
         {
@@ -61,15 +82,25 @@
             "alt": "Calculate the pressure that a force exerts on an area.",
             "question": "A force of {F} N acts at right angles on an area of {A} m². Calculate the pressure.",
             "variables": [
-              { "id": "F", "min": 100, "max": 2000, "step": 100 },
-              { "id": "A", "min": 0.5, "max": 5, "step": 0.5 }
+              {
+                "id": "F",
+                "min": 100,
+                "max": 2000,
+                "step": 100
+              },
+              {
+                "id": "A",
+                "min": 0.5,
+                "max": 5,
+                "step": 0.5
+              }
             ],
-            "answer": { "formula": "F / A", "unit": "Pa", "decimals": 1 },
-            "working": [
-              "p = F ÷ A",
-              "p = {F} ÷ {A}",
-              "p = {answer} Pa"
-            ]
+            "answer": {
+              "formula": "F / A",
+              "unit": "Pa",
+              "decimals": 1
+            },
+            "working": ["p = F ÷ A", "p = {F} ÷ {A}", "p = {answer} Pa"]
           }
         },
         {
@@ -85,7 +116,10 @@
     {
       "heading": "Pressure in a liquid",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) This section covers how the pressure in a liquid depends on depth and density." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers how the pressure in a liquid depends on depth and density."
+        },
         {
           "type": "list",
           "items": [
@@ -109,9 +143,18 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Write the equation.", "text": "p = h × ρ × g" },
-            { "lead": "Substitute.", "text": "A column 0.5 m tall of liquid of density 1100 kg/m³, with g = 10 N/kg: p = 0.5 × 1100 × 10" },
-            { "lead": "Evaluate.", "text": "p = 5500 Pa" }
+            {
+              "lead": "Write the equation.",
+              "text": "p = h × ρ × g"
+            },
+            {
+              "lead": "Substitute.",
+              "text": "A column 0.5 m tall of liquid of density 1100 kg/m³, with g = 10 N/kg: p = 0.5 × 1100 × 10"
+            },
+            {
+              "lead": "Evaluate.",
+              "text": "p = 5500 Pa"
+            }
           ]
         },
         {
@@ -124,15 +167,44 @@
             "kind": "slider",
             "alt": "Change the depth and the liquid and see the pressure due to the liquid.",
             "inputs": [
-              { "id": "h", "label": "Depth", "unit": "m", "min": 1, "max": 50, "step": 1, "value": 10 },
-              { "id": "rho", "label": "Liquid", "choices": [
-                { "label": "Fresh water (1000 kg/m³)", "value": 1000 },
-                { "label": "Sea water (1030 kg/m³)", "value": 1030 }
-              ] }
+              {
+                "id": "h",
+                "label": "Depth",
+                "unit": "m",
+                "min": 1,
+                "max": 50,
+                "step": 1,
+                "value": 10
+              },
+              {
+                "id": "rho",
+                "label": "Liquid",
+                "choices": [
+                  {
+                    "label": "Fresh water (1000 kg/m³)",
+                    "value": 1000
+                  },
+                  {
+                    "label": "Sea water (1030 kg/m³)",
+                    "value": 1030
+                  }
+                ]
+              }
             ],
             "outputs": [
-              { "label": "Pressure due to the liquid (g = 10 N/kg)", "unit": "Pa", "formula": "h * rho * 10", "decimals": 0, "bar": true },
-              { "label": "Same pressure in kilopascals", "unit": "kPa", "formula": "h * rho * 10 / 1000", "decimals": 1 }
+              {
+                "label": "Pressure due to the liquid (g = 10 N/kg)",
+                "unit": "Pa",
+                "formula": "h * rho * 10",
+                "decimals": 0,
+                "bar": true
+              },
+              {
+                "label": "Same pressure in kilopascals",
+                "unit": "kPa",
+                "formula": "h * rho * 10 / 1000",
+                "decimals": 1
+              }
             ]
           }
         },
@@ -167,20 +239,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.5.5.1"],
-      "exam_phrases": [
-        "pascals or Pa",
-        "N/m²"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The unit of pressure is pa.",
-          "right": "Write Pa with a capital P. 'pa' is not accepted. N/m² is also allowed."
-        },
-        {
-          "wrong": "A piston has a force of 60 N and a pressure of 120 000 Pa, so the area is 0.0005 m² when standard form is asked for.",
-          "right": "Give the answer in the form asked for: 5.0 × 10⁻⁴ m². The standard form and the unit are separate marks."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "0e948eb6-951d-48fc-9b55-2f58c76fade9",
         "source": "AQA jun 2018, Paper 2 (H), Q04.3",
@@ -200,46 +258,28 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(Higher tier) For this course, the pressure due to a column of liquid, p = h × ρ × g, and how it changes with depth and density are Higher tier only. Pressure from force and area is for all students."
+              "text": "(AQA: Higher tier) For this course, the pressure due to a column of liquid, p = h × ρ × g, and how it changes with depth and density are Higher tier only. Pressure from force and area is for all students."
             }
           ]
         }
       ]
     },
     "edexcel": {
-      "spec_codes": ["EDEX 15.8P", "EDEX 15.9P", "EDEX 15.10P", "EDEX 15.11P", "EDEX 15.12P", "EDEX 15.13P", "EDEX 15.14P"],
-      "exam_phrases": [
-        "same force at tip and head",
-        "pointed end has a very small surface area",
-        "at pointed end the pressure is large",
-        "flat end has a large surface area",
-        "at flat end the pressure is much less",
-        "using pressure = force / area"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The container is 6.0 m by 2.0 m with weight 15 000 N, so the pressure is 15 000 ÷ 6.0.",
-          "right": "Find the area first: 6.0 × 2.0 = 12 m². Then p = 15 000 ÷ 12 = 1250 Pa, about 1300 Pa. The area is worth a mark."
-        },
-        {
-          "wrong": "The force on the ice is 4.8 × 10⁷ × 1.2 × 10⁻⁵ = 576 N.",
-          "right": "The question asks for 2 significant figures. Round 576 N to 580 N. The rounding is the third mark."
-        },
-        {
-          "wrong": "The drawing pin goes into the wood because there is more force at the tip than at the head.",
-          "right": "The force is the same at the tip and the head. The pointed end has a very small area, so the pressure is large."
-        }
+      "spec_codes": [
+        "EDEX 15.8P",
+        "EDEX 15.9P",
+        "EDEX 15.10P",
+        "EDEX 15.11P",
+        "EDEX 15.12P",
+        "EDEX 15.13P",
+        "EDEX 15.14P"
       ],
       "worked_example": {
         "exemplar_id": "fce8b390-a3f7-4069-ba4e-dffe6501c9f1",
         "source": "EDEXCEL nov 2021, Paper 2 (F), Q10(a)(i)",
         "question": "The bottom of a water tank has an area of 0.80 m². The force on the bottom of the tank, due to the water, is 2400 N. Calculate the pressure, due to the water, on the bottom of the tank.",
         "marks": 3,
-        "answer_points": [
-          "p = F ÷ A",
-          "p = 2400 ÷ 0.8",
-          "p = 3000 Pa"
-        ],
+        "answer_points": ["p = F ÷ A", "p = 2400 ÷ 0.8", "p = 3000 Pa"],
         "tip": "One mark each for recalling the equation, substituting and evaluating. The correct answer without working earns all three marks."
       },
       "extra": [
@@ -259,21 +299,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR P2.3n", "OCR P2.3o", "OCR P1.3j"],
-      "exam_phrases": [
-        "pressure increases as depth increases",
-        "each 10 metres of depth increases pressure by 1 (standard unit)",
-        "linear relationship"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A car weighs 12 000 N and each tyre has an area of 25 cm², so the pressure is 12 000 ÷ 25 = 480 N/cm².",
-          "right": "Four tyres touch the road. The total area is 4 × 25 = 100 cm². The pressure is 12 000 ÷ 100 = 120 N/cm²."
-        },
-        {
-          "wrong": "The pressure at the bottom of the measuring cylinder is 0.5 × 1100 = 550 Pa.",
-          "right": "Multiply by g as well. p = 0.5 × 1100 × 10 = 5500 Pa."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "57699e5a-0305-4626-bde3-5f90f46e5be2",
         "source": "OCR jun 2019, Paper 3, Q22(c)",

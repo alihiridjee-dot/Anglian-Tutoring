@@ -31,41 +31,19 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Name",
-            "Formula",
-            "Carbon atoms"
-          ],
+          "columns": ["Name", "Formula", "Carbon atoms"],
           "rows": [
-            [
-              "Methanol",
-              "CH₃OH",
-              "1"
-            ],
-            [
-              "Ethanol",
-              "CH₃CH₂OH (or C₂H₅OH)",
-              "2"
-            ],
-            [
-              "Propanol",
-              "CH₃CH₂CH₂OH (or C₃H₇OH)",
-              "3"
-            ],
-            [
-              "Butanol",
-              "CH₃CH₂CH₂CH₂OH (or C₄H₉OH)",
-              "4"
-            ]
+            ["Methanol", "CH₃OH", "1"],
+            ["Ethanol", "CH₃CH₂OH (or C₂H₅OH)", "2"],
+            ["Propanol", "CH₃CH₂CH₂OH (or C₃H₇OH)", "3"],
+            ["Butanol", "CH₃CH₂CH₂CH₂OH (or C₄H₉OH)", "4"]
           ]
         },
         {
           "type": "equation",
           "label": "General formula of an alcohol",
           "formula": "CₙH₂ₙ₊₁OH",
-          "where": [
-            "n is the number of carbon atoms, with no unit."
-          ]
+          "where": ["n is the number of carbon atoms, with no unit."]
         },
         {
           "type": "list",
@@ -99,10 +77,7 @@
             "kind": "predictor",
             "alt": "Pick a reaction of ethanol to see what you observe and what is made.",
             "prompt": "Pick a reaction of ethanol",
-            "result_labels": [
-              "What happens",
-              "Products"
-            ],
+            "result_labels": ["What happens", "Products"],
             "options": [
               {
                 "label": "Burn in air",
@@ -120,10 +95,7 @@
               },
               {
                 "label": "Add to water",
-                "results": [
-                  "It dissolves to make a neutral solution.",
-                  "No new substance is made."
-                ]
+                "results": ["It dissolves to make a neutral solution.", "No new substance is made."]
               },
               {
                 "label": "Warm with an oxidising agent",
@@ -275,30 +247,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.2.3"
-      ],
-      "exam_phrases": [
-        "ferment(ation)",
-        "add yeast",
-        "anaerobic (conditions) / in the absence of oxygen",
-        "warm / room temperature",
-        "a temperature value in the range 5–45 °C"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Ethanol is made from sugar solution by distillation.",
-          "right": "Distillation is ignored. The process is fermentation: add yeast to the sugar solution."
-        },
-        {
-          "wrong": "Heat the sugar solution strongly with yeast.",
-          "right": "Hot, heat and high temperature are ignored. Say warm, or room temperature, and anaerobic conditions."
-        },
-        {
-          "wrong": "C₄H₉OH + O₂ → CO₂ + H₂O is the equation for the complete combustion of butanol.",
-          "right": "With no multipliers this scores 1 mark at most. Balance it: C₄H₉OH + 6O₂ → 4CO₂ + 5H₂O."
-        }
-      ],
+      "spec_codes": ["AQA 4.7.2.3"],
       "worked_example": {
         "exemplar_id": "fc99d8cb-9348-4566-8421-d7ab4838339e",
         "source": "AQA jun 2018, Paper 2 (H), Q02.5",
@@ -313,37 +262,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.26C",
-        "EDEX 9.27C",
-        "EDEX 9.31C",
-        "EDEX 9.33C",
-        "EDEX 9.34C"
-      ],
-      "exam_phrases": [
-        "all have –OH group / same functional group",
-        "same general formula / CₙH₂ₙ₊₁OH",
-        "formulae differ by CH₂ units",
-        "all burn to form carbon dioxide and water",
-        "yeast provides enzymes",
-        "(at 80 °C) the enzymes are not effective / denatured",
-        "fractional distillation",
-        "propanol + oxygen → propanoic acid + water"
-      ],
-      "mistakes": [
-        {
-          "wrong": "They are in the same homologous series because they all contain a hydroxide group.",
-          "right": "Do not write hydroxide. Say the –OH group (hydroxyl group), or the same functional group."
-        },
-        {
-          "wrong": "The enzymes in the yeast are killed at 80 °C.",
-          "right": "Enzyme is killed is ignored. Say the enzymes are denatured or not effective at 80 °C."
-        },
-        {
-          "wrong": "Propanol + air → propanoic acid + water.",
-          "right": "Air is not acceptable for oxygen. Write propanol + oxygen → propanoic acid + water."
-        }
-      ],
+      "spec_codes": ["EDEX 9.26C", "EDEX 9.27C", "EDEX 9.31C", "EDEX 9.33C", "EDEX 9.34C"],
       "worked_example": {
         "exemplar_id": "4280f93c-688d-4194-b88f-6c2a021b9ac1",
         "source": "EDEXCEL jun 2018, Paper 2 (F), Q10(b)",
@@ -402,26 +321,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.2b",
-        "OCR C6.2c"
-      ],
-      "exam_phrases": [
-        "carbon dioxide",
-        "water",
-        "formulae (1 mark) and balancing (1 mark)",
-        "any correct multiple is allowed"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Write 'and' or '&' instead of '+' between the formulae in a combustion equation.",
-          "right": "Do not allow 'and' or '&' instead of '+'. Write C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O."
-        },
-        {
-          "wrong": "Balance an equation that uses a wrong formula and expect both marks.",
-          "right": "The balancing mark depends on correct formulae. Check each formula first, then balance."
-        }
-      ],
+      "spec_codes": ["OCR C6.2b", "OCR C6.2c"],
       "extra": [
         {
           "heading": "OCR only: oxidation by potassium manganate(VII)",

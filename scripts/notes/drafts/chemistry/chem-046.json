@@ -3,18 +3,30 @@
   "concept_id": "chem-046",
   "subject": "chemistry",
   "title": "Strong and weak acids",
-  "key_idea": "(Higher tier) A strong acid is completely ionised in water and a weak acid is only partially ionised. Strength is not the same as concentration. Each fall of one pH unit means ten times more hydrogen ions.",
+  "key_idea": "(AQA: Higher tier) A strong acid is completely ionised in water and a weak acid is only partially ionised. Strength is not the same as concentration. Each fall of one pH unit means ten times more hydrogen ions.",
   "sections": [
     {
       "heading": "Strong and weak acids",
       "blocks": [
-        { "type": "paragraph", "text": "(Higher tier) This section covers strength: how far an acid ionises in water. This topic is examined in the Higher tier papers." },
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) This section covers strength: how far an acid ionises in water. This topic is examined in the Higher tier papers."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Ionisation", "meaning": "An acid molecule splitting up in water to release hydrogen ions, H⁺." },
-            { "term": "Strong acid", "meaning": "An acid that is completely ionised in aqueous solution." },
-            { "term": "Weak acid", "meaning": "An acid that is only partially ionised in aqueous solution." }
+            {
+              "term": "Ionisation",
+              "meaning": "An acid molecule splitting up in water to release hydrogen ions, H⁺."
+            },
+            {
+              "term": "Strong acid",
+              "meaning": "An acid that is completely ionised in aqueous solution."
+            },
+            {
+              "term": "Weak acid",
+              "meaning": "An acid that is only partially ionised in aqueous solution."
+            }
           ]
         },
         {
@@ -33,11 +45,26 @@
             "alt": "A strong acid and a weak acid of the same concentration compared.",
             "items": ["Strong acid", "Weak acid"],
             "rows": [
-              { "feature": "Ionisation in water", "values": ["Complete", "Partial"] },
-              { "feature": "Concentration of H⁺ ions", "values": ["Higher", "Lower"] },
-              { "feature": "pH at the same concentration", "values": ["Lower", "Higher"] },
-              { "feature": "Reaction with magnesium", "values": ["Faster", "Slower"] },
-              { "feature": "Example", "values": ["Hydrochloric acid", "Ethanoic acid"] }
+              {
+                "feature": "Ionisation in water",
+                "values": ["Complete", "Partial"]
+              },
+              {
+                "feature": "Concentration of H⁺ ions",
+                "values": ["Higher", "Lower"]
+              },
+              {
+                "feature": "pH at the same concentration",
+                "values": ["Lower", "Higher"]
+              },
+              {
+                "feature": "Reaction with magnesium",
+                "values": ["Faster", "Slower"]
+              },
+              {
+                "feature": "Example",
+                "values": ["Hydrochloric acid", "Ethanoic acid"]
+              }
             ]
           }
         },
@@ -53,12 +80,21 @@
     {
       "heading": "Dilute and concentrated",
       "blocks": [
-        { "type": "paragraph", "text": "(Higher tier) Concentration describes how much acid is dissolved in a given volume. It is a different idea from strength." },
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) Concentration describes how much acid is dissolved in a given volume. It is a different idea from strength."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Concentrated", "meaning": "A large amount of acid dissolved in a given volume of solution." },
-            { "term": "Dilute", "meaning": "A small amount of acid dissolved in a given volume of solution." }
+            {
+              "term": "Concentrated",
+              "meaning": "A large amount of acid dissolved in a given volume of solution."
+            },
+            {
+              "term": "Dilute",
+              "meaning": "A small amount of acid dissolved in a given volume of solution."
+            }
           ]
         },
         {
@@ -83,7 +119,10 @@
     {
       "heading": "pH and hydrogen ion concentration",
       "blocks": [
-        { "type": "paragraph", "text": "(Higher tier) The pH depends on the concentration of hydrogen ions. Only whole-number changes in pH are needed." },
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) The pH depends on the concentration of hydrogen ions. Only whole-number changes in pH are needed."
+        },
         {
           "type": "list",
           "items": [
@@ -97,27 +136,60 @@
           "type": "equation",
           "label": "Change in hydrogen ion concentration",
           "formula": "factor = 10 ^ (change in pH)",
-          "where": ["change in pH: the number of whole pH units the pH changes by", "factor: how many times the H⁺ concentration changes. A fall in pH means a rise in H⁺ concentration, and a rise in pH means a fall"]
+          "where": [
+            "change in pH: the number of whole pH units the pH changes by",
+            "factor: how many times the H⁺ concentration changes. A fall in pH means a rise in H⁺ concentration, and a rise in pH means a fall"
+          ]
         },
         {
           "type": "diagram",
           "diagram": {
             "kind": "slider",
             "alt": "Move the pH of a strong acid to see how its hydrogen ion concentration compares with a solution of pH 7.",
-            "inputs": [{ "id": "p", "label": "pH of the strong acid", "min": 3, "max": 7, "step": 1, "value": 3 }],
-            "outputs": [
-              { "label": "H⁺ concentration compared with pH 7", "unit": "×", "formula": "10^(7 - p)", "decimals": 0 },
-              { "label": "pH after diluting the strong acid 10 times", "formula": "min(7, p + 1)", "decimals": 0 }
+            "inputs": [
+              {
+                "id": "p",
+                "label": "pH of the strong acid",
+                "min": 3,
+                "max": 7,
+                "step": 1,
+                "value": 3
+              }
             ],
-            "scene": { "kind": "ph", "ph": "p" }
+            "outputs": [
+              {
+                "label": "H⁺ concentration compared with pH 7",
+                "unit": "×",
+                "formula": "10^(7 - p)",
+                "decimals": 0
+              },
+              {
+                "label": "pH after diluting the strong acid 10 times",
+                "formula": "min(7, p + 1)",
+                "decimals": 0
+              }
+            ],
+            "scene": {
+              "kind": "ph",
+              "ph": "p"
+            }
           }
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Find the dilution factor.", "text": "10 cm³ made up to 1000 cm³ is a dilution by a factor of 1000 ÷ 10 = 100." },
-            { "lead": "Write it as powers of 10.", "text": "A factor of 100 is 10 × 10, so the pH changes by 2 units." },
-            { "lead": "Apply it to the pH.", "text": "Dilution raises the pH. From pH 2 the new pH is 2 + 2 = 4." }
+            {
+              "lead": "Find the dilution factor.",
+              "text": "10 cm³ made up to 1000 cm³ is a dilution by a factor of 1000 ÷ 10 = 100."
+            },
+            {
+              "lead": "Write it as powers of 10.",
+              "text": "A factor of 100 is 10 × 10, so the pH changes by 2 units."
+            },
+            {
+              "lead": "Apply it to the pH.",
+              "text": "Dilution raises the pH. From pH 2 the new pH is 2 + 2 = 4."
+            }
           ]
         },
         {
@@ -150,29 +222,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.4.2.6", "AQA T 5.4.2.5"],
-      "exam_phrases": [
-        "(an acid which) is partially ionised in aqueous solution",
-        "completely ionised (in aqueous solution)",
-        "small amount of acid per unit volume (dilute)",
-        "the concentration of hydrogen ions decreases (pH increases)",
-        "decreases by a factor of 100 (pH 1 to 3)",
-        "(a weak acid) produces a lower concentration of hydrogen ions",
-        "the frequency of collisions is lower"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A strong acid is one where the hydrogen ions are ionised.",
-          "right": "Hydrogen is ionising and H⁺ are ionised are not accepted. The acid is completely ionised (or dissociated) in aqueous solution."
-        },
-        {
-          "wrong": "A strong acid is one with a low pH.",
-          "right": "References to pH are ignored when asked what strong means. Say the acid is completely ionised in aqueous solution."
-        },
-        {
-          "wrong": "Ethanoic acid reacts more slowly because there are fewer acid molecules.",
-          "right": "Both solutions have the same concentration. Ethanoic acid is weak, so it is partially ionised, the concentration of hydrogen ions is lower and collisions are less frequent."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "2b641260-919c-4ad8-b2ff-38d12b783bd0",
         "source": "AQA jun 2018, Paper 1 (H), Q09.1",
@@ -187,29 +236,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.5", "EDEX 3.7", "EDEX 3.8"],
-      "exam_phrases": [
-        "acid fully {dissociated / ionised}",
-        "forming {hydrogen / H+} ions",
-        "dilute: low concentration of the {solute / acid / H+ ions}",
-        "partially {dissociated / ionised}",
-        "concentration of H+ ions lower than concentration of acid",
-        "ten (times) / 10 (×) (one pH unit)",
-        "pH {increases / goes up} by one"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A dilute acid is not concentrated.",
-          "right": "Not concentrated and weak concentration are ignored. Say dilute means a low concentration of the acid (or solute)."
-        },
-        {
-          "wrong": "A strong acid has a low pH.",
-          "right": "All references to pH are ignored. Say a strong acid is fully dissociated (ionised) to form hydrogen ions."
-        },
-        {
-          "wrong": "When the hydrogen ion concentration decreases by a factor of 10, the pH increases.",
-          "right": "Increases alone is ignored. Say the pH increases by one."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "c83d8546-29f3-4cd0-b52a-baa84af62ddd",
         "source": "EDEXCEL jun 2024, Paper 1 (H), Q9(a)(ii)",
@@ -226,28 +252,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR C3.3g", "OCR C3.3j"],
-      "exam_phrases": [
-        "strong acids are fully ionised or completely dissociated (in aqueous solution)",
-        "weak acids are partially ionised or not completely dissociated",
-        "a dilute solution has a low ratio of acid to volume of solution",
-        "a strong acid can be made into a concentrated or a dilute solution",
-        "concentration of H+ decreased by a factor of 100, pH increased by 2",
-        "using a higher ratio of acid to water"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Strong acids have many H⁺ ions and weak acids have few H⁺ ions.",
-          "right": "Many or few H⁺ ions, or a high or low concentration of H⁺ ions, is not allowed in a definition. Say strong acids are fully ionised and weak acids are partially ionised."
-        },
-        {
-          "wrong": "A strong acid is more ionised than a weak acid.",
-          "right": "More ionised is ignored. Say a strong acid is fully ionised or completely dissociated."
-        },
-        {
-          "wrong": "The pH increases by 2, so the concentration decreases by a factor of 2.",
-          "right": "Each pH unit is a factor of 10, so two units is 10 × 10 = 100."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "edd2f9ad-8f66-48fa-b1fc-9ce777cfea60",
         "source": "OCR nov 2021, Paper 3, Q22(d)(ii)",

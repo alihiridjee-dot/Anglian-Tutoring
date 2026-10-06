@@ -3,7 +3,7 @@
   "concept_id": "bio-082",
   "subject": "biology",
   "title": "Contraception",
-  "key_idea": "Contraception lowers the chance of pregnancy. Hormonal methods inhibit FSH so no egg matures. (Higher tier) They also inhibit LH so no egg is released. Non-hormonal methods block or kill sperm, or stop an embryo implanting.",
+  "key_idea": "Contraception lowers the chance of pregnancy. Hormonal methods inhibit FSH so no egg matures. They also inhibit LH so no egg is released. Non-hormonal methods block or kill sperm, or stop an embryo implanting.",
   "sections": [
     {
       "heading": "Hormonal contraception",
@@ -22,7 +22,7 @@
         },
         {
           "type": "subheading",
-          "text": "How the hormones work (Higher tier)"
+          "text": "How the hormones work"
         },
         {
           "type": "list",
@@ -37,7 +37,7 @@
           "type": "key-points",
           "items": [
             "Hormonal contraception inhibits FSH, so eggs do not mature.",
-            "(Higher tier) Inhibiting LH prevents ovulation.",
+            "Inhibiting LH prevents ovulation.",
             "Injection, implant and patch release hormone slowly."
           ]
         }
@@ -56,11 +56,7 @@
             "kind": "sort",
             "alt": "Sort contraceptive methods by how they work.",
             "prompt": "How does each method prevent pregnancy?",
-            "groups": [
-              "Hormones inhibit eggs",
-              "Barrier stops sperm reaching egg",
-              "Other"
-            ],
+            "groups": ["Hormones inhibit eggs", "Barrier stops sperm reaching egg", "Other"],
             "items": [
               {
                 "text": "Contraceptive pill",
@@ -122,11 +118,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Method",
-            "Advantages",
-            "Disadvantages"
-          ],
+          "columns": ["Method", "Advantages", "Disadvantages"],
           "rows": [
             [
               "Pill",
@@ -205,34 +197,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 5.13",
-        "AQA T 4.5.3.4"
-      ],
-      "exam_phrases": [
-        "to inhibit / reduce / prevent FSH (release)",
-        "(lack of FSH) so no eggs mature / develop",
-        "(lack of LH) so no eggs released or so prevents ovulation",
-        "(progesterone) thickens (cervical) mucus",
-        "slow release of progesterone / hormone into blood",
-        "prevents sperm reaching egg",
-        "prevents implantation",
-        "kills sperm"
-      ],
-      "mistakes": [
-        {
-          "wrong": "An advantage of the pill is that you do not get pregnant.",
-          "right": "\"You do not get pregnant\" is ignored. Give a specific advantage, such as very reliable, easy to take, or no need to rely on a partner."
-        },
-        {
-          "wrong": "The contraceptive pill is a barrier that stops sperm reaching the egg.",
-          "right": "The pill contains hormones to stop eggs maturing. A diaphragm is the barrier that prevents sperm reaching the egg. Spermicidal cream kills sperm."
-        },
-        {
-          "wrong": "The pill protects against sexually transmitted infections.",
-          "right": "The pill does not protect against STIs. That is a disadvantage compared with a barrier method such as a condom."
-        }
-      ],
+      "spec_codes": ["AQA 5.13", "AQA T 4.5.3.4"],
       "worked_example": {
         "exemplar_id": "83f1e189-d4fd-4260-9a50-5ec09a0a53a0",
         "source": "AQA jun 2022, Paper 2 (F), Q05.4",
@@ -250,33 +215,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 7.6",
-        "EDEX 7.7"
-      ],
-      "exam_phrases": [
-        "inhibits the production of FSH",
-        "(no FSH means) no eggs will be matured",
-        "progesterone inhibits LH",
-        "prevents ovulation",
-        "thickens cervical mucus to prevent the sperm reaching the egg",
-        "thins the lining of the uterus so less chance of implanting",
-        "stops the sperm and the egg from meeting, so there will be no fertilisation"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Oestrogen inhibits LH.",
-          "right": "Oestrogen inhibits FSH, so the egg or follicle cannot mature. Progesterone inhibits LH (or FSH)."
-        },
-        {
-          "wrong": "The pill prevents the production of eggs.",
-          "right": "\"Prevents production of eggs\" is ignored. Say it inhibits FSH or LH, which prevents maturation of a follicle or ovulation."
-        },
-        {
-          "wrong": "The pill works because no eggs are released.",
-          "right": "That repeats the question. Say how: oestrogen inhibits FSH so the egg or follicle cannot mature, and progesterone inhibits LH or FSH."
-        }
-      ],
+      "spec_codes": ["EDEX 7.6", "EDEX 7.7"],
       "worked_example": {
         "exemplar_id": "072b8f39-6232-404e-89b3-70bfdcf81c5f",
         "source": "EDEXCEL nov 2021, Paper 2 (H), Q6(b)(ii)",
@@ -292,27 +231,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 3.2e"
-      ],
-      "exam_phrases": [
-        "treatment contains oestrogen / progesterone / both",
-        "inhibits LH, which controls ovulation",
-        "inhibits FSH, which matures eggs",
-        "prevents ovulation",
-        "prevents egg maturing",
-        "thickens mucus"
-      ],
-      "mistakes": [
-        {
-          "wrong": "An IUD is a hormonal method of contraception.",
-          "right": "OCR counts the IUD as non-hormonal. Hormonal and non-hormonal together is allowed, but hormonal on its own is not."
-        },
-        {
-          "wrong": "The implant is more successful because it works better.",
-          "right": "Use the data. Fewer women get pregnant with the implant in a year, and it removes user error because you do not have to remember to take a pill."
-        }
-      ],
+      "spec_codes": ["OCR 3.2e"],
       "worked_example": {
         "exemplar_id": "a3befdca-b968-4d12-87c9-7dd94f809984",
         "source": "OCR jun 2019, Paper 3, Q19(b)",

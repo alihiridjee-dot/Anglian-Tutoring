@@ -8,15 +8,33 @@
     {
       "heading": "The water cycle",
       "blocks": [
-        { "type": "paragraph", "text": "Water is continuously evaporated and precipitated. This section covers the processes in the cycle and why living things depend on it." },
+        {
+          "type": "paragraph",
+          "text": "Water is continuously evaporated and precipitated. This section covers the processes in the cycle and why living things depend on it."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Evaporation", "meaning": "Liquid water changing into water vapour, mainly from the sea, lakes and soil." },
-            { "term": "Transpiration", "meaning": "Water vapour lost from the leaves of plants." },
-            { "term": "Condensation", "meaning": "Water vapour cooling and changing into tiny droplets of liquid water, forming clouds." },
-            { "term": "Precipitation", "meaning": "Water falling from the clouds to the ground as rain, snow, sleet or hail." },
-            { "term": "Run-off", "meaning": "Water flowing over the land into streams, rivers, lakes and the sea." }
+            {
+              "term": "Evaporation",
+              "meaning": "Liquid water changing into water vapour, mainly from the sea, lakes and soil."
+            },
+            {
+              "term": "Transpiration",
+              "meaning": "Water vapour lost from the leaves of plants."
+            },
+            {
+              "term": "Condensation",
+              "meaning": "Water vapour cooling and changing into tiny droplets of liquid water, forming clouds."
+            },
+            {
+              "term": "Precipitation",
+              "meaning": "Water falling from the clouds to the ground as rain, snow, sleet or hail."
+            },
+            {
+              "term": "Run-off",
+              "meaning": "Water flowing over the land into streams, rivers, lakes and the sea."
+            }
           ]
         },
         {
@@ -46,7 +64,10 @@
     {
       "heading": "Why the water cycle matters to living things",
       "blocks": [
-        { "type": "paragraph", "text": "All living things need water. The water cycle provides fresh water for plants and animals on land before it drains into the seas." },
+        {
+          "type": "paragraph",
+          "text": "All living things need water. The water cycle provides fresh water for plants and animals on land before it drains into the seas."
+        },
         {
           "type": "list",
           "items": [
@@ -69,15 +90,27 @@
     {
       "heading": "Potable water and desalination",
       "blocks": [
-        { "type": "paragraph", "text": "Potable water is safe to drink. In places with a drought, or too little fresh water, it can be made from seawater." },
+        {
+          "type": "paragraph",
+          "text": "Potable water is safe to drink. In places with a drought, or too little fresh water, it can be made from seawater."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Potable water", "meaning": "Water that is safe to drink." },
-            { "term": "Desalination", "meaning": "Removing the salt from seawater to make fresh water." }
+            {
+              "term": "Potable water",
+              "meaning": "Water that is safe to drink."
+            },
+            {
+              "term": "Desalination",
+              "meaning": "Removing the salt from seawater to make fresh water."
+            }
           ]
         },
-        { "type": "subheading", "text": "Treating fresh water" },
+        {
+          "type": "subheading",
+          "text": "Treating fresh water"
+        },
         {
           "type": "list",
           "items": [
@@ -86,7 +119,10 @@
             "Chemicals can also remove other dissolved substances and improve the taste."
           ]
         },
-        { "type": "subheading", "text": "Desalination of seawater" },
+        {
+          "type": "subheading",
+          "text": "Desalination of seawater"
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -130,21 +166,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA T 4.7.2.2", "AQA 7.5"],
-      "exam_phrases": [
-        "climate change has increased the area of deserts",
-        "more water is used to grow crops",
-        "the water cycle provides water for plants and animals on land before the water goes into lakes and seas"
-      ],
-      "mistakes": [
-        {
-          "wrong": "More people have a water shortage because each person drinks less water, or because some countries have built de-salting factories.",
-          "right": "Neither is credited. The causes credited are that climate change has increased the area of deserts and that more water is used to grow crops."
-        },
-        {
-          "wrong": "There were 270 000 000 people with a severe water shortage.",
-          "right": "The question asks for standard form. The final mark is for 2.7 × 10⁸."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "8e62a5e3-0264-4c68-aa61-b25f4682fb91",
         "source": "AQA jun 2022, Paper 2 (F), Q05.3",
@@ -160,23 +181,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 9.14"],
-      "exam_phrases": [
-        "desalination / remove salt from the water",
-        "evaporate the water",
-        "condense water (vapour and collect it)",
-        "to remove objects / debris",
-        "to destroy pathogens"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Water is filtered to kill pathogens.",
-          "right": "Filtering removes objects or debris. Chemicals are used to destroy pathogens."
-        },
-        {
-          "wrong": "Seawater is turned into drinking water by removing the salt.",
-          "right": "This gives one mark at most. A description needs two points from: remove the salt (desalination), evaporate the water, and condense the vapour and collect it."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "e312f066-d24a-471c-b8b3-a61413e74d4c",
         "source": "EDEXCEL jun 2019, Paper 2 (F), Q1(c)",
@@ -192,22 +196,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 4.1c"],
-      "exam_phrases": [
-        "prevents lake drying out",
-        "replenishes lake water",
-        "washes minerals into the lake",
-        "provides organisms with enough water to live in"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Run-off gives the organisms more water.",
-          "right": "\"More water\" is ignored. Say that it replenishes the lake so it does not dry out, or that it provides enough water for the organisms to live in."
-        },
-        {
-          "wrong": "Run-off brings nutrients into the lake.",
-          "right": "\"Nutrients\" is ignored. Write minerals, or name a mineral."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "f3a7de99-519f-4118-b87c-a06dc2ae739c",
         "source": "OCR nov 2020, Paper 2, Q22(b)",

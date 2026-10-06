@@ -3,85 +3,64 @@
   "concept_id": "chem-015",
   "subject": "chemistry",
   "title": "States of matter and changes of state",
-  "key_idea": "The three states of matter are solid, liquid and gas. In the particle model, particles are small solid spheres. The stronger the forces between particles, the more energy is needed to change state, so the higher the melting and boiling points.",
+  "key_idea": "Matter is a solid, a liquid or a gas, depending on how its particles are arranged, how they move and how strongly they attract each other. Changing state is a physical change. The stronger the forces between particles, the higher the melting point and boiling point.",
   "sections": [
     {
-      "heading": "The particle model",
+      "heading": "Solids, liquids and gases",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "This section shows how the particle model describes solids, liquids and gases. In the model, particles are small solid spheres."
+          "text": "The particle model shows each state as small solid spheres. This section covers how the spheres are arranged and how they move in each state."
         },
         {
           "type": "definitions",
           "items": [
             {
-              "term": "Particle model",
-              "meaning": "A simple model in which every particle is a small solid sphere."
+              "term": "Particle",
+              "meaning": "An atom, molecule or ion, drawn as a small solid sphere in the model."
             },
             {
               "term": "Melting point",
-              "meaning": "The temperature at which a solid changes to a liquid."
+              "meaning": "The temperature at which a solid turns into a liquid. Freezing happens at the same temperature."
             },
             {
               "term": "Boiling point",
-              "meaning": "The temperature at which a liquid changes to a gas."
+              "meaning": "The temperature at which a liquid turns into a gas. Condensing happens at the same temperature."
             }
           ]
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Solid",
-            "Liquid",
-            "Gas"
-          ],
+          "columns": ["Feature", "Solid", "Liquid", "Gas"],
           "rows": [
             [
               "Arrangement",
-              "Regular, close together, in rows",
+              "Regular, close together",
               "Random, close together",
               "Random, far apart"
             ],
             [
               "Movement",
-              "Vibrate in fixed positions",
-              "Move past each other",
+              "Vibrate about fixed positions",
+              "Move around and past each other",
               "Move quickly in all directions"
             ],
+            ["Energy of particles", "Lowest", "Higher", "Highest"],
+            ["Forces between particles", "Strongest", "Weaker", "Weakest"],
             [
-              "Energy",
-              "Least",
-              "More",
-              "Most"
-            ],
-            [
-              "Forces between particles",
-              "Strongest",
-              "Weaker",
-              "Weakest"
-            ],
-            [
-              "Shape and flow",
-              "Fixed shape, cannot flow",
-              "Can flow, takes the shape of its container",
-              "Can flow, fills its container"
+              "Shape and volume",
+              "Fixed shape, cannot be compressed",
+              "Flows, takes the shape of its container, cannot be compressed",
+              "Fills the container"
             ]
-          ]
-        },
-        {
-          "type": "list",
-          "items": [
-            "A substance can only flow if its particles can move past each other.",
-            "Atoms themselves do not have the bulk properties of a material. A single atom does not have a melting point."
           ]
         },
         {
           "type": "key-points",
           "items": [
-            "Solid particles vibrate in fixed positions. Liquid particles move past each other. Gas particles move quickly and are far apart.",
-            "Energy and movement increase from solid to liquid to gas."
+            "In a solid the particles are in fixed positions and only vibrate.",
+            "In a liquid the particles are close but can move past each other.",
+            "In a gas the particles are far apart and move quickly, so a gas fills any container."
           ]
         }
       ]
@@ -91,147 +70,141 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "This section names each change of state and explains it using energy and forces between particles."
+          "text": "Each change of state has a name. This section covers the names, what happens to the particles, and why the changes are physical."
+        },
+        {
+          "type": "table",
+          "rows": [
+            ["Solid to liquid", "Melting"],
+            ["Liquid to solid", "Freezing"],
+            ["Liquid to gas", "Boiling or evaporating"],
+            ["Gas to liquid", "Condensing"],
+            ["Solid to gas", "Subliming"]
+          ],
+          "columns": ["Change", "Name"]
+        },
+        {
+          "type": "subheading",
+          "text": "What happens to the particles"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heating gives the particles more energy, so they move faster.",
+            "At the melting or boiling point the particles have enough energy to overcome the forces between them.",
+            "The stronger the forces, the more energy is needed, so the higher the melting point and boiling point.",
+            "A giant structure has strong bonds throughout, so its melting point is high. A simple molecule has weak forces between its molecules, so its melting and boiling points are low.",
+            "Cooling does the reverse: the particles lose energy and the forces pull them together."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Physical and chemical changes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A change of state is a **physical change**. No new substance is made and the change can be reversed.",
+            "The particles stay the same. They only gain or lose energy.",
+            "A **chemical change** makes a new substance and is not easily reversed."
+          ]
         },
         {
           "type": "diagram",
           "diagram": {
-            "kind": "flow",
-            "alt": "Solid melts to a liquid, which boils to a gas. The reverse changes are condensing and freezing.",
-            "steps": [
-              "Solid",
-              "Melting",
-              "Liquid",
-              "Boiling",
-              "Gas"
+            "alt": "Move the temperature slider to heat or cool ethanol and watch its particles change between solid, liquid and gas.",
+            "kind": "slider",
+            "scene": {
+              "kind": "particles",
+              "boiling": 78,
+              "melting": -114,
+              "temperature": "T"
+            },
+            "inputs": [
+              {
+                "id": "T",
+                "max": 100,
+                "min": -150,
+                "step": 5,
+                "unit": "°C",
+                "label": "Temperature of ethanol",
+                "value": 25
+              }
             ],
-            "loop": false
+            "outputs": [
+              {
+                "unit": "K",
+                "label": "Temperature",
+                "formula": "T + 273",
+                "decimals": 0
+              }
+            ]
           }
-        },
-        {
-          "type": "list",
-          "items": [
-            "Solid to liquid is **melting**. Liquid to solid is **freezing**.",
-            "Liquid to gas is **boiling** or evaporating. Gas to liquid is **condensing**.",
-            "Melting and freezing happen at the melting point. Boiling and condensing happen at the boiling point."
-          ]
-        },
-        {
-          "type": "subheading",
-          "text": "Physical changes"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Changes of state are physical changes. No new substance is made.",
-            "The change is easily reversed. The particles stay the same, only their arrangement, movement and energy change.",
-            "A chemical change makes a new substance and is not easily reversed."
-          ]
-        },
-        {
-          "type": "subheading",
-          "text": "Energy and bonding"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Heating gives particles more energy. At the melting or boiling point they have enough energy to overcome the forces between them.",
-            "The stronger the forces between particles, the more energy is needed, so the higher the melting point and boiling point.",
-            "The forces depend on the type of bonding and the structure of the substance."
-          ]
         },
         {
           "type": "key-points",
           "items": [
-            "Changes of state are physical changes: no new substance is made and they are reversible.",
-            "Stronger forces between particles mean higher melting and boiling points."
+            "Melting and boiling need energy to overcome the forces between particles.",
+            "Stronger forces mean a higher melting point and boiling point.",
+            "Changes of state are physical: the same substance, easily reversed."
           ]
         }
       ]
     },
     {
-      "heading": "Predicting states and limits of the model",
+      "heading": "Using data and the limits of the model",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Data tells you the state of a substance at a given temperature. The particle model is simple, so it has limits."
+          "text": "Melting and boiling points tell you the state of a substance at any temperature. This section covers how to read them, and where the particle model falls short."
         },
         {
           "type": "steps",
           "items": [
             {
-              "lead": "Compare with the melting point.",
-              "text": "Below it, the substance is a solid."
+              "lead": "Compare",
+              "text": "Compare the temperature with the melting point and the boiling point."
             },
             {
-              "lead": "Compare with the boiling point.",
-              "text": "Above it, the substance is a gas."
+              "lead": "Below the melting point",
+              "text": "The substance is a solid."
             },
             {
-              "lead": "Between the two.",
-              "text": "At or above the melting point and below the boiling point, the substance is a liquid."
+              "lead": "Between the two",
+              "text": "The substance is a liquid."
+            },
+            {
+              "lead": "Above the boiling point",
+              "text": "The substance is a gas."
             }
           ]
         },
         {
-          "type": "diagram",
-          "diagram": {
-            "kind": "slider",
-            "alt": "Change the temperature of water and watch the particles change state.",
-            "inputs": [
-              {
-                "id": "T",
-                "label": "Temperature of water",
-                "unit": "°C",
-                "min": -20,
-                "max": 120,
-                "step": 10,
-                "value": 20
-              }
-            ],
-            "outputs": [
-              {
-                "label": "Degrees above the melting point (0 °C)",
-                "unit": "°C",
-                "formula": "max(0, T)",
-                "decimals": 0
-              },
-              {
-                "label": "Degrees above the boiling point (100 °C)",
-                "unit": "°C",
-                "formula": "max(0, T - 100)",
-                "decimals": 0
-              }
-            ],
-            "scene": {
-              "kind": "particles",
-              "temperature": "T",
-              "melting": 0,
-              "boiling": 100
-            }
-          }
+          "type": "paragraph",
+          "text": "Ethanol melts at -114 °C and boils at 78 °C. At 25 °C it is above one and below the other, so it is a liquid."
         },
         {
           "type": "subheading",
-          "text": "Limitations of the particle model"
-        },
-        {
-          "type": "paragraph",
-          "text": "AQA teaches this at Higher tier only. OCR teaches it to all students. Edexcel does not ask for it."
+          "text": "Limitations of the particle model (Higher tier for AQA)"
         },
         {
           "type": "list",
           "items": [
-            "The model has no forces between the particles. Real particles attract each other.",
-            "All particles are shown as spheres. The spheres are solid and inelastic.",
-            "The model does not show the size of particles or the space between them."
+            "It does not show the forces of attraction between particles.",
+            "It shows every particle as a solid, inelastic sphere, but particles are not all spheres and not all the same size.",
+            "It does not show the size of the particles compared with the space between them."
           ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Melting point and boiling point are bulk properties. A single atom or molecule does not have a boiling point."
         },
         {
           "type": "key-points",
           "items": [
-            "Below the melting point a substance is a solid. Above the boiling point it is a gas. In between it is a liquid.",
-            "The model ignores forces between particles and shows every particle as a solid sphere."
+            "Compare the temperature with the melting and boiling points to name the state.",
+            "The model leaves out forces and treats all particles as identical solid spheres.",
+            "A boiling point belongs to a large number of particles, not to one."
           ]
         }
       ]
@@ -239,153 +212,73 @@
   ],
   "checks": [
     {
-      "q": "Describe how the particles are arranged and how they move in a solid.",
-      "a": "The particles are in a regular arrangement, close together, and vibrate in fixed positions.",
+      "q": "Describe how the particles move and are arranged in a liquid.",
+      "a": "The particles are close together in a random arrangement. They move around and past each other.",
       "marks": 2
     },
     {
-      "q": "A substance has a melting point of -114 °C and a boiling point of 78 °C. State its physical state at 25 °C and give a reason.",
-      "a": "Liquid. 25 °C is above the melting point and below the boiling point.",
+      "q": "Explain why melting is a physical change and not a chemical change.",
+      "a": "No new substance is made, and the change can be reversed.",
       "marks": 2
     },
     {
-      "q": "Explain why a substance with strong forces between its particles has a high melting point.",
-      "a": "A lot of energy is needed to overcome the strong forces between the particles, so a high temperature is needed to melt it.",
+      "q": "Oxygen melts at -219 °C and boils at -183 °C. State its state at -200 °C and explain how you know.",
+      "a": "It is a liquid, because -200 °C is above the melting point and below the boiling point.",
       "marks": 2
     }
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.2.2.1",
-        "AQA T 5.2.2.1"
-      ],
-      "exam_phrases": [
-        "(so) the intermolecular forces are weak",
-        "(which) require little energy to overcome",
-        "(so) more energy is needed to overcome the intermolecular forces",
-        "above the boiling point of water",
-        "the atoms gain energy and their arrangement becomes less ordered",
-        "boiling point is a bulk property"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Propane has a low boiling point because the covalent bonds are weak.",
-          "right": "Answers about breaking covalent bonds are not accepted. Say the forces between molecules (intermolecular forces) are weak and need little energy to overcome."
-        },
-        {
-          "wrong": "The change at the surface of the sea water is boiling.",
-          "right": "Say evaporating or vaporisation for the change from liquid to vapour at the surface. Boiling is not accepted here."
-        },
-        {
-          "wrong": "The boiling point of a single bromine molecule is 59 °C.",
-          "right": "Boiling point is a bulk property. It relates to the forces between many molecules, so it is not a property of one molecule."
-        }
-      ],
+      "spec_codes": ["AQA 4.2.2.1", "AQA T 5.2.2.1"],
       "worked_example": {
-        "exemplar_id": "e03201cd-8ceb-4d3c-a7d4-d943a7bf0fae",
-        "source": "AQA jun 2023, Paper 2 (H), Q01.7",
+        "exemplar_id": "02ea237b-5664-4731-838b-032e89f13837",
+        "source": "AQA jun 2023, Paper 2 (F), Q05.7",
         "question": "Explain why water vapour and not liquid water is produced when diesel burns.",
         "marks": 2,
         "answer_points": [
-          "Diesel burns at a high temperature, or at a temperature greater than 100 °C.",
-          "This is above the boiling point of water, so water is produced as a gas (water vapour)."
+          "Diesel burns at a high temperature, greater than 100 °C.",
+          "This is above the boiling point of water, so the water is a gas."
         ],
-        "tip": "One mark for the high temperature, one for linking it to the boiling point of water."
+        "tip": "One mark for the high temperature and one for comparing it with the boiling point of water."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.1",
-        "EDEX 2.2",
-        "EDEX 2.3",
-        "EDEX 2.4"
-      ],
-      "exam_phrases": [
-        "no new substance is made",
-        "it is reversible",
-        "it is only a change of state",
-        "regularly arranged / lattice (solid)",
-        "randomly arranged / moving (liquid)",
-        "evaporation / boiling / vaporisation (liquid to gas)",
-        "freezing / solidifying (liquid to solid)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The change from liquid to gas is called the boiling point.",
-          "right": "'Boiling point' is not accepted. Name the change: evaporation, boiling or vaporisation."
-        },
-        {
-          "wrong": "A change of state is a physical change because you can see it.",
-          "right": "'You can see the change' is ignored. Say no new substance is made and the change is reversible."
-        },
-        {
-          "wrong": "Wax is a physical change because no bonds are broken.",
-          "right": "'No bonds or intermolecular forces are broken' is ignored. Give the two marking points: it is reversible and no new substance is made."
-        }
-      ],
+      "spec_codes": ["EDEX 2.1", "EDEX 2.2", "EDEX 2.3", "EDEX 2.4"],
       "worked_example": {
-        "exemplar_id": "0b73507d-706e-4f64-849b-f5506233de71",
-        "source": "EDEXCEL jun 2024, Paper 1 (F), Q1(b)(ii)",
-        "question": "The test tube contains solid wax.\nAs the test tube was heated, the solid wax changed to liquid wax.\nAfter heating, the wax was allowed to cool to room temperature.\nWhen the wax cools, it changes from a liquid back to a solid.\nThis change is a physical change.\n\nExplain why the change from a liquid to a solid is a physical change rather than a chemical change.",
-        "marks": 2,
+        "exemplar_id": "13ad60a0-e82e-423a-92d1-ce752797ffff",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q8(d)",
+        "question": "Crystals of copper sulfate are made when some water is removed from an aqueous solution of copper sulfate. Describe how the arrangement and movement of the particles change as crystals are formed from a solution.",
+        "marks": 3,
         "answer_points": [
-          "It is reversible (or not a permanent change).",
-          "No new substance is made (it is only a change of state)."
+          "In the solution the ions are moving freely.",
+          "In the solution the ions are randomly arranged.",
+          "In the solid the ions are fixed or vibrating.",
+          "In the solid the ions are in a regular arrangement, a lattice."
         ],
-        "tip": "One mark for each point. Both ideas must be linked to the change."
+        "tip": "Any three score one mark each. Say ions, atoms or particles, not molecules."
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C1.1a",
-        "OCR C1.1b",
-        "OCR C1.1c",
-        "OCR C2.3e"
-      ],
-      "exam_phrases": [
-        "particles move faster in a gas / slower in a solid",
-        "particles are further apart in a gas / closer together in a solid",
-        "no new substance is made",
-        "the change is reversible",
-        "it does not take into account forces between particles",
-        "it shows all particles as spheres / inelastic",
-        "liquid above the melting point and does not boil until the boiling point"
-      ],
-      "mistakes": [
-        {
-          "wrong": "In a gas, particles are far apart and move quickly.",
-          "right": "Answers must be comparative when describing a change. Say particles move faster and are further apart in a gas than in a solid."
-        },
-        {
-          "wrong": "The particle model is limited because bonds between particles are not shown.",
-          "right": "References to bonds between particles are ignored. Say forces of attraction between particles are not taken into account."
-        },
-        {
-          "wrong": "Ethanol is a liquid at 25 °C.",
-          "right": "The state alone scores one mark. Give the reason: 25 °C is above the melting point and below the boiling point."
-        }
-      ],
+      "spec_codes": ["OCR C1.1a", "OCR C1.1b", "OCR C1.1c", "OCR C2.3e"],
       "worked_example": {
         "exemplar_id": "12e844e3-c769-4a66-b63f-40e5621baaec",
         "source": "OCR jun 2023, Paper 3, Q18(d)(i)",
-        "question": "At –78 °C, and 0.1 MPa pressure, carbon dioxide changes state from a solid to a gas.\n\nChanging state from a solid to a gas is called subliming.\n\nDescribe what happens to the movement and arrangement of the particles when a solid turns into a gas. Use the particle model.",
+        "question": "Carbon dioxide changes state from a solid to a gas at -78 °C. Changing state from a solid to a gas is called subliming. Describe what happens to the movement and arrangement of the particles when a solid turns into a gas. Use the particle model.",
         "marks": 3,
         "answer_points": [
-          "Any three from:",
-          "Particles move faster in a gas and slower in a solid.",
-          "Particles have more energy in a gas and less in a solid.",
-          "Particles are further apart in a gas and closer together in a solid.",
-          "Particles are arranged more randomly in a gas and regularly in a solid.",
-          "Forces between particles are weaker in a gas and stronger in a solid."
+          "The particles move faster in the gas and more slowly in the solid.",
+          "The particles have more energy in the gas.",
+          "The particles are further apart in the gas and closer together in the solid.",
+          "The particles are arranged more randomly in the gas and regularly in the solid.",
+          "The forces between the particles are weaker in the gas."
         ],
-        "tip": "Answers must be comparative. Atoms or molecules can be used for particles."
+        "tip": "Any three score one mark each. Answers must compare the gas with the solid."
       }
     }
   },
   "meta": {
     "status": "draft",
-    "written_by": "sonnet-5-5",
+    "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-01",
@@ -402,8 +295,8 @@
       "ed28a94c-ec2a-4c0e-ac90-a049706e330e"
     ],
     "exemplar_ids": [
-      "e03201cd-8ceb-4d3c-a7d4-d943a7bf0fae",
-      "0b73507d-706e-4f64-849b-f5506233de71",
+      "02ea237b-5664-4731-838b-032e89f13837",
+      "13ad60a0-e82e-423a-92d1-ce752797ffff",
       "12e844e3-c769-4a66-b63f-40e5621baaec"
     ]
   }

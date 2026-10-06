@@ -90,10 +90,7 @@
             "kind": "sort",
             "alt": "Sort each statement into effects of climate change and answers that are not accepted.",
             "prompt": "Which of these are effects of climate change?",
-            "groups": [
-              "Effect of climate change",
-              "Not an effect: do not write it"
-            ],
+            "groups": ["Effect of climate change", "Not an effect: do not write it"],
             "items": [
               {
                 "text": "Rising sea levels",
@@ -246,40 +243,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.9.2.3",
-        "AQA T 5.9.2.3",
-        "AQA 4.9.2.4",
-        "AQA T 5.9.2.4"
-      ],
-      "exam_phrases": [
-        "absorbed by the earth and re-emitted as longer wavelength radiation",
-        "increases the temperature leading to global warming",
-        "rising sea levels",
-        "melting ice (caps)",
-        "extremes of weather",
-        "extracting / processing raw materials",
-        "disposal at the end of its useful life",
-        "use methane from landfill as an energy source"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Climate change causes acid rain and global dimming.",
-          "right": "Acid rain, global dimming and the ozone layer are not accepted as effects of climate change. Give effects such as melting ice, rising sea levels or extremes of weather."
-        },
-        {
-          "wrong": "One effect of climate change is global warming.",
-          "right": "Global warming is often ignored because it is the cause, not an effect. Name a specific effect such as melting ice caps."
-        },
-        {
-          "wrong": "Climate change causes natural disasters.",
-          "right": "Natural disasters is not accepted as it is too vague. Name flooding, droughts, wildfires or extremes of weather."
-        },
-        {
-          "wrong": "A car's carbon footprint is the carbon dioxide from its exhaust.",
-          "right": "The carbon footprint covers the whole life cycle: extracting raw materials, manufacturing, use and disposal."
-        }
-      ],
+      "spec_codes": ["AQA 4.9.2.3", "AQA T 5.9.2.3", "AQA 4.9.2.4", "AQA T 5.9.2.4"],
       "worked_example": {
         "exemplar_id": "ed802034-c60e-4697-8034-bf5a7c45a05d",
         "source": "AQA jun 2023, Paper 2 (H), Q05.2",
@@ -295,58 +259,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 8.26"
-      ],
-      "exam_phrases": [
-        "ice caps / glaciers melting",
-        "rising sea levels",
-        "changing habitats",
-        "more extreme weather",
-        "increased global temperatures",
-        "enhanced / increased greenhouse effect"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Increasing carbon dioxide damages the ozone layer.",
-          "right": "References to the ozone layer are rejected. Say that more carbon dioxide strengthens the greenhouse effect."
-        },
-        {
-          "wrong": "Increasing carbon dioxide means there is less oxygen in the air.",
-          "right": "This is ignored. Name an effect of the extra carbon dioxide, such as melting ice caps or rising sea levels."
-        },
-        {
-          "wrong": "More carbon dioxide causes acid rain or deforestation.",
-          "right": "Acid rain and deforestation are rejected as effects of increased carbon dioxide."
-        }
-      ]
+      "spec_codes": ["EDEX 8.26"]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.3e"
-      ],
-      "exam_phrases": [
-        "melting ice caps / glaciers",
-        "rising sea levels / flooding",
-        "loss / change of habitats",
-        "altered weather patterns / extreme weather events",
-        "problems with farming / crop failure",
-        "drought / wildfires"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Global warming causes acid rain.",
-          "right": "Acid rain and the ozone layer are not allowed. Give effects such as melting ice caps or rising sea levels."
-        },
-        {
-          "wrong": "Global warming means the temperature increases.",
-          "right": "A temperature increase without detail is ignored. Give a specific problem such as crop failure, drought or flooding."
-        },
-        {
-          "wrong": "Global warming causes natural hazards.",
-          "right": "Unspecified natural hazards are ignored. Name the hazard, for example wildfires or extreme weather."
-        }
-      ],
+      "spec_codes": ["OCR C6.3e"],
       "worked_example": {
         "exemplar_id": "3c077690-8725-4c31-b729-5b9fdd072c24",
         "source": "OCR jun 2025, Paper 2, Q19(b)",

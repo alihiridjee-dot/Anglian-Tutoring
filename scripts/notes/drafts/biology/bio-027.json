@@ -8,11 +8,17 @@
     {
       "heading": "Double circulation",
       "blocks": [
-        { "type": "paragraph", "text": "Blood passes through the heart twice on each complete circuit of the body. This section covers the two circuits and why they matter." },
+        {
+          "type": "paragraph",
+          "text": "Blood passes through the heart twice on each complete circuit of the body. This section covers the two circuits and why they matter."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Double circulatory system", "meaning": "A system in which the right side of the heart pumps blood to the lungs and the left side pumps blood to the body." }
+            {
+              "term": "Double circulatory system",
+              "meaning": "A system in which the right side of the heart pumps blood to the lungs and the left side pumps blood to the body."
+            }
           ]
         },
         {
@@ -23,7 +29,10 @@
             ["Systemic circuit", "Left ventricle", "The rest of the body"]
           ]
         },
-        { "type": "subheading", "text": "Why it helps" },
+        {
+          "type": "subheading",
+          "text": "Why it helps"
+        },
         {
           "type": "list",
           "items": [
@@ -46,7 +55,10 @@
     {
       "heading": "The structure of the heart",
       "blocks": [
-        { "type": "paragraph", "text": "The heart has four chambers and is joined to four main blood vessels. Learn where blood goes in and out." },
+        {
+          "type": "paragraph",
+          "text": "The heart has four chambers and is joined to four main blood vessels. Learn where blood goes in and out."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -54,20 +66,53 @@
             "alt": "Tap a part of the heart or a blood vessel to learn its job, then test yourself.",
             "prompt": "Parts of the heart and its blood vessels",
             "parts": [
-              { "name": "Right atrium", "detail": "Receives deoxygenated blood from the body through the vena cava. The pacemaker cells are here." },
-              { "name": "Right ventricle", "detail": "Pumps deoxygenated blood to the lungs through the pulmonary artery." },
-              { "name": "Left atrium", "detail": "Receives oxygenated blood from the lungs through the pulmonary vein." },
-              { "name": "Left ventricle", "detail": "Pumps oxygenated blood around the body through the aorta. It has a thicker muscular wall." },
-              { "name": "Vena cava", "detail": "Brings deoxygenated blood from the body to the right atrium." },
-              { "name": "Pulmonary artery", "detail": "Carries deoxygenated blood from the right ventricle to the lungs." },
-              { "name": "Pulmonary vein", "detail": "Carries oxygenated blood from the lungs to the left atrium." },
-              { "name": "Aorta", "detail": "Carries oxygenated blood from the left ventricle to the body." },
-              { "name": "Valves", "detail": "Prevent backflow of blood, so it flows one way only." },
-              { "name": "Coronary arteries", "detail": "Supply the heart muscle with oxygen and glucose." }
+              {
+                "name": "Right atrium",
+                "detail": "Receives deoxygenated blood from the body through the vena cava. The pacemaker cells are here."
+              },
+              {
+                "name": "Right ventricle",
+                "detail": "Pumps deoxygenated blood to the lungs through the pulmonary artery."
+              },
+              {
+                "name": "Left atrium",
+                "detail": "Receives oxygenated blood from the lungs through the pulmonary vein."
+              },
+              {
+                "name": "Left ventricle",
+                "detail": "Pumps oxygenated blood around the body through the aorta. It has a thicker muscular wall."
+              },
+              {
+                "name": "Vena cava",
+                "detail": "Brings deoxygenated blood from the body to the right atrium."
+              },
+              {
+                "name": "Pulmonary artery",
+                "detail": "Carries deoxygenated blood from the right ventricle to the lungs."
+              },
+              {
+                "name": "Pulmonary vein",
+                "detail": "Carries oxygenated blood from the lungs to the left atrium."
+              },
+              {
+                "name": "Aorta",
+                "detail": "Carries oxygenated blood from the left ventricle to the body."
+              },
+              {
+                "name": "Valves",
+                "detail": "Prevent backflow of blood, so it flows one way only."
+              },
+              {
+                "name": "Coronary arteries",
+                "detail": "Supply the heart muscle with oxygen and glucose."
+              }
             ]
           }
         },
-        { "type": "subheading", "text": "The route of the blood" },
+        {
+          "type": "subheading",
+          "text": "The route of the blood"
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -99,8 +144,14 @@
     {
       "heading": "Valves, walls and the pacemaker",
       "blocks": [
-        { "type": "paragraph", "text": "Each feature of the heart has a job. In the exam, link each feature to what it does." },
-        { "type": "subheading", "text": "Valves" },
+        {
+          "type": "paragraph",
+          "text": "Each feature of the heart has a job. In the exam, link each feature to what it does."
+        },
+        {
+          "type": "subheading",
+          "text": "Valves"
+        },
         {
           "type": "list",
           "items": [
@@ -110,7 +161,10 @@
             "Faulty valves can be replaced, using biological or mechanical valves."
           ]
         },
-        { "type": "subheading", "text": "Thick walls" },
+        {
+          "type": "subheading",
+          "text": "Thick walls"
+        },
         {
           "type": "list",
           "items": [
@@ -120,7 +174,10 @@
             "Heart muscle cells have many mitochondria. They release the energy for the muscle to contract."
           ]
         },
-        { "type": "subheading", "text": "The pacemaker" },
+        {
+          "type": "subheading",
+          "text": "The pacemaker"
+        },
         {
           "type": "list",
           "items": [
@@ -159,30 +216,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 2.6", "AQA T 4.2.2.2"],
-      "exam_phrases": [
-        "right ventricle pumps blood to the lungs",
-        "left ventricle pumps blood around the body",
-        "prevent backflow (of blood) / ensure one-way flow",
-        "pacemaker cells are in the right atrium",
-        "(the left ventricle) has to pump blood with a greater force / at a higher pressure / further",
-        "oxygenated and deoxygenated blood mixes",
-        "less oxygen reaches the muscles for aerobic respiration",
-        "(more) respiration releases more energy so the heart muscle contracts"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The left ventricle has thick walls to pump blood around the body.",
-          "right": "There must be a comparative statement. Say the left ventricle pumps blood further, with a greater force, or at a higher pressure than the right ventricle."
-        },
-        {
-          "wrong": "An artificial pacemaker treats heart failure, or cardiovascular disease.",
-          "right": "These are not accepted. An artificial pacemaker treats an irregular heart beat (arrhythmia or fibrillation)."
-        },
-        {
-          "wrong": "Heart muscle cells contain many mitochondria because they produce energy.",
-          "right": "\"Energy produced\", \"energy made\" and \"energy created\" are not accepted. Say respiration in the mitochondria releases energy, so the muscle contracts."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "1f86491e-374d-4762-933a-ec5606daeb2d",
         "source": "AQA jun 2019, Paper 1 (H), Q05.1",
@@ -199,30 +232,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 8.8"],
-      "exam_phrases": [
-        "blood flows from the vena cava into the right atrium, then the right ventricle",
-        "through a valve and is pumped into the pulmonary artery to the lungs",
-        "from the lungs back to the heart through the pulmonary vein into the left atrium",
-        "into the left ventricle and pumped into the aorta",
-        "valves prevent backflow",
-        "the left ventricle is more muscular, which provides more pressure",
-        "it pumps blood around more of the body",
-        "the septum stops oxygenated blood mixing with deoxygenated blood"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The left ventricle wall is thicker to withstand the higher pressure.",
-          "right": "\"To withstand higher pressure\" is ignored. Say the left ventricle is more muscular, so it provides more pressure, because it pumps blood around more of the body."
-        },
-        {
-          "wrong": "Blood goes from the vena cava through the heart and out of the aorta.",
-          "right": "A vague route does not reach the top level. Name every chamber and vessel in order, include the lungs and the valves, and link each to the next."
-        },
-        {
-          "wrong": "The right side pumps blood around the body.",
-          "right": "The right ventricle pumps deoxygenated blood to the lungs. The left ventricle pumps oxygenated blood to the body."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "4651fc6a-f909-407e-9b13-117b7609f51d",
         "source": "EDEXCEL jun 2019, Paper 2 (H), Q8(b)",
@@ -241,29 +250,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 2.2c", "OCR 2.2d"],
-      "exam_phrases": [
-        "blood travels through the heart twice on one full circuit of the body",
-        "there are two pumps / blood is pumped twice",
-        "pulmonary circuit and systemic circuit",
-        "increases the pressure of the blood / the flow rate",
-        "the left ventricle pumps blood to the body and needs a bigger pressure",
-        "blood has to travel further",
-        "backflow of blood will not be prevented"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The left side is thicker because it contains blood at high pressure.",
-          "right": "\"Contains blood at high pressure\" is ignored. Say the left side pumps blood further, around the body, and must generate more pressure. \"Left is bigger\" is also ignored."
-        },
-        {
-          "wrong": "Cholesterol in the coronary artery reduces the blood flow to the heart.",
-          "right": "\"Reduces blood flow to the heart\" is ignored. Say it reduces the blood flow to the heart muscle or cells, so less oxygen and glucose reach them."
-        },
-        {
-          "wrong": "Double circulation pushes more blood.",
-          "right": "\"Pushes more blood\" unqualified is not allowed. Say it increases the pressure or the flow rate of the blood."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "bf194b73-b18f-4f78-ba21-e1b767a68554",
         "source": "OCR jun 2022, Paper 1, Q17(a)(iii)",

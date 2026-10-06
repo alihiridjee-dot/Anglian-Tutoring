@@ -43,10 +43,7 @@
             "kind": "sort",
             "alt": "Sort each energy transfer into useful or wasted.",
             "prompt": "Is this transfer useful or wasted?",
-            "groups": [
-              "Useful",
-              "Wasted (dissipated)"
-            ],
+            "groups": ["Useful", "Wasted (dissipated)"],
             "items": [
               {
                 "text": "Thermal store of the water in a kettle",
@@ -204,32 +201,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.1.2.1",
-        "AQA T 6.1.2.1"
-      ],
-      "exam_phrases": [
-        "chemical energy store of the fuel decreases",
-        "thermal energy store of the water increases",
-        "thermal energy store of the air / atmosphere increases",
-        "so more energy is usefully transferred",
-        "less energy wasted",
-        "less (work is done against) friction"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The boiler heats the water, so the water gains energy.",
-          "right": "Name the stores and say what happens: the chemical store of the fuel decreases and the thermal store of the water and the air increases."
-        },
-        {
-          "wrong": "Lubricating the skateboard reduces the friction between the wheels and the ramp.",
-          "right": "Friction between the wheels and the ramp is not accepted. Say it reduces the amount of friction, so more energy is usefully transferred and the kinetic energy is greater."
-        },
-        {
-          "wrong": "Oiling a wind turbine means more electricity is generated.",
-          "right": "That is ignored. Say the efficiency increases because the proportion of energy wasted decreases, as less work is done against friction."
-        }
-      ],
+      "spec_codes": ["AQA 4.1.2.1", "AQA T 6.1.2.1"],
       "worked_example": {
         "exemplar_id": "3d466d20-89ac-44f9-bec0-c10db45901d8",
         "source": "AQA jun 2018, Paper 1 (H), Q05.3",
@@ -244,34 +216,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 3.7",
-        "EDEX 3.8",
-        "EDEX 8.10",
-        "EDEX 8.11"
-      ],
-      "exam_phrases": [
-        "the kinetic energy (store) / it decreases (to zero)",
-        "(the energy) has dissipated",
-        "transferred to the surroundings",
-        "thermal energy (store) increases",
-        "friction (between the wheel and the axle)",
-        "system is not 100% efficient"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The ball loses energy, so it does not bounce back to its starting height.",
-          "right": "That earns one mark only. Say where the energy went: it is dissipated, or transferred to the surroundings as thermal energy."
-        },
-        {
-          "wrong": "The axles become warm because the wheels turn.",
-          "right": "Explain why: the wheel rubs on the axle. Friction causes heating, so energy is transferred to the thermal store."
-        },
-        {
-          "wrong": "When the cyclist brakes, the kinetic energy disappears.",
-          "right": "The kinetic energy store decreases to zero. The energy is dissipated and the thermal energy store of the brakes and surroundings increases."
-        }
-      ],
+      "spec_codes": ["EDEX 3.7", "EDEX 3.8", "EDEX 8.10", "EDEX 8.11"],
       "worked_example": {
         "exemplar_id": "0208d8bb-90e4-43f0-8d84-aa0a5ae83512",
         "source": "EDEXCEL nov 2021, Paper 1 (F), Q4(a)(iii)",
@@ -286,30 +231,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P7.2a"
-      ],
-      "exam_phrases": [
-        "energy is transferred to the thermal energy (store)",
-        "(work is done against) friction / drag / resistive forces",
-        "energy is transferred in the surroundings",
-        "energy dissipated (to surroundings / thermal store)",
-        "energy transferred to the surroundings by heating"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The pendulum bob loses energy, so it swings lower.",
-          "right": "Pendulum loses energy is ignored. Say friction or air resistance does work on the pendulum and energy is transferred to the thermal store of the surroundings."
-        },
-        {
-          "wrong": "The brakes get hot when the car stops.",
-          "right": "Just saying the brakes get hot is ignored. Say the kinetic energy is transferred to the thermal energy store of the brakes and surroundings."
-        },
-        {
-          "wrong": "The kinetic energy at the bottom of the hill is less because friction occurs.",
-          "right": "Also say where the energy goes: it is transferred to the thermal energy store, or to the surroundings by heating."
-        }
-      ],
+      "spec_codes": ["OCR P7.2a"],
       "worked_example": {
         "exemplar_id": "2552dca8-dbad-45c4-8861-dca6c9867d40",
         "source": "OCR jun 2023, Paper 2, Q20(c)",

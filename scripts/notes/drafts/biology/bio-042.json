@@ -8,7 +8,10 @@
     {
       "heading": "Salmonella food poisoning",
       "blocks": [
-        { "type": "paragraph", "text": "Salmonella bacteria are swallowed in food, or on food prepared in unhygienic conditions. This section covers the symptoms and the control of spread." },
+        {
+          "type": "paragraph",
+          "text": "Salmonella bacteria are swallowed in food, or on food prepared in unhygienic conditions. This section covers the symptoms and the control of spread."
+        },
         {
           "type": "list",
           "items": [
@@ -17,7 +20,10 @@
             "Salmonella can be passed from chickens to humans through chicken and eggs."
           ]
         },
-        { "type": "subheading", "text": "Controlling the spread" },
+        {
+          "type": "subheading",
+          "text": "Controlling the spread"
+        },
         {
           "type": "list",
           "items": [
@@ -40,7 +46,10 @@
     {
       "heading": "Gonorrhoea",
       "blocks": [
-        { "type": "paragraph", "text": "Gonorrhoea is a sexually transmitted disease caused by a bacterium. This section covers its symptoms, spread and treatment." },
+        {
+          "type": "paragraph",
+          "text": "Gonorrhoea is a sexually transmitted disease caused by a bacterium. This section covers its symptoms, spread and treatment."
+        },
         {
           "type": "list",
           "items": [
@@ -59,14 +68,38 @@
             "prompt": "Which bacterial disease does each statement describe?",
             "groups": ["Salmonella", "Gonorrhoea"],
             "items": [
-              { "text": "Spread in food prepared in unhygienic conditions", "group": 0 },
-              { "text": "Poultry are vaccinated to control it", "group": 0 },
-              { "text": "Causes fever, abdominal cramps, vomiting and diarrhoea", "group": 0 },
-              { "text": "Controlled by washing hands after using the toilet", "group": 0 },
-              { "text": "Spread by sexual contact", "group": 1 },
-              { "text": "Thick yellow or green discharge and pain on urinating", "group": 1 },
-              { "text": "Controlled by using a condom", "group": 1 },
-              { "text": "Penicillin no longer works on many strains", "group": 1 }
+              {
+                "text": "Spread in food prepared in unhygienic conditions",
+                "group": 0
+              },
+              {
+                "text": "Poultry are vaccinated to control it",
+                "group": 0
+              },
+              {
+                "text": "Causes fever, abdominal cramps, vomiting and diarrhoea",
+                "group": 0
+              },
+              {
+                "text": "Controlled by washing hands after using the toilet",
+                "group": 0
+              },
+              {
+                "text": "Spread by sexual contact",
+                "group": 1
+              },
+              {
+                "text": "Thick yellow or green discharge and pain on urinating",
+                "group": 1
+              },
+              {
+                "text": "Controlled by using a condom",
+                "group": 1
+              },
+              {
+                "text": "Penicillin no longer works on many strains",
+                "group": 1
+              }
             ]
           }
         },
@@ -83,7 +116,10 @@
     {
       "heading": "Other bacterial diseases",
       "blocks": [
-        { "type": "paragraph", "text": "You may also be asked about cholera, tuberculosis, stomach ulcers, chlamydia and crown gall. Each one is caused by bacteria." },
+        {
+          "type": "paragraph",
+          "text": "You may also be asked about cholera, tuberculosis, stomach ulcers, chlamydia and crown gall. Each one is caused by bacteria."
+        },
         {
           "type": "list",
           "items": [
@@ -125,33 +161,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA T 4.3.1.3", "AQA 3.2"],
-      "exam_phrases": [
-        "(bacteria) release / produce toxins",
-        "toxins / poisons (secreted by bacteria)",
-        "fever / abdominal / stomach cramps",
-        "(yellow / green / white / beige) discharge from vagina / penis",
-        "pain on urinating",
-        "use of a barrier method of contraception / use of a condom",
-        "wash hands after using the toilet"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Toxins cause the vomiting and diarrhoea.",
-          "right": "\"Toxins\" unqualified is ignored. Say the bacteria release or produce toxins (poisons)."
-        },
-        {
-          "wrong": "A symptom of gonorrhoea is pain.",
-          "right": "\"Pain\" unqualified is ignored. Say pain on urinating, or a yellow or green discharge from the vagina or penis."
-        },
-        {
-          "wrong": "Use protection or practise safe sex to control gonorrhoea.",
-          "right": "\"Use protection\" and \"safe sex\" are ignored. Say use a condom or a barrier method of contraception, or avoid sexual intercourse."
-        },
-        {
-          "wrong": "A symptom of salmonella is vomiting.",
-          "right": "If vomiting and diarrhoea are excluded, give another symptom: fever or abdominal (stomach) cramps."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "09b142de-541c-4853-a5af-9a3a24fa2d3f",
         "source": "AQA jun 2020, Paper 1 (H), Q04.3",
@@ -167,24 +176,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.5", "EDEX 5.8"],
-      "exam_phrases": [
-        "Helicobacter / Helicobacter pylori",
-        "to neutralise acid / reduce acidity",
-        "chlamydia: a bacterium",
-        "spread of TB is airborne droplets / TB is spread through the air",
-        "vaccination / immunisation: to provide immunity",
-        "treat infected people with antibiotics"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The alkaline medicine is used to make the stomach more alkaline.",
-          "right": "\"To make it more alkaline\" is ignored. Say it neutralises acid or reduces acidity (accept to increase pH)."
-        },
-        {
-          "wrong": "Chlamydia is communicable because it is caused by a virus.",
-          "right": "\"Caused by a virus\" is ignored. Chlamydia is communicable because it is passed from person to person, or caused by bacteria."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "070b67a3-03bf-4ff0-b20d-0e9cbf27738b",
         "source": "EDEXCEL jun 2024, Paper 1 (H), Q10(a)(ii)",
@@ -198,31 +189,12 @@
     },
     "ocr": {
       "spec_codes": ["OCR 6.3f"],
-      "exam_phrases": [
-        "Crown gall disease: bacterium",
-        "Tobacco mosaic disease: virus",
-        "barley powdery mildew: caused by a fungus",
-        "AIDS: caused by a virus"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Barley powdery mildew is caused by a bacterium.",
-          "right": "Barley powdery mildew is caused by a fungus. Crown gall disease is the plant disease caused by a bacterium."
-        },
-        {
-          "wrong": "Tobacco mosaic disease is caused by a bacterium.",
-          "right": "Tobacco mosaic disease is caused by a virus."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "8858b191-3c08-4a5d-84a1-df8e73003114",
         "source": "OCR jun 2024, Paper 2, Q18(a)",
         "question": "Diseases in plants are caused by different types of pathogens. Which type of pathogen causes each of these diseases? Use words from the list: bacteria, fungi, protists, virus. Tobacco mosaic disease. Crown gall disease.",
         "marks": 2,
-        "answer_points": [
-          "Tobacco mosaic disease: virus.",
-          "Crown gall disease: bacteria."
-        ],
+        "answer_points": ["Tobacco mosaic disease: virus.", "Crown gall disease: bacteria."],
         "tip": "Learn the type of pathogen for each named disease in the specification."
       }
     }

@@ -3,17 +3,26 @@
   "concept_id": "bio-084",
   "subject": "biology",
   "title": "Adrenaline, thyroxine and negative feedback",
-  "key_idea": "(Higher tier) Adrenaline prepares the body for fight or flight. Thyroxine stimulates the basal metabolic rate. Thyroxine level is kept steady by negative feedback: a change causes a response that reverses it.",
+  "key_idea": "(AQA: Higher tier) Adrenaline prepares the body for fight or flight. Thyroxine stimulates the basal metabolic rate. Thyroxine level is kept steady by negative feedback: a change causes a response that reverses it.",
   "sections": [
     {
       "heading": "Adrenaline",
       "blocks": [
-        { "type": "paragraph", "text": "(Higher tier) Adrenaline is produced by the adrenal glands in times of fear or stress. It prepares the body for \"fight or flight\"." },
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) Adrenaline is produced by the adrenal glands in times of fear or stress. It prepares the body for \"fight or flight\"."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Adrenal glands", "meaning": "The endocrine glands that release adrenaline into the blood." },
-            { "term": "Fight or flight", "meaning": "The body's response to danger, getting ready to fight or run away." }
+            {
+              "term": "Adrenal glands",
+              "meaning": "The endocrine glands that release adrenaline into the blood."
+            },
+            {
+              "term": "Fight or flight",
+              "meaning": "The body's response to danger, getting ready to fight or run away."
+            }
           ]
         },
         {
@@ -41,7 +50,10 @@
     {
       "heading": "Thyroxine and metabolic rate",
       "blocks": [
-        { "type": "paragraph", "text": "(Higher tier) Thyroxine is released by the thyroid gland. It stimulates the basal metabolic rate." },
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) Thyroxine is released by the thyroid gland. It stimulates the basal metabolic rate."
+        },
         {
           "type": "list",
           "items": [
@@ -59,14 +71,38 @@
             "prompt": "Which hormone does each statement describe?",
             "groups": ["Adrenaline", "Thyroxine"],
             "items": [
-              { "text": "Made by the adrenal glands", "group": 0 },
-              { "text": "Released in times of fear or stress", "group": 0 },
-              { "text": "Increases heart rate", "group": 0 },
-              { "text": "Boosts delivery of oxygen and glucose to the muscles", "group": 0 },
-              { "text": "Made by the thyroid gland", "group": 1 },
-              { "text": "Stimulates the basal metabolic rate", "group": 1 },
-              { "text": "Important in growth and development", "group": 1 },
-              { "text": "Underproduction lowers tolerance of cold", "group": 1 }
+              {
+                "text": "Made by the adrenal glands",
+                "group": 0
+              },
+              {
+                "text": "Released in times of fear or stress",
+                "group": 0
+              },
+              {
+                "text": "Increases heart rate",
+                "group": 0
+              },
+              {
+                "text": "Boosts delivery of oxygen and glucose to the muscles",
+                "group": 0
+              },
+              {
+                "text": "Made by the thyroid gland",
+                "group": 1
+              },
+              {
+                "text": "Stimulates the basal metabolic rate",
+                "group": 1
+              },
+              {
+                "text": "Important in growth and development",
+                "group": 1
+              },
+              {
+                "text": "Underproduction lowers tolerance of cold",
+                "group": 1
+              }
             ]
           }
         },
@@ -82,23 +118,44 @@
     {
       "heading": "Negative feedback",
       "blocks": [
-        { "type": "paragraph", "text": "(Higher tier) Thyroxine is controlled by negative feedback. A change is detected, and the response reverses it." },
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) Thyroxine is controlled by negative feedback. A change is detected, and the response reverses it."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Negative feedback", "meaning": "A change causes a response that reverses the change and returns the level to normal." }
+            {
+              "term": "Negative feedback",
+              "meaning": "A change causes a response that reverses the change and returns the level to normal."
+            }
           ]
         },
-        { "type": "subheading", "text": "Example: a fall in body temperature" },
+        {
+          "type": "subheading",
+          "text": "Example: a fall in body temperature"
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Detect.", "text": "A decrease in body temperature causes the thyroid gland to release thyroxine." },
-            { "lead": "Respond.", "text": "Thyroxine increases the basal metabolic rate." },
-            { "lead": "Reverse.", "text": "Body temperature rises, so less thyroxine is released." }
+            {
+              "lead": "Detect.",
+              "text": "A decrease in body temperature causes the thyroid gland to release thyroxine."
+            },
+            {
+              "lead": "Respond.",
+              "text": "Thyroxine increases the basal metabolic rate."
+            },
+            {
+              "lead": "Reverse.",
+              "text": "Body temperature rises, so less thyroxine is released."
+            }
           ]
         },
-        { "type": "subheading", "text": "The pituitary link (extra detail: some courses ask for it)" },
+        {
+          "type": "subheading",
+          "text": "The pituitary link (extra detail: some courses ask for it)"
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -145,30 +202,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 5.14", "AQA T 4.5.3.6"],
-      "exam_phrases": [
-        "(adrenal glands) release / produce adrenaline",
-        "increase heart rate",
-        "more / faster delivery of oxygen and glucose to brain / muscles",
-        "more oxygen / glucose needed for respiration",
-        "release / produce thyroxine",
-        "increases / stimulates (basal) metabolic rate",
-        "increasing body temperature which decreases the release / production of thyroxine",
-        "negative feedback (control)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Respiration makes energy for the muscles.",
-          "right": "\"Energy is made / produced / created\" is not accepted. Say respiration releases energy for muscle contraction, or releases heat."
-        },
-        {
-          "wrong": "Adrenaline prepares the body for fight or flight.",
-          "right": "On its own, \"fight or flight\" is ignored. Give the effect: increases heart rate, so faster delivery of oxygen and glucose to the brain and muscles."
-        },
-        {
-          "wrong": "The type of hormonal control is homeostasis.",
-          "right": "When asked for the type of hormonal control, \"homeostasis\" is ignored. Say negative feedback (control)."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "2dc04d1b-4983-4b9e-bdea-53acb6785130",
         "source": "AQA jun 2023, Paper 2 (H), Q6.7",
@@ -184,28 +217,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.2", "EDEX 7.3"],
-      "exam_phrases": [
-        "adrenalin acts to increase heart rate / blood pressure",
-        "causes the release of glucose from glycogen",
-        "low levels of thyroxine cause TRH to be produced in the hypothalamus",
-        "this causes TSH to be released from the pituitary",
-        "TSH causes the thyroid gland to produce thyroxine",
-        "as thyroxine levels increase it inhibits the release of TRH / production of TSH"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Adrenalin is secreted by the kidneys or by the adrenalin glands.",
-          "right": "Adrenalin is secreted by the adrenal glands. Kidney and adrenalin glands are ignored."
-        },
-        {
-          "wrong": "Adrenalin releases sugar from the liver.",
-          "right": "Say glucose, or blood sugar. Adrenalin binds to receptors on liver cells, which convert glycogen into glucose and release it into the blood."
-        },
-        {
-          "wrong": "Adrenalin is carried to its target organs in red blood cells.",
-          "right": "Adrenalin is transported dissolved in the blood plasma."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "02745c41-fca9-4885-b4b2-4ead668dfd39",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q9(b)",
@@ -222,28 +233,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 3.2b"],
-      "exam_phrases": [
-        "thyroid releases thyroxine which regulates the body's metabolic rate",
-        "affects the amount of heat that will be generated",
-        "the level of thyroxine is monitored and compared with the normal level",
-        "TSH will act on the thyroid gland to change the release of thyroxine",
-        "increased heart rate / blood pressure to provide the muscles with more oxygen / glucose",
-        "adrenaline reduces blood flow to the skin"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Thyroxine reduces the production of energy.",
-          "right": "\"Reduces the production of energy\" is not allowed. Say thyroxine affects the amount of heat generated. References to respiration, heart or breathing rate are ignored."
-        },
-        {
-          "wrong": "In negative feedback, thyroxine regulates itself.",
-          "right": "Describe monitoring (the level is checked against normal), response (TSH acts on the thyroid to change thyroxine release) and effect (back to normal). \"Regulates\" in place of \"monitors\" is ignored."
-        },
-        {
-          "wrong": "Adrenaline on a cut stops the bleeding.",
-          "right": "\"Stops bleeding\" is ignored. Say adrenaline reduces blood flow to the skin (vasoconstriction), so less blood is lost."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "706b6a58-0be8-4451-910a-535b3d75d8ca",
         "source": "OCR jun 2022, Paper 3, Q20(a)",
@@ -261,8 +250,28 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": ["8bf1c8fa-3e11-431f-a2e7-7d8e06924912", "a4f9af00-299a-44bf-9f66-14b89f4597b7", "212f927a-2cf1-4c48-811b-a4c27cc0fb20", "3212b8a2-6e11-4f84-8676-f93f9c56fcaf", "821e62e3-61d2-40d2-a8bc-a98fd0752486"],
-    "exemplar_ids": ["2dc04d1b-4983-4b9e-bdea-53acb6785130", "02745c41-fca9-4885-b4b2-4ead668dfd39", "706b6a58-0be8-4451-910a-535b3d75d8ca", "b56ed42f-d4fb-40a3-9528-ae05d744c10a", "112e5751-1e81-4812-bb93-54ac0b624c8b", "93413f87-9daf-41fd-b268-7f519e0dfe53", "e9d0c107-d44f-48a2-9535-83f7256d73c0", "627e3c03-e58e-48a8-9e28-ec09dfd67ef9", "6bdfe658-bb25-4159-9470-52ae19c911db", "770ac808-92ac-4e40-8c01-085c5c71df85", "f81889ba-b237-4b9a-b4f7-f37180f5801b", "9a87385b-5b8d-4f3e-9931-150f093d74b9", "96714cb5-c9d8-4dd4-9def-39feee3ae2b8"],
+    "spec_point_ids": [
+      "8bf1c8fa-3e11-431f-a2e7-7d8e06924912",
+      "a4f9af00-299a-44bf-9f66-14b89f4597b7",
+      "212f927a-2cf1-4c48-811b-a4c27cc0fb20",
+      "3212b8a2-6e11-4f84-8676-f93f9c56fcaf",
+      "821e62e3-61d2-40d2-a8bc-a98fd0752486"
+    ],
+    "exemplar_ids": [
+      "2dc04d1b-4983-4b9e-bdea-53acb6785130",
+      "02745c41-fca9-4885-b4b2-4ead668dfd39",
+      "706b6a58-0be8-4451-910a-535b3d75d8ca",
+      "b56ed42f-d4fb-40a3-9528-ae05d744c10a",
+      "112e5751-1e81-4812-bb93-54ac0b624c8b",
+      "93413f87-9daf-41fd-b268-7f519e0dfe53",
+      "e9d0c107-d44f-48a2-9535-83f7256d73c0",
+      "627e3c03-e58e-48a8-9e28-ec09dfd67ef9",
+      "6bdfe658-bb25-4159-9470-52ae19c911db",
+      "770ac808-92ac-4e40-8c01-085c5c71df85",
+      "f81889ba-b237-4b9a-b4f7-f37180f5801b",
+      "9a87385b-5b8d-4f3e-9931-150f093d74b9",
+      "96714cb5-c9d8-4dd4-9def-39feee3ae2b8"
+    ],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-01"
   }

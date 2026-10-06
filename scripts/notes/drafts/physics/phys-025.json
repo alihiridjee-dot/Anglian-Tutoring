@@ -14,42 +14,14 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Change",
-            "Starts as",
-            "Ends as"
-          ],
+          "columns": ["Change", "Starts as", "Ends as"],
           "rows": [
-            [
-              "Melting",
-              "Solid",
-              "Liquid"
-            ],
-            [
-              "Freezing",
-              "Liquid",
-              "Solid"
-            ],
-            [
-              "Boiling",
-              "Liquid",
-              "Gas"
-            ],
-            [
-              "Evaporating",
-              "Liquid",
-              "Gas"
-            ],
-            [
-              "Condensing",
-              "Gas",
-              "Liquid"
-            ],
-            [
-              "Sublimating",
-              "Solid",
-              "Gas, directly, without becoming a liquid"
-            ]
+            ["Melting", "Solid", "Liquid"],
+            ["Freezing", "Liquid", "Solid"],
+            ["Boiling", "Liquid", "Gas"],
+            ["Evaporating", "Liquid", "Gas"],
+            ["Condensing", "Gas", "Liquid"],
+            ["Sublimating", "Solid", "Gas, directly, without becoming a liquid"]
           ]
         },
         {
@@ -180,10 +152,7 @@
             "kind": "sort",
             "alt": "Sort each change into physical or chemical.",
             "prompt": "Sort each change into physical or chemical.",
-            "groups": [
-              "Physical change",
-              "Chemical change"
-            ],
+            "groups": ["Physical change", "Chemical change"],
             "items": [
               {
                 "text": "Ice melting",
@@ -242,33 +211,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.3.1.2",
-        "AQA T 6.3.1.2"
-      ],
-      "exam_phrases": [
-        "particles in a solid are in a regular pattern",
-        "particles in a liquid are in a random arrangement",
-        "particles in a solid are vibrating about fixed positions",
-        "particles in a liquid are moving freely",
-        "the potential energy of the particles increases",
-        "particles change from being spread apart to touching each other",
-        "attractive forces between particles are stronger in a solid than in a liquid"
-      ],
-      "mistakes": [
-        {
-          "wrong": "As the ice melts, the particles move further apart.",
-          "right": "References to density and spacing are ignored. Describe the arrangement (regular to random) and the movement (vibrating about fixed positions to moving freely)."
-        },
-        {
-          "wrong": "The temperature of the ice rises while it melts.",
-          "right": "The temperature remains constant while it changes to water. The potential energy of the particles increases."
-        },
-        {
-          "wrong": "When argon becomes a solid, its particles stop moving.",
-          "right": "Particles in a solid vibrate about fixed positions. They change from moving freely to vibrating."
-        }
-      ],
+      "spec_codes": ["AQA 4.3.1.2", "AQA T 6.3.1.2"],
       "worked_example": {
         "exemplar_id": "58eb63d0-0573-4cdf-87e9-7dc255b216e3",
         "source": "AQA jun 2019, Paper 1 (F), Q07.4",
@@ -286,70 +229,18 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 14.5"
-      ],
-      "exam_phrases": [
-        "change of state",
-        "solid changes (to a gas / vapour)",
-        "(directly) to gas / vapour",
-        "melting",
-        "sublimating"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Evaporation is the change from a solid to a liquid.",
-          "right": "Solid to liquid is melting. Evaporation is liquid to gas. Condensation is gas to liquid. Freezing is liquid to solid."
-        },
-        {
-          "wrong": "Sublimation is when a solid changes to a liquid and then to a gas.",
-          "right": "Sublimation is a solid changing directly to a gas or vapour."
-        },
-        {
-          "wrong": "Sublimation is the change from a gas to a liquid.",
-          "right": "Gas to liquid is condensation. Sublimation is solid to gas. The reverse, gas to solid, is also accepted."
-        }
-      ],
+      "spec_codes": ["EDEX 14.5"],
       "worked_example": {
         "exemplar_id": "2cce56c7-9b48-4ce9-94fe-73cc8abecf93",
         "source": "EDEXCEL jun 2022, Paper 2 (H), Q3(d)",
         "question": "Describe what happens when a substance experiences sublimation.",
         "marks": 2,
-        "answer_points": [
-          "a change of state: a solid changes",
-          "directly to a gas / vapour"
-        ],
+        "answer_points": ["a change of state: a solid changes", "directly to a gas / vapour"],
         "tip": "The reverse, gas to solid, is also accepted. An example such as ice to water vapour also scores."
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P1.2a",
-        "OCR P1.2b"
-      ],
-      "exam_phrases": [
-        "Mass before = mass after",
-        "mass is conserved",
-        "no mass is lost",
-        "particle rearrangement",
-        "conservation of numbers of particles",
-        "original properties return if change is reversed",
-        "physical change easily reversible"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The water has less mass than the ice, because the ice has melted.",
-          "right": "The mass is the same. 40 g of ice makes 40 g of water. Mass is conserved."
-        },
-        {
-          "wrong": "Writing only that the mass is conserved, with no reason.",
-          "right": "Add the explanation in terms of particles: they are only rearranged, and the number of particles stays the same."
-        },
-        {
-          "wrong": "A physical change can never be reversed.",
-          "right": "A physical change is easily reversible, and the original properties return. It is a chemical change that cannot easily be reversed."
-        }
-      ],
+      "spec_codes": ["OCR P1.2a", "OCR P1.2b"],
       "worked_example": {
         "exemplar_id": "6893cbf4-b2b2-48ec-90da-31c14ab520d4",
         "source": "OCR jun 2019, Paper 1, Q22(a)(ii)",

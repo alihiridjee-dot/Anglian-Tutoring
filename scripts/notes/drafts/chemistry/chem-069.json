@@ -31,37 +31,13 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Factor",
-            "Change that speeds up the reaction",
-            "Applies to"
-          ],
+          "columns": ["Factor", "Change that speeds up the reaction", "Applies to"],
           "rows": [
-            [
-              "Concentration",
-              "Use a more concentrated solution",
-              "Reactants in solution"
-            ],
-            [
-              "Pressure",
-              "Increase the pressure",
-              "Reacting gases"
-            ],
-            [
-              "Surface area",
-              "Use smaller pieces, or a powder",
-              "Solid reactants"
-            ],
-            [
-              "Temperature",
-              "Increase the temperature",
-              "All reactions"
-            ],
-            [
-              "Catalyst",
-              "Add a catalyst",
-              "Reactions that have a suitable catalyst"
-            ]
+            ["Concentration", "Use a more concentrated solution", "Reactants in solution"],
+            ["Pressure", "Increase the pressure", "Reacting gases"],
+            ["Surface area", "Use smaller pieces, or a powder", "Solid reactants"],
+            ["Temperature", "Increase the temperature", "All reactions"],
+            ["Catalyst", "Add a catalyst", "Reactions that have a suitable catalyst"]
           ]
         },
         {
@@ -70,52 +46,31 @@
             "kind": "predictor",
             "alt": "Pick a change to a reaction to see what happens to the rate.",
             "prompt": "Pick a change to the reaction",
-            "result_labels": [
-              "Effect on the rate",
-              "When it applies"
-            ],
+            "result_labels": ["Effect on the rate", "When it applies"],
             "options": [
               {
                 "label": "More concentrated acid",
-                "results": [
-                  "**Faster**",
-                  "Reactants in solution"
-                ]
+                "results": ["**Faster**", "Reactants in solution"]
               },
               {
                 "label": "Higher pressure of reacting gases",
-                "results": [
-                  "**Faster**",
-                  "Reactions between gases"
-                ]
+                "results": ["**Faster**", "Reactions between gases"]
               },
               {
                 "label": "Smaller pieces of solid",
-                "results": [
-                  "**Faster**",
-                  "Solid reactants, with the same mass"
-                ]
+                "results": ["**Faster**", "Solid reactants, with the same mass"]
               },
               {
                 "label": "Higher temperature",
-                "results": [
-                  "**Faster**",
-                  "All reactions"
-                ]
+                "results": ["**Faster**", "All reactions"]
               },
               {
                 "label": "Add a catalyst",
-                "results": [
-                  "**Faster**",
-                  "Reactions with a suitable catalyst"
-                ]
+                "results": ["**Faster**", "Reactions with a suitable catalyst"]
               },
               {
                 "label": "Lower temperature",
-                "results": [
-                  "**Slower**",
-                  "All reactions"
-                ]
+                "results": ["**Slower**", "All reactions"]
               },
               {
                 "label": "Use a larger flask",
@@ -153,15 +108,7 @@
               "label": "Time",
               "min": 0,
               "max": 300,
-              "ticks": [
-                0,
-                50,
-                100,
-                150,
-                200,
-                250,
-                300
-              ],
+              "ticks": [0, 50, 100, 150, 200, 250, 300],
               "unit": "s"
             },
             "y": {
@@ -171,63 +118,24 @@
               {
                 "name": "Small pieces",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    25,
-                    0.45
-                  ],
-                  [
-                    50,
-                    0.7
-                  ],
-                  [
-                    100,
-                    0.92
-                  ],
-                  [
-                    150,
-                    1
-                  ],
-                  [
-                    300,
-                    1
-                  ]
+                  [0, 0],
+                  [25, 0.45],
+                  [50, 0.7],
+                  [100, 0.92],
+                  [150, 1],
+                  [300, 1]
                 ]
               },
               {
                 "name": "Large pieces",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    50,
-                    0.3
-                  ],
-                  [
-                    100,
-                    0.52
-                  ],
-                  [
-                    150,
-                    0.7
-                  ],
-                  [
-                    200,
-                    0.84
-                  ],
-                  [
-                    250,
-                    0.95
-                  ],
-                  [
-                    300,
-                    1
-                  ]
+                  [0, 0],
+                  [50, 0.3],
+                  [100, 0.52],
+                  [150, 0.7],
+                  [200, 0.84],
+                  [250, 0.95],
+                  [300, 1]
                 ]
               }
             ],
@@ -288,67 +196,18 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.1.2",
-        "AQA T 5.6.1.2"
-      ],
-      "exam_phrases": [
-        "when the pressure of the reacting gases is increased, the rate of reaction increases",
-        "at higher pressures the distance between the particles decreases",
-        "the time taken for the cross to disappear decreases (higher temperature)",
-        "use a lower temperature; use sulfuric acid of a lower concentration (to increase the time taken)",
-        "as the concentration of the hydrochloric acid increased, the rate of the reaction increased"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Increasing the temperature of the hydrochloric acid increases the time for the cross to disappear.",
-          "right": "A higher temperature gives a faster rate, so the time for the cross to disappear decreases. A lower concentration increases the time."
-        },
-        {
-          "wrong": "At higher pressure the distance between the particles increases, so the rate increases.",
-          "right": "At higher pressure the distance between the particles decreases, so the frequency of collisions increases. The order is: rate increases, distance decreases, collisions more frequent."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.1.2", "AQA T 5.6.1.2"],
       "worked_example": {
         "exemplar_id": "6b4d7eea-2c17-491f-9ae8-62b3badbd623",
         "source": "AQA jun 2021, Paper 2 (F), Q04.4",
         "question": "The rate of reaction between gases is affected by changing the pressure.\n\nComplete the sentences.\n\nWhen the pressure of the reacting gases is increased, the rate of reaction ___.\n\nThis is because at higher pressures the distance between the particles ___.\n\nThis means that the frequency of collisions ___.",
         "marks": 3,
-        "answer_points": [
-          "Increases.",
-          "Decreases.",
-          "Increases."
-        ],
+        "answer_points": ["Increases.", "Decreases.", "Increases."],
         "tip": "One mark each. The words must be in this order."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 7.1",
-        "EDEX 7.4"
-      ],
-      "exam_phrases": [
-        "rate is increased",
-        "higher surface area / higher frequency of collisions / more collisions per second",
-        "(rate / reaction) faster, quicker",
-        "reaction takes less time",
-        "slower; slower; unchanged (larger flask)",
-        "crush the large chips in a pestle and mortar; use sieves to separate the sizes"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Smaller marble chips make the reaction faster because the particles have more energy.",
-          "right": "Particles having more energy is rejected for surface area. Say there is a higher surface area, or more collisions per second."
-        },
-        {
-          "wrong": "Smaller chips give more collisions, so a faster reaction.",
-          "right": "More collisions on its own is ignored. Say more frequent collisions, more collisions per second or more chance of collisions."
-        },
-        {
-          "wrong": "Carrying out the reaction in a larger flask makes the rate slower.",
-          "right": "A larger flask leaves the rate unchanged. The more dilute solution and the lower temperature are the changes that make it slower."
-        }
-      ],
+      "spec_codes": ["EDEX 7.1", "EDEX 7.4"],
       "worked_example": {
         "exemplar_id": "72b08153-693b-4752-ae7e-909e5df06e02",
         "source": "EDEXCEL jun 2024, Paper 2 (H), Q2(c)",
@@ -362,25 +221,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C5.2c"
-      ],
-      "exam_phrases": [
-        "warm hydrogen peroxide to 30 °C / place in a water bath at 30 °C",
-        "measure volume of (oxygen) gas every 5 minutes",
-        "compare results (to results at room temperature)",
-        "gas made quicker at 30 °C / reaction finishes quicker at 30 °C"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Warm the hydrogen peroxide to 30 °C and see if the reaction is faster.",
-          "right": "Say what is measured: the volume of gas every few minutes (or the time to collect it, or the mass lost). Then compare with room temperature, or say the gas is made quicker at 30 °C."
-        },
-        {
-          "wrong": "Warm the hydrogen peroxide to 30 °C and measure the volume of oxygen every 5 minutes.",
-          "right": "This earns the experiment marks only. Add a comparison with the results at room temperature, or say the gas is made quicker at 30 °C."
-        }
-      ],
+      "spec_codes": ["OCR C5.2c"],
       "worked_example": {
         "exemplar_id": "56d7161b-0bf5-4e5d-9126-abc4ef29855e",
         "source": "OCR jun 2022, Paper 4, Q16(f)",

@@ -8,21 +8,42 @@
     {
       "heading": "Detecting the water content of the blood",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) The water content of the blood changes with drinking, sweating and eating. The brain monitors it and sends a hormone message." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) The water content of the blood changes with drinking, sweating and eating. The brain monitors it and sends a hormone message."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "ADH", "meaning": "A hormone from the pituitary gland that controls how much water the kidney reabsorbs." },
-            { "term": "Collecting duct", "meaning": "The last part of the kidney tubule, where the final amount of water is reabsorbed." }
+            {
+              "term": "ADH",
+              "meaning": "A hormone from the pituitary gland that controls how much water the kidney reabsorbs."
+            },
+            {
+              "term": "Collecting duct",
+              "meaning": "The last part of the kidney tubule, where the final amount of water is reabsorbed."
+            }
           ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Detect.", "text": "Receptors in the hypothalamus detect that the blood is too concentrated, because it has too little water." },
-            { "lead": "Signal.", "text": "The hypothalamus sends a message to the pituitary gland." },
-            { "lead": "Release.", "text": "The pituitary gland releases **ADH** into the blood." },
-            { "lead": "Carry.", "text": "The blood carries ADH to the kidneys, its target organs." }
+            {
+              "lead": "Detect.",
+              "text": "Receptors in the hypothalamus detect that the blood is too concentrated, because it has too little water."
+            },
+            {
+              "lead": "Signal.",
+              "text": "The hypothalamus sends a message to the pituitary gland."
+            },
+            {
+              "lead": "Release.",
+              "text": "The pituitary gland releases **ADH** into the blood."
+            },
+            {
+              "lead": "Carry.",
+              "text": "The blood carries ADH to the kidneys, its target organs."
+            }
           ]
         },
         {
@@ -37,8 +58,14 @@
     {
       "heading": "How ADH changes the urine",
       "blocks": [
-        { "type": "paragraph", "text": "ADH acts on the collecting duct. It changes how much water is reabsorbed, so it changes the urine." },
-        { "type": "subheading", "text": "Too little water in the blood" },
+        {
+          "type": "paragraph",
+          "text": "ADH acts on the collecting duct. It changes how much water is reabsorbed, so it changes the urine."
+        },
+        {
+          "type": "subheading",
+          "text": "Too little water in the blood"
+        },
         {
           "type": "list",
           "items": [
@@ -48,7 +75,10 @@
             "The urine is more concentrated and smaller in volume."
           ]
         },
-        { "type": "subheading", "text": "Too much water in the blood" },
+        {
+          "type": "subheading",
+          "text": "Too much water in the blood"
+        },
         {
           "type": "list",
           "items": [
@@ -70,14 +100,22 @@
     {
       "heading": "Negative feedback",
       "blocks": [
-        { "type": "paragraph", "text": "When the blood water content returns to normal, ADH release falls. The change is reversed, so this is negative feedback. Pick a situation to see the response." },
+        {
+          "type": "paragraph",
+          "text": "When the blood water content returns to normal, ADH release falls. The change is reversed, so this is negative feedback. Pick a situation to see the response."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "predictor",
             "alt": "Choose a situation to see how ADH, the collecting duct and the urine respond.",
             "prompt": "Pick a situation",
-            "result_labels": ["Water content of the blood", "ADH released", "Collecting duct", "Urine"],
+            "result_labels": [
+              "Water content of the blood",
+              "ADH released",
+              "Collecting duct",
+              "Urine"
+            ],
             "options": [
               {
                 "label": "Hot day, not enough to drink",
@@ -139,29 +177,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 5.10"],
-      "exam_phrases": [
-        "(increased / high) ADH increases water reabsorption",
-        "increases permeability (of kidney tubules) to water",
-        "(water reabsorption) from kidney tubules",
-        "ADH increases the concentration (of urine), decreases the volume",
-        "(kidney) tubules less permeable to water, so less water is reabsorbed",
-        "more water in urine, more dilute urine / increased volume",
-        "high(er) concentration of blood causes (more) ADH release"
-      ],
-      "mistakes": [
-        {
-          "wrong": "In the desert the man's kidneys make less urine, so he loses less water.",
-          "right": "Reference to urine is ignored for the reabsorption mark. Say ADH increases the permeability of the kidney tubules to water, so more water is reabsorbed back into the blood."
-        },
-        {
-          "wrong": "When the blood is more dilute, more ADH is released.",
-          "right": "A higher concentration of the blood (lower water potential) causes more ADH release. Dilute blood means less ADH."
-        },
-        {
-          "wrong": "ADH increases the volume of urine.",
-          "right": "ADH increases water reabsorption, so it increases the concentration of the urine and decreases its volume."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "8718724b-b53f-4226-bcdb-0c175760b883",
         "source": "AQA jun 2024, Paper 2 (H), Q08.3",
@@ -178,25 +193,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.20B"],
-      "exam_phrases": [
-        "hypothalamus detects there is too little water in the blood",
-        "ADH released from the pituitary gland into the blood",
-        "the collecting duct becomes more permeable",
-        "more water is reabsorbed into the blood by osmosis",
-        "more concentrated urine, smaller volume of urine produced",
-        "ADH lowered / not released; collecting duct is less permeable",
-        "more dilute urine, larger volume of urine produced"
-      ],
-      "mistakes": [
-        {
-          "wrong": "ADH is released from the kidney into the blood.",
-          "right": "ADH is released from the pituitary gland into the blood. The hypothalamus detects the water content. The kidney is where ADH acts."
-        },
-        {
-          "wrong": "In the collecting duct water leaves the body, which makes the urine more concentrated.",
-          "right": "Water from the urine is reabsorbed, or moved back into the blood, by osmosis. That leaves the urine more concentrated."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "8c01ceaa-2038-4a52-ae12-b201ce99555e",
         "source": "EDEXCEL jun 2023, Paper 2 (H), Q10(b)",
@@ -215,29 +211,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 3.3i"],
-      "exam_phrases": [
-        "(low) water potential / (decreased) water levels are detected by the hypothalamus",
-        "release of ADH / increased ADH levels",
-        "increased permeability of the collecting duct / kidney tubules",
-        "increased reabsorption of water (into the blood)",
-        "decreased urine production, urine will become more concentrated",
-        "hypothalamus; pituitary (gland); ADH",
-        "less water is reabsorbed from the kidney tubule into the blood"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The brain detects that the water level is low.",
-          "right": "\"Brain\" is ignored. Name the hypothalamus as the part that detects the low water level."
-        },
-        {
-          "wrong": "The blood concentration is detected by receptors in the medulla and a message is sent to the hypothalamus.",
-          "right": "Receptors in the hypothalamus detect the blood concentration and the message goes to the pituitary gland, which releases ADH."
-        },
-        {
-          "wrong": "Less ADH means less water is reabsorbed, so the horse makes a small volume of concentrated urine.",
-          "right": "This is the wrong way round. Less water reabsorbed from the kidney tubule gives a higher volume of urine with a lower concentration."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "2f905652-12db-4a97-86bb-9618c52b42a1",
         "source": "OCR nov 2020, Paper 3, Q22(b)(iii)",

@@ -8,22 +8,43 @@
     {
       "heading": "How environmental change alters distribution",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) Each organism survives only where conditions suit it. This section covers three changes that can move species." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Each organism survives only where conditions suit it. This section covers three changes that can move species."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Distribution", "meaning": "Where a species is found, and how many there are in each place." },
-            { "term": "Environmental change", "meaning": "A change in a physical factor, such as temperature, rainfall or the gases in the air." },
-            { "term": "Migration", "meaning": "The movement of animals from one place to another, often at a particular time of year." }
+            {
+              "term": "Distribution",
+              "meaning": "Where a species is found, and how many there are in each place."
+            },
+            {
+              "term": "Environmental change",
+              "meaning": "A change in a physical factor, such as temperature, rainfall or the gases in the air."
+            },
+            {
+              "term": "Migration",
+              "meaning": "The movement of animals from one place to another, often at a particular time of year."
+            }
           ]
         },
         {
           "type": "table",
           "columns": ["Change", "Example effects on living things"],
           "rows": [
-            ["**Temperature**", "Global warming melts polar ice caps and glaciers, causing flooding. Animals and birds change when and where they migrate, so their distribution changes"],
-            ["**Water availability**", "Less rainfall can cause desertification. Many plant species die out, animals lack food, and drought-adapted plants become more common. More rainfall can cause flooding and loss of habitat"],
-            ["**Atmospheric gases**", "More carbon dioxide causes global warming, and plants may photosynthesise faster. Acidic gases such as sulfur dioxide cause acid rain, which can stop seeds from growing"]
+            [
+              "**Temperature**",
+              "Global warming melts polar ice caps and glaciers, causing flooding. Animals and birds change when and where they migrate, so their distribution changes"
+            ],
+            [
+              "**Water availability**",
+              "Less rainfall can cause desertification. Many plant species die out, animals lack food, and drought-adapted plants become more common. More rainfall can cause flooding and loss of habitat"
+            ],
+            [
+              "**Atmospheric gases**",
+              "More carbon dioxide causes global warming, and plants may photosynthesise faster. Acidic gases such as sulfur dioxide cause acid rain, which can stop seeds from growing"
+            ]
           ]
         },
         {
@@ -34,12 +55,30 @@
             "prompt": "Which change causes each effect?",
             "groups": ["Temperature rise", "Less rainfall", "More rainfall"],
             "items": [
-              { "text": "Polar ice caps and glaciers melt, causing flooding", "group": 0 },
-              { "text": "Animals and birds migrate at different times or to new places", "group": 0 },
-              { "text": "Desertification", "group": 1 },
-              { "text": "Many plant species die out and animals lack food", "group": 1 },
-              { "text": "Drought-adapted plants become more common", "group": 1 },
-              { "text": "Flooding and loss of habitat, which may lead to extinction", "group": 2 }
+              {
+                "text": "Polar ice caps and glaciers melt, causing flooding",
+                "group": 0
+              },
+              {
+                "text": "Animals and birds migrate at different times or to new places",
+                "group": 0
+              },
+              {
+                "text": "Desertification",
+                "group": 1
+              },
+              {
+                "text": "Many plant species die out and animals lack food",
+                "group": 1
+              },
+              {
+                "text": "Drought-adapted plants become more common",
+                "group": 1
+              },
+              {
+                "text": "Flooding and loss of habitat, which may lead to extinction",
+                "group": 2
+              }
             ]
           }
         },
@@ -55,7 +94,10 @@
     {
       "heading": "Evaluating the evidence",
       "blocks": [
-        { "type": "paragraph", "text": "You may be given data from an investigation and asked what it shows. Describe the pattern, then judge how far the evidence supports the claim." },
+        {
+          "type": "paragraph",
+          "text": "You may be given data from an investigation and asked what it shows. Describe the pattern, then judge how far the evidence supports the claim."
+        },
         {
           "type": "list",
           "items": [
@@ -96,29 +138,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 7.7"],
-      "exam_phrases": [
-        "higher carbon dioxide concentration causes global warming",
-        "plants photosynthesise faster due to more carbon dioxide / higher temperature",
-        "temperature rise causes changes in rainfall patterns or extreme weather conditions",
-        "less rainfall causes desertification; many plant species die out; animals lack food and die",
-        "more rainfall causes flooding; loss of habitat; may lead to extinction",
-        "temperature rise melts polar ice caps or glaciers, causing flooding",
-        "changes in animal / bird migration patterns / times or changes in distribution of animals"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Carbon dioxide causes global warming. Ice melts. There are floods. Animals die.",
-          "right": "A list scores at Level 1. For Level 2, link each point to the next: higher carbon dioxide causes global warming, which melts ice caps, which causes flooding and loss of habitat."
-        },
-        {
-          "wrong": "More rainfall causes flooding.",
-          "right": "Add the effect on living things: loss of habitat, which may lead to extinction."
-        },
-        {
-          "wrong": "More carbon dioxide only harms living organisms.",
-          "right": "Mention both sides. Plants may photosynthesise faster with more carbon dioxide, or at a higher temperature."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "d9dee04f-fab4-4504-b12d-595bb71a91be",
         "source": "AQA jun 2021, Paper 2 (F), Q07.3",
@@ -135,20 +154,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 6.1d"],
-      "exam_phrases": [
-        "acid rain will lower the number of seeds growing",
-        "only affects seeds if the pH is less than 6.0"
-      ],
-      "mistakes": [
-        {
-          "wrong": "As the pH decreases, the number of seeds growing decreases.",
-          "right": "\"Decrease pH decreases number of seeds growing\" is ignored. Say that acid rain lowers the number of seeds growing, and that it only has an effect when the pH is below 6.0."
-        },
-        {
-          "wrong": "Acid rain affects the seeds at every pH.",
-          "right": "The seeds grew as well at pH 6.0 to 6.5 as at pH 7.0. The effect only appears below pH 6.0."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "a52f3669-b7f0-48d7-ae7c-6b82b99fbeca",
         "source": "OCR jun 2018, Paper 2, Q17(b)",
@@ -172,9 +177,6 @@
       "a468689e-be17-4d0c-8f07-31f85ea79149",
       "d66cb221-db69-4e8f-b613-3effbfbb1b74"
     ],
-    "exemplar_ids": [
-      "d9dee04f-fab4-4504-b12d-595bb71a91be",
-      "a52f3669-b7f0-48d7-ae7c-6b82b99fbeca"
-    ]
+    "exemplar_ids": ["d9dee04f-fab4-4504-b12d-595bb71a91be", "a52f3669-b7f0-48d7-ae7c-6b82b99fbeca"]
   }
 }

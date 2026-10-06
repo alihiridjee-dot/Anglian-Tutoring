@@ -72,13 +72,7 @@
               "label": "Time",
               "min": 0,
               "max": 4,
-              "ticks": [
-                0,
-                1,
-                2,
-                3,
-                4
-              ],
+              "ticks": [0, 1, 2, 3, 4],
               "unit": "half-lives"
             },
             "y": {
@@ -88,42 +82,15 @@
               {
                 "name": "Activity",
                 "points": [
-                  [
-                    0,
-                    1
-                  ],
-                  [
-                    0.5,
-                    0.707
-                  ],
-                  [
-                    1,
-                    0.5
-                  ],
-                  [
-                    1.5,
-                    0.354
-                  ],
-                  [
-                    2,
-                    0.25
-                  ],
-                  [
-                    2.5,
-                    0.177
-                  ],
-                  [
-                    3,
-                    0.125
-                  ],
-                  [
-                    3.5,
-                    0.088
-                  ],
-                  [
-                    4,
-                    0.0625
-                  ]
+                  [0, 1],
+                  [0.5, 0.707],
+                  [1, 0.5],
+                  [1.5, 0.354],
+                  [2, 0.25],
+                  [2.5, 0.177],
+                  [3, 0.125],
+                  [3.5, 0.088],
+                  [4, 0.0625]
                 ]
               }
             ]
@@ -218,9 +185,7 @@
           "type": "equation",
           "label": "Number of half-lives",
           "formula": "number of half-lives = time ÷ half-life",
-          "where": [
-            "time and half-life are in the same unit, for example days."
-          ]
+          "where": ["time and half-life are in the same unit, for example days."]
         },
         {
           "type": "equation",
@@ -257,7 +222,7 @@
         },
         {
           "type": "paragraph",
-          "text": "(Higher tier) The net decline can be written as a ratio. After n half-lives, the final activity to the initial activity is 1 : 2ⁿ. After 3 half-lives this is 1 : 8."
+          "text": "(AQA: Higher tier) The net decline can be written as a ratio. After n half-lives, the final activity to the initial activity is 1 : 2ⁿ. After 3 half-lives this is 1 : 8."
         },
         {
           "type": "diagram",
@@ -296,7 +261,7 @@
           "items": [
             "Number of half-lives = time ÷ half-life.",
             "Halve the starting value once for each half-life.",
-            "(Higher tier) After n half-lives the ratio of final to initial activity is 1 : 2ⁿ."
+            "(AQA: Higher tier) After n half-lives the ratio of final to initial activity is 1 : 2ⁿ."
           ]
         }
       ]
@@ -347,36 +312,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.4.2.3",
-        "AQA T 6.4.2.3"
-      ],
-      "exam_phrases": [
-        "number of half-lives = 4",
-        "activity decreased by a factor of 4",
-        "because 2 half-lives had passed",
-        "activity decreases quickly",
-        "risk of harm decreases quickly",
-        "a dice with 8 sides will have a smaller chance of decay (in one roll)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The risk from iodine-131 has not changed between 1986 and 2018 because it emits the same radiation as caesium-137.",
-          "right": "Iodine-131 has a short half-life (8 days), so many half-lives have passed and its activity has decreased by a large amount. Caesium-137 has a long half-life, so its activity has not decreased by much."
-        },
-        {
-          "wrong": "Waste with a short half-life is better because it is radioactive for less time.",
-          "right": "This is ignored. Say that the activity decreases quickly and so the risk of harm decreases quickly."
-        },
-        {
-          "wrong": "Time = 5 × 137 for caesium-137 to fall to 1/32.",
-          "right": "A calculation using 137 scores zero. 137 is the mass number. Use the half-life, 30 years: 5 × 30 = 150 years."
-        },
-        {
-          "wrong": "An eight-sided dice has a shorter half-life, because it has more sides.",
-          "right": "An eight-sided dice has a smaller chance of decay on each roll, so it has a greater half-life."
-        }
-      ],
+      "spec_codes": ["AQA 4.4.2.3", "AQA T 6.4.2.3"],
       "worked_example": {
         "exemplar_id": "9dd98a6a-d972-48fb-93cc-135719395492",
         "source": "AQA jun 2025, Paper 1 (H), Q07.4",
@@ -391,35 +327,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 6.23",
-        "EDEX 6.24",
-        "EDEX 6.25",
-        "EDEX 6.26",
-        "EDEX 6.27"
-      ],
-      "exam_phrases": [
-        "recognition of there being 4 half lives involved",
-        "so fraction of 1/16 involved",
-        "(54 days is) 3 half-lives",
-        "the process (of radioactive decay) is unpredictable / (occurs) random(ly)",
-        "so the count rate would not be constant / there will be variations with each reading",
-        "125 000 / 1 000 000 OR 1/8 OR 3 half-lives"
-      ],
-      "mistakes": [
-        {
-          "wrong": "20 years is 3 half-lives, so the activity is 38.5 ÷ 8 = 4.8 kBq.",
-          "right": "20 ÷ 5 = 4 half-lives, not 3. Using three half-lives scores only 2 marks. The fraction is 1/16, so the activity is 38.5 ÷ 16 = 2.4 kBq."
-        },
-        {
-          "wrong": "Scattered results happen because decay is difficult to predict.",
-          "right": "Difficult to predict is not allowed. Say that decay is unpredictable or random, so the count rate is not constant and varies with each reading."
-        },
-        {
-          "wrong": "Mass remaining after 54 days = 520 ÷ 2 ÷ 2 = 130 g, for a half-life of 18 days.",
-          "right": "54 ÷ 18 = 3 half-lives, so halve three times: 520 → 260 → 130 → 65 g. 130 g scores 1 mark."
-        }
-      ],
+      "spec_codes": ["EDEX 6.23", "EDEX 6.24", "EDEX 6.25", "EDEX 6.26", "EDEX 6.27"],
       "worked_example": {
         "exemplar_id": "4d20b027-23f1-47c8-b52f-fb4acfe0d6aa",
         "source": "EDEXCEL nov 2020, Paper 1 (H), Q7(c)",
@@ -434,33 +342,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P6.1j",
-        "OCR P6.1k"
-      ],
-      "exam_phrases": [
-        "(1/32 =) 5 half-lives",
-        "(time required =) 28 x 5",
-        "Radiation / activity is random",
-        "Randomness is amplified at low readings",
-        "Radioactive decay is random",
-        "Variations are more pronounced at low count rates",
-        "(Shorter half-life means) higher activity"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Of four metals with half-lives of 4 hours, 10 years, 2 years and 28 days, the 10-year metal is the most hazardous because it has the longest half-life.",
-          "right": "With equal masses, the shortest half-life gives the highest activity. The 4-hour metal is the most hazardous. No mark is given if it is not chosen."
-        },
-        {
-          "wrong": "The last two readings are anomalies because of a mistake in the measurement.",
-          "right": "Say that radiation or activity is random, and that the randomness is amplified at low readings."
-        },
-        {
-          "wrong": "A source with a longer half-life is a greater health risk at the start.",
-          "right": "For the same number of nuclei, the source with the shorter half-life has the higher activity at the start, so it is the greater risk to begin with."
-        }
-      ],
+      "spec_codes": ["OCR P6.1j", "OCR P6.1k"],
       "worked_example": {
         "exemplar_id": "966d3949-4543-4545-b678-28c39149070a",
         "source": "OCR jun 2025, Paper 4, Q20(b)(ii)",

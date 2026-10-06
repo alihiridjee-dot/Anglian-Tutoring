@@ -8,12 +8,21 @@
     {
       "heading": "Inert and non-inert electrodes",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers the two kinds of electrode used in the practical." },
+        {
+          "type": "paragraph",
+          "text": "This section covers the two kinds of electrode used in the practical."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Inert electrode", "meaning": "An electrode that does not react. It only carries the current. Graphite and platinum are inert." },
-            { "term": "Non-inert electrode", "meaning": "An electrode that takes part in the reaction and is changed during electrolysis. Copper is an example." }
+            {
+              "term": "Inert electrode",
+              "meaning": "An electrode that does not react. It only carries the current. Graphite and platinum are inert."
+            },
+            {
+              "term": "Non-inert electrode",
+              "meaning": "An electrode that takes part in the reaction and is changed during electrolysis. Copper is an example."
+            }
           ]
         },
         {
@@ -37,8 +46,14 @@
     {
       "heading": "Copper sulfate with each type of electrode",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers what happens at each electrode, and how the reaction is used to purify copper." },
-        { "type": "subheading", "text": "Inert electrodes" },
+        {
+          "type": "paragraph",
+          "text": "This section covers what happens at each electrode, and how the reaction is used to purify copper."
+        },
+        {
+          "type": "subheading",
+          "text": "Inert electrodes"
+        },
         {
           "type": "list",
           "items": [
@@ -47,7 +62,10 @@
             "Positive electrode: oxygen forms, because there is no halide ion. Bubbles appear."
           ]
         },
-        { "type": "subheading", "text": "Copper electrodes" },
+        {
+          "type": "subheading",
+          "text": "Copper electrodes"
+        },
         {
           "type": "list",
           "items": [
@@ -64,7 +82,12 @@
             "kind": "predictor",
             "alt": "Choose the type of electrode to see what happens in copper sulfate solution.",
             "prompt": "Pick the electrodes",
-            "result_labels": ["Negative electrode (cathode)", "Positive electrode (anode)", "Change in mass", "Blue colour of the solution"],
+            "result_labels": [
+              "Negative electrode (cathode)",
+              "Positive electrode (anode)",
+              "Change in mass",
+              "Blue colour of the solution"
+            ],
             "options": [
               {
                 "label": "Inert electrodes",
@@ -87,7 +110,10 @@
             ]
           }
         },
-        { "type": "subheading", "text": "Purifying copper" },
+        {
+          "type": "subheading",
+          "text": "Purifying copper"
+        },
         {
           "type": "list",
           "items": [
@@ -109,16 +135,37 @@
     {
       "heading": "Carrying out the investigation",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers the method for finding the mass of copper deposited, and how to improve it." },
+        {
+          "type": "paragraph",
+          "text": "This section covers the method for finding the mass of copper deposited, and how to improve it."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Clean", "text": "Clean the copper electrodes with emery paper to remove surface oxide, grease and impurities." },
-            { "lead": "Weigh", "text": "Weigh each electrode and record its mass." },
-            { "lead": "Set up", "text": "Put the electrodes in copper sulfate solution. Connect them to a direct current supply, with an ammeter in the circuit." },
-            { "lead": "Run", "text": "Switch on for a measured time, with the current kept constant." },
-            { "lead": "Dry", "text": "Remove the negative electrode. Rinse it with water or propanone and leave it to dry. Do not scrape off the copper." },
-            { "lead": "Reweigh", "text": "Weigh the electrode again and subtract its starting mass." }
+            {
+              "lead": "Clean",
+              "text": "Clean the copper electrodes with emery paper to remove surface oxide, grease and impurities."
+            },
+            {
+              "lead": "Weigh",
+              "text": "Weigh each electrode and record its mass."
+            },
+            {
+              "lead": "Set up",
+              "text": "Put the electrodes in copper sulfate solution. Connect them to a direct current supply, with an ammeter in the circuit."
+            },
+            {
+              "lead": "Run",
+              "text": "Switch on for a measured time, with the current kept constant."
+            },
+            {
+              "lead": "Dry",
+              "text": "Remove the negative electrode. Rinse it with water or propanone and leave it to dry. Do not scrape off the copper."
+            },
+            {
+              "lead": "Reweigh",
+              "text": "Weigh the electrode again and subtract its starting mass."
+            }
           ]
         },
         {
@@ -177,29 +224,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.4.3.4", "AQA T 5.4.3.4"],
-      "exam_phrases": [
-        "(graphite) conducts (electricity)",
-        "(graphite) is inert / unreactive",
-        "(positive electrode) bubbles / effervescence / fizzing",
-        "(negative electrode) (pink / orange / red / brown) solid",
-        "copper ions gain two electrons",
-        "copper falls off (the electrode)",
-        "electrode not dry (when weighed)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The mass of copper was different because the student recorded the mass inaccurately.",
-          "right": "This is ignored. Give a reason from the method: copper fell off the electrode, the electrode was not dry, the timing was wrong, or the current was different."
-        },
-        {
-          "wrong": "The mass was different because the power supply was different.",
-          "right": "The power supply is ignored. Say that the voltage or the current was different."
-        },
-        {
-          "wrong": "Gas is produced at the positive electrode and metal is produced at the negative electrode.",
-          "right": "These are ignored as observations. Say what is seen: bubbles (fizzing) at the positive electrode and a solid at the negative electrode."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "c351fb90-37e0-4216-a3bb-fceb000375c9",
         "source": "AQA jun 2021, Paper 1 (H), Q07.4",
@@ -216,29 +240,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.30", "EDEX 3.31"],
-      "exam_phrases": [
-        "anode: smaller because copper atoms form ions (and go into solution)",
-        "cathode: larger because copper atoms are formed (from ions in the solution)",
-        "the same number of ions enter and leave solution",
-        "cleaned (using emery paper) to remove surface oxide / grease / impurities",
-        "wash / rinse, then dry / leave to dry",
-        "the higher the current the more electrons (per second)",
-        "Cu → Cu²⁺ + 2e⁻"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The anode loses mass because it loses electrons.",
-          "right": "This is rejected. The anode loses mass because copper atoms lose electrons to form copper ions, which go into the solution."
-        },
-        {
-          "wrong": "Clean the cathode with sandpaper or scrape off the copper before the final mass is found.",
-          "right": "This is rejected. Wash or rinse the cathode, then leave it to dry."
-        },
-        {
-          "wrong": "Clean the copper electrodes before the electrolysis to remove rust.",
-          "right": "Rust is rejected. Clean them to remove surface oxide, grease or impurities."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "4ec6dde3-e36d-46be-8ca9-9f4e34e83e77",
         "source": "EDEXCEL nov 2021, Paper 1 (H), Q5(d)(ii)",
@@ -254,28 +255,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR C3.4e"],
-      "exam_phrases": [
-        "copper is deposited at the cathode",
-        "copper anode dissolves / copper ions produced at anode",
-        "non-inert electrodes are changed during electrolysis",
-        "inert electrodes do not react with the electrolyte",
-        "an (inert) electrode has to conduct electricity",
-        "an (inert) electrode has to remain solid / not dissolve"
-      ],
-      "mistakes": [
-        {
-          "wrong": "At the anode, copper ions lose electrons.",
-          "right": "This is not allowed. Copper atoms lose electrons at the anode, so the anode loses mass and copper ions are made."
-        },
-        {
-          "wrong": "At the cathode, the copper is purified.",
-          "right": "'Copper purified' is ignored. Say that copper is deposited at the cathode."
-        },
-        {
-          "wrong": "Any material that conducts electricity makes a good inert electrode.",
-          "right": "An inert electrode must conduct and must also remain solid and not dissolve. A material that only conducts earns just 1 of the 3 marks."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "033f7fc5-b016-4368-a302-f9522e139883",
         "source": "OCR sample null, Paper 3, Q23(b)",

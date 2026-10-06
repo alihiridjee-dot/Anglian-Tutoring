@@ -129,19 +129,13 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Product of cracking",
-            "Why it is useful"
-          ],
+          "columns": ["Product of cracking", "Why it is useful"],
           "rows": [
             [
               "Smaller alkanes",
               "In high demand as fuels, because small molecules are more flammable"
             ],
-            [
-              "Alkenes",
-              "Used to produce polymers and as starting materials for other chemicals"
-            ]
+            ["Alkenes", "Used to produce polymers and as starting materials for other chemicals"]
           ]
         },
         {
@@ -173,29 +167,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.1.4",
-        "AQA T 5.7.1.4"
-      ],
-      "exam_phrases": [
-        "cracking",
-        "high temperature",
-        "steam / catalyst",
-        "greater demand (for smaller molecules)",
-        "more useful / better fuels / used to make alkenes / polymers",
-        "(because more) flammable (than larger molecules)",
-        "(because more) reactive (than alkanes)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Cracking happens when the hydrocarbon is heated or made hot.",
-          "right": "Heat and hot are ignored. Say high temperature, or give a temperature in the accepted range."
-        },
-        {
-          "wrong": "One product of cracking is in high demand.",
-          "right": "Name the product, its use and a linked reason. Ethane is useful as a fuel because it is more flammable than larger molecules, or ethene is used to make polymers because it is more reactive than alkanes."
-        }
-      ],
+      "spec_codes": ["AQA 4.7.1.4", "AQA T 5.7.1.4"],
       "worked_example": {
         "exemplar_id": "cec234ee-5d5d-46a3-8cef-5861fa858664",
         "source": "AQA jun 2022, Paper 2 (H), Q4.6",
@@ -210,26 +182,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 8.16",
-        "EDEX 8.17"
-      ],
-      "exam_phrases": [
-        "Mr of CH₂ = 12 + (2 × 1) = 14",
-        "56 / 14 = 4",
-        "formula of Y = 4 × CH₂ = C₄H₈",
-        "formula of X = (C₆H₁₄ + C₄H₈ =) C₁₀H₂₂"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Formula of X = C₆H₁₄ + CH₂ = C₇H₁₆",
-          "right": "This is ignored. CH₂ is only the empirical formula. Use the Mr of 56 to find that Y is C₄H₈, then add it to C₆H₁₄ to give C₁₀H₂₂."
-        },
-        {
-          "wrong": "Write C₁₀H₂₂ as the answer with no working.",
-          "right": "A correct formula with no working scores only the last mark. Show the Mr of CH₂, the division by 14 and the formula of Y."
-        }
-      ],
+      "spec_codes": ["EDEX 8.16", "EDEX 8.17"],
       "worked_example": {
         "exemplar_id": "3b26ec81-fd4d-4d9d-be63-bf78ccf8a4e9",
         "source": "EDEXCEL jun 2023, Paper 2 (H), Q9(b)",
@@ -245,27 +198,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.2o"
-      ],
-      "exam_phrases": [
-        "high demand for smaller molecules",
-        "smaller molecules used for fuels / alkenes used for polymers",
-        "not enough supply of smaller molecules",
-        "surplus of larger molecules",
-        "cracking changes larger molecules to smaller molecules or alkenes",
-        "product of cracking more in demand / makes up the shortfall"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Fractions are cracked because the molecules are too long.",
-          "right": "This idea is ignored. Say there is high demand for smaller molecules and a surplus of larger ones."
-        },
-        {
-          "wrong": "Cracking is useful because the products are more useful.",
-          "right": "Give an example from the data as well. For example, gases are 4% of the crude oil but 11% is needed, and cracking makes up the shortfall."
-        }
-      ],
+      "spec_codes": ["OCR C6.2o"],
       "worked_example": {
         "exemplar_id": "0a803438-44c3-4f13-9ecd-d54a2761a3f0",
         "source": "OCR nov 2021, Paper 4, Q20(b)(i)",

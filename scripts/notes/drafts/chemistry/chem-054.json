@@ -8,15 +8,33 @@
     {
       "heading": "Predicting the products",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers how to name the product at each electrode for a molten binary ionic compound." },
+        {
+          "type": "paragraph",
+          "text": "This section covers how to name the product at each electrode for a molten binary ionic compound."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Binary compound", "meaning": "A compound made of two elements, such as lead bromide, PbBr₂." },
-            { "term": "Molten", "meaning": "Melted, so the ions are free to move." },
-            { "term": "Inert electrode", "meaning": "An electrode that does not react, so it only carries the current." },
-            { "term": "Cation", "meaning": "A positive ion. It moves to the cathode and forms the metal." },
-            { "term": "Anion", "meaning": "A negative ion. It moves to the anode and forms the non-metal." }
+            {
+              "term": "Binary compound",
+              "meaning": "A compound made of two elements, such as lead bromide, PbBr₂."
+            },
+            {
+              "term": "Molten",
+              "meaning": "Melted, so the ions are free to move."
+            },
+            {
+              "term": "Inert electrode",
+              "meaning": "An electrode that does not react, so it only carries the current."
+            },
+            {
+              "term": "Cation",
+              "meaning": "A positive ion. It moves to the cathode and forms the metal."
+            },
+            {
+              "term": "Anion",
+              "meaning": "A negative ion. It moves to the anode and forms the non-metal."
+            }
           ]
         },
         {
@@ -49,67 +67,133 @@
             "options": [
               {
                 "label": "Lead bromide",
-                "results": ["**Lead**", "**Bromine**", "Pb²⁺ is positive and goes to the cathode. Br⁻ is negative and goes to the anode."],
+                "results": [
+                  "**Lead**",
+                  "**Bromine**",
+                  "Pb²⁺ is positive and goes to the cathode. Br⁻ is negative and goes to the anode."
+                ],
                 "scene": {
                   "kind": "electrolysis",
                   "ions": ["Pb²⁺", "Br⁻"],
-                  "negative": { "product": "Lead", "form": "metal", "metal": "grey" },
-                  "positive": { "product": "Bromine", "form": "gas" },
+                  "negative": {
+                    "product": "Lead",
+                    "form": "metal",
+                    "metal": "grey"
+                  },
+                  "positive": {
+                    "product": "Bromine",
+                    "form": "gas"
+                  },
                   "molten": true
                 }
               },
               {
                 "label": "Zinc chloride",
-                "results": ["**Zinc**", "**Chlorine**", "Zn²⁺ is positive and goes to the cathode. Cl⁻ is negative and goes to the anode."],
+                "results": [
+                  "**Zinc**",
+                  "**Chlorine**",
+                  "Zn²⁺ is positive and goes to the cathode. Cl⁻ is negative and goes to the anode."
+                ],
                 "scene": {
                   "kind": "electrolysis",
                   "ions": ["Zn²⁺", "Cl⁻"],
-                  "negative": { "product": "Zinc", "form": "metal", "metal": "grey" },
-                  "positive": { "product": "Chlorine", "form": "gas" },
+                  "negative": {
+                    "product": "Zinc",
+                    "form": "metal",
+                    "metal": "grey"
+                  },
+                  "positive": {
+                    "product": "Chlorine",
+                    "form": "gas"
+                  },
                   "molten": true
                 }
               },
               {
                 "label": "Sodium chloride",
-                "results": ["**Sodium**", "**Chlorine**", "Na⁺ is positive and goes to the cathode. Cl⁻ is negative and goes to the anode."],
+                "results": [
+                  "**Sodium**",
+                  "**Chlorine**",
+                  "Na⁺ is positive and goes to the cathode. Cl⁻ is negative and goes to the anode."
+                ],
                 "scene": {
                   "kind": "electrolysis",
                   "ions": ["Na⁺", "Cl⁻"],
-                  "negative": { "product": "Sodium", "form": "metal", "metal": "silver" },
-                  "positive": { "product": "Chlorine", "form": "gas" },
+                  "negative": {
+                    "product": "Sodium",
+                    "form": "metal",
+                    "metal": "silver"
+                  },
+                  "positive": {
+                    "product": "Chlorine",
+                    "form": "gas"
+                  },
                   "molten": true
                 }
               },
               {
                 "label": "Copper chloride",
-                "results": ["**Copper**", "**Chlorine**", "Cu²⁺ is positive and goes to the cathode. Cl⁻ is negative and goes to the anode."],
+                "results": [
+                  "**Copper**",
+                  "**Chlorine**",
+                  "Cu²⁺ is positive and goes to the cathode. Cl⁻ is negative and goes to the anode."
+                ],
                 "scene": {
                   "kind": "electrolysis",
                   "ions": ["Cu²⁺", "Cl⁻"],
-                  "negative": { "product": "Copper", "form": "metal", "metal": "copper" },
-                  "positive": { "product": "Chlorine", "form": "gas" },
+                  "negative": {
+                    "product": "Copper",
+                    "form": "metal",
+                    "metal": "copper"
+                  },
+                  "positive": {
+                    "product": "Chlorine",
+                    "form": "gas"
+                  },
                   "molten": true
                 }
               },
               {
                 "label": "Potassium iodide",
-                "results": ["**Potassium**", "**Iodine**", "K⁺ is positive and goes to the cathode. I⁻ is negative and goes to the anode."],
+                "results": [
+                  "**Potassium**",
+                  "**Iodine**",
+                  "K⁺ is positive and goes to the cathode. I⁻ is negative and goes to the anode."
+                ],
                 "scene": {
                   "kind": "electrolysis",
                   "ions": ["K⁺", "I⁻"],
-                  "negative": { "product": "Potassium", "form": "metal", "metal": "silver" },
-                  "positive": { "product": "Iodine", "form": "gas" },
+                  "negative": {
+                    "product": "Potassium",
+                    "form": "metal",
+                    "metal": "silver"
+                  },
+                  "positive": {
+                    "product": "Iodine",
+                    "form": "gas"
+                  },
                   "molten": true
                 }
               },
               {
                 "label": "Magnesium bromide",
-                "results": ["**Magnesium**", "**Bromine**", "Mg²⁺ is positive and goes to the cathode. Br⁻ is negative and goes to the anode."],
+                "results": [
+                  "**Magnesium**",
+                  "**Bromine**",
+                  "Mg²⁺ is positive and goes to the cathode. Br⁻ is negative and goes to the anode."
+                ],
                 "scene": {
                   "kind": "electrolysis",
                   "ions": ["Mg²⁺", "Br⁻"],
-                  "negative": { "product": "Magnesium", "form": "metal", "metal": "silver" },
-                  "positive": { "product": "Bromine", "form": "gas" },
+                  "negative": {
+                    "product": "Magnesium",
+                    "form": "metal",
+                    "metal": "silver"
+                  },
+                  "positive": {
+                    "product": "Bromine",
+                    "form": "gas"
+                  },
                   "molten": true
                 }
               }
@@ -128,7 +212,10 @@
     {
       "heading": "Why the products form there",
       "blocks": [
-        { "type": "paragraph", "text": "This section links the products to the movement of ions." },
+        {
+          "type": "paragraph",
+          "text": "This section links the products to the movement of ions."
+        },
         {
           "type": "list",
           "items": [
@@ -138,7 +225,10 @@
             "Hydrogen can form instead of a metal only when the compound is in solution, because water supplies hydrogen ions."
           ]
         },
-        { "type": "subheading", "text": "In the laboratory and in industry" },
+        {
+          "type": "subheading",
+          "text": "In the laboratory and in industry"
+        },
         {
           "type": "list",
           "items": [
@@ -177,28 +267,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.4.3.2", "AQA T 5.4.3.2"],
-      "exam_phrases": [
-        "(negative electrode) magnesium / copper / zinc",
-        "(positive electrode) chlorine / bromine / iodine",
-        "allow Cl₂ / Cl",
-        "toxic / poisonous (fumes)",
-        "the ions cannot move / the ions are in fixed positions",
-        "so the products do not react (to reform sodium chloride)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The product at the positive electrode is chloride.",
-          "right": "Chloride and Cl⁻ are not accepted. Write chlorine (Cl₂ or Cl is allowed). The same applies to bromine, not bromide."
-        },
-        {
-          "wrong": "Copper is made at the positive electrode and chlorine at the negative electrode.",
-          "right": "If the two elements are reversed, only 1 of the 2 marks can be awarded. The metal forms at the negative electrode and the non-metal at the positive electrode."
-        },
-        {
-          "wrong": "The teacher uses a fume cupboard because the fumes are dangerous.",
-          "right": "Dangerous, deadly and lethal are ignored. Write that the fumes are toxic or poisonous (harmful or corrosive are also allowed)."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "4686aca3-953c-4331-83ca-1019889c16f0",
         "source": "AQA jun 2019, Paper 1 (F), Q02.4",
@@ -213,23 +281,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.26"],
-      "exam_phrases": [
-        "chlorine at the anode and zinc at the cathode",
-        "lead is produced at the cathode",
-        "bromine is produced at the anode",
-        "oxygen cannot be produced by the electrolysis of this molten salt",
-        "hydrogen cannot be produced by the electrolysis of this molten salt"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The electrolysis of molten potassium bromide gives hydrogen and oxygen.",
-          "right": "Neither hydrogen nor oxygen can be a product of molten potassium bromide. The products are potassium and bromine."
-        },
-        {
-          "wrong": "Bromine is produced at the cathode when molten lead bromide is electrolysed.",
-          "right": "Lead is produced at the cathode. Bromine is produced at the anode."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "c6789ecf-1320-456b-8ab0-b300bab06646",
         "source": "EDEXCEL nov 2021, Paper 1 (H), Q5(a)",
@@ -244,37 +295,12 @@
     },
     "ocr": {
       "spec_codes": ["OCR C3.4a", "OCR C3.4b"],
-      "exam_phrases": [
-        "positive electrode: bromine",
-        "negative electrode: lead",
-        "do not allow bromide",
-        "do not allow chloride / Cl / Cl⁻, allow Cl₂",
-        "allow Pb, do not allow Pb²⁺",
-        "ions cannot move (in a solid)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The product at the positive electrode is bromide.",
-          "right": "Bromide is not allowed. Write bromine. For potassium chloride the product is chlorine (Cl₂ is allowed, but chloride, Cl and Cl⁻ are not)."
-        },
-        {
-          "wrong": "The product at the negative electrode is Pb²⁺.",
-          "right": "Pb²⁺ is not allowed. The product is the element, lead (Pb)."
-        },
-        {
-          "wrong": "Solid aluminium oxide cannot be electrolysed because its electrons cannot move.",
-          "right": "Electrons cannot move is ignored. Say the ions cannot move."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "4f8090fe-7457-445f-a8f9-91cb95a10d36",
         "source": "OCR nov 2020, Paper 1, Q18(a)(ii)",
         "question": "A teacher demonstrates the electrolysis of molten lead bromide.\n\nPredict the products made at each electrode.\n\nPositive electrode ______\nNegative electrode ______",
         "marks": 2,
-        "answer_points": [
-          "Positive electrode: bromine.",
-          "Negative electrode: lead."
-        ],
+        "answer_points": ["Positive electrode: bromine.", "Negative electrode: lead."],
         "tip": "Bromide is not allowed. If the two are reversed, 1 mark is available."
       }
     }

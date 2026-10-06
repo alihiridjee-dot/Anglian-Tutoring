@@ -3,14 +3,14 @@
   "concept_id": "chem-073",
   "subject": "chemistry",
   "title": "Le Chatelier's principle",
-  "key_idea": "(Higher tier) If a change is made to a system at equilibrium, the system responds to counteract the change. This is **Le Chatelier's principle**. It predicts how concentration, temperature and pressure shift the position of equilibrium.",
+  "key_idea": "(AQA: Higher tier) If a change is made to a system at equilibrium, the system responds to counteract the change. This is **Le Chatelier's principle**. It predicts how concentration, temperature and pressure shift the position of equilibrium.",
   "sections": [
     {
-      "heading": "Le Chatelier's principle (Higher tier)",
+      "heading": "Le Chatelier's principle (AQA: Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) The amounts of reactants and products at equilibrium depend on the conditions. Changing a condition changes them."
+          "text": "(AQA: Higher tier) The amounts of reactants and products at equilibrium depend on the conditions. Changing a condition changes them."
         },
         {
           "type": "definitions",
@@ -47,11 +47,11 @@
       ]
     },
     {
-      "heading": "Concentration, temperature and pressure (Higher tier)",
+      "heading": "Concentration, temperature and pressure (AQA: Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) Each change has a rule. The Haber process is a standard example."
+          "text": "(AQA: Higher tier) Each change has a rule. The Haber process is a standard example."
         },
         {
           "type": "equation",
@@ -64,11 +64,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Change",
-            "The system responds by",
-            "Effect on the position"
-          ],
+          "columns": ["Change", "The system responds by", "Effect on the position"],
           "rows": [
             [
               "Increase the concentration of a reactant",
@@ -136,11 +132,7 @@
             "kind": "predictor",
             "alt": "Pick a change to the Haber process at equilibrium to see how the position of equilibrium shifts.",
             "prompt": "Pick a change to N₂ + 3H₂ ⇌ 2NH₃ at equilibrium",
-            "result_labels": [
-              "Position of equilibrium",
-              "What happens to ammonia",
-              "Why"
-            ],
+            "result_labels": ["Position of equilibrium", "What happens to ammonia", "Why"],
             "options": [
               {
                 "label": "Add more nitrogen",
@@ -220,20 +212,15 @@
       ]
     },
     {
-      "heading": "Choosing conditions in industry (Higher tier)",
+      "heading": "Choosing conditions in industry (AQA: Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) The conditions for the Haber process balance rate, yield and cost."
+          "text": "(AQA: Higher tier) The conditions for the Haber process balance rate, yield and cost."
         },
         {
           "type": "table",
-          "columns": [
-            "Condition",
-            "Effect on rate",
-            "Effect on the equilibrium",
-            "Cost"
-          ],
+          "columns": ["Condition", "Effect on rate", "Effect on the equilibrium", "Cost"],
           "rows": [
             [
               "Higher temperature",
@@ -247,12 +234,7 @@
               "Shifts right, because there are fewer molecules on the right",
               "Uses more energy and needs stronger vessels"
             ],
-            [
-              "Iron catalyst",
-              "Faster",
-              "No effect on the position",
-              "Reduces energy costs"
-            ]
+            ["Iron catalyst", "Faster", "No effect on the position", "Reduces energy costs"]
           ]
         },
         {
@@ -276,17 +258,17 @@
   ],
   "checks": [
     {
-      "q": "(Higher tier) State Le Chatelier's principle.",
+      "q": "(AQA: Higher tier) State Le Chatelier's principle.",
       "a": "If a change is made to a system at equilibrium, the system responds to counteract the change.",
       "marks": 1
     },
     {
-      "q": "(Higher tier) In the reaction 2SO₂(g) + O₂(g) ⇌ 2SO₃(g), explain the effect of increasing the pressure on the position of equilibrium.",
+      "q": "(AQA: Higher tier) In the reaction 2SO₂(g) + O₂(g) ⇌ 2SO₃(g), explain the effect of increasing the pressure on the position of equilibrium.",
       "a": "The position shifts to the right. There are fewer molecules of gas on the right (2) than on the left (3).",
       "marks": 2
     },
     {
-      "q": "(Higher tier) The forward reaction is exothermic. Explain the effect of increasing the temperature on the amount of product at equilibrium.",
+      "q": "(AQA: Higher tier) The forward reaction is exothermic. Explain the effect of increasing the temperature on the amount of product at equilibrium.",
       "a": "The amount of product decreases. The system shifts in the endothermic direction, to the left.",
       "marks": 2
     }
@@ -304,29 +286,6 @@
         "AQA T 5.6.2.7",
         "AQA 4.10.4.1"
       ],
-      "exam_phrases": [
-        "equilibrium position moves to the product side",
-        "fewer molecules / moles on the product side",
-        "favours the endothermic reaction / reverse reaction",
-        "(so that) the (increase in the) temperature is reduced",
-        "no effect on equilibrium position; equal numbers of (gas) moles / molecules on each side",
-        "the equilibrium shifts to the side with fewer molecules / moles",
-        "(increases) the rate of the forward and the reverse reaction equally"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The higher pressure increases the rate because the collisions are more energetic.",
-          "right": "More energetic or faster collisions are not accepted. Say there are more collisions per unit time, because there are more molecules per unit volume."
-        },
-        {
-          "wrong": "A higher temperature gives a smaller yield because the forward reaction is exothermic.",
-          "right": "Say that the higher temperature favours the endothermic (reverse) reaction, so the equilibrium shifts to the left. Reference to the forward reaction being exothermic is ignored."
-        },
-        {
-          "wrong": "Increasing the pressure shifts 2HI ⇌ H₂ + I₂ to the right.",
-          "right": "There are equal numbers of gas molecules on each side, so a change in pressure has no effect on the equilibrium position."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "7c52525b-a9e1-4836-8d5d-ef2cae309d80",
         "source": "AQA jun 2018, Paper 2 (H), Q09.4",
@@ -342,27 +301,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 4.17",
-        "EDEX 5.21C"
-      ],
-      "exam_phrases": [
-        "moves in the exothermic direction",
-        "moves right / forwards / towards ammonia / to the products",
-        "to oppose the temperature reduction / to release heat / to increase the temperature",
-        "shift equilibrium to the right / in the forward direction; increases the yield of product",
-        "decrease in the number of molecules"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The equilibrium moves to oppose the change.",
-          "right": "To oppose the change on its own is ignored. Say it opposes the temperature reduction, or releases heat."
-        },
-        {
-          "wrong": "To show how temperature affects the equilibrium in a sealed tube, heat the tube in the kettle.",
-          "right": "Placing the tube in the kettle is rejected. Put the tube into hot water from the kettle, then into cold water or ice, and describe the colour getting darker then lighter."
-        }
-      ],
+      "spec_codes": ["EDEX 4.17", "EDEX 5.21C"],
       "worked_example": {
         "exemplar_id": "3ad3da5f-34c5-4c1e-9ec3-1fba45eb4846",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q5(a)(iv)",
@@ -378,27 +317,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C5.3c",
-        "OCR C6.1d"
-      ],
-      "exam_phrases": [
-        "(position of equilibrium) moves to the right",
-        "the equilibrium moves in the direction of the endothermic change",
-        "higher temperature favours the endothermic / backward reaction",
-        "equilibrium shifts to the left-hand side / the yield of ammonia is reduced",
-        "(lower pressure) moves the position of equilibrium to the left; there are more moles or molecules on the left-hand side"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The yield of ammonia is lower at 550 °C because the reaction is slower.",
-          "right": "A reduced yield must not be linked to rate. Say a higher temperature favours the endothermic backward reaction, so the equilibrium shifts to the left."
-        },
-        {
-          "wrong": "Using a pressure of 15 atmospheres increases the yield of methanol.",
-          "right": "Lower pressure decreases the yield. The equilibrium shifts to the left, because there are more moles of gas on the left-hand side."
-        }
-      ],
+      "spec_codes": ["OCR C5.3c", "OCR C6.1d"],
       "worked_example": {
         "exemplar_id": "e28e32e7-1369-4a6e-8fc1-b2a1c9ab63cb",
         "source": "OCR jun 2019, Paper 4, Q18(b)(ii)",

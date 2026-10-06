@@ -312,31 +312,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.3.4"
-      ],
-      "exam_phrases": [
-        "a changing magnetic field around the primary coil",
-        "creates a magnetic field that changes direction in the core",
-        "the secondary coil cuts through the changing magnetic field",
-        "this induces an alternating potential difference across the secondary coil",
-        "iron, because it is easily magnetised (and demagnetised)",
-        "to vary the output potential difference"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The core is made of steel because it is magnetic.",
-          "right": "Steel is not accepted. The core is iron, because iron is easily magnetised (and demagnetised)."
-        },
-        {
-          "wrong": "The number of turns on the secondary coil can be changed to vary the power.",
-          "right": "Answers in terms of power are not accepted. Changing the turns varies the output potential difference, so the same generator suits different devices."
-        },
-        {
-          "wrong": "Vₚ ÷ 400 = 345 ÷ 6000, so Vₚ = 23 V.",
-          "right": "Convert kilovolts to volts first. 400 kV = 400 000 V, so Vₚ = 23 000 V. The answer is asked for in volts."
-        }
-      ],
+      "spec_codes": ["AQA 4.7.3.4"],
       "extra": [
         {
           "heading": "Tier and scope",
@@ -363,35 +339,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 13.5",
-        "EDEX 13.6",
-        "EDEX 13.10",
-        "EDEX 13.7P"
-      ],
-      "exam_phrases": [
-        "an alternating / changing current in the primary coil",
-        "magnetic field in the primary / secondary coil / core (due to current)",
-        "the magnetic field is alternating",
-        "this magnetic field cuts / links the secondary coil",
-        "induces an alternating voltage across the secondary coil",
-        "substitution into Vₚ ÷ Vₛ = Nₚ ÷ Nₛ",
-        "input current × input voltage = output current × output voltage"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Vₛ = 230 × 800 ÷ 18 = 10 222 V.",
-          "right": "This inverts the ratio and earns one mark at most. Rearrange to Vₛ = Vₚ × Nₛ ÷ Nₚ = 230 × 18 ÷ 800 = 5.2 V."
-        },
-        {
-          "wrong": "The changing magnetic field is caused by the voltage in the primary coil.",
-          "right": "References to voltage or potential difference are ignored. Say an alternating or changing current in the primary coil."
-        },
-        {
-          "wrong": "Iₚ × 230 = 19 × 2.37, so Iₚ = 230 ÷ (19 × 2.37) = 5.1 A.",
-          "right": "An upside-down rearrangement scores one mark for substitution only. Divide by 230: Iₚ = 19 × 2.37 ÷ 230 = 0.196 A."
-        }
-      ],
+      "spec_codes": ["EDEX 13.5", "EDEX 13.6", "EDEX 13.10", "EDEX 13.7P"],
       "worked_example": {
         "exemplar_id": "4b14a50e-3e5d-4f41-87c5-d4013bea080f",
         "source": "EDEXCEL jun 2023, Paper 2 (H), Q10(b)",
@@ -406,28 +354,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P4.2g",
-        "OCR P4.2h",
-        "OCR P4.2i",
-        "OCR P8.2f"
-      ],
-      "exam_phrases": [
-        "the current only flows in one direction",
-        "the magnetic field remains steady / does not change",
-        "(Iₚ =) (Iₛ × Vₛ) ÷ Vₚ",
-        "(Iₚ =) (Iₛ × Nₛ) ÷ Nₚ"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A transformer does not work with d.c. because no magnetic field is induced.",
-          "right": "'Magnetic field not induced' is ignored. Say the current only flows in one direction, so the magnetic field stays steady and does not change."
-        },
-        {
-          "wrong": "A transformer does not work with d.c. because electricity only flows one way.",
-          "right": "'Electricity' is ignored. Use 'current', or voltage or p.d., and add that the magnetic field does not change."
-        }
-      ],
+      "spec_codes": ["OCR P4.2g", "OCR P4.2h", "OCR P4.2i", "OCR P8.2f"],
       "worked_example": {
         "exemplar_id": "9e495e6b-795b-4aad-97be-854e6bf38985",
         "source": "OCR jun 2025, Paper 2, Q20(c)(ii)",

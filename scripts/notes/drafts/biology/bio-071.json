@@ -14,22 +14,10 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Short-sightedness (myopia)",
-            "Long-sightedness"
-          ],
+          "columns": ["Feature", "Short-sightedness (myopia)", "Long-sightedness"],
           "rows": [
-            [
-              "Difficulty seeing",
-              "Distant objects (such as road signs)",
-              "Near objects"
-            ],
-            [
-              "Where light is focused",
-              "In front of the retina",
-              "Behind the retina"
-            ],
+            ["Difficulty seeing", "Distant objects (such as road signs)", "Near objects"],
+            ["Where light is focused", "In front of the retina", "Behind the retina"],
             [
               "Possible causes",
               "Eyeball too long, cornea too curved, or lens too powerful (cannot be made thin enough). Light is refracted too much.",
@@ -104,12 +92,7 @@
             "kind": "predictor",
             "alt": "A predictor: pick an eye defect and see its cause, what the person cannot do and how it is corrected.",
             "prompt": "Pick an eye defect.",
-            "result_labels": [
-              "Main problem",
-              "Where light is focused",
-              "Cause",
-              "Correction"
-            ],
+            "result_labels": ["Main problem", "Where light is focused", "Cause", "Correction"],
             "options": [
               {
                 "label": "Short-sightedness",
@@ -184,27 +167,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 5.5"
-      ],
-      "exam_phrases": [
-        "convex / converging lens",
-        "light rays bent / refracted (inwards) more",
-        "light rays focused on the retina",
-        "the eyeball is too short or the lens cannot be thickened enough",
-        "the ciliary muscles are too weak or the lens is not sufficiently elastic",
-        "light focuses behind the retina / the image forms behind the retina"
-      ],
-      "mistakes": [
-        {
-          "wrong": "In long-sightedness, light is focused in front of the retina.",
-          "right": "In long-sightedness the light focuses behind the retina (the image forms behind the retina)."
-        },
-        {
-          "wrong": "A concave lens is used to correct long-sightedness.",
-          "right": "A convex (converging) lens is used. It bends the light rays inwards more so they focus on the retina."
-        }
-      ],
+      "spec_codes": ["AQA 5.5"],
       "worked_example": {
         "exemplar_id": "8c860c1c-7bfe-4e8b-aaed-2df9b7221393",
         "source": "AQA jun 2019, Paper 2 (H), Q04.3",
@@ -219,34 +182,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.16B",
-        "EDEX 2.17B"
-      ],
-      "exam_phrases": [
-        "the lens becomes cloudy",
-        "less light reaches the retina",
-        "replace the (old / opaque) lens with a new clear artificial lens",
-        "light is focused in front of the retina",
-        "the eyeball is too long / the lens cannot be made thin enough",
-        "a diverging lens bends / refracts light rays outwards",
-        "so the light rays meet / converge / focus on the retina",
-        "less risk of infection / permanent damage"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A diverging lens refracts the light rays less.",
-          "right": "Refract light rays less is ignored. Say that a diverging lens bends or refracts the light rays outwards, so they focus on the retina."
-        },
-        {
-          "wrong": "The picture is less clear because light cannot get to the retina.",
-          "right": "Both points are needed. The lens becomes cloudy, so less light reaches the retina."
-        },
-        {
-          "wrong": "Short-sightedness happens because the eyeball is too short.",
-          "right": "A short-sighted eyeball is too long (or the cornea is too curved), so light focuses in front of the retina."
-        }
-      ],
+      "spec_codes": ["EDEX 2.16B", "EDEX 2.17B"],
       "worked_example": {
         "exemplar_id": "17446b7b-638d-41eb-9f2d-a2cb85584e2c",
         "source": "EDEXCEL jun 2022, Paper 1 (F), Q7(b)(ii)",
@@ -264,27 +200,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 3.1e"
-      ],
-      "exam_phrases": [
-        "short sighted / has myopia",
-        "eyeball is too long / lens is too powerful",
-        "light / rays refract too much",
-        "light / rays focused in front of the retina",
-        "(glasses / contact lenses) with concave lenses",
-        "laser eye surgery"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A person who finds it difficult to read road signs at a distance is long-sighted.",
-          "right": "If the wrong defect is named, no marks are given. Difficulty with distance is short-sightedness (myopia)."
-        },
-        {
-          "wrong": "Short-sightedness is treated with convex lenses.",
-          "right": "Short-sightedness is treated with concave lenses in glasses or contact lenses, or with laser eye surgery."
-        }
-      ],
+      "spec_codes": ["OCR 3.1e"],
       "worked_example": {
         "exemplar_id": "704af92e-4f9b-4d80-add3-8ab145b68493",
         "source": "OCR jun 2022, Paper 1, Q20(a)(i)",

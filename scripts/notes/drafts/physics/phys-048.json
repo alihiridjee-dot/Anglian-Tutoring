@@ -268,38 +268,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.3",
-        "AQA T 6.5.3"
-      ],
-      "exam_phrases": [
-        "set up a clamp stand with a clamp and hang the spring from it",
-        "fix a metre ruler alongside the spring",
-        "record the position of the bottom of the spring",
-        "measure the original length and the extended length of the spring",
-        "ensure the ruler is vertical",
-        "attach a pointer to the bottom of the spring",
-        "masses could fall (off the spring)",
-        "clamp base of stand to desk",
-        "wear goggles",
-        "use a greater range of forces",
-        "find the limit of proportionality",
-        "repeat and calculate a mean"
-      ],
-      "mistakes": [
-        {
-          "wrong": "To improve the accuracy of the results, repeat the measurements.",
-          "right": "Repeating the measurements is not enough for a cause of inaccuracy. Say what is inaccurate, such as the ruler not clamped vertical or misjudging the position of the bottom of the spring, or parallax error."
-        },
-        {
-          "wrong": "Do the investigation on a table so the weights are easy to reach.",
-          "right": "Do it on the laboratory floor, because masses could fall off the spring and cause injury or damage if done on a table."
-        },
-        {
-          "wrong": "The extension of the spring is the length of the spring with the weight on.",
-          "right": "Extension = extended length – original length, so measure both lengths."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.3", "AQA T 6.5.3"],
       "worked_example": {
         "exemplar_id": "1797b6c5-0c6a-4917-9269-f462bee4266d",
         "source": "AQA jun 2018, Paper 2 (H), Q02.1",
@@ -318,33 +287,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 15.6"
-      ],
-      "exam_phrases": [
-        "(measurement of) original length",
-        "(measurement of) final length",
-        "use a ruler with smaller / millimetre divisions",
-        "use interim values of weight",
-        "add more weights (to increase the range)",
-        "move the ruler closer to the spring",
-        "use of pointer",
-        "repeat and average"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Use a more accurate ruler.",
-          "right": "More accurate is ignored on its own. Say a ruler with smaller or millimetre divisions."
-        },
-        {
-          "wrong": "Read the ruler at eye level to avoid parallax.",
-          "right": "Eye level or no parallax is ignored here. Move the ruler closer to the spring or use a pointer."
-        },
-        {
-          "wrong": "See how much the rubber extends when another weight is added.",
-          "right": "This vague statement is ignored. Measure a length with a named device, such as a ruler, and calculate the extension as the difference between two lengths."
-        }
-      ],
+      "spec_codes": ["EDEX 15.6"],
       "worked_example": {
         "exemplar_id": "a67fb030-0655-40fd-b507-12400c0e21a1",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q6(a)(iii)",
@@ -367,9 +310,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": [
-      "5a2d9f2b-8688-41c7-9f93-0f49b19f2f29"
-    ],
+    "spec_point_ids": ["5a2d9f2b-8688-41c7-9f93-0f49b19f2f29"],
     "exemplar_ids": [
       "1797b6c5-0c6a-4917-9269-f462bee4266d",
       "a67fb030-0655-40fd-b507-12400c0e21a1"

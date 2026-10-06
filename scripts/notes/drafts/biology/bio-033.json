@@ -53,10 +53,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Lifestyle factor",
-            "Effect on health"
-          ],
+          "columns": ["Lifestyle factor", "Effect on health"],
           "rows": [
             [
               "Diet",
@@ -96,11 +93,7 @@
           "type": "equation",
           "label": "Body mass index (BMI)",
           "formula": "BMI = mass ÷ height²",
-          "where": [
-            "BMI in kg/m²",
-            "mass in kg",
-            "height in m"
-          ]
+          "where": ["BMI in kg/m²", "mass in kg", "height in m"]
         },
         {
           "type": "diagram",
@@ -138,9 +131,7 @@
           "type": "equation",
           "label": "Waist-to-hip ratio",
           "formula": "waist-to-hip ratio = waist measurement ÷ hip measurement",
-          "where": [
-            "waist and hip measured in the same unit, such as cm"
-          ]
+          "where": ["waist and hip measured in the same unit, such as cm"]
         },
         {
           "type": "list",
@@ -204,32 +195,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 2.9",
-        "AQA T 4.2.2.6"
-      ],
-      "exam_phrases": [
-        "high blood pressure",
-        "high cholesterol / fatty deposition",
-        "obesity: lack of exercise / high bp / cholesterol / fatty deposition / diabetes",
-        "smoking: high bp / cholesterol / fatty deposition",
-        "alcohol: bp / cholesterol",
-        "high salt intake: high blood pressure"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A disease related to being overweight is obesity.",
-          "right": "\"Obesity\" is ignored when asked for a disease related to being overweight. Name the disease, such as type 2 diabetes, heart disease, high blood pressure or cancer."
-        },
-        {
-          "wrong": "Only lifestyle risk factors are given for CHD.",
-          "right": "For top marks give both lifestyle and medical factors, and link them: for example smoking raises blood pressure, and obesity links to high cholesterol and fatty deposition."
-        },
-        {
-          "wrong": "A heart attack is a disease caused by being overweight.",
-          "right": "\"Heart attack\" and \"heart failure\" are ignored. Name coronary heart disease or cardiovascular disease."
-        }
-      ],
+      "spec_codes": ["AQA 2.9", "AQA T 4.2.2.6"],
       "worked_example": {
         "exemplar_id": "67ce1ff8-4f78-4825-855e-a5cd3b5ec59e",
         "source": "AQA jun 2018, Paper 1 (H), Q02.3",
@@ -247,31 +213,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.23",
-        "EDEX 5.24"
-      ],
-      "exam_phrases": [
-        "substitution: 72 ÷ 1.81²",
-        "waist : hip ratio above 0.90: abdominally obese",
-        "BMI shows overweight but not abdominally obese",
-        "do more exercise, so more energy is used up",
-        "reduce fat / carbohydrate intake, so energy intake is reduced"
-      ],
-      "mistakes": [
-        {
-          "wrong": "BMI = mass ÷ height.",
-          "right": "Height is squared: BMI = mass in kilograms ÷ (height in metres)²."
-        },
-        {
-          "wrong": "Give the BMI as 21.977.",
-          "right": "Read the rounding instruction. To 3 significant figures, 21.977 is 22.0. A correct evaluation without rounding loses the last mark."
-        },
-        {
-          "wrong": "Do more exercise to lose weight.",
-          "right": "Add the reason: so more energy is used up. One mark is for the change, one for what it does."
-        }
-      ],
+      "spec_codes": ["EDEX 5.23", "EDEX 5.24"],
       "worked_example": {
         "exemplar_id": "28b1a476-f1ff-4400-8eed-b8308e4f6585",
         "source": "EDEXCEL jun 2018, Paper 1 (F), Q8(d)(i)",
@@ -286,27 +228,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.3r",
-        "OCR 6.3t"
-      ],
-      "exam_phrases": [
-        "the more points a person scores, the higher the risk",
-        "total the points for each person",
-        "greater risk of getting CHD",
-        "Person A has a greater risk",
-        "correct deduction based on the total of points"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Person A is most likely to get CHD.",
-          "right": "Show the working. Total the points for each person (Person A 8, Person B 7), then state which total is higher."
-        },
-        {
-          "wrong": "Only one risk factor, such as smoking, is used to decide who is at more risk.",
-          "right": "Use every row of the table. CHD risk comes from several factors, so add up the points for all of them."
-        }
-      ],
+      "spec_codes": ["OCR 6.3r", "OCR 6.3t"],
       "worked_example": {
         "exemplar_id": "9b1242a8-c354-4ab8-b823-d7bc684d9632",
         "source": "OCR jun 2018, Paper 2, Q22(b)(iii)",

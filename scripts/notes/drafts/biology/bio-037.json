@@ -8,12 +8,21 @@
     {
       "heading": "Transpiration",
       "blocks": [
-        { "type": "paragraph", "text": "Water travels from the soil to the air through the plant. This movement is called the transpiration stream." },
+        {
+          "type": "paragraph",
+          "text": "Water travels from the soil to the air through the plant. This movement is called the transpiration stream."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Transpiration", "meaning": "The loss of water vapour from a plant, mainly through the stomata of the leaves." },
-            { "term": "Stomata", "meaning": "Pores in the leaf surface, mostly in the lower epidermis. One is called a stoma." }
+            {
+              "term": "Transpiration",
+              "meaning": "The loss of water vapour from a plant, mainly through the stomata of the leaves."
+            },
+            {
+              "term": "Stomata",
+              "meaning": "Pores in the leaf surface, mostly in the lower epidermis. One is called a stoma."
+            }
           ]
         },
         {
@@ -53,7 +62,10 @@
     {
       "heading": "Stomata and guard cells",
       "blocks": [
-        { "type": "paragraph", "text": "Stomata have two jobs. Each stoma is surrounded by a pair of guard cells that open and close it." },
+        {
+          "type": "paragraph",
+          "text": "Stomata have two jobs. Each stoma is surrounded by a pair of guard cells that open and close it."
+        },
         {
           "type": "list",
           "items": [
@@ -63,7 +75,10 @@
             "A water lily has stomata only on its upper surface. The lower surface is in water, not air."
           ]
         },
-        { "type": "subheading", "text": "How guard cells open a stoma" },
+        {
+          "type": "subheading",
+          "text": "How guard cells open a stoma"
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -117,28 +132,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 2.12", "AQA T 4.2.3.2"],
-      "exam_phrases": [
-        "transported in xylem",
-        "water evaporates (from leaves)",
-        "through the stomata",
-        "guard cells control the opening and closing of the stomata",
-        "water enters (guard) cells by osmosis",
-        "cells swell and curve (to open the stoma)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Water is transported up the plant by translocation.",
-          "right": "Translocation is not accepted for water. Water moves in the xylem, in the transpiration stream."
-        },
-        {
-          "wrong": "Water is lost by evaporation.",
-          "right": "\"Evaporation\" or \"transpiration\" on its own is ignored. Say water evaporates from the leaves and is lost through the stomata."
-        },
-        {
-          "wrong": "The stomata are closed at night because it is dark.",
-          "right": "\"It's dark\" is ignored. Say the stomata are almost closed because there is less light, or it is cooler."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "9588e62e-fc08-41b2-93e4-37491d73aff0",
         "source": "AQA jun 2021, Paper 1 (H), Q06.1",
@@ -155,24 +148,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.9"],
-      "exam_phrases": [
-        "guard cells take in water by osmosis",
-        "guard cells become turgid / change shape / swell",
-        "water moves through the xylem by transpiration",
-        "water is evaporated / diffused through the stomata",
-        "no stomata on the upper surface to reduce water loss",
-        "stomata on the lower surface allow gas exchange"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Phloem carries water to the leaves.",
-          "right": "Phloem carrying water is rejected. Water and mineral ions move through the xylem."
-        },
-        {
-          "wrong": "Water lilies have no stomata underneath because they would be wet.",
-          "right": "Say the lower surface is not in contact with air, so gas exchange cannot occur."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "3bd5aac3-b647-47a5-810b-617db2d0379c",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q3(b)(ii)",
@@ -189,24 +164,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 2.2g"],
-      "exam_phrases": [
-        "water evaporates (on surface of spongy mesophyll)",
-        "water (vapour) passes / diffuses through the stomata",
-        "allows gaseous exchange of CO2 and O2",
-        "water enters guard cells by osmosis",
-        "thickened inner part of wall bends less than outer part",
-        "guard cells photosynthesise producing sugar"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Stomata let water enter the leaf.",
-          "right": "\"Let water enter\" is ignored. Stomata allow water to evaporate and leave the leaf, and allow gaseous exchange."
-        },
-        {
-          "wrong": "Transpiration is the movement of water up the plant.",
-          "right": "For what happens in transpiration, say water evaporates from the spongy mesophyll and diffuses out through the stomata."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "40e9d8a4-6a7d-41c9-bb67-fedf934d68a7",
         "source": "OCR nov 2021, Paper 3, Q18(a)",

@@ -114,10 +114,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Question",
-            "What to say"
-          ],
+          "columns": ["Question", "What to say"],
           "rows": [
             [
               "How does amylase break down starch?",
@@ -162,35 +159,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 2.3"
-      ],
-      "exam_phrases": [
-        "starch / substrate binds to active site",
-        "the shape of the active site and the substrate are complementary",
-        "a chemical reaction occurs to produce smaller molecules",
-        "(so) products are released",
-        "each active site has a specific shape",
-        "(chemical which) catalyses / speeds up reactions in living organisms"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The enzyme and substrate have the same shape.",
-          "right": "\"Same shape\" is not accepted. Say the shapes are complementary, or that they fit together exactly."
-        },
-        {
-          "wrong": "The substrate has an active site.",
-          "right": "This is not accepted. The active site is part of the enzyme."
-        },
-        {
-          "wrong": "The starch fits the active site.",
-          "right": "\"Starch fits\" on its own is ignored for the first mark. Say the starch (substrate) binds to the active site."
-        },
-        {
-          "wrong": "Products are formed.",
-          "right": "\"Products are formed\" unqualified is ignored. Say the substrate is broken down or splits into products."
-        }
-      ],
+      "spec_codes": ["AQA 2.3"],
       "worked_example": {
         "exemplar_id": "e030fbf1-237a-41d5-8961-46b1e09f2b28",
         "source": "AQA jun 2021, Paper 1 (H), Q05.3",
@@ -205,32 +174,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 1.7",
-        "EDEX 1.12"
-      ],
-      "exam_phrases": [
-        "enzymes are specific",
-        "their shape is complementary to their substrate",
-        "starch will not fit into the active site (of urease)",
-        "so no reaction can take place",
-        "bonds (between glucose molecules in starch) broken",
-        "enzymes speed up biological processes"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Hydrogen peroxide is the active site.",
-          "right": "Hydrogen peroxide is the substrate. The active site is part of the enzyme (catalase). The products are oxygen and water."
-        },
-        {
-          "wrong": "Enzymes are called biological catalysts because they slow down biological processes.",
-          "right": "Enzymes speed up biological processes. They do not slow them down, denature them or stop them."
-        },
-        {
-          "wrong": "Carbohydrase breaks down fat.",
-          "right": "Carbohydrase does not break down fat. Lipase breaks down fat, amylase breaks down starch and protease breaks down protein."
-        }
-      ],
+      "spec_codes": ["EDEX 1.7", "EDEX 1.12"],
       "worked_example": {
         "exemplar_id": "515f7ba1-3d19-424f-b35e-90f43c21d920",
         "source": "EDEXCEL nov 2021, Paper 2 (H), Q4(e)",
@@ -246,31 +190,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 1.2g"
-      ],
-      "exam_phrases": [
-        "enzymes are specific (to one substrate)",
-        "active site has a particular / specific shape",
-        "active site is complementary to the substrate",
-        "only starch will fit / bind into the active site",
-        "enzyme substrate complexes cannot form",
-        "(only) hydrogen peroxide will fit / bind with the active site"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The active site has the same shape as hydrogen peroxide.",
-          "right": "\"Same shape\" is not allowed. Say the active site has a complementary shape to hydrogen peroxide."
-        },
-        {
-          "wrong": "Enzymes are killed by high temperatures.",
-          "right": "\"Kill the enzyme\" is not allowed. Enzymes are not alive. Say the enzyme is denatured or the active site changes shape."
-        },
-        {
-          "wrong": "Amylase cannot break down protein because it is denatured.",
-          "right": "Denaturing negates the marks for the active site shape, the fit and the enzyme-substrate complex. Say protein does not fit or bind into the active site of amylase."
-        }
-      ],
+      "spec_codes": ["OCR 1.2g"],
       "worked_example": {
         "exemplar_id": "f69ab95c-9bf1-4dce-91e2-e43d5a83094d",
         "source": "OCR jun 2025, Paper 1, Q18(b)",

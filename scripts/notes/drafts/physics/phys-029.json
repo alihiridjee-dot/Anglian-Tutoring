@@ -8,11 +8,17 @@
     {
       "heading": "Specific heat capacity and its equation",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers what specific heat capacity means and how the equation links the quantities you measure." },
+        {
+          "type": "paragraph",
+          "text": "This section covers what specific heat capacity means and how the equation links the quantities you measure."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Specific heat capacity", "meaning": "The energy needed to raise the temperature of 1 kg of a substance by 1 °C." }
+            {
+              "term": "Specific heat capacity",
+              "meaning": "The energy needed to raise the temperature of 1 kg of a substance by 1 °C."
+            }
           ]
         },
         {
@@ -26,7 +32,10 @@
             "Δθ = temperature change, in degrees Celsius (°C)"
           ]
         },
-        { "type": "paragraph", "text": "In the practical you measure ΔE, m and Δθ. Rearrange the equation to find c." },
+        {
+          "type": "paragraph",
+          "text": "In the practical you measure ΔE, m and Δθ. Rearrange the equation to find c."
+        },
         {
           "type": "equation",
           "label": "Specific heat capacity",
@@ -41,9 +50,18 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Data", "text": "A 0.50 kg metal block gains 11 500 J of energy and its temperature rises by 25 °C." },
-            { "lead": "Substitute", "text": "c = 11 500 ÷ (0.50 × 25)" },
-            { "lead": "Answer", "text": "c = 920 J/kg °C" }
+            {
+              "lead": "Data",
+              "text": "A 0.50 kg metal block gains 11 500 J of energy and its temperature rises by 25 °C."
+            },
+            {
+              "lead": "Substitute",
+              "text": "c = 11 500 ÷ (0.50 × 25)"
+            },
+            {
+              "lead": "Answer",
+              "text": "c = 920 J/kg °C"
+            }
           ]
         },
         {
@@ -53,15 +71,25 @@
             "alt": "Calculate the energy needed to warm some water by a given temperature rise.",
             "question": "Water has a mass of {m} kg. It is heated and its temperature rises by {dT} °C. The specific heat capacity of water is 4200 J/kg °C. Calculate the energy transferred to the water.",
             "variables": [
-              { "id": "m", "min": 0.1, "max": 1, "step": 0.1 },
-              { "id": "dT", "min": 5, "max": 50, "step": 5 }
+              {
+                "id": "m",
+                "min": 0.1,
+                "max": 1,
+                "step": 0.1
+              },
+              {
+                "id": "dT",
+                "min": 5,
+                "max": 50,
+                "step": 5
+              }
             ],
-            "answer": { "formula": "m * 4200 * dT", "unit": "J", "decimals": 0 },
-            "working": [
-              "ΔE = m × c × Δθ",
-              "ΔE = {m} × 4200 × {dT}",
-              "ΔE = {answer} J"
-            ]
+            "answer": {
+              "formula": "m * 4200 * dT",
+              "unit": "J",
+              "decimals": 0
+            },
+            "working": ["ΔE = m × c × Δθ", "ΔE = {m} × 4200 × {dT}", "ΔE = {answer} J"]
           }
         },
         {
@@ -77,7 +105,10 @@
     {
       "heading": "Method: measuring specific heat capacity",
       "blocks": [
-        { "type": "paragraph", "text": "An electric heater transfers energy to a block of metal or to water. You measure three things: mass, energy transferred and temperature change." },
+        {
+          "type": "paragraph",
+          "text": "An electric heater transfers energy to a block of metal or to water. You measure three things: mass, energy transferred and temperature change."
+        },
         {
           "type": "list",
           "items": [
@@ -119,7 +150,10 @@
     {
       "heading": "Improving accuracy",
       "blocks": [
-        { "type": "paragraph", "text": "Some of the energy from the heater is wasted. These steps give a more accurate value of c." },
+        {
+          "type": "paragraph",
+          "text": "Some of the energy from the heater is wasted. These steps give a more accurate value of c."
+        },
         {
           "type": "list",
           "items": [
@@ -159,28 +193,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.1.1.3", "AQA T 6.1.1.3"],
-      "exam_phrases": [
-        "use a top pan balance to measure the mass",
-        "use a joulemeter to measure the energy transferred",
-        "use a thermometer to measure the initial temperature and the final temperature",
-        "use the equation E = mcΔθ to determine c",
-        "the amount of wasted energy is less",
-        "the temperature increase of the aluminium block is greater"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Heat the block and measure the temperature rise with a thermometer.",
-          "right": "A top mark answer must describe all three measurements: the mass, the energy transferred and the temperature change."
-        },
-        {
-          "wrong": "Measure the mass of the water.",
-          "right": "A top mark answer needs a clear method for the mass of water: mass of the empty beaker, mass of beaker and water, then subtract."
-        },
-        {
-          "wrong": "The specific heat capacity found is 4400 J.",
-          "right": "The unit is J/kg °C. The unit has its own mark."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "dbd1e4dc-1a5d-4ed7-b295-7af4257159e4",
         "source": "AQA jun 2019, Paper 1 (F), Q8.5",
@@ -197,28 +209,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 14.11"],
-      "exam_phrases": [
-        "(measurement of) the mass of water",
-        "(measurement of) the temperature rise / change",
-        "(measurement of) the energy supplied / from the heater",
-        "(continue to) observe temperatures after switching off",
-        "record the maximum / highest / peak temperature reached",
-        "reduce heat loss / insulate the beaker / add a cover"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Read the final temperature as soon as the heater is switched off.",
-          "right": "Stir the water, keep observing after switching off and record the highest temperature reached. Conduction and convection take time."
-        },
-        {
-          "wrong": "To improve the experiment, take repeat readings or use a more accurate thermometer.",
-          "right": "Repeats and more accurate measurements are ignored. Say insulate the beaker, add a cover, use a stirrer or transfer the hot copper faster."
-        },
-        {
-          "wrong": "Measure the amount of water.",
-          "right": "Amount is ignored. Say the mass or volume of the water."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "0b09aa94-5d67-4ead-aa95-a2b7b643fdc3",
         "source": "EDEXCEL jun 2018, Paper 2 (F), Q8(a)(i)",
@@ -236,7 +226,10 @@
         {
           "heading": "Temperature-time graph for melting ice",
           "blocks": [
-            { "type": "paragraph", "text": "The practical also asks for a temperature-time graph for melting ice." },
+            {
+              "type": "paragraph",
+              "text": "The practical also asks for a temperature-time graph for melting ice."
+            },
             {
               "type": "list",
               "items": [

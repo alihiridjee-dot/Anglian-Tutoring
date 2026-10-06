@@ -112,7 +112,7 @@
             "Heart rate stays high, then slowly falls back to its resting rate.",
             "Breathing stays fast and deep, then slowly returns to normal.",
             "The extra oxygen breathed in pays back the oxygen debt, by reacting with the lactic acid and removing it from the cells.",
-            "(Higher tier) Blood flowing through the muscles carries lactic acid to the liver, where some is converted back into glucose. The oxygen debt itself is the oxygen needed to remove the lactic acid."
+            "(AQA: Higher tier) Blood flowing through the muscles carries lactic acid to the liver, where some is converted back into glucose. The oxygen debt itself is the oxygen needed to remove the lactic acid."
           ]
         },
         {
@@ -175,7 +175,7 @@
           "items": [
             "After exercise, heart rate and breathing rate stay high to repay the oxygen debt.",
             "A shorter recovery time and a lower resting rate suggest greater fitness.",
-            "(Higher tier) Lactic acid is taken to the liver and converted back to glucose."
+            "(AQA: Higher tier) Lactic acid is taken to the liver and converted back to glucose."
           ]
         }
       ]
@@ -226,43 +226,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7",
-        "AQA T 4.4.2.2"
-      ],
-      "exam_phrases": [
-        "to supply more oxygen / faster",
-        "for (aerobic) respiration / to reduce anaerobic respiration / to reduce lactic acid build up",
-        "(so) more energy is transferred / released",
-        "to remove more carbon dioxide produced in respiration",
-        "deeper breathing / increased heart rate",
-        "(anaerobic respiration) produces lactic acid",
-        "oxygen debt",
-        "oxygen debt is the amount of oxygen needed to break down lactic acid",
-        "(Higher tier) lactic acid is converted back into glucose"
-      ],
-      "mistakes": [
-        {
-          "wrong": "More energy is needed so more energy is produced by respiration.",
-          "right": "\"Energy produced / made / created\" is not accepted. Say more energy is transferred or released."
-        },
-        {
-          "wrong": "Breathing rate increases because more energy is needed for respiration.",
-          "right": "\"Energy needed for respiration\" is not accepted. Say more energy is needed, so more (aerobic) respiration takes place, so breathing rate increases."
-        },
-        {
-          "wrong": "A person with anaemia gets muscle fatigue because they have less aerobic respiration and less energy.",
-          "right": "Less aerobic respiration and reference to energy are ignored. Say less oxygen reaches the muscles, so anaerobic respiration produces lactic acid."
-        },
-        {
-          "wrong": "Person B has a low breathing rate, so is the fittest.",
-          "right": "Statements must be comparative. Say person B has the lowest resting breathing rate, or the shortest time for the breathing rate to return to resting."
-        },
-        {
-          "wrong": "4.5 minutes is 4 minutes 50 seconds.",
-          "right": "4.5 minutes is 4 minutes 30 seconds. 4:50 and 4 minutes 50 seconds are not accepted."
-        }
-      ],
+      "spec_codes": ["AQA 4.7", "AQA T 4.4.2.2"],
       "worked_example": {
         "exemplar_id": "2ce023bd-f852-455a-8ea6-cc58f6f2eeb5",
         "source": "AQA jun 2020, Paper 1 (H), Q03.5",
@@ -274,7 +238,7 @@
           "Insufficient oxygen is supplied during prolonged vigorous exercise, so lactic acid is formed by anaerobic respiration and an oxygen debt is created.",
           "Lactic acid causes the muscles to become fatigued, so they stop contracting efficiently.",
           "After exercise, heart rate and breathing rate stay high and fall slowly, to pay back the oxygen debt.",
-          "The oxygen debt is the oxygen needed to break down the lactic acid. (Higher tier) Some lactic acid is transported to the liver and converted back into glucose."
+          "The oxygen debt is the oxygen needed to break down the lactic acid. (AQA: Higher tier) Some lactic acid is transported to the liver and converted back into glucose."
         ],
         "tip": "A six-mark answer links changes during exercise and after it, and must include lactic acid and its removal."
       }
@@ -288,9 +252,7 @@
       "3d7fca5c-6022-4474-893f-ef17ae6dfc34",
       "80d915f3-2bae-416c-9a93-128f504cb295"
     ],
-    "exemplar_ids": [
-      "2ce023bd-f852-455a-8ea6-cc58f6f2eeb5"
-    ],
+    "exemplar_ids": ["2ce023bd-f852-455a-8ea6-cc58f6f2eeb5"],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-01"
   }

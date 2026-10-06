@@ -84,57 +84,21 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Test",
-            "Result",
-            "Ion"
-          ],
+          "columns": ["Test", "Result", "Ion"],
           "rows": [
-            [
-              "Flame test",
-              "Crimson (red)",
-              "Lithium"
-            ],
-            [
-              "Flame test",
-              "Yellow / orange",
-              "Sodium"
-            ],
-            [
-              "Flame test",
-              "Lilac",
-              "Potassium"
-            ],
-            [
-              "Flame test",
-              "Red-orange (orange-red)",
-              "Calcium"
-            ],
-            [
-              "Flame test",
-              "Green (blue-green)",
-              "Copper(II)"
-            ],
+            ["Flame test", "Crimson (red)", "Lithium"],
+            ["Flame test", "Yellow / orange", "Sodium"],
+            ["Flame test", "Lilac", "Potassium"],
+            ["Flame test", "Red-orange (orange-red)", "Calcium"],
+            ["Flame test", "Green (blue-green)", "Copper(II)"],
             [
               "Sodium hydroxide solution",
               "White precipitate (aluminium: dissolves in excess to give a colourless solution)",
               "Aluminium, calcium or magnesium"
             ],
-            [
-              "Sodium hydroxide solution",
-              "Blue precipitate",
-              "Copper(II)"
-            ],
-            [
-              "Sodium hydroxide solution",
-              "Green precipitate",
-              "Iron(II)"
-            ],
-            [
-              "Sodium hydroxide solution",
-              "Brown precipitate",
-              "Iron(III)"
-            ],
+            ["Sodium hydroxide solution", "Blue precipitate", "Copper(II)"],
+            ["Sodium hydroxide solution", "Green precipitate", "Iron(II)"],
+            ["Sodium hydroxide solution", "Brown precipitate", "Iron(III)"],
             [
               "Sodium hydroxide solution, warmed",
               "Gas that turns damp red litmus paper blue",
@@ -145,16 +109,8 @@
               "White / cream / yellow precipitate",
               "Chloride / bromide / iodide"
             ],
-            [
-              "Barium chloride after dilute hydrochloric acid",
-              "White precipitate",
-              "Sulfate"
-            ],
-            [
-              "Dilute acid",
-              "Bubbles of carbon dioxide",
-              "Carbonate"
-            ]
+            ["Barium chloride after dilute hydrochloric acid", "White precipitate", "Sulfate"],
+            ["Dilute acid", "Bubbles of carbon dioxide", "Carbonate"]
           ]
         },
         {
@@ -190,11 +146,7 @@
             "kind": "predictor",
             "alt": "Choose a compound to see its test results and the ions they show.",
             "prompt": "Pick an unknown compound",
-            "result_labels": [
-              "Cation test",
-              "Anion test",
-              "Compound"
-            ],
+            "result_labels": ["Cation test", "Anion test", "Compound"],
             "options": [
               {
                 "label": "Compound A",
@@ -340,33 +292,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.8.3.5"
-      ],
-      "exam_phrases": [
-        "place sample on (clean metal) wire",
-        "introduce into (blue / non-luminous) flame",
-        "observe lilac flame colour",
-        "dissolve sample in (distilled) water",
-        "add (dilute) nitric acid",
-        "add silver nitrate (solution)",
-        "observe cream precipitate",
-        "which shows presence of bromide (ions)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Add silver nitrate to the sample and see if it changes colour.",
-          "right": "A plan with some steps missing cannot reach the top level. Dissolve the sample in water, add dilute nitric acid, then silver nitrate solution, and state the cream precipitate that shows bromide."
-        },
-        {
-          "wrong": "Describe the tests in any order, with no results given.",
-          "right": "The key steps must be in a logical order. The question says to give the results, so give each result and the ion it shows."
-        },
-        {
-          "wrong": "Add silver nitrate solution and a precipitate forms, so bromide is present.",
-          "right": "The colour of the precipitate is what shows the ion. Add dilute nitric acid first, then silver nitrate solution, and observe a cream precipitate to show bromide."
-        }
-      ],
+      "spec_codes": ["AQA 4.8.3.5"],
       "worked_example": {
         "exemplar_id": "c3079125-7785-48fb-89ad-0e95195d5db5",
         "source": "AQA jun 2023, Paper 2 (F), Q10.1",
@@ -384,35 +310,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.1C",
-        "EDEX 9.6C",
-        "EDEX 9.7C"
-      ],
-      "exam_phrases": [
-        "the test only detects that ion",
-        "so no confusion with other ions",
-        "if same result is given by more than one ion",
-        "do not know which ion is present",
-        "gas evolved turns damp red litmus paper blue",
-        "precipitate dissolves to give colourless solution",
-        "add dilute hydrochloric acid and barium chloride solution",
-        "calcium; chloride"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The test must be unique, so there is no confusion with other ions.",
-          "right": "This is only half of the explanation. Link it: the test only detects that ion, so there is no confusion with other ions."
-        },
-        {
-          "wrong": "A white precipitate with silver nitrate and a colourless solution with sodium hydroxide proves ammonium chloride.",
-          "right": "Only the chloride ion is justified. Ammonium needs more sodium hydroxide solution and heating, then the gas turns damp red litmus paper blue."
-        },
-        {
-          "wrong": "A green precipitate with sodium hydroxide proves iron(II) sulfate.",
-          "right": "The green precipitate justifies the iron(II) ion only. Sulfate needs dilute hydrochloric acid and barium chloride solution, giving a white precipitate."
-        }
-      ],
+      "spec_codes": ["EDEX 9.1C", "EDEX 9.6C", "EDEX 9.7C"],
       "worked_example": {
         "exemplar_id": "13a9b32e-4905-4c08-8260-67b2708a71f5",
         "source": "EDEXCEL jun 2019, Paper 2 (H), Q10(c)",
@@ -429,27 +327,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C4.2d"
-      ],
-      "exam_phrases": [
-        "hydrogen ions because pH is 3",
-        "sulfate because white precipitate with barium chloride",
-        "chloride because white precipitate with silver nitrate",
-        "correct identification of sodium / Na⁺",
-        "correct identification of sulfate / SO₄²⁻",
-        "correct formula of compound"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Hydrogen, chloride and sulfate are present.",
-          "right": "Naming the ions earns one mark. Each explanation earns a mark only when it links the test result to the correct ion, such as a white precipitate with barium chloride for sulfate."
-        },
-        {
-          "wrong": "The compound contains sodium and sulfate ions.",
-          "right": "The question asks for the formula. Identify sodium and sulfate from the two tests, then write the formula Na₂SO₄. There is a mark for each step."
-        }
-      ],
+      "spec_codes": ["OCR C4.2d"],
       "worked_example": {
         "exemplar_id": "62904850-f46c-4fa1-8b77-f6b0224f492f",
         "source": "OCR sample null, Paper 2, Q16(c)",

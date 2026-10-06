@@ -8,7 +8,10 @@
     {
       "heading": "Why electrolysis is used",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers which metals are extracted by electrolysis and why." },
+        {
+          "type": "paragraph",
+          "text": "This section covers which metals are extracted by electrolysis and why."
+        },
         {
           "type": "list",
           "items": [
@@ -19,7 +22,10 @@
             "The metal made by electrolysis is very pure."
           ]
         },
-        { "type": "subheading", "text": "Energy and cost" },
+        {
+          "type": "subheading",
+          "text": "Energy and cost"
+        },
         {
           "type": "list",
           "items": [
@@ -40,11 +46,17 @@
     {
       "heading": "Extracting aluminium",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers the electrolyte, the electrodes and the reactions in the aluminium cell." },
+        {
+          "type": "paragraph",
+          "text": "This section covers the electrolyte, the electrodes and the reactions in the aluminium cell."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Cryolite", "meaning": "A compound mixed with aluminium oxide to lower the melting point of the electrolyte." }
+            {
+              "term": "Cryolite",
+              "meaning": "A compound mixed with aluminium oxide to lower the melting point of the electrolyte."
+            }
           ]
         },
         {
@@ -62,7 +74,11 @@
           "type": "equation",
           "label": "Electrolysis of aluminium oxide",
           "formula": "2Al₂O₃ → 4Al + 3O₂",
-          "where": ["Al₂O₃ is aluminium oxide", "Al is aluminium, made at the negative electrode", "O₂ is oxygen, made at the positive electrode"]
+          "where": [
+            "Al₂O₃ is aluminium oxide",
+            "Al is aluminium, made at the negative electrode",
+            "O₂ is oxygen, made at the positive electrode"
+          ]
         },
         {
           "type": "list",
@@ -71,7 +87,10 @@
             "(Higher tier) Positive electrode: 2O²⁻ → O₂ + 4e⁻. The oxide ions lose electrons."
           ]
         },
-        { "type": "subheading", "text": "Why the positive electrodes are replaced" },
+        {
+          "type": "subheading",
+          "text": "Why the positive electrodes are replaced"
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -116,33 +135,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.4.3.3", "AQA T 5.4.3.3"],
-      "exam_phrases": [
-        "metal is too reactive to be extracted using carbon",
-        "the mixture has a lower melting point (than aluminium oxide)",
-        "(so) less energy is needed",
-        "oxygen reacts with carbon / electrode",
-        "to produce carbon dioxide",
-        "(so the electrode) has to be continually replaced",
-        "aluminium ions are positive(ly charged) so are attracted to the negative electrode"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Cryolite is added as a catalyst.",
-          "right": "This is not accepted. Cryolite lowers the melting point of the mixture, so less energy is needed."
-        },
-        {
-          "wrong": "A lower melting point means the process costs less.",
-          "right": "Cost is ignored. Say that less energy is needed."
-        },
-        {
-          "wrong": "The molten mixture contains bauxite and cryolite.",
-          "right": "Bauxite and aluminium ore are ignored. The molten mixture contains aluminium oxide and cryolite."
-        },
-        {
-          "wrong": "The positive electrode corrodes or wears away.",
-          "right": "Corroded and worn away can be ignored. Say that the carbon electrode reacts with oxygen to form carbon dioxide, so it burns away or is used up."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "3c63db2a-b21b-4a9a-b6c2-8a683da313a5",
         "source": "AQA jun 2020, Paper 1 (H), Q01.3",
@@ -158,29 +150,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 4.7"],
-      "exam_phrases": [
-        "aluminium is high in reactivity / very reactive",
-        "aluminium oxide is (very) stable",
-        "aluminium (oxide) cannot be reduced by carbon",
-        "carbon cannot displace aluminium",
-        "needs a lot of energy (to remove oxygen from the oxide)",
-        "electrolysis is expensive / needs a large amount of electricity",
-        "the metal produced by electrolysis is very pure"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Aluminium is more reactive, so it is extracted by electrolysis.",
-          "right": "'Aluminium is more reactive' on its own is ignored. Say more reactive than carbon, so carbon cannot reduce aluminium oxide."
-        },
-        {
-          "wrong": "Aluminium is extracted by electrolysis.",
-          "right": "This repeats the question and is ignored. Explain why: aluminium oxide cannot be reduced by carbon."
-        },
-        {
-          "wrong": "Electrolysis is used for iron because it is cheaper than heating with carbon.",
-          "right": "Electrolysis is more expensive. Iron is extracted by heating with carbon because iron is less reactive than carbon."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "9612e8a8-6ae2-4db5-9706-7c5200e6571f",
         "source": "EDEXCEL nov 2021, Paper 1 (H), Q7(b)",
@@ -197,23 +166,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR C6.1b"],
-      "exam_phrases": [
-        "aluminium is more reactive (than carbon)",
-        "aluminium is above carbon in the reactivity series",
-        "so cannot be obtained by reaction of oxide with carbon",
-        "copper is below carbon in the reactivity series",
-        "aluminium is highly / too / very reactive"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Aluminium is extracted by electrolysis because it is reactive.",
-          "right": "'Reactive' or 'quite reactive' is ignored. Say that aluminium is more reactive than carbon, or above carbon in the reactivity series."
-        },
-        {
-          "wrong": "Solid aluminium oxide cannot be electrolysed because its electrons cannot move.",
-          "right": "Electrons cannot move is ignored. Say that the ions cannot move in the solid."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "b5b32b42-ecd0-4541-9de0-46bec94c1b75",
         "source": "OCR sample null, Paper 4, Q25(a)",

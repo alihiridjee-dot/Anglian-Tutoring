@@ -8,20 +8,36 @@
     {
       "heading": "Heart rate, stroke volume and cardiac output",
       "blocks": [
-        { "type": "paragraph", "text": "Three quantities describe how hard the heart is working. This section defines them and gives the equation that links them." },
+        {
+          "type": "paragraph",
+          "text": "Three quantities describe how hard the heart is working. This section defines them and gives the equation that links them."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Heart rate", "meaning": "The number of times the heart beats each minute, in beats per minute." },
-            { "term": "Stroke volume", "meaning": "The volume of blood pumped out of the heart each time it beats, for example in cm³." },
-            { "term": "Cardiac output", "meaning": "The total volume of blood pumped out of the heart each minute, for example in cm³ per minute." }
+            {
+              "term": "Heart rate",
+              "meaning": "The number of times the heart beats each minute, in beats per minute."
+            },
+            {
+              "term": "Stroke volume",
+              "meaning": "The volume of blood pumped out of the heart each time it beats, for example in cm³."
+            },
+            {
+              "term": "Cardiac output",
+              "meaning": "The total volume of blood pumped out of the heart each minute, for example in cm³ per minute."
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Cardiac output",
           "formula": "cardiac output = stroke volume × heart rate",
-          "where": ["cardiac output, in cm³ per minute", "stroke volume, in cm³", "heart rate, in beats per minute"]
+          "where": [
+            "cardiac output, in cm³ per minute",
+            "stroke volume, in cm³",
+            "heart rate, in beats per minute"
+          ]
         },
         {
           "type": "diagram",
@@ -29,12 +45,38 @@
             "kind": "slider",
             "alt": "Change the heart rate and the stroke volume and watch the cardiac output.",
             "inputs": [
-              { "id": "HR", "label": "Heart rate", "unit": "beats per minute", "min": 40, "max": 200, "step": 4, "value": 68 },
-              { "id": "SV", "label": "Stroke volume", "unit": "cm³", "min": 50, "max": 150, "step": 2, "value": 72 }
+              {
+                "id": "HR",
+                "label": "Heart rate",
+                "unit": "beats per minute",
+                "min": 40,
+                "max": 200,
+                "step": 4,
+                "value": 68
+              },
+              {
+                "id": "SV",
+                "label": "Stroke volume",
+                "unit": "cm³",
+                "min": 50,
+                "max": 150,
+                "step": 2,
+                "value": 72
+              }
             ],
             "outputs": [
-              { "label": "Cardiac output", "unit": "cm³ per minute", "formula": "HR * SV", "decimals": 0 },
-              { "label": "Cardiac output", "unit": "dm³ per minute", "formula": "HR * SV / 1000", "decimals": 1 }
+              {
+                "label": "Cardiac output",
+                "unit": "cm³ per minute",
+                "formula": "HR * SV",
+                "decimals": 0
+              },
+              {
+                "label": "Cardiac output",
+                "unit": "dm³ per minute",
+                "formula": "HR * SV / 1000",
+                "decimals": 1
+              }
             ]
           }
         },
@@ -50,35 +92,70 @@
     {
       "heading": "Calculations",
       "blocks": [
-        { "type": "paragraph", "text": "Substitute the numbers, then check the units and the number of significant figures." },
+        {
+          "type": "paragraph",
+          "text": "Substitute the numbers, then check the units and the number of significant figures."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "At rest.", "text": "68 beats per minute × 72 cm³ = 4896 cm³ per minute." },
-            { "lead": "Exercising.", "text": "112 beats per minute × 124 cm³ = 13 888 cm³ per minute." },
-            { "lead": "Difference.", "text": "13 888 − 4896 = 8992 cm³ per minute." },
-            { "lead": "Round.", "text": "To 3 significant figures this is 8990 cm³ per minute." }
+            {
+              "lead": "At rest.",
+              "text": "68 beats per minute × 72 cm³ = 4896 cm³ per minute."
+            },
+            {
+              "lead": "Exercising.",
+              "text": "112 beats per minute × 124 cm³ = 13 888 cm³ per minute."
+            },
+            {
+              "lead": "Difference.",
+              "text": "13 888 − 4896 = 8992 cm³ per minute."
+            },
+            {
+              "lead": "Round.",
+              "text": "To 3 significant figures this is 8990 cm³ per minute."
+            }
           ]
         },
-        { "type": "subheading", "text": "Rearranging the equation" },
+        {
+          "type": "subheading",
+          "text": "Rearranging the equation"
+        },
         {
           "type": "equation",
           "label": "Heart rate",
           "formula": "heart rate = cardiac output ÷ stroke volume",
-          "where": ["heart rate, in beats per minute", "cardiac output, in cm³ per minute", "stroke volume, in cm³"]
+          "where": [
+            "heart rate, in beats per minute",
+            "cardiac output, in cm³ per minute",
+            "stroke volume, in cm³"
+          ]
         },
         {
           "type": "equation",
           "label": "Stroke volume",
           "formula": "stroke volume = cardiac output ÷ heart rate",
-          "where": ["stroke volume, in cm³", "cardiac output, in cm³ per minute", "heart rate, in beats per minute"]
+          "where": [
+            "stroke volume, in cm³",
+            "cardiac output, in cm³ per minute",
+            "heart rate, in beats per minute"
+          ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Heart rate.", "text": "A person has a cardiac output of 4.9 litres per minute and a stroke volume of 70 ml. Calculate the heart rate." },
-            { "lead": "Units.", "text": "Convert 4.9 litres to 4900 ml." },
-            { "lead": "Calculate.", "text": "4900 ÷ 70 = 70 beats per minute." }
+            {
+              "lead": "Heart rate.",
+              "text": "A person has a cardiac output of 4.9 litres per minute and a stroke volume of 70 ml. Calculate the heart rate."
+            },
+            {
+              "lead": "Units.",
+              "text": "Convert 4.9 litres to 4900 ml."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "4900 ÷ 70 = 70 beats per minute."
+            }
           ]
         },
         {
@@ -88,10 +165,24 @@
             "alt": "Practise calculating heart rate from cardiac output and stroke volume.",
             "question": "A person has a cardiac output of **{CO} litres per minute**. The stroke volume of each heart beat is **{SV} ml**. Calculate the heart rate in beats per minute. Give your answer to the nearest whole number.",
             "variables": [
-              { "id": "CO", "min": 4, "max": 6, "step": 0.5 },
-              { "id": "SV", "min": 65, "max": 85, "step": 5 }
+              {
+                "id": "CO",
+                "min": 4,
+                "max": 6,
+                "step": 0.5
+              },
+              {
+                "id": "SV",
+                "min": 65,
+                "max": 85,
+                "step": 5
+              }
             ],
-            "answer": { "formula": "CO * 1000 / SV", "unit": "beats per minute", "decimals": 0 },
+            "answer": {
+              "formula": "CO * 1000 / SV",
+              "unit": "beats per minute",
+              "decimals": 0
+            },
             "working": [
               "Heart rate = cardiac output ÷ stroke volume",
               "Convert litres to ml: {CO} litres = {CO} × 1000 ml",
@@ -99,7 +190,10 @@
             ]
           }
         },
-        { "type": "subheading", "text": "Measuring heart rate" },
+        {
+          "type": "subheading",
+          "text": "Measuring heart rate"
+        },
         {
           "type": "list",
           "items": [
@@ -121,7 +215,10 @@
     {
       "heading": "Cardiac output and exercise",
       "blocks": [
-        { "type": "paragraph", "text": "During exercise the muscles need more oxygen and glucose. The heart meets this by increasing the cardiac output." },
+        {
+          "type": "paragraph",
+          "text": "During exercise the muscles need more oxygen and glucose. The heart meets this by increasing the cardiac output."
+        },
         {
           "type": "list",
           "items": [
@@ -131,7 +228,10 @@
             "Cardiac output rises when the heart rate increases, when the stroke volume increases, or both."
           ]
         },
-        { "type": "subheading", "text": "Regular exercise" },
+        {
+          "type": "subheading",
+          "text": "Regular exercise"
+        },
         {
           "type": "list",
           "items": [
@@ -170,34 +270,6 @@
   "boards": {
     "edexcel": {
       "spec_codes": ["EDEX 8.12"],
-      "exam_phrases": [
-        "cardiac output = stroke volume × heart rate",
-        "multiply the number of beats (in 10 seconds) by 6",
-        "to deliver more oxygen / glucose (to the muscles)",
-        "to remove more carbon dioxide",
-        "to prevent build-up of lactic acid",
-        "to increase the rate of aerobic respiration and release more energy",
-        "a lower stroke volume pumps less blood out per beat, so a higher heart rate is needed",
-        "use a heart rate monitor / take repeat readings"
-      ],
-      "mistakes": [
-        {
-          "wrong": "More respiration produces more energy.",
-          "right": "\"Produce energy\" is ignored. Say more respiration releases more energy."
-        },
-        {
-          "wrong": "To improve the method, use a stopwatch.",
-          "right": "\"Use a stopwatch\" is ignored. Say use a heart rate monitor, take readings more often than every 5 minutes, record the pulse for longer than 10 seconds, or repeat and calculate a mean."
-        },
-        {
-          "wrong": "13 888 − 4896 = 8992 cm³ per minute, to 3 significant figures.",
-          "right": "8992 is 4 significant figures. Round to 3 significant figures, 8990, and give units, cm³ per minute. Each is worth a mark."
-        },
-        {
-          "wrong": "Heart rate = 4.9 ÷ 70 = 0.07 beats per minute.",
-          "right": "The units do not match. Convert 4.9 litres to 4900 ml, then 4900 ÷ 70 = 70 beats per minute. Only the substitution mark is given for 4.9 ÷ 70."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "28c9872d-5954-498f-8183-0acc83dfdfa2",
         "source": "EDEXCEL jun 2024, Paper 2 (H), Q8(b)(i)",

@@ -78,11 +78,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Thermosoftening",
-            "Thermosetting"
-          ],
+          "columns": ["Feature", "Thermosoftening", "Thermosetting"],
           "rows": [
             [
               "Structure",
@@ -107,10 +103,7 @@
             "kind": "sort",
             "alt": "Sort statements into thermosoftening and thermosetting polymers.",
             "prompt": "Which kind of polymer does each statement describe?",
-            "groups": [
-              "Thermosoftening",
-              "Thermosetting"
-            ],
+            "groups": ["Thermosoftening", "Thermosetting"],
             "items": [
               {
                 "text": "Melts when heated",
@@ -235,34 +228,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.10.3.3"
-      ],
-      "exam_phrases": [
-        "long chain molecules",
-        "with covalent bonds between the chains",
-        "cross-links between (polymer) chains",
-        "too much energy needed to overcome the cross-links",
-        "melts so can be reshaped (into new products)",
-        "(wet) clay is shaped and heated in a furnace",
-        "limestone and sodium carbonate",
-        "stronger so less easily damaged",
-        "lower density so lighter (to install)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Thermosetting polymers do not melt because the intermolecular forces between chains are strong.",
-          "right": "References to intermolecular forces are ignored. There are covalent bonds (cross-links) between the chains, so too much energy is needed to overcome them."
-        },
-        {
-          "wrong": "Pre-stressed concrete is used for bridges because it is more dense.",
-          "right": "More dense is not accepted. It is stronger, so it can bear the weight of heavy traffic."
-        },
-        {
-          "wrong": "The outer coating on a surfboard is added to stop the board rusting.",
-          "right": "References to corrosion or rusting are ignored. Say the coating makes the board stronger, harder, tougher or waterproof."
-        }
-      ],
+      "spec_codes": ["AQA 4.10.3.3"],
       "worked_example": {
         "exemplar_id": "03c72196-5cdf-47d1-9604-5f20e4787270",
         "source": "AQA jun 2019, Paper 1 (F), Q10.2",
@@ -279,34 +245,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.38C",
-        "EDEX 9.39C"
-      ],
-      "exam_phrases": [
-        "no reaction with water",
-        "high melting point",
-        "low flexibility",
-        "ceramic will not melt",
-        "cup will keep its shape",
-        "cup will not distort",
-        "the metal conducts electricity",
-        "the polymer is flexible"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The ceramic is suitable because it is a good material for a cup.",
-          "right": "No property given means no marks. Give a correct property from the data, such as high melting point, and link it to a reason, such as the cup will not melt or distort."
-        },
-        {
-          "wrong": "A metal is the most suitable material for the insulation on a household wire.",
-          "right": "A metal conducts electricity, so it is not an insulator. The polymer is the most suitable, because it has low electrical conductivity and is flexible."
-        },
-        {
-          "wrong": "The wire is made of metal because metals are hard.",
-          "right": "Metals are not hard (their hardness is low). The wire is made of metal because the metal conducts electricity."
-        }
-      ],
+      "spec_codes": ["EDEX 9.38C", "EDEX 9.39C"],
       "worked_example": {
         "exemplar_id": "3f930732-0c0f-4f14-92b8-4872d83cfab4",
         "source": "EDEXCEL jun 2018, Paper 2 (F), Q7(b)",
@@ -321,34 +260,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.1r",
-        "OCR C6.1s"
-      ],
-      "exam_phrases": [
-        "will not soften",
-        "will hold its shape",
-        "will not melt",
-        "is the strongest",
-        "lower density so easier to wear or carry",
-        "does not corrode so it will last longer",
-        "highest thermal conductivity",
-        "suitable melting point"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Polymer B should be used because it has a high melting point.",
-          "right": "A high melting point is ignored unless qualified. Say it will not melt or soften when filled with a hot drink, so it holds its shape."
-        },
-        {
-          "wrong": "Kevlar is used for vests because it is better at keeping you safe.",
-          "right": "This is ignored. Describe a property and explain it, such as stronger so less likely to be penetrated, or lower density so more comfortable to wear."
-        },
-        {
-          "wrong": "Metal is used for the base of a pan because it conducts heat well.",
-          "right": "Conducts heat well is ignored. Say it has the highest thermal conductivity, and a suitable high melting point."
-        }
-      ],
+      "spec_codes": ["OCR C6.1r", "OCR C6.1s"],
       "worked_example": {
         "exemplar_id": "77c6fa50-6c5f-4f82-ab7a-107f8d3625d8",
         "source": "OCR jun 2023, Paper 4, Q17(a)",

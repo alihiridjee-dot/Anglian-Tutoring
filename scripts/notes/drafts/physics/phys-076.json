@@ -31,27 +31,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Convex (converging) lens",
-            "Concave (diverging) lens"
-          ],
+          "columns": ["Feature", "Convex (converging) lens", "Concave (diverging) lens"],
           "rows": [
-            [
-              "Shape",
-              "Thicker in the middle",
-              "Thinner in the middle"
-            ],
-            [
-              "Parallel rays",
-              "Brought together at the principal focus",
-              "Spread out"
-            ],
-            [
-              "Image",
-              "Real or virtual",
-              "Always virtual"
-            ]
+            ["Shape", "Thicker in the middle", "Thinner in the middle"],
+            ["Parallel rays", "Brought together at the principal focus", "Spread out"],
+            ["Image", "Real or virtual", "Always virtual"]
           ]
         },
         {
@@ -221,29 +205,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.2.5"
-      ],
-      "exam_phrases": [
-        "upright",
-        "virtual",
-        "right way up",
-        "(mm)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The image from a concave lens is real.",
-          "right": "The image from a concave lens is always virtual, and it is upright."
-        },
-        {
-          "wrong": "To find the object height, convert 9.0 mm to metres first, then divide by 6.0.",
-          "right": "Both heights can stay in mm, so no conversion is needed. Object height = 9.0 ÷ 6.0 = 1.5 mm. An unnecessary conversion loses a mark."
-        },
-        {
-          "wrong": "The magnification is 3.5 mm.",
-          "right": "Magnification is a ratio, so it has no unit."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.2.5"],
       "worked_example": {
         "exemplar_id": "7345f879-15d1-462f-a8f8-2882c4d2f895",
         "source": "AQA jun 2019, Paper 2 (H), Q1.4",
@@ -258,33 +220,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.4P",
-        "EDEX 5.5P",
-        "EDEX 5.6P"
-      ],
-      "exam_phrases": [
-        "(power =) 1 / 0.14",
-        "unit change",
-        "higher power / shorter focal length / fatter / thicker / more curved / more convex lens",
-        "window / light, lens and paper in correct order",
-        "move lens / paper",
-        "to focus (image) / to get a clear image"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The focal length is 17 cm, so power = 1 ÷ 17.",
-          "right": "Change the focal length to metres first: 17 cm = 0.17 m. Power = 1 ÷ 0.17 = 5.9 dioptres (2 significant figures)."
-        },
-        {
-          "wrong": "A lens with a longer focal length has a higher power.",
-          "right": "A shorter focal length means a higher power. A fatter, thicker or more curved lens has a shorter focal length."
-        },
-        {
-          "wrong": "To make an image of the window, put the lens first and then the window.",
-          "right": "The order is window (light from outside), lens, then paper. Move the lens or the paper until the image is clear."
-        }
-      ],
+      "spec_codes": ["EDEX 5.4P", "EDEX 5.5P", "EDEX 5.6P"],
       "worked_example": {
         "exemplar_id": "64235ff2-04bf-4f7c-8de3-a40e67d41981",
         "source": "EDEXCEL jun 2022, Paper 1 (F), Q3(b)",
@@ -317,10 +253,7 @@
               "type": "equation",
               "label": "Power of a lens",
               "formula": "power = 1 ÷ focal length",
-              "where": [
-                "power is in dioptres (D).",
-                "focal length is in metres (m)."
-              ]
+              "where": ["power is in dioptres (D).", "focal length is in metres (m)."]
             },
             {
               "type": "diagram",
@@ -380,25 +313,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P5.3c"
-      ],
-      "exam_phrases": [
-        "(in long sight) rays focused behind retina / eye (ball)",
-        "convex lens refracts light inwards",
-        "focuses light on the retina",
-        "converges"
-      ],
-      "mistakes": [
-        {
-          "wrong": "In long sight, light is focused in front of the retina.",
-          "right": "In long sight the rays are focused behind the retina, because the eyeball is too short."
-        },
-        {
-          "wrong": "A convex lens spreads the light out so it reaches the retina.",
-          "right": "A convex lens refracts light inwards (converges it), so it focuses on the retina."
-        }
-      ],
+      "spec_codes": ["OCR P5.3c"],
       "worked_example": {
         "exemplar_id": "20fdcfe3-e7d4-4506-a967-12850df0eb51",
         "source": "OCR jun 2019, Paper 2, Q18(a)(ii)",

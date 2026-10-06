@@ -31,27 +31,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Scalar (size only)",
-            "Vector (size and direction)"
-          ],
+          "columns": ["Scalar (size only)", "Vector (size and direction)"],
           "rows": [
-            [
-              "Distance",
-              "Displacement"
-            ],
-            [
-              "Speed",
-              "Velocity"
-            ],
-            [
-              "Mass",
-              "Weight"
-            ],
-            [
-              "Energy",
-              "Force"
-            ]
+            ["Distance", "Displacement"],
+            ["Speed", "Velocity"],
+            ["Mass", "Weight"],
+            ["Energy", "Force"]
           ]
         },
         {
@@ -64,10 +49,7 @@
             "kind": "sort",
             "alt": "Sort ten quantities into scalars and vectors.",
             "prompt": "Sort each quantity into scalar or vector.",
-            "groups": [
-              "Scalar",
-              "Vector"
-            ],
+            "groups": ["Scalar", "Vector"],
             "items": [
               {
                 "text": "Distance",
@@ -131,32 +113,16 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Quantity",
-            "What it is",
-            "Type"
-          ],
+          "columns": ["Quantity", "What it is", "Type"],
           "rows": [
-            [
-              "Distance",
-              "How far an object moves, along its path",
-              "Scalar"
-            ],
+            ["Distance", "How far an object moves, along its path", "Scalar"],
             [
               "Displacement",
               "The straight-line distance from the start point to the finish point, with its direction",
               "Vector"
             ],
-            [
-              "Speed",
-              "How fast an object moves, with no direction",
-              "Scalar"
-            ],
-            [
-              "Velocity",
-              "The speed of an object in a given direction",
-              "Vector"
-            ]
+            ["Speed", "How fast an object moves, with no direction", "Scalar"],
+            ["Velocity", "The speed of an object in a given direction", "Vector"]
           ]
         },
         {
@@ -174,7 +140,7 @@
         },
         {
           "type": "paragraph",
-          "text": "(Higher tier) Motion in a circle has constant speed but changing velocity. A force towards the centre changes the direction of motion but not the speed."
+          "text": "(AQA: Higher tier) Motion in a circle has constant speed but changing velocity. A force towards the centre changes the direction of motion but not the speed."
         },
         {
           "type": "key-points",
@@ -231,31 +197,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.1.1",
-        "AQA T 6.5.1.1",
-        "AQA 4.5.6.1",
-        "AQA T 6.5.4.1"
-      ],
-      "exam_phrases": [
-        "has magnitude and a direction",
-        "has magnitude only",
-        "only a vector has direction",
-        "velocity is a vector and speed is a scalar",
-        "velocity includes direction",
-        "weight is a vector",
-        "this changes the direction of motion (but not the speed)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Distance is a vector because it can be measured in a direction.",
-          "right": "Distance is a scalar because it has magnitude only. Displacement is the vector."
-        },
-        {
-          "wrong": "The Earth's gravitational force makes the Hubble Space Telescope speed up or slow down as it orbits.",
-          "right": "The force makes it accelerate towards the Earth. This changes the direction of motion but not the speed, so the velocity changes."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.1.1", "AQA T 6.5.1.1", "AQA 4.5.6.1", "AQA T 6.5.4.1"],
       "worked_example": {
         "exemplar_id": "aee38b70-88e7-4d7f-8325-547e3a632a31",
         "source": "AQA jun 2022, Paper 2 (H), Q03.5",
@@ -270,64 +212,18 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.1",
-        "EDEX 2.2",
-        "EDEX 2.3",
-        "EDEX 2.4",
-        "EDEX 2.5",
-        "EDEX 9.2"
-      ],
-      "exam_phrases": [
-        "vectors have size and direction",
-        "scalars have only size",
-        "size or magnitude"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Scalars have only direction.",
-          "right": "Scalars have only size. Vectors have size and direction. The words are only accepted in that order."
-        },
-        {
-          "wrong": "Only the word size is accepted for a scalar, not magnitude.",
-          "right": "Size and magnitude are both accepted."
-        }
-      ],
+      "spec_codes": ["EDEX 2.1", "EDEX 2.2", "EDEX 2.3", "EDEX 2.4", "EDEX 2.5", "EDEX 9.2"],
       "worked_example": {
         "exemplar_id": "8c8cbcbc-bb0b-47fc-a990-d081a00103cd",
         "source": "EDEXCEL jun 2018, Paper 1 (F), Q1(d)",
         "question": "Use words from the box to complete the sentences below. Words: direction, energy, mass, size. Vectors have size and ______. Scalars have only ______.",
         "marks": 2,
-        "answer_points": [
-          "Vectors have size and direction.",
-          "Scalars have only size."
-        ],
+        "answer_points": ["Vectors have size and direction.", "Scalars have only size."],
         "tip": "The answers are only accepted in the given order. Size can also be written as magnitude."
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P2.1d"
-      ],
-      "exam_phrases": [
-        "speed is a scalar",
-        "velocity is a vector",
-        "velocity does take direction into account",
-        "speed is calculated using distance",
-        "velocity is calculated using displacement",
-        "displacement depends on direction from start point",
-        "magnitude and direction"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The velocity of the toy car is different from its speed because velocity is calculated using distance.",
-          "right": "Speed is calculated using distance. Velocity is calculated using displacement, which takes direction into account."
-        },
-        {
-          "wrong": "Distance depends on direction from the start point.",
-          "right": "Distance does not depend on direction from the start point. Displacement does."
-        }
-      ],
+      "spec_codes": ["OCR P2.1d"],
       "worked_example": {
         "exemplar_id": "97285c9f-5a3d-4435-9bc5-c7fc72d22764",
         "source": "OCR nov 2020, Paper 1, Q19(a)",

@@ -125,19 +125,13 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Method",
-            "Why it works"
-          ],
+          "columns": ["Method", "Why it works"],
           "rows": [
             [
               "Drain swamps, or destroy breeding grounds",
               "Mosquitos cannot breed, so there are fewer of them."
             ],
-            [
-              "Insecticides",
-              "Kill the mosquitos, which are the vector."
-            ],
+            ["Insecticides", "Kill the mosquitos, which are the vector."],
             [
               "Mosquito nets, long clothing, insect repellent",
               "People are less likely to be bitten."
@@ -146,10 +140,7 @@
               "Release sterile male mosquitos",
               "Fewer eggs are fertilised, so there are fewer mosquitos to bite people or pass on the protist."
             ],
-            [
-              "Anti-malarial tablets",
-              "Kill the pathogen (the protist)."
-            ],
+            ["Anti-malarial tablets", "Kill the pathogen (the protist)."],
             [
               "Vaccine (being developed)",
               "Makes people immune, so there are fewer infected people to pass the pathogen on to mosquitos."
@@ -185,36 +176,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA T 4.3.1.4",
-        "AQA T 4.3.1.5",
-        "AQA 3.2"
-      ],
-      "exam_phrases": [
-        "fungus",
-        "protist",
-        "vector",
-        "by mosquito bites",
-        "reduces breeding / reproduction (in mosquitos)",
-        "fewer mosquitos to pass on pathogen / protist",
-        "drain water from swamps",
-        "remove any infected parts of the plant / use a fungicide",
-        "less light absorbed / less photosynthesis / less glucose made"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Insecticides kill insects, so people do not get malaria.",
-          "right": "\"Kill insects\" unqualified is ignored. Say insecticides kill mosquitos, the vector."
-        },
-        {
-          "wrong": "Use an insecticide or pesticide on rose black spot.",
-          "right": "Rose black spot is fungal. Say use a fungicide. Pesticide is ignored, and insecticides and herbicides are not accepted."
-        },
-        {
-          "wrong": "Fewer mosquitos means fewer mosquitos to pass on malaria.",
-          "right": "\"Pass on malaria / disease\" is ignored. Say fewer mosquitos to bite people, or to pass on the pathogen or protist."
-        }
-      ],
+      "spec_codes": ["AQA T 4.3.1.4", "AQA T 4.3.1.5", "AQA 3.2"],
       "worked_example": {
         "exemplar_id": "aaed64ca-1870-4191-826a-705e6bb8800c",
         "source": "AQA jun 2025, Paper 1 (F), Q02.9",
@@ -229,55 +191,18 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.5"
-      ],
-      "exam_phrases": [
-        "a protist",
-        "malaria is not caused by a bacterium",
-        "malaria is not caused by a fungus or a virus"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Malaria is caused by a bacterium.",
-          "right": "Malaria is caused by a protist, not a bacterium."
-        },
-        {
-          "wrong": "Malaria is caused by a fungus or a virus.",
-          "right": "Malaria is not caused by a fungus or a virus. It is caused by a protist."
-        }
-      ],
+      "spec_codes": ["EDEX 5.5"],
       "worked_example": {
         "exemplar_id": "95a71a33-314b-4d4e-83ce-4e3d1a3a8f6d",
         "source": "EDEXCEL jun 2024, Paper 1 (H), Q3(a)(i)",
         "question": "Malaria is a disease that causes damage to the blood and liver. Which type of pathogen causes malaria? Choose from: a bacterium, a fungus, a protist, a virus.",
         "marks": 1,
-        "answer_points": [
-          "A protist.",
-          "Not a bacterium, a fungus or a virus."
-        ],
+        "answer_points": ["A protist.", "Not a bacterium, a fungus or a virus."],
         "tip": "Only a protist scores the mark."
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.3f"
-      ],
-      "exam_phrases": [
-        "caused by a fungus: barley powdery mildew",
-        "Crown gall disease: bacterium",
-        "Tobacco mosaic disease: virus"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Barley powdery mildew is caused by a bacterium or a virus.",
-          "right": "Barley powdery mildew is caused by a fungus."
-        },
-        {
-          "wrong": "Crown gall disease is caused by a fungus.",
-          "right": "Crown gall disease is caused by a bacterium."
-        }
-      ],
+      "spec_codes": ["OCR 6.3f"],
       "worked_example": {
         "exemplar_id": "c61da3fc-84ca-42d6-acc0-8051a040bb6b",
         "source": "OCR jun 2019, Paper 2, Q21(a)",

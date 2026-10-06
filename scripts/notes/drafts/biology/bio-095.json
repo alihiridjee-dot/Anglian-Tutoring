@@ -1,0 +1,293 @@
+{
+  "format": 1,
+  "concept_id": "bio-095",
+  "subject": "biology",
+  "title": "Genetic inheritance and key terms",
+  "key_idea": "A gene can have different forms called **alleles**. A **dominant** allele is expressed even if there is only one copy. A **recessive** allele is expressed only if there are two copies. Most characteristics are controlled by many genes, not just one.",
+  "sections": [
+    {
+      "heading": "Genes, alleles and chromosomes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Genetics has its own vocabulary, and mark schemes reward the exact words. This section covers the structures."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Chromosome",
+              "meaning": "A structure in the nucleus that contains DNA."
+            },
+            {
+              "term": "Gene",
+              "meaning": "A section of DNA that codes for a protein. Genes are found on chromosomes, in the nucleus."
+            },
+            {
+              "term": "Allele",
+              "meaning": "A different form (version) of a gene."
+            },
+            {
+              "term": "Gamete",
+              "meaning": "A sex cell, such as a sperm or an egg."
+            },
+            {
+              "term": "Zygote",
+              "meaning": "The cell formed when two gametes fuse at fertilisation."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Body cells have chromosomes in **pairs**, so they carry two alleles of each gene.",
+            "A gamete has one of each chromosome, so it carries only one allele of each gene.",
+            "From smallest to largest: nucleotide, allele, chromosome, genome."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A gene is a section of DNA that codes for a protein.",
+            "Alleles are different forms of the same gene.",
+            "Body cells have two alleles of each gene. Gametes have one."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Dominant, recessive and the two alleles you have",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Which alleles you carry, and which are expressed, decide your characteristics. This section covers the six terms mark schemes ask for."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Dominant",
+              "meaning": "An allele that is always expressed, even if only one copy is present."
+            },
+            {
+              "term": "Recessive",
+              "meaning": "An allele that is only expressed if two copies are present, so there is no dominant allele."
+            },
+            {
+              "term": "Homozygous",
+              "meaning": "Having two of the same allele of a gene."
+            },
+            {
+              "term": "Heterozygous",
+              "meaning": "Having two different alleles of a gene: one dominant and one recessive."
+            },
+            {
+              "term": "Genotype",
+              "meaning": "The combination of alleles a person has, written as letters, such as Bb."
+            },
+            {
+              "term": "Phenotype",
+              "meaning": "The characteristic that can be seen or measured, such as a tall plant."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A capital letter stands for the dominant allele. A lower-case letter stands for the recessive allele.",
+            "A person with one dominant allele shows the dominant phenotype.",
+            "A recessive characteristic shows only when both alleles are recessive."
+          ]
+        },
+        {
+          "type": "table",
+          "rows": [
+            ["TT", "Homozygous dominant", "Tall plant"],
+            ["Tt", "Heterozygous", "Tall plant"],
+            ["tt", "Homozygous recessive", "Short plant"]
+          ],
+          "columns": ["Genotype", "Name", "Phenotype (pea plant height, T dominant)"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Sort each genotype into homozygous dominant, heterozygous or homozygous recessive.",
+            "kind": "sort",
+            "items": [
+              {
+                "text": "TT",
+                "group": 0
+              },
+              {
+                "text": "Tt",
+                "group": 1
+              },
+              {
+                "text": "tt",
+                "group": 2
+              },
+              {
+                "text": "HH",
+                "group": 0
+              },
+              {
+                "text": "Hh",
+                "group": 1
+              },
+              {
+                "text": "hh",
+                "group": 2
+              },
+              {
+                "text": "Dd",
+                "group": 1
+              },
+              {
+                "text": "bb",
+                "group": 2
+              },
+              {
+                "text": "RR",
+                "group": 0
+              }
+            ],
+            "groups": ["Homozygous dominant", "Heterozygous", "Homozygous recessive"],
+            "prompt": "What is each genotype called?"
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Homozygous means the same alleles. Heterozygous means different alleles.",
+            "A dominant allele shows whenever it is present.",
+            "A recessive allele shows only in the homozygous recessive genotype."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Genotype and phenotype in practice",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The genotype is the alleles. The phenotype is the result. This section covers how to move between them."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Only people with a dominant allele T can taste a chemical called PTC. A person with Tt can taste it. A person who cannot taste it must be **tt**.",
+            "Cystic fibrosis is caused by a recessive allele, h. Someone with Hh does not have cystic fibrosis. Someone with hh does.",
+            "A person with the genotype Nn for maple syrup urine disease does not have the disease, so their phenotype is not having MSUD.",
+            "If a cross between two different pure-breeding parents gives offspring that all show one characteristic, that characteristic is dominant and the offspring are heterozygous."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Many genes control most characteristics"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Some characteristics are controlled by a single gene, such as fur colour in mice.",
+            "Most characteristics are the result of **multiple genes** interacting, not a single gene.",
+            "Single gene inheritance gives clear either-or phenotypes. Characteristics controlled by many genes show a range of phenotypes.",
+            "Crosses are used to predict single-gene results. The next notes cover them."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Work out the phenotype from the genotype: any dominant allele gives the dominant phenotype.",
+            "Most phenotypes are controlled by many genes."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is an allele?",
+      "a": "A different form (version) of a gene.",
+      "marks": 1
+    },
+    {
+      "q": "Only people with a dominant allele T can taste PTC. A person has the genotype Tt. What word describes this genotype, and can the person taste PTC?",
+      "a": "Heterozygous. Yes, the person can taste PTC, because the dominant allele T is expressed.",
+      "marks": 2
+    },
+    {
+      "q": "When is a recessive allele expressed as a characteristic?",
+      "a": "When the dominant allele is not present (when two copies of the recessive allele are present).",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 6.6", "AQA T 4.6.1.4"],
+      "worked_example": {
+        "exemplar_id": "e2b1c7d7-9c3a-4800-aae2-4940c2c726f7",
+        "source": "AQA jun 2025, Paper 2 (H), Q01.3",
+        "question": "The fur colour of rabbits is controlled by two alleles.\nA male rabbit is heterozygous for fur colour.\nThe rabbit's body cells have the genotype Bb.\nOne of the sperm cells from the rabbit has the allele b.\n\nExplain why the alleles in the rabbit's body cells and the allele in the sperm cell are different.",
+        "marks": 2,
+        "answer_points": [
+          "Sperm have one of each chromosome (pair), so only one allele of the gene.",
+          "Sperm are produced by meiosis.",
+          "Or: body cells have two of each chromosome (pairs of chromosomes)."
+        ],
+        "tip": "Any two points score. Sperm cells, gametes and sex cells are all accepted."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.12", "EDEX 3.13", "EDEX 3.19"],
+      "worked_example": {
+        "exemplar_id": "5b3acefb-1f4e-445f-b0ff-033dc4e3b5f4",
+        "source": "EDEXCEL jun 2018, Paper 1 (H), Q7(b)(ii)",
+        "question": "Mendel's research on pea plants showed that genetic traits are inherited.\n\nMendel crossed pea plants that produced round seeds with pea plants that produced wrinkled seeds.\nAll the offspring produced round seeds.\nHe then crossed these offspring with each other.\nSome pea plants in the next generation produced round seeds and the others produced wrinkled seeds.\n\nExplain how this showed that some inherited traits are not expressed in an organism.",
+        "marks": 3,
+        "answer_points": [
+          "The first generation were heterozygous (carriers).",
+          "Offspring needed two wrinkled alleles (to be homozygous) to have wrinkled seeds.",
+          "25% (1 in 4) of the offspring have wrinkled seeds.",
+          "Wrinkled is recessive and round is dominant."
+        ],
+        "tip": "Any three of the four points score. A correctly annotated Punnett square or genetic diagram is also accepted."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 5.1a", "OCR 5.1i", "OCR 5.1l"],
+      "worked_example": {
+        "exemplar_id": "8fbc91f2-4d4e-446c-8280-1d3afdfe0c72",
+        "source": "OCR jun 2018, Paper 4, Q18(a)",
+        "question": "Retinitis pigmentosa is a genetic condition that affects the eyes.\n\nIt is caused by a mutation to a gene. This mutation produces a recessive allele.\n\nThe condition causes rod cells in the retina to break down.\n\nExplain the meaning of these terms.\n\nGene\nAllele",
+        "marks": 2,
+        "answer_points": [
+          "Gene: a length of DNA that codes for a protein.",
+          "Allele: an alternative form (version) of a gene."
+        ],
+        "tip": "One mark for each term. A particular copy of a gene is accepted for allele."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "13209da7-ba4e-4fa2-bd27-1f962c33397b",
+      "2291e88f-04ed-4861-97d4-ae618f3250d6",
+      "ded0775e-4942-4194-874d-8237e78fc29e",
+      "91292207-3e32-4030-9142-a90fcf5b1e24",
+      "a0f91049-eb4b-4b5e-b63f-765432721f87",
+      "f6d3bfdf-338d-4aec-bef7-87d5c4fbb8fd",
+      "5d501197-7c22-4089-b847-57768c9be2c3",
+      "992317ea-44bc-49e3-b78c-c7e6494e5bef"
+    ],
+    "exemplar_ids": [
+      "e2b1c7d7-9c3a-4800-aae2-4940c2c726f7",
+      "5b3acefb-1f4e-445f-b0ff-033dc4e3b5f4",
+      "8fbc91f2-4d4e-446c-8280-1d3afdfe0c72"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

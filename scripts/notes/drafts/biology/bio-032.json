@@ -47,10 +47,7 @@
             "kind": "sort",
             "alt": "Sort each disease into communicable or non-communicable.",
             "prompt": "Communicable or non-communicable?",
-            "groups": [
-              "Communicable",
-              "Non-communicable"
-            ],
+            "groups": ["Communicable", "Non-communicable"],
             "items": [
               {
                 "text": "Tuberculosis (TB)",
@@ -136,26 +133,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA T 4.2.2.5",
-        "AQA 2.9"
-      ],
-      "exam_phrases": [
-        "not caused by a pathogen / infective organism",
-        "not passed / spread (from person to person)",
-        "is not infectious / contagious",
-        "cannot be spread / caught"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A non-communicable disease is not caused by infection.",
-          "right": "\"Not caused by infection\" is ignored. Say it is not caused by a pathogen (or microorganism), so it is not passed from person to person."
-        },
-        {
-          "wrong": "A non-communicable disease is not caused by bacteria.",
-          "right": "A named pathogen is ignored unless bacteria, viruses and fungi are all mentioned. Say not caused by a pathogen."
-        }
-      ],
+      "spec_codes": ["AQA T 4.2.2.5", "AQA 2.9"],
       "worked_example": {
         "exemplar_id": "d8399a0b-129b-4bb8-90c7-8ef25a315f20",
         "source": "AQA jun 2018, Paper 1 (H), Q02.1",
@@ -169,29 +147,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.1",
-        "EDEX 5.2",
-        "EDEX 5.3"
-      ],
-      "exam_phrases": [
-        "World Health Organization / WHO",
-        "is passed from person to person",
-        "caused by pathogens",
-        "communicable diseases cannot be inherited",
-        "HIV destroys white blood cells / weakens the immune system",
-        "unable to destroy the TB pathogen"
-      ],
-      "mistakes": [
-        {
-          "wrong": "People with AIDS cannot fight off the disease.",
-          "right": "\"Fight off the disease\" is ignored. Say HIV destroys white blood cells or weakens the immune system, so the body cannot destroy the TB pathogen."
-        },
-        {
-          "wrong": "Health means not being ill.",
-          "right": "Health is a state of complete physical, mental and social well-being, not merely the absence of disease."
-        }
-      ],
+      "spec_codes": ["EDEX 5.1", "EDEX 5.2", "EDEX 5.3"],
       "worked_example": {
         "exemplar_id": "21408cc8-a358-46f1-bb1e-08634c09d107",
         "source": "EDEXCEL nov 2021, Paper 1 (H), Q3(c)",
@@ -205,28 +161,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.3a",
-        "OCR 6.3b",
-        "OCR 6.3c"
-      ],
-      "exam_phrases": [
-        "not caused by a pathogen",
-        "not spread / not passed from person to person",
-        "not infectious / contagious / transmissible",
-        "AIDS: caused by a virus",
-        "type 2 diabetes: non-communicable"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Type 2 diabetes is caused by a virus.",
-          "right": "Type 2 diabetes is non-communicable. It is not caused by a pathogen and is not passed from person to person."
-        },
-        {
-          "wrong": "Non-communicable diseases are always caused by genes.",
-          "right": "Not all of them are. Genetic CJD and sporadic CJD are both non-communicable because they are not caused by a pathogen and are not spread."
-        }
-      ],
+      "spec_codes": ["OCR 6.3a", "OCR 6.3b", "OCR 6.3c"],
       "worked_example": {
         "exemplar_id": "c61da3fc-84ca-42d6-acc0-8051a040bb6b",
         "source": "OCR jun 2019, Paper 2, Q21(a)",

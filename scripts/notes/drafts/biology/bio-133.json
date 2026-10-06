@@ -8,12 +8,21 @@
     {
       "heading": "Mycoprotein from a fungus",
       "blocks": [
-        { "type": "paragraph", "text": "**Mycoprotein** is a protein-rich food made from the fungus Fusarium. This section covers how it is grown in a fermenter and why the conditions matter." },
+        {
+          "type": "paragraph",
+          "text": "**Mycoprotein** is a protein-rich food made from the fungus Fusarium. This section covers how it is grown in a fermenter and why the conditions matter."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Mycoprotein", "meaning": "A protein-rich food made from the fungus Fusarium." },
-            { "term": "Fermenter", "meaning": "A large vessel in which microorganisms are grown under controlled conditions." }
+            {
+              "term": "Mycoprotein",
+              "meaning": "A protein-rich food made from the fungus Fusarium."
+            },
+            {
+              "term": "Fermenter",
+              "meaning": "A large vessel in which microorganisms are grown under controlled conditions."
+            }
           ]
         },
         {
@@ -30,7 +39,10 @@
             ]
           }
         },
-        { "type": "subheading", "text": "Why each condition is needed" },
+        {
+          "type": "subheading",
+          "text": "Why each condition is needed"
+        },
         {
           "type": "list",
           "items": [
@@ -41,13 +53,23 @@
             "A suitable temperature is kept so the fungus grows faster."
           ]
         },
-        { "type": "subheading", "text": "Protein content" },
-        { "type": "paragraph", "text": "Mycoprotein is a source of protein, but its protein content per 100 g can be lower than that of meat. More of it must then be eaten to get the same mass of protein." },
+        {
+          "type": "subheading",
+          "text": "Protein content"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mycoprotein is a source of protein, but its protein content per 100 g can be lower than that of meat. More of it must then be eaten to get the same mass of protein."
+        },
         {
           "type": "equation",
           "label": "Mass of mycoprotein for the same protein",
           "formula": "mass of mycoprotein = (protein in 100 g of meat ÷ protein in 100 g of mycoprotein) × 100",
-          "where": ["mass of mycoprotein, in g", "protein in 100 g of meat, in g", "protein in 100 g of mycoprotein, in g"]
+          "where": [
+            "mass of mycoprotein, in g",
+            "protein in 100 g of meat, in g",
+            "protein in 100 g of mycoprotein, in g"
+          ]
         },
         {
           "type": "diagram",
@@ -56,14 +78,25 @@
             "alt": "Calculate the mass of mycoprotein that gives the same mass of protein as 100 g of chicken.",
             "question": "100 g of chicken contains {P} g of protein. 100 g of mycoprotein contains {Q} g of protein. What mass of mycoprotein contains the same mass of protein as 100 g of chicken?",
             "variables": [
-              { "id": "P", "min": 18, "max": 26, "step": 1 },
-              { "id": "Q", "min": 10, "max": 14, "step": 1 }
+              {
+                "id": "P",
+                "min": 18,
+                "max": 26,
+                "step": 1
+              },
+              {
+                "id": "Q",
+                "min": 10,
+                "max": 14,
+                "step": 1
+              }
             ],
-            "answer": { "formula": "100 * P / Q", "unit": "g", "decimals": 0 },
-            "working": [
-              "Mass of mycoprotein = {P} ÷ {Q} × 100",
-              "= {answer} g"
-            ]
+            "answer": {
+              "formula": "100 * P / Q",
+              "unit": "g",
+              "decimals": 0
+            },
+            "working": ["Mass of mycoprotein = {P} ÷ {Q} × 100", "= {answer} g"]
           }
         },
         {
@@ -79,8 +112,14 @@
     {
       "heading": "Genetically modified crops",
       "blocks": [
-        { "type": "paragraph", "text": "**Genetic modification** changes a crop's genes to give it a useful feature. For example, a gene from a bacterium that makes a toxin killing insects can be inserted into a crop plant." },
-        { "type": "subheading", "text": "Features scientists can change" },
+        {
+          "type": "paragraph",
+          "text": "**Genetic modification** changes a crop's genes to give it a useful feature. For example, a gene from a bacterium that makes a toxin killing insects can be inserted into a crop plant."
+        },
+        {
+          "type": "subheading",
+          "text": "Features scientists can change"
+        },
         {
           "type": "list",
           "items": [
@@ -89,7 +128,10 @@
             "Yield, so more food can be produced."
           ]
         },
-        { "type": "paragraph", "text": "Sort the points below into advantages and disadvantages of crops modified to resist insect pests." },
+        {
+          "type": "paragraph",
+          "text": "Sort the points below into advantages and disadvantages of crops modified to resist insect pests."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -98,14 +140,38 @@
             "prompt": "Advantage or disadvantage of insect-resistant GM crops?",
             "groups": ["Advantage", "Disadvantage"],
             "items": [
-              { "text": "Less crop damage, so a higher yield", "group": 0 },
-              { "text": "Less insecticide needs to be used", "group": 0 },
-              { "text": "More food for people", "group": 0 },
-              { "text": "Insects may develop resistance to the toxin", "group": 1 },
-              { "text": "Genes could be transferred to other species, such as weeds", "group": 1 },
-              { "text": "GM seeds can be more expensive to buy", "group": 1 },
-              { "text": "Farmers rely on GM seed companies", "group": 1 },
-              { "text": "More profit for the farmer", "group": 0 }
+              {
+                "text": "Less crop damage, so a higher yield",
+                "group": 0
+              },
+              {
+                "text": "Less insecticide needs to be used",
+                "group": 0
+              },
+              {
+                "text": "More food for people",
+                "group": 0
+              },
+              {
+                "text": "Insects may develop resistance to the toxin",
+                "group": 1
+              },
+              {
+                "text": "Genes could be transferred to other species, such as weeds",
+                "group": 1
+              },
+              {
+                "text": "GM seeds can be more expensive to buy",
+                "group": 1
+              },
+              {
+                "text": "Farmers rely on GM seed companies",
+                "group": 1
+              },
+              {
+                "text": "More profit for the farmer",
+                "group": 0
+              }
             ]
           }
         },
@@ -147,30 +213,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 7.15"],
-      "exam_phrases": [
-        "kills microorganisms / bacteria / fungi / viruses / microbes",
-        "(which) compete for food / oxygen",
-        "so mycoprotein is not contaminated",
-        "for (aerobic) respiration",
-        "(which) releases energy (for growth)",
-        "get sufficient oxygen",
-        "get rid of sufficient carbon dioxide",
-        "be kept at a (suitable) temperature"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The fermenter is sterilised to kill germs.",
-          "right": "\"Germs\" is ignored. Say it kills microorganisms, such as bacteria or fungi."
-        },
-        {
-          "wrong": "Fusarium needs oxygen for anaerobic respiration.",
-          "right": "Anaerobic is not accepted. Fusarium uses glucose and oxygen for aerobic respiration."
-        },
-        {
-          "wrong": "Respiration produces energy for the fungus.",
-          "right": "\"Produces energy\" is not accepted. Respiration releases energy."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "399efa44-2d51-48b6-82d7-ecc91f7b17a4",
         "source": "AQA jun 2018, Paper 2 (F), Q07.1",
@@ -185,26 +227,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 4.12B"],
-      "exam_phrases": [
-        "kills insects / pests (which feed on the crops)",
-        "less damage to the crops / increased crop yield",
-        "no need to use insecticides / pesticides",
-        "so more food for people / more profit",
-        "risk of GM plants cross-pollinating with other plants",
-        "insects develop resistance to the toxin",
-        "genetically modified seeds could be more expensive to buy",
-        "reliance of farmers on GM seed companies"
-      ],
-      "mistakes": [
-        {
-          "wrong": "GM crops are good because they kill insects.",
-          "right": "Link the advantage to its consequence: less damage to the crops or a higher yield, and no need to use insecticides or pesticides."
-        },
-        {
-          "wrong": "A six-mark answer that gives only advantages, or only disadvantages.",
-          "right": "Only an advantage or only a disadvantage stays in the lowest levels. Give more than one advantage and more than one disadvantage, and explain one of each."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "52526374-47a3-48fd-8420-51dd283f0ee8",
         "source": "EDEXCEL nov 2021, Paper 1 (F), Q7(c)",
@@ -223,30 +245,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 6.2g"],
-      "exam_phrases": [
-        "disease resistance",
-        "frost resistance",
-        "pest resistance",
-        "drought resistance",
-        "concern that they may be harmful to humans if eaten",
-        "plants may escape into the wild",
-        "useful / pollinating insects might be harmed",
-        "disrupt food chains"
-      ],
-      "mistakes": [
-        {
-          "wrong": "GM can be used to change the yield or the size of the fruit.",
-          "right": "When asked for features other than yield, yield and size of fruit are ignored. Give disease, pest, frost or drought resistance, taste, colour or flavour."
-        },
-        {
-          "wrong": "People will not buy GM wheat because it is dangerous.",
-          "right": "\"Dangerous\" is ignored. Say it may be harmful to humans if eaten, with effects not yet discovered."
-        },
-        {
-          "wrong": "People are against GM because it is playing God and not natural.",
-          "right": "\"Playing God\" and \"not natural\" are ignored. Say it is ethically, morally or religiously wrong."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "92a20a45-ec72-4f09-ad77-2606c0c0d420",
         "source": "OCR jun 2019, Paper 2, Q17(b)(ii)",

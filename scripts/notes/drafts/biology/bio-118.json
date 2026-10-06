@@ -90,19 +90,13 @@
           "type": "equation",
           "label": "Mean number per quadrat",
           "formula": "mean = total number of organisms counted ÷ number of quadrats",
-          "where": [
-            "total number counted, in organisms",
-            "number of quadrats"
-          ]
+          "where": ["total number counted, in organisms", "number of quadrats"]
         },
         {
           "type": "equation",
           "label": "Estimated population size",
           "formula": "population size = mean number per m² × total area of the habitat",
-          "where": [
-            "mean number per m², in organisms per m²",
-            "total area, in m² (length × width)"
-          ]
+          "where": ["mean number per m², in organisms per m²", "total area, in m² (length × width)"]
         },
         {
           "type": "paragraph",
@@ -174,22 +168,14 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Random quadrats",
-            "Transect"
-          ],
+          "columns": ["Feature", "Random quadrats", "Transect"],
           "rows": [
             [
               "Used for",
               "Estimating how many of a species there are in an area",
               "Investigating how distribution changes along a line, such as away from a woodland"
             ],
-            [
-              "Quadrat positions",
-              "Chosen at random",
-              "At regular intervals along a line"
-            ],
+            ["Quadrat positions", "Chosen at random", "At regular intervals along a line"],
             [
               "Factor measured",
               "Not needed to estimate a population",
@@ -251,35 +237,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 7.4",
-        "AQA T 4.7.2.1"
-      ],
-      "exam_phrases": [
-        "quadrats are placed randomly",
-        "random coordinates from a calculator",
-        "suitable number of quadrats (10 or more or a large number)",
-        "count number of plants (in each quadrat)",
-        "calculation of mean per quadrat or per unit area",
-        "determination of area of field (length x width)",
-        "population = mean per m² x area of field",
-        "transect running through areas of different light intensity",
-        "for each quadrat measure light intensity"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Place one quadrat in a shady area and one in a sunny area.",
-          "right": "A large number of quadrats is needed, placed randomly or at intervals along a transect, so that the outcome is valid."
-        },
-        {
-          "wrong": "Place the quadrats in places where the plants are growing.",
-          "right": "Placing must be random. Give a method, such as random coordinates from a calculator, or a throw over the shoulder."
-        },
-        {
-          "wrong": "Count the plants in one quadrat to get the population of the field.",
-          "right": "Find the mean per quadrat or per m², then multiply by the area of the field, which is length × width."
-        }
-      ],
+      "spec_codes": ["AQA 7.4", "AQA T 4.7.2.1"],
       "worked_example": {
         "exemplar_id": "6837c0a6-4bcb-4c32-ad66-d61f4e41f0de",
         "source": "AQA jun 2019, Paper 2 (H), Q07.1",
@@ -298,30 +256,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.5",
-        "EDEX 9.6"
-      ],
-      "exam_phrases": [
-        "place a line (at 90°) from the edge of the forest",
-        "place a quadrat against the line",
-        "count / record the number of species / plants (in the quadrat)",
-        "measure the light (intensity)",
-        "move along the line / repeat at different distances",
-        "use a light meter / lux meter",
-        "multiplication factor to make the estimate",
-        "substitution into the mark and recapture equation"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Place a quadrant along the tape measure.",
-          "right": "\"Quadrant\" is rejected. The apparatus is a quadrat."
-        },
-        {
-          "wrong": "Count the slugs in the quadrat. This is the population of slugs in the garden.",
-          "right": "A multiplication factor is needed to scale up the count from the sampled area to the whole garden."
-        }
-      ],
+      "spec_codes": ["EDEX 9.5", "EDEX 9.6"],
       "worked_example": {
         "exemplar_id": "4602cadc-a82c-49ec-9c77-4c32aca8104c",
         "source": "EDEXCEL jun 2023, Paper 2 (F), Q6(d)",
@@ -396,35 +331,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.1a",
-        "OCR 7.6"
-      ],
-      "exam_phrases": [
-        "position at random",
-        "random number generator / grid references / co-ordinates",
-        "count the number (of plants in a quadrat)",
-        "repeat / use of several quadrats",
-        "mean = divide (total) number by number of quadrats",
-        "scaling up to the number in 1 m²",
-        "capture some butterflies, mark and release them",
-        "key to identify species of plants",
-        "only sampled in the centre of the marsh / less representative"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The gardener uses a transect line to estimate the number of plants per m².",
-          "right": "A transect line is not allowed here. Use a quadrat, positioned at random."
-        },
-        {
-          "wrong": "Count the percentage cover of the plants in the quadrat.",
-          "right": "Percentage cover is ignored when the question asks for the number. Count the number of plants in the quadrat."
-        },
-        {
-          "wrong": "Five quadrats placed close together in the centre give a good sample.",
-          "right": "This samples less area and is not random. The centre may have different plants from the edges, so the results are less representative."
-        }
-      ],
+      "spec_codes": ["OCR 6.1a", "OCR 7.6"],
       "worked_example": {
         "exemplar_id": "882e3d58-44d4-4ea1-a2d4-bea2a1ae5ee4",
         "source": "OCR jun 2025, Paper 2, Q23(a)",

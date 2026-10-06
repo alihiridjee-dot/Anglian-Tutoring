@@ -76,10 +76,7 @@
             "kind": "sort",
             "alt": "Sort each item into an energy store or a way of changing the energy of a system.",
             "prompt": "Is it a store, or a way energy is transferred?",
-            "groups": [
-              "Energy store",
-              "Way of transferring energy"
-            ],
+            "groups": ["Energy store", "Way of transferring energy"],
             "items": [
               {
                 "text": "Kinetic",
@@ -122,10 +119,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Situation",
-            "Energy changes"
-          ],
+          "columns": ["Situation", "Energy changes"],
           "rows": [
             [
               "Object thrown upwards",
@@ -248,31 +242,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.1.1.1",
-        "AQA T 6.1.1.1"
-      ],
-      "exam_phrases": [
-        "the chemical store of energy of the wood decreases",
-        "the internal / thermal store of energy of the pipe increases",
-        "kinetic energy (of the beater / food)",
-        "internal / thermal energy (of the surroundings / whisk / food)",
-        "the sum of the kinetic energy and gravitational potential energy is constant"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The wood: chemical energy. The water: thermal energy.",
-          "right": "Give the store and say what happens to it: the chemical store of the wood decreases and the thermal store of the water increases."
-        },
-        {
-          "wrong": "When the whisk is switched on, the sound store increases.",
-          "right": "Sound is ignored. Name the kinetic store of the beater or food and the thermal store of the surroundings."
-        },
-        {
-          "wrong": "The gymnast uses up her energy as she swings.",
-          "right": "Energy is transferred, not used up. The gravitational potential store decreases as the kinetic store increases, and their sum is constant."
-        }
-      ],
+      "spec_codes": ["AQA 4.1.1.1", "AQA T 6.1.1.1"],
       "worked_example": {
         "exemplar_id": "87de8752-f165-4c72-8a3f-26e9e6491f78",
         "source": "AQA jun 2020, Paper 1 (H), Q04.3",
@@ -297,28 +267,6 @@
         "EDEX 8.3",
         "EDEX 8.4"
       ],
-      "exam_phrases": [
-        "KE / kinetic (energy store)",
-        "elastic (potential energy store)",
-        "thermal (energy of ball / wall / surroundings)",
-        "dissipates (to surroundings)",
-        "when there are energy transfers, the total energy does not change",
-        "(original) GPE – KE (at bottom)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The total energy decreases when energy is transferred in a closed system.",
-          "right": "The total energy does not change. Energy is transferred, not lost from the system."
-        },
-        {
-          "wrong": "A spinning fly wheel stores energy as kinetic and potential energy.",
-          "right": "Kinetic only. Adding another incorrect store cancels the mark."
-        },
-        {
-          "wrong": "When the ball hits the wall, the energy is lost.",
-          "right": "Say where it goes. The kinetic store transfers to the elastic store of the ball, or to the thermal store of the ball, wall or surroundings."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "f2512db5-deb2-4818-887d-24e16273e906",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q3(a)(iii)",
@@ -332,31 +280,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P7.1a",
-        "OCR P7.1b"
-      ],
-      "exam_phrases": [
-        "(store of) KE (in moving car)",
-        "(transferred thermally) to (store of) thermal energy / heat",
-        "energy is (always) conserved",
-        "total energy in is equal to total energy out",
-        "some energy is converted to gravitational potential energy (store)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The rocket gains 510 MJ because the mass is conserved.",
-          "right": "Mass is not the reason. Energy is always conserved, so total energy in equals total energy out."
-        },
-        {
-          "wrong": "Some of the energy of the bouncing ball is used up.",
-          "right": "Some energy is lost as heat to the surroundings, the moving air or the floor particles."
-        },
-        {
-          "wrong": "Braking removes the car's energy.",
-          "right": "The kinetic store of the car transfers thermally to the thermal store of the brakes, pads and discs."
-        }
-      ],
+      "spec_codes": ["OCR P7.1a", "OCR P7.1b"],
       "worked_example": {
         "exemplar_id": "33530d73-f0aa-4fc6-b658-a3d64fdcc892",
         "source": "OCR jun 2019, Paper 4, Q21(c)(i)",

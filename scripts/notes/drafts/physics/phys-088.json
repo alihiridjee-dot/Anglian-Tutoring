@@ -52,16 +52,7 @@
             "kind": "sequence",
             "alt": "Put the eight planets in order of distance from the Sun.",
             "prompt": "Put the planets in order, nearest the Sun first.",
-            "steps": [
-              "Mercury",
-              "Venus",
-              "Earth",
-              "Mars",
-              "Jupiter",
-              "Saturn",
-              "Uranus",
-              "Neptune"
-            ]
+            "steps": ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
           }
         },
         {
@@ -70,10 +61,7 @@
             "kind": "sort",
             "alt": "Sort objects by what they orbit.",
             "prompt": "What does each object orbit?",
-            "groups": [
-              "Orbits the Sun",
-              "Orbits a planet"
-            ],
+            "groups": ["Orbits the Sun", "Orbits a planet"],
             "items": [
               {
                 "text": "Neptune",
@@ -205,27 +193,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.8.1.1"
-      ],
-      "exam_phrases": [
-        "planets",
-        "dwarf planets",
-        "moons",
-        "natural satellites",
-        "asteroids",
-        "comets"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The Solar System contains planets and moons.",
-          "right": "This gives two types. A third is needed, such as dwarf planets. Asteroids, meteors and comets are also allowed."
-        },
-        {
-          "wrong": "Moons are artificial satellites.",
-          "right": "Moons are natural satellites. The mark scheme accepts 'moons' or 'natural satellites'."
-        }
-      ],
+      "spec_codes": ["AQA 4.8.1.1"],
       "worked_example": {
         "exemplar_id": "0e516e0d-2ad6-4f21-9b3d-952c19ebcaf8",
         "source": "AQA jun 2024, Paper 2 (H), Q03.1",
@@ -241,30 +209,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 7.2P",
-        "EDEX 7.3P",
-        "EDEX 7.4P"
-      ],
-      "exam_phrases": [
-        "all planets orbit the Sun",
-        "each planet in its own orbit",
-        "the planet orbits are in the same plane",
-        "moons orbit planets",
-        "dwarf planets, asteroids and comets orbit the Sun",
-        "comet orbits are not in the same plane as the planets",
-        "observing the moons of Jupiter supported a Sun-centred Solar System"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
-          "right": "Naming planets alone is Level 1. Describe the patterns of movement too, such as planets orbiting the Sun and moons orbiting planets."
-        },
-        {
-          "wrong": "Copernicus changed our view of the Universe.",
-          "right": "Discuss the evidence. Telescope observations, such as Galileo seeing the moons orbit Jupiter, supported the Sun-centred model."
-        }
-      ],
+      "spec_codes": ["EDEX 7.2P", "EDEX 7.3P", "EDEX 7.4P"],
       "worked_example": {
         "exemplar_id": "b7f893b4-03c2-4868-8543-db267630edbd",
         "source": "EDEXCEL jun 2018, Paper 1 (F), Q7(c)",
@@ -281,30 +226,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P8.3c",
-        "OCR P8.3e"
-      ],
-      "exam_phrases": [
-        "formed by clouds of dust and gas",
-        "drawn together by gravitational force",
-        "gravitational potential energy transferred to kinetic energy",
-        "the core becomes very hot and dense",
-        "a protostar forms",
-        "nuclear fusion began",
-        "a moon orbits a planet",
-        "planets orbit the Sun or a star"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Fusion happens in the Sun because it is very hot.",
-          "right": "'Heat' is ignored. Give high temperature, high pressure and large gravitational forces due to its large mass."
-        },
-        {
-          "wrong": "A planet's orbit is further out than a moon's orbit.",
-          "right": "State what is orbited. A moon orbits a planet, and planets orbit the Sun (or a star)."
-        }
-      ],
+      "spec_codes": ["OCR P8.3c", "OCR P8.3e"],
       "extra": [
         {
           "heading": "Satellites",

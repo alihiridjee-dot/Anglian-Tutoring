@@ -1,0 +1,255 @@
+{
+  "format": 1,
+  "concept_id": "bio-103",
+  "subject": "biology",
+  "title": "Variation",
+  "key_idea": "Differences between individuals in a population are called variation. They are caused by genes, by the environment, or by both. All genetic variants arise from mutations. Most mutations have no effect on the phenotype, and very few have a large effect.",
+  "sections": [
+    {
+      "heading": "Causes of variation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Individuals of the same species are not identical. This section covers what causes the differences."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Variation",
+              "meaning": "The differences in characteristics between individuals in a population."
+            },
+            {
+              "term": "Phenotype",
+              "meaning": "The characteristics an organism shows, produced by its genes and its environment."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Genetic causes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Differences in the **genes** (alleles) an individual has inherited.",
+            "**Sexual reproduction** mixes alleles from two parents, so offspring have new combinations.",
+            "**Mutations** make new alleles.",
+            "There is usually extensive genetic variation within a population of a species."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Environmental causes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The conditions in which an organism has developed.",
+            "Examples: diet, sunlight, infection, behaviour, and physical damage such as scars.",
+            "Many characteristics, such as height, are caused by a **combination** of genes and the environment."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Sort each human characteristic by whether it is caused by genes, by the environment, or by both.",
+            "kind": "sort",
+            "items": [
+              {
+                "text": "Blood group",
+                "group": 0
+              },
+              {
+                "text": "Eye colour",
+                "group": 0
+              },
+              {
+                "text": "A scar from an accident",
+                "group": 1
+              },
+              {
+                "text": "Dyed hair",
+                "group": 1
+              },
+              {
+                "text": "A tattoo",
+                "group": 1
+              },
+              {
+                "text": "Height",
+                "group": 2
+              },
+              {
+                "text": "Body mass",
+                "group": 2
+              }
+            ],
+            "groups": ["Genes only", "Environment only", "Genes and environment"],
+            "prompt": "What causes each characteristic?"
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Variation is caused by genes, the environment, or both.",
+            "Genetic variation comes from inheritance, sexual reproduction and mutation.",
+            "Name a specific environmental factor, such as diet or sunlight."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Continuous and discontinuous variation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Variation can take two forms. This section covers how to tell them apart."
+        },
+        {
+          "type": "table",
+          "rows": [
+            ["Continuous", "A whole range of values between two extremes", "Height"],
+            [
+              "Discontinuous",
+              "A few distinct groups, with nothing in between",
+              "Sex, blood group, eye colour"
+            ]
+          ],
+          "columns": ["Type", "What it looks like", "Examples"]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Continuous variation gives a range of values, such as height.",
+            "Discontinuous variation gives separate categories, such as blood group."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Mutations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "All new genetic variants start as mutations. This section covers what a mutation is and what it can do."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Mutation",
+              "meaning": "A change in the sequence of bases in a gene or in DNA."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A gene codes for a protein. A change in the base sequence can change the **amino acid sequence**.",
+            "That makes a different protein, or none of that protein.",
+            "**Most** mutations have no effect on the phenotype.",
+            "**Some** have a small effect on the phenotype.",
+            "**Very few** have a large effect and determine the phenotype.",
+            "Mutations happen continuously. Very rarely one gives a new phenotype. If it suits a change in the environment, the species can change relatively quickly.",
+            "A mutation in the cells that form gametes can be passed to offspring. This is how a child can have a new allele that neither parent has."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A mutation is a change in the base sequence of DNA.",
+            "Most mutations have no effect. Very few have a large effect.",
+            "Mutations in gametes can be inherited and add to variation."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State two causes of variation in a population.",
+      "a": "Any two from: genes (alleles) inherited, mutation, sexual reproduction, the environment (for example diet or sunlight).",
+      "marks": 2
+    },
+    {
+      "q": "Height shows a range of values. Eye colour shows separate categories. Name the type of variation each shows.",
+      "a": "Height is continuous variation. Eye colour is discontinuous variation.",
+      "marks": 2
+    },
+    {
+      "q": "What is a mutation? Do all mutations change the phenotype?",
+      "a": "A mutation is a change in the sequence of bases in DNA or a gene. No: most mutations have no effect on the phenotype, and very few have a large effect.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 6.9", "AQA T 4.6.2.1"],
+      "worked_example": {
+        "exemplar_id": "135073ae-209d-4766-9a0d-ce791f42e0a2",
+        "source": "AQA jun 2021, Paper 2 (H), Q06.3",
+        "question": "Polydactyly is an inherited disorder.\nTwo parents do not have any alleles for polydactyly in their ordinary body cells.\nThese parents produced a child with polydactyly.\n\nExplain how polydactyly suddenly occurred in this family.",
+        "marks": 4,
+        "answer_points": [
+          "It was caused by a mutation.",
+          "The mutation happened during meiosis, in the formation of the gametes (egg or sperm).",
+          "It caused a change in the amino acid sequence.",
+          "A different protein was produced, or none of a specific protein was produced."
+        ],
+        "tip": "One mark for each step: mutation, in the gametes, amino acid sequence, different protein."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.20", "EDEX 3.22", "EDEX 3.23"],
+      "worked_example": {
+        "exemplar_id": "c23a41c4-5a40-4f8f-a3e6-f93f7ac7e1f2",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q1(a)(ii)",
+        "question": "State two causes of variation in organisms.",
+        "marks": 2,
+        "answer_points": [
+          "Genetics, mutation or alleles.",
+          "Sexual reproduction or meiosis.",
+          "The environment, for example diet, lifestyle, climate or temperature."
+        ],
+        "tip": "Any two of the three causes score one mark each."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 5.1c", "OCR 5.1d", "OCR 5.2a"],
+      "worked_example": {
+        "exemplar_id": "e1edd9bf-8de8-427e-8ed0-e7ed9658ed95",
+        "source": "OCR jun 2018, Paper 2, Q16(a)",
+        "question": "Characteristics can be examples of continuous or discontinuous variation.\n\nWrite the four characteristics below in the correct columns of the table: sex, blood group, height, eye colour.\n\nColumns: Continuous variation | Discontinuous variation",
+        "marks": 2,
+        "answer_points": [
+          "Continuous variation: height.",
+          "Discontinuous variation: sex, blood group and eye colour."
+        ],
+        "tip": "All four correct is 2 marks. Three correct is 1 mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "d3a949fe-b688-4d4f-82af-c38833f45d9f",
+      "883137eb-ae3b-4a66-83c4-72e21c0a847f",
+      "45d655bf-b342-4801-b9bc-480584dd13cc",
+      "dc82f460-63cc-44cd-909a-d41b1ed2e9d5",
+      "7706cbe2-b380-4b15-9633-c81f590c7871",
+      "c7d239df-7c99-4150-889b-d0c9e30902fb",
+      "92f2b766-780e-4191-b2c1-d9c081d90f44",
+      "4b4ff09d-53ab-4997-950a-e1318150127a"
+    ],
+    "exemplar_ids": [
+      "135073ae-209d-4766-9a0d-ce791f42e0a2",
+      "c23a41c4-5a40-4f8f-a3e6-f93f7ac7e1f2",
+      "e1edd9bf-8de8-427e-8ed0-e7ed9658ed95"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

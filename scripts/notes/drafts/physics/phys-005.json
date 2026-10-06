@@ -165,11 +165,7 @@
               "unit": "W",
               "decimals": 0
             },
-            "working": [
-              "P = W ÷ t",
-              "P = {W} ÷ {t}",
-              "P = {answer} W"
-            ]
+            "working": ["P = W ÷ t", "P = {W} ÷ {t}", "P = {answer} W"]
           }
         },
         {
@@ -250,32 +246,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.1.1.4",
-        "AQA T 6.1.1.4"
-      ],
-      "exam_phrases": [
-        "E = 15 000 000 (J)",
-        "t = 600 (s)",
-        "P = 15 000 000 / 600",
-        "162 000 000 = 7200 × t",
-        "t = 162 000 000 / 7200",
-        "use a motor with a greater power"
-      ],
-      "mistakes": [
-        {
-          "wrong": "P = 15 ÷ 10 = 1.5 W.",
-          "right": "Convert first. 15 MJ = 15 000 000 J and 10 minutes = 600 s, so P = 25 000 W."
-        },
-        {
-          "wrong": "Use a more efficient motor to store the energy more quickly.",
-          "right": "Efficiency does not answer the question. Use a motor with a greater power, so the cube is lifted more quickly."
-        },
-        {
-          "wrong": "Power is the amount of energy a device transfers.",
-          "right": "Power is the rate at which energy is transferred, or the rate at which work is done."
-        }
-      ],
+      "spec_codes": ["AQA 4.1.1.4", "AQA T 6.1.1.4"],
       "worked_example": {
         "exemplar_id": "24909b91-f2e8-4175-8ee0-979ebd3346ad",
         "source": "AQA jun 2018, Paper 1 (H), Q05.4",
@@ -291,35 +262,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 8.12",
-        "EDEX 8.13",
-        "EDEX 8.14",
-        "EDEX 10.28",
-        "EDEX 10.29"
-      ],
-      "exam_phrases": [
-        "(P =) 130 000 / 87",
-        "(P =) 1494 (W)",
-        "1500 (W)",
-        "17.5 (× 10³) = 126 (× 10⁶) / t",
-        "(t =) E(nergy) / P(ower)",
-        "(t =) 2(.0) (h)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The power of the cooker is 1494 W to 2 significant figures.",
-          "right": "Round as asked. 1494 W to 2 significant figures is 1500 W, which is an independent mark."
-        },
-        {
-          "wrong": "126 × 10⁶ ÷ 17.5 gives the time.",
-          "right": "Change kW to W first: 17.5 kW = 17.5 × 10³ W. Then t = 126 × 10⁶ ÷ (17.5 × 10³) = 7200 s, which is 2.0 hours."
-        },
-        {
-          "wrong": "The time is 7200, so the battery lasts 7200 hours.",
-          "right": "7200 is in seconds. Divide by 3600 to give the answer in hours: 2.0 h."
-        }
-      ],
+      "spec_codes": ["EDEX 8.12", "EDEX 8.13", "EDEX 8.14", "EDEX 10.28", "EDEX 10.29"],
       "worked_example": {
         "exemplar_id": "b328dd3d-9770-4041-b493-7c7fe302abed",
         "source": "EDEXCEL jun 2024, Paper 2 (F), Q6(b)(i)",
@@ -334,41 +277,13 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P2.2o"
-      ],
-      "exam_phrases": [
-        "P = E ÷ t / power = work done ÷ time taken",
-        "P = 50000 ÷ 12",
-        "P = 4166.7 (W) (1 d.p.)",
-        "(P = E / t) P = 12500 / 5",
-        "W or watts",
-        "J/s"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The power of the water rocket is 2500 J.",
-          "right": "Power is in watts. Write 2500 W (or J/s). The unit is an independent mark."
-        },
-        {
-          "wrong": "P = 50 000 ÷ 12 = 4166.666667 W.",
-          "right": "Give 1 decimal place as asked: 4166.7 W."
-        },
-        {
-          "wrong": "Power = work done × time = 12 500 × 5.",
-          "right": "Divide work done by time: 12 500 ÷ 5 = 2500 W."
-        }
-      ],
+      "spec_codes": ["OCR P2.2o"],
       "worked_example": {
         "exemplar_id": "d8c71318-91cf-492e-8736-555c92c40e78",
         "source": "OCR jun 2024, Paper 1, Q19(b)(ii)",
         "question": "A water rocket does 12 500 J of work in 5 seconds when it rises upwards.\n\nCalculate the power of this water rocket.\nUse the equation: power = work done ÷ time\nInclude the correct unit.",
         "marks": 3,
-        "answer_points": [
-          "(P = E / t) P = 12 500 / 5",
-          "P = 2500",
-          "Unit: W or watts"
-        ],
+        "answer_points": ["(P = E / t) P = 12 500 / 5", "P = 2500", "Unit: W or watts"],
         "tip": "A correct answer of 2500 W scores all 3 marks. J/s is also allowed for the unit."
       }
     }

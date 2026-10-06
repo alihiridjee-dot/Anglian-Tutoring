@@ -195,7 +195,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) Forces do not always act in a straight line. This section covers scale drawings for two forces at right angles."
+          "text": "(AQA: Higher tier) Forces do not always act in a straight line. This section covers scale drawings for two forces at right angles."
         },
         {
           "type": "list",
@@ -265,33 +265,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.1.4",
-        "AQA T 6.5.1.4"
-      ],
-      "exam_phrases": [
-        "as it accelerates the air resistance increases",
-        "therefore resultant force decreases",
-        "air resistance becomes equal to the driving force",
-        "resultant force is zero",
-        "acceleration is directly proportional to resultant force",
-        "weight is equal to upthrust plus normal contact force",
-        "the resistive force has decreased so the resultant force increases"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The brick is stationary because its weight is equal to the upthrust.",
-          "right": "Three forces are needed. Upthrust acts upwards, the normal contact force acts upwards, and the weight equals upthrust plus normal contact force. Resultant force zero is only credited if all three are given."
-        },
-        {
-          "wrong": "The resultant force on the sled is 370 − 520 = −150 N.",
-          "right": "This earns one mark at most. All 6 dogs pull: (6 × 370) − 520 = 1700 N."
-        },
-        {
-          "wrong": "As the car accelerates, the air resistance increases until it equals the driving force. The driving force stays the same.",
-          "right": "A top answer says how both forces change. The driving force increases to a maximum value, and the air resistance increases until it equals the driving force, so the resultant force is zero."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.1.4", "AQA T 6.5.1.4"],
       "worked_example": {
         "exemplar_id": "df76daf2-b485-4384-97e7-79e26b2e22dd",
         "source": "AQA jun 2025, Paper 2 (H), Q05.5",
@@ -303,33 +277,11 @@
           "The magnitude of the resultant is between 300 N and 320 N (a calculation gives about 312 N).",
           "The angle of the resultant to the vertical is between 38° and 42° (a calculation gives about 40°)."
         ],
-        "tip": "(Higher tier) Choose a scale such as 1 cm to 40 N. One mark each for the diagram, the arrow direction, the magnitude and the angle."
+        "tip": "(AQA: Higher tier) Choose a scale such as 1 cm to 40 N. One mark each for the diagram, the arrow direction, the magnitude and the angle."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.3",
-        "EDEX 9.4",
-        "EDEX 9.5"
-      ],
-      "exam_phrases": [
-        "friction acts in the opposite direction to the tension",
-        "friction opposes motion",
-        "the forces are balanced / equal and opposite",
-        "no resultant force, so the block moves at a constant velocity",
-        "the weight and the (normal) reaction are equal and opposite",
-        "vertical forces on the block do not affect horizontal velocity"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Friction, tension, weight and reaction all act on the block.",
-          "right": "A list of unconnected forces only reaches the lowest level. Link them: friction and tension are equal and opposite, so there is no resultant force and no acceleration."
-        },
-        {
-          "wrong": "Only horizontal forces matter, so the weight and the reaction can be left out.",
-          "right": "The question asks for all forces. Weight and the normal reaction are equal and opposite, so the block does not move up or down."
-        }
-      ],
+      "spec_codes": ["EDEX 9.3", "EDEX 9.4", "EDEX 9.5"],
       "worked_example": {
         "exemplar_id": "9ee52bef-9b64-41f2-ab3f-714e72c9a860",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q9(c)",
@@ -347,31 +299,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P2.2c",
-        "OCR P2.2e",
-        "OCR P2.2f",
-        "OCR P2.2g",
-        "OCR P2.2h"
-      ],
-      "exam_phrases": [
-        "as velocity increases air resistance increases",
-        "the weight balances the air resistance",
-        "no net / resultant force",
-        "no acceleration",
-        "normal contact force",
-        "drag for air resistance"
-      ],
-      "mistakes": [
-        {
-          "wrong": "At maximum velocity there are no forces acting on the shuttlecock.",
-          "right": "The weight and the air resistance still act. The weight balances the air resistance, so there is no resultant force and no acceleration."
-        },
-        {
-          "wrong": "The upwards force on a stationary rocket is thrust.",
-          "right": "The upwards force is the normal contact force and the downwards force is weight."
-        }
-      ],
+      "spec_codes": ["OCR P2.2c", "OCR P2.2e", "OCR P2.2f", "OCR P2.2g", "OCR P2.2h"],
       "worked_example": {
         "exemplar_id": "198adfb1-befe-4211-a073-2467d4eb37cb",
         "source": "OCR jun 2024, Paper 3, Q23(a)",

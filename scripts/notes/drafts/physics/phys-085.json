@@ -3,14 +3,14 @@
   "concept_id": "phys-085",
   "subject": "physics",
   "title": "Electromagnetic induction",
-  "key_idea": "(Higher tier) A potential difference is induced across a conductor when it moves relative to a magnetic field, or when the field around it changes. If the conductor is in a complete circuit, a current flows. This is the **generator effect**.",
+  "key_idea": "(AQA: Higher tier, separate science only) A potential difference is induced across a conductor when it moves relative to a magnetic field, or when the field around it changes. If the conductor is in a complete circuit, a current flows. This is the **generator effect**.",
   "sections": [
     {
       "heading": "Inducing a potential difference",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) This section explains how a potential difference and a current can be produced using a magnetic field."
+          "text": "(AQA: Higher tier) This section explains how a potential difference and a current can be produced using a magnetic field."
         },
         {
           "type": "definitions",
@@ -92,65 +92,41 @@
             "kind": "predictor",
             "alt": "Pick a change to a magnet and coil to see the size and direction of the induced potential difference.",
             "prompt": "Pick a change",
-            "result_labels": [
-              "Size of induced p.d.",
-              "Direction of induced p.d."
-            ],
+            "result_labels": ["Size of induced p.d.", "Direction of induced p.d."],
             "options": [
               {
                 "label": "Push a magnet slowly into a coil",
-                "results": [
-                  "Small",
-                  "One direction (call it positive)"
-                ],
+                "results": ["Small", "One direction (call it positive)"],
                 "explanation": "The coil cuts the magnet's field lines slowly, so the induced p.d. is small."
               },
               {
                 "label": "Push the magnet into the coil faster",
-                "results": [
-                  "Larger",
-                  "Same direction as before"
-                ],
+                "results": ["Larger", "Same direction as before"],
                 "explanation": "Faster movement cuts the field lines more quickly, so the p.d. is larger."
               },
               {
                 "label": "Use a stronger magnet at the same speed",
-                "results": [
-                  "Larger",
-                  "Same direction as before"
-                ],
+                "results": ["Larger", "Same direction as before"],
                 "explanation": "A stronger field means more field is cut each second."
               },
               {
                 "label": "Use a coil with more turns",
-                "results": [
-                  "Larger",
-                  "Same direction as before"
-                ],
+                "results": ["Larger", "Same direction as before"],
                 "explanation": "Each turn has a p.d. induced in it, so more turns give a larger total p.d."
               },
               {
                 "label": "Pull the magnet out of the coil at the same speed",
-                "results": [
-                  "Same size as pushing it in",
-                  "Reversed"
-                ],
+                "results": ["Same size as pushing it in", "Reversed"],
                 "explanation": "The direction of movement has reversed, so the direction of the p.d. reverses."
               },
               {
                 "label": "Push in the other pole of the magnet first",
-                "results": [
-                  "Same size",
-                  "Reversed"
-                ],
+                "results": ["Same size", "Reversed"],
                 "explanation": "Reversing the poles reverses the direction of the induced p.d."
               },
               {
                 "label": "Hold the magnet still inside the coil",
-                "results": [
-                  "Zero",
-                  "No p.d. induced"
-                ],
+                "results": ["Zero", "No p.d. induced"],
                 "explanation": "There is no relative movement and no change in the field, so nothing is induced."
               }
             ]
@@ -216,30 +192,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.3.1"
-      ],
-      "exam_phrases": [
-        "the coil cuts (magnetic) field lines",
-        "a potential difference is induced (across the coil)",
-        "there is a complete circuit, so a current is induced",
-        "no (induced) current, so no magnetic field (produced around the coil) to oppose the movement of the coil",
-        "wire cuts through the magnetic field"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The wire moves between the magnets, so a current flows.",
-          "right": "Name each step. The wire cuts the magnetic field, a potential difference is induced across it, and because it is part of a complete circuit a current is induced."
-        },
-        {
-          "wrong": "The potential difference is induced because the wire is in a complete circuit.",
-          "right": "The p.d. is induced because the wire cuts the magnetic field. The complete circuit is only needed for a current to be induced."
-        },
-        {
-          "wrong": "The dynamo is easier to turn because there is no potential difference.",
-          "right": "The mark scheme looks for no induced current, so no magnetic field around the coil, so nothing to oppose the movement of the coil."
-        }
-      ],
+      "spec_codes": ["AQA 4.7.3.1"],
       "extra": [
         {
           "heading": "Tier",
@@ -265,28 +218,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 13.1P",
-        "EDEX 13.2"
-      ],
-      "exam_phrases": [
-        "moving the magnet faster",
-        "using a stronger magnet",
-        "more turns on the coil",
-        "move the magnet towards the coil and then away from the coil",
-        "(magnetic) field lines cut by the coil",
-        "induces a voltage / current (in the coil)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Increase the size of the coil to increase the deflection.",
-          "right": "Do not credit a bigger coil. Say more turns on the coil, a faster movement or a stronger magnet."
-        },
-        {
-          "wrong": "The needle moves as the magnet goes in and out of the coil.",
-          "right": "Say the needle swings either side of zero in response to the pole entering and leaving the coil, because the induced p.d. changes direction. Use north or south pole, not 'magnet'."
-        }
-      ],
+      "spec_codes": ["EDEX 13.1P", "EDEX 13.2"],
       "worked_example": {
         "exemplar_id": "2f141646-1fed-4ecd-a8b6-69c6f8abcd5d",
         "source": "EDEXCEL jun 2019, Paper 2 (H), Q6(a)(ii)",
@@ -313,25 +245,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P4.2e"
-      ],
-      "exam_phrases": [
-        "falling magnet produces a changing magnetic field",
-        "induces a potential difference / current (in the copper tube)",
-        "magnetic field due to the current in the copper is produced",
-        "opposes the original magnetic field of the magnet"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The copper tube becomes a magnet, so the magnet falls more slowly.",
-          "right": "This is ignored. Say a p.d. or current is induced in the copper, and the magnetic field it produces opposes the original field of the magnet."
-        },
-        {
-          "wrong": "The magnet falls more slowly because it makes a magnetic field.",
-          "right": "Link the steps: the changing field induces a current in the copper, and the field from that current opposes the magnet's field."
-        }
-      ],
+      "spec_codes": ["OCR P4.2e"],
       "worked_example": {
         "exemplar_id": "4a21be75-ed75-4980-a525-a7377141317a",
         "source": "OCR jun 2022, Paper 3, Q23(c)",

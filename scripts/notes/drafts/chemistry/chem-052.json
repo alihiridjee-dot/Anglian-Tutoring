@@ -8,14 +8,29 @@
     {
       "heading": "The apparatus and the indicator",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers what each piece of apparatus does and which indicators to use. The acids used are hydrochloric, sulfuric or nitric acid, with an alkali such as sodium hydroxide." },
+        {
+          "type": "paragraph",
+          "text": "This section covers what each piece of apparatus does and which indicators to use. The acids used are hydrochloric, sulfuric or nitric acid, with an alkali such as sodium hydroxide."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Titration", "meaning": "A method that finds the volumes of an acid and an alkali that react exactly with each other." },
-            { "term": "End-point", "meaning": "The point at which the indicator just changes colour and the solution is neutralised." },
-            { "term": "Concordant results", "meaning": "Repeat titres that agree closely, within 0.10 cm³ of each other." },
-            { "term": "Anomalous result", "meaning": "A result that does not fit the pattern of the others." }
+            {
+              "term": "Titration",
+              "meaning": "A method that finds the volumes of an acid and an alkali that react exactly with each other."
+            },
+            {
+              "term": "End-point",
+              "meaning": "The point at which the indicator just changes colour and the solution is neutralised."
+            },
+            {
+              "term": "Concordant results",
+              "meaning": "Repeat titres that agree closely, within 0.10 cm³ of each other."
+            },
+            {
+              "term": "Anomalous result",
+              "meaning": "A result that does not fit the pattern of the others."
+            }
           ]
         },
         {
@@ -36,7 +51,10 @@
             ["Litmus", "Blue to red", "Red to blue"]
           ]
         },
-        { "type": "paragraph", "text": "Do not use universal indicator. It changes colour gradually, so it does not show a sharp end-point." },
+        {
+          "type": "paragraph",
+          "text": "Do not use universal indicator. It changes colour gradually, so it does not show a sharp end-point."
+        },
         {
           "type": "key-points",
           "items": [
@@ -49,7 +67,10 @@
     {
       "heading": "The method",
       "blocks": [
-        { "type": "paragraph", "text": "Here the alkali is in the flask and the acid is in the burette. It works the other way round too." },
+        {
+          "type": "paragraph",
+          "text": "Here the alkali is in the flask and the acid is in the burette. It works the other way round too."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -89,7 +110,10 @@
     {
       "heading": "Accurate results and the mean",
       "blocks": [
-        { "type": "paragraph", "text": "Careful technique and repeats give an accurate titre. The titre is the volume of acid added from the burette." },
+        {
+          "type": "paragraph",
+          "text": "Careful technique and repeats give an accurate titre. The titre is the volume of acid added from the burette."
+        },
         {
           "type": "list",
           "items": [
@@ -101,7 +125,10 @@
             "Repeat the titration and take a mean of the concordant results."
           ]
         },
-        { "type": "paragraph", "text": "Leave out the rough titration and any anomalous result when calculating the mean." },
+        {
+          "type": "paragraph",
+          "text": "Leave out the rough titration and any anomalous result when calculating the mean."
+        },
         {
           "type": "equation",
           "label": "Mean titre",
@@ -115,11 +142,30 @@
             "alt": "Calculate the mean titre from two accurate titrations, leaving out the rough titration.",
             "question": "A rough titration needed {r} cm³ of acid. Two accurate titrations needed {a} cm³ and {b} cm³. Calculate the mean titre using the accurate titrations only.",
             "variables": [
-              { "id": "r", "min": 25.0, "max": 27.0, "step": 0.1 },
-              { "id": "a", "min": 24.0, "max": 24.1, "step": 0.1 },
-              { "id": "b", "min": 24.0, "max": 24.1, "step": 0.1 }
+              {
+                "id": "r",
+                "min": 25,
+                "max": 27,
+                "step": 0.1
+              },
+              {
+                "id": "a",
+                "min": 24,
+                "max": 24.1,
+                "step": 0.1
+              },
+              {
+                "id": "b",
+                "min": 24,
+                "max": 24.1,
+                "step": 0.1
+              }
             ],
-            "answer": { "formula": "(a + b) / 2", "unit": "cm³", "decimals": 2 },
+            "answer": {
+              "formula": "(a + b) / 2",
+              "unit": "cm³",
+              "decimals": 2
+            },
             "working": [
               "Leave out the rough titre of {r} cm³.",
               "Add the accurate titres: {a} + {b}.",
@@ -157,29 +203,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.4.2.5"],
-      "exam_phrases": [
-        "add the (sulfuric) acid (from the burette) until the colour (of the indicator) changes",
-        "use a (volumetric) pipette to add the alkali into a conical flask",
-        "add (a few drops of) indicator (to the alkali)",
-        "read the volume from the burette / take the initial burette reading",
-        "swirl; use a white tile; add the acid dropwise (near the end-point); repeat and calculate a mean",
-        "pipette measures a fixed volume (accurately), burette measures variable volume",
-        "methyl orange from yellow to red / orange / pink; phenolphthalein from pink to colourless"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Add universal indicator to the alkali in the flask.",
-          "right": "Universal indicator is not accepted as the indicator to add. Name a single indicator: methyl orange, phenolphthalein or litmus."
-        },
-        {
-          "wrong": "The mean of 8.95, 9.00, 8.85 and 8.45 cm³ is 8.81 cm³.",
-          "right": "The anomalous result must not be included. Use 8.95, 9.00 and 8.85 only: 26.80 ÷ 3 = 8.93 cm³ to 3 significant figures."
-        },
-        {
-          "wrong": "A pipette and a burette both measure variable volumes.",
-          "right": "A pipette measures a fixed volume accurately. A burette measures variable volumes and can add the solution drop by drop."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "3f7a713f-bbfc-405a-8ba8-fde0dec9d0b5",
         "source": "AQA jun 2020, Paper 1 (H), Q9.5",
@@ -194,44 +217,22 @@
       },
       "extra": [
         {
-          "heading": "(Separate science) and (Higher tier) content",
+          "heading": "(Separate science) and (AQA: Higher tier) content",
           "blocks": [
-            { "type": "paragraph", "text": "(Separate science) Titration is assessed in the GCSE Chemistry course only, not in the combined science course." },
-            { "type": "paragraph", "text": "(Higher tier) You may also be asked for calculations of concentration in mol/dm³ and g/dm³ from titration results. This note covers the practical technique only." }
+            {
+              "type": "paragraph",
+              "text": "(Separate science) Titration is assessed in the GCSE Chemistry course only, not in the combined science course."
+            },
+            {
+              "type": "paragraph",
+              "text": "(AQA: Higher tier) You may also be asked for calculations of concentration in mol/dm³ and g/dm³ from titration results. This note covers the practical technique only."
+            }
           ]
         }
       ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.18", "EDEX 5.9C"],
-      "exam_phrases": [
-        "read the (initial) volume on the burette",
-        "open the tap / add acid to {alkali / flask}",
-        "swirl the mixture until end point / until indicator changes colour",
-        "(close tap then) read (final) volume of acid in burette",
-        "use of white tile, easier to see precisely when indicator changes colour",
-        "(near to end point) {add (acid) slowly / in small quantities each time}",
-        "use a pipette filler; draw the liquid up so the bottom of the meniscus touches the line",
-        "rinse burette with acid, because water would dilute the original acid"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The burette is rinsed with acid to avoid contamination.",
-          "right": "'To avoid contamination' is ignored. Water in the burette would dilute the acid and give an inaccurate result."
-        },
-        {
-          "wrong": "Stir the flask during the titration to get an accurate titre.",
-          "right": "'Stir' is ignored. Say swirl the flask, and add the acid slowly or in small amounts near the end point."
-        },
-        {
-          "wrong": "The mean of 27.65, 24.70, 24.80 and 24.60 cm³ is 25.44 cm³.",
-          "right": "Leave out the rough titration. The accurate titrations give (24.70 + 24.80 + 24.60) ÷ 3 = 24.70 cm³."
-        },
-        {
-          "wrong": "Water left in the conical flask after rinsing makes the alkali more dilute, so less acid is needed.",
-          "right": "Water in the conical flask does not change the amount of alkali, so there is no effect. Water in the pipette does dilute the alkali and decreases the titre."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "d50165cb-15bb-481d-a332-2394ebecb19e",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q7(c)",
@@ -248,29 +249,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR C5.1b"],
-      "exam_phrases": [
-        "add indicator, e.g. phenolphthalein or methyl orange or litmus, to the acid in the conical flask",
-        "swirl the conical flask (after adding the sodium hydroxide)",
-        "dropwise addition at the end point / until the indicator just changes colour",
-        "phenolphthalein: colourless to pink; methyl orange: red to yellow",
-        "use a single indicator rather than a mixed indicator, to give a sharp endpoint",
-        "use a white tile under the conical flask to see the endpoint more clearly",
-        "the mean is calculated using the concordant values / values within 0.10 cm³"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Add a few drops of universal indicator and stir the flask.",
-          "right": "Universal indicator is not allowed for a titration. Swirl, shake or mix is allowed, but stir is ignored."
-        },
-        {
-          "wrong": "Titration 1 (24.80 cm³) is not included in the mean because it is the rough titration.",
-          "right": "'It is a rough titration' is ignored. Titration 1 is left out because it is anomalous: it is not concordant with the others."
-        },
-        {
-          "wrong": "To improve the experiment, repeat the titration.",
-          "right": "'Repeat the titration' is ignored. Give a specific improvement with its reason, for example adding the alkali dropwise near the end point so the indicator changes on one drop."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "d2ffd94b-d633-4501-9f64-d9c48398f4ad",
         "source": "OCR jun 2018, Paper 4, Q20(a)",

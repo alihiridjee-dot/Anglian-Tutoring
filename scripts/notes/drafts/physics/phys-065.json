@@ -121,24 +121,15 @@
           "diagram": {
             "kind": "compare",
             "alt": "Transverse waves compared with longitudinal waves.",
-            "items": [
-              "Transverse wave",
-              "Longitudinal wave"
-            ],
+            "items": ["Transverse wave", "Longitudinal wave"],
             "rows": [
               {
                 "feature": "Vibrations compared with the direction of energy transfer",
-                "values": [
-                  "Perpendicular (at right angles)",
-                  "Parallel (in the same direction)"
-                ]
+                "values": ["Perpendicular (at right angles)", "Parallel (in the same direction)"]
               },
               {
                 "feature": "Pattern in the wave",
-                "values": [
-                  "Peaks and troughs",
-                  "Compressions and rarefactions"
-                ]
+                "values": ["Peaks and troughs", "Compressions and rarefactions"]
               },
               {
                 "feature": "Examples",
@@ -173,10 +164,7 @@
             "kind": "sort",
             "alt": "Sort statements and examples into transverse waves and longitudinal waves.",
             "prompt": "Is it a transverse or a longitudinal wave?",
-            "groups": [
-              "Transverse wave",
-              "Longitudinal wave"
-            ],
+            "groups": ["Transverse wave", "Longitudinal wave"],
             "items": [
               {
                 "text": "Ripples on a water surface",
@@ -242,32 +230,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.1.1",
-        "AQA T 6.6.1.1"
-      ],
-      "exam_phrases": [
-        "the oscillations / vibrations are parallel to the direction of energy transfer",
-        "the oscillations / vibrations are perpendicular to the direction of energy transfer",
-        "sound waves are longitudinal whereas visible light waves are transverse",
-        "transverse waves have peaks and troughs",
-        "longitudinal waves have compressions and rarefactions",
-        "compression and rarefaction"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Longitudinal waves are parallel and transverse waves are perpendicular.",
-          "right": "Say what is parallel or perpendicular, and to what: the oscillations (vibrations) are parallel or perpendicular to the direction of energy transfer or wave travel."
-        },
-        {
-          "wrong": "When sound waves travel through air they create areas of reflection and diffraction.",
-          "right": "Sound waves in air create areas of compression and rarefaction."
-        },
-        {
-          "wrong": "Sound waves and visible light waves are the same type of wave.",
-          "right": "Sound waves are longitudinal and light waves are transverse. Sound needs a medium to travel through, whereas visible light can travel through a vacuum."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.1.1", "AQA T 6.6.1.1"],
       "worked_example": {
         "exemplar_id": "bfde65a3-27d2-4e97-a44c-486d6c5e5b12",
         "source": "AQA jun 2021, Paper 2 (H), Q05.5",
@@ -281,33 +244,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 4.1",
-        "EDEX 4.2",
-        "EDEX 4.5"
-      ],
-      "exam_phrases": [
-        "mention of oscillations/vibrations",
-        "(oscillations) perpendicular to direction of wave (travel)",
-        "(oscillations) in same direction as wave (travel)",
-        "particles vibrate / oscillate / move backwards and forwards",
-        "about mean / fixed positions",
-        "moves up and down at right angles to the direction of travel"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Transverse waves move up and down, but longitudinal waves move side to side.",
-          "right": "Compare the vibrations with the direction of travel. Transverse is perpendicular to it and longitudinal is in the same direction. Up and down against side to side scores 1 mark only."
-        },
-        {
-          "wrong": "The cork moves along in the direction the wave travels.",
-          "right": "The cork moves up and down, at right angles to the direction of travel of the wave. It is not in the direction of the wave."
-        },
-        {
-          "wrong": "The air particles move along with the sound wave.",
-          "right": "The air particles vibrate backwards and forwards about fixed positions, parallel to the direction of travel."
-        }
-      ],
+      "spec_codes": ["EDEX 4.1", "EDEX 4.2", "EDEX 4.5"],
       "worked_example": {
         "exemplar_id": "e4a81b44-ff4c-4b9b-91b3-25356bd95da1",
         "source": "EDEXCEL jun 2018, Paper 1 (F), Q2(c)",
@@ -322,33 +259,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P5.1e",
-        "OCR P5.1j",
-        "OCR P5.1k"
-      ],
-      "exam_phrases": [
-        "(Sound travels as) a longitudinal wave",
-        "(Sound travels as) compressions and rarefactions",
-        "air particles vibrate",
-        "vibrations are parallel to the direction of energy transfer / wave travel",
-        "water / particles move up and down / oscillate vertically",
-        "energy moves in direction of the wave (travel)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The water waves move up and down.",
-          "right": "This is repeated from the question and is ignored. Say the water particles oscillate up and down, at 90° to the wave direction, while the energy moves in the direction of the wave."
-        },
-        {
-          "wrong": "Sound particles vibrate left to right.",
-          "right": "Left to right, side to side and up and down are ignored. Say the particles vibrate parallel to the wave direction."
-        },
-        {
-          "wrong": "Sound travels as the air moving from the guitar to the ear.",
-          "right": "The air particles vibrate parallel to the direction of energy transfer. The sound travels as a longitudinal wave of compressions and rarefactions."
-        }
-      ],
+      "spec_codes": ["OCR P5.1e", "OCR P5.1j", "OCR P5.1k"],
       "worked_example": {
         "exemplar_id": "9a566871-f8e6-4f93-b2de-976d27d5bccd",
         "source": "OCR jun 2018, Paper 4, Q17(a)(iii)",

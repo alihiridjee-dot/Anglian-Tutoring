@@ -14,37 +14,17 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Nutrient",
-            "Reagent",
-            "Positive result",
-            "Negative result"
-          ],
+          "columns": ["Nutrient", "Reagent", "Positive result", "Negative result"],
           "rows": [
-            [
-              "Starch",
-              "Iodine solution",
-              "Orange-brown to blue-black",
-              "Stays orange or brown"
-            ],
+            ["Starch", "Iodine solution", "Orange-brown to blue-black", "Stays orange or brown"],
             [
               "Sugar (glucose, a reducing sugar)",
               "Benedict's solution, heated",
               "Blue to green, yellow, orange or brick red",
               "Stays blue"
             ],
-            [
-              "Protein",
-              "Biuret solution",
-              "Blue to purple or lilac",
-              "Stays blue"
-            ],
-            [
-              "Lipid (fat)",
-              "Ethanol, then water",
-              "A white cloudy emulsion forms",
-              "Stays clear"
-            ]
+            ["Protein", "Biuret solution", "Blue to purple or lilac", "Stays blue"],
+            ["Lipid (fat)", "Ethanol, then water", "A white cloudy emulsion forms", "Stays clear"]
           ]
         },
         {
@@ -53,11 +33,7 @@
             "kind": "predictor",
             "alt": "Pick a nutrient to see the reagent used and the colours seen before and after the test.",
             "prompt": "Pick a nutrient in the food",
-            "result_labels": [
-              "Reagent",
-              "How to do the test",
-              "Positive result"
-            ],
+            "result_labels": ["Reagent", "How to do the test", "Positive result"],
             "options": [
               {
                 "label": "Starch",
@@ -149,11 +125,7 @@
               },
               {
                 "label": "None of these",
-                "results": [
-                  "Any of the reagents",
-                  "Carry out each test",
-                  "No colour change"
-                ],
+                "results": ["Any of the reagents", "Carry out each test", "No colour change"],
                 "scene": {
                   "kind": "tubes",
                   "tubes": [
@@ -288,38 +260,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 2.2",
-        "AQA T 4.2.2.1"
-      ],
-      "exam_phrases": [
-        "iodine (solution) tests for starch",
-        "iodine turns blue-black / black / dark blue (if starch is present)",
-        "iodine remains unchanged / yellow / orange / brown (if no starch)",
-        "add Benedict's (reagent) and heat (to at least 60 °C)",
-        "Benedict's turns green / yellow / orange / brown / (brick) red",
-        "add Biuret (reagent), which turns purple / lilac",
-        "grind up the food and mix with water",
-        "wear goggles / use a water bath to heat / wash spills"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Starch turns the iodine blue or purple.",
-          "right": "\"Blue\" or \"purple\" alone is ignored. Say black, blue-black or dark blue."
-        },
-        {
-          "wrong": "Warm the food gently with Benedict's solution.",
-          "right": "\"Warm\" is ignored. Heat or boil it. If a temperature is given it must be at least 60 °C."
-        },
-        {
-          "wrong": "Iodide solution is used to test for starch.",
-          "right": "\"Iodide\" unqualified is ignored. Say iodine solution."
-        },
-        {
-          "wrong": "Tie hair back when using Benedict's solution.",
-          "right": "Examples such as tying hair back are ignored. Say wear goggles, use a water bath, or wash spills."
-        }
-      ],
+      "spec_codes": ["AQA 2.2", "AQA T 4.2.2.1"],
       "worked_example": {
         "exemplar_id": "731a0901-151b-4b3e-8cb9-5ab3c43aed0a",
         "source": "AQA jun 2024, Paper 1 (F), Q04.1",
@@ -335,32 +276,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 1.13B"
-      ],
-      "exam_phrases": [
-        "add Benedict's solution",
-        "heat / boil / put in a water bath",
-        "turns from blue to green / yellow / orange / (brick) red",
-        "add Biuret solution, colour change from blue to mauve / purple",
-        "iodine solution, brown to blue-black",
-        "mix the food in ethanol and pour into water, a white emulsion forms",
-        "wear goggles / wear gloves (Benedict's is an irritant to skin) / use tongs"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Wear PPE when doing the Benedict's test.",
-          "right": "PPE without additional detail is ignored. Say goggles or gloves, because Benedict's solution is an irritant to skin, or use tongs."
-        },
-        {
-          "wrong": "Keep the amount of Benedict's solution the same.",
-          "right": "\"Amount\" is ignored. Say the volume of Benedict's solution, or the mass of food, the temperature of the water bath or the time left in the water bath."
-        },
-        {
-          "wrong": "Heat the food with Biuret solution until it changes colour.",
-          "right": "Biuret solution is not heated. Add it, wait for the reaction, and look for the colour change from blue to purple."
-        }
-      ],
+      "spec_codes": ["EDEX 1.13B"],
       "worked_example": {
         "exemplar_id": "edd9c9b9-621f-4bf5-9d4d-17491498c280",
         "source": "EDEXCEL nov 2021, Paper 2 (H), Q4(d)",
@@ -375,32 +291,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 7.3"
-      ],
-      "exam_phrases": [
-        "use / add Benedict's (reagent) and heat",
-        "use the iodine test for starch and the Benedict's test for sugar",
-        "starch and sugar are both carbohydrates",
-        "use biuret solution; purple means protein is present, blue means no protein",
-        "sodium hydroxide and copper sulphate solutions",
-        "less colour change / less red colour / less precipitate indicates less glucose",
-        "use a colour chart or colorimeter to compare"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The Biuret solution stays blue, so the food contains protein.",
-          "right": "Blue means no protein is present. The sample turns purple if protein is present."
-        },
-        {
-          "wrong": "A food with more glucose takes less time to change colour.",
-          "right": "\"Time taken to change colour\" is ignored. Compare the colours: a small amount of glucose only gives green, and less red colour or precipitate means less glucose."
-        },
-        {
-          "wrong": "Only one test is needed to show that a food contains carbohydrates.",
-          "right": "Two named tests are needed. Starch and sugar are both carbohydrates, so use iodine for starch and Benedict's for sugar."
-        }
-      ],
+      "spec_codes": ["OCR 7.3"],
       "worked_example": {
         "exemplar_id": "a09c53e2-d393-4a81-8cfd-f62e87028c24",
         "source": "OCR jun 2023, Paper 1, Q21(c)",

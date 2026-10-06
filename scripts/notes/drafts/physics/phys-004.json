@@ -151,11 +151,7 @@
               "unit": "J",
               "decimals": 2
             },
-            "working": [
-              "{d} cm = {d} ÷ 100 m",
-              "W = F × s = {F} × ({d} ÷ 100)",
-              "W = {answer} J"
-            ]
+            "working": ["{d} cm = {d} ÷ 100 m", "W = F × s = {F} × ({d} ÷ 100)", "W = {answer} J"]
           }
         },
         {
@@ -268,73 +264,18 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.2",
-        "AQA T 6.5.2"
-      ],
-      "exam_phrases": [
-        "W = 30 × 250",
-        "3 360 000 = F × 42 000",
-        "F = 3 360 000 / 42 000",
-        "work is done by friction (in the brakes)",
-        "(some of the kinetic) energy (of the vehicle) is transferred as thermal energy (in the brakes)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Friction makes the brakes hot.",
-          "right": "Friction on its own does not score. Say that work is done by friction in the brakes, and that kinetic energy is transferred as thermal energy."
-        },
-        {
-          "wrong": "W = 30 × 250 = 7500.",
-          "right": "The unit is a separate mark. Write W = 7500 J."
-        },
-        {
-          "wrong": "W = 6.0 × 75 = 450 J, using the force as 6.0 kN.",
-          "right": "Convert the force to newtons first. 6.0 kN = 6000 N, so W = 6000 × 75 = 450 000 J."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.2", "AQA T 6.5.2"],
       "worked_example": {
         "exemplar_id": "eb52c982-1dd2-45d0-ae4a-f852c777af86",
         "source": "AQA jun 2022, Paper 2 (F), Q07.2",
         "question": "The distance of the London Marathon is 42 000 m.\nDuring the race, wheelchair competitors work against air resistance.\nThe work done against air resistance by the winner of the race was 3 360 000 J.\n\nCalculate the average air resistance acting on the winner of the race.",
         "marks": 3,
-        "answer_points": [
-          "3 360 000 = F × 42 000",
-          "F = 3 360 000 / 42 000",
-          "F = 80 (N)"
-        ],
+        "answer_points": ["3 360 000 = F × 42 000", "F = 3 360 000 / 42 000", "F = 80 (N)"],
         "tip": "One mark for the substitution, one for the rearrangement and one for the answer."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 8.5",
-        "EDEX 8.6",
-        "EDEX 8.7",
-        "EDEX 2.33P"
-      ],
-      "exam_phrases": [
-        "(work done =) 1200 × 8(.0)",
-        "J or N m (accept joule(s))",
-        "7440 = 645 × distance",
-        "(distance =) work done / force",
-        "work is done against / by gravity",
-        "idea of work done by the thrusters / jets"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Work done = 1200 × 8.0 = 9600.",
-          "right": "The unit is an independent mark. Write 9600 J (or 9.6 kJ, or 9600 N m)."
-        },
-        {
-          "wrong": "The distance the sled moves is 11.53 m.",
-          "right": "Give an appropriate number of significant figures. 7440 / 645 = 11.5 m to 3 significant figures, and 11.53 loses a mark."
-        },
-        {
-          "wrong": "Work done = 9600 n m.",
-          "right": "Write the unit as J, joule(s) or N m with a capital N. A lower case n m is ignored."
-        }
-      ],
+      "spec_codes": ["EDEX 8.5", "EDEX 8.6", "EDEX 8.7", "EDEX 2.33P"],
       "worked_example": {
         "exemplar_id": "2981b334-a6a8-416c-8360-0c2dc38f7e42",
         "source": "EDEXCEL jun 2024, Paper 2 (F), Q5(a)(i)",
@@ -349,32 +290,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P2.2m",
-        "OCR P2.2n"
-      ],
-      "exam_phrases": [
-        "86 cm = 0.86 m",
-        "(work done =) 3(.0) × 0.86",
-        "(work done =) 2.58 (J)",
-        "J or N m",
-        "use a force meter / newton meter to measure (pulling) force",
-        "measure distance (moved) using a ruler / metre rule / measuring tape"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Work done = 3.0 × 86 = 258 J.",
-          "right": "Convert the distance to metres first. 86 cm = 0.86 m, so the work done is 2.6 J."
-        },
-        {
-          "wrong": "Repeat the experiment again with the same block.",
-          "right": "Repeating the same experiment is ignored. Repeat with different masses on the block."
-        },
-        {
-          "wrong": "The work done by the brakes is 112 000.",
-          "right": "Include the unit, J or N m, which is its own mark."
-        }
-      ],
+      "spec_codes": ["OCR P2.2m", "OCR P2.2n"],
       "worked_example": {
         "exemplar_id": "a70f9b71-fbdd-4380-9a78-135fb732ba05",
         "source": "OCR nov 2020, Paper 3, Q21(c)(ii)",

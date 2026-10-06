@@ -109,17 +109,11 @@
           "diagram": {
             "kind": "compare",
             "alt": "A table comparing treating a tumour with a source outside the body and with a source inside the body.",
-            "items": [
-              "Source outside the body",
-              "Source inside the body"
-            ],
+            "items": ["Source outside the body", "Source inside the body"],
             "rows": [
               {
                 "feature": "Radiation used",
-                "values": [
-                  "Gamma rays or X-rays",
-                  "Such as alpha, which has a short range"
-                ]
+                "values": ["Gamma rays or X-rays", "Such as alpha, which has a short range"]
               },
               {
                 "feature": "Why it works",
@@ -167,10 +161,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Use",
-            "How it works"
-          ],
+          "columns": ["Use", "How it works"],
           "rows": [
             [
               "Smoke alarm",
@@ -224,28 +215,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.4.3.3"
-      ],
-      "exam_phrases": [
-        "short half-life or half-life of a few hours",
-        "less damage to cells / tissues / organs / body",
-        "low ionising power",
-        "highly penetrating",
-        "it can be detected outside the body",
-        "emits gamma radiation",
-        "greatest activity"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Nitrogen-18 is the biggest risk because it has the shortest half-life.",
-          "right": "This is ignored on its own. Say it has the greatest activity, so it emits the most radiation per second and gives the greatest dose."
-        },
-        {
-          "wrong": "A good tracer is highly ionising so that it damages the diseased cells.",
-          "right": "A tracer for diagnosis should have low ionising power, so there is less damage to cells, tissues and organs."
-        }
-      ],
+      "spec_codes": ["AQA 4.4.3.3"],
       "worked_example": {
         "exemplar_id": "97544f5f-97cc-4a92-84e7-2c67e30f9967",
         "source": "AQA jun 2018, Paper 1 (H), Q6.5",
@@ -261,35 +231,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 6.28P",
-        "EDEX 6.33P",
-        "EDEX 6.34P",
-        "EDEX 6.35P"
-      ],
-      "exam_phrases": [
-        "alpha short range / low penetration, so needs to be close to the tumour",
-        "gamma long range / high penetration, so can get into the body from outside",
-        "tracers emit gamma radiation which is detected outside the body with a gamma camera",
-        "positrons and electrons annihilate",
-        "(two) gamma rays in opposite directions / at 180°",
-        "time difference gives distance difference",
-        "short half-life, so it must be used as soon as possible after making"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The scanner detects the positrons from the tumour.",
-          "right": "Ignore positrons for this point. A positron and an electron annihilate, and two gamma rays are produced and detected."
-        },
-        {
-          "wrong": "Fluorine-18 is made near the hospital because it is dangerous to transport.",
-          "right": "Arguments about harm to people or the environment are ignored. It has a short half-life and decays too quickly, so it must be used soon after it is made."
-        },
-        {
-          "wrong": "Cobalt-60 is the best source for a smoke detector because it emits gamma.",
-          "right": "Americium-241 is the best. It emits alpha, which cannot get out of the detector, and it has a long half-life so it does not run out."
-        }
-      ],
+      "spec_codes": ["EDEX 6.28P", "EDEX 6.33P", "EDEX 6.34P", "EDEX 6.35P"],
       "worked_example": {
         "exemplar_id": "9f6f0a72-69dc-46fb-9d6c-248bd578f50f",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q8(a)(ii)",
@@ -344,32 +286,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P6.2c"
-      ],
-      "exam_phrases": [
-        "long enough to allow the isotope to circulate around the body",
-        "short enough for less damage / harm to the patient's cells",
-        "gamma is the most penetrating / can be detected outside the body",
-        "bacteria is killed",
-        "slows food decay",
-        "reading on the detector will increase above the leak",
-        "benefits outweigh the risks"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A tracer with a half-life of a few hours is best because it can be used for a long time, or because it is not dangerous.",
-          "right": "These are ignored. Say it is long enough to circulate and be detected, and short enough that the patient is not radioactive for a long time."
-        },
-        {
-          "wrong": "Gamma rays make herbs and spices last longer.",
-          "right": "Just saying the food lasts longer is ignored. Say the gamma rays kill bacteria, which slows food decay."
-        },
-        {
-          "wrong": "Patients are treated with yttrium-90 because it has a short half-life.",
-          "right": "A short half-life on its own is ignored. Say the side effects are temporary, the benefits outweigh the risks, or other isotopes have more harmful side effects or longer half-lives."
-        }
-      ],
+      "spec_codes": ["OCR P6.2c"],
       "worked_example": {
         "exemplar_id": "f71fa96e-f7aa-479f-a8aa-4c5ea97b1548",
         "source": "OCR jun 2023, Paper 2, Q23(a)(i)",

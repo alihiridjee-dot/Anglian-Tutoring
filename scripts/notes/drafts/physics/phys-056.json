@@ -69,10 +69,7 @@
             "kind": "predictor",
             "alt": "Pick a situation to see the resultant force and what happens to the motion.",
             "prompt": "Pick a situation",
-            "result_labels": [
-              "Resultant force",
-              "Motion"
-            ],
+            "result_labels": ["Resultant force", "Motion"],
             "options": [
               {
                 "label": "Car at a steady speed on a straight road",
@@ -84,10 +81,7 @@
               },
               {
                 "label": "Parked car",
-                "results": [
-                  "Zero: the forces are balanced",
-                  "Stays at rest"
-                ],
+                "results": ["Zero: the forces are balanced", "Stays at rest"],
                 "explanation": "A stationary object stays stationary when the resultant force is zero."
               },
               {
@@ -108,10 +102,7 @@
               },
               {
                 "label": "Glider on a frictionless air-track after the push ends",
-                "results": [
-                  "Zero: no horizontal forces act",
-                  "Continues at a constant velocity"
-                ],
+                "results": ["Zero: no horizontal forces act", "Continues at a constant velocity"],
                 "explanation": "With no resultant force, the glider keeps its velocity."
               },
               {
@@ -155,32 +146,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.6.2",
-        "AQA T 6.5.4.2"
-      ],
-      "exam_phrases": [
-        "resistive force acts on the ball",
-        "friction or air resistance",
-        "resultant force in the opposite direction to the velocity",
-        "as velocity decreases the drag decreases",
-        "until drag is equal to weight",
-        "until the resultant force is zero"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The stone slows down at a steady rate until it stops.",
-          "right": "As the velocity decreases, the drag decreases. The stone slows until drag equals weight, then moves at a constant velocity."
-        },
-        {
-          "wrong": "Upthrust is the force that makes the stone slow down.",
-          "right": "Upthrust is ignored in this explanation. Use drag and weight: drag is greater than weight, then drag becomes equal to weight."
-        },
-        {
-          "wrong": "The bowling ball slows down because nothing is pushing it forward.",
-          "right": "It slows because a resistive force (friction or air resistance) acts on it, giving a resultant force opposite to its velocity."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.6.2", "AQA T 6.5.4.2"],
       "worked_example": {
         "exemplar_id": "40821b73-ff94-4b15-8960-21ecef57908e",
         "source": "AQA jun 2023, Paper 2 (H), Q06.3",
@@ -196,52 +162,18 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.14"
-      ],
-      "exam_phrases": [
-        "zero",
-        "there is none",
-        "it has no acceleration"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The acceleration is constant.",
-          "right": "Writing 'constant' is ignored and scores nothing. At constant velocity the acceleration is zero."
-        }
-      ],
+      "spec_codes": ["EDEX 2.14"],
       "worked_example": {
         "exemplar_id": "66373386-6554-4fb7-9f8a-cf1bd45f909c",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q2(b)(iv)",
         "question": "A cupcake case is falling at a constant velocity.\n\nState the value of the acceleration of the cupcake case when it is falling at a constant velocity.",
         "marks": 1,
-        "answer_points": [
-          "Zero (0), it has no acceleration"
-        ],
+        "answer_points": ["Zero (0), it has no acceleration"],
         "tip": "Ignore the word 'constant' and ignore units."
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P2.2d"
-      ],
-      "exam_phrases": [
-        "constant / steady / uniform speed / velocity",
-        "no other / horizontal / external (unbalanced) forces acting on it",
-        "because forces are unbalanced",
-        "forwards force > resistive force",
-        "Accelerates / increases in speed"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The swimmer keeps moving at a steady speed because the forward force has increased.",
-          "right": "A bigger forward force than the resistive force is unbalanced. The swimmer accelerates until the resistive force reaches the new forward force."
-        },
-        {
-          "wrong": "The glider keeps moving because the push is still acting on it.",
-          "right": "The glider accelerates during the push. Then it moves at a constant velocity because no other horizontal forces act on it."
-        }
-      ],
+      "spec_codes": ["OCR P2.2d"],
       "worked_example": {
         "exemplar_id": "8ab45c3e-daaa-4783-9b1a-ca0ba665f333",
         "source": "OCR jun 2018, Paper 1, Q20(c)",

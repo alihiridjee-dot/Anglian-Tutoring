@@ -41,10 +41,7 @@
             "kind": "sort",
             "alt": "Sort each resource into finite or renewable.",
             "prompt": "Finite or renewable?",
-            "groups": [
-              "Finite",
-              "Renewable"
-            ],
+            "groups": ["Finite", "Renewable"],
             "items": [
               {
                 "text": "Crude oil",
@@ -102,10 +99,7 @@
           "diagram": {
             "kind": "compare",
             "alt": "Reuse compared with recycle.",
-            "items": [
-              "Reuse",
-              "Recycle"
-            ],
+            "items": ["Reuse", "Recycle"],
             "rows": [
               {
                 "feature": "What happens",
@@ -215,31 +209,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.10.1.1",
-        "AQA T 5.10.1.1",
-        "AQA 4.10.2.2",
-        "AQA T 5.10.2.2"
-      ],
-      "exam_phrases": [
-        "meets needs of current generation without compromising needs of future generations",
-        "recycling conserves copper ores",
-        "recycling uses less energy",
-        "(produces) less waste",
-        "mining / quarrying cause environmental impacts",
-        "(wire heated until) copper melts",
-        "(re)cast / reformed (into pipes)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Recycling is more sustainable because it is cheaper.",
-          "right": "References to cost are ignored. Give reasons such as less energy, conserves the ore, or less waste."
-        },
-        {
-          "wrong": "Sustainable development means not harming or damaging the planet.",
-          "right": "This is ignored. Say it meets the needs of the current generation without compromising the needs of future generations."
-        }
-      ],
+      "spec_codes": ["AQA 4.10.1.1", "AQA T 5.10.1.1", "AQA 4.10.2.2", "AQA T 5.10.2.2"],
       "worked_example": {
         "exemplar_id": "2a38386e-a289-4a76-9b16-e10913a41de3",
         "source": "AQA jun 2021, Paper 2 (H), Q08.3",
@@ -255,35 +225,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 4.10",
-        "EDEX 9.23C",
-        "EDEX 9.24C"
-      ],
-      "exam_phrases": [
-        "preserves ore reserves / ores are finite",
-        "prevents waste of the metal",
-        "uses less energy",
-        "less carbon dioxide / greenhouse gases emitted",
-        "doesn't fill up landfill",
-        "polymers degrade very slowly / not biodegradable",
-        "(toxic) gases produced during disposal by combustion",
-        "trees can be regrown / wood is renewable"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Recycling is better for the environment because there is less pollution.",
-          "right": "Vague statements about the environment, pollution or sustainability are ignored. Give a specific point such as less carbon dioxide emitted or ores preserved."
-        },
-        {
-          "wrong": "Recycling metals means less land is needed for mining.",
-          "right": "Less land used for mining, visual pollution and mining causing loss of habitat, noise or dust are ignored. Give preserves ore, uses less energy or less waste."
-        },
-        {
-          "wrong": "Recycling metals is cheaper.",
-          "right": "Cost arguments are ignored in these questions. Give a resource, energy or waste advantage."
-        }
-      ],
+      "spec_codes": ["EDEX 4.10", "EDEX 9.23C", "EDEX 9.24C"],
       "worked_example": {
         "exemplar_id": "21780e96-cb5e-4cad-8b92-3493fa5cb765",
         "source": "EDEXCEL jun 2024, Paper 1 (H), Q5(a)",
@@ -302,33 +244,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.1m",
-        "OCR C6.1n"
-      ],
-      "exam_phrases": [
-        "aluminium (metal) is sorted from other metals / materials",
-        "shredded or crushed into smaller pieces",
-        "melted (by heating)",
-        "molten aluminium is poured into moulds",
-        "recycling aluminium saves energy",
-        "recycling aluminium produces less greenhouse gas emissions",
-        "aluminium is a finite resource"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Aluminium is recycled using electrolysis.",
-          "right": "References to electrolysis are not allowed. Recycling is sorting, shredding or crushing, melting, then pouring into moulds."
-        },
-        {
-          "wrong": "Recycling aluminium needs 14 250 kJ per kg.",
-          "right": "Just quoting numbers is ignored. Use the data to make a comparison, such as recycling needing far less energy than extracting from bauxite."
-        },
-        {
-          "wrong": "Recycling aluminium is cheaper.",
-          "right": "References to cost are ignored. Give a point about energy, raw materials, waste or greenhouse gas emissions."
-        }
-      ],
+      "spec_codes": ["OCR C6.1m", "OCR C6.1n"],
       "worked_example": {
         "exemplar_id": "2f615415-7375-4616-88bb-d19bccd8870c",
         "source": "OCR nov 2020, Paper 2, Q23(c)(ii)",

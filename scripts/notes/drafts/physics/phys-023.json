@@ -14,25 +14,10 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Solid",
-            "Liquid",
-            "Gas"
-          ],
+          "columns": ["Feature", "Solid", "Liquid", "Gas"],
           "rows": [
-            [
-              "Arrangement",
-              "Regular pattern",
-              "Random",
-              "Random, far apart"
-            ],
-            [
-              "Spacing",
-              "Very close, touching",
-              "Close, touching",
-              "Far apart"
-            ],
+            ["Arrangement", "Regular pattern", "Random", "Random, far apart"],
+            ["Spacing", "Very close, touching", "Close, touching", "Far apart"],
             [
               "Movement",
               "Vibrate about fixed positions",
@@ -252,12 +237,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Change",
-            "Mass",
-            "Volume",
-            "Density"
-          ],
+          "columns": ["Change", "Mass", "Volume", "Density"],
           "rows": [
             [
               "Solid melts to a liquid (most substances)",
@@ -265,18 +245,8 @@
               "Increases a little",
               "Decreases a little"
             ],
-            [
-              "Liquid boils to a gas",
-              "Same",
-              "Increases a lot",
-              "Decreases a lot"
-            ],
-            [
-              "Water freezes to ice",
-              "Same",
-              "Increases",
-              "Decreases"
-            ]
+            ["Liquid boils to a gas", "Same", "Increases a lot", "Decreases a lot"],
+            ["Water freezes to ice", "Same", "Increases", "Decreases"]
           ]
         },
         {
@@ -318,32 +288,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.3.1.1",
-        "AQA T 6.3.1.1"
-      ],
-      "exam_phrases": [
-        "density = mass / volume",
-        "the particles are in fixed positions",
-        "(the space between the particles) increases",
-        "the particles move further apart",
-        "0.44 cm3 = 4.4 × 10^-7 m3",
-        "kg/m3"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Using a volume of 0.44 in the equation when the volume is 0.44 cm³ and the density is in kg/m³.",
-          "right": "Convert first: 0.44 cm³ = 4.4 × 10⁻⁷ m³. The conversion earns its own mark."
-        },
-        {
-          "wrong": "Working out the volume of a cube of width 18.45 mm as 18.45 × 3.",
-          "right": "Volume of a cube = width × width × width. V = (18.45 × 10⁻³)³ = 6.28 × 10⁻⁶ m³."
-        },
-        {
-          "wrong": "Giving 6 487 000 000 kg when the question asks for the answer in standard form.",
-          "right": "The last mark needs standard form: 6.487 × 10⁹ kg."
-        }
-      ],
+      "spec_codes": ["AQA 4.3.1.1", "AQA T 6.3.1.1"],
       "worked_example": {
         "exemplar_id": "e81ddb52-2189-4365-8d26-6945c496b912",
         "source": "AQA jun 2024, Paper 1 (H), Q7.5",
@@ -359,34 +304,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 14.1",
-        "EDEX 14.2",
-        "EDEX 14.4",
-        "EDEX 14.3"
-      ],
-      "exam_phrases": [
-        "particles in solid close(r) together",
-        "particles in solid in regular arrangement but particles in liquid are randomly arranged",
-        "particles in a liquid have more (kinetic) energy (than in a solid)",
-        "(motion is) random",
-        "bump into each other / collide",
-        "kg / m³"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Giving the density as 2680 with no unit.",
-          "right": "The unit is a separate mark. Write 2680 kg/m³ (or 2.68 g/cm³)."
-        },
-        {
-          "wrong": "Writing only that particles in a liquid move freely, when asked for differences between a solid and a liquid.",
-          "right": "Compare them. In a solid the particles vibrate in fixed positions in a regular arrangement. In a liquid they move freely and are randomly arranged."
-        },
-        {
-          "wrong": "Writing 2.68 kg/cm³ because the mass was in kg and the volume was in m³.",
-          "right": "Use a consistent unit. kg with m³ gives kg/m³, and g with cm³ gives g/cm³."
-        }
-      ],
+      "spec_codes": ["EDEX 14.1", "EDEX 14.2", "EDEX 14.4", "EDEX 14.3"],
       "worked_example": {
         "exemplar_id": "de1c201e-01c6-4b95-adac-7d61e7d866d2",
         "source": "EDEXCEL jun 2023, Paper 2 (H), Q3(b)",
@@ -401,43 +319,13 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P1.1d",
-        "OCR P1.1e",
-        "OCR P1.1f"
-      ],
-      "exam_phrases": [
-        "Density = mass ÷ volume",
-        "particle arrangement",
-        "mass of particles",
-        "density is proportional to mass",
-        "density is less than the density of water",
-        "Volume = 0.60 / 50"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Density depends on the position on Earth or the specific heat capacity.",
-          "right": "Density depends on the mass of the particles and the particle arrangement."
-        },
-        {
-          "wrong": "Cube B has the same density as cube A, because they have the same volume.",
-          "right": "Density = mass ÷ volume. Cube B has ten times the mass in the same volume, so its density is ten times larger."
-        },
-        {
-          "wrong": "Choose carbon fibre for the toy boat because it has the highest density.",
-          "right": "A solid boat floats if its density is less than the density of water (1000 kg/m³). Choose pine, which has the lowest density. Oak is also less than 1000 kg/m³, but carbon fibre is not."
-        }
-      ],
+      "spec_codes": ["OCR P1.1d", "OCR P1.1e", "OCR P1.1f"],
       "worked_example": {
         "exemplar_id": "88301efb-885e-43eb-8837-ec8ff453a934",
         "source": "OCR jun 2025, Paper 1, Q23(b)",
         "question": "One polystyrene block has a density of 50 kg/m³. The mass of the block is 0.60 kg. Calculate the volume of the block.",
         "marks": 3,
-        "answer_points": [
-          "Density = mass ÷ volume",
-          "Volume = 0.60 / 50",
-          "= 0.012 m³"
-        ],
+        "answer_points": ["Density = mass ÷ volume", "Volume = 0.60 / 50", "= 0.012 m³"],
         "tip": "The second mark is for rearranging and substituting. 1.2 × 10 to any other power scores 2 marks."
       }
     }

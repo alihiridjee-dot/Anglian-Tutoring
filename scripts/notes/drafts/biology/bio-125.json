@@ -8,13 +8,25 @@
     {
       "heading": "Why biodiversity matters",
       "blocks": [
-        { "type": "paragraph", "text": "Biodiversity is the variety of all the different species of organisms on Earth, or within an ecosystem. This section covers why a high level is important." },
+        {
+          "type": "paragraph",
+          "text": "Biodiversity is the variety of all the different species of organisms on Earth, or within an ecosystem. This section covers why a high level is important."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Biodiversity", "meaning": "The variety of all the different species of organisms on Earth, or within an ecosystem." },
-            { "term": "Ecosystem", "meaning": "All the living organisms in an area and the physical conditions they depend on." },
-            { "term": "Non-indigenous species", "meaning": "A species that has been brought to an area where it does not naturally live." }
+            {
+              "term": "Biodiversity",
+              "meaning": "The variety of all the different species of organisms on Earth, or within an ecosystem."
+            },
+            {
+              "term": "Ecosystem",
+              "meaning": "All the living organisms in an area and the physical conditions they depend on."
+            },
+            {
+              "term": "Non-indigenous species",
+              "meaning": "A species that has been brought to an area where it does not naturally live."
+            }
           ]
         },
         {
@@ -39,8 +51,14 @@
     {
       "heading": "How human activity reduces biodiversity",
       "blocks": [
-        { "type": "paragraph", "text": "Rapid growth in the human population and a higher standard of living mean that more resources are used and more waste is produced." },
-        { "type": "subheading", "text": "Pollution" },
+        {
+          "type": "paragraph",
+          "text": "Rapid growth in the human population and a higher standard of living mean that more resources are used and more waste is produced."
+        },
+        {
+          "type": "subheading",
+          "text": "Pollution"
+        },
         {
           "type": "paragraph",
           "text": "Unless waste and chemicals are properly handled, more pollution is caused. Pollution kills plants and animals, which can reduce biodiversity."
@@ -49,15 +67,42 @@
           "type": "table",
           "columns": ["Where", "Pollutant", "Harm to living things"],
           "rows": [
-            ["Water", "Sewage", "Bacteria multiply and use up oxygen in respiration, so water animals cannot respire. It can also contain pathogens"],
-            ["Water", "Fertiliser", "Causes eutrophication, which lowers the oxygen in the water and kills fish"],
-            ["Water", "Pesticides and toxic chemicals", "Kill organisms and can build up in food chains"],
-            ["Water", "Plastics and litter", "Animals are trapped or harmed if they swallow it. Most plastics are not biodegradable"],
-            ["Air", "Smoke and acidic gases", "Acidic gases damage leaves, so there is less photosynthesis, and they can cause acid rain"],
-            ["Land", "Landfill and toxic chemicals", "Waste takes up land and toxic chemicals harm organisms"]
+            [
+              "Water",
+              "Sewage",
+              "Bacteria multiply and use up oxygen in respiration, so water animals cannot respire. It can also contain pathogens"
+            ],
+            [
+              "Water",
+              "Fertiliser",
+              "Causes eutrophication, which lowers the oxygen in the water and kills fish"
+            ],
+            [
+              "Water",
+              "Pesticides and toxic chemicals",
+              "Kill organisms and can build up in food chains"
+            ],
+            [
+              "Water",
+              "Plastics and litter",
+              "Animals are trapped or harmed if they swallow it. Most plastics are not biodegradable"
+            ],
+            [
+              "Air",
+              "Smoke and acidic gases",
+              "Acidic gases damage leaves, so there is less photosynthesis, and they can cause acid rain"
+            ],
+            [
+              "Land",
+              "Landfill and toxic chemicals",
+              "Waste takes up land and toxic chemicals harm organisms"
+            ]
           ]
         },
-        { "type": "subheading", "text": "Eutrophication" },
+        {
+          "type": "subheading",
+          "text": "Eutrophication"
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -74,7 +119,10 @@
             ]
           }
         },
-        { "type": "subheading", "text": "Land use, non-indigenous species and overfishing" },
+        {
+          "type": "subheading",
+          "text": "Land use, non-indigenous species and overfishing"
+        },
         {
           "type": "list",
           "items": [
@@ -99,7 +147,10 @@
     {
       "heading": "Protecting biodiversity",
       "blocks": [
-        { "type": "paragraph", "text": "Humans can also have positive effects. Only recently have measures been taken to try to stop the reduction in biodiversity." },
+        {
+          "type": "paragraph",
+          "text": "Humans can also have positive effects. Only recently have measures been taken to try to stop the reduction in biodiversity."
+        },
         {
           "type": "list",
           "items": [
@@ -123,7 +174,10 @@
     {
       "heading": "Calculations with populations",
       "blocks": [
-        { "type": "paragraph", "text": "Questions often give population data. Work out the change first, then divide." },
+        {
+          "type": "paragraph",
+          "text": "Questions often give population data. Work out the change first, then divide."
+        },
         {
           "type": "equation",
           "label": "Mean annual increase",
@@ -143,11 +197,30 @@
             "alt": "Practice calculating the mean annual increase of a population in millions per year.",
             "question": "The population of a region rose from {start} million to {end} million in {years} years. Calculate the mean annual increase in millions per year, to 2 decimal places.",
             "variables": [
-              { "id": "start", "min": 100, "max": 500, "step": 50 },
-              { "id": "end", "min": 600, "max": 1000, "step": 50 },
-              { "id": "years", "min": 10, "max": 50, "step": 10 }
+              {
+                "id": "start",
+                "min": 100,
+                "max": 500,
+                "step": 50
+              },
+              {
+                "id": "end",
+                "min": 600,
+                "max": 1000,
+                "step": 50
+              },
+              {
+                "id": "years",
+                "min": 10,
+                "max": 50,
+                "step": 10
+              }
             ],
-            "answer": { "formula": "(end - start) / years", "unit": "million per year", "decimals": 2 },
+            "answer": {
+              "formula": "(end - start) / years",
+              "unit": "million per year",
+              "decimals": 2
+            },
             "working": [
               "Increase = {end} − {start} million.",
               "Mean annual increase = increase ÷ {years} years.",
@@ -185,34 +258,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 7.8", "AQA T 4.7.3.1", "AQA T 4.7.3.2"],
-      "exam_phrases": [
-        "more / different types of food available",
-        "more / different types of habitat / shelter or nest sites available",
-        "bacteria respire aerobically, which lowers the oxygen concentration in the water",
-        "algae block light so plants cannot photosynthesise",
-        "pesticide washed into river and kills organisms",
-        "build-up in food chains",
-        "there is less photosynthesis; the trees are burned",
-        "may be a predator therefore control prey population"
-      ],
-      "mistakes": [
-        {
-          "wrong": "To increase biodiversity, protect habitats and recycle more.",
-          "right": "\"Protect or conserve habitats\" and \"recycling\" are ignored. Give a specific action, such as plant trees, rewilding hedgerows, wider field margins, reducing pesticides or reducing pollution."
-        },
-        {
-          "wrong": "The fish died because the sewage contained pathogenic bacteria that caused disease.",
-          "right": "This is ignored. Explain that bacteria decay the organic matter, respire aerobically and use up oxygen, so the fish have less oxygen and less energy supply."
-        },
-        {
-          "wrong": "A prey species is important because it provides food for predators.",
-          "right": "\"Provides food\" is ignored. Write that it provides energy to the predator."
-        },
-        {
-          "wrong": "More trees mean more food available for animals.",
-          "right": "\"More food available\" is ignored. Write more different types of food, or more different habitats and shelter."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "f1a8fdaa-b6a8-4a76-a427-0193d06423dd",
         "source": "AQA jun 2018, Paper 2 (H), Q07.4",
@@ -230,33 +275,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 9.9"],
-      "exam_phrases": [
-        "nitrates cause algal bloom / rapid growth of algae",
-        "algae / water plants are deprived of light",
-        "these algae / water plants die",
-        "oxygen concentration in water decreases (due to decomposition)",
-        "it outcompeted the natural plants",
-        "no natural herbivores eat it",
-        "competition between species for resources",
-        "signal crayfish may carry parasites which cause disease in the indigenous population",
-        "reduce the amount of fishing / fishing quotas",
-        "breed in captivity / use fish farms",
-        "do not fish in protected zones / breeding grounds"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Eutrophication is caused by a build-up of nitrogen in the water.",
-          "right": "\"Nitrogen\" is ignored. Write that nitrates build up in the water, from fertiliser, run-off or sewage."
-        },
-        {
-          "wrong": "Signal crayfish decrease the native crayfish only because they eat them.",
-          "right": "When asked for one other reason, write competition between species for resources, such as food or habitat, or that signal crayfish carry parasites that cause disease in the native population."
-        },
-        {
-          "wrong": "Water lilies cover the lake, so biodiversity falls.",
-          "right": "Explain why: less light reaches the water, so less photosynthesis in plants below, and less food for animals. Oxygen concentration also falls."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "5905de0b-c496-4f9d-8227-8df04475b50e",
         "source": "EDEXCEL jun 2022, Paper 2 (F), Q6(b)",
@@ -273,29 +291,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 6.1b"],
-      "exam_phrases": [
-        "community is the total number of butterflies in an area",
-        "biodiversity takes into account how many different species are present",
-        "butterflies depend on buddleia for food",
-        "foxes and badgers depend on buddleia for cover",
-        "buddleia outcompetes other plants",
-        "other plants decrease because they lack light / water / minerals / space",
-        "there is less variety of types of butterflies / plants"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A large community means a high biodiversity.",
-          "right": "A large community means lots of butterflies. Low biodiversity means they may be of the same or few species."
-        },
-        {
-          "wrong": "Buddleia is a pest because it spreads quickly.",
-          "right": "In a six-mark answer, give both a positive and a negative action. Positive: butterflies depend on it for food and foxes and badgers for cover. Negative: it outcompetes other plants, which reduces biodiversity."
-        },
-        {
-          "wrong": "A fall from 1.3 million to 400 000 is a percentage decrease of 69.23 %.",
-          "right": "69.23 is the unrounded working. When the question asks for 2 significant figures, the final answer is 69 %."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "22a52466-58ee-48b7-a54c-cff24378f620",
         "source": "OCR jun 2023, Paper 4, Q20(c)",

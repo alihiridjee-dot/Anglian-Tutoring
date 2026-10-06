@@ -194,29 +194,7 @@
   ],
   "boards": {
     "edexcel": {
-      "spec_codes": [
-        "EDEX 8.11"
-      ],
-      "exam_phrases": [
-        "same mass of organisms",
-        "same volume of indicator",
-        "same concentration of indicator",
-        "same temperature",
-        "same volume / size of test tube",
-        "repeat the experiment",
-        "use a control",
-        "without any (live) organisms / with a mass of inert object e.g. glass beads"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A control is the same test tube and gauze with no living organisms, and no indicator.",
-          "right": "A control has the same test tube, gauze and bung **with** indicator, but without any living organisms, or with an inert mass such as stones, dead peas or glass beads."
-        },
-        {
-          "wrong": "Keep the time the same so that the results are comparable.",
-          "right": "References to time are ignored when the time is already stated in the question. Give another variable: the same mass of organisms, volume of indicator, temperature or size of tube."
-        }
-      ],
+      "spec_codes": ["EDEX 8.11"],
       "worked_example": {
         "exemplar_id": "39a96123-4f41-4554-b707-676a7b9ee1ea",
         "source": "EDEXCEL jun 2019, Paper 2 (F), Q9(a)(i)",
@@ -231,32 +209,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 7.8"
-      ],
-      "exam_phrases": [
-        "electric heater",
-        "electric incubator / electric (water) bath",
-        "wear goggles",
-        "tie (long) hair back",
-        "secure loose clothing",
-        "use gauze under flask / use heatproof mat",
-        "wear gloves"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Wear a face mask to stay safe when heating the water bath.",
-          "right": "\"Face mask\" is ignored. Give a precaution such as wearing goggles, tying long hair back, securing loose clothing, wearing gloves or using a heatproof mat."
-        },
-        {
-          "wrong": "Be careful not to touch the hot equipment.",
-          "right": "\"Do not touch hot equipment\" is ignored. Name a specific precaution."
-        },
-        {
-          "wrong": "Keep the flask at a constant temperature using a Bunsen burner.",
-          "right": "The Bunsen burner is the method already given. Another way is an electric heater, electric incubator or electric water bath."
-        }
-      ],
+      "spec_codes": ["OCR 7.8"],
       "worked_example": {
         "exemplar_id": "94ae723f-c3e0-42a7-b16e-45ea024765e8",
         "source": "OCR nov 2020, Paper 1, Q17(a)(ii)",

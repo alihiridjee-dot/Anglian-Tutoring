@@ -123,33 +123,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA T 4.3.1.6",
-        "AQA 3.3"
-      ],
-      "exam_phrases": [
-        "skin (acts as a barrier)",
-        "mucus in trachea / bronchi",
-        "mucus in nose",
-        "cilia (in trachea / bronchi / respiratory tract)",
-        "(hydrochloric) acid in stomach",
-        "(mucus) traps bacteria",
-        "tears contain enzymes to kill bacteria"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The body prevents pathogens entering because white blood cells make antibodies.",
-          "right": "References to the immune response are ignored when asked how pathogens are prevented from entering. Give skin, mucus, cilia or stomach acid."
-        },
-        {
-          "wrong": "Hairs in the nose stop pathogens entering.",
-          "right": "References to hairs are ignored. Say there is mucus in the nose that traps pathogens."
-        },
-        {
-          "wrong": "The skin defends the body because scabs and clots form.",
-          "right": "Scabs and clots are ignored when asked how the skin defends the body. Say the skin is a physical barrier that stops pathogens entering, or that it produces oil (sebum) or sweat."
-        }
-      ],
+      "spec_codes": ["AQA T 4.3.1.6", "AQA 3.3"],
       "worked_example": {
         "exemplar_id": "a915096f-4270-4304-bcfc-e5d1749ac5f3",
         "source": "AQA jun 2019, Paper 1 (F), Q08.6",
@@ -167,27 +141,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.12"
-      ],
-      "exam_phrases": [
-        "to move / waft mucus",
-        "mucus traps pathogens",
-        "skin has glands that secrete lysozymes",
-        "lysozymes are enzymes found in tears, saliva and mucus",
-        "lysozymes kill some bacteria",
-        "hydrochloric acid has a low pH which kills many pathogens"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Cilia trap bacteria and stop them entering the body.",
-          "right": "\"Stop bacteria entering\" and \"trap bacteria\" are ignored for the function of cilia. Say cilia move or waft the mucus."
-        },
-        {
-          "wrong": "Mucus and skin are physical barriers, so that answer covers both physical barriers and chemical defences.",
-          "right": "A top-level answer needs more than one physical barrier and more than one chemical defence, such as lysozymes and hydrochloric acid, with what each one does."
-        }
-      ],
+      "spec_codes": ["EDEX 5.12"],
       "worked_example": {
         "exemplar_id": "d6d1be55-d658-4fa7-b322-66a186b343d8",
         "source": "EDEXCEL nov 2021, Paper 1 (F), Q9(c)",
@@ -205,28 +159,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.3k"
-      ],
-      "exam_phrases": [
-        "skin forms a barrier",
-        "enzymes in tears",
-        "acid in the stomach",
-        "acid / enzymes break down microbes",
-        "mucus released from goblet cells",
-        "mucus will trap the virus",
-        "cilia will waft the mucus away from the lungs"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Nose hairs stop the virus entering the lungs.",
-          "right": "Nose hairs and other defence barriers are ignored. Say mucus from goblet cells traps the virus and cilia waft the mucus away from the lungs."
-        },
-        {
-          "wrong": "Platelets produce antibodies and white blood cells clot the blood.",
-          "right": "Platelets clot the blood to prevent entry of pathogens. White blood cells produce antibodies to kill pathogens."
-        }
-      ],
+      "spec_codes": ["OCR 6.3k"],
       "worked_example": {
         "exemplar_id": "f9439e60-e00f-488e-ad56-570011c37435",
         "source": "OCR (series and year not recorded)",

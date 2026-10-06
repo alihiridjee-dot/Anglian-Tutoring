@@ -8,26 +8,57 @@
     {
       "heading": "Pathogens and communicable disease",
       "blocks": [
-        { "type": "paragraph", "text": "Some diseases can be passed from one organism to another. This section covers the four types of pathogen and how each one causes harm." },
+        {
+          "type": "paragraph",
+          "text": "Some diseases can be passed from one organism to another. This section covers the four types of pathogen and how each one causes harm."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Pathogen", "meaning": "An organism that causes disease." },
-            { "term": "Communicable disease", "meaning": "A disease caused by a pathogen that can be passed on, also called an infectious disease." },
-            { "term": "Non-communicable disease", "meaning": "A disease that is not caused by a pathogen, so it is not passed from person to person." }
+            {
+              "term": "Pathogen",
+              "meaning": "An organism that causes disease."
+            },
+            {
+              "term": "Communicable disease",
+              "meaning": "A disease caused by a pathogen that can be passed on, also called an infectious disease."
+            },
+            {
+              "term": "Non-communicable disease",
+              "meaning": "A disease that is not caused by a pathogen, so it is not passed from person to person."
+            }
           ]
         },
         {
           "type": "table",
           "columns": ["Pathogen", "How it harms the host", "Example"],
           "rows": [
-            ["Bacteria", "Reproduce rapidly in the body. May release **toxins** (poisons) that damage tissues and make you feel ill.", "Salmonella"],
-            ["Viruses", "Live and reproduce inside cells. This damages the cells.", "Measles virus, tobacco mosaic virus"],
-            ["Fungi", "Infect plants or animals. Many spread as spores.", "Rose black spot, barley powdery mildew"],
-            ["Protists", "Single-celled organisms. Some live in a vector and pass to the host.", "Malaria"]
+            [
+              "Bacteria",
+              "Reproduce rapidly in the body. May release **toxins** (poisons) that damage tissues and make you feel ill.",
+              "Salmonella"
+            ],
+            [
+              "Viruses",
+              "Live and reproduce inside cells. This damages the cells.",
+              "Measles virus, tobacco mosaic virus"
+            ],
+            [
+              "Fungi",
+              "Infect plants or animals. Many spread as spores.",
+              "Rose black spot, barley powdery mildew"
+            ],
+            [
+              "Protists",
+              "Single-celled organisms. Some live in a vector and pass to the host.",
+              "Malaria"
+            ]
           ]
         },
-        { "type": "paragraph", "text": "Pathogens may infect plants or animals. Bacteria and viruses can reproduce rapidly inside the body, so an infection can get worse quickly." },
+        {
+          "type": "paragraph",
+          "text": "Pathogens may infect plants or animals. Bacteria and viruses can reproduce rapidly inside the body, so an infection can get worse quickly."
+        },
         {
           "type": "key-points",
           "items": [
@@ -41,7 +72,10 @@
     {
       "heading": "How pathogens are spread",
       "blocks": [
-        { "type": "paragraph", "text": "A pathogen has to get from one host to another. There are four main routes." },
+        {
+          "type": "paragraph",
+          "text": "A pathogen has to get from one host to another. There are four main routes."
+        },
         {
           "type": "list",
           "items": [
@@ -51,7 +85,10 @@
             "**Vectors:** an organism that carries the pathogen from one host to another. Mosquitos spread malaria. Ticks spread Lyme disease."
           ]
         },
-        { "type": "subheading", "text": "Spread in plants" },
+        {
+          "type": "subheading",
+          "text": "Spread in plants"
+        },
         {
           "type": "list",
           "items": [
@@ -68,14 +105,38 @@
             "prompt": "How is each pathogen mainly spread?",
             "groups": ["Air", "Food, water or contact", "Vector"],
             "items": [
-              { "text": "Measles virus in droplets from a sneeze", "group": 0 },
-              { "text": "Fungal spores blown on the wind", "group": 0 },
-              { "text": "Salmonella bacteria on badly prepared food", "group": 1 },
-              { "text": "HIV in blood shared on needles", "group": 1 },
-              { "text": "Ebola in body fluids", "group": 1 },
-              { "text": "Malaria protist carried by a mosquito", "group": 2 },
-              { "text": "Lyme disease bacteria carried by a tick", "group": 2 },
-              { "text": "Plant virus injected by feeding insects", "group": 2 }
+              {
+                "text": "Measles virus in droplets from a sneeze",
+                "group": 0
+              },
+              {
+                "text": "Fungal spores blown on the wind",
+                "group": 0
+              },
+              {
+                "text": "Salmonella bacteria on badly prepared food",
+                "group": 1
+              },
+              {
+                "text": "HIV in blood shared on needles",
+                "group": 1
+              },
+              {
+                "text": "Ebola in body fluids",
+                "group": 1
+              },
+              {
+                "text": "Malaria protist carried by a mosquito",
+                "group": 2
+              },
+              {
+                "text": "Lyme disease bacteria carried by a tick",
+                "group": 2
+              },
+              {
+                "text": "Plant virus injected by feeding insects",
+                "group": 2
+              }
             ]
           }
         },
@@ -92,8 +153,14 @@
     {
       "heading": "Reducing or preventing spread",
       "blocks": [
-        { "type": "paragraph", "text": "To stop a disease spreading, block the route it uses. Link each measure to the route it blocks." },
-        { "type": "subheading", "text": "In animals" },
+        {
+          "type": "paragraph",
+          "text": "To stop a disease spreading, block the route it uses. Link each measure to the route it blocks."
+        },
+        {
+          "type": "subheading",
+          "text": "In animals"
+        },
         {
           "type": "list",
           "items": [
@@ -104,7 +171,10 @@
             "**Vaccination:** most people become immune, so fewer people are exposed to the pathogen. Chickens in the UK are vaccinated so fewer bacteria reach food."
           ]
         },
-        { "type": "subheading", "text": "In plants" },
+        {
+          "type": "subheading",
+          "text": "In plants"
+        },
         {
           "type": "list",
           "items": [
@@ -144,33 +214,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 3.1", "AQA T 4.3.1.1"],
-      "exam_phrases": [
-        "coughs / sneezes (spread virus in droplets)",
-        "droplets / virus are inhaled",
-        "viruses enter cells",
-        "cells are damaged / killed",
-        "wash hands after using toilet / being sick",
-        "is not caused by a pathogen / infective organism",
-        "(mosquito) nets: to avoid being bitten"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Wash your hands to stop the spread of Salmonella.",
-          "right": "\"Wash hands\" on its own is ignored. Say when: after using the toilet or being sick, or before preparing or handling food."
-        },
-        {
-          "wrong": "Insecticides kill insects, so people do not get malaria.",
-          "right": "\"Kill insects\" unqualified is ignored. Say insecticides kill mosquitos, the vector."
-        },
-        {
-          "wrong": "Measles spreads by contact with an infected person.",
-          "right": "\"Contact with infected person\" unqualified is ignored. Say coughs and sneezes spread the virus in droplets, which are inhaled."
-        },
-        {
-          "wrong": "Social distancing stops the spread of HIV.",
-          "right": "Handwashing and social distancing are ignored for HIV. Say avoid sexual intercourse, use a condom, or do not share needles."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "2e3710f5-25dc-47ee-8e7d-1673228a0710",
         "source": "AQA jun 2019, Paper 1 (H), Q4.2",
@@ -188,29 +231,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.4", "EDEX 5.6"],
-      "exam_phrases": [
-        "(pathogens are organisms) that cause disease",
-        "(exchange of) bodily fluids",
-        "cough / sneeze into a tissue",
-        "avoid close contact with infected people",
-        "spread of TB is airborne droplets / TB is spread through the air",
-        "vaccination / immunisation: to provide immunity",
-        "so humans are more likely to be bitten"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A pathogen is a bacterium such as Streptococcus.",
-          "right": "Examples of pathogens are ignored unless they are linked to causing disease. Say a pathogen is an organism that causes disease."
-        },
-        {
-          "wrong": "Lyme disease has increased because there are more chipmunks.",
-          "right": "Complete the chain: more chipmunks means ticks have more food, or there are more ticks, so humans are more likely to be bitten."
-        },
-        {
-          "wrong": "Stop TB spreading by coughing.",
-          "right": "Give the precaution and the reason: cough or sneeze into a tissue, or avoid close contact, because TB is spread through the air in droplets."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "f03855e0-ecf0-42d5-b681-354df26d75e7",
         "source": "EDEXCEL nov 2021, Paper 1 (H), Q3(b)(ii)",
@@ -226,30 +246,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 6.3d", "OCR 6.3e"],
-      "exam_phrases": [
-        "beetles transmit bacteria to cucumber / plant (by feeding)",
-        "beetle acts as a vector",
-        "xylem transports water (to the leaves)",
-        "spread by wind",
-        "spores",
-        "enters leaves through the stomata",
-        "wheat is not a host for the fungus",
-        "kills the spores / fungus"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Fungal infections enter a leaf through holes or wounds.",
-          "right": "\"Holes in leaf\", wounds, roots and stem are ignored. Say the fungus enters leaves through the stomata."
-        },
-        {
-          "wrong": "The beetle spreads the disease to the plant.",
-          "right": "\"Disease\" and \"infection\" are ignored. Say the beetle acts as a vector and transmits the bacteria."
-        },
-        {
-          "wrong": "The sticky substance stops nutrients reaching the leaves.",
-          "right": "\"Nutrients\" is ignored. The xylem transports water, so less or no water reaches the leaves and the cells lose turgor."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "468ac7ad-ba76-4818-ad27-ac95da832d79",
         "source": "OCR jun 2025, Paper 4, Q23(a)",
@@ -267,7 +263,10 @@
         {
           "heading": "Detecting plant disease early",
           "blocks": [
-            { "type": "paragraph", "text": "Spread is easier to stop if the disease is found early." },
+            {
+              "type": "paragraph",
+              "text": "Spread is easier to stop if the disease is found early."
+            },
             {
               "type": "list",
               "items": [

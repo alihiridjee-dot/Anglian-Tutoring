@@ -17,11 +17,11 @@
           "items": [
             {
               "term": "Amino acid",
-              "meaning": "(Higher tier) A molecule with two different functional groups: an amino group, –NH₂, and a carboxyl group, –COOH."
+              "meaning": "(AQA: Higher tier) A molecule with two different functional groups: an amino group, –NH₂, and a carboxyl group, –COOH."
             },
             {
               "term": "Polypeptide",
-              "meaning": "(Higher tier) A polymer made when amino acids join by condensation polymerisation."
+              "meaning": "(AQA: Higher tier) A polymer made when amino acids join by condensation polymerisation."
             },
             {
               "term": "Protein",
@@ -32,14 +32,14 @@
         {
           "type": "list",
           "items": [
-            "(Higher tier) Amino acids have two different functional groups in one molecule.",
-            "(Higher tier) They react by condensation polymerisation to make polypeptides, losing water.",
-            "(Higher tier) Different amino acids can be combined in the same chain to make proteins."
+            "(AQA: Higher tier) Amino acids have two different functional groups in one molecule.",
+            "(AQA: Higher tier) They react by condensation polymerisation to make polypeptides, losing water.",
+            "(AQA: Higher tier) Different amino acids can be combined in the same chain to make proteins."
           ]
         },
         {
           "type": "equation",
-          "label": "(Higher tier) Glycine making a polypeptide",
+          "label": "(AQA: Higher tier) Glycine making a polypeptide",
           "formula": "n H₂NCH₂COOH → [–NHCH₂CO–]ₙ + n H₂O",
           "where": [
             "H₂NCH₂COOH is glycine, an amino acid.",
@@ -51,7 +51,7 @@
           "type": "key-points",
           "items": [
             "Proteins are polymers based on amino acids.",
-            "(Higher tier) Amino acids have two different functional groups and join by condensation polymerisation."
+            "(AQA: Higher tier) Amino acids have two different functional groups and join by condensation polymerisation."
           ]
         }
       ]
@@ -103,27 +103,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Natural polymer",
-            "Monomer"
-          ],
+          "columns": ["Natural polymer", "Monomer"],
           "rows": [
-            [
-              "DNA",
-              "Nucleotides"
-            ],
-            [
-              "Protein",
-              "Amino acids"
-            ],
-            [
-              "Starch",
-              "Sugars (glucose)"
-            ],
-            [
-              "Cellulose",
-              "Sugars (glucose)"
-            ]
+            ["DNA", "Nucleotides"],
+            ["Protein", "Amino acids"],
+            ["Starch", "Sugars (glucose)"],
+            ["Cellulose", "Sugars (glucose)"]
           ]
         },
         {
@@ -132,11 +117,7 @@
             "kind": "sort",
             "alt": "Sort each natural polymer or description by its monomer.",
             "prompt": "Sort each item by the monomer it is made from.",
-            "groups": [
-              "Nucleotides",
-              "Amino acids",
-              "Sugars"
-            ],
+            "groups": ["Nucleotides", "Amino acids", "Sugars"],
             "items": [
               {
                 "text": "DNA",
@@ -194,70 +175,21 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.3.3",
-        "AQA 4.7.3.4"
-      ],
-      "exam_phrases": [
-        "two polymer chains / strands",
-        "four (different) monomers / nucleotides",
-        "(double) helix / spiral",
-        "cytosine, guanine, adenine and thymine (C G A T)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "DNA is made of one polymer chain.",
-          "right": "Most DNA molecules are two polymer chains (strands) in the form of a double helix."
-        },
-        {
-          "wrong": "The naturally occurring polymers produced from glucose are DNA and protein.",
-          "right": "The polymers produced from glucose are starch and cellulose."
-        },
-        {
-          "wrong": "DNA is a straight, flat molecule.",
-          "right": "DNA has a (double) helix shape. A spiral is also accepted."
-        }
-      ],
+      "spec_codes": ["AQA 4.7.3.3", "AQA 4.7.3.4"],
       "worked_example": {
         "exemplar_id": "c8f7d81d-1920-4d29-a550-904e8d10c708",
         "source": "AQA jun 2020, Paper 2 (H), Q9.2",
         "question": "Glucose is produced when algae photosynthesise.\n\nName two naturally occurring polymers produced from glucose.",
         "marks": 2,
-        "answer_points": [
-          "Starch.",
-          "Cellulose (glycogen is also allowed)."
-        ],
+        "answer_points": ["Starch.", "Cellulose (glycogen is also allowed)."],
         "tip": "One mark for each polymer."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.25C"
-      ],
-      "exam_phrases": [
-        "DNA is a polymer made from four different monomers called nucleotides",
-        "starch is a polymer based on sugars",
-        "proteins are polymers based on amino acids"
-      ],
-      "mistakes": []
+      "spec_codes": ["EDEX 9.25C"]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.2h"
-      ],
-      "exam_phrases": [
-        "DNA: nucleotides",
-        "protein: amino acids",
-        "starch: sugars",
-        "glucose / monosaccharide",
-        "named nucleotides: adenine / thymine / cytosine / guanine"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The monomer of starch is a nucleotide.",
-          "right": "The monomer of starch is a sugar (glucose or monosaccharide). Nucleotides are the monomers of DNA."
-        }
-      ],
+      "spec_codes": ["OCR C6.2h"],
       "worked_example": {
         "exemplar_id": "fa7ac3df-b68d-49f6-9399-979ae2c76c88",
         "source": "OCR nov 2021, Paper 4, Q21(a)",

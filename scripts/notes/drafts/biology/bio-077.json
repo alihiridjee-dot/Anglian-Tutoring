@@ -8,7 +8,10 @@
     {
       "heading": "The urinary system",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) The urinary system makes urine and removes it from the body. Each part has one job." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) The urinary system makes urine and removes it from the body. Each part has one job."
+        },
         {
           "type": "list",
           "items": [
@@ -31,17 +34,35 @@
     {
       "heading": "Filtering the blood in the nephron",
       "blocks": [
-        { "type": "paragraph", "text": "Each kidney contains many tiny tubes called nephrons. Blood is filtered where it first meets the nephron." },
+        {
+          "type": "paragraph",
+          "text": "Each kidney contains many tiny tubes called nephrons. Blood is filtered where it first meets the nephron."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Nephron", "meaning": "A kidney tubule that filters blood and forms urine." },
-            { "term": "Glomerulus", "meaning": "A tangle of blood capillaries at the start of the nephron." },
-            { "term": "Bowman's capsule", "meaning": "The cup around the glomerulus that collects the filtered liquid, called the filtrate." },
-            { "term": "Selective reabsorption", "meaning": "Useful substances are taken back into the blood from the nephron." }
+            {
+              "term": "Nephron",
+              "meaning": "A kidney tubule that filters blood and forms urine."
+            },
+            {
+              "term": "Glomerulus",
+              "meaning": "A tangle of blood capillaries at the start of the nephron."
+            },
+            {
+              "term": "Bowman's capsule",
+              "meaning": "The cup around the glomerulus that collects the filtered liquid, called the filtrate."
+            },
+            {
+              "term": "Selective reabsorption",
+              "meaning": "Useful substances are taken back into the blood from the nephron."
+            }
           ]
         },
-        { "type": "subheading", "text": "Filtration" },
+        {
+          "type": "subheading",
+          "text": "Filtration"
+        },
         {
           "type": "list",
           "items": [
@@ -62,8 +83,14 @@
     {
       "heading": "Reabsorption and making urine",
       "blocks": [
-        { "type": "paragraph", "text": "The filtrate contains useful substances as well as waste. The rest of the nephron takes back what the body needs. Try putting the stages in order." },
-        { "type": "subheading", "text": "What is reabsorbed" },
+        {
+          "type": "paragraph",
+          "text": "The filtrate contains useful substances as well as waste. The rest of the nephron takes back what the body needs. Try putting the stages in order."
+        },
+        {
+          "type": "subheading",
+          "text": "What is reabsorbed"
+        },
         {
           "type": "list",
           "items": [
@@ -121,23 +148,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 5.10"],
-      "exam_phrases": [
-        "glucose and urea are filtered (out of the blood)",
-        "protein is not filtered (out of the blood)",
-        "all glucose reabsorbed (back into the blood)",
-        "urea (mostly) not reabsorbed or urea passes out in urine",
-        "blood entering the kidneys goes through filtration"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Glucose is not filtered, so there is no glucose in the urine.",
-          "right": "Glucose and urea are both filtered out of the blood. All the glucose is then reabsorbed back into the blood, so none is left in the urine."
-        },
-        {
-          "wrong": "Protein is filtered out of the blood and then reabsorbed.",
-          "right": "Protein is not filtered out of the blood at all."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "012fa7cc-ebb5-46ca-9dcc-6b8c626d0800",
         "source": "AQA jun 2024, Paper 2 (H), Q08.2",
@@ -154,28 +164,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.18B", "EDEX 7.19B"],
-      "exam_phrases": [
-        "ultrafiltration",
-        "the glomerulus puts pressure on the blood, and the liquid part passes into the Bowman's capsule",
-        "protein molecules are too large to pass through",
-        "glucose is selectively reabsorbed back into the blood in the PCT",
-        "by active transport, against the concentration gradient",
-        "through the ureters, to the bladder, through the urethra"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Glucose is reabsorbed in the Bowman's capsule.",
-          "right": "No glucose is reabsorbed in the Bowman's capsule. Glucose is filtered into it at the same concentration as in the blood, then reabsorbed in the first coiled tubule (PCT)."
-        },
-        {
-          "wrong": "There is no protein in the urine because the kidney reabsorbs it.",
-          "right": "Protein cannot pass into the nephron during ultrafiltration, because its molecules are too large to pass through."
-        },
-        {
-          "wrong": "Urine travels from the kidney through the urethra to the bladder.",
-          "right": "The route is through the ureters to the bladder, where it is stored, and then through the urethra and out of the body."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "f20a6b7e-971c-4616-bb14-ede4aa2073a4",
         "source": "EDEXCEL jun 2024, Paper 2 (H), Q10(b)(ii)",
@@ -194,24 +182,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 3.3h", "OCR 3.3g"],
-      "exam_phrases": [
-        "Bowman's capsule",
-        "proximal convoluted tubule",
-        "loop of Henlé",
-        "second coiled region",
-        "collecting duct",
-        "kidney tubule"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The liquid passes through the Bowman's capsule, the loop of Henlé, the proximal convoluted tubule, the second coiled region and the collecting duct.",
-          "right": "The proximal convoluted tubule comes before the loop of Henlé. The order is Bowman's capsule, proximal convoluted tubule, loop of Henlé, second coiled region, collecting duct."
-        },
-        {
-          "wrong": "650 ml per hour × 24 = 15 600 litres.",
-          "right": "The second mark is for converting units. 650 × 24 = 15 600 ml, and 15 600 ÷ 1000 = 15.6 litres."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "673ec240-ce96-4600-bef2-c5e8678f4f99",
         "source": "OCR nov 2020, Paper 3, Q17(b)",

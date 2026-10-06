@@ -40,10 +40,7 @@
         },
         {
           "type": "key-points",
-          "items": [
-            "Like poles repel. Unlike poles attract.",
-            "The forces act without contact."
-          ]
+          "items": ["Like poles repel. Unlike poles attract.", "The forces act without contact."]
         }
       ]
     },
@@ -72,10 +69,7 @@
             "kind": "sort",
             "alt": "Sort materials into those a magnet attracts and those it does not.",
             "prompt": "Is the material attracted to a magnet?",
-            "groups": [
-              "Attracted",
-              "Not attracted"
-            ],
+            "groups": ["Attracted", "Not attracted"],
             "items": [
               {
                 "text": "Iron",
@@ -146,31 +140,19 @@
           "diagram": {
             "kind": "compare",
             "alt": "Permanent magnets compared with induced magnets.",
-            "items": [
-              "Permanent magnet",
-              "Induced magnet"
-            ],
+            "items": ["Permanent magnet", "Induced magnet"],
             "rows": [
               {
                 "feature": "Has its own magnetic field",
-                "values": [
-                  "Yes, always",
-                  "Only while in a magnetic field"
-                ]
+                "values": ["Yes, always", "Only while in a magnetic field"]
               },
               {
                 "feature": "When a magnet is taken away",
-                "values": [
-                  "Keeps its magnetism",
-                  "Loses most or all of its magnetism quickly"
-                ]
+                "values": ["Keeps its magnetism", "Loses most or all of its magnetism quickly"]
               },
               {
                 "feature": "Force from another permanent magnet",
-                "values": [
-                  "Attraction or repulsion",
-                  "Always attraction"
-                ]
+                "values": ["Attraction or repulsion", "Always attraction"]
               }
             ]
           }
@@ -217,32 +199,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.1.1",
-        "AQA T 6.7.1.1"
-      ],
-      "exam_phrases": [
-        "bring two unlike poles close together",
-        "bring two like poles close together",
-        "the paperclip would still be attracted to the magnet",
-        "because of induced magnetism",
-        "(only) the (permanent) magnet can be repelled",
-        "any repulsion shows the iron bar is a permanent magnet"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Attraction shows that an iron bar is a permanent magnet.",
-          "right": "Only repulsion shows a permanent magnet. If one end is attracted to both poles it is not a permanent magnet."
-        },
-        {
-          "wrong": "The iron rods move apart because they become charged.",
-          "right": "They become (induced) magnets, temporarily magnetised, with the same polarity at each end. Saying they become charged is not accepted."
-        },
-        {
-          "wrong": "A paper clip would not be attracted to the south pole because it is not a magnet.",
-          "right": "It would still be attracted, because of induced magnetism. The paper clip becomes an induced (temporary) magnet."
-        }
-      ],
+      "spec_codes": ["AQA 4.7.1.1", "AQA T 6.7.1.1"],
       "worked_example": {
         "exemplar_id": "dc84c266-a9d8-451d-926d-b7a45b0a2613",
         "source": "AQA jun 2018, Paper 2 (H), Q02.2",
@@ -257,33 +214,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 12.1",
-        "EDEX 12.2",
-        "EDEX 12.3"
-      ],
-      "exam_phrases": [
-        "steel is magnetic (material)",
-        "aluminium is non-magnetic (material)",
-        "remove the magnet (from the paper clips)",
-        "paperclips no longer attracted to each other",
-        "would be magnetised (when switch is closed)",
-        "would be demagnetised when switch is open"
-      ],
-      "mistakes": [
-        {
-          "wrong": "All metals are attracted to a magnet, so the cans stick to the roller.",
-          "right": "Steel is a magnetic material and aluminium is a non-magnetic material. Only the steel cans are attracted."
-        },
-        {
-          "wrong": "To test whether paper clips kept any magnetism, see if a magnet attracts them.",
-          "right": "A magnet attracts any magnetic material, so this is not accepted. Use a plotting compass, or bring the clips together and look for attraction or repulsion."
-        },
-        {
-          "wrong": "An iron rod is used in the demonstration because it is a permanent magnet.",
-          "right": "Iron is magnetised when the switch is closed and demagnetised when it is open. It is not a permanent magnet."
-        }
-      ],
+      "spec_codes": ["EDEX 12.1", "EDEX 12.2", "EDEX 12.3"],
       "worked_example": {
         "exemplar_id": "281abdfa-cffa-4972-86c2-38d105a6d501",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q5(a)",
@@ -298,28 +229,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P4.1a",
-        "OCR P4.1b"
-      ],
-      "exam_phrases": [
-        "Induced magnets lose their magnetism (when away from a magnetic field)",
-        "Permanent magnets retain their magnetism (when away from a magnetic field)",
-        "in the magnetic field (of the bar magnet)",
-        "the paperclip is magnetised by the magnet",
-        "using a (plotting) compass",
-        "it is not magnetic"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Iron filings are another piece of equipment to investigate a magnetic field.",
-          "right": "Iron filings were already used, so they score nothing. Use a plotting compass."
-        },
-        {
-          "wrong": "A wooden stand is used so the magnet is not stuck to the stand.",
-          "right": "Not being stuck to the stand is ignored. Wood is not magnetic, so it would not attract the magnet or interfere with the experiment."
-        }
-      ],
+      "spec_codes": ["OCR P4.1a", "OCR P4.1b"],
       "worked_example": {
         "exemplar_id": "f11767b3-2ae4-4976-b3fc-04c47f13f3dc",
         "source": "OCR jun 2019, Paper 1, Q20(b)",

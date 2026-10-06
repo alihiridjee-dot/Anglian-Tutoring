@@ -8,12 +8,21 @@
     {
       "heading": "Indicator species for water and air",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) Some organisms are found only in clean places and some only in polluted ones. This section covers the main indicator species." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Some organisms are found only in clean places and some only in polluted ones. This section covers the main indicator species."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Indicator species", "meaning": "A species whose presence or absence shows the level of pollution in an area." },
-            { "term": "Pollution", "meaning": "Harmful substances released into the water or air." }
+            {
+              "term": "Indicator species",
+              "meaning": "A species whose presence or absence shows the level of pollution in an area."
+            },
+            {
+              "term": "Pollution",
+              "meaning": "Harmful substances released into the water or air."
+            }
           ]
         },
         {
@@ -26,27 +35,51 @@
             "options": [
               {
                 "label": "Freshwater shrimp",
-                "results": ["Water", "Clean water", "Freshwater shrimps are not found in polluted water"]
+                "results": [
+                  "Water",
+                  "Clean water",
+                  "Freshwater shrimps are not found in polluted water"
+                ]
               },
               {
                 "label": "Stonefly",
-                "results": ["Water", "Clean water", "Stoneflies are clean water indicators and are not found in polluted water"]
+                "results": [
+                  "Water",
+                  "Clean water",
+                  "Stoneflies are clean water indicators and are not found in polluted water"
+                ]
               },
               {
                 "label": "Sludgeworm",
-                "results": ["Water", "Polluted water", "Sludgeworms are found where the oxygen concentration is low"]
+                "results": [
+                  "Water",
+                  "Polluted water",
+                  "Sludgeworms are found where the oxygen concentration is low"
+                ]
               },
               {
                 "label": "Bloodworm",
-                "results": ["Water", "Polluted water", "Bloodworms in a pond show that the water is polluted"]
+                "results": [
+                  "Water",
+                  "Polluted water",
+                  "Bloodworms in a pond show that the water is polluted"
+                ]
               },
               {
                 "label": "Lichen",
-                "results": ["Air", "Air quality", "Lichens are sensitive to air pollution, so mostly sensitive species means low pollution"]
+                "results": [
+                  "Air",
+                  "Air quality",
+                  "Lichens are sensitive to air pollution, so mostly sensitive species means low pollution"
+                ]
               },
               {
                 "label": "Blackspot fungus on roses",
-                "results": ["Air", "Sulfur dioxide level", "Blackspot fungus will not grow where there is a high concentration of sulfur dioxide"]
+                "results": [
+                  "Air",
+                  "Sulfur dioxide level",
+                  "Blackspot fungus will not grow where there is a high concentration of sulfur dioxide"
+                ]
               }
             ]
           }
@@ -63,7 +96,10 @@
     {
       "heading": "Pollution and oxygen in water",
       "blocks": [
-        { "type": "paragraph", "text": "Pollution such as sewage lowers the oxygen concentration in water. Species then survive or disappear according to how much oxygen they need." },
+        {
+          "type": "paragraph",
+          "text": "Pollution such as sewage lowers the oxygen concentration in water. Species then survive or disappear according to how much oxygen they need."
+        },
         {
           "type": "list",
           "items": [
@@ -85,14 +121,26 @@
     {
       "heading": "Using indicator species as evidence",
       "blocks": [
-        { "type": "paragraph", "text": "To evaluate the use of indicator species, look at what they show and what they cannot show." },
+        {
+          "type": "paragraph",
+          "text": "To evaluate the use of indicator species, look at what they show and what they cannot show."
+        },
         {
           "type": "table",
           "columns": ["Strength", "Limitation"],
           "rows": [
-            ["Simple: finding the species in a sample shows the level of pollution", "Shows that an area is polluted, not which pollutant caused it"],
-            ["Linked to measured data, such as a low oxygen concentration", "The right species must be identified correctly"],
-            ["Species that are absent from an area give evidence that it is polluted", "A species could be absent for another reason, so use other evidence too"]
+            [
+              "Simple: finding the species in a sample shows the level of pollution",
+              "Shows that an area is polluted, not which pollutant caused it"
+            ],
+            [
+              "Linked to measured data, such as a low oxygen concentration",
+              "The right species must be identified correctly"
+            ],
+            [
+              "Species that are absent from an area give evidence that it is polluted",
+              "A species could be absent for another reason, so use other evidence too"
+            ]
           ]
         },
         {
@@ -125,29 +173,6 @@
   "boards": {
     "edexcel": {
       "spec_codes": ["EDEX 9.16B"],
-      "exam_phrases": [
-        "stonefly and freshwater shrimp provide evidence for clean water",
-        "sludgeworm indicates polluted water",
-        "lichen is an air pollution indicator",
-        "blackspot fungus will not grow where areas have high sulfur dioxide",
-        "oxygen concentration is highest here so organisms can survive / respire",
-        "increased levels of (aerobic) bacteria use oxygen from the water in respiration",
-        "prevent plants from getting light so no oxygen produced by photosynthesis"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Lichens show that a river is polluted.",
-          "right": "Lichens are an air quality indicator, not a water quality indicator."
-        },
-        {
-          "wrong": "Freshwater shrimps and stoneflies live in polluted water.",
-          "right": "They are not found in polluted water. They are clean water indicators."
-        },
-        {
-          "wrong": "Sewage lowers the oxygen because it is full of bacteria.",
-          "right": "Explain the link: the bacteria respire and use oxygen from the water, or sewage prevents plants getting light so no oxygen is produced by photosynthesis."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "be35cd7f-e6a5-4e74-8ec9-42e82aff9b42",
         "source": "EDEXCEL jun 2023, Paper 2 (H), Q1(a)(iv)",
@@ -168,11 +193,7 @@
     "checked_at": "2026-10-01",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": [
-      "89c51c10-51a7-450f-a8d0-3a9ef7911de6"
-    ],
-    "exemplar_ids": [
-      "be35cd7f-e6a5-4e74-8ec9-42e82aff9b42"
-    ]
+    "spec_point_ids": ["89c51c10-51a7-450f-a8d0-3a9ef7911de6"],
+    "exemplar_ids": ["be35cd7f-e6a5-4e74-8ec9-42e82aff9b42"]
   }
 }

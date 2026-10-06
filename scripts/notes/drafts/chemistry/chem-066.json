@@ -38,36 +38,28 @@
           "type": "equation",
           "label": "Overall reaction in a hydrogen fuel cell",
           "formula": "2H₂ + O₂ → 2H₂O",
-          "where": [
-            "H₂ is hydrogen, the fuel",
-            "O₂ is oxygen",
-            "H₂O is water, the only product"
-          ]
+          "where": ["H₂ is hydrogen, the fuel", "O₂ is oxygen", "H₂O is water, the only product"]
         },
         {
           "type": "paragraph",
-          "text": "(Higher tier) At each electrode a half equation shows what happens. These are for an acidic electrolyte."
+          "text": "(AQA: Higher tier) At each electrode a half equation shows what happens. These are for an acidic electrolyte."
         },
         {
           "type": "equation",
           "label": "Negative electrode (anode): hydrogen oxidised",
           "formula": "H₂ → 2H⁺ + 2e⁻",
-          "where": [
-            "hydrogen loses electrons"
-          ]
+          "where": ["hydrogen loses electrons"]
         },
         {
           "type": "equation",
           "label": "Positive electrode (cathode): oxygen reduced",
           "formula": "O₂ + 4H⁺ + 4e⁻ → 2H₂O",
-          "where": [
-            "oxygen reacts with hydrogen ions and electrons to form water"
-          ]
+          "where": ["oxygen reacts with hydrogen ions and electrons to form water"]
         },
         {
           "type": "list",
           "items": [
-            "(Higher tier) For an alkaline electrolyte the half equations are H₂ + 2OH⁻ → 2H₂O + 2e⁻ and O₂ + 2H₂O + 4e⁻ → 4OH⁻.",
+            "(AQA: Higher tier) For an alkaline electrolyte the half equations are H₂ + 2OH⁻ → 2H₂O + 2e⁻ and O₂ + 2H₂O + 4e⁻ → 4OH⁻.",
             "Doubling the first half equation and adding the second gives the overall reaction, for either electrolyte."
           ]
         },
@@ -89,27 +81,15 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Hydrogen fuel cell",
-            "Rechargeable cell"
-          ],
+          "columns": ["Feature", "Hydrogen fuel cell", "Rechargeable cell"],
           "rows": [
             [
               "Energy source",
               "Hydrogen and oxygen supplied from outside",
               "Chemicals sealed in the cell; recharged by an external current"
             ],
-            [
-              "Time to refuel or recharge",
-              "Faster to refuel",
-              "Slower to recharge"
-            ],
-            [
-              "Distance before refuelling",
-              "Can travel further",
-              "Shorter range"
-            ],
+            ["Time to refuel or recharge", "Faster to refuel", "Slower to recharge"],
+            ["Distance before refuelling", "Can travel further", "Shorter range"],
             [
               "Voltage",
               "Constant while reactants are supplied",
@@ -128,10 +108,7 @@
             "kind": "sort",
             "alt": "Sort statements into advantages and disadvantages of a hydrogen fuel cell compared with a rechargeable cell.",
             "prompt": "Sort each statement into an advantage or a disadvantage of a hydrogen fuel cell.",
-            "groups": [
-              "Advantage",
-              "Disadvantage"
-            ],
+            "groups": ["Advantage", "Disadvantage"],
             "items": [
               {
                 "text": "It is faster to refuel than to recharge",
@@ -211,29 +188,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.2.2"
-      ],
-      "exam_phrases": [
-        "hydrogen is oxidised (to produce water)",
-        "hydrogen loses electrons",
-        "hydrogen + oxygen → water",
-        "faster to refuel (than recharging)",
-        "can travel further (before refuelling)",
-        "no toxic chemicals to dispose of at the end of the cell's life",
-        "hydrogen is made from fossil fuels / non-renewable resources",
-        "hydrogen is difficult to store; hydrogen is flammable / explosive; not many hydrogen filling stations"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Advantage: no emissions. Disadvantage: expensive.",
-          "right": "No emissions and an unqualified expensive are ignored. Say the only product is water, and that it costs more to refuel or to manufacture."
-        },
-        {
-          "wrong": "A fuel cell produces a potential difference because of its electrodes.",
-          "right": "References to electrodes are ignored. Say hydrogen is oxidised (it loses electrons) to produce water."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.2.2"],
       "worked_example": {
         "exemplar_id": "cb91103b-52eb-470f-a714-4915e8666498",
         "source": "AQA jun 2019, Paper 1 (F), Q04.6",
@@ -247,29 +202,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.26C",
-        "EDEX 5.27C"
-      ],
-      "exam_phrases": [
-        "hydrogen + oxygen → water",
-        "2H₂ + O₂ → 2H₂O",
-        "water is the (only) product",
-        "fuel cells operate as long as reactants are supplied",
-        "voltage drops in chemical cells as reactants are used up",
-        "storage of hydrogen is difficult because it is a gas",
-        "fuel cells are expensive to manufacture"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Hydrogen and water react in a fuel cell to make oxygen.",
-          "right": "Hydrogen and oxygen react, and water is the only product: hydrogen + oxygen → water."
-        },
-        {
-          "wrong": "Fuel cells are better than chemical cells.",
-          "right": "Give a conclusion with reasons. Either cell can be chosen, but suitable reasons must be given, and three points are needed for the top level."
-        }
-      ],
+      "spec_codes": ["EDEX 5.26C", "EDEX 5.27C"],
       "worked_example": {
         "exemplar_id": "5c6fd271-2851-4c54-9689-810ddd848783",
         "source": "EDEXCEL nov 2020, Paper 1 (H), Q7(b)",
@@ -287,26 +220,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.2q"
-      ],
-      "exam_phrases": [
-        "refuelling time (for a fuel cell) is less",
-        "fuel cell emits less CO₂ (a comparison of the figures)",
-        "mass (of car) is less with a fuel cell",
-        "cost of refuelling is more",
-        "fuel cell takes 356 minutes less to refuel"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The electric car takes 360 minutes and the fuel cell car takes 4 minutes.",
-          "right": "Just restating the data is ignored. Make a comparison: the fuel cell car takes 356 minutes less to refuel."
-        },
-        {
-          "wrong": "The electric car is faster.",
-          "right": "This is ignored. Use the data given: refuelling time, cost of refuelling, CO₂ emitted and mass of the car."
-        }
-      ],
+      "spec_codes": ["OCR C6.2q"],
       "worked_example": {
         "exemplar_id": "27ab86f3-fc58-4c28-9014-e030aa76d66d",
         "source": "OCR jun 2018, Paper 4, Q16(d)",

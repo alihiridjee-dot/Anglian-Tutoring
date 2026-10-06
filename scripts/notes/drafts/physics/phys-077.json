@@ -101,51 +101,27 @@
             "kind": "predictor",
             "alt": "Pick an object or filter and a colour of light to see what colour you see.",
             "prompt": "Pick an object or filter and the light that shines on it",
-            "result_labels": [
-              "Light reflected or transmitted",
-              "Light absorbed",
-              "Colour seen"
-            ],
+            "result_labels": ["Light reflected or transmitted", "Light absorbed", "Colour seen"],
             "options": [
               {
                 "label": "Red object in white light",
-                "results": [
-                  "Red light is reflected.",
-                  "All the other colours are absorbed.",
-                  "Red"
-                ]
+                "results": ["Red light is reflected.", "All the other colours are absorbed.", "Red"]
               },
               {
                 "label": "Red object in blue light",
-                "results": [
-                  "No light is reflected.",
-                  "The blue light is absorbed.",
-                  "Black"
-                ]
+                "results": ["No light is reflected.", "The blue light is absorbed.", "Black"]
               },
               {
                 "label": "Blue object in red light",
-                "results": [
-                  "No light is reflected.",
-                  "The red light is absorbed.",
-                  "Black"
-                ]
+                "results": ["No light is reflected.", "The red light is absorbed.", "Black"]
               },
               {
                 "label": "White object in green light",
-                "results": [
-                  "All the green light is reflected.",
-                  "Nothing is absorbed.",
-                  "Green"
-                ]
+                "results": ["All the green light is reflected.", "Nothing is absorbed.", "Green"]
               },
               {
                 "label": "Black object in white light",
-                "results": [
-                  "No light is reflected.",
-                  "All wavelengths are absorbed.",
-                  "Black"
-                ]
+                "results": ["No light is reflected.", "All wavelengths are absorbed.", "Black"]
               },
               {
                 "label": "White light through a green filter",
@@ -165,11 +141,7 @@
               },
               {
                 "label": "Red light through a blue filter",
-                "results": [
-                  "No light is transmitted.",
-                  "The red light is absorbed.",
-                  "Black"
-                ]
+                "results": ["No light is transmitted.", "The red light is absorbed.", "Black"]
               }
             ]
           }
@@ -208,31 +180,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.2.6"
-      ],
-      "exam_phrases": [
-        "(only) blue light is transmitted",
-        "all other colours / wavelengths / frequencies of light are absorbed",
-        "changes from red to black",
-        "the cap absorbs (all) the (blue) light",
-        "the green filter only transmits the light that is green",
-        "bees can detect UV radiation (but humans can't)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "When white light hits a green filter, the green light is absorbed.",
-          "right": "Green light is transmitted. All the other colours are absorbed."
-        },
-        {
-          "wrong": "A red cap looks a darker red under blue light.",
-          "right": "'Darker' is not enough. A red cap absorbs all the blue light and does not reflect it, so it appears black."
-        },
-        {
-          "wrong": "A blue object looks blue through a green filter.",
-          "right": "The green filter only transmits green light, and a blue object reflects no green, so the object appears black."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.2.6"],
       "worked_example": {
         "exemplar_id": "a09d84fd-cb64-4d8e-959d-1e22c6aa083c",
         "source": "AQA jun 2025, Paper 2 (F), Q05.7",
@@ -247,25 +195,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.3P"
-      ],
-      "exam_phrases": [
-        "no green light shines on the object",
-        "no red light is reflected from the object",
-        "differential absorption at surfaces",
-        "transmission of light through filters"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The green book still looks green under a red filter, because the book is green.",
-          "right": "The red filter transmits only red light, so no green light shines on the book. The book reflects only green, so no light is reflected and it appears black."
-        },
-        {
-          "wrong": "The book looks red because the filter is red.",
-          "right": "No red light is reflected from the green book, so it does not look red. It appears black."
-        }
-      ],
+      "spec_codes": ["EDEX 5.3P"],
       "worked_example": {
         "exemplar_id": "508ee286-45b9-429c-95ba-9ce9bbccc083",
         "source": "EDEXCEL nov 2021, Paper 1 (F), Q7(a)",
@@ -280,27 +210,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P5.3e"
-      ],
-      "exam_phrases": [
-        "the fish absorbs the green (light) / does not reflect the green (light)",
-        "the fish reflects red (light) only",
-        "there is no red (light) (to reflect)",
-        "the red filter absorbs all colours / frequencies / wavelengths except red",
-        "the filter transmits red light only",
-        "black because red paper only reflects red light"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A red paper looks purple in blue light.",
-          "right": "The red paper absorbs blue light and reflects no light, so it appears black (dark, without any colour)."
-        },
-        {
-          "wrong": "A red filter changes white light into red light.",
-          "right": "The red filter absorbs all the colours (wavelengths) except red. It transmits only red light."
-        }
-      ],
+      "spec_codes": ["OCR P5.3e"],
       "worked_example": {
         "exemplar_id": "900da5d6-dce3-48df-baf6-b227f32cb92b",
         "source": "OCR nov 2021, Paper 4, Q16(c)",

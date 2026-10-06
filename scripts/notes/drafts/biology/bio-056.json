@@ -8,12 +8,21 @@
     {
       "heading": "What a limiting factor is",
       "blocks": [
-        { "type": "paragraph", "text": "Photosynthesis only goes as fast as its scarcest need allows. This section names the factors that can hold it back." },
+        {
+          "type": "paragraph",
+          "text": "Photosynthesis only goes as fast as its scarcest need allows. This section names the factors that can hold it back."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Limiting factor", "meaning": "The factor in shortest supply, which sets the maximum rate of photosynthesis." },
-            { "term": "Rate", "meaning": "How much happens in a set time, for example bubbles of oxygen per second." }
+            {
+              "term": "Limiting factor",
+              "meaning": "The factor in shortest supply, which sets the maximum rate of photosynthesis."
+            },
+            {
+              "term": "Rate",
+              "meaning": "How much happens in a set time, for example bubbles of oxygen per second."
+            }
           ]
         },
         {
@@ -37,24 +46,59 @@
     {
       "heading": "Light intensity and carbon dioxide",
       "blocks": [
-        { "type": "paragraph", "text": "Light provides the energy and carbon dioxide is a reactant. If either is low, photosynthesis is slow." },
+        {
+          "type": "paragraph",
+          "text": "Light provides the energy and carbon dioxide is a reactant. If either is low, photosynthesis is slow."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "line-graph",
             "alt": "A line graph of rate of photosynthesis against light intensity. The rate rises steeply at low light intensity, then flattens. The rising part is labelled light is limiting. The flat part is labelled another factor is limiting.",
-            "x": { "label": "Light intensity", "min": 0, "max": 10, "ticks": [0, 2, 4, 6, 8, 10], "unit": "arbitrary units" },
-            "y": { "label": "Rate of photosynthesis" },
+            "x": {
+              "label": "Light intensity",
+              "min": 0,
+              "max": 10,
+              "ticks": [0, 2, 4, 6, 8, 10],
+              "unit": "arbitrary units"
+            },
+            "y": {
+              "label": "Rate of photosynthesis"
+            },
             "series": [
-              { "name": "Rate of photosynthesis", "points": [[0, 0.02], [1, 0.22], [2, 0.42], [3, 0.6], [4, 0.72], [5, 0.78], [6, 0.79], [8, 0.79], [10, 0.79]] }
+              {
+                "name": "Rate of photosynthesis",
+                "points": [
+                  [0, 0.02],
+                  [1, 0.22],
+                  [2, 0.42],
+                  [3, 0.6],
+                  [4, 0.72],
+                  [5, 0.78],
+                  [6, 0.79],
+                  [8, 0.79],
+                  [10, 0.79]
+                ]
+              }
             ],
             "bands": [
-              { "from": 0, "to": 5, "label": "Light is limiting" },
-              { "from": 5, "to": 10, "label": "Another factor is limiting" }
+              {
+                "from": 0,
+                "to": 5,
+                "label": "Light is limiting"
+              },
+              {
+                "from": 5,
+                "to": 10,
+                "label": "Another factor is limiting"
+              }
             ]
           }
         },
-        { "type": "subheading", "text": "Light intensity" },
+        {
+          "type": "subheading",
+          "text": "Light intensity"
+        },
         {
           "type": "list",
           "items": [
@@ -62,7 +106,10 @@
             "The line then levels off. Extra light makes no difference, because another factor is now limiting."
           ]
         },
-        { "type": "subheading", "text": "Carbon dioxide concentration" },
+        {
+          "type": "subheading",
+          "text": "Carbon dioxide concentration"
+        },
         {
           "type": "list",
           "items": [
@@ -82,8 +129,14 @@
     {
       "heading": "Temperature and chlorophyll",
       "blocks": [
-        { "type": "paragraph", "text": "Temperature affects the enzymes that control photosynthesis. Chlorophyll decides how much light the plant can absorb." },
-        { "type": "subheading", "text": "Temperature" },
+        {
+          "type": "paragraph",
+          "text": "Temperature affects the enzymes that control photosynthesis. Chlorophyll decides how much light the plant can absorb."
+        },
+        {
+          "type": "subheading",
+          "text": "Temperature"
+        },
         {
           "type": "list",
           "items": [
@@ -92,7 +145,10 @@
             "At a very high temperature the enzymes are denatured and photosynthesis stops, or the rate falls."
           ]
         },
-        { "type": "subheading", "text": "Chlorophyll" },
+        {
+          "type": "subheading",
+          "text": "Chlorophyll"
+        },
         {
           "type": "list",
           "items": [
@@ -114,19 +170,34 @@
     {
       "heading": "Measuring and calculating the rate",
       "blocks": [
-        { "type": "paragraph", "text": "You can measure the rate by counting bubbles of oxygen from pondweed in a set time. To change light intensity, move the lamp closer to or further from the pondweed." },
+        {
+          "type": "paragraph",
+          "text": "You can measure the rate by counting bubbles of oxygen from pondweed in a set time. To change light intensity, move the lamp closer to or further from the pondweed."
+        },
         {
           "type": "equation",
           "label": "Rate of photosynthesis",
           "formula": "rate = amount ÷ time",
-          "where": ["amount, for example the number of bubbles or the volume of oxygen in cm³", "time, for example in s or min"]
+          "where": [
+            "amount, for example the number of bubbles or the volume of oxygen in cm³",
+            "time, for example in s or min"
+          ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Data.", "text": "Pondweed releases 10 bubbles in 43 seconds." },
-            { "lead": "Calculate.", "text": "Rate = 10 ÷ 43 = 0.23255..." },
-            { "lead": "Round and add the unit.", "text": "To 3 significant figures the rate is 0.233 bubbles per second." }
+            {
+              "lead": "Data.",
+              "text": "Pondweed releases 10 bubbles in 43 seconds."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "Rate = 10 ÷ 43 = 0.23255..."
+            },
+            {
+              "lead": "Round and add the unit.",
+              "text": "To 3 significant figures the rate is 0.233 bubbles per second."
+            }
           ]
         },
         {
@@ -135,12 +206,20 @@
             "kind": "practice",
             "alt": "Practise calculating a rate of photosynthesis from the time taken to release 10 bubbles.",
             "question": "Pondweed releases 10 bubbles of oxygen in **{t} seconds**. Calculate the rate of photosynthesis in bubbles per second. Give your answer to 3 significant figures.",
-            "variables": [{ "id": "t", "min": 20, "max": 90, "step": 5 }],
-            "answer": { "formula": "10 / t", "unit": "bubbles per second", "decimals": 3 },
-            "working": [
-              "Rate = amount ÷ time",
-              "Rate = 10 ÷ {t} = **{answer}** bubbles per second"
-            ]
+            "variables": [
+              {
+                "id": "t",
+                "min": 20,
+                "max": 90,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "10 / t",
+              "unit": "bubbles per second",
+              "decimals": 3
+            },
+            "working": ["Rate = amount ÷ time", "Rate = 10 ÷ {t} = **{answer}** bubbles per second"]
           }
         },
         {
@@ -173,28 +252,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.2", "AQA T 4.4.1.2"],
-      "exam_phrases": [
-        "rate / photosynthesis is faster / higher",
-        "reactants / particles / molecules / enzymes have greater (kinetic) energy",
-        "(so) collide more frequently",
-        "higher / increase in temperature, or more carbon dioxide",
-        "(so) more photosynthesis, so more glucose / sugar made",
-        "a shortage of magnesium (ions), so less chlorophyll"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Rate = 0.23 bubbles per second.",
-          "right": "The question asked for 3 significant figures: 10 ÷ 43 = 0.233 bubbles per second. The unit must go with the answer."
-        },
-        {
-          "wrong": "The plants in the greenhouse with the wood burner grow faster because of the burning logs.",
-          "right": "Say what the logs do: they raise the temperature or release carbon dioxide. This gives more photosynthesis, so more glucose is made, and so more protein or cellulose."
-        },
-        {
-          "wrong": "Plants have yellow leaves because they have chlorosis.",
-          "right": "\"Chlorosis\" on its own is ignored. Say a shortage of magnesium (or nitrate or iron) ions means less chlorophyll is made."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "8088cbbf-af5e-46cf-9a58-5ffc32c6e04f",
         "source": "AQA jun 2025, Paper 1 (H), Q04.3",
@@ -209,9 +266,12 @@
       },
       "extra": [
         {
-          "heading": "Interacting factors and greenhouses (Higher tier)",
+          "heading": "Interacting factors and greenhouses (AQA: Higher tier)",
           "blocks": [
-            { "type": "paragraph", "text": "(Higher tier) Any one factor may be the limiting factor, and which one it is can change. This section covers graphs with more than one factor, light distance and greenhouses." },
+            {
+              "type": "paragraph",
+              "text": "(AQA: Higher tier) Any one factor may be the limiting factor, and which one it is can change. This section covers graphs with more than one factor, light distance and greenhouses."
+            },
             {
               "type": "list",
               "items": [
@@ -222,9 +282,12 @@
             },
             {
               "type": "equation",
-              "label": "Light intensity and distance (Higher tier)",
+              "label": "Light intensity and distance (AQA: Higher tier)",
               "formula": "light intensity ∝ 1 ÷ distance²",
-              "where": ["distance is from the lamp to the plant", "doubling the distance divides the light intensity by 4"]
+              "where": [
+                "distance is from the lamp to the plant",
+                "doubling the distance divides the light intensity by 4"
+              ]
             },
             {
               "type": "list",
@@ -240,23 +303,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.3"],
-      "exam_phrases": [
-        "keep the light at the same distance from the pondweed",
-        "count the number of bubbles / measure the oxygen produced",
-        "repeat at different temperatures",
-        "control carbon dioxide concentration / mass of pondweed",
-        "photosynthesis would stop because enzymes would be denatured"
-      ],
-      "mistakes": [
-        {
-          "wrong": "At 60 °C the enzymes in the plant are killed, so photosynthesis stops.",
-          "right": "\"Killed\" is rejected, and saying the plant or plant cells are denatured is ignored. Say photosynthesis stops because the enzymes are denatured."
-        },
-        {
-          "wrong": "Put the pondweed in water at different temperatures and count the bubbles.",
-          "right": "A plan needs three points from four. Also keep the light at the same distance and control the carbon dioxide concentration or the mass of pondweed."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "553289e5-36a5-4513-8f0b-5e3d24f11de1",
         "source": "EDEXCEL jun 2023, Paper 2 (H), Q5(c)",
@@ -274,23 +320,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 1.4e"],
-      "exam_phrases": [
-        "less / no light for photosynthesis",
-        "so less / no growth / food / glucose production",
-        "cloudiness reduces light for photosynthesis",
-        "more minerals, for photosynthesis / respiration / cell division / chlorophyll production / enzyme action",
-        "increased kinetic energy / molecules move faster"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The cloudy water means the plants get less light.",
-          "right": "Finish the link: less light means less photosynthesis, so less glucose is made and there is less growth."
-        },
-        {
-          "wrong": "The minerals are easier for the plants to take up.",
-          "right": "\"Easier to take up\" is ignored. Say the plants have more minerals available, which they use for things such as proteins, chlorophyll and cell walls."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "0f15263a-9e23-467a-94a9-6915389180e7",
         "source": "OCR jun 2025, Paper 4, Q20(c)",

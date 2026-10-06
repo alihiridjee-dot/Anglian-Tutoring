@@ -14,11 +14,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Component",
-            "Symbol",
-            "What it does"
-          ],
+          "columns": ["Component", "Symbol", "What it does"],
           "rows": [
             [
               "Cell",
@@ -30,31 +26,15 @@
               "Two or more cells joined end to end",
               "Supplies energy. Cells in series add their potential differences."
             ],
-            [
-              "Switch",
-              "A gap in the wire with a hinged contact",
-              "Opens or closes the circuit."
-            ],
-            [
-              "Fixed resistor",
-              "A rectangle on the wire",
-              "Has a constant resistance."
-            ],
+            ["Switch", "A gap in the wire with a hinged contact", "Opens or closes the circuit."],
+            ["Fixed resistor", "A rectangle on the wire", "Has a constant resistance."],
             [
               "Variable resistor",
               "A rectangle with an arrow through it",
               "Resistance can be changed by hand."
             ],
-            [
-              "Filament lamp",
-              "A circle with a cross inside",
-              "Transfers energy as light."
-            ],
-            [
-              "Motor",
-              "A circle with an M inside",
-              "Transfers energy as movement."
-            ],
+            ["Filament lamp", "A circle with a cross inside", "Transfers energy as light."],
+            ["Motor", "A circle with an M inside", "Transfers energy as movement."],
             [
               "Diode",
               "A triangle pointing at a bar",
@@ -75,16 +55,8 @@
               "A rectangle in a circle with two arrows pointing in",
               "Resistance changes with light intensity."
             ],
-            [
-              "Ammeter",
-              "A circle with an A inside",
-              "Measures current."
-            ],
-            [
-              "Voltmeter",
-              "A circle with a V inside",
-              "Measures potential difference."
-            ]
+            ["Ammeter", "A circle with an A inside", "Measures current."],
+            ["Voltmeter", "A circle with a V inside", "Measures potential difference."]
           ]
         },
         {
@@ -139,10 +111,7 @@
             "kind": "sort",
             "alt": "Sort each statement into ammeter or voltmeter.",
             "prompt": "Ammeter or voltmeter?",
-            "groups": [
-              "Ammeter",
-              "Voltmeter"
-            ],
+            "groups": ["Ammeter", "Voltmeter"],
             "items": [
               {
                 "text": "Connected in series with the component",
@@ -244,61 +213,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.2.1.1",
-        "AQA T 6.2.1.1"
-      ],
-      "exam_phrases": [
-        "ammeter in series with the resistor",
-        "voltmeter in parallel with the resistor",
-        "current",
-        "potential difference",
-        "allow p.d. or voltage",
-        "an LED / diode only allows current through in one direction"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The ammeter measures potential difference and the voltmeter measures current.",
-          "right": "The ammeter measures current. The voltmeter measures potential difference. Give them in that order."
-        },
-        {
-          "wrong": "The ammeter is connected in parallel with the resistor and the voltmeter in series.",
-          "right": "The ammeter is in series with the resistor. The voltmeter is in parallel with the resistor."
-        },
-        {
-          "wrong": "An LED lets current through in both directions.",
-          "right": "An LED only allows current through in one direction. It has a large resistance in the reverse direction."
-        }
-      ]
+      "spec_codes": ["AQA 4.2.1.1", "AQA T 6.2.1.1"]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 10.2",
-        "EDEX 10.4",
-        "EDEX 10.7",
-        "EDEX 10.16"
-      ],
-      "exam_phrases": [
-        "ammeter in series with component, voltmeter in parallel",
-        "potential difference / voltage",
-        "current (in the circuit)",
-        "add a variable resistor in series with the lamp / power supply",
-        "add a potential divider in parallel with the power supply"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The student could use fixed resistors to give a continuously variable voltage.",
-          "right": "Replacing the power supply, or using fixed resistors, an LDR or a thermistor, is ignored. Add a variable resistor in series, or a potential divider in parallel with the power supply."
-        },
-        {
-          "wrong": "A variable resistor is added but the answer does not say where it goes.",
-          "right": "The second mark needs the position: in series with the lamp or power supply. For a potential divider, it is in parallel with the power supply."
-        },
-        {
-          "wrong": "To find the resistance of resistors in parallel, the student only needs to read the ammeter.",
-          "right": "Two measurements are needed: the potential difference across the resistors (voltmeter) and the current in the circuit (ammeter)."
-        }
-      ],
+      "spec_codes": ["EDEX 10.2", "EDEX 10.4", "EDEX 10.7", "EDEX 10.16"],
       "worked_example": {
         "exemplar_id": "0d2734c3-fe7f-417d-a0e7-c749e28c8bf0",
         "source": "EDEXCEL jun 2019, Paper 2 (H), Q3(b)(iii)",
@@ -313,33 +231,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P3.2b",
-        "OCR P3.2k",
-        "OCR P3.2a"
-      ],
-      "exam_phrases": [
-        "Ammeter",
-        "Voltmeter",
-        "Change lamp for a (fixed) resistor",
-        "Measure current for different potential differences",
-        "light dependent resistor / LDR",
-        "diode"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The instrument that measures current is an ampmeter.",
-          "right": "Write ammeter. The spellings 'ampmeter' and 'anmeter' are ignored."
-        },
-        {
-          "wrong": "The resistance of a thermistor changes as the light intensity changes.",
-          "right": "A thermistor changes with temperature. A light dependent resistor (LDR) changes with light intensity."
-        },
-        {
-          "wrong": "A filament lamp has such a high resistance in one direction that no current passes.",
-          "right": "That describes a diode, not a filament lamp."
-        }
-      ],
+      "spec_codes": ["OCR P3.2b", "OCR P3.2k", "OCR P3.2a"],
       "worked_example": {
         "exemplar_id": "02d778ff-a56f-4799-8ed5-69069b84ae04",
         "source": "OCR jun 2024, Paper 3, Q18(c)",

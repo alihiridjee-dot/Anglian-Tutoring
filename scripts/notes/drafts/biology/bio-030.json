@@ -8,7 +8,10 @@
     {
       "heading": "What blood is made of",
       "blocks": [
-        { "type": "paragraph", "text": "Blood is a tissue. Red blood cells, white blood cells and platelets are suspended in a liquid called plasma." },
+        {
+          "type": "paragraph",
+          "text": "Blood is a tissue. Red blood cells, white blood cells and platelets are suspended in a liquid called plasma."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -16,10 +19,22 @@
             "alt": "The four parts of blood: plasma, red blood cells, white blood cells and platelets. Tap each to learn its job.",
             "prompt": "Tap each part of the blood to learn its job.",
             "parts": [
-              { "name": "Plasma", "detail": "The liquid part of blood. It carries dissolved substances around the body, such as carbon dioxide." },
-              { "name": "Red blood cells", "detail": "Carry oxygen from the lungs to the cells. They contain haemoglobin, which joins to oxygen." },
-              { "name": "White blood cells", "detail": "Part of the immune system. They fight pathogens by engulfing them or by making antibodies." },
-              { "name": "Platelets", "detail": "Small fragments of cells. They help the blood to clot at a wound." }
+              {
+                "name": "Plasma",
+                "detail": "The liquid part of blood. It carries dissolved substances around the body, such as carbon dioxide."
+              },
+              {
+                "name": "Red blood cells",
+                "detail": "Carry oxygen from the lungs to the cells. They contain haemoglobin, which joins to oxygen."
+              },
+              {
+                "name": "White blood cells",
+                "detail": "Part of the immune system. They fight pathogens by engulfing them or by making antibodies."
+              },
+              {
+                "name": "Platelets",
+                "detail": "Small fragments of cells. They help the blood to clot at a wound."
+              }
             ]
           }
         },
@@ -35,8 +50,14 @@
     {
       "heading": "Red blood cells and plasma",
       "blocks": [
-        { "type": "paragraph", "text": "Red blood cells and plasma are the transport parts of the blood. This section covers how each is adapted." },
-        { "type": "subheading", "text": "Red blood cells" },
+        {
+          "type": "paragraph",
+          "text": "Red blood cells and plasma are the transport parts of the blood. This section covers how each is adapted."
+        },
+        {
+          "type": "subheading",
+          "text": "Red blood cells"
+        },
         {
           "type": "list",
           "items": [
@@ -46,7 +67,10 @@
             "They are small and flexible, so they can fit through capillaries."
           ]
         },
-        { "type": "subheading", "text": "Plasma" },
+        {
+          "type": "subheading",
+          "text": "Plasma"
+        },
         {
           "type": "list",
           "items": [
@@ -67,8 +91,14 @@
     {
       "heading": "White blood cells and platelets",
       "blocks": [
-        { "type": "paragraph", "text": "White blood cells and platelets defend the body. White cells deal with pathogens and platelets help the blood to clot." },
-        { "type": "subheading", "text": "White blood cells" },
+        {
+          "type": "paragraph",
+          "text": "White blood cells and platelets defend the body. White cells deal with pathogens and platelets help the blood to clot."
+        },
+        {
+          "type": "subheading",
+          "text": "White blood cells"
+        },
         {
           "type": "list",
           "items": [
@@ -78,7 +108,10 @@
             "Others make antibodies and antitoxins, using their nucleus and ribosomes. These are lymphocytes."
           ]
         },
-        { "type": "subheading", "text": "Platelets" },
+        {
+          "type": "subheading",
+          "text": "Platelets"
+        },
         {
           "type": "list",
           "items": [
@@ -116,27 +149,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 2.7", "AQA T 4.2.2.3"],
-      "exam_phrases": [
-        "red blood cell has no nucleus",
-        "red blood cell is a biconcave disc",
-        "red blood cell contains haemoglobin",
-        "red blood cell has no cell wall",
-        "has cytoplasm and a cell membrane"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A red blood cell has no nucleus.",
-          "right": "Make the difference clear by naming both cells. A red blood cell has no nucleus, whereas a plant cell has a nucleus. Do the same for the cell wall and haemoglobin."
-        },
-        {
-          "wrong": "Red blood cells have mitochondria and ribosomes, which makes them different from a plant cell.",
-          "right": "References to mitochondria and ribosomes are ignored in this comparison. Use features that differ, such as the nucleus, cell wall, chloroplasts and haemoglobin."
-        },
-        {
-          "wrong": "Only the red blood cell is described.",
-          "right": "A comparison needs both cells considered. State what each has, and use words such as \"whereas\" or \"but\"."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "ece9adaf-6dee-4c34-9340-746d07cc0536",
         "source": "AQA jun 2021, Paper 1 (H), Q01.5",
@@ -156,24 +168,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 8.6"],
-      "exam_phrases": [
-        "biconcave disc shape results in a larger surface area",
-        "so (more) oxygen can be carried",
-        "contains haemoglobin: oxygen is joined to haemoglobin",
-        "no nucleus: so can contain more haemoglobin",
-        "has receptors on membrane: can recognise pathogens / antigens",
-        "can change shape: can engulf pathogens"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Red blood cells are biconcave.",
-          "right": "Link the shape to its effect. The biconcave disc gives a larger surface area, so more oxygen can be carried."
-        },
-        {
-          "wrong": "White blood cells kill pathogens.",
-          "right": "Give the structure and the function. For example, they have receptors that recognise pathogens, can change shape to engulf them, and have a nucleus to make antibodies."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "68350b9c-3a38-44ac-b7f7-d4ba1cb7a93c",
         "source": "EDEXCEL nov 2021, Paper 2 (H), Q5(a)(ii)",
@@ -189,23 +183,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 2.2e", "OCR 6.3j"],
-      "exam_phrases": [
-        "small size, to get into small vessels / capillaries",
-        "biconcave disc shape",
-        "large surface area : volume",
-        "haemoglobin, to carry oxygen",
-        "lack of nucleus, so more room for haemoglobin"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Red blood cells are small, have a biconcave shape and have no nucleus.",
-          "right": "A list of features gets a maximum of 4 marks. Explanation marks need each feature linked to its effect."
-        },
-        {
-          "wrong": "Red blood cells have no nucleus so they are lighter.",
-          "right": "Say they have no nucleus, so there is more room for haemoglobin."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "34d27309-d209-4095-94ff-fdfb784bae23",
         "source": "OCR sample null, Paper 3, Q22(b)",

@@ -31,11 +31,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Hazard",
-            "What it means",
-            "Example from practicals"
-          ],
+          "columns": ["Hazard", "What it means", "Example from practicals"],
           "rows": [
             [
               "Toxic",
@@ -81,17 +77,11 @@
             "kind": "predictor",
             "alt": "Pick a hazard and see the precaution and the reason for it.",
             "prompt": "Pick a hazard",
-            "result_labels": [
-              "Precaution",
-              "Reason"
-            ],
+            "result_labels": ["Precaution", "Reason"],
             "options": [
               {
                 "label": "Toxic gas, such as chlorine or ammonia",
-                "results": [
-                  "Use a fume cupboard",
-                  "The gas is toxic, so you do not inhale it"
-                ]
+                "results": ["Use a fume cupboard", "The gas is toxic, so you do not inhale it"]
               },
               {
                 "label": "Toxic solid, such as barium chloride",
@@ -109,10 +99,7 @@
               },
               {
                 "label": "Hazardous to health, such as calcium chloride",
-                "results": [
-                  "Wear goggles or gloves",
-                  "To protect the eyes and skin"
-                ]
+                "results": ["Wear goggles or gloves", "To protect the eyes and skin"]
               },
               {
                 "label": "Hazardous to the environment",
@@ -183,39 +170,7 @@
   ],
   "boards": {
     "edexcel": {
-      "spec_codes": [
-        "EDEX 0.5",
-        "EDEX 0.6"
-      ],
-      "exam_phrases": [
-        "use a fume cupboard",
-        "because (chlorine) is a toxic gas",
-        "wear gloves / goggles / safety glasses",
-        "because the concentrated hydrochloric acid is corrosive",
-        "do not dispose of any reactants / products down the drain",
-        "because it is hazardous to the environment",
-        "so does not contact the skin",
-        "so does not contact the eyes",
-        "so you do not inhale it"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Wear protective clothing or PPE.",
-          "right": "Protective or safety clothing and PPE are ignored. Name the item, such as goggles or gloves, and give the reason."
-        },
-        {
-          "wrong": "Wear a mask or breathing apparatus when using chlorine.",
-          "right": "Masks and breathing apparatus are ignored for toxic gases. Use a fume cupboard."
-        },
-        {
-          "wrong": "Tie hair back and wear a lab coat when using a corrosive substance.",
-          "right": "General lab safety and lab coats are ignored. Wear goggles, gloves or eye protection."
-        },
-        {
-          "wrong": "Wear gloves so that you do not inhale the gas.",
-          "right": "The reason must match the precaution, and the second mark depends on the first. Gloves protect the skin. A fume cupboard stops you inhaling the gas."
-        }
-      ],
+      "spec_codes": ["EDEX 0.5", "EDEX 0.6"],
       "worked_example": {
         "exemplar_id": "d1732d4e-e1c7-42b5-9255-b2881b6daead",
         "source": "EDEXCEL jun 2018, Paper 1 (F), Q5(c)",
@@ -238,9 +193,7 @@
       "29e0bab4-e33a-42f7-b80f-52713be27e9c",
       "bc7b613c-bda4-4580-a8c7-67275c232bb4"
     ],
-    "exemplar_ids": [
-      "d1732d4e-e1c7-42b5-9255-b2881b6daead"
-    ],
+    "exemplar_ids": ["d1732d4e-e1c7-42b5-9255-b2881b6daead"],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-03"
   }

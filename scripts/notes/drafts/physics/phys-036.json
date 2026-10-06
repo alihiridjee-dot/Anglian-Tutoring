@@ -14,31 +14,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Particle",
-            "Symbol",
-            "Mass number",
-            "Atomic number (charge)"
-          ],
+          "columns": ["Particle", "Symbol", "Mass number", "Atomic number (charge)"],
           "rows": [
-            [
-              "Alpha particle",
-              "⁴₂He or ⁴₂α",
-              "4",
-              "2"
-            ],
-            [
-              "Beta particle (electron)",
-              "⁰₋₁e or ⁰₋₁β",
-              "0",
-              "-1"
-            ],
-            [
-              "Gamma ray",
-              "γ",
-              "0",
-              "0"
-            ]
+            ["Alpha particle", "⁴₂He or ⁴₂α", "4", "2"],
+            ["Beta particle (electron)", "⁰₋₁e or ⁰₋₁β", "0", "-1"],
+            ["Gamma ray", "γ", "0", "0"]
           ]
         },
         {
@@ -67,12 +47,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Decay",
-            "Mass number",
-            "Atomic number",
-            "What happens"
-          ],
+          "columns": ["Decay", "Mass number", "Atomic number", "What happens"],
           "rows": [
             [
               "Alpha",
@@ -86,12 +61,7 @@
               "Increases by 1",
               "A neutron becomes a proton and an electron. The electron is emitted."
             ],
-            [
-              "Gamma",
-              "No change",
-              "No change",
-              "The nucleus loses energy as gamma radiation."
-            ]
+            ["Gamma", "No change", "No change", "The nucleus loses energy as gamma radiation."]
           ]
         },
         {
@@ -162,17 +132,13 @@
           "type": "equation",
           "label": "Mass number balance",
           "formula": "mass number before = mass numbers added together after",
-          "where": [
-            "Mass numbers are the top numbers in the symbols."
-          ]
+          "where": ["Mass numbers are the top numbers in the symbols."]
         },
         {
           "type": "equation",
           "label": "Atomic number balance",
           "formula": "atomic number before = atomic numbers added together after",
-          "where": [
-            "Atomic numbers are the bottom numbers in the symbols."
-          ]
+          "where": ["Atomic numbers are the bottom numbers in the symbols."]
         },
         {
           "type": "steps",
@@ -254,31 +220,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.4.2.2",
-        "AQA T 6.4.2.2"
-      ],
-      "exam_phrases": [
-        "one alpha decay would decrease proton number by 2",
-        "two beta decays would increase proton number by 2",
-        "so the proton / atomic number of the final nucleus is the same as the proton / atomic number of the original nucleus",
-        "A = 89",
-        "Z = 39"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A = 39 and Z = 89 for the beta decay of strontium-89 into yttrium.",
-          "right": "The numbers must be given in this order: A = 89 first, then Z = 39. The mass number stays the same and the atomic number goes up by 1."
-        },
-        {
-          "wrong": "Alpha decay increases the proton number by 2 and beta decay decreases it by 1.",
-          "right": "It is the other way round. Alpha decay decreases the proton number by 2 and beta decay increases it by 1."
-        },
-        {
-          "wrong": "The decays give back polonium, so the nucleus has not changed.",
-          "right": "The third mark depends on the first two. State that alpha decreases the proton number by 2 and two beta decays increase it by 2, so the final proton number equals the original."
-        }
-      ],
+      "spec_codes": ["AQA 4.4.2.2", "AQA T 6.4.2.2"],
       "worked_example": {
         "exemplar_id": "608f863e-e34e-418a-ab96-655cad681f17",
         "source": "AQA jun 2021, Paper 1 (H), Q06.5",
@@ -293,20 +235,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 6.18",
-        "EDEX 6.19",
-        "EDEX 6.20",
-        "EDEX 6.21",
-        "EDEX 6.22"
-      ],
-      "exam_phrases": [
-        "proton",
-        "becomes a neutron",
-        "p → n",
-        "decrease in atomic number by one",
-        "mass number stays the same"
-      ],
+      "spec_codes": ["EDEX 6.18", "EDEX 6.19", "EDEX 6.20", "EDEX 6.21", "EDEX 6.22"],
       "extra": [
         {
           "heading": "Beta-plus decay and neutron emission",
@@ -326,46 +255,17 @@
           ]
         }
       ],
-      "mistakes": [
-        {
-          "wrong": "When a positron is emitted, a neutron becomes a proton.",
-          "right": "This is the wrong way round and earns at most 1 mark. In positron emission a proton becomes a neutron."
-        },
-        {
-          "wrong": "A positron is emitted because the nucleus gains a neutron.",
-          "right": "This earns at most 1 mark. Say that a proton becomes a neutron."
-        },
-        {
-          "wrong": "Positron emission is the emission of a gamma ray or a neutrino.",
-          "right": "A response about gamma or a neutrino earns at most 1 mark. Describe the change in the nucleus: proton to neutron."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "991e7067-eef1-44d6-8eca-31be3d5c3189",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q7(c)",
         "question": "Describe what happens in the nucleus of an atom when a positron is emitted.",
         "marks": 2,
-        "answer_points": [
-          "A proton",
-          "becomes a neutron."
-        ],
+        "answer_points": ["A proton", "becomes a neutron."],
         "tip": "Writing p → n scores both marks. If no other mark is scored, the atomic number decreasing by one, the mass number staying the same or the charge of the nucleus reducing by one earns 1 mark."
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P6.1e",
-        "OCR P6.1f",
-        "OCR P6.1g"
-      ],
-      "exam_phrases": [
-        "Mass: stays the same / unchanged",
-        "Charge: increases",
-        "e (⁰₋₁e)",
-        "Relative charge: (+) 16",
-        "Relative mass: (+) 32",
-        "226 Th 90"
-      ],
+      "spec_codes": ["OCR P6.1e", "OCR P6.1f", "OCR P6.1g"],
       "extra": [
         {
           "heading": "Neutron emission",
@@ -378,20 +278,6 @@
               ]
             }
           ]
-        }
-      ],
-      "mistakes": [
-        {
-          "wrong": "²¹⁰₈₃Bi → ²¹⁰₈₄Po + ⁰₁e",
-          "right": "Both 0 as the mass number and -1 as the atomic number are required for the mark. A beta particle is ⁰₋₁e, and β is allowed for e."
-        },
-        {
-          "wrong": "After beta emission the mass number is 14.",
-          "right": "Writing the number 14 for the mass is ignored. Say that the mass number stays the same, and that the charge increases (by 1)."
-        },
-        {
-          "wrong": "An alpha particle has 2 protons, 2 neutrons and 2 electrons.",
-          "right": "An alpha particle has 2 protons, 2 neutrons and 0 electrons."
         }
       ],
       "worked_example": {

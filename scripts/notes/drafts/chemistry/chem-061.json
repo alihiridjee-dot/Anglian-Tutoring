@@ -152,28 +152,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.1.2",
-        "AQA T 5.5.1.2"
-      ],
-      "exam_phrases": [
-        "the (minimum) energy needed for particles to react",
-        "the (minimum) energy needed for a reaction to occur",
-        "the (minimum) energy needed to start a reaction",
-        "particles collide but have insufficient energy",
-        "energy less than the activation energy (so collisions are not successful)",
-        "in an exothermic reaction the energy of the products is lower than the energy of the reactants"
-      ],
-      "mistakes": [
-        {
-          "wrong": "At room temperature the methane and oxygen particles do not collide.",
-          "right": "The particles collide, but they have insufficient energy, less than the activation energy, so the collisions are not successful."
-        },
-        {
-          "wrong": "In an exothermic reaction the energy of the products is higher than the energy of the reactants.",
-          "right": "In an exothermic reaction the energy of the products is lower than the energy of the reactants."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.1.2", "AQA T 5.5.1.2"],
       "worked_example": {
         "exemplar_id": "d452c7cf-a8d5-4b96-9de0-16b9cf7ac8a0",
         "source": "AQA jun 2021, Paper 1 (H), Q07.1",
@@ -187,49 +166,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 7.15",
-        "EDEX 7.16"
-      ],
-      "exam_phrases": [
-        "energy is taken in breaking bonds (in the reactants)",
-        "energy is given out making bonds (in the products)",
-        "more energy is given out than taken in",
-        "breaking bonds is endothermic",
-        "forming bonds is exothermic"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The reaction profile shows that the products have less energy than the reactants.",
-          "right": "This alone is ignored. Describe the energy in bond breaking and bond making, and say more energy is given out than taken in."
-        },
-        {
-          "wrong": "The reaction is exothermic because more bonds are made than broken.",
-          "right": "References to the number of bonds are ignored. Compare the energy: more energy is released forming bonds than is needed to break bonds."
-        }
-      ]
+      "spec_codes": ["EDEX 7.15", "EDEX 7.16"]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C3.2b",
-        "OCR C3.2c"
-      ],
-      "exam_phrases": [
-        "energy required to start the reaction",
-        "energy required for a successful collision to occur",
-        "the (minimum) amount of energy needed for a reaction to start or occur",
-        "the (minimum) amount of energy for a successful collision"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Activation energy is the energy needed to activate the reaction.",
-          "right": "This is ignored. Say it is the (minimum) energy needed to start the reaction, or for a successful collision to occur."
-        },
-        {
-          "wrong": "In an exothermic reaction the energy of the products is higher than the energy of the reactants.",
-          "right": "In an exothermic reaction the energy of the products is lower than the energy of the reactants. In an endothermic reaction it is higher."
-        }
-      ],
+      "spec_codes": ["OCR C3.2b", "OCR C3.2c"],
       "worked_example": {
         "exemplar_id": "76d9c269-0b2d-44f6-9efc-1becce5a7f6d",
         "source": "OCR nov 2020, Paper 3, Q18(b)",

@@ -43,38 +43,23 @@
           "diagram": {
             "kind": "compare",
             "alt": "The field around a bar magnet compared with a uniform field.",
-            "items": [
-              "Bar magnet",
-              "Uniform field"
-            ],
+            "items": ["Bar magnet", "Uniform field"],
             "rows": [
               {
                 "feature": "Shape of lines",
-                "values": [
-                  "Curved",
-                  "Straight"
-                ]
+                "values": ["Curved", "Straight"]
               },
               {
                 "feature": "Spacing of lines",
-                "values": [
-                  "Closest together at the poles",
-                  "Equally spaced, parallel"
-                ]
+                "values": ["Closest together at the poles", "Equally spaced, parallel"]
               },
               {
                 "feature": "Direction",
-                "values": [
-                  "Changes from point to point",
-                  "The same everywhere"
-                ]
+                "values": ["Changes from point to point", "The same everywhere"]
               },
               {
                 "feature": "Strength",
-                "values": [
-                  "Strongest at the poles, weaker further away",
-                  "The same everywhere"
-                ]
+                "values": ["Strongest at the poles, weaker further away", "The same everywhere"]
               }
             ]
           }
@@ -173,27 +158,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.1.2",
-        "AQA T 6.7.1.2"
-      ],
-      "exam_phrases": [
-        "the compass (needle always) points in the same direction",
-        "because it aligns itself with the Earth's magnetic field",
-        "the compass needle points north",
-        "nickel and steel are attracted to the electromagnet",
-        "cobalt and nickel"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The compass lines up with the Earth's magnetic field, so the Earth has a magnetic field.",
-          "right": "First say the compass needle always points in the same direction (north). The second mark, that it aligns with the Earth's field, depends on it."
-        },
-        {
-          "wrong": "A permanent magnet can repel a piece of iron.",
-          "right": "The force between a magnet and a magnetic material is always attraction. Only a magnet can be repelled by a permanent magnet."
-        }
-      ],
+      "spec_codes": ["AQA 4.7.1.2", "AQA T 6.7.1.2"],
       "worked_example": {
         "exemplar_id": "1b2ead58-a2da-438f-b0f3-7a4e07eaf7d5",
         "source": "AQA jun 2023, Paper 2 (H), Q04.5",
@@ -207,29 +172,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 12.4",
-        "EDEX 12.5",
-        "EDEX 12.6"
-      ],
-      "exam_phrases": [
-        "place a (plotting) compass on the paper and mark direction of the field (at that point)",
-        "determine how the field continues",
-        "connect field lines to reveal overall shape",
-        "(strength of magnetic) field / force depends on distance from the magnet",
-        "uniform field: straight, parallel, equidistant lines, same strength everywhere",
-        "use a compass, always points in the same direction / will point north"
-      ],
-      "mistakes": [
-        {
-          "wrong": "In a uniform field the lines are curved and get closer together.",
-          "right": "The lines are straight, parallel and equidistant. The field has one direction and the same strength everywhere."
-        },
-        {
-          "wrong": "The toy car moves because the magnet touches it.",
-          "right": "The force is non-contact. The strength of the field and force depends on the distance from the magnet, so it is weaker when further away."
-        }
-      ],
+      "spec_codes": ["EDEX 12.4", "EDEX 12.5", "EDEX 12.6"],
       "worked_example": {
         "exemplar_id": "0635492f-3924-445b-bf47-40d301512db0",
         "source": "EDEXCEL nov 2021, Paper 2 (H), Q5(a)(ii)",
@@ -244,30 +187,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P4.1c",
-        "OCR P4.1d"
-      ],
-      "exam_phrases": [
-        "Mark the position that the compass needle points to",
-        "connect the marks together to construct a fieldline",
-        "(Sprinkle) on iron filings (to show the field pattern)",
-        "always points to North / South",
-        "line up with the magnetic field lines of the Earth",
-        "Compass needle shows (an angle of) dip",
-        "(The needle) is horizontal / 0° at/near the equator",
-        "(The needle) is vertical / 90° at/near the poles"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The needle of a dipping compass changes position near the poles.",
-          "right": "Say how it changes: it is horizontal at the equator and vertical at the poles. An unqualified change of position is ignored."
-        },
-        {
-          "wrong": "Show the pattern with iron filings by drawing a diagram of them around the magnet.",
-          "right": "Marks are not given for a diagram. Describe it: place a clear or paper cover over the magnet, then sprinkle on iron filings."
-        }
-      ],
+      "spec_codes": ["OCR P4.1c", "OCR P4.1d"],
       "worked_example": {
         "exemplar_id": "8618d49f-9231-4df9-bac7-928325387dd7",
         "source": "OCR sample None, Paper 1, Q17(a)(i)",

@@ -8,11 +8,17 @@
     {
       "heading": "What an electric field is",
       "blocks": [
-        { "type": "paragraph", "text": "A charged object creates an electric field around itself. This section covers what the field is and how its strength changes." },
+        {
+          "type": "paragraph",
+          "text": "A charged object creates an electric field around itself. This section covers what the field is and how its strength changes."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Electric field", "meaning": "The region around a charged object where another charged object experiences a force." }
+            {
+              "term": "Electric field",
+              "meaning": "The region around a charged object where another charged object experiences a force."
+            }
           ]
         },
         {
@@ -24,7 +30,10 @@
             "The force gets stronger as the distance between the objects decreases."
           ]
         },
-        { "type": "subheading", "text": "Fields explain non-contact forces" },
+        {
+          "type": "subheading",
+          "text": "Fields explain non-contact forces"
+        },
         {
           "type": "list",
           "items": [
@@ -33,7 +42,10 @@
             "The force can be attraction or repulsion, depending on the charges."
           ]
         },
-        { "type": "paragraph", "text": "In the alpha particle scattering experiment, a positive alpha particle approaching a positive gold nucleus is repelled. The field strength and the force on it increase as it gets closer." },
+        {
+          "type": "paragraph",
+          "text": "In the alpha particle scattering experiment, a positive alpha particle approaching a positive gold nucleus is repelled. The field strength and the force on it increase as it gets closer."
+        },
         {
           "type": "key-points",
           "items": [
@@ -47,7 +59,10 @@
     {
       "heading": "Drawing electric fields",
       "blocks": [
-        { "type": "paragraph", "text": "Field lines show the shape, the direction and the strength of an electric field." },
+        {
+          "type": "paragraph",
+          "text": "Field lines show the shape, the direction and the strength of an electric field."
+        },
         {
           "type": "list",
           "items": [
@@ -63,13 +78,34 @@
             "alt": "Two electric field patterns compared: an isolated charged sphere and parallel plates.",
             "items": ["Isolated charged sphere", "Between parallel plates"],
             "rows": [
-              { "feature": "Field lines", "values": ["Straight lines that point directly towards or away from the sphere.", "Straight, parallel and equally spaced lines."] },
-              { "feature": "Direction", "values": ["Away from a positive sphere. Towards a negative sphere.", "From the positive plate to the negative plate."] },
-              { "feature": "Strength", "values": ["Strongest close to the sphere, where the lines are closest together.", "The same everywhere between the plates (away from the edges), because the lines are equally spaced."] }
+              {
+                "feature": "Field lines",
+                "values": [
+                  "Straight lines that point directly towards or away from the sphere.",
+                  "Straight, parallel and equally spaced lines."
+                ]
+              },
+              {
+                "feature": "Direction",
+                "values": [
+                  "Away from a positive sphere. Towards a negative sphere.",
+                  "From the positive plate to the negative plate."
+                ]
+              },
+              {
+                "feature": "Strength",
+                "values": [
+                  "Strongest close to the sphere, where the lines are closest together.",
+                  "The same everywhere between the plates (away from the edges), because the lines are equally spaced."
+                ]
+              }
             ]
           }
         },
-        { "type": "paragraph", "text": "An electric field pattern is similar to a magnetic field pattern. Closeness of the lines shows strength, and both show the direction of the force." },
+        {
+          "type": "paragraph",
+          "text": "An electric field pattern is similar to a magnetic field pattern. Closeness of the lines shows strength, and both show the direction of the force."
+        },
         {
           "type": "key-points",
           "items": [
@@ -83,7 +119,10 @@
     {
       "heading": "Fields and sparking",
       "blocks": [
-        { "type": "paragraph", "text": "Electric fields also explain sparks. A very strong field can make air conduct." },
+        {
+          "type": "paragraph",
+          "text": "Electric fields also explain sparks. A very strong field can make air conduct."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -138,29 +177,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.2.5.2"],
-      "exam_phrases": [
-        "the region (around a charged object) where another charged object experiences a force",
-        "(electric field strength) decreases",
-        "electric field strength is very high",
-        "causing the air to become ionised",
-        "the air breaks down / the air becomes a conductor",
-        "(causes negative) electrons / charges to move (through the air)",
-        "a force of repulsion"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A spark jumps because the earthed conductor is positively charged.",
-          "right": "This is not accepted. Say there is a large potential difference between the two objects, which causes electrons to move from the rod to the conductor."
-        },
-        {
-          "wrong": "The person gets a shock because the kite touches the power cable.",
-          "right": "References to the kite touching the cable are ignored, because the kite is not touching. Say the field strength is very high, the air is ionised and the kite or string conducts charge to the person."
-        },
-        {
-          "wrong": "An electric field is a force on a charged object.",
-          "right": "An electric field is the region (or space) around a charged object where another charged object experiences a force."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "aff95144-94a0-4025-b0d7-9154b36a47c4",
         "source": "AQA jun 2021, Paper 1 (H), Q10.2",
@@ -176,70 +192,23 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 11.8P", "EDEX 11.9P", "EDEX 11.10P"],
-      "exam_phrases": [
-        "(a region / place / area / volume) where (electric) charge experiences / feels a force",
-        "sphere A has an electric field",
-        "sphere B is in it",
-        "the electric fields interact / overlap",
-        "direction of force on a (positive) charge"
-      ],
-      "mistakes": [
-        {
-          "wrong": "An electric field is where there is electricity.",
-          "right": "The word electricity is ignored. Say it is a region where a charge experiences a force."
-        },
-        {
-          "wrong": "Sphere B is repelled by sphere A.",
-          "right": "The nature of the force, such as repulsion, is ignored. Explain in terms of fields: sphere A has an electric field and sphere B is in it."
-        },
-        {
-          "wrong": "Field lines that are far apart show a strong field.",
-          "right": "The strength of the field relates to the concentration of the lines. Lines close together show a strong field."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "d1bdb08b-bd22-4615-b3c1-4ee889b13f8b",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q4(c)(i)",
         "question": "Metal sphere A is fixed to a table. Metal sphere B can be moved. Metal sphere B is placed at a short distance from metal sphere A. Both spheres are insulated from the table and given a negative charge. The force between the charged spheres is measured. Explain, in terms of electric fields, why a force is exerted on sphere B.",
         "marks": 2,
-        "answer_points": [
-          "Sphere A has an electric field.",
-          "Sphere B is in it."
-        ],
+        "answer_points": ["Sphere A has an electric field.", "Sphere B is in it."],
         "tip": "Do not write about the nature of the force, such as repulsion. It is ignored."
       }
     },
     "ocr": {
       "spec_codes": ["OCR P3.1d"],
-      "exam_phrases": [
-        "closeness of field lines represents strength of field",
-        "both show direction of field (lines) / forces",
-        "opposite charges attract",
-        "high voltages can cause electric shocks / electrocution",
-        "they have a similar shape field (pattern)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "High voltages are dangerous.",
-          "right": "Unqualified dangerous is ignored. Say high voltages can cause electric shocks or electrocution."
-        },
-        {
-          "wrong": "High voltages are dangerous because they cause heating.",
-          "right": "Heating is ignored. Say electric shocks or electrocution."
-        },
-        {
-          "wrong": "The balloon sticks to the negatively charged rod because like charges attract.",
-          "right": "Like charges repel. The balloon sticks because opposite charges attract."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "9c3ee270-07dc-471b-9053-709f0dc87908",
         "source": "OCR jun 2023, Paper 3, Q22(b)",
         "question": "An electrostatic dust precipitator uses static electricity to remove smoke particles from gases before the gases are released from a chimney in a factory. The precipitator uses high voltages. Why are high voltages dangerous?",
         "marks": 1,
-        "answer_points": [
-          "High voltages can cause electric shocks or electrocution."
-        ],
+        "answer_points": ["High voltages can cause electric shocks or electrocution."],
         "tip": "Unqualified answers such as dangerous or heating are ignored. Electrocution, with damage to the nervous system or heart, is also credited."
       }
     }

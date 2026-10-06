@@ -141,11 +141,7 @@
               "unit": "m/s",
               "decimals": 2
             },
-            "working": [
-              "v = s ÷ t",
-              "v = {d} ÷ {t}",
-              "v = {answer} m/s"
-            ]
+            "working": ["v = s ÷ t", "v = {d} ÷ {t}", "v = {answer} m/s"]
           }
         },
         {
@@ -263,31 +259,13 @@
         },
         {
           "type": "table",
-          "columns": [
-            "What the line does",
-            "What it shows"
-          ],
+          "columns": ["What the line does", "What it shows"],
           "rows": [
-            [
-              "Horizontal line",
-              "The distance does not change, so the object is stationary."
-            ],
-            [
-              "Straight sloping line",
-              "A constant speed."
-            ],
-            [
-              "Steeper straight line",
-              "A higher speed."
-            ],
-            [
-              "Curved line, getting steeper",
-              "The speed is increasing."
-            ],
-            [
-              "Curved line, getting less steep",
-              "The speed is decreasing."
-            ]
+            ["Horizontal line", "The distance does not change, so the object is stationary."],
+            ["Straight sloping line", "A constant speed."],
+            ["Steeper straight line", "A higher speed."],
+            ["Curved line, getting steeper", "The speed is increasing."],
+            ["Curved line, getting less steep", "The speed is decreasing."]
           ]
         },
         {
@@ -296,7 +274,7 @@
             "The speed of an object is the gradient of its distance–time graph.",
             "To find the gradient, divide the change in distance by the change in time.",
             "Read the distance and time from the axes and keep the units in metres and seconds.",
-            "(Higher tier) For a curve, the speed at a time is the gradient of a tangent drawn at that time."
+            "(AQA: Higher tier) For a curve, the speed at a time is the gradient of a tangent drawn at that time."
           ]
         },
         {
@@ -328,37 +306,13 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.6.1",
-        "AQA T 6.5.4.1"
-      ],
-      "exam_phrases": [
-        "velocity is a vector and speed is a scalar",
-        "road is not straight",
-        "therefore direction changes so the velocity changes",
-        "velocity includes direction (speed does not)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Speed and velocity are different because velocity is a vector.",
-          "right": "That is only one point. Also say the road is not straight, so the direction changes and the velocity changes."
-        },
-        {
-          "wrong": "The time to move the can 3.3 m at 1.7 m/s is 1.941 s.",
-          "right": "The question asks for 2 significant figures. Round 1.941 to 1.9 s. The rounding is a separate mark."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.6.1", "AQA T 6.5.4.1"],
       "worked_example": {
         "exemplar_id": "a0bb04a4-c228-4094-ac54-e15be9995c4f",
         "source": "AQA jun 2021, Paper 2 (F), Q07.7",
         "question": "A conveyor belt moves a can at a speed of 1.7 m/s. Calculate the time taken to move the can 3.3 m at this speed. Give your answer to 2 significant figures.",
         "marks": 4,
-        "answer_points": [
-          "3.3 = 1.7 × t",
-          "t = 3.3 ÷ 1.7",
-          "t = 1.941 s",
-          "t = 1.9 s"
-        ],
+        "answer_points": ["3.3 = 1.7 × t", "t = 3.3 ÷ 1.7", "t = 1.941 s", "t = 1.9 s"],
         "tip": "The last mark is for rounding to 2 significant figures. A correctly rounded answer from a wrongly used value of the data can still score it."
       },
       "extra": [
@@ -371,7 +325,7 @@
                 "Typical values are walking about 1.5 m/s, running about 3 m/s and cycling about 6 m/s.",
                 "A typical value for the speed of sound in air is 330 m/s.",
                 "The speed a person can walk, run or cycle depends on age, terrain, fitness and distance travelled.",
-                "(Higher tier) Motion in a circle has constant speed but changing velocity, because the direction keeps changing."
+                "(AQA: Higher tier) Motion in a circle has constant speed but changing velocity, because the direction keeps changing."
               ]
             }
           ]
@@ -379,29 +333,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.6",
-        "EDEX 2.7",
-        "EDEX 2.11"
-      ],
-      "exam_phrases": [
-        "measure a distance (at the bottom) / use mark(er)s (certain distance apart)",
-        "starting timer (at first mark(er))",
-        "stopping timer (at 2nd mark(er))",
-        "(use speed) = distance/time",
-        "use a light gate",
-        "repeat and average"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Time the skier over the whole slope and divide the length of the slope by that time to find the speed at the bottom.",
-          "right": "Use markers a certain distance apart at the bottom, or a light gate not over the whole slope. Time the skier between them and use speed = distance ÷ time."
-        },
-        {
-          "wrong": "Record the distance the toy car travels and the time it takes.",
-          "right": "This scores only 2 marks. Add the use of speed = distance ÷ time and a detail, such as a light gate or repeating and averaging."
-        }
-      ],
+      "spec_codes": ["EDEX 2.6", "EDEX 2.7", "EDEX 2.11"],
       "worked_example": {
         "exemplar_id": "2e9c8e5c-5026-4b3e-9bc9-2ff5836efdeb",
         "source": "EDEXCEL jun 2018, Paper 1 (F), Q4(c)",
@@ -417,27 +349,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P2.1a",
-        "OCR P2.1b",
-        "OCR P2.1g"
-      ],
-      "exam_phrases": [
-        "measure a (set) distance the ripple travels",
-        "measure the time for a ripple to travel the (set) distance",
-        "(speed =) distance (travelled) ÷ time (taken)",
-        "record data to a consistent number of decimal places"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Measure the height the rock is dropped from and the time the rock takes to fall.",
-          "right": "Measuring the drop height or the time of the falling rock is ignored. Measure the distance a ripple travels and the time it takes."
-        },
-        {
-          "wrong": "A trolley speed of 3.1 m/s is recorded when the other readings are 3.11 and 3.11.",
-          "right": "Record data to a consistent number of decimal places, for example 3.10 m/s."
-        }
-      ],
+      "spec_codes": ["OCR P2.1a", "OCR P2.1b", "OCR P2.1g"],
       "worked_example": {
         "exemplar_id": "d5e394a6-b6dc-4a80-b581-26756a1418fd",
         "source": "OCR jun 2025, Paper 2, Q22(b)(ii)",

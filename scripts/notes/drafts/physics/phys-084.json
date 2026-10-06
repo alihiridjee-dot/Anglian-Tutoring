@@ -3,14 +3,14 @@
   "concept_id": "phys-084",
   "subject": "physics",
   "title": "Electric motors and loudspeakers",
-  "key_idea": "(Higher tier) A coil carrying a current in a magnetic field has forces on its two sides in opposite directions, so it rotates. This is the basis of an electric motor. A loudspeaker uses the motor effect to turn a changing current into a vibrating cone that makes sound.",
+  "key_idea": "(AQA: Higher tier) A coil carrying a current in a magnetic field has forces on its two sides in opposite directions, so it rotates. This is the basis of an electric motor. (Separate science) A loudspeaker uses the motor effect to turn a changing current into a vibrating cone that makes sound.",
   "sections": [
     {
       "heading": "How an electric motor works",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) A coil of wire carrying a current in a magnetic field tends to rotate. This is the basis of an electric motor. It uses the motor effect."
+          "text": "(AQA: Higher tier) A coil of wire carrying a current in a magnetic field tends to rotate. This is the basis of an electric motor. It uses the motor effect."
         },
         {
           "type": "steps",
@@ -43,64 +43,36 @@
             "kind": "predictor",
             "alt": "Pick a change to an electric motor and see the effect on the force on the coil and how it rotates.",
             "prompt": "Change the motor",
-            "result_labels": [
-              "Force on the coil",
-              "Rate of rotation",
-              "Direction of rotation"
-            ],
+            "result_labels": ["Force on the coil", "Rate of rotation", "Direction of rotation"],
             "options": [
               {
                 "label": "Increase the current",
-                "results": [
-                  "Increases",
-                  "Faster",
-                  "Unchanged"
-                ],
+                "results": ["Increases", "Faster", "Unchanged"],
                 "explanation": "A bigger current gives a bigger force on the coil."
               },
               {
                 "label": "Reduce the current",
-                "results": [
-                  "Decreases",
-                  "Slower",
-                  "Unchanged"
-                ],
+                "results": ["Decreases", "Slower", "Unchanged"],
                 "explanation": "A smaller current gives a smaller force on the coil."
               },
               {
                 "label": "Use a stronger magnet",
-                "results": [
-                  "Increases",
-                  "Faster",
-                  "Unchanged"
-                ],
+                "results": ["Increases", "Faster", "Unchanged"],
                 "explanation": "A stronger field gives a bigger force."
               },
               {
                 "label": "Add more turns to the coil",
-                "results": [
-                  "Increases",
-                  "Faster",
-                  "Unchanged"
-                ],
+                "results": ["Increases", "Faster", "Unchanged"],
                 "explanation": "More wire in the field means a bigger force."
               },
               {
                 "label": "Reverse the current",
-                "results": [
-                  "Same size, reversed",
-                  "Unchanged",
-                  "Reversed"
-                ],
+                "results": ["Same size, reversed", "Unchanged", "Reversed"],
                 "explanation": "Reversing the current reverses the force."
               },
               {
                 "label": "Swap the poles of the magnet",
-                "results": [
-                  "Same size, reversed",
-                  "Unchanged",
-                  "Reversed"
-                ],
+                "results": ["Same size, reversed", "Unchanged", "Reversed"],
                 "explanation": "Reversing the field reverses the force."
               }
             ]
@@ -120,7 +92,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) Loudspeakers and headphones use the motor effect. They turn variations in current into pressure variations in sound waves."
+          "text": "(AQA: Higher tier) Loudspeakers and headphones use the motor effect. They turn variations in current into pressure variations in sound waves."
         },
         {
           "type": "diagram",
@@ -166,35 +138,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.2.3",
-        "AQA T 6.7.2.3",
-        "AQA 4.7.2.4"
-      ],
-      "exam_phrases": [
-        "current is in opposite directions in each side of the coil",
-        "so forces act in opposite directions on either side of the coil",
-        "the split ring ensures that the current in the left / right side of the coil is always in the same direction",
-        "the commutator reverses the current (in the coil)",
-        "current creates a magnetic field (around the coil)",
-        "producing a (resultant) force causing the coil / cone to move",
-        "when the direction of the current reverses, the direction of the (resultant) force reverses",
-        "more turns of the wire on the coil / increase the current in the coil / stronger magnet"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The coil rotates because of Fleming's left-hand rule.",
-          "right": "Explain with fields and forces. The current creates a magnetic field that interacts with the magnet's field, giving opposite forces on each side of the coil. Fleming's left-hand rule is ignored."
-        },
-        {
-          "wrong": "To make the coil rotate faster, use a bigger magnet.",
-          "right": "Use a stronger magnet, more turns on the coil or a bigger current. This increases the force on the coil. Saying bigger magnet is ignored."
-        },
-        {
-          "wrong": "The coil keeps turning because the forces on both sides push the same way.",
-          "right": "The forces on the two sides are opposite. The split ring commutator swaps contacts every half turn, so the current in each side is always in the same direction."
-        }
-      ],
+      "spec_codes": ["AQA 4.7.2.3", "AQA T 6.7.2.3", "AQA 4.7.2.4"],
       "extra": [
         {
           "heading": "The split-ring commutator",
@@ -229,16 +173,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 12.14P"
-      ],
-      "exam_phrases": [
-        "magnetic fields interact",
-        "thumb (is in the) direction of force / motion",
-        "first finger (is in the direction of) magnetic field",
-        "second finger (is in the direction of) current"
-      ],
-      "mistakes": [],
+      "spec_codes": ["EDEX 12.14P"],
       "extra": [
         {
           "heading": "Physics only",
@@ -252,27 +187,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P4.2d"
-      ],
-      "exam_phrases": [
-        "Current (in the coil) causes a magnetic field",
-        "magnetic field of the current-carrying wire interacts with magnetic field of the magnets",
-        "causes a force (to act on the wire)",
-        "the forces on either side of the coil are opposite",
-        "these two forces work together to cause rotation around the axle",
-        "In the motor energy is transferred from the electrical energy store to the kinetic energy store"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The coil rotates because of Fleming's left-hand rule.",
-          "right": "Explain with fields and forces. A statement of Fleming's left-hand rule is ignored."
-        },
-        {
-          "wrong": "In a motor, energy is transferred to the thermal energy store.",
-          "right": "In the motor, energy is transferred from the electrical energy store to the kinetic energy store. Thermal energy store is ignored."
-        }
-      ],
+      "spec_codes": ["OCR P4.2d"],
       "worked_example": {
         "exemplar_id": "50888809-d832-4c56-ba4d-526040a88578",
         "source": "OCR jun 2024, Paper 3, Q22(a)",

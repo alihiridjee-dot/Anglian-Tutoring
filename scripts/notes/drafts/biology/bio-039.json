@@ -8,13 +8,25 @@
     {
       "heading": "How translocation works",
       "blocks": [
-        { "type": "paragraph", "text": "Plants make sugar in their leaves by photosynthesis. Translocation carries it to the rest of the plant." },
+        {
+          "type": "paragraph",
+          "text": "Plants make sugar in their leaves by photosynthesis. Translocation carries it to the rest of the plant."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Translocation", "meaning": "The movement of dissolved sugars (sucrose) through the phloem, from the source to the sinks." },
-            { "term": "Source", "meaning": "Where sugar is made, such as the leaves." },
-            { "term": "Sink", "meaning": "Where sugar is used or stored, such as growing tips, roots and flowers." }
+            {
+              "term": "Translocation",
+              "meaning": "The movement of dissolved sugars (sucrose) through the phloem, from the source to the sinks."
+            },
+            {
+              "term": "Source",
+              "meaning": "Where sugar is made, such as the leaves."
+            },
+            {
+              "term": "Sink",
+              "meaning": "Where sugar is used or stored, such as growing tips, roots and flowers."
+            }
           ]
         },
         {
@@ -40,7 +52,10 @@
     {
       "heading": "Why sugars must move both ways",
       "blocks": [
-        { "type": "paragraph", "text": "Only the leaves make sugar. Every other part of the plant depends on translocation for its supply." },
+        {
+          "type": "paragraph",
+          "text": "Only the leaves make sugar. Every other part of the plant depends on translocation for its supply."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -49,12 +64,30 @@
             "prompt": "Source or sink?",
             "groups": ["Source: sugar is made", "Sink: sugar is used or stored"],
             "items": [
-              { "text": "A leaf cell photosynthesising", "group": 0 },
-              { "text": "A root cell respiring", "group": 1 },
-              { "text": "Meristem at a growing tip", "group": 1 },
-              { "text": "A flower", "group": 1 },
-              { "text": "Tissue that stores starch", "group": 1 },
-              { "text": "A leaf making glucose in the light", "group": 0 }
+              {
+                "text": "A leaf cell photosynthesising",
+                "group": 0
+              },
+              {
+                "text": "A root cell respiring",
+                "group": 1
+              },
+              {
+                "text": "Meristem at a growing tip",
+                "group": 1
+              },
+              {
+                "text": "A flower",
+                "group": 1
+              },
+              {
+                "text": "Tissue that stores starch",
+                "group": 1
+              },
+              {
+                "text": "A leaf making glucose in the light",
+                "group": 0
+              }
             ]
           }
         },
@@ -67,7 +100,10 @@
             "Sugars can be stored as starch, fat or oil."
           ]
         },
-        { "type": "subheading", "text": "Translocation compared with the transpiration stream" },
+        {
+          "type": "subheading",
+          "text": "Translocation compared with the transpiration stream"
+        },
         {
           "type": "table",
           "columns": ["Feature", "Transpiration stream", "Translocation"],
@@ -110,28 +146,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 2.13", "AQA T 4.2.3.2"],
-      "exam_phrases": [
-        "translocation",
-        "sugars are made in the leaves by photosynthesis",
-        "all cells / tissues need sugar for respiration",
-        "(sugars) transported to meristems for growth / cell division / mitosis",
-        "(sugars) transported for storage as starch / fat / oil",
-        "translocation transports (dissolved) sugars and moves substances upwards and downwards"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Dissolved sugars are moved around the plant by active transport.",
-          "right": "Active transport is ignored as the name of the process. The process is translocation."
-        },
-        {
-          "wrong": "Phloem transports glucose, ions and minerals.",
-          "right": "Glucose, ions and minerals in translocation are ignored. Phloem transports dissolved sugars (or sucrose)."
-        },
-        {
-          "wrong": "The aphid's mouthpiece has sugar in it because it pierced the stem.",
-          "right": "Say the mouthpiece pierced the phloem, or the aphid was feeding from the phloem, which carries dissolved sugars."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "5d8362fb-99ee-45e3-bd40-6c28c2518ec4",
         "source": "AQA jun 2021, Paper 1 (H), Q06.5",
@@ -161,28 +175,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.10"],
-      "exam_phrases": [
-        "in the phloem",
-        "dissolved (in water)",
-        "by translocation",
-        "using active transport",
-        "sucrose",
-        "to sinks in the plant where the sucrose is needed"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Sugar is transported in the xylem.",
-          "right": "Xylem is rejected. Sugar is transported in the phloem."
-        },
-        {
-          "wrong": "Sucrose moves through the plant by osmosis.",
-          "right": "Sucrose does not move by osmosis, only water does. Sucrose moves by translocation through the phloem."
-        },
-        {
-          "wrong": "Glucose is the sugar transported in the plant.",
-          "right": "Glucose made by photosynthesis is converted to sucrose, which is transported."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "eda96b8f-5a6b-4fd5-b3a3-525a9fd82508",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q2(b)(iii)",
@@ -213,28 +205,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 2.2g", "OCR 2.2h"],
-      "exam_phrases": [
-        "gains sugars (from the tree / phloem)",
-        "sugar is transported in the phloem",
-        "less sugar translocated to other parts",
-        "so less left for growth",
-        "so less for respiration / energy",
-        "xylem transports water / mineral ions, one way / upwards"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Greenfly take water and minerals from the xylem.",
-          "right": "References to xylem, water and minerals are ignored. Greenfly feed from the phloem and remove sugar."
-        },
-        {
-          "wrong": "The mistletoe grows into the phloem to get nutrients.",
-          "right": "\"Nutrients\" is ignored, and minerals or ions are not allowed. Say it gains sugars, because sugar is transported in the phloem."
-        },
-        {
-          "wrong": "Xylem transports sugars up and down the plant.",
-          "right": "That is a mistake on both counts. Xylem transports water and mineral ions, one way (upwards). Sugars move in the phloem."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "e83c5d72-1e00-4ed5-93ea-cd206913c821",
         "source": "OCR jun 2019, Paper 1, Q17(a)(ii)",

@@ -8,13 +8,25 @@
     {
       "heading": "What efficiency means",
       "blocks": [
-        { "type": "paragraph", "text": "No device is perfect. Some of the input energy is always dissipated, so the useful output is less than the input." },
+        {
+          "type": "paragraph",
+          "text": "No device is perfect. Some of the input energy is always dissipated, so the useful output is less than the input."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Efficiency", "meaning": "The proportion of the total input energy that is transferred usefully." },
-            { "term": "Useful output", "meaning": "The energy transferred to the store or form you want." },
-            { "term": "Wasted energy", "meaning": "Total input energy minus useful output energy." }
+            {
+              "term": "Efficiency",
+              "meaning": "The proportion of the total input energy that is transferred usefully."
+            },
+            {
+              "term": "Useful output",
+              "meaning": "The energy transferred to the store or form you want."
+            },
+            {
+              "term": "Wasted energy",
+              "meaning": "Total input energy minus useful output energy."
+            }
           ]
         },
         {
@@ -38,12 +50,18 @@
     {
       "heading": "Calculating efficiency",
       "blocks": [
-        { "type": "paragraph", "text": "You can use energy or power. The answer is the same because both have the same time." },
+        {
+          "type": "paragraph",
+          "text": "You can use energy or power. The answer is the same because both have the same time."
+        },
         {
           "type": "equation",
           "label": "Efficiency from energy",
           "formula": "efficiency = useful output energy transfer ÷ total input energy transfer",
-          "where": ["Both energies are in joules (J).", "The answer is a decimal from 0 to 1. Multiply by 100 for a percentage."]
+          "where": [
+            "Both energies are in joules (J).",
+            "The answer is a decimal from 0 to 1. Multiply by 100 for a percentage."
+          ]
         },
         {
           "type": "equation",
@@ -54,25 +72,68 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Find the useful output.", "text": "A cooker supplies 130 000 J, but only 96 000 J heats the milk." },
-            { "lead": "Substitute.", "text": "efficiency = 96 000 ÷ 130 000" },
-            { "lead": "Evaluate.", "text": "efficiency = 0.74 (to 2 decimal places), or 74%." }
+            {
+              "lead": "Find the useful output.",
+              "text": "A cooker supplies 130 000 J, but only 96 000 J heats the milk."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "efficiency = 96 000 ÷ 130 000"
+            },
+            {
+              "lead": "Evaluate.",
+              "text": "efficiency = 0.74 (to 2 decimal places), or 74%."
+            }
           ]
         },
-        { "type": "paragraph", "text": "Change the input energy and the useful output to see the efficiency and the wasted energy." },
+        {
+          "type": "paragraph",
+          "text": "Change the input energy and the useful output to see the efficiency and the wasted energy."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "slider",
             "alt": "Change the total input energy and the useful output energy to see the efficiency and the wasted energy.",
             "inputs": [
-              { "id": "Ein", "label": "Total input energy", "unit": "J", "min": 100, "max": 500, "step": 10, "value": 250 },
-              { "id": "Eout", "label": "Useful output energy", "unit": "J", "min": 10, "max": 90, "step": 5, "value": 60 }
+              {
+                "id": "Ein",
+                "label": "Total input energy",
+                "unit": "J",
+                "min": 100,
+                "max": 500,
+                "step": 10,
+                "value": 250
+              },
+              {
+                "id": "Eout",
+                "label": "Useful output energy",
+                "unit": "J",
+                "min": 10,
+                "max": 90,
+                "step": 5,
+                "value": 60
+              }
             ],
             "outputs": [
-              { "label": "Efficiency (decimal)", "formula": "Eout / Ein", "decimals": 2 },
-              { "label": "Efficiency", "unit": "%", "formula": "Eout / Ein * 100", "decimals": 0 },
-              { "label": "Wasted energy", "unit": "J", "formula": "Ein - Eout", "decimals": 0, "bar": true }
+              {
+                "label": "Efficiency (decimal)",
+                "formula": "Eout / Ein",
+                "decimals": 2
+              },
+              {
+                "label": "Efficiency",
+                "unit": "%",
+                "formula": "Eout / Ein * 100",
+                "decimals": 0
+              },
+              {
+                "label": "Wasted energy",
+                "unit": "J",
+                "formula": "Ein - Eout",
+                "decimals": 0,
+                "bar": true
+              }
             ]
           }
         },
@@ -83,10 +144,24 @@
             "alt": "Calculate useful output energy from an efficiency percentage and an input energy.",
             "question": "A device has an efficiency of {e}%. The total input energy is {Ein} J. Calculate the useful energy output.",
             "variables": [
-              { "id": "e", "min": 10, "max": 90, "step": 10 },
-              { "id": "Ein", "min": 100, "max": 1000, "step": 50 }
+              {
+                "id": "e",
+                "min": 10,
+                "max": 90,
+                "step": 10
+              },
+              {
+                "id": "Ein",
+                "min": 100,
+                "max": 1000,
+                "step": 50
+              }
             ],
-            "answer": { "formula": "e / 100 * Ein", "unit": "J", "decimals": 0 },
+            "answer": {
+              "formula": "e / 100 * Ein",
+              "unit": "J",
+              "decimals": 0
+            },
             "working": [
               "efficiency = useful output ÷ total input",
               "useful output = {e} ÷ 100 × {Ein}",
@@ -94,7 +169,10 @@
             ]
           }
         },
-        { "type": "subheading", "text": "Finding total input or wasted energy" },
+        {
+          "type": "subheading",
+          "text": "Finding total input or wasted energy"
+        },
         {
           "type": "list",
           "items": [
@@ -116,7 +194,10 @@
     {
       "heading": "Increasing efficiency",
       "blocks": [
-        { "type": "paragraph", "text": "To raise efficiency, reduce the energy that is wasted." },
+        {
+          "type": "paragraph",
+          "text": "To raise efficiency, reduce the energy that is wasted."
+        },
         {
           "type": "list",
           "items": [
@@ -126,7 +207,10 @@
             "Use thicker, low-resistance wires."
           ]
         },
-        { "type": "subheading", "text": "Why efficiency matters" },
+        {
+          "type": "subheading",
+          "text": "Why efficiency matters"
+        },
         {
           "type": "list",
           "items": [
@@ -166,28 +250,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.1.2.2", "AQA T 6.1.2.2"],
-      "exam_phrases": [
-        "0.75 = useful power output / 0.24",
-        "useful power output = 0.75 × 0.24",
-        "more efficient devices waste less energy",
-        "more efficient devices need a lower energy input (for the same energy output)",
-        "which would minimise the electricity / energy demand",
-        "costs less to run"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Efficient devices are better for the environment.",
-          "right": "Qualify it. More efficient devices waste less energy, so less electricity needs to be generated, with lower carbon dioxide emissions."
-        },
-        {
-          "wrong": "Efficient devices use less electricity.",
-          "right": "Say why. They waste less energy, or need a lower energy input for the same energy output."
-        },
-        {
-          "wrong": "Useful power output = 0.24 ÷ 0.75.",
-          "right": "Multiply the efficiency by the total power input: 0.75 × 0.24 = 0.18 W."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "2ca9164a-7f64-4db4-98ac-84801249e1bc",
         "source": "AQA jun 2020, Paper 1 (H), Q02.6",
@@ -204,35 +266,16 @@
         {
           "heading": "Tier note",
           "blocks": [
-            { "type": "paragraph", "text": "(Higher tier) Describing ways to increase the efficiency of an energy transfer is Higher tier content on this specification." }
+            {
+              "type": "paragraph",
+              "text": "(AQA: Higher tier) Describing ways to increase the efficiency of an energy transfer is Higher tier content on this specification."
+            }
           ]
         }
       ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.11", "EDEX 3.12", "EDEX 8.15"],
-      "exam_phrases": [
-        "(0.)55 = 42 000 / total energy supplied (to device)",
-        "(total energy supplied to device =) 42 000 / (0.)55",
-        "(efficiency =) 96 000 / 130 000",
-        "(efficiency =) 0.74",
-        "(useful) output energy is less than input energy",
-        "some energy is transferred to less useful forms"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The efficiency of the cooker is 74.",
-          "right": "Give 0.74 or 74%. An answer of 74 without the % sign scores only 1 mark."
-        },
-        {
-          "wrong": "42 000 / 0.55 = 764 J.",
-          "right": "Check the power of ten. 42 000 / 0.55 = 76 364, which is 76 000 J. An answer of 764 J loses the evaluation mark."
-        },
-        {
-          "wrong": "The efficiency is less than 1 because the engine destroys some of the energy.",
-          "right": "Energy is not destroyed. The useful output is less than the input because some energy is transferred to less useful forms, such as thermal energy."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "4bfd8596-c429-4780-bc97-936796d9d9b6",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q9(b)(ii)",
@@ -248,28 +291,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR P7.2d", "OCR P7.2e"],
-      "exam_phrases": [
-        "(useful energy =) efficiency × input energy",
-        "0.4 × 10",
-        "(wasted energy = 10 – 4 =) 6 (J)",
-        "(efficiency =) 0.6 ÷ 1.5",
-        "(efficiency =) 0.4 / 40 %",
-        "reduce the friction between the car and track / lubrication"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The energy wasted by the lamp is 4 J.",
-          "right": "4 J is the useful energy. The wasted energy is the input minus the useful output: 10 − 4 = 6 J."
-        },
-        {
-          "wrong": "The efficiency of the motor is 40.",
-          "right": "Give 0.4 or 40%. The answer 40 without the % sign scores only 1 mark."
-        },
-        {
-          "wrong": "Convert 0.6 MJ and 1.5 MJ to joules before finding the efficiency.",
-          "right": "This is not needed. A ratio of two energies in the same unit gives the same efficiency: 0.6 ÷ 1.5 = 0.4."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "25f934f7-0726-4fad-90d8-a2ce740bf63a",
         "source": "OCR jun 2024, Paper 2, Q17(f)",

@@ -27,12 +27,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Trophic level",
-            "Name",
-            "Example",
-            "How it gets its energy"
-          ],
+          "columns": ["Trophic level", "Name", "Example", "How it gets its energy"],
           "rows": [
             [
               "1",
@@ -40,24 +35,9 @@
               "Algae",
               "Makes food by photosynthesis, using light absorbed by chlorophyll"
             ],
-            [
-              "2",
-              "Primary consumer",
-              "Invertebrate animals",
-              "Eats the producers"
-            ],
-            [
-              "3",
-              "Secondary consumer",
-              "Small fish",
-              "Eats the primary consumers"
-            ],
-            [
-              "4",
-              "Tertiary consumer",
-              "Large fish",
-              "Eats the secondary consumers"
-            ]
+            ["2", "Primary consumer", "Invertebrate animals", "Eats the producers"],
+            ["3", "Secondary consumer", "Small fish", "Eats the primary consumers"],
+            ["4", "Tertiary consumer", "Large fish", "Eats the secondary consumers"]
           ]
         },
         {
@@ -215,48 +195,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 7.11"
-      ],
-      "exam_phrases": [
-        "from light / sunlight",
-        "absorbed by chlorophyll / chloroplasts",
-        "by photosynthesis"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The algae get their energy from the sun.",
-          "right": "\"Sun\" on its own is ignored. Say that the energy comes from light or sunlight."
-        },
-        {
-          "wrong": "The algae get their energy by photosynthesis.",
-          "right": "This alone scores only 1 mark. Also say that the light is absorbed by chlorophyll or chloroplasts."
-        }
-      ]
+      "spec_codes": ["AQA 7.11"]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.7B"
-      ],
-      "exam_phrases": [
-        "there is less energy in the cattle than in the plants",
-        "not all of the energy from the plants is passed on to the cattle",
-        "not all plant material is digested / eaten",
-        "some energy is used for respiration / movement / metabolism",
-        "(transferred to surroundings) as heat",
-        "seals have (to maintain) a constant body temperature",
-        "there is more heat loss"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Seals lose more energy than shrimps.",
-          "right": "\"Energy\" is ignored on its own. Say that seals keep a constant body temperature, so there is more heat loss, so more food or glucose is used."
-        },
-        {
-          "wrong": "The beetle uses energy to maintain its body temperature, so less is passed on.",
-          "right": "\"Maintaining body temperature\" is ignored in this question. Give reasons such as not all of the beetle is eaten or digested, movement, respiration or heat to the surroundings."
-        }
-      ],
+      "spec_codes": ["EDEX 9.7B"],
       "worked_example": {
         "exemplar_id": "c060fc0a-7c18-4eed-a8f1-40df1e2fb100",
         "source": "EDEXCEL jun 2022, Paper 2 (F), Q10(c)(iii)",
@@ -273,26 +215,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 4.1h",
-        "OCR 4.1i",
-        "OCR 4.1j"
-      ],
-      "exam_phrases": [
-        "egestion",
-        "excretion",
-        "respiration",
-        "decomposition",
-        "uneaten parts",
-        "faeces / undigested food",
-        "named excretory product / urine"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Biomass is lost from a food chain by movement.",
-          "right": "\"Movement\" is ignored. Use egestion, excretion, respiration, decomposition or uneaten parts."
-        }
-      ],
+      "spec_codes": ["OCR 4.1h", "OCR 4.1i", "OCR 4.1j"],
       "worked_example": {
         "exemplar_id": "9bdf587c-222b-4056-a128-d874ab8679a3",
         "source": "OCR jun 2018, Paper 4, Q23(a)(ii)",

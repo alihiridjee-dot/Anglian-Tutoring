@@ -82,10 +82,7 @@
             "kind": "sort",
             "alt": "A self-test: sort the difficulties into those that make the brain hard to investigate and those that make damage hard to treat.",
             "prompt": "Sort each difficulty into the right group.",
-            "groups": [
-              "Hard to investigate",
-              "Hard to treat"
-            ],
+            "groups": ["Hard to investigate", "Hard to treat"],
             "items": [
               {
                 "text": "Experiments on live animals raise ethical issues",
@@ -152,25 +149,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 5.4"
-      ],
-      "exam_phrases": [
-        "can ask people to do different tasks (while taking the scan)",
-        "to see which part of the brain is active / inactive",
-        "to compare with a person without brain damage",
-        "to see (exactly) where the damage is"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A traditional MRI scanner can be used for anyone.",
-          "right": "A traditional MRI scanner cannot be used if people cannot stay still. A functional MRI (fMRI) scanner allows the person to move."
-        },
-        {
-          "wrong": "An fMRI scan only shows what the brain looks like.",
-          "right": "It shows which part of the brain is active or inactive, so the person can be asked to do a task while it is scanned."
-        }
-      ],
+      "spec_codes": ["AQA 5.4"],
       "worked_example": {
         "exemplar_id": "e5ec2cf9-b6af-4dbe-b91a-fda275cc8f7f",
         "source": "AQA jun 2020, Paper 2 (H), Q06.3",
@@ -185,11 +164,11 @@
       },
       "extra": [
         {
-          "heading": "fMRI scans (Higher tier)",
+          "heading": "fMRI scans (AQA: Higher tier)",
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(Higher tier) A traditional MRI scanner needs the person to stay completely still. A functional MRI (fMRI) scanner lets the person move while it images brain activity."
+              "text": "(AQA: Higher tier) A traditional MRI scanner needs the person to stay completely still. A functional MRI (fMRI) scanner lets the person move while it images brain activity."
             },
             {
               "type": "list",
@@ -204,28 +183,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.11B",
-        "EDEX 2.12B"
-      ],
-      "exam_phrases": [
-        "CT / PET scanning",
-        "the brain is protected by the skull",
-        "it is difficult to access",
-        "nerves do not repair / regenerate",
-        "the risk of damage to the brain",
-        "must not damage healthy cells / can cause side effects"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Another way a brain tumour can be detected is an eye test.",
-          "right": "If the question already gives eye tests, give another method: CT or PET scanning. MRI or X-ray is also accepted."
-        },
-        {
-          "wrong": "A brain tumour is easy to treat because damaged nerves repair themselves.",
-          "right": "Nerves do not repair or regenerate. A brain tumour is difficult to treat because of this, the skull, and the risk of damaging the brain."
-        }
-      ],
+      "spec_codes": ["EDEX 2.11B", "EDEX 2.12B"],
       "worked_example": {
         "exemplar_id": "fad849ad-e077-4d64-8cfa-30c933bf02f7",
         "source": "EDEXCEL nov 2021, Paper 1 (H), Q1(b)(ii)",
@@ -239,34 +197,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 3.1g",
-        "OCR 3.1h"
-      ],
-      "exam_phrases": [
-        "ethical issues with experimenting on (live) animals",
-        "results in animals may be different to humans",
-        "the brain is very complex / many different connections",
-        "some areas of the brain are difficult to reach",
-        "difficult to get research subjects willing to give consent",
-        "could cause further harm to people with the disease",
-        "study size was small (a trial on a larger group is needed)",
-        "need to study for a longer time"
-      ],
-      "mistakes": [
-        {
-          "wrong": "It is unethical to study the brain.",
-          "right": "This is ignored. Name the issue, such as experimenting on or harming live animals."
-        },
-        {
-          "wrong": "Consent is needed from patients.",
-          "right": "This is ignored. Say it is difficult to get research subjects who are willing to participate or give consent."
-        },
-        {
-          "wrong": "The treatment may have long term effects.",
-          "right": "This is ignored. Say the treatment may have side effects, or that it must be shown to be safe and effective in the long term."
-        }
-      ],
+      "spec_codes": ["OCR 3.1g", "OCR 3.1h"],
       "worked_example": {
         "exemplar_id": "b7dd8c08-cb69-4511-bf2f-197325d1f89a",
         "source": "OCR jun 2025, Paper 3, Q23(c)",

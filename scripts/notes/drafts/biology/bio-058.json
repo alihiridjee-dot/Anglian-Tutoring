@@ -8,7 +8,10 @@
     {
       "heading": "The method",
       "blocks": [
-        { "type": "paragraph", "text": "This practical tests how light intensity affects the rate of photosynthesis, using pondweed in water." },
+        {
+          "type": "paragraph",
+          "text": "This practical tests how light intensity affects the rate of photosynthesis, using pondweed in water."
+        },
         {
           "type": "list",
           "items": [
@@ -17,7 +20,10 @@
             "The pondweed gives off bubbles of oxygen. The rate is the number of bubbles in a set time, or the volume of gas collected."
           ]
         },
-        { "type": "paragraph", "text": "Put the steps of the method in order." },
+        {
+          "type": "paragraph",
+          "text": "Put the steps of the method in order."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -46,14 +52,26 @@
     {
       "heading": "Variables and results",
       "blocks": [
-        { "type": "paragraph", "text": "To compare results fairly, only one variable should change." },
+        {
+          "type": "paragraph",
+          "text": "To compare results fairly, only one variable should change."
+        },
         {
           "type": "table",
           "columns": ["Type of variable", "In this practical"],
           "rows": [
-            ["Independent (what you change)", "Distance of the lamp, which changes the light intensity"],
-            ["Dependent (what you measure)", "Number of bubbles in a set time, or volume of oxygen collected"],
-            ["Control (kept the same)", "Same pondweed, same volume and concentration of sodium hydrogencarbonate, temperature, no other light sources"]
+            [
+              "Independent (what you change)",
+              "Distance of the lamp, which changes the light intensity"
+            ],
+            [
+              "Dependent (what you measure)",
+              "Number of bubbles in a set time, or volume of oxygen collected"
+            ],
+            [
+              "Control (kept the same)",
+              "Same pondweed, same volume and concentration of sodium hydrogencarbonate, temperature, no other light sources"
+            ]
           ]
         },
         {
@@ -78,10 +96,24 @@
             "alt": "Practise calculating the rate of photosynthesis in bubbles per minute from a bubble count.",
             "question": "A student counts **{n} bubbles** of oxygen in **{t} minutes**. Calculate the rate of photosynthesis in bubbles per minute. Give your answer to 2 decimal places.",
             "variables": [
-              { "id": "n", "min": 20, "max": 80, "step": 4 },
-              { "id": "t", "min": 2, "max": 5, "step": 1 }
+              {
+                "id": "n",
+                "min": 20,
+                "max": 80,
+                "step": 4
+              },
+              {
+                "id": "t",
+                "min": 2,
+                "max": 5,
+                "step": 1
+              }
             ],
-            "answer": { "formula": "n / t", "unit": "bubbles per minute", "decimals": 2 },
+            "answer": {
+              "formula": "n / t",
+              "unit": "bubbles per minute",
+              "decimals": 2
+            },
             "working": [
               "Rate = number of bubbles ÷ time",
               "Rate = {n} ÷ {t} = **{answer}** bubbles per minute"
@@ -100,7 +132,10 @@
     {
       "heading": "Improving the results",
       "blocks": [
-        { "type": "paragraph", "text": "Counting bubbles is not very accurate. This section covers why, and how to improve the method." },
+        {
+          "type": "paragraph",
+          "text": "Counting bubbles is not very accurate. This section covers why, and how to improve the method."
+        },
         {
           "type": "list",
           "items": [
@@ -142,27 +177,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.2", "AQA T 4.4.1.2"],
-      "exam_phrases": [
-        "allow the pondweed to equilibrate in the light",
-        "use a gas syringe / (measuring) cylinder to collect the oxygen / gas produced",
-        "measure the time the gas is collected for using a timer / stopwatch",
-        "repeat the measurements and calculate a mean",
-        "use different concentrations of sodium hydrogencarbonate solution"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Count the number of bubbles to measure the oxygen produced.",
-          "right": "References to counting bubbles are ignored for the gas-collecting mark. Collect the oxygen in a gas syringe or measuring cylinder and measure the volume."
-        },
-        {
-          "wrong": "Collect the carbon dioxide produced.",
-          "right": "Carbon dioxide is not accepted. The gas collected is oxygen."
-        },
-        {
-          "wrong": "Use different amounts of sodium hydrogencarbonate solution to change the carbon dioxide.",
-          "right": "Different amounts are ignored. Use different concentrations of sodium hydrogencarbonate solution (for example three concentrations)."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "8415dc83-3e12-4ed1-b42b-ada10bd1c59b",
         "source": "AQA jun 2022, Paper 1 (H), Q4.3",
@@ -179,23 +193,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.5"],
-      "exam_phrases": [
-        "video the investigation, then play back (in slow motion) and count the bubbles",
-        "collect the gas / use a (gas) syringe and measure the volume of gas",
-        "repeat at each light intensity and calculate a mean",
-        "use a water bath to keep each temperature constant",
-        "control a variable, for example keep the pondweed / light intensity / volume of water the same"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Repeat the investigation to improve the quality of the results.",
-          "right": "Repeating and calculating a mean earn separate marks. Say that you repeat at each light intensity, then calculate a mean."
-        },
-        {
-          "wrong": "To test temperature, change the temperature of the water and count the bubbles.",
-          "right": "Also control a variable, for example the same pondweed, light intensity or volume of water. Use a thermometer and a water bath to monitor and hold each temperature."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "8f618ad6-0b49-4393-8b65-ce6f5ed7d9ab",
         "source": "EDEXCEL jun 2022, Paper 2 (F), Q6(a)(iv)",
@@ -215,7 +212,10 @@
         {
           "heading": "Algal balls (Edexcel)",
           "blocks": [
-            { "type": "paragraph", "text": "Edexcel names an alternative method that uses algal balls in indicator solutions." },
+            {
+              "type": "paragraph",
+              "text": "Edexcel names an alternative method that uses algal balls in indicator solutions."
+            },
             {
               "type": "list",
               "items": [
@@ -230,24 +230,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 1.4d", "OCR 7.5"],
-      "exam_phrases": [
-        "use a lamp at different distances from the pondweed",
-        "count the number of bubbles of oxygen given off in a set time",
-        "repeat the readings and / or calculate a mean",
-        "same volume / concentration of sodium hydrogen carbonate",
-        "bubbles are different sizes / have a different volume of gas",
-        "use of inverse square law to calculate the light intensity"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Keep the same amount of solution and use the same syringe.",
-          "right": "\"Amount\" and \"same syringe\" are ignored. Say the volume or concentration of the solution, the size, number or area of the leaf discs, the temperature or the light intensity."
-        },
-        {
-          "wrong": "Counting bubbles is not accurate because the pondweed could be different sizes.",
-          "right": "This is ignored. Say the bubbles are different sizes so they contain different volumes of gas, or that some bubbles may be missed or miscounted."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "07d0c5ba-3f5b-47c9-91df-6d78a070db88",
         "source": "OCR jun 2023, Paper 1, Q20",
@@ -266,7 +248,10 @@
         {
           "heading": "Leaf discs (OCR)",
           "blocks": [
-            { "type": "paragraph", "text": "OCR also uses leaf discs to compare the rate of photosynthesis." },
+            {
+              "type": "paragraph",
+              "text": "OCR also uses leaf discs to compare the rate of photosynthesis."
+            },
             {
               "type": "list",
               "items": [

@@ -14,19 +14,9 @@
         },
         {
           "type": "table",
-          "columns": [
-            "STI",
-            "Pathogen",
-            "How it spreads",
-            "Other facts"
-          ],
+          "columns": ["STI", "Pathogen", "How it spreads", "Other facts"],
           "rows": [
-            [
-              "Chlamydia",
-              "Bacterium",
-              "Sexual intercourse",
-              "Treated with antibiotics."
-            ],
+            ["Chlamydia", "Bacterium", "Sexual intercourse", "Treated with antibiotics."],
             [
               "Gonorrhoea",
               "Bacterium",
@@ -104,10 +94,7 @@
           "type": "equation",
           "label": "Number of people diagnosed",
           "formula": "number diagnosed = (rate per 1000 ÷ 1000) × population",
-          "where": [
-            "rate per 1000, in people per 1000",
-            "population, in people"
-          ]
+          "where": ["rate per 1000, in people per 1000", "population, in people"]
         },
         {
           "type": "diagram",
@@ -170,34 +157,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 3.2",
-        "AQA T 4.3.1.2",
-        "AQA T 4.3.1.3"
-      ],
-      "exam_phrases": [
-        "avoid sexual intercourse",
-        "use a condom",
-        "do not share needles",
-        "use antiretroviral drugs",
-        "screen blood used for transfusions",
-        "sexual contact / intercourse",
-        "exchange of body fluids"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Use protection to stop the spread of HIV.",
-          "right": "\"Use protection\", \"use contraception\" and \"use medication\" unqualified are ignored. Say use a condom, or use antiretroviral drugs."
-        },
-        {
-          "wrong": "Have less sexual contact to control gonorrhoea.",
-          "right": "\"Less sexual intercourse / contact\" is not accepted. Say avoid sexual intercourse, or use a condom or barrier method."
-        },
-        {
-          "wrong": "Wash your hands or keep your distance to stop the spread of HIV.",
-          "right": "Handwashing and social distancing are ignored. HIV spreads by sexual contact and exchange of body fluids."
-        }
-      ],
+      "spec_codes": ["AQA 3.2", "AQA T 4.3.1.2", "AQA T 4.3.1.3"],
       "worked_example": {
         "exemplar_id": "14665365-e25c-468c-85a5-e2d673bf4a93",
         "source": "AQA jun 2020, Paper 1 (F), Q04.5",
@@ -214,27 +174,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.8"
-      ],
-      "exam_phrases": [
-        "avoid sexual contact",
-        "use a condom / femidom",
-        "screen people for an infection",
-        "treat the infection / give antibiotics",
-        "it is passed / spread from person to person",
-        "chlamydia is transmitted by sexual intercourse"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Use protection or contraception to prevent chlamydia.",
-          "right": "\"Protection\" and \"contraception\" are ignored. Say use a condom or femidom, or a barrier form of contraception."
-        },
-        {
-          "wrong": "Chlamydia is communicable because it is caused by a virus.",
-          "right": "\"Caused by a virus\" is ignored. Say it is passed from person to person, or caused by bacteria."
-        }
-      ],
+      "spec_codes": ["EDEX 5.8"],
       "worked_example": {
         "exemplar_id": "76ce9779-e2b0-4163-bd9f-c43a762b7ca3",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q3(a)(iv)",
@@ -250,36 +190,13 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.3f"
-      ],
-      "exam_phrases": [
-        "HIV is a pathogen",
-        "AIDS is a set of infections",
-        "HIV is a virus"
-      ],
-      "mistakes": [
-        {
-          "wrong": "AIDS is a virus that weakens the immune system.",
-          "right": "HIV is the virus (the pathogen). AIDS is a set of infections that develops when the immune system is weakened."
-        },
-        {
-          "wrong": "HIV and AIDS are alternative names for the same disease.",
-          "right": "They are not the same. HIV is a pathogen and AIDS is a set of infections."
-        },
-        {
-          "wrong": "HIV is a virus that produces toxins which kill an infected person.",
-          "right": "HIV does not kill by producing toxins. It damages the immune system, so other infections take hold."
-        }
-      ],
+      "spec_codes": ["OCR 6.3f"],
       "worked_example": {
         "exemplar_id": "54125ddf-70ea-49fc-9f83-499c5742ff37",
         "source": "OCR jun 2022, Paper 4, Q10",
         "question": "Which statement is correct about HIV/AIDS? A: AIDS is a virus that weakens the immune system. B: HIV and AIDS are alternative names for the same disease. C: HIV is a pathogen and AIDS is a set of infections. D: HIV is a virus that produces toxins which kill an infected person.",
         "marks": 1,
-        "answer_points": [
-          "C: HIV is a pathogen and AIDS is a set of infections."
-        ],
+        "answer_points": ["C: HIV is a pathogen and AIDS is a set of infections."],
         "tip": "HIV is the virus. AIDS is the set of infections that follows when the immune system is badly damaged."
       }
     }

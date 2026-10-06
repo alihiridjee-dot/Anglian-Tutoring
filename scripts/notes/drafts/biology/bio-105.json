@@ -1,0 +1,211 @@
+{
+  "format": 1,
+  "concept_id": "bio-105",
+  "subject": "biology",
+  "title": "Darwin, Wallace and speciation",
+  "key_idea": "Charles Darwin and Alfred Wallace both developed the theory of evolution by natural selection. If two populations of a species are isolated and change until they can no longer interbreed to produce fertile offspring, they have become two new species.",
+  "sections": [
+    {
+      "heading": "The work of Darwin and Wallace",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two scientists reached the theory of natural selection. This section covers what each did."
+        },
+        {
+          "type": "subheading",
+          "text": "Charles Darwin"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Went on a **voyage** on HMS Beagle and studied many species, including those on islands such as the Galapagos Islands.",
+            "Noticed that animals in some areas were better suited to their environment. For example, finches had beaks adapted to their food.",
+            "Described his theory in a book, **On the Origin of Species**, published in 1859.",
+            "Gave the theory of evolution by natural selection."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Alfred Wallace"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Travelled around Malaysia in the 1800s and studied the animal species there.",
+            "Found that animals on one side of the **Wallace line** were different from animals on the other side.",
+            "Wrote to Darwin. His conclusions were very similar to Darwin's.",
+            "His results backed up Darwin's work and encouraged Darwin to publish."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Darwin collected evidence on a voyage and published the theory in a book.",
+            "Wallace reached similar conclusions, and both contributed to the theory.",
+            "Wallace's work supported Darwin and encouraged him to publish."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reception and impact of the theory",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The theory changed biology. This section covers how it is used today."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The theory was only **gradually accepted**. It challenged the idea that God made all the animals and plants on Earth.",
+            "There was not enough evidence at the time to convince many scientists.",
+            "How characteristics are inherited was not known until about 50 years after the theory was published.",
+            "Today the theory is accepted by most scientists as the explanation for the variety of species on Earth.",
+            "It is used in conservation, for example in seedbanks."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Seedbanks"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A seedbank stores a large number of seeds for a long time.",
+            "It is a store of **biodiversity** and helps prevent plants from becoming extinct.",
+            "The seeds are a supply of useful genes. In the future they can be used to breed new varieties of crops, for example if the climate changes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The theory was challenged at first but is now widely accepted.",
+            "Seedbanks conserve biodiversity.",
+            "Stored seeds supply useful genes for breeding future crops."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How new species form",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Natural selection can split one species into two. This section covers the stages of speciation."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Species",
+              "meaning": "A group of organisms that can breed together to produce fertile offspring."
+            },
+            {
+              "term": "Speciation",
+              "meaning": "The formation of a new species."
+            },
+            {
+              "term": "Isolation",
+              "meaning": "Two populations are kept apart, for example by a sea or a mountain, so they cannot interbreed."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Put the stages of speciation in order.",
+            "kind": "sequence",
+            "steps": [
+              "One population of a species is split into two by a barrier (isolation)",
+              "The two populations live in different environments with different selection pressures",
+              "Different mutations occur in each population, giving different variation",
+              "Natural selection favours different alleles in each population",
+              "Over many generations the populations become very different in phenotype",
+              "They can no longer interbreed to produce fertile offspring: they are two new species"
+            ],
+            "prompt": "Put speciation in order"
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Isolated populations face different selection pressures.",
+            "Two populations become new species when they cannot breed together to give fertile offspring."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the two scientists who developed the theory of evolution by natural selection.",
+      "a": "Charles Darwin and Alfred Russel Wallace.",
+      "marks": 2
+    },
+    {
+      "q": "How can scientists show that two birds belong to different species?",
+      "a": "They cannot breed together to give fertile offspring.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why seedbanks might be useful if the climate changes.",
+      "a": "They store a large number of seeds, which preserves biodiversity. The seeds supply useful genes that could be used to breed new varieties of crop.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 6.14"]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 4.1B"],
+      "worked_example": {
+        "exemplar_id": "71798adc-79e6-47cf-a1fa-89f91291fa38",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q1(b)(i)",
+        "question": "Alfred Wallace suggested an imaginary line, called the Wallace line, based on his research. Wallace found that animals to the west of the line were different from animals to the east of the line.\n\nSuggest two possible reasons why animals to the west of the Wallace line are different from animals to the east of the Wallace line.",
+        "marks": 2,
+        "answer_points": [
+          "Different mutations occurred.",
+          "A selection pressure acted on them.",
+          "The environment, climate or habitat is different.",
+          "The food, prey or predators are different.",
+          "They are unable to interbreed (they are geographically isolated)."
+        ],
+        "tip": "Any two of these score one mark each."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 5.2f"],
+      "worked_example": {
+        "exemplar_id": "805e3166-2404-400f-8e63-1069bfe84ef2",
+        "source": "OCR nov 2021, Paper 4, Q23(b)",
+        "question": "This question is about the evolution of plants and animals on Earth.\n\nDescribe the work of Charles Darwin which led him to develop a theory of how evolution could occur.",
+        "marks": 4,
+        "answer_points": [
+          "He travelled on a voyage, and his studies were on islands such as the Galapagos Islands.",
+          "He studied many species, for example finches.",
+          "Animals in some areas had become better suited or adapted to their environment, for example finch beaks adapted to the food source.",
+          "He documented his observations and described his theory in a book."
+        ],
+        "tip": "One mark for each point."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "662115dd-4ac8-4dcb-8166-3575e32894ec",
+      "a0492961-22a3-4f60-83d6-156e00a2c714",
+      "2ad6a79e-f821-4aaa-97a4-4eb2960e6028"
+    ],
+    "exemplar_ids": [
+      "71798adc-79e6-47cf-a1fa-89f91291fa38",
+      "805e3166-2404-400f-8e63-1069bfe84ef2"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

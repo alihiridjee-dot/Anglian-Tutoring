@@ -249,28 +249,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.2.1.3",
-        "AQA T 6.2.1.3"
-      ],
-      "exam_phrases": [
-        "I = 0.45 (A)",
-        "2.7 = 0.45 × R",
-        "R = 2.7 / 0.45",
-        "R = 6 (Ω)",
-        "use V = IR to calculate resistance",
-        "potential difference / voltage"
-      ],
-      "mistakes": [
-        {
-          "wrong": "R = 2.7 ÷ 450 = 0.006 Ω.",
-          "right": "The current was in mA. Convert first: 450 mA = 0.45 A, so R = 2.7 ÷ 0.45 = 6 Ω."
-        },
-        {
-          "wrong": "For a charge of 0.16 C in 4.0 ms, I = 0.16 ÷ 4.0 = 0.04 A.",
-          "right": "Convert the time: 4.0 ms = 4.0 × 10⁻³ s. I = 0.16 ÷ (4.0 × 10⁻³) = 40 A. Then use V = IR to find R."
-        }
-      ],
+      "spec_codes": ["AQA 4.2.1.3", "AQA T 6.2.1.3"],
       "worked_example": {
         "exemplar_id": "8a543a5e-266b-4748-906b-0c95afd90fa7",
         "source": "AQA jun 2025, Paper 1 (H), Q03.2",
@@ -286,32 +265,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 10.12",
-        "EDEX 10.13"
-      ],
-      "exam_phrases": [
-        "recall and substitution into V = IR",
-        "(R =) V / I",
-        "(variable) resistor increases the resistance (of the circuit)",
-        "keeps the current constant / small(er)",
-        "current increases temperature of the (iron) wire",
-        "reduces current / limits the current"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The variable resistor slows the current down.",
-          "right": "'Slows the current' is ignored. Say it reduces or limits the current."
-        },
-        {
-          "wrong": "R = 4.5 ÷ 51 = 0.088 Ω for 4.5 V and 51 mA.",
-          "right": "A value of 0.088 or 8.8 only scores 1 mark. Convert 51 mA to 0.051 A, so R = 4.5 ÷ 0.051 = 88 Ω."
-        },
-        {
-          "wrong": "A variable resistor is used because it makes the wire cooler.",
-          "right": "Link the steps: it increases the resistance, so the current is smaller, because the current heats the wire."
-        }
-      ],
+      "spec_codes": ["EDEX 10.12", "EDEX 10.13"],
       "worked_example": {
         "exemplar_id": "f4481dfd-e4fe-44e8-a9e4-b120a9afe29f",
         "source": "EDEXCEL jun 2023, Paper 2 (F), Q8(c)(iv)",
@@ -326,32 +280,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P3.2c",
-        "OCR P3.2d"
-      ],
-      "exam_phrases": [
-        "resistance = potential difference ÷ current",
-        "R = V ÷ I",
-        "(V =) IR",
-        "20(mA) = 0.02(A)",
-        "ohm(s) or V/A",
-        "3 sig. figs"
-      ],
-      "mistakes": [
-        {
-          "wrong": "R = 4.0 ÷ 20 = 0.2 for 20 mA and 4.0 V.",
-          "right": "Convert mA to A first: 0.02 A. R = 4.0 ÷ 0.02 = 200 Ω. The unit mark is awarded separately."
-        },
-        {
-          "wrong": "Resistance of the lamp at 4.0 V is 4.0 ÷ 2.7 = 1.5 Ω.",
-          "right": "Take the current from the same row as the potential difference. At 4.0 V the current is 3.2, so R = 4.0 ÷ 3.2 = 1.25 Ω."
-        },
-        {
-          "wrong": "R = 2.0 ÷ 0.15 = 13.33333 Ω, given to 3 significant figures.",
-          "right": "Round to 3 significant figures: 13.3 Ω. The significant figures are a separate mark."
-        }
-      ],
+      "spec_codes": ["OCR P3.2c", "OCR P3.2d"],
       "worked_example": {
         "exemplar_id": "9db941ac-2ca8-4d21-b0a6-d57e1e81e734",
         "source": "OCR jun 2019, Paper 1, Q17(b)",

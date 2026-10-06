@@ -39,11 +39,7 @@
             "kind": "sort",
             "alt": "Sort each clue into nitrogen, phosphorus or potassium.",
             "prompt": "Which element does each clue point to?",
-            "groups": [
-              "Nitrogen",
-              "Phosphorus",
-              "Potassium"
-            ],
+            "groups": ["Nitrogen", "Phosphorus", "Potassium"],
             "items": [
               {
                 "text": "Too little causes yellow leaves",
@@ -112,17 +108,13 @@
           "type": "equation",
           "label": "Ammonium nitrate",
           "formula": "NH₃ + HNO₃ → NH₄NO₃",
-          "where": [
-            "NH₃ = ammonia, HNO₃ = nitric acid"
-          ]
+          "where": ["NH₃ = ammonia, HNO₃ = nitric acid"]
         },
         {
           "type": "equation",
           "label": "Ammonium sulfate",
           "formula": "2NH₃ + H₂SO₄ → (NH₄)₂SO₄",
-          "where": [
-            "NH₃ = ammonia, H₂SO₄ = sulfuric acid"
-          ]
+          "where": ["NH₃ = ammonia, H₂SO₄ = sulfuric acid"]
         },
         {
           "type": "subheading",
@@ -130,23 +122,14 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Acid used",
-            "Salt produced"
-          ],
+          "columns": ["Acid used", "Salt produced"],
           "rows": [
-            [
-              "Nitric acid",
-              "Calcium nitrate (with phosphoric acid)"
-            ],
+            ["Nitric acid", "Calcium nitrate (with phosphoric acid)"],
             [
               "Sulfuric acid",
               "Calcium sulfate, with calcium phosphate (together called single superphosphate)"
             ],
-            [
-              "Phosphoric acid",
-              "Calcium phosphate (triple superphosphate)"
-            ]
+            ["Phosphoric acid", "Calcium phosphate (triple superphosphate)"]
           ]
         },
         {
@@ -157,10 +140,7 @@
           "type": "equation",
           "label": "Mass of an element in a fertiliser",
           "formula": "mass of element = (percentage of element ÷ 100) × mass of fertiliser",
-          "where": [
-            "mass of fertiliser in kg",
-            "percentage of element in %, from the bag or table"
-          ]
+          "where": ["mass of fertiliser in kg", "percentage of element in %, from the bag or table"]
         },
         {
           "type": "diagram",
@@ -187,10 +167,7 @@
               "unit": "kg",
               "decimals": 2
             },
-            "working": [
-              "Mass of potassium = {p} ÷ 100 × {m}",
-              "Mass of potassium = {answer} kg"
-            ]
+            "working": ["Mass of potassium = {p} ÷ 100 × {m}", "Mass of potassium = {answer} kg"]
           }
         },
         {
@@ -237,27 +214,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Laboratory",
-            "Industry"
-          ],
+          "columns": ["Feature", "Laboratory", "Industry"],
           "rows": [
-            [
-              "Scale",
-              "Small",
-              "Large"
-            ],
-            [
-              "Process",
-              "Batch",
-              "Continuous"
-            ],
-            [
-              "Speed",
-              "Slow",
-              "Quick"
-            ],
+            ["Scale", "Small", "Large"],
+            ["Process", "Batch", "Continuous"],
+            ["Speed", "Slow", "Quick"],
             [
               "Stages",
               "One stage: titration",
@@ -295,35 +256,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.10.4.2"
-      ],
-      "exam_phrases": [
-        "calcium sulfate",
-        "calcium phosphate",
-        "calcium nitrate",
-        "(calcium) triple superphosphate",
-        "single superphosphate",
-        "(industrial process) is larger scale",
-        "(industrial process) is quicker",
-        "(is a) continuous process",
-        "none of the compounds contain both nitrogen and potassium so a mixture is needed",
-        "contains more nitrogen and is cheaper, so more cost effective"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The industrial process is better because it uses less energy and costs less.",
-          "right": "References to cost and energy are ignored here. Say the industrial process is larger scale, quicker or continuous."
-        },
-        {
-          "wrong": "The industrial process is better because it produces a large mass.",
-          "right": "A large mass produced is ignored. Say the process is larger scale, quicker, or continuous so it does not need to be repeated."
-        },
-        {
-          "wrong": "Compound C is best for this soil because it contains nitrogen and phosphorus.",
-          "right": "The soil already had enough phosphorus, so it is not needed. Ammonium nitrate has more nitrogen and is cheaper, and potassium chloride is the only source of potassium."
-        }
-      ],
+      "spec_codes": ["AQA 4.10.4.2"],
       "worked_example": {
         "exemplar_id": "03c76de9-3555-4c98-b3b9-89ebdd4e37be",
         "source": "AQA jun 2023, Paper 2 (H), Q10.1",
@@ -340,37 +273,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.22C",
-        "EDEX 5.23C",
-        "EDEX 5.24C"
-      ],
-      "exam_phrases": [
-        "as a fertiliser",
-        "to help their crops grow",
-        "contains (a high percentage of) nitrogen",
-        "promote plant growth / increases crop yield",
-        "NH3 + HNO3 → NH4NO3",
-        "both use sulfuric acid",
-        "both are neutralisation",
-        "industrial process is on a much larger scale",
-        "industrial process involves more stages",
-        "ammonia is a gas in the industrial process but a solution in the laboratory"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Farmers spread ammonium sulfate to protect crops from disease and kill pests.",
-          "right": "Protecting from disease or killing pests is rejected. It is a fertiliser, a source of nitrogen that helps crops grow and increases yield."
-        },
-        {
-          "wrong": "A similarity is that both produce ammonium sulfate.",
-          "right": "This is ignored. Give a similarity such as both use sulfuric acid or both are neutralisation reactions."
-        },
-        {
-          "wrong": "The industrial process is more dangerous.",
-          "right": "This is ignored. Give a difference such as much larger scale, more stages, or a continuous rather than a batch process."
-        }
-      ],
+      "spec_codes": ["EDEX 5.22C", "EDEX 5.23C", "EDEX 5.24C"],
       "worked_example": {
         "exemplar_id": "0e6df897-f3ab-4ed2-b06e-a808340afcb5",
         "source": "EDEXCEL nov 2020, Paper 1 (H), Q10(b)(iii)",
@@ -386,38 +289,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.1h",
-        "OCR C6.1i",
-        "OCR C6.1j"
-      ],
-      "exam_phrases": [
-        "fertilisers increase crop yields",
-        "fertilisers provide essential elements for crops",
-        "growing populations mean farmers need to grow more crops",
-        "fertilisers allow farmers to use the same land over and over again",
-        "phosphorus and potassium",
-        "titrate ammonia against sulfuric acid",
-        "slow evaporation of reaction mixture",
-        "atom economy is 100%",
-        "batch process",
-        "continuous process",
-        "can be made from by-products of other processes"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Fertilisers make plants grow faster and better.",
-          "right": "Just good, increased or faster growth is ignored. Say fertilisers increase crop yields, or provide essential elements such as nitrogen, phosphorus and potassium."
-        },
-        {
-          "wrong": "Fertilisers provide nutrients and minerals for plants.",
-          "right": "Nutrients and minerals are ignored. Name the essential elements: nitrogen, potassium or phosphorus."
-        },
-        {
-          "wrong": "Fertilisers are important because they control pests.",
-          "right": "Controlling pests is ignored. Fertilisers increase crop yield and provide essential elements."
-        }
-      ],
+      "spec_codes": ["OCR C6.1h", "OCR C6.1i", "OCR C6.1j"],
       "worked_example": {
         "exemplar_id": "4a811083-07fe-4125-b557-31035e0a4a9b",
         "source": "OCR sample null, Paper 4, Q22(c)(i)",

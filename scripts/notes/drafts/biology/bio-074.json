@@ -8,14 +8,29 @@
     {
       "heading": "Why blood glucose is controlled",
       "blocks": [
-        { "type": "paragraph", "text": "Cells need glucose for respiration, so its concentration in the blood must stay within narrow limits. The pancreas monitors it and releases hormones." },
+        {
+          "type": "paragraph",
+          "text": "Cells need glucose for respiration, so its concentration in the blood must stay within narrow limits. The pancreas monitors it and releases hormones."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Glycogen", "meaning": "A storage carbohydrate made from glucose in liver and muscle cells." },
-            { "term": "Insulin", "meaning": "A hormone from the pancreas that lowers blood glucose concentration." },
-            { "term": "Glucagon", "meaning": "A hormone from the pancreas that raises blood glucose concentration." },
-            { "term": "Negative feedback", "meaning": "A change causes a response that reverses the change and returns conditions to normal." }
+            {
+              "term": "Glycogen",
+              "meaning": "A storage carbohydrate made from glucose in liver and muscle cells."
+            },
+            {
+              "term": "Insulin",
+              "meaning": "A hormone from the pancreas that lowers blood glucose concentration."
+            },
+            {
+              "term": "Glucagon",
+              "meaning": "A hormone from the pancreas that raises blood glucose concentration."
+            },
+            {
+              "term": "Negative feedback",
+              "meaning": "A change causes a response that reverses the change and returns conditions to normal."
+            }
           ]
         },
         {
@@ -30,15 +45,33 @@
     {
       "heading": "When blood glucose is too high",
       "blocks": [
-        { "type": "paragraph", "text": "After a meal, glucose from digested carbohydrate enters the blood and its concentration rises. Insulin brings it back down." },
+        {
+          "type": "paragraph",
+          "text": "After a meal, glucose from digested carbohydrate enters the blood and its concentration rises. Insulin brings it back down."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Detect.", "text": "The blood glucose concentration rises, for example after a meal." },
-            { "lead": "Release.", "text": "The pancreas releases **insulin** into the blood." },
-            { "lead": "Move.", "text": "Insulin causes glucose to move from the blood into the cells, such as liver and muscle cells." },
-            { "lead": "Store.", "text": "In the liver and muscles, excess glucose is converted to **glycogen** for storage. Some glucose is used in respiration." },
-            { "lead": "Result.", "text": "Blood glucose concentration falls back to normal." }
+            {
+              "lead": "Detect.",
+              "text": "The blood glucose concentration rises, for example after a meal."
+            },
+            {
+              "lead": "Release.",
+              "text": "The pancreas releases **insulin** into the blood."
+            },
+            {
+              "lead": "Move.",
+              "text": "Insulin causes glucose to move from the blood into the cells, such as liver and muscle cells."
+            },
+            {
+              "lead": "Store.",
+              "text": "In the liver and muscles, excess glucose is converted to **glycogen** for storage. Some glucose is used in respiration."
+            },
+            {
+              "lead": "Result.",
+              "text": "Blood glucose concentration falls back to normal."
+            }
           ]
         },
         {
@@ -53,14 +86,29 @@
     {
       "heading": "When blood glucose is too low",
       "blocks": [
-        { "type": "paragraph", "text": "If blood glucose falls, for example between meals or during exercise, glucagon raises it again." },
+        {
+          "type": "paragraph",
+          "text": "If blood glucose falls, for example between meals or during exercise, glucagon raises it again."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Detect.", "text": "The blood glucose concentration falls." },
-            { "lead": "Release.", "text": "The pancreas releases **glucagon** into the blood." },
-            { "lead": "Convert.", "text": "Glucagon causes glycogen in the liver to be converted into glucose." },
-            { "lead": "Result.", "text": "The glucose is released into the blood and the concentration rises back to normal." }
+            {
+              "lead": "Detect.",
+              "text": "The blood glucose concentration falls."
+            },
+            {
+              "lead": "Release.",
+              "text": "The pancreas releases **glucagon** into the blood."
+            },
+            {
+              "lead": "Convert.",
+              "text": "Glucagon causes glycogen in the liver to be converted into glucose."
+            },
+            {
+              "lead": "Result.",
+              "text": "The glucose is released into the blood and the concentration rises back to normal."
+            }
           ]
         },
         {
@@ -75,14 +123,22 @@
     {
       "heading": "Negative feedback",
       "blocks": [
-        { "type": "paragraph", "text": "Insulin and glucagon work against each other. Each change is reversed, so the concentration stays close to normal. Pick a situation to see the response." },
+        {
+          "type": "paragraph",
+          "text": "Insulin and glucagon work against each other. Each change is reversed, so the concentration stays close to normal. Pick a situation to see the response."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "predictor",
             "alt": "Choose a situation to see which hormone the pancreas releases, what it does and what happens to blood glucose.",
             "prompt": "Pick a situation",
-            "result_labels": ["Blood glucose is", "Hormone released", "What the hormone does", "Result"],
+            "result_labels": [
+              "Blood glucose is",
+              "Hormone released",
+              "What the hormone does",
+              "Result"
+            ],
             "options": [
               {
                 "label": "After a meal rich in carbohydrate",
@@ -144,29 +200,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 5.8", "AQA T 4.5.3.2"],
-      "exam_phrases": [
-        "the pancreas releases insulin",
-        "glucose to move (from the blood) into the liver / muscle (cells)",
-        "(excess) glucose is converted to glycogen",
-        "the pancreas releases glucagon",
-        "glycogen to be converted into glucose and released into the blood",
-        "blood glucose concentration returns to normal so insulin secretion slows / stops",
-        "less glucose for respiration, so less energy released / transferred"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Insulin causes cells to take in glycogen. The storage molecule made inside the cells is glucose.",
-          "right": "The answers must be in this order. Insulin causes cells to take in glucose and the storage molecule made is glycogen."
-        },
-        {
-          "wrong": "Low blood glucose means less energy is produced, so the person feels weak.",
-          "right": "\"Energy produced / made / created\" is not accepted. Say less respiration, so less energy is released or transferred."
-        },
-        {
-          "wrong": "A high concentration of insulin lowers blood glucose because glucose is taken in.",
-          "right": "The explanation needs the place as well: glucose is taken in or converted to glycogen by cells, liver or muscles."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "f84c87b3-f9bc-47cf-933d-8dc49b2a2aa2",
         "source": "AQA jun 2024, Paper 2 (H), Q06.8",
@@ -189,7 +222,7 @@
               "type": "list",
               "items": [
                 "All students: insulin, and glucose moving into cells and being stored as glycogen.",
-                "(Higher tier) Glucagon, and explaining how glucagon and insulin work together by negative feedback."
+                "(AQA: Higher tier) Glucagon, and explaining how glucagon and insulin work together by negative feedback."
               ]
             }
           ]
@@ -198,18 +231,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.13", "EDEX 7.14"],
-      "exam_phrases": [
-        "(more) insulin is released / produced",
-        "causes glucose to be converted to glycogen",
-        "glucose is used for respiration",
-        "glucose is stored (in the body / muscles / liver)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The blood glucose decreases because the glucose is stored.",
-          "right": "\"Glucose is stored\" earns one mark only. Add a different point, such as more insulin is released or glucose is used for respiration."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "25546aa1-270a-43d0-926e-aed893bfc89e",
         "source": "EDEXCEL jun 2018, Paper 2 (F), Q1(b)",
@@ -226,24 +247,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 3.3c", "OCR 3.3d"],
-      "exam_phrases": [
-        "glucose (from food)",
-        "pancreas (detects)",
-        "increase insulin (levels)",
-        "glucagon released when blood sugar levels decrease",
-        "stores of glycogen are used to maintain blood sugar levels",
-        "less / no sugar is converted to glycogen"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Carbohydrate from the food increases the insulin level.",
-          "right": "\"Carbohydrate\" is ignored. Say glucose (or sugar) from the food, detected by the pancreas, increases insulin levels."
-        },
-        {
-          "wrong": "During the race another hormone called glycogen is released, and stores of glucagon are used.",
-          "right": "Spelling must be correct. Glucagon is the hormone and glycogen is the store. Mixing them up loses the marks."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "821f19a4-9dd6-41fb-9b57-940806c0ab69",
         "source": "OCR jun 2024, Paper 1, Q17(d)(ii)",

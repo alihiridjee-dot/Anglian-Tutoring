@@ -150,11 +150,7 @@
               "unit": "N",
               "decimals": 0
             },
-            "working": [
-              "W = m × g",
-              "W = {m} × 9.8",
-              "W = {answer} N"
-            ]
+            "working": ["W = m × g", "W = {m} × 9.8", "W = {answer} N"]
           }
         },
         {
@@ -275,83 +271,24 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.1.3",
-        "AQA T 6.5.1.3"
-      ],
-      "exam_phrases": [
-        "weight depends on mass and gravitational field strength",
-        "weight = mass × gravitational field strength",
-        "mass decreases (as fuel is burned)",
-        "gravitational field strength decreases",
-        "therefore the weight decreases",
-        "710 = m × 9.8",
-        "g = 750 / 2.5"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The rocket's weight decreased because the fuel is used.",
-          "right": "This only scores one mark if nothing else is credited. Say weight depends on mass and field strength, the mass decreases as fuel is burned (or g decreases), therefore the weight decreases."
-        },
-        {
-          "wrong": "m = 72.4 kg.",
-          "right": "The final answer must be given to 2 significant figures, so m = 72 kg."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.1.3", "AQA T 6.5.1.3"],
       "worked_example": {
         "exemplar_id": "d137546d-d311-4062-926b-2dda9b1d84db",
         "source": "AQA jun 2023, Paper 2 (F), Q05.6",
         "question": "The engineer has a weight of 710 N. gravitational field strength = 9.8 N/kg. Calculate the mass of the engineer. Give your answer to 2 significant figures.",
         "marks": 4,
-        "answer_points": [
-          "710 = m × 9.8",
-          "m = 710 / 9.8",
-          "m = 72.4…",
-          "m = 72 kg"
-        ],
+        "answer_points": ["710 = m × 9.8", "m = 710 / 9.8", "m = 72.4…", "m = 72 kg"],
         "tip": "One mark each for the substitution, the rearrangement, the unrounded value and the answer to 2 significant figures."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.16",
-        "EDEX 2.17",
-        "EDEX 2.18",
-        "EDEX 7.1P",
-        "EDEX 2.13"
-      ],
-      "exam_phrases": [
-        "(W =) 6.0 × 1.6",
-        "rearrangement: (g =) W / m",
-        "substitution",
-        "evaluation",
-        "newton",
-        "1.7 (N/kg)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "g = 20 × 12 = 240 N/kg for a rock of weight 20 N and mass 12 kg.",
-          "right": "This scores one mark at most. Rearrange to g = W / m = 20 / 12 = 1.7 N/kg."
-        },
-        {
-          "wrong": "g = 12 / 20 = 0.6 N/kg.",
-          "right": "This is the inverse of the correct ratio. Weight goes on top: g = W / m."
-        },
-        {
-          "wrong": "The weight is 9.6.",
-          "right": "The unit is a separate mark. Write 9.6 N or 9.6 newtons."
-        }
-      ],
+      "spec_codes": ["EDEX 2.16", "EDEX 2.17", "EDEX 2.18", "EDEX 7.1P", "EDEX 2.13"],
       "worked_example": {
         "exemplar_id": "30788382-ddae-4cb5-b664-61256af1439e",
         "source": "EDEXCEL jun 2022, Paper 1 (F), Q7(a)(ii)",
         "question": "A rock on the surface of the Earth has a mass of 12 kg. The weight of the same rock on the surface of the Moon is 20 N. Calculate the gravitational field strength on the surface of the Moon.",
         "marks": 3,
-        "answer_points": [
-          "Rearrange: g = W / m.",
-          "Substitute: g = 20 / 12.",
-          "g = 1.7 N/kg."
-        ],
+        "answer_points": ["Rearrange: g = W / m.", "Substitute: g = 20 / 12.", "g = 1.7 N/kg."],
         "tip": "Rearrangement and substitution can come in either order. Answers that round to 1.7, such as 1.67, are accepted."
       },
       "extra": [
@@ -375,34 +312,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P2.3g",
-        "OCR P2.3h",
-        "OCR P2.3i",
-        "OCR P2.3j"
-      ],
-      "exam_phrases": [
-        "W = mg",
-        "g = 10 (N/kg)",
-        "m = W / g",
-        "recall weight = mass × gravitational field strength",
-        "g is largest",
-        "stone gains 10 m/s each second"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Mass of passengers = 4500 × 10 = 45 000 kg.",
-          "right": "This is incorrect use of g and scores 1 mark. Rearrange to m = W / g = 4500 / 10 = 450 kg."
-        },
-        {
-          "wrong": "The weight of the Rover on Mars is 693.75 N, which is the answer to 3 significant figures.",
-          "right": "693.75 N is allowed for the calculation mark but gets no marks for significant figures. Round to 694 N."
-        },
-        {
-          "wrong": "The weight of the Rover on Mars is 694.",
-          "right": "The unit is a mark. Write 694 N."
-        }
-      ],
+      "spec_codes": ["OCR P2.3g", "OCR P2.3h", "OCR P2.3i", "OCR P2.3j"],
       "worked_example": {
         "exemplar_id": "4010c7ce-644d-41ad-886f-47619f6b6970",
         "source": "OCR sample, Paper 2, Q18(c)",

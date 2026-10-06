@@ -90,10 +90,7 @@
             "kind": "predictor",
             "alt": "Pick a situation to see how the balance of absorbed and emitted radiation changes the temperature.",
             "prompt": "Pick a situation",
-            "result_labels": [
-              "Absorbed and emitted radiation",
-              "Temperature of the body"
-            ],
+            "result_labels": ["Absorbed and emitted radiation", "Temperature of the body"],
             "options": [
               {
                 "label": "A cold cube is placed in front of an infrared heater",
@@ -142,15 +139,7 @@
               "label": "Time",
               "min": 0,
               "max": 12,
-              "ticks": [
-                0,
-                2,
-                4,
-                6,
-                8,
-                10,
-                12
-              ],
+              "ticks": [0, 2, 4, 6, 8, 10, 12],
               "unit": "min"
             },
             "y": {
@@ -160,67 +149,25 @@
               {
                 "name": "Black cube",
                 "points": [
-                  [
-                    0,
-                    0.1
-                  ],
-                  [
-                    2,
-                    0.55
-                  ],
-                  [
-                    4,
-                    0.75
-                  ],
-                  [
-                    6,
-                    0.85
-                  ],
-                  [
-                    8,
-                    0.88
-                  ],
-                  [
-                    10,
-                    0.88
-                  ],
-                  [
-                    12,
-                    0.88
-                  ]
+                  [0, 0.1],
+                  [2, 0.55],
+                  [4, 0.75],
+                  [6, 0.85],
+                  [8, 0.88],
+                  [10, 0.88],
+                  [12, 0.88]
                 ]
               },
               {
                 "name": "White cube",
                 "points": [
-                  [
-                    0,
-                    0.1
-                  ],
-                  [
-                    2,
-                    0.4
-                  ],
-                  [
-                    4,
-                    0.58
-                  ],
-                  [
-                    6,
-                    0.68
-                  ],
-                  [
-                    8,
-                    0.72
-                  ],
-                  [
-                    10,
-                    0.72
-                  ],
-                  [
-                    12,
-                    0.72
-                  ]
+                  [0, 0.1],
+                  [2, 0.4],
+                  [4, 0.58],
+                  [6, 0.68],
+                  [8, 0.72],
+                  [10, 0.72],
+                  [12, 0.72]
                 ]
               }
             ],
@@ -294,32 +241,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.3.1",
-        "AQA 4.6.3.2"
-      ],
-      "exam_phrases": [
-        "black surfaces are good absorbers (and emitters of infrared / radiation)",
-        "white surfaces are poor absorbers (and emitters)",
-        "as the temperature of the cubes increases the cubes emit infrared at a greater rate",
-        "at constant temperature, each cube emits infrared at the same rate that it absorbs infrared",
-        "the Sun is at a higher temperature",
-        "greatest temperature difference"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The black cube absorbs more heat than the white cube.",
-          "right": "References to heat are ignored. Say the black cube absorbs more infrared radiation."
-        },
-        {
-          "wrong": "The cubes stop changing temperature because they stop absorbing infrared.",
-          "right": "They keep absorbing. The temperature is constant because each cube emits infrared at the same rate that it absorbs it."
-        },
-        {
-          "wrong": "The flasks emit the most infrared at the end of 10 minutes of cooling.",
-          "right": "They emit at the greatest rate during the first minute, when the temperature difference with the surroundings is greatest."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.3.1", "AQA 4.6.3.2"],
       "worked_example": {
         "exemplar_id": "38d5909b-6c24-4c45-aba6-c814bc66f358",
         "source": "AQA jun 2025, Paper 2 (H), Q5.5",
@@ -339,41 +261,14 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(Higher tier) The balance between absorbed and emitted radiation, and the factors that decide the temperature of the Earth, are Higher tier only."
+              "text": "(AQA: Higher tier) The balance between absorbed and emitted radiation, and the factors that decide the temperature of the Earth, are Higher tier only."
             }
           ]
         }
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.15P",
-        "EDEX 5.16P",
-        "EDEX 5.17P",
-        "EDEX 5.18P"
-      ],
-      "exam_phrases": [
-        "P is absorbing radiation / (thermal) energy",
-        "P is (also) emitting radiation / (thermal) energy",
-        "(rate of) emission increases with temperature",
-        "(temperature constant) when (rate of) emission = (rate of) absorption",
-        "black / P is good absorber / poor reflector",
-        "white / Q is good reflector / poor absorber"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The temperature of P is constant because P stops absorbing radiation.",
-          "right": "P keeps absorbing, and also emits. The temperature is constant when the rate of emission equals the rate of absorption."
-        },
-        {
-          "wrong": "The temperature is constant when emission equals absorption.",
-          "right": "Say the rate of emission equals the rate of absorption. A mention of rate earns a mark."
-        },
-        {
-          "wrong": "Sphere P heats up faster because black is hotter.",
-          "right": "Black is a good absorber and poor reflector. White is a good reflector and poor absorber."
-        }
-      ],
+      "spec_codes": ["EDEX 5.15P", "EDEX 5.16P", "EDEX 5.17P", "EDEX 5.18P"],
       "worked_example": {
         "exemplar_id": "85fdaacf-8027-4aae-9232-0b761e763467",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q8(b)(ii)",
@@ -389,29 +284,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P8.3d",
-        "OCR P8.3h"
-      ],
-      "exam_phrases": [
-        "the Earth radiates (infrared) radiation back into space",
-        "if energy absorbed = energy emitted, the temperature stays constant",
-        "if energy absorbed > energy emitted, the temperature increases",
-        "greenhouse gases / CO2 absorb some of the Earth's emitted (infrared) radiation",
-        "some of the infrared radiation is radiated back towards the Earth's surface",
-        "the amount of greenhouse gases is increasing",
-        "(Mars is further from the Sun) so receives less energy"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The Earth is warming because of greenhouse gases. (Nothing about the radiation absorbed and emitted.)",
-          "right": "A maximum of 3 marks is given for only one aspect. Also explain that the Earth absorbs more radiation than it emits, so its temperature rises."
-        },
-        {
-          "wrong": "The Earth absorbs long wavelength infrared and emits ultraviolet.",
-          "right": "The Earth absorbs UV, light or shorter wavelength radiation from the Sun and emits longer wavelength infrared."
-        }
-      ],
+      "spec_codes": ["OCR P8.3d", "OCR P8.3h"],
       "worked_example": {
         "exemplar_id": "ef07ffa2-bca9-4a48-b262-d41c6db0c7de",
         "source": "OCR jun 2024, Paper 4, Q21(c)",

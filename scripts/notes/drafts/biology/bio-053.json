@@ -56,11 +56,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Cause",
-            "What happens",
-            "Symptom"
-          ],
+          "columns": ["Cause", "What happens", "Symptom"],
           "rows": [
             [
               "Magnesium deficiency",
@@ -82,11 +78,7 @@
               "They remove sugars from the phloem, so less glucose is available.",
               "Stunted growth"
             ],
-            [
-              "Lack of light",
-              "Chlorophyll breaks down.",
-              "Yellow leaves"
-            ]
+            ["Lack of light", "Chlorophyll breaks down.", "Yellow leaves"]
           ]
         },
         {
@@ -111,10 +103,7 @@
             "kind": "sort",
             "alt": "Sort each method of identifying a plant disease into the field or the laboratory.",
             "prompt": "Is the method used in the field or in the laboratory?",
-            "groups": [
-              "In the field",
-              "In the laboratory"
-            ],
+            "groups": ["In the field", "In the laboratory"],
             "items": [
               {
                 "text": "Check other plants to see how the disease is spread",
@@ -185,31 +174,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 3.9"
-      ],
-      "exam_phrases": [
-        "lack of chlorophyll",
-        "less / no light absorbed (by chlorophyll)",
-        "lower rate of / no photosynthesis",
-        "plant makes less / no sugar / glucose",
-        "plant converts less / no glucose into protein (for growth)",
-        "use testing kits that contain monoclonal antibodies"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Magnesium is needed to make chlorophyll, so the leaves are yellow.",
-          "right": "This is not enough for the marks. Say yellow leaves are due to a lack of chlorophyll, so less light is absorbed and photosynthesis is lower."
-        },
-        {
-          "wrong": "A lack of magnesium means the plant makes less energy by photosynthesis.",
-          "right": "\"Energy is produced by photosynthesis\" is not accepted. Say less glucose is made, which is used to make protein for growth."
-        },
-        {
-          "wrong": "The gardener could search the internet.",
-          "right": "\"Use the internet\" unqualified is ignored. Say a gardening manual, website or app, or take the plant to a laboratory or expert."
-        }
-      ],
+      "spec_codes": ["AQA 3.9"],
       "worked_example": {
         "exemplar_id": "de23248d-ffb6-4b45-9d57-738e19cfcf6f",
         "source": "AQA jun 2018, Paper 1 (H), Q05.2",
@@ -226,27 +191,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.11B"
-      ],
-      "exam_phrases": [
-        "check other plants in the field / find the distribution of affected plants",
-        "eliminate an environmental factor that could be causing the symptoms",
-        "test the soil e.g. for pH / nutrient levels / mineral ion deficiency",
-        "culture the pathogen",
-        "DNA analysis / microscope / monoclonal antibodies",
-        "clustering indicating contact or soil spread"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The farmer should test the plants.",
-          "right": "Say what is tested and why: test the soil for pH or mineral ions, test swabs or samples from the lesions, and identify the pathogen by DNA analysis, a microscope or monoclonal antibodies."
-        },
-        {
-          "wrong": "Look at the plants with lesions only.",
-          "right": "Distribution analysis checks other plants and fields too. Link the pattern to a reason, such as clustering for contact or soil spread, or downwind for airborne spread."
-        }
-      ],
+      "spec_codes": ["EDEX 5.11B"],
       "worked_example": {
         "exemplar_id": "94a9fb74-717e-4da8-ad18-4648ce8b8b6b",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q7(a)(i)",
@@ -264,26 +209,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.3i"
-      ],
-      "exam_phrases": [
-        "choose the type / correct treatment to use",
-        "stop / limit the (pathogen) spread",
-        "limit the loss of the crop",
-        "less insecticide / spray is needed",
-        "all infected plants identified"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Identify the pathogen so the farmer can treat the crop with pesticides.",
-          "right": "\"Treat with pesticides\" is not accepted. Say different pathogens require different treatments, so the correct treatment can be chosen."
-        },
-        {
-          "wrong": "Identify the disease so the infected crop can be destroyed or isolated.",
-          "right": "\"Destroy or isolate the crop\" is ignored. Say it stops or limits the spread to other plants."
-        }
-      ],
+      "spec_codes": ["OCR 6.3i"],
       "worked_example": {
         "exemplar_id": "5afaf57b-ea9f-44ce-a856-f8a649ceb4c3",
         "source": "OCR jun 2022, Paper 4, Q18(c)(ii)",

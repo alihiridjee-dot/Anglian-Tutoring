@@ -68,10 +68,7 @@
             "kind": "predictor",
             "alt": "Pick a type of electromagnetic wave to see its harmful effect on the body.",
             "prompt": "Pick a type of electromagnetic wave",
-            "result_labels": [
-              "Harmful effect on the body",
-              "Danger"
-            ],
+            "result_labels": ["Harmful effect on the body", "Danger"],
             "options": [
               {
                 "label": "Microwaves",
@@ -186,11 +183,7 @@
               "unit": "Sv",
               "decimals": 1
             },
-            "working": [
-              "1000 mSv = 1 Sv",
-              "dose in Sv = {d} ÷ 1000",
-              "dose = {answer} Sv"
-            ]
+            "working": ["1000 mSv = 1 Sv", "dose in Sv = {d} ÷ 1000", "dose = {answer} Sv"]
           }
         },
         {
@@ -223,33 +216,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.2.3",
-        "AQA T 6.6.2.3"
-      ],
-      "exam_phrases": [
-        "can cause mutations in genes / DNA",
-        "ultraviolet can cause skin to age and/or skin cancer",
-        "X-rays and/or gamma rays increase the risk of cancers",
-        "gamma rays are (weakly) ionising but radio waves are not",
-        "taking lots of X-rays would give a large dose",
-        "the screen absorbs some of the X-rays",
-        "both ionising radiation so some risk of cancer"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Ultraviolet radiation can cause cancer.",
-          "right": "'Cancer' on its own is not enough. Say skin cancer, or mutation of genes in skin cells."
-        },
-        {
-          "wrong": "Too much UV causes a burn.",
-          "right": "'Burn' on its own is not enough. Say sunburn or ageing of the skin, skin cancer or eye damage."
-        },
-        {
-          "wrong": "The atmosphere should absorb gamma rays so the atmosphere does not heat up.",
-          "right": "Heating of the atmosphere is ignored. Say that people are exposed to less gamma radiation, which can damage human tissue."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.2.3", "AQA T 6.6.2.3"],
       "worked_example": {
         "exemplar_id": "057ba372-60c8-42b7-ad4c-4c7d2225437c",
         "source": "AQA jun 2021, Paper 2 (H), Q05.3",
@@ -265,32 +232,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.20",
-        "EDEX 5.21"
-      ],
-      "exam_phrases": [
-        "X-rays / they are ionising",
-        "cause cancer / mutations (of cells / DNA)",
-        "kill / damage cells",
-        "UVC has the smallest wavelength / highest frequency / highest energy / most ionising",
-        "100% absorbed by the Earth's atmosphere",
-        "no UVC reaches the Earth's surface"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Microwaves cause skin burns.",
-          "right": "Microwaves cause internal heating of body cells. Infrared causes skin burns."
-        },
-        {
-          "wrong": "UVC is not dangerous because it has the shortest wavelength.",
-          "right": "The shortest wavelength means the highest frequency and energy, so UVC is potentially the most dangerous. It does no harm because the atmosphere absorbs all of it."
-        },
-        {
-          "wrong": "X-rays damage the skin surface only.",
-          "right": "X-rays and gamma rays cause mutation or damage to cells in the body, and can cause cancer."
-        }
-      ],
+      "spec_codes": ["EDEX 5.20", "EDEX 5.21"],
       "worked_example": {
         "exemplar_id": "91eee9a7-3997-49d9-883d-bf4775e8145f",
         "source": "EDEXCEL jun 2024, Paper 1 (H), Q5(a)(i)",
@@ -304,27 +246,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P5.2h"
-      ],
-      "exam_phrases": [
-        "it has the highest frequency / energy / shortest wavelength",
-        "it is ionising (radiation)",
-        "it can cause cancer / damage cells / kill cells",
-        "children have (more) sensitive skins",
-        "children lack awareness of the time they spend in the sunshine",
-        "damage to cells builds up over time"
-      ],
-      "mistakes": [
-        {
-          "wrong": "X-rays are the most dangerous because they are harmful.",
-          "right": "'Harmful' is ignored because it only repeats the question. Say X-rays have the highest frequency, are ionising, and can cause cancer or damage or kill cells."
-        },
-        {
-          "wrong": "X-rays are dangerous because they cause radiation sickness.",
-          "right": "Radiation sickness is ignored. Say they can cause cancer or damage cells."
-        }
-      ],
+      "spec_codes": ["OCR P5.2h"],
       "worked_example": {
         "exemplar_id": "3af036fe-c8c3-480b-9fae-5161897aa656",
         "source": "OCR jun 2022, Paper 2, Q16(b)(ii)",

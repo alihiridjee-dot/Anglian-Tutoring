@@ -44,10 +44,7 @@
             "kind": "sort",
             "alt": "Sort statements into irradiation and contamination.",
             "prompt": "Does each statement describe irradiation or contamination?",
-            "groups": [
-              "Irradiation",
-              "Contamination"
-            ],
+            "groups": ["Irradiation", "Contamination"],
             "items": [
               {
                 "text": "The source is outside the object",
@@ -118,11 +115,7 @@
           "diagram": {
             "kind": "compare",
             "alt": "A table comparing alpha, beta and gamma radiation by penetration, ionising power and risk from a source outside the body.",
-            "items": [
-              "Alpha",
-              "Beta",
-              "Gamma"
-            ],
+            "items": ["Alpha", "Beta", "Gamma"],
             "rows": [
               {
                 "feature": "Penetration",
@@ -134,11 +127,7 @@
               },
               {
                 "feature": "Ionising power",
-                "values": [
-                  "Highest",
-                  "Less than alpha",
-                  "Weakly ionising"
-                ]
+                "values": ["Highest", "Less than alpha", "Weakly ionising"]
               },
               {
                 "feature": "Risk from a source outside the body",
@@ -232,34 +221,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.4.2.4",
-        "AQA T 6.4.2.4",
-        "AQA 4.4.3.2"
-      ],
-      "exam_phrases": [
-        "irradiation is the exposure of an object / person to radiation",
-        "contamination is the (unwanted) presence of radioactive material / atoms on or inside an object / person",
-        "alpha radiation has a low penetrating ability",
-        "alpha radiation is stopped by skin",
-        "alpha radiation is highly ionising",
-        "greater (risk of) harm to cells / tissues / organs / DNA / genes",
-        "beta radiation is more penetrating (than alpha radiation)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A beta source is more hazardous than an alpha source in a smoke detector because beta is more ionising.",
-          "right": "This is not allowed. Say beta radiation is more penetrating: it can pass through the case or skin and irradiate people nearby."
-        },
-        {
-          "wrong": "Irradiating the water makes the water radioactive.",
-          "right": "Irradiation does not make the water radioactive. Contamination increases the hazard, because radioactive isotopes enter the water and then the body."
-        },
-        {
-          "wrong": "Alpha contamination inside the body is dangerous because the isotope has a long half-life.",
-          "right": "References to half-life score nothing here. Say alpha is highly ionising, so it damages cells, tissues or DNA until the material is removed."
-        }
-      ],
+      "spec_codes": ["AQA 4.4.2.4", "AQA T 6.4.2.4", "AQA 4.4.3.2"],
       "worked_example": {
         "exemplar_id": "8490d86b-253f-4285-9351-d3214fb9ae85",
         "source": "AQA jun 2022, Paper 1 (H), Q07.3",
@@ -290,36 +252,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 6.29",
-        "EDEX 6.30P",
-        "EDEX 6.31",
-        "EDEX 6.32"
-      ],
-      "exam_phrases": [
-        "it is ionising",
-        "may cause cancer",
-        "may destroy / kill cells",
-        "can mutate DNA",
-        "irradiation does not make an object radioactive",
-        "irradiation stops when the source is removed",
-        "shielding, time limiting exposure, distance limiting exposure, wear PPE / protective clothing",
-        "wear a radiation badge (dosimeter)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Wear goggles to protect against radiation.",
-          "right": "Goggles are not credited. Name shielding (a lead box or screen), limiting time, distance (tongs) or protective clothing such as lead aprons."
-        },
-        {
-          "wrong": "Irradiation makes an object radioactive.",
-          "right": "Irradiation does not make an object radioactive. The source is outside the object."
-        },
-        {
-          "wrong": "Contamination stops when you move away from the source.",
-          "right": "This describes irradiation. The effect of contamination is continuous because the source is in or on the object."
-        }
-      ],
+      "spec_codes": ["EDEX 6.29", "EDEX 6.30P", "EDEX 6.31", "EDEX 6.32"],
       "worked_example": {
         "exemplar_id": "d51abfeb-a56d-4de5-825f-0896b66c829c",
         "source": "EDEXCEL nov 2021, Paper 1 (F), Q9(d)*",
@@ -336,33 +269,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P6.2a",
-        "OCR P6.2b"
-      ],
-      "exam_phrases": [
-        "contaminated because radioactive material touched the workers / was breathed in",
-        "irradiated because workers were exposed to radiation (from outside of the body)",
-        "(shorter half-life means) higher activity",
-        "more radiation emitted per second",
-        "alpha is less penetrating / more easily absorbed (than beta)",
-        "alpha is more ionising than beta",
-        "keep a safe distance, use tongs, point sources away from people, keep exposure time as short as possible"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The workers were contaminated because radiation touched them or was breathed in.",
-          "right": "Say radioactive material touched the workers or was breathed in. Saying radiation touched them is an irradiation idea, and mixing in irradiation ideas is not allowed."
-        },
-        {
-          "wrong": "The teacher should wear gloves and goggles.",
-          "right": "Gloves and goggles are ignored. Give a safe distance, tongs, pointing the source away from people, sealed containers or a short exposure time."
-        },
-        {
-          "wrong": "A source with a long half-life is the most hazardous to a technician during an experiment.",
-          "right": "For equal masses, the shorter half-life gives a higher activity, so more radiation is emitted per second during the experiment."
-        }
-      ],
+      "spec_codes": ["OCR P6.2a", "OCR P6.2b"],
       "worked_example": {
         "exemplar_id": "61787676-f16c-4205-8cfd-ea17e3f6cb6e",
         "source": "OCR jun 2024, Paper 4, Q17(a)",

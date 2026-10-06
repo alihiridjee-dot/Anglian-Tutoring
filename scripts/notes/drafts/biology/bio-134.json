@@ -8,14 +8,29 @@
     {
       "heading": "Variables and fair tests",
       "blocks": [
-        { "type": "paragraph", "text": "A fair test changes only one thing. This section covers the three types of variable and how a control makes results meaningful." },
+        {
+          "type": "paragraph",
+          "text": "A fair test changes only one thing. This section covers the three types of variable and how a control makes results meaningful."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Independent variable", "meaning": "The one thing you change." },
-            { "term": "Dependent variable", "meaning": "The thing you measure." },
-            { "term": "Control variable", "meaning": "A factor you keep the same, so that it cannot affect the result." },
-            { "term": "Control", "meaning": "A treatment with nothing added, used to compare with the other treatments." }
+            {
+              "term": "Independent variable",
+              "meaning": "The one thing you change."
+            },
+            {
+              "term": "Dependent variable",
+              "meaning": "The thing you measure."
+            },
+            {
+              "term": "Control variable",
+              "meaning": "A factor you keep the same, so that it cannot affect the result."
+            },
+            {
+              "term": "Control",
+              "meaning": "A treatment with nothing added, used to compare with the other treatments."
+            }
           ]
         },
         {
@@ -26,14 +41,29 @@
             "prompt": "A student investigates how the pH of pondwater affects duckweed. Sort each feature.",
             "groups": ["Independent variable", "Dependent variable", "Control variable"],
             "items": [
-              { "text": "The pH of the pondwater (4.5, 6.5, 8.5)", "group": 0 },
-              { "text": "The number of duckweed plants after 10 days", "group": 1 },
-              { "text": "Five duckweed plants put in each beaker at the start", "group": 2 },
-              { "text": "10 days in the same conditions", "group": 2 }
+              {
+                "text": "The pH of the pondwater (4.5, 6.5, 8.5)",
+                "group": 0
+              },
+              {
+                "text": "The number of duckweed plants after 10 days",
+                "group": 1
+              },
+              {
+                "text": "Five duckweed plants put in each beaker at the start",
+                "group": 2
+              },
+              {
+                "text": "10 days in the same conditions",
+                "group": 2
+              }
             ]
           }
         },
-        { "type": "subheading", "text": "Keeping the test fair" },
+        {
+          "type": "subheading",
+          "text": "Keeping the test fair"
+        },
         {
           "type": "list",
           "items": [
@@ -55,16 +85,31 @@
     {
       "heading": "Reliable and accurate results",
       "blocks": [
-        { "type": "paragraph", "text": "Exam questions ask whether data can be trusted and how to improve an investigation." },
+        {
+          "type": "paragraph",
+          "text": "Exam questions ask whether data can be trusted and how to improve an investigation."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Repeatable", "meaning": "The same person gets similar results when they repeat the experiment." },
-            { "term": "Reproducible", "meaning": "Another person, or different equipment or a different method, gets similar results." },
-            { "term": "Anomalous result", "meaning": "A result that does not fit the pattern, also called an outlier." }
+            {
+              "term": "Repeatable",
+              "meaning": "The same person gets similar results when they repeat the experiment."
+            },
+            {
+              "term": "Reproducible",
+              "meaning": "Another person, or different equipment or a different method, gets similar results."
+            },
+            {
+              "term": "Anomalous result",
+              "meaning": "A result that does not fit the pattern, also called an outlier."
+            }
           ]
         },
-        { "type": "subheading", "text": "Ways to improve an investigation" },
+        {
+          "type": "subheading",
+          "text": "Ways to improve an investigation"
+        },
         {
           "type": "list",
           "items": [
@@ -87,7 +132,10 @@
     {
       "heading": "Processing and presenting data",
       "blocks": [
-        { "type": "paragraph", "text": "Calculate a mean from repeats, and use percentage change to compare values from different starting points." },
+        {
+          "type": "paragraph",
+          "text": "Calculate a mean from repeats, and use percentage change to compare values from different starting points."
+        },
         {
           "type": "equation",
           "label": "Mean",
@@ -101,31 +149,59 @@
             "alt": "Calculate the mean mass of DNA collected from three tests.",
             "question": "Three tests collect {a} mg, {b} mg and {c} mg of DNA. Calculate the mean mass collected. Give your answer to 1 decimal place.",
             "variables": [
-              { "id": "a", "min": 30, "max": 36, "step": 0.1 },
-              { "id": "b", "min": 30, "max": 36, "step": 0.1 },
-              { "id": "c", "min": 30, "max": 36, "step": 0.1 }
+              {
+                "id": "a",
+                "min": 30,
+                "max": 36,
+                "step": 0.1
+              },
+              {
+                "id": "b",
+                "min": 30,
+                "max": 36,
+                "step": 0.1
+              },
+              {
+                "id": "c",
+                "min": 30,
+                "max": 36,
+                "step": 0.1
+              }
             ],
-            "answer": { "formula": "(a + b + c) / 3", "unit": "mg", "decimals": 1 },
-            "working": [
-              "Total = {a} + {b} + {c}",
-              "Mean = total ÷ 3 = {answer} mg"
-            ]
+            "answer": {
+              "formula": "(a + b + c) / 3",
+              "unit": "mg",
+              "decimals": 1
+            },
+            "working": ["Total = {a} + {b} + {c}", "Mean = total ÷ 3 = {answer} mg"]
           }
         },
         {
           "type": "equation",
           "label": "Percentage decrease",
           "formula": "percentage decrease = (decrease ÷ starting value) × 100",
-          "where": ["decrease = starting value − final value", "starting value and final value in the same unit"]
+          "where": [
+            "decrease = starting value − final value",
+            "starting value and final value in the same unit"
+          ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Decrease.", "text": "Migraine days per patient fall from 9.1 to 4.4. The decrease is 9.1 − 4.4 = 4.7." },
-            { "lead": "Calculate.", "text": "4.7 ÷ 9.1 × 100 = 51.6% (1 decimal place)." }
+            {
+              "lead": "Decrease.",
+              "text": "Migraine days per patient fall from 9.1 to 4.4. The decrease is 9.1 − 4.4 = 4.7."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "4.7 ÷ 9.1 × 100 = 51.6% (1 decimal place)."
+            }
           ]
         },
-        { "type": "subheading", "text": "Drawing a graph" },
+        {
+          "type": "subheading",
+          "text": "Drawing a graph"
+        },
         {
           "type": "list",
           "items": [
@@ -147,8 +223,14 @@
     {
       "heading": "Conclusions and safety",
       "blocks": [
-        { "type": "paragraph", "text": "A conclusion must match the data. A safe practical uses a precaution that matches the hazard." },
-        { "type": "subheading", "text": "Drawing conclusions" },
+        {
+          "type": "paragraph",
+          "text": "A conclusion must match the data. A safe practical uses a precaution that matches the hazard."
+        },
+        {
+          "type": "subheading",
+          "text": "Drawing conclusions"
+        },
         {
           "type": "list",
           "items": [
@@ -157,12 +239,19 @@
             "Say whether each factor works on its own, and whether the combination works best."
           ]
         },
-        { "type": "subheading", "text": "Safety" },
+        {
+          "type": "subheading",
+          "text": "Safety"
+        },
         {
           "type": "table",
           "columns": ["Hazard", "Precaution", "Reason"],
           "rows": [
-            ["Chemicals, such as ethanol or protease", "Wear a face mask or goggles", "To stop them being inhaled or entering the eyes"],
+            [
+              "Chemicals, such as ethanol or protease",
+              "Wear a face mask or goggles",
+              "To stop them being inhaled or entering the eyes"
+            ],
             ["Chemicals on the skin", "Wear gloves", "To stop the chemicals touching the skin"],
             ["Hot solutions or tubes", "Use tongs", "The solution or tube may be hot"],
             ["Ethanol", "Turn the Bunsen burner off", "Ethanol is flammable"]
@@ -199,35 +288,6 @@
   "boards": {
     "ocr": {
       "spec_codes": ["OCR 7.9"],
-      "exam_phrases": [
-        "repeat the experiment / take repeat readings",
-        "another student / person conducts the experiment",
-        "use different equipment / use a different method",
-        "to see if the results are the same / similar",
-        "include other / greater range / smaller intervals of pH values",
-        "keep the total / overall volume the same",
-        "include the units",
-        "wear face mask / goggles",
-        "turn Bunsen off as ethanol is flammable"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Draw a bar chart of the results.",
-          "right": "A bar chart or histogram is not allowed here. Draw a line or scatter graph, with time on the x axis and pH on the y axis."
-        },
-        {
-          "wrong": "To extend the experiment, just repeat the readings.",
-          "right": "\"Just repeat readings\" is ignored. Include a greater range or smaller intervals of values, around the best value."
-        },
-        {
-          "wrong": "To check the data is repeatable and reproducible, compare the results.",
-          "right": "\"Compare the results\" is ignored. Repeat the experiment, or have another person do it, to see if the results are the same or similar."
-        },
-        {
-          "wrong": "Wear a lab coat in case of glass breakages.",
-          "right": "Lab coats and glass breakages are ignored. Give a precaution that matches the hazard, such as goggles for chemicals entering the eyes."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "88aee3da-732f-4fff-b19e-09b5bb0606fb",
         "source": "OCR jun 2024, Paper 4, Q20(b)",

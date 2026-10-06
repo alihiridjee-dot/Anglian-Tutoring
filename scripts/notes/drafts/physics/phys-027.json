@@ -306,75 +306,18 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.1.1.3",
-        "AQA 4.3.2.2",
-        "AQA T 6.1.1.3",
-        "AQA T 6.3.2.2"
-      ],
-      "exam_phrases": [
-        "ΔE = m × c × Δθ",
-        "the energy needed to raise the temperature of 1 kg of the substance by 1 °C",
-        "Δθ = 80 (°C)",
-        "c = 26 400 / (0.20 × 30)",
-        "J/kg °C",
-        "the iron block will transfer thermal energy to the surroundings at a lower rate"
-      ],
-      "mistakes": [
-        {
-          "wrong": "E = 150 × 4200 × 100 for water heated from 20 °C to 100 °C.",
-          "right": "Use the temperature change: 100 − 20 = 80 °C."
-        },
-        {
-          "wrong": "c = 4400 with no unit.",
-          "right": "The unit is a separate mark. Write c = 4400 J/kg °C."
-        },
-        {
-          "wrong": "Percentage difference = (4410 − 4200) ÷ 4410 × 100 = 4.76 %.",
-          "right": "Divide by the actual value, 4200: (4410 − 4200) ÷ 4200 × 100 = 5 %. 4.76 % is not accepted."
-        }
-      ],
+      "spec_codes": ["AQA 4.1.1.3", "AQA 4.3.2.2", "AQA T 6.1.1.3", "AQA T 6.3.2.2"],
       "worked_example": {
         "exemplar_id": "7a395922-2e9e-4582-84c1-103f406e0165",
         "source": "AQA jun 2020, Paper 1 (F), Q07.6",
         "question": "A student heated water in an electric kettle. The mass of water in the kettle was 0.50 kg. The temperature of the water increased from 20 °C to 100 °C. The specific heat capacity of water is 4200 J/kg °C. Calculate the energy transferred to the water.",
         "marks": 3,
-        "answer_points": [
-          "Δθ = 80 °C",
-          "E = 0.50 × 4200 × 80",
-          "E = 168 000 J"
-        ],
+        "answer_points": ["Δθ = 80 °C", "E = 0.50 × 4200 × 80", "E = 168 000 J"],
         "tip": "Using their own value of Δθ in the calculation still earns the second and third marks."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 14.7",
-        "EDEX 14.8",
-        "EDEX 14.11"
-      ],
-      "exam_phrases": [
-        "ΔQ = m × c × Δθ",
-        "specific heat capacity concerns change in temperature",
-        "specific latent heat concerns change of state",
-        "answer to 2 sf",
-        "c = Q / (m × Δθ)",
-        "measure energy input on joulemeter / measure V, I and t"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Using 1500 g as the mass for 1.5 kg of water in ΔQ = m c Δθ.",
-          "right": "Use the mass in kilograms: 1.5 kg. Using grams scores 1 mark."
-        },
-        {
-          "wrong": "Writing 444 150 J when asked for the appropriate number of significant figures.",
-          "right": "Round as well: 440 000 J to 2 significant figures. The significant figures mark is separate."
-        },
-        {
-          "wrong": "The temperature before heating was 80 °C, because Δθ = 80 °C.",
-          "right": "80 °C is the temperature change. Subtract it from the final temperature: 100 − 80 = 20 °C. An answer of 80 scores 2 marks."
-        }
-      ],
+      "spec_codes": ["EDEX 14.7", "EDEX 14.8", "EDEX 14.11"],
       "worked_example": {
         "exemplar_id": "bf47e517-af9b-4d14-af3f-8ab150906b2c",
         "source": "EDEXCEL nov 2021, Paper 2 (H), Q10(a)(i)",
@@ -389,33 +332,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P1.2d",
-        "OCR P1.2e",
-        "OCR P7.1c"
-      ],
-      "exam_phrases": [
-        "Temperature change = 95 − 20 = 75 °C",
-        "Change in thermal energy = 10 × 4200 × 75",
-        "24 kJ = 24 000 J",
-        "specific heat capacity = change in thermal energy ÷ (mass × change in temperature)",
-        "1 kg of material",
-        "(changes state) liquid to gas / gas to liquid"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Specific heat capacity = 24 ÷ (2 × 25) = 0.48 J/kg °C.",
-          "right": "Convert the energy first: 24 kJ = 24 000 J. Then 24 000 ÷ (2 × 25) = 480 J/kg °C."
-        },
-        {
-          "wrong": "Change in thermal energy = 10 × 4200 × 95 for water heated from 20 °C to 95 °C.",
-          "right": "Find the temperature change first: 95 − 20 = 75 °C. Then 10 × 4200 × 75 = 3 150 000 J."
-        },
-        {
-          "wrong": "Specific latent heat of vaporisation is the energy needed to boil a liquid.",
-          "right": "It is the energy transferred when 1 kg of material changes state, liquid to gas or gas to liquid. Include the 1 kg."
-        }
-      ],
+      "spec_codes": ["OCR P1.2d", "OCR P1.2e", "OCR P7.1c"],
       "worked_example": {
         "exemplar_id": "b57991f8-69aa-4094-b3f1-0ff115c4c7c0",
         "source": "OCR jun 2022, Paper 4, Q20(b)(i)",

@@ -252,20 +252,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.1.4"
-      ],
-      "exam_phrases": [
-        "deeper water means longer wavelength",
-        "v increases and f is constant",
-        "for a fixed frequency the period is constant"
-      ],
-      "mistakes": [
-        {
-          "wrong": "In deeper water the wavelength is longer.",
-          "right": "This gets only 1 of 2 marks. Add the reason: the wave speed increases and the frequency is constant."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.1.4"],
       "extra": [
         {
           "heading": "Course level",
@@ -282,33 +269,12 @@
         "source": "AQA jun 2019, Paper 2 (H), Q9.1",
         "question": "The table gives the frequencies in the hearing ranges of five different animals.\n\nCat: 55 Hz to 77 kHz\nChicken: 125 Hz to 2 kHz\nDog: 20 Hz to 30 kHz\nGerbil: 56 Hz to 60 kHz\nHorse: 55 Hz to 33 kHz\n\nWhich one of the animals would not be able to hear ultrasound?",
         "marks": 1,
-        "answer_points": [
-          "Chicken."
-        ],
+        "answer_points": ["Chicken."],
         "tip": "Ultrasound is above 20 kHz. Only the chicken's range stops below this, at 2 kHz."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 4.12P",
-        "EDEX 4.16P"
-      ],
-      "exam_phrases": [
-        "particles (at end) vibrate (more) (about fixed positions)",
-        "cause neighbouring particles to vibrate",
-        "vibrations passed along",
-        "compressions and rarefactions",
-        "the size of the parts of the (inner) ear",
-        "different parts vibrate at different frequencies",
-        "eardrum not sensitive enough to detect low/high frequencies",
-        "brain cannot interpret low/high frequencies"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Hitting the rod makes the particles move along the rod to the other end.",
-          "right": "The particles at the end vibrate about fixed positions and make their neighbouring particles vibrate, so the vibration is passed along."
-        }
-      ],
+      "spec_codes": ["EDEX 4.12P", "EDEX 4.16P"],
       "worked_example": {
         "exemplar_id": "242b340d-af10-46fd-80f2-4dffb41ed044",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q6(b)",
@@ -322,32 +288,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P5.1f",
-        "OCR P5.1h",
-        "OCR P5.1i"
-      ],
-      "exam_phrases": [
-        "Outer ear / pinna / auditory canal transfers sound to ear drum",
-        "Ear drum vibrates",
-        "Ossicles / small bones / anvil, hammer or stirrup vibrate",
-        "Ossicles amplify vibration",
-        "Liquid in cochlea transmits movement to small hairs",
-        "Small hairs / cilia vibrate",
-        "(frequency) stays the same",
-        "(velocity) increases",
-        "(wavelength) increases"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The sound goes through the pinna, ear drum, ossicles and cochlea to the brain.",
-          "right": "If vibrations are not mentioned the maximum is 1 mark. Say that the ear drum, ossicles and hairs vibrate."
-        },
-        {
-          "wrong": "When sound goes from air into water the frequency increases.",
-          "right": "The frequency stays the same. The velocity and the wavelength both increase."
-        }
-      ],
+      "spec_codes": ["OCR P5.1f", "OCR P5.1h", "OCR P5.1i"],
       "worked_example": {
         "exemplar_id": "589d6f0b-1b96-4aac-8183-8752cc701516",
         "source": "OCR jun 2018, Paper 4, Q17(c)",

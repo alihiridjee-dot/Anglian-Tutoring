@@ -3,7 +3,7 @@
   "concept_id": "phys-089",
   "subject": "physics",
   "title": "Life cycle of stars",
-  "key_idea": "A star forms from a nebula and is stable while gravity balances the energy from fusion. A star like the Sun becomes a red giant and then a white dwarf. A much more massive star ends in a supernova and leaves a neutron star or black hole.",
+  "key_idea": "A star forms from a nebula and is stable while the inward force of gravity is balanced by the outward pressure from fusion. A star like the Sun becomes a red giant and then a white dwarf. A much more massive star ends in a supernova and leaves a neutron star or black hole.",
   "sections": [
     {
       "heading": "Why a star is stable",
@@ -167,31 +167,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.8.1.2"
-      ],
-      "exam_phrases": [
-        "gravitational force inwards and forces as a result of fusion reactions outwards",
-        "are in equilibrium / balanced",
-        "expand to become a red giant",
-        "collapse to become a white dwarf",
-        "helium nuclei fuse to make heavier elements, up to iron",
-        "creating elements heavier than iron"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The forces pulling inwards are caused by weight.",
-          "right": "Weight is not allowed. The inward force is gravity, and the outward forces come from the energy released by nuclear fusion."
-        },
-        {
-          "wrong": "The star is stable because the forces are balanced.",
-          "right": "Name both forces. Gravitational force inwards and fusion reactions outwards, which are in equilibrium. 'Forces in equilibrium' on its own scores one mark."
-        },
-        {
-          "wrong": "The Sun will become a white dwarf, then a red giant, then a black dwarf.",
-          "right": "The stages must be in the correct sequence to score all three marks: red giant, white dwarf, black dwarf."
-        }
-      ],
+      "spec_codes": ["AQA 4.8.1.2"],
       "worked_example": {
         "exemplar_id": "bb4e8e32-4587-42c9-8d42-a64d1f34a25e",
         "source": "AQA jun 2021, Paper 2 (H), Q03.2",
@@ -206,32 +182,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 7.16P",
-        "EDEX 7.17P",
-        "EDEX 7.18P"
-      ],
-      "exam_phrases": [
-        "nebula as a cloud of gas / dust",
-        "gas / atoms pulled together by gravitational force",
-        "temperature increases until hot enough for nuclear fusion",
-        "gravitational potential energy converted into kinetic energy",
-        "balance between gravity and fusion / thermal expansion"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The nebula collapses until it is hot enough for nuclear fission.",
-          "right": "References to fission are ignored. The nebula collapses until it is hot enough for nuclear fusion."
-        },
-        {
-          "wrong": "The nebula collapses and gets hot.",
-          "right": "References to hot or heat are ignored. Say very high temperatures and pressures are reached, or that gravitational potential energy is converted into kinetic energy of the particles."
-        },
-        {
-          "wrong": "The Sun will become a red super giant and then explode in a supernova.",
-          "right": "Red super giant and supernova are not accepted for the Sun. The Sun expands to a red giant, then cools to a white dwarf."
-        }
-      ],
+      "spec_codes": ["EDEX 7.16P", "EDEX 7.17P", "EDEX 7.18P"],
       "worked_example": {
         "exemplar_id": "05de4c4f-4b60-41f9-8881-0621aeed960d",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q4(d)(ii)",
@@ -246,24 +197,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P8.3c"
-      ],
-      "exam_phrases": [
-        "high temperature",
-        "high pressure",
-        "large gravitational forces (due to large mass)",
-        "red giant",
-        "planetary nebula",
-        "white dwarf",
-        "the gravitational force is equal to the outward force"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Fusion occurs in the Sun because it is hot.",
-          "right": "'Heat' is ignored. Give high temperature, high pressure or large gravitational forces due to the Sun's large mass."
-        }
-      ],
+      "spec_codes": ["OCR P8.3c"],
       "worked_example": {
         "exemplar_id": "e5315711-ab22-4f40-8f87-bbe3a999ed10",
         "source": "OCR jun 2019, Paper 2, Q23(c)(ii)",

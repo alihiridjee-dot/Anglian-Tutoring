@@ -1,0 +1,273 @@
+{
+  "format": 1,
+  "concept_id": "bio-111",
+  "subject": "biology",
+  "title": "Genetic engineering",
+  "key_idea": "Genetic engineering modifies the genome of an organism by introducing a gene from another organism. A gene is cut out with a restriction enzyme, joined into a plasmid with ligase, and carried into a host cell. Bacteria can be engineered to make human insulin.",
+  "sections": [
+    {
+      "heading": "What genetic engineering is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Genetic engineering changes an organism by giving it a gene it did not have. This section covers what it is and what it is used for."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Genetic engineering",
+              "meaning": "Modifying the genome of an organism by introducing a gene from another organism, to give a desired characteristic."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Genes from the chromosomes of humans and other organisms can be \"cut out\" and transferred to the cells of other organisms.",
+            "**Bacteria** can make useful substances such as **human insulin**, to treat diabetes.",
+            "**Crop plants** can be resistant to disease, or produce bigger, better fruits.",
+            "Bacteria can also be engineered to make an enzyme such as chymosin, which makes milk curdle."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Genetic engineering moves a gene from one organism to another.",
+            "It is used in medicine, for example insulin, and in agriculture."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The stages of genetic engineering",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The method uses enzymes as tools. This section covers each tool and the order of the stages."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Restriction enzyme",
+              "meaning": "An enzyme that cuts DNA. It leaves short, single-stranded ends called sticky ends."
+            },
+            {
+              "term": "Sticky ends",
+              "meaning": "The unpaired ends left by a cut. Matching (complementary) sticky ends can join together."
+            },
+            {
+              "term": "Ligase",
+              "meaning": "An enzyme that joins the cut pieces of DNA together."
+            },
+            {
+              "term": "Plasmid (vector)",
+              "meaning": "A small ring of DNA in bacteria. It is used to carry the gene into a host cell."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Put the stages of making bacteria that produce human insulin in order.",
+            "kind": "sequence",
+            "steps": [
+              "Find the gene for human insulin in human DNA",
+              "Cut the gene out with a restriction enzyme, leaving sticky ends",
+              "Cut open a bacterial plasmid with the same restriction enzyme, leaving matching sticky ends",
+              "Join the human gene into the plasmid using ligase",
+              "Put the plasmid back into a bacterial cell",
+              "The bacterial cell multiplies and makes insulin"
+            ],
+            "prompt": "Put genetic engineering in order"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use the **same** restriction enzyme on the gene and the plasmid. This makes the sticky ends complementary.",
+            "The plasmid with the new gene is a **vector**. It carries the gene into the bacterial cell.",
+            "Bacteria reproduce quickly, so many copies of the gene and a lot of insulin are made."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Restriction enzymes cut. Ligase joins.",
+            "Sticky ends from the same enzyme match, so the gene fits the plasmid.",
+            "A plasmid is the vector that carries the gene into the bacterium."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making crops resistant to herbicide",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Genes can be added to plants too. This section covers one example, and why it raises yield."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Scientists transfer a gene for resistance to a herbicide, such as glyphosate, into a crop plant.",
+            "The herbicide is sprayed. It kills the weeds but not the crop.",
+            "The crop has less competition for **light, water and minerals**.",
+            "So there is more photosynthesis and more glucose, which gives a higher yield."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A transferred gene gives the crop herbicide resistance.",
+            "Weeds are killed, so the crop has less competition and a higher yield."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is genetic engineering?",
+      "a": "Modifying the genome of an organism by introducing a gene from another organism to give a desired characteristic.",
+      "marks": 1
+    },
+    {
+      "q": "Explain how a human gene can be inserted into a bacterial plasmid.",
+      "a": "Cut the gene out and cut the plasmid with the same restriction enzyme, leaving complementary sticky ends. Join them together with ligase.",
+      "marks": 3
+    },
+    {
+      "q": "A wheat plant is engineered to be resistant to a herbicide. Explain why this gives a higher yield.",
+      "a": "The herbicide kills the weeds but not the wheat. The wheat has less competition for light, water and minerals, so more photosynthesis and more glucose for growth.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 6.12", "AQA T 4.6.2.4"],
+      "worked_example": {
+        "exemplar_id": "92efb369-acc9-405f-80c6-f5d867816b87",
+        "source": "AQA jun 2019, Paper 2 (H), Q03.2",
+        "question": "Scientists have genetically engineered a variety of wheat to be resistant to herbicides.\nThe herbicide resistant variety of wheat will give a higher yield than the non-herbicide resistant variety.\n\nExplain why.",
+        "marks": 3,
+        "answer_points": [
+          "The wheat is not affected by the herbicide spray, only the weeds are killed.",
+          "So the wheat gets more light, water and minerals (less competition).",
+          "So there is more photosynthesis, which makes more glucose for growth."
+        ],
+        "tip": "Each step must follow from the last."
+      },
+      "extra": [
+        {
+          "blocks": [
+            {
+              "text": "(AQA: Higher tier) You must describe the main steps of genetic engineering.",
+              "type": "paragraph"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Enzymes are used to isolate the required gene.",
+                "The gene is inserted into a **vector**, usually a bacterial plasmid or a virus.",
+                "The vector is used to insert the gene into the required cells.",
+                "Genes are transferred to the cells of animals, plants or microorganisms at an early stage in their development, so they develop with the desired characteristics."
+              ]
+            }
+          ],
+          "heading": "Higher tier: the main steps"
+        },
+        {
+          "blocks": [
+            {
+              "text": "Crops with modified genes are called genetically modified (GM) crops. They include ones resistant to insect attack or to herbicides.",
+              "type": "paragraph"
+            },
+            {
+              "type": "list",
+              "items": [
+                "GM crops generally show **increased yields**.",
+                "Concerns: the effect on populations of wild flowers and insects.",
+                "Concerns: some people feel the effects of eating GM crops on human health have not been fully explored."
+              ]
+            }
+          ],
+          "heading": "GM crops: yield and concerns"
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 4.10", "EDEX 4.11"],
+      "worked_example": {
+        "exemplar_id": "ae9873b5-37c0-42e0-98fd-ffab324c8b41",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q5(c)",
+        "question": "Explain how the human insulin gene can be inserted into a plasmid.",
+        "marks": 3,
+        "answer_points": [
+          "Cut the gene from the genome using restriction enzymes.",
+          "Cut the plasmid with a restriction enzyme (the same one is accepted).",
+          "To leave complementary or matching sticky ends.",
+          "Join the DNA using ligase."
+        ],
+        "tip": "Three of the four points score one mark each."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.2d", "OCR 6.2e"],
+      "worked_example": {
+        "exemplar_id": "b1c31e72-31f3-4b7a-9122-0be4ead986da",
+        "source": "OCR nov 2020, Paper 4, Q20(c)(i)",
+        "question": "Two scientists discovered a different method of making monoclonal antibodies.\nThey put genes that code for many different antibodies into viruses. The viruses then make the antibodies on their surfaces.\nIf an antigen attaches to an antibody, the scientists use the gene for this antibody to genetically engineer bacteria. The bacteria are then used to make large quantities of the antibody.\n\nDescribe how scientists could use the antibody gene to genetically engineer bacteria to make many copies of the antibody.",
+        "marks": 4,
+        "answer_points": [
+          "A plasmid is used to insert the gene.",
+          "A restriction enzyme cuts open the plasmid, and removes the gene.",
+          "Ligase joins the ends of the gene and the plasmid.",
+          "The ends are complementary sticky ends.",
+          "Bacteria that took up the plasmid are selected using antibiotic markers."
+        ],
+        "tip": "Any four points score one mark each. Each enzyme must be linked to its correct role."
+      },
+      "extra": [
+        {
+          "blocks": [
+            {
+              "text": "Not every bacterium takes up the new plasmid, so scientists need a way to pick out the ones that did.",
+              "type": "paragraph"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Bacteria are the **host** cells. They reproduce quickly and make many copies of the gene.",
+                "The plasmid also carries a gene for antibiotic resistance. This is the **antibiotic marker**.",
+                "The bacteria are grown with the antibiotic. Only the bacteria that took up the plasmid survive, so scientists can select them."
+              ]
+            }
+          ],
+          "heading": "Host bacteria and antibiotic markers"
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "e47e1787-ae3f-4ea4-bd60-864917265b60",
+      "bd6ac9e8-038e-488d-b404-d6627d252bd9",
+      "57ff6100-014d-48c9-8a81-63d1d81cbeb1",
+      "a70fad16-3291-4200-9e31-a21e0ada5b2f",
+      "ac85dc96-babf-4f59-be05-308d7371bf14",
+      "4939d756-2ac4-4f66-a569-7693651bcaeb"
+    ],
+    "exemplar_ids": [
+      "92efb369-acc9-405f-80c6-f5d867816b87",
+      "ae9873b5-37c0-42e0-98fd-ffab324c8b41",
+      "b1c31e72-31f3-4b7a-9122-0be4ead986da"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

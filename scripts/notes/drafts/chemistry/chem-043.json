@@ -8,12 +8,21 @@
     {
       "heading": "Metals in the Earth",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers how metals are found in the Earth's crust and why most need a chemical reaction to extract them." },
+        {
+          "type": "paragraph",
+          "text": "This section covers how metals are found in the Earth's crust and why most need a chemical reaction to extract them."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Ore", "meaning": "A rock in the Earth's crust that contains a metal compound, from which the metal can be extracted." },
-            { "term": "Extraction", "meaning": "A chemical reaction that separates a metal from its compound." }
+            {
+              "term": "Ore",
+              "meaning": "A rock in the Earth's crust that contains a metal compound, from which the metal can be extracted."
+            },
+            {
+              "term": "Extraction",
+              "meaning": "A chemical reaction that separates a metal from its compound."
+            }
           ]
         },
         {
@@ -38,12 +47,21 @@
     {
       "heading": "Reduction with carbon",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers how a metal oxide is reduced by heating it with carbon." },
+        {
+          "type": "paragraph",
+          "text": "This section covers how a metal oxide is reduced by heating it with carbon."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Reduction", "meaning": "The loss of oxygen from a compound." },
-            { "term": "Oxidation", "meaning": "The gain of oxygen by a substance." }
+            {
+              "term": "Reduction",
+              "meaning": "The loss of oxygen from a compound."
+            },
+            {
+              "term": "Oxidation",
+              "meaning": "The gain of oxygen by a substance."
+            }
           ]
         },
         {
@@ -59,7 +77,10 @@
           "type": "equation",
           "label": "Word equation for iron",
           "formula": "iron oxide + carbon → iron + carbon dioxide",
-          "where": ["iron oxide: reduced, because it loses oxygen", "carbon: oxidised, because it gains oxygen"]
+          "where": [
+            "iron oxide: reduced, because it loses oxygen",
+            "carbon: oxidised, because it gains oxygen"
+          ]
         },
         {
           "type": "equation",
@@ -87,22 +108,74 @@
     {
       "heading": "Choosing the method of extraction",
       "blocks": [
-        { "type": "paragraph", "text": "The method depends on where the metal sits compared with carbon in the reactivity series." },
+        {
+          "type": "paragraph",
+          "text": "The method depends on where the metal sits compared with carbon in the reactivity series."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "predictor",
             "alt": "Choose a metal to see how it is found and how it is extracted.",
             "prompt": "Pick a metal",
-            "result_labels": ["Found in the Earth as", "Compared with carbon", "Method of extraction"],
+            "result_labels": [
+              "Found in the Earth as",
+              "Compared with carbon",
+              "Method of extraction"
+            ],
             "options": [
-              { "label": "Gold", "results": ["The metal itself", "Very unreactive", "No extraction needed"] },
-              { "label": "Copper", "results": ["Usually an ore containing a copper compound; sometimes the metal itself", "Less reactive than carbon", "Heat the oxide with **carbon**"] },
-              { "label": "Iron", "results": ["An ore containing iron oxide", "Less reactive than carbon", "Heat the oxide with **carbon**"] },
-              { "label": "Zinc", "results": ["A compound in an ore", "Less reactive than carbon", "Heat the oxide with **carbon**"] },
-              { "label": "Tin", "results": ["An ore containing tin oxide", "Less reactive than carbon", "Heat the oxide with **carbon**"] },
-              { "label": "Aluminium", "results": ["An ore containing aluminium oxide", "More reactive than carbon", "**Electrolysis**, because carbon cannot displace aluminium"] },
-              { "label": "Calcium", "results": ["A compound in an ore", "More reactive than carbon", "**Electrolysis**, because carbon cannot displace calcium"] }
+              {
+                "label": "Gold",
+                "results": ["The metal itself", "Very unreactive", "No extraction needed"]
+              },
+              {
+                "label": "Copper",
+                "results": [
+                  "Usually an ore containing a copper compound; sometimes the metal itself",
+                  "Less reactive than carbon",
+                  "Heat the oxide with **carbon**"
+                ]
+              },
+              {
+                "label": "Iron",
+                "results": [
+                  "An ore containing iron oxide",
+                  "Less reactive than carbon",
+                  "Heat the oxide with **carbon**"
+                ]
+              },
+              {
+                "label": "Zinc",
+                "results": [
+                  "A compound in an ore",
+                  "Less reactive than carbon",
+                  "Heat the oxide with **carbon**"
+                ]
+              },
+              {
+                "label": "Tin",
+                "results": [
+                  "An ore containing tin oxide",
+                  "Less reactive than carbon",
+                  "Heat the oxide with **carbon**"
+                ]
+              },
+              {
+                "label": "Aluminium",
+                "results": [
+                  "An ore containing aluminium oxide",
+                  "More reactive than carbon",
+                  "**Electrolysis**, because carbon cannot displace aluminium"
+                ]
+              },
+              {
+                "label": "Calcium",
+                "results": [
+                  "A compound in an ore",
+                  "More reactive than carbon",
+                  "**Electrolysis**, because carbon cannot displace calcium"
+                ]
+              }
             ]
           }
         },
@@ -145,30 +218,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.4.1.3", "AQA T 5.4.1.3"],
-      "exam_phrases": [
-        "carbon is more reactive (than nickel)",
-        "carbon will displace / replace nickel (from nickel oxide)",
-        "carbon will remove oxygen (from nickel oxide)",
-        "tin oxide is reduced because it loses oxygen",
-        "iron is less reactive than carbon",
-        "aluminium is more reactive than carbon, so carbon cannot displace aluminium",
-        "most metals are found in the Earth as compounds",
-        "aluminium is obtained by electrolysis, so more energy is needed"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Reduction is the gain of oxygen.",
-          "right": "Reduction is the loss of oxygen. Tin oxide is reduced because it loses oxygen."
-        },
-        {
-          "wrong": "Aluminium costs more than carbon because it uses a lot of electricity.",
-          "right": "References to electricity are ignored. Say more energy is needed, because aluminium is obtained by electrolysis."
-        },
-        {
-          "wrong": "Platinum is used in jewellery because it is hard and strong.",
-          "right": "Hardness, strength and cost are ignored. Say it is unreactive or does not tarnish, or give its appearance or that it is easily shaped."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "62acbf4d-16f8-4741-ada7-4d4cd8a98b0e",
         "source": "AQA jun 2018, Paper 1 (F), Q09.4",
@@ -183,29 +232,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 4.4", "EDEX 4.6", "EDEX 4.7"],
-      "exam_phrases": [
-        "aluminium is high in reactivity / aluminium oxide is (very) stable",
-        "aluminium (oxide) cannot be reduced by carbon",
-        "carbon cannot displace aluminium",
-        "aluminium oxide does not react with carbon",
-        "electrolysis is expensive / needs a large amount of electricity",
-        "iron is less reactive (than carbon)",
-        "carbon is less reactive than aluminium"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Aluminium has to be extracted by electrolysis because it is more reactive.",
-          "right": "Aluminium is more reactive on its own is ignored. Say aluminium oxide cannot be reduced by carbon, or carbon cannot displace aluminium."
-        },
-        {
-          "wrong": "Electrolysis is used for iron because it is a better method.",
-          "right": "Iron is less reactive than carbon, so heating with carbon works. Electrolysis is more expensive and needs a large amount of electricity."
-        },
-        {
-          "wrong": "To obtain copper, burn copper oxide.",
-          "right": "Burn and combust are rejected. Heat the oxide strongly with carbon (or pass hydrogen over the heated oxide)."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "9d49c437-807a-4b13-87cd-d5c4598ff372",
         "source": "EDEXCEL jun 2018, Paper 1 (H), Q3(b)",
@@ -220,28 +246,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR C6.1a"],
-      "exam_phrases": [
-        "(by reacting with) carbon",
-        "carbon is more reactive than iron / by displacement",
-        "aluminium is above carbon in the reactivity series, so cannot be obtained by reaction of the oxide with carbon",
-        "copper is below carbon in the reactivity series",
-        "iron oxide + carbon → iron + carbon dioxide",
-        "2CuO + C → 2Cu + CO₂"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Carbon is used because it is highly reactive.",
-          "right": "Highly reactive is ignored. Say carbon is more reactive than zinc, or is above zinc in the reactivity series, so it displaces zinc."
-        },
-        {
-          "wrong": "Aluminium cannot be extracted with carbon because it is very reactive.",
-          "right": "Aluminium is very reactive is ignored. Say aluminium is higher in the reactivity series than carbon, so carbon cannot displace it."
-        },
-        {
-          "wrong": "2CuO and C → 2Cu and CO₂",
-          "right": "And and & are not allowed instead of +. Write 2CuO + C → 2Cu + CO₂."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "5e706c7c-fdef-4126-8ed0-ce702dc5b978",
         "source": "OCR jun 2023, Paper 2, Q17(d)",

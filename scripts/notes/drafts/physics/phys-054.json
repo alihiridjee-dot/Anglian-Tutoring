@@ -226,27 +226,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Line on the graph",
-            "What it shows"
-          ],
+          "columns": ["Line on the graph", "What it shows"],
           "rows": [
-            [
-              "Horizontal line",
-              "Constant velocity. The acceleration is zero."
-            ],
-            [
-              "Straight line sloping up",
-              "Constant (uniform) acceleration."
-            ],
-            [
-              "Steeper straight line",
-              "A bigger acceleration."
-            ],
-            [
-              "Straight line sloping down",
-              "Deceleration."
-            ]
+            ["Horizontal line", "Constant velocity. The acceleration is zero."],
+            ["Straight line sloping up", "Constant (uniform) acceleration."],
+            ["Steeper straight line", "A bigger acceleration."],
+            ["Straight line sloping down", "Deceleration."]
           ]
         },
         {
@@ -289,30 +274,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.6.1",
-        "AQA T 6.5.4.1"
-      ],
-      "exam_phrases": [
-        "an object that slows down is decelerating",
-        "the acceleration is the gradient of the velocity–time graph",
-        "the distance travelled is the area under the velocity–time graph",
-        "uniform acceleration"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The train goes from 16 m/s to 25 m/s in 150 s, so a = 25 ÷ 150.",
-          "right": "Use the change in velocity: 25 − 16 = 9 m/s. Then a = 9 ÷ 150 = 0.06 m/s²."
-        },
-        {
-          "wrong": "v² = 2 × 5.0 × 45 = 450, so v = 450 m/s.",
-          "right": "Take the square root: v = √450 = 21.2, which is 21 m/s to 2 significant figures."
-        },
-        {
-          "wrong": "The cyclist travels 0.018 km while accelerating, so 2.4² = 2 × a × 0.018.",
-          "right": "Convert 0.018 km to 18 m first. Then 2.4² = 2 × a × 18 and a = 0.16 m/s²."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.6.1", "AQA T 6.5.4.1"],
       "worked_example": {
         "exemplar_id": "d9d0a839-165e-4470-9b1b-51761e105157",
         "source": "AQA jun 2022, Paper 2 (F), Q05.6",
@@ -333,7 +295,7 @@
             {
               "type": "list",
               "items": [
-                "(Higher tier) The distance travelled, or the displacement, is the area under a velocity–time graph. Measure the area by counting squares when needed.",
+                "(AQA: Higher tier) The distance travelled, or the displacement, is the area under a velocity–time graph. Measure the area by counting squares when needed.",
                 "Near the Earth's surface any object falling freely under gravity has an acceleration of about 9.8 m/s²."
               ]
             }
@@ -342,27 +304,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.8",
-        "EDEX 2.9",
-        "EDEX 2.10"
-      ],
-      "exam_phrases": [
-        "compare acceleration from gradients",
-        "acceleration from the gradient (uniform acceleration only)",
-        "distance travelled using the area between the graph line and the time axis",
-        "deceleration"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A skier's speed goes from 7.6 m/s to 24 m/s with acceleration 3.0 m/s². The time is distance ÷ (v − u).",
-          "right": "Use a = (v − u) ÷ t, so t = (v − u) ÷ a = (24 − 7.6) ÷ 3.0 = 5.5 s. Using t = d ÷ (v − u) scores no marks."
-        },
-        {
-          "wrong": "a = 225 ÷ 28 and stop there.",
-          "right": "This earns 2 of the 3 marks. Work it out: the deceleration is 8(.04) m/s²."
-        }
-      ],
+      "spec_codes": ["EDEX 2.8", "EDEX 2.9", "EDEX 2.10"],
       "worked_example": {
         "exemplar_id": "9127f2f5-fc8b-4360-9fd4-040db31213af",
         "source": "EDEXCEL jun 2018, Paper 1 (H), Q6(d)",
@@ -388,27 +330,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P2.1e",
-        "OCR P2.1f",
-        "OCR P2.1h"
-      ],
-      "exam_phrases": [
-        "relate changes in motion to velocity–time graphs",
-        "interpret lines and slopes",
-        "interpret the enclosed area in a velocity–time graph",
-        "uniform acceleration"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Copy v² − u² = 2as from the equation sheet and stop.",
-          "right": "The equation itself earns no mark. Put u = 0, rearrange and substitute: a = v² ÷ 2s."
-        },
-        {
-          "wrong": "Substitute 0 − 18² = 2 × −6 × s and stop.",
-          "right": "Substituting into the unrearranged equation earns 1 mark. Rearrange and work out s = 27 m for all 3 marks."
-        }
-      ],
+      "spec_codes": ["OCR P2.1e", "OCR P2.1f", "OCR P2.1h"],
       "worked_example": {
         "exemplar_id": "2b7a5a67-575a-45be-8e93-12fa2558b145",
         "source": "OCR jun 2024, Paper 4, Q20(b)(i)",

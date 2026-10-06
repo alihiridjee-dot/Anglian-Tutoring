@@ -27,10 +27,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Abiotic factor",
-            "How it can affect organisms"
-          ],
+          "columns": ["Abiotic factor", "How it can affect organisms"],
           "rows": [
             [
               "Light intensity",
@@ -52,10 +49,7 @@
               "Wind intensity and direction",
               "Affects water loss from plants and the spread of seeds and pollen."
             ],
-            [
-              "Carbon dioxide level (for plants)",
-              "Plants need carbon dioxide for photosynthesis."
-            ],
+            ["Carbon dioxide level (for plants)", "Plants need carbon dioxide for photosynthesis."],
             [
               "Oxygen level (for aquatic animals)",
               "Aquatic animals need dissolved oxygen to respire."
@@ -97,10 +91,7 @@
             "kind": "sort",
             "alt": "Sort each factor into abiotic or biotic.",
             "prompt": "Is each factor abiotic or biotic?",
-            "groups": [
-              "Abiotic",
-              "Biotic"
-            ],
+            "groups": ["Abiotic", "Biotic"],
             "items": [
               {
                 "text": "Light intensity",
@@ -214,36 +205,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 7.2",
-        "AQA T 4.7.1.2",
-        "AQA T 4.7.1.3"
-      ],
-      "exam_phrases": [
-        "light intensity",
-        "moisture levels",
-        "pH (of soil)",
-        "minerals / ions (in soil)",
-        "wind (intensity / direction)",
-        "predators / consumers",
-        "disease / pathogens",
-        "(less trees means) more light so (more) photosynthesis so (more) glucose (for growth)",
-        "reduced competition"
-      ],
-      "mistakes": [
-        {
-          "wrong": "An abiotic factor that affects the earthworms is nutrients.",
-          "right": "Nutrients are ignored. Name the factor: water, oxygen, pH, minerals or ions, or temperature."
-        },
-        {
-          "wrong": "The daisies grow better where there is more sun.",
-          "right": "\"Sun\" is ignored. Write light (intensity), or shade for 1 mark."
-        },
-        {
-          "wrong": "Abiotic factors affecting the daisies are space and the weather.",
-          "right": "Availability of space and weather are ignored. Give light, temperature, type of soil, pH, minerals or ions, wind or oxygen in soil."
-        }
-      ],
+      "spec_codes": ["AQA 7.2", "AQA T 4.7.1.2", "AQA T 4.7.1.3"],
       "worked_example": {
         "exemplar_id": "b12d78cd-edfe-4a25-a926-163d2439871c",
         "source": "AQA jun 2022, Paper 2 (H), Q02.1",
@@ -257,29 +219,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.2"
-      ],
-      "exam_phrases": [
-        "measure the temperature with a thermometer",
-        "measure the light levels using a light meter",
-        "humidity using a humidity meter / sensor",
-        "rainfall using a measuring cylinder",
-        "outcompeted (by nettles)",
-        "by nettles absorbing (most of) the light",
-        "so can't photosynthesise (sufficiently)",
-        "the moths eat the aphid's food"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Grass does not grow among nettles because it is outcompeted.",
-          "right": "Add the reason: the nettles absorb most of the light, so the grass cannot photosynthesise enough. Two linked points are needed for 2 marks."
-        },
-        {
-          "wrong": "The number of aphids will decrease.",
-          "right": "Give the reason too: the moths feed on oak leaves, so they eat the aphids' food and there is less food for the aphids."
-        }
-      ],
+      "spec_codes": ["EDEX 9.2"],
       "worked_example": {
         "exemplar_id": "795ae571-56ba-4bf7-b2d8-d6696ec6a1f1",
         "source": "EDEXCEL jun 2024, Paper 2 (H), Q5(a)(ii)",
@@ -302,39 +242,15 @@
           "blocks": [
             {
               "type": "table",
-              "columns": [
-                "Abiotic factor",
-                "How to measure it"
-              ],
+              "columns": ["Abiotic factor", "How to measure it"],
               "rows": [
-                [
-                  "Temperature",
-                  "Thermometer"
-                ],
-                [
-                  "Light",
-                  "Light meter (lux meter)"
-                ],
-                [
-                  "Soil water",
-                  "Water meter or sensor"
-                ],
-                [
-                  "Rainfall",
-                  "Measuring cylinder or beaker"
-                ],
-                [
-                  "Humidity",
-                  "Humidity meter or sensor"
-                ],
-                [
-                  "Soil pH",
-                  "pH meter"
-                ],
-                [
-                  "Wind",
-                  "Wind sock or wind meter"
-                ]
+                ["Temperature", "Thermometer"],
+                ["Light", "Light meter (lux meter)"],
+                ["Soil water", "Water meter or sensor"],
+                ["Rainfall", "Measuring cylinder or beaker"],
+                ["Humidity", "Humidity meter or sensor"],
+                ["Soil pH", "pH meter"],
+                ["Wind", "Wind sock or wind meter"]
               ]
             }
           ]
@@ -359,25 +275,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 4.1f"
-      ],
-      "exam_phrases": [
-        "acid rain will reduce the number of seeds that germinate",
-        "small volumes of acid have little effect",
-        "rapid drop in germination between the third and fourth flask",
-        "germination at the highest volume of acid is still possible"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Acid rain stops seeds germinating.",
-          "right": "Some seeds still germinated at the highest volume of acid. Say acid rain reduces the number that germinate."
-        },
-        {
-          "wrong": "Germination falls steadily as acid is added.",
-          "right": "Small volumes of acid had little effect, then there was a rapid drop in germination between the third and fourth flask."
-        }
-      ],
+      "spec_codes": ["OCR 4.1f"],
       "worked_example": {
         "exemplar_id": "0a5c2031-6679-4239-9129-1d73d8f6feec",
         "source": "OCR jun 2018, Paper 4, Q21(d)",

@@ -66,11 +66,7 @@
           "type": "equation",
           "label": "Mass of alcohol per degree",
           "formula": "mass per °C = mass burned ÷ temperature rise",
-          "where": [
-            "mass per °C is in g/°C",
-            "mass burned is in g",
-            "temperature rise is in °C"
-          ]
+          "where": ["mass per °C is in g/°C", "mass burned is in g", "temperature rise is in °C"]
         },
         {
           "type": "steps",
@@ -180,31 +176,7 @@
   ],
   "boards": {
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.28C"
-      ],
-      "exam_phrases": [
-        "heat / energy is lost / escapes",
-        "add a lid / use a draught shield",
-        "so more heat / energy goes to the water / less heat / energy escapes",
-        "distance from beaker to flame / wick / burner",
-        "size of wick; volume of water; temperature increase of water",
-        "152.62 − 152.23 = 0.39 (mass of alcohol used)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Use a polystyrene beaker so that more heat reaches the water.",
-          "right": "A polystyrene beaker is rejected. Use a metal calorimeter instead of glass, a lid or draught shield, or insulation round the sides."
-        },
-        {
-          "wrong": "Keep the mass of fuel the same when comparing alcohols.",
-          "right": "The mass of fuel is ignored as a variable to keep the same. Keep the volume of water, size of wick, and distance from beaker to flame the same."
-        },
-        {
-          "wrong": "0.018 g per °C, when the question asks for 2 decimal places.",
-          "right": "Give the answer to the number of decimal places asked: 0.36 ÷ 20 = 0.018, which is 0.02 g per °C to 2 decimal places."
-        }
-      ],
+      "spec_codes": ["EDEX 9.28C"],
       "worked_example": {
         "exemplar_id": "59a51482-317b-41a5-ad89-c41271c1d10b",
         "source": "EDEXCEL jun 2018, Paper 2 (F), Q10(a)(ii)",
@@ -222,12 +194,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": [
-      "53233996-7ee2-4d6e-a51d-f47edcdc689d"
-    ],
-    "exemplar_ids": [
-      "59a51482-317b-41a5-ad89-c41271c1d10b"
-    ],
+    "spec_point_ids": ["53233996-7ee2-4d6e-a51d-f47edcdc689d"],
+    "exemplar_ids": ["59a51482-317b-41a5-ad89-c41271c1d10b"],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-01"
   }

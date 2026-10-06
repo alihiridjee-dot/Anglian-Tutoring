@@ -57,22 +57,10 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Gas",
-            "Moves from",
-            "Moves to"
-          ],
+          "columns": ["Gas", "Moves from", "Moves to"],
           "rows": [
-            [
-              "Oxygen",
-              "Air in the alveolus",
-              "Blood in the capillary"
-            ],
-            [
-              "Carbon dioxide",
-              "Blood in the capillary",
-              "Air in the alveolus"
-            ]
+            ["Oxygen", "Air in the alveolus", "Blood in the capillary"],
+            ["Carbon dioxide", "Blood in the capillary", "Air in the alveolus"]
           ]
         },
         {
@@ -140,15 +128,9 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Adaptation",
-            "Why it helps"
-          ],
+          "columns": ["Adaptation", "Why it helps"],
           "rows": [
-            [
-              "Many alveoli",
-              "A large surface area for gas exchange"
-            ],
+            ["Many alveoli", "A large surface area for gas exchange"],
             [
               "Walls of the alveolus and capillary are one cell thick",
               "A short diffusion distance"
@@ -197,39 +179,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA T 4.2.2.2",
-        "AQA 2.6",
-        "AQA 1.13"
-      ],
-      "exam_phrases": [
-        "large surface area (to volume ratio)",
-        "(large) capillary network / good blood supply",
-        "walls are thin / one cell thick",
-        "short diffusion distance / path",
-        "lungs are ventilated / breathing moves air in and out",
-        "to maintain a concentration / diffusion gradient",
-        "to remove oxygenated blood quickly / bring carbon dioxide to the lungs quickly",
-        "carbon dioxide passes out of the blood into the alveolus"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The alveoli have thin cell walls.",
-          "right": "\"Thin cell walls\" is not accepted. Say the wall of the alveolus (or capillary) is thin or one cell thick."
-        },
-        {
-          "wrong": "The alveoli are one cell thick.",
-          "right": "\"Alveoli are thin\" or \"alveoli are one cell thick\" is ignored. It is the wall of the alveolus that is one cell thick."
-        },
-        {
-          "wrong": "The alveoli have a moist lining and a steep concentration gradient.",
-          "right": "\"Moist lining\" and \"steep concentration gradient\" are ignored when listing features. A gradient is credited when linked to ventilation or to the blood supply."
-        },
-        {
-          "wrong": "The lungs are adapted by having many alveoli and a large surface area.",
-          "right": "When the question has already named the alveoli and the surface area, these are ignored. Give other adaptations, such as thin walls, a good blood supply or ventilation."
-        }
-      ],
+      "spec_codes": ["AQA T 4.2.2.2", "AQA 2.6", "AQA 1.13"],
       "worked_example": {
         "exemplar_id": "a3be6d48-f1a2-4478-b1c1-79193c519328",
         "source": "AQA jun 2024, Paper 1 (H), Q02.4",
@@ -244,33 +194,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 8.3"
-      ],
-      "exam_phrases": [
-        "by diffusion",
-        "down a concentration gradient, from high to low concentration",
-        "through a membrane",
-        "many alveoli, large surface area",
-        "walls that are thin / flattened / one cell thick",
-        "a good blood supply / many capillaries",
-        "to reduce the distance over which diffusion occurs",
-        "oxygen is absorbed into the blood, carbon dioxide is released"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Alveoli have thin cell walls.",
-          "right": "\"Cell walls\" is rejected. Say the walls are thin, flattened or one cell thick."
-        },
-        {
-          "wrong": "An adaptation of the alveolus is a high concentration of oxygen and a low concentration of carbon dioxide.",
-          "right": "References to high or low concentrations are ignored in this answer. Give a feature of the alveolus: thin walls, large surface area, or a good blood supply."
-        },
-        {
-          "wrong": "Oxygen moves into the blood by osmosis.",
-          "right": "Osmosis is the movement of water only. Oxygen moves by diffusion. No ATP is used, so it is not active transport."
-        }
-      ],
+      "spec_codes": ["EDEX 8.3"],
       "worked_example": {
         "exemplar_id": "1bd3bc38-7fd9-4885-a313-65cef829a69a",
         "source": "EDEXCEL jun 2023, Paper 2 (H), Q6(a)(iii)",
@@ -300,29 +224,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 2.2c"
-      ],
-      "exam_phrases": [
-        "blood travels through the heart twice on one full circuit of the body",
-        "there are two pumps / blood is pumped twice",
-        "blood passes separately to the lungs and to the body",
-        "pulmonary circuit and systemic circuit",
-        "increases the pressure of the blood",
-        "increases the flow rate of the blood",
-        "faster transport of materials, more oxygen to the tissues",
-        "faster removal of carbon dioxide from the blood"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Double circulation pushes more blood around the body.",
-          "right": "\"Pushes more blood\" unqualified is not allowed. Say it increases the pressure or the flow rate, so more oxygen reaches the tissues."
-        },
-        {
-          "wrong": "Passing through the heart twice makes the blood flow fast.",
-          "right": "\"Makes the blood flow fast\" is ignored. Use a comparative: it makes the blood flow faster, or increases the flow rate."
-        }
-      ],
+      "spec_codes": ["OCR 2.2c"],
       "worked_example": {
         "exemplar_id": "8e68c622-2261-4613-8190-b3e426dff957",
         "source": "OCR jun 2022, Paper 1, Q17(e)",

@@ -39,11 +39,7 @@
             "kind": "sort",
             "alt": "Sort each adaptation into structural, behavioural or functional.",
             "prompt": "Which type of adaptation is each one?",
-            "groups": [
-              "Structural",
-              "Behavioural",
-              "Functional"
-            ],
+            "groups": ["Structural", "Behavioural", "Functional"],
             "items": [
               {
                 "text": "White winter fur on a hare",
@@ -169,35 +165,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 7.3",
-        "AQA T 4.7.1.4"
-      ],
-      "exam_phrases": [
-        "camouflaged / hidden or not (easily) seen",
-        "from lynx / predator / carnivore",
-        "not killed / eaten",
-        "hoverfly looks like a wasp",
-        "predator / animal avoids wasps so it does not get stung",
-        "bright colours attract pollinators",
-        "tiny / light seeds will travel away from competitors",
-        "they survive in high temperatures",
-        "they survive where it is acidic"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The predator thinks the hoverfly is a wasp.",
-          "right": "This is ignored. Say the hoverfly looks like a wasp, so predators avoid it because they do not want to be stung."
-        },
-        {
-          "wrong": "The predator does not bite or harm the hoverfly.",
-          "right": "\"Bite\" and \"harm\" are ignored. Say the predator does not attack or eat the hoverfly."
-        },
-        {
-          "wrong": "Aphids with wings can fly.",
-          "right": "\"To fly\" unqualified is ignored. Say they can fly to another plant to get more food."
-        }
-      ],
+      "spec_codes": ["AQA 7.3", "AQA T 4.7.1.4"],
       "worked_example": {
         "exemplar_id": "72b68b51-51fe-4d3a-a834-ec62e4dc6b5c",
         "source": "AQA jun 2023, Paper 2 (F), Q03.3",
@@ -212,26 +180,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 6.14B"
-      ],
-      "exam_phrases": [
-        "the cuticle is thinner",
-        "the plant has plenty of water / doesn't need to conserve water",
-        "the cuticle is waterproof",
-        "stomata in pits to reduce the loss of water",
-        "needle-shaped to reduce the surface area"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Plants in soil with more water have a thicker cuticle.",
-          "right": "The cuticle is thinner, because the plant has plenty of water and does not need to conserve it. The cuticle is waterproof."
-        },
-        {
-          "wrong": "The pine leaf is needle-shaped to reduce its volume.",
-          "right": "A needle shape reduces the surface area of the leaf, which reduces water loss."
-        }
-      ],
+      "spec_codes": ["EDEX 6.14B"],
       "worked_example": {
         "exemplar_id": "0ff68a2c-23c3-47bc-9b44-f1b5e61287d6",
         "source": "EDEXCEL jun 2024, Paper 2 (F), Q5(b)(ii)",

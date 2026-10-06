@@ -8,7 +8,10 @@
     {
       "heading": "Type 1 diabetes",
       "blocks": [
-        { "type": "paragraph", "text": "Diabetes is a disorder in which blood glucose concentration cannot be controlled. There are two types, with different causes." },
+        {
+          "type": "paragraph",
+          "text": "Diabetes is a disorder in which blood glucose concentration cannot be controlled. There are two types, with different causes."
+        },
         {
           "type": "list",
           "items": [
@@ -30,11 +33,17 @@
     {
       "heading": "Type 2 diabetes",
       "blocks": [
-        { "type": "paragraph", "text": "In type 2 diabetes the problem is not making insulin. It is the response of the cells." },
+        {
+          "type": "paragraph",
+          "text": "In type 2 diabetes the problem is not making insulin. It is the response of the cells."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Insulin resistance", "meaning": "The body cells no longer respond properly to the insulin the pancreas produces." }
+            {
+              "term": "Insulin resistance",
+              "meaning": "The body cells no longer respond properly to the insulin the pancreas produces."
+            }
           ]
         },
         {
@@ -46,14 +55,25 @@
             "Medicines such as metformin can also lower blood glucose."
           ]
         },
-        { "type": "subheading", "text": "Type 1 and type 2 compared" },
+        {
+          "type": "subheading",
+          "text": "Type 1 and type 2 compared"
+        },
         {
           "type": "table",
           "columns": ["Feature", "Type 1", "Type 2"],
           "rows": [
-            ["Cause", "The pancreas does not make enough insulin", "Body cells no longer respond to insulin"],
+            [
+              "Cause",
+              "The pancreas does not make enough insulin",
+              "Body cells no longer respond to insulin"
+            ],
             ["Insulin in the blood", "Low or none", "Made, often more than normal"],
-            ["Treatment", "Insulin injections", "Diet, exercise and losing mass, sometimes medicine"]
+            [
+              "Treatment",
+              "Insulin injections",
+              "Diet, exercise and losing mass, sometimes medicine"
+            ]
           ]
         },
         {
@@ -75,7 +95,10 @@
     {
       "heading": "Obesity, BMI and type 2 diabetes",
       "blocks": [
-        { "type": "paragraph", "text": "Obesity is a risk factor for type 2 diabetes. Body mass index (BMI) compares a person's mass with their height." },
+        {
+          "type": "paragraph",
+          "text": "Obesity is a risk factor for type 2 diabetes. Body mass index (BMI) compares a person's mass with their height."
+        },
         {
           "type": "equation",
           "label": "Body mass index",
@@ -85,9 +108,18 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Square the height.", "text": "A person is 1.75 m tall. 1.75² = 3.0625." },
-            { "lead": "Divide.", "text": "Their mass is 95 kg. 95 ÷ 3.0625 = 31.02." },
-            { "lead": "Round.", "text": "BMI = 31.0 kg/m² to 1 decimal place." }
+            {
+              "lead": "Square the height.",
+              "text": "A person is 1.75 m tall. 1.75² = 3.0625."
+            },
+            {
+              "lead": "Divide.",
+              "text": "Their mass is 95 kg. 95 ÷ 3.0625 = 31.02."
+            },
+            {
+              "lead": "Round.",
+              "text": "BMI = 31.0 kg/m² to 1 decimal place."
+            }
           ]
         },
         {
@@ -97,17 +129,31 @@
             "alt": "Practise calculating body mass index from mass and height.",
             "question": "A person has a body mass of **{m} kg** and a height of **{h} m**. Calculate their BMI. Give your answer to 1 decimal place.",
             "variables": [
-              { "id": "m", "min": 60, "max": 120, "step": 5 },
-              { "id": "h", "min": 1.7, "max": 1.9, "step": 0.1 }
+              {
+                "id": "m",
+                "min": 60,
+                "max": 120,
+                "step": 5
+              },
+              {
+                "id": "h",
+                "min": 1.7,
+                "max": 1.9,
+                "step": 0.1
+              }
             ],
-            "answer": { "formula": "m / (h * h)", "unit": "kg/m²", "decimals": 1 },
-            "working": [
-              "BMI = body mass ÷ height²",
-              "BMI = {m} ÷ ({h} × {h}) = **{answer}** kg/m²"
-            ]
+            "answer": {
+              "formula": "m / (h * h)",
+              "unit": "kg/m²",
+              "decimals": 1
+            },
+            "working": ["BMI = body mass ÷ height²", "BMI = {m} ÷ ({h} × {h}) = **{answer}** kg/m²"]
           }
         },
-        { "type": "subheading", "text": "Evaluating the link" },
+        {
+          "type": "subheading",
+          "text": "Evaluating the link"
+        },
         {
           "type": "list",
           "items": [
@@ -129,7 +175,10 @@
     {
       "heading": "High blood glucose and body cells",
       "blocks": [
-        { "type": "paragraph", "text": "In untreated diabetes the blood glucose concentration is very high. This affects the water balance of the body cells." },
+        {
+          "type": "paragraph",
+          "text": "In untreated diabetes the blood glucose concentration is very high. This affects the water balance of the body cells."
+        },
         {
           "type": "list",
           "items": [
@@ -168,34 +217,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 5.9", "AQA T 4.5.3.2"],
-      "exam_phrases": [
-        "cells / liver / muscles absorb less glucose",
-        "glucose concentration in blood remains high",
-        "pancreas to release more insulin",
-        "(pancreas) producing (lots of) insulin but body cells cannot respond to it",
-        "(pancreas) not producing enough insulin",
-        "eat less carbohydrate / sugar or a low / controlled carbohydrate diet",
-        "lose (body) mass / weight, (more) exercise",
-        "the blood is more concentrated, so water moves out of cells by osmosis"
-      ],
-      "mistakes": [
-        {
-          "wrong": "In type 2 diabetes the cells absorb no glucose.",
-          "right": "\"No absorption / conversion of glucose\" is not accepted. Say the cells, liver and muscles absorb less glucose, so blood glucose stays high."
-        },
-        {
-          "wrong": "A person with type 2 diabetes has become resistant to insulin.",
-          "right": "\"The person has become resistant\" is not accepted. Say the body cells cannot respond to the insulin, or the cells have become resistant to insulin."
-        },
-        {
-          "wrong": "A person with type 2 diabetes should eat a healthy balanced diet.",
-          "right": "\"Healthy / balanced diet\" and \"go on a diet\" are ignored. Say eat less carbohydrate or sugar, eat less fat, lose mass or take more exercise."
-        },
-        {
-          "wrong": "Lifestyle changes for type 2 diabetes are to take insulin or a named medicine.",
-          "right": "When the question asks for lifestyle changes, medicine and insulin are ignored. Give changes to diet, body mass or exercise."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "8f4cee7d-1100-4e04-a198-23822593e4fb",
         "source": "AQA jun 2019, Paper 2 (H), Q08.2",
@@ -211,28 +232,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.15", "EDEX 7.16", "EDEX 7.17"],
-      "exam_phrases": [
-        "the pancreas produced insulin but the cells in the liver / muscles were resistant to insulin",
-        "glucose was not taken up by the liver / muscles / cells",
-        "blood glucose levels are not regulated / high",
-        "reduce carbohydrate / sugar / glucose in their diet",
-        "exercise, lose weight",
-        "124 ÷ 1.8² (1): BMI = 38.27"
-      ],
-      "mistakes": [
-        {
-          "wrong": "BMI = 124 ÷ 1.8 = 68.9.",
-          "right": "This earns only one mark. Square the height: 124 ÷ 1.8² = 38.27, so BMI is 38 or 38.3."
-        },
-        {
-          "wrong": "In type 2 diabetes the immune system stops the cells responding to insulin.",
-          "right": "Answers about the immune system are rejected. Say the cells are resistant to insulin, so the liver does not convert glucose to glycogen."
-        },
-        {
-          "wrong": "Type 2 diabetes can be controlled by going on a diet and eating a balanced diet.",
-          "right": "\"Healthy diet / balanced diet / go on a diet\" is ignored. Say reduce carbohydrate, sugar or glucose in the diet, exercise or lose weight."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "40244dd5-f532-4971-9971-8ebd0812f1dd",
         "source": "EDEXCEL nov 2021, Paper 2 (H), Q7(a)",
@@ -249,50 +248,41 @@
         {
           "heading": "Waist-to-hip ratio (Edexcel)",
           "blocks": [
-            { "type": "paragraph", "text": "Edexcel also uses the waist-to-hip ratio to assess the risk of type 2 diabetes." },
+            {
+              "type": "paragraph",
+              "text": "Edexcel also uses the waist-to-hip ratio to assess the risk of type 2 diabetes."
+            },
             {
               "type": "equation",
               "label": "Waist-to-hip ratio",
               "formula": "waist-to-hip ratio = waist circumference ÷ hip circumference",
-              "where": ["waist circumference and hip circumference are measured in the same unit, for example cm"]
+              "where": [
+                "waist circumference and hip circumference are measured in the same unit, for example cm"
+              ]
             },
             {
               "type": "steps",
               "items": [
-                { "lead": "Measure.", "text": "A waist of 90 cm and hips of 100 cm." },
-                { "lead": "Divide.", "text": "90 ÷ 100 = 0.9." }
+                {
+                  "lead": "Measure.",
+                  "text": "A waist of 90 cm and hips of 100 cm."
+                },
+                {
+                  "lead": "Divide.",
+                  "text": "90 ÷ 100 = 0.9."
+                }
               ]
             },
-            { "type": "paragraph", "text": "Besides BMI and waist-to-hip ratio, age, diet, exercise regime, ethnicity and genetic makeup also affect the probability of developing type 2 diabetes." }
+            {
+              "type": "paragraph",
+              "text": "Besides BMI and waist-to-hip ratio, age, diet, exercise regime, ethnicity and genetic makeup also affect the probability of developing type 2 diabetes."
+            }
           ]
         }
       ]
     },
     "ocr": {
       "spec_codes": ["OCR 3.3e"],
-      "exam_phrases": [
-        "type 1 diabetes treated with insulin",
-        "type 2 diabetes controlled through diet / exercise",
-        "reduce sugar / glucose intake, lose weight",
-        "exercise (more), stop smoking",
-        "blood will have a higher concentration of sugar, so a lower water potential",
-        "water moves from (body) cells into the blood, by osmosis",
-        "less / no insulin produced, or insulin less effective"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Type 1 is caused by the pancreas not making insulin and type 2 is caused by obesity.",
-          "right": "When the question asks for differences between treatments, causes are ignored. Say type 1 is treated with insulin and type 2 is controlled through diet and exercise."
-        },
-        {
-          "wrong": "Eat less and have a balanced diet to manage type 2 diabetes.",
-          "right": "\"Eat less\", \"better diet\" and \"balanced diet\" are ignored. Give a specific change in diet, such as less sugar, and say exercise more or stop smoking."
-        },
-        {
-          "wrong": "The percentage increase is 14.2857%.",
-          "right": "Round to the number of significant figures asked for. To 3 significant figures it is 14.3%."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "8f6cd6ba-eaff-49b8-8116-19a4a0c6ce14",
         "source": "OCR jun 2022, Paper 1, Q22(e)",

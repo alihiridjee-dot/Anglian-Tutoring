@@ -70,10 +70,7 @@
           "type": "equation",
           "label": "Period",
           "formula": "period = 1 ÷ frequency   (T = 1 ÷ f)",
-          "where": [
-            "period, T, is in seconds, s",
-            "frequency, f, is in hertz, Hz"
-          ]
+          "where": ["period, T, is in seconds, s", "frequency, f, is in hertz, Hz"]
         },
         {
           "type": "list",
@@ -85,10 +82,7 @@
         },
         {
           "type": "key-points",
-          "items": [
-            "Period = 1 ÷ frequency.",
-            "Convert kHz and GHz to Hz before you calculate."
-          ]
+          "items": ["Period = 1 ÷ frequency.", "Convert kHz and GHz to Hz before you calculate."]
         }
       ]
     },
@@ -338,42 +332,13 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.1.2",
-        "AQA T 6.6.1.2"
-      ],
-      "exam_phrases": [
-        "λ = 0.125 / 2.5",
-        "4500 = 3.6 × λ",
-        "count the number of waves that pass a given point",
-        "time how long it takes for the waves to pass that point using a stop clock",
-        "frequency is number of waves divided by time taken",
-        "period = 1 / 5000"
-      ],
-      "mistakes": [
-        {
-          "wrong": "4.5 = 3.6 × λ, so λ = 1.25 m.",
-          "right": "Convert 4.5 km/s to 4500 m/s first. Then λ = 4500 ÷ 3.6 = 1250 m."
-        },
-        {
-          "wrong": "The distance between the centres of two compressions is the amplitude, and the number of waves each second is the speed.",
-          "right": "The distance between compressions is the wavelength, and the number of waves passing a point each second is the frequency. The order matters."
-        },
-        {
-          "wrong": "λ = 4.80 × 10⁻⁷ nm.",
-          "right": "4.80 × 10⁻⁷ is in metres. Convert to nanometres: λ = 480 nm."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.1.2", "AQA T 6.6.1.2"],
       "worked_example": {
         "exemplar_id": "bcbed736-f54e-422d-9a80-9c6a0a7ae907",
         "source": "AQA jun 2024, Paper 2 (H), Q04.5",
         "question": "An S-wave has a frequency of 3.6 Hz. The S-wave has a speed of 4.5 km/s.\n\nCalculate the wavelength of this S-wave.\n\nUse the Physics Equations Sheet.",
         "marks": 3,
-        "answer_points": [
-          "4500 = 3.6 × λ",
-          "λ = 4500 ÷ 3.6",
-          "λ = 1250 m"
-        ],
+        "answer_points": ["4500 = 3.6 × λ", "λ = 4500 ÷ 3.6", "λ = 1250 m"],
         "tip": "A correct substitution or rearrangement with an unconverted speed can still score marks. An answer of 1300 m is also allowed."
       },
       "extra": [
@@ -389,33 +354,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 4.3",
-        "EDEX 4.4",
-        "EDEX 4.6"
-      ],
-      "exam_phrases": [
-        "converts 7 km/s to 7000 m/s",
-        "v = f × λ",
-        "λ = v/f",
-        "(f =) 0.8 / 4.0 = 0.2 (Hz)",
-        "unit Hz / s⁻¹",
-        "division of time by 2"
-      ],
-      "mistakes": [
-        {
-          "wrong": "2.45 GHz = 2.45 Hz, so λ = 3.00 × 10⁸ ÷ 2.45 = 1.2 × 10⁸ m.",
-          "right": "Convert 2.45 GHz to 2.45 × 10⁹ Hz. Then λ = 3.00 × 10⁸ ÷ 2.45 × 10⁹ = 0.12 m. A power of ten error gains 2 marks."
-        },
-        {
-          "wrong": "f = 0.8 ÷ 4.0 = 0.2.",
-          "right": "The unit is a separate mark. Write 0.2 Hz (or s⁻¹)."
-        },
-        {
-          "wrong": "The pulse returns after 18 ms, so the distance to the prey is 330 × 0.018 = 5.9 m.",
-          "right": "The pulse travels to the prey and back. Divide the time by 2, or halve the distance: the distance to the prey is 3.0 m."
-        }
-      ],
+      "spec_codes": ["EDEX 4.3", "EDEX 4.4", "EDEX 4.6"],
       "worked_example": {
         "exemplar_id": "bb9b7714-f7c0-42f7-92c7-e3a932609245",
         "source": "EDEXCEL jun 2023, Paper 1 (F), Q5(c)",
@@ -444,34 +383,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P5.1a",
-        "OCR P5.1b",
-        "OCR P5.1c",
-        "OCR P5.1d"
-      ],
-      "exam_phrases": [
-        "Rearrangement: Wavelength = wave speed ÷ frequency",
-        "(λ =) v ÷ f",
-        "(λ =) 330 ÷ 440",
-        "(Wavelength =) 0.75 (m)",
-        "correct substitution into given equation",
-        "Mean = (6.7 + 6.3 + 6.7 + 6.6) ÷ 4"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Wavelength = 330 × 440.",
-          "right": "Rearrange the equation first. Wavelength = wave speed ÷ frequency = 330 ÷ 440 = 0.75 m."
-        },
-        {
-          "wrong": "330 = 440 × λ is my answer.",
-          "right": "A correct substitution into the given equation only scores 1 mark. Rearrange to λ = 330 ÷ 440 and give 0.75 m."
-        },
-        {
-          "wrong": "The mean time is 6.575 ms.",
-          "right": "Give the mean to 2 significant figures: 6.6 ms. An unrounded 6.575 ms scores 1 mark only."
-        }
-      ],
+      "spec_codes": ["OCR P5.1a", "OCR P5.1b", "OCR P5.1c", "OCR P5.1d"],
       "worked_example": {
         "exemplar_id": "d969ef8f-a29a-414e-9206-ef6ac6cf6518",
         "source": "OCR nov 2021, Paper 2, Q18(a)",

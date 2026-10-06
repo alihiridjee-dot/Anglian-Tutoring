@@ -257,11 +257,7 @@
               "unit": "N",
               "decimals": 0
             },
-            "working": [
-              "force = mass × acceleration",
-              "force = {m} × {a}",
-              "force = {answer} N"
-            ]
+            "working": ["force = mass × acceleration", "force = {m} × {a}", "force = {answer} N"]
           }
         },
         {
@@ -294,31 +290,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.6.3",
-        "AQA T 6.5.4.3"
-      ],
-      "exam_phrases": [
-        "frictional / braking force is greater (for the faster car)",
-        "the faster car has more kinetic energy",
-        "more work done (by the brakes to stop the faster car)",
-        "more energy is transferred (by the brakes)",
-        "the risk of the brakes overheating is greater"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The brakes of the faster car get more heating.",
-          "right": "More heating is ignored. Say the faster car has more kinetic energy, so more work is done by the brakes, so the risk of overheating is greater."
-        },
-        {
-          "wrong": "Braking distance = 24 kg.",
-          "right": "A braking distance is a length. Choose m from the box. The unit is a separate mark."
-        },
-        {
-          "wrong": "The faster car's brakes are more likely to overheat.",
-          "right": "The overheating mark depends on an earlier point. First say the faster car has more kinetic energy or a greater braking force, so more work is done by the brakes."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.6.3", "AQA T 6.5.4.3"],
       "worked_example": {
         "exemplar_id": "0dbaa8f0-e157-4fbf-a48c-bad27a87f259",
         "source": "AQA jun 2025, Paper 2 (F), Q7.3",
@@ -333,12 +305,12 @@
       },
       "extra": [
         {
-          "heading": "Estimating forces (Higher tier)",
+          "heading": "Estimating forces (AQA: Higher tier)",
           "blocks": [
             {
               "type": "list",
               "items": [
-                "(Higher tier) Estimate the force on a road vehicle with F = ma.",
+                "(AQA: Higher tier) Estimate the force on a road vehicle with F = ma.",
                 "Use a sensible mass for the vehicle and a deceleration typical of an emergency stop."
               ]
             }
@@ -347,64 +319,16 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.31",
-        "EDEX 2.33P"
-      ],
-      "exam_phrases": [
-        "use of F = ma",
-        "mass needed and times during impact",
-        "with spring, time for contact greater, less impact force"
-      ],
-      "mistakes": [
-        {
-          "wrong": "To find the force, I only need to measure the speed.",
-          "right": "Use F = ma. The mass is needed as well, and the time over which the speed changes, to find the acceleration."
-        },
-        {
-          "wrong": "I would use a spring, and use F = ma.",
-          "right": "Two separate statements stay at a low level. Link them: the spring makes the time for contact greater, so the impact force is less."
-        }
-      ]
+      "spec_codes": ["EDEX 2.31", "EDEX 2.33P"]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P8.1g",
-        "OCR P8.1h",
-        "OCR P8.1i"
-      ],
-      "exam_phrases": [
-        "Lorry has more KE than a car at the same velocity",
-        "Higher rate of dissipation of energy to surrounding air",
-        "Brakes less likely to overheat",
-        "Acceleration will increase",
-        "So greater force (acting on occupants)",
-        "this could lead to injury"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The new brakes stop the car in a tenth of the time, so they are ten times safer.",
-          "right": "A stopping time ten times shorter means ten times the force on the people in the car, so it can lead to injury. The driver's claim cannot be quantified."
-        },
-        {
-          "wrong": "A car has a mass of about 50 kg, so F = 50 × 6 = 300 N.",
-          "right": "Use a sensible mass. An estimate between 400 kg and 3500 kg is allowed, such as 1500 kg, giving 1500 × 6 = 9000 N. A mass outside this range loses a mark."
-        },
-        {
-          "wrong": "Lorries have larger brake discs because lorries are bigger.",
-          "right": "A lorry has more kinetic energy than a car at the same velocity. Larger discs absorb more energy and dissipate it faster to the air, so the brakes are less likely to overheat."
-        }
-      ],
+      "spec_codes": ["OCR P8.1g", "OCR P8.1h", "OCR P8.1i"],
       "worked_example": {
         "exemplar_id": "4ed13838-9ee5-4d8d-b482-179b3b42b1c0",
         "source": "OCR jun 2024, Paper 4, Q20(b)(ii)",
         "question": "Car B brakes and comes to a stop.\n\nEstimate the force acting on car B when it decelerates at 6 m / s².\nUse the equation: force = mass × acceleration\nFor the mass in the equation, use an estimate of the mass of car B.",
         "marks": 3,
-        "answer_points": [
-          "Estimate the mass of the car as 1500 kg.",
-          "F = 1500 × 6",
-          "F = 9000 N"
-        ],
+        "answer_points": ["Estimate the mass of the car as 1500 kg.", "F = 1500 × 6", "F = 9000 N"],
         "tip": "Any answer from 2400 N to 21 000 N scores 3 marks. A mass estimate from 400 kg to 3500 kg is allowed."
       }
     }

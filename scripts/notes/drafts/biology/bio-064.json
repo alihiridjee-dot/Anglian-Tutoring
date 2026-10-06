@@ -47,10 +47,7 @@
             "kind": "sort",
             "alt": "Sort each reaction into building up molecules or breaking them down.",
             "prompt": "Sort the reactions of metabolism",
-            "groups": [
-              "Building up (synthesis)",
-              "Breaking down"
-            ],
+            "groups": ["Building up (synthesis)", "Breaking down"],
             "items": [
               {
                 "text": "Glucose to starch",
@@ -106,11 +103,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Product",
-            "Made from",
-            "Notes"
-          ],
+          "columns": ["Product", "Made from", "Notes"],
           "rows": [
             [
               "Starch, glycogen and cellulose",
@@ -122,11 +115,7 @@
               "1 glycerol and 3 fatty acids",
               "One glycerol molecule joins to three fatty acid molecules."
             ],
-            [
-              "Protein",
-              "Amino acids",
-              "Plants make amino acids from glucose and nitrate ions."
-            ]
+            ["Protein", "Amino acids", "Plants make amino acids from glucose and nitrate ions."]
           ]
         },
         {
@@ -249,36 +238,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.8",
-        "AQA T 4.4.2.3"
-      ],
-      "exam_phrases": [
-        "nitrate ions are used with glucose to form amino acids",
-        "(which are) used to synthesise proteins (needed for growth)",
-        "urea / glycogen / starch / cellulose",
-        "glucose / amino acids / fatty acids / glycerol / water / mineral ions move into cells",
-        "respiration releases energy / is exothermic",
-        "(increased) movement needs (more) energy, so more respiration takes place"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Exercise burns energy, and respiration produces energy.",
-          "right": "\"Energy is burnt\" and \"energy produced / made / created\" are not accepted. Say energy is transferred or released."
-        },
-        {
-          "wrong": "Plants use the glucose from photosynthesis for growth.",
-          "right": "\"Growth\" is ignored. Give a specific use: respiration, converting to starch, producing fat or oil, producing cellulose, or producing amino acids or protein."
-        },
-        {
-          "wrong": "Urea and carbon dioxide move into cells from the blood.",
-          "right": "Carbon dioxide and urea are ignored. Substances that move into cells from the blood include glucose, water, amino acids, fatty acids, glycerol and mineral ions."
-        },
-        {
-          "wrong": "Metabolic rate is higher when swimming because more energy is produced for respiration.",
-          "right": "\"Energy produced\" and \"energy for respiration\" are not accepted. Say the movement needs more energy, so more respiration takes place for muscle contraction."
-        }
-      ],
+      "spec_codes": ["AQA 4.8", "AQA T 4.4.2.3"],
       "worked_example": {
         "exemplar_id": "ac329d10-9ebf-4d7e-a7ba-eab99f76a15a",
         "source": "AQA jun 2019, Paper 1 (H), Q5.5",
@@ -293,33 +253,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 1.12"
-      ],
-      "exam_phrases": [
-        "lipase digests fat / lipid",
-        "forming fatty acids (and glycerol)",
-        "which are acidic / lowering the pH of the mixture",
-        "enzyme / amylase / carbohydrase",
-        "starch fits into the active site",
-        "bonds (between glucose molecules in starch) broken",
-        "polymer broken down into monomers",
-        "milk A did not contain any / much fat, as there was no substrate"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Starch is broken down into glucose by acid.",
-          "right": "The marks are for an enzyme (amylase or carbohydrase), the starch fitting into the active site, and the bonds between glucose molecules being broken."
-        },
-        {
-          "wrong": "The pH fell because acid was made.",
-          "right": "Say lipase digests the fat, forming fatty acids (and glycerol), and that the fatty acids are acidic, so they lower the pH."
-        },
-        {
-          "wrong": "Fat is digested to fatty acids only, when describing how fat is digested.",
-          "right": "Fats are digested by an enzyme, lipase, into glycerol and fatty acids. When describing digestion, name both products."
-        }
-      ],
+      "spec_codes": ["EDEX 1.12"],
       "worked_example": {
         "exemplar_id": "51b24e35-7391-463a-9a0e-d05ff1375329",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q6(b)(i)",
@@ -334,34 +268,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 1.3d",
-        "OCR 1.3e",
-        "OCR 1.3f"
-      ],
-      "exam_phrases": [
-        "sugars are the monomers",
-        "sugars are joined together to make the polymer / cellulose",
-        "polymers",
-        "monomers",
-        "fatty acids are obtained by breaking down / digesting larger molecules",
-        "from lipids / fats / oils / triglycerides",
-        "produces fatty acids"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The pH falls because acids are produced.",
-          "right": "\"Produces acids\" earns only one mark. Name the acids made when fat is broken down: fatty acids, for the second mark."
-        },
-        {
-          "wrong": "Sugars are needed to make the cell wall because they give it energy.",
-          "right": "The marks are for sugars being the monomers, which are joined together to make the polymer, cellulose."
-        },
-        {
-          "wrong": "Large molecules like proteins are called monomers and the smaller amino acids are called polymers.",
-          "right": "Large molecules made of smaller ones are polymers. The smaller molecules, such as amino acids, are monomers."
-        }
-      ],
+      "spec_codes": ["OCR 1.3d", "OCR 1.3e", "OCR 1.3f"],
       "worked_example": {
         "exemplar_id": "efba3ddd-6c4c-486f-a736-dbf37a2b6846",
         "source": "OCR nov 2021, Paper 1, Q16(b)(v)",

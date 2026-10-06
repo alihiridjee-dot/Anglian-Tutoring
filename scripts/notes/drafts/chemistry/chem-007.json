@@ -8,13 +8,25 @@
     {
       "heading": "Filling the shells",
       "blocks": [
-        { "type": "paragraph", "text": "Electrons are arranged in shells, also called energy levels. This section covers the rules for filling them." },
+        {
+          "type": "paragraph",
+          "text": "Electrons are arranged in shells, also called energy levels. This section covers the rules for filling them."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Shell (energy level)", "meaning": "A region around the nucleus that holds electrons at a set distance from it." },
-            { "term": "Outer shell", "meaning": "The shell furthest from the nucleus that contains electrons." },
-            { "term": "Electronic structure", "meaning": "How the electrons of an atom are arranged in shells, written as numbers such as 2,8,1." }
+            {
+              "term": "Shell (energy level)",
+              "meaning": "A region around the nucleus that holds electrons at a set distance from it."
+            },
+            {
+              "term": "Outer shell",
+              "meaning": "The shell furthest from the nucleus that contains electrons."
+            },
+            {
+              "term": "Electronic structure",
+              "meaning": "How the electrons of an atom are arranged in shells, written as numbers such as 2,8,1."
+            }
           ]
         },
         {
@@ -28,13 +40,25 @@
             "Electronic structure is written with commas (2,8,1) or full stops (2.8.1). Both mean the same."
           ]
         },
-        { "type": "subheading", "text": "Example: sodium" },
+        {
+          "type": "subheading",
+          "text": "Example: sodium"
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Count.", "text": "Sodium has atomic number 11, so 11 electrons." },
-            { "lead": "Fill.", "text": "2 in the first shell, 8 in the second, leaving 1." },
-            { "lead": "Write.", "text": "The electronic structure is 2,8,1. In a diagram, draw 2, 8 and 1 electrons on three shells." }
+            {
+              "lead": "Count.",
+              "text": "Sodium has atomic number 11, so 11 electrons."
+            },
+            {
+              "lead": "Fill.",
+              "text": "2 in the first shell, 8 in the second, leaving 1."
+            },
+            {
+              "lead": "Write.",
+              "text": "The electronic structure is 2,8,1. In a diagram, draw 2, 8 and 1 electrons on three shells."
+            }
           ]
         },
         {
@@ -76,7 +100,10 @@
     {
       "heading": "Electrons and the periodic table",
       "blocks": [
-        { "type": "paragraph", "text": "An element's position in the periodic table follows from its electronic structure." },
+        {
+          "type": "paragraph",
+          "text": "An element's position in the periodic table follows from its electronic structure."
+        },
         {
           "type": "list",
           "items": [
@@ -95,25 +122,64 @@
             "prompt": "Pick an element",
             "result_labels": ["Electronic structure", "Group", "Period"],
             "options": [
-              { "label": "Lithium (3)", "results": ["2,1", "**Group 1**: 1 outer electron", "**Period 2**: 2 shells"] },
-              { "label": "Carbon (6)", "results": ["2,4", "**Group 4**: 4 outer electrons", "**Period 2**: 2 shells"] },
-              { "label": "Oxygen (8)", "results": ["2,6", "**Group 6**: 6 outer electrons", "**Period 2**: 2 shells"] },
-              { "label": "Neon (10)", "results": ["2,8", "**Group 0**: full outer shell", "**Period 2**: 2 shells"] },
-              { "label": "Sodium (11)", "results": ["2,8,1", "**Group 1**: 1 outer electron", "**Period 3**: 3 shells"] },
-              { "label": "Aluminium (13)", "results": ["2,8,3", "**Group 3**: 3 outer electrons", "**Period 3**: 3 shells"] },
-              { "label": "Sulfur (16)", "results": ["2,8,6", "**Group 6**: 6 outer electrons", "**Period 3**: 3 shells"] },
-              { "label": "Chlorine (17)", "results": ["2,8,7", "**Group 7**: 7 outer electrons", "**Period 3**: 3 shells"] },
-              { "label": "Argon (18)", "results": ["2,8,8", "**Group 0**: full outer shell", "**Period 3**: 3 shells"] },
-              { "label": "Calcium (20)", "results": ["2,8,8,2", "**Group 2**: 2 outer electrons", "**Period 4**: 4 shells"] }
+              {
+                "label": "Lithium (3)",
+                "results": ["2,1", "**Group 1**: 1 outer electron", "**Period 2**: 2 shells"]
+              },
+              {
+                "label": "Carbon (6)",
+                "results": ["2,4", "**Group 4**: 4 outer electrons", "**Period 2**: 2 shells"]
+              },
+              {
+                "label": "Oxygen (8)",
+                "results": ["2,6", "**Group 6**: 6 outer electrons", "**Period 2**: 2 shells"]
+              },
+              {
+                "label": "Neon (10)",
+                "results": ["2,8", "**Group 0**: full outer shell", "**Period 2**: 2 shells"]
+              },
+              {
+                "label": "Sodium (11)",
+                "results": ["2,8,1", "**Group 1**: 1 outer electron", "**Period 3**: 3 shells"]
+              },
+              {
+                "label": "Aluminium (13)",
+                "results": ["2,8,3", "**Group 3**: 3 outer electrons", "**Period 3**: 3 shells"]
+              },
+              {
+                "label": "Sulfur (16)",
+                "results": ["2,8,6", "**Group 6**: 6 outer electrons", "**Period 3**: 3 shells"]
+              },
+              {
+                "label": "Chlorine (17)",
+                "results": ["2,8,7", "**Group 7**: 7 outer electrons", "**Period 3**: 3 shells"]
+              },
+              {
+                "label": "Argon (18)",
+                "results": ["2,8,8", "**Group 0**: full outer shell", "**Period 3**: 3 shells"]
+              },
+              {
+                "label": "Calcium (20)",
+                "results": ["2,8,8,2", "**Group 2**: 2 outer electrons", "**Period 4**: 4 shells"]
+              }
             ]
           }
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Read the structure.", "text": "Chlorine is 2,8,7." },
-            { "lead": "Group.", "text": "The last number is 7, so 7 electrons in the outer shell: Group 7." },
-            { "lead": "Period.", "text": "There are 3 numbers, so 3 shells are occupied: Period 3." }
+            {
+              "lead": "Read the structure.",
+              "text": "Chlorine is 2,8,7."
+            },
+            {
+              "lead": "Group.",
+              "text": "The last number is 7, so 7 electrons in the outer shell: Group 7."
+            },
+            {
+              "lead": "Period.",
+              "text": "There are 3 numbers, so 3 shells are occupied: Period 3."
+            }
           ]
         },
         {
@@ -147,24 +213,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.1.1.7", "AQA T 5.1.1.7"],
-      "exam_phrases": [
-        "2,8,1 (sodium)",
-        "2,8,8,1 (potassium)",
-        "sodium has one and chlorine has seven electrons in the outer shell",
-        "both have three shells / levels",
-        "both have incomplete outer shells",
-        "7 electrons in the outer shell (bromine)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Sodium has seven electrons in its outer shell.",
-          "right": "Sodium has one and chlorine has seven. If you quote a number of electrons it must be correct, or the mark is lost."
-        },
-        {
-          "wrong": "The electronic structure of potassium is 2,8,9.",
-          "right": "The third shell holds 8 electrons before a fourth shell starts. Potassium is 2,8,8,1."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "3f39937b-d198-4398-92da-d2d6d6a57976",
         "source": "AQA jun 2018, Paper 1 (H), Q02.1",
@@ -180,23 +228,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 1.19", "EDEX 1.20"],
-      "exam_phrases": [
-        "1 electron in the outer shell (so group 1)",
-        "number of electrons in the outer shell gives the group number",
-        "number of electron shells gives the period number",
-        "3 shells / 3 numbers in the electronic configuration, so period 3",
-        "2.8.7 (chlorine)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Chlorine has 3 outer shells, so it is in period 3.",
-          "right": "The answer '3 outer shells' is rejected. Say chlorine has 3 shells, so it is in period 3."
-        },
-        {
-          "wrong": "Group 1 metals have 1 electron in their atom.",
-          "right": "State 1 electron in the outer shell. The second mark depends on getting the first right, and an incorrect number of electrons is rejected."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "933e07c6-8d21-4244-abf2-34ad3b017600",
         "source": "EDEXCEL nov 2021, Paper 2 (H), Q5(b)",
@@ -211,23 +242,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR C2.2c"],
-      "exam_phrases": [
-        "group 7 as 7 electrons in the outer shell",
-        "period 3 as 3 shells occupied",
-        "in order of increasing atomic number / proton number",
-        "2.8.7 (chlorine)",
-        "2.8.1 (sodium)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The elements in the periodic table are in order of atomic mass.",
-          "right": "Atomic mass is not allowed. The elements are in order of increasing atomic number (proton number)."
-        },
-        {
-          "wrong": "Group 7, period 3.",
-          "right": "A bare position scores only the position marks. Each needs its reason: 7 electrons in the outer shell, and 3 shells occupied."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "49b3fe81-2f7e-4ceb-944a-a1aad5bd44f6",
         "source": "OCR sample, Paper 1, Q24(c)",

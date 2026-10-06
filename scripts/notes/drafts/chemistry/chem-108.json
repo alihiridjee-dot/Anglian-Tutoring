@@ -27,11 +27,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Change",
-            "Effect on rate",
-            "Effect on equilibrium yield of ammonia"
-          ],
+          "columns": ["Change", "Effect on rate", "Effect on equilibrium yield of ammonia"],
           "rows": [
             [
               "Higher temperature",
@@ -56,19 +52,11 @@
             "kind": "predictor",
             "alt": "Pick a change to the Haber process conditions and see the effect on rate, yield and cost.",
             "prompt": "Pick a change to the Haber process conditions",
-            "result_labels": [
-              "Rate of reaction",
-              "Equilibrium yield of ammonia",
-              "Cost"
-            ],
+            "result_labels": ["Rate of reaction", "Equilibrium yield of ammonia", "Cost"],
             "options": [
               {
                 "label": "Raise the temperature above 450 °C",
-                "results": [
-                  "Faster",
-                  "Lower",
-                  "More energy is used, so costs increase"
-                ]
+                "results": ["Faster", "Lower", "More energy is used, so costs increase"]
               },
               {
                 "label": "Lower the temperature",
@@ -96,11 +84,7 @@
               },
               {
                 "label": "Use an iron catalyst",
-                "results": [
-                  "Faster",
-                  "No change",
-                  "Reduces energy costs"
-                ]
+                "results": ["Faster", "No change", "Reduces energy costs"]
               }
             ]
           }
@@ -135,7 +119,7 @@
         },
         {
           "type": "subheading",
-          "text": "The compromise (Higher tier)"
+          "text": "The compromise (AQA: Higher tier)"
         },
         {
           "type": "list",
@@ -175,32 +159,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.10.4.1"
-      ],
-      "exam_phrases": [
-        "higher temperature gives higher rate because of more frequent collisions",
-        "more particles have the activation energy",
-        "shifts the position of equilibrium to the left because reaction is exothermic",
-        "higher pressure shifts the position of equilibrium to the right because more molecules on left-hand side",
-        "use of catalyst has no effect on the position of equilibrium",
-        "stronger reaction vessels so increases costs",
-        "compromise between rate and cost"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A higher temperature gives a higher yield of ammonia.",
-          "right": "The reaction is exothermic, so a higher temperature shifts the position of equilibrium to the left. The rate is higher, but the yield is lower."
-        },
-        {
-          "wrong": "The catalyst increases the yield of ammonia.",
-          "right": "A catalyst has no effect on the position of equilibrium. It lowers the activation energy and increases the rate, and it reduces energy costs."
-        },
-        {
-          "wrong": "The highest possible pressure should be used because it gives the most ammonia.",
-          "right": "A higher pressure uses more energy and needs stronger reaction vessels, which increases costs. The pressure chosen is a compromise between yield, rate and cost."
-        }
-      ],
+      "spec_codes": ["AQA 4.10.4.1"],
       "worked_example": {
         "exemplar_id": "2e0d3b68-5111-4e6e-8d49-9fbac85d1dc4",
         "source": "AQA jun 2022, Paper 2 (H), Q7.6",
@@ -218,34 +177,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.20C",
-        "EDEX 5.21C"
-      ],
-      "exam_phrases": [
-        "rate of attainment of equilibrium increases",
-        "equilibrium yield increases",
-        "equilibrium shifts to the right / products side",
-        "decrease in number of molecules",
-        "no effect on equilibrium yield",
-        "increases rate of forward reaction and rate of back reaction",
-        "very high temperatures increase energy use",
-        "pressure used is a compromise between rate and yield"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The catalyst increases the equilibrium yield of products.",
-          "right": "A catalyst increases the rate of attainment of equilibrium, but has no effect on the equilibrium yield."
-        },
-        {
-          "wrong": "The catalyst lowers the activation energy.",
-          "right": "On its own this is ignored when the question asks for the effect on the rate of attainment of equilibrium and on the yield. Say the rate is increased and the yield has no change."
-        },
-        {
-          "wrong": "A higher pressure only makes the reaction faster.",
-          "right": "It also increases the equilibrium yield. The equilibrium shifts to the right because there is a decrease in the number of molecules."
-        }
-      ],
+      "spec_codes": ["EDEX 5.20C", "EDEX 5.21C"],
       "worked_example": {
         "exemplar_id": "baeab4b8-30ef-460a-950f-69aa41f77959",
         "source": "EDEXCEL nov 2020, Paper 1 (H), Q10(a)(iii)",
@@ -261,36 +193,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.1d",
-        "OCR C6.1e",
-        "OCR C6.1f"
-      ],
-      "exam_phrases": [
-        "lower temperature increases yield / moves position of equilibrium to the right (as forward reaction is exothermic)",
-        "equilibrium reached faster because of higher temperature",
-        "compromise temperature",
-        "higher pressure does not affect the position of equilibrium",
-        "same number of molecules on both sides",
-        "catalyst does not affect the position of equilibrium",
-        "catalyst increases the rate",
-        "rate of reaction will be slower",
-        "yield of ammonia will be less"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Conditions B are better because the higher pressure increases the rate of reaction.",
-          "right": "This is ignored. Use equilibrium too: pressure does not change the position when there are the same number of molecules on both sides."
-        },
-        {
-          "wrong": "At a lower pressure the reaction will not be at equilibrium.",
-          "right": "This is ignored. Say the rate of reaction is slower, or the yield of ammonia is less, because the equilibrium shifts left to the side with more molecules."
-        },
-        {
-          "wrong": "A catalyst increases the yield.",
-          "right": "A catalyst does not affect the position of equilibrium. It increases the rate of reaching equilibrium."
-        }
-      ],
+      "spec_codes": ["OCR C6.1d", "OCR C6.1e", "OCR C6.1f"],
       "worked_example": {
         "exemplar_id": "d65c0534-0f83-4c91-af4d-257be32e3066",
         "source": "OCR nov 2021, Paper 4, Q22(b)",

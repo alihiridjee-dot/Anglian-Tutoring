@@ -40,19 +40,10 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Material",
-            "What it mostly does to sound"
-          ],
+          "columns": ["Material", "What it mostly does to sound"],
           "rows": [
-            [
-              "Painted wall or wood floor",
-              "Reflects most of the sound back into the room."
-            ],
-            [
-              "Carpet or curtains",
-              "Absorb a large share of the sound energy."
-            ]
+            ["Painted wall or wood floor", "Reflects most of the sound back into the room."],
+            ["Carpet or curtains", "Absorb a large share of the sound energy."]
           ]
         },
         {
@@ -93,10 +84,7 @@
           "type": "equation",
           "label": "Law of reflection",
           "formula": "angle of incidence = angle of reflection",
-          "where": [
-            "angle of incidence, in degrees (°)",
-            "angle of reflection, in degrees (°)"
-          ]
+          "where": ["angle of incidence, in degrees (°)", "angle of reflection, in degrees (°)"]
         },
         {
           "type": "subheading",
@@ -201,10 +189,7 @@
             "kind": "sort",
             "alt": "Sort descriptions into specular and diffuse reflection.",
             "prompt": "Sort each description into specular or diffuse reflection.",
-            "groups": [
-              "Specular reflection",
-              "Diffuse reflection"
-            ],
+            "groups": ["Specular reflection", "Diffuse reflection"],
             "items": [
               {
                 "text": "Smooth, shiny surface",
@@ -271,27 +256,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.6.1.3"
-      ],
-      "exam_phrases": [
-        "random",
-        "the student's eye / head might not be in the same position each time",
-        "the centre of the ray may not have been marked correctly",
-        "the mirror / ray box may not have been (re)placed correctly",
-        "parallax",
-        "protractor not in the correct position"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The variation was caused by the student measuring the angles incorrectly.",
-          "right": "Incorrect measurement of the angles is not enough. Give a specific cause, such as the eye not in the same position each time, or the centre of the ray not marked correctly."
-        },
-        {
-          "wrong": "The variation in the repeat readings was a systematic error.",
-          "right": "Readings that vary from test to test with no pattern are caused by random error."
-        }
-      ],
+      "spec_codes": ["AQA 4.6.1.3"],
       "worked_example": {
         "exemplar_id": "6962f64d-d012-494a-9295-032ac35266f5",
         "source": "AQA jun 2023, Paper 2 (H), Q07.3",
@@ -305,34 +270,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 4.9P",
-        "EDEX 5.1P",
-        "EDEX 5.2P"
-      ],
-      "exam_phrases": [
-        "(the surface) is like a mirror / smooth / shiny",
-        "the angle of incidence is equal to the angle of reflection",
-        "rays are reflected in different directions / randomly",
-        "blurred / fuzzy / distorted",
-        "reflection is specular / diffuse",
-        "(coefficient of) absorption is greater",
-        "less of the incident energy / sound is reflected"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Carpets and curtains make a room quieter because they insulate it.",
-          "right": "References to insulation are ignored. Say that carpets and curtains absorb more of the sound energy, so less sound is reflected back into the room."
-        },
-        {
-          "wrong": "The transmitted energy is 18 J.",
-          "right": "The 18 is a percentage. 18% of 0.25 J = 0.045 J."
-        },
-        {
-          "wrong": "The ball gives a clear image because light is reflected from it.",
-          "right": "Say the surface is smooth or like a mirror, and that for each ray the angle of incidence equals the angle of reflection."
-        }
-      ],
+      "spec_codes": ["EDEX 4.9P", "EDEX 5.1P", "EDEX 5.2P"],
       "worked_example": {
         "exemplar_id": "ca1c0615-90b3-449a-bf95-7f427ed4bab1",
         "source": "EDEXCEL jun 2024, Paper 1 (F), Q2(d)",
@@ -378,33 +316,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P5.1g",
-        "OCR P5.3d"
-      ],
-      "exam_phrases": [
-        "The sound reflects / echoes (from the cliff)",
-        "The amplitude of the sound decreases with distance",
-        "some of the energy is absorbed",
-        "angle of incidence = angle of reflection",
-        "draw the normal at 90 degrees to the mirror",
-        "measure the angle between the normal and the incident ray",
-        "repeat for different angles of incidence"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The sound bounces off the cliff.",
-          "right": "Bounces is ignored. Say the sound reflects, or echoes, from the cliff."
-        },
-        {
-          "wrong": "The second clap is quieter because some energy is lost.",
-          "right": "Just energy lost is ignored. Say the amplitude decreases with distance, or that some of the sound is absorbed by the cliff or air."
-        },
-        {
-          "wrong": "I measured the angle between the ray and the mirror.",
-          "right": "Measure the angle between the normal and the incident ray, and between the normal and the reflected ray."
-        }
-      ],
+      "spec_codes": ["OCR P5.1g", "OCR P5.3d"],
       "worked_example": {
         "exemplar_id": "0d6f07bd-ee41-4343-8835-644fd8013e24",
         "source": "OCR jun 2022, Paper 4, Q18(a)(i)",

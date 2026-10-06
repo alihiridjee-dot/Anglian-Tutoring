@@ -109,9 +109,7 @@
           "type": "equation",
           "label": "Conservation of momentum",
           "formula": "total momentum before = total momentum after",
-          "where": [
-            "total momentum is in kilograms metre per second, kg m/s"
-          ]
+          "where": ["total momentum is in kilograms metre per second, kg m/s"]
         },
         {
           "type": "subheading",
@@ -316,34 +314,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.7.1",
-        "AQA T 6.5.5.1",
-        "AQA 4.5.7.2",
-        "AQA T 6.5.5.2"
-      ],
-      "exam_phrases": [
-        "(total) momentum is conserved in the collision",
-        "(total) momentum before collision = (total) momentum after collision",
-        "since momentum = mass × velocity, velocity (of train) decreases",
-        "the momentum of each car before the collision was equal (in magnitude) and opposite (in direction)",
-        "total momentum is zero after the collision",
-        "(total) momentum is shared between skater A and skater B"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Momentum is lost when skater A hits skater B, so skater A slows down.",
-          "right": "Momentum is conserved. The momentum of skater A decreases and the momentum of skater B increases, so the total before equals the total after."
-        },
-        {
-          "wrong": "0.216 = 180 × v, so v = 0.0012 m/s.",
-          "right": "Convert the mass first: 180 g = 0.180 kg, which earns its own mark. Then 0.216 = 0.180 × v, so v = 1.2 m/s."
-        },
-        {
-          "wrong": "The bumper cars stop because they hit each other at the same speed.",
-          "right": "The momentum of each car before the collision was equal in magnitude and opposite in direction, so the total before was zero. Momentum is conserved, so the total after is zero."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.7.1", "AQA T 6.5.5.1", "AQA 4.5.7.2", "AQA T 6.5.5.2"],
       "worked_example": {
         "exemplar_id": "8ac8e04f-fea5-4aac-963c-54f9bc304741",
         "source": "AQA jun 2022, Paper 2 (H), Q03.2",
@@ -359,42 +330,13 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.24",
-        "EDEX 2.25"
-      ],
-      "exam_phrases": [
-        "p = m × v",
-        "momentum = mass × velocity",
-        "action and reaction are equal and opposite",
-        "time of collision same for both",
-        "no overall change in momentum",
-        "transfer of momentum between the objects"
-      ],
-      "mistakes": [
-        {
-          "wrong": "6.6 × 10⁻²⁶ × 480 = 3.2 × 10⁻²⁴ kg m/s.",
-          "right": "Check the power of ten. 6.6 × 10⁻²⁶ × 480 = 3.2 × 10⁻²³ kg m/s. The right digits with a wrong power of ten score 2 marks."
-        },
-        {
-          "wrong": "Momentum is lost in the collision.",
-          "right": "There is no overall change in momentum. Momentum is transferred between the two objects, so the change in momentum of one is equal and opposite to the change of the other."
-        },
-        {
-          "wrong": "The answer is 3.168 × 10⁻²³ kg m/s, which is wrong because I did not round.",
-          "right": "Numbers that round to 3.2 × 10⁻²³ are allowed, such as 3.168 × 10⁻²³ kg m/s."
-        }
-      ],
+      "spec_codes": ["EDEX 2.24", "EDEX 2.25"],
       "worked_example": {
         "exemplar_id": "82138629-88bb-4ada-9abd-690fd7c12616",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q9(a)",
         "question": "An atom of mass 6.6 × 10⁻²⁶ kg is moving with a velocity of 480 m / s.\n\nCalculate the momentum of the atom.",
         "marks": 3,
-        "answer_points": [
-          "p = m × v",
-          "p = 6.6 × 10⁻²⁶ × 480",
-          "p = 3.2 × 10⁻²³ kg m/s"
-        ],
+        "answer_points": ["p = m × v", "p = 6.6 × 10⁻²⁶ × 480", "p = 3.2 × 10⁻²³ kg m/s"],
         "tip": "One mark each for selecting the equation, substituting and evaluating. Any answer that rounds to 3.2 × 10⁻²³ scores the evaluation mark."
       },
       "extra": [
@@ -430,28 +372,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P2.2k"
-      ],
-      "exam_phrases": [
-        "Momentum before = momentum after",
-        "momentum and kinetic energy (conserved in an elastic collision)",
-        "0 = (40 × 2) + 50 vB"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Mass is conserved in a collision.",
-          "right": "The two quantities conserved in an elastic collision are momentum and kinetic energy. Mass is ignored."
-        },
-        {
-          "wrong": "Skater B has a velocity of −1.6 m/s, so I must have made a mistake.",
-          "right": "The sign only shows the opposite direction. The sign is ignored, so 1.6 m/s scores full marks."
-        },
-        {
-          "wrong": "Skater B's velocity = 80 ÷ 40 = 2 m/s.",
-          "right": "Divide by the mass of skater B. 80 = 50 vB, so vB = 1.6 m/s."
-        }
-      ],
+      "spec_codes": ["OCR P2.2k"],
       "worked_example": {
         "exemplar_id": "a2280052-3013-41c5-b9b6-f1f9f3b50c8f",
         "source": "OCR jun 2022, Paper 3, Q20(b)(iii)",

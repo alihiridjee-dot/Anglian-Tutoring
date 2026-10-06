@@ -14,31 +14,13 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Part",
-            "What it does"
-          ],
+          "columns": ["Part", "What it does"],
           "rows": [
-            [
-              "Burning food",
-              "Releases heat energy, which heats the water"
-            ],
-            [
-              "Water",
-              "Absorbs the energy. The mass of water is known."
-            ],
-            [
-              "Thermometer",
-              "Measures the start and end temperature of the water"
-            ],
-            [
-              "Stirrer",
-              "Spreads the heat evenly, so all the water is at the same temperature"
-            ],
-            [
-              "Lid",
-              "Acts as an insulator. It reduces heat loss and stops water evaporating."
-            ]
+            ["Burning food", "Releases heat energy, which heats the water"],
+            ["Water", "Absorbs the energy. The mass of water is known."],
+            ["Thermometer", "Measures the start and end temperature of the water"],
+            ["Stirrer", "Spreads the heat evenly, so all the water is at the same temperature"],
+            ["Lid", "Acts as an insulator. It reduces heat loss and stops water evaporating."]
           ]
         },
         {
@@ -255,37 +237,7 @@
   ],
   "boards": {
     "edexcel": {
-      "spec_codes": [
-        "EDEX 1.14B"
-      ],
-      "exam_phrases": [
-        "use the thermometer to measure the start and end temperature of the water",
-        "subtract the initial temperature from the final temperature",
-        "it is an insulator / reduces heat loss",
-        "stops heat loss / evaporation of water",
-        "ensures heat is distributed evenly throughout the water",
-        "use the same mass / volume of water, the same mass of food",
-        "less energy was transferred to the water",
-        "avocado contains more fat"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Energy = 25 × 4.2 × 85, using the final temperature.",
-          "right": "Use the temperature change, 85 − 21 = 64 °C. Energy = 25 × 4.2 × 64 = 6720 J. One mark is given for a correct calculation from an incorrect temperature change."
-        },
-        {
-          "wrong": "The temperature rise is found by measuring the difference.",
-          "right": "\"Measure the difference\" is ignored. Say measure the start and end temperature with a thermometer, then calculate the difference."
-        },
-        {
-          "wrong": "The lid stops unwanted substances getting in.",
-          "right": "This is ignored. The lid stops heat loss, or evaporation of water."
-        },
-        {
-          "wrong": "Avocado has 669 kJ and apple has 220 kJ.",
-          "right": "Stated values and differences are ignored unless they are comparative. Say avocado has more energy than apple because it contains more fat."
-        }
-      ],
+      "spec_codes": ["EDEX 1.14B"],
       "worked_example": {
         "exemplar_id": "f7a7f09c-9e5f-43d4-adba-aea2e28d4c2b",
         "source": "EDEXCEL nov 2021, Paper 1 (F), Q4(a)(ii)",
@@ -303,12 +255,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": [
-      "b10e319c-0883-46bf-b0fc-823af115eae6"
-    ],
-    "exemplar_ids": [
-      "f7a7f09c-9e5f-43d4-adba-aea2e28d4c2b"
-    ],
+    "spec_point_ids": ["b10e319c-0883-46bf-b0fc-823af115eae6"],
+    "exemplar_ids": ["f7a7f09c-9e5f-43d4-adba-aea2e28d4c2b"],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-01"
   }

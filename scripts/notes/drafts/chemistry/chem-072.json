@@ -56,12 +56,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Direction",
-            "What you do",
-            "What you see",
-            "Energy"
-          ],
+          "columns": ["Direction", "What you do", "What you see", "Energy"],
           "rows": [
             [
               "Forward",
@@ -161,14 +156,7 @@
               "label": "Time",
               "min": 0,
               "max": 100,
-              "ticks": [
-                0,
-                20,
-                40,
-                60,
-                80,
-                100
-              ]
+              "ticks": [0, 20, 40, 60, 80, 100]
             },
             "y": {
               "label": "Rate of reaction"
@@ -177,59 +165,23 @@
               {
                 "name": "Forward reaction",
                 "points": [
-                  [
-                    0,
-                    0.9
-                  ],
-                  [
-                    10,
-                    0.7
-                  ],
-                  [
-                    20,
-                    0.6
-                  ],
-                  [
-                    40,
-                    0.5
-                  ],
-                  [
-                    60,
-                    0.45
-                  ],
-                  [
-                    100,
-                    0.45
-                  ]
+                  [0, 0.9],
+                  [10, 0.7],
+                  [20, 0.6],
+                  [40, 0.5],
+                  [60, 0.45],
+                  [100, 0.45]
                 ]
               },
               {
                 "name": "Reverse reaction",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    10,
-                    0.2
-                  ],
-                  [
-                    20,
-                    0.3
-                  ],
-                  [
-                    40,
-                    0.4
-                  ],
-                  [
-                    60,
-                    0.45
-                  ],
-                  [
-                    100,
-                    0.45
-                  ]
+                  [0, 0],
+                  [10, 0.2],
+                  [20, 0.3],
+                  [40, 0.4],
+                  [60, 0.45],
+                  [100, 0.45]
                 ]
               }
             ],
@@ -296,29 +248,6 @@
         "AQA 4.6.2.3",
         "AQA T 5.6.2.3"
       ],
-      "exam_phrases": [
-        "the forward and reverse reactions have the same rate",
-        "in apparatus which prevents the escape of reactants and products",
-        "closed system",
-        "the forward and reverse reactions are taking place at (exactly) the same rate",
-        "the mass of each substance does not change",
-        "white to blue (anhydrous copper sulfate with water)",
-        "water vapour was produced; water (vapour) escaped"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The concentrations do not change at dynamic equilibrium because it is a closed system.",
-          "right": "When explaining why the concentrations do not change, a closed system is ignored. Say the forward and reverse reactions are taking place at exactly the same rate."
-        },
-        {
-          "wrong": "When water is added to anhydrous copper sulfate the colour changes from blue to white.",
-          "right": "Anhydrous copper sulfate is white and hydrated is blue. The change is white to blue. Blue to white earns only 1 mark."
-        },
-        {
-          "wrong": "The mass of the test tube decreased because the cobalt chloride reacted.",
-          "right": "Say that water vapour was produced and escaped from the tube, so its mass was not measured."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "f4d1c91a-24f8-4528-92d6-e0f8f2959fa7",
         "source": "AQA jun 2022, Paper 2 (H), Q06.4",
@@ -332,28 +261,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 4.13",
-        "EDEX 4.14"
-      ],
-      "exam_phrases": [
-        "heat the (hydrated) crystals / solid",
-        "the solid goes white / steam is observed / water produced",
-        "add water / water rejoins / water reacts with the anhydrous solid",
-        "the solid goes blue (again) / heat is released",
-        "both forward and backward reactions take place at the same time",
-        "the rates of the two reactions are equal"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Put the copper sulfate in a closed system and explain the result using Le Chatelier's principle.",
-          "right": "Closed system and Le Chatelier are ignored here. Describe heating the crystals, the colour change, adding water, and the colour change back."
-        },
-        {
-          "wrong": "When the blue crystals are heated they turn blue again.",
-          "right": "Heating hydrated copper sulfate gives a white solid, and steam or water is produced. The solid goes blue again when water is added."
-        }
-      ],
+      "spec_codes": ["EDEX 4.13", "EDEX 4.14"],
       "worked_example": {
         "exemplar_id": "e8c7f52f-b860-4a2a-a8d5-4ca1e30251fd",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q6(a)",
@@ -369,26 +277,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C5.3a",
-        "OCR C5.3b"
-      ],
-      "exam_phrases": [
-        "the rates of the forward and backward reactions are equal",
-        "the forward and backward reactions still happen (so it is dynamic)",
-        "the concentrations of the reactants and products do not change",
-        "rate of forward reaction equals the rate of the backward reaction"
-      ],
-      "mistakes": [
-        {
-          "wrong": "At dynamic equilibrium the concentrations of the reactants and products are the same.",
-          "right": "The same is not allowed. Say the concentrations of the reactants and products do not change."
-        },
-        {
-          "wrong": "At dynamic equilibrium both reactions happen at a constant rate.",
-          "right": "Constant rate is ignored. Say the rates of the forward and backward reactions are equal."
-        }
-      ],
+      "spec_codes": ["OCR C5.3a", "OCR C5.3b"],
       "worked_example": {
         "exemplar_id": "36f613f0-197d-41dd-a153-ccae8bd40eda",
         "source": "OCR jun 2022, Paper 4, Q21(a)",

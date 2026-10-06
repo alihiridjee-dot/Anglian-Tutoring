@@ -72,23 +72,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Halide ion",
-            "Precipitate with silver nitrate"
-          ],
+          "columns": ["Halide ion", "Precipitate with silver nitrate"],
           "rows": [
-            [
-              "Chloride, Cl⁻",
-              "White (silver chloride)"
-            ],
-            [
-              "Bromide, Br⁻",
-              "Cream (silver bromide)"
-            ],
-            [
-              "Iodide, I⁻",
-              "Yellow (silver iodide)"
-            ]
+            ["Chloride, Cl⁻", "White (silver chloride)"],
+            ["Bromide, Br⁻", "Cream (silver bromide)"],
+            ["Iodide, I⁻", "Yellow (silver iodide)"]
           ]
         },
         {
@@ -153,10 +141,7 @@
             "kind": "predictor",
             "alt": "Choose an anion to see the reagents used and the result of the test.",
             "prompt": "Pick an anion",
-            "result_labels": [
-              "Reagents",
-              "Result"
-            ],
+            "result_labels": ["Reagents", "Result"],
             "options": [
               {
                 "label": "Carbonate",
@@ -181,10 +166,7 @@
               },
               {
                 "label": "Chloride",
-                "results": [
-                  "Dilute nitric acid, then silver nitrate",
-                  "**White** precipitate"
-                ],
+                "results": ["Dilute nitric acid, then silver nitrate", "**White** precipitate"],
                 "scene": {
                   "kind": "tubes",
                   "tubes": [
@@ -198,10 +180,7 @@
               },
               {
                 "label": "Bromide",
-                "results": [
-                  "Dilute nitric acid, then silver nitrate",
-                  "**Cream** precipitate"
-                ],
+                "results": ["Dilute nitric acid, then silver nitrate", "**Cream** precipitate"],
                 "scene": {
                   "kind": "tubes",
                   "tubes": [
@@ -215,10 +194,7 @@
               },
               {
                 "label": "Iodide",
-                "results": [
-                  "Dilute nitric acid, then silver nitrate",
-                  "**Yellow** precipitate"
-                ],
+                "results": ["Dilute nitric acid, then silver nitrate", "**Yellow** precipitate"],
                 "scene": {
                   "kind": "tubes",
                   "tubes": [
@@ -279,33 +255,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.8.3.3",
-        "AQA 4.8.3.4",
-        "AQA 4.8.3.5"
-      ],
-      "exam_phrases": [
-        "(bubble the gas through) limewater",
-        "(which) turns milky / cloudy",
-        "(add acidified) silver nitrate (solution)",
-        "white precipitate",
-        "add barium chloride (solution)",
-        "add (dilute) hydrochloric acid"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A white precipitate shows sulfate ions are present.",
-          "right": "The result mark depends on naming the test first. Say add dilute hydrochloric acid and barium chloride solution, then give the white precipitate."
-        },
-        {
-          "wrong": "Add barium chloride to the solution and a white precipitate forms.",
-          "right": "Both reagents are marked. Add dilute hydrochloric acid as well as barium chloride solution. Nitric acid and barium nitrate are also allowed."
-        },
-        {
-          "wrong": "The gas turns milky or cloudy, so the ion is carbonate.",
-          "right": "Name the test first: bubble the gas through limewater (calcium hydroxide solution is allowed). The result mark depends on it."
-        }
-      ],
+      "spec_codes": ["AQA 4.8.3.3", "AQA 4.8.3.4", "AQA 4.8.3.5"],
       "worked_example": {
         "exemplar_id": "474deda7-024a-4b00-9837-88a90c4665f9",
         "source": "AQA jun 2021, Paper 2 (H), Q07.5",
@@ -320,31 +270,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.5C"
-      ],
-      "exam_phrases": [
-        "add (dilute) nitric acid",
-        "add silver nitrate (solution)",
-        "a white precipitate",
-        "use hydrochloric acid (rather than sulfuric acid)",
-        "sulfuric acid contains sulfate ions",
-        "use a different acid"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Add dilute hydrochloric acid, then silver nitrate, and a white precipitate shows chloride.",
-          "right": "Hydrochloric acid is rejected as the acid in the chloride test. Use dilute nitric acid."
-        },
-        {
-          "wrong": "Add dilute sulfuric acid and barium chloride. A white precipitate shows sulfate ions.",
-          "right": "This is not a valid test. Sulfuric acid contains sulfate ions, so use hydrochloric acid (nitric acid is also allowed)."
-        },
-        {
-          "wrong": "Warm the solution, add silver nitrate, and a white precipitate forms.",
-          "right": "Warming is ignored. The marks are for dilute nitric acid, silver nitrate solution and the white precipitate. The precipitate mark depends on silver nitrate."
-        }
-      ],
+      "spec_codes": ["EDEX 9.5C"],
       "worked_example": {
         "exemplar_id": "b718b6a6-58b6-43fe-ac00-1de11a6170f5",
         "source": "EDEXCEL jun 2023, Paper 2 (H), Q10(b)",
@@ -359,29 +285,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C4.2b",
-        "OCR C4.2d"
-      ],
-      "exam_phrases": [
-        "add a few drops of dilute nitric acid (and shake)",
-        "add a few drops of silver nitrate solution",
-        "a cream precipitate indicates bromide ions",
-        "a yellow precipitate indicates iodide ions",
-        "if bubbling / fizzing is observed",
-        "hydrochloric acid contains chloride ions",
-        "these ions would give a precipitate"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Hydrochloric acid contains chlorine ions.",
-          "right": "Chlorine ions is ignored. Say that hydrochloric acid contains chloride ions."
-        },
-        {
-          "wrong": "Hydrochloric acid cannot be used in the test for halide ions, because it is the wrong acid.",
-          "right": "Explain why. Hydrochloric acid contains chloride ions, which would give a precipitate with silver nitrate and interfere with the test."
-        }
-      ],
+      "spec_codes": ["OCR C4.2b", "OCR C4.2d"],
       "worked_example": {
         "exemplar_id": "06319414-cac8-42dd-92e6-fdc7b4f1658e",
         "source": "OCR sample null, Paper 4, Q18",

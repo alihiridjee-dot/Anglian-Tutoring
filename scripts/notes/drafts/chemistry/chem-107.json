@@ -32,7 +32,7 @@
         },
         {
           "type": "paragraph",
-          "text": "(Higher tier) A reversible reaction can reach a dynamic equilibrium, where the forward and backward reactions go at the same rate."
+          "text": "(AQA: Higher tier) A reversible reaction can reach a dynamic equilibrium, where the forward and backward reactions go at the same rate."
         },
         {
           "type": "key-points",
@@ -52,23 +52,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Condition",
-            "Value"
-          ],
+          "columns": ["Condition", "Value"],
           "rows": [
-            [
-              "Temperature",
-              "About 450 °C"
-            ],
-            [
-              "Pressure",
-              "About 200 atmospheres"
-            ],
-            [
-              "Catalyst",
-              "Iron"
-            ]
+            ["Temperature", "About 450 °C"],
+            ["Pressure", "About 200 atmospheres"],
+            ["Catalyst", "Iron"]
           ]
         },
         {
@@ -152,36 +140,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.10.4.1"
-      ],
-      "exam_phrases": [
-        "(nitrogen) air",
-        "(hydrogen) natural gas",
-        "450 °C",
-        "200 atm / atmospheres",
-        "(mixture is) cooled so that only ammonia liquefies",
-        "ammonia has a higher boiling point",
-        "to recycle unreacted gases",
-        "world population has increased",
-        "demand for fertiliser has increased",
-        "nitrogen is an abundant gas (in the air)",
-        "natural gas is a finite resource"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The mixture is cooled so that nitrogen, hydrogen and ammonia all liquefy.",
-          "right": "Only the ammonia liquefies, so it can be removed. The unreacted nitrogen and hydrogen are recycled."
-        },
-        {
-          "wrong": "The temperature is 450 and the pressure is 200.",
-          "right": "Units are needed. Give 450 °C and 200 atm. With no units, only 1 mark can be given."
-        },
-        {
-          "wrong": "The demand for ammonia has increased because the population has increased.",
-          "right": "This is one mark. Add a second point, such as increased demand for fertiliser or for other ammonia-based products, or more food is needed."
-        }
-      ],
+      "spec_codes": ["AQA 4.10.4.1"],
       "worked_example": {
         "exemplar_id": "2088595f-d61f-4fc9-914c-412ed68cf908",
         "source": "AQA jun 2025, Paper 2 (H), Q09.6",
@@ -198,34 +157,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 4.15",
-        "EDEX 4.16",
-        "EDEX 5.19C"
-      ],
-      "exam_phrases": [
-        "Haber process",
-        "N2 + 3H2 ⇌ 2NH3",
-        "450 °C and 200 atmospheres",
-        "catalyst",
-        "increase rate of reaction",
-        "lower activation energy",
-        "increase rate of attainment of equilibrium"
-      ],
-      "mistakes": [
-        {
-          "wrong": "N₂ + 3H₂ → 2NH₃ for the reversible reaction.",
-          "right": "The equilibrium symbol ⇌ earns its own mark. Three correct formulae, a balanced equation and the equilibrium symbol give the 3 marks."
-        },
-        {
-          "wrong": "The iron provides an alternative route for the reaction.",
-          "right": "This is ignored. The iron is a catalyst: it increases the rate of reaction, lowers the activation energy, or increases the rate of attainment of equilibrium."
-        },
-        {
-          "wrong": "N + H → NH₃",
-          "right": "Balancing only scores when the formulae are correct: N₂, H₂ and NH₃. Then balance to N₂ + 3H₂ ⇌ 2NH₃."
-        }
-      ],
+      "spec_codes": ["EDEX 4.15", "EDEX 4.16", "EDEX 5.19C"],
       "worked_example": {
         "exemplar_id": "f6e033f6-4c6b-41ad-87a6-ec5c9cc6ade0",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q5(a)(i)",
@@ -240,26 +172,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.1g",
-        "OCR C6.1d"
-      ],
-      "exam_phrases": [
-        "endless supply of starting materials",
-        "no need to use solid raw materials to make fertilisers",
-        "ammonia used to make fertilisers which increase crop yield",
-        "converts atmospheric nitrogen into ammonia"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The Haber process is important because it makes ammonia.",
-          "right": "Say why ammonia matters in agriculture. It is used to make fertilisers, which increase crop yield, and the process gives an endless supply of starting materials."
-        },
-        {
-          "wrong": "Lowering the pressure is a disadvantage because the reaction will not be at equilibrium.",
-          "right": "This is ignored. Say the reaction is slower, because particles collide less often, or that the yield of ammonia is less."
-        }
-      ],
+      "spec_codes": ["OCR C6.1g", "OCR C6.1d"],
       "worked_example": {
         "exemplar_id": "c595065c-471a-4fec-854e-b4276f248562",
         "source": "OCR sample null, Paper 4, Q22(a)",

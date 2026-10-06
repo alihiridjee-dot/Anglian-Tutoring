@@ -8,12 +8,21 @@
     {
       "heading": "The reactivity series",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers what the reactivity series is and the order of the metals in it." },
+        {
+          "type": "paragraph",
+          "text": "This section covers what the reactivity series is and the order of the metals in it."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Reactivity series", "meaning": "A list of metals in order of how vigorously they react." },
-            { "term": "Displacement reaction", "meaning": "A reaction in which a more reactive metal takes the place of a less reactive metal in a compound." }
+            {
+              "term": "Reactivity series",
+              "meaning": "A list of metals in order of how vigorously they react."
+            },
+            {
+              "term": "Displacement reaction",
+              "meaning": "A reaction in which a more reactive metal takes the place of a less reactive metal in a compound."
+            }
           ]
         },
         {
@@ -45,18 +54,28 @@
     {
       "heading": "Reactions with water and dilute acid",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers what you see when each metal meets cold water or a dilute acid at room temperature." },
+        {
+          "type": "paragraph",
+          "text": "This section covers what you see when each metal meets cold water or a dilute acid at room temperature."
+        },
         {
           "type": "equation",
           "label": "Metal and water",
           "formula": "metal + water → metal hydroxide + hydrogen",
-          "where": ["metal: for example potassium, sodium, lithium, calcium", "metal hydroxide: dissolves to make an alkaline solution", "hydrogen: a gas, which gives a squeaky pop with a lighted splint"]
+          "where": [
+            "metal: for example potassium, sodium, lithium, calcium",
+            "metal hydroxide: dissolves to make an alkaline solution",
+            "hydrogen: a gas, which gives a squeaky pop with a lighted splint"
+          ]
         },
         {
           "type": "equation",
           "label": "Metal and dilute acid",
           "formula": "metal + acid → salt + hydrogen",
-          "where": ["salt: for example a chloride with hydrochloric acid", "hydrogen: the gas given off"]
+          "where": [
+            "salt: for example a chloride with hydrochloric acid",
+            "hydrogen: the gas given off"
+          ]
         },
         {
           "type": "diagram",
@@ -68,11 +87,19 @@
             "options": [
               {
                 "label": "Potassium",
-                "results": ["Fizzes, floats, moves around, melts, burns with a lilac flame", "Explodes: too dangerous", "Very high"]
+                "results": [
+                  "Fizzes, floats, moves around, melts, burns with a lilac flame",
+                  "Explodes: too dangerous",
+                  "Very high"
+                ]
               },
               {
                 "label": "Sodium",
-                "results": ["Fizzes quickly, floats, melts into a ball, moves around", "Could explode or get too hot", "Very high"]
+                "results": [
+                  "Fizzes quickly, floats, melts into a ball, moves around",
+                  "Could explode or get too hot",
+                  "Very high"
+                ]
               },
               {
                 "label": "Lithium",
@@ -80,11 +107,19 @@
               },
               {
                 "label": "Calcium",
-                "results": ["Bubbles steadily; the solution turns cloudy as calcium hydroxide forms", "Reacts vigorously", "High"]
+                "results": [
+                  "Bubbles steadily; the solution turns cloudy as calcium hydroxide forms",
+                  "Reacts vigorously",
+                  "High"
+                ]
               },
               {
                 "label": "Magnesium",
-                "results": ["Very slow reaction: only a few tiny bubbles", "Steady bubbles; the metal gets smaller and the temperature rises", "Medium"]
+                "results": [
+                  "Very slow reaction: only a few tiny bubbles",
+                  "Steady bubbles; the metal gets smaller and the temperature rises",
+                  "Medium"
+                ]
               },
               {
                 "label": "Zinc",
@@ -92,7 +127,11 @@
               },
               {
                 "label": "Iron",
-                "results": ["No reaction", "Bubbles very slowly; a pale green solution forms", "Low"]
+                "results": [
+                  "No reaction",
+                  "Bubbles very slowly; a pale green solution forms",
+                  "Low"
+                ]
               },
               {
                 "label": "Copper",
@@ -122,7 +161,10 @@
     {
       "heading": "Reactivity and positive ions",
       "blocks": [
-        { "type": "paragraph", "text": "When metals react, their atoms lose outer electrons to form positive ions. Reactivity is the tendency to do this." },
+        {
+          "type": "paragraph",
+          "text": "When metals react, their atoms lose outer electrons to form positive ions. Reactivity is the tendency to do this."
+        },
         {
           "type": "list",
           "items": [
@@ -151,7 +193,10 @@
     {
       "heading": "Displacement and deducing the order",
       "blocks": [
-        { "type": "paragraph", "text": "A more reactive metal displaces a less reactive metal from a solution of its compound." },
+        {
+          "type": "paragraph",
+          "text": "A more reactive metal displaces a less reactive metal from a solution of its compound."
+        },
         {
           "type": "list",
           "items": [
@@ -161,15 +206,33 @@
             "Of the metals tested, the one that displaces most is the most reactive. The one that does not react at all is the least reactive."
           ]
         },
-        { "type": "paragraph", "text": "To compare metals fairly, change only the metal and keep everything else the same." },
+        {
+          "type": "paragraph",
+          "text": "To compare metals fairly, change only the metal and keep everything else the same."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Measure.", "text": "Measure the same volume of acid or salt solution into a polystyrene cup and note the starting temperature." },
-            { "lead": "Add.", "text": "Add the same mass of one metal, in the same physical state, and stir." },
-            { "lead": "Record.", "text": "Record the highest temperature, or watch the rate of bubbling." },
-            { "lead": "Repeat.", "text": "Repeat for each metal and calculate the temperature changes." },
-            { "lead": "Order.", "text": "The largest temperature change is the most reactive metal." }
+            {
+              "lead": "Measure.",
+              "text": "Measure the same volume of acid or salt solution into a polystyrene cup and note the starting temperature."
+            },
+            {
+              "lead": "Add.",
+              "text": "Add the same mass of one metal, in the same physical state, and stir."
+            },
+            {
+              "lead": "Record.",
+              "text": "Record the highest temperature, or watch the rate of bubbling."
+            },
+            {
+              "lead": "Repeat.",
+              "text": "Repeat for each metal and calculate the temperature changes."
+            },
+            {
+              "lead": "Order.",
+              "text": "The largest temperature change is the most reactive metal."
+            }
           ]
         },
         {
@@ -202,33 +265,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.4.1.2", "AQA T 5.4.1.2"],
-      "exam_phrases": [
-        "(calcium's) outer shell / electrons are further from the nucleus",
-        "the outer electrons are less strongly attracted to the nucleus",
-        "(so) positive ions are formed more easily",
-        "more reactive (metals) displace less reactive (metals)",
-        "the greater the temperature change the more reactive",
-        "same concentration / volume of solution; same mass / moles of metal",
-        "copper does not react with (sulfuric) acid; sodium could explode"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Calcium is more reactive than magnesium because calcium atoms are larger.",
-          "right": "Calcium atoms are larger is ignored. Say the outer electrons are further from the nucleus, less strongly attracted, so positive ions form more easily."
-        },
-        {
-          "wrong": "Keep the amount of metal and the strength of the acid the same.",
-          "right": "Amount and strength are ignored. Say the same mass of metal, the same surface area, and the same concentration and volume of acid."
-        },
-        {
-          "wrong": "Copper is not used with sulfuric acid because it is not reactive enough.",
-          "right": "Not reactive enough is ignored. Say copper does not react with the acid, or is below hydrogen in the reactivity series."
-        },
-        {
-          "wrong": "When potassium reacts with water a gas is produced.",
-          "right": "Gas produced is ignored. Give an observation: bubbles, floats, moves around, melts, flame."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "68ebb496-c5eb-444c-871e-ee556f69e32e",
         "source": "AQA jun 2024, Paper 1 (F), Q05.4",
@@ -246,28 +282,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 4.1", "EDEX 4.3", "EDEX 4.9"],
-      "exam_phrases": [
-        "metal sulfate {insoluble / coats the metal / forms a barrier}",
-        "prevents further reaction of metal with acid",
-        "both form a hydroxide (calcium and potassium with water)",
-        "bubbles produced {slowly / steadily / quite quickly}",
-        "some metal remains",
-        "copper, silver and gold do not react with cold water"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The reaction stopped because the acid had been used up.",
-          "right": "The acid was in excess and most of the metal remained. The insoluble metal sulfate coats the metal and prevents further reaction."
-        },
-        {
-          "wrong": "Calcium and potassium both react with water to make hydrogen only.",
-          "right": "Both also form a hydroxide."
-        },
-        {
-          "wrong": "Copper, silver and gold react slowly with cold water.",
-          "right": "Copper, silver and gold do not react with cold water. Calcium is the metal that does react."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "50eb0a88-d203-48dc-85cc-ef045a1e89af",
         "source": "EDEXCEL jun 2018, Paper 1 (H), Q9(a)(i)",
@@ -282,29 +296,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR C4.1e", "OCR C4.1f"],
-      "exam_phrases": [
-        "idea that more reactive metals displace less reactive metals",
-        "the metal with the most (displacement) reactions is most reactive; the metal that does not react is least reactive",
-        "solution changed colour / metal changed colour / temperature change",
-        "hydrogen (H₂)",
-        "lighted splint; squeaky pop",
-        "rubidium + water → rubidium hydroxide + hydrogen",
-        "any time less than 6 s (rubidium)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The metal rusts or corrodes, so a reaction took place.",
-          "right": "Rusts and corrodes are ignored. Give a colour change of the solution or metal, fizzing or bubbles, or a temperature change."
-        },
-        {
-          "wrong": "The gas is H.",
-          "right": "H is not allowed. The gas is hydrogen, H₂."
-        },
-        {
-          "wrong": "Rubidium would take longer than potassium to react with water.",
-          "right": "Rubidium is below potassium and more reactive. Its reaction time is less than that of potassium."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "05963311-a8e6-44e2-ad48-e7f8ddfe90e8",
         "source": "OCR nov 2020, Paper 4, Q22(a)",

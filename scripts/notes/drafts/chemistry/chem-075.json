@@ -74,77 +74,22 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Series",
-            "Functional group",
-            "Name ending",
-            "General formula"
-          ],
+          "columns": ["Series", "Functional group", "Name ending", "General formula"],
           "rows": [
-            [
-              "Alkanes",
-              "None: C–C single bonds only",
-              "-ane",
-              "CₙH₂ₙ₊₂"
-            ],
-            [
-              "Alkenes",
-              "C=C",
-              "-ene",
-              "CₙH₂ₙ"
-            ],
-            [
-              "Alcohols",
-              "–OH",
-              "-ol",
-              "CₙH₂ₙ₊₁OH"
-            ],
-            [
-              "Carboxylic acids",
-              "–COOH",
-              "-oic acid",
-              "not required"
-            ]
+            ["Alkanes", "None: C–C single bonds only", "-ane", "CₙH₂ₙ₊₂"],
+            ["Alkenes", "C=C", "-ene", "CₙH₂ₙ"],
+            ["Alcohols", "–OH", "-ol", "CₙH₂ₙ₊₁OH"],
+            ["Carboxylic acids", "–COOH", "-oic acid", "not required"]
           ]
         },
         {
           "type": "table",
-          "columns": [
-            "Carbon atoms",
-            "Alkane",
-            "Alkene",
-            "Alcohol",
-            "Carboxylic acid"
-          ],
+          "columns": ["Carbon atoms", "Alkane", "Alkene", "Alcohol", "Carboxylic acid"],
           "rows": [
-            [
-              "1",
-              "methane CH₄",
-              "none",
-              "methanol CH₃OH",
-              "methanoic acid HCOOH"
-            ],
-            [
-              "2",
-              "ethane C₂H₆",
-              "ethene C₂H₄",
-              "ethanol C₂H₅OH",
-              "ethanoic acid CH₃COOH"
-            ],
-            [
-              "3",
-              "propane C₃H₈",
-              "propene C₃H₆",
-              "propanol C₃H₇OH",
-              "propanoic acid CH₃CH₂COOH"
-            ],
-            [
-              "4",
-              "butane C₄H₁₀",
-              "butene C₄H₈",
-              "butanol C₄H₉OH",
-              "butanoic acid CH₃CH₂CH₂COOH"
-            ]
+            ["1", "methane CH₄", "none", "methanol CH₃OH", "methanoic acid HCOOH"],
+            ["2", "ethane C₂H₆", "ethene C₂H₄", "ethanol C₂H₅OH", "ethanoic acid CH₃COOH"],
+            ["3", "propane C₃H₈", "propene C₃H₆", "propanol C₃H₇OH", "propanoic acid CH₃CH₂COOH"],
+            ["4", "butane C₄H₁₀", "butene C₄H₈", "butanol C₄H₉OH", "butanoic acid CH₃CH₂CH₂COOH"]
           ]
         },
         {
@@ -175,11 +120,7 @@
             "kind": "sort",
             "alt": "Sort compounds into alkanes, alkenes and alcohols from their formulae.",
             "prompt": "Sort each compound into its homologous series.",
-            "groups": [
-              "Alkane",
-              "Alkene",
-              "Alcohol"
-            ],
+            "groups": ["Alkane", "Alkene", "Alcohol"],
             "items": [
               {
                 "text": "CH₄",
@@ -258,54 +199,17 @@
         "AQA 4.7.2.3",
         "AQA 4.7.2.4"
       ],
-      "exam_phrases": [
-        "HCOOH (HCO₂H is allowed) for methanoic acid",
-        "propanoic acid for CH₃CH₂COOH"
-      ],
-      "mistakes": [],
       "worked_example": {
         "exemplar_id": "079b79cb-9525-49bc-94fa-4dae6cd5b05e",
         "source": "AQA jun 2020, Paper 2 (H), Q7.1",
         "question": "This question is about carboxylic acids.\n\nCarboxylic acids belong to a homologous series.\n\nThe table shows information about the first three carboxylic acids in this homologous series.\n\nName | Formula | pH of a 0.01 mol/dm³ solution\nMethanoic acid | (?) | 2.91\nEthanoic acid | CH₃COOH | 3.39\n(?) | CH₃CH₂COOH | 3.44\n\nComplete the table.",
         "marks": 2,
-        "answer_points": [
-          "HCOOH (HCO₂H is allowed).",
-          "Propanoic acid."
-        ],
+        "answer_points": ["HCOOH (HCO₂H is allowed).", "Propanoic acid."],
         "tip": "One mark for each. The name comes from the three carbon atoms (prop-) and the -oic acid ending."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 8.6",
-        "EDEX 9.32C"
-      ],
-      "exam_phrases": [
-        "same general formula",
-        "same functional group",
-        "(neighbouring molecules) differ by CH₂",
-        "similar chemical properties / reactions",
-        "trend in physical properties",
-        "all have -OH group / hydroxyl group"
-      ],
-      "mistakes": [
-        {
-          "wrong": "They are all alcohols.",
-          "right": "This is ignored. Name the shared feature: the –OH group (the hydroxyl group), the same general formula, or CH₂ differences."
-        },
-        {
-          "wrong": "They all have a hydroxide group.",
-          "right": "Hydroxide is not allowed. Say –OH group, hydroxyl group or the same functional group."
-        },
-        {
-          "wrong": "They have the same molecular formula.",
-          "right": "Same empirical or molecular formula is rejected. They have the same general formula."
-        },
-        {
-          "wrong": "They have similar properties.",
-          "right": "Similar properties, or similar physical properties, is ignored. Say similar chemical properties and a trend in physical properties, such as increasing boiling point."
-        }
-      ],
+      "spec_codes": ["EDEX 8.6", "EDEX 9.32C"],
       "worked_example": {
         "exemplar_id": "362c6775-377c-4e8d-a9ea-9d1ee6294f27",
         "source": "EDEXCEL jun 2024, Paper 2 (H), Q5(a)(i)",
@@ -318,32 +222,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C2.3b",
-        "OCR C6.2a",
-        "OCR C6.2b",
-        "OCR C6.2i"
-      ],
-      "exam_phrases": [
-        "have the same general formula / both have the formula CₙH₂ₙ₊₂",
-        "they differ from each other by CH₂",
-        "they are both saturated / carbon atoms joined by (only) single (covalent) bonds",
-        "similar chemical properties",
-        "show trends in physical properties",
-        "carbon can bond to itself",
-        "carbon can form families / groups / series of compounds",
-        "carbon forms four bonds"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A hydrocarbon contains carbon and hydrogen molecules.",
-          "right": "Carbon and hydrogen molecules, or a mixture of carbon and hydrogen, are not allowed. Say it contains only carbon and hydrogen (atoms)."
-        },
-        {
-          "wrong": "Ethane is saturated because it is not an alkene.",
-          "right": "This is ignored. Say it has single covalent bonds only, or has no double bond."
-        }
-      ],
+      "spec_codes": ["OCR C2.3b", "OCR C6.2a", "OCR C6.2b", "OCR C6.2i"],
       "worked_example": {
         "exemplar_id": "21c12ac5-2d6d-4f9c-8207-6cbd4d8ae117",
         "source": "OCR nov 2020, Paper 2, Q22(a)",

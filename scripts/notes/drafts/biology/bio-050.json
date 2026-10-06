@@ -14,27 +14,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Drug",
-            "Used for",
-            "Where it comes from"
-          ],
+          "columns": ["Drug", "Used for", "Where it comes from"],
           "rows": [
-            [
-              "Digitalis",
-              "Heart drug",
-              "Foxgloves"
-            ],
-            [
-              "Aspirin",
-              "Painkiller",
-              "Willow"
-            ],
-            [
-              "Penicillin",
-              "Antibiotic",
-              "Penicillium mould (discovered by Alexander Fleming)"
-            ]
+            ["Digitalis", "Heart drug", "Foxgloves"],
+            ["Aspirin", "Painkiller", "Willow"],
+            ["Penicillin", "Antibiotic", "Penicillium mould (discovered by Alexander Fleming)"]
           ]
         },
         {
@@ -176,32 +160,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 3.6",
-        "AQA T 4.3.1.9"
-      ],
-      "exam_phrases": [
-        "for toxicity or check not poisonous / harmful",
-        "for efficacy or to see if it works",
-        "for dose or how much is needed",
-        "given first to healthy volunteers at (very) low dose",
-        "in a double blind trial",
-        "neither patients nor doctors know who has the drug and who has a placebo"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Drugs are tested to check they are not dangerous.",
-          "right": "\"Dangerous\" is ignored. Say the drug is tested for toxicity (not poisonous or harmful) or for side effects."
-        },
-        {
-          "wrong": "The drug is given to patients in full doses straight away.",
-          "right": "Clinical trials start with healthy volunteers at a very low dose, to test that the drug is safe. Patients come later, to test the correct dose and efficacy."
-        },
-        {
-          "wrong": "A double blind trial means the patients do not know what they are taking.",
-          "right": "In a double blind trial neither the patients nor the doctors know who has the drug and who has a placebo."
-        }
-      ],
+      "spec_codes": ["AQA 3.6", "AQA T 4.3.1.9"],
       "worked_example": {
         "exemplar_id": "fa810eea-81c6-47ab-8c09-8789f3f2f690",
         "source": "AQA jun 2020, Paper 1 (H), Q07.3",
@@ -219,27 +178,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.20"
-      ],
-      "exam_phrases": [
-        "the antibiotic would go through a development phase",
-        "pre-clinical (stage / trials)",
-        "testing on animals / testing in-vitro / on cells",
-        "clinical (stage / trials)",
-        "testing on (healthy) volunteers / testing on patients",
-        "double-blind trials"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A new drug is tested straight on humans.",
-          "right": "A new drug goes through a development phase and pre-clinical testing on animals or cells before the clinical stage."
-        },
-        {
-          "wrong": "Pre-clinical testing is done on volunteers.",
-          "right": "Pre-clinical testing is on animals, in vitro or on cells. Clinical testing is on (healthy) volunteers and patients."
-        }
-      ],
+      "spec_codes": ["EDEX 5.20"],
       "worked_example": {
         "exemplar_id": "bc9d920d-7d6d-4f06-9e9a-44bb4977cb2e",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q5(b)",
@@ -255,26 +194,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.3q"
-      ],
-      "exam_phrases": [
-        "control",
-        "can act as a comparison / to check the drug works",
-        "idea of identifying / eliminates any psychological effect",
-        "placebo contains no active drug / dummy injection",
-        "to eliminate placebo effect"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The placebo group is there to cure patients.",
-          "right": "A placebo contains no active drug. It is a control, so the effect of the drug can be compared with no drug."
-        },
-        {
-          "wrong": "A placebo is used so the patients can feel better.",
-          "right": "Some people believe they are feeling better when they are not. The placebo group identifies or eliminates this psychological effect."
-        }
-      ],
+      "spec_codes": ["OCR 6.3q"],
       "worked_example": {
         "exemplar_id": "2df0c151-fe55-40ae-86aa-85db1d46ed10",
         "source": "OCR jun 2019, Paper 4, Q20(b)(i)",

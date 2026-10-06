@@ -174,34 +174,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 5.1",
-        "AQA T 4.5.1"
-      ],
-      "exam_phrases": [
-        "regulation / control / maintenance of internal conditions",
-        "for optimum conditions for cell(s) / enzyme(s) (activity)",
-        "to maintain (temperature close to) optimum temperature",
-        "for enzyme action",
-        "by hormones",
-        "by nerve impulses",
-        "receptor (cells / neurones)",
-        "more sweat, which cools the body"
-      ],
-      "mistakes": [
-        {
-          "wrong": "One other condition in the body that needs to be controlled is the level of water.",
-          "right": "If the question already gives water as the example, water is ignored. Give a different condition, such as temperature, blood glucose concentration, pH or ions."
-        },
-        {
-          "wrong": "Homeostasis is important to change body temperature to match air temperature.",
-          "right": "This is not credited. Homeostasis maintains optimum conditions for enzymes and allows cells to function properly."
-        },
-        {
-          "wrong": "Give one other internal condition controlled by homeostasis: body temperature.",
-          "right": "When the question says not to refer to temperature, it scores no mark. Give blood glucose concentration or water content instead."
-        }
-      ],
+      "spec_codes": ["AQA 5.1", "AQA T 4.5.1"],
       "worked_example": {
         "exemplar_id": "ddba1045-a41a-4d4b-b014-8436637c9469",
         "source": "AQA jun 2019, Paper 2 (H), Q06.1",
@@ -215,33 +188,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 7.9",
-        "EDEX 7.10B"
-      ],
-      "exam_phrases": [
-        "(internal) temperature is kept at the optimum / 37 °C",
-        "for enzyme action / (chemical) reactions to take place",
-        "at high temperatures enzymes will denature",
-        "sweat is released onto the surface of the skin",
-        "which evaporates",
-        "that cools the body / removes heat",
-        "(more) respiration occurs, which requires oxygen"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Body temperature is controlled so that enzymes can work.",
-          "right": "State that the temperature is kept at the optimum (or 37 °C) and that this is for enzyme action or for reactions to take place. Both marks need the optimum and the enzyme link."
-        },
-        {
-          "wrong": "Sweating cools the body down.",
-          "right": "Link three points: sweat is released onto the skin, it evaporates, and this cools the body or removes heat."
-        },
-        {
-          "wrong": "A hotter iguana uses more oxygen because it is hotter.",
-          "right": "Explain the chain: chemical or enzyme reactions increase at higher temperature, more respiration occurs, and respiration requires oxygen."
-        }
-      ],
+      "spec_codes": ["EDEX 7.9", "EDEX 7.10B"],
       "worked_example": {
         "exemplar_id": "3bf4ca4f-b741-4f3e-ba0f-47c99ee71630",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q6(a)(ii)",
@@ -256,33 +203,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 3.3a"
-      ],
-      "exam_phrases": [
-        "negative feedback process",
-        "(receptors) detect variable",
-        "compare to fixed point",
-        "effectors respond to restore variable to fixed point",
-        "allows (metabolic) reactions to proceed at appropriate rates",
-        "optimum conditions for enzymes",
-        "prevent enzymes denaturing",
-        "prevent hypothermia / hyperthermia"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Heart rate is another feature of the internal environment that is kept constant.",
-          "right": "Heart rate, breathing rate and blood pressure are ignored. Give blood glucose, water balance, pH or carbon dioxide level, or urea level."
-        },
-        {
-          "wrong": "Homeostasis is important because it keeps the body at the right temperature.",
-          "right": "Link it to metabolism. It allows metabolic reactions to proceed at appropriate rates by giving optimum conditions for enzymes, such as temperature and pH."
-        },
-        {
-          "wrong": "A variable is kept constant because the body stops it changing.",
-          "right": "Describe the process: negative feedback, where receptors detect the variable, it is compared to a fixed point, and effectors restore it."
-        }
-      ],
+      "spec_codes": ["OCR 3.3a"],
       "worked_example": {
         "exemplar_id": "da2dabea-4474-44ff-b6e4-b3db825e6679",
         "source": "OCR nov 2021, Paper 3, Q19(c)",

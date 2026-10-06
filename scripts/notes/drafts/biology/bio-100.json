@@ -1,0 +1,199 @@
+{
+  "format": 1,
+  "concept_id": "bio-100",
+  "subject": "biology",
+  "title": "Sex-linked genetic disorders",
+  "key_idea": "Some alleles are carried on the X chromosome, so they are inherited with sex. Males (XY) have only one X, so one recessive allele makes them affected. Females (XX) need two recessive alleles, so more males than females have these disorders.",
+  "sections": [
+    {
+      "heading": "Sex chromosomes and sex-linked disorders",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sex is decided by one pair of chromosomes. This section covers why alleles on those chromosomes behave differently in males and females."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Sex-linked disorder",
+              "meaning": "A genetic disorder caused by an allele on a sex chromosome (here, the X chromosome)."
+            },
+            {
+              "term": "Carrier",
+              "meaning": "A person with one recessive allele who does not show the disorder, but can pass the allele on."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Females have two X chromosomes (**XX**). Males have one X and one Y (**XY**).",
+            "The disorder allele is on the X chromosome. It is recessive.",
+            "A male has only one X, so he has only one allele for the gene. If it is the recessive allele, he is affected.",
+            "A female has two X chromosomes, so she has two alleles. She is affected only if both are recessive.",
+            "Two examples are **red-green colour blindness** and **haemophilia**."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The allele is on the X chromosome and is recessive.",
+            "Males have one X, so one recessive allele is enough.",
+            "Females need two recessive alleles to be affected."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Genotypes and how the allele is passed on",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Write the allele on the X chromosome as a small letter next to it. Here **H** is the normal allele and **h** is the recessive disorder allele (haemophilia)."
+        },
+        {
+          "type": "table",
+          "rows": [
+            ["XHY", "Male", "Not affected"],
+            ["XhY", "Male", "Affected (has haemophilia)"],
+            ["XHXH", "Female", "Not affected"],
+            ["XHXh", "Female", "Not affected, but a carrier"],
+            ["XhXh", "Female", "Affected"]
+          ],
+          "columns": ["Genotype", "Sex", "Phenotype"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A son always gets his **Y** chromosome from his father and his X from his mother.",
+            "So a father cannot pass the allele to his son.",
+            "A father with the disorder passes his X to every daughter, so all his daughters carry the allele.",
+            "A carrier mother passes the recessive allele to half of her children, on average."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A son gets his X from his mother and his Y from his father.",
+            "A carrier female has one dominant and one recessive allele, so she is not affected.",
+            "An affected father passes the allele to all his daughters, and to none of his sons."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Predicting the children",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Pick the parents and see the chances for their children. Each child is a separate chance, so the numbers are probabilities."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Pick two parents' genotypes for a sex-linked recessive disorder such as haemophilia, and see the chance of affected daughters and sons.",
+            "kind": "predictor",
+            "prompt": "Pick the parents",
+            "options": [
+              {
+                "label": "Carrier mother (XHXh) and unaffected father (XHY)",
+                "results": [
+                  "None affected. 1 in 2 are carriers.",
+                  "1 in 2 are affected.",
+                  "1 in 4 (25%)"
+                ],
+                "explanation": "The mother passes on XH or Xh. A son who gets Xh is affected because he has no second X."
+              },
+              {
+                "label": "Unaffected mother (XHXH) and affected father (XhY)",
+                "results": [
+                  "None affected. All are carriers.",
+                  "None affected.",
+                  "0 (no child is affected, but every daughter is a carrier)"
+                ],
+                "explanation": "Sons get Y from the father and XH from the mother. Daughters get Xh from the father and XH from the mother."
+              },
+              {
+                "label": "Carrier mother (XHXh) and affected father (XhY)",
+                "results": [
+                  "1 in 2 are affected. 1 in 2 are carriers.",
+                  "1 in 2 are affected.",
+                  "1 in 2 (50%)"
+                ],
+                "explanation": "A daughter is affected if she gets Xh from both parents."
+              },
+              {
+                "label": "Affected mother (XhXh) and unaffected father (XHY)",
+                "results": [
+                  "None affected. All are carriers.",
+                  "All are affected.",
+                  "1 in 2 (50%)"
+                ],
+                "explanation": "Every son gets Xh from his mother and Y from his father, with no second X to cover it."
+              },
+              {
+                "label": "Unaffected mother (XHXH) and unaffected father (XHY)",
+                "results": ["None affected. None are carriers.", "None affected.", "0"],
+                "explanation": "No parent has the recessive allele, so no child can inherit it."
+              }
+            ],
+            "result_labels": ["Daughters", "Sons", "Chance a child is affected"]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sons of a carrier mother have a 1 in 2 chance of being affected.",
+            "An unaffected mother (XHXH) cannot have an affected son, even if the father is affected.",
+            "Daughters are affected only if they get the allele from both parents."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Colour blindness is caused by a recessive allele on the X chromosome. Explain why more men than women are colour blind.",
+      "a": "The allele is on the X chromosome. Men have only one X, so one recessive allele makes them colour blind. Women have two X chromosomes and would need two recessive alleles.",
+      "marks": 2
+    },
+    {
+      "q": "A father is colour blind and the mother has two normal alleles. What is the chance that their son is colour blind? Explain your answer.",
+      "a": "0%. The son gets his Y chromosome from his father, which does not carry the allele. He gets an X with the normal allele from his mother.",
+      "marks": 2
+    },
+    {
+      "q": "A woman has the genotype XHXh for haemophilia. Is she affected? What is she called?",
+      "a": "She is not affected, because she has the dominant normal allele. She is a carrier.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": ["EDEX 3.18B"],
+      "worked_example": {
+        "exemplar_id": "c07fd92d-edd8-4078-87b2-76a0cc472c6d",
+        "source": "EDEXCEL nov 2020, Paper 1 (H), Q10(b)(ii)",
+        "question": "Colour blindness is a sex-linked genetic disorder caused by a recessive allele.\nColour blindness only affects 1 in 200 women.\nExplain why more men than women are colour blind.",
+        "marks": 2,
+        "answer_points": [
+          "The allele is located on the X chromosome.",
+          "Men are XY, so they have only one X chromosome.",
+          "If a man has one recessive allele, he is colour blind.",
+          "A woman would need two recessive alleles, because her second X can carry the normal allele."
+        ],
+        "tip": "Any two of the first three points score; the fourth is also accepted."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": ["0331eb10-f5ad-4ab2-83c4-75c818a170ac"],
+    "exemplar_ids": ["c07fd92d-edd8-4078-87b2-76a0cc472c6d"],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

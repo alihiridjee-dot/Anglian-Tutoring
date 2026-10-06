@@ -263,35 +263,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.3",
-        "AQA T 6.5.3",
-        "AQA 4.1.1.2",
-        "AQA T 6.1.1.2"
-      ],
-      "exam_phrases": [
-        "will return to its original shape / length when the force is removed",
-        "will not go back to its original length when the force is removed",
-        "the spring is inelastically deformed",
-        "the extension is no longer proportional to the force",
-        "limit of proportionality",
-        "springs with a low spring constant can compress by a larger amount",
-        "the spring has reached its limit of proportionality"
-      ],
-      "mistakes": [
-        {
-          "wrong": "k = 2.88 ÷ 1.50 = 1.92 N/m, using the extension in centimetres.",
-          "right": "The conversion is worth a mark of its own. 1.50 cm = 0.015 m, so k = 2.88 ÷ 0.015 = 192 N/m."
-        },
-        {
-          "wrong": "A soft mattress needs springs with a high spring constant.",
-          "right": "A soft mattress needs springs with a low spring constant, because they can compress by a larger amount for a given force."
-        },
-        {
-          "wrong": "An object that is inelastically deformed returns to its original shape.",
-          "right": "It will not go back to its original length (or shape) when the force is removed."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.3", "AQA T 6.5.3", "AQA 4.1.1.2", "AQA T 6.1.1.2"],
       "worked_example": {
         "exemplar_id": "acfb5091-078c-4013-b9c0-649fa681c5af",
         "source": "AQA jun 2020, Paper 2 (H), Q04.5",
@@ -307,30 +279,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 15.1",
-        "EDEX 15.2",
-        "EDEX 15.3",
-        "EDEX 15.4",
-        "EDEX 15.5"
-      ],
-      "exam_phrases": [
-        "rearrangement",
-        "(controls the maximum) extension",
-        "idea of keeping below the elastic limit",
-        "spring being permanently stretched",
-        "joule(s) / J"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The work done is ½ × 20 × 9² = 810 J for an extension of 0.09 m.",
-          "right": "The extension must be in metres: ½ × 20 × 0.09² = 0.081 J. The unconverted answer earns only one mark."
-        },
-        {
-          "wrong": "k = 0.50 ÷ 0.013² = 2958 N/m for a force of 0.50 N and an extension of 13 mm.",
-          "right": "Do not square the extension when using force and extension. Use k = F ÷ e = 0.50 ÷ 0.013 = 38 N/m. The squared version earns only 1 mark."
-        }
-      ],
+      "spec_codes": ["EDEX 15.1", "EDEX 15.2", "EDEX 15.3", "EDEX 15.4", "EDEX 15.5"],
       "worked_example": {
         "exemplar_id": "1ea68aa4-d222-44cc-9596-0bece2e9075d",
         "source": "EDEXCEL jun 2019, Paper 2 (F), Q5(c)",
@@ -353,27 +302,6 @@
         "OCR P2.3e",
         "OCR P2.3f",
         "OCR P7.1e"
-      ],
-      "exam_phrases": [
-        "two (or more) forces acting in different directions",
-        "plastic: stays deformed when the force is removed",
-        "elastic: returns to original shape when the force is removed",
-        "(spring constant =) force / extension",
-        "force and extension relationship is no longer linear"
-      ],
-      "mistakes": [
-        {
-          "wrong": "To change the shape of an object you need to apply one force.",
-          "right": "Two or more forces are needed, acting in different directions. A fixed end of the material counts as the second force."
-        },
-        {
-          "wrong": "Plastic deformation means the object returns to its original shape.",
-          "right": "Plastic: it stays deformed when the force is removed. Elastic: it returns to its original shape."
-        },
-        {
-          "wrong": "A spring has an original length of 3.0 cm and an extended length of 7.0 cm, so the extension is 7.0 cm.",
-          "right": "Extension = extended length − original length = 4.0 cm. Using the wrong data point loses the substitution mark."
-        }
       ],
       "worked_example": {
         "exemplar_id": "cf253643-9739-43e0-96ae-b81c743ab04f",

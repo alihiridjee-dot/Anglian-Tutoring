@@ -36,10 +36,7 @@
         },
         {
           "type": "key-points",
-          "items": [
-            "Hydrogen: burning splint, squeaky pop.",
-            "Oxygen: glowing splint, relights."
-          ]
+          "items": ["Hydrogen: burning splint, squeaky pop.", "Oxygen: glowing splint, relights."]
         }
       ]
     },
@@ -90,10 +87,7 @@
             "kind": "predictor",
             "alt": "Pick a gas to see the test and the positive result.",
             "prompt": "Pick a gas",
-            "result_labels": [
-              "Test",
-              "Positive result"
-            ],
+            "result_labels": ["Test", "Positive result"],
             "options": [
               {
                 "label": "Hydrogen, H₂",
@@ -165,28 +159,6 @@
         "AQA 4.8.2.4",
         "AQA T 5.8.2.4"
       ],
-      "exam_phrases": [
-        "burning / lit splint",
-        "burns with a (squeaky) pop sound",
-        "glowing splint ... relights",
-        "(bubble gas through) lime water",
-        "turns milky / cloudy",
-        "(add) damp litmus paper ... (the paper) is bleached / turns white"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Test for hydrogen: a glowing splint.",
-          "right": "A glowing splint is not accepted for hydrogen. Use a burning (lit) splint; hydrogen burns with a squeaky pop."
-        },
-        {
-          "wrong": "Test for oxygen: a burning splint.",
-          "right": "A burning or lit splint is not accepted for oxygen. Use a glowing splint; it relights."
-        },
-        {
-          "wrong": "Chlorine turns damp litmus paper red.",
-          "right": "This is ignored. The litmus paper is bleached, or turns white. The result mark depends on a correct test."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "36cc95e7-1b89-4083-9602-39878ac9cde0",
         "source": "AQA jun 2021, Paper 2 (H), Q06.1",
@@ -200,38 +172,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 3.12",
-        "EDEX 6.8",
-        "EDEX 8.23",
-        "EDEX 9.4C"
-      ],
-      "exam_phrases": [
-        "apply lighted splint ... gas burns / (squeaky) pop",
-        "glowing splint ... relights",
-        "(bubble gas through) limewater ... turns milky / cloudy / white precipitate",
-        "(damp) litmus / indicator paper ... bleaches / goes white",
-        "(blue litmus) first turns red ... then bleaches / turns white",
-        "(it is an) alkaline gas as litmus turned blue"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Test for hydrogen: put in a glowing splint.",
-          "right": "A glowing splint is ignored. Apply a lighted splint; the gas burns with a (squeaky) pop."
-        },
-        {
-          "wrong": "Test for oxygen: a lit splint or a flame.",
-          "right": "A lit splint or flame is rejected. Add a glowing splint; it relights."
-        },
-        {
-          "wrong": "Blue litmus paper in chlorine turns white and then red.",
-          "right": "The order matters. It first turns red and then bleaches to white. 'White then red' scores 0."
-        },
-        {
-          "wrong": "The gas given off is ammonium.",
-          "right": "Ammonium is rejected. The gas is ammonia, NH₃."
-        }
-      ],
+      "spec_codes": ["EDEX 3.12", "EDEX 6.8", "EDEX 8.23", "EDEX 9.4C"],
       "worked_example": {
         "exemplar_id": "cbba62a7-92b2-4a48-a98c-7ea2a21b634f",
         "source": "EDEXCEL jun 2024, Paper 1 (F), Q9(c)",

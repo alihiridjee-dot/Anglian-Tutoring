@@ -8,17 +8,26 @@
     {
       "heading": "What the practical investigates",
       "blocks": [
-        { "type": "paragraph", "text": "Amylase is an enzyme that breaks down starch. This practical finds how pH changes the rate at which it does so." },
+        {
+          "type": "paragraph",
+          "text": "Amylase is an enzyme that breaks down starch. This practical finds how pH changes the rate at which it does so."
+        },
         {
           "type": "table",
           "columns": ["Type of variable", "In this investigation"],
           "rows": [
             ["Independent (what you change)", "The pH, set using buffer solutions"],
             ["Dependent (what you measure)", "The time taken for all the starch to be digested"],
-            ["Control (kept the same)", "Volume and concentration of starch, amylase and buffer. Temperature, kept constant in a water bath or with an electric heater."]
+            [
+              "Control (kept the same)",
+              "Volume and concentration of starch, amylase and buffer. Temperature, kept constant in a water bath or with an electric heater."
+            ]
           ]
         },
-        { "type": "subheading", "text": "The iodine test for starch" },
+        {
+          "type": "subheading",
+          "text": "The iodine test for starch"
+        },
         {
           "type": "list",
           "items": [
@@ -40,7 +49,10 @@
     {
       "heading": "The method",
       "blocks": [
-        { "type": "paragraph", "text": "This is a continuous sampling method. You test the same mixture again and again until the starch has gone." },
+        {
+          "type": "paragraph",
+          "text": "This is a continuous sampling method. You test the same mixture again and again until the starch has gone."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -60,12 +72,30 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Prepare.", "text": "Put one drop of iodine solution into each well of a spotting tile." },
-            { "lead": "Mix.", "text": "In a test tube in a water bath, mix amylase solution, starch solution and a buffer solution of one pH. Start the timer." },
-            { "lead": "Sample.", "text": "Every 30 seconds, use a pipette to move one drop of the mixture into a new well of iodine." },
-            { "lead": "Observe.", "text": "Blue-black means starch is still present. Continue until the iodine stays orange or brown." },
-            { "lead": "Record.", "text": "Write down the time taken for all the starch to be digested." },
-            { "lead": "Repeat.", "text": "Do the same at each pH, using the same volumes and concentrations and the same temperature." }
+            {
+              "lead": "Prepare.",
+              "text": "Put one drop of iodine solution into each well of a spotting tile."
+            },
+            {
+              "lead": "Mix.",
+              "text": "In a test tube in a water bath, mix amylase solution, starch solution and a buffer solution of one pH. Start the timer."
+            },
+            {
+              "lead": "Sample.",
+              "text": "Every 30 seconds, use a pipette to move one drop of the mixture into a new well of iodine."
+            },
+            {
+              "lead": "Observe.",
+              "text": "Blue-black means starch is still present. Continue until the iodine stays orange or brown."
+            },
+            {
+              "lead": "Record.",
+              "text": "Write down the time taken for all the starch to be digested."
+            },
+            {
+              "lead": "Repeat.",
+              "text": "Do the same at each pH, using the same volumes and concentrations and the same temperature."
+            }
           ]
         },
         {
@@ -81,7 +111,10 @@
     {
       "heading": "Results and conclusion",
       "blocks": [
-        { "type": "paragraph", "text": "A shorter time means the enzyme is working faster. The best pH is the one with the shortest time." },
+        {
+          "type": "paragraph",
+          "text": "A shorter time means the enzyme is working faster. The best pH is the one with the shortest time."
+        },
         {
           "type": "equation",
           "label": "Rate of reaction",
@@ -93,15 +126,39 @@
           "diagram": {
             "kind": "line-graph",
             "alt": "A bell-shaped curve. The rate of amylase reaction rises as pH increases from acidic, peaks near pH 7, then falls again at higher pH.",
-            "x": { "label": "pH", "min": 0, "max": 14, "ticks": [0, 2, 4, 6, 8, 10, 12, 14] },
-            "y": { "label": "Rate of reaction" },
+            "x": {
+              "label": "pH",
+              "min": 0,
+              "max": 14,
+              "ticks": [0, 2, 4, 6, 8, 10, 12, 14]
+            },
+            "y": {
+              "label": "Rate of reaction"
+            },
             "series": [
               {
                 "name": "Amylase",
-                "points": [[2, 0], [3, 0.05], [4, 0.2], [5, 0.5], [6, 0.85], [7, 1], [8, 0.8], [9, 0.5], [10, 0.15], [11, 0.03], [12, 0]]
+                "points": [
+                  [2, 0],
+                  [3, 0.05],
+                  [4, 0.2],
+                  [5, 0.5],
+                  [6, 0.85],
+                  [7, 1],
+                  [8, 0.8],
+                  [9, 0.5],
+                  [10, 0.15],
+                  [11, 0.03],
+                  [12, 0]
+                ]
               }
             ],
-            "markers": [{ "x": 7, "label": "Optimum" }]
+            "markers": [
+              {
+                "x": 7,
+                "label": "Optimum"
+              }
+            ]
           }
         },
         {
@@ -125,7 +182,10 @@
     {
       "heading": "Improving the investigation",
       "blocks": [
-        { "type": "paragraph", "text": "Exam questions ask how to make the results more accurate and how to check the optimum." },
+        {
+          "type": "paragraph",
+          "text": "Exam questions ask how to make the results more accurate and how to check the optimum."
+        },
         {
           "type": "list",
           "items": [
@@ -167,34 +227,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 2.5", "AQA T 4.2.2.1"],
-      "exam_phrases": [
-        "add iodine solution to a spotting tile",
-        "add amylase, pH solution and starch solution together",
-        "remove a drop of the mixture at regular intervals (every 30 seconds)",
-        "if starch is present, the mixture and iodine turn blue-black",
-        "iodine would stay orange / brown",
-        "record the time taken for the mixture to stay orange",
-        "repeat at different pH",
-        "observation of colour change is subjective"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The independent variable is how acidic or alkaline the solution is.",
-          "right": "\"Acidity\" and \"alkalinity\" are ignored. Say the pH (of the amylase solution, or buffer)."
-        },
-        {
-          "wrong": "When all the starch is digested the iodine does not turn blue.",
-          "right": "\"Blue\" or \"purple\" alone is ignored. Say the iodine does not turn black or blue-black, or that it stays orange or brown."
-        },
-        {
-          "wrong": "The timing might be inaccurate because of human error.",
-          "right": "\"Human error\" unqualified is ignored. Say the observation of the colour change is subjective, or based on opinion."
-        },
-        {
-          "wrong": "The control variables are the time and the temperature.",
-          "right": "\"Time\" on its own is ignored. Say the time before mixing the starch and amylase solutions, and give a volume, for example the volume of starch solution or the number of drops of iodine."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "09499812-c61f-4e31-98eb-e9c2f473d4c2",
         "source": "AQA jun 2023, Paper 1 (F), Q05.9",
@@ -214,29 +246,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 1.10"],
-      "exam_phrases": [
-        "mix starch, enzyme and pH (solution)",
-        "use iodine (to test for starch)",
-        "blue-black means starch is present, orange / brown means no starch",
-        "control of one variable, for example concentration, volume or temperature",
-        "repeat using different pH solutions",
-        "test at pH solutions between pH 6.5 and 7.5",
-        "the sample that produces glucose in the shortest time is closest to the optimum"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Iodine turns blue when starch is present.",
-          "right": "\"Blue\" is ignored. Say blue-black means starch is present, and orange or brown means no starch."
-        },
-        {
-          "wrong": "Mix the solutions and test them.",
-          "right": "\"Mix the solutions\" is ignored. Name all three: starch solution, enzyme solution and a pH solution."
-        },
-        {
-          "wrong": "Control the amount of starch and enzyme.",
-          "right": "\"Amount\" is ignored unless a measurement is given. Say the volume or concentration of the starch or enzyme solution, or the temperature."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "d0e5e410-0cdd-414a-a1f8-5f4ba8ce2c1f",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q2(c)",
@@ -254,26 +263,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 1.2f", "OCR 7.4"],
-      "exam_phrases": [
-        "change the temperature, using a water bath or Bunsen burner",
-        "record the time it takes for the indicator to change colour",
-        "to colourless",
-        "use a stop clock",
-        "volume / mass of milk, concentration of enzyme, type of milk",
-        "use a colorimeter, so it is objective",
-        "have the same student doing all the observations, so there is a consistent judgement",
-        "repeat at each temperature and take a mean"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Use the same amount of milk each time.",
-          "right": "\"Amount\" and \"quantity\" are ignored. Say the volume or mass of milk."
-        },
-        {
-          "wrong": "Use a heater to change the temperature.",
-          "right": "\"Heater\" is ignored. Say how the temperature is maintained or changed, for example in a water bath or with a Bunsen burner."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "c7e0c91e-feae-422e-9443-501d934e0277",
         "source": "OCR jun 2022, Paper 1, Q23(b)",

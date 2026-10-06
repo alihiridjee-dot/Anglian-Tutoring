@@ -8,12 +8,21 @@
     {
       "heading": "Where metals and non-metals are",
       "blocks": [
-        { "type": "paragraph", "text": "The periodic table divides the elements into metals and non-metals. The division follows from the atomic structure of the elements." },
+        {
+          "type": "paragraph",
+          "text": "The periodic table divides the elements into metals and non-metals. The division follows from the atomic structure of the elements."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Metal", "meaning": "An element that reacts to form positive ions." },
-            { "term": "Non-metal", "meaning": "An element that does not form positive ions." }
+            {
+              "term": "Metal",
+              "meaning": "An element that reacts to form positive ions."
+            },
+            {
+              "term": "Non-metal",
+              "meaning": "An element that does not form positive ions."
+            }
           ]
         },
         {
@@ -25,7 +34,10 @@
             "Group 1 and Group 2 elements, and the transition elements, are metals. Groups 4 to 0 are towards the right, so they are mostly non-metals. Tin and lead are metals lower down Group 4."
           ]
         },
-        { "type": "subheading", "text": "Atomic structure" },
+        {
+          "type": "subheading",
+          "text": "Atomic structure"
+        },
         {
           "type": "list",
           "items": [
@@ -47,12 +59,19 @@
     {
       "heading": "Properties of metals and non-metals",
       "blocks": [
-        { "type": "paragraph", "text": "Metals and non-metals differ in their physical properties and in their chemical properties." },
+        {
+          "type": "paragraph",
+          "text": "Metals and non-metals differ in their physical properties and in their chemical properties."
+        },
         {
           "type": "table",
           "columns": ["Property", "Metals", "Non-metals"],
           "rows": [
-            ["Electrical conductivity", "Good conductors of electricity", "Poor conductors (most do not conduct)"],
+            [
+              "Electrical conductivity",
+              "Good conductors of electricity",
+              "Poor conductors (most do not conduct)"
+            ],
             ["Thermal conductivity", "Good conductors of heat", "Poor conductors of heat"],
             ["Shape", "Malleable (can be bent and shaped) and ductile", "Brittle when solid"],
             ["Strength", "Usually strong", "Usually weaker"],
@@ -77,15 +96,42 @@
             "prompt": "Metal or non-metal?",
             "groups": ["Metals", "Non-metals"],
             "items": [
-              { "text": "Conducts electricity well", "group": 0 },
-              { "text": "Can be bent and shaped", "group": 0 },
-              { "text": "Forms positive ions", "group": 0 },
-              { "text": "Found to the left and towards the bottom of the table", "group": 0 },
-              { "text": "Oxide is basic", "group": 0 },
-              { "text": "Does not form positive ions", "group": 1 },
-              { "text": "Found towards the right and top of the table", "group": 1 },
-              { "text": "Gains electrons to form negative ions", "group": 1 },
-              { "text": "Oxide is acidic", "group": 1 }
+              {
+                "text": "Conducts electricity well",
+                "group": 0
+              },
+              {
+                "text": "Can be bent and shaped",
+                "group": 0
+              },
+              {
+                "text": "Forms positive ions",
+                "group": 0
+              },
+              {
+                "text": "Found to the left and towards the bottom of the table",
+                "group": 0
+              },
+              {
+                "text": "Oxide is basic",
+                "group": 0
+              },
+              {
+                "text": "Does not form positive ions",
+                "group": 1
+              },
+              {
+                "text": "Found towards the right and top of the table",
+                "group": 1
+              },
+              {
+                "text": "Gains electrons to form negative ions",
+                "group": 1
+              },
+              {
+                "text": "Oxide is acidic",
+                "group": 1
+              }
             ]
           }
         },
@@ -102,21 +148,43 @@
     {
       "heading": "Metals and reactivity",
       "blocks": [
-        { "type": "paragraph", "text": "A metal is more reactive if its atoms lose their outer electrons more easily. Position in the table links to this." },
+        {
+          "type": "paragraph",
+          "text": "A metal is more reactive if its atoms lose their outer electrons more easily. Position in the table links to this."
+        },
         {
           "type": "equation",
           "label": "A metal and a non-metal react",
           "formula": "4Na + O₂ → 2Na₂O",
-          "where": ["Each sodium atom loses one electron to form Na⁺.", "Each oxygen atom gains two electrons to form O²⁻.", "Two sodium atoms are needed for each oxygen atom."]
+          "where": [
+            "Each sodium atom loses one electron to form Na⁺.",
+            "Each oxygen atom gains two electrons to form O²⁻.",
+            "Two sodium atoms are needed for each oxygen atom."
+          ]
         },
-        { "type": "subheading", "text": "Why metals lower down a group are more reactive" },
+        {
+          "type": "subheading",
+          "text": "Why metals lower down a group are more reactive"
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "More shells.", "text": "Atoms lower down a group have more shells of electrons." },
-            { "lead": "Further away.", "text": "The outer electron is further from the nucleus and there is more shielding." },
-            { "lead": "Weaker attraction.", "text": "The attraction between the nucleus and the outer electron is weaker." },
-            { "lead": "Lost more easily.", "text": "The outer electron is lost more easily, so a positive ion forms more easily." }
+            {
+              "lead": "More shells.",
+              "text": "Atoms lower down a group have more shells of electrons."
+            },
+            {
+              "lead": "Further away.",
+              "text": "The outer electron is further from the nucleus and there is more shielding."
+            },
+            {
+              "lead": "Weaker attraction.",
+              "text": "The attraction between the nucleus and the outer electron is weaker."
+            },
+            {
+              "lead": "Lost more easily.",
+              "text": "The outer electron is lost more easily, so a positive ion forms more easily."
+            }
           ]
         },
         {
@@ -149,29 +217,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.1.2.3", "AQA T 5.1.2.3"],
-      "exam_phrases": [
-        "towards the right and the top (non-metals)",
-        "a metal and a non-metal",
-        "sodium atom loses one electron",
-        "oxygen atom gains two electrons",
-        "to form Na⁺ and O²⁻ / ions with full outer shells",
-        "outer electrons are further from the nucleus, so less strongly attracted",
-        "positive ions are formed more easily"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A physical property of metals is that they form positive ions.",
-          "right": "Forming positive ions is a chemical property, and chemical properties are ignored when physical ones are asked for. Give conducts electricity, malleable, ductile, shiny, strong or a high melting point."
-        },
-        {
-          "wrong": "Calcium reacts more vigorously than magnesium because calcium atoms are larger.",
-          "right": "'Atoms are larger' is ignored. Say the outer electrons are further from the nucleus, so less strongly attracted, so positive ions form more easily."
-        },
-        {
-          "wrong": "Gallium is a metal, so its melting point is high.",
-          "right": "Gallium has a melting point below 100 °C, which is not typical of most metals."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "5eca7831-500c-42e9-9ae1-d4c912503803",
         "source": "AQA jun 2023, Paper 1 (H), Q03.2",
@@ -188,50 +233,17 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 1.18"],
-      "exam_phrases": [
-        "it is on the left (of the periodic table)",
-        "in group 2 / column 2"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Calcium is a metal because it is in period 4.",
-          "right": "The period does not show it. Say calcium is on the left of the table, in group 2 (column 2)."
-        },
-        {
-          "wrong": "Non-metals are on the left of the periodic table.",
-          "right": "Metals are on the left. Non-metals are towards the right."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "6a548b7c-494a-49aa-b4bc-239560a23b54",
         "source": "EDEXCEL nov 2021, Paper 1 (F), Q2(c)",
         "question": "State how you know that calcium is a metal from its position in the periodic table.",
         "marks": 1,
-        "answer_points": [
-          "It is on the left, in Group 2 (column 2)."
-        ],
+        "answer_points": ["It is on the left, in Group 2 (column 2)."],
         "tip": "Use the position: left of the table, or Group 2."
       }
     },
     "ocr": {
       "spec_codes": ["OCR C2.2a", "OCR C2.2b"],
-      "exam_phrases": [
-        "it does not conduct electricity (non-metal)",
-        "low density and good electrical conductor",
-        "one electron in the outer shell (metal atom)",
-        "has more protons than electrons (positive ion)",
-        "lithium fluoride contains metal and non-metal elements"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Aluminium is best for pylon cables because it is light and a good conductor.",
-          "right": "The mark needs both properties: low density and good electrical conductor. 'Light' is not allowed for low density, and 'good conductor' alone is ignored."
-        },
-        {
-          "wrong": "Particle D is an ion because it has a different mass number.",
-          "right": "An ion has a different number of protons and electrons. Particle D has more protons than electrons."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "46ad3cc7-96ba-4842-af52-45f9fa388ad8",
         "source": "OCR sample, Paper 3, Q16(b)",

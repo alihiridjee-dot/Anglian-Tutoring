@@ -122,11 +122,7 @@
             "kind": "sort",
             "alt": "Sort each statement into the viral disease it describes: measles, HIV or tobacco mosaic virus.",
             "prompt": "Which viral disease does each statement describe?",
-            "groups": [
-              "Measles",
-              "HIV",
-              "Tobacco mosaic virus"
-            ],
+            "groups": ["Measles", "HIV", "Tobacco mosaic virus"],
             "items": [
               {
                 "text": "Fever and a red skin rash",
@@ -192,37 +188,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 3.2",
-        "AQA T 4.3.1.2"
-      ],
-      "exam_phrases": [
-        "coughs / sneezes (spread virus in droplets)",
-        "immune system is damaged / weakened",
-        "white blood cells cannot kill bacteria (as effectively)",
-        "avoid sexual intercourse / use a condom / do not share needles",
-        "use antiretroviral drugs",
-        "discolouration in leaves or less chlorophyll in leaves",
-        "(so) reduced photosynthesis"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Tobacco mosaic virus gives leaves a mosaic pattern, so they grow slowly.",
-          "right": "\"Mosaic pattern of leaves\" unqualified is ignored. Say there is discolouration or less chlorophyll in the leaves, so photosynthesis is reduced."
-        },
-        {
-          "wrong": "Use protection to stop the spread of HIV.",
-          "right": "\"Use protection\", \"use contraception\" and \"use medication\" unqualified are ignored. Say use a condom, avoid sexual intercourse, do not share needles or use antiretroviral drugs."
-        },
-        {
-          "wrong": "Wash your hands and keep your distance from people with HIV.",
-          "right": "Handwashing and social distancing are ignored for HIV. It is spread by sexual contact and exchange of body fluids."
-        },
-        {
-          "wrong": "Vaccination works because most people are immune so they don't catch measles.",
-          "right": "\"Don't get / catch it\" is ignored. Say most people are immune so there is less chance of non-immune or unvaccinated people being exposed to the virus."
-        }
-      ],
+      "spec_codes": ["AQA 3.2", "AQA T 4.3.1.2"],
       "worked_example": {
         "exemplar_id": "44a83d9a-f73e-46bd-9dfa-2756a568327e",
         "source": "AQA jun 2021, Paper 1 (H), Q04.5",
@@ -237,22 +203,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.5"
-      ],
-      "exam_phrases": [
-        "HIV destroys white blood cells / reduces the number of white blood cells",
-        "compromises the immune system",
-        "weakens the immune system",
-        "more susceptible to other pathogens / infections / diseases",
-        "(exchange of) bodily fluids / contact with body fluids"
-      ],
-      "mistakes": [
-        {
-          "wrong": "HIV makes the person more susceptible to AIDS.",
-          "right": "\"More susceptible to AIDS\" is ignored. HIV weakens the immune system, so the person is more susceptible to other pathogens, infections or diseases."
-        }
-      ],
+      "spec_codes": ["EDEX 5.5"],
       "worked_example": {
         "exemplar_id": "365ec292-8046-488c-a345-4eb7d84fc170",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q3(b)",
@@ -284,26 +235,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.3f"
-      ],
-      "exam_phrases": [
-        "Tobacco mosaic disease: virus",
-        "AIDS: caused by a virus",
-        "Crown gall disease: bacterium",
-        "barley powdery mildew: caused by a fungus",
-        "type 2 diabetes: non-communicable disease"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Tobacco mosaic disease is caused by a bacterium.",
-          "right": "Tobacco mosaic disease is caused by a virus. Crown gall disease is the plant disease caused by a bacterium."
-        },
-        {
-          "wrong": "AIDS is a non-communicable disease.",
-          "right": "AIDS is a communicable disease caused by a virus (HIV). Type 2 diabetes is the non-communicable example."
-        }
-      ],
+      "spec_codes": ["OCR 6.3f"],
       "worked_example": {
         "exemplar_id": "c61da3fc-84ca-42d6-acc0-8051a040bb6b",
         "source": "OCR jun 2019, Paper 2, Q21(a)",
@@ -327,31 +259,13 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Disease",
-                "Type"
-              ],
+              "columns": ["Disease", "Type"],
               "rows": [
-                [
-                  "AIDS (caused by HIV)",
-                  "Communicable, caused by a virus"
-                ],
-                [
-                  "Tobacco mosaic disease",
-                  "Communicable, caused by a virus"
-                ],
-                [
-                  "Crown gall disease",
-                  "Communicable, caused by a bacterium"
-                ],
-                [
-                  "Barley powdery mildew",
-                  "Communicable, caused by a fungus"
-                ],
-                [
-                  "Type 2 diabetes",
-                  "Non-communicable"
-                ]
+                ["AIDS (caused by HIV)", "Communicable, caused by a virus"],
+                ["Tobacco mosaic disease", "Communicable, caused by a virus"],
+                ["Crown gall disease", "Communicable, caused by a bacterium"],
+                ["Barley powdery mildew", "Communicable, caused by a fungus"],
+                ["Type 2 diabetes", "Non-communicable"]
               ]
             }
           ]

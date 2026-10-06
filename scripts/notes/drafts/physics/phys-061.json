@@ -307,32 +307,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.6.3",
-        "AQA T 6.5.4.3"
-      ],
-      "exam_phrases": [
-        "increases reaction time",
-        "so increases the thinking distance",
-        "stopping distance includes thinking distance",
-        "there is an additional time before the driver applies the brakes",
-        "because of decreased friction",
-        "stopping distance = braking distance + thinking distance"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Alcohol makes the stopping distance longer.",
-          "right": "Link the steps. Alcohol increases reaction time, so the thinking distance increases, so the driver is more likely to have a collision before stopping."
-        },
-        {
-          "wrong": "Tiredness, wet roads and speed all affect the stopping distance.",
-          "right": "A list of factors only scores at Level 1. Add a linked explanation for each, such as wet roads reducing friction between the tyres and the road."
-        },
-        {
-          "wrong": "A single factor such as worn tyres affects the braking distance.",
-          "right": "A single factor with no related explanation is insufficient to score a mark. Add the reason, which is decreased friction."
-        }
-      ],
+      "spec_codes": ["AQA 4.5.6.3", "AQA T 6.5.4.3"],
       "worked_example": {
         "exemplar_id": "8b75db64-2869-48d6-aa57-017cedbbe0dc",
         "source": "AQA jun 2022, Paper 2 (F), Q05.2",
@@ -347,80 +322,18 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.27",
-        "EDEX 2.28",
-        "EDEX 2.29",
-        "EDEX 2.30",
-        "EDEX 2.32P"
-      ],
-      "exam_phrases": [
-        "increased reaction time",
-        "increased thinking distance",
-        "worn tyres cause increased stopping distance",
-        "tired driver causes increased stopping distance",
-        "effect of drugs",
-        "state of brakes"
-      ],
-      "mistakes": [
-        {
-          "wrong": "t = 1.4 s.",
-          "right": "46 ÷ 31 = 1.483... s, which is 1.5 s to 2 significant figures. An answer of 1.4 scores 2 marks, not 3."
-        },
-        {
-          "wrong": "1.50 s is a better answer than 1.5 s.",
-          "right": "The question asked for 2 significant figures. 1.50 scores 2 marks, so write 1.5 s."
-        },
-        {
-          "wrong": "Worn tyres and a tired driver.",
-          "right": "Naming factors alone stays at a low level. Link each to its effect: worn tyres cause increased stopping distance, and a tired driver causes increased stopping distance."
-        },
-        {
-          "wrong": "Reaction time = 31 ÷ 46 = 0.67 s.",
-          "right": "Divide the distance by the speed, 46 ÷ 31. Dividing the wrong way round loses a mark."
-        }
-      ],
+      "spec_codes": ["EDEX 2.27", "EDEX 2.28", "EDEX 2.29", "EDEX 2.30", "EDEX 2.32P"],
       "worked_example": {
         "exemplar_id": "571d2dea-fea5-48aa-9577-f04c55a2574f",
         "source": "EDEXCEL jun 2022, Paper 1 (F), Q9(a)(iii)",
         "question": "The driver's reaction time is the time between the driver seeing an emergency and starting to brake.\n\nA car is travelling at a speed of 31 m/s.\n\nThe car travels 46 m between the driver seeing an emergency and starting to brake.\n\nCalculate the driver's reaction time.\n\nGive your answer to 2 significant figures.",
         "marks": 3,
-        "answer_points": [
-          "46 = 31 × t",
-          "t = 46 ÷ 31 = 1.48(3) s",
-          "t = 1.5 s"
-        ],
+        "answer_points": ["46 = 31 × t", "t = 46 ÷ 31 = 1.48(3) s", "t = 1.5 s"],
         "tip": "One mark for substitution, one for the evaluation and one for giving 2 significant figures."
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P8.1d",
-        "OCR P8.1e",
-        "OCR P8.1f"
-      ],
-      "exam_phrases": [
-        "Thinking distance unchanged",
-        "Friction/force between tyres and road reduced",
-        "Braking distance becomes greater",
-        "less friction / smaller deceleration",
-        "larger KE to dissipate",
-        "Initial kinetic energy is the same"
-      ],
-      "mistakes": [
-        {
-          "wrong": "On an icy road the thinking distance is longer too.",
-          "right": "Thinking distance is unchanged by ice. The friction between the tyres and the road is reduced, so only the braking distance becomes greater."
-        },
-        {
-          "wrong": "Reaction time = speed ÷ thinking distance = 8 ÷ 6.",
-          "right": "Reaction time = thinking distance ÷ speed = 6 ÷ 8 = 0.75 s. A correct substitution is ignored if it is not rearranged."
-        },
-        {
-          "wrong": "A factor that affects braking distance is the stopping distance.",
-          "right": "Stopping distance and the distance for braking or thinking are not accepted as a factor. Name a cause, such as poor brakes, and give the reason: less friction or a smaller deceleration."
-        }
-      ],
+      "spec_codes": ["OCR P8.1d", "OCR P8.1e", "OCR P8.1f"],
       "worked_example": {
         "exemplar_id": "9061ba10-fa10-485b-ab98-e54ee3e9323e",
         "source": "OCR jun 2018, Paper 2, Q20(b)",

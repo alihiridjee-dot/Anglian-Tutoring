@@ -8,21 +8,42 @@
     {
       "heading": "Glands, hormones and target organs",
       "blocks": [
-        { "type": "paragraph", "text": "The endocrine system is made of glands. This section covers what they release and how the message reaches the body." },
+        {
+          "type": "paragraph",
+          "text": "The endocrine system is made of glands. This section covers what they release and how the message reaches the body."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Endocrine gland", "meaning": "A gland that releases hormones directly into the bloodstream." },
-            { "term": "Hormone", "meaning": "A chemical messenger that is carried in the blood and changes how a target organ works." },
-            { "term": "Target organ", "meaning": "The organ or cells that a hormone acts on." }
+            {
+              "term": "Endocrine gland",
+              "meaning": "A gland that releases hormones directly into the bloodstream."
+            },
+            {
+              "term": "Hormone",
+              "meaning": "A chemical messenger that is carried in the blood and changes how a target organ works."
+            },
+            {
+              "term": "Target organ",
+              "meaning": "The organ or cells that a hormone acts on."
+            }
           ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Release.", "text": "A gland secretes a hormone into the bloodstream." },
-            { "lead": "Transport.", "text": "The hormone is carried in the blood plasma around the body." },
-            { "lead": "Action.", "text": "It reaches its target organ, binds to receptors on the cells and produces an effect." }
+            {
+              "lead": "Release.",
+              "text": "A gland secretes a hormone into the bloodstream."
+            },
+            {
+              "lead": "Transport.",
+              "text": "The hormone is carried in the blood plasma around the body."
+            },
+            {
+              "lead": "Action.",
+              "text": "It reaches its target organ, binds to receptors on the cells and produces an effect."
+            }
           ]
         },
         {
@@ -44,7 +65,10 @@
     {
       "heading": "The main endocrine glands",
       "blocks": [
-        { "type": "paragraph", "text": "Tap each gland to see its hormone and what it does." },
+        {
+          "type": "paragraph",
+          "text": "Tap each gland to see its hormone and what it does."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -52,16 +76,37 @@
             "alt": "Tap each endocrine gland to learn where it is, which hormone it releases and its effect.",
             "prompt": "Tap a gland to learn what it does",
             "parts": [
-              { "name": "Pituitary gland", "detail": "In the head, attached to the brain. Releases several hormones, including ADH, FSH and LH, and so controls other glands." },
-              { "name": "Thyroid gland", "detail": "In the neck. Releases thyroxine, which increases the metabolic rate. More is released when body temperature falls." },
-              { "name": "Pancreas", "detail": "In the abdomen. Releases insulin and glucagon, which control blood glucose. Their target organs include the liver and muscles." },
-              { "name": "Adrenal glands", "detail": "In the abdomen. Release adrenaline, which increases heart rate and breathing rate and delivers more oxygen and glucose to cells." },
-              { "name": "Ovaries", "detail": "In the lower abdomen. Glands involved in human reproduction in females. They release oestrogen. LH from the pituitary gland acts on the ovary." },
-              { "name": "Testes", "detail": "Glands involved in human reproduction in males. They release testosterone." }
+              {
+                "name": "Pituitary gland",
+                "detail": "In the head, attached to the brain. Releases several hormones, including ADH, FSH and LH, and so controls other glands."
+              },
+              {
+                "name": "Thyroid gland",
+                "detail": "In the neck. Releases thyroxine, which controls the basal metabolic rate. Its level is kept steady by negative feedback (AQA: Higher tier)."
+              },
+              {
+                "name": "Pancreas",
+                "detail": "In the abdomen. Releases insulin and glucagon (AQA: Higher tier), which control blood glucose. Their target organs include the liver and muscles."
+              },
+              {
+                "name": "Adrenal glands",
+                "detail": "In the abdomen. Release adrenaline, which increases heart rate and breathing rate and delivers more oxygen and glucose to cells."
+              },
+              {
+                "name": "Ovaries",
+                "detail": "In the lower abdomen. Glands involved in human reproduction in females. They release oestrogen. LH from the pituitary gland acts on the ovary."
+              },
+              {
+                "name": "Testes",
+                "detail": "Glands involved in human reproduction in males. They release testosterone."
+              }
             ]
           }
         },
-        { "type": "subheading", "text": "Two hormones in action" },
+        {
+          "type": "subheading",
+          "text": "Two hormones in action"
+        },
         {
           "type": "list",
           "items": [
@@ -81,7 +126,10 @@
     {
       "heading": "Hormones compared with nerves",
       "blocks": [
-        { "type": "paragraph", "text": "The body uses two coordination systems. Hormones and nerves differ in how they send messages." },
+        {
+          "type": "paragraph",
+          "text": "The body uses two coordination systems. Hormones and nerves differ in how they send messages."
+        },
         {
           "type": "table",
           "columns": ["Feature", "Endocrine system", "Nervous system"],
@@ -122,29 +170,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 5.7", "AQA T 4.5.3.1"],
-      "exam_phrases": [
-        "slower",
-        "longer-lasting",
-        "(chemical / hormone) via blood instead of electrical / impulse / neurones",
-        "target organs for insulin are the liver and muscle",
-        "(adrenaline) increases heart rate",
-        "(thyroxine) increases (basal) metabolic rate",
-        "respiration releases energy / heat"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The endocrine system uses hormones.",
-          "right": "Answers must be comparative. Say that it is slower, longer-lasting, or uses hormones in the blood instead of electrical impulses along neurones."
-        },
-        {
-          "wrong": "The endocrine system sends hormones to target organs.",
-          "right": "\"Hormones\" and \"target organs\" alone are ignored. Give a real difference, such as chemical transmission, slower or longer-lasting."
-        },
-        {
-          "wrong": "Thyroxine increases respiration, which produces energy to warm the body.",
-          "right": "\"Energy produced / made / created\" is not accepted. Say that respiration releases energy, or releases heat."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "4e70a458-43bc-4713-8a72-a8f20bd76466",
         "source": "AQA jun 2021, Paper 2 (H), Q06.3",
@@ -161,24 +186,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.1"],
-      "exam_phrases": [
-        "in the blood / plasma",
-        "dissolved in blood plasma",
-        "pancreas produces insulin; the target organs are the liver and muscles",
-        "the pituitary gland is situated in the head and is attached to the brain",
-        "pituitary (gland) produces FSH",
-        "the thyroid gland is situated in the neck"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Insulin is carried to its target organs by red blood cells.",
-          "right": "Red blood cells (and white blood cells and platelets) do not transport insulin. Say that insulin is dissolved in the blood plasma."
-        },
-        {
-          "wrong": "Insulin is produced by the adrenal glands and acts on the intestines.",
-          "right": "The adrenal glands do not produce insulin and the intestines are not its target organs. Insulin is made by the pancreas and acts on the liver and muscles."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "e2b9ddca-4a21-4fd9-87a8-921ebf051699",
         "source": "EDEXCEL jun 2024, Paper 2 (F), Q4(c)(ii)",
@@ -193,26 +200,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 3.2a"],
-      "exam_phrases": [
-        "secreted / released from glands / endocrine cells",
-        "travel in the blood(stream)",
-        "affect target organs / cells",
-        "hormones bind to specific receptors",
-        "chemical messengers",
-        "endocrine is slower acting",
-        "endocrine (responses) are longer-lived",
-        "in the blood plasma"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Hormones are transported in the blood.",
-          "right": "For two marks on how hormones reach their targets, give both points: in the blood / blood vessels, and in the plasma. \"In the blood plasma\" earns both."
-        },
-        {
-          "wrong": "The endocrine system is faster than the nervous system and its effects are short.",
-          "right": "This is the wrong way round. Endocrine is slower acting and longer-lived. The nervous system uses electrical impulses along neurones."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "a61192ab-ea32-46e3-a1f2-1169ba0d0a99",
         "source": "OCR jun 2019, Paper 1, Q20(a)(ii)",

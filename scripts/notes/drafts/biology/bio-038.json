@@ -8,15 +8,30 @@
     {
       "heading": "What affects the rate of transpiration",
       "blocks": [
-        { "type": "paragraph", "text": "Four environmental factors change how fast water is lost from the leaves: light intensity, temperature, air movement and humidity." },
+        {
+          "type": "paragraph",
+          "text": "Four environmental factors change how fast water is lost from the leaves: light intensity, temperature, air movement and humidity."
+        },
         {
           "type": "table",
           "columns": ["Factor", "Effect on transpiration", "Why"],
           "rows": [
-            ["Higher light intensity", "Faster", "Photosynthesis happens and the stomata are open."],
+            [
+              "Higher light intensity",
+              "Faster",
+              "Photosynthesis happens and the stomata are open."
+            ],
             ["Higher temperature", "Faster", "Evaporation is faster."],
-            ["More air movement", "Faster", "Moving air blows the water vapour away from the leaf."],
-            ["Lower humidity", "Faster", "A greater water vapour gradient between the leaf and the air."]
+            [
+              "More air movement",
+              "Faster",
+              "Moving air blows the water vapour away from the leaf."
+            ],
+            [
+              "Lower humidity",
+              "Faster",
+              "A greater water vapour gradient between the leaf and the air."
+            ]
           ]
         },
         {
@@ -27,12 +42,39 @@
             "prompt": "Pick a change in conditions",
             "result_labels": ["Rate of transpiration", "Why"],
             "options": [
-              { "label": "Brighter light", "results": ["Increases", "Stomata are open and photosynthesis happens."] },
-              { "label": "Darkness", "results": ["Decreases to almost nothing", "No photosynthesis, so the stomata are closed. Very little water is lost."] },
-              { "label": "Warmer", "results": ["Increases", "Evaporation is faster."] },
-              { "label": "Cooler", "results": ["Decreases", "Evaporation is slower, and the stomata are almost closed."] },
-              { "label": "Windier", "results": ["Increases", "Moving air blows water vapour away from the leaf."] },
-              { "label": "More humid", "results": ["Decreases", "A smaller water vapour gradient between the leaf and the air."] }
+              {
+                "label": "Brighter light",
+                "results": ["Increases", "Stomata are open and photosynthesis happens."]
+              },
+              {
+                "label": "Darkness",
+                "results": [
+                  "Decreases to almost nothing",
+                  "No photosynthesis, so the stomata are closed. Very little water is lost."
+                ]
+              },
+              {
+                "label": "Warmer",
+                "results": ["Increases", "Evaporation is faster."]
+              },
+              {
+                "label": "Cooler",
+                "results": [
+                  "Decreases",
+                  "Evaporation is slower, and the stomata are almost closed."
+                ]
+              },
+              {
+                "label": "Windier",
+                "results": ["Increases", "Moving air blows water vapour away from the leaf."]
+              },
+              {
+                "label": "More humid",
+                "results": [
+                  "Decreases",
+                  "A smaller water vapour gradient between the leaf and the air."
+                ]
+              }
             ]
           }
         },
@@ -57,14 +99,29 @@
     {
       "heading": "Measuring water uptake with a potometer",
       "blocks": [
-        { "type": "paragraph", "text": "A potometer measures how much water a shoot takes up. Water uptake is used to measure the rate of transpiration." },
+        {
+          "type": "paragraph",
+          "text": "A potometer measures how much water a shoot takes up. Water uptake is used to measure the rate of transpiration."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Set up", "text": "Fit a cut shoot into the potometer. Fill the apparatus with water and put an air bubble in the capillary tube." },
-            { "lead": "Start", "text": "Position the bubble at 0 mm. Record the position of the bubble every minute." },
-            { "lead": "Change one factor", "text": "Repeat in different conditions, such as moist air or dry air, or with a fan on or off." },
-            { "lead": "Compare", "text": "The further the bubble moves in a given time, the faster the water uptake." }
+            {
+              "lead": "Set up",
+              "text": "Fit a cut shoot into the potometer. Fill the apparatus with water and put an air bubble in the capillary tube."
+            },
+            {
+              "lead": "Start",
+              "text": "Position the bubble at 0 mm. Record the position of the bubble every minute."
+            },
+            {
+              "lead": "Change one factor",
+              "text": "Repeat in different conditions, such as moist air or dry air, or with a fan on or off."
+            },
+            {
+              "lead": "Compare",
+              "text": "The further the bubble moves in a given time, the faster the water uptake."
+            }
           ]
         },
         {
@@ -80,7 +137,11 @@
           "type": "equation",
           "label": "Volume of water taken up",
           "formula": "volume = π × r² × l",
-          "where": ["volume in mm³", "r = radius of the capillary tube in mm (half the diameter)", "l = distance the bubble moves in mm"]
+          "where": [
+            "volume in mm³",
+            "r = radius of the capillary tube in mm (half the diameter)",
+            "l = distance the bubble moves in mm"
+          ]
         },
         {
           "type": "equation",
@@ -95,10 +156,24 @@
             "alt": "Practise calculating the volume of water taken up from the distance the bubble moved.",
             "question": "A potometer has a capillary tube of diameter **{D} mm**. The air bubble moves **{L} mm**. Calculate the volume of water taken up by the plant. Use π = 3.14.",
             "variables": [
-              { "id": "D", "min": 1, "max": 2, "step": 0.5 },
-              { "id": "L", "min": 30, "max": 90, "step": 2 }
+              {
+                "id": "D",
+                "min": 1,
+                "max": 2,
+                "step": 0.5
+              },
+              {
+                "id": "L",
+                "min": 30,
+                "max": 90,
+                "step": 2
+              }
             ],
-            "answer": { "formula": "3.14 * (D / 2) ^ 2 * L", "unit": "mm³", "decimals": 2 },
+            "answer": {
+              "formula": "3.14 * (D / 2) ^ 2 * L",
+              "unit": "mm³",
+              "decimals": 2
+            },
             "working": [
               "Radius = diameter ÷ 2 = {D} ÷ 2",
               "Volume = π × r² × l",
@@ -137,28 +212,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA T 4.2.3.2", "AQA 2.12"],
-      "exam_phrases": [
-        "humidity, air movement, light intensity",
-        "no photosynthesis so stomata closed so no transpiration",
-        "it was warmer / light intensity was higher / less humid / windier",
-        "evaporation / transpiration would be faster",
-        "(so) a greater water vapour gradient between leaves and environment",
-        "air bubble moves further so resolution is improved"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Narrow tubing makes the volume easier to measure.",
-          "right": "\"Easier to measure\" on its own is ignored. Say the air bubble moves further, so resolution is improved and a small change in volume is easier to see."
-        },
-        {
-          "wrong": "More water is lost because it is hotter.",
-          "right": "Give the reason: evaporation or transpiration is faster. Answers must be comparative."
-        },
-        {
-          "wrong": "The stomata close at night because it's dark.",
-          "right": "\"It's dark\" is ignored. Say there is no light, so no photosynthesis, so the stomata are almost closed."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "2f80492c-d690-4be6-9fdd-ba5fb627a29e",
         "source": "AQA jun 2019, Paper 1 (H), Q3.6",
@@ -174,21 +227,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.12", "EDEX 6.13"],
-      "exam_phrases": [
-        "to compare (the effect)",
-        "as a control",
-        "to get a baseline measurement"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The fan was off in one test because that test does not matter.",
-          "right": "The test with the fan off is the control. It gives a baseline measurement to compare with, so the effect of air movement can be seen."
-        },
-        {
-          "wrong": "Water uptake and water loss are measured with a potometer in the same way.",
-          "right": "A potometer measures the volume of water taken up, from the distance the bubble moves. Use this to calculate the rate of water uptake."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "14d865a2-767a-45bc-b963-0cbafc6dffe5",
         "source": "EDEXCEL jun 2022, Paper 2 (F), Q8(c)(ii)",
@@ -203,28 +241,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 2.2i", "OCR 2.2j"],
-      "exam_phrases": [
-        "moving air increases transpiration / water loss",
-        "wind blows the water (vapour) away from the leaf",
-        "heat sink absorbs heat so the temperature stays constant",
-        "heat / temperature would affect transpiration",
-        "control the temperature / light intensity",
-        "repeats"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The heat sink is there to stop photosynthesis.",
-          "right": "References to photosynthesis are ignored. Say the heat sink absorbs heat from the lamp and keeps the temperature constant, because temperature would affect transpiration."
-        },
-        {
-          "wrong": "The gardener should control the heat.",
-          "right": "\"Control the heat\" is ignored. Say control the temperature, control the light intensity or the amount of wind, or use a potometer."
-        },
-        {
-          "wrong": "The volume is π × 1² × 72 because the tube is 1 mm.",
-          "right": "The tube diameter is 1 mm, so the radius is 0.5 mm. Using 1 as the radius gives 226.08 (or 230), which loses marks."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "bac65d6a-90e8-475e-a409-0bf44e2c2cf9",
         "source": "OCR nov 2020, Paper 3, Q19(b)(i)",

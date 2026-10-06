@@ -59,38 +59,23 @@
           "diagram": {
             "kind": "compare",
             "alt": "Compare the plum pudding model with the nuclear model of the atom.",
-            "items": [
-              "Plum pudding model",
-              "Nuclear model"
-            ],
+            "items": ["Plum pudding model", "Nuclear model"],
             "rows": [
               {
                 "feature": "Positive charge",
-                "values": [
-                  "Spread through the whole atom",
-                  "Concentrated in a small nucleus"
-                ]
+                "values": ["Spread through the whole atom", "Concentrated in a small nucleus"]
               },
               {
                 "feature": "Mass",
-                "values": [
-                  "Spread through the atom",
-                  "Concentrated in the nucleus"
-                ]
+                "values": ["Spread through the atom", "Concentrated in the nucleus"]
               },
               {
                 "feature": "Electrons",
-                "values": [
-                  "Embedded in the ball",
-                  "Orbit the nucleus"
-                ]
+                "values": ["Embedded in the ball", "Orbit the nucleus"]
               },
               {
                 "feature": "Empty space",
-                "values": [
-                  "None",
-                  "Most of the atom"
-                ]
+                "values": ["None", "Most of the atom"]
               }
             ]
           }
@@ -101,10 +86,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Observation",
-            "Conclusion"
-          ],
+          "columns": ["Observation", "Conclusion"],
           "rows": [
             [
               "Most alpha particles passed straight through the foil.",
@@ -199,34 +181,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.4.1.3",
-        "AQA T 6.4.1.3"
-      ],
-      "exam_phrases": [
-        "new (experimental) evidence / data",
-        "evidence cannot be explained using an existing model",
-        "predictions made using old model are shown to be incorrect",
-        "new model explains new evidence",
-        "the atom is a ball of positive charge",
-        "electrons are embedded in the ball",
-        "the large angle deflections suggest that the atom contains a nucleus",
-        "most alpha particles were not deflected suggesting that atoms are mostly empty space"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The plum pudding model has electrons orbiting a nucleus.",
-          "right": "In the plum pudding model the atom is a ball of positive charge with electrons embedded in it. Orbiting electrons belong to the nuclear model."
-        },
-        {
-          "wrong": "The plum pudding model did not predict the results, so it was wrong.",
-          "right": "Say what the results showed: the large angle deflections suggest the atom contains a charged nucleus, and most alpha particles not being deflected suggests the atom is mostly empty space."
-        },
-        {
-          "wrong": "A model is replaced just because a new one is invented.",
-          "right": "A model is replaced when new evidence cannot be explained by the old model or its predictions are shown to be incorrect. The new model must explain the new evidence."
-        }
-      ],
+      "spec_codes": ["AQA 4.4.1.3", "AQA T 6.4.1.3"],
       "worked_example": {
         "exemplar_id": "94bb3a42-dec6-4b53-bbb4-e99936ffd57b",
         "source": "AQA jun 2018, Paper 2 (H), Q09.3",
@@ -242,31 +197,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 6.17"
-      ],
-      "exam_phrases": [
-        "most (alpha particles) pass (straight) through the foil",
-        "some (alpha particles) are scattered / deflected through small angles",
-        "(very) few (alpha particles) are scattered / deflected through large angles",
-        "atoms are mainly empty space",
-        "there must be a nucleus / something inside the atom",
-        "(nucleus must be) small / heavy / dense / concentrated / charged / positive"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The alpha particles were refracted by the gold foil.",
-          "right": "Refracted is ignored. Say that the alpha particles were scattered or deflected, or repelled by the nucleus."
-        },
-        {
-          "wrong": "Alpha particles bounced off the electrons in the atoms.",
-          "right": "Electrons are ignored in this explanation. The evidence is about the nucleus: it must be small, dense and charged."
-        },
-        {
-          "wrong": "Only observations are given, with no conclusions.",
-          "right": "Marks are for both. Observations: most pass through, some small deflections, very few large deflections. Conclusions: atoms are mainly empty space, with a small, charged nucleus."
-        }
-      ],
+      "spec_codes": ["EDEX 6.17"],
       "worked_example": {
         "exemplar_id": "b1745ede-aa6a-447f-a73a-82ff589a274b",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q8(b)(ii)",
@@ -282,32 +213,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P1.1a"
-      ],
-      "exam_phrases": [
-        "(Most of the) atom is empty space",
-        "Positively charged",
-        "Nucleus",
-        "new evidence",
-        "more experiments completed",
-        "previous model couldn’t explain new observations",
-        "The old model has no nucleus"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The model changed because someone had a new idea.",
-          "right": "Say why: more experiments were completed, there was new evidence, or the previous model could not explain new observations."
-        },
-        {
-          "wrong": "Atoms in the plum pudding model have a nucleus.",
-          "right": "There is no nucleus in the old model. The positive particles are in a nucleus in the current model."
-        },
-        {
-          "wrong": "The deflected particles show the atom is empty space.",
-          "right": "Most particles passing through shows empty space. Some being deflected shows a positively charged nucleus."
-        }
-      ],
+      "spec_codes": ["OCR P1.1a"],
       "worked_example": {
         "exemplar_id": "1b4274af-fc23-4b4f-a4f8-206b42e3631c",
         "source": "OCR jun 2025, Paper 3, Q18(b)",

@@ -8,7 +8,10 @@
     {
       "heading": "Series circuits",
       "blocks": [
-        { "type": "paragraph", "text": "In a series circuit the components are joined one after another in a single loop. There is only one path for the current." },
+        {
+          "type": "paragraph",
+          "text": "In a series circuit the components are joined one after another in a single loop. There is only one path for the current."
+        },
         {
           "type": "list",
           "items": [
@@ -21,23 +24,42 @@
           "type": "equation",
           "label": "Total resistance in series",
           "formula": "R_total = R₁ + R₂",
-          "where": ["R_total = total resistance, in ohms (Ω)", "R₁, R₂ = resistance of each component, in ohms (Ω)"]
+          "where": [
+            "R_total = total resistance, in ohms (Ω)",
+            "R₁, R₂ = resistance of each component, in ohms (Ω)"
+          ]
         },
         {
           "type": "equation",
           "label": "Potential difference, current and resistance",
           "formula": "V = I × R",
-          "where": ["V = potential difference, in volts (V)", "I = current, in amperes (A)", "R = resistance, in ohms (Ω)"]
+          "where": [
+            "V = potential difference, in volts (V)",
+            "I = current, in amperes (A)",
+            "R = resistance, in ohms (Ω)"
+          ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Know the rule.", "text": "In series the supply potential difference is shared between the components." },
-            { "lead": "Write down what you know.", "text": "A 3.0 V battery is connected in series to a 22 Ω resistor and a resistor X. The potential difference across X is 2.1 V." },
-            { "lead": "Subtract.", "text": "Across the 22 Ω resistor: 3.0 − 2.1 = 0.9 V." }
+            {
+              "lead": "Know the rule.",
+              "text": "In series the supply potential difference is shared between the components."
+            },
+            {
+              "lead": "Write down what you know.",
+              "text": "A 3.0 V battery is connected in series to a 22 Ω resistor and a resistor X. The potential difference across X is 2.1 V."
+            },
+            {
+              "lead": "Subtract.",
+              "text": "Across the 22 Ω resistor: 3.0 − 2.1 = 0.9 V."
+            }
           ]
         },
-        { "type": "subheading", "text": "Measuring instruments" },
+        {
+          "type": "subheading",
+          "text": "Measuring instruments"
+        },
         {
           "type": "list",
           "items": [
@@ -51,14 +73,53 @@
             "kind": "slider",
             "alt": "Change the supply and two resistors in series to see the total resistance, current and potential difference across the second resistor.",
             "inputs": [
-              { "id": "V", "label": "Supply potential difference", "unit": "V", "min": 3, "max": 12, "step": 1, "value": 6 },
-              { "id": "R1", "label": "Resistor 1", "unit": "Ω", "min": 5, "max": 50, "step": 5, "value": 10 },
-              { "id": "R2", "label": "Resistor 2", "unit": "Ω", "min": 5, "max": 50, "step": 5, "value": 20 }
+              {
+                "id": "V",
+                "label": "Supply potential difference",
+                "unit": "V",
+                "min": 3,
+                "max": 12,
+                "step": 1,
+                "value": 6
+              },
+              {
+                "id": "R1",
+                "label": "Resistor 1",
+                "unit": "Ω",
+                "min": 5,
+                "max": 50,
+                "step": 5,
+                "value": 10
+              },
+              {
+                "id": "R2",
+                "label": "Resistor 2",
+                "unit": "Ω",
+                "min": 5,
+                "max": 50,
+                "step": 5,
+                "value": 20
+              }
             ],
             "outputs": [
-              { "label": "Total resistance", "unit": "Ω", "formula": "R1 + R2", "decimals": 0 },
-              { "label": "Current in the circuit", "unit": "A", "formula": "V / (R1 + R2)", "decimals": 2 },
-              { "label": "Potential difference across resistor 2", "unit": "V", "formula": "V * R2 / (R1 + R2)", "decimals": 2 }
+              {
+                "label": "Total resistance",
+                "unit": "Ω",
+                "formula": "R1 + R2",
+                "decimals": 0
+              },
+              {
+                "label": "Current in the circuit",
+                "unit": "A",
+                "formula": "V / (R1 + R2)",
+                "decimals": 2
+              },
+              {
+                "label": "Potential difference across resistor 2",
+                "unit": "V",
+                "formula": "V * R2 / (R1 + R2)",
+                "decimals": 2
+              }
             ]
           }
         },
@@ -69,11 +130,30 @@
             "alt": "Find the current in a series circuit of two resistors.",
             "question": "Two resistors of {R1} Ω and {R2} Ω are connected in series to a {V} V battery. Calculate the current in the circuit.",
             "variables": [
-              { "id": "R1", "min": 10, "max": 50, "step": 10 },
-              { "id": "R2", "min": 10, "max": 50, "step": 10 },
-              { "id": "V", "min": 6, "max": 12, "step": 3 }
+              {
+                "id": "R1",
+                "min": 10,
+                "max": 50,
+                "step": 10
+              },
+              {
+                "id": "R2",
+                "min": 10,
+                "max": 50,
+                "step": 10
+              },
+              {
+                "id": "V",
+                "min": 6,
+                "max": 12,
+                "step": 3
+              }
             ],
-            "answer": { "formula": "V / (R1 + R2)", "unit": "A", "decimals": 3 },
+            "answer": {
+              "formula": "V / (R1 + R2)",
+              "unit": "A",
+              "decimals": 3
+            },
             "working": [
               "Total resistance = {R1} + {R2}",
               "I = V ÷ R = {V} ÷ (total resistance)",
@@ -94,7 +174,10 @@
     {
       "heading": "Parallel circuits",
       "blocks": [
-        { "type": "paragraph", "text": "In a parallel circuit the components are on separate branches. There is more than one path for the current. Some circuits have both series and parallel parts." },
+        {
+          "type": "paragraph",
+          "text": "In a parallel circuit the components are on separate branches. There is more than one path for the current. Some circuits have both series and parallel parts."
+        },
         {
           "type": "list",
           "items": [
@@ -123,7 +206,10 @@
     {
       "heading": "Why the total resistance changes",
       "blocks": [
-        { "type": "paragraph", "text": "Adding resistors in series raises the total resistance. Adding resistors in parallel lowers it. The reasons are different." },
+        {
+          "type": "paragraph",
+          "text": "Adding resistors in series raises the total resistance. Adding resistors in parallel lowers it. The reasons are different."
+        },
         {
           "type": "table",
           "columns": ["Feature", "Series", "Parallel"],
@@ -171,28 +257,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.2.2", "AQA T 6.2.2"],
-      "exam_phrases": [
-        "the total resistance must be less than 20 Ω",
-        "the total resistance of the resistors (in parallel) is less than the resistance of the smallest resistor",
-        "more than one path for charge to flow",
-        "the current would be higher (for the same p.d.)",
-        "(both) switches need to be closed / on",
-        "to complete the series circuit"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The total resistance of 20 Ω and R in parallel is 26 Ω.",
-          "right": "In parallel the total is less than the smallest resistance, so it must be less than 20 Ω."
-        },
-        {
-          "wrong": "Connecting two resistors in parallel increases the total resistance.",
-          "right": "It decreases. Give a reason: more than one path for charge to flow, or the total resistance is always less than the smallest individual resistance. The reason scores only if the box is right."
-        },
-        {
-          "wrong": "When the light intensity decreases, the current in the LDR increases.",
-          "right": "When the light intensity decreases, the potential difference across the LDR increases and the current decreases."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "45b284db-52e1-4035-81a6-09d4e4512395",
         "source": "AQA jun 2023, Paper 1 (F), Q06.2",
@@ -207,28 +271,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 10.3", "EDEX 10.11", "EDEX 10.14", "EDEX 10.15"],
-      "exam_phrases": [
-        "(total) resistance increases",
-        "(because) current decreases",
-        "(and) voltage stays the same",
-        "fewer paths for the current",
-        "effective resistance = sum of individual resistances",
-        "fewer paths for the current"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The current in wire H is 6.0 + 3.5 = 9.5 A.",
-          "right": "Current is conserved at a junction. The current in H is 2.5 A, found by subtracting 3.5 A from 6.0 A, not by adding."
-        },
-        {
-          "wrong": "The voltage across the 22 Ω resistor is 2.1 V.",
-          "right": "2.1 V is across resistor X. The supply is shared, so across the 22 Ω resistor it is 3.0 − 2.1 = 0.9 V."
-        },
-        {
-          "wrong": "Removing a resistor from a parallel circuit decreases the total resistance.",
-          "right": "Fewer resistors in parallel means the total resistance increases. The current decreases and the voltage stays the same."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "6f0a5b52-95a0-4080-bced-01ea8fd4d76a",
         "source": "EDEXCEL jun 2024, Paper 2 (F), Q8(b)(iv)",
@@ -244,20 +286,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR P3.2a", "OCR P3.2i", "OCR P3.2j", "OCR P3.2m"],
-      "exam_phrases": [
-        "resistance = voltage ÷ current",
-        "resistance = potential difference ÷ current"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The maximum resistance from four resistors comes from connecting them in parallel.",
-          "right": "Resistors in series have a bigger total than any one of them. The maximum is when all four are in series: the resistances add."
-        },
-        {
-          "wrong": "B and D have the same resistance, with no working shown.",
-          "right": "Name the pair and show the resistance of each using resistance = voltage ÷ current. Both parts are needed for the mark."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "e9b7d429-55ab-47ce-bf81-924e59ae85f5",
         "source": "OCR sample, Paper 3, Q19(b)",

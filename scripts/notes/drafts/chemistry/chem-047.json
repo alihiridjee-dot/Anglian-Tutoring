@@ -8,14 +8,29 @@
     {
       "heading": "Acids, bases and alkalis",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers what acids, bases and alkalis are, and which ions make a solution acidic or alkaline." },
+        {
+          "type": "paragraph",
+          "text": "This section covers what acids, bases and alkalis are, and which ions make a solution acidic or alkaline."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Acid", "meaning": "A substance that produces hydrogen ions, H⁺, in aqueous solution." },
-            { "term": "Base", "meaning": "Any substance that reacts with an acid to form a salt and water only." },
-            { "term": "Alkali", "meaning": "A soluble base. Its aqueous solution contains hydroxide ions, OH⁻." },
-            { "term": "Salt", "meaning": "A compound formed when the hydrogen in an acid is replaced by a metal ion." }
+            {
+              "term": "Acid",
+              "meaning": "A substance that produces hydrogen ions, H⁺, in aqueous solution."
+            },
+            {
+              "term": "Base",
+              "meaning": "Any substance that reacts with an acid to form a salt and water only."
+            },
+            {
+              "term": "Alkali",
+              "meaning": "A soluble base. Its aqueous solution contains hydroxide ions, OH⁻."
+            },
+            {
+              "term": "Salt",
+              "meaning": "A compound formed when the hydrogen in an acid is replaced by a metal ion."
+            }
           ]
         },
         {
@@ -40,7 +55,10 @@
     {
       "heading": "Neutralisation reactions",
       "blocks": [
-        { "type": "paragraph", "text": "Neutralisation is the reaction of an acid with an alkali or a base. This section gives the word equations and the ionic equation." },
+        {
+          "type": "paragraph",
+          "text": "Neutralisation is the reaction of an acid with an alkali or a base. This section gives the word equations and the ionic equation."
+        },
         {
           "type": "equation",
           "label": "Acid with an alkali or a base",
@@ -53,12 +71,19 @@
           "formula": "acid + metal carbonate → salt + water + carbon dioxide",
           "where": ["carbon dioxide is given off as bubbles"]
         },
-        { "type": "paragraph", "text": "In an acid and alkali reaction, only the hydrogen ions and hydroxide ions change. This is the ionic equation for every acid-alkali neutralisation." },
+        {
+          "type": "paragraph",
+          "text": "In an acid and alkali reaction, only the hydrogen ions and hydroxide ions change. This is the ionic equation for every acid-alkali neutralisation."
+        },
         {
           "type": "equation",
           "label": "Ionic equation for neutralisation",
           "formula": "H⁺(aq) + OH⁻(aq) → H₂O(l)",
-          "where": ["H⁺ comes from the acid", "OH⁻ comes from the alkali", "(aq) means dissolved in water, (l) means liquid"]
+          "where": [
+            "H⁺ comes from the acid",
+            "OH⁻ comes from the alkali",
+            "(aq) means dissolved in water, (l) means liquid"
+          ]
         },
         {
           "type": "list",
@@ -81,7 +106,10 @@
     {
       "heading": "Naming and writing salts",
       "blocks": [
-        { "type": "paragraph", "text": "The salt made depends on two things: the acid used and the positive ions in the base, alkali or carbonate." },
+        {
+          "type": "paragraph",
+          "text": "The salt made depends on two things: the acid used and the positive ions in the base, alkali or carbonate."
+        },
         {
           "type": "table",
           "columns": ["Acid used", "Salt ends in"],
@@ -91,9 +119,18 @@
             ["Sulfuric acid, H₂SO₄", "sulfate"]
           ]
         },
-        { "type": "paragraph", "text": "The metal in the base gives the first part of the name. Zinc oxide and sulfuric acid make zinc sulfate." },
-        { "type": "subheading", "text": "Deducing the formula of a salt" },
-        { "type": "paragraph", "text": "Use the charges on the ions. The total positive charge must equal the total negative charge." },
+        {
+          "type": "paragraph",
+          "text": "The metal in the base gives the first part of the name. Zinc oxide and sulfuric acid make zinc sulfate."
+        },
+        {
+          "type": "subheading",
+          "text": "Deducing the formula of a salt"
+        },
+        {
+          "type": "paragraph",
+          "text": "Use the charges on the ions. The total positive charge must equal the total negative charge."
+        },
         {
           "type": "table",
           "columns": ["Positive ion", "Negative ion", "Salt formula"],
@@ -130,7 +167,11 @@
               },
               {
                 "label": "Hydrochloric acid + calcium hydroxide",
-                "results": ["**Calcium chloride**, CaCl₂", "Water", "2HCl + Ca(OH)₂ → CaCl₂ + 2H₂O"],
+                "results": [
+                  "**Calcium chloride**, CaCl₂",
+                  "Water",
+                  "2HCl + Ca(OH)₂ → CaCl₂ + 2H₂O"
+                ],
                 "explanation": "Calcium hydroxide has two hydroxide ions, so it reacts with two HCl."
               },
               {
@@ -145,7 +186,11 @@
               },
               {
                 "label": "Hydrochloric acid + magnesium carbonate",
-                "results": ["**Magnesium chloride**, MgCl₂", "Water and carbon dioxide", "2HCl + MgCO₃ → MgCl₂ + H₂O + CO₂"],
+                "results": [
+                  "**Magnesium chloride**, MgCl₂",
+                  "Water and carbon dioxide",
+                  "2HCl + MgCO₃ → MgCl₂ + H₂O + CO₂"
+                ],
                 "explanation": "A metal carbonate also gives off carbon dioxide."
               }
             ]
@@ -182,28 +227,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.4.2.2", "AQA T 5.4.2.2", "AQA 4.4.2.4", "AQA T 5.4.2.4"],
-      "exam_phrases": [
-        "hydrochloric (acid) ... water",
-        "Na⁺ and OH⁻ (the ions in sodium hydroxide solution)",
-        "2 NaOH + H₂SO₄ → Na₂SO₄ + 2 H₂O",
-        "indicator turns blue / purple / violet (because pH = 14) ... so it is an alkali",
-        "indicator turns red (because pH = 2) ... so it is an acid",
-        "universal indicator: red in nitric acid, purple or blue in ammonia solution"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Universal indicator turns green in nitric acid.",
-          "right": "The mark scheme accepts red, and allows orange or yellow, but does not accept green. Green is the colour at pH 7."
-        },
-        {
-          "wrong": "Zinc sulfate is made by reacting zinc oxide with hydrochloric acid.",
-          "right": "The acid decides the type of salt. A sulfate needs sulfuric acid, so the answer is zinc oxide and sulfuric acid."
-        },
-        {
-          "wrong": "NaOH + H₂SO₄ → Na₂SO₄ + H₂O",
-          "right": "The equation must be balanced: 2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O. Only Na₂SO₄ and H₂O scores one mark."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "d1df8ea2-126a-41ba-b4ae-2ecf08341915",
         "source": "AQA jun 2020, Paper 1 (H), Q04.7",
@@ -218,28 +241,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.9", "EDEX 3.10", "EDEX 3.13", "EDEX 3.14"],
-      "exam_phrases": [
-        "neutralisation (allow acid-base / exothermic)",
-        "{hydrogen ions / H⁺} react with {hydroxide ions / OH⁻}",
-        "to form water",
-        "H⁺ + OH⁻ → H₂O",
-        "{magnesium hydroxide / base / alkali / OH⁻ ions} {reacts with / neutralises} {the acid / the H⁺ ions}",
-        "hydrogen ion concentration is reduced / there is an excess of hydroxide ions"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Neutralisation is an endothermic reaction.",
-          "right": "Neutralisation is accepted as exothermic, and 'endothermic' is rejected."
-        },
-        {
-          "wrong": "2HCl + Ba(OH)₂ → BaCl₂ + 2H₂O is the ionic equation for the neutralisation.",
-          "right": "An ionic equation leaves out spectator ions. The answer is H⁺ + OH⁻ → H₂O, with a capital H."
-        },
-        {
-          "wrong": "The pH goes up because the mixture becomes less acidic.",
-          "right": "'Is less acidic' and 'becomes alkaline' are ignored. Say the H⁺ ions react with OH⁻ ions, so the H⁺ concentration falls."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "5ebc6381-5338-4244-bb40-fd77e6762db6",
         "source": "EDEXCEL jun 2022, Paper 1 (F), Q4(e)",
@@ -255,28 +256,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR C3.3d", "OCR C3.3e"],
-      "exam_phrases": [
-        "acid + alkali → salt + water",
-        "H⁺ (aq) + OH⁻ (aq) → H₂O (l)",
-        "reaction between nitric acid (HNO₃), an acid, and zinc oxide (ZnO), a base",
-        "to make zinc nitrate, a salt, and water (only)",
-        "2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O",
-        "ZnO + 2HNO₃ → Zn(NO₃)₂ + H₂O"
-      ],
-      "mistakes": [
-        {
-          "wrong": "H⁺ and OH⁻ → H₂O",
-          "right": "'and' or '&' is not allowed instead of '+'. Write H⁺ (aq) + OH⁻ (aq) → H₂O (l)."
-        },
-        {
-          "wrong": "It is neutralisation because an acid and a base react.",
-          "right": "Marks are only given when the reactants and products are named: an acid (nitric acid) and a base (zinc oxide) make a salt (zinc nitrate) and water only."
-        },
-        {
-          "wrong": "H⁺ + OH⁻ → H₂O with no state symbols, when the question says to include them.",
-          "right": "The state symbols (aq), (aq) and (l) are a separate mark. It depends on the formulae being correct."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "995c6f40-390d-4f68-8ceb-5ad6b902492e",
         "source": "OCR jun 2022, Paper 3, Q18(c)",

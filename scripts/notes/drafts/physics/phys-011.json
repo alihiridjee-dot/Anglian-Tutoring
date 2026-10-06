@@ -154,11 +154,7 @@
               "unit": "C",
               "decimals": 1
             },
-            "working": [
-              "Q = I × t",
-              "Q = {I} × {t}",
-              "Q = {answer} C"
-            ]
+            "working": ["Q = I × t", "Q = {I} × {t}", "Q = {answer} C"]
           }
         },
         {
@@ -191,28 +187,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.2.1.2",
-        "AQA T 6.2.1.2"
-      ],
-      "exam_phrases": [
-        "charge",
-        "charge flow = current × time",
-        "Q = It",
-        "t = 300 (s)",
-        "t = 86 400 (s)",
-        "coulombs / C"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Charge flow = 130 000 × 5 = 650 000 C.",
-          "right": "Time must be in seconds, so 5 minutes is 300 s. A correct substitution with an unconverted time can score some marks, but the answer is wrong."
-        },
-        {
-          "wrong": "The charge flow through a lamp with a current of 200 mA is 200 × 15 = 3000 C.",
-          "right": "Convert the current first: 200 mA = 0.2 A. Then charge flow = 0.2 × 15 = 3.0 C."
-        }
-      ],
+      "spec_codes": ["AQA 4.2.1.2", "AQA T 6.2.1.2"],
       "worked_example": {
         "exemplar_id": "2d2c368a-7353-4d8c-97c0-9c02ca20762c",
         "source": "AQA jun 2022, Paper 1 (F), Q07.4",
@@ -228,29 +203,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 10.8",
-        "EDEX 10.9",
-        "EDEX 10.10"
-      ],
-      "exam_phrases": [
-        "electrons",
-        "substitution (Q) = 0.21 × 300",
-        "evaluation",
-        "unit: coulombs",
-        "accept C(oulombs), c, As",
-        "time = charge / current"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Charge = 2.5 × 8 = 20 C for 8 minutes at 2.5 A.",
-          "right": "Convert 8 minutes to seconds: 2.5 × 8 × 60 = 1200 C. The unconverted answer of 20 C scores 1 mark only."
-        },
-        {
-          "wrong": "The answer is 63 with no unit.",
-          "right": "The unit is a separate mark. Write 63 coulombs, or 63 C."
-        }
-      ],
+      "spec_codes": ["EDEX 10.8", "EDEX 10.9", "EDEX 10.10"],
       "worked_example": {
         "exemplar_id": "d94691f8-deb2-4e94-9475-e87b80c3a7fe",
         "source": "EDEXCEL jun 2022, Paper 2 (F), Q1(b)(ii)",
@@ -265,33 +218,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P3.1e",
-        "OCR P3.1f",
-        "OCR P3.1g"
-      ],
-      "exam_phrases": [
-        "potential difference",
-        "closed or complete circuit",
-        "Charge flow = current × time / Q = It",
-        "t = 2 x 60 = 120 (s)",
-        "Conversion of mA to A (40 mA = 0.04 A)",
-        "ALLOW voltage"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The conditions for charge to flow are ions and charge.",
-          "right": "Ions and charge are ignored. Write potential difference (or voltage) and a closed or complete circuit."
-        },
-        {
-          "wrong": "Q = 15 × 2 = 30 C for 15 A for 2 minutes.",
-          "right": "The time was not converted. Use 2 × 60 = 120 s, so Q = 15 × 120 = 1800 C."
-        },
-        {
-          "wrong": "A current of 40 mA takes 3.6 ÷ 40 = 0.09 s to transfer 3.6 C.",
-          "right": "Convert mA to A first: 40 mA = 0.04 A. Then t = 3.6 ÷ 0.04 = 90 s."
-        }
-      ],
+      "spec_codes": ["OCR P3.1e", "OCR P3.1f", "OCR P3.1g"],
       "worked_example": {
         "exemplar_id": "8315952d-1964-4836-ae6a-d35de3fe3594",
         "source": "OCR jun 2024, Paper 1, Q18(c)",

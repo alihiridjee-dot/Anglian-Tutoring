@@ -82,11 +82,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Neurone",
-            "Carries impulses",
-            "Job"
-          ],
+          "columns": ["Neurone", "Carries impulses", "Job"],
           "rows": [
             [
               "**Sensory neurone**",
@@ -252,33 +248,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 5.2",
-        "AQA T 4.5.2"
-      ],
-      "exam_phrases": [
-        "as an electrical impulse",
-        "(across the synapse) as diffusion / movement of a chemical / neurotransmitter",
-        "stimulus is detected by the receptor",
-        "sensory, relay and motor neurones",
-        "crosses synapses (as a chemical)",
-        "long, to carry the impulse from the CNS / coordinator to the muscle(s) / effector",
-        "insulation or fatty sheath, so the impulse travels faster"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Information is passed along the neurone as a signal.",
-          "right": "Signal and message are ignored. Say that an electrical impulse travels along the neurone."
-        },
-        {
-          "wrong": "Mitochondria in a motor neurone make energy for the impulse.",
-          "right": "Energy produced, made or created is not accepted. Say that mitochondria respire, or release energy, to allow the impulse to travel."
-        },
-        {
-          "wrong": "A motor neurone is long to carry messages.",
-          "right": "Carrying messages unqualified is ignored. Say it carries the impulse from the CNS to a muscle or effector."
-        }
-      ],
+      "spec_codes": ["AQA 5.2", "AQA T 4.5.2"],
       "worked_example": {
         "exemplar_id": "5d8d123f-4509-45a8-8134-eba903d1ade3",
         "source": "AQA jun 2024, Paper 2 (F), Q03.8",
@@ -293,32 +263,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.13"
-      ],
-      "exam_phrases": [
-        "transmit electrical impulses from receptors to the CNS",
-        "the synapse is a gap between neurones",
-        "(electrical) impulse stimulates the release of a chemical / neurotransmitter",
-        "(neurotransmitter) diffuses across the synapse",
-        "stimulates an (electrical) impulse in the next neurone",
-        "myelination speeds up impulses and insulates the axon",
-        "neurotransmitters bind to receptors on the next neurone"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Sensory neurones detect stimuli.",
-          "right": "Detect stimuli is ignored. Say that sensory neurones transmit electrical impulses from receptors (sense organs) to the CNS."
-        },
-        {
-          "wrong": "The impulse jumps across the synapse to the next neurone.",
-          "right": "Describe the chain: the impulse triggers release of a neurotransmitter, which diffuses across the synapse and triggers a new impulse in the next neurone."
-        },
-        {
-          "wrong": "Motor neurones are myelinated so they can carry impulses.",
-          "right": "Myelination speeds up impulses by insulating the axon. Motor neurones carry information from the CNS to effectors over a greater distance, so speed matters."
-        }
-      ],
+      "spec_codes": ["EDEX 2.13"],
       "worked_example": {
         "exemplar_id": "7a3f0f7a-c049-4815-bd7e-8d43f71f7b28",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q10(c)",
@@ -362,33 +307,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 3.1a",
-        "OCR 3.1b"
-      ],
-      "exam_phrases": [
-        "diffuses across the gap / synapse",
-        "triggers a nerve impulse / electrical signal in the next neurone",
-        "sensory receptors detect the stimulus and generate a nerve impulse",
-        "endocrine system uses chemical messengers / hormones but the nervous system uses electrical messages / nerve impulses",
-        "endocrine is slower acting",
-        "endocrine responses are longer-lived",
-        "endocrine communicates via the blood but the nervous system uses neurones"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The neurotransmitter sends a signal across the synapse.",
-          "right": "Signal or message instead of impulse is ignored. Say the neurotransmitter diffuses across the gap and triggers a nerve impulse in the next neurone."
-        },
-        {
-          "wrong": "Hormones work faster than nerves.",
-          "right": "The endocrine system is slower acting and its responses last longer. The nervous system is faster and shorter-lived."
-        },
-        {
-          "wrong": "Blocked sensory receptors mean a reflex action is taking place.",
-          "right": "Reflex action is ignored when the question asks about receptors. Say receptors cannot detect the stimulus or generate a nerve impulse."
-        }
-      ],
+      "spec_codes": ["OCR 3.1a", "OCR 3.1b"],
       "worked_example": {
         "exemplar_id": "18d8c02f-68c6-401b-945f-0e1d96d0d07d",
         "source": "OCR jun 2023, Paper 3, Q23(b)",
