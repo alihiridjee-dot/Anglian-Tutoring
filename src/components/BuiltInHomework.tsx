@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Clock3, Loader2, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -12,6 +13,7 @@ import {
   type TimestampedDraft,
 } from "@/lib/homework/homeworkDrafts";
 import { isAlreadySubmitted, startMarking } from "@/lib/homework/startMarking";
+import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import { SciText } from "@/components/Shared";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
@@ -171,6 +173,7 @@ export function AnswerForm({
   const [saving, setSaving] = useState(false);
   const [restored, setRestored] = useState(false);
   const [confirming, setConfirming] = useState(false);
+  const queryClient = useQueryClient();
   const notes = work.notes;
 
   const draftOf = (id: string): Draft => ({ text: work.answers[id] ?? "" });
@@ -329,6 +332,9 @@ export function AnswerForm({
       setRestored(false);
       setConfirming(false);
       onChanged();
+      // The weekly task list reads hand-ins too; without this it kept offering
+      // "Start" on the task just handed in until its cache went stale.
+      void invalidatePlanner(queryClient, userId);
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Could not submit");
     } finally {
