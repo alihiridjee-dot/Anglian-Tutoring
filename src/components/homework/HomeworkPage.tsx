@@ -40,7 +40,7 @@ import { PredictedGradeCard } from "@/components/homework/PredictedGradeCard";
  *
  * Deliberately only a list. Answering happens on `/homework/$homeworkId`,
  * because two writers now create homework — a tutor setting a brief, and the
- * planner filling in a sheet for each spec point — and a page that rendered
+ * practice queue writing a sheet for each spec point — and a page that rendered
  * every unsubmitted sheet's form inline stopped being viable the moment the
  * second one existed.
  *

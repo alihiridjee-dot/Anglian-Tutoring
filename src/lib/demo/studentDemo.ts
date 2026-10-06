@@ -787,8 +787,8 @@ export type DemoMcqSet = {
 /**
  * The demo's quizzes, as the Weekly MCQs page lists them. Every set is fixture
  * content — there is no generation, no read of `mcq_sets`, and no attempt is
- * ever written. A real student's quizzes are generated per spec point by
- * `ensureMcqForPoints`; nothing here reaches it.
+ * ever written. A real student's quizzes are written per spec point by the
+ * practice queue; nothing here reaches it.
  *
  * Like the live page, this lists only points Alex's plan has reached. Quizzes
  * on later topics are in DEMO_MCQ_SETS_LATER, which only the curriculum shows.

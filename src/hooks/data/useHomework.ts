@@ -26,7 +26,7 @@ const HOMEWORK_KEY = ["homework"] as const;
  *
  * Level is filtered here because a different level is a different
  * qualification. Board is left to the page, which knows what has been handed
- * in. RLS scopes `resources` by subject alone, and the planner writes a sheet
+ * in. RLS scopes `resources` by subject alone, and the practice queue writes a sheet
  * for every spec point any student reaches on any board. Without both filters,
  * an AQA GCSE student's practice list filled with Edexcel and A-Level sheets.
  *
@@ -74,7 +74,7 @@ const LIBRARY_PAGE = 50;
 /**
  * The tutor's homework library, a page at a time, filtered by who wrote it.
  *
- * Asked of the server rather than filtered here: the planner writes a sheet for
+ * Asked of the server rather than filtered here: the practice queue writes a sheet for
  * every spec point, and a single read of every brief stopped at PostgREST's
  * 1,000-row cap (S-17b), so past that the newest sheets never reached the list.
  * `id` breaks ties so a page never repeats or skips a row with the same date.
