@@ -1,0 +1,174 @@
+code,title,weight,topic
+OXAQA 3.1.1a,Matter can be classified in terms of the three states of matter,2.18,Atomic structure and the periodic table
+OXAQA 3.1.1b,Evidence for the existence of particles can be obtained from simple experiments,1.4,Atomic structure and the periodic table
+OXAQA 3.1.2a,"Atoms, elements and the periodic table",1.6,Atomic structure and the periodic table
+OXAQA 3.1.2b,Chemical symbols for atoms of elements,1.6,Atomic structure and the periodic table
+OXAQA 3.1.2c,A small central nucleus of protons and neutrons surrounded by electrons,1.49,Atomic structure and the periodic table
+OXAQA 3.1.2d,"Relative electrical charges of protons, neutrons and electrons",1.4,Atomic structure and the periodic table
+OXAQA 3.1.2e,Equal numbers of electrons and protons make atoms electrically neutral,1.4,Atomic structure and the periodic table
+OXAQA 3.1.2f,"Atomic number, mass number and numbers of sub-atomic particles in an atom",1.96,Atomic structure and the periodic table
+OXAQA 3.1.2g,Atoms of the same element can have different numbers of neutrons,1.4,Atomic structure and the periodic table
+OXAQA 3.1.2h,Representing an atom using mass number and atomic number,1.4,Atomic structure and the periodic table
+OXAQA 3.1.2i,Electronic structure and energy levels of the first twenty elements,2.6,Atomic structure and the periodic table
+OXAQA 3.1.2j,"Relative masses of protons, neutrons and electrons",1.4,Atomic structure and the periodic table
+OXAQA 3.1.2k,Relative atomic mass (Aᵣ) compared with the ¹²C isotope,1.82,Atomic structure and the periodic table
+OXAQA 3.1.3a,How the periodic table is arranged by atomic number and groups,1.96,Atomic structure and the periodic table
+OXAQA 3.1.3b,Why elements in the same group have similar chemical properties,2.11,Atomic structure and the periodic table
+OXAQA 3.1.3c,Group 0 noble gases and why they are unreactive,1.91,Atomic structure and the periodic table
+OXAQA 3.2.1a,Compounds are substances in which atoms of two or more elements are chemically combined,1.4,"Structure, bonding and the properties of matter"
+OXAQA 3.2.1b,Chemical bonding by transferring or sharing outer electrons,1.49,"Structure, bonding and the properties of matter"
+OXAQA 3.2.1c,Formation of positive and negative ions by transferring electrons,3,"Structure, bonding and the properties of matter"
+OXAQA 3.2.1d,Group 1 alkali metals reacting with non-metals to form ionic compounds,1.93,"Structure, bonding and the properties of matter"
+OXAQA 3.2.1e,Group 7 halogens reacting with metals to form ionic compounds,1.93,"Structure, bonding and the properties of matter"
+OXAQA 3.2.1f,Ionic compounds as giant structures held by ionic bonding,2.67,"Structure, bonding and the properties of matter"
+OXAQA 3.2.1g,"Covalent bonding by sharing pairs of electrons, in simple and giant structures",3,"Structure, bonding and the properties of matter"
+OXAQA 3.2.1h,Molecules in compounds of non-metals held together by covalent bonds,1.4,"Structure, bonding and the properties of matter"
+OXAQA 3.2.1i,Metals consist of giant structures of atoms arranged in a regular pattern,1.4,"Structure, bonding and the properties of matter"
+OXAQA 3.2.1j,Metallic bonding and delocalised outer electrons in metals,2.31,"Structure, bonding and the properties of matter"
+OXAQA 3.2.2a,Giant ionic lattices and the high melting and boiling points of ionic compounds,1.91,"Structure, bonding and the properties of matter"
+OXAQA 3.2.2b,Why ionic compounds conduct electricity when melted or dissolved,1.64,"Structure, bonding and the properties of matter"
+OXAQA 3.2.2c,Melting and boiling points of substances made of simple molecules,1.4,"Structure, bonding and the properties of matter"
+OXAQA 3.2.2d,Intermolecular forces overcome when simple molecular substances melt or boil,1.84,"Structure, bonding and the properties of matter"
+OXAQA 3.2.2e,Why simple molecular substances do not conduct electricity,1.4,"Structure, bonding and the properties of matter"
+OXAQA 3.2.2f,"Giant covalent structures such as diamond, graphite and silicon dioxide",2.38,"Structure, bonding and the properties of matter"
+OXAQA 3.2.2g,Why metals conduct heat and electricity,1.49,"Structure, bonding and the properties of matter"
+OXAQA 3.2.3a,The element carbon can form four covalent bonds,1.4,"Structure, bonding and the properties of matter"
+OXAQA 3.2.3b,Giant covalent structure of diamond and why it is hard,1.4,"Structure, bonding and the properties of matter"
+OXAQA 3.2.3c,Layered structure of graphite and why it is soft and slippery,2.04,"Structure, bonding and the properties of matter"
+OXAQA 3.2.3d,Delocalised electrons in graphite and its conduction of heat and electricity,1.62,"Structure, bonding and the properties of matter"
+OXAQA 3.2.3e,"Fullerenes and their uses in drug delivery, lubricants and nanotubes",2.04,"Structure, bonding and the properties of matter"
+OXAQA 3.2.4C,Nanoparticles,3,"Structure, bonding and the properties of matter"
+OXAQA 3.3.1a,Why metals are good conductors and can be bent or hammered into shape,1.64,Chemical changes
+OXAQA 3.3.1b,Alloys as mixtures with properties different from pure metals,2.4,Chemical changes
+OXAQA 3.3.1c,Why copper is useful for electrical wiring and plumbing,2.57,Chemical changes
+OXAQA 3.3.1.1a,Reactivity order of metals from reactions with water and dilute acids,2.16,Chemical changes
+OXAQA 3.3.1.1b,"Displacement reactions and the reactivity series, as oxidation and reduction",1.64,Chemical changes
+OXAQA 3.3.1.1c,"How metals occur in the Earth, as the metal itself or as compounds",1.49,Chemical changes
+OXAQA 3.3.1.1d,Extracting metals less reactive than carbon by reduction with carbon,3,Chemical changes
+OXAQA 3.3.1.1e,"Metals more reactive than carbon, such as aluminium, are extracted by electrolysis",2.07,Chemical changes
+OXAQA 3.3.1.1f,Phytomining and bioleaching to extract copper from low-grade ores,3,Chemical changes
+OXAQA 3.3.1.1g,Copper can be obtained from solutions of copper salts by electrolysis,1.58,Chemical changes
+OXAQA 3.3.1.1h,Copper can be obtained from solutions of copper salts by displacement using scrap iron,1.58,Chemical changes
+OXAQA 3.3.1.1i,"Benefits of recycling metals for resources, energy and the environment",1.96,Chemical changes
+OXAQA 3.3.1.2a,Thermal decomposition of metal carbonates on heating,1.82,Chemical changes
+OXAQA 3.3.1.2b,"Metal carbonates react with acids to produce carbon dioxide, a salt and water",1.4,Chemical changes
+OXAQA 3.3.2a,Ions free to move when an ionic substance is melted or dissolved,1.4,Chemical changes
+OXAQA 3.3.2b,Electrolysis as the breakdown of molten or dissolved ionic substances,1.62,Chemical changes
+OXAQA 3.3.2cC,Movement of ions to the cathode and anode in electrolysis,1.73,Chemical changes
+OXAQA 3.3.2d,Oxidation and reduction can be defined as the loss and gain of electrons respectively,1.4,Chemical changes
+OXAQA 3.3.2e,"At the cathode, positively charged ions gain electrons",1.4,Chemical changes
+OXAQA 3.3.2f,Reactions at electrodes can be represented by half equations,2.04,Chemical changes
+OXAQA 3.3.2g,Products at the cathode and anode from a mixture of ions,2.15,Chemical changes
+OXAQA 3.3.2h,Electroplating objects with copper and silver by electrolysis,1.42,Chemical changes
+OXAQA 3.3.2i,Manufacturing aluminium by electrolysis of aluminium oxide and cryolite,2.36,Chemical changes
+OXAQA 3.3.2j,Products of electrolysis of sodium chloride solution and their uses,2.16,Chemical changes
+OXAQA 3.4.1a,Pure substances and assessing purity from melting and boiling points,1.58,Chemical analysis
+OXAQA 3.4.1b,Measures of purity in everyday substances such as food and drugs,1.4,Chemical analysis
+OXAQA 3.4.1c,Mixtures of elements or compounds and how to separate them,1.8,Chemical analysis
+OXAQA 3.4.1d,"Paper chromatography to analyse mixtures, including Rf values",2.09,Chemical analysis
+OXAQA 3.4.1e,Stationary and mobile phases in chromatography and relative solubility,1.56,Chemical analysis
+OXAQA 3.4.2aC,A pop is heard when a lighted splint is placed near hydrogen gas,1.4,Chemical analysis
+OXAQA 3.4.2bC,A glowing splint relights in a test tube of oxygen gas,1.4,Chemical analysis
+OXAQA 3.4.2cC,Carbon dioxide turns limewater (calcium hydroxide solution) cloudy white,1.4,Chemical analysis
+OXAQA 3.4.2dC,"Identifying ammonia by its smell, damp red litmus and hydrogen chloride",1.64,Chemical analysis
+OXAQA 3.4.2eC,Identifying chlorine by its smell and its effect on damp blue litmus,1.4,Chemical analysis
+OXAQA 3.4.3a,Flame tests to identify metal ions and their colours,3.63,Chemical analysis
+OXAQA 3.4.3b,"Tests for aluminium, calcium and magnesium ions using sodium hydroxide",1.4,Chemical analysis
+OXAQA 3.4.3c,"Tests for copper(II), iron(II) and iron(III) ions with sodium hydroxide",1.42,Chemical analysis
+OXAQA 3.4.3d,Test for carbonates using dilute acid and limewater,1.4,Chemical analysis
+OXAQA 3.4.3e,Tests for halide ions using silver nitrate and dilute nitric acid,1.51,Chemical analysis
+OXAQA 3.4.3f,Test for sulfate ions using barium chloride and hydrochloric acid,1.4,Chemical analysis
+OXAQA 3.5.1a,Metal oxides and hydroxides are bases. Soluble hydroxides are called alkalis,1.4,"Acids, bases and salts"
+OXAQA 3.5.1b,Acids react with bases to form salts. These reactions are called neutralisation reactions,1.4,"Acids, bases and salts"
+OXAQA 3.5.1c,Salts produced in reactions of acids with bases and alkalis,2.2,"Acids, bases and salts"
+OXAQA 3.5.1d,Ammonia as an alkaline solution used to make ammonium salts,1.4,"Acids, bases and salts"
+OXAQA 3.5.1e,Limewater reacting with carbon dioxide to form calcium carbonate,1.4,"Acids, bases and salts"
+OXAQA 3.5.1f,"Hydrogen and hydroxide ions, acidity and the pH scale",2.38,"Acids, bases and salts"
+OXAQA 3.5.1g,Neutralisation: hydrogen ions reacting with hydroxide ions to form water,1.47,"Acids, bases and salts"
+OXAQA 3.5.2a,"Making soluble salts from acids with metals, bases and alkalis",3.46,"Acids, bases and salts"
+OXAQA 3.5.2b,Salt solutions can be crystallised to produce solid salts,1.4,"Acids, bases and salts"
+OXAQA 3.5.2c,Making insoluble salts by precipitation and removing unwanted ions,2.02,"Acids, bases and salts"
+OXAQA 3.6.1a,Chemical reactions can be represented by word equations or by symbol equations,1.47,Quantitative chemistry
+OXAQA 3.6.1b,"State symbols (g), (l), (s) and (aq) in chemical equations",1.56,Quantitative chemistry
+OXAQA 3.6.1c,Conservation of mass: mass of products equals mass of reactants,1.4,Quantitative chemistry
+OXAQA 3.6.1d,The masses of reactants and products can be calculated from balanced symbol equations,1.84,Quantitative chemistry
+OXAQA 3.6.1e,Why the calculated amount of product is not always obtained,3.02,Quantitative chemistry
+OXAQA 3.6.2a,Relative formula mass (Mr) as the sum of relative atomic masses,2.16,Quantitative chemistry
+OXAQA 3.6.2b,Calculating the percentage by mass of an element in a compound,1.56,Quantitative chemistry
+OXAQA 3.6.2c,Calculating empirical and molecular formulae from masses or percentages,1.53,Quantitative chemistry
+OXAQA 3.6.3a,"The relative formula mass of a substance, in grams, is known as one mole of that substance",1.87,Quantitative chemistry
+OXAQA 3.6.3b,Avogadro's constant: 6.02 × 10²³ atoms or molecules in one mole,1.4,Quantitative chemistry
+OXAQA 3.6.4a,Calculating concentration of a solution in mol/dm³,1.82,Quantitative chemistry
+OXAQA 3.6.4b,Titration to measure volumes of acid and alkali that react together,2.13,Quantitative chemistry
+OXAQA 3.6.4c,Using titration results to find an unknown concentration,2,Quantitative chemistry
+OXAQA 3.6.4d,Molar gas volume of 24 dm³ at room temperature and pressure,1.67,Quantitative chemistry
+OXAQA 3.7.1a,"Group 1 alkali metals: low density, +1 ions and reaction with water",3.5,Trends within the periodic table
+OXAQA 3.7.1b,"In Group 1, the further down the group an element is, the more reactive the element",1.4,Trends within the periodic table
+OXAQA 3.7.1c,Group 7 halogens reacting with metals to form ionic compounds,1.51,Trends within the periodic table
+OXAQA 3.7.1d,Trends in reactivity and melting and boiling points down Group 7,1.86,Trends within the periodic table
+OXAQA 3.7.1e,Displacement of less reactive halogens by more reactive halogens,1.4,Trends within the periodic table
+OXAQA 3.7.1f,Explaining reactivity trends in Groups 1 and 7 using outer electrons,2.48,Trends within the periodic table
+OXAQA 3.7.2aC,"Transition metals: coloured compounds, varied ion charges and catalysts",1.56,Trends within the periodic table
+OXAQA 3.7.2bC,Comparing transition metals with Group 1 elements,2.42,Trends within the periodic table
+OXAQA 3.8.1a,Measuring the rate of reaction: amount used or formed over time,3,The rate and extent of chemical change
+OXAQA 3.8.1b,Collisions and activation energy needed for chemical reactions,1.56,The rate and extent of chemical change
+OXAQA 3.8.1c,Effect of increasing temperature on the rate of reaction,1.4,The rate and extent of chemical change
+OXAQA 3.8.1d,Effect of gas pressure on the rate of reaction,1.4,The rate and extent of chemical change
+OXAQA 3.8.1e,Effect of reactant concentration on the rate of reaction,1.4,The rate and extent of chemical change
+OXAQA 3.8.1f,Effect of surface area of solid reactants on the rate of reaction,1.49,The rate and extent of chemical change
+OXAQA 3.8.1g,Catalysts changing the rate of reactions without being used up,1.98,The rate and extent of chemical change
+OXAQA 3.8.1h,Importance of catalysts in reducing costs in industrial processes,1.4,The rate and extent of chemical change
+OXAQA 3.8.2aC,Equilibrium in a reversible reaction in a closed system,1.4,The rate and extent of chemical change
+OXAQA 3.8.2bC,Effect of reaction conditions on amounts of substances at equilibrium,1.4,The rate and extent of chemical change
+OXAQA 3.8.2cC,Effect of temperature on yield of endothermic and exothermic reactions,2.66,The rate and extent of chemical change
+OXAQA 3.8.2dC,Effect of pressure on equilibrium in gaseous reactions,2.46,The rate and extent of chemical change
+OXAQA 3.8.2eC,"Optimum conditions in industrial processes, including the Haber process",1.4,The rate and extent of chemical change
+OXAQA 3.8.3aC,Raw materials for the Haber process: nitrogen and hydrogen,1.47,The rate and extent of chemical change
+OXAQA 3.8.3bC,Ammonia is a raw material in the production of fertilizers,1.4,The rate and extent of chemical change
+OXAQA 3.8.3cC,"Haber process conditions: iron catalyst, 450 °C, 200 atmospheres",2.33,The rate and extent of chemical change
+OXAQA 3.8.3dC,Production of sulfuric acid by the three-stage contact process,4.32,The rate and extent of chemical change
+OXAQA 3.8.4aC,Oxidation and reduction as gain and loss of oxygen,1.4,The rate and extent of chemical change
+OXAQA 3.8.4bC,Oxidation and reduction as loss and gain of electrons,1.67,The rate and extent of chemical change
+OXAQA 3.8.4cC,Redox reactions: oxidation and reduction happening together,1.71,The rate and extent of chemical change
+OXAQA 3.9.1a,"When chemical reactions occur, energy is transferred to or from the surroundings",1.69,Energy changes
+OXAQA 3.9.1b,"Exothermic reactions, with examples such as combustion and hand warmers",1.98,Energy changes
+OXAQA 3.9.1c,Endothermic reactions taking in energy from the surroundings,1.42,Energy changes
+OXAQA 3.9.1d,"Reversible reactions, such as hydrated and anhydrous copper sulfate",2.11,Energy changes
+OXAQA 3.9.2a,Measuring energy released by burning fuels using simple calorimetry,2.27,Energy changes
+OXAQA 3.9.2bC,Measuring energy in joules and kilojoules per gram or per mole,1.42,Energy changes
+OXAQA 3.9.2c,Calculating energy from temperature change of a reaction in solution,1.87,Energy changes
+OXAQA 3.9.2d,"Energy level diagrams showing reactants, products and activation energy",2.56,Energy changes
+OXAQA 3.9.2e,Energy for breaking and forming bonds during a reaction,2.57,Energy changes
+OXAQA 3.9.2f,Energy of bond making and breaking in exothermic reactions,1.67,Energy changes
+OXAQA 3.9.2g,Energy of bond making and breaking in endothermic reactions,1.4,Energy changes
+OXAQA 3.9.2h,Catalysts providing a pathway with lower activation energy,1.53,Energy changes
+OXAQA 3.9.3aC,A chemical cell produces a potential difference until the reactants are used up,1.4,Energy changes
+OXAQA 3.9.3bC,Hydrogen–oxygen fuel cells compared with burning hydrogen,3.44,Energy changes
+OXAQA 3.10.1.1a,Crude oil is a mixture of a very large number of compounds,1.4,Organic chemistry
+OXAQA 3.10.1.1b,Hydrocarbons as the main compounds in crude oil,1.4,Organic chemistry
+OXAQA 3.10.1.1c,Separating crude oil into fractions by fractional distillation,2.44,Organic chemistry
+OXAQA 3.10.1.2a,Alkanes as saturated hydrocarbons and their general formula CₙH₂ₙ₊₂,1.69,Organic chemistry
+OXAQA 3.10.1.2b,Representing alkane molecules by formulae and displayed formulae,2.2,Organic chemistry
+OXAQA 3.10.1.2c,"Trends in boiling point, viscosity and flammability of hydrocarbons",2.37,Organic chemistry
+OXAQA 3.10.1.2d,Most fuels contain carbon and/or hydrogen and may also contain some sulfur,3,Organic chemistry
+OXAQA 3.10.1.2e,Combustion of hydrocarbon fuels releases energy through oxidation,1.4,Organic chemistry
+OXAQA 3.10.1.2f,Making ethanol from ethene and steam or by fermenting sugar,3,Organic chemistry
+OXAQA 3.10.1.2g,Biofuels are produced from plant material and are alternatives to hydrocarbon fuels,3.57,Organic chemistry
+OXAQA 3.10.1.3a,"Cracking hydrocarbons into smaller, more useful molecules",1.91,Organic chemistry
+OXAQA 3.10.1.3b,"Alkanes and alkenes as products of cracking, and the test for a double bond",2.04,Organic chemistry
+OXAQA 3.10.1.3c,Representing unsaturated hydrocarbons by formulae and displayed formulae,2.13,Organic chemistry
+OXAQA 3.10.1.3d,"Alkenes react with bromine water, turning it from orange to colourless",1.4,Organic chemistry
+OXAQA 3.10.1.3e,Some of the products of cracking are useful as fuels,1.4,Organic chemistry
+OXAQA 3.10.2a,Making polymers such as poly(ethene) from alkenes by polymerisation,2.6,Organic chemistry
+OXAQA 3.10.2b,Properties of polymers depend on raw materials and reaction conditions,1.62,Organic chemistry
+OXAQA 3.10.2c,Thermosoftening and thermosetting polymers and their structures,1.76,Organic chemistry
+OXAQA 3.10.2d,Applications of polymers and new uses being developed,2.11,Organic chemistry
+OXAQA 3.10.2e,Non-biodegradable polymers and problems with waste disposal,1.87,Organic chemistry
+OXAQA 3.10.2f,Biodegradable plastic bags made from polymers and cornstarch,1.4,Organic chemistry
+OXAQA 3.10.3.1a,Alcohols as a homologous series with the functional group –OH,2.31,Organic chemistry
+OXAQA 3.10.3.1b,"Properties and uses of methanol, ethanol and propanol",2.61,Organic chemistry
+OXAQA 3.10.3.1c,Oxidation of ethanol to ethanoic acid,1.44,Organic chemistry
+OXAQA 3.10.3.2a,Carboxylic acids as a homologous series with the functional group –COOH,2.44,Organic chemistry
+OXAQA 3.10.3.2b,Reactions and properties of carboxylic acids,3.74,Organic chemistry
+OXAQA 3.10.3.3aC,Esters as compounds with the functional group –COO–,2.73,Organic chemistry
+OXAQA 3.10.3.3bC,Properties and uses of esters in flavourings and perfumes,1.4,Organic chemistry

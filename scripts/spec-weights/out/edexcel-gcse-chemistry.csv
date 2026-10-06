@@ -1,0 +1,244 @@
+code,title,weight,topic
+EDEX 0.1,"Formulae of elements, simple compounds and ions",1.1,"Formulae, equations and hazards"
+EDEX 0.2,Word equations,1.4,"Formulae, equations and hazards"
+EDEX 0.3,Balanced chemical equations,1.62,"Formulae, equations and hazards"
+EDEX 0.4,Balanced ionic equations,1.4,"Formulae, equations and hazards"
+EDEX 0.5,Use of hazard symbols on containers,1.85,"Formulae, equations and hazards"
+EDEX 0.6,Evaluating risks and suggesting precautions in a practical procedure,2.1,"Formulae, equations and hazards"
+EDEX 1.1,Change in the Dalton model of the atom after the discovery of subatomic particles,1.3,Key concepts in chemistry
+EDEX 1.2,Structure of an atom with a nucleus of protons and neutrons and electrons in shells,1.3,Key concepts in chemistry
+EDEX 1.3,"Relative charge and relative mass of a proton, a neutron and an electron",1.76,Key concepts in chemistry
+EDEX 1.4,Why atoms contain equal numbers of protons and electrons,1.7,Key concepts in chemistry
+EDEX 1.5,Nucleus of an atom as very small compared with the whole atom,1.3,Key concepts in chemistry
+EDEX 1.6,Most of an atom's mass is in the nucleus,1.1,Key concepts in chemistry
+EDEX 1.7,Meaning of the term mass number of an atom,1.1,Key concepts in chemistry
+EDEX 1.8,"Atoms of an element as having the same number of protons, unique to that element",1.3,Key concepts in chemistry
+EDEX 1.9,Isotopes as atoms of the same element with different numbers of neutrons,1.3,Key concepts in chemistry
+EDEX 1.10,"Numbers of protons, neutrons and electrons from atomic and mass number",1.8,Key concepts in chemistry
+EDEX 1.11,Why isotopes give relative atomic masses that are not whole numbers,1.7,Key concepts in chemistry
+EDEX 1.12,Relative atomic mass of an element from isotope masses and abundances,1.8,Key concepts in chemistry
+EDEX 1.13,"How Dmitri Mendeleev arranged the elements, known at that time",1.3,Key concepts in chemistry
+EDEX 1.14,Mendeleev’s use of his table to predict undiscovered elements and their properties,1.3,Key concepts in chemistry
+EDEX 1.15,Mendeleev’s order by relative atomic mass and the effect of isotope abundance,1.99,Key concepts in chemistry
+EDEX 1.16,Meaning of atomic number of an element,1.7,Key concepts in chemistry
+EDEX 1.17,How elements are arranged into periods and groups in the periodic table,1.94,Key concepts in chemistry
+EDEX 1.18,Metals and non-metals by position in the periodic table and atomic structure,1.22,Key concepts in chemistry
+EDEX 1.19,Electronic configurations of the first 20 elements in the periodic table,1.9,Key concepts in chemistry
+EDEX 1.20,Relationship between electronic configuration and position in the periodic table,1.7,Key concepts in chemistry
+EDEX 1.21,"Formation of ionic bonds by electron transfer, including dot and cross diagrams",1.72,Key concepts in chemistry
+EDEX 1.22,Definition of an ion as an atom or group of atoms with a charge,1.1,Key concepts in chemistry
+EDEX 1.23,"Numbers of protons, neutrons and electrons in atoms",1.4,Key concepts in chemistry
+EDEX 1.24,"Formation of ions in ionic compounds of groups 1, 2, 6 and 7",1.7,Key concepts in chemistry
+EDEX 1.25,Use of the endings –ide and –ate in the names of compounds,1.7,Key concepts in chemistry
+EDEX 1.26,Formulae of ionic compounds,1.4,Key concepts in chemistry
+EDEX 1.27,Structure of an ionic compound as a lattice structure,2.27,Key concepts in chemistry
+EDEX 1.28,Formation of a covalent bond by sharing a pair of electrons between two atoms,1.7,Key concepts in chemistry
+EDEX 1.29,Covalent bonding forms molecules,1.1,Key concepts in chemistry
+EDEX 1.30,Typical size (order of magnitude) of atoms and small molecules,1.1,Key concepts in chemistry
+EDEX 1.31,Formation of simple molecular covalent substances using dot and cross diagrams,3.09,Key concepts in chemistry
+EDEX 1.32,"Ionic, simple molecular, giant covalent and metallic structures and their properties",3.29,Key concepts in chemistry
+EDEX 1.33,"Properties of ionic compounds, including melting point and electrical conductivity",2.38,Key concepts in chemistry
+EDEX 1.34,"Properties of typical covalent, simple molecular compounds",2.27,Key concepts in chemistry
+EDEX 1.35,Graphite and diamond as different forms of carbon and giant covalent substances,1.1,Key concepts in chemistry
+EDEX 1.36,Structures of graphite and diamond,1.3,Key concepts in chemistry
+EDEX 1.37,Explain why graphite is used in electrodes and lubricants and diamond in cutting tools,1.7,Key concepts in chemistry
+EDEX 1.38,Properties of fullerenes,1.7,Key concepts in chemistry
+EDEX 1.39,"Describe, using poly",1.3,Key concepts in chemistry
+EDEX 1.40,Properties of metals,1.7,Key concepts in chemistry
+EDEX 1.41,"Limitations of representations and models, including dot and cross and ball and stick",1.3,Key concepts in chemistry
+EDEX 1.42,Most metals as shiny solids which have high melting points,1.46,Key concepts in chemistry
+EDEX 1.43,Calculate relative formula mass and percentage by mass of an element in a compound,2.24,Key concepts in chemistry
+EDEX 1.44,Formulae of simple compounds from reacting masses or percentage composition,1.8,Key concepts in chemistry
+EDEX 1.45,"Deduce empirical and molecular formulae, using relative molecular mass",1.95,Key concepts in chemistry
+EDEX 1.46,Experiment to find the empirical formula of magnesium oxide,1.3,Key concepts in chemistry
+EDEX 1.47,Law of conservation of mass in closed and non-enclosed systems,2.47,Key concepts in chemistry
+EDEX 1.48,Masses of reactants and products from balanced equations and one known mass,1.8,Key concepts in chemistry
+EDEX 1.49,Concentration of solutions in g dm⁻³,1.8,Key concepts in chemistry
+EDEX 1.50,Definition of one mole of particles,1.83,Key concepts in chemistry
+EDEX 1.51,"Converting between mass, moles and number of particles",3.08,Key concepts in chemistry
+EDEX 1.52,Why the reactant not in excess controls the mass of product,1.7,Key concepts in chemistry
+EDEX 1.53,Stoichiometry of a reaction from the masses of reactants and products,1.4,Key concepts in chemistry
+EDEX 2.1,"Arrangement, movement and relative energy of particles in solids, liquids and gases",1.3,States of matter and mixtures
+EDEX 2.2,"Names for changes of state, and why they are physical not chemical changes",1.17,States of matter and mixtures
+EDEX 2.3,"Changes in arrangement, movement and energy of particles during changes of state",1.7,States of matter and mixtures
+EDEX 2.4,"Physical state of a substance under specified conditions, given suitable data",1.9,States of matter and mixtures
+EDEX 2.5,Difference between the use of ‘pure’ in chemistry and in everyday life,1.74,States of matter and mixtures
+EDEX 2.6,Melting point data to distinguish pure substances from mixtures,1.6,States of matter and mixtures
+EDEX 2.7,"Mixtures separated by distillation, filtration, crystallisation and chromatography",2.87,States of matter and mixtures
+EDEX 2.8,Appropriate experimental technique to separate a mixture,1.3,States of matter and mixtures
+EDEX 2.9,Paper chromatography as the separation of mixtures of soluble substances,1.66,States of matter and mixtures
+EDEX 2.10,Paper chromatogram,2.42,States of matter and mixtures
+EDEX 2.11,Practical: Composition of inks using simple distillation and paper,4.2,States of matter and mixtures
+EDEX 2.12,How: (a) waste and ground water can be made potable,2.29,States of matter and mixtures
+EDEX 3.1,Acids as sources of hydrogen ions and alkalis as sources of hydroxide ions,1.1,Chemical changes
+EDEX 3.2,"pH values of neutral, acidic and alkaline solutions",1.1,Chemical changes
+EDEX 3.3,Effect of acids and alkalis on indicators,1.1,Chemical changes
+EDEX 3.4,How hydrogen ion and hydroxide ion concentrations affect pH,1.28,Chemical changes
+EDEX 3.5,A tenfold increase in hydrogen ion concentration lowers pH by 1,1.1,Chemical changes
+EDEX 3.6,Practical: Change in pH on adding powdered calcium hydroxide or calcium,4.2,Chemical changes
+EDEX 3.7,Meaning of dilute and concentrated for substances in solution,1.7,Chemical changes
+EDEX 3.8,Meaning of weak and strong acids in terms of dissociation into ions,1.7,Chemical changes
+EDEX 3.9,Bases as substances that react with acids to form only salt and water,1.1,Chemical changes
+EDEX 3.10,Alkalis are soluble bases,1.1,Chemical changes
+EDEX 3.11,"Reactions of acids with metals, metal oxides, hydroxides and carbonates",2.58,Chemical changes
+EDEX 3.12,Chemical tests for hydrogen and carbon dioxide (using limewater),1.74,Chemical changes
+EDEX 3.13,Neutralisation reaction as a reaction between an acid and a base,1.3,Chemical changes
+EDEX 3.14,Acid-alkali neutralisation as the reaction of H⁺ and OH⁻ ions to form water,1.72,Chemical changes
+EDEX 3.15,Why an excess of insoluble reactant is added then removed to make a salt,2.6,Chemical changes
+EDEX 3.16,Why titration is needed to make a salt from an acid and a soluble reactant,2.78,Chemical changes
+EDEX 3.17,"Practical: Preparation of pure, dry hydrated copper sulfate crystals",4.2,Chemical changes
+EDEX 3.18,"How to carry out an acid-alkali titration, using burette",1.3,Chemical changes
+EDEX 3.19,General rules for the solubility of common substances in water,3.13,Chemical changes
+EDEX 3.20,"Predict, using solubility rules, whether a precipitate forms and name it",1.9,Chemical changes
+EDEX 3.21,"Method used to prepare a pure, dry sample of an insoluble salt",1.3,Chemical changes
+EDEX 3.22,Electrolytes as ionic compounds that are molten or dissolved in water,1.1,Chemical changes
+EDEX 3.23,Electrolysis as decomposition of electrolytes by direct current,1.3,Chemical changes
+EDEX 3.24,Movement of cations and anions to the electrodes during electrolysis,2.23,Chemical changes
+EDEX 3.25,Products of electrolysing some electrolytes with inert electrodes,3.11,Chemical changes
+EDEX 3.26,Products of electrolysis of other molten binary ionic compounds,1.9,Chemical changes
+EDEX 3.27,Half equations for reactions at the anode and cathode in electrolysis,1.4,Chemical changes
+EDEX 3.28,Oxidation and reduction,1.7,Chemical changes
+EDEX 3.29,Reduction at the cathode and oxidation at the anode in electrolysis,1.1,Chemical changes
+EDEX 3.30,Electrolysis of copper sulfate solution with copper electrodes to purify copper,1.72,Chemical changes
+EDEX 3.31,Practical: Electrolysis of copper sulfate solution with inert electrodes,4.2,Chemical changes
+EDEX 4.1,"Relative reactivity of metals from reactions with water, acids and salt solutions",1.4,Extracting metals and equilibria
+EDEX 4.2,Displacement reactions as redox reactions,1.7,Extracting metals and equilibria
+EDEX 4.3,Reactivity series of metals,2.14,Extracting metals and equilibria
+EDEX 4.4,Metals in the Earth’s crust: ores and uncombined elements,1.58,Extracting metals and equilibria
+EDEX 4.5,Oxidation as gain of oxygen and reduction as loss of oxygen,1.7,Extracting metals and equilibria
+EDEX 4.6,Extracting metals by reduction of ores,1.1,Extracting metals and equilibria
+EDEX 4.7,Why a metal’s extraction method depends on its reactivity and cost,2.65,Extracting metals and equilibria
+EDEX 4.8,Alternative biological methods of metal extraction,2.1,Extracting metals and equilibria
+EDEX 4.9,Metal resistance to oxidation and position in the reactivity series,1.7,Extracting metals and equilibria
+EDEX 4.10,Advantages of recycling metals,2.1,Extracting metals and equilibria
+EDEX 4.11,Life-cycle assessment of a product and its environmental effects,1.59,Extracting metals and equilibria
+EDEX 4.12,Data from a life cycle assessment of a product,2.1,Extracting metals and equilibria
+EDEX 4.13,Reversible reactions and the use of the ⇌ symbol in equations,1.21,Extracting metals and equilibria
+EDEX 4.14,What is meant by dynamic equilibrium,1.7,Extracting metals and equilibria
+EDEX 4.15,Formation of ammonia as a reversible reaction of nitrogen and hydrogen,1.39,Extracting metals and equilibria
+EDEX 4.16,"Conditions for the Haber process: 450 °C, 200 atmospheres, iron catalyst",1.76,Extracting metals and equilibria
+EDEX 4.17,"Effect of temperature, pressure and concentration on equilibrium position",2.56,Extracting metals and equilibria
+EDEX 5.1C,Most metals are transition metals and their typical properties,2.29,Separate chemistry 1
+EDEX 5.2C,Corrosion as the oxidation of metals,1.1,Separate chemistry 1
+EDEX 5.3C,"How rusting of iron is prevented, including sacrificial protection",2.36,Separate chemistry 1
+EDEX 5.4C,How electroplating improves the appearance or corrosion resistance of metal objects,1.7,Separate chemistry 1
+EDEX 5.5C,"Explain, using models, why alloys are often stronger than pure metals",1.7,Separate chemistry 1
+EDEX 5.6C,Why iron is alloyed with other metals to produce alloy steels,1.7,Separate chemistry 1
+EDEX 5.7C,How the uses of metals and alloys are related to their properties,1.72,Separate chemistry 1
+EDEX 5.8C,"Concentration of solutions in mol dm⁻³, and converting between g dm⁻³ and mol dm⁻³",1.8,Separate chemistry 1
+EDEX 5.9C,"Practical: Carry out an accurate acid-alkali titration, using burette",3.4,Separate chemistry 1
+EDEX 5.10C,Carry out titration calculations to find an unknown concentration or volume,1.4,Separate chemistry 1
+EDEX 5.11C,Percentage yield of a reaction from the actual and theoretical yields,1.8,Separate chemistry 1
+EDEX 5.12C,Why the actual yield is usually less than the theoretical yield,2.23,Separate chemistry 1
+EDEX 5.13C,Atom economy of a reaction forming a desired product,1.1,Separate chemistry 1
+EDEX 5.14C,Atom economy of a reaction forming a desired product,1.8,Separate chemistry 1
+EDEX 5.15C,Why a particular reaction pathway is chosen to make a specified product,1.77,Separate chemistry 1
+EDEX 5.16C,Molar volume of a gas as the volume of one mole at room temperature and pressure,1.79,Separate chemistry 1
+EDEX 5.17C,Molar volume and balanced equations in mass and gas volume calculations,1.5,Separate chemistry 1
+EDEX 5.18C,Avogadro’s law to calculate volumes of gases in a gaseous reaction,1.5,Separate chemistry 1
+EDEX 5.19C,Haber process as a reversible reaction of nitrogen and hydrogen to form ammonia,1.3,Separate chemistry 1
+EDEX 5.20C,"Effects of temperature, pressure, concentration and catalyst on reaching equilibrium",2.85,Separate chemistry 1
+EDEX 5.21C,"How, in industrial reactions",2.52,Separate chemistry 1
+EDEX 5.22C,"Nitrogen, phosphorus and potassium compounds in fertilisers",1.1,Separate chemistry 1
+EDEX 5.23C,How ammonia reacts with nitric acid to make a fertiliser salt,1.3,Separate chemistry 1
+EDEX 5.24C,Comparing laboratory and industrial production of ammonium sulfate,2.74,Separate chemistry 1
+EDEX 5.25C,Voltage from a chemical cell until a reactant is used up,1.1,Separate chemistry 1
+EDEX 5.26C,Hydrogen–oxygen fuel cell producing a voltage with water as the only product,1.1,Separate chemistry 1
+EDEX 5.27C,Strengths and weaknesses of fuel cells for given uses,2.1,Separate chemistry 1
+EDEX 6.1,"Why some elements are classified as alkali metals, halogens or noble gases",1.77,Groups in the periodic table
+EDEX 6.2,Properties of alkali metals: soft with low melting points,1.54,Groups in the periodic table
+EDEX 6.3,"Reactions of lithium, sodium and potassium with water",1.3,Groups in the periodic table
+EDEX 6.4,"Pattern in reactivity of lithium, sodium and potassium with water",1.34,Groups in the periodic table
+EDEX 6.5,Alkali metal reactivity pattern in terms of electronic configurations,1.7,Groups in the periodic table
+EDEX 6.6,"Colours and physical states of chlorine, bromine and iodine at room temperature",1.1,Groups in the periodic table
+EDEX 6.7,"Pattern in the physical properties of the halogens, chlorine",1.32,Groups in the periodic table
+EDEX 6.8,Chemical test for chlorine,1.3,Groups in the periodic table
+EDEX 6.9,"Reactions of chlorine, bromine and iodine with metals to form metal halides",1.34,Groups in the periodic table
+EDEX 6.10,Halogens forming hydrogen halides that dissolve to give acidic solutions,1.21,Groups in the periodic table
+EDEX 6.11,"Relative reactivity of chlorine, bromine and iodine from displacement reactions",1.48,Groups in the periodic table
+EDEX 6.12,Why halogen displacement reactions are redox reactions,1.74,Groups in the periodic table
+EDEX 6.13,Relative reactivity of the halogens in terms of electronic configurations,1.7,Groups in the periodic table
+EDEX 6.14,"Why the noble gases are chemically inert, in terms of electronic configurations",1.7,Groups in the periodic table
+EDEX 6.15,"How the uses of noble gases depend on inertness, low density and non-flammability",1.7,Groups in the periodic table
+EDEX 6.16,Pattern in the physical properties of noble gases and predicting others,1.3,Groups in the periodic table
+EDEX 7.1,Practical: Effects of changing the conditions of a reaction on the rates,5.17,Rates of reaction and energy changes
+EDEX 7.2,Practical methods for determining the rate of a given reaction,1.4,Rates of reaction and energy changes
+EDEX 7.3,Collision theory: how collision frequency and energy affect reaction rate,1.7,Rates of reaction and energy changes
+EDEX 7.4,Effects on rates of reaction of changes in temperature,1.94,Rates of reaction and energy changes
+EDEX 7.5,"Graphs of mass, volume or concentration of reactant or product against time",1.6,Rates of reaction and energy changes
+EDEX 7.6,Catalyst as a substance that speeds up a reaction without being used up,1.5,Rates of reaction and energy changes
+EDEX 7.7,How a catalyst increases the rate of a reaction in terms of activation energy,1.7,Rates of reaction and energy changes
+EDEX 7.8,Enzymes as biological catalysts used in producing alcoholic drinks,1.1,Rates of reaction and energy changes
+EDEX 7.9,"Heat energy changes in dissolving, neutralisation, displacement and precipitation",2.38,Rates of reaction and energy changes
+EDEX 7.10,Exothermic change or reaction as one that gives out heat energy,1.3,Rates of reaction and energy changes
+EDEX 7.11,Endothermic change or reaction as one that takes in heat energy,1.3,Rates of reaction and energy changes
+EDEX 7.12,Bond breaking as endothermic and bond making as exothermic,1.1,Rates of reaction and energy changes
+EDEX 7.13,Exothermic and endothermic reactions in terms of bonds broken and made,2.25,Rates of reaction and energy changes
+EDEX 7.14,Energy change in a reaction from bond energies in kJ mol⁻¹,1.8,Rates of reaction and energy changes
+EDEX 7.15,Term activation energy,1.7,Rates of reaction and energy changes
+EDEX 7.16,Draw and label reaction profiles for endothermic and exothermic reactions,1.5,Rates of reaction and energy changes
+EDEX 8.1,Hydrocarbons as compounds containing only carbon and hydrogen,1.1,Fuels and Earth science
+EDEX 8.2,Crude oil as a complex mixture of hydrocarbons and a finite resource,2.74,Fuels and Earth science
+EDEX 8.3,Separation of crude oil into useful mixtures by fractional distillation,1.3,Fuels and Earth science
+EDEX 8.4,"Names and uses of crude oil fractions, from gases to bitumen",3.29,Fuels and Earth science
+EDEX 8.5,How hydrocarbons in different fractions differ from each other,2.91,Fuels and Earth science
+EDEX 8.6,"Homologous series as compounds with the same general formula, differing by CH₂",3.02,Fuels and Earth science
+EDEX 8.7,"Complete combustion of hydrocarbon fuels to give carbon dioxide, water and energy",1.74,Fuels and Earth science
+EDEX 8.8,Why incomplete combustion of hydrocarbons can produce carbon and carbon monoxide,1.7,Fuels and Earth science
+EDEX 8.9,How carbon monoxide behaves as a toxic gas,1.7,Fuels and Earth science
+EDEX 8.10,Problems caused by carbon monoxide and soot from incomplete combustion,1.3,Fuels and Earth science
+EDEX 8.11,How impurities in some hydrocarbon fuels produce sulfur dioxide,1.7,Fuels and Earth science
+EDEX 8.12,Some problems of acid rain caused by sulfur dioxide dissolving in rain water,1.7,Fuels and Earth science
+EDEX 8.13,"Why burning fuel in engines produces oxides of nitrogen, which are pollutants",1.7,Fuels and Earth science
+EDEX 8.14,Advantages and disadvantages of using hydrogen rather than petrol as a car fuel,2.1,Fuels and Earth science
+EDEX 8.15,"Petrol, kerosene, diesel oil and methane as non-renewable fossil fuels",1.12,Fuels and Earth science
+EDEX 8.16,"How cracking breaks large alkanes into smaller, more useful molecules",1.7,Fuels and Earth science
+EDEX 8.17,Why cracking is necessary,1.7,Fuels and Earth science
+EDEX 8.18,Volcanic gases forming the Earth’s early atmosphere,1.1,Fuels and Earth science
+EDEX 8.19,Composition of the Earth’s early atmosphere and the evidence for it,2.45,Fuels and Earth science
+EDEX 8.20,How condensation of water vapour formed oceans,1.7,Fuels and Earth science
+EDEX 8.21,How carbon dioxide in the atmosphere decreased as the oceans formed,1.7,Fuels and Earth science
+EDEX 8.22,How primitive plants used carbon dioxide and increased atmospheric oxygen,1.72,Fuels and Earth science
+EDEX 8.23,Chemical test for oxygen,1.3,Fuels and Earth science
+EDEX 8.24,How various gases in the atmosphere,1.52,Fuels and Earth science
+EDEX 8.25,Evidence for human activity causing climate change and its uncertainties,2.96,Fuels and Earth science
+EDEX 8.26,Describe the atmosphere today and climate effects of carbon dioxide and methane,2.43,Fuels and Earth science
+EDEX 9.1C,Why the test for any ion must be unique,1.7,Separate chemistry 2
+EDEX 9.2C,"Flame tests to identify lithium, sodium, potassium, calcium and copper ions",2.62,Separate chemistry 2
+EDEX 9.3C,Tests for metal and ammonium ions using sodium hydroxide solution,2.98,Separate chemistry 2
+EDEX 9.4C,Chemical test for ammonia,1.3,Separate chemistry 2
+EDEX 9.5C,"Tests for carbonate, sulfate, chloride, bromide and iodide ions",2.67,Separate chemistry 2
+EDEX 9.7C,"Ions in unknown salts, using results of the tests above",1.2,Separate chemistry 2
+EDEX 9.8C,"Instrumental methods of analysis improving sensitivity, accuracy and speed",1.3,Separate chemistry 2
+EDEX 9.9C,Flame photometer data for ion concentrations and identifying metal ions,2.94,Separate chemistry 2
+EDEX 9.10C,"Formulae and structures of methane, ethane, propane and butane",1.1,Separate chemistry 2
+EDEX 9.11C,Why the alkanes are saturated hydrocarbons,1.7,Separate chemistry 2
+EDEX 9.12C,"Formulae of molecules of the alkenes, ethene, propene, butene",1.12,Separate chemistry 2
+EDEX 9.13C,Why alkenes are unsaturated hydrocarbons containing the C=C functional group,1.7,Separate chemistry 2
+EDEX 9.14C,Addition reaction of ethene and other alkenes with bromine,1.1,Separate chemistry 2
+EDEX 9.15C,How bromine water distinguishes between alkanes and alkenes,1.7,Separate chemistry 2
+EDEX 9.16C,Complete combustion of alkanes and alkenes as oxidation to carbon dioxide and water,1.3,Separate chemistry 2
+EDEX 9.17C,Polymers as substances of high relative molecular mass made of repeating units,1.1,Separate chemistry 2
+EDEX 9.18C,Describe how ethene molecules combine to form the addition polymer poly(ethene),1.76,Separate chemistry 2
+EDEX 9.19C,How other addition polymers are made from monomers containing C=C,1.39,Separate chemistry 2
+EDEX 9.20C,Structure of a monomer from the structure of an addition polymer and vice versa,1.4,Separate chemistry 2
+EDEX 9.21C,How the uses of polymers are related to their properties and vice versa,1.7,Separate chemistry 2
+EDEX 9.22C,Explain why polyesters are condensation polymers and how they are formed,2.85,Separate chemistry 2
+EDEX 9.23C,"Some problems associated with polymers, including persistence in landfill",2.62,Separate chemistry 2
+EDEX 9.24C,Advantages and disadvantages of recycling polymers,2.1,Separate chemistry 2
+EDEX 9.25C,"Natural polymers: DNA, starch and proteins",1.98,Separate chemistry 2
+EDEX 9.26C,"Formulae of molecules of the alcohols, methanol, ethanol",1.17,Separate chemistry 2
+EDEX 9.27C,Alcohols: the –OH functional group and dehydration to form alkenes,1.1,Separate chemistry 2
+EDEX 9.29C,"Formulae of molecules of the carboxylic acids, methanoic",1.12,Separate chemistry 2
+EDEX 9.30C,Carboxylic acids: the –COOH functional group and typical acidic properties,1.1,Separate chemistry 2
+EDEX 9.31C,Oxidation of ethanol to ethanoic acid and of other alcohols,1.1,Separate chemistry 2
+EDEX 9.32C,Similar reactions of homologous series members due to the same functional group,1.23,Separate chemistry 2
+EDEX 9.33C,Production of ethanol by fermentation of carbohydrates using yeast,1.3,Separate chemistry 2
+EDEX 9.34C,How to obtain concentrated ethanol by fractional distillation,1.7,Separate chemistry 2
+EDEX 9.35C,Size of nanoparticles with the sizes of atoms and molecules,1.8,Separate chemistry 2
+EDEX 9.36C,How the properties of nanoparticulate materials are related to their uses,1.3,Separate chemistry 2
+EDEX 9.37C,Possible risks associated with some nanoparticulate materials,1.7,Separate chemistry 2
+EDEX 9.38C,"Compare, using data, the properties of ceramics, polymers, composites and metals",1.8,Separate chemistry 2
+EDEX 9.39C,Why the properties of a material make it suitable for a given use,1.7,Separate chemistry 2
+EDEX 9.28C,"Temperature rise in water from burning ethanol, propanol, butanol and pentanol",4.2,Separate chemistry 2
+EDEX 9.6C,Ions in unknown salts identified using the cation and anion tests,1.2,Separate chemistry 2
