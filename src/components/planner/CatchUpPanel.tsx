@@ -4,14 +4,10 @@ import { History, Loader2, Plus } from "lucide-react";
 import { WeeklyPlanDAL } from "@/lib/planner/weeklyPlanDal";
 import { type TopicBacklog } from "@/lib/planner/backlog";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
-import { PLANNER_TIME_ZONE, weekKeyToDate } from "@/lib/planner/week";
+import { plannerDateLabel, weekKeyToDate } from "@/lib/planner/week";
 
 function fmtWeek(key: string): string {
-  return weekKeyToDate(key).toLocaleDateString(undefined, {
-    timeZone: PLANNER_TIME_ZONE,
-    day: "numeric",
-    month: "short",
-  });
+  return plannerDateLabel(weekKeyToDate(key));
 }
 
 /**
