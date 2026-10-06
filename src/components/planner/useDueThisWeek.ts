@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useNow } from "@/hooks/useNow";
 import { useViewerId } from "@/hooks/useViewer";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { demoWeek } from "@/lib/demo/plannerDemo";
@@ -32,7 +33,10 @@ export function useDueThisWeek(subject: string | null) {
   const studentId = useViewerId();
   const { enrolments, level } = useEnrolments();
   const enrolment = enrolments.find((e) => e.subject === subject);
-  const weekStart = currentWeekKey();
+  // Re-read each minute, as the dashboard does, so a page left open over Sunday
+  // midnight moves on to the new week with it.
+  const now = useNow(60_000);
+  const weekStart = currentWeekKey(new Date(now));
 
   const live = useWeekPlan({
     studentId: studentId ?? "",
