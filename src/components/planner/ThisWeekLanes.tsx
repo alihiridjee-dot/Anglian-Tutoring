@@ -3,59 +3,79 @@ import { NothingDue } from "./NothingDue";
 import { CatchUpWeek } from "./CatchUpWeek";
 import { PLANNER_TIME_ZONE, weekKeyToDate } from "@/lib/planner/week";
 import { Meter } from "@/components/Shared";
-import { Link } from "@tanstack/react-router";
-import { CircleDot, History, Repeat, CheckCircle2, Plus, BookMarked } from "lucide-react";
+import {
+  CircleDot,
+  History,
+  Repeat,
+  CheckCircle2,
+  Plus,
+  BookMarked,
+  Lock,
+  Trophy,
+} from "lucide-react";
 import { type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { type PacingBand } from "@/lib/planner/pacing";
-import { type PointCoverage } from "@/lib/planner/coverage";
-import { type Activity } from "./useWeekPlan";
+import { type ReviewLock } from "@/lib/planner/reviewLock";
 import { type TopicGroup } from "./useWeekLanes";
-import { isDemoStudent } from "@/lib/demo/studentDemo";
 
 /** Renders one spec point. The panel owns it, so every lane draws a point the same way. */
 type Row = (p: PlanPoint) => React.ReactNode;
 
-/** How much of the week's assigned practice is done, and the next piece to do. */
+/**
+ * How much of the week's assigned practice is done, and when the week in review
+ * opens — the one progress card on the week.
+ */
 export function WeekProgressCard({
   assigned,
   completed,
-  next,
-  activity,
-  coverage,
+  lock,
 }: {
   assigned: PlanPoint[];
   completed: number;
-  next: PlanPoint | undefined;
-  activity: Activity;
-  coverage: Map<string, PointCoverage>;
+  lock: ReviewLock;
 }) {
+  const done = completed === assigned.length;
   return (
     <div className="premium-card tint-primary rounded-xl p-4 space-y-2">
       <h3 className="text-base font-bold">
-        {completed === assigned.length
+        {done
           ? "This week’s assigned practice is complete"
           : `${completed} of ${assigned.length} points practised`}
       </h3>
-      <Meter value={(completed / assigned.length) * 100} size="sm" />
-      {next && (
-        <Link
-          className="btn-solid inline-flex items-center max-w-full min-h-11 sm:pointer-fine:min-h-0 px-3 py-2 text-sm"
-          to={
-            activity.get(next.spec_point_id)?.hasHomework &&
-            !coverage.get(next.spec_point_id)?.homeworkDone
-              ? isDemoStudent()
-                ? "/demo/student/homework"
-                : "/homework"
-              : isDemoStudent()
-                ? "/demo/student/mcqs"
-                : "/mcqs"
+      {/* The bar runs up to where the week has got to; the trophy is the end of it. */}
+      <div className="flex items-center gap-3">
+        <Meter
+          key={completed}
+          value={(completed / assigned.length) * 100}
+          size="lg"
+          fillIn
+          className="min-w-0 flex-1"
+        />
+        <Trophy
+          aria-hidden
+          className={
+            done
+              ? "pop-in size-6 shrink-0 text-[color:var(--tint)]"
+              : "size-6 shrink-0 text-[color:color-mix(in_oklab,var(--tint)_35%,transparent)]"
           }
-        >
-          Next: {next.title}
-        </Link>
+        />
+      </div>
+      {lock.locked && (
+        <p className="flex items-start gap-2 text-sm">
+          <Lock className="mt-0.5 size-4 shrink-0 text-[color:var(--tint)]" aria-hidden />
+          <span>
+            Your week in review opens{" "}
+            {lock.opensOn.toLocaleDateString(undefined, {
+              timeZone: PLANNER_TIME_ZONE,
+              weekday: "long",
+              day: "numeric",
+              month: "short",
+            })}
+          </span>
+        </p>
       )}
-      {completed === assigned.length && (
+      {done && (
         <p className="text-sm text-muted-foreground">
           Your results will guide future reviews. You can finish here for this week.
         </p>
