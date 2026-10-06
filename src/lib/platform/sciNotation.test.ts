@@ -210,6 +210,16 @@ describe("sciRuns", () => {
     expect(sciRuns("Left blank")).toEqual([{ text: "Left blank", kind: "text" }]);
     expect(sciRuns("")).toEqual([]);
   });
+
+  test("relative masses take a small r, drawn in the text's own face", () => {
+    expect(sciRuns("Mᵣ of NaCl = 58.5")).toEqual([
+      { text: "M", kind: "text" },
+      { text: "r", kind: "sub" },
+      { text: " of NaCl = 58.5", kind: "text" },
+    ]);
+    // Only drawn small where it is stored small: an ordinary r is left alone.
+    expect(sciRuns("Ar = 12")).toEqual([{ text: "Ar = 12", kind: "text" }]);
+  });
 });
 
 describe("toggleScript", () => {
