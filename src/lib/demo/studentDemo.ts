@@ -776,11 +776,9 @@ export type DemoMcqSet = {
   level: string;
   subject: string;
   topic: string;
-  /** Curriculum order of the topic, so the archive files topics as the spec does. */
-  topicSort: number;
   /** The spec point code the set is written for. */
   specPoint: string;
-  /** On the demo student's plan this week, rather than filed under Past MCQs. */
+  /** On the demo student's plan this week (the parent showcase averages these). */
   thisWeek: boolean;
 };
 
@@ -804,7 +802,6 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     level: "gcse",
     subject: "biology",
     topic: "Key concepts in biology",
-    topicSort: 1,
     specPoint: "EDEX 1.15",
     thisWeek: true,
   },
@@ -817,7 +814,6 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     level: "gcse",
     subject: "biology",
     topic: "Key concepts in biology",
-    topicSort: 1,
     specPoint: "EDEX 1.16",
     thisWeek: true,
   },
@@ -830,7 +826,6 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     level: "gcse",
     subject: "chemistry",
     topic: "Bonding, structure, and the properties of matter",
-    topicSort: 2,
     specPoint: "AQA 4.2.1.2",
     thisWeek: true,
   },
@@ -843,7 +838,6 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     level: "gcse",
     subject: "chemistry",
     topic: "Bonding, structure, and the properties of matter",
-    topicSort: 2,
     specPoint: "AQA 4.2.1.4",
     thisWeek: true,
   },
@@ -856,7 +850,6 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     level: "gcse",
     subject: "physics",
     topic: "Electricity",
-    topicSort: 3,
     specPoint: "OCR P3.2g",
     thisWeek: true,
   },
@@ -869,7 +862,6 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     level: "gcse",
     subject: "physics",
     topic: "Electricity",
-    topicSort: 3,
     specPoint: "OCR P3.2i",
     thisWeek: true,
   },
@@ -884,7 +876,6 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     level: "gcse",
     subject: "biology",
     topic: "Key concepts in biology",
-    topicSort: 1,
     specPoint: "EDEX 1.1",
     thisWeek: false,
   },
@@ -897,7 +888,6 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     level: "gcse",
     subject: "biology",
     topic: "Cells and control",
-    topicSort: 2,
     specPoint: "EDEX 2.1",
     thisWeek: false,
   },
@@ -910,7 +900,6 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     level: "gcse",
     subject: "biology",
     topic: "Plant structures and their functions",
-    topicSort: 6,
     specPoint: "EDEX 6.3",
     thisWeek: false,
   },
@@ -923,7 +912,6 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     level: "gcse",
     subject: "biology",
     topic: "Exchange and transport in animals",
-    topicSort: 8,
     specPoint: "EDEX 8.9",
     thisWeek: false,
   },
@@ -936,7 +924,6 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     level: "gcse",
     subject: "chemistry",
     topic: "Atomic structure and the periodic table",
-    topicSort: 1,
     specPoint: "AQA 4.1.1.5",
     thisWeek: false,
   },
@@ -949,7 +936,6 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     level: "gcse",
     subject: "physics",
     topic: "Energy",
-    topicSort: 7,
     specPoint: "OCR P7.1b",
     thisWeek: false,
   },
@@ -973,7 +959,6 @@ export const DEMO_MCQ_SETS_LATER: DemoMcqSet[] = [
     level: "gcse",
     subject: "biology",
     topic: "Key concepts in biology",
-    topicSort: 1,
     specPoint: "EDEX 1.12",
     thisWeek: false,
   },
@@ -986,7 +971,6 @@ export const DEMO_MCQ_SETS_LATER: DemoMcqSet[] = [
     level: "gcse",
     subject: "biology",
     topic: "Health, disease and the development of medicines",
-    topicSort: 5,
     specPoint: "EDEX 5.4",
     thisWeek: false,
   },
@@ -999,7 +983,6 @@ export const DEMO_MCQ_SETS_LATER: DemoMcqSet[] = [
     level: "gcse",
     subject: "chemistry",
     topic: "The rate and extent of chemical change",
-    topicSort: 6,
     specPoint: "AQA 4.6.1.3",
     thisWeek: false,
   },

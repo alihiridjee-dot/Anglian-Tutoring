@@ -175,7 +175,7 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
     },
     {
       path: "/mcqs",
-      targets: ['[data-guide="mcq-this-week"]', '[data-guide="page-content"] .pop-card'],
+      targets: ['[data-guide="mcq-list"]', '[data-guide="page-content"] .pop-card'],
       chapter: "MCQs",
       icon: ListChecks,
       title: "Quick quizzes",
