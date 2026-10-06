@@ -1,0 +1,315 @@
+{
+  "format": 1,
+  "concept_id": "phys-082",
+  "subject": "physics",
+  "title": "Electromagnetism and solenoids",
+  "key_idea": "A current in a wire produces a magnetic field around it, stronger with more current and nearer the wire. Coiling the wire into a solenoid makes the field stronger. An iron core makes an electromagnet that can be switched on and off.",
+  "sections": [
+    {
+      "heading": "The magnetic field around a wire",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A current in a wire produces a magnetic field around the wire. This is the magnetic effect of a current."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The field forms circles around the wire.",
+            "The strength of the field depends on the current and on the distance from the wire.",
+            "A bigger current gives a stronger field. The field is weaker further from the wire.",
+            "Reversing the current reverses the direction of the field."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Showing the field"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Switch the current on and off near a plotting compass. The needle moves when the current is on.",
+            "Move the compass around the wire. The direction of the needle changes.",
+            "Pass the wire through a card, sprinkle iron filings on it and switch on the current. The filings form circles."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A current produces a magnetic field around a wire.",
+            "The field is stronger with a bigger current and closer to the wire."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Solenoids and electromagnets",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A solenoid is a coil of wire. Coiling the wire makes the magnetic field much stronger than that of a straight wire."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Solenoid",
+              "meaning": "A wire shaped into a coil."
+            },
+            {
+              "term": "Electromagnet",
+              "meaning": "A solenoid with an iron core. It is a magnet that can be switched on and off."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The field inside a solenoid is strong and uniform.",
+            "The field outside has a similar shape to the field of a bar magnet.",
+            "Adding an iron core makes the field stronger."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Pick a change to the electromagnet to see its effect."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a change to a solenoid and see the effect on the strength and direction of its magnetic field.",
+            "prompt": "Change the electromagnet",
+            "result_labels": ["Strength of the field", "Direction of the field"],
+            "options": [
+              {
+                "label": "Increase the current",
+                "results": ["Stronger", "Unchanged"],
+                "explanation": "A bigger current gives a stronger field."
+              },
+              {
+                "label": "Decrease the current",
+                "results": ["Weaker", "Unchanged"],
+                "explanation": "A smaller current gives a weaker field."
+              },
+              {
+                "label": "Add more turns of wire",
+                "results": ["Stronger", "Unchanged"],
+                "explanation": "More turns increase the magnetic effect."
+              },
+              {
+                "label": "Insert an iron core",
+                "results": ["Stronger", "Unchanged"],
+                "explanation": "The iron core becomes magnetised."
+              },
+              {
+                "label": "Reverse the current",
+                "results": ["Unchanged", "Reversed"],
+                "explanation": "The poles swap."
+              },
+              {
+                "label": "Wind the coil the opposite way",
+                "results": ["Unchanged", "Reversed"],
+                "explanation": "The poles swap."
+              },
+              {
+                "label": "Move the electromagnet further from the iron",
+                "results": ["Weaker force on the iron", "Unchanged"],
+                "explanation": "The field is weaker further from the coil."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A solenoid has a stronger field than a straight wire.",
+            "The field is stronger with more current, more turns or an iron core.",
+            "An electromagnet is a solenoid with an iron core."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating and using electromagnets",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You can measure the strength of an electromagnet by counting the paper clips it picks up. Change one variable at a time."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Change the number of turns and keep the current the same. Keep the core, the paper clips and the distance the same.",
+            "To test the current, keep the number of turns constant and change the current several times.",
+            "More turns pick up more paper clips. The number of clips can be directly proportional to the number of turns."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why use an electromagnet"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It can be switched on and off, so it is easy to demagnetise.",
+            "It picks up and releases magnetic materials, as in a crane for moving iron and steel.",
+            "A bigger current and a closer electromagnet increase the force on a piece of iron or steel."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change only one variable at a time.",
+            "An electromagnet can be switched off, so the metal it picks up is easy to release."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how a teacher can use a plotting compass to demonstrate the magnetic effect of the current in a wire.",
+      "a": "Switch the current on and off, which makes the compass needle move. Or move the compass around the wire, which changes the direction of the needle.",
+      "marks": 2
+    },
+    {
+      "q": "Give two ways the magnetic field around a coil could be made stronger.",
+      "a": "Any two from: increase the current, insert an iron core, increase the number of turns.",
+      "marks": 2
+    },
+    {
+      "q": "Explain one reason why an electromagnet is used instead of a permanent magnet to separate iron and steel from other metals.",
+      "a": "It can be switched off (it is easy to demagnetise), so it is easy to remove the separated metal.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.7.2.1", "AQA T 6.7.2.1"],
+      "extra": [
+        {
+          "heading": "Electromagnetic devices (Separate science)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Separate science students must explain how devices work from diagrams. In an electric bell, an electromagnet pulls an iron arm towards it."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Current.",
+                  "text": "There is a current in the circuit."
+                },
+                {
+                  "lead": "Field.",
+                  "text": "A magnetic field is created around the electromagnet."
+                },
+                {
+                  "lead": "Force.",
+                  "text": "A resultant force acts on the iron arm, causing it to move towards the electromagnet."
+                },
+                {
+                  "lead": "Return.",
+                  "text": "The iron arm returns to its original position."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9e60023b-497a-4655-903d-4daf01dd5fbe",
+        "source": "AQA jun 2018, Paper 2 (H), Q02.3",
+        "question": "A magnet produces a magnetic field. A toy crane uses an electromagnet to pick up and move blocks.\n\nExplain how this electromagnet is able to pick up and move the blocks.",
+        "marks": 6,
+        "answer_points": [
+          "Completing the circuit turns the electromagnet on.",
+          "There is a current in the coil.",
+          "A magnetic field is produced around the coil.",
+          "The iron core becomes magnetised.",
+          "Move the electromagnet towards the blocks: the block is attracted to the electromagnet.",
+          "Moving the crane moves the block.",
+          "Switching off the current switches off the electromagnet, releasing the block."
+        ],
+        "tip": "A level of response question: link the points in a logical order from switching on to releasing the block."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 12.7", "EDEX 12.8", "EDEX 12.9"],
+      "worked_example": {
+        "exemplar_id": "b222be2c-e68c-4702-acf5-14d5018df178",
+        "source": "EDEXCEL jun 2019, Paper 2 (F), Q3(b)",
+        "question": "A student has\n− a power pack\n− a long piece of wire\n− a stiff card\n− iron filings\n\nDescribe how the student could use this equipment to show the shape of the magnetic field produced by a current in the wire.\n\nYou may draw a diagram to help with your answer.",
+        "marks": 4,
+        "answer_points": [
+          "Put the wire through the card (or near, under or over the card).",
+          "Put iron filings on the card or around the wire.",
+          "Connect the wire to the power pack.",
+          "Switch on, so there is a current in the wire.",
+          "The filings are attracted or move.",
+          "A pattern is seen in the filings: circles around the wire."
+        ],
+        "tip": "Any four points score. Marks can be taken from a diagram."
+      },
+      "extra": [
+        {
+          "heading": "Direction of the field and the field of a solenoid",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The direction of the field depends on the direction of the current. The right-hand grip rule gives it."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Point the thumb of the right hand along the current in a straight wire. The fingers curl in the direction of the field.",
+                "Inside a solenoid the fields from the individual coils add together. This makes a very strong, almost uniform field along the centre.",
+                "Outside the solenoid the fields cancel. This gives a weaker field."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR P4.1e", "OCR P4.1f", "OCR P4.1g"],
+      "worked_example": {
+        "exemplar_id": "3b9ac6d9-3e9a-46b2-881e-fc531c82e91a",
+        "source": "OCR jun 2024, Paper 1, Q23(b)(i)",
+        "question": "A teacher sets up equipment to demonstrate using a plotting compass to investigate the magnetic field around a current-carrying wire. The equipment is a current-carrying wire, a wooden stand, a cardboard sheet and a plotting compass.\n\nDescribe how the teacher uses this equipment to show the shape of the magnetic field around the current-carrying wire.",
+        "marks": 3,
+        "answer_points": [
+          "Place the plotting compass onto the cardboard sheet.",
+          "Mark the direction of the compass needle (with a dot).",
+          "Move the plotting compass to another of these marks and repeat.",
+          "Connect the marks together to show the field."
+        ],
+        "tip": "Any three points score. One mark is given for using the plotting compass to show the field if nothing else scores."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "fcf38adb-20d2-4c6f-bb4f-7c762ce9ee13",
+      "a836ad3c-0ac8-466a-b807-33865a1504bf",
+      "d8aaf271-87d5-4a9b-9ebb-a38e1a0a61ff",
+      "2a0091fa-a2ea-4a03-935c-6f259d66b0ac",
+      "02f63d71-0fb4-4718-9402-6f223c92fab2",
+      "dfa3befb-1bbf-4be8-88f9-2b48c331b11a",
+      "842cbcdf-ff2b-4573-a6ef-1c9213860698",
+      "1e20d926-bc21-40ab-bb26-2c5795dfc694"
+    ],
+    "exemplar_ids": [
+      "9e60023b-497a-4655-903d-4daf01dd5fbe",
+      "b222be2c-e68c-4702-acf5-14d5018df178",
+      "3b9ac6d9-3e9a-46b2-881e-fc531c82e91a"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
+  }
+}

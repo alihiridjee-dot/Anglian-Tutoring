@@ -8,13 +8,25 @@
     {
       "heading": "How the table is arranged",
       "blocks": [
-        { "type": "paragraph", "text": "The table is organised in rows and columns. This section covers what each one tells you." },
+        {
+          "type": "paragraph",
+          "text": "The table is organised in rows and columns. This section covers what each one tells you."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Period", "meaning": "A row of the periodic table. The period number is the number of shells that contain electrons." },
-            { "term": "Group", "meaning": "A column of the periodic table. Elements in a group have similar properties." },
-            { "term": "Atomic number", "meaning": "The number of protons in an atom. It gives the element's position in the table." }
+            {
+              "term": "Period",
+              "meaning": "A row of the periodic table. The period number is the number of shells that contain electrons."
+            },
+            {
+              "term": "Group",
+              "meaning": "A column of the periodic table. Elements in a group have similar properties."
+            },
+            {
+              "term": "Atomic number",
+              "meaning": "The number of protons in an atom. It gives the element's position in the table."
+            }
           ]
         },
         {
@@ -26,7 +38,10 @@
             "Argon (atomic number 18) comes before potassium (19), even though potassium has the smaller relative atomic mass."
           ]
         },
-        { "type": "subheading", "text": "Names of some groups" },
+        {
+          "type": "subheading",
+          "text": "Names of some groups"
+        },
         {
           "type": "table",
           "columns": ["Group", "Name", "Outer electrons"],
@@ -49,7 +64,10 @@
     {
       "heading": "Position and electrons",
       "blocks": [
-        { "type": "paragraph", "text": "An element's position tells you about its electrons, and the electrons explain its chemical properties." },
+        {
+          "type": "paragraph",
+          "text": "An element's position tells you about its electrons, and the electrons explain its chemical properties."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -57,12 +75,30 @@
             "alt": "Tap a part of the periodic table to learn what it tells you, then test yourself.",
             "prompt": "Parts of the periodic table",
             "parts": [
-              { "name": "Groups", "detail": "The vertical columns. Elements in a group have the same number of electrons in their outer shell, which gives them similar chemical properties." },
-              { "name": "Periods", "detail": "The horizontal rows. The period number is the number of shells containing electrons." },
-              { "name": "Group 1: alkali metals", "detail": "One outer electron. They are metals that react vigorously with water." },
-              { "name": "Group 7: halogens", "detail": "Seven outer electrons. They are non-metals with similar reactions." },
-              { "name": "Group 0: noble gases", "detail": "A full outer shell. They are very unreactive." },
-              { "name": "Transition metals", "detail": "The block of metals between Group 2 and Group 3, such as iron and copper." }
+              {
+                "name": "Groups",
+                "detail": "The vertical columns. Elements in a group have the same number of electrons in their outer shell, which gives them similar chemical properties."
+              },
+              {
+                "name": "Periods",
+                "detail": "The horizontal rows. The period number is the number of shells containing electrons."
+              },
+              {
+                "name": "Group 1: alkali metals",
+                "detail": "One outer electron. They are metals that react vigorously with water."
+              },
+              {
+                "name": "Group 7: halogens",
+                "detail": "Seven outer electrons. They are non-metals with similar reactions."
+              },
+              {
+                "name": "Group 0: noble gases",
+                "detail": "A full outer shell. They are very unreactive."
+              },
+              {
+                "name": "Transition metals",
+                "detail": "The block of metals between Group 2 and Group 3, such as iron and copper."
+              }
             ]
           }
         },
@@ -74,7 +110,10 @@
             "Elements in the same group have the same number of outer electrons, so they have similar chemical properties."
           ]
         },
-        { "type": "subheading", "text": "How electrons explain reactions" },
+        {
+          "type": "subheading",
+          "text": "How electrons explain reactions"
+        },
         {
           "type": "list",
           "items": [
@@ -97,7 +136,10 @@
     {
       "heading": "Predicting from position",
       "blocks": [
-        { "type": "paragraph", "text": "Because a group has similar chemistry, you can predict the reactions of an element from its position." },
+        {
+          "type": "paragraph",
+          "text": "Because a group has similar chemistry, you can predict the reactions of an element from its position."
+        },
         {
           "type": "list",
           "items": [
@@ -111,9 +153,18 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Find the group.", "text": "Tennessine has atomic number 117 and is in Group 7." },
-            { "lead": "Outer electrons.", "text": "Group 7 means 7 electrons in the outer shell." },
-            { "lead": "Predict.", "text": "It will react like the other halogens." }
+            {
+              "lead": "Find the group.",
+              "text": "Tennessine has atomic number 117 and is in Group 7."
+            },
+            {
+              "lead": "Outer electrons.",
+              "text": "Group 7 means 7 electrons in the outer shell."
+            },
+            {
+              "lead": "Predict.",
+              "text": "It will react like the other halogens."
+            }
           ]
         },
         {
@@ -147,24 +198,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.1.2.1", "AQA T 5.1.2.1"],
-      "exam_phrases": [
-        "they have the same number of outer shell electrons",
-        "the number of outer electrons is the same as the group number",
-        "(tennessine is in) Group 7",
-        "potassium has more shells (energy levels) than sodium",
-        "PH₃",
-        "HAt"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A potassium atom is larger than a sodium atom because it has more outer shells.",
-          "right": "More outer shells is not accepted. Say potassium has more shells (or energy levels) of electrons."
-        },
-        {
-          "wrong": "Tennessine has 7 outer electrons because its atomic number is 117.",
-          "right": "The reason must be its position: tennessine is in Group 7, so the outer electrons equal the group number."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "aa2ed405-b479-4b21-8a4b-2cee964f26d4",
         "source": "AQA jun 2023, Paper 1 (H), Q01.3",
@@ -179,63 +212,17 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 1.16", "EDEX 1.17", "EDEX 6.1"],
-      "exam_phrases": [
-        "halogens",
-        "alkali metals",
-        "noble gases / inert gases / rare gases",
-        "the periodic table is in atomic number order",
-        "(potassium) has more protons / a higher atomic number",
-        "group = 4, period = 3"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Group 7 elements are called the halides.",
-          "right": "Halide is rejected. The name is halogens."
-        },
-        {
-          "wrong": "Group 0 elements are the gases.",
-          "right": "Gases alone is not allowed. Say noble gases (or inert gases or rare gases)."
-        },
-        {
-          "wrong": "Potassium comes after argon because it is in Group 1.",
-          "right": "This is ignored. Say the table is in atomic number order and potassium has atomic number 19 against 18 for argon."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "24bcc8d1-4fb7-4cd2-9ed0-9bc4e9caa061",
         "source": "EDEXCEL jun 2024, Paper 1 (F), Q5(c)",
         "question": "The modern periodic table is organised into groups and periods.\n\nState in which group and in which period of the periodic table silicon is found.\n\nYou should use the periodic table to help you answer this question.",
         "marks": 2,
-        "answer_points": [
-          "Group 4.",
-          "Period 3."
-        ],
+        "answer_points": ["Group 4.", "Period 3."],
         "tip": "One mark for the group and one for the period. Silicon is 2,8,4: four outer electrons and three shells."
       }
     },
     "ocr": {
       "spec_codes": ["OCR C2.2h", "OCR C4.1d"],
-      "exam_phrases": [
-        "same number of electrons in the outer shell / all have 7 electrons in the outer shell",
-        "(non-metals) gain electrons",
-        "forms a (more stable) filled outer shell",
-        "2 electrons are lost to form a full outer shell (magnesium)",
-        "KAt (potassium astatide)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "All halogens have similar reactions because they have the same number of electrons.",
-          "right": "The number of outer-shell electrons must be right. All halogens have 7 electrons in the outer shell. A wrong number scores nothing."
-        },
-        {
-          "wrong": "Magnesium forms Mg²⁺ ions because it loses 2 electrons.",
-          "right": "Just losing 2 electrons is ignored. Say it has 2 outer shell electrons that are lost, to give a full outer shell."
-        },
-        {
-          "wrong": "Non-metals form negative ions because they need electrons.",
-          "right": "'Need electrons' is ignored. Say they gain electrons to form a more stable filled outer shell."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "bd52386f-d230-479e-82f6-167fb9e36a01",
         "source": "OCR sample, Paper 4, Q17(b)(i)",

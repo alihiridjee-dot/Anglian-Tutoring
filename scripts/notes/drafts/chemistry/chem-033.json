@@ -1,0 +1,230 @@
+{
+  "format": 1,
+  "concept_id": "chem-033",
+  "subject": "chemistry",
+  "title": "Using moles to balance equations",
+  "key_idea": "(AQA: Higher tier) The balancing numbers in an equation are the mole ratio of the substances. Convert each mass to moles, divide by the smallest number of moles, and write the simplest whole-number ratio. Those numbers are the balancing numbers.",
+  "sections": [
+    {
+      "heading": "Finding balancing numbers from masses",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) Experiments can show how many moles of each substance react. This section covers how to turn masses into balancing numbers."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Convert each mass to moles.",
+              "text": "Divide the mass in grams by the Ar or Mr."
+            },
+            {
+              "lead": "Divide by the smallest.",
+              "text": "This gives the ratio of moles."
+            },
+            {
+              "lead": "Make whole numbers.",
+              "text": "If a number is not whole, multiply every number to make them whole, such as × 2 for 1.5."
+            },
+            {
+              "lead": "Write the equation.",
+              "text": "Use the ratio as the balancing numbers in front of the formulae."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Example: iron and chlorine"
+        },
+        {
+          "type": "list",
+          "items": [
+            "4.48 g of iron reacts with 8.52 g of chlorine to form iron chloride.",
+            "Moles of Fe = 4.48 ÷ 56 = 0.08. Moles of Cl atoms = 8.52 ÷ 35.5 = 0.24.",
+            "Fe : Cl = 0.08 : 0.24 = 1 : 3, so the formula is FeCl₃."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "The balanced equation",
+          "where": [
+            "Chlorine is a molecule, Cl₂. 3 Cl atoms for every Fe means 3 Cl₂ for every 2 Fe."
+          ],
+          "formula": "2Fe + 3Cl₂ → 2FeCl₃"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Check whether the substance is an atom or a molecule. 0.24 mol of Cl **atoms** is 0.12 mol of Cl₂ **molecules**.",
+            "Fe : Cl₂ = 0.08 : 0.12 = 2 : 3 gives the same equation."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Practise finding the formula of an iron chloride from the masses that react.",
+            "kind": "practice",
+            "answer": {
+              "formula": "b / 35.5 / (5.6 / 56)",
+              "decimals": 0
+            },
+            "working": [
+              "Moles of Fe = 5.6 ÷ 56 = 0.1",
+              "Moles of Cl = {b} ÷ 35.5",
+              "Cl : Fe = ({b} ÷ 35.5) ÷ 0.1 = **{answer}**, so the formula is FeCl{answer}"
+            ],
+            "question": "5.6 g of iron (Ar = 56) reacts with chlorine to form iron chloride, FeClₓ. The mass of chlorine that reacts is **{b} g** (Ar = 35.5). Calculate x.",
+            "variables": [
+              {
+                "id": "b",
+                "max": 10.65,
+                "min": 7.1,
+                "step": 3.55
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mass ÷ Ar (or Mr) gives moles.",
+            "The simplest whole-number ratio of moles gives the balancing numbers.",
+            "Check whether each substance is atoms or molecules."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Choosing between two equations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) A question may give two possible equations. Calculate the mole ratio from the data and see which equation matches."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Equations.",
+              "text": "1: Fe + Pb(NO₃)₂ → Fe(NO₃)₂ + Pb. 2: 2Fe + 3Pb(NO₃)₂ → 2Fe(NO₃)₃ + 3Pb."
+            },
+            {
+              "lead": "Data.",
+              "text": "4.48 g of iron makes 24.84 g of lead. Ar: Fe = 56.0, Pb = 207."
+            },
+            {
+              "lead": "Moles.",
+              "text": "Fe: 4.48 ÷ 56.0 = 0.08. Pb: 24.84 ÷ 207 = 0.12."
+            },
+            {
+              "lead": "Ratio.",
+              "text": "Fe : Pb = 0.08 : 0.12 = 2 : 3. Equation 1 would give 1 : 1."
+            },
+            {
+              "lead": "Conclusion.",
+              "text": "The ratio matches equation 2."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "State which equation it is, and show the calculation that proves it.",
+            "You can also work out the mass each equation predicts and see which matches the data."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Find the moles of two substances and compare them.",
+            "Match the ratio to an equation.",
+            "Always show the calculation and name the equation."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "2.24 g of iron reacts with excess copper nitrate solution to form 3.81 g of copper. Calculate the moles of each. (Ar: Fe = 56.0, Cu = 63.5)",
+      "a": "Fe: 2.24 ÷ 56.0 = 0.04 mol. Cu: 3.81 ÷ 63.5 = 0.06 mol.",
+      "marks": 2
+    },
+    {
+      "q": "Use your answers to say what the ratio of Fe : Cu is. Which equation does it match: Fe + Cu(NO₃)₂ → Fe(NO₃)₂ + Cu or 2Fe + 3Cu(NO₃)₂ → 2Fe(NO₃)₃ + 3Cu?",
+      "a": "The ratio is 0.04 : 0.06 = 2 : 3, so it matches 2Fe + 3Cu(NO₃)₂ → 2Fe(NO₃)₃ + 3Cu.",
+      "marks": 2
+    },
+    {
+      "q": "0.12 mol of iron reacts with 0.16 mol of steam. What is the simplest mole ratio of Fe : H₂O?",
+      "a": "0.12 : 0.16 = 3 : 4.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.2.3", "AQA T 5.3.2.3"],
+      "worked_example": {
+        "exemplar_id": "605667fd-1df8-4518-95f0-a3f060b24816",
+        "source": "AQA jun 2021, Paper 1 (H), Q06.4",
+        "question": "Iron reacts with oxygen to produce an oxide of iron.\n\n0.015 moles of iron reacts with 0.010 moles of oxygen gas (O₂).\n\nDetermine:\n• the formula of the iron oxide produced\n• the balanced symbol equation for the reaction.",
+        "marks": 4,
+        "answer_points": [
+          "Ratio Fe : O₂ = 3 : 2, or Fe : O atoms = 3 : 4 (1)",
+          "Formula: Fe₃O₄ (1)",
+          "Equation: 3Fe + 2O₂ → Fe₃O₄ (2)"
+        ],
+        "tip": "Multiples of the equation are allowed."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.53"],
+      "worked_example": {
+        "exemplar_id": "69bbf521-08a5-4f2c-92c1-dad04514f015",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q9(c)",
+        "question": "Iron is more reactive than lead.\n\nIron reacts with lead nitrate solution to form solid lead.\n\nTwo possible balanced equations for the reaction are\n\nEquation 1: Fe + Pb(NO₃)₂ → Fe(NO₃)₂ + Pb\n\nEquation 2: 2Fe + 3Pb(NO₃)₂ → 2Fe(NO₃)₃ + 3Pb\n\nIn one experiment, it was found that 4.48 g of iron reacted with excess lead nitrate solution to form 24.84 g of lead.\n\nCarry out a calculation, using the information above, to show which equation represents the reaction taking place.\n\n(relative atomic masses: Fe = 56.0, Pb = 207)",
+        "marks": 3,
+        "answer_points": [
+          "Moles of Fe = 4.48 ÷ 56.0 = 0.08 (1)",
+          "Moles of Pb = 24.84 ÷ 207 = 0.12 (1)",
+          "Ratio Fe : Pb = 2 : 3 (or 1 : 1.5), so equation 2 (1)"
+        ],
+        "tip": "A mass method also scores: equation 2 predicts 621 ÷ 112 × 4.48 = 24.84 g of lead."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C3.1k"],
+      "worked_example": {
+        "exemplar_id": "9e238429-c8d9-4879-ac7e-507f873394bc",
+        "source": "OCR nov 2020, Paper 4, Q22(c)",
+        "question": "Chromium metal, Cr, reacts with nickel sulfate solution, NiSO₄. Solid nickel is made.\n\nTwo possible equations for this reaction are:\n\nEquation 1: Cr + NiSO₄ → CrSO₄ + Ni\n\nEquation 2: 2Cr + 3NiSO₄ → Cr₂(SO₄)₃ + 3Ni\n\n10.40 g of chromium metal reacts with excess nickel sulfate solution to make 17.61 g of nickel.\n\nDeduce which equation, 1 or 2, represents the reaction which takes place.\n\nAr: Cr = 52.0, Ni = 58.7",
+        "marks": 3,
+        "answer_points": [
+          "Moles of chromium = 10.40 ÷ 52.0 = 0.2",
+          "Moles of nickel = 17.61 ÷ 58.7 = 0.3",
+          "The ratio is 2 : 3, not 1 : 1, so equation 2"
+        ],
+        "tip": "The last mark depends on correct reasoning from the two mole values."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "cf5d06d7-8c7c-47bf-81d8-35e6a79b3fff",
+      "e408dd49-8508-4e30-95f3-46cb4aee8c90",
+      "16da3ef0-1947-4911-8ce5-e564bed604c6",
+      "f285c0d0-0124-4469-a7df-7dfb0857b680"
+    ],
+    "exemplar_ids": [
+      "605667fd-1df8-4518-95f0-a3f060b24816",
+      "69bbf521-08a5-4f2c-92c1-dad04514f015",
+      "9e238429-c8d9-4879-ac7e-507f873394bc"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

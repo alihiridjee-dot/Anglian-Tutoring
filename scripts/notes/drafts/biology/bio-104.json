@@ -1,0 +1,225 @@
+{
+  "format": 1,
+  "concept_id": "bio-104",
+  "subject": "biology",
+  "title": "Evolution by natural selection",
+  "key_idea": "Individuals in a population vary. Those with characteristics best suited to the environment are more likely to survive and reproduce, passing on their alleles. Over many generations the population changes. This is evolution by natural selection.",
+  "sections": [
+    {
+      "heading": "Evolution and natural selection",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Charles Darwin explained how species change over time. This section covers the key terms."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Evolution",
+              "meaning": "A change in the inherited characteristics of a population over time, through natural selection. It may result in a new species."
+            },
+            {
+              "term": "Natural selection",
+              "meaning": "The process by which organisms best suited to their environment survive and reproduce, passing on their alleles."
+            },
+            {
+              "term": "Selection pressure",
+              "meaning": "A factor that makes some individuals more likely to survive, such as predators, disease, competition for food or a change in the environment."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "All species of living things have evolved from simple life forms that first developed more than three billion years ago.",
+            "Natural selection acts on **variants** whose phenotypes are best suited to their environment.",
+            "**Speciation:** if two populations of one species become so different in phenotype that they can no longer interbreed to produce fertile offspring, they have formed two new species.",
+            "Evolution is easier to study in species with a short life cycle and many offspring, because the population changes faster."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Evolution is a change in the inherited characteristics of a population over time.",
+            "Natural selection is the process that drives it.",
+            "Selection pressures decide which individuals survive."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How natural selection works",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Natural selection follows the same steps each time. Put them in order to test yourself."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Put the steps of natural selection in order.",
+            "kind": "sequence",
+            "steps": [
+              "Individuals in a population show variation, caused by mutations and different alleles",
+              "More offspring are produced than can survive, so selection pressures such as competition for food or predators act",
+              "Individuals with characteristics best suited to the environment are more likely to survive",
+              "These survivors reproduce more",
+              "They pass on the alleles for the useful characteristic to their offspring",
+              "Over many generations the allele becomes more common in the population"
+            ],
+            "prompt": "Put natural selection in order"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pass on **alleles** or genes. Saying \"pass on the characteristic\" is not enough.",
+            "Mutations happen at random. They do not happen because an organism needs them.",
+            "The change takes many generations."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Variation, survival of the better adapted, reproduction, passing on alleles.",
+            "Mutations are random. Selection is not.",
+            "Repeat over many generations and the population changes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using the idea in an example",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Exam questions give an example and ask you to apply the steps. Use the example's own details at each step."
+        },
+        {
+          "type": "subheading",
+          "text": "Birds with longer beaks"
+        },
+        {
+          "type": "list",
+          "items": [
+            "There is variation in beak length, caused by mutations.",
+            "Bird feeders are a selection pressure.",
+            "Birds with longer beaks reach more nuts, so they get more food and energy.",
+            "They are more likely to survive and reproduce.",
+            "They pass on the allele for a long beak.",
+            "Over many generations the mean beak length increases."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Black mice on black rock"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A mutation produces a black mouse.",
+            "Black mice are better camouflaged on black rock.",
+            "They are less likely to be eaten by snakes or owls.",
+            "They survive to reproduce and pass on the gene for black colour."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Name the variation, the selection pressure and the advantage.",
+            "Say the better adapted survive and reproduce, and pass on the allele.",
+            "Finish with over many generations."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the process of natural selection.",
+      "a": "There is variation between members of a species. Those better adapted survive and reproduce. They pass on their favourable alleles to their offspring.",
+      "marks": 3
+    },
+    {
+      "q": "What is a selection pressure? Give one example.",
+      "a": "A factor that makes some individuals more likely to survive than others. For example, predators, disease or competition for food.",
+      "marks": 2
+    },
+    {
+      "q": "Why is it wrong to write that a bird \"needed\" a longer beak so a mutation happened?",
+      "a": "Mutations occur at random. Natural selection then favours birds that happen to have the useful allele.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 6.10", "AQA T 4.6.2.2"],
+      "worked_example": {
+        "exemplar_id": "7cd982bc-8013-4871-a8fb-a1b425bf1e90",
+        "source": "AQA jun 2018, Paper 2 (F), Q03.5",
+        "question": "Modern fish species have evolved from fish that lived a long time ago. Evolution is caused by mutation and natural selection.\n\nDescribe the process of natural selection.",
+        "marks": 3,
+        "answer_points": [
+          "There is variation between members of a species.",
+          "The better adapted survive (survival of the fittest).",
+          "They reproduce and pass on the favourable alleles, genes or mutations."
+        ],
+        "tip": "One mark for each stage. \"Pass on characteristics\" is ignored."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 4.2"],
+      "worked_example": {
+        "exemplar_id": "c3c91f6c-44a3-4c3e-8e89-8f213be5475e",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q8(a)",
+        "question": "Describe the theory of evolution by natural selection.",
+        "marks": 3,
+        "answer_points": [
+          "Offspring are overproduced.",
+          "Organisms in a species show variation (or mutations).",
+          "There is a struggle for existence, a selection pressure or competition.",
+          "The adapted organisms survive.",
+          "Their offspring inherit the characteristic, gene or allele.",
+          "This is repeated over many generations."
+        ],
+        "tip": "Any three of the six points score one mark each."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 5.2c", "OCR 5.2d"],
+      "worked_example": {
+        "exemplar_id": "78e76895-2f1a-49bb-bf34-ccdca7ce35a3",
+        "source": "OCR sample, Paper 2, Q20(c)",
+        "question": "In most areas of Mexico the ground is covered in grey rocks. In one area the ground is covered with black rocks. The black rocks were formed about 1000 years ago when a volcano erupted.\nThe scientists make two observations:\n1. Very occasionally a black mouse is born to grey parents due to a mutation.\n2. Black mice are well camouflaged.\n\nUsing these two observations, explain why most of the mice in this area are black and not the usual grey.",
+        "marks": 4,
+        "answer_points": [
+          "The process involves natural selection.",
+          "The mice are fed on by snakes or owls.",
+          "Black mice are less likely to get eaten by snakes or owls.",
+          "They can pass on the gene for black colour."
+        ],
+        "tip": "One mark for each point."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "63498023-b745-4ae3-a378-e1baa57b19ab",
+      "1fa75109-f690-4497-94b2-84bf3ec23982",
+      "e977b08d-59f3-46bd-83d2-782782ec145b",
+      "12e2c8e9-a7e9-4383-b2e7-71514d910ce8",
+      "d5b100b3-acb9-45cc-86f6-53200d238e22"
+    ],
+    "exemplar_ids": [
+      "7cd982bc-8013-4871-a8fb-a1b425bf1e90",
+      "c3c91f6c-44a3-4c3e-8e89-8f213be5475e",
+      "78e76895-2f1a-49bb-bf34-ccdca7ce35a3"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

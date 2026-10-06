@@ -1,0 +1,262 @@
+{
+  "format": 1,
+  "concept_id": "bio-093",
+  "subject": "biology",
+  "title": "Genetic variants and mutations",
+  "key_idea": "A **mutation** is a change in DNA. In coding DNA it can change the amino acids, so the protein has a different shape and may not work. In non-coding DNA it can change how much of a protein is made. Either way, the phenotype can change.",
+  "sections": [
+    {
+      "heading": "What a mutation is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A mutation is a change in the DNA. This section covers what causes mutations and where in the DNA they can happen."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Mutation",
+              "meaning": "A change in the DNA, for example in the base sequence of a gene."
+            },
+            {
+              "term": "Genetic variant",
+              "meaning": "A different version of a section of DNA, which has arisen by mutation."
+            },
+            {
+              "term": "Coding DNA",
+              "meaning": "The parts of DNA that code for the amino acids of a protein."
+            },
+            {
+              "term": "Non-coding DNA",
+              "meaning": "The parts of DNA that do not code for a protein. Only about 1% of human DNA codes for proteins."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mutations can happen when the genetic material is copied and there is an error.",
+            "Ultraviolet (UV) and other ionising radiation can cause mutations in skin cells, which can lead to cancer.",
+            "Most mutations do not change the protein, or change it only slightly.",
+            "Very rarely a mutation changes the protein enough to give a new **phenotype**."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A mutation is a change in DNA.",
+            "It can be in coding DNA or in non-coding DNA.",
+            "Copying errors and radiation can cause mutations."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Mutations in coding DNA",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A mutation in coding DNA changes the code for the protein. That can change the protein's shape and its job."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "The base sequence changes.",
+              "text": "One base is changed, or extra bases are inserted into the gene."
+            },
+            {
+              "lead": "The triplets change.",
+              "text": "The mRNA has a different sequence, so a codon is different."
+            },
+            {
+              "lead": "The amino acids change.",
+              "text": "A different amino acid is added, so the order of amino acids is different."
+            },
+            {
+              "lead": "The protein folds differently.",
+              "text": "The shape changes. An enzyme's active site may no longer fit its substrate."
+            },
+            {
+              "lead": "The phenotype can change.",
+              "text": "The protein no longer does its job properly."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Examples"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A change from the codon CAG to GAG changes the amino acid from Gln to Glu.",
+            "Sickle cell anaemia is caused by a mutation in the gene for haemoglobin. The abnormal haemoglobin can alter the shape of red blood cells, so less oxygen reaches cells for respiration.",
+            "In beta thalassaemia, extra bases are inserted into the haemoglobin gene. The order of the triplets changes, so a different haemoglobin protein is made."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A change in coding DNA can change the order of amino acids.",
+            "A different order changes the protein's shape, and so its function.",
+            "A faulty enzyme may have an active site that its substrate cannot fit."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Mutations in non-coding DNA",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Non-coding DNA does not code for amino acids. It still matters, because it controls whether a gene is switched on."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Non-coding DNA can **switch genes on and off**. This is called controlling gene expression.",
+            "In transcription, RNA polymerase binds to non-coding DNA at the start of a gene.",
+            "A mutation here can mean RNA polymerase binds less well, or cannot bind.",
+            "Then less mRNA is made, or none, so **less protein** is made.",
+            "The amino acid sequence of the protein is not changed. The amount of protein is."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Sort each effect into a mutation in coding DNA or a mutation in non-coding DNA.",
+            "kind": "sort",
+            "items": [
+              {
+                "text": "The order of amino acids changes",
+                "group": 0
+              },
+              {
+                "text": "The protein folds into a different shape",
+                "group": 0
+              },
+              {
+                "text": "An enzyme's active site changes shape",
+                "group": 0
+              },
+              {
+                "text": "A different amino acid is added to the protein",
+                "group": 0
+              },
+              {
+                "text": "RNA polymerase binds less well",
+                "group": 1
+              },
+              {
+                "text": "Less mRNA is made",
+                "group": 1
+              },
+              {
+                "text": "The same protein is made, but less of it",
+                "group": 1
+              },
+              {
+                "text": "A gene is switched on or off differently",
+                "group": 1
+              }
+            ],
+            "groups": ["Mutation in coding DNA", "Mutation in non-coding DNA"],
+            "prompt": "Which type of mutation causes this effect?"
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Non-coding DNA can switch genes on and off.",
+            "A mutation in it can change how much protein is made.",
+            "A mutation in coding DNA changes the protein itself."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is a mutation?",
+      "a": "A change in the DNA (for example a change in the base sequence of a gene).",
+      "marks": 1
+    },
+    {
+      "q": "Explain how a change in one amino acid in an enzyme could stop the enzyme working.",
+      "a": "A different protein shape is made. The active site is changed, so the substrate does not fit or bind.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how a mutation in the non-coding region of a gene can lead to less protein being made.",
+      "a": "RNA polymerase binds less well (or cannot bind), so less mRNA is made.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 6.5", "AQA 6.9"],
+      "worked_example": {
+        "exemplar_id": "147ca045-1045-4e51-97d5-58a57813689e",
+        "source": "AQA jun 2018, Paper 2 (H), Q08.4",
+        "question": "One of the genes codes for an enzyme used in fat metabolism. A mutation in this gene causes a reduction in milk fat. The mutation changes one amino acid in the enzyme molecule.\n\nExplain how a change in one amino acid in an enzyme molecule could stop the enzyme working.",
+        "marks": 3,
+        "answer_points": [
+          "A different protein is made (the enzyme has a different shape or 3-D structure).",
+          "The active site is changed.",
+          "So the substrate does not fit or bind (an enzyme-substrate complex cannot form)."
+        ],
+        "tip": "One mark for each link. Do not write that the enzyme is denatured."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.9B", "EDEX 3.10B"],
+      "worked_example": {
+        "exemplar_id": "0ec97ece-d01d-4d8e-a465-f236772ff43b",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q9(b)",
+        "question": "A gene coding for a protein has two alleles.\n\nThe first 5 codons of an mRNA strand for these alleles are:\nAllele 1 - AUG CCA CAG GAG UUC\nAllele 2 - AUG CCA GAG GAG UUC\n\nAllele 2 has a mutation.\n\nThe amino acid for each codon is: AUG = Met, CCA = Pro, CAG = Gln, GAG = Glu, UUC = Phe.\n\nExplain how the mutation in allele 2 could affect the functioning of this protein.",
+        "marks": 3,
+        "answer_points": [
+          "The mutation changes the third codon from CAG to GAG (the 7th base is now G instead of C).",
+          "This changes the amino acid from Gln to Glu, so the sequence of amino acids is different.",
+          "The protein folds differently (the active site has a different shape), which affects its function."
+        ],
+        "tip": "Any three of the four points score. Work along the codons to find the one that differs."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 5.1e"],
+      "worked_example": {
+        "exemplar_id": "63941fe4-fc32-4273-abfc-4772985fbc07",
+        "source": "OCR sample, Paper 4, Q19(a)",
+        "question": "Wolfram's Syndrome is a genetic disorder.\nIt is caused by a recessive allele (n).\nIn people with Wolfram's syndrome, a protein does not function correctly.\n\nExplain how a change in an allele can stop a protein functioning correctly.",
+        "marks": 4,
+        "answer_points": [
+          "There is a change in the base sequence of the DNA.",
+          "This changes the order of amino acids.",
+          "The shape of the protein changes.",
+          "The shape is no longer suited to its function, for example a change in an enzyme's active site shape."
+        ],
+        "tip": "One mark for each link in the chain. Write them in order."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "2f766f63-874a-499f-b946-2624736d2ea3",
+      "c5d4b9b9-1006-4899-a305-1f261df2297e",
+      "536d0648-76a2-407d-ba71-9ddf9fc52ffa"
+    ],
+    "exemplar_ids": [
+      "147ca045-1045-4e51-97d5-58a57813689e",
+      "0ec97ece-d01d-4d8e-a465-f236772ff43b",
+      "63941fe4-fc32-4273-abfc-4772985fbc07"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

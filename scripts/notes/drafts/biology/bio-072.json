@@ -1,0 +1,308 @@
+{
+  "format": 1,
+  "concept_id": "bio-072",
+  "subject": "biology",
+  "title": "Control of body temperature",
+  "key_idea": "(Separate science) The body keeps its temperature close to 37 °C so that enzymes work well. The hypothalamus detects a change and the skin and muscles respond. Sweating and vasodilation cool the body. Vasoconstriction and shivering warm it.",
+  "sections": [
+    {
+      "heading": "Why temperature is controlled and how a change is detected",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Body temperature is kept steady because enzymes need the right temperature. This section covers why, and what detects a change."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Thermoregulation",
+              "meaning": "Controlling the temperature inside the body."
+            },
+            {
+              "term": "Hypothalamus",
+              "meaning": "The part of the brain that monitors temperature and coordinates the responses."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Internal temperature is kept at the optimum, about 37 °C, for enzyme action and chemical reactions.",
+            "At high temperatures enzymes are denatured, so the reactions in cells stop working properly.",
+            "Exercise releases heat from respiration, so the body must be able to lose heat as well as keep it."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Detecting a change"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Receptors in the hypothalamus detect the temperature of the blood flowing through the brain.",
+            "Temperature receptors in the skin send nerve impulses to the hypothalamus.",
+            "The hypothalamus then coordinates responses in the skin and muscles to bring the temperature back to normal."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Body temperature is kept near 37 °C, the optimum for enzymes.",
+            "The hypothalamus detects a change and coordinates the response."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "When the body is too hot",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When temperature rises, the body increases the heat it loses from the skin. Two responses do this."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Vasodilation",
+              "meaning": "The blood vessels (capillaries) supplying the skin widen, so more blood flows through them."
+            },
+            {
+              "term": "Sweating",
+              "meaning": "Sweat glands release sweat onto the skin surface."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Sweating"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sweat is released onto the surface of the skin.",
+            "The sweat evaporates.",
+            "Evaporation transfers heat from the body to the surroundings, so the body cools."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Vasodilation"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The capillaries in the skin widen. The vessels do not move.",
+            "More blood flows near the surface of the skin.",
+            "More heat is lost from the blood, for example by radiation, so the blood and the body cool."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sweat evaporates and takes heat from the body.",
+            "Vasodilation brings more blood near the skin surface, so more heat is lost."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "When the body is too cold",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When temperature falls, the body reduces heat loss and makes more heat. Try sorting the responses."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Vasoconstriction**: the capillaries in the skin narrow, so less blood flows near the surface and less heat is lost.",
+            "Sweating is reduced or stops, so less heat is taken away by evaporation.",
+            "The hairs in the skin become erect (stand on end), which traps an insulating layer of air.",
+            "**Shivering**: skeletal muscles contract rapidly. Respiration in the muscles releases heat, so the body warms up."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort the responses into those that happen when the body is too hot and those that happen when it is too cold.",
+            "prompt": "Sort each response: does it happen when the body is too hot or too cold?",
+            "groups": ["Too hot", "Too cold"],
+            "items": [
+              {
+                "text": "Sweat glands release sweat",
+                "group": 0
+              },
+              {
+                "text": "Vasodilation of blood vessels in the skin",
+                "group": 0
+              },
+              {
+                "text": "More blood flows near the skin surface",
+                "group": 0
+              },
+              {
+                "text": "Sweat evaporates and takes heat from the body",
+                "group": 0
+              },
+              {
+                "text": "Vasoconstriction of blood vessels in the skin",
+                "group": 1
+              },
+              {
+                "text": "Less blood flows near the skin surface",
+                "group": 1
+              },
+              {
+                "text": "Skeletal muscles contract rapidly (shivering)",
+                "group": 1
+              },
+              {
+                "text": "Sweating is reduced or stops",
+                "group": 1
+              },
+              {
+                "text": "Hairs in the skin stand on end",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Too cold: vasoconstriction cuts heat loss, sweating stops and shivering releases heat.",
+            "Each response works by changing how much heat is lost or made."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how vasodilation helps to cool the body.",
+      "a": "More blood flows near the surface of the skin, so more heat is lost from the blood, which cools the body.",
+      "marks": 3
+    },
+    {
+      "q": "Why is it important to control the internal temperature of the body?",
+      "a": "It is kept at the optimum temperature, about 37 °C, so that enzymes can work and the chemical reactions in cells can take place.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how shivering helps a person who is too cold.",
+      "a": "Muscles contract rapidly and respiration releases heat, so body temperature increases.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.6"],
+      "worked_example": {
+        "exemplar_id": "6d96a072-5c5f-462b-aa84-a52829618a62",
+        "source": "AQA jun 2022, Paper 2 (H), Q08.4",
+        "question": "An echidna can dilate and constrict blood vessels in its skin.\n\nExplain how the dilation of blood vessels in the skin can help to decrease body temperature.",
+        "marks": 3,
+        "answer_points": [
+          "More blood flows near the surface of the skin, or more blood flows to the skin. Do not accept \"blood vessels move nearer to the surface\".",
+          "So more heat (energy) is lost from the blood.",
+          "This cools the blood, which cools the body. \"Cools blood / body\" on its own is ignored."
+        ],
+        "tip": "Give three linked steps: more blood flow near the surface, more heat lost, then the blood and body cool."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 7.11B", "EDEX 7.12B"],
+      "worked_example": {
+        "exemplar_id": "6ac19253-9fe7-49b6-b418-5d1bfb1977db",
+        "source": "EDEXCEL jun 2018, Paper 2 (H), Q6(b)(ii)",
+        "question": "Explain the role of vasodilation in thermoregulation.",
+        "marks": 4,
+        "answer_points": [
+          "Vasodilation acts to cool the body down.",
+          "More blood flows near the surface of the skin (accept: capillaries widen near the surface of the skin; reject: moving blood vessels).",
+          "Less blood flows through the shunt valve.",
+          "This causes increased thermal energy loss (accept: energy loss by radiation)."
+        ],
+        "tip": "One mark for each linked point. State the role first, then the blood flow, then the heat loss."
+      },
+      "extra": [
+        {
+          "heading": "Skin structures in hot weather (Edexcel)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Edexcel explains hot-weather responses structure by structure. Link each structure to how it causes heat loss."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Sweat glands produce sweat, which spreads over the skin and evaporates using heat from the body.",
+                "The erector muscle relaxes and the hairs lie down. Less air is trapped. Air is an insulator, so there is less insulation and more heat is lost.",
+                "Capillaries let more blood flow through, closer to the surface, so heat has less distance to travel and more is lost by radiation.",
+                "Nerve endings in the skin detect heat and send impulses to the brain (hypothalamus)."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR 3.3b"],
+      "worked_example": {
+        "exemplar_id": "5dbd2ee5-786d-4670-891d-c008b0c8f08b",
+        "source": "OCR jun 2022, Paper 1, Q19(a)(iii)",
+        "question": "A boat with ten people onboard capsizes and all ten people are found in the sea.\n\nThe first aiders at the scene take the body temperature of each of the ten people.\n\nDescribe how the body responds to hypothermia.",
+        "marks": 3,
+        "answer_points": [
+          "Name a response: shivering or vasoconstriction.",
+          "Shivering increases metabolic rate / respiration, and generates more heat.",
+          "Vasoconstriction decreases blood flow to the skin surface, and reduces heat loss.",
+          "Maximum two marks for these effects. Allow: blood vessels narrow."
+        ],
+        "tip": "Name the response, then give up to two effects. If nothing else is credited, goose bumps or hairs standing on end gain one mark."
+      },
+      "extra": [
+        {
+          "heading": "Skin changes in cold environments (OCR)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "OCR also asks for changes in the skin in the cold, apart from blood flow."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Sweat glands close, so there is reduced sweating or none at all.",
+                "Hairs in the skin become erect.",
+                "Shivering can also be given as a change."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "a5e44b65-54ec-4de8-9c99-23114844df03",
+      "dd1be3e7-8505-4149-98f5-98a5ae0c9f56",
+      "c7a2b6bd-e27d-4590-9599-951f36058b5c",
+      "2b436bed-efb7-4b48-950d-55b23f08b799"
+    ],
+    "exemplar_ids": [
+      "6d96a072-5c5f-462b-aa84-a52829618a62",
+      "6ac19253-9fe7-49b6-b418-5d1bfb1977db",
+      "5dbd2ee5-786d-4670-891d-c008b0c8f08b",
+      "8d1b0a2d-7674-492f-b28f-3db301d481ad",
+      "7d6a8652-db6a-4ebf-a29e-cdc5e3cff806"
+    ]
+  }
+}

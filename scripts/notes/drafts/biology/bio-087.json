@@ -1,0 +1,267 @@
+{
+  "format": 1,
+  "concept_id": "bio-087",
+  "subject": "biology",
+  "title": "Sexual and asexual reproduction",
+  "key_idea": "**Sexual reproduction** joins a male and a female gamete, so the offspring differ from each other and from their parents. **Asexual reproduction** needs one parent, no gametes and only mitosis, so the offspring are genetically identical clones.",
+  "sections": [
+    {
+      "heading": "Sexual reproduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sexual reproduction involves two parents. This section covers the gametes, how they join, and why the offspring are different."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Gamete",
+              "meaning": "A sex cell. It has half the number of chromosomes of a body cell."
+            },
+            {
+              "term": "Meiosis",
+              "meaning": "The cell division that makes gametes. The cells it makes are not genetically identical."
+            },
+            {
+              "term": "Fertilisation",
+              "meaning": "A male gamete and a female gamete fusing (joining together)."
+            },
+            {
+              "term": "Pollen",
+              "meaning": "The male gamete of a flowering plant."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The gametes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In humans (animals) the gametes are **sperm** cells and **egg** cells.",
+            "Sperm cells are produced in the testes.",
+            "In flowering plants the gametes are **pollen** and **egg** cells.",
+            "Gametes are made by **meiosis**, not mitosis."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why the offspring are different"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The male gamete and the female gamete fuse in fertilisation.",
+            "Genetic information (genes) from two parents is **mixed**.",
+            "Each gamete has different alleles, because meiosis does not make identical cells.",
+            "So the offspring show **variety**: they are different from each other and from each parent."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sexual reproduction uses gametes that fuse at fertilisation.",
+            "Gametes are made by meiosis and have half the chromosomes of a body cell.",
+            "Mixing genetic information from two parents gives variety in the offspring."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Asexual reproduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Asexual reproduction involves only one parent. This section covers how it works and why the offspring are clones."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Asexual reproduction",
+              "meaning": "Reproduction with one parent, no fusion of gametes and no mixing of genetic information."
+            },
+            {
+              "term": "Clone",
+              "meaning": "An offspring that is genetically identical to its parent."
+            },
+            {
+              "term": "Mitosis",
+              "meaning": "The cell division that makes genetically identical cells. It is the only cell division in asexual reproduction."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Only **one parent** is involved.",
+            "There are no gametes and no fertilisation.",
+            "The new cells are made by **mitosis** only.",
+            "There is no mixing of genetic information, so the offspring are genetically identical to the parent."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Examples"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Potato plants grown from a parent plant. All the new plants have the same genes as the parent, so all are resistant to blight if the parent is.",
+            "Strawberry plants send out horizontal stems called runners. Mitosis makes the new cells. Sugar and water pass along the runner to the new plant.",
+            "Some worms separate into parts by fragmentation, and each part grows into a new worm.",
+            "Duckweed divides into two."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Asexual reproduction needs one parent and no gametes.",
+            "Only mitosis is involved, so there is no mixing of genetic information.",
+            "The offspring are genetically identical clones."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Comparing the two types",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mark schemes ask you to compare the two types. Sort the statements below. The advantages and disadvantages of each type are in the next note."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Sort each statement into sexual reproduction only, asexual reproduction only, or both types of reproduction.",
+            "kind": "sort",
+            "items": [
+              {
+                "text": "Two parents are involved",
+                "group": 0
+              },
+              {
+                "text": "Only one parent is involved",
+                "group": 1
+              },
+              {
+                "text": "Gametes fuse at fertilisation",
+                "group": 0
+              },
+              {
+                "text": "Offspring are genetically identical to each other",
+                "group": 1
+              },
+              {
+                "text": "Offspring show variation",
+                "group": 0
+              },
+              {
+                "text": "Gametes are made by meiosis",
+                "group": 0
+              },
+              {
+                "text": "Genes are passed on from parent to offspring",
+                "group": 2
+              },
+              {
+                "text": "Cell division occurs",
+                "group": 2
+              }
+            ],
+            "groups": ["Sexual only", "Asexual only", "Both"],
+            "prompt": "Sexual, asexual or both?"
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Both types pass genes from parent to offspring.",
+            "Only sexual reproduction needs fertilisation and gives variation.",
+            "Only asexual reproduction makes genetically identical offspring."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the type of cell division that produces sperm cells and egg cells.",
+      "a": "Meiosis.",
+      "marks": 1
+    },
+    {
+      "q": "Give two reasons why sexual reproduction causes variation in the offspring.",
+      "a": "The gametes (eggs or sperm) are not genetically identical. Genetic information from the two parents is mixed.",
+      "marks": 2
+    },
+    {
+      "q": "Potato plants can reproduce asexually. All the new plants from a blight-resistant parent are also resistant. Explain why.",
+      "a": "Asexual reproduction involves no fusion of gametes (only mitosis), so the offspring are genetically identical to the parent plant.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 6.1", "AQA T 4.6.1.1"],
+      "worked_example": {
+        "exemplar_id": "c8cda2af-7ca9-4967-b4ef-7873945aac51",
+        "source": "AQA jun 2023, Paper 2 (H), Q1.2",
+        "question": "Sexual reproduction produces offspring that are genetically different from each other.\n\nGive two reasons why sexual reproduction causes variation in the offspring.",
+        "marks": 2,
+        "answer_points": [
+          "The gametes (eggs or sperm) are not genetically identical.",
+          "There is mixing of genetic information (genes or DNA) from each parent."
+        ],
+        "tip": "One mark for each reason. \"Gametes fuse\" and \"two parents\" are ignored unless you say what is different or mixed."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.1B", "EDEX 3.2B"],
+      "worked_example": {
+        "exemplar_id": "1488cd5b-6292-405e-89c6-5fe165c781f0",
+        "source": "EDEXCEL nov 2020, Paper 1 (H), Q4(b)(ii)",
+        "question": "Pea plants produce different coloured peas.\nThe allele for yellow-coloured peas (A) is dominant to the allele for green-coloured peas (a).\nTwo heterozygous parent plants were used in a genetic cross.\n\nExplain one advantage to pea plants of using sexual reproduction to produce offspring.",
+        "marks": 2,
+        "answer_points": [
+          "Sexual reproduction increases genetic variation, so the offspring show variation (they have different combinations of alleles).",
+          "So the offspring are more likely to survive a disease, an environmental change or a selection pressure, and it allows evolution."
+        ],
+        "tip": "Link the two points: variation first, then the reason it helps survival."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 5.1f"],
+      "worked_example": {
+        "exemplar_id": "159e08d7-6ab0-4da2-abff-95b8c5265118",
+        "source": "OCR jun 2022, Paper 4, Q18(a)",
+        "question": "The diagram shows a tulip plant. Many gardeners like to grow tulip plants.\n\nTulips can be grown from seeds produced from sexual reproduction.\n\nThey can also be grown from bulbs that are produced by asexual reproduction.\n\nExplain why most gardeners choose to grow bulbs produced by asexual reproduction rather than seeds.",
+        "marks": 2,
+        "answer_points": [
+          "All the offspring will be identical (clones).",
+          "Bulbs will grow or flower faster than seeds.",
+          "The gardener knows exactly what the flowers will look like, and can replicate desirable plants."
+        ],
+        "tip": "Any two points score, one mark each."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "90fe6b7d-029c-4e3c-9aa2-3b2100ac55b2",
+      "0cdea175-4fb8-45c7-b73c-f2be462c54c3"
+    ],
+    "exemplar_ids": [
+      "c8cda2af-7ca9-4967-b4ef-7873945aac51",
+      "1488cd5b-6292-405e-89c6-5fe165c781f0",
+      "159e08d7-6ab0-4da2-abff-95b8c5265118"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

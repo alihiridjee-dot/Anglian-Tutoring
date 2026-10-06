@@ -1,0 +1,298 @@
+{
+  "format": 1,
+  "concept_id": "chem-106",
+  "subject": "chemistry",
+  "title": "Ceramics, polymers and composites",
+  "key_idea": "Glass and clay ceramics are made by heating. Thermosoftening polymers melt, while thermosetting polymers have cross-links and do not. A composite has a matrix binding a reinforcement. Materials are chosen by matching their properties to the use. (Separate science)",
+  "sections": [
+    {
+      "heading": "Glass and clay ceramics (Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Glass and clay ceramics are made by heating. This section covers how each is made and what they are like."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ceramic",
+              "meaning": "A material such as pottery or brick, made by shaping wet clay and then heating it in a furnace."
+            },
+            {
+              "term": "Soda-lime glass",
+              "meaning": "The glass most often used. It is made by heating sand, sodium carbonate and limestone."
+            },
+            {
+              "term": "Borosilicate glass",
+              "meaning": "Glass made from sand and boron trioxide. It melts at a higher temperature than soda-lime glass."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Soda-lime glass: heat a mixture of sand, sodium carbonate and limestone.",
+            "Borosilicate glass: made from sand and boron trioxide, and it melts at higher temperatures.",
+            "Clay ceramics, including pottery and bricks: shape wet clay, then heat it in a furnace.",
+            "Glass and clay ceramics have a high melting point, low flexibility and do not react with water.",
+            "They are poor conductors of electricity."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Soda-lime glass is made from sand, sodium carbonate and limestone.",
+            "Clay ceramics are shaped when wet, then heated in a furnace.",
+            "Glass and ceramics have high melting points and do not react with water."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Polymers (Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The properties of a polymer depend on the monomers it is made from and the conditions it is made under. This section compares two kinds of polymer."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Low density (LD) and high density (HD) poly(ethene) are both produced from ethene.",
+            "They have different properties because they are made under different conditions, such as different temperatures and pressures."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Thermosoftening polymer",
+              "meaning": "A polymer that melts when it is heated."
+            },
+            {
+              "term": "Thermosetting polymer",
+              "meaning": "A polymer that does not melt when it is heated."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Feature", "Thermosoftening", "Thermosetting"],
+          "rows": [
+            [
+              "Structure",
+              "Long chains",
+              "Long chains with covalent bonds (cross-links) between the chains"
+            ],
+            [
+              "When heated",
+              "Melts",
+              "Does not melt, because too much energy is needed to overcome the cross-links"
+            ],
+            [
+              "Recycling",
+              "Easier, because it melts and can be reshaped into new products",
+              "Harder, because it does not melt"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort statements into thermosoftening and thermosetting polymers.",
+            "prompt": "Which kind of polymer does each statement describe?",
+            "groups": ["Thermosoftening", "Thermosetting"],
+            "items": [
+              {
+                "text": "Melts when heated",
+                "group": 0
+              },
+              {
+                "text": "Can be reshaped by melting",
+                "group": 0
+              },
+              {
+                "text": "Poly(ethene)",
+                "group": 0
+              },
+              {
+                "text": "Does not melt when heated",
+                "group": 1
+              },
+              {
+                "text": "Has cross-links between the chains",
+                "group": 1
+              },
+              {
+                "text": "Covalent bonds between the chains",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Polymer properties depend on the monomers and the conditions they are made under.",
+            "Thermosoftening polymers melt. Thermosetting polymers do not.",
+            "Thermosetting polymers have cross-links between chains."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Composites (Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A composite combines two materials to give properties neither has alone. This section covers how a composite is made up."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Matrix (binder)",
+              "meaning": "The material that surrounds and binds together the fibres or fragments."
+            },
+            {
+              "term": "Reinforcement",
+              "meaning": "The fibres or fragments of the other material in a composite."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Most composites are made of two materials.",
+            "The matrix or binder surrounds and binds together the reinforcement.",
+            "Example: a composite of carbon fibre (reinforcement) in a polymer resin (matrix).",
+            "Pre-stressed concrete is stronger than plain concrete, so it is used for bridges that carry heavy lorries."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A composite has a matrix (binder) and a reinforcement.",
+            "The matrix surrounds and binds the fibres or fragments."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Choosing a material for a use (Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Questions give a table of data and ask which material suits a use. Compare the values, then link each property to the use."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Write the property, then the reason it matters, such as high melting point so a cup will not melt.",
+            "A high density makes an object heavier, so a low density suits something carried or worn.",
+            "A strong material is less likely to break or be damaged.",
+            "A stiff material is less likely to bend out of shape.",
+            "A polymer is chosen to insulate a household wire because it does not conduct electricity and it is flexible. The wire inside is metal because a metal conducts electricity.",
+            "A metal is chosen for a pan base because it conducts heat well and its melting point is high enough."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Compare the data. Do not only quote values from the table.",
+            "Link each property to a reason it matters for the use.",
+            "End an evaluation with a justified conclusion."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the three materials heated to make soda-lime glass.",
+      "a": "Sand, sodium carbonate and limestone.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why some polymers do not melt when heated.",
+      "a": "There are cross-links, or covalent bonds, between the polymer chains. Too much energy is needed to overcome them.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why poly(ethene) is easier to recycle than thermosetting polymers.",
+      "a": "Poly(ethene) melts, so it can be reshaped into new products.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.10.3.3"],
+      "worked_example": {
+        "exemplar_id": "03c72196-5cdf-47d1-9604-5f20e4787270",
+        "source": "AQA jun 2019, Paper 1 (F), Q10.2",
+        "question": "Materials could be used to make badminton racket frames.\n\nThe table shows properties of three materials.\n\n| Material | Density (g/cm3) | Relative strength | Relative stiffness |\n| Aluminium | 2.7 | 0.3 | 69 |\n| Carbon nanotube | 1.5 | 60 | 1000 |\n| Wood | 0.71 | 0.1 | 10 |\n\nEvaluate the use of the materials to make badminton racket frames.\n\nUse the table.",
+        "marks": 4,
+        "answer_points": [
+          "Wood is the least dense, so it is the lightest to use.",
+          "Aluminium is the most dense, so it will make the racket too heavy.",
+          "Carbon nanotube is the strongest, so it is least likely to break. Wood and aluminium are too weak, so the racket would break more easily.",
+          "Carbon nanotube is the stiffest, so it is least likely to bend out of shape.",
+          "Give a justified conclusion."
+        ],
+        "tip": "Marked in levels: logically linked reasons and a simple judgement reach the top level for 4 marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 9.38C", "EDEX 9.39C"],
+      "worked_example": {
+        "exemplar_id": "3f930732-0c0f-4f14-92b8-4872d83cfab4",
+        "source": "EDEXCEL jun 2018, Paper 2 (F), Q7(b)",
+        "question": "The table shows information about a glass, a ceramic, a polymer and a metal.\n\n| | glass | ceramic | polymer | metal |\n| flexibility | low | low | high | high |\n| hardness | medium | medium | low | low |\n| reaction with water | no reaction | no reaction | no reaction | very slow reaction |\n| electrical conductivity | low | low | low | high |\n| melting point | high | high | medium* | high |\n\n*polymers soften, rather than melt, when heated.\n\nExplain, using information from the table, why the ceramic is a suitable material to make a cup that will contain a hot drink of tea or coffee.",
+        "marks": 2,
+        "answer_points": [
+          "A correct property: it does not react with water, or has a high melting point, or low flexibility.",
+          "Linked to a reason: drinks contain water, so it will not react with the drink.",
+          "Or: the ceramic will not melt, or the cup will not distort and will keep its shape."
+        ],
+        "tip": "Mark one property and its linked reason. Incorrect extra properties are ignored."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C6.1r", "OCR C6.1s"],
+      "worked_example": {
+        "exemplar_id": "77c6fa50-6c5f-4f82-ab7a-107f8d3625d8",
+        "source": "OCR jun 2023, Paper 4, Q17(a)",
+        "question": "The table shows information about three different polymers, A, B and C.\n\nTensile strength is the amount of load a material can take before it breaks.\n\n| Polymer | Melting point (°C) | Softening temperature (°C) | Stiffness (MPa) | Tensile strength (MPa) |\n| A | 130 | 72 | 980 | 15 |\n| B | 240 | 95 | 3200 | 65 |\n| C | 250 | 75 | 2400 | 50 |\n\nA company wants to use a polymer to make a disposable cup for hot drinks.\n\nSuggest and explain which polymer, A, B or C, the company should use.",
+        "marks": 3,
+        "answer_points": [
+          "Polymer B.",
+          "B will not soften when filled with a hot drink, so it will hold its shape.",
+          "B will not melt when filled with a hot drink.",
+          "B is the strongest."
+        ],
+        "tip": "One mark for B, then any two reasons. The mark is for the reason, not just quoting a table value."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "464ff62e-989a-4d7f-b8c1-0ec1187df9b0",
+      "17e795c8-8269-43e8-8db3-eceb8bd2a8fc",
+      "a718db2c-3b83-4846-b1b5-993ee11c3d85",
+      "f576ac87-5ba7-467b-ae2e-84a94d9c8652",
+      "59a891ae-b867-40fd-b2f9-f7463e8237b5"
+    ],
+    "exemplar_ids": [
+      "03c72196-5cdf-47d1-9604-5f20e4787270",
+      "3f930732-0c0f-4f14-92b8-4872d83cfab4",
+      "77c6fa50-6c5f-4f82-ab7a-107f8d3625d8"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
+  }
+}

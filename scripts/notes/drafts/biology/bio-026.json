@@ -1,0 +1,274 @@
+{
+  "format": 1,
+  "concept_id": "bio-026",
+  "subject": "biology",
+  "title": "The lungs and gas exchange",
+  "key_idea": "Air passes down the trachea and bronchi to the alveoli. Oxygen diffuses from the alveoli into the blood, and carbon dioxide diffuses the other way. Alveoli are adapted for fast diffusion: a large surface area, thin walls and a good blood supply.",
+  "sections": [
+    {
+      "heading": "The breathing system",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The lungs are the organs where gas exchange takes place. This section covers the parts you need to know."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap a part of the breathing system to learn its job, then test yourself.",
+            "prompt": "Parts of the breathing system",
+            "parts": [
+              {
+                "name": "Trachea",
+                "detail": "The windpipe. It carries air down from the mouth and nose towards the lungs."
+              },
+              {
+                "name": "Bronchi",
+                "detail": "Two tubes that branch from the trachea, one to each lung."
+              },
+              {
+                "name": "Alveoli",
+                "detail": "Tiny air sacs at the ends of the tubes. This is where gas exchange takes place."
+              },
+              {
+                "name": "Capillary network",
+                "detail": "A network of tiny blood vessels around each alveolus. It brings carbon dioxide to the lungs and takes oxygen away."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Air travels down the trachea and bronchi to the alveoli.",
+            "Gas exchange happens in the alveoli.",
+            "The right ventricle pumps blood to the lungs, where gas exchange takes place."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Gas exchange by diffusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gases move between the alveoli and the blood by diffusion. Each gas moves from where it is in a high concentration to where it is in a low concentration."
+        },
+        {
+          "type": "table",
+          "columns": ["Gas", "Moves from", "Moves to"],
+          "rows": [
+            ["Oxygen", "Air in the alveolus", "Blood in the capillary"],
+            ["Carbon dioxide", "Blood in the capillary", "Air in the alveolus"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Oxygen is used in respiration. The blood arriving at the lungs has a low concentration of oxygen, so oxygen diffuses into it.",
+            "Carbon dioxide is produced by respiration. The blood arriving has a high concentration, so it diffuses out into the air.",
+            "Gases pass through a membrane. The wall of the alveolus and the wall of the capillary are each only one cell thick."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the concentration of oxygen in the alveolus and in the blood and watch the concentration difference. A bigger difference means faster diffusion.",
+            "inputs": [
+              {
+                "id": "L",
+                "label": "Oxygen in the alveolus",
+                "min": 0,
+                "max": 10,
+                "step": 1,
+                "value": 8
+              },
+              {
+                "id": "R",
+                "label": "Oxygen in the blood",
+                "min": 0,
+                "max": 10,
+                "step": 1,
+                "value": 2
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Concentration difference",
+                "formula": "abs(L - R)",
+                "decimals": 0,
+                "unit": "arbitrary units"
+              }
+            ],
+            "scene": {
+              "kind": "diffusion",
+              "left": "L",
+              "right": "R"
+            }
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Oxygen diffuses from the alveolus into the blood.",
+            "Carbon dioxide diffuses from the blood into the alveolus.",
+            "A bigger concentration difference makes diffusion faster."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How alveoli are adapted",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each adaptation makes diffusion faster. Always say what the feature does."
+        },
+        {
+          "type": "table",
+          "columns": ["Adaptation", "Why it helps"],
+          "rows": [
+            ["Many alveoli", "A large surface area for gas exchange"],
+            [
+              "Walls of the alveolus and capillary are one cell thick",
+              "A short diffusion distance"
+            ],
+            [
+              "Capillary network around each alveolus (a good blood supply)",
+              "Takes oxygen away and brings carbon dioxide quickly, which maintains the concentration gradient"
+            ],
+            [
+              "Ventilation (breathing moves air in and out)",
+              "Brings in fresh oxygen and removes carbon dioxide, which maintains the concentration gradient"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In the narrowest capillaries, red blood cells pass one at a time. This reduces the distance for diffusion and slows the blood, giving more time for oxygen to be taken up."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Large surface area, thin walls and a good blood supply.",
+            "Ventilation and blood flow keep the concentration gradient steep.",
+            "Link each feature to a faster rate of diffusion."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the gas that diffuses from the blood into the alveolus.",
+      "a": "Carbon dioxide.",
+      "marks": 1
+    },
+    {
+      "q": "Give two ways that the lungs are adapted for efficient gas exchange.",
+      "a": "Any two from: many alveoli giving a large surface area; wall of the alveolus one cell thick; wall of the capillary one cell thick; good blood supply; well ventilated.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a good blood supply helps gas exchange.",
+      "a": "It removes oxygenated blood quickly and brings carbon dioxide to the lungs quickly, which maintains a concentration gradient.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA T 4.2.2.2", "AQA 2.6", "AQA 1.13"],
+      "worked_example": {
+        "exemplar_id": "a3be6d48-f1a2-4478-b1c1-79193c519328",
+        "source": "AQA jun 2024, Paper 1 (H), Q02.4",
+        "question": "Gas exchange happens in the alveoli in the lungs.\n\nDescribe three features of the alveoli that help maximise gas exchange.",
+        "marks": 3,
+        "answer_points": [
+          "Large surface area, or large surface area to volume ratio.",
+          "(Large) capillary network, or many capillaries, or a good or efficient blood supply.",
+          "Walls are thin or one cell thick."
+        ],
+        "tip": "One mark for each feature. Say the wall is thin. Moist, steep concentration gradient and \"thin cell walls\" do not score."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 8.3"],
+      "worked_example": {
+        "exemplar_id": "1bd3bc38-7fd9-4885-a313-65cef829a69a",
+        "source": "EDEXCEL jun 2023, Paper 2 (H), Q6(a)(iii)",
+        "question": "Gas exchange happens in the alveoli in the lungs.\n\nThe capillary wall is only one cell thick.\n\nExplain how gases move from the alveolus to the capillary.",
+        "marks": 3,
+        "answer_points": [
+          "By diffusion.",
+          "Down a concentration gradient, from a high concentration to a low concentration.",
+          "Through a membrane."
+        ],
+        "tip": "One mark for each of the three points."
+      },
+      "extra": [
+        {
+          "heading": "Moist surface of the alveoli",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The surface of the alveoli is moist.",
+                "Oxygen and carbon dioxide dissolve in the moisture, so they can move across into the blood.",
+                "Breathing keeps a high concentration of oxygen and a low concentration of carbon dioxide in the alveoli."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR 2.2c"],
+      "worked_example": {
+        "exemplar_id": "8e68c622-2261-4613-8190-b3e426dff957",
+        "source": "OCR jun 2022, Paper 1, Q17(e)",
+        "question": "The human circulatory system is described as a double circulatory system.\n\nExplain why.",
+        "marks": 2,
+        "answer_points": [
+          "Blood travels through the pump (heart) twice.",
+          "On one full circuit around the body.",
+          "Also allowed: there are two pumps; blood passes separately to the lungs and to the body, in a pulmonary circuit and a systemic circuit; or a description: the blood goes through the heart to the lungs, returns to the heart, and then goes to the rest of the body."
+        ],
+        "tip": "A full description of the route, heart to lungs, back to the heart, then to the body, scores both marks."
+      },
+      "extra": [
+        {
+          "heading": "Double circulation and the lungs",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The pulmonary circuit takes blood from the heart to the lungs, where gas exchange happens, and back to the heart.",
+                "The systemic circuit takes blood from the heart to the rest of the body and back to the heart.",
+                "Blood passes through the heart twice on one full circuit of the body.",
+                "Advantages: the heart increases the pressure of the blood a second time, so it flows faster and more oxygen reaches the tissues."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "fa537cb3-6883-4a41-9632-c731ed800246",
+      "329f9f7d-d630-437c-9840-12a4b0456350"
+    ],
+    "exemplar_ids": [
+      "a3be6d48-f1a2-4478-b1c1-79193c519328",
+      "1bd3bc38-7fd9-4885-a313-65cef829a69a",
+      "8e68c622-2261-4613-8190-b3e426dff957"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

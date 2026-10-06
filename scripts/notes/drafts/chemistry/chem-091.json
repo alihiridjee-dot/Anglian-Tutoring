@@ -1,0 +1,322 @@
+{
+  "format": 1,
+  "concept_id": "chem-091",
+  "subject": "chemistry",
+  "title": "Tests for carbonate, halide and sulfate ions",
+  "key_idea": "Negative ions are identified with a reagent and a result. Carbonates fizz with dilute acid and the gas turns limewater milky. Halides give a precipitate with silver nitrate, and its colour shows which halide. Sulfates give a white precipitate with barium chloride.",
+  "sections": [
+    {
+      "heading": "Testing for carbonate ions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers how to show that a compound contains carbonate ions, CO₃²⁻."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Anion",
+              "meaning": "A negative ion, such as carbonate, chloride or sulfate."
+            },
+            {
+              "term": "Limewater",
+              "meaning": "A solution of calcium hydroxide, used to test for carbon dioxide."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Add acid",
+              "text": "Add dilute acid to the sample."
+            },
+            {
+              "lead": "Look for bubbles",
+              "text": "Carbonates react with dilute acids to form carbon dioxide gas."
+            },
+            {
+              "lead": "Test the gas",
+              "text": "Bubble the gas through limewater."
+            },
+            {
+              "lead": "Result",
+              "text": "Limewater turns milky (cloudy) if the gas is carbon dioxide."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carbonate plus dilute acid gives carbon dioxide.",
+            "Carbon dioxide turns limewater milky."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Testing for halide ions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how to tell chloride, bromide and iodide ions apart."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Add dilute **nitric acid** to the solution first.",
+            "Then add **silver nitrate** solution.",
+            "A precipitate forms. Its colour shows which halide ion is present."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Halide ion", "Precipitate with silver nitrate"],
+          "rows": [
+            ["Chloride, Cl⁻", "White (silver chloride)"],
+            ["Bromide, Br⁻", "Cream (silver bromide)"],
+            ["Iodide, I⁻", "Yellow (silver iodide)"]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why nitric acid, not hydrochloric acid"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hydrochloric acid contains chloride ions.",
+            "Chloride ions would give a white precipitate with silver nitrate.",
+            "This would interfere with the test, so a different acid is used."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use dilute nitric acid, then silver nitrate solution.",
+            "White is chloride, cream is bromide and yellow is iodide."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Testing for sulfate ions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the test for sulfate ions, SO₄²⁻, and how to choose and use the three anion tests."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Add dilute **hydrochloric acid** to the solution.",
+            "Then add **barium chloride** solution.",
+            "A **white precipitate** (barium sulfate) shows that sulfate ions are present."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why not sulfuric acid"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sulfuric acid contains sulfate ions.",
+            "Using it would give a white precipitate whatever the sample contains.",
+            "The result would not show that the sample contains sulfate ions."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Choosing the right test"
+        },
+        {
+          "type": "paragraph",
+          "text": "Pick an anion to see which reagent to add and what you see."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Choose an anion to see the reagents used and the result of the test.",
+            "prompt": "Pick an anion",
+            "result_labels": ["Reagents", "Result"],
+            "options": [
+              {
+                "label": "Carbonate",
+                "results": [
+                  "Dilute acid, then limewater for the gas",
+                  "**Bubbles**; limewater turns milky"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Add dilute acid",
+                      "colour": "colourless",
+                      "bubbles": true
+                    },
+                    {
+                      "label": "Limewater",
+                      "colour": "white"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Chloride",
+                "results": ["Dilute nitric acid, then silver nitrate", "**White** precipitate"],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Silver nitrate",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Bromide",
+                "results": ["Dilute nitric acid, then silver nitrate", "**Cream** precipitate"],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Silver nitrate",
+                      "colour": "colourless",
+                      "precipitate": "cream"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Iodide",
+                "results": ["Dilute nitric acid, then silver nitrate", "**Yellow** precipitate"],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Silver nitrate",
+                      "colour": "colourless",
+                      "precipitate": "yellow"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Sulfate",
+                "results": [
+                  "Dilute hydrochloric acid, then barium chloride",
+                  "**White** precipitate"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Barium chloride",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sulfate: dilute hydrochloric acid, then barium chloride. A white precipitate forms.",
+            "Never use an acid that contains the ion you are testing for."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe a test for carbonate ions and the result.",
+      "a": "Add dilute acid. Bubble the gas given off through limewater. The limewater turns milky (cloudy).",
+      "marks": 2
+    },
+    {
+      "q": "A solution gives a cream precipitate when dilute nitric acid and then silver nitrate solution are added. Name the ion present.",
+      "a": "Bromide ion (Br⁻).",
+      "marks": 1
+    },
+    {
+      "q": "Explain why dilute hydrochloric acid is used, not dilute sulfuric acid, in the test for sulfate ions.",
+      "a": "Sulfuric acid contains sulfate ions, so it would give a white precipitate with barium chloride whatever the sample contains.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.8.3.3", "AQA 4.8.3.4", "AQA 4.8.3.5"],
+      "worked_example": {
+        "exemplar_id": "474deda7-024a-4b00-9837-88a90c4665f9",
+        "source": "AQA jun 2021, Paper 2 (H), Q07.5",
+        "question": "Describe a test to identify the presence of sulfate ions in a solution of potash alum.\n\nGive the result of the test.",
+        "marks": 3,
+        "answer_points": [
+          "Add barium chloride solution (barium nitrate solution is allowed).",
+          "Add dilute hydrochloric acid (dilute nitric acid is allowed).",
+          "A white precipitate forms (this mark depends on the barium chloride being added)."
+        ],
+        "tip": "One mark for each reagent and one for the result. The result only counts if barium chloride was added."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 9.5C"],
+      "worked_example": {
+        "exemplar_id": "b718b6a6-58b6-43fe-ac00-1de11a6170f5",
+        "source": "EDEXCEL jun 2023, Paper 2 (H), Q10(b)",
+        "question": "A sample of the potassium chloride was also tested for chloride ions.\nDescribe the test for chloride ions.",
+        "marks": 3,
+        "answer_points": [
+          "Add (dilute) nitric acid.",
+          "Add silver nitrate solution.",
+          "A white precipitate forms."
+        ],
+        "tip": "Hydrochloric acid and sulfuric acid are rejected for the first mark. The result mark depends on silver nitrate."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C4.2b", "OCR C4.2d"],
+      "worked_example": {
+        "exemplar_id": "06319414-cac8-42dd-92e6-fdc7b4f1658e",
+        "source": "OCR sample null, Paper 4, Q18",
+        "question": "Chemical tests are used to identify gases, anions and cations.\n\nLeila has an unknown solution.\n\nShe thinks that the solution contains copper(II) ions and bromide ions.\n\nDescribe the chemical tests she does to confirm the presence of these two ions in the solution.",
+        "marks": 4,
+        "answer_points": [
+          "Copper(II) ions: add aqueous sodium hydroxide.",
+          "A blue precipitate forms.",
+          "Bromide ions: add dilute nitric acid and aqueous silver nitrate.",
+          "A cream precipitate forms."
+        ],
+        "tip": "Each ion needs a reagent mark and a result mark. In the standard halide test, add the dilute nitric acid first, then the silver nitrate. Another soluble metal hydroxide or aqueous ammonia is allowed for the copper test."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "979c1a78-3995-4925-8c34-bfd7adf3a131",
+      "abe572b9-b743-4406-92b1-11665d0773d6",
+      "67bfb815-73c1-403d-8c3d-1f8ffec2f68a",
+      "b5371ffc-03f9-4c75-9779-b50a808180ca"
+    ],
+    "exemplar_ids": [
+      "474deda7-024a-4b00-9837-88a90c4665f9",
+      "b718b6a6-58b6-43fe-ac00-1de11a6170f5",
+      "06319414-cac8-42dd-92e6-fdc7b4f1658e"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

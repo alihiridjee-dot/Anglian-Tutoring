@@ -1,0 +1,311 @@
+{
+  "format": 1,
+  "concept_id": "phys-031",
+  "subject": "physics",
+  "title": "Gas pressure, volume and doing work on a gas",
+  "key_idea": "(Separate science) A gas can be compressed or expanded by pressure changes. At constant temperature, **pressure × volume = constant**. (AQA: Higher tier) Doing work on a gas, such as pumping a bicycle tyre, increases its internal energy and its temperature.",
+  "sections": [
+    {
+      "heading": "Pressure on surfaces and compressing gases",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers the direction of the force from a gas and what happens when a gas is compressed or expanded."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A gas can be compressed or expanded by changing the pressure on it.",
+            "The pressure of a gas produces a net force at right angles to the wall of its container.",
+            "This is true for any surface in contact with the gas.",
+            "The force comes from the particles colliding with the surface."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gases can be compressed or expanded by pressure changes.",
+            "The force from gas pressure acts at right angles to any surface."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Pressure and volume at constant temperature",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Here the mass of gas and its temperature stay the same. Only the volume changes."
+        },
+        {
+          "type": "subheading",
+          "text": "Why the pressure changes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "If the volume decreases, the particles are closer together.",
+            "They hit the walls more often, so the frequency of collisions increases.",
+            "The speed of the particles does not change, because the temperature is constant.",
+            "A larger total force on a smaller area means a greater pressure.",
+            "If the volume increases, the particles hit the walls less often and the pressure decreases."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Pressure",
+              "meaning": "The total force on a surface for every unit of area, p = F ÷ A."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Pressure and volume of a fixed mass of gas at constant temperature",
+          "formula": "p × V = constant",
+          "where": ["p = pressure, in pascals (Pa)", "V = volume, in metres cubed (m³)"]
+        },
+        {
+          "type": "equation",
+          "label": "Pressure and volume before and after a change",
+          "formula": "p₁ × V₁ = p₂ × V₂",
+          "where": [
+            "p₁ = starting pressure, in pascals (Pa)",
+            "V₁ = starting volume, in metres cubed (m³)",
+            "p₂ = new pressure, in the same unit as p₁",
+            "V₂ = new volume, in the same unit as V₁"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Data",
+              "text": "A gas at 150 000 Pa has a volume of 0.040 m³. It is compressed to 0.025 m³ at the same temperature."
+            },
+            {
+              "lead": "Substitute",
+              "text": "150 000 × 0.040 = p₂ × 0.025"
+            },
+            {
+              "lead": "Rearrange",
+              "text": "p₂ = (150 000 × 0.040) ÷ 0.025"
+            },
+            {
+              "lead": "Answer",
+              "text": "p₂ = 240 000 Pa"
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the volume of a fixed mass of gas at constant temperature and see the pressure change.",
+            "inputs": [
+              {
+                "id": "V",
+                "label": "Volume of gas",
+                "unit": "m³",
+                "min": 0.01,
+                "max": 0.06,
+                "step": 0.005,
+                "value": 0.03
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Pressure (100 000 Pa at 0.030 m³)",
+                "unit": "Pa",
+                "formula": "3000 / V",
+                "decimals": 0
+              },
+              {
+                "label": "Pressure × volume",
+                "unit": "Pa m³",
+                "formula": "3000 / V * V",
+                "decimals": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the new pressure of a gas after it is compressed at constant temperature.",
+            "question": "A gas at a pressure of {p} Pa has a volume of 0.060 m³. It is compressed to {V} m³ at constant temperature. Calculate the new pressure.",
+            "variables": [
+              {
+                "id": "p",
+                "min": 100000,
+                "max": 300000,
+                "step": 50000
+              },
+              {
+                "id": "V",
+                "min": 0.02,
+                "max": 0.05,
+                "step": 0.01
+              }
+            ],
+            "answer": {
+              "formula": "p * 0.06 / V",
+              "unit": "Pa",
+              "decimals": 0
+            },
+            "working": [
+              "p₁ × V₁ = p₂ × V₂",
+              "{p} × 0.060 = p₂ × {V}",
+              "p₂ = ({p} × 0.060) ÷ {V} = {answer} Pa"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "At constant temperature, a smaller volume gives more frequent collisions and a greater pressure.",
+            "p × V is constant, so halving the volume doubles the pressure.",
+            "Use p₁ × V₁ = p₂ × V₂ with the same units on both sides."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Doing work on a gas",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science, Higher tier for AQA) Compressing a gas quickly transfers energy to it and can raise its temperature."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Work",
+              "meaning": "The transfer of energy by a force."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pushing the piston of a bicycle pump applies a force to the air.",
+            "Work is done on the air, so energy is transferred to it.",
+            "The internal energy of the gas increases.",
+            "The average kinetic energy of the particles increases, so the temperature of the gas increases.",
+            "The pump gets warm."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Doing work on a gas increases its internal energy.",
+            "The kinetic energy of the particles increases, so the temperature rises.",
+            "A bicycle pump gets warm because work is done on the air."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A fixed mass of gas at constant temperature is compressed. Explain why its pressure increases.",
+      "a": "The particles are closer together, so they collide with the walls more frequently. There is a larger total force on the same area, so the pressure increases.",
+      "marks": 3
+    },
+    {
+      "q": "A gas at 200 000 Pa has a volume of 0.050 m³. It is compressed to 0.020 m³ at constant temperature. Calculate the new pressure.",
+      "a": "p₂ = (200 000 × 0.050) ÷ 0.020 = 500 000 Pa.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why the air in a bicycle pump gets warm when the pump is used.",
+      "a": "Work is done on the air. This increases the kinetic energy of the air particles, so the temperature increases.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.3.2", "AQA 4.3.3.3"],
+      "worked_example": {
+        "exemplar_id": "6c366ab6-f89e-4797-81ab-17b8e0d87d34",
+        "source": "AQA jun 2020, Paper 1 (H), Q10.2",
+        "question": "The pressure of the helium in a balloon is 100 000 Pa. The volume of the balloon is 0.030 m³. The balloon is compressed at a constant temperature causing the volume to decrease to 0.025 m³. No helium leaves the balloon. Calculate the new pressure in the balloon.",
+        "marks": 4,
+        "answer_points": [
+          "100 000 × 0.030 = 3000",
+          "p × 0.025 = 3000",
+          "p = 3000 ÷ 0.025",
+          "p = 120 000 Pa"
+        ],
+        "tip": "One mark for each step. Substituting into p₁V₁ = p₂V₂ earns the first two marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 14.16P", "EDEX 14.17P", "EDEX 14.18P", "EDEX 14.19P", "EDEX 14.20P"],
+      "worked_example": {
+        "exemplar_id": "a18a6dfc-9698-4dcc-bf31-1091090d2272",
+        "source": "EDEXCEL jun 2018, Paper 2 (H), Q1(b)(iii)",
+        "question": "When a bicycle pump is used to inflate a bicycle tube, the air in the bicycle pump gets warm. You should ignore any effects of friction in the pump. Explain why the air in the bicycle pump gets warm.",
+        "marks": 2,
+        "answer_points": [
+          "Work is done in compressing the air.",
+          "This increases the kinetic energy of the air particles (the thermal energy of the system)."
+        ],
+        "tip": "One mark for work being done and one mark for the increase in kinetic energy. Ignore friction."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P1.3c", "OCR P1.3d", "OCR P1.3e"],
+      "worked_example": {
+        "exemplar_id": "6acaa177-9df0-479f-befd-02a89994e7a5",
+        "source": "OCR jun 2024, Paper 3, Q20(b)(i)",
+        "question": "A gas is enclosed in a container with a piston. The teacher slowly moves the piston outwards until the gas has twice its original volume. The temperature of the gas is kept constant. Explain how and why the pressure in the container changes.",
+        "marks": 3,
+        "answer_points": [
+          "The pressure halves (decreases).",
+          "The rate of collisions with the sides of the container decreases, so there are fewer collisions.",
+          "The collisions are less frequent, with more time between them."
+        ],
+        "tip": "A reverse argument is ignored, and so is the phrase less likely. Say fewer or less frequent collisions."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "74f5ee80-2911-4c81-8ca5-c0fb92292aa2",
+      "98b26a14-d04e-45be-9b21-aae970dfea06",
+      "d87fb4a2-b08e-4589-bda6-e6c68f5d0721",
+      "dd5fbe1b-a530-4316-bd45-fa76a67a4c8b",
+      "d297da20-a45f-4ba0-b0e8-c5d19bf88acc",
+      "67acb1a6-0cb3-4b92-aeba-d0ebcb66d6ea",
+      "8a05e42a-3f63-4fd3-a95f-3f30c9ab5d80",
+      "065ac984-cf38-455e-8bed-fe73810249b8",
+      "67b7fa1b-cd71-4672-8f03-da5615705092",
+      "ac62fa0e-67e3-4d57-9e11-2cb76b2283a3"
+    ],
+    "exemplar_ids": [
+      "6c366ab6-f89e-4797-81ab-17b8e0d87d34",
+      "a22eaf57-a41a-4d02-abef-087167af3c4e",
+      "455cd538-b349-452e-997e-a3605dc31ee8",
+      "4affa0b2-129f-4429-ad22-ba133d4e14b3",
+      "f6b5e638-32ad-48b4-a261-e268ee2e50f5",
+      "ac9eaa55-d3b0-4f7c-a843-bd99961f7eda",
+      "b8cfe848-5e51-41cf-a7d6-5e987f3f195d",
+      "483d55f6-f8b9-4bd9-a55d-cae235ca579a",
+      "1e114f98-06cc-4c0a-8817-9beff4a09821",
+      "a18a6dfc-9698-4dcc-bf31-1091090d2272",
+      "6acaa177-9df0-479f-befd-02a89994e7a5",
+      "97a936b2-7f2e-455a-82c9-766731f5ea87",
+      "bd4310a7-e3bf-46a2-96dd-f48b7c395326",
+      "ffb2e8b8-d6a4-4aa5-944a-23f94aafa015"
+    ]
+  }
+}

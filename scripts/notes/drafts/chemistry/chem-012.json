@@ -8,12 +8,21 @@
     {
       "heading": "Properties of the halogens",
       "blocks": [
-        { "type": "paragraph", "text": "The halogens are fluorine, chlorine, bromine, iodine and astatine. This section covers their physical properties and the trend down the group." },
+        {
+          "type": "paragraph",
+          "text": "The halogens are fluorine, chlorine, bromine, iodine and astatine. This section covers their physical properties and the trend down the group."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Halogens", "meaning": "The elements in Group 7. They have seven electrons in the outer shell, so they have similar reactions." },
-            { "term": "Halide ion", "meaning": "A negative ion formed when a halogen atom gains one electron, such as Cl⁻." }
+            {
+              "term": "Halogens",
+              "meaning": "The elements in Group 7. They have seven electrons in the outer shell, so they have similar reactions."
+            },
+            {
+              "term": "Halide ion",
+              "meaning": "A negative ion formed when a halogen atom gains one electron, such as Cl⁻."
+            }
           ]
         },
         {
@@ -37,13 +46,25 @@
             ["Astatine (predicted)", "At₂", "Black", "Solid", "Higher than iodine"]
           ]
         },
-        { "type": "subheading", "text": "Explaining the boiling points" },
+        {
+          "type": "subheading",
+          "text": "Explaining the boiling points"
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Larger molecules.", "text": "Going down the group, the molecules get larger." },
-            { "lead": "Stronger forces.", "text": "The intermolecular forces (forces between molecules) increase." },
-            { "lead": "More energy.", "text": "More energy is needed to overcome these forces, so the boiling point is higher." }
+            {
+              "lead": "Larger molecules.",
+              "text": "Going down the group, the molecules get larger."
+            },
+            {
+              "lead": "Stronger forces.",
+              "text": "The intermolecular forces (forces between molecules) increase."
+            },
+            {
+              "lead": "More energy.",
+              "text": "More energy is needed to overcome these forces, so the boiling point is higher."
+            }
           ]
         },
         {
@@ -59,17 +80,27 @@
     {
       "heading": "Reactions of the halogens",
       "blocks": [
-        { "type": "paragraph", "text": "The halogens react with metals and with non-metals. In each case a halogen atom gains one electron to fill its outer shell." },
+        {
+          "type": "paragraph",
+          "text": "The halogens react with metals and with non-metals. In each case a halogen atom gains one electron to fill its outer shell."
+        },
         {
           "type": "table",
           "columns": ["Reacts with", "Product", "Example"],
           "rows": [
             ["A metal", "A metal halide, an ionic compound", "2Fe + 3Cl₂ → 2FeCl₃"],
             ["A metal", "A metal halide, an ionic compound", "2Al + 3Br₂ → 2AlBr₃"],
-            ["Hydrogen", "A hydrogen halide, which dissolves in water to form an acidic solution", "H₂ + Cl₂ → 2HCl"]
+            [
+              "Hydrogen",
+              "A hydrogen halide, which dissolves in water to form an acidic solution",
+              "H₂ + Cl₂ → 2HCl"
+            ]
           ]
         },
-        { "type": "subheading", "text": "What happens to the electrons" },
+        {
+          "type": "subheading",
+          "text": "What happens to the electrons"
+        },
         {
           "type": "list",
           "items": [
@@ -92,16 +123,31 @@
     {
       "heading": "Reactivity and displacement",
       "blocks": [
-        { "type": "paragraph", "text": "Reactivity decreases going down Group 7. This is the opposite of Group 1." },
+        {
+          "type": "paragraph",
+          "text": "Reactivity decreases going down Group 7. This is the opposite of Group 1."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Fewer shells.", "text": "A halogen higher up the group has fewer shells, so its outer shell is closer to the nucleus." },
-            { "lead": "Stronger attraction.", "text": "The nucleus attracts an incoming electron more strongly, with less shielding." },
-            { "lead": "Gains electrons more easily.", "text": "Fluorine gains an electron most easily, so it is the most reactive." }
+            {
+              "lead": "Fewer shells.",
+              "text": "A halogen higher up the group has fewer shells, so its outer shell is closer to the nucleus."
+            },
+            {
+              "lead": "Stronger attraction.",
+              "text": "The nucleus attracts an incoming electron more strongly, with less shielding."
+            },
+            {
+              "lead": "Gains electrons more easily.",
+              "text": "Fluorine gains an electron most easily, so it is the most reactive."
+            }
           ]
         },
-        { "type": "subheading", "text": "Displacement reactions" },
+        {
+          "type": "subheading",
+          "text": "Displacement reactions"
+        },
         {
           "type": "list",
           "items": [
@@ -119,30 +165,54 @@
             "options": [
               {
                 "label": "Chlorine + potassium bromide",
-                "results": ["**Yes**, chlorine is more reactive than bromine", "Bromine and potassium chloride", "The colourless solution turns orange"],
+                "results": [
+                  "**Yes**, chlorine is more reactive than bromine",
+                  "Bromine and potassium chloride",
+                  "The colourless solution turns orange"
+                ],
                 "explanation": "Cl₂ + 2KBr → 2KCl + Br₂"
               },
               {
                 "label": "Chlorine + potassium iodide",
-                "results": ["**Yes**, chlorine is more reactive than iodine", "Iodine and potassium chloride", "The colourless solution turns brown"],
+                "results": [
+                  "**Yes**, chlorine is more reactive than iodine",
+                  "Iodine and potassium chloride",
+                  "The colourless solution turns brown"
+                ],
                 "explanation": "Cl₂ + 2KI → 2KCl + I₂"
               },
               {
                 "label": "Bromine + potassium iodide",
-                "results": ["**Yes**, bromine is more reactive than iodine", "Iodine and potassium bromide", "The solution turns brown"],
+                "results": [
+                  "**Yes**, bromine is more reactive than iodine",
+                  "Iodine and potassium bromide",
+                  "The solution turns brown"
+                ],
                 "explanation": "Br₂ + 2KI → 2KBr + I₂"
               },
               {
                 "label": "Bromine + potassium chloride",
-                "results": ["**No**, bromine is less reactive than chlorine", "No new substances", "No change: the solution stays orange"]
+                "results": [
+                  "**No**, bromine is less reactive than chlorine",
+                  "No new substances",
+                  "No change: the solution stays orange"
+                ]
               },
               {
                 "label": "Iodine + potassium bromide",
-                "results": ["**No**, iodine is less reactive than bromine", "No new substances", "No change: the solution stays brown"]
+                "results": [
+                  "**No**, iodine is less reactive than bromine",
+                  "No new substances",
+                  "No change: the solution stays brown"
+                ]
               },
               {
                 "label": "Iodine + potassium chloride",
-                "results": ["**No**, iodine is less reactive than chlorine", "No new substances", "No change: the solution stays brown"]
+                "results": [
+                  "**No**, iodine is less reactive than chlorine",
+                  "No new substances",
+                  "No change: the solution stays brown"
+                ]
               }
             ]
           }
@@ -178,29 +248,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.1.2.6", "AQA T 5.1.2.6"],
-      "exam_phrases": [
-        "the molecules get larger going down the group",
-        "so the intermolecular forces increase",
-        "more energy is needed to overcome the intermolecular forces",
-        "reactivity decreases going down the group",
-        "chlorine displaces bromine and iodine",
-        "(chlorine) gains an electron more easily",
-        "Br₂ + 2KI → I₂ + 2KBr"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Fluorine is a gas because it has weak bonds.",
-          "right": "Weak bonds is not accepted. Say there are weak forces between molecules, which need little energy to overcome."
-        },
-        {
-          "wrong": "The boiling point rises because more energy is needed to break the covalent bonds.",
-          "right": "Bonds are not broken. Breaking bonds is accepted only if it is specifically between molecules. Say more energy is needed to overcome the intermolecular forces."
-        },
-        {
-          "wrong": "Reactivity decreases because the number of outer shells increases.",
-          "right": "The number of outer shells increases is ignored. Say the outer shell is further from the nucleus, or there are more shells."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "a06df624-3d7e-4ad7-9ded-49947835e46b",
         "source": "AQA jun 2018, Paper 1 (F), Q02.4",
@@ -215,30 +262,14 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 6.6", "EDEX 6.7", "EDEX 6.9", "EDEX 6.10", "EDEX 6.11", "EDEX 6.12", "EDEX 6.13"],
-      "exam_phrases": [
-        "red-brown liquid (bromine)",
-        "grey / black solid (astatine)",
-        "outer shell is further from the nucleus in iodine",
-        "attraction between nucleus and outer shell is less in iodine",
-        "iodine does not gain an electron as readily",
-        "2Al + 3Br₂ → 2AlBr₃",
-        "halide ions lose electrons / are oxidised",
-        "halogen gains electrons / is reduced"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Bromine is orange at room temperature.",
-          "right": "Orange, brown or red alone is ignored. Write red-brown (or reddish-brown), and say it is a liquid."
-        },
-        {
-          "wrong": "Iodine is less reactive than chlorine because it has more outer shells.",
-          "right": "'More outer shells' is rejected. Say iodine has more shells, so its outer shell is further from the nucleus."
-        },
-        {
-          "wrong": "In a displacement reaction, the halogen being displaced is reduced.",
-          "right": "This is rejected. The halide ion being displaced is oxidised (it loses electrons). The halogen added gains electrons and is reduced."
-        }
+      "spec_codes": [
+        "EDEX 6.6",
+        "EDEX 6.7",
+        "EDEX 6.9",
+        "EDEX 6.10",
+        "EDEX 6.11",
+        "EDEX 6.12",
+        "EDEX 6.13"
       ],
       "worked_example": {
         "exemplar_id": "1f57bdc3-5961-4edd-bba3-8400e15acdb8",
@@ -255,7 +286,10 @@
         {
           "heading": "(Higher tier) Displacement reactions as redox",
           "blocks": [
-            { "type": "paragraph", "text": "(Higher tier) In a displacement reaction one substance loses electrons and another gains them. This makes it a redox reaction." },
+            {
+              "type": "paragraph",
+              "text": "(Higher tier) In a displacement reaction one substance loses electrons and another gains them. This makes it a redox reaction."
+            },
             {
               "type": "list",
               "items": [
@@ -282,29 +316,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR C4.1a", "OCR C4.1b"],
-      "exam_phrases": [
-        "chlorine: green gas",
-        "iodine: solid",
-        "At₂ (astatine)",
-        "fluorine atoms are smaller / outer shell is closer to the nucleus",
-        "electrons are more strongly attracted to fluorine atoms",
-        "fluorine atoms gain electrons more easily",
-        "Cl₂ + 2NaI → 2NaCl + I₂"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The molecular formula of astatine is AT2.",
-          "right": "Capital letters and subscripts must be right. Write At₂."
-        },
-        {
-          "wrong": "Fluorine gains electrons more quickly than astatine.",
-          "right": "'More quickly' is ignored. Say fluorine gains electrons more easily."
-        },
-        {
-          "wrong": "Cl₂ and 2NaI → 2NaCl and I₂",
-          "right": "'And' or & instead of + is not allowed in an equation. Write Cl₂ + 2NaI → 2NaCl + I₂."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "ad49e09d-1633-4ec1-9233-02fd6d429b50",
         "source": "OCR nov 2021, Paper 4, Q19(c)",

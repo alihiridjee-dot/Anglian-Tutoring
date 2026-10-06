@@ -1,0 +1,287 @@
+{
+  "format": 1,
+  "concept_id": "bio-074",
+  "subject": "biology",
+  "title": "Control of blood glucose",
+  "key_idea": "The pancreas monitors blood glucose concentration. If it is too high, insulin moves glucose into cells and liver and muscle store it as glycogen. If it is too low, glucagon turns glycogen back into glucose. This is negative feedback.",
+  "sections": [
+    {
+      "heading": "Why blood glucose is controlled",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cells need glucose for respiration, so its concentration in the blood must stay within narrow limits. The pancreas monitors it and releases hormones."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Glycogen",
+              "meaning": "A storage carbohydrate made from glucose in liver and muscle cells."
+            },
+            {
+              "term": "Insulin",
+              "meaning": "A hormone from the pancreas that lowers blood glucose concentration."
+            },
+            {
+              "term": "Glucagon",
+              "meaning": "A hormone from the pancreas that raises blood glucose concentration."
+            },
+            {
+              "term": "Negative feedback",
+              "meaning": "A change causes a response that reverses the change and returns conditions to normal."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The pancreas detects the blood glucose concentration and releases insulin or glucagon.",
+            "Low blood glucose means less glucose for respiration, so less energy is released and a person feels weak."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "When blood glucose is too high",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "After a meal, glucose from digested carbohydrate enters the blood and its concentration rises. Insulin brings it back down."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Detect.",
+              "text": "The blood glucose concentration rises, for example after a meal."
+            },
+            {
+              "lead": "Release.",
+              "text": "The pancreas releases **insulin** into the blood."
+            },
+            {
+              "lead": "Move.",
+              "text": "Insulin causes glucose to move from the blood into the cells, such as liver and muscle cells."
+            },
+            {
+              "lead": "Store.",
+              "text": "In the liver and muscles, excess glucose is converted to **glycogen** for storage. Some glucose is used in respiration."
+            },
+            {
+              "lead": "Result.",
+              "text": "Blood glucose concentration falls back to normal."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Insulin lowers blood glucose by moving glucose into cells.",
+            "Liver and muscle cells convert excess glucose to glycogen."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "When blood glucose is too low",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "If blood glucose falls, for example between meals or during exercise, glucagon raises it again."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Detect.",
+              "text": "The blood glucose concentration falls."
+            },
+            {
+              "lead": "Release.",
+              "text": "The pancreas releases **glucagon** into the blood."
+            },
+            {
+              "lead": "Convert.",
+              "text": "Glucagon causes glycogen in the liver to be converted into glucose."
+            },
+            {
+              "lead": "Result.",
+              "text": "The glucose is released into the blood and the concentration rises back to normal."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Glucagon raises blood glucose by turning glycogen into glucose.",
+            "A person who makes too little glucagon has less glucose for respiration and feels weak and tired."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Negative feedback",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Insulin and glucagon work against each other. Each change is reversed, so the concentration stays close to normal. Pick a situation to see the response."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Choose a situation to see which hormone the pancreas releases, what it does and what happens to blood glucose.",
+            "prompt": "Pick a situation",
+            "result_labels": [
+              "Blood glucose is",
+              "Hormone released",
+              "What the hormone does",
+              "Result"
+            ],
+            "options": [
+              {
+                "label": "After a meal rich in carbohydrate",
+                "results": [
+                  "Too high",
+                  "**Insulin**",
+                  "Moves glucose into liver and muscle cells, where it is converted to glycogen",
+                  "Blood glucose falls back to normal"
+                ]
+              },
+              {
+                "label": "A long time since the last meal",
+                "results": [
+                  "Too low",
+                  "**Glucagon**",
+                  "Converts glycogen into glucose, which is released into the blood",
+                  "Blood glucose rises back to normal"
+                ]
+              },
+              {
+                "label": "Blood glucose has returned to normal",
+                "results": [
+                  "Normal",
+                  "Insulin and glucagon release slows or stops",
+                  "Nothing more is needed to change the concentration",
+                  "Blood glucose stays within the normal range"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "High glucose triggers insulin. Low glucose triggers glucagon.",
+            "When the concentration returns to normal, release of the hormone slows or stops."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what insulin does when blood glucose concentration is too high.",
+      "a": "It causes glucose to move from the blood into the cells (liver and muscle), where excess glucose is converted to glycogen. Blood glucose falls.",
+      "marks": 3
+    },
+    {
+      "q": "Which hormone raises blood glucose concentration, and what does it do?",
+      "a": "Glucagon. It causes glycogen to be converted into glucose, which is released into the blood.",
+      "marks": 2
+    },
+    {
+      "q": "Why does insulin release slow down once blood glucose is back to normal?",
+      "a": "It is negative feedback. The glucose concentration has returned to normal, so the pancreas stops or slows release of insulin.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.8", "AQA T 4.5.3.2"],
+      "worked_example": {
+        "exemplar_id": "f84c87b3-f9bc-47cf-933d-8dc49b2a2aa2",
+        "source": "AQA jun 2024, Paper 2 (H), Q06.8",
+        "question": "Describe how blood glucose concentration is maintained within narrow limits in people who do not have diabetes.",
+        "marks": 5,
+        "answer_points": [
+          "When blood glucose concentration increases, the pancreas releases insulin.",
+          "Insulin causes glucose to move from the blood into the liver / muscle cells.",
+          "In the liver / muscle cells, excess glucose is converted to glycogen.",
+          "When blood glucose concentration decreases, the pancreas releases glucagon.",
+          "Glucagon causes glycogen to be converted into glucose and released into the blood."
+        ],
+        "tip": "Cover both directions. Each hormone needs the trigger, the organ that releases it and what it does."
+      },
+      "extra": [
+        {
+          "heading": "What AQA expects at each tier",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "All students: insulin, and glucose moving into cells and being stored as glycogen.",
+                "(AQA: Higher tier) Glucagon, and explaining how glucagon and insulin work together by negative feedback."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 7.13", "EDEX 7.14"],
+      "worked_example": {
+        "exemplar_id": "25546aa1-270a-43d0-926e-aed893bfc89e",
+        "source": "EDEXCEL jun 2018, Paper 2 (F), Q1(b)",
+        "question": "The blood glucose concentration increases after a meal.\nExplain why the blood glucose concentration then decreases.",
+        "marks": 2,
+        "answer_points": [
+          "(More) insulin is released / produced.",
+          "It causes glucose to be converted to glycogen.",
+          "Glucose is used for respiration.",
+          "Any two. Accept: glucose is stored (in the body / muscles / liver); accept: glucose is used in exercise."
+        ],
+        "tip": "Two marks from three points. Start with insulin, then say what happens to the glucose."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 3.3c", "OCR 3.3d"],
+      "worked_example": {
+        "exemplar_id": "821f19a4-9dd6-41fb-9b57-940806c0ab69",
+        "source": "OCR jun 2024, Paper 1, Q17(d)(ii)",
+        "question": "An athlete is running a 10 km race. They need to produce ATP in their cells during the race.\n\nAfter the race, the athlete eats some food.\n\nExplain why eating food affects the athlete’s insulin levels.",
+        "marks": 2,
+        "answer_points": [
+          "Glucose (from the food) enters the blood. Allow: sugar. Ignore: carbohydrate.",
+          "The pancreas detects it, or insulin levels increase (allow: produces insulin)."
+        ],
+        "tip": "One mark for glucose from the food and one for the pancreas detecting it or insulin increasing."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "a0581644-7bb1-4117-a4f1-082ebc1acf64",
+      "85daac87-9957-46c2-834d-d08d1f48dc0c",
+      "f4bc15a9-3701-4cb8-bd82-274b5907161f",
+      "51c0c057-1c54-42e4-8869-8361fa783e67",
+      "da98128a-8dc2-488c-b6bb-764fcc21f33e",
+      "f80eca9d-a954-4adf-9a53-ec5614c9310d"
+    ],
+    "exemplar_ids": [
+      "f84c87b3-f9bc-47cf-933d-8dc49b2a2aa2",
+      "25546aa1-270a-43d0-926e-aed893bfc89e",
+      "821f19a4-9dd6-41fb-9b57-940806c0ab69",
+      "ed80b8a0-433c-44b4-b2b9-8e86ad698917",
+      "ec3f3a7b-6d25-4284-8ad9-9825a982890c",
+      "257054ff-0b40-48a6-808a-5f457e54ed8f",
+      "7fbd153c-e9c5-4072-9b8e-7b12aa8df5b2"
+    ]
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "format": 1,
+  "concept_id": "bio-106",
+  "subject": "biology",
+  "title": "Evidence for evolution: fossils and extinction",
+  "key_idea": "Fossils are the remains of organisms from millions of years ago. The fossil record shows how life has changed, but it is incomplete. The pentadactyl limb also shows shared ancestry. Extinction happens when no individuals of a species remain alive.",
+  "sections": [
+    {
+      "heading": "How fossils form",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Fossils are evidence for evolution. This section covers the three ways they form."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Fossil",
+              "meaning": "The remains of an organism from a long time ago, found in rocks."
+            },
+            {
+              "term": "Fossil record",
+              "meaning": "All the fossils that have been found, which shows how organisms have changed over time."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Parts of an organism that have **not decayed**, because a condition needed for decay is missing. For example, an insect trapped in amber has no oxygen, so it does not decay.",
+            "Parts of an organism **replaced by minerals** as they decay.",
+            "**Traces** of organisms, such as footprints, burrows and rootlet traces."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Bones and other hard parts can fossilise by minerals. Put the stages in order."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Put the stages of fossil formation by minerals in order.",
+            "kind": "sequence",
+            "steps": [
+              "The animal dies and sinks to the sea bed",
+              "It is buried in sediment such as mud, sand or silt",
+              "The soft parts decay or are eaten",
+              "The hard parts, such as bones, do not decay",
+              "The bones are replaced by minerals"
+            ],
+            "prompt": "Put fossil formation in order"
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fossils form when remains do not decay, are replaced by minerals, or leave traces.",
+            "Hard parts such as bones and shells fossilise more often than soft parts.",
+            "Burial in sediment, not \"rock\", is the start of fossil formation."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What the evidence shows",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Fossils support the theory of evolution. This section covers what they show and why the evidence has gaps."
+        },
+        {
+          "type": "subheading",
+          "text": "What fossils show"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Evidence of life in the past, and of species that are now **extinct**.",
+            "Change over time. Older fossils are simpler than more recent ones.",
+            "How organisms from the past are related to species alive today.",
+            "Scientists estimate how old a fossil is from the age of the rocks it is found in, or by comparing it with fossils of known age."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why the fossil record is incomplete"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Many early forms of life were **soft-bodied**, so they left few traces.",
+            "Traces that formed have been destroyed by geological activity.",
+            "Fossils may be buried deep, small or not yet found.",
+            "So scientists cannot be certain how life began on Earth.",
+            "Fossils do not contain DNA, so only the **phenotype** can be studied."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The pentadactyl limb"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Many vertebrates, such as a bat and a cat, have a **pentadactyl** (five-digit) limb with the same arrangement of bones.",
+            "The limb is adapted to different functions in different animals.",
+            "It is unlikely that the same structure evolved more than once, so these animals share a **common ancestor** that had the pentadactyl limb."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fossils show change over time and extinct species.",
+            "The record is incomplete because remains decay, are destroyed or are not found.",
+            "The same bone structure in different animals suggests a common ancestor."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Other evidence for evolution",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Fossils are not the only evidence. This section covers evidence from genes and from bacteria."
+        },
+        {
+          "type": "list",
+          "items": [
+            "It has been shown that characteristics are passed on to offspring in **genes**. This supports Darwin's theory.",
+            "**Antibiotic resistance** in bacteria shows evolution happening. Bacteria reproduce very rapidly, so change can be seen in a short time.",
+            "A mutation can make a bacterium resistant. The antibiotic kills the non-resistant bacteria. The resistant ones survive, reproduce and pass on the allele.",
+            "Mutations are random. The antibiotic does not cause them."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Evidence for evolution includes fossils, genetics and antibiotic resistance in bacteria.",
+            "Resistant bacteria survive and reproduce, so the resistance allele becomes more common."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Extinction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Extinction is the end of a species. This section covers what it is and what causes it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Extinction",
+              "meaning": "No individuals of a species remain alive."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Causes of extinction"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Changes to the environment: drought, an ice age, global warming, volcanic activity, an asteroid collision, lack of habitat.",
+            "**New predators** or hunters.",
+            "**New disease** or pathogens.",
+            "Competition for food or for mates."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "It is estimated that 99.9% of all species that have ever existed are now extinct.",
+            "This is only an estimate because evidence of every species has not been found.",
+            "Scientists often cannot be sure what caused an extinction, because they cannot observe it or test it."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Extinction means no individuals are left alive.",
+            "Causes include environmental change, predators, disease and competition.",
+            "The fossil record is the evidence used to study extinct species."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how a fossil of a sea animal's bones could form.",
+      "a": "The animal dies and is buried in sediment. The soft parts decay. The bones do not decay and are replaced by minerals.",
+      "marks": 3
+    },
+    {
+      "q": "Give two reasons why the fossil record of early life forms is incomplete.",
+      "a": "Early life forms were soft-bodied, so they left few traces. Traces that formed have been destroyed by geological activity. (Or: fossils buried deep, or not yet found.)",
+      "marks": 2
+    },
+    {
+      "q": "Give two possible causes of extinction.",
+      "a": "Any two from: drought, ice age, global warming, volcanic activity, asteroid collision, new predators, new disease, competition for food or mates, lack of habitat.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 6.15", "AQA T 4.6.3.1", "AQA T 4.6.3.2", "AQA T 4.6.3.3"],
+      "worked_example": {
+        "exemplar_id": "437304c0-e513-421f-9a74-50aaca3bf484",
+        "source": "AQA jun 2025, Paper 2 (F), Q08.1",
+        "question": "Ichthyosaurs are reptiles that lived in the sea millions of years ago. A fossil of an ichthyosaur has been found.\n\nSuggest how the fossil was formed after the ichthyosaur died.",
+        "marks": 2,
+        "answer_points": [
+          "It was buried in sediment, sand, mud or silt.",
+          "Only the soft parts decayed or were eaten, but the bones did not decay.",
+          "The bones were replaced by minerals."
+        ],
+        "tip": "Any two of the three points score one mark each."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 4.6B"],
+      "worked_example": {
+        "exemplar_id": "52fc20f8-a698-4ae7-8eed-768f727c1da2",
+        "source": "EDEXCEL jun 2018, Paper 1 (H), Q7(a)(i)",
+        "question": "The pentadactyl limb of a bat and a cat have the same structure.\n\nDescribe the reasons why the anatomy of the pentadactyl limb suggests that bats and cats evolved from a common ancestor.",
+        "marks": 2,
+        "answer_points": [
+          "The limbs have the same structure of bones.",
+          "This structure is unlikely to have occurred more than once during evolution, so the common ancestor had the pentadactyl limb."
+        ],
+        "tip": "One mark for the same bone structure, one for the idea of a common ancestor."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 5.2e"],
+      "worked_example": {
+        "exemplar_id": "74a0dfc6-8624-4ada-afc5-fe1711bde7d6",
+        "source": "OCR jun 2019, Paper 2, Q20(c)",
+        "question": "Rats are a major pest in many areas of the world. Some rats are resistant to warfarin. When fed with large amounts of warfarin the rats do not die.\nScientists found that the resistance is due to the dominant allele R.\n\nAfter several years, the percentage of resistant rats in the population had increased.\n\nUse Darwin's theory of natural selection to explain this observation.",
+        "marks": 3,
+        "answer_points": [
+          "There is variation: some rats are resistant and some are not.",
+          "The resistant rats are more likely to survive (less likely to be killed).",
+          "The resistant rats are more likely to reproduce.",
+          "They pass on the allele or gene for resistance."
+        ],
+        "tip": "Any three of the four points score one mark each."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "5c4daadf-9ab0-403e-ba8f-b01ef03b282b",
+      "859287e2-21c4-4292-9605-5da99c5d8250",
+      "124677d4-abf7-4898-93ec-95a5e0c5ae4a",
+      "47211712-9b16-4283-9ffc-52f535143a7a",
+      "4c5845fe-8e7a-43ab-a9fc-cc33518e2406",
+      "f7a3600b-9d7d-4d50-8217-23e7ae146034"
+    ],
+    "exemplar_ids": [
+      "437304c0-e513-421f-9a74-50aaca3bf484",
+      "52fc20f8-a698-4ae7-8eed-768f727c1da2",
+      "74a0dfc6-8624-4ada-afc5-fe1711bde7d6"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "format": 1,
+  "concept_id": "phys-040",
+  "subject": "physics",
+  "title": "Uses of nuclear radiation",
+  "key_idea": "(Separate science) Nuclear radiation is used to explore inside the body and to destroy unwanted tissue. The source chosen depends on the type of radiation and the half-life. It is also used in smoke alarms, food irradiation and thickness gauges.",
+  "sections": [
+    {
+      "heading": "Exploring inside the body",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Doctors can follow a radioactive isotope around the body. This section covers tracers and the properties a good one needs."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Tracer",
+              "meaning": "A radioactive isotope that is injected or swallowed so that its radiation can be detected."
+            },
+            {
+              "term": "Half-life",
+              "meaning": "The time for the activity of a source to fall to half."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The isotope is **injected** into the patient or swallowed.",
+            "It travels around the body, for example in the blood.",
+            "A detector or camera **outside** the body detects the radiation.",
+            "The result shows how an organ is working or where the isotope collects."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The ideal tracer"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Emits **gamma radiation**: it is highly penetrating, so it can be detected outside the body.",
+            "Low ionising power, so less damage to cells, tissues and organs.",
+            "A **short half-life**, of a few hours, so the patient is not radioactive for long.",
+            "A half-life long enough to circulate around the body and be detected."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the time after injection and see how much of a sodium-24 tracer, with a half-life of 15 hours, is left.",
+            "inputs": [
+              {
+                "id": "t",
+                "label": "Time after injection",
+                "unit": "hours",
+                "min": 0,
+                "max": 75,
+                "step": 5,
+                "value": 15
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Half-lives passed",
+                "formula": "t / 15",
+                "decimals": 1
+              },
+              {
+                "label": "Radioactive nuclei left",
+                "unit": "%",
+                "formula": "100 * 0.5^(t / 15)",
+                "decimals": 1
+              }
+            ],
+            "scene": {
+              "kind": "half-life",
+              "time": "t",
+              "half_life": 15
+            }
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "This shows sodium-24, a tracer with a half-life of 15 hours. It lasts long enough for readings to be taken, but not so long that the surroundings stay radioactive."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A tracer is detected outside the body, so it should emit gamma radiation.",
+            "A short half-life means less damage to the patient.",
+            "The half-life must be long enough to circulate and be detected."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Destroying unwanted tissue",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Radiation can kill cancer cells. The source can be outside the body or placed inside it."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A table comparing treating a tumour with a source outside the body and with a source inside the body.",
+            "items": ["Source outside the body", "Source inside the body"],
+            "rows": [
+              {
+                "feature": "Radiation used",
+                "values": ["Gamma rays or X-rays", "Such as alpha, which has a short range"]
+              },
+              {
+                "feature": "Why it works",
+                "values": [
+                  "High penetration, so it passes through the body to the tumour",
+                  "Short range, so the source must be close to the tumour"
+                ]
+              },
+              {
+                "feature": "How it is aimed",
+                "values": [
+                  "From different directions, at a small area of the body",
+                  "Placed next to or inside the tumour"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The radiation kills the cancer cells.",
+            "Healthy cells can also be damaged, so the dose is limited.",
+            "The activity of a gamma source keeps falling, so it is checked before use.",
+            "A source inside the body with a short half-life, such as yttrium-90, loses its activity quickly, so there is less damage to other tissue.",
+            "Treatments can have side effects, but the benefits can outweigh the risks."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Radiation destroys unwanted tissue, such as a tumour.",
+            "Gamma can be used from outside the body. Alpha must be inside because of its short range.",
+            "Doctors weigh the benefits against the risks."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Other uses of radiation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Radiation has everyday uses as well. The source is chosen for its radiation type and half-life."
+        },
+        {
+          "type": "table",
+          "columns": ["Use", "How it works"],
+          "rows": [
+            [
+              "Smoke alarm",
+              "An alpha source ionises the air in the detector, so a current flows. Smoke reduces the current and sets off the alarm. Alpha cannot get out of the detector, and a long half-life means the source does not run out."
+            ],
+            [
+              "Irradiating food",
+              "Gamma rays kill bacteria and slow decay, so the food lasts longer."
+            ],
+            [
+              "Sterilising equipment",
+              "Gamma rays kill bacteria and other microorganisms on the equipment."
+            ],
+            [
+              "Gauging thickness",
+              "Radiation passes through a material, such as paper. A change in the count rate shows the thickness has changed. A lower count rate means thicker material."
+            ],
+            [
+              "Detecting leaks",
+              "A tracer is added to the water in a pipe. A detector above ground gives a higher reading above the leak."
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Alpha is used in smoke alarms because it cannot leave the detector.",
+            "Gamma rays kill bacteria, so they sterilise equipment and make food last longer.",
+            "A tracer in a pipe shows a leak where the reading goes up."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two properties of a radioactive source used as a tracer in the body.",
+      "a": "It emits gamma radiation, so it can be detected outside the body. It has a short half-life, so there is less damage to the body.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a source of alpha radiation is placed inside the body to treat a tumour but a source of gamma radiation can be outside.",
+      "a": "Alpha has a short range, so it must be close to the tumour. Gamma is highly penetrating, so it can reach the tumour from outside the body.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how gamma rays can make herbs and spices last longer.",
+      "a": "The gamma rays kill bacteria. This slows food decay.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.3.3"],
+      "worked_example": {
+        "exemplar_id": "97544f5f-97cc-4a92-84e7-2c67e30f9967",
+        "source": "AQA jun 2018, Paper 1 (H), Q6.5",
+        "question": "A patient has been injected with a radioactive source for medical diagnosis. Explain the ideal properties of a radioactive source for use in medical diagnosis.",
+        "marks": 4,
+        "answer_points": [
+          "It has a short half-life, of a few hours, so there is less damage to cells, tissues and organs.",
+          "It has low ionising power, so there is less damage to cells, tissues and organs.",
+          "It is highly penetrating, so it can be detected outside the body.",
+          "It emits gamma radiation."
+        ],
+        "tip": "Level-marked. Give each property with its reason, linked together, to reach the top level."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.28P", "EDEX 6.33P", "EDEX 6.34P", "EDEX 6.35P"],
+      "worked_example": {
+        "exemplar_id": "9f6f0a72-69dc-46fb-9d6c-248bd578f50f",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q8(a)(ii)",
+        "question": "Some tumours inside the body can be treated by using either alpha radiation or gamma radiation. Explain why the source of alpha radiation is usually inside the body but the source of gamma radiation can be outside the body.",
+        "marks": 4,
+        "answer_points": [
+          "Alpha has a short range or low penetration.",
+          "So the source needs to be close to the tumour.",
+          "Gamma has a long range or high penetration.",
+          "So it can get into the body from outside."
+        ],
+        "tip": "Say alpha is highly ionising and gamma is weakly ionising for extra support. The ionising idea alone scores one mark."
+      },
+      "extra": [
+        {
+          "heading": "PET scanners (Separate science)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A PET scanner uses an isotope that emits positrons. It is injected into the patient and collects in the tumour."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Positron emitted.",
+                  "text": "The isotope in the tumour emits a positron."
+                },
+                {
+                  "lead": "Annihilation.",
+                  "text": "The positron meets an electron and they annihilate."
+                },
+                {
+                  "lead": "Gamma rays.",
+                  "text": "Two gamma rays leave in opposite directions, at 180°."
+                },
+                {
+                  "lead": "Detection.",
+                  "text": "A ring of detectors picks them up at almost the same time. The time difference gives the position."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The isotope has a short half-life, so it must be produced near the hospital and used soon after it is made.",
+                "Fluorine-18 is an example."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR P6.2c"],
+      "worked_example": {
+        "exemplar_id": "f71fa96e-f7aa-479f-a8aa-4c5ea97b1548",
+        "source": "OCR jun 2023, Paper 2, Q23(a)(i)",
+        "question": "A tracer called sodium-24 is used to detect leaks in underground water pipes. Sodium-24 has a half-life of 15 hours. Give two reasons why this is useful.",
+        "marks": 2,
+        "answer_points": [
+          "The half-life is short enough that the water and surroundings do not remain radioactive for too long.",
+          "The half-life is long enough to allow repeat readings, or for the examination to take place."
+        ],
+        "tip": "Each reason needs the idea of short enough or long enough. Less damage or harm, and it lasts for a long time, are ignored."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "94cae484-1de3-47c6-96ef-65917a912122",
+      "a190224d-e829-4be9-a786-bb6d1a81b7dd",
+      "26f1b022-56a0-49c6-90b2-2ed215698eb9",
+      "d8bb22e0-0711-4deb-a349-8278deb22b5e",
+      "06da0b28-896f-436e-acc9-f607675b9de2",
+      "5c5f43a1-6ca7-437a-a171-7924db690b52"
+    ],
+    "exemplar_ids": [
+      "97544f5f-97cc-4a92-84e7-2c67e30f9967",
+      "9f6f0a72-69dc-46fb-9d6c-248bd578f50f",
+      "f71fa96e-f7aa-479f-a8aa-4c5ea97b1548"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

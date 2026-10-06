@@ -1,0 +1,252 @@
+{
+  "format": 1,
+  "concept_id": "bio-085",
+  "subject": "biology",
+  "title": "Plant hormones and tropisms",
+  "key_idea": "(Separate science) Plants respond to light and gravity by growing towards or away from them. Auxin is unevenly distributed, so one side of a shoot or root elongates faster than the other, and the plant bends. Gibberellins and ethene control other processes.",
+  "sections": [
+    {
+      "heading": "Tropisms and auxin",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Plant hormones control and coordinate growth. A tropism is a growth response to a stimulus."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Tropism",
+              "meaning": "A growth response of part of a plant to a stimulus."
+            },
+            {
+              "term": "Phototropism",
+              "meaning": "A growth response to light."
+            },
+            {
+              "term": "Gravitropism (geotropism)",
+              "meaning": "A growth response to gravity."
+            },
+            {
+              "term": "Auxin",
+              "meaning": "A plant hormone that makes cells elongate."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Auxin is unevenly distributed in a shoot or root.",
+            "Auxin makes cells elongate, so the side where cells elongate faster grows more and the plant bends.",
+            "Other tropisms include hydrotropism (water), chemotropism (chemicals) and thermotropism (heat)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A tropism is a growth response to a stimulus.",
+            "Auxin is unevenly distributed, so growth is uneven and the plant bends."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Phototropism and gravitropism",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Pick a situation to see where the auxin goes and how the plant responds."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a plant situation and see where the auxin collects and how the plant grows.",
+            "prompt": "Pick a situation",
+            "result_labels": [
+              "Where the auxin collects",
+              "Which side grows faster",
+              "What happens"
+            ],
+            "options": [
+              {
+                "label": "Shoot with light from one side",
+                "results": [
+                  "On the shaded side of the shoot",
+                  "The shaded side, because auxin causes cell elongation there",
+                  "The shoot bends towards the light (phototropism)"
+                ]
+              },
+              {
+                "label": "Shoot lying horizontal",
+                "results": [
+                  "On the lower side of the shoot",
+                  "The lower side, because auxin causes cell elongation there",
+                  "The shoot bends upwards, away from gravity"
+                ]
+              },
+              {
+                "label": "Root lying horizontal",
+                "results": [
+                  "On the lower side of the root",
+                  "The upper side, because more auxin on the lower side means the lower side grows slower",
+                  "The root bends downwards, in the direction of gravity"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Why phototropism helps a plant survive"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The leaves receive more light.",
+            "So there is more photosynthesis.",
+            "So the plant produces more glucose."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Investigating phototropism"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Put some seedlings in a box with a slit, so light comes from one direction.",
+            "Put others in the dark or in all-round light, as a control.",
+            "Measure the shoot heights at the start, then again after a suitable time. Use thread or straighten a bent shoot to measure it.",
+            "Use several seedlings and calculate the mean increase in height for each condition.",
+            "Keep temperature, volume of water, soil, age and species the same."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Shoots: auxin collects on the shaded side or lower side, so the shoot grows towards the light and upwards.",
+            "Roots: the upper side grows faster, so the root bends down.",
+            "Phototropism gives more light, photosynthesis and glucose."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Other plant hormones",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Gibberellins and ethene control other processes. Their commercial uses are in the next note."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Gibberellins** break seed dormancy, so seeds germinate. They also stimulate shoot elongation and flowering.",
+            "**Ethene** stimulates fruit ripening. It also causes the shedding of leaves.",
+            "Plant hormones also control flower opening."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gibberellins: germination and shoot growth.",
+            "Ethene: fruit ripening and leaf shedding."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how phototropism is controlled in a plant shoot.",
+      "a": "Auxin moves to the shaded side of the shoot. It causes cell elongation there, so the shoot bends towards the light.",
+      "marks": 3
+    },
+    {
+      "q": "A horizontal shoot bends upwards. Explain why, using auxin.",
+      "a": "Auxin collects on the lower side, so the lower side elongates faster and the shoot bends upwards, away from gravity.",
+      "marks": 2
+    },
+    {
+      "q": "Describe one effect of gibberellins and one effect of ethene on plants.",
+      "a": "Gibberellins break seed dormancy (or elongate shoots). Ethene stimulates fruit ripening.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.15"],
+      "worked_example": {
+        "exemplar_id": "3e4288fd-de98-4521-bb98-c240803d488c",
+        "source": "AQA jun 2019, Paper 2 (H), Q03.3",
+        "question": "Phototropism is a growth response by part of a plant to light. Explain how phototropism in a plant shoot helps the plant to survive.",
+        "marks": 3,
+        "answer_points": [
+          "The leaves or plant receive or absorb more light (1).",
+          "So there is more photosynthesis (1).",
+          "So the plant produces more glucose (1)."
+        ],
+        "tip": "Each step leads to the next. Starch, sugar or carbohydrate is accepted instead of glucose."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.15B"],
+      "worked_example": {
+        "exemplar_id": "8bfa112c-44e4-4796-8d32-7461a89ee21e",
+        "source": "EDEXCEL nov 2020, Paper 2 (H), Q7(c)",
+        "question": "Explain how phototropism is controlled in plant shoots.",
+        "marks": 3,
+        "answer_points": [
+          "Phototropism is controlled by the hormone auxin (1).",
+          "Auxins move to the shaded side of the shoot (1).",
+          "This causes cell elongation, so the shoot bends towards the light (1)."
+        ],
+        "tip": "Any three of the four points score. Name the hormone, say where it goes, and say what it does to the cells."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 3.2g", "OCR 3.2h"],
+      "worked_example": {
+        "exemplar_id": "35f1cceb-56b0-4753-b9cd-7a3e7911a4c5",
+        "source": "OCR jun 2022, Paper 3, Q18(a)",
+        "question": "A student investigates the effect of gravity on dandelion stems. The student places the equipment in a dark room. The dandelion stem is horizontal at the start of the investigation. During the investigation the stem moves upwards. Each hour the student measures the upward movement of the stem with a protractor. The upward movement is 0° at the start, then 10°, 27°, 45°, 59°, 74° and 90° after 1 to 6 hours. Describe and explain the results of this experiment. Use ideas about hormones.",
+        "marks": 4,
+        "answer_points": [
+          "The dandelion stem bends or grows upwards (1).",
+          "The response is negatively gravitropic: the stem grows away from gravity (1).",
+          "Auxin gathers on, diffuses or passes to the lower side of the stem (1).",
+          "This causes more cell elongation on the lower side of the stem (1)."
+        ],
+        "tip": "Describe the result first, then explain it with auxin."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "8bf36646-c41e-417b-9272-c363b7f1f3af",
+      "8094b288-066f-496b-8e92-21797758dcf0",
+      "e938ff97-171d-4e5d-9deb-39dcacc2a6e5",
+      "15c8430a-c762-4f89-b7d9-63450cebc60e"
+    ],
+    "exemplar_ids": [
+      "3e4288fd-de98-4521-bb98-c240803d488c",
+      "8bfa112c-44e4-4796-8d32-7461a89ee21e",
+      "35f1cceb-56b0-4753-b9cd-7a3e7911a4c5",
+      "90363719-4789-48de-acfe-5875e859213a",
+      "426a05d6-1e19-4115-9d9c-1a87393e5a50",
+      "be13a12c-c925-4e22-b098-b77e812c2321",
+      "86a7ce77-143e-4423-8385-869bbdc3afb9",
+      "158ea8fd-2408-48dc-9192-40a9e72e56e7",
+      "cfe57c97-7f64-40f1-bed4-5ed18c8d386c",
+      "0df22414-3a17-44b6-988d-35c58de9f382",
+      "172e23c8-388a-413c-b027-9f54027ba098",
+      "fd2cfcce-9322-4e18-958c-ff1ae9db375e"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

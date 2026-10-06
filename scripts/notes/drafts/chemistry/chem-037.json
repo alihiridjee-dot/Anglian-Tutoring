@@ -1,0 +1,232 @@
+{
+  "format": 1,
+  "concept_id": "chem-037",
+  "subject": "chemistry",
+  "title": "Titration calculations",
+  "key_idea": "(Separate chemistry) A titration finds the volumes of an acid and an alkali that react exactly. (AQA: Higher tier) Find the moles of the solution you know, use the equation ratio to get the moles of the other, then divide by its volume.",
+  "sections": [
+    {
+      "heading": "Carrying out a titration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A titration measures the volume of one solution needed to react completely with a fixed volume of another. This section covers how it is done and which results to use."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Titration",
+              "meaning": "A method to find the volumes of two solutions that react exactly, using an indicator."
+            },
+            {
+              "term": "Titre",
+              "meaning": "The volume added from the burette, read from the burette scale."
+            },
+            {
+              "term": "Concordant results",
+              "meaning": "Titres within 0.10 cm³ of each other."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Put the steps of a titration into the correct order.",
+            "kind": "sequence",
+            "steps": [
+              "Use a pipette to put 25.0 cm³ of alkali into a conical flask",
+              "Add a few drops of indicator",
+              "Fill the burette with acid and read the starting volume",
+              "Add the acid, swirling the flask, and go drop by drop near the end",
+              "Stop when the colour changes",
+              "Read the final volume from the burette and repeat"
+            ],
+            "prompt": "Put the titration in order"
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Stand the flask on a white tile to see the colour change clearly.",
+            "Use an indicator with a sharp colour change, such as phenolphthalein or methyl orange. Universal indicator changes colour too gradually.",
+            "A rough first titration shows roughly where the end point is.",
+            "Repeat the titration until you have concordant results.",
+            "Ignore any result that is not concordant, such as a rough first titration.",
+            "Use the **mean** of the concordant titres in the calculation."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Add acid, drop by drop near the end, until the indicator just changes colour.",
+            "Concordant results are within 0.10 cm³.",
+            "Use the mean of the concordant titres."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating a concentration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) The calculation always follows the same four steps. The equation ratio links the two solutions."
+        },
+        {
+          "type": "equation",
+          "label": "Moles in a solution",
+          "formula": "moles = concentration (mol/dm³) × volume (cm³) ÷ 1000",
+          "where": ["Divide the volume in cm³ by 1000 to get dm³."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Choose the concordant titres.",
+              "text": "Titres: 23.50, 21.10, 22.10, 22.15, 22.15. The last three are within 0.10 cm³. The mean is 22.13 cm³."
+            },
+            {
+              "lead": "Moles of the known solution.",
+              "text": "0.105 mol/dm³ NaOH: 22.13 ÷ 1000 × 0.105 = 0.002324 mol."
+            },
+            {
+              "lead": "Use the equation ratio.",
+              "text": "2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O. The ratio is 2 NaOH : 1 H₂SO₄, so moles of H₂SO₄ = 0.002324 ÷ 2 = 0.001162 mol."
+            },
+            {
+              "lead": "Concentration of the unknown.",
+              "text": "The acid volume is 25.0 cm³. 0.001162 × 1000 ÷ 25.0 = 0.0465 mol/dm³."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Practise calculating the concentration of sulfuric acid from a titration result.",
+            "kind": "practice",
+            "answer": {
+              "unit": "mol/dm³",
+              "formula": "V / 1000 * 0.2 / 2 / 0.025",
+              "decimals": 3
+            },
+            "working": [
+              "Moles of NaOH = {V} ÷ 1000 × 0.200",
+              "Ratio H₂SO₄ : NaOH = 1 : 2, so moles of H₂SO₄ = moles of NaOH ÷ 2",
+              "Concentration = moles ÷ 0.0250 dm³ = **{answer} mol/dm³**"
+            ],
+            "question": "25.0 cm³ of sulfuric acid is neutralised by **{V} cm³** of 0.200 mol/dm³ sodium hydroxide solution. H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O. Calculate the concentration of the sulfuric acid in mol/dm³.",
+            "variables": [
+              {
+                "id": "V",
+                "max": 30,
+                "min": 20,
+                "step": 0.5
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Moles = concentration × volume in dm³.",
+            "Use the ratio from the equation to change moles.",
+            "Divide the moles by the volume (dm³) of the unknown solution."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Other things the titration can find",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) The same method can find a volume, or a concentration in g/dm³."
+        },
+        {
+          "type": "list",
+          "items": [
+            "To find a volume: find the moles needed, then volume = moles ÷ concentration. For 0.003 mol of NaOH at 0.4 mol/dm³: 0.003 ÷ 0.4 = 0.0075 dm³ = 7.5 cm³.",
+            "To give g/dm³, multiply the concentration in mol/dm³ by Mr. For H₂SO₄ at 0.048 mol/dm³ (Mr = 98): 0.048 × 98 = 4.7 g/dm³."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Volume = moles ÷ concentration.",
+            "g/dm³ = mol/dm³ × Mr.",
+            "Check the units and significant figures asked for."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is meant by concordant results?",
+      "a": "Titres that are within 0.10 cm³ of each other.",
+      "marks": 1
+    },
+    {
+      "q": "25.0 cm³ of 0.124 mol/dm³ sodium carbonate is neutralised by 23.6 cm³ of nitric acid: Na₂CO₃ + 2HNO₃ → 2NaNO₃ + CO₂ + H₂O. Calculate the concentration of the nitric acid to 3 significant figures.",
+      "a": "Moles Na₂CO₃ = 25.0 ÷ 1000 × 0.124 = 0.0031. Moles HNO₃ = 2 × 0.0031 = 0.0062. Concentration = 0.0062 × 1000 ÷ 23.6 = 0.263 mol/dm³.",
+      "marks": 5
+    },
+    {
+      "q": "Why is the volume of the titre divided by 1000 in the calculation?",
+      "a": "To convert cm³ to dm³, because concentration is in mol/dm³.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.4", "AQA 4.4.2.5"],
+      "worked_example": {
+        "exemplar_id": "e83a9801-b77e-4169-b58c-d8abd41fabcf",
+        "source": "AQA jun 2018, Paper 1 (H), Q09.3",
+        "question": "A student titrated 25.0 cm³ portions of dilute sulfuric acid with a 0.105 mol/dm³ sodium hydroxide solution.\n\nVolume of sodium hydroxide solution used:\nTitration 1: 23.50 cm³\nTitration 2: 21.10 cm³\nTitration 3: 22.10 cm³\nTitration 4: 22.15 cm³\nTitration 5: 22.15 cm³\n\nThe equation for the reaction is: 2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O\n\nCalculate the concentration of the sulfuric acid in mol/dm³.\n\nUse only the student's concordant results.\n\nConcordant results are those within 0.10 cm³ of each other.",
+        "marks": 5,
+        "answer_points": [
+          "Chooses titrations 3, 4 and 5 (1)",
+          "Average titre = 22.13 cm³ (1)",
+          "Moles of NaOH = 22.13 ÷ 1000 × 0.105 = 0.002324 (1)",
+          "Moles of H₂SO₄ = 1/2 × 0.002324 = 0.001162 (1)",
+          "Concentration = 0.001162 × 1000 ÷ 25 = 0.0465 mol/dm³ (1)"
+        ],
+        "tip": "Marks follow your own working, so a mistake in one step does not lose the later marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.10C"]
+    },
+    "ocr": {
+      "spec_codes": ["OCR C5.1c"],
+      "worked_example": {
+        "exemplar_id": "9e1c49d9-cd43-400a-a45b-a0ffc770a244",
+        "source": "OCR jun 2019, Paper 4, Q22(c)",
+        "question": "In another titration 25.0 cm³ of potassium hydroxide solution, KOH, are titrated with 0.200 mol / dm³ sulfuric acid, H₂SO₄.\n\n2KOH + H₂SO₄ → K₂SO₄ + 2H₂O\n\n24.80 cm³ of sulfuric acid are needed to neutralise 25.0 cm³ of the potassium hydroxide solution.\n\nCalculate the concentration of the potassium hydroxide solution in mol / dm³.",
+        "marks": 4,
+        "answer_points": [
+          "Moles of acid = 0.200 × 24.80 ÷ 1000 = 0.00496 (1)",
+          "Moles of KOH = 2 × 0.00496 = 0.00992 (1)",
+          "Concentration of KOH = 0.00992 × 1000 ÷ 25.0 = 0.3968 mol / dm³, or 0.40 (2)"
+        ],
+        "tip": "0.3968, 0.397 and 0.40 are all accepted. The unit is not needed on the answer line."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "19496611-84af-48ef-b817-792c74c97d0c",
+      "be26760a-35b6-42e8-89aa-b9bab69676dd",
+      "2c812b33-2a38-4bcc-97d4-f8a67e46c735",
+      "324d052b-e81e-400b-bee3-e0be1dd3c57e"
+    ],
+    "exemplar_ids": ["e83a9801-b77e-4169-b58c-d8abd41fabcf", "9e1c49d9-cd43-400a-a45b-a0ffc770a244"]
+  }
+}

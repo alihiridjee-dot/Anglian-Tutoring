@@ -1,0 +1,245 @@
+{
+  "format": 1,
+  "concept_id": "bio-067",
+  "subject": "biology",
+  "title": "Reflex actions",
+  "key_idea": "A **reflex action** is a fast, automatic response that protects the body. It follows a **reflex arc**: receptor, sensory neurone, relay neurone, motor neurone, effector. The pathway is short and does not involve the conscious part of the brain.",
+  "sections": [
+    {
+      "heading": "What a reflex action is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some responses happen without thinking. This section covers what makes an action a reflex and gives examples."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Reflex action",
+              "meaning": "An automatic, rapid response to a stimulus that does not involve the conscious part of the brain."
+            },
+            {
+              "term": "Reflex arc",
+              "meaning": "The pathway of neurones that carries the impulse in a reflex action."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A reflex is **fast** and **automatic**. It is involuntary and not under conscious control.",
+            "It does not involve thinking.",
+            "It **protects** the body from harm or danger."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Examples"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pulling a hand away from a hot or sharp object.",
+            "Blinking when an insect flies into the eye.",
+            "Releasing saliva when food enters the mouth.",
+            "Not a reflex: catching a dropped ruler. This is voluntary and uses the conscious part of the brain."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reflexes are rapid, automatic and protective.",
+            "They happen without conscious thought.",
+            "A response that needs a decision is not a reflex."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The reflex arc",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A reflex arc uses three neurones in a fixed order. The example below is a hand touching a hot pan."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A self-test: put the stages of a reflex arc in order, from the hot pan to the hand moving away.",
+            "prompt": "Put the stages of this reflex arc in order. A hand touches a hot pan.",
+            "steps": [
+              "Receptor in the skin detects the heat (stimulus)",
+              "Impulse travels along the sensory neurone",
+              "First synapse: a chemical crosses the gap",
+              "Relay neurone in the spinal cord (CNS)",
+              "Second synapse: a chemical crosses the gap",
+              "Motor neurone carries the impulse to the muscle",
+              "Muscle (effector) contracts and the hand moves away"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **receptor** detects the stimulus and starts an electrical impulse.",
+            "The **sensory neurone** carries the impulse to the CNS.",
+            "The **relay neurone** in the spinal cord passes it on. The synapses are in the spinal cord or CNS.",
+            "The **motor neurone** carries the impulse to the **effector**, a muscle or gland.",
+            "At each synapse the impulse becomes a chemical that crosses the gap, then a new impulse."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Order: stimulus, receptor, sensory, relay, motor, effector, response.",
+            "Synapses join the neurones. A chemical crosses each gap.",
+            "The coordinator is the spinal cord (CNS)."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why reflexes are rapid",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The pathway is short and the conscious brain is bypassed. This makes the response quicker than a decision would be."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of a reflex action and a voluntary action.",
+            "items": ["Reflex action", "Voluntary action"],
+            "rows": [
+              {
+                "feature": "Speed",
+                "values": ["Very fast", "Slower"]
+              },
+              {
+                "feature": "Conscious brain",
+                "values": ["Not involved", "Involved: you think and decide"]
+              },
+              {
+                "feature": "Control",
+                "values": ["Automatic", "Under conscious control"]
+              },
+              {
+                "feature": "Purpose",
+                "values": ["Protects the body from harm", "Any deliberate action"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Reflexes avoid (further) damage, such as a burn getting worse.",
+            "The response needs to be rapid.",
+            "Sending the impulse via the conscious brain would slow down the reaction time.",
+            "Myelin sheaths around neurones also speed up the impulses."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fewer steps and no thinking mean a faster response.",
+            "A fast response limits harm.",
+            "Voluntary actions are slower because the brain decides."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two features of a reflex action.",
+      "a": "Any two from: fast / rapid; automatic / involuntary (not under conscious control); protects from danger or harm; a response to a stimulus.",
+      "marks": 2
+    },
+    {
+      "q": "Name the structures a nerve impulse passes through in a reflex arc, in order.",
+      "a": "Receptor, sensory neurone, relay neurone (in the CNS), motor neurone, effector.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why it is important that pulling a hand away from a hot plate is a reflex.",
+      "a": "It avoids further damage. The reaction needs to be rapid. Involving the brain would slow the reaction.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.3", "AQA T 4.5.2"],
+      "worked_example": {
+        "exemplar_id": "c4c9ce36-77a1-4969-86e8-a8517c8f2f24",
+        "source": "AQA jun 2021, Paper 2 (H), Q06.2",
+        "question": "A woman's hand accidentally touches a hot object. The woman moves her hand away rapidly.\n\nDescribe how the woman's nervous system coordinates the reflex action.",
+        "marks": 6,
+        "answer_points": [
+          "A receptor in the skin of the hand detects the stimulus (the temperature change).",
+          "Electrical impulses pass along neurones.",
+          "Impulses pass from sensory to relay to motor neurones.",
+          "At a synapse between neurones, a chemical crosses the gap.",
+          "The synapses are in the spinal cord (CNS).",
+          "The effector is a muscle, and it contracts to pull the hand away."
+        ],
+        "tip": "One mark for each of six points. Say impulses, not messages, and say spinal cord or CNS rather than brain."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 2.14"],
+      "worked_example": {
+        "exemplar_id": "68ea843a-2ea4-496b-9089-f67172a61928",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q9(c)",
+        "question": "Describe the structure and function of a reflex arc.",
+        "marks": 6,
+        "answer_points": [
+          "A stimulus is detected by a receptor.",
+          "The receptor transfers the signal to the sensory neurone.",
+          "The sensory neurone transfers the signal to the CNS (brain, spinal cord or relay neurone).",
+          "The signal is transferred to a motor neurone, and a myelin sheath speeds up the electrical impulse.",
+          "The motor neurone transmits the signal to the effector, which produces the response.",
+          "Function: a rapid response, to protect the body from danger, which is involuntary and automatic."
+        ],
+        "tip": "This is marked in levels. For the top level, describe the whole structure in order and also state the function."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 3.1c"],
+      "worked_example": {
+        "exemplar_id": "23751969-6171-47c0-84a3-e2bb77caaa30",
+        "source": "OCR sample None, Paper 3, Q19(a)",
+        "question": "A boy picks up a hot plate and quickly drops it. This is a reflex action.\n\nDescribe the sequence of events that happens in his nervous system during this reflex action.",
+        "marks": 5,
+        "answer_points": [
+          "The stimulus is detected by receptors in the skin.",
+          "An impulse is sent along a sensory neurone.",
+          "The impulse goes to the spinal cord (CNS).",
+          "An impulse is sent along a motor neurone.",
+          "The impulse reaches the muscles (effectors) in the hand or arm."
+        ],
+        "tip": "The marks are only awarded when the events are in the correct sequence. Do not send the impulse via the brain."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "eed4599d-9630-4fe7-ae5c-57fc4e605b62",
+      "0b5028c4-a1b7-4159-96e8-607e904d44dd",
+      "6cfd03b8-f313-43a8-9efd-f70396fbac1a"
+    ],
+    "exemplar_ids": [
+      "c4c9ce36-77a1-4969-86e8-a8517c8f2f24",
+      "68ea843a-2ea4-496b-9089-f67172a61928",
+      "23751969-6171-47c0-84a3-e2bb77caaa30"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

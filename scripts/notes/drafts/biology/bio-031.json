@@ -1,0 +1,211 @@
+{
+  "format": 1,
+  "concept_id": "bio-031",
+  "subject": "biology",
+  "title": "Coronary heart disease and its treatments",
+  "key_idea": "In coronary heart disease, fatty material builds up in the coronary arteries and narrows them. Less blood reaches the heart muscle, so it gets less oxygen. Treatments include drugs, surgery, replacement parts and lifestyle changes. Each has benefits and risks.",
+  "sections": [
+    {
+      "heading": "How coronary heart disease develops",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The coronary arteries supply the heart muscle with blood. This section covers what happens when they become blocked."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Coronary heart disease",
+              "meaning": "A disease where layers of fatty material build up inside the coronary arteries and narrow them."
+            },
+            {
+              "term": "Cholesterol",
+              "meaning": "A fatty substance in the blood. High levels add to the fatty material in the arteries."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps from fatty deposits to chest pain or a heart attack in order.",
+            "prompt": "Put these steps in order.",
+            "steps": [
+              "Layers of fatty material build up inside the coronary arteries",
+              "The coronary arteries become narrower",
+              "Less blood flows to the heart muscle",
+              "The heart muscle gets less oxygen and glucose",
+              "Less aerobic respiration, so less energy is released",
+              "Chest pain, tiredness, or a heart attack if the cells die"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "With less oxygen, more anaerobic respiration happens and lactic acid is made. This can cause muscle fatigue or chest pain.",
+            "A heart attack happens when the heart muscle cells do not get enough oxygen and die."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fatty material narrows the coronary arteries and reduces blood flow to the heart muscle.",
+            "Less oxygen and glucose means less aerobic respiration and less energy.",
+            "Heart muscle cells die if they get too little oxygen."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Treatments",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Treatments fall into three groups: drugs, surgery or mechanical devices, and lifestyle changes. Exam questions ask you to weigh up the benefits and risks."
+        },
+        {
+          "type": "table",
+          "columns": ["Treatment", "What it does", "Benefit", "Risk or disadvantage"],
+          "rows": [
+            [
+              "Statins (drug)",
+              "Reduce blood cholesterol, which slows the build-up of fatty material.",
+              "Easy to take, not invasive and low cost.",
+              "Possible side effects such as muscle pain. Take time to work and must be taken long term."
+            ],
+            [
+              "Stent",
+              "A tube that holds a blocked coronary artery open.",
+              "Blood flow to the heart muscle increases straight away. Recovery is rapid.",
+              "Risk of infection, bleeding or a blood clot from the operation."
+            ],
+            [
+              "Bypass surgery",
+              "A section of blood vessel is used to go round a narrowed or blocked artery.",
+              "Restores blood flow to the heart muscle.",
+              "Major surgery, with a risk of infection, bleeding or blood clots. Recovery is slower than for a stent."
+            ],
+            [
+              "Valve replacement",
+              "Replaces a valve that does not open fully or that leaks, using a biological or mechanical valve.",
+              "The new valve opens fully and does not leak, so blood flows in the right direction.",
+              "Risks of surgery. A mechanical valve can cause blood clots, so medication may be needed long term."
+            ],
+            [
+              "Transplant or artificial heart",
+              "A donor heart (or heart and lungs) replaces a failing heart. An artificial heart keeps a patient alive while waiting for a transplant, or lets the heart rest to help recovery.",
+              "A transplant can save the life of a patient with heart failure. An artificial heart gives time while waiting for a donor.",
+              "Risks of surgery. A donor organ must be found, and the body may reject it. An artificial heart risks infection and blood clots."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Lifestyle changes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A healthier diet, with less fat and salt and more fruit and vegetables.",
+            "More exercise, and stopping smoking.",
+            "These lower the risk without surgery or drugs, but need long-term effort."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Statins slow the build-up of fatty material. Stents hold the artery open.",
+            "Faulty valves can be replaced, and a failing heart can be transplanted.",
+            "Always give a benefit and a risk when asked to evaluate."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain the effect of a partly blocked coronary artery on the heart.",
+      "a": "Blood flow to the heart muscle is reduced, so less oxygen and glucose reach it. There is less aerobic respiration and less energy released, so the heart contracts less well.",
+      "marks": 3
+    },
+    {
+      "q": "Give one advantage and one disadvantage of taking statins.",
+      "a": "Advantage: avoids an operation (or lowers cholesterol). Disadvantage: there could be side effects, or it must be taken on a regular basis.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how a stent treats coronary heart disease.",
+      "a": "It holds the blocked coronary artery open, so blood flow to the heart muscle cells increases.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 2.8", "AQA T 4.2.2.4"],
+      "worked_example": {
+        "exemplar_id": "04939cd2-7a1b-4424-8643-c5ec6676af28",
+        "source": "AQA jun 2021, Paper 1 (H), Q05.4",
+        "question": "A heart attack is caused when the heart muscle cells do not get enough oxygen, causing the cells to die. Statins and stents are two treatments used to reduce the risk of someone having a heart attack. Evaluate the use of statins compared with the use of a stent to reduce the risk of a heart attack.",
+        "marks": 6,
+        "answer_points": [
+          "Statins: easy to take, not invasive and lower cost than a stent operation.",
+          "Statins decrease blood cholesterol and slow down the build-up of fatty materials, which maintains blood flow to the heart muscle cells.",
+          "Statins: may have side effects such as muscle pain, take time to work and must be taken long term (or the patient might forget).",
+          "Stent: holds the blocked artery open, so blood flow to the heart muscle cells increases straight away. It stays in place for a long time and recovery is rapid.",
+          "Stent: risk of infection from the operation, risk of surgery such as bleeding, and a risk of a blood clot.",
+          "A judgement, supported by the reasons above."
+        ],
+        "tip": "For the top level you need arguments for and against both treatments, then a judgement."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.25"],
+      "worked_example": {
+        "exemplar_id": "19edfdd4-fb3b-46e2-9957-1a348d9dcb3d",
+        "source": "EDEXCEL nov 2020, Paper 1 (H), Q9(c)",
+        "question": "Obesity can also cause cardiovascular disease to develop. Describe the different treatments available for cardiovascular disease.",
+        "marks": 3,
+        "answer_points": [
+          "Surgery to treat narrow or blocked arteries, such as bypass surgery or stents.",
+          "Lifestyle changes, including a healthy diet or more exercise.",
+          "(Life-long) medication to prevent blood clots, reduce blood pressure or thin the blood."
+        ],
+        "tip": "One mark for each type of treatment: surgery, lifestyle and medication."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.3s"],
+      "worked_example": {
+        "exemplar_id": "0cdbed55-32af-45d5-a83e-32eb5de0a677",
+        "source": "OCR jun 2018, Paper 2, Q22(c)(ii)",
+        "question": "Taking a drug called statins is a treatment for CHD. The drug is taken every day and lowers the level of cholesterol in a person's blood. Suggest one advantage and one disadvantage of taking statins.",
+        "marks": 2,
+        "answer_points": [
+          "Advantage: avoids an operation.",
+          "Disadvantage: there could be side effects of the drug, or it must be taken on a regular basis."
+        ],
+        "tip": "A named side effect such as liver damage or an upset stomach is accepted. So is forgetting to take the drug."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "846f60ce-9563-4483-a0bc-88e53cc49953",
+      "b934cd92-ae66-47d6-9f13-33d2bc1bf93b",
+      "37edcc45-e413-42ee-9c71-f3db6105eb0b",
+      "a01005e5-d61c-4a1f-976e-be6521d91ea6"
+    ],
+    "exemplar_ids": [
+      "04939cd2-7a1b-4424-8643-c5ec6676af28",
+      "19edfdd4-fb3b-46e2-9957-1a348d9dcb3d",
+      "0cdbed55-32af-45d5-a83e-32eb5de0a677"
+    ]
+  }
+}

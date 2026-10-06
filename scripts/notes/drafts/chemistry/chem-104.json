@@ -1,0 +1,267 @@
+{
+  "format": 1,
+  "concept_id": "chem-104",
+  "subject": "chemistry",
+  "title": "Corrosion and its prevention",
+  "key_idea": "Corrosion is the reaction of a metal with substances in its environment. Iron rusts when both oxygen and water are present. It is protected by a barrier that keeps them out, or by sacrificial protection, where a more reactive metal corrodes instead. (Separate science)",
+  "sections": [
+    {
+      "heading": "Corrosion and rusting (Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Corrosion damages metals. This section covers what it is and what iron needs to rust."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Corrosion",
+              "meaning": "The destruction of a material by chemical reactions with substances in its environment."
+            },
+            {
+              "term": "Oxidation",
+              "meaning": "A reaction in which a substance gains oxygen. Metals are oxidised when they corrode."
+            },
+            {
+              "term": "Rusting",
+              "meaning": "The corrosion of iron. It needs both air (oxygen) and water."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "When a metal corrodes it reacts with oxygen and forms a metal oxide.",
+            "Rust is a form of hydrated iron oxide, made from iron, oxygen and water.",
+            "Iron does not rust in dry air, or in water with no oxygen in it.",
+            "Most metals corrode faster when the air is moist, and faster again in acidic or alkaline air."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Rusting of iron",
+          "formula": "iron + oxygen + water → hydrated iron(III) oxide (rust)",
+          "where": ["Both oxygen and water must be present."]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick the conditions for an iron nail and see whether it rusts.",
+            "prompt": "Pick the conditions around an iron nail",
+            "result_labels": ["Does the nail rust?", "Why"],
+            "options": [
+              {
+                "label": "Air and water",
+                "results": ["Yes", "Both oxygen and water are present."]
+              },
+              {
+                "label": "Air only (drying agent in a stoppered tube)",
+                "results": ["No", "There is no water."]
+              },
+              {
+                "label": "Water only (boiled water with a layer of oil)",
+                "results": ["No", "Boiling removes dissolved air and the oil stops air getting in."]
+              },
+              {
+                "label": "Air and water, nail coated in paint",
+                "results": ["No", "The paint is a barrier to oxygen and water."]
+              },
+              {
+                "label": "Air and water, nail coated in zinc and then scratched",
+                "results": ["No", "Zinc is more reactive than iron, so it corrodes instead."]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Investigating the conditions for rusting"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Set up three test tubes, each with an iron nail.",
+            "Tube 1: tap water, open to the air. The nail rusts.",
+            "Tube 2: a drying agent and a stopper. No water, so the nail does not rust.",
+            "Tube 3: boiled water with a layer of oil on top. No air, so the nail does not rust.",
+            "Leave the tubes for several days and observe the nails."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Corrosion is a reaction of a metal with substances in the environment, such as oxygen.",
+            "Iron rusts only when both oxygen and water are present.",
+            "A tube with air only and a tube with water only, as well as one with both, shows that both are needed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Preventing corrosion (Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Corrosion is prevented by keeping oxygen and water away from the metal, or by using a more reactive metal. This section covers both."
+        },
+        {
+          "type": "subheading",
+          "text": "Barriers"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A coating acts as a barrier. It stops air and water reaching the metal.",
+            "Painting, oiling, greasing and plastic coatings are barriers.",
+            "Electroplating coats an object with a thin layer of a corrosion-resistant metal. It also improves the appearance.",
+            "Aluminium has a layer of aluminium oxide on its surface. The oxide is a barrier that protects the metal underneath from further corrosion."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Sacrificial protection"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A more reactive metal is attached to the iron or steel, or used as a coating.",
+            "The more reactive metal corrodes instead of the iron. It is sacrificed to protect the iron.",
+            "Examples: magnesium blocks fixed to a steel ship, zinc blocks on an oil rig.",
+            "Galvanising is coating iron with zinc. If the zinc is scratched, the iron still does not rust, because zinc is more reactive."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each method of corrosion prevention into barrier or sacrificial protection.",
+            "prompt": "Which type of protection is each method?",
+            "groups": ["Barrier", "Sacrificial protection"],
+            "items": [
+              {
+                "text": "Painting a bridge",
+                "group": 0
+              },
+              {
+                "text": "Greasing iron tools",
+                "group": 0
+              },
+              {
+                "text": "Electroplating a metal object",
+                "group": 0
+              },
+              {
+                "text": "The oxide layer on aluminium",
+                "group": 0
+              },
+              {
+                "text": "Magnesium blocks fixed to a steel ship",
+                "group": 1
+              },
+              {
+                "text": "Zinc blocks connected to an oil rig",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Barriers keep oxygen and water away from the metal.",
+            "Sacrificial protection uses a more reactive metal, which corrodes instead of the iron.",
+            "Aluminium is protected by its own oxide layer, which acts as a barrier."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the two substances needed for iron to rust.",
+      "a": "Oxygen (air) and water.",
+      "marks": 1
+    },
+    {
+      "q": "Explain how a magnesium block fixed to a steel ship stops the steel rusting.",
+      "a": "Magnesium is more reactive than iron, so it corrodes instead of the steel. This is sacrificial protection.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how the oxide layer on aluminium protects it from corrosion.",
+      "a": "The oxide layer acts as a barrier. It prevents air, oxygen and water reaching the aluminium.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.10.3.1"],
+      "worked_example": {
+        "exemplar_id": "439ffd4f-c2fd-4931-85df-099300ec3bed",
+        "source": "AQA jun 2019, Paper 2 (F), Q06.1",
+        "question": "This question is about the corrosion of metals. The corrosion of iron is called rusting.\n\nAvailable apparatus and materials: test tubes, stoppers, iron nails, tap water, boiled water, drying agent, oil.\n\nPlan an investigation to show that both water and air are needed for iron to rust.\n\nYou should include the results you expect to obtain.",
+        "marks": 6,
+        "answer_points": [
+          "Use three test tubes, each containing an iron nail.",
+          "Tube 1: open test tube with water. The nail rusts.",
+          "Tube 2: stoppered test tube with a drying agent, so there is no water. The nail does not rust.",
+          "Tube 3: boiled water, sealed with a layer of oil, so there is no air. The nail does not rust.",
+          "Leave for several days and observe the results."
+        ],
+        "tip": "Marked in levels: all key steps in a logical order, and the expected results, for the top level."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.2C", "EDEX 5.3C", "EDEX 5.4C"],
+      "worked_example": {
+        "exemplar_id": "3bdcc0b8-ec69-4c91-a687-fc2eb6014d2f",
+        "source": "EDEXCEL jun 2018, Paper 1 (H), Q1(c)",
+        "question": "Iron fences can be galvanised by coating them with a layer of zinc.\nWhen the layer of zinc is scratched exposing the iron to the weather, the iron does not rust.\n\nExplain why the exposed iron does not rust.",
+        "marks": 2,
+        "answer_points": [
+          "Zinc corrodes in preference to the iron, or reacts with air and water instead.",
+          "Zinc is more reactive than iron, so it is sacrificial."
+        ],
+        "tip": "Reject the idea that zinc rusts."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C6.1p", "OCR C6.1q"],
+      "worked_example": {
+        "exemplar_id": "e4c5c224-d7cc-4e8e-89ef-69a06238154a",
+        "source": "OCR sample null, Paper 4, Q24(b)",
+        "question": "Kasia investigates the corrosion of different metals.\n\nShe places a small strip of each metal in different samples of air.\n\nShe leaves the metals for one week before collecting her results.\n\nThe table shows the appearance of each metal after one week.\n\n| Metal | Original appearance | Moist acidic air | Moist alkaline air | Dry air | Moist air |\n| aluminium | shiny silver | dull silver | dull silver | shiny silver | shiny silver |\n| copper | shiny red-orange | dull red-orange | green red-orange | shiny red-orange | dull red-orange |\n| iron | shiny silver | brown coating | brown coating | shiny silver | brown coating |\n| magnesium | shiny silver | whitish coating | dull silver | shiny silver | dull silver |\n| zinc | shiny silver | dark coating | dark coating | shiny silver | dull silver |\n\nExplain the conclusions that can be made from Kasia's results.",
+        "marks": 3,
+        "answer_points": [
+          "Water is needed for corrosion of most metals, since there is no corrosion in dry air but there is in moist air.",
+          "Most metals corrode faster in moist alkaline air than in moist air.",
+          "Most metals corrode faster in moist acidic air than in moist air.",
+          "The rate of corrosion is not related to the reactivity series, for example for copper or aluminium."
+        ],
+        "tip": "Any three. Each conclusion must be backed by a comparison of the results."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "26dacc94-ac9a-437b-aa08-1e87af0e9bf4",
+      "0559a253-c2d0-45f7-b59f-b72ffa1a02df",
+      "0c5b7af9-8abf-49ee-a96d-99e17c3a6579",
+      "bd7fc04e-5cda-452e-8d53-aa1eeb89d6a6",
+      "53b7b81b-f889-415e-aff9-9c9f96b4f908",
+      "31f6a5f8-e320-4d88-89f7-e2896192f7c6"
+    ],
+    "exemplar_ids": [
+      "439ffd4f-c2fd-4931-85df-099300ec3bed",
+      "3bdcc0b8-ec69-4c91-a687-fc2eb6014d2f",
+      "e4c5c224-d7cc-4e8e-89ef-69a06238154a"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
+  }
+}

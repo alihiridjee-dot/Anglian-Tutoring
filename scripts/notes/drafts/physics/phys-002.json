@@ -1,0 +1,323 @@
+{
+  "format": 1,
+  "concept_id": "phys-002",
+  "subject": "physics",
+  "title": "Energy stores and systems",
+  "key_idea": "Energy is kept in **stores** and moves between them when a **system** changes. It is transferred by forces doing work, by an electric current and by heating. Energy is never created or destroyed. In a closed system the total stays the same.",
+  "sections": [
+    {
+      "heading": "Energy stores",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Energy is not a substance. It is kept in stores. This section covers the stores you need to name."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "System",
+              "meaning": "An object or a group of objects that interact."
+            },
+            {
+              "term": "Kinetic store",
+              "meaning": "Energy of a moving object."
+            },
+            {
+              "term": "Gravitational potential store",
+              "meaning": "Energy of an object because of its height above the ground."
+            },
+            {
+              "term": "Elastic potential store",
+              "meaning": "Energy in a stretched or squashed object, such as a spring."
+            },
+            {
+              "term": "Thermal (internal) store",
+              "meaning": "Energy in the particles of an object. It increases when the object gets hotter."
+            },
+            {
+              "term": "Chemical store",
+              "meaning": "Energy in fuel, food and batteries, released by chemical reactions."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Other stores are nuclear, magnetic and electrostatic. A spinning fly wheel stores energy in its kinetic store."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A system is an object or a group of objects.",
+            "Name the store, such as kinetic or chemical, not just 'energy'.",
+            "A moving object, including a spinning fly wheel, has energy in its kinetic store."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How energy moves between stores",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When a system changes, energy is transferred from one store to another. There are three main ways to change the energy of a system."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Work done by forces.** A force moves an object, as when you lift a toy car.",
+            "**Work done when a current flows.** Electrical equipment such as a motor transfers energy from the battery or mains.",
+            "**Heating.** Energy moves from a hotter object to a cooler one."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each item into an energy store or a way of changing the energy of a system.",
+            "prompt": "Is it a store, or a way energy is transferred?",
+            "groups": ["Energy store", "Way of transferring energy"],
+            "items": [
+              {
+                "text": "Kinetic",
+                "group": 0
+              },
+              {
+                "text": "Gravitational potential",
+                "group": 0
+              },
+              {
+                "text": "Elastic potential",
+                "group": 0
+              },
+              {
+                "text": "Chemical",
+                "group": 0
+              },
+              {
+                "text": "Thermal (internal)",
+                "group": 0
+              },
+              {
+                "text": "Work done by a force",
+                "group": 1
+              },
+              {
+                "text": "Work done by an electric current",
+                "group": 1
+              },
+              {
+                "text": "Heating",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Common changes you must describe"
+        },
+        {
+          "type": "table",
+          "columns": ["Situation", "Energy changes"],
+          "rows": [
+            [
+              "Object thrown upwards",
+              "Kinetic store decreases. Gravitational potential store increases."
+            ],
+            [
+              "Moving object hits an obstacle",
+              "Kinetic store decreases. Thermal store of the object and surroundings increases."
+            ],
+            [
+              "Object accelerated by a constant force",
+              "Energy from the force's work increases the kinetic store."
+            ],
+            [
+              "Vehicle slowing down",
+              "Kinetic store decreases. Thermal store of the brakes and surroundings increases."
+            ],
+            [
+              "Kettle bringing water to the boil",
+              "Energy from the current increases the thermal store of the water."
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Energy changes stores through work done by forces, work done by a current, or heating.",
+            "For each change, say which store decreases and which store increases.",
+            "Some energy usually ends up in the thermal store of the surroundings."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Conservation of energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Energy cannot be created or destroyed. It can only be transferred, stored or dissipated."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Closed system",
+              "meaning": "A system where no energy enters or leaves."
+            },
+            {
+              "term": "Conservation of energy",
+              "meaning": "When energy is transferred in a closed system, there is no net change to the total energy."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Conservation of energy",
+          "formula": "total energy before = total energy after",
+          "where": [
+            "Energy is measured in joules (J).",
+            "Some energy moves to less useful stores, such as the thermal store of the surroundings."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Energy transfer diagrams"
+        },
+        {
+          "type": "paragraph",
+          "text": "A transfer diagram shows where energy starts, where it goes and what is wasted. Each arrow is a transfer."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "Energy transfers when a battery powered drone rises.",
+            "steps": [
+              "Chemical store of battery",
+              "Work done by current in motor",
+              "Work done by force from blades",
+              "Gravitational potential store of drone"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "At each stage, some energy is also wasted to the thermal store of the surroundings.",
+            "All energy changes are measured in joules, so stores can be compared on one scale.",
+            "The total of all the stores at the end equals the energy at the start.",
+            "A rocket that transfers 510 MJ from its fuel gains 510 MJ in its other stores."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "In a closed system the total energy does not change.",
+            "Energy is conserved, so energy in equals energy out.",
+            "A transfer diagram shows each transfer and the wasted energy."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two energy stores that increase when an electric whisk is switched on.",
+      "a": "Kinetic store of the beater and food. Thermal (internal) store of the surroundings, whisk or food.",
+      "marks": 2
+    },
+    {
+      "q": "State what happens to the total energy when energy is transferred in a closed system.",
+      "a": "The total energy does not change. Energy is conserved.",
+      "marks": 1
+    },
+    {
+      "q": "Describe the energy changes when a car brakes to a stop.",
+      "a": "The kinetic store of the car decreases. The thermal store of the brakes (and surroundings) increases.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.1.1", "AQA T 6.1.1.1"],
+      "worked_example": {
+        "exemplar_id": "87de8752-f165-4c72-8a3f-26e9e6491f78",
+        "source": "AQA jun 2020, Paper 1 (H), Q04.3",
+        "question": "Wood is burned to heat water in a pipe.\nDescribe the change to the stores of energy of the wood, pipe and water as the water is heated.\n\nWood\nPipe\nWater",
+        "marks": 3,
+        "answer_points": [
+          "The chemical store of energy of the wood decreases",
+          "The internal / thermal store of energy of the pipe increases",
+          "The internal / thermal store of energy of the water increases"
+        ],
+        "tip": "Each mark needs both the store and what happens to it."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 3.3",
+        "EDEX 3.4",
+        "EDEX 3.5",
+        "EDEX 3.6",
+        "EDEX 8.1",
+        "EDEX 8.2",
+        "EDEX 8.3",
+        "EDEX 8.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "f2512db5-deb2-4818-887d-24e16273e906",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q3(a)(iii)",
+        "question": "A football of mass 0.42 kg is kicked against a wall.\n\nDescribe the energy transfers that happen when the ball hits the wall.",
+        "marks": 2,
+        "answer_points": [
+          "KE / kinetic (energy store) decreases",
+          "It transfers to one of: elastic (potential energy store), thermal (energy of ball / wall / surroundings), or dissipates (to surroundings)"
+        ],
+        "tip": "One mark for the kinetic store and one for where the energy goes. Heat is allowed for thermal. Gravitational potential energy is ignored."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P7.1a", "OCR P7.1b"],
+      "worked_example": {
+        "exemplar_id": "33530d73-f0aa-4fc6-b658-a3d64fdcc892",
+        "source": "OCR jun 2019, Paper 4, Q21(c)(i)",
+        "question": "In the brakes of a car there are brake pads and a brake disc.\nWhen a car stops, energy transfers between stores.\nThe brake pads squeeze the brake disc and cause a friction force.\n\nExplain how braking stops the car.\nInclude ideas about energy stores in your answer.",
+        "marks": 2,
+        "answer_points": [
+          "(Store of) KE (in the moving car) decreases",
+          "It is transferred thermally to the (store of) thermal energy / heat (in the brakes, pads, discs or tyres)"
+        ],
+        "tip": "One mark for the kinetic store and one for the thermal store it is transferred to."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "0b43fafa-d9c8-44e2-8ecd-627639ff8f82",
+      "d40667dd-726d-4417-8183-ca2514684b35",
+      "55526697-70cb-4c5d-b158-6b18754e0f67",
+      "c34920aa-b1c7-4d94-aebb-bbe83bc5cd51",
+      "b99f7b8a-5133-497f-97ad-6bd20cd7f90d",
+      "11692ca4-c217-4f91-9147-129e68248078",
+      "88b59e1b-5f84-4483-857a-59b29226d108",
+      "2ec4deb5-d3bc-4094-bcfb-a89b2529bec1",
+      "f72bd231-bcaf-4fef-aa1a-c79801e1f590",
+      "4adf7a1c-4e4d-4a5c-b72a-21fb5900969b",
+      "0c375621-8875-4ec5-b45e-5c11b312298c",
+      "e2d364ca-94f8-47e5-a2db-798336442e6a"
+    ],
+    "exemplar_ids": [
+      "87de8752-f165-4c72-8a3f-26e9e6491f78",
+      "f2512db5-deb2-4818-887d-24e16273e906",
+      "33530d73-f0aa-4fc6-b658-a3d64fdcc892"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

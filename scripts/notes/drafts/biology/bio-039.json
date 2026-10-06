@@ -1,0 +1,237 @@
+{
+  "format": 1,
+  "concept_id": "bio-039",
+  "subject": "biology",
+  "title": "Translocation",
+  "key_idea": "Translocation is the movement of dissolved sugars through the phloem. Sugars are made in the leaves, which are the source. They move up and down to the sinks, where they are used for respiration and growth or stored.",
+  "sections": [
+    {
+      "heading": "How translocation works",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plants make sugar in their leaves by photosynthesis. Translocation carries it to the rest of the plant."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Translocation",
+              "meaning": "The movement of dissolved sugars (sucrose) through the phloem, from the source to the sinks."
+            },
+            {
+              "term": "Source",
+              "meaning": "Where sugar is made, such as the leaves."
+            },
+            {
+              "term": "Sink",
+              "meaning": "Where sugar is used or stored, such as growing tips, roots and flowers."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Glucose is made by photosynthesis. It is converted to **sucrose** to be transported.",
+            "Sucrose dissolves in water and moves through the phloem.",
+            "Phloem is made of living tubes of elongated cells. Cell sap moves from one cell to the next through pores in the end walls.",
+            "Translocation needs energy, because the cells are living.",
+            "The sugar can move up and down, so flow is in both directions."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Translocation moves dissolved sugars (sucrose) in the phloem.",
+            "Sugar moves from the source (leaves) to the sinks.",
+            "Phloem is living tissue and the movement needs energy."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why sugars must move both ways",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Only the leaves make sugar. Every other part of the plant depends on translocation for its supply."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each part of a plant into a source of sugar or a sink for sugar.",
+            "prompt": "Source or sink?",
+            "groups": ["Source: sugar is made", "Sink: sugar is used or stored"],
+            "items": [
+              {
+                "text": "A leaf cell photosynthesising",
+                "group": 0
+              },
+              {
+                "text": "A root cell respiring",
+                "group": 1
+              },
+              {
+                "text": "Meristem at a growing tip",
+                "group": 1
+              },
+              {
+                "text": "A flower",
+                "group": 1
+              },
+              {
+                "text": "Tissue that stores starch",
+                "group": 1
+              },
+              {
+                "text": "A leaf making glucose in the light",
+                "group": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sugars are made in the leaves by photosynthesis. The roots and meristems do not photosynthesise.",
+            "All cells need sugar for respiration.",
+            "Sugars are taken to the meristems for growth and cell division.",
+            "Sugars can be stored as starch, fat or oil."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Translocation compared with the transpiration stream"
+        },
+        {
+          "type": "table",
+          "columns": ["Feature", "Transpiration stream", "Translocation"],
+          "rows": [
+            ["Tissue", "Xylem", "Phloem"],
+            ["Substances", "Water and mineral ions", "Dissolved sugars (sucrose)"],
+            ["Direction", "Upwards only", "Upwards and downwards"],
+            ["Cells", "Dead", "Living"],
+            ["Energy", "Not needed", "Needed"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sugars are needed everywhere: for respiration, for growth at the meristems and for storage.",
+            "Translocation is in the phloem and moves sugars in both directions. The transpiration stream is in the xylem.",
+            "If the phloem is damaged, sink tissues get less sugar, so growth is poor."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the process that transports dissolved sugars around a plant, and the tissue it happens in.",
+      "a": "Translocation, in the phloem.",
+      "marks": 2
+    },
+    {
+      "q": "Describe why dissolved sugars are moved both upwards and downwards in a plant.",
+      "a": "Sugars are made in the leaves by photosynthesis. All cells need sugar for respiration. Sugars are taken to the meristems for growth, or stored as starch, fat or oil.",
+      "marks": 3
+    },
+    {
+      "q": "Describe two differences between the transpiration stream and translocation.",
+      "a": "Any two from: xylem and phloem; water and minerals and dissolved sugars; upwards only and upwards and downwards; dead cells and living cells; no energy and energy needed.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 2.13", "AQA T 4.2.3.2"],
+      "worked_example": {
+        "exemplar_id": "5d8362fb-99ee-45e3-bd40-6c28c2518ec4",
+        "source": "AQA jun 2021, Paper 1 (H), Q06.5",
+        "question": "Phloem tissue is made of sieve tube cells and companion cells. Describe why it is important that dissolved sugars are moved both upwards and downwards in a plant.",
+        "marks": 3,
+        "answer_points": [
+          "Sugars are made in the leaves by photosynthesis. (They are not made in the root or meristems.)",
+          "All cells and tissues need sugar for respiration.",
+          "Sugars are transported to the meristems for growth, cell division or mitosis, or transported for storage as starch, fat or oil."
+        ],
+        "tip": "Each mark is one step: where sugar is made, why every cell needs it, and what it is used for."
+      },
+      "extra": [
+        {
+          "heading": "How much detail is needed",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Name the process as **translocation** and the tissue as the phloem.",
+                "Detailed phloem structure and the mechanism of transport are not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.10"],
+      "worked_example": {
+        "exemplar_id": "eda96b8f-5a6b-4fd5-b3a3-525a9fd82508",
+        "source": "EDEXCEL nov 2020, Paper 2 (H), Q2(b)(iii)",
+        "question": "Water lily plants make sugar by photosynthesis in their leaves. Describe how this sugar is transported from the leaves to the flowers of the water lily.",
+        "marks": 2,
+        "answer_points": [
+          "In the phloem.",
+          "Dissolved in water.",
+          "By translocation.",
+          "Using active transport (diffusion is also accepted)."
+        ],
+        "tip": "Any two points score one mark each. Xylem is rejected."
+      },
+      "extra": [
+        {
+          "heading": "Energy and the phloem",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Mark schemes credit **active transport** as the way sugar is moved in the phloem.",
+                "Diffusion is also accepted in the description of how sugar moves."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR 2.2g", "OCR 2.2h"],
+      "worked_example": {
+        "exemplar_id": "e83c5d72-1e00-4ed5-93ea-cd206913c821",
+        "source": "OCR jun 2019, Paper 1, Q17(a)(ii)",
+        "question": "A greenfly feeds on a plant by piercing through to the phloem tissue in the stem. Explain why plants infested with greenfly have very poor growth.",
+        "marks": 2,
+        "answer_points": [
+          "Sugar (food) is removed by the greenfly.",
+          "So less is left for growth, or less for respiration and energy."
+        ],
+        "tip": "Name sugar, not water or minerals. Less sugar translocated to other parts is also credited."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "e0f7a2a0-2c27-4ea5-8352-ce84f3c40824",
+      "b851c0f1-16fe-4d4d-8bc0-be53eb42a326"
+    ],
+    "exemplar_ids": [
+      "5d8362fb-99ee-45e3-bd40-6c28c2518ec4",
+      "eda96b8f-5a6b-4fd5-b3a3-525a9fd82508",
+      "e83c5d72-1e00-4ed5-93ea-cd206913c821"
+    ]
+  }
+}

@@ -1,0 +1,453 @@
+{
+  "format": 1,
+  "concept_id": "phys-035",
+  "subject": "physics",
+  "title": "Radioactive decay and nuclear radiation",
+  "key_idea": "Unstable nuclei give out radiation in a random process called **radioactive decay**. Alpha, beta and gamma radiation differ in what they are, how far they travel and how strongly they ionise. Alpha is the most ionising and the least penetrating. Gamma is the opposite.",
+  "sections": [
+    {
+      "heading": "Unstable nuclei and radioactive decay",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some atomic nuclei are unstable. The nucleus gives out radiation as it changes to become more stable."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Radioactive decay",
+              "meaning": "A random process in which an unstable nucleus gives out radiation."
+            },
+            {
+              "term": "Activity",
+              "meaning": "The rate at which a source of unstable nuclei decays. It is measured in becquerel (Bq)."
+            },
+            {
+              "term": "Count rate",
+              "meaning": "The number of decays recorded each second by a detector such as a Geiger-Müller tube."
+            },
+            {
+              "term": "Background radiation",
+              "meaning": "The radiation always present around us, which a detector also counts."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A Geiger-Müller (GM) tube is attached to a counter. Each time radiation enters the tube, the counter adds one count."
+        },
+        {
+          "type": "equation",
+          "label": "Count rate",
+          "formula": "count rate = number of counts ÷ time",
+          "where": [
+            "count rate is in counts per second.",
+            "number of counts has no unit.",
+            "time is in seconds (s)."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "To find the count rate from the source alone, subtract the background count rate."
+        },
+        {
+          "type": "equation",
+          "label": "Corrected count rate",
+          "formula": "corrected count rate = measured count rate - background count rate",
+          "where": ["All three rates are in counts per second."]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate a corrected count rate from a number of counts, a time and the background.",
+            "question": "A Geiger-Müller tube and counter records {c} counts in {t} seconds near a radioactive rock. The background count rate is {b} counts per second. Calculate the corrected count rate for the rock.",
+            "variables": [
+              {
+                "id": "c",
+                "min": 300,
+                "max": 3000,
+                "step": 30
+              },
+              {
+                "id": "t",
+                "min": 30,
+                "max": 120,
+                "step": 30
+              },
+              {
+                "id": "b",
+                "min": 0.2,
+                "max": 0.5,
+                "step": 0.1
+              }
+            ],
+            "answer": {
+              "formula": "c / t - b",
+              "unit": "counts per second",
+              "decimals": 2
+            },
+            "working": [
+              "Count rate = {c} ÷ {t}",
+              "Corrected count rate = count rate - {b}",
+              "Corrected count rate = {answer} counts per second"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Radioactive decay is random and gives out radiation from the nucleus.",
+            "Activity is measured in becquerel (Bq). Count rate is the counts each second.",
+            "Subtract the background count rate to find the count rate from the source."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Alpha, beta, gamma and neutron radiation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Four types of radiation may be emitted from an unstable nucleus. The properties you need are what each is, how far it penetrates and how strongly it ionises."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ionising",
+              "meaning": "Able to knock electrons off atoms and turn them into ions."
+            },
+            {
+              "term": "Penetration",
+              "meaning": "How far the radiation passes through a material before it is stopped."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Property", "Alpha (α)", "Beta (β)", "Gamma (γ)"],
+          "rows": [
+            [
+              "What it is",
+              "Two neutrons and two protons, the same as a helium nucleus",
+              "A high-speed electron ejected from the nucleus as a neutron turns into a proton",
+              "Electromagnetic radiation from the nucleus"
+            ],
+            ["Charge", "+2", "-1", "None"],
+            [
+              "Ionising power",
+              "Most ionising",
+              "Less than alpha, more than gamma",
+              "Least ionising"
+            ],
+            [
+              "Stopped by",
+              "Paper or skin",
+              "A thin sheet of aluminium",
+              "Reduced by several cm of lead or thick concrete"
+            ],
+            ["Range in air", "A few cm", "Up to about 1 m", "Very large distances"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Alpha is the least penetrating and the most ionising. Gamma is the most penetrating and the least ionising.",
+            "A neutron (n) can also be emitted from an unstable nucleus.",
+            "Alpha, beta and gamma radiation are all ionising."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort the properties into alpha, beta and gamma.",
+            "prompt": "Sort each property into the radiation it describes.",
+            "groups": ["Alpha", "Beta", "Gamma"],
+            "items": [
+              {
+                "text": "The same as a helium nucleus",
+                "group": 0
+              },
+              {
+                "text": "Stopped by paper or skin",
+                "group": 0
+              },
+              {
+                "text": "Most ionising",
+                "group": 0
+              },
+              {
+                "text": "Range in air of a few cm",
+                "group": 0
+              },
+              {
+                "text": "A high-speed electron from the nucleus",
+                "group": 1
+              },
+              {
+                "text": "Stopped by a thin sheet of aluminium",
+                "group": 1
+              },
+              {
+                "text": "Range in air of up to about 1 m",
+                "group": 1
+              },
+              {
+                "text": "An electromagnetic wave from the nucleus",
+                "group": 2
+              },
+              {
+                "text": "Reduced by several cm of lead",
+                "group": 2
+              },
+              {
+                "text": "Least ionising",
+                "group": 2
+              },
+              {
+                "text": "Travels very large distances in air",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Alpha: helium nucleus, +2, most ionising, stopped by paper, a few cm in air.",
+            "Beta: fast electron, -1, stopped by thin aluminium, up to about 1 m in air.",
+            "Gamma: electromagnetic radiation, no charge, least ionising, reduced by thick lead."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring and identifying radiation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A Geiger-Müller tube detects radiation and counts it."
+        },
+        {
+          "type": "subheading",
+          "text": "Comparing the count rates of two sources"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Put each source near the front of the tube, one at a time, at the same distance.",
+            "Measure the count for the same time period for each source.",
+            "Measure the background count, and take it into account.",
+            "Repeat the readings and take averages."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Identifying the radiation"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Measure the background.",
+              "text": "Record the count with no source present."
+            },
+            {
+              "lead": "Measure with no barrier.",
+              "text": "Place the source near the detector and record the count."
+            },
+            {
+              "lead": "Add paper.",
+              "text": "A large drop in count rate shows that alpha is emitted."
+            },
+            {
+              "lead": "Add thin aluminium.",
+              "text": "A further drop shows that beta is emitted."
+            },
+            {
+              "lead": "Add thick lead.",
+              "text": "If the count is still above background, gamma is emitted. If it falls to background, there is no gamma."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To test the range in air, move the detector away in steps and record the count each time until it reaches the background value.",
+            "Alpha radiation is not detected beyond a few cm. Beta and gamma radiation are still detected further away.",
+            "The count rate is less than the activity because not all the radiation emitted is detected. It spreads out in all directions."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use a GM tube with the same distance and the same time, and allow for background.",
+            "Paper stops alpha, thin aluminium stops beta and thick lead reduces gamma.",
+            "The count rate is less than the activity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Choosing a source of radiation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The best source for a job depends on how far its radiation travels and how ionising it is."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A smoke detector uses alpha radiation. Beta and gamma radiation would penetrate smoke, so no change in count rate would be detected.",
+            "Alpha radiation cannot pass through a plastic case. A beta source would be more hazardous in a smoke detector, because it is more penetrating and could pass through the case.",
+            "A tumour can be treated with an alpha source inside the body, because alpha has a short range and the source must be close. A gamma source can be outside the body, because gamma is penetrating.",
+            "A beta source implanted near cancer cells has a short range in tissue. This increases the chance of killing the cancer cells and decreases the risk to healthy cells.",
+            "A gamma or beta source injected into the body can be detected by a camera outside the body, because the radiation passes out through the skin.",
+            "Beta particles cannot penetrate a metal container, so they do not reach people outside it."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Outside the body, alpha is stopped by skin so the risk is low.",
+            "Inside the body (internal contamination), alpha is absorbed by living tissue and is highly ionising. It causes greater harm to cells, tissues and DNA.",
+            "Radiation increases the risk of cancer and mutation, so stand as far away as possible from a source."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use alpha where a short range is needed and gamma where radiation must pass through material.",
+            "Alpha outside the body is low risk. Alpha inside the body is high risk."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what an alpha particle, a beta particle and a gamma ray are.",
+      "a": "An alpha particle is two protons and two neutrons, the same as a helium nucleus. A beta particle is a high-speed electron from the nucleus. A gamma ray is electromagnetic radiation from the nucleus.",
+      "marks": 3
+    },
+    {
+      "q": "A counter records 1500 counts in 30 seconds. Calculate the count rate.",
+      "a": "Count rate = 1500 ÷ 30 = 50 counts per second.",
+      "marks": 2
+    },
+    {
+      "q": "A source's count rate drops to the background level when a thin sheet of aluminium is placed in front of the detector. It was reduced when paper was added. What does the source emit?",
+      "a": "Alpha and beta radiation, but no gamma. The drop with paper shows alpha. Radiation passing paper but stopped by aluminium shows beta. The count falling to background with aluminium shows no gamma.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.2.1", "AQA T 6.4.2.1"],
+      "worked_example": {
+        "exemplar_id": "f347217b-d577-42bd-8af9-5268b58f5746",
+        "source": "AQA jun 2022, Paper 1 (H), Q06.3",
+        "question": "A teacher wanted to find out what nuclear radiation is emitted from a source.\n\nThe teacher placed different barriers between the source and a detector and recorded the count for 30 seconds after each barrier was put in place.\n\nWith no barrier the count was 985.\nWith paper (0.1 mm) the count was 149.\nWith aluminium (5.0 mm) the count was 0.\nNo count was recorded with lead.\n\nExplain what nuclear radiation was emitted by the source.",
+        "marks": 4,
+        "answer_points": [
+          "Some radiation is stopped by paper (the count fell from 985 to 149).",
+          "So the source emits alpha radiation.",
+          "Some radiation passes through paper but is stopped by aluminium.",
+          "So the source emits beta radiation (but does not emit gamma)."
+        ],
+        "tip": "The second and fourth marks depend on the first and third. State the barrier effect before naming the radiation."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.10", "EDEX 6.11", "EDEX 6.14", "EDEX 6.15", "EDEX 6.16"],
+      "extra": [
+        {
+          "heading": "Positrons and photographic film",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A positron (β⁺) is also emitted from some unstable nuclei. Alpha, beta (β⁻), positron and gamma radiation are all ionising radiations.",
+                "Photographic film can also be used to detect radiation. Radiation darkens the film, so the film shows where radiation has been, as well as a Geiger-Müller tube counting it."
+              ]
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9f6f0a72-69dc-46fb-9d6c-248bd578f50f",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q8(a)(ii)",
+        "question": "Some tumours inside the body can be treated by using either alpha radiation or gamma radiation.\n\nExplain why the source of alpha radiation is usually inside the body but the source of gamma radiation can be outside the body.",
+        "marks": 4,
+        "answer_points": [
+          "Alpha has a short range or low penetration.",
+          "So the source needs to be close to the tumour.",
+          "Gamma has a long range or high penetration.",
+          "So gamma can get into the body from outside, passing through the skin."
+        ],
+        "tip": "Saying alpha is highly ionising, or gamma weakly ionising, is accepted. But 'alpha is more ionising than gamma' scores only 1 mark by itself."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P6.1d", "OCR P6.1l"],
+      "worked_example": {
+        "exemplar_id": "3be2e063-41e8-46cc-87f3-e5f0036ac44d",
+        "source": "OCR jun 2019, Paper 2, Q23(b)(iii)",
+        "question": "Scientist 1 wants to identify the type of radiation emitted by isotope A.\n\nThis is a list of equipment Scientist 1 has in his laboratory:\n• radiation detector\n• piece of thick lead\n• piece of cardboard\n• piece of aluminium.\n\nDescribe how Scientist 1 does the experiment and explain how they can work out the type of radiation emitted.\n\nYou may include a diagram in your answer.",
+        "marks": 4,
+        "answer_points": [
+          "Place one absorber between the detector and isotope A, then change the absorber and repeat (maximum two marks for the method).",
+          "Measure the background count with no source (also credited).",
+          "A drop in count rate with the cardboard indicates alpha.",
+          "A drop in count rate with the aluminium indicates beta.",
+          "A drop with the lead, or all the materials being penetrated, indicates gamma (maximum two marks for the conclusions)."
+        ],
+        "tip": "Up to two marks for the method and up to two for linking drops in count rate to radiation. Stopped or absorbed is accepted for a drop in count rate."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "b758998b-5e89-4aa6-b4c0-684260f47d93",
+      "cce72e59-8593-4696-be59-8733ba238025",
+      "254db599-e653-465f-ad53-e30644261823",
+      "dd9d6dcf-dfed-48d5-b340-f7fde282d7c1",
+      "9b7b333a-3451-4289-ae32-957c62a91c8c",
+      "42dd98c4-6072-4b81-822f-00f2d69c8f22",
+      "7dec85b2-091c-4763-a839-c991d66558a3",
+      "9f93a615-b5fb-4bfa-86ac-68488aa91175",
+      "55ae0cb9-c414-42c5-a0d8-6950f677345a"
+    ],
+    "exemplar_ids": [
+      "f347217b-d577-42bd-8af9-5268b58f5746",
+      "9f6f0a72-69dc-46fb-9d6c-248bd578f50f",
+      "3be2e063-41e8-46cc-87f3-e5f0036ac44d",
+      "58fac85b-081a-4f7c-822b-dd60c8a036df",
+      "da2dae51-3472-49da-bcf4-fac6bcac1c52",
+      "8f50a1b7-3887-404a-917d-d2243f24354f",
+      "9bad4361-ece9-4256-bd3e-d187bdb7c1f8",
+      "066c6803-7940-478f-81f4-33cca111068e",
+      "4c3d6c5d-52f7-401c-9ae7-cd08a25e2065",
+      "df36e75c-950a-4db9-aaea-7851a5356a2c",
+      "5dc9f15d-f737-4494-979d-ee4f82ae5a4a",
+      "3a2372ed-a2d0-4c02-a316-13333420e7f5",
+      "28de87b0-2ed5-4645-b6aa-5f8901d1246f",
+      "9904f0a9-936e-47cc-a896-1cfc85d85f15",
+      "0c4a5d35-bf5d-4378-bc33-51691df12783",
+      "e4f890fc-6b20-4a2c-8832-569d2e3386c3",
+      "8490d86b-253f-4285-9351-d3214fb9ae85",
+      "84ef354b-4f3b-4427-86b1-72a388ea4cb6",
+      "2e1246fc-ca2a-44f5-9c95-630a6dd8a840",
+      "4a037802-3133-4fa6-b8d1-6ab1f2c5a7e1",
+      "9ee57bf9-ac42-4874-a191-53d1b4c95aff"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

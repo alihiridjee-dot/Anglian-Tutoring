@@ -1,0 +1,321 @@
+{
+  "format": 1,
+  "concept_id": "chem-081",
+  "subject": "chemistry",
+  "title": "Carboxylic acids",
+  "key_idea": "(Separate science) Carboxylic acids contain the –COOH functional group. Methanoic, ethanoic, propanoic and butanoic acid are the first four. Their solutions are acidic and react with carbonates to give a salt, carbon dioxide and water. They are weak acids because they ionise only partly.",
+  "sections": [
+    {
+      "heading": "Carboxylic acids and their structures",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Carboxylic acids are a homologous series. The –COOH group is always at the end of the carbon chain."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Carboxylic acid",
+              "meaning": "A compound containing the functional group –COOH."
+            },
+            {
+              "term": "Homologous series",
+              "meaning": "A family of compounds with the same functional group and similar reactions."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Name", "Formula", "Carbon atoms"],
+          "rows": [
+            ["Methanoic acid", "HCOOH", "1"],
+            ["Ethanoic acid", "CH₃COOH", "2"],
+            ["Propanoic acid", "CH₃CH₂COOH", "3"],
+            ["Butanoic acid", "CH₃CH₂CH₂COOH", "4"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Names end in –oic acid.",
+            "In a displayed formula, draw every bond, including C=O and O–H.",
+            "Vinegar is a solution that contains ethanoic acid."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort formulae into alcohols, carboxylic acids and neither.",
+            "prompt": "Sort each formula into the right group.",
+            "groups": ["Alcohol", "Carboxylic acid", "Neither"],
+            "items": [
+              {
+                "text": "CH₃OH",
+                "group": 0
+              },
+              {
+                "text": "CH₃CH₂OH",
+                "group": 0
+              },
+              {
+                "text": "HCOOH",
+                "group": 1
+              },
+              {
+                "text": "CH₃COOH",
+                "group": 1
+              },
+              {
+                "text": "CH₃CH₂COOH",
+                "group": 1
+              },
+              {
+                "text": "CH₃CH₂CH₂OH",
+                "group": 0
+              },
+              {
+                "text": "CH₄",
+                "group": 2
+              },
+              {
+                "text": "C₂H₄",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The functional group in a carboxylic acid is –COOH.",
+            "The first four are methanoic, ethanoic, propanoic and butanoic acid."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reactions of carboxylic acids",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Carboxylic acids dissolve in water to make acidic solutions. Their solutions show the typical properties of acids."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The solution contains hydrogen ions and has a pH below 7.",
+            "It turns blue litmus paper red.",
+            "It reacts with carbonates and fizzes."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Reaction with carbonates"
+        },
+        {
+          "type": "paragraph",
+          "text": "A carboxylic acid and a carbonate make a salt, carbon dioxide and water. The salt name ends in –oate."
+        },
+        {
+          "type": "equation",
+          "label": "Carboxylic acid with a carbonate",
+          "formula": "ethanoic acid + sodium carbonate → sodium ethanoate + carbon dioxide + water"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The fizzing is carbon dioxide gas.",
+            "In an open flask the mass falls, because the carbon dioxide escapes.",
+            "Fizzing with a carbonate is a test for an acid."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Reaction with alcohols (Higher tier)"
+        },
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) A carboxylic acid reacts with an alcohol to make an ester and water. Ethyl ethanoate is the only ester you need to name."
+        },
+        {
+          "type": "equation",
+          "label": "Making an ester",
+          "formula": "ethanoic acid + ethanol → ethyl ethanoate + water"
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carboxylic acid solutions are acidic: pH below 7 and blue litmus turns red.",
+            "With a carbonate they make a salt, carbon dioxide and water.",
+            "(Higher tier) With an alcohol they make an ester and water."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Carboxylic acids are weak acids (AQA: Higher tier)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) A weak acid ionises only partly in water. Ethanoic acid is a weak acid."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ionisation",
+              "meaning": "A molecule splitting into ions in water."
+            },
+            {
+              "term": "Weak acid",
+              "meaning": "An acid that is only partly ionised in solution."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Ionisation of ethanoic acid",
+          "formula": "CH₃COOH(aq) ⇌ CH₃COO⁻(aq) + H⁺(aq)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The ⇌ arrow shows the reaction is reversible, so ionisation is incomplete.",
+            "Only some molecules form hydrogen ions.",
+            "At the same concentration, a weak acid has a higher pH than a strong acid."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A strong acid compared with a weak carboxylic acid at the same concentration.",
+            "items": ["Strong acid", "Weak acid (ethanoic acid)"],
+            "rows": [
+              {
+                "feature": "Ionisation",
+                "values": ["Complete", "Incomplete (partial)"]
+              },
+              {
+                "feature": "pH at the same concentration",
+                "values": ["Lower", "Higher"]
+              },
+              {
+                "feature": "Concentration of hydrogen ions",
+                "values": ["Higher", "Lower"]
+              },
+              {
+                "feature": "Rate with a carbonate",
+                "values": ["Faster", "Slower"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "A lower concentration of hydrogen ions means fewer collisions per unit time. That makes the reaction slower."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(AQA: Higher tier) Carboxylic acids are weak acids because they ionise only partly.",
+            "The reaction is reversible, shown by ⇌.",
+            "A weaker acid has a higher pH and a lower concentration of hydrogen ions."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give the functional group in carboxylic acids and the formula of ethanoic acid.",
+      "a": "The functional group is –COOH. Ethanoic acid is CH₃COOH.",
+      "marks": 2
+    },
+    {
+      "q": "State what you would see when ethanoic acid is added to sodium carbonate, and name the gas.",
+      "a": "It fizzes (effervescence). The gas is carbon dioxide.",
+      "marks": 2
+    },
+    {
+      "q": "(AQA: Higher tier) Explain why ethanoic acid is a weak acid.",
+      "a": "It is only partly (incompletely) ionised in water, because the ionisation reaction is reversible.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.7.2.4"],
+      "worked_example": {
+        "exemplar_id": "d3d0cb0d-32ea-4b02-9877-08ebdec085e9",
+        "source": "AQA jun 2020, Paper 2 (H), Q7.4",
+        "question": "A student compares the rates of the reaction of zinc carbonate with:\n• 0.01 mol/dm³ methanoic acid\n• 0.01 mol/dm³ ethanoic acid.\n\nThe rate of the reaction with methanoic acid is greater than the rate of the reaction with ethanoic acid.\n\nThe pH of 0.01 mol/dm³ methanoic acid is 2.91. The pH of 0.01 mol/dm³ ethanoic acid is 3.39.\n\nExplain why. You should refer to ions in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "The 0.01 mol/dm³ methanoic acid has a lower pH (it is a stronger acid).",
+          "So 0.01 mol/dm³ methanoic acid has a higher concentration of hydrogen ions.",
+          "Therefore there are more collisions per unit time."
+        ],
+        "tip": "One mark each: the lower pH or stronger acid, the higher concentration of hydrogen ions, and more collisions per unit time. The converse argument for ethanoic acid is allowed."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 9.29C", "EDEX 9.30C", "EDEX 9.31C"],
+      "worked_example": {
+        "exemplar_id": "2728f0cf-0cca-45b9-b112-810aa2412995",
+        "source": "EDEXCEL jun 2018, Paper 2 (H), Q*10(b)",
+        "question": "A student is provided with unlabelled samples of three liquids.\nThe three liquids are known to be\nhexane, C₆H₁₄, a liquid alkane\nhexene, C₆H₁₂, a liquid alkene\nbutanoic acid, C₄H₈O₂, a carboxylic acid, in aqueous solution\nAqueous solutions of carboxylic acids contain hydrogen ions and undergo reactions typical of acids with indicators and carbonates.\nDescribe, in detail, using the information given and your knowledge of the reactions of these liquids, tests the student should carry out to identify each of the three liquids.\nYou should include balanced equations for any chemical reactions described.",
+        "marks": 6,
+        "answer_points": [
+          "Add sodium carbonate (or test with blue litmus) to each liquid.",
+          "The butanoic acid effervesces (blue litmus turns red). The alkane and alkene give no effervescence (litmus is not affected).",
+          "Equation: 2C₃H₇COOH + Na₂CO₃ → 2C₃H₇COONa + CO₂ + H₂O.",
+          "Add bromine water, which is orange, to separate samples and shake.",
+          "The hexene changes from orange to colourless. The hexane and butanoic acid stay orange.",
+          "Equation: C₆H₁₂ + Br₂ → C₆H₁₂Br₂. The liquid that gives a negative result to both tests is hexane."
+        ],
+        "tip": "This is a levels question. The top level needs both tests described in detail, in a clear and logical order."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C6.2b", "OCR C6.2c"],
+      "worked_example": {
+        "exemplar_id": "c6047c52-9df1-4df8-97c6-055eaee064bc",
+        "source": "OCR nov 2020, Paper 4, Q20(c)",
+        "question": "A student has unlabelled samples of three liquids.\n\nThe student knows that the three liquids are:\n• pentane, C₅H₁₂\n• pentene, C₅H₁₀\n• ethanoic acid, CH₃COOH.\n\nDescribe tests that the student should do to identify each of the three liquids.\n\nInclude balanced symbol equations for the reactions described.",
+        "marks": 6,
+        "answer_points": [
+          "Add sodium carbonate (or any suitable carbonate) to each liquid. Ethanoic acid effervesces. Pentane and pentene do not.",
+          "Equation: 2CH₃COOH + Na₂CO₃ → 2CH₃COONa + CO₂ + H₂O.",
+          "Add bromine water to separate samples of pentane and pentene and shake.",
+          "With pentene, bromine water changes from orange to colourless. With pentane it stays orange.",
+          "Equation: C₅H₁₀ + Br₂ → C₅H₁₀Br₂.",
+          "Universal indicator is also allowed to identify the acid."
+        ],
+        "tip": "Level 3 needs the tests, the results, an identification of all three samples and correct balanced symbol equations."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "bcff471a-bf72-4e34-ab9d-78a645079e4b",
+      "ea3d0b55-eaa3-4d46-b783-f01bbe4c1167",
+      "0b942768-3d0d-42d3-afc8-0421a3df4304",
+      "8ce96d5d-902c-428c-9f40-0a4d2d5a03c7",
+      "a73a758c-0020-4740-8bfc-4e66440366c4",
+      "15bac1b0-1201-4af2-8a95-bf41e2543c51"
+    ],
+    "exemplar_ids": [
+      "d3d0cb0d-32ea-4b02-9877-08ebdec085e9",
+      "2728f0cf-0cca-45b9-b112-810aa2412995",
+      "c6047c52-9df1-4df8-97c6-055eaee064bc"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

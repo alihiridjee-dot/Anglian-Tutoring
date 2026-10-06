@@ -1,0 +1,263 @@
+{
+  "format": 1,
+  "concept_id": "chem-039",
+  "subject": "chemistry",
+  "title": "Atom economy",
+  "key_idea": "(Separate chemistry) The atom economy of a reaction is the percentage of the mass of the reactants that ends up as the desired product. A high atom economy means less waste. A reaction pathway is chosen using atom economy, yield, rate, cost and by-products.",
+  "sections": [
+    {
+      "heading": "What atom economy measures",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate chemistry) Atom economy shows how much of the starting materials end up as useful products. This section covers what it means and why it matters."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Atom economy",
+              "meaning": "A measure of the amount of starting materials that end up as useful products. It is calculated from the balanced equation."
+            },
+            {
+              "term": "Desired product",
+              "meaning": "The product you want to make."
+            },
+            {
+              "term": "Waste product",
+              "meaning": "A product that is not wanted, such as water in a neutralisation."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A high atom economy means most of the reactant mass becomes the desired product.",
+            "It is important for sustainable development, because less raw material is wasted.",
+            "It is also important for economic reasons, because wasted atoms are wasted money."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Atom economy shows how much of the reactants becomes the desired product.",
+            "A high atom economy means less waste.",
+            "It matters for sustainability and for cost."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating atom economy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Use the balanced equation and the Mr values. Multiply each Mr by its balancing number."
+        },
+        {
+          "type": "equation",
+          "label": "Percentage atom economy",
+          "formula": "atom economy = (Mr of the desired product ÷ sum of the Mr of all the reactants) × 100",
+          "where": [
+            "Use the balancing numbers from the equation.",
+            "The sum of the Mr of the reactants equals the sum of the Mr of the products."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Equation.",
+              "text": "2PbO + C → 2Pb + CO₂. The desired product is lead."
+            },
+            {
+              "lead": "Total Mr of the reactants.",
+              "text": "(2 × 223) + 12 = 458."
+            },
+            {
+              "lead": "Mr of the desired product.",
+              "text": "2 × 207 = 414."
+            },
+            {
+              "lead": "Divide and multiply.",
+              "text": "414 ÷ 458 × 100 = 90.39%, which is 90% to 2 significant figures."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The answer must be less than 100%.",
+            "If the desired product is the only product, the atom economy is 100%.",
+            "Use the total of all products instead of all reactants if you prefer. Both totals are the same."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Practise calculating percentage atom economy from relative formula masses.",
+            "kind": "practice",
+            "answer": {
+              "unit": "%",
+              "formula": "d / t * 100",
+              "decimals": 1
+            },
+            "working": [
+              "Atom economy = Mr of desired product ÷ sum of Mr of all reactants × 100",
+              "= {d} ÷ {t} × 100 = **{answer} %**"
+            ],
+            "question": "A reaction makes a desired product with a relative formula mass of **{d}**. The relative formula masses of all the reactants add up to **{t}**. Calculate the percentage atom economy.",
+            "variables": [
+              {
+                "id": "d",
+                "max": 120,
+                "min": 40,
+                "step": 10
+              },
+              {
+                "id": "t",
+                "max": 250,
+                "min": 150,
+                "step": 10
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Atom economy = Mr of desired product ÷ total Mr of reactants × 100.",
+            "Include the balancing numbers.",
+            "The answer is less than 100% when there is a waste product."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Choosing a reaction pathway",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier for AQA) Atom economy is not the only factor. Industry chooses a pathway using several types of data."
+        },
+        {
+          "type": "table",
+          "rows": [
+            ["Atom economy", "A high value means less waste."],
+            ["Percentage yield", "A high yield means more product from the same reactants."],
+            ["Rate of reaction", "A fast reaction makes product sooner."],
+            [
+              "Equilibrium position",
+              "For a reversible reaction, it decides how much product forms."
+            ],
+            ["Usefulness of by-products", "A useful by-product can be sold, which reduces waste."],
+            [
+              "Cost and energy",
+              "Raw materials, catalyst, high temperature and high pressure all cost money."
+            ]
+          ],
+          "columns": ["Factor", "Why it matters"]
+        },
+        {
+          "type": "paragraph",
+          "text": "Example: hydrogen from methane and steam, CH₄ + H₂O → CO + 3H₂, has an atom economy of 17.6%. Hydrogen from ammonia, 2NH₃ → N₂ + 3H₂, has the same value, so the choice depends on the other factors."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Compare atom economy, yield, rate, equilibrium, by-products and cost.",
+            "A reaction with a lower atom economy can still be chosen.",
+            "Use the data given in the question to justify the choice."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what is meant by atom economy.",
+      "a": "A measure of the amount of starting materials that end up as useful products.",
+      "marks": 1
+    },
+    {
+      "q": "KOH + HCl → KCl + H₂O. Calculate the atom economy for making KCl. (Mr: KOH = 56.0, HCl = 36.5, KCl = 74.5, H₂O = 18.0)",
+      "a": "Total Mr of reactants = 56.0 + 36.5 = 92.5. 74.5 ÷ 92.5 × 100 = 80.5%.",
+      "marks": 3
+    },
+    {
+      "q": "Give two factors, other than atom economy, to consider when choosing a reaction pathway.",
+      "a": "Any two from: percentage yield, rate of reaction, equilibrium position, usefulness of by-products, cost of raw materials, energy requirement.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.3.2"],
+      "worked_example": {
+        "exemplar_id": "54ccdb53-8689-4500-9259-befd991da052",
+        "source": "AQA jun 2020, Paper 1 (H), Q3.5",
+        "question": "The equation for the reaction is:\n\nAgNO₃(aq) + NaI(aq) → AgI(s) + NaNO₃(aq)\n\nRelative formula masses (Mr): AgNO₃ = 170, NaI = 150, AgI = 235, NaNO₃ = 85\n\nCalculate the percentage atom economy for the production of silver iodide in this reaction.\n\nGive your answer to 3 significant figures.",
+        "marks": 4,
+        "answer_points": [
+          "Total Mr = 170 + 150 = 320 (1)",
+          "% atom economy = 235 × 100 ÷ 320 (1)",
+          "= 73.4375 % (1)",
+          "= 73.4 % (1)"
+        ],
+        "tip": "The total of the products, 235 + 85 = 320, also scores the first mark."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.13C", "EDEX 5.14C", "EDEX 5.15C"],
+      "worked_example": {
+        "exemplar_id": "97e2496d-3024-4787-b598-040e8bf9c661",
+        "source": "EDEXCEL jun 2018, Paper 1 (H), Q4(b)",
+        "question": "Lead can be obtained by heating its oxide with carbon.\n\nThe balanced equation for the reaction is\n\n2PbO + C → 2Pb + CO₂\n\nCalculate the atom economy for the production of lead in this reaction.\n\n(relative atomic masses: C = 12, O = 16, Pb = 207; relative formula masses: PbO = 223, CO₂ = 44)\n\nGive your answer to two significant figures.",
+        "marks": 4,
+        "answer_points": [
+          "Total mass of reactants = 2 × 223 + 12 = 458 (1)",
+          "Mass of useful product = 2 × 207 = 414 (1)",
+          "414 ÷ 458 × 100 = 90.39 (1)",
+          "= 90 (1)"
+        ],
+        "tip": "The correct answer, 90, scores all four marks even without working."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C5.1i", "OCR C5.1j", "OCR C5.1k"],
+      "worked_example": {
+        "exemplar_id": "1945ce35-9355-4940-a0b6-6bb979ad7232",
+        "source": "OCR jun 2023, Paper 2, Q19(b)(ii)",
+        "question": "This is the equation for the reaction in the experiment.\n\nNaOH + HCl → NaCl + H₂O\n\nWater is a waste product in this reaction.\n\nCalculate the atom economy for the reaction.\n\nRelative atomic mass (Ar): H = 1.0, O = 16.0, Na = 23.0, Cl = 35.5",
+        "marks": 3,
+        "answer_points": [
+          "Mr of NaCl = 58.5 and Mr of H₂O = 18.0, so the total Mr = 76.5 (1)",
+          "Atom economy = 58.5 ÷ 76.5 × 100 (1)",
+          "= 76.47 %, or 76.5 % (1)"
+        ],
+        "tip": "76, 76.47 and 76.5 are all accepted."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "fbd4227b-c310-4ca1-84ce-fa2709728ede",
+      "d036b900-3e9f-40cb-b03e-100410f3a409",
+      "5d50c219-a9f8-4713-89e8-cf50f9c76a44",
+      "19859e3f-a3fb-43a2-9c91-844d57ae64be",
+      "93bd6556-1789-477b-bbd6-9109e905ee80",
+      "b93ea304-8b2e-4557-847b-6a8c86bfba57",
+      "95a1be17-c6a7-4e96-9120-bb04c5b0e387"
+    ],
+    "exemplar_ids": [
+      "54ccdb53-8689-4500-9259-befd991da052",
+      "97e2496d-3024-4787-b598-040e8bf9c661",
+      "1945ce35-9355-4940-a0b6-6bb979ad7232"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

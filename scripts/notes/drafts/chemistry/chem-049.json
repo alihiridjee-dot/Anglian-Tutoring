@@ -1,0 +1,288 @@
+{
+  "format": 1,
+  "concept_id": "chem-049",
+  "subject": "chemistry",
+  "title": "Required practical: making a soluble salt",
+  "key_idea": "To make a pure, dry soluble salt from an acid and an insoluble solid, add the solid to the acid until it is in excess, filter, then crystallise the filtrate. If the reactant is soluble, find the exact volumes by titration, then repeat without the indicator.",
+  "sections": [
+    {
+      "heading": "Choosing the reactants",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Soluble salts can be made from an acid and a solid insoluble in water: a metal, metal oxide, metal hydroxide or metal carbonate."
+        },
+        {
+          "type": "table",
+          "columns": ["Salt wanted", "Acid", "Solid"],
+          "rows": [
+            ["Copper sulfate", "Sulfuric acid", "Copper oxide or copper carbonate"],
+            ["Zinc chloride", "Hydrochloric acid", "Zinc oxide or zinc carbonate"],
+            ["Magnesium sulfate", "Sulfuric acid", "Magnesium oxide"],
+            ["Zinc nitrate", "Nitric acid", "Zinc oxide"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The acid gives the type of salt: chlorides from hydrochloric acid, nitrates from nitric acid, sulfates from sulfuric acid.",
+            "The solid gives the metal.",
+            "With copper oxide, the black powder disappears and the mixture turns blue.",
+            "With copper carbonate, the green solid disappears, the mixture fizzes and a blue solution forms."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Copper oxide with sulfuric acid",
+          "formula": "copper oxide + sulfuric acid → copper sulfate + water"
+        },
+        {
+          "type": "equation",
+          "label": "Copper carbonate with sulfuric acid",
+          "formula": "copper carbonate + sulfuric acid → copper sulfate + water + carbon dioxide"
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Excess",
+              "meaning": "More of a reactant than is needed, so some is left over when the reaction stops."
+            },
+            {
+              "term": "Filtrate",
+              "meaning": "The solution that passes through the filter paper."
+            },
+            {
+              "term": "Crystallisation",
+              "meaning": "Forming solid crystals from a solution, by evaporating some of the water and cooling."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use an acid and an insoluble metal, oxide, hydroxide or carbonate.",
+            "The acid decides whether the salt is a chloride, nitrate or sulfate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The method and the reason for each step",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This is the method for pure, dry copper sulfate crystals from copper oxide and sulfuric acid. It works for any insoluble solid."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps for making copper sulfate crystals in order.",
+            "prompt": "Put the method for making pure, dry copper sulfate crystals in order",
+            "steps": [
+              "Warm the dilute sulfuric acid in a beaker",
+              "Add copper oxide a spatula at a time, stirring",
+              "Stop when some copper oxide is left over",
+              "Filter off the excess copper oxide",
+              "Heat the filtrate in an evaporating basin until crystals start to form",
+              "Leave the solution to cool and crystallise",
+              "Pat the crystals dry with filter paper"
+            ]
+          }
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Warm the acid.",
+              "text": "Use a Bunsen burner or a water bath. This speeds up the reaction."
+            },
+            {
+              "lead": "Add the solid, stirring.",
+              "text": "Keep adding until some solid remains. For a carbonate, there is also no more fizzing."
+            },
+            {
+              "lead": "Filter.",
+              "text": "This removes the excess solid. The filtrate is only salt and water."
+            },
+            {
+              "lead": "Evaporate.",
+              "text": "Heat the filtrate gently in an evaporating basin, on a water bath or electric heater, until crystals start to form. Do not heat to dryness."
+            },
+            {
+              "lead": "Crystallise.",
+              "text": "Leave the solution to cool so crystals grow."
+            },
+            {
+              "lead": "Dry.",
+              "text": "Pat the crystals dry between filter papers, or leave them in a warm place."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Add excess solid so all the acid reacts.",
+            "Filter to remove the excess, then evaporate part of the water and leave to crystallise.",
+            "Do not heat to dryness."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "When the reactant is soluble: titration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Soluble alkalis such as sodium hydroxide, potassium hydroxide and ammonia solution cannot be added in excess and filtered off. Titration is used instead."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Comparing making a salt from an insoluble solid and from a soluble alkali.",
+            "items": ["Insoluble solid", "Soluble alkali"],
+            "rows": [
+              {
+                "feature": "How to know the acid is used up",
+                "values": ["Some solid is left over", "Indicator changes colour in a titration"]
+              },
+              {
+                "feature": "Removing the excess",
+                "values": ["Filter off the excess solid", "No excess: use the exact volumes found"]
+              },
+              {
+                "feature": "Indicator in the final mixture",
+                "values": ["No indicator needed", "Leave the indicator out"]
+              },
+              {
+                "feature": "Next step",
+                "values": ["Evaporate and crystallise", "Evaporate and crystallise"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Titrate the acid with the alkali, using an indicator, to find the volumes that react exactly.",
+            "Mix the same volumes again in the correct proportions, **without the indicator**. An indicator would contaminate the salt.",
+            "The solution left is only salt and water.",
+            "Evaporate to concentrate the solution, leave to cool and crystallise, then dry the crystals.",
+            "A pH probe can be used instead of an indicator. It does not contaminate the solution."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A soluble reactant cannot be filtered off, so a titration finds the exact volumes.",
+            "Repeat with the same volumes and no indicator, so the salt is pure."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Why is excess copper oxide added to the sulfuric acid?",
+      "a": "So that all the acid reacts (is neutralised) and no acid is left in the solution.",
+      "marks": 1
+    },
+    {
+      "q": "How is the excess copper oxide removed from the mixture?",
+      "a": "Filter the mixture. The excess copper oxide stays on the filter paper and the copper sulfate solution is the filtrate.",
+      "marks": 2
+    },
+    {
+      "q": "Potassium chloride is made from potassium hydroxide solution and hydrochloric acid. Why can you not just add excess potassium hydroxide and filter?",
+      "a": "Potassium hydroxide is soluble, so the excess cannot be filtered off. Titration is used to find the exact volumes, and the reaction is repeated without the indicator.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.2.3", "AQA T 5.4.2.3"],
+      "worked_example": {
+        "exemplar_id": "50f1105c-cf60-4748-a8fa-945b5966c76f",
+        "source": "AQA jun 2023, Paper 1 (H), Q03.1",
+        "question": "This question is about making a soluble salt.\n\nPlan a method to make pure, dry crystals of zinc chloride from zinc carbonate and a dilute acid.",
+        "marks": 6,
+        "answer_points": [
+          "Use zinc carbonate and hydrochloric acid. Add zinc carbonate to the acid in a beaker and stir.",
+          "Continue adding until the zinc carbonate is in excess, shown by excess solid and no more effervescence.",
+          "Filter the reaction mixture to remove the excess zinc carbonate.",
+          "Heat the solution, using a water bath or electric heater, to crystallisation point.",
+          "Leave the solution to crystallise.",
+          "Pat the crystals dry with filter paper."
+        ],
+        "tip": "A six-mark plan is marked by level. The key steps must be in a logical order, with the correct chemicals chosen."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.15", "EDEX 3.16", "EDEX 3.17"],
+      "worked_example": {
+        "exemplar_id": "e2b8c0a8-babd-44a9-b16a-28f6fa45e75f",
+        "source": "EDEXCEL nov 2020, Paper 1 (F), Q9(b)(ii)",
+        "question": "The word equation for the reaction between copper carbonate and dilute sulfuric acid is\ncopper carbonate + sulfuric acid → copper sulfate + carbon dioxide + water\nDilute sulfuric acid is in a conical flask.\nCopper carbonate is added to the acid in the flask.\nThe copper carbonate is added one spatula measure at a time until the reaction has finished.\n\nDescribe how you would obtain a solution of copper sulfate from the mixture and how you would obtain pure, dry copper sulfate crystals from this solution.\nYour description should include the apparatus you would use.",
+        "marks": 6,
+        "answer_points": [
+          "Filter the mixture, using a filter funnel and filter paper, to remove the excess copper carbonate.",
+          "Collect the filtrate (copper sulfate solution) in a conical flask or other suitable container.",
+          "Pour it into an evaporating basin and heat on a water bath, or on a tripod over a Bunsen burner.",
+          "Heat until the solution is concentrated, or crystals start to appear around the edge.",
+          "Remove from the heat, cover with filter paper, allow to cool and crystallise.",
+          "Separate the crystals and dry them on filter paper in a warm place."
+        ],
+        "tip": "Level 3 needs a sequence including at least two of: filter, crystallise (heating and cooling), separate and dry."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C3.3d"],
+      "worked_example": {
+        "exemplar_id": "232a6150-be82-4dac-852b-9453cf5c806b",
+        "source": "OCR sample null, Paper 3, Q21(b)",
+        "question": "Zinc nitrate can be made by reacting zinc oxide with nitric acid, HNO3.\n\nPaul suggests this method for preparing zinc nitrate.\n\n1. Measure 50cm3 of dilute nitric acid into a beaker.\n\n2. Add one spatulaful of zinc oxide.\n\n3. Heat the mixture until crystals of zinc nitrate are made.\n\nPaul’s method will not make a pure dry sample of zinc nitrate.\n\nWhat improvements should Paul make to the method to make sure that:\n\n• the reaction is complete\n• the zinc nitrate can be separated from the nitric acid and the zinc oxide?\n\nExplain your answer.",
+        "marks": 4,
+        "answer_points": [
+          "An excess of zinc oxide must be added.",
+          "So the reaction is complete, because all the nitric acid has reacted.",
+          "Filter off the excess zinc oxide.",
+          "Evaporate off some of the water, then allow the solution to crystallise."
+        ],
+        "tip": "Any four of five points score. Each improvement needs its reason."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "1c5f1527-3224-422c-bad0-c121fbc9e30f",
+      "1b092998-2777-487a-94fa-d11b084f75ab",
+      "3bc4c0e5-3ac1-480c-88a8-02d2bf0e8de8",
+      "ce3a2414-1e8c-438f-ad2e-a529bddc2d0b",
+      "d999ecc9-d546-4226-88be-04f49b7fe078"
+    ],
+    "exemplar_ids": [
+      "50f1105c-cf60-4748-a8fa-945b5966c76f",
+      "d5f3c9e9-c00d-4d81-8681-decaa05d4138",
+      "1e8d04ab-9983-47ed-a0b2-d563e006ef9a",
+      "6a22fd95-b79e-4f1a-a664-09e8d9941ba3",
+      "b8d85635-4b6f-44d4-a396-7540e3e3e1bf",
+      "e2b8c0a8-babd-44a9-b16a-28f6fa45e75f",
+      "1b20bad2-ede4-4a24-8fac-60b08429ecf1",
+      "6cec37c2-51a8-4597-abda-a41ffcea5b3c",
+      "f07236de-1d47-4ad2-a96c-56cf1e059f34",
+      "c37b0f2f-e0d9-4539-bf43-52cd1195ba49",
+      "283e7ed3-1633-43ea-ae49-437e33bab614",
+      "232a6150-be82-4dac-852b-9453cf5c806b",
+      "265b83b2-4f04-4435-b730-18c7b9b24578",
+      "4a811083-07fe-4125-b557-31035e0a4a9b",
+      "3bc99290-b726-4559-9529-39b1749e5a9a"
+    ]
+  }
+}

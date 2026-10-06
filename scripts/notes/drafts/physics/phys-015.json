@@ -1,0 +1,334 @@
+{
+  "format": 1,
+  "concept_id": "phys-015",
+  "subject": "physics",
+  "title": "Series and parallel circuits",
+  "key_idea": "In a series circuit the current is the same everywhere, the potential difference is shared and resistances add. In a parallel circuit each branch has the same potential difference, the currents add and the total resistance is smaller.",
+  "sections": [
+    {
+      "heading": "Series circuits",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In a series circuit the components are joined one after another in a single loop. There is only one path for the current."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **current** is the same through each component.",
+            "The total **potential difference** of the power supply is shared between the components.",
+            "The total **resistance** is the sum of the resistances of the components."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Total resistance in series",
+          "formula": "R_total = R₁ + R₂",
+          "where": [
+            "R_total = total resistance, in ohms (Ω)",
+            "R₁, R₂ = resistance of each component, in ohms (Ω)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Potential difference, current and resistance",
+          "formula": "V = I × R",
+          "where": [
+            "V = potential difference, in volts (V)",
+            "I = current, in amperes (A)",
+            "R = resistance, in ohms (Ω)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Know the rule.",
+              "text": "In series the supply potential difference is shared between the components."
+            },
+            {
+              "lead": "Write down what you know.",
+              "text": "A 3.0 V battery is connected in series to a 22 Ω resistor and a resistor X. The potential difference across X is 2.1 V."
+            },
+            {
+              "lead": "Subtract.",
+              "text": "Across the 22 Ω resistor: 3.0 − 2.1 = 0.9 V."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Measuring instruments"
+        },
+        {
+          "type": "list",
+          "items": [
+            "An **ammeter** is connected in series with the component, so the same current passes through it.",
+            "A **voltmeter** is connected in parallel across the component."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the supply and two resistors in series to see the total resistance, current and potential difference across the second resistor.",
+            "inputs": [
+              {
+                "id": "V",
+                "label": "Supply potential difference",
+                "unit": "V",
+                "min": 3,
+                "max": 12,
+                "step": 1,
+                "value": 6
+              },
+              {
+                "id": "R1",
+                "label": "Resistor 1",
+                "unit": "Ω",
+                "min": 5,
+                "max": 50,
+                "step": 5,
+                "value": 10
+              },
+              {
+                "id": "R2",
+                "label": "Resistor 2",
+                "unit": "Ω",
+                "min": 5,
+                "max": 50,
+                "step": 5,
+                "value": 20
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Total resistance",
+                "unit": "Ω",
+                "formula": "R1 + R2",
+                "decimals": 0
+              },
+              {
+                "label": "Current in the circuit",
+                "unit": "A",
+                "formula": "V / (R1 + R2)",
+                "decimals": 2
+              },
+              {
+                "label": "Potential difference across resistor 2",
+                "unit": "V",
+                "formula": "V * R2 / (R1 + R2)",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Find the current in a series circuit of two resistors.",
+            "question": "Two resistors of {R1} Ω and {R2} Ω are connected in series to a {V} V battery. Calculate the current in the circuit.",
+            "variables": [
+              {
+                "id": "R1",
+                "min": 10,
+                "max": 50,
+                "step": 10
+              },
+              {
+                "id": "R2",
+                "min": 10,
+                "max": 50,
+                "step": 10
+              },
+              {
+                "id": "V",
+                "min": 6,
+                "max": 12,
+                "step": 3
+              }
+            ],
+            "answer": {
+              "formula": "V / (R1 + R2)",
+              "unit": "A",
+              "decimals": 3
+            },
+            "working": [
+              "Total resistance = {R1} + {R2}",
+              "I = V ÷ R = {V} ÷ (total resistance)",
+              "I = {answer} A"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Series: same current, shared potential difference, resistances add.",
+            "Adding another resistor in series increases the total resistance.",
+            "A switch in a series circuit must be closed for the current to flow."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Parallel circuits",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In a parallel circuit the components are on separate branches. There is more than one path for the current. Some circuits have both series and parallel parts."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **potential difference** across each component is the same.",
+            "The total **current** through the whole circuit is the sum of the currents through the separate components.",
+            "The total **resistance** of two resistors is less than the resistance of the smallest individual resistor."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Current is conserved at a junction. The current going in equals the current coming out.",
+            "For example, 6.0 A flows into a junction and 3.5 A flows out along one wire. The current in the other wire is 6.0 − 3.5 = 2.5 A."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Parallel: same potential difference across each branch, currents add.",
+            "The total resistance is less than the smallest resistor.",
+            "Current is conserved at a junction."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why the total resistance changes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Adding resistors in series raises the total resistance. Adding resistors in parallel lowers it. The reasons are different."
+        },
+        {
+          "type": "table",
+          "columns": ["Feature", "Series", "Parallel"],
+          "rows": [
+            ["Paths for current", "One path", "More than one path"],
+            ["Current", "Same everywhere", "Splits between branches and adds up"],
+            ["Potential difference", "Shared between components", "Same across each branch"],
+            ["Adding another resistor", "Total resistance increases", "Total resistance decreases"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In series the current must pass through every resistor, so each one adds to the resistance.",
+            "In parallel the extra branch gives the charge another path. More current flows for the same potential difference, so the total resistance falls."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "More resistors in series: total resistance increases.",
+            "More resistors in parallel: total resistance decreases, because there are more paths for the current."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Two resistors of 10 Ω and 15 Ω are in series. State their total resistance.",
+      "a": "10 + 15 = 25 Ω.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why the total resistance of two resistors in parallel is less than the smallest resistance.",
+      "a": "There are more paths for the current. More current flows for the same potential difference, so the total resistance is lower.",
+      "marks": 2
+    },
+    {
+      "q": "A 3.0 V battery is connected across two resistors in series. The potential difference across one is 2.1 V. State the potential difference across the other.",
+      "a": "3.0 − 2.1 = 0.9 V.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2.2", "AQA T 6.2.2"],
+      "worked_example": {
+        "exemplar_id": "45b284db-52e1-4035-81a6-09d4e4512395",
+        "source": "AQA jun 2023, Paper 1 (F), Q06.2",
+        "question": "A student used resistors to model solid tissue and water in a person's legs. The student connected a 20 Ω resistor in parallel with a resistor, R.\n\nThe student calculated the total resistance of the two resistors. The student's answer was 26 Ω.\n\nExplain why the student's answer cannot be correct.",
+        "marks": 2,
+        "answer_points": [
+          "The total resistance must be less than 20 Ω.",
+          "Because the total resistance of resistors in parallel is less than the resistance of the smallest resistor."
+        ],
+        "tip": "One mark for the statement and one for the reason."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 10.3", "EDEX 10.11", "EDEX 10.14", "EDEX 10.15"],
+      "worked_example": {
+        "exemplar_id": "6f0a5b52-95a0-4080-bced-01ea8fd4d76a",
+        "source": "EDEXCEL jun 2024, Paper 2 (F), Q8(b)(iv)",
+        "question": "Some students investigate resistors in parallel.\n\nThe students set up a circuit containing four identical resistors. They measure the current from the power supply and the voltage (p.d.) across the resistors. They remove one resistor and measure again, then repeat with 2 resistors and with 1 resistor.\n\nnumber of resistors | current in mA | voltage in V\n4 | (not recorded) | 6.00\n3 | 27.3 | 6.00\n2 | 18.2 | 6.00\n1 | 9.1 | 6.00\n\nUsing data from the table, explain what happens to the total resistance of the circuit as the number of resistors in parallel decreases.",
+        "marks": 3,
+        "answer_points": [
+          "The total resistance increases.",
+          "Because the current decreases.",
+          "And the voltage stays the same."
+        ],
+        "tip": "Link the three points: current falls while the voltage is constant, so the resistance rises. Fewer paths for the current is also credited."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P3.2a", "OCR P3.2i", "OCR P3.2j", "OCR P3.2m"],
+      "worked_example": {
+        "exemplar_id": "e9b7d429-55ab-47ce-bf81-924e59ae85f5",
+        "source": "OCR sample, Paper 3, Q19(b)",
+        "question": "A student takes voltage and current measurements for four resistors.\n\nResistor A: 12.0 V, 2.0 A\nResistor B: 6.0 V, 1.5 A\nResistor C: 7.5 V, 1.5 A\nResistor D: 8.0 V, 2.0 A\n\nCalculate the maximum resistance that can be made using all four resistors.",
+        "marks": 1,
+        "answer_points": [
+          "Find each resistance from R = V ÷ I: A = 6 Ω, B = 4 Ω, C = 5 Ω, D = 4 Ω.",
+          "The maximum is with all four in series: 6 + 4 + 5 + 4 = 19 Ω."
+        ],
+        "tip": "Error carried forward is allowed from the earlier resistance values."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check, opus-5-5-diagram-audit",
+    "checked_at": "2026-10-03",
+    "spec_point_ids": [
+      "dd2dfc70-cca6-469a-ae6b-c4c7ce98c051",
+      "487305da-ab95-4fe7-93b1-5d565e3bed14",
+      "286e8f4e-86e3-4fdd-a039-6dbf4641f724",
+      "62f74fa7-8f24-43dc-8fa1-6b20d0a94b86",
+      "a2cdd999-beaf-463c-8086-04a499d9ceae",
+      "05cc15f8-36d1-411d-b020-4c5cc0720fd4",
+      "edc42c31-3c97-4268-94f0-683c15ee6c36",
+      "131cbf80-4f67-4a0e-931f-121189c49d9d",
+      "371a3cc8-54b4-4748-b83e-bd43fd2e0cdb",
+      "5dc795b7-9187-4287-bebd-9fbb48a19e14"
+    ],
+    "exemplar_ids": [
+      "45b284db-52e1-4035-81a6-09d4e4512395",
+      "432d82cf-f28a-4851-8014-35bd3b6bfe39",
+      "5e24fb59-d226-46a2-95a1-ded1f8725fa0",
+      "5adeffb1-bf17-4fe8-90ca-ad28443af901",
+      "6f0a5b52-95a0-4080-bced-01ea8fd4d76a",
+      "bf42a3e0-de4e-4000-98e5-509fd864a1d2",
+      "8fb30ff5-df74-4686-bb7e-053e948475d9",
+      "90271eb6-cbf3-4cb2-9720-def27a60bc8b",
+      "e9b7d429-55ab-47ce-bf81-924e59ae85f5",
+      "50695906-3e1b-43b3-b24e-13e0723ac315",
+      "01b0b068-ec8e-43f5-9a31-ac38e86b54d0"
+    ]
+  }
+}

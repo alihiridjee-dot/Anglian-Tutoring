@@ -1,0 +1,251 @@
+{
+  "format": 1,
+  "concept_id": "chem-076",
+  "subject": "chemistry",
+  "title": "Fractional distillation of crude oil",
+  "key_idea": "Crude oil is heated and its vapours are separated in a fractionating column that is hot at the bottom and cool at the top. Hydrocarbons condense at different heights because they have different boiling points. Each fraction has molecules of similar size.",
+  "sections": [
+    {
+      "heading": "How fractional distillation works",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Fractional distillation separates the hydrocarbons in crude oil into fractions."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Fraction",
+              "meaning": "A group of hydrocarbons with a similar number of carbon atoms and a similar boiling point range."
+            },
+            {
+              "term": "Fractional distillation",
+              "meaning": "Separating a mixture into fractions by evaporation and condensation."
+            },
+            {
+              "term": "Fractionating column",
+              "meaning": "A tall tower that is hot at the bottom and cooler at the top."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Heat.",
+              "text": "Crude oil is heated so that the hydrocarbons evaporate."
+            },
+            {
+              "lead": "Rise.",
+              "text": "The vapours rise up the fractionating column."
+            },
+            {
+              "lead": "Temperature gradient.",
+              "text": "The column is hotter at the bottom and cooler going up."
+            },
+            {
+              "lead": "Condense.",
+              "text": "Each vapour condenses where the column is cooler than its boiling point."
+            },
+            {
+              "lead": "Collect.",
+              "text": "Each fraction is drawn off at a different height."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of fractional distillation in order.",
+            "prompt": "Put the stages of fractional distillation in order.",
+            "steps": [
+              "Crude oil is heated",
+              "The hydrocarbons evaporate",
+              "The vapours rise up the column",
+              "The vapours condense at different heights",
+              "The fractions are collected"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Crude oil is heated so the hydrocarbons evaporate.",
+            "The column has a temperature gradient: hot at the bottom, cooler at the top.",
+            "Vapours condense at different levels because they have different boiling points."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why the fractions separate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The position of a fraction depends on the size of its molecules."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Molecules with few carbon atoms are small, so the forces between the molecules are weak.",
+            "Weak forces need little energy to overcome, so small molecules have **low boiling points**.",
+            "They stay as vapour until near the cool top of the column.",
+            "Molecules with many carbon atoms have stronger forces between them and **high boiling points**.",
+            "They condense low down, near the hot bottom of the column."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The forces between molecules are not the covalent bonds inside them. Those bonds do not break when a hydrocarbon boils."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each fraction is mostly a mixture of alkanes, with the formula CₙH₂ₙ₊₂.",
+            "Going down the column, molecules have more carbon and hydrogen atoms, higher boiling points and are more viscous.",
+            "Going up the column, the fractions are easier to ignite."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Bigger molecules have stronger forces between them and higher boiling points.",
+            "Small molecules reach the top of the column. Large molecules condense near the bottom.",
+            "The forces that matter are between molecules, not the covalent bonds within them."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The fractions and their uses",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The main fractions, from the top of the column to the bottom, each have a use as a fuel or as a feedstock."
+        },
+        {
+          "type": "table",
+          "columns": ["Fraction", "Molecules", "Use"],
+          "rows": [
+            [
+              "Gases (including LPG, liquefied petroleum gas)",
+              "smallest, lowest boiling point",
+              "domestic heating and cooking"
+            ],
+            ["Petrol", "small", "fuel for cars"],
+            ["Kerosene", "medium", "fuel for aircraft"],
+            ["Diesel oil", "larger", "fuel for some cars and trains"],
+            [
+              "Fuel oil (heavy fuel oil)",
+              "large",
+              "fuel for large ships and in some power stations"
+            ],
+            ["Bitumen", "largest, highest boiling point", "surfacing roads and roofs"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bitumen is not used as a fuel because it is too viscous, not very flammable and has a very high boiling point.",
+            "The fractions can also be processed into feedstock for the petrochemical industry.",
+            "Useful materials from the petrochemical industry include solvents, lubricants, polymers and detergents."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fractions are used as fuels, from LPG for heating to fuel oil for ships.",
+            "Bitumen is used to surface roads and roofs, not as a fuel.",
+            "Fractions are also feedstock for solvents, lubricants, polymers and detergents."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how crude oil is separated into fractions by fractional distillation.",
+      "a": "The crude oil is heated and the hydrocarbons evaporate. The column is hotter at the bottom and cooler at the top (a temperature gradient). The vapours condense at different levels because the fractions have different boiling points.",
+      "marks": 4
+    },
+    {
+      "q": "Explain why the LPG fraction leaves at the top of the fractionating column.",
+      "a": "LPG contains small molecules with weak forces between them, so it has a low boiling point. It stays as a vapour until it reaches the cool top of the column.",
+      "marks": 3
+    },
+    {
+      "q": "State a use for kerosene and a use for diesel oil.",
+      "a": "Kerosene is a fuel for aircraft. Diesel oil is a fuel for some cars and trains.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.7.1.2", "AQA T 5.7.1.2"],
+      "worked_example": {
+        "exemplar_id": "4a63a998-5ed4-4a53-9fea-268c1020e967",
+        "source": "AQA jun 2020, Paper 2 (H), Q05.2",
+        "question": "This question is about crude oil and alkanes.\n\nDescribe how crude oil is separated into fractions by fractional distillation.",
+        "marks": 4,
+        "answer_points": [
+          "The crude oil is heated.",
+          "The hydrocarbons (liquids) evaporate, vaporise or boil.",
+          "The vapours (gases) condense.",
+          "The fractions have different boiling points, so they collect at different levels depending on boiling point."
+        ],
+        "tip": "Each point is one mark. Say the fractions have different boiling points."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 8.3", "EDEX 8.4", "EDEX 8.5"],
+      "worked_example": {
+        "exemplar_id": "995ca2b6-ca7c-4a18-ae60-07cc0acf50b7",
+        "source": "EDEXCEL jun 2019, Paper 2 (H), Q2(b)(i)",
+        "question": "Most of the fuels used today are obtained from crude oil.\nCrude oil is separated into several fractions by fractional distillation.\nTwo of these fractions are kerosene and diesel oil.\n\nState a use for each of these fractions.",
+        "marks": 2,
+        "answer_points": [
+          "Kerosene: fuel for aircraft or jets (also lamps, cooking, heaters, fire lighters, rocket fuel).",
+          "Diesel oil: fuel for cars, trains, trucks, lorries, vehicles, tractors, generators or ships."
+        ],
+        "tip": "One mark for each use. Name a specific use, not just fuel."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C6.2j", "OCR C6.2k"],
+      "worked_example": {
+        "exemplar_id": "b6719088-53c2-41d5-bc1d-b4e10d8680ac",
+        "source": "OCR jun 2018, Paper 4, Q16(b)",
+        "question": "The fuels for the petrol and diesel cars are made from crude oil.\nCrude oil is separated into different parts by fractional distillation.\n\nExplain why crude oil vapour can be separated by fractional distillation.",
+        "marks": 3,
+        "answer_points": [
+          "Maximum two from: the fractionating column has a temperature gradient; crude oil contains a range of molecular sizes; the molecules (fractions) have different boiling points; they condense at different levels in the column.",
+          "Plus at least one from: larger molecules have higher boiling points; intermolecular forces between larger molecules are stronger; the stronger the intermolecular forces the higher the boiling point, or more energy is needed to break them."
+        ],
+        "tip": "Saying larger molecules have higher boiling points earns two marks, because it also covers different boiling points."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "f8b3c81a-fa31-4ded-be46-659e3ea53a20",
+      "1014d8a8-b447-40d4-ac08-8d963b4c84fb",
+      "6957305c-5482-4e48-9cec-dc799c902851",
+      "da3c248b-9986-4e40-a937-017691f5a839",
+      "0b3935ac-0ff4-4070-ab66-4b717c7007ae",
+      "f9b7716d-8e48-4c3c-80a0-2e78b6e0bd35",
+      "88edf1a2-21ea-42d7-8e58-2588ff1622fa"
+    ],
+    "exemplar_ids": [
+      "4a63a998-5ed4-4a53-9fea-268c1020e967",
+      "995ca2b6-ca7c-4a18-ae60-07cc0acf50b7",
+      "b6719088-53c2-41d5-bc1d-b4e10d8680ac"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

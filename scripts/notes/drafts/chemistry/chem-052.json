@@ -1,0 +1,299 @@
+{
+  "format": 1,
+  "concept_id": "chem-052",
+  "subject": "chemistry",
+  "title": "Required practical: acid-alkali titration",
+  "key_idea": "A titration finds the volumes of an acid and an alkali that react exactly. A pipette measures a fixed volume of one solution into a flask with an indicator. A burette adds the other until the colour changes. Repeat until results agree.",
+  "sections": [
+    {
+      "heading": "The apparatus and the indicator",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers what each piece of apparatus does and which indicators to use. The acids used are hydrochloric, sulfuric or nitric acid, with an alkali such as sodium hydroxide."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Titration",
+              "meaning": "A method that finds the volumes of an acid and an alkali that react exactly with each other."
+            },
+            {
+              "term": "End-point",
+              "meaning": "The point at which the indicator just changes colour and the solution is neutralised."
+            },
+            {
+              "term": "Concordant results",
+              "meaning": "Repeat titres that agree closely, within 0.10 cm³ of each other."
+            },
+            {
+              "term": "Anomalous result",
+              "meaning": "A result that does not fit the pattern of the others."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Pipette:** measures a fixed volume accurately, such as 25.0 cm³. Use a pipette filler.",
+            "**Burette:** measures variable volumes. It can add a solution drop by drop and is more accurate than a measuring cylinder.",
+            "**Conical flask:** holds the solution being titrated. Stand it on a white tile to see the colour change.",
+            "**Indicator:** a few drops show the end-point."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Indicator", "Acid added to alkali", "Alkali added to acid"],
+          "rows": [
+            ["Methyl orange", "Yellow to red (or orange)", "Red to yellow"],
+            ["Phenolphthalein", "Pink to colourless", "Colourless to pink"],
+            ["Litmus", "Blue to red", "Red to blue"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Do not use universal indicator. It changes colour gradually, so it does not show a sharp end-point."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A pipette measures a fixed volume. A burette measures variable volumes.",
+            "Use a single indicator such as methyl orange or phenolphthalein, not universal indicator."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The method",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Here the alkali is in the flask and the acid is in the burette. It works the other way round too."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of a titration in order.",
+            "prompt": "Put the titration method in order",
+            "steps": [
+              "Rinse the burette with the acid and the pipette with the alkali",
+              "Fill the burette with acid and record the initial reading",
+              "Use a pipette and filler to put 25.0 cm³ of alkali into a conical flask",
+              "Add a few drops of indicator and stand the flask on a white tile",
+              "Add acid from the burette, swirling the flask",
+              "Add the acid drop by drop near the end-point, until the indicator just changes colour",
+              "Record the final burette reading",
+              "Repeat until you have concordant results"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The first titration is a rough titration. It finds the approximate end-point quickly.",
+            "In the accurate titrations, add the acid slowly near the end-point, drop by drop.",
+            "Read the burette at eye level, at the bottom of the meniscus, with no bubbles in it.",
+            "To make a pure, dry salt, mix the same volumes again without the indicator, then evaporate and crystallise."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Pipette in the alkali, add indicator, then add acid from the burette until the colour changes.",
+            "Do a rough titration first, then repeat accurately until the results agree."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Accurate results and the mean",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Careful technique and repeats give an accurate titre. The titre is the volume of acid added from the burette."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Swirl the flask while adding the acid, to mix the reactants.",
+            "Use a white tile to see the end-point more clearly.",
+            "Add slowly near the end-point, so you do not overshoot.",
+            "Remove the funnel from the burette before starting, so no extra drop falls in.",
+            "Rinse the burette with the acid first. Water would dilute the acid and give an inaccurate result.",
+            "Repeat the titration and take a mean of the concordant results."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Leave out the rough titration and any anomalous result when calculating the mean."
+        },
+        {
+          "type": "equation",
+          "label": "Mean titre",
+          "formula": "mean titre = (titre 1 + titre 2 + ...) ÷ number of titres used",
+          "where": ["each titre is in cm³", "use only the accurate, concordant titres"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the mean titre from two accurate titrations, leaving out the rough titration.",
+            "question": "A rough titration needed {r} cm³ of acid. Two accurate titrations needed {a} cm³ and {b} cm³. Calculate the mean titre using the accurate titrations only.",
+            "variables": [
+              {
+                "id": "r",
+                "min": 25,
+                "max": 27,
+                "step": 0.1
+              },
+              {
+                "id": "a",
+                "min": 24,
+                "max": 24.1,
+                "step": 0.1
+              },
+              {
+                "id": "b",
+                "min": 24,
+                "max": 24.1,
+                "step": 0.1
+              }
+            ],
+            "answer": {
+              "formula": "(a + b) / 2",
+              "unit": "cm³",
+              "decimals": 2
+            },
+            "working": [
+              "Leave out the rough titre of {r} cm³.",
+              "Add the accurate titres: {a} + {b}.",
+              "Divide by 2 to get the mean: {answer}"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Swirl, use a white tile and add drop by drop near the end-point.",
+            "The mean uses only the accurate, concordant titres."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two reasons why a burette is used to add the acid.",
+      "a": "Any two from: it can add the acid in small increments (drop by drop), it can measure variable volumes, it is more accurate than a measuring cylinder.",
+      "marks": 2
+    },
+    {
+      "q": "Name an indicator for a titration and give its colour change when acid is added to the alkali in the flask.",
+      "a": "Methyl orange, from yellow to red (or orange). Or phenolphthalein, from pink to colourless.",
+      "marks": 2
+    },
+    {
+      "q": "A titration gives titres of 24.80, 24.45, 24.50 and 24.55 cm³. The first is anomalous. Calculate the mean titre.",
+      "a": "(24.45 + 24.50 + 24.55) ÷ 3 = 73.50 ÷ 3 = 24.50 cm³.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.2.5"],
+      "worked_example": {
+        "exemplar_id": "3f7a713f-bbfc-405a-8ba8-fde0dec9d0b5",
+        "source": "AQA jun 2020, Paper 1 (H), Q9.5",
+        "question": "This is part of the method the student used for the titration.\n\n1. Measure 25.0 cm3 of the sodium hydroxide solution into a conical flask using a pipette.\n2. Add a few drops of indicator to the flask.\n3. Fill a burette with citric acid solution.\n\nDescribe how the student would complete the titration.",
+        "marks": 3,
+        "answer_points": [
+          "Add the citric acid (to the flask) until there is a permanent colour change.",
+          "Measure or record the volume of citric acid added, by taking the final and initial burette readings.",
+          "Any one from: swirl; use a white tile; add the acid dropwise or slowly near the end-point; repeat and calculate a mean."
+        ],
+        "tip": "One mark each. The colours of the indicator are not needed."
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) and (AQA: Higher tier) content",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Separate science) Titration is assessed in the GCSE Chemistry course only, not in the combined science course."
+            },
+            {
+              "type": "paragraph",
+              "text": "(AQA: Higher tier) You may also be asked for calculations of concentration in mol/dm³ and g/dm³ from titration results. This note covers the practical technique only."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.18", "EDEX 5.9C"],
+      "worked_example": {
+        "exemplar_id": "d50165cb-15bb-481d-a332-2394ebecb19e",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q7(c)",
+        "question": "The volume of dilute sulfuric acid required to neutralise 25.0 cm3 of ammonia solution can be found by titration.\n\nIn the titration, a few drops of methyl orange indicator were added to the ammonia solution in a conical flask before adding the dilute sulfuric acid.\n\nThe titration was repeated to obtain a mean volume of dilute sulfuric acid required to neutralise the 25.0 cm3 of ammonia solution.\n\nThe volumes of the two solutions were measured accurately.\n\nExplain two other practical steps that should be used in the titration to ensure that an accurate titre volume is obtained.",
+        "marks": 4,
+        "answer_points": [
+          "Use a white tile, because it is easier to see precisely when the indicator changes colour.",
+          "Near the end point add the acid slowly, in small quantities each time, so it is easier to stop before excess acid is added.",
+          "Alternatively, swirl the flask when adding the acid, to ensure complete mixing of both reactants.",
+          "Alternatively, rinse the burette with acid, the pipette with ammonia and the flask with water beforehand, so there are no impurities to affect the result."
+        ],
+        "tip": "Choose two steps. Each needs its reason to score both marks."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C5.1b"],
+      "worked_example": {
+        "exemplar_id": "d2ffd94b-d633-4501-9f64-d9c48398f4ad",
+        "source": "OCR jun 2018, Paper 4, Q20(a)",
+        "question": "Student A does a titration with an acid and an alkali.\nHe uses dilute sulfuric acid, sodium hydroxide solution and an indicator solution.\nThe student adds sodium hydroxide solution from the burette to the sulfuric acid until the indicator changes colour.\nHe then adds a few more drops of sodium hydroxide to be certain the sulfuric acid is neutralised.\nHe takes the final volume reading on the burette to find out how much acid reacts with 25.0 cm3 of sodium hydroxide solution.\n\nDescribe and explain how the student could improve his experiment to get a more accurate value.",
+        "marks": 4,
+        "answer_points": [
+          "Do not add more sodium hydroxide after the indicator changes colour, because the indicator changes colour at the end-point and extra alkali makes the solution alkaline.",
+          "Add the sodium hydroxide dropwise or slowly towards the end-point, because the indicator should change colour on one drop.",
+          "Use a single indicator rather than a mixed indicator such as universal indicator, because a single indicator gives a sharp end-point.",
+          "Swirl the flask during the addition, to mix the acid and alkali. Or use a white tile, to see the end-point more clearly."
+        ],
+        "tip": "Any four points score. Each improvement is paired with its reason."
+      }
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "324d052b-e81e-400b-bee3-e0be1dd3c57e",
+      "c9ea421c-a5bd-4f57-8e01-7e24ff51f9bc",
+      "56de391d-7e12-435b-9190-e62c1f555e32",
+      "48a2a981-70ae-4956-917b-5ad097b9cdf3"
+    ],
+    "exemplar_ids": [
+      "3f7a713f-bbfc-405a-8ba8-fde0dec9d0b5",
+      "9783d12e-151a-4db2-aefc-22c4dbd68047",
+      "17914722-e63e-4cec-9feb-f10cef53e3e6",
+      "fc3aa862-b168-4979-af52-2d988f0e58c9",
+      "ae4caef9-05f9-41d0-818b-3cd9a303ddf3",
+      "b90885c2-5542-452e-88f0-6ed914c444ce",
+      "d19e75d9-a086-4454-acb2-81e7c4440ae2",
+      "d50165cb-15bb-481d-a332-2394ebecb19e",
+      "58706f82-cc78-4051-84ff-dd0bd6e0fdc1",
+      "aa1a5efe-6e99-46c2-9dd9-e97787102024",
+      "fae05232-ea20-4dd2-aa8e-3528565b5208",
+      "ccc6fe0e-5f9d-46a7-9830-890bc7266381",
+      "b6b040ac-b271-4dbd-a69f-a52d2918a3d7",
+      "d2ffd94b-d633-4501-9f64-d9c48398f4ad",
+      "c187623d-d420-4078-8972-68305e74c82a",
+      "85a9b8f3-2d26-4722-9ecc-e8ba1441941d",
+      "9123e46d-a3c0-487d-91bb-1cf5d5b2f5d4"
+    ]
+  }
+}

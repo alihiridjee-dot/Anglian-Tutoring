@@ -1,0 +1,258 @@
+{
+  "format": 1,
+  "concept_id": "chem-066",
+  "subject": "chemistry",
+  "title": "Fuel cells",
+  "key_idea": "A hydrogen fuel cell is supplied with hydrogen and oxygen from outside. Hydrogen is oxidised to produce water and a potential difference. Water is the only product, and fuel cells can be compared with rechargeable cells and batteries.",
+  "sections": [
+    {
+      "heading": "How a hydrogen fuel cell works",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers what goes into a fuel cell and what comes out."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Fuel cell",
+              "meaning": "A cell supplied with a fuel, such as hydrogen, and oxygen or air from an external source, which reacts to produce a potential difference."
+            },
+            {
+              "term": "Oxidised",
+              "meaning": "Reacted with oxygen, or losing electrons."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hydrogen is the fuel. Oxygen comes from the air.",
+            "The fuel is **oxidised** electrochemically in the cell to produce a potential difference.",
+            "The overall reaction is the oxidation of hydrogen to produce water.",
+            "Water is the only product."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Overall reaction in a hydrogen fuel cell",
+          "formula": "2H₂ + O₂ → 2H₂O",
+          "where": ["H₂ is hydrogen, the fuel", "O₂ is oxygen", "H₂O is water, the only product"]
+        },
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) At each electrode a half equation shows what happens. These are for an acidic electrolyte."
+        },
+        {
+          "type": "equation",
+          "label": "Negative electrode (anode): hydrogen oxidised",
+          "formula": "H₂ → 2H⁺ + 2e⁻",
+          "where": ["hydrogen loses electrons"]
+        },
+        {
+          "type": "equation",
+          "label": "Positive electrode (cathode): oxygen reduced",
+          "formula": "O₂ + 4H⁺ + 4e⁻ → 2H₂O",
+          "where": ["oxygen reacts with hydrogen ions and electrons to form water"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "(AQA: Higher tier) For an alkaline electrolyte the half equations are H₂ + 2OH⁻ → 2H₂O + 2e⁻ and O₂ + 2H₂O + 4e⁻ → 4OH⁻.",
+            "Doubling the first half equation and adding the second gives the overall reaction, for either electrolyte."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A fuel cell is supplied with hydrogen and oxygen, and hydrogen is oxidised to water.",
+            "Overall: 2H₂ + O₂ → 2H₂O, with water the only product."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Fuel cells compared with rechargeable cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Hydrogen fuel cells offer a possible alternative to rechargeable cells and batteries, for example to power cars."
+        },
+        {
+          "type": "table",
+          "columns": ["Feature", "Hydrogen fuel cell", "Rechargeable cell"],
+          "rows": [
+            [
+              "Energy source",
+              "Hydrogen and oxygen supplied from outside",
+              "Chemicals sealed in the cell; recharged by an external current"
+            ],
+            ["Time to refuel or recharge", "Faster to refuel", "Slower to recharge"],
+            ["Distance before refuelling", "Can travel further", "Shorter range"],
+            [
+              "Voltage",
+              "Constant while reactants are supplied",
+              "Voltage falls as the reactants are used up"
+            ],
+            [
+              "Disposal",
+              "No toxic chemicals to dispose of",
+              "May release toxic chemicals on disposal"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort statements into advantages and disadvantages of a hydrogen fuel cell compared with a rechargeable cell.",
+            "prompt": "Sort each statement into an advantage or a disadvantage of a hydrogen fuel cell.",
+            "groups": ["Advantage", "Disadvantage"],
+            "items": [
+              {
+                "text": "It is faster to refuel than to recharge",
+                "group": 0
+              },
+              {
+                "text": "It can travel further before refuelling",
+                "group": 0
+              },
+              {
+                "text": "The only product is water",
+                "group": 0
+              },
+              {
+                "text": "There are no toxic chemicals to dispose of at the end of its life",
+                "group": 0
+              },
+              {
+                "text": "Hydrogen is made from fossil fuels, which are not renewable",
+                "group": 1
+              },
+              {
+                "text": "Hydrogen is difficult to store",
+                "group": 1
+              },
+              {
+                "text": "Hydrogen is flammable and can be explosive",
+                "group": 1
+              },
+              {
+                "text": "There are not many hydrogen filling stations",
+                "group": 1
+              },
+              {
+                "text": "Fuel cells are expensive to manufacture",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hydrogen can be renewable if it is made by electrolysis using renewable energy.",
+            "The fuel cell reaction itself makes only water, not carbon dioxide. Any carbon dioxide comes from making the hydrogen, for example from fossil fuels.",
+            "A fuel cell keeps working as long as hydrogen and oxygen are supplied. A non-rechargeable cell stops when a reactant is used up.",
+            "When data is given, compare the values. Do not only restate them.",
+            "Finish an evaluation with a judgement and a reason."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Advantages: faster refuelling, longer range, only water produced, no toxic disposal.",
+            "Disadvantages: hydrogen is flammable, hard to store, often made from fossil fuels, and few filling stations exist. Fuel cells are also expensive to manufacture."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "(Separate science) Write the overall equation for the reaction in a hydrogen fuel cell.",
+      "a": "2H₂ + O₂ → 2H₂O",
+      "marks": 2
+    },
+    {
+      "q": "(Separate science) Describe how a hydrogen fuel cell produces a potential difference.",
+      "a": "Hydrogen is oxidised (electrochemically) to produce water.",
+      "marks": 2
+    },
+    {
+      "q": "(Separate science) Give one advantage and one disadvantage of a hydrogen fuel cell compared with a rechargeable cell.",
+      "a": "Advantage: faster to refuel, or travels further, or the only product is water. Disadvantage: hydrogen is made from fossil fuels, or is difficult to store, or is flammable.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.5.2.2"],
+      "worked_example": {
+        "exemplar_id": "cb91103b-52eb-470f-a714-4915e8666498",
+        "source": "AQA jun 2019, Paper 1 (F), Q04.6",
+        "question": "Hydrogen fuel cells or rechargeable cells can be used to power electric vehicles.\n\nSuggest one advantage and one disadvantage of using a hydrogen fuel cell compared with a rechargeable cell.",
+        "marks": 2,
+        "answer_points": [
+          "Advantage, any one from: faster to refuel (than recharging); can travel further (before refuelling); hydrogen can be renewable; produces a constant voltage; no toxic chemicals released after disposal; the only product is water.",
+          "Disadvantage, any one from: hydrogen is made from fossil fuels or non-renewable resources; hydrogen is difficult to store; hydrogen is flammable or explosive; costs more to refuel; costs more to manufacture; not many hydrogen filling stations."
+        ],
+        "tip": "One mark for the advantage and one for the disadvantage."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.26C", "EDEX 5.27C"],
+      "worked_example": {
+        "exemplar_id": "5c6fd271-2851-4c54-9689-810ddd848783",
+        "source": "EDEXCEL nov 2020, Paper 1 (H), Q7(b)",
+        "question": "Hydrogen-oxygen fuel cells can be used to provide electrical energy in a spacecraft.\n\nThe reaction that takes place in the fuel cell is\nhydrogen + oxygen → water\n\nEvaluate the advantages and disadvantages of providing electrical energy in a spacecraft using hydrogen-oxygen fuel cells rather than chemical cells.",
+        "marks": 6,
+        "answer_points": [
+          "Advantages: once set up, fuel cells need no maintenance and work as long as reactants are supplied.",
+          "Chemical cells have a limited lifetime and need replacing, and the voltage drops as their reactants are used up.",
+          "Used chemical cells take up space and cannot be used again, or need recharging.",
+          "Water is the only product and can be used as drinking water.",
+          "Disadvantages: hydrogen and oxygen must be supplied in gas tanks, hydrogen is a gas that is difficult to store and is flammable, and fuel cells are expensive to manufacture.",
+          "Conclusion: either cell can be chosen, with suitable reasons, for example fuel cells are better because the water is useful and chemical cells run out."
+        ],
+        "tip": "This is a levels question. For the top level, describe three advantages or disadvantages and evaluate them to form a conclusion."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C6.2q"],
+      "worked_example": {
+        "exemplar_id": "27ab86f3-fc58-4c28-9014-e030aa76d66d",
+        "source": "OCR jun 2018, Paper 4, Q16(d)",
+        "question": "Car manufacturers are developing cars that are powered by hydrogen/oxygen fuel cells.\n\nThe table shows some information about a 200 km journey using an electric car and a car using a fuel cell.\n\nRefuelling time in minutes: electric 360, fuel cell 4\nCost of refuelling in £: electric 3.20, fuel cell 4.20\nCO₂ emitted in kg: electric 48, fuel cell 36\nMass of car in kg: electric 1550, fuel cell 1200\n\nEvaluate the advantages and disadvantages of using a car powered by a fuel cell, rather than an electric car for the 200 km journey.",
+        "marks": 3,
+        "answer_points": [
+          "Any two advantages of the fuel cell car, each as a comparison:",
+          "Refuelling time is less (4 minutes compared with 360 minutes).",
+          "It emits less CO₂ (36 kg compared with 48 kg).",
+          "The mass of the car is less (1200 kg compared with 1550 kg).",
+          "And a disadvantage: the cost of refuelling is more (£4.20 compared with £3.20)."
+        ],
+        "tip": "Two advantages and one disadvantage, one mark each. Each must be a comparison, not a restatement of the data. The fuel cell reaction itself makes only water; any CO₂ in a table like this comes from making the hydrogen or the electricity."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "1486a17c-869e-4c3f-81bb-eab95945b0fd",
+      "ee52c863-a428-47dd-9314-954af15d6a97",
+      "1078bfa3-2350-4d0e-b4e6-70fb393e6b17",
+      "fa7a7652-6b25-422c-ac62-8cfeb2e6f1c3"
+    ],
+    "exemplar_ids": [
+      "cb91103b-52eb-470f-a714-4915e8666498",
+      "5c6fd271-2851-4c54-9689-810ddd848783",
+      "27ab86f3-fc58-4c28-9014-e030aa76d66d"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

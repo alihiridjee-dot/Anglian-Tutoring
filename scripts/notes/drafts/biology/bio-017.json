@@ -8,14 +8,29 @@
     {
       "heading": "Planning the investigation",
       "blocks": [
-        { "type": "paragraph", "text": "You compare how well different chemicals stop bacteria growing on an agar plate. This section covers the variables, the control and the method." },
+        {
+          "type": "paragraph",
+          "text": "You compare how well different chemicals stop bacteria growing on an agar plate. This section covers the variables, the control and the method."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Antiseptic", "meaning": "A chemical that kills bacteria and can be used on skin or surfaces." },
-            { "term": "Antibiotic", "meaning": "A medicine that kills bacteria inside the body." },
-            { "term": "Zone of inhibition", "meaning": "The clear area around a disc where no bacteria are growing." },
-            { "term": "Control", "meaning": "A disc with no chemical, used for comparison." }
+            {
+              "term": "Antiseptic",
+              "meaning": "A chemical that kills bacteria and can be used on skin or surfaces."
+            },
+            {
+              "term": "Antibiotic",
+              "meaning": "A medicine that kills bacteria inside the body."
+            },
+            {
+              "term": "Zone of inhibition",
+              "meaning": "The clear area around a disc where no bacteria are growing."
+            },
+            {
+              "term": "Control",
+              "meaning": "A disc with no chemical, used for comparison."
+            }
           ]
         },
         {
@@ -25,7 +40,10 @@
             ["Independent", "The antiseptic, antibiotic or plant extract (or its concentration)"],
             ["Dependent", "The size of the clear zone: its radius, diameter or area"],
             ["Control", "A disc soaked in distilled water, or left dry, with no chemical"],
-            ["Controlled", "Species of bacteria, volume and concentration of chemical, size of filter disc, temperature, time, nutrient agar"]
+            [
+              "Controlled",
+              "Species of bacteria, volume and concentration of chemical, size of filter disc, temperature, time, nutrient agar"
+            ]
           ]
         },
         {
@@ -46,7 +64,10 @@
             ]
           }
         },
-        { "type": "subheading", "text": "Working safely" },
+        {
+          "type": "subheading",
+          "text": "Working safely"
+        },
         {
           "type": "list",
           "items": [
@@ -69,7 +90,10 @@
     {
       "heading": "Results and conclusions",
       "blocks": [
-        { "type": "paragraph", "text": "After incubation, look for a clear area around each disc. Bacteria are killed where there is no growth." },
+        {
+          "type": "paragraph",
+          "text": "After incubation, look for a clear area around each disc. Bacteria are killed where there is no growth."
+        },
         {
           "type": "list",
           "items": [
@@ -83,17 +107,33 @@
           "type": "equation",
           "label": "Area of a zone of inhibition",
           "formula": "area = π × r²",
-          "where": ["r is the radius of the clear zone, in mm", "radius = diameter ÷ 2", "area is in mm²"]
+          "where": [
+            "r is the radius of the clear zone, in mm",
+            "radius = diameter ÷ 2",
+            "area is in mm²"
+          ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Radius.", "text": "The clear zone for plate B has a radius of 5 mm." },
-            { "lead": "Substitute.", "text": "Area = 3.14 × 5²." },
-            { "lead": "Answer.", "text": "Area = 78.5 mm²." }
+            {
+              "lead": "Radius.",
+              "text": "The clear zone for plate B has a radius of 5 mm."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "Area = 3.14 × 5²."
+            },
+            {
+              "lead": "Answer.",
+              "text": "Area = 78.5 mm²."
+            }
           ]
         },
-        { "type": "subheading", "text": "Improving the investigation" },
+        {
+          "type": "subheading",
+          "text": "Improving the investigation"
+        },
         {
           "type": "list",
           "items": [
@@ -103,7 +143,10 @@
             "Use more than one type of bacteria."
           ]
         },
-        { "type": "subheading", "text": "Limits of the test" },
+        {
+          "type": "subheading",
+          "text": "Limits of the test"
+        },
         {
           "type": "list",
           "items": [
@@ -143,32 +186,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 1.5"],
-      "exam_phrases": [
-        "(acts as a) control",
-        "to show the effect of no antibiotics",
-        "measure the diameter / radius of each clear area",
-        "calculate / measure the area of each clear area",
-        "repeat and calculate a mean",
-        "none of the bacteria would be killed (resistant)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The paper disc with no antibiotic is a control variable.",
-          "right": "A control variable is not accepted. The disc acts as a control, for comparison."
-        },
-        {
-          "wrong": "The disc with no antibiotic shows the effectiveness of the antibiotic.",
-          "right": "\"The effect or effectiveness of the antibiotic\" is ignored for the purpose of the control disc. Say it shows that the results are due to the antibiotic, not the disc."
-        },
-        {
-          "wrong": "Use πr² to compare the antibiotics.",
-          "right": "\"πr²\" unqualified is ignored. Measure the radius or diameter of the clear area, then calculate the area."
-        },
-        {
-          "wrong": "Repeat the investigation.",
-          "right": "\"Repeat\" on its own is ignored. Say repeat and calculate a mean, or repeat and look to see if the results are similar."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "52768018-0936-4dfe-bf21-e13caa9872c1",
         "source": "AQA jun 2023, Paper 1 (H), Q03.4",
@@ -184,28 +201,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.18B", "EDEX 5.19B"],
-      "exam_phrases": [
-        "soak a filter disc in each antiseptic",
-        "soak a fresh disc in distilled water as a control",
-        "place one disc in each quarter / space the discs out",
-        "use sticky tape to seal the lid",
-        "measure the radius / diameter and calculate the area using πr²",
-        "the antiseptic that killed the most bacteria has the largest zone"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The test proves that toothpaste kills all bacteria on teeth.",
-          "right": "It does not. It uses only one species of bacteria, it is not done on teeth, and the conditions in the mouth are different."
-        },
-        {
-          "wrong": "The clear area around the disc is where the bacteria are growing.",
-          "right": "The clear area has no bacterial growth. The bacteria were killed by the chemical."
-        },
-        {
-          "wrong": "Area = 3.14 × (diameter)².",
-          "right": "Use the radius, which is half the diameter. Using the diameter gives only follow-through marks."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "aedf87c0-76d8-40da-8ba8-1c104dbac1d3",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q10(a)(iii)",
@@ -223,28 +218,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 7.7"],
-      "exam_phrases": [
-        "different concentrations / volumes of disinfectant",
-        "different concentrations / amounts of bacteria",
-        "different types of bacteria",
-        "use sterile forceps to prevent contamination by other microbes",
-        "37 °C: any higher and the bacteria might be killed / enzymes denatured",
-        "only one plate used / no replicates"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Use stronger bacteria, change the time or change the amount.",
-          "right": "\"Amount\", \"stronger bacteria\" and \"time\" are ignored. Say different concentrations or volumes of disinfectant, different concentrations of bacteria, or different types of bacteria."
-        },
-        {
-          "wrong": "Just repeat the experiment.",
-          "right": "\"Repeat\" earns one mark only if nothing else scores. Give a specific change to the method."
-        },
-        {
-          "wrong": "Forceps are sterile so germs do not get in.",
-          "right": "\"Germs\" is not accepted. Say it prevents contamination by other microbes."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "affc6b60-ff61-446e-9f24-60728c374752",
         "source": "OCR jun 2024, Paper 2, Q25(c)(ii)",

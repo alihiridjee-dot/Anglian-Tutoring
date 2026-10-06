@@ -1,0 +1,338 @@
+{
+  "format": 1,
+  "concept_id": "bio-132",
+  "subject": "biology",
+  "title": "Farming techniques and sustainable food production",
+  "key_idea": "(Separate science) A growing population needs more food, so farming and fishing must produce more without wrecking the environment. Fertilisers, pesticides, biological control and hydroponics raise yields. Fishing quotas and larger net mesh sizes keep fish stocks sustainable.",
+  "sections": [
+    {
+      "heading": "Feeding a growing population",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "As the human population grows, more food is needed. This section covers why that changes how land is used and what it does to wildlife."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Food security",
+              "meaning": "Being able to get enough food to feed a population."
+            },
+            {
+              "term": "Biodiversity",
+              "meaning": "The variety of living organisms in an area."
+            },
+            {
+              "term": "Sustainable",
+              "meaning": "Used in a way that lets the supply last, such as fish stocks that can keep reproducing."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why more land is used for farming"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A larger population needs more crops and livestock for food.",
+            "Some crops are grown for biofuels.",
+            "Methods such as free-range and organic farming need more land for the same yield.",
+            "Peat is dug up for use as compost and as fuel."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "How farming reduces biodiversity"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Deforestation** and the loss of hedgerows (to make fields larger) destroy habitats.",
+            "**Monocultures** grow a single crop, so fewer species live there.",
+            "Fertiliser run-off pollutes water.",
+            "Pesticides, insecticides and herbicides reduce insects and plants, which damages food chains.",
+            "More soil erosion follows when land is cleared."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "More people need more food, so more land is farmed.",
+            "Habitat loss and chemical use reduce biodiversity.",
+            "A good answer links land use to its effect on biodiversity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Raising crop yields",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Farmers use several techniques to get more food from the same land. This section covers fertilisers, pesticides and hydroponics."
+        },
+        {
+          "type": "table",
+          "columns": ["Technique", "What it does", "Problem it solves"],
+          "rows": [
+            [
+              "Fertilisers (including manure and compost)",
+              "Add minerals, such as nitrates and phosphates, to the soil",
+              "Soil that is low in minerals"
+            ],
+            [
+              "Pesticides",
+              "Kill pests, such as insects (insecticides) and fungi (fungicides)",
+              "Insects or disease damaging crops"
+            ],
+            [
+              "Hydroponics",
+              "Crops are grown with their roots in water that contains minerals, not in soil",
+              "No soil, or soil that is unsuitable"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Plants grow faster and better when they get the minerals they need. Less crop is lost when pests are killed. Both raise the yield."
+        },
+        {
+          "type": "subheading",
+          "text": "Disadvantages of fertilisers and pesticides"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fertiliser run-off pollutes water.",
+            "Pesticides can kill other insects and plants, not only the pest, which reduces biodiversity and damages food chains.",
+            "Chemicals can build up in the environment, and pests can become resistant to them."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Testing a fertiliser"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Divide the plants into equal-sized groups.",
+            "Give each group a different concentration of fertiliser.",
+            "Measure the height of the plants after a period of time and find the mean increase.",
+            "The optimum is the weakest solution that gives the greatest mean growth."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fertilisers add minerals. Pesticides kill pests. Hydroponics needs no soil.",
+            "Fertiliser run-off and pesticides can harm wildlife.",
+            "For a fair test, change the concentration and keep everything else the same."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Biological control",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "**Biological control** uses another living organism, such as a predator or parasite, to reduce a pest. Examples include ladybirds eating aphids and insects used to limit prickly pear cacti."
+        },
+        {
+          "type": "subheading",
+          "text": "Advantages over chemical pesticides"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The control organism is usually specific to the pest, so other species are less affected.",
+            "Biodiversity is maintained.",
+            "Chemicals do not need to be used or reapplied.",
+            "Pests do not become resistant to it in the way they can to a chemical.",
+            "Less damage to crops, so a higher yield."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "It works best when the crop is enclosed, for example under a cover. The control organism cannot escape, so it is more likely to find and eat the pests."
+        },
+        {
+          "type": "paragraph",
+          "text": "Fish farming uses it too. Small fish called wrasse are kept in the cage with salmon and eat the parasites on the salmon, so more energy is available for the salmon to grow."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a farming problem to see which method is used to deal with it and how it helps.",
+            "prompt": "Pick a problem",
+            "result_labels": ["Method", "How it helps"],
+            "options": [
+              {
+                "label": "Soil is low in minerals",
+                "results": [
+                  "Add fertilisers",
+                  "Supplies the minerals the crop needs, so it grows faster and better."
+                ]
+              },
+              {
+                "label": "There is no soil",
+                "results": [
+                  "Use hydroponics",
+                  "Roots grow in water, so crops can be grown without soil."
+                ]
+              },
+              {
+                "label": "Insects are eating the crop",
+                "results": [
+                  "Spray pesticides, or use biological control",
+                  "Pesticides kill the insects. A predator such as a ladybird eats them, with no chemicals reapplied."
+                ]
+              },
+              {
+                "label": "Parasites on farmed salmon",
+                "results": [
+                  "Biological control with wrasse",
+                  "Wrasse eat the parasites, so more energy is available for the salmon to grow."
+                ]
+              },
+              {
+                "label": "Fish stocks are falling",
+                "results": [
+                  "Fishing quotas and larger net mesh",
+                  "Fewer fish are caught and young fish escape, so the remaining fish can reproduce."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Biological control uses another organism to reduce a pest.",
+            "It is specific to the pest, avoids reapplying chemicals and avoids resistance.",
+            "It works best when the crop is enclosed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Sustainable fisheries",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A growing population has caused fish stocks to decline. Fisheries are managed so that stocks recover to a sustainable level."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Fishing quotas** limit the number of fish that can be caught.",
+            "**Net mesh size** is controlled so that small, young fish escape through the net.",
+            "The fish that are not caught can reproduce, so the stock recovers."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "For example, herring only start to reproduce at 3 to 4 years old. A larger mesh lets younger fish escape and survive to reproduce."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Quotas limit how many fish are caught.",
+            "Large mesh lets young fish escape.",
+            "Fish that are left can reproduce, so stocks become sustainable."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how fishing quotas help return fish stocks to a sustainable level.",
+      "a": "Fewer fish are caught (the number of fish caught is limited), so the remaining fish can reproduce.",
+      "marks": 2
+    },
+    {
+      "q": "Give two advantages of using biological control rather than chemical pesticides.",
+      "a": "Any two from: specific to the pest; maintains biodiversity; chemicals do not need to be reapplied; pests cannot become resistant; less damage to crops.",
+      "marks": 2
+    },
+    {
+      "q": "Name the method used to grow crops with their roots in water.",
+      "a": "Hydroponics.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 7.14"],
+      "worked_example": {
+        "exemplar_id": "22171df9-e142-418e-bade-0b7e39713f17",
+        "source": "AQA jun 2020, Paper 2 (H), Q02.5",
+        "question": "Farming techniques have changed in recent years.\n\nDescribe:\n- why more land is being used for farming\n- how increased farming has decreased biodiversity.",
+        "marks": 6,
+        "answer_points": [
+          "Why more land is used: the increasing population requires more food, from crops and livestock.",
+          "Land is also used for crops grown for biofuels, and peat is used as compost or fuel.",
+          "Free-range and organic methods use more land for the same yield.",
+          "Biodiversity: deforestation, monocultures and the loss of hedgerows cause loss of habitat.",
+          "Fertiliser run-off pollutes water.",
+          "Pesticides, insecticides and herbicides reduce insects and plants, which damages food chains."
+        ],
+        "tip": "This is a levelled answer. Facts about only land use, or only biodiversity, stay in level 1. Link the two to reach level 2."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 4.13B"],
+      "worked_example": {
+        "exemplar_id": "09d11110-7d4c-4b88-9ab8-9f1b667be675",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q7(c)",
+        "question": "Biological control can be used on aphid populations feeding on crops.\n\nExplain the advantages of using biological control on aphid populations.",
+        "marks": 3,
+        "answer_points": [
+          "It uses another organism, such as a ladybird, which is specific to the aphids.",
+          "It maintains biodiversity, because other species are less affected.",
+          "Chemicals do not need to be used or reapplied.",
+          "Aphids cannot develop resistance.",
+          "There is less damage to the crops, so the yield increases."
+        ],
+        "tip": "Link three of these points for three marks. Ladybirds, insects, predators and animals are all accepted as the control organism."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.2b"],
+      "worked_example": {
+        "exemplar_id": "cbede404-4a75-45c0-9c01-77d737a12b05",
+        "source": "OCR jun 2025, Paper 2, Q18(a)",
+        "question": "Human populations need large amounts of food to survive.\n\nComplete these sentences about the supply of food.\n\nBeing able to get enough food to feed a population is called food ______.\n\nBiotic factors such as ______ can prevent this happening.\n\nSometimes soil is not suitable to grow crops.\n\nIf soil lacks minerals, then ______ can be added.\n\nAnother option if soil is not suitable involves growing crops without soil but with the roots in water.\n\nThis is called ______.",
+        "marks": 4,
+        "answer_points": [
+          "Food security.",
+          "Biotic factors such as disease or predators (pests, pathogens and invasive species are also allowed).",
+          "If soil lacks minerals, fertilisers (manure or compost) can be added. Nitrates or phosphates are allowed.",
+          "Growing crops with the roots in water is hydroponics."
+        ],
+        "tip": "One mark for each gap. The word minerals is ignored for the third gap."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "9b1fdb3f-09bd-4656-9951-5388ae777ca6",
+      "d0f9e733-b1e7-46eb-b55d-55545e0d4baf",
+      "34f7caba-444c-48fb-9f16-1cc58391b435"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "exemplar_ids": [
+      "22171df9-e142-418e-bade-0b7e39713f17",
+      "09d11110-7d4c-4b88-9ab8-9f1b667be675",
+      "cbede404-4a75-45c0-9c01-77d737a12b05"
+    ]
+  }
+}

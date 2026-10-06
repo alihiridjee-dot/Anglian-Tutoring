@@ -1,0 +1,249 @@
+{
+  "format": 1,
+  "concept_id": "bio-129",
+  "subject": "biology",
+  "title": "Trophic levels and pyramids of biomass (Separate science)",
+  "key_idea": "Organisms in a food chain are placed in trophic levels, starting with the producers. A pyramid of biomass shows the biomass at each level. Biomass falls at each step because some is lost through egestion, excretion and respiration.",
+  "sections": [
+    {
+      "heading": "Trophic levels",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) A food chain shows what eats what. This section covers how each organism is placed in a trophic level."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Trophic level",
+              "meaning": "The position of an organism in a food chain, numbered from level 1 at the start."
+            },
+            {
+              "term": "Biomass",
+              "meaning": "The mass of living material in organisms."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Trophic level", "Name", "Example", "How it gets its energy"],
+          "rows": [
+            [
+              "1",
+              "Producer",
+              "Algae",
+              "Makes food by photosynthesis, using light absorbed by chlorophyll"
+            ],
+            ["2", "Primary consumer", "Invertebrate animals", "Eats the producers"],
+            ["3", "Secondary consumer", "Small fish", "Eats the primary consumers"],
+            ["4", "Tertiary consumer", "Large fish", "Eats the secondary consumers"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "An apex predator is a carnivore at the top of the chain with no predators. Decomposers break down dead plants and animals."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap each role in a food chain to learn what it does.",
+            "prompt": "Tap a role to see where it fits in a food chain, then test yourself.",
+            "parts": [
+              {
+                "name": "Producer",
+                "detail": "Makes its own food by photosynthesis. It is trophic level 1, at the start of every food chain."
+              },
+              {
+                "name": "Primary consumer",
+                "detail": "A herbivore that eats the producers. It is trophic level 2."
+              },
+              {
+                "name": "Secondary consumer",
+                "detail": "A carnivore that eats primary consumers. It is trophic level 3."
+              },
+              {
+                "name": "Tertiary consumer",
+                "detail": "A carnivore that eats secondary consumers. It is trophic level 4."
+              },
+              {
+                "name": "Apex predator",
+                "detail": "A carnivore with no predators, at the top of the food chain."
+              },
+              {
+                "name": "Decomposer",
+                "detail": "Breaks down dead plant and animal material. This returns materials to the environment."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Producers are level 1. Consumers follow in order: primary, secondary, tertiary.",
+            "Producers get their energy from light by photosynthesis."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Pyramids of biomass",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A pyramid of biomass shows how much biomass there is at each trophic level. This section covers how to draw one."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Order.",
+              "text": "List the trophic levels from the producer to the top consumer."
+            },
+            {
+              "lead": "Scale.",
+              "text": "Choose a scale so that the widest bar fits the page."
+            },
+            {
+              "lead": "Bars.",
+              "text": "Draw one bar for each level. Make its width in proportion to the biomass at that level."
+            },
+            {
+              "lead": "Label.",
+              "text": "Put the producers at the bottom, and label each bar with the organism."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Each bar is narrower than the one below it, because biomass falls at each trophic level. This gives the pyramid shape."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A pyramid of biomass has one bar per trophic level, with the producers at the bottom.",
+            "Bar widths are in proportion to biomass."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why biomass is lost between levels",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Not all of the biomass at one level reaches the next. This section covers the ways it is lost."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Egestion",
+              "meaning": "Removing undigested material from the gut, as faeces."
+            },
+            {
+              "term": "Excretion",
+              "meaning": "Removing waste made by the body, such as urea and carbon dioxide."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Not all of an organism is eaten.** Parts such as bones or shells are left.",
+            "**Egestion**: some of what is eaten is not digested or absorbed.",
+            "**Excretion**: urea in urine and carbon dioxide breathed out.",
+            "**Respiration** breaks down glucose and releases carbon dioxide. The energy released is used for movement and keeping warm, and is lost as heat.",
+            "Dead material is broken down by decomposers."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Animals that keep a constant body temperature, such as seals, lose more heat. They use more food, so less of it becomes biomass."
+        },
+        {
+          "type": "paragraph",
+          "text": "Because biomass falls at every level, there is too little left to support many more. This limits the length of a food chain."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Biomass is lost through uneaten parts, egestion, excretion and respiration.",
+            "This is why each trophic level has less biomass than the one below."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "In the food chain algae → invertebrate animals → small fish → large fish, name the producer and the secondary consumer.",
+      "a": "Producer: algae. Secondary consumer: small fish.",
+      "marks": 2
+    },
+    {
+      "q": "Give two ways biomass is lost between trophic levels.",
+      "a": "Any two from: not all of the organism is eaten, egestion (faeces), excretion (urea, carbon dioxide), respiration.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how to draw a pyramid of biomass.",
+      "a": "Draw one bar for each trophic level in order, with the producers at the bottom. Make each bar's width in proportion to its biomass, using a scale, and label each bar.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 7.11"]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 9.7B"],
+      "worked_example": {
+        "exemplar_id": "c060fc0a-7c18-4eed-a8f1-40df1e2fb100",
+        "source": "EDEXCEL jun 2022, Paper 2 (F), Q10(c)(iii)",
+        "question": "Frogs also eat large beetles.\n\nGive two reasons why only some of the energy in the biomass of the large beetles is transferred to the biomass of the frog.",
+        "marks": 2,
+        "answer_points": [
+          "Not all of the beetle is eaten.",
+          "Not all of the beetle can be digested.",
+          "Movement of the frog.",
+          "Respiration by the frog.",
+          "Energy is transferred to the surroundings as heat."
+        ],
+        "tip": "Any two score one mark each. \"Maintaining body temperature\" is ignored here."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 4.1h", "OCR 4.1i", "OCR 4.1j"],
+      "worked_example": {
+        "exemplar_id": "9bdf587c-222b-4056-a128-d874ab8679a3",
+        "source": "OCR jun 2018, Paper 4, Q23(a)(ii)",
+        "question": "Write down two ways that biomass is lost from the food chain.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from: egestion (faeces or undigested food), excretion (a named excretory product or urine), respiration, decomposition, uneaten parts.",
+          "Heat is also allowed."
+        ],
+        "tip": "Movement is ignored."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "dae1f22e-6b50-4c41-b9de-19643a4465d0",
+      "fdc5f7b9-4bf9-4c50-9c82-2e700d379cc4",
+      "cb63e6bb-aa28-4980-8eb9-0db87358ad75",
+      "a77d6af8-ddad-4b1b-ab5c-432b30720118"
+    ],
+    "exemplar_ids": [
+      "9bdf587c-222b-4056-a128-d874ab8679a3",
+      "c060fc0a-7c18-4eed-a8f1-40df1e2fb100"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "format": 1,
+  "concept_id": "phys-044",
+  "subject": "physics",
+  "title": "Contact and non-contact forces",
+  "key_idea": "A force is a push or pull that acts on an object because of another object. Contact forces act when objects touch. Non-contact forces act across a gap. When two objects interact, each feels a force.",
+  "sections": [
+    {
+      "heading": "Contact and non-contact forces",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Forces come from interactions between objects. Every force is either a contact force or a non-contact force."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Force",
+              "meaning": "A push or pull on an object caused by its interaction with another object."
+            },
+            {
+              "term": "Contact force",
+              "meaning": "A force between objects that are physically touching."
+            },
+            {
+              "term": "Non-contact force",
+              "meaning": "A force between objects that are physically separated."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Contact forces"
+        },
+        {
+          "type": "list",
+          "items": ["Friction", "Air resistance", "Tension", "Normal contact force"]
+        },
+        {
+          "type": "subheading",
+          "text": "Non-contact forces"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gravitational force, which gives an object its weight",
+            "Electrostatic force",
+            "Magnetic force",
+            "Each acts through a field: gravitational, electrostatic or magnetic."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The normal contact force is the push of a surface on an object resting on it. Force is a vector quantity, so it has size and direction."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort seven forces into contact and non-contact forces.",
+            "prompt": "Sort each force into contact or non-contact.",
+            "groups": ["Contact force", "Non-contact force"],
+            "items": [
+              {
+                "text": "Friction",
+                "group": 0
+              },
+              {
+                "text": "Air resistance",
+                "group": 0
+              },
+              {
+                "text": "Tension",
+                "group": 0
+              },
+              {
+                "text": "Normal contact force",
+                "group": 0
+              },
+              {
+                "text": "Gravitational force",
+                "group": 1
+              },
+              {
+                "text": "Electrostatic force",
+                "group": 1
+              },
+              {
+                "text": "Magnetic force",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Contact forces need the objects to touch.",
+            "Non-contact forces act across a gap.",
+            "Weight is a non-contact force."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Examples of forces at work",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each force is linked to a situation you can recall in an exam."
+        },
+        {
+          "type": "table",
+          "columns": ["Force", "Example", "Type"],
+          "rows": [
+            ["Gravitational", "Keeps the Earth in orbit around the Sun", "Non-contact"],
+            ["Electrostatic", "Moves small pieces of paper towards a plastic comb", "Non-contact"],
+            ["Magnetic", "A magnet pulls on a magnetic material across a gap", "Non-contact"],
+            [
+              "Friction",
+              "Opposes the motion between two surfaces, such as a wheel and an axle",
+              "Contact"
+            ],
+            [
+              "Air resistance",
+              "Acts on a falling ball; a smaller area means less air resistance",
+              "Contact"
+            ],
+            ["Normal contact force", "The table pushes up on a mug resting on it", "Contact"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Friction opposes motion between surfaces in contact.",
+            "More friction makes it harder to push or turn something.",
+            "Air resistance depends on the area of the object."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Forces come in pairs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A force always involves two objects. Each object feels a force from the other, so forces arise in pairs."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A mug on a table: the mug pushes down on the table, and the table pushes up on the mug.",
+            "A person on bathroom scales: the downward force on the scales is the same size as the upward force on the person.",
+            "Each force in a pair can be drawn as a vector, an arrow with a size and a direction."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A stationary rocket on the ground has two forces on it: an upward normal contact force and a downward weight. These act on the same object, so they are not an interaction pair."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Forces arise when two objects interact.",
+            "The two forces in a pair act on different objects.",
+            "The two forces in a pair are the same size."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what is meant by a contact force and a non-contact force. Give one example of each.",
+      "a": "A contact force acts between objects that are touching, for example friction. A non-contact force acts between objects that are separated, for example gravitational, electrostatic or magnetic force.",
+      "marks": 2
+    },
+    {
+      "q": "A mug is placed on a table. Describe the two forces in the interaction pair.",
+      "a": "The force of the mug on the table. The force of the table on the mug.",
+      "marks": 2
+    },
+    {
+      "q": "Name the upward force and the downward force on a rocket that is stationary on the ground.",
+      "a": "The upward force is the normal contact force. The downward force is weight.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.5.1.2", "AQA T 6.5.1.2"],
+      "worked_example": {
+        "exemplar_id": "f0ae7788-fbd0-4801-a13e-74488e7643bd",
+        "source": "AQA jun 2019, Paper 2 (F), Q03.4",
+        "question": "Two table tennis balls are different sizes but have the same mass. Both balls were dropped onto the table from the same height. After they were dropped, the resultant force on the smaller ball was greater than the resultant force on the larger ball. Explain why.",
+        "marks": 2,
+        "answer_points": [
+          "The smaller ball has a smaller area.",
+          "So the air resistance is less on the smaller ball."
+        ],
+        "tip": "One mark for the smaller area, one for less air resistance on the smaller ball."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 9.1"],
+      "worked_example": {
+        "exemplar_id": "4a245630-2e3b-4621-af00-20848d19c719",
+        "source": "EDEXCEL nov 2020, Paper 2 (F), Q3(b)(iii)",
+        "question": "A worker uses a wheelbarrow to move some sand. Some sand falls down and sticks between the wheel and the axle. State why it might be harder to push the wheelbarrow along when there is some sand between the wheel and the axle.",
+        "marks": 1,
+        "answer_points": ["There will be more friction between the axle and the wheel."],
+        "tip": "Name the force: friction. Say where it acts, between the axle and the wheel."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P2.2a", "OCR P2.2b"],
+      "worked_example": {
+        "exemplar_id": "d89201ae-365f-4db5-8eaf-52a300599c27",
+        "source": "OCR nov 2021, Paper 3, Q21(b)(i)",
+        "question": "A builder places a mug on a table. Describe the two forces in the interaction pair when the mug is placed on the table.",
+        "marks": 2,
+        "answer_points": [
+          "The force of the mug on the table (gravity or the force due to gravity is allowed).",
+          "The force of the table on the mug (normal contact force is allowed)."
+        ],
+        "tip": "Name both objects in each force and say which acts on which."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "74f94e17-85ec-4b33-b977-e07ede7293a6",
+      "68ff07ff-59a3-4acf-bd16-9354458d13b3",
+      "28acd09e-8e4c-4e36-bfa2-c7e7df211be7",
+      "272d493f-a7e0-4403-998e-fa3de7c5a588",
+      "3fd58c2a-e790-456d-ac60-743d36ec7155"
+    ],
+    "exemplar_ids": [
+      "f0ae7788-fbd0-4801-a13e-74488e7643bd",
+      "4a245630-2e3b-4621-af00-20848d19c719",
+      "d89201ae-365f-4db5-8eaf-52a300599c27"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "format": 1,
+  "concept_id": "phys-091",
+  "subject": "physics",
+  "title": "Red-shift and the expanding Universe",
+  "key_idea": "Light from most distant galaxies has a longer wavelength than expected. This is red-shift, and it shows the galaxies are moving away. The further away a galaxy is, the faster it moves, which is evidence that the Universe is expanding.",
+  "sections": [
+    {
+      "heading": "The Doppler effect",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Physics only, not needed for Combined Science) When a wave source moves relative to an observer, the observed wavelength and frequency change."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A source moving **towards** the observer: the observed wavelength decreases and the observed frequency increases.",
+            "A source moving **away** from the observer: the observed wavelength increases and the observed frequency decreases.",
+            "The effect happens for sound and for light."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Relative motion changes the observed frequency and wavelength.",
+            "Towards: shorter wavelength, higher frequency. Away: longer wavelength, lower frequency."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Red-shift",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Light from most distant galaxies has an increased wavelength when we observe it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Red-shift",
+              "meaning": "The observed increase in the wavelength of light from a galaxy that is moving away."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The spectral lines are shifted towards the red end of the spectrum.",
+            "The further away the galaxy, the faster it is moving.",
+            "The further away the galaxy, the bigger the increase in wavelength."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Pick a galaxy and see how its light changes."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a galaxy to see how the observed wavelength and frequency of its light change.",
+            "prompt": "Pick a galaxy",
+            "result_labels": ["Observed wavelength", "Observed frequency", "Shift in the spectrum"],
+            "options": [
+              {
+                "label": "A galaxy moving towards the Earth",
+                "results": ["Decreased", "Increased", "Towards shorter wavelengths"],
+                "explanation": "A source moving towards the observer has its waves squashed together."
+              },
+              {
+                "label": "A galaxy not moving relative to the Earth",
+                "results": ["Unchanged", "Unchanged", "None"],
+                "explanation": "With no relative motion there is no change."
+              },
+              {
+                "label": "A nearby galaxy moving away",
+                "results": ["Increased a little", "Decreased a little", "Small red-shift"],
+                "explanation": "A source moving away has its waves stretched."
+              },
+              {
+                "label": "A distant galaxy moving away",
+                "results": ["Increased more", "Decreased more", "Larger red-shift"],
+                "explanation": "The further away the galaxy, the faster it moves and the bigger the increase in wavelength."
+              },
+              {
+                "label": "A much more distant galaxy",
+                "results": ["Increased most", "Decreased most", "Largest red-shift"],
+                "explanation": "The most distant galaxies are moving away the fastest."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Red-shift is an increase in the observed wavelength of light from a receding galaxy.",
+            "More distant galaxies show a bigger red-shift because they move faster."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evidence that the Universe is expanding",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The pattern of red-shift shows that space itself is expanding."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Almost all distant galaxies are red-shifted, so they are moving away from us.",
+            "More distant galaxies have a bigger red-shift, so they are moving faster.",
+            "So galaxies are getting further apart: the Universe is expanding.",
+            "Since 1998, observations of supernovae suggest distant galaxies are receding ever faster."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "There is still much about the Universe that is not understood."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Red-shift shows distant galaxies are moving away from us.",
+            "The speed increasing with distance is evidence that the Universe is expanding.",
+            "Red-shift also supports the Big Bang model, covered in the next note."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is red-shift?",
+      "a": "An increase in the observed wavelength of light from a distant galaxy that is moving away.",
+      "marks": 1
+    },
+    {
+      "q": "A galaxy is moving towards the Earth. Describe how the wavelength and frequency of its light seem to change.",
+      "a": "The wavelength seems to decrease and the frequency seems to increase.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how red-shift shows that the Universe is expanding.",
+      "a": "Light from almost all distant galaxies is red-shifted, so the galaxies are moving away. More distant galaxies have a bigger red-shift, so they move faster. So the galaxies are getting further apart.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.8.2"],
+      "extra": [
+        {
+          "heading": "Other ideas",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You also need to know that dark mass and dark energy are not yet understood."
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "3896815f-0a62-4be9-98bb-9e1701b86432",
+        "source": "AQA jun 2019, Paper 2 (H), Q5.8",
+        "marks": 2,
+        "question": "The Andromeda galaxy is moving towards the Earth.\n\nDescribe how the wavelength and frequency of the light from Andromeda seem to have changed when viewed from the Earth.",
+        "answer_points": [
+          "The wavelength seems to have decreased.",
+          "The frequency seems to have increased."
+        ],
+        "tip": "One mark for each. A galaxy moving towards us has the opposite change to a red-shifted galaxy."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 7.11P", "EDEX 7.12P", "EDEX 7.13P", "EDEX 7.14P"],
+      "worked_example": {
+        "exemplar_id": "3195f79b-2b51-4230-b3ad-429537fc4cb0",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q1(c)(ii)",
+        "marks": 3,
+        "question": "Scientists have discovered that light from almost all distant galaxies has spectral lines shifted towards the red end of the spectrum.\n\nExplain how red shift in light, received from galaxies at different distances from the Earth, supports the idea that the Universe is expanding.",
+        "answer_points": [
+          "Red shift means the galaxies must be moving away from the Earth.",
+          "More distant galaxies have a bigger red shift.",
+          "More distant galaxies are moving faster."
+        ],
+        "tip": "One mark for each linked point. 'Galaxies getting further apart' is also credited."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P8.3a"],
+      "extra": [
+        {
+          "heading": "Models",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A Doppler ball can be used to model changes in frequency and wavelength. An inflating balloon with marks on it can model galaxies moving apart."
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "308ea677-53aa-4ffc-b07f-4908d8af3c55",
+        "source": "OCR jun 2023, Paper 4, Q19(b)",
+        "marks": 4,
+        "question": "Line spectra give astronomers information about the motion of distant galaxies.\n\nThe wavelength of a line in the spectrum of hydrogen is 656 nm when observed in a laboratory on the Earth.\nThe same line observed from galaxy A has a wavelength of 712 nm.\nThe same line observed from galaxy B has a wavelength of 739 nm.\n\nExplain how this data can be used to compare the motion of galaxy A with galaxy B.",
+        "answer_points": [
+          "Both lines show redshift.",
+          "The redshift for galaxy B is greater than for galaxy A.",
+          "Redshift means the galaxies are moving away from the Earth.",
+          "Galaxy B is further away from the Earth than galaxy A.",
+          "Galaxy B is moving faster than galaxy A.",
+          "Any four points score."
+        ],
+        "tip": "Do not say that one galaxy is moving towards the Earth."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "21f6736b-e06e-41f3-af75-a4fa4aed6497",
+      "fbe119bc-813c-44b3-aff7-e8b90622bf0f",
+      "8d26b880-76ab-4bea-afec-4b3667836c5d",
+      "4583d10b-c89d-43e4-88ac-cd204ba91154",
+      "ba4b09a0-3c4b-461c-8c2a-3029bf36c2c4"
+    ],
+    "exemplar_ids": [
+      "3896815f-0a62-4be9-98bb-9e1701b86432",
+      "3195f79b-2b51-4230-b3ad-429537fc4cb0",
+      "308ea677-53aa-4ffc-b07f-4908d8af3c55"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
+  }
+}

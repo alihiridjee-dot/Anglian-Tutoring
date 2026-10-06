@@ -1,0 +1,249 @@
+{
+  "concept_id": "chem-101",
+  "title": "Potable water and waste water treatment",
+  "key_idea": "Potable water is safe to drink but is not pure. Fresh water is filtered and sterilised, while salty water needs distillation or reverse osmosis. Waste water such as sewage is treated to remove organic matter and harmful microbes before it is released.",
+  "sections": [
+    {
+      "heading": "Making potable water",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Water of the right quality is essential for life. This section covers how drinking water is produced from different supplies."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Potable water",
+              "meaning": "Water that is safe to drink. It has low levels of dissolved salts and microbes."
+            },
+            {
+              "term": "Pure water",
+              "meaning": "Water containing nothing but water molecules. Potable water is not pure, because it contains dissolved substances."
+            },
+            {
+              "term": "Fresh water",
+              "meaning": "Rain water that collects in the ground, lakes and rivers, with low levels of dissolved substances."
+            },
+            {
+              "term": "Sterilising",
+              "meaning": "Killing microbes, using chlorine, ozone or ultraviolet light."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Treating fresh water in the UK"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Choose a source.",
+              "text": "Pick an appropriate source of fresh water, such as a river, lake or ground water."
+            },
+            {
+              "lead": "Filter.",
+              "text": "Pass the water through filter beds to remove solid particles."
+            },
+            {
+              "lead": "Sterilise.",
+              "text": "Add chlorine or ozone, or use ultraviolet light, to kill bacteria and other microbes."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Dissolved solids are very small, so they pass through the filter. This is why potable water still contains dissolved substances."
+        },
+        {
+          "type": "subheading",
+          "text": "When fresh water is limited"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Salty water or sea water can be desalinated.",
+            "Distillation: heat the salty water so the water evaporates, then cool the vapour so it condenses into liquid water.",
+            "Reverse osmosis passes the water through a membrane that holds back the salts.",
+            "Both processes need large amounts of energy."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Treatment of fresh or ground water compared with salty water.",
+            "items": ["Fresh or ground water", "Salty or sea water"],
+            "rows": [
+              {
+                "feature": "Treatment",
+                "values": ["Filter, then sterilise", "Distillation or reverse osmosis"]
+              },
+              {
+                "feature": "Energy needed",
+                "values": ["Little", "Large amounts"]
+              },
+              {
+                "feature": "Relative cost",
+                "values": ["Cheaper", "More expensive"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Potable water is safe to drink but is not pure, because it contains dissolved substances.",
+            "Fresh water: filter to remove solids, then sterilise to kill microbes.",
+            "Salty water: distillation or reverse osmosis, which need a lot of energy."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Treating waste water",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Towns and industry produce large amounts of waste water. It must be treated before it goes back into the environment."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sewage and agricultural waste water need organic matter and harmful microbes removed.",
+            "Industrial waste water may need organic matter and harmful chemicals removed."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Sewage treatment"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Screening and grit removal take out large solids and grit.",
+            "Sedimentation lets solids settle to make sewage sludge, leaving liquid effluent.",
+            "Anaerobic digestion treats the sludge, without oxygen.",
+            "Aerobic biological treatment treats the effluent, with oxygen."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of sewage treatment in order.",
+            "prompt": "Put the sewage treatment stages in order.",
+            "steps": [
+              "Screening and grit removal",
+              "Sedimentation to give sludge and effluent",
+              "Anaerobic digestion of the sludge",
+              "Aerobic biological treatment of the effluent"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sewage treatment removes organic matter and harmful microbes.",
+            "The stages are screening and grit removal, sedimentation, anaerobic digestion of sludge and aerobic treatment of effluent.",
+            "Waste, ground and salt water can all be made potable. Salt water takes the most energy."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain the difference between potable water and pure water.",
+      "a": "Potable water is safe to drink but contains dissolved substances. Pure water contains only water molecules.",
+      "marks": 2
+    },
+    {
+      "q": "Give one reason why fresh water is filtered and one reason why it is sterilised.",
+      "a": "Filtering removes solid particles. Sterilising kills bacteria or microbes.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how distillation is used to obtain potable water from salty water.",
+      "a": "The salty water is heated so the water evaporates. The vapour is cooled and condenses to form liquid potable water.",
+      "marks": 4
+    },
+    {
+      "q": "Explain why obtaining potable water from salty water is more expensive than from ground water.",
+      "a": "Distillation needs a lot of energy to boil the salty water. Ground water only needs filtering and sterilising.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.10.1.2", "AQA T 5.10.1.2", "AQA 4.10.1.3", "AQA T 5.10.1.3"],
+      "worked_example": {
+        "exemplar_id": "8c8666eb-4c61-42bd-bbab-20d5bcbe5fed",
+        "source": "AQA jun 2022, Paper 2 (H), Q5.1",
+        "question": "This question is about water.\n\nSewage is waste water.\n\nSewage contains organic matter.\n\nDescribe how sewage is treated to remove organic matter.",
+        "marks": 4,
+        "answer_points": [
+          "Screening or grit removal, which can include filtering to remove large solids.",
+          "Sedimentation, to produce sewage sludge and effluent.",
+          "Anaerobic digestion of the solid sewage sludge.",
+          "Aerobic biological treatment of the liquid effluent."
+        ],
+        "tip": "One mark for each stage. A description of what each process does is allowed."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 2.12"],
+      "worked_example": {
+        "exemplar_id": "29f01815-d702-4f5e-b235-a6337e7b2ac8",
+        "source": "EDEXCEL jun 2022, Paper 1 (F), Q3(a)(iii)",
+        "question": "Potable water is water that is suitable for drinking.\nRiver water can be treated to make it potable.\nChlorination, filtration and sedimentation are three of the processes involved in making the river water potable.\n\nDescribe how sedimentation is carried out.",
+        "marks": 2,
+        "answer_points": [
+          "The water is put in a tank or container and left to stand or settle.",
+          "Particles, dirt or other solids fall to the bottom."
+        ],
+        "tip": "Adding a substance that makes the particles clump together, such as aluminium sulfate, is allowed for the first mark."
+      },
+      "extra": [
+        {
+          "heading": "Sea water and water for analysis",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Sedimentation comes first when treating waste and ground water, then filtration, then chlorination.",
+                "Sea water can be made potable by distillation.",
+                "Water used in analysis must not contain any dissolved salts."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR C6.3g"]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "47341575-eaa9-46a0-9e37-255a5c5ec5d9",
+      "b439969f-0e73-49de-8908-3de5dc8e5482",
+      "db247606-2c1c-46cf-b11d-18567f2605a3",
+      "bf14df39-d4d9-4d05-825c-c06dd8833c4e",
+      "2a022473-21e2-4176-ac4d-8200cafd0381",
+      "b968915a-cc31-42d7-ad83-b777fcf0d132"
+    ],
+    "exemplar_ids": [
+      "8c8666eb-4c61-42bd-bbab-20d5bcbe5fed",
+      "29f01815-d702-4f5e-b235-a6337e7b2ac8"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  },
+  "format": 1,
+  "subject": "chemistry"
+}

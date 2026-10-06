@@ -1,0 +1,240 @@
+{
+  "format": 1,
+  "concept_id": "bio-065",
+  "subject": "biology",
+  "title": "Principles of homeostasis",
+  "key_idea": "**Homeostasis** is the regulation of the internal conditions of the body to keep them at the optimum for cells and enzymes. Every control system has a receptor, a coordination centre and an effector. The effector restores the condition when it changes.",
+  "sections": [
+    {
+      "heading": "Why a constant internal environment matters",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Conditions inside and outside the body keep changing. This section covers what homeostasis is, what it controls and why it matters."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Homeostasis",
+              "meaning": "The regulation of the internal conditions of a cell or organism to maintain optimum conditions for function, in response to internal and external changes."
+            },
+            {
+              "term": "Optimum",
+              "meaning": "The condition at which cells and enzymes work best."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Enzymes control the reactions in cells. They work best at an optimum temperature and pH.",
+            "If a condition moves away from the optimum, enzyme action slows. At high temperatures enzymes can denature.",
+            "Homeostasis keeps conditions close to the optimum, so cells can carry out their functions.",
+            "It is automatic. You do not have to think about it."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Conditions the body controls"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Body temperature**: kept close to 37 °C.",
+            "**Blood glucose concentration**: kept within narrow limits.",
+            "**Water levels**: the water content of the body and the amount lost in urine.",
+            "Other conditions that are also controlled include pH, ions (salts), carbon dioxide and oxygen."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Water balance matters because water moves in and out of animal cells by osmosis. Too much or too little water in the blood changes the cells, so water levels are controlled too."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Homeostasis keeps internal conditions at the optimum.",
+            "The optimum is needed for enzyme action and all cell functions.",
+            "Temperature, blood glucose and water levels are the main examples."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How control systems work",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every automatic control system uses the same three parts. They pass information in a fixed order."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Stimulus",
+              "meaning": "A change in the environment that is detected."
+            },
+            {
+              "term": "Receptor",
+              "meaning": "A cell that detects a stimulus."
+            },
+            {
+              "term": "Coordination centre",
+              "meaning": "Receives and processes information from receptors. Examples are the brain, the spinal cord and the pancreas."
+            },
+            {
+              "term": "Effector",
+              "meaning": "A muscle or a gland that brings about the response."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A self-test: put the stages of a control system in order, from stimulus to response.",
+            "prompt": "Put the stages of an automatic control system in order.",
+            "steps": [
+              "Stimulus (a change in a condition)",
+              "Receptor detects the change",
+              "Coordination centre processes the information",
+              "Effector (muscle or gland) acts",
+              "Response restores the optimum level"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Information can travel by **nerve impulses** (a nervous response) or by **hormones** (a chemical response).",
+            "Muscles respond by contracting. Glands respond by secreting, such as releasing a hormone.",
+            "The response puts the condition back to the optimum level. This is called **negative feedback**.",
+            "The system compares the condition with a fixed point and corrects any difference."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stimulus, receptor, coordination centre, effector, response.",
+            "Nervous and hormonal systems both do this job.",
+            "The response always reverses the change."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Controlling body temperature",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Temperature is the standard example of a control system. If the body is too hot, it loses heat. If it is too cold, it makes heat."
+        },
+        {
+          "type": "list",
+          "items": [
+            "When the body is hot, glands release **sweat** onto the skin.",
+            "The sweat evaporates. This transfers heat from the body and cools it.",
+            "More sweat is lost on a hot day than on a cold day.",
+            "Animals without sweat glands can cool another way. Panting causes water loss and evaporation, which cools the animal.",
+            "When the body is cold, muscles can contract rapidly in shivering to release heat."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Temperature affects the reactions in cells. A warmer body means faster reactions, more respiration and more oxygen used. Too high a temperature denatures enzymes."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sweat cools the body because it evaporates.",
+            "Temperature is kept at the optimum for enzyme action.",
+            "Hot: sweat. Cold: shivering."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define homeostasis.",
+      "a": "The regulation (control) of internal conditions of the body or a cell, to maintain the optimum conditions for cells and enzymes.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why it is important to control body temperature.",
+      "a": "To keep the temperature at the optimum (about 37 °C), so that enzymes work and reactions in cells can take place. A high temperature would denature enzymes.",
+      "marks": 2
+    },
+    {
+      "q": "Name the three parts of a control system, in the order that information passes through them.",
+      "a": "Receptor, coordination centre, effector.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.1", "AQA T 4.5.1"],
+      "worked_example": {
+        "exemplar_id": "ddba1045-a41a-4d4b-b014-8436637c9469",
+        "source": "AQA jun 2019, Paper 2 (H), Q06.1",
+        "question": "Define the term homeostasis.",
+        "marks": 2,
+        "answer_points": [
+          "The regulation (control or maintenance) of internal conditions of a cell or the body.",
+          "To keep conditions at the optimum for cell or enzyme activity."
+        ],
+        "tip": "One mark for control of internal conditions and one for the optimum. Keeping the internal conditions the same is accepted for the first mark."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 7.9", "EDEX 7.10B"],
+      "worked_example": {
+        "exemplar_id": "3bf4ca4f-b741-4f3e-ba0f-47c99ee71630",
+        "source": "EDEXCEL jun 2018, Paper 2 (H), Q6(a)(ii)",
+        "question": "An iguana is a lizard that uses its environment to regulate its body temperature. Its oxygen consumption was measured at different body temperatures. At 20 °C it was 0.4 cm³ per gram per hour, at 25 °C 0.8, at 30 °C 1.1 and at 35 °C 1.4.\n\nExplain why the body temperature of the iguana affects its oxygen consumption.",
+        "marks": 3,
+        "answer_points": [
+          "Chemical (enzyme or metabolic) reactions are increased at higher temperatures.",
+          "More respiration occurs.",
+          "More respiration requires more oxygen."
+        ],
+        "tip": "Each linked step is one mark. Do not stop at saying that oxygen consumption rises."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 3.3a"],
+      "worked_example": {
+        "exemplar_id": "da2dabea-4474-44ff-b6e4-b3db825e6679",
+        "source": "OCR nov 2021, Paper 3, Q19(c)",
+        "question": "Thyroxine hormone levels in the body are maintained about a fixed point.\n\nExplain how variables in the body are maintained about a fixed point.",
+        "marks": 2,
+        "answer_points": [
+          "Negative feedback is the process used.",
+          "Receptors detect the variable and the level is compared with the fixed point.",
+          "Effectors respond to restore the variable to the fixed point."
+        ],
+        "tip": "Any two of the points above score. A specific answer about temperature or thyroxine is also allowed."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "e7ad55be-d351-4218-9f32-36b91443c6fb",
+      "d6c30671-27aa-4151-87a1-afa8e05110f8",
+      "3eda23ba-f63f-4671-a3e7-dba172b13bc7",
+      "764bc65b-093c-492c-9299-45ff6cf3ce6a",
+      "09e91686-db9f-4fbf-9f4d-5e572446b040"
+    ],
+    "exemplar_ids": [
+      "ddba1045-a41a-4d4b-b014-8436637c9469",
+      "3bf4ca4f-b741-4f3e-ba0f-47c99ee71630",
+      "da2dabea-4474-44ff-b6e4-b3db825e6679"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}
