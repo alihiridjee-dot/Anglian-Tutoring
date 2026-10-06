@@ -349,6 +349,70 @@
     0 18px 40px -16px color-mix(in oklab, var(--glow) 65%, transparent);
 }
 
+/* The surface's own colour glowing softly behind what sits on it: the subject's
+   colour behind the Due lanes, which wear the dashboard's colours. It reaches a
+   little past the edges, no further than the page's own padding, which clips
+   anything wider (`overflow-x-clip`), so it never widens the page on a phone. */
+.glow-behind {
+  position: relative;
+  isolation: isolate;
+}
+.glow-behind::before {
+  content: "";
+  position: absolute;
+  inset: -0.5rem;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: calc(var(--radius) + 0.5rem);
+  background: color-mix(in oklab, var(--tint) 40%, transparent);
+  filter: blur(22px);
+}
+
+/* A card whose top is washed in its own colour and fades to white: a section
+   header without a hard band, so a lane folded down to its heading is still one
+   card. Two classes, so it outranks the plain card's white. */
+.premium-card.wash-top {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--tint) 14%, var(--card)),
+    var(--card) 4.75rem
+  );
+}
+
+/* A light, slow pulse on something still waiting for the student — a Due lane
+   folded away with work inside it. A ring in the surface's own colour breathes
+   in and out around it. Only its opacity moves, so it costs nothing to run;
+   under reduced motion the ring holds still at half strength instead. */
+@keyframes pulse-ring {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.pulse-ring {
+  position: relative;
+}
+.pulse-ring::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    0 0 0 3px color-mix(in oklab, var(--tint) 32%, transparent),
+    0 0 18px 2px color-mix(in oklab, var(--tint) 35%, transparent);
+  animation: pulse-ring 2.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pulse-ring::after {
+    animation: none;
+    opacity: 0.5;
+  }
+}
+
 /* A spec point's week, as a button into the planner: a tinted ticket with an
    icon tile, the date, and an arrow that nudges forward on hover. */
 .when-link {

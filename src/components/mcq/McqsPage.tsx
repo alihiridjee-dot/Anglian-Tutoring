@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { EmptyState, ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
+import { EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
-import { ChevronRight, ChevronDown, CalendarClock, CheckCircle2 } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ, DEMO_MCQ_ATTEMPTS, DEMO_MCQ_SETS } from "@/lib/demo/studentDemo";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -12,8 +12,12 @@ import { useEntryState } from "@/hooks/useEntryState";
 import { McqManager } from "@/components/tutor/McqManager";
 import { SUBJECT_TINT, subjectLabel } from "@/lib/curriculum/subjectTheme";
 import { selectIn, selectInHistory } from "@/lib/platform/db/chunked";
-import { currentWeekKey, plannerDateLabel, weekRangeLabel, mondayOf } from "@/lib/planner/week";
+import { plannerDateLabel } from "@/lib/planner/week";
+import { practiceInWeek } from "@/lib/planner/coverage";
+import { DUE_LANE_ORDER, type DueSlot } from "@/lib/planner/dueLanes";
 import { retakeOpensAt } from "@/lib/mcq/retakeLock";
+import { useDueThisWeek } from "@/components/planner/useDueThisWeek";
+import { DueLanes, DueSection } from "@/components/planner/DueSection";
 
 /** One quiz, with everything the list needs to place it and describe it. */
 type QuizSet = {
@@ -24,9 +28,6 @@ type QuizSet = {
   subject: string | null;
   specPointId: string | null;
   specCode: string | null;
-  topicId: string | null;
-  topicTitle: string | null;
-  topicSort: number;
   questionCount: number;
 };
 
@@ -36,7 +37,12 @@ type Attempt = {
   total: number;
   /** When the latest attempt's week is up (see retakeLock). Absent on the showcase. */
   opensAt?: Date;
+  /** When they last took it. Absent on the showcase, where every attempt is this week's. */
+  lastAt?: string;
 };
+
+/** The page's two tabs: the week's quizzes still to do, and every quiz already done. */
+type McqTab = "due" | "marked";
 
 export function MCQs() {
   const { isTutor, loading: rolesLoading } = useRoles();
@@ -62,37 +68,53 @@ export function MCQs() {
 }
 
 /**
- * The student's quiz list.
+ * The student's quiz list, built the way Tasks & Grades is so the pair read as
+ * one product.
  *
- * Three decisions carry this page, and they are all about narrowing what is on
- * screen at once:
- *
- * 1. **One subject at a time.** Every quiz used to sit in one scroll, so a
- *    student revising Chemistry had to read past Biology to find it. The
- *    header slider picks the subject and the whole page repaints to its colour.
- * 2. **This week is defined by the plan.** Tutors don't assign quizzes: every
- *    set is the shared one for a spec point, with no deadline. So "this week"
- *    reads the student's own weekly plan and asks which points they are on
- *    right now. It follows the plan forward with no tutor action.
- * 3. **Everything else is filed under its topic, collapsed.** The archive grows
- *    without bound; left flat it buries the handful of quizzes that matter.
+ * 1. **One subject at a time.** The header slider picks the subject and the
+ *    whole page repaints to its colour.
+ * 2. **Due is this week's plan.** Tutors don't assign quizzes: every set is the
+ *    shared one for a spec point, with no deadline. So Due is the quizzes on
+ *    this week's points that haven't been taken this week, split into the
+ *    dashboard's lanes ({@link useDueThisWeek}) — the same names, in the same
+ *    order, as the dashboard and the Tasks page.
+ * 3. **Done moves to Marked.** A quiz marks itself, so there is no "handed in"
+ *    step: taking it moves it to Marked with its best score, newest first.
+ *    That replaced "Past MCQs", every reached quiz filed by topic, which read as
+ *    optional extras beside a week that was mostly the same quizzes.
  */
 function StudentMCQs() {
   const { loading: enrolmentsLoading } = useEnrolments();
   const { subject } = useActiveSubject();
+  const due = useDueThisWeek(subject);
   const [sets, setSets] = useState<QuizSet[]>([]);
   const [attempts, setAttempts] = useState<Record<string, Attempt>>({});
-  /** Spec points in this week's plan — including any carried in from earlier. */
-  const [thisWeekPoints, setThisWeekPoints] = useState<ReadonlySet<string>>(new Set());
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
+  // Kept with the visit, so Back from a quiz reopens the tab it was on.
+  const [tab, setTab] = useEntryState<McqTab>("mcqs.tab", "due");
+
+  // This week's quizzes for the subject on screen. They are read by id, so a
+  // new subject's week — or a quiz the practice queue has just written — is
+  // read again rather than looked for in a list that never held it.
+  const dueKey = [...due.slots.quizzes.keys()].sort().join(",");
+  /** The due list the quizzes on screen were read for; behind `dueKey` while a read is under way. */
+  const [loadedKey, setLoadedKey] = useState<string | null>(null);
 
   useEffect(() => {
+    // The week decides what is due, so wait for it.
+    if (due.loading) return;
     let cancelled = false;
+    /** Ends this read, with or without quizzes, so the page stops waiting on it. */
+    const settle = (error: string | null = null) => {
+      setLoadError(error);
+      setLoadedKey(dueKey);
+      setLoading(false);
+    };
     (async () => {
       // The showcase has no session, so it renders fixtures and nothing else —
       // no read of `mcq_sets`, no attempts, and nothing that could reach quiz
-      // generation. Each fixture says whether it is on this week's plan.
+      // generation. Its week (`demoWeek`) says which are due.
       if (isDemoStudent()) {
         if (cancelled) return;
         setSets(
@@ -104,80 +126,57 @@ function StudentMCQs() {
             subject: s.subject,
             specPointId: s.id,
             specCode: s.specPoint,
-            topicId: s.topic,
-            topicTitle: s.topic,
-            topicSort: s.topicSort,
             questionCount: DEMO_MCQ[s.id]?.questions.length ?? 0,
           })),
         );
-        setThisWeekPoints(new Set(DEMO_MCQ_SETS.filter((s) => s.thisWeek).map((s) => s.id)));
         setAttempts(DEMO_MCQ_ATTEMPTS);
-        setLoading(false);
+        settle();
         return;
       }
 
       const { data: auth } = await supabase.auth.getUser();
+      if (cancelled) return;
       const uid = auth?.user?.id;
       if (!uid) {
-        setLoading(false);
+        settle();
         return;
       }
 
-      // Which spec points the student has been on, and which of them are this
-      // week's. A point can be planned more than once — carried, revisited, or
-      // cut again next week — so "this week" means *any* plan for this week
-      // holds it, not that this week is the latest one to.
-      const [{ data: planned, error: plannedError }, { data: attemptRows }] = await Promise.all([
-        supabase
-          .from("student_weekly_plan_points")
-          .select("spec_point_id, student_weekly_plans!inner(student_id, week_start)")
-          .eq("student_weekly_plans.student_id", uid),
-        supabase.from("mcq_attempts").select("set_id, score, total, created_at").eq("user_id", uid),
-      ]);
+      const { data: attemptRows, error: attemptsError } = await supabase
+        .from("mcq_attempts")
+        .select("set_id, score, total, created_at")
+        .eq("user_id", uid);
       if (cancelled) return;
       // A failed read is not an empty shelf. Swallowing an error here is what
       // turned a 403 into a confident "No quizzes yet" on a page whose quizzes
       // all existed.
-      if (plannedError) {
-        setLoadError(plannedError.message);
-        setLoading(false);
+      if (attemptsError) {
+        settle(attemptsError.message);
         return;
       }
+      const taken = (attemptRows ?? []) as unknown as AttemptRow[];
 
-      const thisWeek = currentWeekKey();
-      const now = new Set<string>();
-      const reached = new Set<string>();
-      for (const p of (planned ?? []) as unknown as PlanPointRow[]) {
-        const week = p.student_weekly_plans?.week_start;
-        if (!p.spec_point_id || !week) continue;
-        // A point only planned for a later week hasn't been reached yet; its
-        // quiz turns up here when that week does.
-        if (week > thisWeek) continue;
-        reached.add(p.spec_point_id);
-        if (week === thisWeek) now.add(p.spec_point_id);
-      }
-      setThisWeekPoints(now);
-
-      // Only the shared sets for points the student has actually reached. Asked
-      // of the database by point rather than fetched whole and filtered here:
-      // the library holds a set for every point any student on any board has
-      // reached, which both outgrows a single page of rows and was letting
-      // another course's quizzes through wherever the filter missed.
+      // Only the sets the page can show: those taken (Marked) and this week's
+      // (Due). Asked of the database by id rather than fetched whole and
+      // filtered here: the library holds a set for every point any student on
+      // any board has reached, which both outgrows a single page of rows and
+      // was letting another course's quizzes through wherever a filter missed.
+      const wanted = [
+        ...new Set([...taken.map((a) => a.set_id), ...(dueKey ? dueKey.split(",") : [])]),
+      ];
       let rows: SetQueryRow[];
       try {
-        rows = await selectIn<SetQueryRow>([...reached], (batch) =>
+        rows = await selectIn<SetQueryRow>(wanted, (batch) =>
           supabase
             .from("mcq_sets")
             .select(
-              "id, title, published, created_at, origin, spec_point_id, subject, spec_points(code, topics(id, title, sort_order, subject))",
+              "id, title, published, created_at, spec_point_id, subject, spec_points(code, topics(subject))",
             )
-            .eq("origin", "generated")
-            .in("spec_point_id", batch),
+            .in("id", batch),
         );
       } catch (e) {
         if (cancelled) return;
-        setLoadError(e instanceof Error ? e.message : "Couldn't load your quizzes.");
-        setLoading(false);
+        settle(e instanceof Error ? e.message : "Couldn't load your quizzes.");
         return;
       }
       if (cancelled) return;
@@ -192,9 +191,6 @@ function StudentMCQs() {
           subject: r.subject ?? r.spec_points?.topics?.subject ?? null,
           specPointId: r.spec_point_id,
           specCode: r.spec_points?.code ?? null,
-          topicId: r.spec_points?.topics?.id ?? null,
-          topicTitle: r.spec_points?.topics?.title ?? null,
-          topicSort: r.spec_points?.topics?.sort_order ?? 0,
           questionCount: 0,
         }));
 
@@ -231,60 +227,64 @@ function StudentMCQs() {
       // good score on the card.
       const best: Record<string, Attempt> = {};
       const latest: Record<string, string> = {};
-      for (const a of (attemptRows ?? []) as unknown as AttemptRow[]) {
+      for (const a of taken) {
         const prev = best[a.set_id];
         if (!prev || a.score / Math.max(a.total, 1) > prev.score / Math.max(prev.total, 1)) {
           best[a.set_id] = { score: a.score, total: a.total };
         }
         if (!latest[a.set_id] || a.created_at > latest[a.set_id]) latest[a.set_id] = a.created_at;
       }
-      for (const [setId, at] of Object.entries(latest)) best[setId].opensAt = retakeOpensAt(at);
+      for (const [setId, at] of Object.entries(latest)) {
+        best[setId].opensAt = retakeOpensAt(at);
+        best[setId].lastAt = at;
+      }
       setAttempts(best);
-      setLoading(false);
+      settle();
     })();
 
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [due.loading, dueKey]);
 
-  // This week's work, and everything else filed under its topic.
-  const { current, byTopic } = useMemo(() => {
+  // Due: this week's quizzes not yet taken this week, in the week's order. A
+  // revision quiz taken in an earlier week is due again — that is what revision
+  // is. Marked: every quiz taken, newest first.
+  const { dueByLane, marked } = useMemo(() => {
     const mine = sets.filter((s) => s.subject === subject);
-    const current: QuizSet[] = [];
-    const past: QuizSet[] = [];
+    const dueSets: Array<{ set: QuizSet; slot: DueSlot }> = [];
+    const marked: QuizSet[] = [];
     for (const s of mine) {
-      if (s.specPointId && thisWeekPoints.has(s.specPointId)) current.push(s);
-      else past.push(s);
+      const slot = due.slots.quizzes.get(s.id);
+      const a = attempts[s.id];
+      const takenThisWeek = !!a && (!a.lastAt || practiceInWeek(a.lastAt, due.weekStart));
+      if (slot && !takenThisWeek) dueSets.push({ set: s, slot });
+      else if (a) marked.push(s);
     }
+    dueSets.sort((a, b) => a.slot.order - b.slot.order);
+    marked.sort((a, b) => (attempts[b.id].lastAt ?? "").localeCompare(attempts[a.id].lastAt ?? ""));
+    const dueByLane = DUE_LANE_ORDER.map((lane) => ({
+      lane,
+      sets: dueSets.filter((d) => d.slot.lane === lane).map((d) => d.set),
+    })).filter((section) => section.sets.length > 0);
+    return { dueByLane, marked };
+  }, [sets, attempts, subject, due.slots, due.weekStart]);
 
-    const groups = new Map<string, { title: string; sort: number; items: QuizSet[] }>();
-    for (const s of past) {
-      const key = s.topicId ?? "untopiced";
-      if (!groups.has(key)) {
-        groups.set(key, {
-          title: s.topicTitle ?? "Other practice",
-          sort: s.topicSort,
-          items: [],
-        });
-      }
-      groups.get(key)!.items.push(s);
-    }
-    const byTopic = [...groups.values()].sort(
-      (a, b) => a.sort - b.sort || a.title.localeCompare(b.title),
-    );
-    return { current, byTopic };
-  }, [sets, subject, thisWeekPoints]);
+  const dueCount = dueByLane.reduce((n, section) => n + section.sets.length, 0);
+  const pageLoading = loading || enrolmentsLoading || due.loading || loadedKey !== dueKey;
 
-  const pageLoading = loading || enrolmentsLoading;
+  // Land on something worth reading, as Tasks does: Due when anything is due,
+  // otherwise the quizzes that have been done. Not while the week is loading.
+  useEffect(() => {
+    if (pageLoading) return;
+    const count = { due: dueCount, marked: marked.length };
+    if (count[tab] > 0) return;
+    const other: McqTab = tab === "due" ? "marked" : "due";
+    if (count[other] > 0) setTab(other);
+  }, [pageLoading, dueCount, marked.length, tab, setTab]);
 
   return (
     <AppLayout title="Weekly MCQs">
-      <p className="text-muted-foreground mb-6 max-w-2xl">
-        Multiple-choice quizzes built from your exam spec. Each one marks itself the moment you
-        submit, with a worked explanation on every question.
-      </p>
-
       {pageLoading ? (
         <Spinner label="Loading your quizzes" />
       ) : loadError ? (
@@ -300,34 +300,51 @@ function StudentMCQs() {
         // The subject tint wraps the whole page, so the cards and every chip
         // inside them are one colour without any of them naming it.
         <div className={SUBJECT_TINT[subject] ?? "tint-primary"}>
-          <ThisWeek sets={current} attempts={attempts} />
-
-          {byTopic.length > 0 && (
-            <div data-guide="mcq-past" className="mt-10">
-              <SectionHeading
-                title="Past MCQs"
-                hint="Everything you've covered before this week, filed by topic."
-              />
-              <div className="mt-4 space-y-3">
-                {byTopic.map((group) => (
-                  <TopicGroup
-                    key={group.title}
-                    title={group.title}
-                    items={group.items}
-                    attempts={attempts}
-                  />
-                ))}
-              </div>
+          {/* Without the week, Due can't say what is due: say so rather than
+              pass off an empty tab as the whole of it. */}
+          {due.error && (
+            <div className="mb-5">
+              <ErrorNote error={due.error} onRetry={() => void due.reload()} />
             </div>
           )}
 
-          {current.length === 0 && byTopic.length === 0 && (
+          {dueCount === 0 && marked.length === 0 ? (
             <EmptyState
               mascot="pencil"
               mood="sleepy"
               title={`No ${subjectLabel(subject)} quizzes yet`}
               body="Nothing has been written for this subject so far. It'll appear here as soon as your plan reaches a spec point with a quiz behind it."
             />
+          ) : (
+            <>
+              <div className="mb-5 overflow-x-auto">
+                <SegmentedToggle
+                  layoutId="mcq-tab-pill"
+                  label="Quiz status"
+                  value={tab}
+                  onChange={(v) => setTab(v as McqTab)}
+                  items={[
+                    { value: "due", label: "Due", count: dueCount },
+                    { value: "marked", label: "Marked", count: marked.length },
+                  ]}
+                />
+              </div>
+
+              <div data-guide="mcq-list">
+                {tab === "due" ? (
+                  // Every lane open at once, under the dashboard's names.
+                  <DueLanes>
+                    {dueByLane.map(({ lane, sets: work }) => (
+                      <DueSection key={lane} lane={lane} count={work.length}>
+                        <QuizGrid sets={work} attempts={attempts} />
+                      </DueSection>
+                    ))}
+                  </DueLanes>
+                ) : (
+                  <QuizGrid sets={marked} attempts={attempts} />
+                )}
+              </div>
+            </>
           )}
         </div>
       )}
@@ -335,100 +352,12 @@ function StudentMCQs() {
   );
 }
 
-/** The week's own section — the reason to open the page at all. */
-function ThisWeek({ sets, attempts }: { sets: QuizSet[]; attempts: Record<string, Attempt> }) {
-  const done = sets.filter((s) => attempts[s.id]).length;
-
+function QuizGrid({ sets, attempts }: { sets: QuizSet[]; attempts: Record<string, Attempt> }) {
   return (
-    <section data-guide="mcq-this-week" className="surface-loud p-4 sm:p-5">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-2.5">
-          <span className="icon-tile size-9 rounded-xl">
-            <CalendarClock className="size-4 text-[color:var(--tint)]" aria-hidden />
-          </span>
-          <div>
-            <h2 className="font-display text-lg font-extrabold">This week</h2>
-            <p className="text-muted-foreground text-xs">{weekRangeLabel(mondayOf())}</p>
-          </div>
-        </div>
-        {/* The status is the whole message when there is nothing to list: a week
-            with no quizzes gets a chip, not a panel explaining its own
-            emptiness. */}
-        <span className="chip">
-          {sets.length === 0 ? (
-            "Nothing set"
-          ) : (
-            <>
-              <span className="numeral">
-                {done}/{sets.length}
-              </span>
-              done
-            </>
-          )}
-        </span>
-      </div>
-
-      {sets.length > 0 && (
-        <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
-          {sets.map((s) => (
-            <QuizCard key={s.id} set={s} attempt={attempts[s.id]} />
-          ))}
-        </div>
-      )}
-    </section>
-  );
-}
-
-/**
- * One topic's archive, collapsed.
- *
- * Closed by default and deliberately so: the point of the split is that a
- * student scans a short list of topic names rather than a long list of quizzes.
- */
-function TopicGroup({
-  title,
-  items,
-  attempts,
-}: {
-  title: string;
-  items: QuizSet[];
-  attempts: Record<string, Attempt>;
-}) {
-  // Kept with the visit, so Back from a quiz finds its group still open.
-  const [open, setOpen] = useEntryState(`mcqs.group:${title}`, false);
-  const done = items.filter((s) => attempts[s.id]).length;
-
-  return (
-    <div className="premium-card overflow-hidden">
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        aria-expanded={open}
-        className="hover:bg-muted/40 flex w-full items-center gap-3 px-4 py-3.5 text-left transition"
-      >
-        <ChevronDown
-          className={`text-muted-foreground size-4 shrink-0 transition-transform ${open ? "" : "-rotate-90"}`}
-          aria-hidden
-        />
-        {/* Wraps rather than truncates, like the curriculum's topic names. */}
-        <span className="font-display min-w-0 flex-1 font-bold break-words">{title}</span>
-        {done === items.length && (
-          <CheckCircle2 className="size-4 shrink-0 text-[color:var(--tint)]" aria-hidden />
-        )}
-        <span className="chip shrink-0">
-          <span className="numeral">
-            {done}/{items.length}
-          </span>
-        </span>
-      </button>
-
-      {open && (
-        <div className="border-border grid grid-cols-1 gap-3 border-t p-4 md:grid-cols-2 xl:grid-cols-3">
-          {items.map((s) => (
-            <QuizCard key={s.id} set={s} attempt={attempts[s.id]} />
-          ))}
-        </div>
-      )}
+    <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+      {sets.map((s) => (
+        <QuizCard key={s.id} set={s} attempt={attempts[s.id]} />
+      ))}
     </div>
   );
 }
@@ -489,11 +418,6 @@ function QuizCard({ set, attempt }: { set: QuizSet; attempt?: Attempt }) {
 
 /* ── Shapes the queries come back in ──────────────────────────────────────── */
 
-type PlanPointRow = {
-  spec_point_id: string;
-  student_weekly_plans: { week_start: string } | null;
-};
-
 type AttemptRow = { set_id: string; score: number; total: number; created_at: string };
 
 type SetQueryRow = {
@@ -501,11 +425,10 @@ type SetQueryRow = {
   title: string;
   published: boolean;
   created_at: string;
-  origin: string;
   spec_point_id: string | null;
   subject: string | null;
   spec_points: {
     code: string | null;
-    topics: { id: string; title: string; sort_order: number; subject: string } | null;
+    topics: { subject: string } | null;
   } | null;
 };
