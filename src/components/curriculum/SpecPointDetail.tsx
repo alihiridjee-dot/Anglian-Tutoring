@@ -80,11 +80,17 @@ export function SpecPointDetail({
     setGenLoading(true);
     try {
       const res = await genFn({ data: { specPointId: point.id } });
-      toast.success(
-        res.created
-          ? "Generated this point's MCQs — every student now shares them"
-          : "This point already has its MCQs — use Replace questions to write new ones",
-      );
+      // Queued is a deferral, not a result: the set doesn't exist yet.
+      if (res.queued)
+        toast.info(
+          "Queued — this point's MCQs will be written shortly; reopen the point to see them",
+        );
+      else
+        toast.success(
+          res.created
+            ? "Generated this point's MCQs — every student now shares them"
+            : "This point already has its MCQs — use Replace questions to write new ones",
+        );
       reload();
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Generation failed");
