@@ -264,13 +264,56 @@
         ],
         "tip": "The answer pH 4 scores all three marks. Show the working in case it is wrong."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 7.1.10S", "CAIE 7.1.11S", "CAIE 7.1.12S"],
+      "worked_example": {
+        "exemplar_id": "2b16f5b3-6da7-4c2a-99e4-66f534f291a8",
+        "source": "CAMBRIDGE mar 2024, Paper 42, Q3(e)",
+        "question": "Complete the equation to show the dissociation of ethanoic acid, CH₃COOH, in aqueous solution. CH₃COOH(aq) ______",
+        "marks": 3,
+        "answer_points": [
+          "CH₃COOH(aq) ⇌ CH₃COO⁻ + H⁺",
+          "1 mark for H⁺",
+          "1 mark for CH₃COO⁻",
+          "1 mark for the reversible arrow ⇌"
+        ],
+        "tip": "Ethanoic acid is a weak acid, so the reversible arrow shows that it is only partly dissociated."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Ionisation in water is also called dissociation. The two words mean the same here."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Strong acid",
+                  "meaning": "An acid that is completely dissociated in aqueous solution."
+                },
+                {
+                  "term": "Weak acid",
+                  "meaning": "An acid that is partially dissociated in aqueous solution."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.29"]
     }
   },
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "f36576b6-f47a-460f-bfd1-b8845927c34c",
@@ -279,12 +322,15 @@
       "8e1b434b-b590-410b-8de5-ce80c99f3495",
       "272725df-f93a-49a3-a9a1-05bf3c211144",
       "77c9e2ff-974f-451b-a68b-4e271c242029",
-      "c2d2f1fd-607b-4a13-8578-3e0d58dcc907"
+      "c2d2f1fd-607b-4a13-8578-3e0d58dcc907",
+      "a7c735bb-9afc-4dac-91ef-25caaf555fbf",
+      "c20e72fe-8986-4ad7-9bc6-197c90275b83"
     ],
     "exemplar_ids": [
       "2b641260-919c-4ad8-b2ff-38d12b783bd0",
       "c83d8546-29f3-4cd0-b52a-baa84af62ddd",
-      "edd2f9ad-8f66-48fa-b1fc-9ce777cfea60"
+      "edd2f9ad-8f66-48fa-b1fc-9ce777cfea60",
+      "2b16f5b3-6da7-4c2a-99e4-66f534f291a8"
     ]
   }
 }

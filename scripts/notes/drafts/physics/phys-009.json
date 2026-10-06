@@ -259,13 +259,166 @@
         ],
         "tip": "One mark for the supply problem and one for a named environmental damage."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.7.3.1",
+        "CAIE 1.7.3.2",
+        "CAIE 1.7.3.4S"
+      ],
+      "worked_example": {
+        "exemplar_id": "71a16360-3be5-4856-839c-de0829a464ca",
+        "source": "CAMBRIDGE nov 2023, Paper 42, Q8(c)(i)",
+        "question": "Describe how thermal energy from nuclear reactions is used to generate electricity in a power station.",
+        "marks": 3,
+        "answer_points": [
+          "The thermal energy is used to heat water and make steam.",
+          "The steam is at high pressure and drives a turbine.",
+          "The turbine is connected to a generator and drives it, so a coil moves in a magnetic field."
+        ],
+        "tip": "Any three points score. Say what the steam does as well as how it is made."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Describe how each resource gives useful energy or electricity. Name the boiler, turbine and generator where they are used."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Resource",
+                "How it gives useful energy or electricity"
+              ],
+              "rows": [
+                [
+                  "Fossil fuels and biofuels",
+                  "The fuel is burned. Its chemical store heats water in a boiler to make steam. The steam turns a turbine, which turns a generator."
+                ],
+                [
+                  "Nuclear fuel",
+                  "Nuclear reactions heat water to make steam. The steam turns a turbine, which turns a generator."
+                ],
+                [
+                  "Geothermal",
+                  "Hot rocks heat water to make steam. The steam turns a turbine, which turns a generator."
+                ],
+                [
+                  "Wind",
+                  "Moving air turns the blades of a turbine, which turns a generator."
+                ],
+                [
+                  "Waves",
+                  "Moving waves drive a turbine connected to a generator."
+                ],
+                [
+                  "Tides",
+                  "Water flows in and out as the tide rises and falls, and turns a turbine connected to a generator."
+                ],
+                [
+                  "Hydroelectric dam",
+                  "Water stored behind a dam has gravitational potential energy. It flows down and turns a turbine, which turns a generator."
+                ],
+                [
+                  "Solar cells",
+                  "Light from the Sun is transferred directly to electrical energy. No turbine is used."
+                ],
+                [
+                  "Solar panels",
+                  "Infrared and other electromagnetic waves from the Sun heat water in the panel. No turbine is used."
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Radiation from the Sun is the main source of energy for all these resources except geothermal, nuclear and tidal."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Compare resources by renewability, availability, reliability, scale and environmental impact.",
+                "Availability and scale: hydroelectric and tidal schemes need a suitable site. Fossil fuel, nuclear and hydroelectric stations can supply electricity on a large scale. Solar cells can supply a single home."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.18P",
+        "IGCSE 4.19P"
+      ],
+      "worked_example": {
+        "exemplar_id": "0293a40f-81d6-4749-95ea-80990c98f026",
+        "source": "EDEXCEL jan 2022, Paper 2 (P), Q7(b)",
+        "question": "Describe the energy transfers that are involved in generating electricity in a hydroelectric power station.",
+        "marks": 3,
+        "answer_points": [
+          "The gravitational potential store of the water decreases.",
+          "The water does mechanical work on the turbine, so the kinetic store of the turbine increases.",
+          "The turbine does mechanical work on the generator, so the kinetic store of the generator increases.",
+          "Energy is transferred electrically to the grid."
+        ],
+        "tip": "Any three points score. Name the store each time and say how the energy is transferred."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Describe how each resource generates electricity and the energy transfers involved."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Resource",
+                "How it generates electricity"
+              ],
+              "rows": [
+                [
+                  "Fossil fuels",
+                  "The chemical store of the fuel is transferred by heating to the thermal store of water, which becomes steam. The steam turns a turbine, which turns a generator."
+                ],
+                [
+                  "Nuclear power",
+                  "The nuclear store of the fuel is transferred by heating to water, which becomes steam. The steam turns a turbine, which turns a generator."
+                ],
+                [
+                  "Geothermal",
+                  "Hot rocks transfer energy by heating to water, which becomes steam. The steam turns a turbine, which turns a generator."
+                ],
+                [
+                  "Wind",
+                  "The kinetic store of moving air turns a turbine, which turns a generator."
+                ],
+                [
+                  "Water",
+                  "Water in a dam, or the tides and waves, transfers its gravitational or kinetic energy to a turbine, which turns a generator."
+                ],
+                [
+                  "Solar cells",
+                  "Light is transferred by radiation to the cells, which transfer energy electrically. No turbine is used."
+                ],
+                [
+                  "Solar heating",
+                  "Radiation from the Sun heats water in a panel. No turbine is used."
+                ]
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "a8e6bb33-445e-477e-8e46-2fa0b75aeeee",
@@ -273,12 +426,19 @@
       "05a699fd-733d-450c-90cb-10b67b2d72ae",
       "ac11c711-ff80-41a2-9ee8-486ce6b099ef",
       "0ff38e29-b320-4403-9dd3-9f733db4b374",
-      "d6f49ba1-3f91-4da3-87cf-fc29c8f6ae29"
+      "d6f49ba1-3f91-4da3-87cf-fc29c8f6ae29",
+      "5a66c66f-01f3-4a33-bc87-e5c749aa1fc3",
+      "42a24f5d-2527-4b23-8b0a-d65dcee11669",
+      "295a7527-4664-4b9d-ab6d-7953b9f3cdbe",
+      "35d8ad63-cd15-43bf-a7e9-2bdbe76d4c30",
+      "136a23ab-f7bb-4892-84e6-12046c71347b"
     ],
     "exemplar_ids": [
       "cd20cf5d-feec-44c3-8e28-504edd6ac784",
       "bb32c6d5-6984-4c96-9168-3bfb3b035ca7",
-      "c5104231-d1d3-4459-bdec-43567165c2f8"
+      "c5104231-d1d3-4459-bdec-43567165c2f8",
+      "71a16360-3be5-4856-839c-de0829a464ca",
+      "0293a40f-81d6-4749-95ea-80990c98f026"
     ]
   }
 }

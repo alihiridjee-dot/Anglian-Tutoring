@@ -154,7 +154,11 @@
               "unit": "C",
               "decimals": 1
             },
-            "working": ["Q = I × t", "Q = {I} × {t}", "Q = {answer} C"]
+            "working": [
+              "Q = I × t",
+              "Q = {I} × {t}",
+              "Q = {answer} C"
+            ]
           }
         },
         {
@@ -187,7 +191,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.1.2", "AQA T 6.2.1.2"],
+      "spec_codes": [
+        "AQA 4.2.1.2",
+        "AQA T 6.2.1.2"
+      ],
       "worked_example": {
         "exemplar_id": "2d2c368a-7353-4d8c-97c0-9c02ca20762c",
         "source": "AQA jun 2022, Paper 1 (F), Q07.4",
@@ -203,7 +210,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 10.8", "EDEX 10.9", "EDEX 10.10"],
+      "spec_codes": [
+        "EDEX 10.8",
+        "EDEX 10.9",
+        "EDEX 10.10"
+      ],
       "worked_example": {
         "exemplar_id": "d94691f8-deb2-4e94-9475-e87b80c3a7fe",
         "source": "EDEXCEL jun 2022, Paper 2 (F), Q1(b)(ii)",
@@ -218,7 +229,11 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P3.1e", "OCR P3.1f", "OCR P3.1g"],
+      "spec_codes": [
+        "OCR P3.1e",
+        "OCR P3.1f",
+        "OCR P3.1g"
+      ],
       "worked_example": {
         "exemplar_id": "8315952d-1964-4836-ae6a-d35de3fe3594",
         "source": "OCR jun 2024, Paper 1, Q18(c)",
@@ -231,6 +246,96 @@
         ],
         "tip": "Check the answer line first. 1800 C scores all 3 marks. 30 C, with the time not converted, scores 2 marks."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.2.1.7S",
+        "CAIE 4.2.2.1",
+        "CAIE 4.2.2.3",
+        "CAIE 4.2.2.5S",
+        "CAIE 4.2.2.6S",
+        "CAIE 4.2.1.5",
+        "CAIE 4.2.1.6"
+      ],
+      "worked_example": {
+        "exemplar_id": "23bbaa42-48a9-4414-aaf6-0010b0ce5ade",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q6(d)",
+        "question": "In a lightning strike, there is a current of 3.0 × 10⁴ A for 48 ms.\n\nCalculate the charge that flows.",
+        "marks": 3,
+        "answer_points": [
+          "Q = I × t (or I = Q / t).",
+          "Convert the time to seconds: 48 ms = 48 × 10⁻³ s = 0.048 s.",
+          "Q = 3.0 × 10⁴ × 0.048 = 1400 C (1440 C before rounding)."
+        ],
+        "tip": "Marks are given for the equation, for converting milliseconds to seconds, and for the final answer."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Conductors and insulators"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A **conductor** has free (mobile) electrons that can carry charge through it. Metals are conductors.",
+                "An **insulator** has no free electrons, so charge cannot flow through it. Plastic and rubber are insulators.",
+                "To test a material, connect it in a circuit with a cell and a lamp. If the lamp lights, the material is a conductor."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Direction of current"
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) Conventional current is drawn from the positive terminal to the negative terminal.",
+                "(Supplement) The free electrons in a metal flow the other way, from the negative terminal to the positive terminal."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.14",
+        "IGCSE 2.15",
+        "IGCSE 2.16"
+      ],
+      "worked_example": {
+        "exemplar_id": "003de273-0dc6-4095-b560-8a31af317f02",
+        "source": "EDEXCEL jun 2024, Paper 1 (P), Q11(b)(i)",
+        "question": "An electronic device is recharged from a power bank. It receives a constant current of 2.4 A and 3.8 × 10³ C of charge is transferred.\n\nCalculate the time taken to recharge the device.\nGive your answer in minutes.",
+        "marks": 3,
+        "answer_points": [
+          "Substitute into Q = I × t: 3.8 × 10³ = 2.4 × t, so t = Q ÷ I.",
+          "t = 3.8 × 10³ ÷ 2.4 = 1583 s (1600 s to 2 significant figures).",
+          "Convert to minutes: 1583 ÷ 60 = 26 minutes."
+        ],
+        "tip": "One mark each for the substitution or rearrangement, the time in seconds and the conversion to minutes."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "In a solid metal, the current is a flow of electrons. Electrons carry a negative charge."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The electrons are free to move through the metal.",
+                "They flow from the negative terminal towards the positive terminal."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -245,7 +350,15 @@
       "9e0000c7-e31e-4f04-b8ff-eebaf9965dfd",
       "462143b1-5982-485d-8a0d-a7358625ddcf",
       "9bf34753-f164-44fd-ba10-e96e142b60bd",
-      "859a6d23-9eb2-44d3-96eb-3b00c9f06082"
+      "859a6d23-9eb2-44d3-96eb-3b00c9f06082",
+      "db025d3a-ba7e-4984-928c-9f4d4281cb53",
+      "ff8fc51f-78ad-4957-8951-ebd7fe002d79",
+      "990126b6-5ead-4e72-8944-925e7b00beb4",
+      "8c0b02d9-9b35-4037-9d37-90abfeb3b833",
+      "9c41a97b-430d-4321-8384-0af75b92f263",
+      "bf93b4d2-e1c2-4899-99e4-22324788b7a6",
+      "1da05d46-2726-41ef-9bf2-4fba2557d975",
+      "977959df-3e44-45df-840c-0240b48721cd"
     ],
     "exemplar_ids": [
       "2d2c368a-7353-4d8c-97c0-9c02ca20762c",
@@ -257,9 +370,11 @@
       "92d6ed5e-8b52-4967-aff5-8b5dfa83041f",
       "62820b64-5006-47ef-96dc-16a76d54f35a",
       "e2fd9564-1b39-4c74-908d-2e0c1a7007e4",
-      "5b3a7967-fc9d-472e-9ef0-98c1762b4a7f"
+      "5b3a7967-fc9d-472e-9ef0-98c1762b4a7f",
+      "23bbaa42-48a9-4414-aaf6-0010b0ce5ade",
+      "003de273-0dc6-4095-b560-8a31af317f02"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

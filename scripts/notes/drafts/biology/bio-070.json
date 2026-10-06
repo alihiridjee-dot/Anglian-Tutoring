@@ -230,6 +230,92 @@
         ],
         "tip": "Saying only that the rod cells are broken down repeats the question. Say what rods and cones do."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 14.2.1",
+        "CAIE 14.2.2",
+        "CAIE 14.2.3",
+        "CAIE 14.2.4",
+        "CAIE 14.2.5S",
+        "CAIE 14.2.6S",
+        "CAIE 14.2.7S",
+        "CAIE 14.2.8S",
+        "CAIE 14.2.9S"
+      ],
+      "worked_example": {
+        "exemplar_id": "d8b4e005-8149-4314-aa8b-ba572358ae8c",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q2(c)",
+        "question": "Describe the distribution and function of rods and cones in the eye.",
+        "marks": 4,
+        "answer_points": [
+          "Distribution: both rods and cones are found in the retina.",
+          "There are more cones (and no rods) at the fovea.",
+          "There are no rods or cones at the blind spot.",
+          "Function: rods and cones are light receptors. They respond to light and generate impulses.",
+          "Rods respond to dim light, give night vision and a black and white (grey) image.",
+          "Cones respond to bright light and give colour vision, because different cones absorb different wavelengths of light."
+        ],
+        "tip": "Any four points score. Include at least one point on distribution and one on function."
+      },
+      "extra": [
+        {
+          "heading": "Sense organs and the blind spot",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Sense organ",
+                  "meaning": "A group of receptor cells that respond to specific stimuli: light, sound, touch, temperature and chemicals."
+                },
+                {
+                  "term": "Blind spot",
+                  "meaning": "The place where the optic nerve leaves the retina. It has no receptor cells, so it cannot detect light."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The eye is a sense organ. Its receptor cells detect light."
+            }
+          ]
+        },
+        {
+          "heading": "Rods, cones and the fovea",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Rods and cones are not spread evenly across the retina."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Rods** are spread across the retina. They are more sensitive than cones, so they give night vision.",
+                "**Cones** are concentrated at the **fovea**. There are three kinds, and each absorbs a different colour of light. Together they give colour vision.",
+                "The **fovea** is the small area of the retina where cones are densest. It gives sharp colour vision.",
+                "There are no rods or cones at the blind spot."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.91", "IGCSE 2.92"],
+      "worked_example": {
+        "exemplar_id": "3c45fed8-ea29-4771-b196-8677f3f5bc93",
+        "source": "EDEXCEL jun 2022, Paper 1 (B), Q8(c)",
+        "question": "Some rats with white fur also have pink eyes.\n\nThese rats have pink eyes because they do not have pigment in their irises. This means that their irises let light pass through, unlike the coloured irises found in other rats.\n\nExplain how this difference in the iris affects vision in the rats with pink eyes.",
+        "marks": 3,
+        "answer_points": [
+          "The iris does not block light, or blocks less light.",
+          "So the pupil changing size (dilating or constricting) has little or no effect. The iris cannot control the amount of light entering the eye.",
+          "Too much light enters the eye and falls on the retina.",
+          "This gives poor vision, or damages the retina."
+        ],
+        "tip": "Any three points score. Do not stop at saying that the iris lets light through."
+      }
     }
   },
   "meta": {
@@ -239,14 +325,27 @@
     "spec_point_ids": [
       "c284b080-5203-45bf-ab28-fe85ee7ebb1e",
       "7ff8f794-7173-489d-a515-f773ef6a19fd",
-      "dfa2621f-37a3-45d1-aa0a-a8a2ad23ddb7"
+      "dfa2621f-37a3-45d1-aa0a-a8a2ad23ddb7",
+      "e5cd17da-2208-40f2-83a2-26c87e7e46a2",
+      "bd7b58f5-eee0-49a3-b81f-0663ded449e6",
+      "4c3c91d8-133a-41f3-bfb6-958bb4b1b979",
+      "5c0fda84-2e9e-4d92-9ffd-3e7e6ee6d17f",
+      "740949d5-1b48-401b-b55d-2334bdd7b085",
+      "f9fca01a-6aa5-4494-a71c-6a7909306e0a",
+      "52244cb5-664d-4d2e-998e-ae27d4d7675f",
+      "be3fa34d-69b2-4dc1-b77e-397e7724cccc",
+      "fb9b6d95-d081-4382-8f5c-7c853a89cc65",
+      "f5149d10-6604-4650-9d31-e1d3e735cd35",
+      "71f9d6b8-72c7-42e9-af7b-2aeade72c1b9"
     ],
     "exemplar_ids": [
       "5f03b7fb-b868-4f16-be9c-3143d2070927",
       "6f5145ca-b81a-4421-9d2a-ada8da6cff15",
-      "b91b23f0-4243-47c4-9b44-44ae5b52372f"
+      "b91b23f0-4243-47c4-9b44-44ae5b52372f",
+      "d8b4e005-8149-4314-aa8b-ba572358ae8c",
+      "3c45fed8-ea29-4771-b196-8677f3f5bc93"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

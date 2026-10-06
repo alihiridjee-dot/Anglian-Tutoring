@@ -164,6 +164,43 @@
         ],
         "tip": "Do not say energy is produced or made. Say energy is released."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 6.1.5", "CAIE 6.1.6"],
+      "worked_example": {
+        "exemplar_id": "266d9f50-785e-4c58-9055-7a2a59956e68",
+        "source": "CAMBRIDGE jun 2023, Paper 41, Q4(c)",
+        "question": "Outline how the carbohydrates made during photosynthesis are used in plants.",
+        "marks": 4,
+        "answer_points": [
+          "Glucose is used in respiration, to release energy.",
+          "Glucose is converted to starch, which is stored.",
+          "Glucose is converted to sucrose, which is transported in the phloem.",
+          "Sugar in nectar attracts insects.",
+          "Glucose is converted to cellulose, which is used to build cell walls."
+        ],
+        "tip": "Any four of the points earn the four marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section covers two more uses of the sugars a plant makes, and the job of magnesium ions."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Glucose is converted to **sucrose**, which is transported in the phloem to other parts of the plant.",
+                "Sugar in **nectar** attracts insects, which pollinate the flowers.",
+                "**Magnesium ions** are needed to make chlorophyll. A plant short of magnesium has yellow leaves.",
+                "**Nitrate ions** are needed to make amino acids."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -171,11 +208,13 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "ede48bc7-9830-43c5-950d-b9119f54207b",
-      "b8dee717-7e62-4e86-939f-4e3726cd34c7"
+      "b8dee717-7e62-4e86-939f-4e3726cd34c7",
+      "1055e205-c06f-4646-bc87-91acb3a70dc2",
+      "4c9c29f5-e57b-4c35-82f4-f25175f8f5ec"
     ],
-    "exemplar_ids": ["726c91f9-b0f7-4575-ab85-f3f58b0510fe"]
+    "exemplar_ids": ["726c91f9-b0f7-4575-ab85-f3f58b0510fe", "266d9f50-785e-4c58-9055-7a2a59956e68"]
   }
 }

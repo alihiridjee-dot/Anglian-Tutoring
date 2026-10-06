@@ -39,9 +39,17 @@
         },
         {
           "type": "table",
-          "columns": ["Where", "Name", "What they can become"],
+          "columns": [
+            "Where",
+            "Name",
+            "What they can become"
+          ],
           "rows": [
-            ["Human embryos", "Embryonic stem cells", "Most types of human cell"],
+            [
+              "Human embryos",
+              "Embryonic stem cells",
+              "Most types of human cell"
+            ],
             [
               "Adult animals, such as in bone marrow",
               "Adult stem cells",
@@ -111,10 +119,22 @@
         },
         {
           "type": "table",
-          "columns": ["Feature", "Embryonic stem cells", "Adult stem cells"],
+          "columns": [
+            "Feature",
+            "Embryonic stem cells",
+            "Adult stem cells"
+          ],
           "rows": [
-            ["Source", "Human embryos", "Adult tissues, such as bone marrow"],
-            ["Can become", "Most (any) types of human cell", "Only certain types of cell"],
+            [
+              "Source",
+              "Human embryos",
+              "Adult tissues, such as bone marrow"
+            ],
+            [
+              "Can become",
+              "Most (any) types of human cell",
+              "Only certain types of cell"
+            ],
             [
               "Example",
               "Can be cloned and made to differentiate into most types of human cell",
@@ -128,7 +148,11 @@
             "kind": "sort",
             "alt": "Sort each statement into embryonic stem cells, adult stem cells or plant meristem cells.",
             "prompt": "Which type of stem cell?",
-            "groups": ["Embryonic stem cells", "Adult stem cells", "Plant meristem cells"],
+            "groups": [
+              "Embryonic stem cells",
+              "Adult stem cells",
+              "Plant meristem cells"
+            ],
             "items": [
               {
                 "text": "Come from an embryo",
@@ -199,7 +223,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 1.8", "AQA T 4.1.2.3"],
+      "spec_codes": [
+        "AQA 1.8",
+        "AQA T 4.1.2.3"
+      ],
       "worked_example": {
         "exemplar_id": "41ea3dec-9383-497a-931f-7f8f1f5cfb81",
         "source": "AQA jun 2021, Paper 1 (H), Q05.6",
@@ -213,7 +240,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 2.8"],
+      "spec_codes": [
+        "EDEX 2.8"
+      ],
       "worked_example": {
         "exemplar_id": "f9bca34e-d39d-4c0c-b048-fc8bfec0eb42",
         "source": "EDEXCEL jun 2024, Paper 1 (F), Q4(d)",
@@ -228,7 +257,11 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 2.1d", "OCR 2.1e", "OCR 2.1f"],
+      "spec_codes": [
+        "OCR 2.1d",
+        "OCR 2.1e",
+        "OCR 2.1f"
+      ],
       "worked_example": {
         "exemplar_id": "1103e18f-53d0-4973-bd11-4b5ead661b08",
         "source": "OCR nov 2021, Paper 3, Q16(b)(i)",
@@ -240,12 +273,29 @@
         ],
         "tip": "Name both types of stem cell and say what each can become."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 17.2.5S"
+      ],
+      "worked_example": {
+        "exemplar_id": "de5ea364-bc6b-4f9b-8fe1-d78b20438766",
+        "source": "CAMBRIDGE nov 2023, Paper 41, Q2(c)",
+        "question": "Describe what is meant by the term stem cell.",
+        "marks": 2,
+        "answer_points": [
+          "Stem cells are unspecialised cells.",
+          "They divide by mitosis.",
+          "The daughter cells can become specialised for specific functions."
+        ],
+        "tip": "Any two of the three points score a mark each."
+      }
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -254,12 +304,14 @@
       "1ae21a56-3a62-405c-bfac-f21465b0652a",
       "ea0641d7-76f3-4b91-a26f-57bad56a1995",
       "fbb7a487-aba5-48cd-9d8d-c2ede287f634",
-      "279be9a0-731b-4c78-b84b-ef157779210f"
+      "279be9a0-731b-4c78-b84b-ef157779210f",
+      "90e7a4fe-2318-4ddf-9269-67e4a3627c12"
     ],
     "exemplar_ids": [
       "41ea3dec-9383-497a-931f-7f8f1f5cfb81",
       "f9bca34e-d39d-4c0c-b048-fc8bfec0eb42",
-      "1103e18f-53d0-4973-bd11-4b5ead661b08"
+      "1103e18f-53d0-4973-bd11-4b5ead661b08",
+      "de5ea364-bc6b-4f9b-8fe1-d78b20438766"
     ]
   }
 }

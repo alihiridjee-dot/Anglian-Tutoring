@@ -212,12 +212,32 @@
         },
         {
           "type": "table",
-          "columns": ["Feature", "Series", "Parallel"],
+          "columns": [
+            "Feature",
+            "Series",
+            "Parallel"
+          ],
           "rows": [
-            ["Paths for current", "One path", "More than one path"],
-            ["Current", "Same everywhere", "Splits between branches and adds up"],
-            ["Potential difference", "Shared between components", "Same across each branch"],
-            ["Adding another resistor", "Total resistance increases", "Total resistance decreases"]
+            [
+              "Paths for current",
+              "One path",
+              "More than one path"
+            ],
+            [
+              "Current",
+              "Same everywhere",
+              "Splits between branches and adds up"
+            ],
+            [
+              "Potential difference",
+              "Shared between components",
+              "Same across each branch"
+            ],
+            [
+              "Adding another resistor",
+              "Total resistance increases",
+              "Total resistance decreases"
+            ]
           ]
         },
         {
@@ -256,7 +276,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.2", "AQA T 6.2.2"],
+      "spec_codes": [
+        "AQA 4.2.2",
+        "AQA T 6.2.2"
+      ],
       "worked_example": {
         "exemplar_id": "45b284db-52e1-4035-81a6-09d4e4512395",
         "source": "AQA jun 2023, Paper 1 (F), Q06.2",
@@ -270,7 +293,12 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 10.3", "EDEX 10.11", "EDEX 10.14", "EDEX 10.15"],
+      "spec_codes": [
+        "EDEX 10.3",
+        "EDEX 10.11",
+        "EDEX 10.14",
+        "EDEX 10.15"
+      ],
       "worked_example": {
         "exemplar_id": "6f0a5b52-95a0-4080-bced-01ea8fd4d76a",
         "source": "EDEXCEL jun 2024, Paper 2 (F), Q8(b)(iv)",
@@ -285,7 +313,12 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P3.2a", "OCR P3.2i", "OCR P3.2j", "OCR P3.2m"],
+      "spec_codes": [
+        "OCR P3.2a",
+        "OCR P3.2i",
+        "OCR P3.2j",
+        "OCR P3.2m"
+      ],
       "worked_example": {
         "exemplar_id": "e9b7d429-55ab-47ce-bf81-924e59ae85f5",
         "source": "OCR sample, Paper 3, Q19(b)",
@@ -297,6 +330,152 @@
         ],
         "tip": "Error carried forward is allowed from the earlier resistance values."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.3.2.1",
+        "CAIE 4.3.2.2",
+        "CAIE 4.3.2.4",
+        "CAIE 4.3.2.5",
+        "CAIE 4.3.2.6",
+        "CAIE 4.3.2.7",
+        "CAIE 4.3.2.8S",
+        "CAIE 4.3.2.9S",
+        "CAIE 4.3.2.10S",
+        "CAIE 4.3.2.3",
+        "CAIE 4.3.3.1",
+        "CAIE 4.3.3.3S"
+      ],
+      "worked_example": {
+        "exemplar_id": "cce5b00e-9dc5-4e99-a83c-80f33dc12fde",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q6(c)(ii)",
+        "question": "(Supplement) A potential divider is made by connecting a light-dependent resistor (LDR) and a thermistor in series with a direct current (d.c.) power supply. A voltmeter measures the potential difference (p.d.) across the LDR.\n\nThe resistance of the LDR decreases and the resistance of the thermistor increases.\n\nExplain what happens to the reading on the voltmeter.",
+        "marks": 3,
+        "answer_points": [
+          "The reading on the voltmeter decreases.",
+          "The e.m.f. of the supply is constant.",
+          "The LDR is now a smaller proportion of the total resistance, so its share of the e.m.f. is smaller (R₁ ÷ R₂ = V₁ ÷ V₂)."
+        ],
+        "tip": "One mark for the decrease, then any two of the three reasons."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Lamps in a lighting circuit"
+            },
+            {
+              "type": "paragraph",
+              "text": "Lamps in a lighting circuit are connected in parallel. This has three advantages."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Each lamp has the full potential difference of the supply.",
+                "Each lamp works independently, so it can be switched on and off on its own.",
+                "If one lamp fails, the others stay lit."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Cells in series and parallel resistors"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The combined e.m.f. of cells connected in series is the sum of their e.m.f.s.",
+                "The current from the source is larger than the current in each branch of a parallel circuit."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The combined resistance of two resistors in parallel comes from this equation."
+            },
+            {
+              "type": "equation",
+              "label": "Resistors in parallel",
+              "formula": "1 ÷ R_total = 1 ÷ R₁ + 1 ÷ R₂",
+              "where": [
+                "R_total = combined resistance, in ohms (Ω)",
+                "R₁, R₂ = resistance of each resistor, in ohms (Ω)"
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Write down.",
+                  "text": "A 6.0 Ω resistor and a 12 Ω resistor are in parallel."
+                },
+                {
+                  "lead": "Add the fractions.",
+                  "text": "1 ÷ R_total = 1 ÷ 6.0 + 1 ÷ 12 = 3 ÷ 12."
+                },
+                {
+                  "lead": "Invert.",
+                  "text": "R_total = 12 ÷ 3 = 4.0 Ω. This is less than 6.0 Ω, as it must be."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Two resistors in series share the supply potential difference in the ratio of their resistances."
+            },
+            {
+              "type": "equation",
+              "label": "Potential divider",
+              "formula": "R₁ ÷ R₂ = V₁ ÷ V₂",
+              "where": [
+                "R₁, R₂ = resistance of each resistor, in ohms (Ω)",
+                "V₁, V₂ = potential difference across each resistor, in volts (V)"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.7",
+        "IGCSE 2.8",
+        "IGCSE 2.17",
+        "IGCSE 2.18",
+        "IGCSE 2.19"
+      ],
+      "worked_example": {
+        "exemplar_id": "215339b1-9ac0-4831-bcd4-e90527af237e",
+        "source": "EDEXCEL jan 2020, Paper 1 (PR), Q6(b)(iii)",
+        "question": "A light dependent resistor (LDR) and a 73 Ω resistor are connected in series with a 1.5 V cell. The current in the circuit is 7.8 mA.\n\nCalculate the voltage across the LDR.",
+        "marks": 2,
+        "answer_points": [
+          "Voltage across the resistor: V = I × R = 7.8 × 10⁻³ × 73 = 0.57 V.",
+          "The voltages across components in series add up to the supply voltage.",
+          "Voltage across the LDR = 1.5 − 0.57 = 0.93 V."
+        ],
+        "tip": "One mark for the idea that the voltages add to the supply voltage and one for the correct value."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Lamps in a house are wired in parallel, not in series."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Each lamp gets the full mains voltage, so it is as bright as it should be.",
+                "Each lamp works independently. One can be switched off without affecting the others.",
+                "If one lamp fails, the others stay lit. In series, one failed lamp would break the whole circuit.",
+                "In a series circuit, more resistors or a larger resistance make the current smaller for the same supply voltage."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -304,7 +483,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check, opus-5-5-diagram-audit",
-    "checked_at": "2026-10-03",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "dd2dfc70-cca6-469a-ae6b-c4c7ce98c051",
       "487305da-ab95-4fe7-93b1-5d565e3bed14",
@@ -315,7 +494,21 @@
       "edc42c31-3c97-4268-94f0-683c15ee6c36",
       "131cbf80-4f67-4a0e-931f-121189c49d9d",
       "371a3cc8-54b4-4748-b83e-bd43fd2e0cdb",
-      "5dc795b7-9187-4287-bebd-9fbb48a19e14"
+      "5dc795b7-9187-4287-bebd-9fbb48a19e14",
+      "b94f3146-f2eb-46e2-a8f5-0194c376283f",
+      "0d2b1103-d970-43f0-9a6b-414e0ec5a6d1",
+      "33aae3b0-9643-4d8c-b4a3-315386e99266",
+      "6b981c26-6355-4d1e-81bc-43e43e1d4ea0",
+      "61e7b52c-ed3d-478c-b885-483b67c69665",
+      "b557c29d-6ee7-4b6b-ab93-47e41168698c",
+      "6c02e2e4-15ff-4cbb-b1cd-4308d557f230",
+      "728496f8-d9c2-4de7-b0e7-b3483ddca4ff",
+      "a22d6479-f7c5-43c1-8a97-eeeef69ffea0",
+      "4e195e85-36c4-4062-bdb5-f17682816e6d",
+      "9c0b9c4a-4a24-4170-8712-1fe5dc4376af",
+      "b8876106-1c38-4fab-bf98-a3c13463c0b1",
+      "22d4aa23-2056-4665-b16c-09f8bef2556d",
+      "86d7f741-a361-4c85-a898-ec2255155fd1"
     ],
     "exemplar_ids": [
       "45b284db-52e1-4035-81a6-09d4e4512395",
@@ -328,7 +521,9 @@
       "90271eb6-cbf3-4cb2-9720-def27a60bc8b",
       "e9b7d429-55ab-47ce-bf81-924e59ae85f5",
       "50695906-3e1b-43b3-b24e-13e0723ac315",
-      "01b0b068-ec8e-43f5-9a31-ac38e86b54d0"
+      "01b0b068-ec8e-43f5-9a31-ac38e86b54d0",
+      "cce5b00e-9dc5-4e99-a83c-80f33dc12fde",
+      "215339b1-9ac0-4831-bcd4-e90527af237e"
     ]
   }
 }

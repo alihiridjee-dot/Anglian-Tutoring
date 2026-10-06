@@ -149,6 +149,28 @@
   "boards": {
     "edexcel": {
       "spec_codes": ["EDEX 8.14"]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.2.2S"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A hydrogen–oxygen fuel cell is compared with a petrol engine."
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) A fuel cell makes electricity to turn an electric motor. It gives out water only, with no carbon dioxide.",
+                "(Supplement) It converts a larger share of the fuel's energy into useful energy than a petrol engine does.",
+                "(Supplement) Fuel cells are expensive to make, and hydrogen is hard to store and refill."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -158,6 +180,6 @@
     "spec_point_ids": ["30313bfc-b728-438f-97f4-80e6ba0644af"],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

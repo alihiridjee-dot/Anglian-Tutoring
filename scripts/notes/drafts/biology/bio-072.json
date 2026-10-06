@@ -283,6 +283,84 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 14.4.6S", "CAIE 14.4.7S", "CAIE 14.4.8S"],
+      "extra": [
+        {
+          "heading": "The skin and insulation",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The skin contains the structures that control heat loss."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Hairs** and **hair erector muscles**: the muscles contract to raise the hairs, which traps an insulating layer of air.",
+                "**Sweat glands**: release sweat onto the skin surface.",
+                "**Receptors** and **sensory neurones**: detect temperature and send impulses to the brain.",
+                "**Blood vessels**: carry more or less blood to the skin surface.",
+                "**Fatty tissue**: a layer under the skin that insulates the body and reduces heat loss."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Arterioles in the skin",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The widening and narrowing happen in the arterioles that supply the capillaries near the skin surface."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Vasodilation**: the arterioles widen. More blood flows through the skin capillaries, so more heat is lost.",
+                "**Vasoconstriction**: the arterioles narrow. Less blood flows through the skin capillaries, so less heat is lost."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.93"],
+      "worked_example": {
+        "exemplar_id": "46ca51c3-3d8c-40ba-a796-710b77a41bec",
+        "source": "EDEXCEL jun 2024, Paper 2 (BR), Q3(a)(iii)",
+        "question": "The skin responds to changes in temperature.\n\nDescribe how the skin responds when a person enters a cold environment.",
+        "marks": 4,
+        "answer_points": [
+          "Vasoconstriction occurs.",
+          "The arterioles supplying the capillaries near the skin surface constrict (narrow).",
+          "Less blood flows to the skin surface.",
+          "The hair erector muscles contract, so the hairs stand up.",
+          "This traps air, which insulates the body.",
+          "Less heat is lost by radiation, convection or evaporation of sweat.",
+          "Less sweat is produced."
+        ],
+        "tip": "Any four points score one mark each. Say that the arterioles constrict, not the capillaries."
+      },
+      "extra": [
+        {
+          "heading": "Arterioles in the skin",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The widening and narrowing happen in the arterioles that supply the capillaries near the skin surface."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Vasodilation**: the arterioles widen. More blood flows through the skin capillaries, so more heat is lost.",
+                "**Vasoconstriction**: the arterioles narrow. Less blood flows through the skin capillaries, so less heat is lost.",
+                "In the cold, the **hair erector muscles** contract and the hairs stand up. This traps air, which insulates the body."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -290,19 +368,24 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "a5e44b65-54ec-4de8-9c99-23114844df03",
       "dd1be3e7-8505-4149-98f5-98a5ae0c9f56",
       "c7a2b6bd-e27d-4590-9599-951f36058b5c",
-      "2b436bed-efb7-4b48-950d-55b23f08b799"
+      "2b436bed-efb7-4b48-950d-55b23f08b799",
+      "91134678-67dd-4952-8648-bb0cb86c4fc7",
+      "4902d795-15e5-4a17-9259-dac7599356c4",
+      "bc503055-3ab2-4504-94a7-7fb4cff38462",
+      "8a2d4778-ac5c-4548-a6dc-7ef493c1679b"
     ],
     "exemplar_ids": [
       "6d96a072-5c5f-462b-aa84-a52829618a62",
       "6ac19253-9fe7-49b6-b418-5d1bfb1977db",
       "5dbd2ee5-786d-4670-891d-c008b0c8f08b",
       "8d1b0a2d-7674-492f-b28f-3db301d481ad",
-      "7d6a8652-db6a-4ebf-a29e-cdc5e3cff806"
+      "7d6a8652-db6a-4ebf-a29e-cdc5e3cff806",
+      "46ca51c3-3d8c-40ba-a796-710b77a41bec"
     ]
   }
 }

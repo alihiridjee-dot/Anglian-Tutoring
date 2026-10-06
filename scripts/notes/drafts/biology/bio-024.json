@@ -14,17 +14,37 @@
         },
         {
           "type": "table",
-          "columns": ["Nutrient", "Reagent", "Positive result", "Negative result"],
+          "columns": [
+            "Nutrient",
+            "Reagent",
+            "Positive result",
+            "Negative result"
+          ],
           "rows": [
-            ["Starch", "Iodine solution", "Orange-brown to blue-black", "Stays orange or brown"],
+            [
+              "Starch",
+              "Iodine solution",
+              "Orange-brown to blue-black",
+              "Stays orange or brown"
+            ],
             [
               "Sugar (glucose, a reducing sugar)",
               "Benedict's solution, heated",
               "Blue to green, yellow, orange or brick red",
               "Stays blue"
             ],
-            ["Protein", "Biuret solution", "Blue to purple or lilac", "Stays blue"],
-            ["Lipid (fat)", "Ethanol, then water", "A white cloudy emulsion forms", "Stays clear"]
+            [
+              "Protein",
+              "Biuret solution",
+              "Blue to purple or lilac",
+              "Stays blue"
+            ],
+            [
+              "Lipid (fat)",
+              "Ethanol, then water",
+              "A white cloudy emulsion forms",
+              "Stays clear"
+            ]
           ]
         },
         {
@@ -33,7 +53,11 @@
             "kind": "predictor",
             "alt": "Pick a nutrient to see the reagent used and the colours seen before and after the test.",
             "prompt": "Pick a nutrient in the food",
-            "result_labels": ["Reagent", "How to do the test", "Positive result"],
+            "result_labels": [
+              "Reagent",
+              "How to do the test",
+              "Positive result"
+            ],
             "options": [
               {
                 "label": "Starch",
@@ -125,7 +149,11 @@
               },
               {
                 "label": "None of these",
-                "results": ["Any of the reagents", "Carry out each test", "No colour change"],
+                "results": [
+                  "Any of the reagents",
+                  "Carry out each test",
+                  "No colour change"
+                ],
                 "scene": {
                   "kind": "tubes",
                   "tubes": [
@@ -260,7 +288,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 2.2", "AQA T 4.2.2.1"],
+      "spec_codes": [
+        "AQA 2.2",
+        "AQA T 4.2.2.1"
+      ],
       "worked_example": {
         "exemplar_id": "731a0901-151b-4b3e-8cb9-5ab3c43aed0a",
         "source": "AQA jun 2024, Paper 1 (F), Q04.1",
@@ -276,7 +307,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 1.13B"],
+      "spec_codes": [
+        "EDEX 1.13B"
+      ],
       "worked_example": {
         "exemplar_id": "edd9c9b9-621f-4bf5-9d4d-17491498c280",
         "source": "EDEXCEL nov 2021, Paper 2 (H), Q4(d)",
@@ -291,7 +324,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 7.3"],
+      "spec_codes": [
+        "OCR 7.3"
+      ],
       "worked_example": {
         "exemplar_id": "a09c53e2-d393-4a81-8cfd-f62e87028c24",
         "source": "OCR jun 2023, Paper 1, Q21(c)",
@@ -304,6 +339,103 @@
         ],
         "tip": "Any two points score one mark each. If no other marks are awarded, naming the starch test and the sugar test, iodine and Benedict's, gets one mark."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.1.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "f56a17ea-40e4-4deb-8ace-e586fdbacbd3",
+        "source": "CAMBRIDGE jun 2024, Paper 62, Q2(b)",
+        "question": "When a seed germinates it grows into a seedling.\nAs seedlings grow, they change starch into reducing sugars.\nDescribe the methods you would use to test a sample of seedlings for starch and reducing sugars.",
+        "marks": 3,
+        "answer_points": [
+          "Starch: use iodine solution.",
+          "Reducing sugar: use Benedict's solution.",
+          "Heat the Benedict's solution mixture."
+        ],
+        "tip": "One mark for each point."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Vitamin C has its own test. It uses DCPIP, a blue dye that vitamin C turns colourless."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Put a measured volume of blue DCPIP solution in a test tube."
+                },
+                {
+                  "lead": "Add the sample.",
+                  "text": "Add the food or juice one drop at a time, shaking after each drop."
+                },
+                {
+                  "lead": "Look.",
+                  "text": "Positive: the blue colour disappears and the mixture goes colourless."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The more vitamin C a sample has, the fewer drops are needed to turn the DCPIP colourless.",
+                "A sample with no vitamin C leaves the DCPIP blue."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.9"
+      ],
+      "worked_example": {
+        "exemplar_id": "2ee86c49-ae8a-4222-b3c4-273690ade87b",
+        "source": "EDEXCEL jun 2019, Paper 2 (B), Q2(a)",
+        "question": "The leaves of plants make starch.\nDescribe how you would test a leaf to show that it contains starch.",
+        "marks": 3,
+        "answer_points": [
+          "Use warm or hot ethanol (in a water bath).",
+          "Use iodine solution.",
+          "The leaf turns blue-black."
+        ],
+        "tip": "One mark for each point."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A leaf can be tested for starch, but its green colour hides the result. The leaf is treated first."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Soften.",
+                  "text": "Dip the leaf in boiling water to kill it and soften it."
+                },
+                {
+                  "lead": "Remove the colour.",
+                  "text": "Warm the leaf in hot ethanol in a water bath. The ethanol removes the chlorophyll."
+                },
+                {
+                  "lead": "Test.",
+                  "text": "Rinse the leaf, then add iodine solution. Blue-black means starch is present."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -312,14 +444,18 @@
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "0fd10bd0-40f0-46b1-a99e-db67016da703",
-      "ad90945e-a5b4-4dfc-bf6e-135f086e2387"
+      "ad90945e-a5b4-4dfc-bf6e-135f086e2387",
+      "e153f085-95bc-49a1-99cb-3761b351ae34",
+      "36ba5859-45f4-456c-a361-14124e724428"
     ],
     "exemplar_ids": [
       "731a0901-151b-4b3e-8cb9-5ab3c43aed0a",
       "edd9c9b9-621f-4bf5-9d4d-17491498c280",
-      "a09c53e2-d393-4a81-8cfd-f62e87028c24"
+      "a09c53e2-d393-4a81-8cfd-f62e87028c24",
+      "f56a17ea-40e4-4deb-8ace-e586fdbacbd3",
+      "2ee86c49-ae8a-4222-b3c4-273690ade87b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

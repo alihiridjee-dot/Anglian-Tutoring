@@ -175,6 +175,55 @@
         ],
         "tip": "Any three points. Energy is allowed instead of infrared radiation, and a named gas such as carbon dioxide or methane is allowed."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 10.3.7S"],
+      "worked_example": {
+        "exemplar_id": "09f681b0-8c3c-4f02-b7e5-1280a8b00e1b",
+        "source": "CAMBRIDGE nov 2023, Paper 41, Q5(c)(ii)",
+        "question": "Methane is a greenhouse gas which contributes to global warming.\n\nExplain, in terms of thermal energy, how greenhouse gases cause global warming.",
+        "marks": 3,
+        "answer_points": [
+          "Greenhouse gases absorb thermal energy from the Earth.",
+          "Any two from: energy from the Sun is absorbed by the Earth's surface; the Earth emits or reflects thermal energy; greenhouse gases reduce or stop thermal energy loss into space; more greenhouse gas gives a higher atmospheric temperature."
+        ],
+        "tip": "The first mark is always the absorption. Then add two more links in the chain."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Describe how carbon dioxide and methane cause global warming in terms of thermal energy."
+            },
+            {
+              "type": "list",
+              "items": [
+                "They **absorb** thermal energy that the Earth's surface emits.",
+                "They **reflect** and **emit** thermal energy, some of it back towards the Earth.",
+                "This reduces the thermal energy lost to space, so the temperature of the atmosphere rises."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.13"],
+      "worked_example": {
+        "exemplar_id": "894e078c-06a8-48a9-b1fd-aca301b6334a",
+        "source": "EDEXCEL jun 2023, Paper 2 (C), Q2(d)",
+        "question": "Explain why an increasing amount of carbon dioxide in the atmosphere is likely to cause a problem for the environment.",
+        "marks": 2,
+        "answer_points": [
+          "Carbon dioxide is a greenhouse gas (it traps heat in the atmosphere).",
+          "This causes climate change or global warming.",
+          "This leads to melting polar ice caps, flooding, wildfires or rising sea levels.",
+          "Link the first point to either the second or the third to score both marks."
+        ],
+        "tip": "Start with the gas, then link it to the warming or to the effect."
+      }
     }
   },
   "meta": {
@@ -185,14 +234,18 @@
       "3ca28f59-1900-473a-b58e-62be5239d960",
       "15aa3ad6-febe-43c1-ba20-9b8581a23143",
       "1d4028d5-d516-4342-8ffa-25bc87d97cd9",
-      "4a1e716e-d7d8-4d01-9611-9a49a3539fba"
+      "4a1e716e-d7d8-4d01-9611-9a49a3539fba",
+      "333409ea-3092-4ae0-b3da-79295153188f",
+      "1db7fcc4-bea5-468d-826e-cedfbafdeba5"
     ],
     "exemplar_ids": [
       "71e1a651-bb7b-416b-8873-9b0e5ca54882",
       "e326646d-620a-471b-8c3e-ddc095d7b494",
-      "acfceb21-5a22-45e6-a60f-e31384182efb"
+      "acfceb21-5a22-45e6-a60f-e31384182efb",
+      "09f681b0-8c3c-4f02-b7e5-1280a8b00e1b",
+      "894e078c-06a8-48a9-b1fd-aca301b6334a"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

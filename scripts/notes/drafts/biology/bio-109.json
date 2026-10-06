@@ -107,14 +107,23 @@
         {
           "type": "table",
           "rows": [
-            ["Archaea", "Primitive bacteria. They can survive in extreme environments."],
-            ["Bacteria (Prokaryota)", "True bacteria."],
+            [
+              "Archaea",
+              "Primitive bacteria. They can survive in extreme environments."
+            ],
+            [
+              "Bacteria (Prokaryota)",
+              "True bacteria."
+            ],
             [
               "Eukaryota (Eukarya)",
               "Organisms whose cells have a nucleus: protists, fungi, plants and animals."
             ]
           ],
-          "columns": ["Domain", "What it contains"]
+          "columns": [
+            "Domain",
+            "What it contains"
+          ]
         },
         {
           "type": "paragraph",
@@ -191,7 +200,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 6.17", "AQA T 4.6.4"],
+      "spec_codes": [
+        "AQA 6.17",
+        "AQA T 4.6.4"
+      ],
       "worked_example": {
         "exemplar_id": "46d63bc0-a31d-494e-9c9f-7ee29ebd13bb",
         "source": "AQA jun 2018, Paper 2 (H), Q03.4",
@@ -207,7 +219,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 4.7"],
+      "spec_codes": [
+        "EDEX 4.7"
+      ],
       "worked_example": {
         "exemplar_id": "9f75bdf1-0b4e-486e-854a-081263c53fea",
         "source": "EDEXCEL jun 2018, Paper 1 (H), Q7(a)(ii)",
@@ -221,7 +235,45 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 5.2b"]
+      "spec_codes": [
+        "OCR 5.2b"
+      ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.2.1",
+        "CAIE 1.2.2",
+        "CAIE 1.2.3",
+        "CAIE 1.2.5S",
+        "CAIE 1.2.6S",
+        "CAIE 1.2.7S"
+      ],
+      "worked_example": {
+        "exemplar_id": "778c54d9-83ae-4332-93b8-1987ec53d465",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q4(a)(i)",
+        "question": "Describe what is meant by the term species.",
+        "marks": 2,
+        "answer_points": [
+          "A group of organisms that can reproduce.",
+          "To produce fertile offspring."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Species",
+                  "meaning": "A group of organisms that can reproduce to produce fertile offspring."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -232,13 +284,20 @@
       "42d420e3-b9e1-4307-88d1-1e65d257e6f1",
       "ce82ece4-5f33-42d5-9cde-1c02f52088e2",
       "a08af470-9c76-47d3-877f-ac0c5f3fbd80",
-      "8f8fe959-8257-442f-9b75-dd351b68466a"
+      "8f8fe959-8257-442f-9b75-dd351b68466a",
+      "df1bec8c-ea22-493e-b3a7-e96922a1a53e",
+      "4dc4ea91-58e1-40b3-8770-8f7b24043e5b",
+      "8c4cbda8-68fb-4205-b598-6d9b835798ac",
+      "d4babcfc-b7cd-4e60-bf8b-c5ff5bec8a13",
+      "2c22d960-7800-4b6c-8ff5-91e8effa70af",
+      "cfc296ed-a24a-4fc7-bf13-468ba0b475c8"
     ],
     "exemplar_ids": [
       "46d63bc0-a31d-494e-9c9f-7ee29ebd13bb",
-      "9f75bdf1-0b4e-486e-854a-081263c53fea"
+      "9f75bdf1-0b4e-486e-854a-081263c53fea",
+      "778c54d9-83ae-4332-93b8-1987ec53d465"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

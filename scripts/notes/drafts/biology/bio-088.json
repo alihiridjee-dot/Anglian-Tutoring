@@ -154,7 +154,10 @@
                 "group": 1
               }
             ],
-            "groups": ["Sexual reproduction", "Asexual reproduction"],
+            "groups": [
+              "Sexual reproduction",
+              "Asexual reproduction"
+            ],
             "prompt": "Which type of reproduction does each statement describe?"
           }
         },
@@ -187,7 +190,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 6.3"],
+      "spec_codes": [
+        "AQA 6.3"
+      ],
       "worked_example": {
         "exemplar_id": "b9c90893-aa1c-4d10-87a7-26e5ac7066a6",
         "source": "AQA jun 2018, Paper 2 (H), Q05.3",
@@ -203,7 +208,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 3.1B", "EDEX 3.2B"],
+      "spec_codes": [
+        "EDEX 3.1B",
+        "EDEX 3.2B"
+      ],
       "worked_example": {
         "exemplar_id": "3867ec41-d6b3-4e22-878d-715b492fb897",
         "source": "EDEXCEL nov 2021, Paper 1 (H), Q7(c)",
@@ -219,7 +227,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 5.1f"],
+      "spec_codes": [
+        "OCR 5.1f"
+      ],
       "worked_example": {
         "exemplar_id": "40bc3d46-c570-42f6-84d4-55d5c7d6328f",
         "source": "OCR sample, Paper 2, Q19(a)",
@@ -230,6 +240,55 @@
         ],
         "tip": "The mark is for the idea that the plants are all genetically identical."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 16.1.3S",
+        "CAIE 16.2.4S",
+        "CAIE 16.1.2",
+        "CAIE 16.3.11S"
+      ],
+      "worked_example": {
+        "exemplar_id": "f4997f50-455b-4a5e-a880-bd6d855b097b",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q2(a)(ii)",
+        "question": "Spider plants can reproduce by producing an identical plantlet, which grows away from the single parent plant.\n\nDescribe the advantages and disadvantages of asexual reproduction in a population of spider plants in the wild.",
+        "marks": 4,
+        "answer_points": [
+          "Advantages: it is fast; there is no need for pollination or pollinators; there is no need for pollen, gametes or fertilisation; the offspring are adapted to the parent's environment.",
+          "Disadvantages: there is no or low genetic variation; the plants are more susceptible to an environmental change; a new disease spreads fast through the population; the offspring are very close together and compete.",
+          "Any four points from advantages and disadvantages score the four marks."
+        ],
+        "tip": "Give both advantages and disadvantages, and say what each means for the plants."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The same advantages and disadvantages apply to crop production. Farmers weigh them up when they choose how to grow a crop."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Asexual:** the crop plants are clones, so they are uniform and the crop is fast to produce. All of them are at risk from one disease.",
+                "**Sexual:** variation gives disease resistance and new varieties. The plants are slower to produce and less uniform."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Pollination type also affects a plant population:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Self-pollination:** little variation, so the population copes less well with a change in the environment. It does not rely on pollinators.",
+                "**Cross-pollination:** more variation, so the population copes better with a change. It relies on pollinators such as insects or wind."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -240,14 +299,17 @@
       "fed78ab4-3d06-4d86-96c4-b3613d3e57fc",
       "78337f75-8a34-406c-9300-46f87d66c75e",
       "b19fc5b3-a389-472e-aa5a-355a03cbeee3",
-      "d65313c5-4ab5-4b9f-8e03-f9e88613b80b"
+      "d65313c5-4ab5-4b9f-8e03-f9e88613b80b",
+      "77d081a3-ae86-4700-90e6-442237e6036f",
+      "c148615f-de6d-4898-930a-7c6f98cef613"
     ],
     "exemplar_ids": [
       "b9c90893-aa1c-4d10-87a7-26e5ac7066a6",
       "3867ec41-d6b3-4e22-878d-715b492fb897",
-      "40bc3d46-c570-42f6-84d4-55d5c7d6328f"
+      "40bc3d46-c570-42f6-84d4-55d5c7d6328f",
+      "f4997f50-455b-4a5e-a880-bd6d855b097b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

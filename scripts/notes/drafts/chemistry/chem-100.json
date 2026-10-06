@@ -41,7 +41,10 @@
             "kind": "sort",
             "alt": "Sort each resource into finite or renewable.",
             "prompt": "Finite or renewable?",
-            "groups": ["Finite", "Renewable"],
+            "groups": [
+              "Finite",
+              "Renewable"
+            ],
             "items": [
               {
                 "text": "Crude oil",
@@ -99,7 +102,10 @@
           "diagram": {
             "kind": "compare",
             "alt": "Reuse compared with recycle.",
-            "items": ["Reuse", "Recycle"],
+            "items": [
+              "Reuse",
+              "Recycle"
+            ],
             "rows": [
               {
                 "feature": "What happens",
@@ -209,7 +215,12 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.10.1.1", "AQA T 5.10.1.1", "AQA 4.10.2.2", "AQA T 5.10.2.2"],
+      "spec_codes": [
+        "AQA 4.10.1.1",
+        "AQA T 5.10.1.1",
+        "AQA 4.10.2.2",
+        "AQA T 5.10.2.2"
+      ],
       "worked_example": {
         "exemplar_id": "2a38386e-a289-4a76-9b16-e10913a41de3",
         "source": "AQA jun 2021, Paper 2 (H), Q08.3",
@@ -225,7 +236,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 4.10", "EDEX 9.23C", "EDEX 9.24C"],
+      "spec_codes": [
+        "EDEX 4.10",
+        "EDEX 9.23C",
+        "EDEX 9.24C"
+      ],
       "worked_example": {
         "exemplar_id": "21780e96-cb5e-4cad-8b92-3493fa5cb765",
         "source": "EDEXCEL jun 2024, Paper 1 (H), Q5(a)",
@@ -244,7 +259,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C6.1m", "OCR C6.1n"],
+      "spec_codes": [
+        "OCR C6.1m",
+        "OCR C6.1n"
+      ],
       "worked_example": {
         "exemplar_id": "2f615415-7375-4616-88bb-d19bccd8870c",
         "source": "OCR nov 2020, Paper 2, Q23(c)(ii)",
@@ -257,6 +275,38 @@
         ],
         "tip": "Any three marks. The answer must be comparative, and numbers alone are ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 11.8.4",
+        "CAIE 11.8.5",
+        "CAIE 11.8.11S",
+        "CAIE 10.3.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section adds two points about plastics."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Plastics build up in the oceans, as well as in landfill sites.",
+                "(Supplement) PET can be converted back into its monomers. The monomers can then be re-polymerised to make new PET."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.47",
+        "IGCSE 4.50C"
+      ]
     }
   },
   "meta": {
@@ -272,7 +322,10 @@
       "248e1068-0a94-4238-8bcf-b9f5061e2579",
       "16d8ecf2-ef7e-4d2f-8599-d8f72e0b5fda",
       "f5c2e674-a6c7-4e54-8c73-c280bd104955",
-      "303bf190-cd96-4456-9b31-9407b0a05359"
+      "303bf190-cd96-4456-9b31-9407b0a05359",
+      "62caf1da-34ac-470d-a31c-86c1be8cc08e",
+      "312e2db5-5884-4801-a52d-86ddce97993b",
+      "02412581-8632-4b91-9590-2c044dfa0519"
     ],
     "exemplar_ids": [
       "2a38386e-a289-4a76-9b16-e10913a41de3",
@@ -280,7 +333,7 @@
       "2f615415-7375-4616-88bb-d19bccd8870c"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   },
   "format": 1,
   "subject": "chemistry"

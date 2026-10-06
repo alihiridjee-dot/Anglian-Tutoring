@@ -63,28 +63,154 @@
         },
         {
           "type": "table",
-          "columns": ["Element", "Atomic number", "Electronic structure", "Group", "Period"],
+          "columns": [
+            "Element",
+            "Atomic number",
+            "Electronic structure",
+            "Group",
+            "Period"
+          ],
           "rows": [
-            ["Hydrogen, H", "1", "1", "1", "1"],
-            ["Helium, He", "2", "2", "0", "1"],
-            ["Lithium, Li", "3", "2,1", "1", "2"],
-            ["Beryllium, Be", "4", "2,2", "2", "2"],
-            ["Boron, B", "5", "2,3", "3", "2"],
-            ["Carbon, C", "6", "2,4", "4", "2"],
-            ["Nitrogen, N", "7", "2,5", "5", "2"],
-            ["Oxygen, O", "8", "2,6", "6", "2"],
-            ["Fluorine, F", "9", "2,7", "7", "2"],
-            ["Neon, Ne", "10", "2,8", "0", "2"],
-            ["Sodium, Na", "11", "2,8,1", "1", "3"],
-            ["Magnesium, Mg", "12", "2,8,2", "2", "3"],
-            ["Aluminium, Al", "13", "2,8,3", "3", "3"],
-            ["Silicon, Si", "14", "2,8,4", "4", "3"],
-            ["Phosphorus, P", "15", "2,8,5", "5", "3"],
-            ["Sulfur, S", "16", "2,8,6", "6", "3"],
-            ["Chlorine, Cl", "17", "2,8,7", "7", "3"],
-            ["Argon, Ar", "18", "2,8,8", "0", "3"],
-            ["Potassium, K", "19", "2,8,8,1", "1", "4"],
-            ["Calcium, Ca", "20", "2,8,8,2", "2", "4"]
+            [
+              "Hydrogen, H",
+              "1",
+              "1",
+              "1",
+              "1"
+            ],
+            [
+              "Helium, He",
+              "2",
+              "2",
+              "0",
+              "1"
+            ],
+            [
+              "Lithium, Li",
+              "3",
+              "2,1",
+              "1",
+              "2"
+            ],
+            [
+              "Beryllium, Be",
+              "4",
+              "2,2",
+              "2",
+              "2"
+            ],
+            [
+              "Boron, B",
+              "5",
+              "2,3",
+              "3",
+              "2"
+            ],
+            [
+              "Carbon, C",
+              "6",
+              "2,4",
+              "4",
+              "2"
+            ],
+            [
+              "Nitrogen, N",
+              "7",
+              "2,5",
+              "5",
+              "2"
+            ],
+            [
+              "Oxygen, O",
+              "8",
+              "2,6",
+              "6",
+              "2"
+            ],
+            [
+              "Fluorine, F",
+              "9",
+              "2,7",
+              "7",
+              "2"
+            ],
+            [
+              "Neon, Ne",
+              "10",
+              "2,8",
+              "0",
+              "2"
+            ],
+            [
+              "Sodium, Na",
+              "11",
+              "2,8,1",
+              "1",
+              "3"
+            ],
+            [
+              "Magnesium, Mg",
+              "12",
+              "2,8,2",
+              "2",
+              "3"
+            ],
+            [
+              "Aluminium, Al",
+              "13",
+              "2,8,3",
+              "3",
+              "3"
+            ],
+            [
+              "Silicon, Si",
+              "14",
+              "2,8,4",
+              "4",
+              "3"
+            ],
+            [
+              "Phosphorus, P",
+              "15",
+              "2,8,5",
+              "5",
+              "3"
+            ],
+            [
+              "Sulfur, S",
+              "16",
+              "2,8,6",
+              "6",
+              "3"
+            ],
+            [
+              "Chlorine, Cl",
+              "17",
+              "2,8,7",
+              "7",
+              "3"
+            ],
+            [
+              "Argon, Ar",
+              "18",
+              "2,8,8",
+              "0",
+              "3"
+            ],
+            [
+              "Potassium, K",
+              "19",
+              "2,8,8,1",
+              "1",
+              "4"
+            ],
+            [
+              "Calcium, Ca",
+              "20",
+              "2,8,8,2",
+              "2",
+              "4"
+            ]
           ]
         },
         {
@@ -120,47 +246,91 @@
             "kind": "predictor",
             "alt": "Pick an element to see its electronic structure, group and period.",
             "prompt": "Pick an element",
-            "result_labels": ["Electronic structure", "Group", "Period"],
+            "result_labels": [
+              "Electronic structure",
+              "Group",
+              "Period"
+            ],
             "options": [
               {
                 "label": "Lithium (3)",
-                "results": ["2,1", "**Group 1**: 1 outer electron", "**Period 2**: 2 shells"]
+                "results": [
+                  "2,1",
+                  "**Group 1**: 1 outer electron",
+                  "**Period 2**: 2 shells"
+                ]
               },
               {
                 "label": "Carbon (6)",
-                "results": ["2,4", "**Group 4**: 4 outer electrons", "**Period 2**: 2 shells"]
+                "results": [
+                  "2,4",
+                  "**Group 4**: 4 outer electrons",
+                  "**Period 2**: 2 shells"
+                ]
               },
               {
                 "label": "Oxygen (8)",
-                "results": ["2,6", "**Group 6**: 6 outer electrons", "**Period 2**: 2 shells"]
+                "results": [
+                  "2,6",
+                  "**Group 6**: 6 outer electrons",
+                  "**Period 2**: 2 shells"
+                ]
               },
               {
                 "label": "Neon (10)",
-                "results": ["2,8", "**Group 0**: full outer shell", "**Period 2**: 2 shells"]
+                "results": [
+                  "2,8",
+                  "**Group 0**: full outer shell",
+                  "**Period 2**: 2 shells"
+                ]
               },
               {
                 "label": "Sodium (11)",
-                "results": ["2,8,1", "**Group 1**: 1 outer electron", "**Period 3**: 3 shells"]
+                "results": [
+                  "2,8,1",
+                  "**Group 1**: 1 outer electron",
+                  "**Period 3**: 3 shells"
+                ]
               },
               {
                 "label": "Aluminium (13)",
-                "results": ["2,8,3", "**Group 3**: 3 outer electrons", "**Period 3**: 3 shells"]
+                "results": [
+                  "2,8,3",
+                  "**Group 3**: 3 outer electrons",
+                  "**Period 3**: 3 shells"
+                ]
               },
               {
                 "label": "Sulfur (16)",
-                "results": ["2,8,6", "**Group 6**: 6 outer electrons", "**Period 3**: 3 shells"]
+                "results": [
+                  "2,8,6",
+                  "**Group 6**: 6 outer electrons",
+                  "**Period 3**: 3 shells"
+                ]
               },
               {
                 "label": "Chlorine (17)",
-                "results": ["2,8,7", "**Group 7**: 7 outer electrons", "**Period 3**: 3 shells"]
+                "results": [
+                  "2,8,7",
+                  "**Group 7**: 7 outer electrons",
+                  "**Period 3**: 3 shells"
+                ]
               },
               {
                 "label": "Argon (18)",
-                "results": ["2,8,8", "**Group 0**: full outer shell", "**Period 3**: 3 shells"]
+                "results": [
+                  "2,8,8",
+                  "**Group 0**: full outer shell",
+                  "**Period 3**: 3 shells"
+                ]
               },
               {
                 "label": "Calcium (20)",
-                "results": ["2,8,8,2", "**Group 2**: 2 outer electrons", "**Period 4**: 4 shells"]
+                "results": [
+                  "2,8,8,2",
+                  "**Group 2**: 2 outer electrons",
+                  "**Period 4**: 4 shells"
+                ]
               }
             ]
           }
@@ -212,7 +382,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.1.1.7", "AQA T 5.1.1.7"],
+      "spec_codes": [
+        "AQA 4.1.1.7",
+        "AQA T 5.1.1.7"
+      ],
       "worked_example": {
         "exemplar_id": "3f39937b-d198-4398-92da-d2d6d6a57976",
         "source": "AQA jun 2018, Paper 1 (H), Q02.1",
@@ -227,7 +400,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 1.19", "EDEX 1.20"],
+      "spec_codes": [
+        "EDEX 1.19",
+        "EDEX 1.20"
+      ],
       "worked_example": {
         "exemplar_id": "933e07c6-8d21-4244-abf2-34ad3b017600",
         "source": "EDEXCEL nov 2021, Paper 2 (H), Q5(b)",
@@ -241,7 +417,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C2.2c"],
+      "spec_codes": [
+        "OCR C2.2c"
+      ],
       "worked_example": {
         "exemplar_id": "49b3fe81-2f7e-4ceb-944a-a1aad5bd44f6",
         "source": "OCR sample, Paper 1, Q24(c)",
@@ -255,12 +433,79 @@
         ],
         "tip": "Two marks for the position (group and period) and two for the reasons. Give each reason with its number."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.2.5",
+        "CAIE 2.2.6",
+        "CAIE 8.1.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "18d965c3-6130-4788-b8c9-97499e13a201",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q2(c)",
+        "question": "Write the electronic configuration of the following atom and ion.\n²⁸₁₄Si\n³⁷₁₇Cl⁻",
+        "marks": 2,
+        "answer_points": [
+          "Si: 2,8,4",
+          "Cl⁻: 2,8,8"
+        ],
+        "tip": "The chloride ion has 18 electrons: 17 from the atom plus one gained."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Ions use the same shell-filling rules. Count the electrons in the ion, not the protons.",
+                "A positive ion has fewer electrons than its atom: Al³⁺ is 2,8 and Na⁺ is 2,8.",
+                "A negative ion has more electrons than its atom: Cl⁻ is 2,8,8 and O²⁻ is 2,8.",
+                "Ions of non-metals and metals near the noble gases have the same configuration as a noble gas. Na⁺, O²⁻ and Ne are all 2,8.",
+                "The noble gases have a full outer shell."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.19",
+        "IGCSE 1.22"
+      ],
+      "worked_example": {
+        "exemplar_id": "ea5e8857-87d3-406f-a992-78334222d65b",
+        "source": "EDEXCEL nov 2020, Paper 1 (C), Q5(a)",
+        "question": "Chlorine, bromine and iodine are elements in the Periodic Table.\nExplain how the position of these elements in the Periodic Table depends on their electronic configurations.",
+        "marks": 2,
+        "answer_points": [
+          "They are all in the same group (Group 7)",
+          "They all have 7 electrons in the outer shell",
+          "The number of shells decides the period they are in"
+        ],
+        "tip": "Any two of these points score 2 marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "To deduce an electronic structure from the periodic table, use the period for the number of shells and the group for the outer electrons.",
+                "Fill the inner shells with 2 and then 8. An element in Period 3, Group 5 is 2,8,5: phosphorus."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -268,12 +513,18 @@
       "4a253143-340b-48a6-891b-d4dcfb6cddb0",
       "3e185e86-c87f-4ed4-83e2-6669ccc3e797",
       "56e0c075-571e-4c7d-b720-967cafe4322d",
-      "b0f59352-807b-4848-bc2e-f0a4bf08dad2"
+      "b0f59352-807b-4848-bc2e-f0a4bf08dad2",
+      "92dda1cd-81ad-4b33-82a6-bdd477e0b3bf",
+      "99208e58-8a91-4eff-87ef-e34e30a7b4b0",
+      "473dc3ed-1422-4a3a-bf53-7a89f19cc07f",
+      "b383e086-5c97-466a-9ab7-f4ae39f251a9"
     ],
     "exemplar_ids": [
       "3f39937b-d198-4398-92da-d2d6d6a57976",
       "933e07c6-8d21-4244-abf2-34ad3b017600",
-      "49b3fe81-2f7e-4ceb-944a-a1aad5bd44f6"
+      "49b3fe81-2f7e-4ceb-944a-a1aad5bd44f6",
+      "18d965c3-6130-4788-b8c9-97499e13a201",
+      "ea5e8857-87d3-406f-a992-78334222d65b"
     ]
   }
 }

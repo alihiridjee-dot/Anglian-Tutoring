@@ -265,6 +265,65 @@
         ],
         "tip": "Any two points score the 2 marks. Force = rate of change of momentum is also allowed."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.6.2S", "CAIE 1.6.4S"],
+      "worked_example": {
+        "exemplar_id": "81f6a11c-e8a3-443e-bd13-adde90437ef3",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q3(b)(ii)",
+        "question": "The concrete floor under a seesaw is replaced with a rubber floor. A child falls from the seesaw and experiences an impulse when they hit the floor.\n\nExplain how the rubber floor reduces injury to the child. Use ideas about impulse, force, momentum and time in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "The change in momentum (the impulse) is the same on both floors.",
+          "The change in momentum takes place over a longer time on the rubber floor.",
+          "force = change in momentum ÷ time, so the force on the child is smaller and there is less injury."
+        ],
+        "tip": "Any three of these points score the three marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Impulse is the force multiplied by the time for which it acts. It equals the change in momentum."
+            },
+            {
+              "type": "equation",
+              "label": "Impulse",
+              "formula": "impulse = F × Δt = Δ(mv)",
+              "where": [
+                "impulse is in newton seconds (N s), the same as kg m/s.",
+                "F is the force in newtons (N).",
+                "Δt is the time for which the force acts in seconds (s).",
+                "Δ(mv) is the change in momentum in kg m/s."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Safety features give the same impulse over a longer time, so the force is smaller.",
+                "The resultant force is the change in momentum per unit time: F = Δp ÷ Δt."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.26P", "IGCSE 1.28P"],
+      "worked_example": {
+        "exemplar_id": "5593b657-e983-4c0d-ad6b-0a8792614234",
+        "source": "EDEXCEL jan 2022, Paper 2 (PR), Q2(a)(i)",
+        "question": "A cricket player hits a ball with a bat. Before the ball is hit, it is moving to the left with a momentum of 4.2 kg m/s. The bat is in contact with the ball for 0.012 s. After the ball is hit, it moves to the right with a momentum of 6.7 kg m/s.\n\nCalculate the mean force the bat exerts on the ball and state the direction of the force.",
+        "marks": 3,
+        "answer_points": [
+          "F = change in momentum ÷ time",
+          "The directions are opposite, so the change in momentum = 6.7 + 4.2 = 10.9 kg m/s",
+          "F = 10.9 ÷ 0.012 = 908 N, which is 910 N to 2 significant figures",
+          "The force is to the right."
+        ]
+      }
     }
   },
   "meta": {
@@ -273,7 +332,11 @@
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "0f07791b-ea02-4ad6-8638-aa6b4ca08e7a",
-      "870627e7-eeb1-4dea-b5a9-01cd726eb64c"
+      "870627e7-eeb1-4dea-b5a9-01cd726eb64c",
+      "10c8c357-0aaa-4b44-827e-6fa6bbbc50d5",
+      "6f48e801-6ea2-45ea-b615-dac3ef9ee6ab",
+      "915b7ccb-fefc-4ae5-9544-c4b602885f07",
+      "bb3b09ee-2588-4ebe-be1c-233e7b9ae4e4"
     ],
     "exemplar_ids": [
       "0f15e369-42f0-4568-a3c6-fbf0c7b0f680",
@@ -286,9 +349,11 @@
       "a0750893-5175-4e4f-8cc4-1558fd1a8b7a",
       "aefb9da9-2b84-4ba4-9d86-84f5ad2239e5",
       "bcbd01bd-c753-4f91-acc2-3cf6cb45a144",
-      "f7db3661-6211-4089-a29c-d130a6df98bc"
+      "f7db3661-6211-4089-a29c-d130a6df98bc",
+      "81f6a11c-e8a3-443e-bd13-adde90437ef3",
+      "5593b657-e983-4c0d-ad6b-0a8792614234"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

@@ -251,13 +251,69 @@
         ],
         "tip": "Any two of these points score the 2 marks. Heat is allowed for thermal energy."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.3.1.1",
+        "CAIE 2.3.4.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Good thermal conductors, such as metals, transfer energy quickly. Bad conductors (thermal insulators), such as wood, plastic and air, transfer it slowly.",
+                "To compare conductors: heat one end of rods of the same size but different materials, and time how long energy takes to reach the other end. The shortest time shows the best conductor.",
+                "A kitchen pan has a metal base, a good conductor, so energy passes quickly to the food. Its handle is plastic or wood, an insulator, so it stays cool.",
+                "A radiator heats a room by convection. Air next to it warms, expands and becomes less dense, so it rises. Cooler, denser air sinks to take its place, and a convection current forms."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.10"
+      ],
+      "worked_example": {
+        "exemplar_id": "9fd60e58-71ab-4521-91f8-dd8ae7f50f4b",
+        "source": "EDEXCEL jun 2019, Paper 1 (PR), Q4(b)(ii)",
+        "question": "The water in a swimming pool cools down at night.\nA plastic cover is placed over the water.\n\nExplain why the plastic cover reduces how much the water cools down at night.",
+        "marks": 4,
+        "answer_points": [
+          "The cover traps a layer of air.",
+          "Trapped air is a poor conductor, or a good insulator.",
+          "Plastic is a poor conductor, or a good insulator.",
+          "Conduction is reduced.",
+          "Convection is reduced or stopped.",
+          "There is less evaporation from the water surface."
+        ],
+        "tip": "Any four of the points score. Saying that the cover traps heat does not score."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Trapped air is a good insulator. It cannot circulate, so convection is reduced as well as conduction.",
+                "Covering a liquid reduces evaporation from its surface, so less energy is transferred away."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "b3bc72c6-bcd9-4f1e-a18f-109082974b26",
@@ -265,12 +321,14 @@
       "cae1a07d-1c7f-4202-9955-8ce216242bc1",
       "a3f22a89-f0a2-4243-ac48-cd3423c3c5bf",
       "232176aa-8aec-4776-8e60-d57fe46a4073",
-      "2d82f832-63ba-4a5f-8cab-ddb02e51ac30"
+      "2d82f832-63ba-4a5f-8cab-ddb02e51ac30",
+      "78ff9917-c7ee-411b-804f-16f34890d151"
     ],
     "exemplar_ids": [
       "7461ffe2-7f58-4554-bafc-daf526956b9f",
       "056ad970-a37c-421b-8478-ee4f57b80127",
-      "6acb99ef-fb71-4f4d-8ab8-53eb5570a814"
+      "6acb99ef-fb71-4f4d-8ab8-53eb5570a814",
+      "9fd60e58-71ab-4521-91f8-dd8ae7f50f4b"
     ]
   }
 }

@@ -366,6 +366,91 @@
         ],
         "tip": "Using v = f × λ and counting waves in a measured time is also accepted."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.4.6", "CAIE 3.1.8", "CAIE 3.4.5"],
+      "worked_example": {
+        "exemplar_id": "5590639f-9630-4efe-9462-cc678d098b15",
+        "source": "CAMBRIDGE jun 2025, Paper 42, Q5(a)",
+        "question": "Describe an experiment to determine the speed of sound in air.\nState the apparatus required, the measurements taken and how to calculate the speed of sound in air from the measurements.\nYou may draw a labelled diagram as part of your answer.",
+        "marks": 4,
+        "answer_points": [
+          "Make a short, loud sound, such as a clap or two pieces of wood banged together.",
+          "Apparatus: a measuring tape or trundle wheel, a stopwatch and a large wall.",
+          "Stand a measured distance from the wall. Start the stopwatch on hearing the clap and stop it on hearing the echo.",
+          "Speed = 2 × distance to the wall ÷ time. (Direct method: speed = distance ÷ time, using a starting pistol and two people, or two microphones and a digital timer.)"
+        ],
+        "tip": "One mark each for the sound source, the apparatus, the timing and the calculation."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You should know the usual speed of sound in air, and what a ripple tank can show."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The speed of sound in air is approximately 330 to 350 m/s.",
+                "A straight barrier in the tank reflects the ripples.",
+                "Ripples slow down and the wavelength decreases when they pass from deep to shallow water. This is refraction.",
+                "Ripples spread out after passing through a gap or round the edge of a barrier. This is diffraction."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.25P", "IGCSE 3.26P", "IGCSE 3.27P"],
+      "worked_example": {
+        "exemplar_id": "1de0b411-85d9-4177-8123-e933839546af",
+        "source": "EDEXCEL jun 2019, Paper 2 (P), Q3(a)",
+        "question": "Describe an experiment to measure the speed of sound in air.\n\nYou may draw a diagram to help your answer.",
+        "marks": 5,
+        "answer_points": [
+          "Measure the time for the sound to travel a set distance. Use a realistic distance, such as at least 1 m between two microphones, or 100 m or more for seeing and hearing a clap.",
+          "Name a suitable instrument: a stopwatch, a digital timer or an oscilloscope, with a tape measure or trundle wheel for the distance.",
+          "Give detail of the set-up, such as two microphones on a bench connected to a timer, or timing from the flash to the bang.",
+          "Repeat the measurement and take a mean.",
+          "Speed = distance ÷ time."
+        ],
+        "tip": "A fully labelled diagram can earn all five marks. Any five points score."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A microphone and an oscilloscope can display a sound wave and measure its frequency."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Display.",
+                  "text": "Connect a microphone to an oscilloscope. The sound wave appears as a trace. Its height shows the amplitude."
+                },
+                {
+                  "lead": "Steady the trace.",
+                  "text": "Adjust the oscilloscope to get a steady trace. Set the time-base so at least one complete wave fits on the screen."
+                },
+                {
+                  "lead": "Read the period.",
+                  "text": "Count the squares for one complete wave, then multiply by the time-base setting to get the period, T."
+                },
+                {
+                  "lead": "Find the frequency.",
+                  "text": "Use f = 1 ÷ T."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -376,13 +461,19 @@
       "7cbb0d71-e891-45e9-ae6e-76fc113a6f6f",
       "6ffa8c0b-01a7-4ea9-9244-aa5e465e00d5",
       "4d1bfc69-2378-4fc1-9976-243664fd704d",
-      "bed3b232-a39e-4fd1-baa1-9ce4b6a4caf9"
+      "bed3b232-a39e-4fd1-baa1-9ce4b6a4caf9",
+      "3ebb6ca5-c8cc-48e1-9242-2a3eacfc3e69",
+      "3dfc35fa-99cf-48cc-9a6b-e7dfc07d7f99",
+      "ee8977f2-d51d-43b8-b96e-70f29370152a",
+      "95086576-3966-4237-bc06-1902d6c4d3e2"
     ],
     "exemplar_ids": [
       "7500efce-d100-4697-b74f-e6b630da3b89",
-      "97da703a-2286-46b0-aeeb-893397417012"
+      "97da703a-2286-46b0-aeeb-893397417012",
+      "5590639f-9630-4efe-9462-cc678d098b15",
+      "1de0b411-85d9-4177-8123-e933839546af"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

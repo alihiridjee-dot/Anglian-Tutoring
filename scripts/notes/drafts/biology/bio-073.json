@@ -213,6 +213,63 @@
         ],
         "tip": "Two marks from three points: release from a gland, carried in the blood, and acting on target organs."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 14.3.1", "CAIE 14.3.2", "CAIE 14.3.4"],
+      "worked_example": {
+        "exemplar_id": "1fb48708-a353-4c54-83c1-f000e00dc2f3",
+        "source": "CAMBRIDGE nov 2023, Paper 42, Q3(c)",
+        "question": "Describe two ways nervous control differs from hormonal control.",
+        "marks": 2,
+        "answer_points": [
+          "Nervous control is more rapid. Hormonal control is slower.",
+          "Nervous control has a short-lived effect. Hormonal control can be long-lasting.",
+          "Nervous control is localised. Hormonal control is widespread.",
+          "Nervous control uses electrical impulses along neurones. Hormones are chemicals carried in the blood."
+        ],
+        "tip": "Any two differences score one mark each. Write both sides of each difference."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.86", "IGCSE 2.94", "IGCSE 2.95B"],
+      "worked_example": {
+        "exemplar_id": "bbb357d5-905b-426d-99e1-63c249f7784e",
+        "source": "EDEXCEL jan 2021, Paper 1 (BR), Q2(c)",
+        "question": "Adrenaline is released into the blood when there is danger.\n\nThe list gives the effects of adrenaline on different parts of the body.\n- dilates the pupil in the eye\n- increases heart rate\n- narrows small arteries in the intestine\n- converts glycogen into glucose in the liver\n\nExplain the advantages of these effects to a person in danger.",
+        "marks": 5,
+        "answer_points": [
+          "More light enters the eye and reaches the retina, so the person can see the danger.",
+          "More blood flows to the lungs and to the leg muscles, so more oxygen reaches the muscles.",
+          "More glucose reaches the muscles.",
+          "More respiration (less anaerobic respiration) releases more energy (ATP).",
+          "The muscles contract more, so the person can run faster and escape."
+        ],
+        "tip": "Any five points score one mark each. Link each effect to its advantage."
+      },
+      "extra": [
+        {
+          "heading": "Hormones this course names",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know the source and the effect of each of these hormones."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Adrenaline**: released by the adrenal glands. It prepares the body for danger by increasing heart rate and glucose in the blood.",
+                "**Insulin**: released by the pancreas. It causes the liver and muscles to take up glucose, which lowers blood glucose.",
+                "**Testosterone**: released by the testes. It causes the male secondary sexual characteristics and sperm production.",
+                "**Oestrogen**: released by the ovaries. It repairs the lining of the uterus.",
+                "**Progesterone**: released by the ovaries. It maintains the lining of the uterus.",
+        "**ADH**: released by the pituitary gland. It makes the kidney collecting ducts reabsorb more water, so less urine is made and it is more concentrated.",
+        "**FSH**: released by the pituitary gland. It makes an egg mature in the ovary and makes the ovary release oestrogen.",
+        "**LH**: released by the pituitary gland. It stimulates ovulation, the release of an egg from the ovary."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -220,12 +277,17 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "0d14c5e3-5196-4800-92e0-029cfc09920f",
       "59420b52-2dd0-4fdf-ad29-e6ee5f53339b",
       "edc7ff15-c6e6-4e33-946a-ec87f87fab88",
-      "b3778f2a-a848-4fbf-9f9b-2701e614d89f"
+      "b3778f2a-a848-4fbf-9f9b-2701e614d89f",
+      "cdb218e2-2db4-4580-9acb-a25c8fcf14e9",
+      "3656d878-1ba9-4014-9e08-f5340e25dbd4",
+      "0bed2cdb-1e36-4294-81a7-3a864d491c41",
+      "9819ac16-87a3-46aa-ac2c-99c94f032d32",
+      "9f7bdc8a-dfee-48d3-9f2e-48032947ecd3"
     ],
     "exemplar_ids": [
       "4e70a458-43bc-4713-8a72-a8f20bd76466",
@@ -236,7 +298,9 @@
       "580e7c94-553b-49f6-bd0c-0b5938559c74",
       "9d6b5be9-9c56-48c1-b419-32b37f708854",
       "339a0b38-20fc-4129-95ad-10529c8342a2",
-      "18d8c02f-68c6-401b-945f-0e1d96d0d07d"
+      "18d8c02f-68c6-401b-945f-0e1d96d0d07d",
+      "1fb48708-a353-4c54-83c1-f000e00dc2f3",
+      "bbb357d5-905b-426d-99e1-63c249f7784e"
     ]
   }
 }

@@ -65,7 +65,11 @@
         },
         {
           "type": "table",
-          "columns": ["Where", "Pollutant", "Harm to living things"],
+          "columns": [
+            "Where",
+            "Pollutant",
+            "Harm to living things"
+          ],
           "rows": [
             [
               "Water",
@@ -182,13 +186,19 @@
           "type": "equation",
           "label": "Mean annual increase",
           "formula": "mean annual increase = (final population − starting population) ÷ number of years",
-          "where": ["populations in the same unit, such as billions", "number of years"]
+          "where": [
+            "populations in the same unit, such as billions",
+            "number of years"
+          ]
         },
         {
           "type": "equation",
           "label": "Percentage decrease",
           "formula": "percentage decrease = (starting value − final value) ÷ starting value × 100",
-          "where": ["values in the same unit", "answer in %"]
+          "where": [
+            "values in the same unit",
+            "answer in %"
+          ]
         },
         {
           "type": "diagram",
@@ -257,7 +267,11 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 7.8", "AQA T 4.7.3.1", "AQA T 4.7.3.2"],
+      "spec_codes": [
+        "AQA 7.8",
+        "AQA T 4.7.3.1",
+        "AQA T 4.7.3.2"
+      ],
       "worked_example": {
         "exemplar_id": "f1a8fdaa-b6a8-4a76-a427-0193d06423dd",
         "source": "AQA jun 2018, Paper 2 (H), Q07.4",
@@ -274,7 +288,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 9.9"],
+      "spec_codes": [
+        "EDEX 9.9"
+      ],
       "worked_example": {
         "exemplar_id": "5905de0b-c496-4f9d-8227-8df04475b50e",
         "source": "EDEXCEL jun 2022, Paper 2 (F), Q6(b)",
@@ -290,7 +306,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.1b"],
+      "spec_codes": [
+        "OCR 6.1b"
+      ],
       "worked_example": {
         "exemplar_id": "22a52466-58ee-48b7-a54c-cff24378f620",
         "source": "OCR jun 2023, Paper 4, Q20(c)",
@@ -302,12 +320,110 @@
         ],
         "tip": "If neither definition is given, lots of butterflies but few species earns one mark."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 20.2.1",
+        "CAIE 20.2.3",
+        "CAIE 20.3.1",
+        "CAIE 20.3.2",
+        "CAIE 20.3.4S",
+        "CAIE 19.2.10",
+        "CAIE 20.2.2",
+        "CAIE 20.4.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "112334d3-26c5-41fe-9356-ef8e31729cf2",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q4(a)(iv)",
+        "question": "A student recorded the feeding relationships in an aquatic habitat.\n\nAquatic plants provide food for freshwater shrimps and midges. Mayflies also feed on aquatic plants. The mayflies provide food for salmon. Stoneflies feed on midges and are eaten by salmon. Salmon also eat freshwater shrimps. Herons feed on salmon. Humans also eat salmon.\n\nPredict the impact on these feeding relationships of overharvesting of salmon.",
+        "marks": 3,
+        "answer_points": [
+          "Fewer herons, as there is less food (salmon).",
+          "More mayflies, stoneflies or freshwater shrimps, as there are fewer salmon to eat them.",
+          "Fewer midges, as there are more stoneflies.",
+          "The number of aquatic plants may fall, rise or stay the same, because more mayflies and shrimps feed on them and fewer midges do."
+        ],
+        "tip": "Any three of these score one mark each."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Biodiversity",
+                  "meaning": "The number of different species that live in an area."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Humans harm habitats by altering food webs and food chains.",
+                "Overharvesting a food species removes it from the web, so the species that eat it lose food and the species it eats may increase.",
+                "Introducing a foreign species can upset the web, because it may eat or outcompete native species.",
+                "Habitats are destroyed to make room for housing, crop plants and livestock, and to extract natural resources such as timber and minerals.",
+                "Freshwater and marine pollution also destroys habitats.",
+                "Non-biodegradable plastics stay in the environment for a very long time. In water they trap or choke animals. On land they build up in soil and landfill.",
+                "Organisms become endangered or extinct through climate change, habitat destruction, hunting, overharvesting, pollution and introduced species."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.3B",
+        "IGCSE 4.12",
+        "IGCSE 4.16",
+        "IGCSE 4.17",
+        "IGCSE 4.4B",
+        "IGCSE 5.9B"
+      ],
+      "worked_example": {
+        "exemplar_id": "4f976a56-0526-46dc-9e64-68606bf8c69f",
+        "source": "EDEXCEL jun 2023, Paper 2 (BR), Q4(b)(i)",
+        "question": "Farmers sometimes add chemical fertiliser to the soil.\n\nDescribe how pollution by fertiliser can affect aquatic ecosystems.",
+        "marks": 5,
+        "answer_points": [
+          "Nitrates and phosphates increase in the water.",
+          "Eutrophication occurs.",
+          "There is an algal bloom: more algae, or plants growing on the surface.",
+          "This blocks sunlight, so there is less photosynthesis.",
+          "Plants and algae die.",
+          "Bacteria and other microorganisms decompose the dead plants and respire.",
+          "Oxygen is used up (depleted).",
+          "Fish and other aquatic organisms die."
+        ],
+        "tip": "Any five of these score one mark each."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Two gases pollute the air and harm living things."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Sulfur dioxide:** released when fuels containing sulfur burn. It dissolves in rain to form acid rain, which damages leaves and harms organisms in lakes.",
+                "**Carbon monoxide:** made by incomplete combustion of fuels. It binds to haemoglobin and forms carboxyhaemoglobin, so less oxygen is carried and less respiration can happen. It can be fatal."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -315,12 +431,23 @@
       "7fae4fd3-43bc-4f2f-bcf5-a32d232e24f0",
       "34c317f8-2111-4010-b9a5-56bcd09b10fa",
       "7c992608-d1cb-4485-b6cd-d95bae992b2d",
-      "133ea741-e9e3-4d35-9ff6-adcc111b277d"
+      "133ea741-e9e3-4d35-9ff6-adcc111b277d",
+      "04ff504f-3fa3-46aa-8ec1-8704b351fbd2",
+      "a4475070-3ab2-4cd0-851b-474ece73ad95",
+      "17edc187-7156-468e-be72-7e2e0eac0185",
+      "5234fe99-4d49-468b-a212-4f92097c84fd",
+      "be343961-08e9-497b-a40e-4111dc4d707c",
+      "8d78b8da-ce17-4bc3-a9ae-d9eff3ced487",
+      "8e2e77a2-8c98-4c3a-aee7-414390db79bf",
+      "4e9973df-fa54-4290-95b2-0c2a14a4a30c",
+      "55dd3217-9c81-4a71-8dd6-9f16f8975960"
     ],
     "exemplar_ids": [
       "f1a8fdaa-b6a8-4a76-a427-0193d06423dd",
       "5905de0b-c496-4f9d-8227-8df04475b50e",
-      "22a52466-58ee-48b7-a54c-cff24378f620"
+      "22a52466-58ee-48b7-a54c-cff24378f620",
+      "112334d3-26c5-41fe-9356-ef8e31729cf2",
+      "4f976a56-0526-46dc-9e64-68606bf8c69f"
     ]
   }
 }

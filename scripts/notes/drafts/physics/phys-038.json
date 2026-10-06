@@ -61,7 +61,10 @@
             "kind": "sort",
             "alt": "Sort sources of background radiation into natural and man-made.",
             "prompt": "Is each source of background radiation natural or man-made?",
-            "groups": ["Natural", "Man-made"],
+            "groups": [
+              "Natural",
+              "Man-made"
+            ],
             "items": [
               {
                 "text": "Cosmic rays",
@@ -250,7 +253,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.4.3.1"],
+      "spec_codes": [
+        "AQA 4.4.3.1"
+      ],
       "worked_example": {
         "exemplar_id": "7993383f-f29b-46c4-8a0a-be78be2df66c",
         "source": "AQA jun 2023, Paper 1 (H), Q05.8",
@@ -265,7 +270,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 6.12", "EDEX 6.13"],
+      "spec_codes": [
+        "EDEX 6.12",
+        "EDEX 6.13"
+      ],
       "worked_example": {
         "exemplar_id": "b74d6b1f-fec5-42e2-ac79-bd02ce13491f",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q3(b)(ii)",
@@ -277,6 +285,43 @@
         ],
         "tip": "One mark for each source. Alpha, beta and gamma are ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 5.2.1.1",
+        "CAIE 5.2.1.2",
+        "CAIE 5.2.1.5S",
+        "CAIE 5.2.4.2S"
+      ],
+      "worked_example": {
+        "exemplar_id": "f0c370ae-a710-4d74-ac0d-6a51e771e829",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q9(c)",
+        "question": "A radiation detector used in a laboratory detects a background count rate of 30 counts / min.\n\nA radioactive source is placed in front of the radiation detector. The initial reading on the detector is 550 counts / min. The half-life of the source is 25 minutes.\n\nCalculate the expected reading on the detector after 75 minutes.",
+        "marks": 4,
+        "answer_points": [
+          "Initial count rate from the source = 550 - 30 = 520 counts / min.",
+          "75 minutes is 3 half-lives, so the count rate falls to 1/8.",
+          "Final count rate from the source = 520 ÷ 8 = 65 counts / min.",
+          "Reading on the detector = 65 + 30 = 95 counts / min."
+        ],
+        "tip": "The background count is not halved, so take it away first and add it back at the end."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 7.10"
+      ],
+      "worked_example": {
+        "exemplar_id": "c3401281-0744-45cb-b5ae-150315624c43",
+        "source": "EDEXCEL jun 2023, Paper 1 (PR), Q7(b)(ii)",
+        "question": "A student measures the count of radiation from a radioactive source. The source is placed at a fixed distance from a radiation detector connected to a counter, and the count is recorded for one minute. The student's method does not allow for background radiation.\n\nDescribe how the student's method should be modified to allow for background radiation.",
+        "marks": 3,
+        "answer_points": [
+          "Remove the source (for example, keep it in its box or point it away).",
+          "Measure the count for one minute with no source present.",
+          "Subtract the background count from the results."
+        ]
+      }
     }
   },
   "meta": {
@@ -286,13 +331,19 @@
     "spec_point_ids": [
       "af24e3b3-4d27-4a14-8274-a9659f9a4fe7",
       "a452fa1b-beb3-425e-add5-0c679315d465",
-      "6a1228fe-90ed-4012-85d2-b34209153d4b"
+      "6a1228fe-90ed-4012-85d2-b34209153d4b",
+      "4eb1a1b2-9e7e-454c-b029-20ac7cd73edc",
+      "ab73c5f3-591f-4f69-beeb-f73894eafb59",
+      "b86bd405-6df6-40da-be9b-b62fd775bc1e",
+      "a61c6775-3b5a-4e00-8f92-8a41ffd8af0f"
     ],
     "exemplar_ids": [
       "7993383f-f29b-46c4-8a0a-be78be2df66c",
-      "b74d6b1f-fec5-42e2-ac79-bd02ce13491f"
+      "b74d6b1f-fec5-42e2-ac79-bd02ce13491f",
+      "f0c370ae-a710-4d74-ac0d-6a51e771e829",
+      "c3401281-0744-45cb-b5ae-150315624c43"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

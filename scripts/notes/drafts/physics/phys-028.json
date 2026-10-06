@@ -326,6 +326,50 @@
         "answer_points": ["Specific latent heat = E ÷ m", "= 95 000 ÷ 0.25", "= 380 000 J/kg"],
         "tip": "A correct answer of 380 000 J/kg scores all three marks. Rearranging the equation is rewarded."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 2.2.3.1"]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 5.11P"],
+      "worked_example": {
+        "exemplar_id": "c1f5e899-ed87-421b-8838-6dd292f44ec8",
+        "source": "EDEXCEL jan 2020, Paper 2 (PR), Q5(a)(ii)",
+        "question": "A student plots a temperature–time graph for ice as it is heated and melts to liquid water. Suggest a precaution the student should take to obtain high quality data.",
+        "marks": 1,
+        "answer_points": [
+          "Any one from: keep the heater submerged, check that the voltage stays constant, keep the lid on, stir once some ice has melted, or repeat and average"
+        ],
+        "tip": "Give one clear precaution."
+      },
+      "extra": [
+        {
+          "heading": "Obtaining a temperature–time graph",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This practical shows that the temperature stays constant while a substance changes state."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Put crushed ice and a thermometer in a beaker. Heat it gently with a steady heater or a water bath."
+                },
+                {
+                  "lead": "Record.",
+                  "text": "Stir the ice. Read the temperature at regular times, such as every 30 s, with a stopwatch."
+                },
+                {
+                  "lead": "Plot.",
+                  "text": "Plot temperature against time. The graph is flat while the ice melts, because the energy changes the state and not the temperature."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -333,12 +377,14 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "489b9fc2-422a-4a00-8341-769cb1de00b9",
       "db7c1503-b881-470f-8081-2e75a8049eb4",
       "c05eb3b7-010d-424e-a735-88782e122347",
-      "208cd0f5-423e-4d02-957b-9d1965bb4758"
+      "208cd0f5-423e-4d02-957b-9d1965bb4758",
+      "160ffcdd-3843-4040-850e-ad61391a8935",
+      "f9e475cb-d191-4e75-b56b-ab792afe102f"
     ],
     "exemplar_ids": [
       "65006db0-806b-4806-9085-83fdd5f806e2",
@@ -352,7 +398,8 @@
       "f74e781c-077d-49e8-a620-2d7241c0296b",
       "df7fbf44-6169-414e-83bb-0764439c4e55",
       "e05c1be1-1352-49dc-973f-2f2036ce1d4b",
-      "db26006f-6fd6-4b27-bb78-af4b63138a96"
+      "db26006f-6fd6-4b27-bb78-af4b63138a96",
+      "c1f5e899-ed87-421b-8838-6dd292f44ec8"
     ]
   }
 }

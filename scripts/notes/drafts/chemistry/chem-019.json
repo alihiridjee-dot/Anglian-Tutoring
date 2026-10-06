@@ -61,11 +61,27 @@
         {
           "type": "table",
           "rows": [
-            ["Solid", "Fixed in the lattice, only vibrating", "No"],
-            ["Molten", "Free to move", "Yes"],
-            ["Dissolved in water", "Free to move", "Yes"]
+            [
+              "Solid",
+              "Fixed in the lattice, only vibrating",
+              "No"
+            ],
+            [
+              "Molten",
+              "Free to move",
+              "Yes"
+            ],
+            [
+              "Dissolved in water",
+              "Free to move",
+              "Yes"
+            ]
           ],
-          "columns": ["State", "Ions", "Conducts?"]
+          "columns": [
+            "State",
+            "Ions",
+            "Conducts?"
+          ]
         },
         {
           "type": "diagram",
@@ -102,7 +118,10 @@
                 "group": 0
               }
             ],
-            "groups": ["Conducts electricity", "Does not conduct"],
+            "groups": [
+              "Conducts electricity",
+              "Does not conduct"
+            ],
             "prompt": "Does it conduct electricity? Sort each one."
           }
         },
@@ -143,7 +162,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.2.3", "AQA T 5.2.2.3"],
+      "spec_codes": [
+        "AQA 4.2.2.3",
+        "AQA T 5.2.2.3"
+      ],
       "worked_example": {
         "exemplar_id": "1b0e460d-476c-49e0-a196-4abf17087afe",
         "source": "AQA jun 2022, Paper 1 (F), Q4.6",
@@ -158,7 +180,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 1.33"],
+      "spec_codes": [
+        "EDEX 1.33"
+      ],
       "worked_example": {
         "exemplar_id": "4cd8021b-2fba-4acd-86d2-7ffb9d9ee1d8",
         "source": "EDEXCEL jun 2024, Paper 1 (F), Q9(a)(ii)",
@@ -173,7 +197,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C2.3f"],
+      "spec_codes": [
+        "OCR C2.3f"
+      ],
       "worked_example": {
         "exemplar_id": "79ed422c-3bba-40e8-9487-26ffc3153030",
         "source": "OCR jun 2022, Paper 1, Q18(a)(i)",
@@ -185,6 +211,44 @@
         ],
         "tip": "Quote the data from the table and link it to the property of ionic compounds."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.4.4",
+        "CAIE 2.4.7S"
+      ],
+      "worked_example": {
+        "exemplar_id": "5c7c7f94-66ae-426f-bb37-7a475dbd45cd",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q3(b)(iv)",
+        "question": "This question is about the elements sodium and fluorine and the compound sodium fluoride. Explain in terms of structure and bonding why sodium fluoride has a much higher melting point than fluorine.",
+        "marks": 3,
+        "answer_points": [
+          "Sodium fluoride has ionic bonds.",
+          "Fluorine has attraction between molecules (intermolecular forces).",
+          "The attraction between particles in fluorine is weaker."
+        ],
+        "tip": "Compare both substances: the answer needs the bonding in each."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.42",
+        "IGCSE 1.43",
+        "IGCSE 1.56C"
+      ],
+      "worked_example": {
+        "exemplar_id": "d0b348de-11e5-4a6f-a997-fa0949810326",
+        "source": "EDEXCEL jun 2023, Paper 1 (CR), Q9(a)(ii)",
+        "question": "Explain why calcium nitrate has a high melting point. Refer to structure and bonding in your answer.",
+        "marks": 4,
+        "answer_points": [
+          "Calcium nitrate has a giant ionic structure (lattice).",
+          "There are strong electrostatic forces of attraction.",
+          "The forces are between oppositely charged ions.",
+          "A lot of energy is needed to overcome the forces."
+        ],
+        "tip": "Do not mention the sharing of electrons or intermolecular forces in an ionic compound."
+      }
     }
   },
   "meta": {
@@ -192,17 +256,24 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "7486d348-43df-40e3-ab6f-ca403b5d1c64",
       "d369c8b1-14ab-4680-b3d2-83a6fbc0a636",
       "57bf982a-99ec-4e01-a087-0edfe8a0de04",
-      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8"
+      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8",
+      "15b75a74-6427-4191-ac60-1010bc7a03de",
+      "665df801-f0c3-470f-840c-38973747528c",
+      "d5c1d579-6014-46a9-bd33-9769f753ae6c",
+      "690bfff1-8b9c-4650-8fa4-5d83b04967ab",
+      "24604573-78aa-4abf-a480-9ac9e4db6d9d"
     ],
     "exemplar_ids": [
       "1b0e460d-476c-49e0-a196-4abf17087afe",
       "4cd8021b-2fba-4acd-86d2-7ffb9d9ee1d8",
-      "79ed422c-3bba-40e8-9487-26ffc3153030"
+      "79ed422c-3bba-40e8-9487-26ffc3153030",
+      "5c7c7f94-66ae-426f-bb37-7a475dbd45cd",
+      "d0b348de-11e5-4a6f-a997-fa0949810326"
     ]
   }
 }

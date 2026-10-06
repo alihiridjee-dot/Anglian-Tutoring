@@ -1,0 +1,391 @@
+{
+  "format": 1,
+  "concept_id": "iphys-014",
+  "subject": "physics",
+  "title": "Elliptical orbits and planetary data",
+  "key_idea": "Planets, minor planets and comets move in elliptical orbits, with the Sun off-centre. An object moves faster when it is nearer the Sun, because gravitational potential energy becomes kinetic energy. The Sun's gravitational field weakens with distance, so planets further out orbit more slowly.",
+  "sections": [
+    {
+      "heading": "Elliptical orbits",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An orbit is not a perfect circle. This section covers the shape of orbits and what orbits what."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ellipse",
+              "meaning": "A stretched circle, like an oval."
+            },
+            {
+              "term": "Comet",
+              "meaning": "A ball of ice and dust that orbits the Sun."
+            },
+            {
+              "term": "Minor planet",
+              "meaning": "A smaller body that orbits the Sun, such as a dwarf planet or an asteroid."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Planets, minor planets and comets all have **elliptical** orbits around the Sun.",
+            "The Sun is not at the centre of the ellipse. It is off-centre.",
+            "The exception is an orbit that is approximately circular, where the Sun is at the centre.",
+            "The orbits of the planets are only slightly elliptical, so they are close to circular."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Comets, moons and planets"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Object",
+            "Orbits",
+            "Shape of orbit"
+          ],
+          "rows": [
+            [
+              "Planet",
+              "The Sun",
+              "Circular or slightly elliptical"
+            ],
+            [
+              "Comet",
+              "The Sun",
+              "Very elliptical (oval), with the Sun well off-centre"
+            ],
+            [
+              "Moon",
+              "A planet",
+              "Circular or elliptical"
+            ],
+            [
+              "Artificial satellite",
+              "A planet",
+              "Circular or elliptical"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A comet's distance from the Sun changes a lot, so its speed changes a lot.",
+            "A planet's distance from the Sun changes little, so its speed changes little.",
+            "A planet's orbital radius and period are much greater than a moon's or satellite's."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Planets, minor planets and comets orbit the Sun in ellipses.",
+            "The Sun is off-centre, unless the orbit is almost circular.",
+            "A comet's orbit is much more elliptical than a planet's."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Speed in an elliptical orbit",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) The speed of an object in an elliptical orbit is not constant. This section covers why."
+        },
+        {
+          "type": "list",
+          "items": [
+            "An object in an elliptical orbit travels **faster** when it is closer to the Sun.",
+            "It travels **slower** when it is further from the Sun."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Explaining it with energy"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Energy is conserved, so the total of gravitational potential energy and kinetic energy stays constant.",
+            "Moving away from the Sun, kinetic energy transfers to gravitational potential energy, so the speed falls.",
+            "Moving towards the Sun, gravitational potential energy transfers to kinetic energy, so the speed rises.",
+            "At the closest point, potential energy is least and kinetic energy is greatest."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Statements about an object in an elliptical orbit are sorted into those true at the closest point to the Sun and those true at the furthest point.",
+            "prompt": "Sort each statement into where it is true in the orbit.",
+            "groups": [
+              "Closest to the Sun",
+              "Furthest from the Sun"
+            ],
+            "items": [
+              {
+                "text": "Greatest speed",
+                "group": 0
+              },
+              {
+                "text": "Most kinetic energy",
+                "group": 0
+              },
+              {
+                "text": "Least gravitational potential energy",
+                "group": 0
+              },
+              {
+                "text": "Strongest pull from the Sun",
+                "group": 0
+              },
+              {
+                "text": "Least speed",
+                "group": 1
+              },
+              {
+                "text": "Least kinetic energy",
+                "group": 1
+              },
+              {
+                "text": "Most gravitational potential energy",
+                "group": 1
+              },
+              {
+                "text": "Weakest pull from the Sun",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An orbiting object is fastest when closest to the Sun.",
+            "Kinetic and gravitational potential energy are transferred to each other, and their total stays constant."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Gravity and distance",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gravitational field strength is the force on each kilogram of mass. This section covers what changes it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "At the surface of a planet, the field strength depends on the **mass** of the planet.",
+            "A planet with a larger mass has a stronger field at its surface, if the planets are similar in size.",
+            "Field strength is also different on other planets and the Moon, because their masses, sizes and densities differ.",
+            "Around a planet, the field strength **decreases** as the distance from the planet increases."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) The same is true of the Sun: its gravitational field weakens as distance from the Sun increases.",
+            "So the orbital speeds of the planets decrease as their distance from the Sun increases.",
+            "Jupiter is further from the Sun than the Earth, so its orbital speed is lower."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The field strength falls faster than the distance rises: gravitational field strength × distance² is constant.",
+            "Doubling the distance from the centre of a planet cuts the field strength to a quarter."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing the gravitational field strength around Mars at different distances from its centre. As the distance increases, the field strength falls.",
+            "inputs": [
+              {
+                "id": "d",
+                "label": "Distance from the centre of Mars",
+                "unit": "km",
+                "min": 3400,
+                "max": 9000,
+                "step": 200,
+                "value": 3400
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Gravitational field strength",
+                "unit": "N/kg",
+                "formula": "42700000 / (d * d)",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Surface field strength depends on the mass of the planet.",
+            "Field strength decreases with distance from the planet or the Sun.",
+            "Planets further from the Sun orbit more slowly."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reading planetary data",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Questions give a table of data about planets. This section covers the patterns to look for."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Planet",
+            "Mass / 10²⁴ kg",
+            "Average distance from Sun / 10⁶ km",
+            "Orbital period / days",
+            "Surface field strength / N/kg"
+          ],
+          "rows": [
+            [
+              "Venus",
+              "4.87",
+              "108.2",
+              "224.7",
+              "8.9"
+            ],
+            [
+              "Earth",
+              "5.97",
+              "149.6",
+              "365.2",
+              "9.8"
+            ],
+            [
+              "Jupiter",
+              "1898",
+              "778.6",
+              "4331",
+              "23.1"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Further from the Sun means a longer orbital period.",
+            "The larger the mass, the larger the surface gravitational field strength.",
+            "The orbital distance is an **average**, because the orbit is elliptical and the distance changes.",
+            "Planets close to the Sun generally have higher surface temperatures."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Jupiter is a large gas planet with a low density. Earth is a small rocky planet with a high density.",
+            "Jupiter has more mass than Earth because its volume is much larger, even though its density is lower.",
+            "An object falls a given height in the shortest time on the planet with the highest field strength."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "In planetary data, period increases with distance from the Sun.",
+            "Mass links to surface field strength, and gas planets have low density.",
+            "Orbital distances are averages because orbits are elliptical."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the shape of the orbit of a comet and where the Sun is in it.",
+      "a": "Elliptical, with the Sun not at the centre of the ellipse.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a comet moves faster when it is closer to the Sun.",
+      "a": "Gravitational potential energy transfers to kinetic energy as it moves closer. Energy is conserved, so the total stays constant and the speed increases.",
+      "marks": 3
+    },
+    {
+      "q": "State and explain how the orbital speed of Jupiter compares with that of the Earth.",
+      "a": "Jupiter is slower. It is further from the Sun, where the Sun's gravitational field is weaker.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 6.1.2.3",
+        "CAIE 6.1.2.7S",
+        "CAIE 6.1.2.8S",
+        "CAIE 6.1.2.9S",
+        "CAIE 6.1.2.10S"
+      ],
+      "worked_example": {
+        "exemplar_id": "5345ca7c-51f4-4bce-b15c-ec81aa8ff199",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q11(d)",
+        "question": "Comets are balls of ice and dust. Some comets orbit the Sun. State how the speed of a comet changes as it orbits the Sun. Explain your answer using ideas about the conservation of energy.",
+        "marks": 3,
+        "answer_points": [
+          "A comet has an elliptical orbit. Its speed is faster when it is closer to the Sun and slower when it is further away.",
+          "Energy is conserved, so energy is transferred between kinetic and gravitational energy stores and the total energy stays constant.",
+          "As the radius of the orbit decreases, gravitational energy decreases and kinetic energy increases, and the reverse when it moves away."
+        ],
+        "tip": "One mark each for the change in speed, the idea of conservation and the energy transfer."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 8.3",
+        "IGCSE 8.5"
+      ],
+      "worked_example": {
+        "exemplar_id": "e8270b7d-0963-4c2f-b0c0-d8ee0bb3e0c6",
+        "source": "EDEXCEL jun 2022, Paper 1 (P), Q1(b)",
+        "question": "Describe how the orbit of a comet compares with the orbit of a planet.",
+        "marks": 3,
+        "answer_points": [
+          "The comet's orbit is more elliptical (oval).",
+          "The comet's orbital path is longer.",
+          "The comet's speed varies but the planet's speed hardly changes.",
+          "Both orbit a star.",
+          "The comet's orbital radius varies but the planet's does not.",
+          "The star is at the centre of the planet's orbit but not at the centre of the comet's orbit."
+        ],
+        "tip": "Any three score one mark each. Each point must compare the comet with the planet."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "4950f42b-1636-4978-ac24-b9b9c76b5b48",
+      "4f317bf5-f411-47ea-aa6d-1e64a58171f1",
+      "74ac83cf-0ab5-464b-ad58-13c8024f83c0",
+      "8a4bcc34-0d04-40d7-b9c5-1267bcbd51a4",
+      "79b0d083-7ecf-4121-9819-487d7fc48681",
+      "6e25ef31-d46b-4227-8334-4218c8daa1a2",
+      "3f1e61d9-a36b-4526-a1f5-9fc2d5713a7e"
+    ],
+    "exemplar_ids": [
+      "5345ca7c-51f4-4bce-b15c-ec81aa8ff199",
+      "e8270b7d-0963-4c2f-b0c0-d8ee0bb3e0c6"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

@@ -284,6 +284,113 @@
         "answer_points": ["P = E ÷ t", "P = 28 500 ÷ (5 × 60)", "P = 95 W"],
         "tip": "The time must be in seconds. Using 5 minutes gives 5700 W and loses marks."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.2.3.3",
+        "CAIE 4.2.3.4",
+        "CAIE 4.2.3.7S",
+        "CAIE 4.2.5.1",
+        "CAIE 4.2.5.3",
+        "CAIE 4.2.5.4",
+        "CAIE 4.2.3.1",
+        "CAIE 4.2.3.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "dacfb35c-2953-4465-878f-ee65f1643fb3",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q7(b)(ii)",
+        "question": "An electric heater is connected to a 230 V mains supply. The current in the heater is 3.9 A. Calculate the energy transferred by the heater in 5.0 minutes.",
+        "marks": 3,
+        "answer_points": ["E = IVt", "t = 5.0 × 60 = 300 s", "E = 3.9 × 230 × 300 = 2.7 × 10⁵ J"],
+        "tip": "One mark for the equation, one for converting minutes to seconds, and one for the answer."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A circuit transfers energy from a source, such as a cell or the mains, to the components. The components then transfer it to the surroundings."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Electromotive force (e.m.f.)",
+                  "meaning": "The electrical work done by a source in moving a unit charge around a complete circuit."
+                },
+                {
+                  "term": "Potential difference (p.d.)",
+                  "meaning": "The work done by a unit charge passing through a component."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The e.m.f. of a source and the p.d. across a component both use the same equation, with W as the work done in joules and Q as the charge in coulombs."
+            },
+            {
+              "type": "equation",
+              "label": "e.m.f. and potential difference",
+              "formula": "e.m.f. = work done ÷ charge    (E = W / Q)\npotential difference = work done ÷ charge    (V = W / Q)",
+              "where": [
+                "E, the e.m.f., and V, the p.d., in volts, V",
+                "work done, W, in joules, J",
+                "charge, Q, in coulombs, C"
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "The kilowatt-hour",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Kilowatt-hour (kW h)",
+                  "meaning": "The energy used by a 1 kW appliance in 1 hour."
+                }
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Energy in kilowatt-hours",
+              "formula": "energy (kW h) = power (kW) × time (h)",
+              "where": ["power, in kilowatts, kW", "time, in hours, h"]
+            },
+            {
+              "type": "equation",
+              "label": "Cost of using an appliance",
+              "formula": "cost = energy (kW h) × price per kW h"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find the energy.",
+                  "text": "A 2.0 kW heater on for 3 hours uses 2.0 × 3 = 6.0 kW h."
+                },
+                {
+                  "lead": "Find the cost.",
+                  "text": "At 30 p per kW h, the cost is 6.0 × 30 = 180 p, or £1.80."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.5", "IGCSE 2.20", "IGCSE 2.21"],
+      "worked_example": {
+        "exemplar_id": "26f00d3d-be81-4934-b64c-2ff44e83afc3",
+        "source": "EDEXCEL jun 2023, Paper 2 (PR), Q3(b)(i)",
+        "question": "A sponge pad stores 5.0 mJ of energy in its electrostatic store. It discharges with a spark to a metal post. The voltage between the sponge pad and the metal post is 6000 V. Calculate the charge transferred by the spark.",
+        "marks": 3,
+        "answer_points": ["E = Q × V", "0.005 = Q × 6000, so Q = 0.005 / 6000", "Q = 8.3 × 10⁻⁷ C"],
+        "tip": "One mark each for the substitution, the rearrangement and the answer. Convert mJ to J first."
+      }
     }
   },
   "meta": {
@@ -299,14 +406,25 @@
       "6953e755-4400-4e5e-918e-a25f3d8921d3",
       "b0b85858-e613-4b15-9b28-233dfd95994d",
       "8ca36cc2-a4c7-42fa-ada6-8ffe0202b2f7",
-      "aa15fad4-556a-486e-b262-f332f1aacbe7"
+      "aa15fad4-556a-486e-b262-f332f1aacbe7",
+      "1b7f6ebc-3d11-43ae-aa9b-c24549d82098",
+      "736693d2-a612-4ab2-b163-f226f35b4033",
+      "ca702b55-7344-49e9-a447-ad2fc2f98fd5",
+      "373ed270-9e4b-464b-a770-5daf542f1c4b",
+      "93a8298b-5271-439e-bc07-d5202ffa4f66",
+      "7288a84f-1e63-4633-9f97-5018a22fadf6",
+      "d8ded2a2-62a2-4828-b025-39971d8ef8fd",
+      "a949c6e0-fa7a-4582-9deb-2823a3c6576f",
+      "0f95120d-906d-4577-93fb-c7ac93ad0ffd"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "exemplar_ids": [
       "fe316077-a58d-4baa-92ac-89b56edb4901",
       "365547a9-a0b5-4b58-bfb1-43153b9ac417",
-      "e4efa1a3-c8fa-41c9-a7af-fa99116ea6f9"
+      "e4efa1a3-c8fa-41c9-a7af-fa99116ea6f9",
+      "dacfb35c-2953-4465-878f-ee65f1643fb3",
+      "26f00d3d-be81-4934-b64c-2ff44e83afc3"
     ]
   }
 }

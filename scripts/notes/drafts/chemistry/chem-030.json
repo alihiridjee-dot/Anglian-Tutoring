@@ -249,6 +249,94 @@
         ],
         "tip": "This is a one-mark multiple-choice question, so the working is not marked. Do the calculation to pick the right option."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.1.2", "CAIE 3.1.5S", "CAIE 3.3.7S", "CAIE 3.1.3"],
+      "worked_example": {
+        "exemplar_id": "88756516-a648-4b63-8e53-61b25a145e62",
+        "source": "CAMBRIDGE jun 2025, Paper 43, Q5(e)",
+        "question": "An organic compound has the following composition by mass: C, 58.82%; H, 9.80%; O, 31.38%.\n\nCalculate the empirical formula of the compound.",
+        "marks": 3,
+        "answer_points": [
+          "Divide each percentage by its Ar: C 58.82 ÷ 12 = 4.90, H 9.80 ÷ 1 = 9.80, O 31.38 ÷ 16 = 1.96",
+          "Divide each by the smallest: C 4.90 ÷ 1.96 = 2.5, H 9.80 ÷ 1.96 = 5, O 1.96 ÷ 1.96 = 1",
+          "Ratio 2.5 : 5 : 1, so multiply by 2 to get 5 : 10 : 2",
+          "Empirical formula = C₅H₁₀O₂"
+        ],
+        "tip": "One mark for each stage: moles, the ratio, then the formula."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.31", "IGCSE 1.32", "IGCSE 1.33", "IGCSE 1.36", "IGCSE 4.2"],
+      "worked_example": {
+        "exemplar_id": "c39fb763-ed77-404a-a421-d60a8973b4b2",
+        "source": "EDEXCEL jun 2024, Paper 1 (C), Q6(c)(ii)",
+        "question": "Potassium aluminium sulfate is normally found as a hydrated salt, with the formula KAl(SO₄)₂.xH₂O\n\nWhen 23.7 g of the hydrated salt is heated to remove all the water, 12.9 g of the anhydrous salt is formed.\n\nCalculate the value of x.\n\n[for KAl(SO₄)₂, Mr = 258; for H₂O, Mr = 18]",
+        "marks": 4,
+        "answer_points": [
+          "Mass of water = 23.7 − 12.9 = 10.8 g",
+          "Moles of KAl(SO₄)₂ = 12.9 ÷ 258 = 0.0500",
+          "Moles of water = 10.8 ÷ 18 = 0.600",
+          "x = 0.600 ÷ 0.0500 = 12"
+        ],
+        "tip": "The value of x must be a whole number."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Formula of a hydrated salt"
+            },
+            {
+              "type": "paragraph",
+              "text": "Water of crystallisation is water that is part of a crystal. Heating drives it off and leaves the anhydrous salt."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Weigh.",
+                  "text": "Find the mass of the hydrated salt in a tube."
+                },
+                {
+                  "lead": "Heat and reweigh.",
+                  "text": "Heat, cool and reweigh. Repeat until the mass stops changing (constant mass)."
+                },
+                {
+                  "lead": "Find the masses.",
+                  "text": "Mass of water lost = mass before − mass after. The mass left is the anhydrous salt."
+                },
+                {
+                  "lead": "Find the moles.",
+                  "text": "Divide each mass by its Mr."
+                },
+                {
+                  "lead": "Find the ratio.",
+                  "text": "x = moles of water ÷ moles of anhydrous salt, as a whole number."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Formula of a metal oxide by reduction"
+            },
+            {
+              "type": "paragraph",
+              "text": "A metal oxide such as copper(II) oxide can be reduced by passing hydrogen or methane over the heated oxide."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Weigh the oxide, heat it in the gas until it is all reduced, then weigh the metal left.",
+                "Mass of oxygen lost = mass of oxide − mass of metal.",
+                "Divide each mass by its Ar and find the simplest ratio to get the formula."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -259,13 +347,22 @@
       "f59f8a0b-501e-46e7-bbb8-8361831c6231",
       "44d67354-e267-44ee-81eb-91d589990745",
       "f398e792-a0b6-43e2-bcb0-0d9037efb5d7",
-      "adba84a5-fc3a-4feb-b15b-04a953ff0ee1"
+      "adba84a5-fc3a-4feb-b15b-04a953ff0ee1",
+      "111d658e-fa00-4559-8b3d-cede5f6d38b5",
+      "831cacea-5942-4cb6-abce-e1ab616ce58a",
+      "8df76071-e793-430e-9716-fe47b309527a",
+      "da4cf6ea-3768-4ef4-800d-44099a6ed0c0",
+      "2eb4efb2-6719-4ab2-999e-b9e910330433",
+      "ba230153-3470-4afa-89fe-af006971142e",
+      "59d317dd-998b-482a-b694-cc44f7084319"
     ],
     "exemplar_ids": [
       "5ef9d86e-e689-4203-835d-3e2aa2ab2c2d",
-      "aebbf1ca-0a9c-4259-afa2-6fbd9d99de79"
+      "aebbf1ca-0a9c-4259-afa2-6fbd9d99de79",
+      "88756516-a648-4b63-8e53-61b25a145e62",
+      "c39fb763-ed77-404a-a421-d60a8973b4b2"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

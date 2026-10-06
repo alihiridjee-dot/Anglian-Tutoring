@@ -39,7 +39,11 @@
             "kind": "sort",
             "alt": "Sort each adaptation into structural, behavioural or functional.",
             "prompt": "Which type of adaptation is each one?",
-            "groups": ["Structural", "Behavioural", "Functional"],
+            "groups": [
+              "Structural",
+              "Behavioural",
+              "Functional"
+            ],
             "items": [
               {
                 "text": "White winter fur on a hare",
@@ -165,7 +169,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 7.3", "AQA T 4.7.1.4"],
+      "spec_codes": [
+        "AQA 7.3",
+        "AQA T 4.7.1.4"
+      ],
       "worked_example": {
         "exemplar_id": "72b68b51-51fe-4d3a-a834-ec62e4dc6b5c",
         "source": "AQA jun 2023, Paper 2 (F), Q03.3",
@@ -180,7 +187,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 6.14B"],
+      "spec_codes": [
+        "EDEX 6.14B"
+      ],
       "worked_example": {
         "exemplar_id": "0ff68a2c-23c3-47bc-9b44-f1b5e61287d6",
         "source": "EDEXCEL jun 2024, Paper 2 (F), Q5(b)(ii)",
@@ -212,6 +221,108 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 18.2.1",
+        "CAIE 18.2.2",
+        "CAIE 18.2.3S"
+      ],
+      "worked_example": {
+        "exemplar_id": "a872445c-5999-4385-a668-bfe0bdd97f9a",
+        "source": "CAMBRIDGE jun 2025, Paper 43, Q4(b)(ii)",
+        "question": "The table shows the stomatal density and habitat of two different hydrophytes.\n\nPondweed lives under the water. It has 0 stomata per mm² on its upper leaf surface and 0 on its lower leaf surface.\nWater lily has its leaves on the surface of the water. It has 573 stomata per mm² on its upper leaf surface and 0 on its lower leaf surface.\n\nUsing the data, explain the stomatal density found in the two different hydrophytes.",
+        "marks": 4,
+        "answer_points": [
+          "Pondweed is submerged in water, so there is no need for stomata to let air into a leaf.",
+          "Oxygen and carbon dioxide can diffuse into the leaf cells from the water.",
+          "Water lily has stomata only on its upper surface.",
+          "Its lower surface is on the surface of the water or under the water.",
+          "There is a constant water supply to the water lily, so no risk of wilting."
+        ],
+        "tip": "Any four of these score one mark each."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "An adaptive feature has one more condition than a general adaptation: it must be inherited."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Adaptive feature",
+                  "meaning": "An inherited feature that helps an organism to survive and reproduce in its environment."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "You may be given an image or other information about a species. Describe its adaptive features and say how each one helps it survive."
+            }
+          ]
+        },
+        {
+          "heading": "Hydrophytes and xerophytes (Supplement)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Plants show adaptive features for very wet and very dry habitats."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Hydrophyte",
+                  "meaning": "A plant adapted to live in water."
+                },
+                {
+                  "term": "Xerophyte",
+                  "meaning": "A plant adapted to live in a dry habitat."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Hydrophytes"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Air spaces in the leaves and stems make the plant float.",
+                "Floating leaves have stomata on the upper surface only, where air is available.",
+                "A very thin cuticle, because the plant does not need to prevent water loss and light can reach the palisade layer.",
+                "Few or small roots, because water is taken in over the whole surface."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Xerophytes"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A thick waxy cuticle, to reduce water loss from the leaf surface.",
+                "Few stomata, or sunken stomata in grooves, to reduce water loss by transpiration.",
+                "Small, rolled or needle-like leaves, or spines, to reduce the surface area for water loss.",
+                "Hairs on the leaf, to trap moist air next to the surface.",
+                "Deep or widespread roots, to reach more water.",
+                "Swollen, fleshy stems to store water."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "An adaptive feature is inherited and helps survival and reproduction.",
+                "Hydrophytes need not save water. Xerophytes have features that reduce water loss."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -221,7 +332,10 @@
     "spec_point_ids": [
       "9733dcba-040f-4cdc-b776-2a4aebde680d",
       "af5cc197-0780-42f9-8216-c7fdfd75a219",
-      "ca8ba68e-f9a7-4104-9b07-a37d92a4670b"
+      "ca8ba68e-f9a7-4104-9b07-a37d92a4670b",
+      "b926c092-ae40-473b-95b2-778ad435fe07",
+      "17c88e0e-4fdb-4b70-acff-0f2032426782",
+      "b66c67c7-0669-4e99-80e2-2842eb0747d3"
     ],
     "exemplar_ids": [
       "72b68b51-51fe-4d3a-a834-ec62e4dc6b5c",
@@ -229,9 +343,10 @@
       "44c5d270-bedd-4888-b32b-f5478d73bdc6",
       "7a61fc24-b2de-4513-92c7-91fa7c1d19b8",
       "28d81eb4-026d-493b-a77d-edae40382654",
-      "8314f60b-f469-4fd6-8202-7d998f6cf534"
+      "8314f60b-f469-4fd6-8202-7d998f6cf534",
+      "a872445c-5999-4385-a668-bfe0bdd97f9a"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

@@ -299,6 +299,88 @@
         ],
         "tip": "This is a levels question. Cover both the radiation balance and the atmosphere: with only one of these the maximum is 3 marks."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.3.3.1",
+        "CAIE 2.3.3.2",
+        "CAIE 2.3.3.4S",
+        "CAIE 2.3.3.5S",
+        "CAIE 2.3.3.6S",
+        "CAIE 2.3.3.9S",
+        "CAIE 2.3.3.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "91e3320c-add9-486a-995d-60aeaff00f46",
+        "source": "CAMBRIDGE nov 2023, Paper 41, Q2(b)",
+        "question": "A copper cooking pan contains water on a hotplate. The outside surface of the pan is kept clean by regular polishing.\n\nExplain one other advantage of keeping the surface of the pan shiny.",
+        "marks": 2,
+        "answer_points": [
+          "Shiny surfaces are poor emitters of radiation.",
+          "This reduces the energy lost from the pan, so less energy is transferred to the surroundings."
+        ],
+        "tip": "Name the type of surface and say what it does to the energy loss."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Thermal radiation needs no medium, so it can cross a vacuum. This is how the Sun's energy reaches the Earth.",
+                "(Supplement) The rate of emission also increases with the surface area of an object, as well as with its surface temperature."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 4.8", "IGCSE 4.6", "IGCSE 8.8"],
+      "worked_example": {
+        "exemplar_id": "140dc9b3-c83a-471a-ae48-90c529ab30b5",
+        "source": "EDEXCEL jan 2022, Paper 1 (P), Q8(d)",
+        "question": "A satellite spins and is heated by the Sun. The surface of one metal bar on the satellite is dull and black. The surface of the other metal bar is shiny and white. Temperature probes measure the temperature of each metal bar.\n\nUse ideas about thermal energy transfer to explain how the temperature of each metal bar changes as the satellite spins.",
+        "marks": 4,
+        "answer_points": [
+          "Each bar warms when it faces the Sun and cools when it faces away from the Sun.",
+          "Facing the Sun, the black bar warms faster than the white bar, because black is a better absorber of radiation.",
+          "Facing away, the black bar cools faster than the white bar, because black is a better emitter of radiation.",
+          "Conduction and convection play no part outside the spacecraft, because there are no particles."
+        ],
+        "tip": "Any four points score. Name absorption when the bar warms and emission when it cools."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Thermal energy can be transferred in three ways. Radiation is the only one that needs no particles."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Conduction: particles vibrate and pass energy to their neighbours, mainly in solids.",
+                "Convection: warm liquid or gas rises and carries energy with it.",
+                "Radiation: infrared waves carry energy, and can cross a vacuum."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "A star emits radiation at all temperatures. Its colour depends on its surface temperature."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A cooler star looks red.",
+                "A hotter star looks white or blue, because it emits more of the shorter wavelengths."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -313,14 +395,23 @@
       "2b2fcf4b-42aa-493d-9a28-f525662a0e71",
       "46c1b419-e32a-43df-acf6-9192bebbbdf6",
       "4c4643ff-82df-4e8b-b77f-855515f09f43",
-      "8ee461d3-c925-4563-a1ed-966325f4df56"
+      "8ee461d3-c925-4563-a1ed-966325f4df56",
+      "adc40e5f-f66e-461a-8b75-fc1750d9c771",
+      "d3be199a-42e2-4742-b37f-a363a6de7f56",
+      "845ae1a3-c18e-4e43-8af2-cb9e4af76e9e",
+      "809d50b6-32d2-4821-aea0-4c8979cae95e",
+      "1c2f1786-07da-4e6e-addb-96976ec51bb6",
+      "11ddf569-a252-46c2-a99f-dff49bf9495d",
+      "9f1fc896-6052-4570-b778-3c6f112dd703"
     ],
     "exemplar_ids": [
       "38d5909b-6c24-4c45-aba6-c814bc66f358",
       "85fdaacf-8027-4aae-9232-0b761e763467",
-      "ef07ffa2-bca9-4a48-b262-d41c6db0c7de"
+      "ef07ffa2-bca9-4a48-b262-d41c6db0c7de",
+      "91e3320c-add9-486a-995d-60aeaff00f46",
+      "140dc9b3-c83a-471a-ae48-90c529ab30b5"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

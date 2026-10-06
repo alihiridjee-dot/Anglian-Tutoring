@@ -182,19 +182,91 @@
         ],
         "tip": "Each mark is a link in a chain: large surface area, more light, more photosynthesis."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 6.2.1",
+        "CAIE 6.2.2",
+        "CAIE 6.2.3",
+        "CAIE 8.1.2",
+        "CAIE 8.3.2",
+        "CAIE 8.3.4S"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "These leaf structures also adapt the leaf for photosynthesis."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The **cuticle** is a waxy layer on the upper surface. It is transparent, so light passes through, and it cuts water loss.",
+                "The upper and lower epidermis are thin and the upper epidermis is transparent, so light reaches the palisade cells.",
+                "The **vascular bundles** contain xylem, which brings water to the leaf, and phloem, which carries sugars away.",
+                "Spongy mesophyll cells are loosely packed with interconnecting air spaces, which give a large surface area for gases to move in and out."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.21", "IGCSE 2.42B", "IGCSE 2.40B", "IGCSE 2.41B", "IGCSE 2.43B"],
+      "worked_example": {
+        "exemplar_id": "dbdf26fd-fd38-4435-8d90-df6722d0e2eb",
+        "source": "EDEXCEL nov 2021, Paper 1 (B), Q10(d)",
+        "question": "Describe how the structure of the leaf is adapted for photosynthesis.",
+        "marks": 5,
+        "answer_points": [
+          "The leaf is flat and wide, so it has a large surface area for light absorption and gas exchange.",
+          "The leaf is thin, so no cells are far from the surface and the diffusion distance is short.",
+          "The upper epidermis is transparent, to let light through.",
+          "Palisade cells contain many chloroplasts near the surface, to absorb light.",
+          "Spongy mesophyll cells have air spaces, for gas exchange.",
+          "The lower surface has stomata, to take in carbon dioxide.",
+          "Xylem in the vascular bundle brings water for photosynthesis."
+        ],
+        "tip": "Any five points score. Each needs the structure and how it is adapted."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The upper epidermis is transparent, so light passes through to the palisade cells.",
+                "Xylem in the vascular bundle brings water to the leaf for photosynthesis."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "f51dc2ce-6e74-4fb1-963d-3ea9e188789d",
       "a0967e45-1e5e-4ba3-9b36-81325cac2933",
-      "6078adea-249a-4553-bb0a-5b0f42d4d6df"
+      "6078adea-249a-4553-bb0a-5b0f42d4d6df",
+      "15789128-a782-48d2-aa80-44b1f8a73c5b",
+      "e580b7c0-277f-4564-a07b-20d5d21ad2bf",
+      "979b8117-fe91-4b16-8b6b-0998b74e9a08",
+      "837c33bb-5f98-4758-94a0-ff848518a817",
+      "b39ea7f7-c668-4cb0-8633-463d28535f85"
     ],
-    "exemplar_ids": ["68fd6983-a04c-4d2a-976a-0557151e1f95", "990dec55-5c1f-4b18-b593-d7faeaed8013"]
+    "exemplar_ids": [
+      "68fd6983-a04c-4d2a-976a-0557151e1f95",
+      "990dec55-5c1f-4b18-b593-d7faeaed8013",
+      "dbdf26fd-fd38-4435-8d90-df6722d0e2eb"
+    ]
   }
 }

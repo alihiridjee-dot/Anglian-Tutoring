@@ -309,6 +309,95 @@
         "answer_points": ["F = BIL, so B = F ÷ (I × L)", "B = 0.15 ÷ (5.0 × 0.25)", "B = 0.12 T"],
         "tip": "Check the answer line first: 0.12 T scores all 3 marks."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.5.1.5S",
+        "CAIE 4.5.4.1",
+        "CAIE 4.5.4.2S",
+        "CAIE 4.5.4.3S",
+        "CAIE 5.2.2.3S"
+      ],
+      "worked_example": {
+        "exemplar_id": "29e46a7b-6d28-4f22-9c30-9c0c5f49c336",
+        "source": "CAMBRIDGE mar 2025, Paper 42, Q8(b)",
+        "question": "A metal rod is suspended in the magnetic field produced by a pair of permanent magnets. The metal rod is connected to a cell and there is a current in the metal rod.\nThe connections to the cell are reversed. State how this change affects the force on the metal rod.",
+        "marks": 1,
+        "answer_points": ["The direction of the force reverses (it changes by 180°)."],
+        "tip": "Reversing the current or reversing the field reverses the force. Doing both leaves it unchanged."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Showing the force on a wire"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Hang a metal rod, or a flexible wire, between the poles of a permanent magnet and connect it to a cell or power supply.",
+                "When there is a current, the rod moves. This shows a force on a current-carrying conductor in a magnetic field.",
+                "Reverse the current and the force reverses direction.",
+                "Reverse the magnetic field, by turning the magnet round, and the force reverses direction."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Beams of charged particles"
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A beam of charged particles is a current, so a magnetic field deflects it."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use the left-hand rule with the second finger along the direction of conventional current.",
+                "For positive particles this is the direction they move. For negative particles, such as electrons, it is the opposite direction.",
+                "The force is at right angles to both the field and the motion, so the beam is deflected sideways.",
+                "Alpha and beta particles are deflected in opposite directions, because their charges are opposite.",
+                "Gamma radiation has no charge, so magnetic and electric fields do not deflect it.",
+                "In an electric field, alpha particles move towards the negative plate and beta particles towards the positive plate. Beta particles are deflected more, because they have much less mass."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 6.11P", "IGCSE 6.13", "IGCSE 6.14", "IGCSE 6.12"],
+      "worked_example": {
+        "exemplar_id": "d6a41f08-fe2d-424c-af3c-60d769133586",
+        "source": "EDEXCEL jan 2020, Paper 1 (PR), Q12(b)(iii)",
+        "question": "A wire carrying a current is placed in a magnetic field, and it experiences a magnetic force.\nExplain one method of increasing the magnitude of the magnetic force on the wire.",
+        "marks": 2,
+        "answer_points": [
+          "Either increase the current, by increasing the voltage of the power supply.",
+          "Or increase the magnetic field strength, by using stronger magnets or moving the poles closer together."
+        ],
+        "tip": "Name the change and then say how it is done."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A moving charged particle is a current, so a magnetic field can exert a force on it."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A moving charged particle experiences a force in a magnetic field, unless it moves parallel to the field.",
+                "The force is at right angles to both the field and the direction the particle moves.",
+                "Use the left-hand rule, with the second finger along the direction a positive particle moves, or opposite to the motion of a negative particle."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -329,9 +418,11 @@
     "exemplar_ids": [
       "a5db4218-4be2-4142-830f-dfb7c5332835",
       "0bb2b014-91f5-4a94-950e-847d92696c07",
-      "93729033-66aa-4515-ab11-3ed449698b43"
+      "93729033-66aa-4515-ab11-3ed449698b43",
+      "29e46a7b-6d28-4f22-9c30-9c0c5f49c336",
+      "d6a41f08-fe2d-424c-af3c-60d769133586"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

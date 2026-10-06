@@ -145,7 +145,10 @@
             "kind": "sort",
             "alt": "Sort statements into reasons for tropical deforestation and effects of deforestation.",
             "prompt": "Sort each statement into a reason for deforestation or an effect of it.",
-            "groups": ["Reason for deforestation", "Effect of deforestation"],
+            "groups": [
+              "Reason for deforestation",
+              "Effect of deforestation"
+            ],
             "items": [
               {
                 "text": "Land for cattle",
@@ -216,7 +219,11 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA T 4.7.3.3", "AQA T 4.7.3.4", "AQA 7.8"],
+      "spec_codes": [
+        "AQA T 4.7.3.3",
+        "AQA T 4.7.3.4",
+        "AQA 7.8"
+      ],
       "worked_example": {
         "exemplar_id": "fc093c93-efdc-4e75-8916-00a9b1899609",
         "source": "AQA jun 2020, Paper 2 (H), Q07.1",
@@ -233,6 +240,99 @@
         ],
         "tip": "Levelled answer. To reach the top level (4 to 6 marks) give both reasons and effects, in detail."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 20.2.2",
+        "CAIE 20.2.4",
+        "CAIE 20.1.2",
+        "CAIE 20.4.5S"
+      ],
+      "worked_example": {
+        "exemplar_id": "3eaea716-87dc-45ee-87fb-c7bc3a0b86e3",
+        "source": "CAMBRIDGE jun 2025, Paper 43, Q6(c)(i)",
+        "question": "Deforestation is linked to an increase in global temperatures.\n\nExplain how deforestation can contribute to an increase in global temperatures.",
+        "marks": 3,
+        "answer_points": [
+          "Less photosynthesis, so less carbon dioxide is removed from the atmosphere.",
+          "Felled trees decompose, which adds carbon dioxide to the atmosphere.",
+          "Felled trees are burnt (combustion), which adds carbon dioxide to the atmosphere.",
+          "Carbon dioxide traps long wavelength (infrared) radiation from the ground.",
+          "This enhances the greenhouse effect."
+        ],
+        "tip": "Any three of these points score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Habitats are also destroyed by extracting natural resources and by pollution of fresh water and the sea."
+            },
+            {
+              "type": "subheading",
+              "text": "More effects of deforestation"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Extinction** of species that lose their habitat.",
+                "**Loss of soil**: with no roots to hold it, soil is washed away.",
+                "**Flooding**: with fewer trees to take up water, more rain runs off."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Monocultures and conserving forests"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Monoculture advantage:** one crop over a large area is easy to plant, treat and harvest, so yields are high and cost per crop is low.",
+                "**Monoculture disadvantage:** fewer habitats, so lower biodiversity. A pest or disease can spread quickly through the whole crop, and the crop takes the same nutrients from the soil each year.",
+                "(Supplement) **Conserving forests:** education about why forests matter, protected areas, quotas on the amount of timber cut, and replanting trees."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.18B"
+      ],
+      "worked_example": {
+        "exemplar_id": "c5341d26-1c92-4f82-8909-377f979aaca2",
+        "source": "EDEXCEL jun 2024, Paper 2 (BR), Q5(b)",
+        "question": "Loss of trees is known as deforestation.\n\nDescribe the effects of deforestation on an ecosystem.",
+        "marks": 4,
+        "answer_points": [
+          "Reduces biodiversity, with loss of species and habitats.",
+          "Increases carbon dioxide, as less is absorbed because there is less photosynthesis.",
+          "Reduced soil quality, as fewer minerals are returned to the soil and minerals are leached.",
+          "Soil erosion, as soil is washed away.",
+          "Flooding.",
+          "Disturbs the water cycle: less transpiration and less rainfall."
+        ],
+        "tip": "Four different points score the four marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Leaching**: minerals are washed out of the soil, so it becomes less fertile.",
+                "**Soil erosion**: with no roots to hold it, soil is washed away.",
+                "Less transpiration from the trees means less water vapour in the air, so less rainfall.",
+                "Less photosynthesis and more burning and decay change the carbon cycle and the balance of atmospheric gases: carbon dioxide rises."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -241,10 +341,17 @@
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "59766875-7065-43a7-8f85-f941dba48a2c",
-      "f4608979-2a30-4f18-9700-87662ba8adca"
+      "f4608979-2a30-4f18-9700-87662ba8adca",
+      "b1498b24-ab7e-458e-be23-919d6cc76c37",
+      "ba56d2d2-0472-429b-af39-d640fa2fbbab",
+      "d94d8eab-363c-4250-af41-fd9a3fb22f26"
     ],
-    "exemplar_ids": ["fc093c93-efdc-4e75-8916-00a9b1899609"],
+    "exemplar_ids": [
+      "fc093c93-efdc-4e75-8916-00a9b1899609",
+      "3eaea716-87dc-45ee-87fb-c7bc3a0b86e3",
+      "c5341d26-1c92-4f82-8909-377f979aaca2"
+    ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

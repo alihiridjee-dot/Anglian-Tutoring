@@ -212,7 +212,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.4.1.2", "AQA T 6.4.1.2"],
+      "spec_codes": [
+        "AQA 4.4.1.2",
+        "AQA T 6.4.1.2"
+      ],
       "worked_example": {
         "exemplar_id": "9a1e7744-b2a7-4dbe-bdb2-6b17ca3226cd",
         "source": "AQA jun 2018, Paper 1 (F), Q5.1",
@@ -226,7 +229,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 6.3", "EDEX 6.4"],
+      "spec_codes": [
+        "EDEX 6.3",
+        "EDEX 6.4"
+      ],
       "worked_example": {
         "exemplar_id": "bb71e86b-1eb5-4ca5-960a-e18addb89362",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q3(a)",
@@ -240,7 +246,11 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P6.1a", "OCR P6.1b", "OCR P6.1c"],
+      "spec_codes": [
+        "OCR P6.1a",
+        "OCR P6.1b",
+        "OCR P6.1c"
+      ],
       "worked_example": {
         "exemplar_id": "7f8c72c0-a02d-4629-be56-ef989267864e",
         "source": "OCR jun 2025, Paper 2, Q18(a)",
@@ -252,6 +262,71 @@
         ],
         "tip": "Carbon-12 has 6 protons and 6 neutrons. Say which particle is the same and which is different."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 5.1.1.2",
+        "CAIE 5.1.2.3",
+        "CAIE 5.1.2.4",
+        "CAIE 5.1.2.5",
+        "CAIE 5.1.2.8S",
+        "CAIE 5.1.2.7S",
+        "CAIE 5.2.3.3S"
+      ],
+      "worked_example": {
+        "exemplar_id": "673ead8d-606b-4497-b560-e74e2ea0556a",
+        "source": "CAMBRIDGE nov 2023, Paper 42, Q8(a)",
+        "question": "The isotope uranium-235 is represented by ²³⁵₉₂U.\n\nState what the numbers 92 and 235 represent in this symbol.",
+        "marks": 2,
+        "answer_points": [
+          "92 is the proton number (the number of protons in the nucleus).",
+          "235 is the nucleon number (the number of protons and neutrons in the nucleus)."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "An atom that gains one or more electrons becomes a negative ion.",
+                "(Supplement) The relative mass of a nucleus is equal to its nucleon number, because protons and neutrons each have a relative mass of 1.",
+                "The proton number is another name for the atomic number. The nucleon number is another name for the mass number.",
+                "(Supplement) The relative charge on a nucleus equals its proton number, because neutrons have no charge.",
+                "(Supplement) An isotope can be radioactive if its nucleus has too many neutrons or is too heavy."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 7.3",
+        "IGCSE 7.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "4b4b1306-4315-4f61-a2d2-31995ef648ac",
+        "source": "EDEXCEL jun 2025, Paper 2 (PR), Q2(a)",
+        "question": "Uranium-239 is an isotope of the element uranium.\n\nState what is meant by the term isotopes.",
+        "marks": 2,
+        "answer_points": [
+          "Nuclei with the same number of protons.",
+          "Nuclei with a different number of neutrons."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The proton number is another name for the atomic number. The nucleon number is another name for the mass number."
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -259,7 +334,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "4214a5da-b95b-420c-a248-d29d6aa0384c",
       "acd7d4d4-03e3-4a81-99e3-435d86d8e979",
@@ -267,7 +342,13 @@
       "c94524a0-bab4-4f42-9aee-d79f25908de0",
       "35b0e0e3-3274-4076-9f0c-9ebf39c49846",
       "95cc0565-067e-4a02-9eba-9a0d3de080c9",
-      "e558d928-8f96-4af1-9063-db4a06737066"
+      "e558d928-8f96-4af1-9063-db4a06737066",
+      "cb7f8cce-3e53-4596-a550-9bf06843de14",
+      "7da24b12-3ff6-4446-8ea5-aebef2d04065",
+      "fb38c4c9-4f0a-4273-8de6-8a9136a33bce",
+      "45e9db70-cede-4c21-bd7a-1e0764b89079",
+      "8eb71f5a-bae4-48c6-818b-6f7502c4c567",
+      "1a0a4480-1105-48ad-8237-482b0699c5ef"
     ],
     "exemplar_ids": [
       "9a1e7744-b2a7-4dbe-bdb2-6b17ca3226cd",
@@ -275,7 +356,9 @@
       "7f8c72c0-a02d-4629-be56-ef989267864e",
       "803cf3fb-7b3c-4005-9965-4bbd4765e4df",
       "8afedb73-a551-4a93-bf08-917edcb6c784",
-      "7b6ff230-baf9-4946-8e40-8f3069de4c70"
+      "7b6ff230-baf9-4946-8e40-8f3069de4c70",
+      "673ead8d-606b-4497-b560-e74e2ea0556a",
+      "4b4b1306-4315-4f61-a2d2-31995ef648ac"
     ]
   }
 }

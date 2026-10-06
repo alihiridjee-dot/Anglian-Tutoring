@@ -218,6 +218,46 @@
         "answer_points": ["Negative ions (anions): Cl⁻.", "Positive ions (cations): H⁺."],
         "tip": "The H⁺ and OH⁻ ions come from the water."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.1.1", "CAIE 4.1.2", "CAIE 4.1.4", "CAIE 4.1.8S"],
+      "worked_example": {
+        "exemplar_id": "95d67873-e1dc-48a0-939f-804f1250c7e1",
+        "source": "CAMBRIDGE jun 2025, Paper 42, Q3(a)",
+        "question": "This question is about electrolysis.\nComplete the definition of electrolysis by filling in the missing words.\nThe decomposition of ______ compounds when ______ or ______ by the passage of an electric current.",
+        "marks": 3,
+        "answer_points": ["ionic", "molten", "in aqueous solution"]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Metals or hydrogen are formed at the cathode.",
+                "Non-metals other than hydrogen are formed at the anode."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Charge moves in two different ways during electrolysis."
+            },
+            {
+              "type": "list",
+              "items": [
+                "In the external circuit, electrons flow through the wires from the anode to the cathode.",
+                "At the cathode, ions gain electrons.",
+                "At the anode, ions lose electrons.",
+                "In the electrolyte, ions move: positive ions to the cathode and negative ions to the anode."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.58C"]
     }
   },
   "meta": {
@@ -225,19 +265,24 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "6de4b9d3-6ff0-41f1-b634-a27928006794",
       "0ebb22c3-eee1-4aaf-aabd-dce2bc58e204",
       "ba810be2-6e29-4012-980d-c5852586e4f6",
       "1ff5be13-69cd-422d-80f2-fd983244b17b",
       "3ee0e18b-cfff-44e1-8029-fbe3787ce502",
-      "7f268fc8-9749-418d-8b87-5d4ca6afa75a"
+      "7f268fc8-9749-418d-8b87-5d4ca6afa75a",
+      "67c1ff6a-9c78-4c3c-98f2-e21981c7abb7",
+      "77d20e11-f95d-4d56-b4fd-e1ba89d759e7",
+      "1a70a706-3682-4c2a-aafe-b982d9af077f",
+      "ca0c1ea8-f2fc-4498-9069-2f13337f27bc"
     ],
     "exemplar_ids": [
       "e2895ea3-0aca-4fda-85ee-8403ac7d2bc1",
       "0a765b85-4b2b-4fd2-a5a0-68eecccb712d",
-      "48433b63-5502-4730-a5bc-166163d34d20"
+      "48433b63-5502-4730-a5bc-166163d34d20",
+      "95d67873-e1dc-48a0-939f-804f1250c7e1"
     ]
   }
 }

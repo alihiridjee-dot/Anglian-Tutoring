@@ -234,6 +234,60 @@
         ],
         "tip": "The last mark depends on describing an experiment. Measuring the time to collect the gas, or the mass lost every 30 s, is also credited."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 6.2.1", "CAIE 6.2.4"],
+      "worked_example": {
+        "exemplar_id": "6f285a4b-524c-4c60-b4b8-6e92fb30498b",
+        "source": "CAMBRIDGE nov 2023, Paper 61, Q2(g)",
+        "question": "Copper(II) carbonate reacts with dilute acids to make carbon dioxide gas. Malachite is a mineral that contains copper(II) carbonate.\n\nA student investigates the rate of reaction between powdered malachite and dilute ethanoic acid at different temperatures. During each experiment the temperature of the acid decreases slowly.\n\nGive a reason why the temperature of the acid decreases and suggest a change to the apparatus used that would minimise the decrease in temperature.",
+        "marks": 2,
+        "answer_points": [
+          "Reason: heat is lost to the surroundings, or the glass flask is not a good insulator (M1)",
+          "Change: insulate the flask, or place it in a water bath kept at the starting temperature of the acid (M2)"
+        ],
+        "tip": "One mark for the reason and one for the change to the apparatus."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Enzyme",
+                  "meaning": "A biological catalyst. It speeds up a reaction in living things and is not used up."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A catalyst can be added to speed a reaction up, or removed to stop it speeding up.",
+                "Enzymes are catalysts too, so they follow the same rule: they make a reaction faster."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.10", "IGCSE 3.9", "IGCSE 3.15"],
+      "worked_example": {
+        "exemplar_id": "2bca305e-cda1-402e-994b-9433144b2c52",
+        "source": "EDEXCEL nov 2020, Paper 1 (C), Q7(b)",
+        "question": "Dilute hydrochloric acid reacts with a solution of sodium thiosulfate (Na₂S₂O₃) to form a precipitate. The reaction is often used to investigate rates of reaction.\n\nA student investigates the effect of temperature on the rate of the reaction. This is the method.\n• pour 50 cm³ of cold sodium thiosulfate solution into a conical flask and heat it to 20 °C\n• draw a cross (X) on a piece of paper and place it under the flask\n• add 5 cm³ of dilute hydrochloric acid to the flask\n• look at the cross from above and record the time taken until the cross cannot be seen\n\nThe student repeats the experiment four times, using sodium thiosulfate solution at a different temperature each time. He keeps the volumes of sodium thiosulfate solution and hydrochloric acid constant in each experiment.\n\nGive two other factors that the student should keep constant.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from the following:",
+          "the concentration of the hydrochloric acid (M1)",
+          "the concentration of the sodium thiosulfate (M2)",
+          "the height of the eye above the flask, or the same cross (M3)",
+          "the same size of flask (M4)"
+        ],
+        "tip": "One mark for each factor, up to two."
+      }
     }
   },
   "meta": {
@@ -243,14 +297,18 @@
     "spec_point_ids": [
       "e4ad0eda-fd19-4ca3-b59b-e5d8cab4281a",
       "3ece84ca-2e10-4585-b1a8-3b08c4abd72f",
-      "cecf2303-e9ec-4314-a330-6395a3111473"
+      "cecf2303-e9ec-4314-a330-6395a3111473",
+      "2d755ec4-8a72-49d5-8da6-7ecbca2eed9e",
+      "956ba4f5-83d5-4cd9-b31a-da43a538eb93"
     ],
     "exemplar_ids": [
       "6b4d7eea-2c17-491f-9ae8-62b3badbd623",
       "72b08153-693b-4752-ae7e-909e5df06e02",
-      "56d7161b-0bf5-4e5d-9126-abc4ef29855e"
+      "56d7161b-0bf5-4e5d-9126-abc4ef29855e",
+      "6f285a4b-524c-4c60-b4b8-6e92fb30498b",
+      "2bca305e-cda1-402e-994b-9433144b2c52"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

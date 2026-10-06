@@ -31,7 +31,12 @@
         },
         {
           "type": "table",
-          "columns": ["Feature", "Solid", "Liquid", "Gas"],
+          "columns": [
+            "Feature",
+            "Solid",
+            "Liquid",
+            "Gas"
+          ],
           "rows": [
             [
               "Arrangement",
@@ -45,8 +50,18 @@
               "Move around and past each other",
               "Move quickly in all directions"
             ],
-            ["Energy of particles", "Lowest", "Higher", "Highest"],
-            ["Forces between particles", "Strongest", "Weaker", "Weakest"],
+            [
+              "Energy of particles",
+              "Lowest",
+              "Higher",
+              "Highest"
+            ],
+            [
+              "Forces between particles",
+              "Strongest",
+              "Weaker",
+              "Weakest"
+            ],
             [
               "Shape and volume",
               "Fixed shape, cannot be compressed",
@@ -75,13 +90,31 @@
         {
           "type": "table",
           "rows": [
-            ["Solid to liquid", "Melting"],
-            ["Liquid to solid", "Freezing"],
-            ["Liquid to gas", "Boiling or evaporating"],
-            ["Gas to liquid", "Condensing"],
-            ["Solid to gas", "Subliming"]
+            [
+              "Solid to liquid",
+              "Melting"
+            ],
+            [
+              "Liquid to solid",
+              "Freezing"
+            ],
+            [
+              "Liquid to gas",
+              "Boiling or evaporating"
+            ],
+            [
+              "Gas to liquid",
+              "Condensing"
+            ],
+            [
+              "Solid to gas",
+              "Subliming"
+            ]
           ],
-          "columns": ["Change", "Name"]
+          "columns": [
+            "Change",
+            "Name"
+          ]
         },
         {
           "type": "subheading",
@@ -229,7 +262,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.2.1", "AQA T 5.2.2.1"],
+      "spec_codes": [
+        "AQA 4.2.2.1",
+        "AQA T 5.2.2.1"
+      ],
       "worked_example": {
         "exemplar_id": "02ea237b-5664-4731-838b-032e89f13837",
         "source": "AQA jun 2023, Paper 2 (F), Q05.7",
@@ -243,7 +279,12 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 2.1", "EDEX 2.2", "EDEX 2.3", "EDEX 2.4"],
+      "spec_codes": [
+        "EDEX 2.1",
+        "EDEX 2.2",
+        "EDEX 2.3",
+        "EDEX 2.4"
+      ],
       "worked_example": {
         "exemplar_id": "13ad60a0-e82e-423a-92d1-ce752797ffff",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q8(d)",
@@ -259,7 +300,12 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C1.1a", "OCR C1.1b", "OCR C1.1c", "OCR C2.3e"],
+      "spec_codes": [
+        "OCR C1.1a",
+        "OCR C1.1b",
+        "OCR C1.1c",
+        "OCR C2.3e"
+      ],
       "worked_example": {
         "exemplar_id": "12e844e3-c769-4a66-b63f-40e5621baaec",
         "source": "OCR jun 2023, Paper 3, Q18(d)(i)",
@@ -274,6 +320,84 @@
         ],
         "tip": "Any three score one mark each. Answers must compare the gas with the solid."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.1.1",
+        "CAIE 1.1.2",
+        "CAIE 1.1.3",
+        "CAIE 1.1.5S",
+        "CAIE 6.1.1",
+        "CAIE 1.1.6S",
+        "CAIE 1.2.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "931e931f-a3bf-4358-82c3-7307f832f198",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q3(a)(iii)",
+        "question": "Carbon monoxide has a melting point of –199 °C and a boiling point of –191 °C. Deduce the physical state of carbon monoxide at –195 °C. Use the data to explain your answer.",
+        "marks": 2,
+        "answer_points": [
+          "Liquid.",
+          "–195 °C is above the melting point and below the boiling point."
+        ],
+        "tip": "One mark for the state and one for comparing the temperature with both the melting point and the boiling point."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Kinetic particle theory",
+                  "meaning": "All matter is made of particles that are always moving. The state depends on how fast they move and how strongly they attract each other."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A heating or cooling curve plots temperature against time as a substance is heated or cooled."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Sloping sections: the temperature is changing, so the particles are gaining or losing kinetic energy and moving faster or slower.",
+                "Flat sections: a change of state is happening, at the melting point or the boiling point.",
+                "On a flat section while heating, the energy supplied overcomes the forces between particles instead of speeding them up, so the temperature stays constant.",
+                "On a flat section while cooling, forces form between the particles and energy is released, so the temperature stays constant."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) Gas pressure is caused by particles hitting the walls of the container.",
+                "(Supplement) Heating a gas makes the particles move faster. They hit the walls more often and harder, so the pressure rises in a fixed volume, or the volume rises if the pressure is kept constant.",
+                "(Supplement) Raising the pressure squeezes the particles closer together, so the volume falls. They hit the walls more often.",
+                "Diffusion is the spreading of particles from where there are many to where there are few, caused by their random movement. It is fastest in gases."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.1",
+        "IGCSE 1.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "c4580db5-7379-4c54-bc95-9fbc5093b075",
+        "source": "EDEXCEL jun 2019, Paper 1 (CR), Q1(b)",
+        "question": "Describe the arrangement and the movement of particles in a solid.",
+        "marks": 3,
+        "answer_points": [
+          "The particles are close together.",
+          "The particles are regularly arranged.",
+          "The particles vibrate about a fixed position and do not move around."
+        ],
+        "tip": "Any three of the points score. A diagram can show the first two."
+      }
     }
   },
   "meta": {
@@ -281,7 +405,7 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "10f3809a-746c-4ee1-b1eb-61628cd5650c",
       "c00f39c0-033f-41c7-a2ce-33a4695593b4",
@@ -292,12 +416,21 @@
       "248a211e-39e5-4b8d-8df9-49a148187cf4",
       "16b8521d-c280-476d-b5d4-d468a81db169",
       "a5b24eec-1222-4aea-bb32-c14b2f6091ea",
-      "ed28a94c-ec2a-4c0e-ac90-a049706e330e"
+      "ed28a94c-ec2a-4c0e-ac90-a049706e330e",
+      "dc9db5bf-5368-4faa-a9f4-d2a81469b30f",
+      "c67c9bfb-b82f-41cb-b9d4-bfac2d16c23b",
+      "75a42ff5-3a04-4244-b3ac-7da70a0554c0",
+      "a0a4ba4b-4fd7-402d-ab05-2d1bc0b749d1",
+      "d0598ef0-6565-4846-8716-2ab6ed7fd310",
+      "9695d57c-cfe1-4041-94ec-3f8fc0496312",
+      "e2bacf29-4f68-4980-af3a-31fa6547a4ca"
     ],
     "exemplar_ids": [
       "02ea237b-5664-4731-838b-032e89f13837",
       "13ad60a0-e82e-423a-92d1-ce752797ffff",
-      "12e844e3-c769-4a66-b63f-40e5621baaec"
+      "12e844e3-c769-4a66-b63f-40e5621baaec",
+      "931e931f-a3bf-4358-82c3-7307f832f198",
+      "c4580db5-7379-4c54-bc95-9fbc5093b075"
     ]
   }
 }

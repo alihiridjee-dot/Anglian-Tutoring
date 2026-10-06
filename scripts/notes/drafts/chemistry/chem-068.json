@@ -285,6 +285,116 @@
         ],
         "tip": "The answer 1.67 × 10⁻³ g/s scores all 3 marks."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 6.2.3", "CAIE 6.2.8S"],
+      "worked_example": {
+        "exemplar_id": "65e5d250-070d-4f57-b5b4-970913167758",
+        "source": "CAMBRIDGE jun 2025, Paper 63, Q2(f)",
+        "question": "A student investigates how the rate of reaction between dilute hydrochloric acid and aqueous sodium thiosulfate changes as the concentration of the thiosulfate decreases. The solution slowly becomes cloudy, so it becomes more difficult to see through it.\n\nIn Experiment 1, the student pours 50 cm³ of aqueous sodium thiosulfate into a 100 cm³ beaker and adds 5 cm³ of dilute hydrochloric acid. The student starts a stop-watch and stands the beaker on a printed sheet, looking down from above. The stop-watch is stopped when the text on the sheet is no longer visible.\n\nExplain why it is important not to change to a larger beaker during the investigation.",
+        "marks": 2,
+        "answer_points": [
+          "A different size of beaker would change the depth of solution (M1)",
+          "so the time measured would change (M2)"
+        ],
+        "tip": "One mark for the change in depth and one for the effect on the time measured."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Judge each method by how accurate it is and when it suits a reaction."
+            },
+            {
+              "type": "table",
+              "columns": ["Method", "Why it can be accurate", "What can make it inaccurate"],
+              "rows": [
+                [
+                  "Gas syringe",
+                  "It reads the volume of gas directly, in small steps.",
+                  "Some gas escapes before the bung is put back on."
+                ],
+                [
+                  "Gas collected over water",
+                  "It is simple to set up.",
+                  "A gas that dissolves in water, such as carbon dioxide, gives a volume that is too low."
+                ],
+                [
+                  "Mass lost on a balance",
+                  "A balance reads small changes in mass precisely, so it suits a gas with a large mass, such as carbon dioxide.",
+                  "It fails for a light gas such as hydrogen, because the mass lost is too small to measure."
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "To stop gas escaping at the start, put one reagent in a small tube inside the flask. Tip the flask to start the reaction.",
+                "Cotton wool in the neck of a flask on a balance lets the gas escape but stops spray leaving the flask.",
+                "A cross that disappears is judged by eye, so it depends on the person. Use the same beaker, the same depth of liquid and the same observer.",
+                "Measure volumes with a burette rather than a measuring cylinder to be more accurate. Repeat the experiment and find a mean."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.9", "IGCSE 3.15", "IGCSE 3.16"],
+      "worked_example": {
+        "exemplar_id": "90b93268-59fe-44f2-9d0c-938b9c5e8d39",
+        "source": "EDEXCEL jun 2023, Paper 1 (CR), Q6(c)",
+        "question": "A student investigates the rate of reaction when hydrogen peroxide solution decomposes in a conical flask, collecting the gas that is made.\n\n2H₂O₂ → 2H₂O + O₂\n\nThese solids catalyse the decomposition of hydrogen peroxide solution:\n• lead(IV) oxide\n• manganese(IV) oxide\n\nDescribe a method that the student could use to find out which solid is the more effective catalyst.",
+        "marks": 5,
+        "answer_points": [
+          "Add hydrogen peroxide solution to the conical flask and add one of the catalysts (M1)",
+          "Record the time taken to collect a fixed volume of gas, or the volume of gas collected in a fixed time (M2)",
+          "Any two from: repeat with the same volume and concentration of hydrogen peroxide solution (M3); at the same temperature (M4); using the same mass of each catalyst (M5)",
+          "The more effective catalyst gives the greater volume of gas per unit time, or takes the least time to make a fixed volume of oxygen (M6)"
+        ],
+        "tip": "Two marks are for the method, two for any two controlled variables and one for the conclusion."
+      },
+      "extra": [
+        {
+          "heading": "Comparing solids as catalysts",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Hydrogen peroxide breaks down slowly to make oxygen. A solid catalyst speeds this up."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Put a fixed volume of hydrogen peroxide solution in a conical flask connected to a gas syringe."
+                },
+                {
+                  "lead": "Add a catalyst.",
+                  "text": "Add a measured mass of one solid, such as manganese(IV) oxide, and start the stopwatch."
+                },
+                {
+                  "lead": "Measure.",
+                  "text": "Record the volume of oxygen at set times, or the time to collect a fixed volume."
+                },
+                {
+                  "lead": "Repeat.",
+                  "text": "Repeat with the same mass of other solids. Keep the volume, concentration and temperature the same."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The more effective catalyst gives more gas in the same time, or takes less time to collect a fixed volume.",
+                "A catalyst is not used up, so its mass is the same at the end."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -294,14 +404,20 @@
     "spec_point_ids": [
       "609f6c01-2b2b-4856-a43c-4d90845cc226",
       "271a6a49-f8a7-467e-9fdd-4429e525dfe7",
-      "92d9a9aa-2f34-4e29-abfe-64a71279dd2a"
+      "92d9a9aa-2f34-4e29-abfe-64a71279dd2a",
+      "f541345f-4038-400a-b080-20e7c01b3e5e",
+      "e8103c58-15f0-41b6-9dc9-1eaab0b7b140",
+      "4e8ecf99-fc26-46e1-baeb-9ed8a18cd753",
+      "2cbe4ba3-63f3-46b4-b233-c036950ced0b"
     ],
     "exemplar_ids": [
       "05e17128-dcec-44c9-ab9e-acc4161a2283",
       "602bb273-a37d-474e-87ed-4cba193e66eb",
-      "77a0ee1f-f1e1-4d04-a2aa-477cb1c8090f"
+      "77a0ee1f-f1e1-4d04-a2aa-477cb1c8090f",
+      "65e5d250-070d-4f57-b5b4-970913167758",
+      "90b93268-59fe-44f2-9d0c-938b9c5e8d39"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

@@ -262,6 +262,55 @@
         ],
         "tip": "The 'No' gets no mark by itself. Two marks are for the idea of a range or an impossible value, and one is for naming the purest sample."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 10.1.2", "CAIE 12.4.3", "CAIE 1.1.5S", "CAIE 12.3.2"],
+      "worked_example": {
+        "exemplar_id": "02fca4b6-f81d-4787-9339-0892da526e2d",
+        "source": "CAMBRIDGE nov 2023, Paper 63, Q1(e)(ii)",
+        "question": "A teacher collects the water made in an experiment. The water collected is not pure.\n\nDescribe a test the teacher can do to show that the water collected is not pure. State the result of the test if the water is not pure.",
+        "marks": 2,
+        "answer_points": [
+          "Test: measure the boiling point (or the freezing point) (M1)",
+          "Result: it is not 100 °C (or not 0 °C) (M2)"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Heating and cooling curves and chromatograms also show whether a substance is pure."
+            },
+            {
+              "type": "list",
+              "items": [
+                "On a heating curve, a flat part is a change of state, such as melting or boiling. The temperature stays the same while the energy is used to overcome the forces between the particles.",
+                "On a cooling curve, the flat parts are condensing and freezing. The particles lose energy and the forces between them pull them closer.",
+                "A pure substance gives a flat part at one sharp temperature. A mixture changes state over a range of temperatures.",
+                "A pure substance gives **one spot** on a chromatogram. A mixture gives **two or more spots**.",
+                "A spot that matches a known substance, at the same height, shows that substance is present."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.9", "IGCSE 2.50"],
+      "worked_example": {
+        "exemplar_id": "38bd16d6-84e2-44a8-ac68-64f31ef00693",
+        "source": "EDEXCEL nov 2020, Paper 1 (C), Q2(b)",
+        "question": "A student has two solids, X and Y. One of these solids is a pure substance and the other is a mixture.\n\nDescribe how the student could identify which solid is pure and which is a mixture by measuring a physical property of each solid.",
+        "marks": 3,
+        "answer_points": [
+          "Measure the melting point (M1)",
+          "A fixed (sharp) melting point means the solid is pure (M2)",
+          "Melting over a range of temperatures means the solid is a mixture (M3)"
+        ],
+        "tip": "Boiling point can be used instead of melting point."
+      }
     }
   },
   "meta": {
@@ -274,7 +323,11 @@
       "79c2bee5-b845-4079-970b-ba7d6f1e3b4e",
       "58b1871e-30f0-4d26-8811-9d0652e0d7f5",
       "b41c46ff-1508-4551-b727-3d573d7df11e",
-      "03ee2f13-e121-44f0-82fd-9558eaa2f8e8"
+      "03ee2f13-e121-44f0-82fd-9558eaa2f8e8",
+      "907be95a-d3de-4470-9586-106c202aef20",
+      "9a0b587c-984e-4d31-972a-d89a4f2129dc",
+      "75e5d271-e4cf-4ab8-a901-7267f2cf8f96",
+      "c82fa7ed-c31b-404c-bb0f-d8da0c1f7f56"
     ],
     "exemplar_ids": [
       "14f95502-f33c-41fc-872b-4ec1a2673fa0",
@@ -286,9 +339,11 @@
       "9c7705ee-011b-454e-b2ec-900500bcec82",
       "4f61feb5-1c94-4e3f-beba-dacecb647287",
       "bc6c7407-38de-424f-b145-05aa0a64a7cb",
-      "348239c4-b3c0-40d4-add4-bc5dbfb64fbf"
+      "348239c4-b3c0-40d4-add4-bc5dbfb64fbf",
+      "02fca4b6-f81d-4787-9339-0892da526e2d",
+      "38bd16d6-84e2-44a8-ac68-64f31ef00693"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

@@ -265,12 +265,83 @@
         ],
         "tip": "\"Plant survival\" is ignored. Give the effect on the plant."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 8.1.1",
+        "CAIE 8.1.2",
+        "CAIE 8.1.3S",
+        "CAIE 8.2.1",
+        "CAIE 8.2.2",
+        "CAIE 3.2.6",
+        "CAIE 3.3.2S",
+        "CAIE 8.2.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "2ce74302-6696-4439-9afa-2038a431cdc2",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q1(b)",
+        "question": "Explain how xylem vessels are adapted for their functions.",
+        "marks": 3,
+        "answer_points": [
+          "They have thick walls.",
+          "The walls contain lignin, for support of the vessel.",
+          "They have no cell contents.",
+          "The cells are joined end to end, with no cross-walls, to form a long continuous tube.",
+          "This lets them transport water."
+        ],
+        "tip": "Any three points score."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Xylem carries water and mineral ions. Its lignin-strengthened walls also **support** the plant.",
+                "Phloem carries **sucrose** and **amino acids**.",
+                "In a root, the xylem is in the centre, with phloem between its arms.",
+                "In a stem, the xylem and phloem lie in vascular bundles arranged in a ring near the edge.",
+                "In a leaf, they lie in the veins, with the xylem above the phloem."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.53", "IGCSE 2.54", "IGCSE 2.55B"],
+      "worked_example": {
+        "exemplar_id": "aec32b2a-1917-432d-9b37-0ebc1c360c75",
+        "source": "EDEXCEL nov 2020, Paper 2 (B), Q6(a)(ii)",
+        "question": "Explain how water is transported from the soil to the leaves.",
+        "marks": 4,
+        "answer_points": [
+          "Water enters the root by osmosis.",
+          "It moves from a dilute solution to a more concentrated solution.",
+          "Water moves up the xylem.",
+          "It is pulled up to the leaf because of transpiration.",
+          "Water vapour leaves through the stomata."
+        ],
+        "tip": "Any four points score."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Phloem carries sucrose and amino acids between the leaves and the other parts of the plant."
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -278,12 +349,22 @@
       "17bff5bc-2bf0-471f-a40e-2ce7a804812a",
       "0338186a-8610-4356-8882-8a76c0c27390",
       "ca385f96-1f6a-43f5-8cf1-f66c3ca21e38",
-      "5036424d-654b-43bb-a3b5-b2ab34feb2f5"
+      "5036424d-654b-43bb-a3b5-b2ab34feb2f5",
+      "54c511a1-ccdd-4f95-8ea1-10772377b776",
+      "623a83fe-895f-407e-8c88-e737e6cd7d00",
+      "00a288a2-5f0a-40dc-a1c2-2178d149c08e",
+      "b07fe29d-4093-4ccd-bfb3-b658339d2fcc",
+      "f82a6315-2e00-43c9-87f2-1de7e9fbfbc2",
+      "f4cc4c5d-6e7b-45c9-b546-438810ba95f4",
+      "fc9bb5d6-e866-4d24-9e88-79b6129f1d35",
+      "d0756caf-d1b9-4cf7-b85d-d122331e8e4b"
     ],
     "exemplar_ids": [
       "6cc326cd-fb46-4835-a5b9-aab44395b278",
       "3c414913-d64f-4700-b649-df1aa988c4c7",
-      "bdaaf491-dc6e-4d6f-8bf2-8f4f206f2501"
+      "bdaaf491-dc6e-4d6f-8bf2-8f4f206f2501",
+      "2ce74302-6696-4439-9afa-2038a431cdc2",
+      "aec32b2a-1917-432d-9b37-0ebc1c360c75"
     ]
   }
 }

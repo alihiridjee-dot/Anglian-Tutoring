@@ -119,7 +119,10 @@
             "kind": "sort",
             "alt": "Sort statements into benefits of conservation and challenges of conservation.",
             "prompt": "Sort each statement into a benefit or a challenge of maintaining biodiversity.",
-            "groups": ["Benefit", "Challenge"],
+            "groups": [
+              "Benefit",
+              "Challenge"
+            ],
             "items": [
               {
                 "text": "Keeps food webs working",
@@ -185,7 +188,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 7.10", "AQA T 4.7.3.6"],
+      "spec_codes": [
+        "AQA 7.10",
+        "AQA T 4.7.3.6"
+      ],
       "worked_example": {
         "exemplar_id": "83a2c2ff-5838-4580-97da-bc9d0f47a150",
         "source": "AQA jun 2025, Paper 2 (H), Q05.3",
@@ -204,7 +210,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 9.10"],
+      "spec_codes": [
+        "EDEX 9.10"
+      ],
       "worked_example": {
         "exemplar_id": "8dd4856e-28cd-4352-a652-326d63900b62",
         "source": "EDEXCEL jun 2022, Paper 2 (H), Q9(c)",
@@ -259,7 +267,9 @@
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR 6.1c"],
+      "spec_codes": [
+        "OCR 6.1c"
+      ],
       "worked_example": {
         "exemplar_id": "595a5354-9379-4179-a67d-c345cd486989",
         "source": "OCR jun 2019, Paper 2, Q19(d)",
@@ -285,7 +295,11 @@
             },
             {
               "type": "table",
-              "columns": ["Method", "What it involves", "A disadvantage"],
+              "columns": [
+                "Method",
+                "What it involves",
+                "A disadvantage"
+              ],
               "rows": [
                 [
                   "Culling",
@@ -307,6 +321,150 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 20.4.3",
+        "CAIE 20.4.4",
+        "CAIE 20.4.5S",
+        "CAIE 20.4.7S",
+        "CAIE 20.4.8S",
+        "CAIE 20.4.9S",
+        "CAIE 20.4.1",
+        "CAIE 20.4.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "7691169c-6f89-48f7-8aaf-d809f69adb09",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q6(d)(i)",
+        "question": "There are conservation programmes to reintroduce boreal toads into their natural habitat.\n\nDescribe why conservation programmes are set up for animals like the boreal toad.",
+        "marks": 3,
+        "answer_points": [
+          "To maintain or increase biodiversity.",
+          "To reduce extinction and increase the population size.",
+          "To maintain food webs and food chains.",
+          "To maintain a source of future food, drugs and genes.",
+          "To protect vulnerable ecosystems and habitats.",
+          "Because of the effects on nutrient cycles."
+        ],
+        "tip": "Any three different reasons score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Sustainable resource",
+                  "meaning": "A resource produced as rapidly as it is removed, so it does not run out."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Forests and fish stocks can be conserved and managed sustainably, for example by replanting trees and by setting fishing quotas."
+            },
+            {
+              "type": "subheading",
+              "text": "Why species become endangered or extinct"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Climate change.",
+                "Habitat destruction.",
+                "Hunting and overharvesting.",
+                "Pollution.",
+                "Introduced species."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "How endangered species are conserved"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Monitoring and protecting species and their habitats.",
+                "Education, so people understand why species matter.",
+                "**Captive breeding** programmes.",
+                "**Seed banks**, which store seeds from many species for a long time."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Why conservation programmes are set up"
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) To maintain or increase biodiversity and to reduce extinction.",
+                "(Supplement) To protect vulnerable ecosystems.",
+                "(Supplement) To maintain nutrient cycling and resources such as food, drugs, fuel and genes."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Conserving forests and breeding programmes (Supplement)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Forests can be conserved in four ways."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Education**, so people know why forests matter.",
+                "**Protected areas**, where felling is not allowed.",
+                "**Quotas**, which limit how many trees can be felled.",
+                "**Replanting** trees to replace those that are felled."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Artificial insemination and IVF"
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Both are used in captive breeding programmes to produce more offspring and to increase genetic variation."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Artificial insemination (AI)",
+                  "text": "Sperm is collected from a male, checked and often frozen. It is placed in the female at the time of ovulation, which may be induced with drugs. Males can be chosen from different programmes."
+                },
+                {
+                  "lead": "In vitro fertilisation (IVF)",
+                  "text": "Eggs are fertilised by sperm outside the body. The embryos are then placed in a female."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Risks of a small population (Supplement)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) When a population gets smaller, genetic variation is reduced."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Inbreeding becomes more likely.",
+                "Harmful recessive alleles are more likely to be expressed, so genetic disease increases.",
+                "The population is less able to adapt to a change in the environment.",
+                "It is harder to find a mate.",
+                "There is a greater risk of extinction."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -317,14 +475,21 @@
       "5e5a4219-5fbb-4b1c-81b6-dded7c0e89e5",
       "5ee55e77-1442-4b3b-96c3-103d0a2d347f",
       "72a447ff-73b9-4764-a444-5304e7636c49",
-      "65aa2855-3de3-4a6e-9805-e440b3ac3fa6"
+      "65aa2855-3de3-4a6e-9805-e440b3ac3fa6",
+      "17730d1e-3d8c-49f5-848c-5f5caf3c2753",
+      "ff64ec54-3d8f-42a7-ba7f-2320507cded1",
+      "ea7797ed-5d03-410a-9c24-b6062dc16210",
+      "4ae5fcce-109c-4d12-9c88-fb4673a1fb20",
+      "d0ae6209-915e-44af-a493-d4a8190fea9f",
+      "2d4091eb-2fc0-4f7e-9050-52535974f6b6"
     ],
     "exemplar_ids": [
       "83a2c2ff-5838-4580-97da-bc9d0f47a150",
       "8dd4856e-28cd-4352-a652-326d63900b62",
-      "595a5354-9379-4179-a67d-c345cd486989"
+      "595a5354-9379-4179-a67d-c345cd486989",
+      "7691169c-6f89-48f7-8aaf-d809f69adb09"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

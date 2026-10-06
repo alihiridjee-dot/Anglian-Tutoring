@@ -321,6 +321,111 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 12.5.2"],
+      "worked_example": {
+        "exemplar_id": "07cc4925-f123-473b-b2fa-adecf30e9ac5",
+        "source": "CAMBRIDGE jun 2025, Paper 62, Q3(a)",
+        "question": "A student tests solid J, which is iron(II) iodide. The student dissolves solid J in water to form solution J.\n\nTo a portion of solution J, the student adds aqueous sodium hydroxide dropwise and then in excess.\n\nDescribe the observations when added dropwise and when added in excess.",
+        "marks": 2,
+        "answer_points": [
+          "Dropwise: a green precipitate (M1)",
+          "In excess: no further change, the green precipitate remains (M2)"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course also uses aqueous ammonia, and asks for more ions. Add a few drops of the reagent, then add it in excess."
+            },
+            {
+              "type": "table",
+              "columns": ["Metal ion", "Aqueous sodium hydroxide", "Aqueous ammonia"],
+              "rows": [
+                [
+                  "Aluminium, Al³⁺",
+                  "White precipitate, dissolves in excess to give a colourless solution",
+                  "White precipitate, insoluble in excess"
+                ],
+                [
+                  "Calcium, Ca²⁺",
+                  "White precipitate, insoluble in excess",
+                  "No precipitate, or a very slight white precipitate"
+                ],
+                [
+                  "Chromium(III), Cr³⁺",
+                  "Green precipitate, dissolves in excess",
+                  "Green precipitate, insoluble in excess"
+                ],
+                [
+                  "Copper(II), Cu²⁺",
+                  "Light blue precipitate, insoluble in excess",
+                  "Light blue precipitate, dissolves in excess to give a dark blue solution"
+                ],
+                [
+                  "Iron(II), Fe²⁺",
+                  "Green precipitate, insoluble in excess",
+                  "Green precipitate, insoluble in excess"
+                ],
+                [
+                  "Iron(III), Fe³⁺",
+                  "Red-brown precipitate, insoluble in excess",
+                  "Red-brown precipitate, insoluble in excess"
+                ],
+                [
+                  "Zinc, Zn²⁺",
+                  "White precipitate, dissolves in excess to give a colourless solution",
+                  "White precipitate, dissolves in excess to give a colourless solution"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Ammonium ions, NH₄⁺**: add aqueous sodium hydroxide and warm. Ammonia gas is given off.",
+                "Ammonia turns damp red litmus paper blue."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.47"],
+      "worked_example": {
+        "exemplar_id": "5a786efa-1eaf-4f92-8af2-e128ed067d90",
+        "source": "EDEXCEL jun 2022, Paper 1 (C), Q10(b)(iii)",
+        "question": "Describe a test for ammonium ions.",
+        "marks": 3,
+        "answer_points": [
+          "Add sodium hydroxide solution (M1)",
+          "Test the gas given off with damp red litmus paper (or damp universal indicator paper) (M2)",
+          "The red litmus paper turns blue (or the universal indicator paper turns blue or purple) (M3)"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Sodium hydroxide solution is also used to test for ammonium ions, NH₄⁺."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Add sodium hydroxide solution to the sample and warm.",
+                "A pungent gas, ammonia, is released.",
+                "The gas turns damp red litmus paper blue, because it is alkaline."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -330,7 +435,9 @@
     "spec_point_ids": [
       "a7fca424-ef70-49ad-adc8-39b0088a7285",
       "748f9662-e6e7-42fb-b9ee-ff36a381c33a",
-      "13b8b4a0-65ff-4e8d-8f11-c4ebba0a0051"
+      "13b8b4a0-65ff-4e8d-8f11-c4ebba0a0051",
+      "85b6228c-12dc-45c2-b5fa-0bc7249a633f",
+      "551b866b-8f7d-45ef-86d7-cbf69149f57c"
     ],
     "exemplar_ids": [
       "9a19f7cf-cc0e-42f2-a239-bbce17978927",
@@ -345,9 +452,11 @@
       "05305210-726d-4d76-a00f-40ee00ebd0f5",
       "3a96e1de-5934-4d5e-a362-7d5b6dc2f8b4",
       "06319414-cac8-42dd-92e6-fdc7b4f1658e",
-      "454cd28f-3e14-4bf8-90d8-36a11c743ed8"
+      "454cd28f-3e14-4bf8-90d8-36a11c743ed8",
+      "07cc4925-f123-473b-b2fa-adecf30e9ac5",
+      "5a786efa-1eaf-4f92-8af2-e128ed067d90"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

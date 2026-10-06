@@ -271,6 +271,63 @@
         ],
         "tip": "Any two of the three points score the marks. Statements repeated from the question are ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 3.1.1",
+        "CAIE 3.1.2",
+        "CAIE 3.1.5",
+        "CAIE 3.1.6",
+        "CAIE 3.4.2",
+        "CAIE 3.4.10S"
+      ],
+      "worked_example": {
+        "exemplar_id": "08560f53-ca04-449a-abaa-a1ef22ea0c6b",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q5(a)",
+        "question": "Describe how a longitudinal wave differs from a transverse wave.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from:",
+          "Longitudinal vibrations are parallel to the direction of travel. Transverse vibrations are perpendicular to it.",
+          "A longitudinal wave has compressions and rarefactions. A transverse wave has crests (peaks) and troughs.",
+          "A longitudinal wave needs a medium to travel through."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You should be able to describe wave motion using ropes, springs and water."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A slinky spring pushed and pulled along its length shows a longitudinal pulse of compressions and rarefactions.",
+                "The same spring shaken from side to side, or a rope flicked up and down, shows a transverse pulse.",
+                "In both, each coil or piece of rope returns to its place. Only the pulse moves along.",
+                "Water waves in a ripple tank show the same: the water moves up and down while the wavefronts spread out."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.2", "IGCSE 3.4", "IGCSE 3.14", "IGCSE 3.23", "IGCSE 3.3"],
+      "worked_example": {
+        "exemplar_id": "c6be8e98-170f-45aa-aaef-4627bcae4a40",
+        "source": "EDEXCEL jun 2023, Paper 1 (P), Q6(a)(iii)",
+        "question": "Describe the difference between transverse waves and longitudinal waves.\n\nYou may draw a diagram to help your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Both types of wave involve vibrations (oscillations).",
+          "In a longitudinal wave the vibrations are parallel to the direction the wave travels (the direction of energy transfer).",
+          "In a transverse wave the vibrations are perpendicular (at right angles) to the direction the wave travels."
+        ],
+        "tip": "All three marks can be earned from a clearly labelled diagram."
+      }
     }
   },
   "meta": {
@@ -285,7 +342,17 @@
       "7c8a8179-244b-45bb-a4e1-2dc1e26182af",
       "2b5c86af-d082-422b-85e2-20d3fa45f3ca",
       "6de95755-6ce6-414a-bdea-204a60a665b6",
-      "ad81068a-7299-4bc7-8032-3a556cf69f3b"
+      "ad81068a-7299-4bc7-8032-3a556cf69f3b",
+      "0f80c3cf-dfa2-4b67-9eff-49d62fdafe6a",
+      "3fff2b4d-8e3c-4fcc-b7fb-4793b76fe230",
+      "01949204-e55f-4cc8-ad54-4942a8117c60",
+      "ba6fb546-c8f7-49f3-9e78-cdcfce80f20a",
+      "529bcf21-e5fd-4e55-a2d6-b7fd68ce3feb",
+      "05c31938-6491-407b-931a-76223629c77a",
+      "2a9fc856-ec15-487f-af0c-b569a1a89894",
+      "bd60acf2-f4e7-4e59-899f-c638bf0a757b",
+      "a8b26deb-6029-49a4-a9e9-a0cbfa4873d3",
+      "f4578475-6ffb-45ee-b03b-d7e55c0df50d"
     ],
     "exemplar_ids": [
       "0cabe2e5-d612-4546-848c-6c10a7cb463c",
@@ -300,9 +367,11 @@
       "bfde65a3-27d2-4e97-a44c-486d6c5e5b12",
       "e4a81b44-ff4c-4b9b-91b3-25356bd95da1",
       "f0d22910-df10-4e83-aef5-7c46a5dc43e9",
-      "f43403ec-ac59-4fa2-af39-d764c72c8717"
+      "f43403ec-ac59-4fa2-af39-d764c72c8717",
+      "08560f53-ca04-449a-abaa-a1ef22ea0c6b",
+      "c6be8e98-170f-45aa-aaef-4627bcae4a40"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

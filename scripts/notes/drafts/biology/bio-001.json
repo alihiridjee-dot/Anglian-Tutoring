@@ -330,23 +330,46 @@
         ],
         "tip": "Any three score one mark each. Compare means both cells appear in each point."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 2.1.2", "CAIE 2.1.3", "CAIE 2.1.4"],
+      "worked_example": {
+        "exemplar_id": "249938ba-97d2-4fe0-861b-08867da9c16b",
+        "source": "CAMBRIDGE jun 2025, Paper 42, Q5(c)",
+        "question": "Describe differences and similarities between the structure of a plant root hair cell and a bacterial cell.",
+        "marks": 5,
+        "answer_points": [
+          "Differences (maximum 3): the root hair cell has a nucleus, mitochondria and a large permanent vacuole.",
+          "The root hair cell wall is made of cellulose.",
+          "The root hair cell has linear DNA and no plasmids.",
+          "Similarities (maximum 3): both have a cell wall, a cell membrane and cytoplasm.",
+          "Both have ribosomes and DNA (genetic material).",
+          "Five marks in total from the differences and similarities."
+        ],
+        "tip": "Give at least two similarities as well as differences, because the marks are shared between both."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.4"]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "833ed39f-936a-4592-8787-322e9e113dbe",
       "d9a8fe0a-e252-40ac-9cca-6d0c6d81bcd9",
-      "61ce3dc3-baa2-4347-bb54-b2c56863dc1b"
+      "61ce3dc3-baa2-4347-bb54-b2c56863dc1b",
+      "fdab6459-b260-4ffb-882b-21ed46f83912"
     ],
     "exemplar_ids": [
       "13922221-eaf2-4f1e-bb1e-9ff208a3502f",
       "45ecb2f6-6678-4365-92bc-69fa5975e7e1",
-      "1ee5f14e-cda2-487a-a4c6-245a25d75bcc"
+      "1ee5f14e-cda2-487a-a4c6-245a25d75bcc",
+      "249938ba-97d2-4fe0-861b-08867da9c16b"
     ]
   }
 }

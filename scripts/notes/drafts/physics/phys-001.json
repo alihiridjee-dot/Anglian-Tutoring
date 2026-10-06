@@ -238,6 +238,173 @@
     },
     "ocr": {
       "spec_codes": ["OCR P2.1c", "OCR P8.1c"]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.1",
+        "IGCSE 1.2P",
+        "IGCSE 2.1",
+        "IGCSE 3.1",
+        "IGCSE 4.1",
+        "IGCSE 5.1",
+        "IGCSE 5.2P",
+        "IGCSE 6.1",
+        "IGCSE 7.1",
+        "IGCSE 8.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "9616b40a-d89c-4c22-a559-6b7fd8a8ec1f",
+        "source": "EDEXCEL jun 2019, Paper 1 (P), Q6(b)(i)",
+        "question": "A student records the current through a lamp.\nState the unit for current.",
+        "marks": 1,
+        "answer_points": [
+          "ampere, amp or A"
+        ],
+        "tip": "The symbol I is the quantity, not the unit, so it does not score."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Learn the unit and symbol for each quantity below. They are used across the whole course."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Quantity",
+                "Unit",
+                "Symbol"
+              ],
+              "rows": [
+                [
+                  "Mass",
+                  "kilogram",
+                  "kg"
+                ],
+                [
+                  "Length, distance",
+                  "metre",
+                  "m"
+                ],
+                [
+                  "Time",
+                  "second",
+                  "s"
+                ],
+                [
+                  "Force, weight",
+                  "newton",
+                  "N"
+                ],
+                [
+                  "Speed, wave speed",
+                  "metre per second",
+                  "m/s"
+                ],
+                [
+                  "Acceleration",
+                  "metre per second squared",
+                  "m/s²"
+                ],
+                [
+                  "Gravitational field strength",
+                  "newton per kilogram",
+                  "N/kg"
+                ],
+                [
+                  "Energy",
+                  "joule",
+                  "J"
+                ],
+                [
+                  "Power",
+                  "watt",
+                  "W"
+                ],
+                [
+                  "Current",
+                  "ampere",
+                  "A"
+                ],
+                [
+                  "Charge",
+                  "coulomb",
+                  "C"
+                ],
+                [
+                  "Potential difference",
+                  "volt",
+                  "V"
+                ],
+                [
+                  "Resistance",
+                  "ohm",
+                  "Ω"
+                ],
+                [
+                  "Frequency",
+                  "hertz",
+                  "Hz"
+                ],
+                [
+                  "Angle",
+                  "degree",
+                  "°"
+                ],
+                [
+                  "Temperature",
+                  "degree Celsius, kelvin",
+                  "°C, K"
+                ],
+                [
+                  "Density",
+                  "kilogram per metre cubed",
+                  "kg/m³"
+                ],
+                [
+                  "Pressure",
+                  "pascal",
+                  "Pa"
+                ],
+                [
+                  "Area, volume",
+                  "metre squared, metre cubed",
+                  "m², m³"
+                ],
+                [
+                  "Specific heat capacity",
+                  "joule per kilogram degree Celsius",
+                  "J/kg °C"
+                ],
+                [
+                  "Moment",
+                  "newton metre",
+                  "N m"
+                ],
+                [
+                  "Momentum",
+                  "kilogram metre per second",
+                  "kg m/s"
+                ],
+                [
+                  "Activity of a radioactive source",
+                  "becquerel",
+                  "Bq"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Time can also be given in minutes (min) and hours (h). Convert to seconds before using an equation: 1 min = 60 s and 1 h = 3600 s.",
+                "Length can be given in centimetres (cm). Divide by 100 to change cm to m."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -250,13 +417,24 @@
       "60073435-efaf-44c6-af74-6e68784d96ad",
       "2446d2c7-4ca3-4711-a38e-ec3d1e4b881f",
       "21d1e9e5-4977-4656-8778-8f3de326577a",
-      "ad903066-2088-48e0-af0e-95142ad554be"
+      "ad903066-2088-48e0-af0e-95142ad554be",
+      "34210ab5-0144-4822-b5f4-a55880cbee5b",
+      "74eaf83b-41f8-4792-8f17-4fdcdb84cdff",
+      "ddb7509a-7a79-417b-83e9-7a5bc946697d",
+      "6b98656c-f224-4d0d-b90d-c7f2e010794f",
+      "bac26933-4b94-43f2-9d59-f362947cfd60",
+      "7ee3faee-f8db-455a-af59-2ccf42a70a06",
+      "dded7e6b-6a2a-401d-b9fe-fdc92903ca1c",
+      "7c9c68fd-0b8a-4cba-b21d-4e72dbca71af",
+      "2ff05286-b134-4283-ad73-6c324f8f6827",
+      "856b6359-0c8f-4d01-9af6-a9de2f8bb733"
     ],
     "exemplar_ids": [
       "fb4fd50d-de53-4bdc-88b4-152e9b65fc1d",
-      "61734656-80f0-48af-bf80-2593f7909e7b"
+      "61734656-80f0-48af-bf80-2593f7909e7b",
+      "9616b40a-d89c-4c22-a559-6b7fd8a8ec1f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

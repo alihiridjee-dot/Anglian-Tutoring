@@ -47,42 +47,82 @@
             "options": [
               {
                 "label": "Hydrogen, H₂",
-                "results": ["**1 single bond**: H–H", "1", "None"]
+                "results": [
+                  "**1 single bond**: H–H",
+                  "1",
+                  "None"
+                ]
               },
               {
                 "label": "Chlorine, Cl₂",
-                "results": ["**1 single bond**: Cl–Cl", "1", "3 on each Cl"]
+                "results": [
+                  "**1 single bond**: Cl–Cl",
+                  "1",
+                  "3 on each Cl"
+                ]
               },
               {
                 "label": "Oxygen, O₂",
-                "results": ["**1 double bond**: O=O", "2", "2 on each O"]
+                "results": [
+                  "**1 double bond**: O=O",
+                  "2",
+                  "2 on each O"
+                ]
               },
               {
                 "label": "Nitrogen, N₂",
-                "results": ["**1 triple bond**: N≡N", "3", "1 on each N"]
+                "results": [
+                  "**1 triple bond**: N≡N",
+                  "3",
+                  "1 on each N"
+                ]
               },
               {
                 "label": "Hydrogen chloride, HCl",
-                "results": ["**1 single bond**: H–Cl", "1", "3 on Cl"]
+                "results": [
+                  "**1 single bond**: H–Cl",
+                  "1",
+                  "3 on Cl"
+                ]
               },
               {
                 "label": "Water, H₂O",
-                "results": ["**2 single bonds**: H–O–H", "2", "2 on O"]
+                "results": [
+                  "**2 single bonds**: H–O–H",
+                  "2",
+                  "2 on O"
+                ]
               },
               {
                 "label": "Ammonia, NH₃",
-                "results": ["**3 single bonds**: N bonded to 3 H", "3", "1 on N"]
+                "results": [
+                  "**3 single bonds**: N bonded to 3 H",
+                  "3",
+                  "1 on N"
+                ]
               },
               {
                 "label": "Methane, CH₄",
-                "results": ["**4 single bonds**: C bonded to 4 H", "4", "None"]
+                "results": [
+                  "**4 single bonds**: C bonded to 4 H",
+                  "4",
+                  "None"
+                ]
               },
               {
                 "label": "Carbon dioxide, CO₂",
-                "results": ["**2 double bonds**: O=C=O", "4", "2 on each O"]
+                "results": [
+                  "**2 double bonds**: O=C=O",
+                  "4",
+                  "2 on each O"
+                ]
               }
             ],
-            "result_labels": ["Bonds", "Shared pairs", "Pairs not shared"]
+            "result_labels": [
+              "Bonds",
+              "Shared pairs",
+              "Pairs not shared"
+            ]
           }
         },
         {
@@ -156,9 +196,15 @@
               "Ball and stick model",
               "Not to scale, so the size of atoms is wrong, and the atoms are shown separated"
             ],
-            ["Ball and stick model", "Does not show the electrons or shells"]
+            [
+              "Ball and stick model",
+              "Does not show the electrons or shells"
+            ]
           ],
-          "columns": ["Model", "Limitation"]
+          "columns": [
+            "Model",
+            "Limitation"
+          ]
         },
         {
           "type": "key-points",
@@ -190,7 +236,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.1.4", "AQA T 5.2.1.4"],
+      "spec_codes": [
+        "AQA 4.2.1.4",
+        "AQA T 5.2.1.4"
+      ],
       "worked_example": {
         "exemplar_id": "6a524f1b-4198-4b8d-b4c9-a53fcb752f9a",
         "source": "AQA jun 2023, Paper 1 (H), Q07.4",
@@ -205,26 +254,179 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 1.28", "EDEX 1.29", "EDEX 1.31"],
+      "spec_codes": [
+        "EDEX 1.28",
+        "EDEX 1.29",
+        "EDEX 1.31"
+      ],
       "worked_example": {
         "exemplar_id": "1f4e4343-c847-4b51-ae05-b378852ea240",
         "source": "EDEXCEL jun 2018, Paper 2 (F), Q8(c)(i)",
         "question": "Chlorine exists as diatomic molecules. In a molecule, two chlorine atoms are joined by a covalent bond. Describe what is meant by a covalent bond.",
         "marks": 2,
-        "answer_points": ["Shared electrons.", "A pair of electrons, two electrons."],
+        "answer_points": [
+          "Shared electrons.",
+          "A pair of electrons, two electrons."
+        ],
         "tip": "A diagram can earn both marks. Any reference to ionic bonding or ions scores zero."
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C2.2f", "OCR C2.2e"],
+      "spec_codes": [
+        "OCR C2.2f",
+        "OCR C2.2e"
+      ],
       "worked_example": {
         "exemplar_id": "79ec2392-aeb3-4ead-bc1a-464e566e2343",
         "source": "OCR jun 2024, Paper 1, Q18(b)(i)",
         "question": "Plastics are polymers. Polymers have covalent bonds between the atoms. Explain what a covalent bond is in terms of electrons.",
         "marks": 1,
-        "answer_points": ["A covalent bond is a shared pair of electrons between atoms."],
+        "answer_points": [
+          "A covalent bond is a shared pair of electrons between atoms."
+        ],
         "tip": "One mark for the idea of a shared pair."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.5.1",
+        "CAIE 2.5.2",
+        "CAIE 2.5.4S"
+      ],
+      "worked_example": {
+        "exemplar_id": "89e262f2-9370-49d8-a8ac-9a483d3de909",
+        "source": "CAMBRIDGE jun 2025, Paper 42, Q2(a)",
+        "question": "This question is about covalent compounds. State what is meant by a covalent bond.",
+        "marks": 2,
+        "answer_points": [
+          "A pair of electrons.",
+          "Shared between two atoms."
+        ],
+        "tip": "One mark for the pair of electrons and one for sharing between two atoms."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In a covalent bond each atom ends up with a noble gas electronic structure.",
+                "Hydrogen has two electrons in its shell, like helium."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Dot-and-cross diagrams also cover methanol and ethene, as well as oxygen, nitrogen and carbon dioxide."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Molecule",
+                "Bonds",
+                "Shared pairs",
+                "Pairs not shared"
+              ],
+              "rows": [
+                [
+                  "Methanol, CH₃OH",
+                  "3 C–H, 1 C–O and 1 O–H, all single",
+                  "5",
+                  "2 on O"
+                ],
+                [
+                  "Ethene, C₂H₄",
+                  "1 C=C double bond and 4 C–H single bonds",
+                  "6",
+                  "None"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.44",
+        "IGCSE 1.45",
+        "IGCSE 1.46",
+        "IGCSE 1.14"
+      ],
+      "worked_example": {
+        "exemplar_id": "a03ab108-838e-44b6-9fa2-539c787971ed",
+        "source": "EDEXCEL jun 2024, Paper 2 (C), Q7(a)",
+        "question": "Hydrogen chloride is a covalent compound. State, in terms of electrostatic attraction, what is meant by a covalent bond.",
+        "marks": 2,
+        "answer_points": [
+          "Electrostatic attraction between the nuclei of both atoms.",
+          "And a shared (bonding) pair of electrons."
+        ],
+        "tip": "Write nuclei, in the plural. The attraction is between the shared pair and the nuclei of both atoms."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Atom",
+                  "meaning": "The smallest part of an element that can take part in a chemical reaction."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Covalent bonds and electrostatic attraction"
+            },
+            {
+              "type": "paragraph",
+              "text": "A covalent bond is the electrostatic attraction between the nuclei of both atoms and the shared pair of electrons between them."
+            },
+            {
+              "type": "subheading",
+              "text": "More molecules to draw"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Molecule",
+                "Bonds",
+                "Shared pairs",
+                "Pairs not shared"
+              ],
+              "rows": [
+                [
+                  "Ethane, C₂H₆",
+                  "1 C–C and 6 C–H, all single",
+                  "7",
+                  "None"
+                ],
+                [
+                  "Ethene, C₂H₄",
+                  "1 C=C double bond and 4 C–H single bonds",
+                  "6",
+                  "None"
+                ],
+                [
+                  "Chloromethane, CH₃Cl",
+                  "3 C–H and 1 C–Cl, all single",
+                  "4",
+                  "3 on Cl"
+                ],
+                [
+                  "Hydrogen halides, HF, HCl, HBr and HI",
+                  "1 H–halogen single bond",
+                  "1",
+                  "3 on the halogen"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -232,7 +434,7 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "2f570ffe-7536-49ab-8895-532817bd2b6d",
       "42fdb98c-30c7-4284-a6a0-cc83c5b858c8",
@@ -240,12 +442,20 @@
       "454dbc77-14c9-49da-940e-e38d0840a31d",
       "894d26cc-c243-4063-bbd5-4b534431a5e6",
       "a5ca7818-027c-4b03-a613-1403e9c333bc",
-      "0b280586-513f-4bc9-ad42-92175d44f6f5"
+      "0b280586-513f-4bc9-ad42-92175d44f6f5",
+      "b93a2b95-e68b-40a9-8dde-9757688f7cad",
+      "b766a3eb-6dbb-4b3b-a552-186cb8ebc21b",
+      "dd8b96c7-927d-429a-9420-eaa6eb7d2fea",
+      "81bbd6d3-76f1-41c4-bb81-f3024b0894d2",
+      "c8c5eb9d-609d-4396-a121-d9088841f993",
+      "10a9a84e-0006-495a-bf31-ab5b50851804"
     ],
     "exemplar_ids": [
       "6a524f1b-4198-4b8d-b4c9-a53fcb752f9a",
       "1f4e4343-c847-4b51-ae05-b378852ea240",
-      "79ec2392-aeb3-4ead-bc1a-464e566e2343"
+      "79ec2392-aeb3-4ead-bc1a-464e566e2343",
+      "89e262f2-9370-49d8-a8ac-9a483d3de909",
+      "a03ab108-838e-44b6-9fa2-539c787971ed"
     ]
   }
 }

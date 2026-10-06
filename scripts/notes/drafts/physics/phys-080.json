@@ -241,6 +241,82 @@
         ],
         "tip": "Any one of the two points scores the mark."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.1.1",
+        "CAIE 4.1.2",
+        "CAIE 4.1.3",
+        "CAIE 4.1.4",
+        "CAIE 4.1.9",
+        "CAIE 4.1.10S"
+      ],
+      "worked_example": {
+        "exemplar_id": "a1c2b69f-2378-4009-bcb3-f47b635813d4",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q7(a)",
+        "question": "A student is given three pieces of steel. Two of the pieces are magnetised and one piece is unmagnetised.\nDescribe and explain how the student determines which piece is unmagnetised using only the three pieces of steel.",
+        "marks": 4,
+        "answer_points": [
+          "Bring (the end of) one piece of steel close to (the end of) another piece.",
+          "Look to see whether there is repulsion or attraction, and test between different ends or poles.",
+          "Repeat a valid test between the other pieces.",
+          "Only magnets repel each other, so the pieces that repel are magnets.",
+          "A piece that only attracts, and does not repel at either end, is the unmagnetised one."
+        ],
+        "tip": "Repulsion is the only test that proves a piece is a magnet, because an unmagnetised piece of steel is attracted to either pole."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The core of an electromagnet and a permanent magnet are made from different magnetic materials."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Soft iron** magnetises and demagnetises easily. It is used for temporary magnets, such as the core of an electromagnet.",
+                "**Steel** keeps its magnetism. It is used for permanent magnets.",
+                "Permanent magnets are used in fridge door seals and compasses. Electromagnets are used in scrapyard cranes and in relays.",
+                "(Supplement) Magnetic forces are due to the interaction between the magnetic fields of the magnets."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 6.2", "IGCSE 6.3", "IGCSE 6.5", "IGCSE 6.7"],
+      "worked_example": {
+        "exemplar_id": "859ccc5b-0a8a-4786-89ed-03dea55310a5",
+        "source": "EDEXCEL jun 2024, Paper 1 (P), Q6(d)(ii)",
+        "question": "A small piece of iron is placed in the magnetic field of a bar magnet. The piece of iron becomes magnetised when placed in the magnetic field.\nA student suggests that the piece of iron is now a permanent magnet.\nExplain why the student is incorrect.",
+        "marks": 2,
+        "answer_points": [
+          "Iron is a (magnetically) soft magnetic material.",
+          "Iron loses its magnetism when it is removed from the magnetic field."
+        ],
+        "tip": "Say that the magnetism is lost when the field is taken away, not just that iron is a temporary magnet."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Magnetic materials are described as hard or soft, depending on how well they keep their magnetism."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Magnetically soft** materials, such as soft iron, magnetise and demagnetise easily. They are used for electromagnets.",
+                "**Magnetically hard** materials, such as steel, are difficult to magnetise and keep their magnetism. They are used for permanent magnets."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -259,9 +335,11 @@
     "exemplar_ids": [
       "dc84c266-a9d8-451d-926d-b7a45b0a2613",
       "281abdfa-cffa-4972-86c2-38d105a6d501",
-      "f11767b3-2ae4-4976-b3fc-04c47f13f3dc"
+      "f11767b3-2ae4-4976-b3fc-04c47f13f3dc",
+      "a1c2b69f-2378-4009-bcb3-f47b635813d4",
+      "859ccc5b-0a8a-4786-89ed-03dea55310a5"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

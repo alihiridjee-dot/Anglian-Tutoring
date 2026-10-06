@@ -202,6 +202,80 @@
         ],
         "tip": "Any three of the points score. A fully annotated diagram can score full marks."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.1.5",
+        "CAIE 4.1.6",
+        "CAIE 4.1.7",
+        "CAIE 4.1.8",
+        "CAIE 4.1.10S",
+        "CAIE 4.1.11S"
+      ],
+      "worked_example": {
+        "exemplar_id": "b4be6ab9-5581-4ccf-811f-4ce80075ac31",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q8(a)(i)",
+        "question": "State what is meant by a magnetic field.",
+        "marks": 1,
+        "answer_points": ["A region in which a (magnetic) pole experiences a force."],
+        "tip": "A follow-up asks for the direction of the field: it is the direction of the force on a north pole."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A magnetic force is caused by two magnetic fields interacting."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Each magnet has its own field. Where the two fields overlap, they combine to give one pattern.",
+                "The force on each magnet is due to the field of the other magnet.",
+                "Field-line diagrams show this: lines run from the north pole of one magnet towards the south pole of the other when unlike poles face each other."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 6.4", "IGCSE 6.6", "IGCSE 6.7", "IGCSE 6.10P"],
+      "worked_example": {
+        "exemplar_id": "f359e8aa-1c66-4a41-8a83-27457d72b487",
+        "source": "EDEXCEL jan 2022, Paper 1 (P), Q1(d)",
+        "question": "The region of space around a magnet is known as a magnetic field.\nDescribe an investigation that could be used to determine the shape of the magnetic field around a bar magnet.",
+        "marks": 3,
+        "answer_points": [
+          "Either use a plotting compass.",
+          "Use multiple compasses, or repeat with a single compass at new positions.",
+          "Join up the marks to form a continuous line.",
+          "Or use iron filings, sprinkled on a card over the magnet.",
+          "Tap the card to reveal the pattern."
+        ],
+        "tip": "Follow one route fully: compass (three points) or iron filings (three points)."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Two permanent magnets can make a uniform field in the gap between them."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Face the opposite poles of the two magnets towards each other.",
+                "Hold the magnets very close together, but not touching.",
+                "The field lines in the gap are then straight, parallel and equally spaced.",
+                "To plot the pattern between two bar magnets, use a compass or iron filings as for one magnet. Unlike poles facing give lines running straight across the gap. Like poles facing give lines that bend away from each other."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -220,9 +294,11 @@
     "exemplar_ids": [
       "1b2ead58-a2da-438f-b0f3-7a4e07eaf7d5",
       "0635492f-3924-445b-bf47-40d301512db0",
-      "8618d49f-9231-4df9-bac7-928325387dd7"
+      "8618d49f-9231-4df9-bac7-928325387dd7",
+      "b4be6ab9-5581-4ccf-811f-4ce80075ac31",
+      "f359e8aa-1c66-4a41-8a83-27457d72b487"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

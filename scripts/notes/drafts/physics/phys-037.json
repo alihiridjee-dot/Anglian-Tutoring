@@ -72,7 +72,13 @@
               "label": "Time",
               "min": 0,
               "max": 4,
-              "ticks": [0, 1, 2, 3, 4],
+              "ticks": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
               "unit": "half-lives"
             },
             "y": {
@@ -82,15 +88,42 @@
               {
                 "name": "Activity",
                 "points": [
-                  [0, 1],
-                  [0.5, 0.707],
-                  [1, 0.5],
-                  [1.5, 0.354],
-                  [2, 0.25],
-                  [2.5, 0.177],
-                  [3, 0.125],
-                  [3.5, 0.088],
-                  [4, 0.0625]
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    0.5,
+                    0.707
+                  ],
+                  [
+                    1,
+                    0.5
+                  ],
+                  [
+                    1.5,
+                    0.354
+                  ],
+                  [
+                    2,
+                    0.25
+                  ],
+                  [
+                    2.5,
+                    0.177
+                  ],
+                  [
+                    3,
+                    0.125
+                  ],
+                  [
+                    3.5,
+                    0.088
+                  ],
+                  [
+                    4,
+                    0.0625
+                  ]
                 ]
               }
             ]
@@ -185,7 +218,9 @@
           "type": "equation",
           "label": "Number of half-lives",
           "formula": "number of half-lives = time ÷ half-life",
-          "where": ["time and half-life are in the same unit, for example days."]
+          "where": [
+            "time and half-life are in the same unit, for example days."
+          ]
         },
         {
           "type": "equation",
@@ -312,7 +347,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.4.2.3", "AQA T 6.4.2.3"],
+      "spec_codes": [
+        "AQA 4.4.2.3",
+        "AQA T 6.4.2.3"
+      ],
       "worked_example": {
         "exemplar_id": "9dd98a6a-d972-48fb-93cc-135719395492",
         "source": "AQA jun 2025, Paper 1 (H), Q07.4",
@@ -327,7 +365,13 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 6.23", "EDEX 6.24", "EDEX 6.25", "EDEX 6.26", "EDEX 6.27"],
+      "spec_codes": [
+        "EDEX 6.23",
+        "EDEX 6.24",
+        "EDEX 6.25",
+        "EDEX 6.26",
+        "EDEX 6.27"
+      ],
       "worked_example": {
         "exemplar_id": "4d20b027-23f1-47c8-b52f-fb4acfe0d6aa",
         "source": "EDEXCEL nov 2020, Paper 1 (H), Q7(c)",
@@ -342,7 +386,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P6.1j", "OCR P6.1k"],
+      "spec_codes": [
+        "OCR P6.1j",
+        "OCR P6.1k"
+      ],
       "worked_example": {
         "exemplar_id": "966d3949-4543-4545-b678-28c39149070a",
         "source": "OCR jun 2025, Paper 4, Q20(b)(ii)",
@@ -355,6 +402,85 @@
         ],
         "tip": "A correct answer of 140 on the answer line scores all 3 marks. Halving something 5 times (1 → 1/2 → 1/4 → 1/8 → 1/16 → 1/32) is also credited."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 5.2.4.1",
+        "CAIE 5.2.4.2S",
+        "CAIE 5.2.4.3S"
+      ],
+      "worked_example": {
+        "exemplar_id": "f0c370ae-a710-4d74-ac0d-6a51e771e829",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q9(c)",
+        "question": "A radiation detector used in a laboratory detects a background count rate of 30 counts / min.\n\nA radioactive source is placed in front of the radiation detector. The initial reading on the detector is 550 counts / min. The half-life of the source is 25 minutes.\n\nCalculate the expected reading on the detector after 75 minutes.",
+        "marks": 4,
+        "answer_points": [
+          "Initial count rate from the source = 550 - 30 = 520 counts / min.",
+          "75 minutes is 3 half-lives, so the count rate falls to 1/8.",
+          "Final count rate from the source = 520 ÷ 8 = 65 counts / min.",
+          "Reading on the detector = 65 + 30 = 95 counts / min."
+        ],
+        "tip": "The background count is not halved, so take it away first and add it back at the end."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A reading or decay curve may include background radiation. Subtract the background first, then find the half-life from the corrected values."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Correct.",
+                  "text": "Subtract the background count rate from every reading."
+                },
+                {
+                  "lead": "Halve.",
+                  "text": "Find the time for the corrected count rate to fall to half."
+                },
+                {
+                  "lead": "Add back.",
+                  "text": "To find an expected reading, add the background to the answer."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 7.11",
+        "IGCSE 7.12",
+        "IGCSE 7.13",
+        "IGCSE 7.17"
+      ],
+      "worked_example": {
+        "exemplar_id": "9c08da0a-350b-4178-8e3e-2e9fc40c6dc3",
+        "source": "EDEXCEL jun 2021, Paper 1 (P), Q7(b)(iii)",
+        "question": "Uranium-235 decays to thorium-231 with a half-life of 700 million years.\n\nWhen a rock was formed, it contained 6400 million uranium-235 nuclei and no thorium-231 nuclei.\n\nShow that after 2100 million years there are seven times more thorium nuclei than uranium nuclei in the rock.",
+        "marks": 5,
+        "answer_points": [
+          "2100 million years is 3 half-lives (2100 ÷ 700).",
+          "After 1 half-life there are 3200 million uranium nuclei; after 3 half-lives there are 800 million.",
+          "Thorium nuclei = 6400 - 800 = 5600 million.",
+          "5600 ÷ 800 = 7, so there are seven times more thorium nuclei."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Nuclear reactions can be a source of energy. This includes radioactive decay as well as fission and fusion. The half-life tells you how quickly a decaying source gives out its energy."
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -370,7 +496,12 @@
       "c7e907a8-7ed5-4120-88f3-bac6cde747dd",
       "1fda754b-1ea4-42fa-be52-d56f48cee5fc",
       "0449c4ad-582a-44f5-9c95-630a6dd8a840",
-      "f0d8b055-e12d-441c-8123-d2c03c405c58"
+      "f0d8b055-e12d-441c-8123-d2c03c405c58",
+      "4d3eb1ed-a85d-4507-a4a5-98c5c55672a6",
+      "b4659bb3-54e2-4a30-9605-452d0ce9f9c5",
+      "a468a9f5-ff94-4c47-958c-5a49fef83c8d",
+      "abf38614-7423-40b4-99d0-6f5e0dc87b89",
+      "2ce0abff-a7f0-4c65-a702-899e709f5cb6"
     ],
     "exemplar_ids": [
       "9dd98a6a-d972-48fb-93cc-135719395492",
@@ -387,9 +518,11 @@
       "f35ceaa0-b246-4c26-bb58-62a699238769",
       "d10b41b8-69a1-445a-b8dd-a742d5b61fa7",
       "9fd40a43-46d1-4954-a494-9c71c463d29f",
-      "6f55e3f3-1966-4cb4-8b47-46b8279c4e9c"
+      "6f55e3f3-1966-4cb4-8b47-46b8279c4e9c",
+      "f0c370ae-a710-4d74-ac0d-6a51e771e829",
+      "9c08da0a-350b-4178-8e3e-2e9fc40c6dc3"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

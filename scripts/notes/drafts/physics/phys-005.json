@@ -286,6 +286,69 @@
         "answer_points": ["(P = E / t) P = 12 500 / 5", "P = 2500", "Unit: W or watts"],
         "tip": "A correct answer of 2500 W scores all 3 marks. J/s is also allowed for the unit."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.7.4.1",
+        "CAIE 4.2.5.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "498bf19d-f47c-4553-9ab9-238f87333600",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q3(b)(ii)",
+        "question": "A wind turbine has a maximum output power of 1.8 MW. The turbine operates at maximum power for 4.0 h.\n\nCalculate the energy produced by the wind turbine operating at maximum power for 4.0 h. Give your answer in kW h.",
+        "marks": 2,
+        "answer_points": [
+          "E = P × t",
+          "1.8 MW = 1800 kW, so E = 1800 × 4.0 = 7200 kW h"
+        ],
+        "tip": "Working in kW and hours gives the answer in kW h directly. No conversion to joules is needed."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Energy can be given in kilowatt-hours instead of joules. Use power in kilowatts and time in hours."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Kilowatt-hour (kW h)",
+                  "meaning": "The energy transferred by a 1 kW device in 1 hour. 1 kW h = 3 600 000 J."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Energy in kW h = power in kW × time in hours.",
+                "Cost = energy in kW h × cost of one kW h."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.16",
+        "IGCSE 4.17"
+      ],
+      "worked_example": {
+        "exemplar_id": "215fa979-435f-4d2c-b5bf-d32d8a952c52",
+        "source": "EDEXCEL jun 2023, Paper 1 (P), Q3(a)",
+        "question": "A television set has a low power mode called standby.\nWhen on standby, the power rating of the television set is 0.27 W.\n\nCalculate the energy transferred to the television set on standby in 12 hours.",
+        "marks": 3,
+        "answer_points": [
+          "Convert the time: 12 h = 12 × 3600 = 43 200 s",
+          "Substitute: 0.27 = energy ÷ 43 200",
+          "Rearrange: energy = 0.27 × 43 200",
+          "energy = 12 000 J (11 664 J)"
+        ],
+        "tip": "One mark each for substitution, rearrangement and evaluation. Not converting hours to seconds loses a mark."
+      }
     }
   },
   "meta": {
@@ -298,14 +361,19 @@
       "6cc56d78-4fa4-4db0-9b10-57e5ddc7ebe5",
       "1294c506-5df8-44f1-8e0c-9733f68ce652",
       "cbd1c75d-2545-4230-a781-5129100629b1",
-      "54d2f17f-3446-4e13-b48a-12f07bb59a70"
+      "54d2f17f-3446-4e13-b48a-12f07bb59a70",
+      "fb0943bc-797f-4559-a4b4-800e546c25d3",
+      "53897e0e-8e98-49aa-bb1b-896f55422f7a",
+      "68e91c41-a94e-45e2-a91f-974bcc7b9054"
     ],
     "exemplar_ids": [
       "24909b91-f2e8-4175-8ee0-979ebd3346ad",
       "b328dd3d-9770-4041-b493-7c7fe302abed",
-      "d8c71318-91cf-492e-8736-555c92c40e78"
+      "d8c71318-91cf-492e-8736-555c92c40e78",
+      "498bf19d-f47c-4553-9ab9-238f87333600",
+      "215fa979-435f-4d2c-b5bf-d32d8a952c52"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

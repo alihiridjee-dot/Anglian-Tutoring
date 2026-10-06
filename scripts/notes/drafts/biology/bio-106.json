@@ -210,7 +210,12 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 6.15", "AQA T 4.6.3.1", "AQA T 4.6.3.2", "AQA T 4.6.3.3"],
+      "spec_codes": [
+        "AQA 6.15",
+        "AQA T 4.6.3.1",
+        "AQA T 4.6.3.2",
+        "AQA T 4.6.3.3"
+      ],
       "worked_example": {
         "exemplar_id": "437304c0-e513-421f-9a74-50aaca3bf484",
         "source": "AQA jun 2025, Paper 2 (F), Q08.1",
@@ -225,7 +230,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 4.6B"],
+      "spec_codes": [
+        "EDEX 4.6B"
+      ],
       "worked_example": {
         "exemplar_id": "52fc20f8-a698-4ae7-8eed-768f727c1da2",
         "source": "EDEXCEL jun 2018, Paper 1 (H), Q7(a)(i)",
@@ -239,7 +246,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 5.2e"],
+      "spec_codes": [
+        "OCR 5.2e"
+      ],
       "worked_example": {
         "exemplar_id": "74a0dfc6-8624-4ada-afc5-fe1711bde7d6",
         "source": "OCR jun 2019, Paper 2, Q20(c)",
@@ -253,6 +262,33 @@
         ],
         "tip": "Any three of the four points score one mark each."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 20.4.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Organisms become endangered or extinct for several reasons."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Climate change.",
+                "Habitat destruction, for example deforestation.",
+                "Hunting.",
+                "Overharvesting: taking so many organisms that the population cannot recover.",
+                "Pollution.",
+                "Introduced species, which may compete with or prey on native species."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -273,6 +309,6 @@
       "74a0dfc6-8624-4ada-afc5-fe1711bde7d6"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

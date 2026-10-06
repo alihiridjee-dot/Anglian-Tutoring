@@ -23,10 +23,22 @@
         },
         {
           "type": "table",
-          "columns": ["Circuit", "Pumped by", "Blood goes to"],
+          "columns": [
+            "Circuit",
+            "Pumped by",
+            "Blood goes to"
+          ],
           "rows": [
-            ["Pulmonary circuit", "Right ventricle", "The lungs, where gas exchange takes place"],
-            ["Systemic circuit", "Left ventricle", "The rest of the body"]
+            [
+              "Pulmonary circuit",
+              "Right ventricle",
+              "The lungs, where gas exchange takes place"
+            ],
+            [
+              "Systemic circuit",
+              "Left ventricle",
+              "The rest of the body"
+            ]
           ]
         },
         {
@@ -215,7 +227,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 2.6", "AQA T 4.2.2.2"],
+      "spec_codes": [
+        "AQA 2.6",
+        "AQA T 4.2.2.2"
+      ],
       "worked_example": {
         "exemplar_id": "1f86491e-374d-4762-933a-ec5606daeb2d",
         "source": "AQA jun 2019, Paper 1 (H), Q05.1",
@@ -231,7 +246,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 8.8"],
+      "spec_codes": [
+        "EDEX 8.8"
+      ],
       "worked_example": {
         "exemplar_id": "4651fc6a-f909-407e-9b13-117b7609f51d",
         "source": "EDEXCEL jun 2019, Paper 2 (H), Q8(b)",
@@ -249,7 +266,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 2.2c", "OCR 2.2d"],
+      "spec_codes": [
+        "OCR 2.2c",
+        "OCR 2.2d"
+      ],
       "worked_example": {
         "exemplar_id": "bf194b73-b18f-4f78-ba21-e1b767a68554",
         "source": "OCR jun 2022, Paper 1, Q17(a)(iii)",
@@ -262,6 +282,159 @@
         ],
         "tip": "Assume the answer is about the left ventricle if it is not stated. A statement about the right ventricle pumping blood to the lungs is also allowed."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 9.1.1",
+        "CAIE 9.1.2S",
+        "CAIE 9.1.3S",
+        "CAIE 9.1.4S",
+        "CAIE 9.2.1",
+        "CAIE 9.2.2",
+        "CAIE 9.2.7S",
+        "CAIE 9.2.8S",
+        "CAIE 9.2.9S",
+        "CAIE 9.2.10S",
+        "CAIE 9.3.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "45dd14cc-f620-42e8-b03b-40f422d24d8a",
+        "source": "CAMBRIDGE nov 2023, Paper 42, Q5(b)",
+        "question": "Explain the advantages of a double circulatory system.",
+        "marks": 3,
+        "answer_points": [
+          "It prevents mixing of oxygenated and deoxygenated blood.",
+          "Blood can flow at high pressure to the body.",
+          "Efficient and fast supply of glucose, oxygen and nutrients.",
+          "Efficient and fast removal of waste, such as carbon dioxide and urea.",
+          "It allows efficient filtration in the kidneys.",
+          "It maintains a high metabolic rate and rate of respiration.",
+          "Lower pressure in the pulmonary circuit protects the delicate capillaries in the lungs.",
+          "The lower pressure allows more time for gas exchange."
+        ],
+        "tip": "Any three of these points score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Arteries carry blood away from the heart. Veins carry blood back to the heart."
+            },
+            {
+              "type": "subheading",
+              "text": "(Supplement) Single circulation in a fish"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A fish heart has two chambers: one atrium and one ventricle.",
+                "Blood passes through the heart once on each circuit: heart, gills, body, back to the heart.",
+                "Blood loses pressure as it passes through the gills, so it reaches the body at a lower pressure and flows more slowly."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "(Supplement) Valves, walls and septum"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The **atrioventricular valves** are between the atria and the ventricles. They stop blood flowing back into the atria when the ventricles contract.",
+                "The **semilunar valves** are in the aorta and pulmonary artery. They stop blood flowing back into the ventricles.",
+                "The atria have thinner walls than the ventricles, because they only pump blood a short distance, into the ventricles.",
+                "Each heartbeat: the atria contract and push blood into the ventricles. Then the ventricles contract and push blood out into the arteries."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Vessels to and from the kidney"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The renal artery brings blood to the kidney.",
+                "The renal vein takes blood away from the kidney."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.65",
+        "IGCSE 2.69"
+      ],
+      "worked_example": {
+        "exemplar_id": "3fa0824e-96f6-4570-a125-b7d24d788852",
+        "source": "EDEXCEL nov 2021, Paper 2 (B), Q1(b)",
+        "question": "Describe the functions of the atria in the body.",
+        "marks": 3,
+        "answer_points": [
+          "They pump (push) blood into the ventricles.",
+          "They receive deoxygenated blood from the body, from the vena cava.",
+          "They receive oxygenated blood from the lungs, from the pulmonary vein."
+        ],
+        "tip": "Any three of these points score the marks. One mark is given for \"receive blood\" if neither of the last two points is made."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Blood also flows to and from the liver and kidneys. Know the name of each vessel."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Organ",
+                "Vessel",
+                "What it does"
+              ],
+              "rows": [
+                [
+                  "Lungs",
+                  "Pulmonary artery",
+                  "Carries blood from the heart to the lungs"
+                ],
+                [
+                  "Lungs",
+                  "Pulmonary vein",
+                  "Carries blood from the lungs to the heart"
+                ],
+                [
+                  "Kidney",
+                  "Renal artery",
+                  "Carries blood to the kidney"
+                ],
+                [
+                  "Kidney",
+                  "Renal vein",
+                  "Carries blood away from the kidney"
+                ],
+                [
+                  "Liver",
+                  "Hepatic artery",
+                  "Carries blood to the liver"
+                ],
+                [
+                  "Liver",
+                  "Hepatic vein",
+                  "Carries blood away from the liver"
+                ],
+                [
+                  "Liver",
+                  "Hepatic portal vein",
+                  "Carries blood from the gut to the liver"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -269,16 +442,31 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "e0fa0fc3-5266-46ac-a96a-b939bad1f87d",
       "8ff3ac10-2893-4b41-99c8-e23944938b04",
-      "3d0486b8-d339-49e4-a312-069003a381c3"
+      "3d0486b8-d339-49e4-a312-069003a381c3",
+      "3ea65861-e85c-4a38-a3fd-a1c4c244d79f",
+      "61017ba8-2dfe-4ba1-808c-b75a287e5641",
+      "40e30b04-3d9b-4b21-8eca-28a42e95652f",
+      "a9be07bd-bd22-489d-b079-827fce2667ae",
+      "f555463f-82e1-4a14-a951-8f5905ae7fea",
+      "50175e7f-b702-412b-9108-9f90a5bf2fd7",
+      "e2a2bffc-7efb-483c-bfce-cbb6ab4fb792",
+      "794347b7-4a85-47d0-9db2-8ab33fa12fe6",
+      "c4be16d8-8d2c-44e0-a427-d7d1928c8c54",
+      "c9984029-e708-4a5c-bbc1-bb1c58d8961d",
+      "da3f7d6c-3fc7-4cec-97ef-312667ca2024",
+      "a0013b37-9f8a-4fc8-b13c-d19ad9c0aa87",
+      "6654e932-e397-4bc4-995b-3ec85d626e36"
     ],
     "exemplar_ids": [
       "1f86491e-374d-4762-933a-ec5606daeb2d",
       "4651fc6a-f909-407e-9b13-117b7609f51d",
-      "bf194b73-b18f-4f78-ba21-e1b767a68554"
+      "bf194b73-b18f-4f78-ba21-e1b767a68554",
+      "45dd14cc-f620-42e8-b03b-40f422d24d8a",
+      "3fa0824e-96f6-4570-a125-b7d24d788852"
     ]
   }
 }

@@ -56,7 +56,11 @@
         },
         {
           "type": "table",
-          "columns": ["Cause", "What happens", "Symptom"],
+          "columns": [
+            "Cause",
+            "What happens",
+            "Symptom"
+          ],
           "rows": [
             [
               "Magnesium deficiency",
@@ -78,7 +82,11 @@
               "They remove sugars from the phloem, so less glucose is available.",
               "Stunted growth"
             ],
-            ["Lack of light", "Chlorophyll breaks down.", "Yellow leaves"]
+            [
+              "Lack of light",
+              "Chlorophyll breaks down.",
+              "Yellow leaves"
+            ]
           ]
         },
         {
@@ -103,7 +111,10 @@
             "kind": "sort",
             "alt": "Sort each method of identifying a plant disease into the field or the laboratory.",
             "prompt": "Is the method used in the field or in the laboratory?",
-            "groups": ["In the field", "In the laboratory"],
+            "groups": [
+              "In the field",
+              "In the laboratory"
+            ],
             "items": [
               {
                 "text": "Check other plants to see how the disease is spread",
@@ -174,7 +185,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 3.9"],
+      "spec_codes": [
+        "AQA 3.9"
+      ],
       "worked_example": {
         "exemplar_id": "de23248d-ffb6-4b45-9d57-738e19cfcf6f",
         "source": "AQA jun 2018, Paper 1 (H), Q05.2",
@@ -191,7 +204,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.11B"],
+      "spec_codes": [
+        "EDEX 5.11B"
+      ],
       "worked_example": {
         "exemplar_id": "94a9fb74-717e-4da8-ad18-4648ce8b8b6b",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q7(a)(i)",
@@ -209,7 +224,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3i"],
+      "spec_codes": [
+        "OCR 6.3i"
+      ],
       "worked_example": {
         "exemplar_id": "5afaf57b-ea9f-44ce-a856-f8a649ceb4c3",
         "source": "OCR jun 2022, Paper 4, Q18(c)(ii)",
@@ -225,6 +242,38 @@
         ],
         "tip": "This is a levelled question. Cover the advantage of early detection and judge the machine using numbers from the data."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 6.1.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Nitrate ions are needed to make **amino acids**. Amino acids are joined to make proteins for growth. Magnesium ions are needed to make chlorophyll."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.22"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Nitrate ions are needed to make **amino acids**. Amino acids are joined to make proteins for growth. Magnesium ions are needed to make chlorophyll."
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -242,6 +291,6 @@
       "5afaf57b-ea9f-44ce-a856-f8a649ceb4c3"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

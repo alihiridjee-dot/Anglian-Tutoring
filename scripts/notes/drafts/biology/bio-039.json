@@ -216,6 +216,57 @@
         ],
         "tip": "Name sugar, not water or minerals. Less sugar translocated to other parts is also credited."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 8.4.1S", "CAIE 8.4.2S", "CAIE 8.4.3S"],
+      "worked_example": {
+        "exemplar_id": "27463067-03dc-4546-8101-fecacabb4ee3",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q4(a)(i)",
+        "question": "Girdling a tree involves removing a complete circle of bark and phloem from around the trunk. Explain why the area above the girdle will become swollen. Use the terms source and sink in your answer.",
+        "marks": 4,
+        "answer_points": [
+          "Translocation moves sugars and amino acids in the phloem.",
+          "Sugars are made in the leaves, by photosynthesis.",
+          "Glucose is converted to sucrose.",
+          "The leaves act as a source and the roots act as a sink.",
+          "The phloem transports sucrose and amino acids, but the girdle breaks the phloem.",
+          "Sucrose collects above the girdle."
+        ],
+        "tip": "Any four points score."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Translocation moves amino acids as well as sucrose, from sources to sinks."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A source is a part that releases sucrose or amino acids. A sink is a part that uses or stores them.",
+                "A part can be a sink at one time and a source at another.",
+                "A storage root or seed is a sink while it stores sugar, then a source when it releases the sugar for growth."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.53"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Phloem carries **sucrose** and **amino acids** between the leaves and the other parts of the plant."
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -223,15 +274,19 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "e0f7a2a0-2c27-4ea5-8352-ce84f3c40824",
-      "b851c0f1-16fe-4d4d-8bc0-be53eb42a326"
+      "b851c0f1-16fe-4d4d-8bc0-be53eb42a326",
+      "db477ee0-477c-458c-9598-2b256fdc2f9e",
+      "dc781a86-0f5c-48b2-ab12-5b32533c4cfd",
+      "08c9722e-45e8-45f4-af79-ffab32fd4569"
     ],
     "exemplar_ids": [
       "5d8362fb-99ee-45e3-bd40-6c28c2518ec4",
       "eda96b8f-5a6b-4fd5-b3a3-525a9fd82508",
-      "e83c5d72-1e00-4ed5-93ea-cd206913c821"
+      "e83c5d72-1e00-4ed5-93ea-cd206913c821",
+      "27463067-03dc-4546-8101-fecacabb4ee3"
     ]
   }
 }

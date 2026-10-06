@@ -132,18 +132,27 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 3.3", "AQA T 4.3.1.6"],
+      "spec_codes": [
+        "AQA 3.3",
+        "AQA T 4.3.1.6"
+      ],
       "worked_example": {
         "exemplar_id": "6693ebed-02cc-45ee-b3f5-9737f75d4617",
         "source": "AQA jun 2018, Paper 1 (F), Q01.2",
         "question": "White blood cells help to defend the body against pathogens. How do the white blood cells do this?",
         "marks": 3,
-        "answer_points": ["Engulf pathogens.", "Produce antibodies.", "Produce antitoxins."],
+        "answer_points": [
+          "Engulf pathogens.",
+          "Produce antibodies.",
+          "Produce antitoxins."
+        ],
         "tip": "One mark each for three correct ideas. Do not add extra incorrect ideas, as these can cancel marks."
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.13"],
+      "spec_codes": [
+        "EDEX 5.13"
+      ],
       "worked_example": {
         "exemplar_id": "7a0393aa-e533-4144-8d3b-13ab3ec1f8a4",
         "source": "EDEXCEL nov 2020, Paper 1 (F), Q8(c)",
@@ -161,7 +170,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3j", "OCR 6.3l"],
+      "spec_codes": [
+        "OCR 6.3j",
+        "OCR 6.3l"
+      ],
       "worked_example": {
         "exemplar_id": "ec77e3f2-32a7-4c04-be4f-931e8626ce79",
         "source": "OCR jun 2018, Paper 4, Q22(a)",
@@ -174,6 +186,148 @@
         ],
         "tip": "Any two score. \"Germs\", \"disease\", \"attack\" and \"fight\" are ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 9.4.5S",
+        "CAIE 9.4.6S",
+        "CAIE 10.1.6S",
+        "CAIE 10.1.7S",
+        "CAIE 10.1.8S",
+        "CAIE 10.1.9S",
+        "CAIE 10.1.4",
+        "CAIE 10.1.10S",
+        "CAIE 10.1.13S",
+        "CAIE 10.1.15S"
+      ],
+      "worked_example": {
+        "exemplar_id": "dcd8356a-e710-41c5-b0a8-bac47ad18034",
+        "source": "CAMBRIDGE jun 2025, Paper 42, Q2(d)",
+        "question": "Explain how active immunity differs from passive immunity.",
+        "marks": 3,
+        "answer_points": [
+          "Active immunity is gained as a result of infection or vaccination.",
+          "The body makes its own antibodies, using lymphocytes.",
+          "Memory cells are produced, so there is a secondary immune response.",
+          "Active immunity is long term. It is slower to start than passive immunity.",
+          "Passive immunity is the opposite: the antibodies come from another source, no memory cells are made and the protection is short term."
+        ],
+        "tip": "Any three points score. The opposite for passive immunity is also credited."
+      },
+      "extra": [
+        {
+          "heading": "Antibodies, active immunity and passive immunity",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Each pathogen has its own **antigens**, which have specific shapes. An antibody is a protein with a **complementary** shape, so it fits one antigen only."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Antibodies bind to antigens on the pathogen.",
+                "This leads to direct destruction of the pathogen, or marks it for destruction by phagocytes."
+              ]
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Active immunity",
+                  "meaning": "Defence against a pathogen by antibody production in your own body. It is gained after an infection or by vaccination."
+                },
+                {
+                  "term": "Passive immunity",
+                  "meaning": "A short-term defence against a pathogen by antibodies acquired from another individual."
+                }
+              ]
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Feature",
+                "Active immunity",
+                "Passive immunity"
+              ],
+              "rows": [
+                [
+                  "Source of antibodies",
+                  "Made by the person's own lymphocytes",
+                  "Acquired from another individual"
+                ],
+                [
+                  "How it is gained",
+                  "Infection or vaccination",
+                  "Across the placenta, in breast milk or by injection of antibodies"
+                ],
+                [
+                  "Memory cells",
+                  "Produced",
+                  "Not produced"
+                ],
+                [
+                  "How long it lasts",
+                  "Long term",
+                  "Short term"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Recognising white blood cells",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) In diagrams and photomicrographs, the two types are told apart by the nucleus."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Phagocyte:** a lobed or irregularly shaped nucleus, and cytoplasm that often looks grainy.",
+                "**Lymphocyte:** a large round nucleus that fills most of the cell, with only a little cytoplasm."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.62",
+        "IGCSE 2.63B"
+      ],
+      "worked_example": {
+        "exemplar_id": "9f9eb3a5-da53-429e-b5a3-b5c0ad667fbc",
+        "source": "EDEXCEL jun 2022, Paper 1 (BR), Q10(c)",
+        "question": "Phagocytes are white blood cells that are transported in the blood.\nDescribe the role of phagocytes in the body.",
+        "marks": 3,
+        "answer_points": [
+          "They engulf (ingest) microbes, such as pathogens, bacteria or viruses.",
+          "They digest (break down) the pathogens.",
+          "They use enzymes to do this."
+        ],
+        "tip": "Saying digestive enzymes scores two marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Vaccination uses a harmless form of a pathogen to make memory cells."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A dead or weakened pathogen, carrying its antigens, is put into the body.",
+                "Lymphocytes make antibodies against the antigens, and memory cells are made.",
+                "If the live pathogen enters later, the memory cells make the right antibodies sooner, faster and in greater quantity."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -184,14 +338,23 @@
       "938347af-0376-4542-a456-b7df30e25498",
       "f612518f-3ed5-4979-b71f-f885605f2dd9",
       "14fd819d-6a09-497d-ba81-cbec4f457cc4",
-      "19910011-e3b6-4595-9037-c1e1a6e3da6f"
+      "19910011-e3b6-4595-9037-c1e1a6e3da6f",
+      "f2688c1c-790b-4b41-aafa-59c5c6de0134",
+      "5b3c86bb-a584-48b7-9406-449cf0f074d8",
+      "4e1a21bd-0018-4554-bc7c-68e421bb55fc",
+      "2c402a07-fb61-4a80-b882-d556c8a6458f",
+      "b258aec5-a2cc-4511-b830-d58eb0c4f117",
+      "d17f5bb8-d7c5-48b5-9c49-5d377030e46c",
+      "f97729d0-a029-4bf0-b35a-fb30db99b6bd"
     ],
     "exemplar_ids": [
       "6693ebed-02cc-45ee-b3f5-9737f75d4617",
       "7a0393aa-e533-4144-8d3b-13ab3ec1f8a4",
-      "ec77e3f2-32a7-4c04-be4f-931e8626ce79"
+      "ec77e3f2-32a7-4c04-be4f-931e8626ce79",
+      "dcd8356a-e710-41c5-b0a8-bac47ad18034",
+      "9f9eb3a5-da53-429e-b5a3-b5c0ad667fbc"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

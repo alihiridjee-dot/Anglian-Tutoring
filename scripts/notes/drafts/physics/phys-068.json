@@ -328,6 +328,210 @@
         ],
         "tip": "One mark for the echo and one for the reason the echo is quieter."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 3.2.1.1",
+        "CAIE 3.2.1.2",
+        "CAIE 3.2.1.3",
+        "CAIE 3.2.1.4S",
+        "CAIE 3.2.2.4",
+        "CAIE 3.2.2.5",
+        "CAIE 3.4.8",
+        "CAIE 3.1.7",
+        "CAIE 3.2.2.8S",
+        "CAIE 3.2.2.9S"
+      ],
+      "worked_example": {
+        "exemplar_id": "ead4d115-422b-4592-9aaf-eb9a6079855c",
+        "source": "CAMBRIDGE jun 2023, Paper 43, Q5(b)(i)",
+        "question": "The critical angle of the glass in an optical fibre is 45°.\nCalculate the refractive index of the glass.",
+        "marks": 2,
+        "answer_points": [
+          "Write the equation: n = 1 ÷ sin c.",
+          "Substitute: n = 1 ÷ sin 45°.",
+          "n = 1.4."
+        ],
+        "tip": "This is a Supplement question: one mark for the equation, one for the substitution and one for the answer."
+      },
+      "extra": [
+        {
+          "heading": "Images in a plane mirror",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A plane mirror forms an image of an object."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The image is the same size as the object.",
+                "The image is the same distance behind the mirror as the object is in front.",
+                "The image is virtual: it cannot be shown on a screen, because the light only appears to come from it.",
+                "The image is upright."
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Draw rays.",
+                  "text": "From one point on the object, draw two rays to the mirror, each with its normal."
+                },
+                {
+                  "lead": "Reflect them.",
+                  "text": "Draw each reflected ray so that the angle of reflection equals the angle of incidence."
+                },
+                {
+                  "lead": "Trace back.",
+                  "text": "Extend the reflected rays behind the mirror with dotted lines. The image is where they meet."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Total internal reflection",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Light inside glass or water can be reflected back at the surface instead of leaving."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Critical angle",
+                  "meaning": "The angle of incidence in the denser material at which the refracted ray travels along the boundary."
+                },
+                {
+                  "term": "Total internal reflection",
+                  "meaning": "All of the light is reflected back into the denser material at a boundary."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Total internal reflection happens only when light travels from a denser material to a less dense one, such as glass to air.",
+                "The angle of incidence must be greater than the critical angle.",
+                "At smaller angles most of the light is refracted out and a little is reflected."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The critical angle is linked to the refractive index of the material."
+            },
+            {
+              "type": "equation",
+              "label": "Critical angle",
+              "formula": "n = 1 ÷ sin c",
+              "where": ["n = refractive index of the material (no unit)", "c = critical angle (°)"]
+            },
+            {
+              "type": "subheading",
+              "text": "Experiments"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A semicircular glass block: aim a ray along a radius, through the curved side, at the centre of the flat face. It enters without bending, so only the flat face changes the ray.",
+                "Turn the block to raise the angle of incidence. The refracted ray moves closer to the flat face, and at the critical angle it runs along it.",
+                "Above the critical angle all of the light is reflected. None leaves."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Uses"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Prisms in periscopes and binoculars: light hits the glass-air boundary at 45°, above the critical angle for glass, so it is totally reflected. In a periscope it is turned through 90°.",
+                "Cat's-eyes on roads: light from headlights enters the plastic, is totally reflected and returns to the driver.",
+                "Optical fibres: light is totally reflected again and again along the glass fibre. Fibres carry telephone, internet and cable signals, and let doctors see inside the body."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.9",
+        "IGCSE 3.15",
+        "IGCSE 3.16",
+        "IGCSE 3.21",
+        "IGCSE 3.14",
+        "IGCSE 3.20",
+        "IGCSE 3.23"
+      ],
+      "worked_example": {
+        "exemplar_id": "fb7d4a65-25b7-4bf6-8a9a-a8be8832b6c3",
+        "source": "EDEXCEL jun 2025, Paper 1 (PR), Q7(b)(ii)",
+        "question": "A ray of light travels along an optical fibre and reflects at the boundary between the optical fibre and air.\n\nExplain why no light leaves the optical fibre when the light reflects at the boundary between the optical fibre and air.",
+        "marks": 3,
+        "answer_points": [
+          "The refractive index of air is less than that of the fibre. The light is going from a more dense to a less dense material.",
+          "The angle of incidence is greater than the critical angle.",
+          "So the light is totally internally reflected."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Total internal reflection",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Light inside glass or water can be reflected back at the surface instead of leaving."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Critical angle",
+                  "meaning": "The angle of incidence in the denser material at which the refracted ray travels along the boundary."
+                },
+                {
+                  "term": "Total internal reflection",
+                  "meaning": "All of the light is reflected back into the denser material at a boundary."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Total internal reflection happens only when light travels from a denser material to a less dense one, such as glass to air.",
+                "The angle of incidence must be greater than the critical angle.",
+                "At smaller angles most of the light is refracted out and a little is reflected."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Experiments"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A semicircular glass block: aim a ray along a radius, through the curved side, at the centre of the flat face. It enters without bending, so only the flat face changes the ray.",
+                "Turn the block to raise the angle of incidence. The refracted ray moves closer to the flat face, and at the critical angle it runs along it.",
+                "Above the critical angle all of the light is reflected. None leaves."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Uses"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Prisms in periscopes and binoculars: light hits the glass-air boundary at 45°, above the critical angle for glass, so it is totally reflected. In a periscope it is turned through 90°.",
+                "Optical fibres: light is totally reflected again and again along the glass fibre. Fibres carry telephone, internet and cable signals, and let doctors see inside the body."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -340,14 +544,27 @@
       "cb2769f2-4515-42c7-8787-537e9ef1b056",
       "acda7ec6-65d1-4482-8000-ac995c9fc6b6",
       "d08bb6ac-395d-4c7b-871c-f97481f32b4e",
-      "e9debc07-7a09-40b8-b08e-ba242db021e8"
+      "e9debc07-7a09-40b8-b08e-ba242db021e8",
+      "f1d9ff48-c932-4664-ac42-4fe2fd33a1ef",
+      "265a4ea8-4089-4075-9e6e-15de93bdf7c6",
+      "1e256494-f25c-451d-92ee-cf65e729bb3a",
+      "72e872f0-6317-4357-9c36-5de9b9cb477b",
+      "734628e3-f702-426d-b0ce-c76314306238",
+      "1c18291a-0561-4d45-81a5-d554affa3ba7",
+      "3e03e87a-6c1d-46bd-86de-6f1d98505f57",
+      "3ea053ca-145c-4246-8a16-17ce7cfc7f7b",
+      "8fc830e0-b29b-4148-ad5a-11f01e5f5ad1",
+      "d595617c-1584-436b-94f1-bb81a5c1cafc",
+      "3c9abeea-71ea-4a3d-9dbd-3a4a5b8c76c4"
     ],
     "exemplar_ids": [
       "6962f64d-d012-494a-9295-032ac35266f5",
       "ca1c0615-90b3-449a-bf95-7f427ed4bab1",
-      "0d6f07bd-ee41-4343-8835-644fd8013e24"
+      "0d6f07bd-ee41-4343-8835-644fd8013e24",
+      "ead4d115-422b-4592-9aaf-eb9a6079855c",
+      "fb7d4a65-25b7-4bf6-8a9a-a8be8832b6c3"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

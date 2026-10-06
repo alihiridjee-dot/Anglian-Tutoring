@@ -318,6 +318,83 @@
         ],
         "tip": "A maximum of 2 marks is given if the processes are not in the correct order."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 10.3.1", "CAIE 10.3.5", "CAIE 10.3.6", "CAIE 10.3.9S"],
+      "worked_example": {
+        "exemplar_id": "1dbb3e1a-7662-4082-905c-6519f2a94e71",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q6(a)(iii)",
+        "question": "Glucose is involved in two processes.\n\nGlucose, C₆H₁₂O₆, is made in plants from carbon dioxide and water.\n\nState two essential conditions needed for this process to happen.",
+        "marks": 2,
+        "answer_points": ["Energy from light.", "The presence of chlorophyll."],
+        "tip": "Name both conditions. Chlorophyll absorbs the light energy."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Clean, dry air is approximately **78% nitrogen** (N₂) and **21% oxygen** (O₂).",
+                "The remainder is a mixture of noble gases and carbon dioxide (CO₂).",
+                "Photosynthesis needs **chlorophyll** to absorb the light energy it uses."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The symbol equation for photosynthesis:"
+            },
+            {
+              "type": "equation",
+              "label": "Photosynthesis (symbol equation)",
+              "formula": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
+              "where": [
+                "CO₂ is carbon dioxide",
+                "H₂O is water",
+                "C₆H₁₂O₆ is glucose",
+                "O₂ is oxygen"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.9"],
+      "worked_example": {
+        "exemplar_id": "ac2f6c6c-c6d5-4989-a3e1-ebf1c9150148",
+        "source": "EDEXCEL jun 2023, Paper 1 (CR), Q4(a)",
+        "question": "This question is about gases.\n\ncarbon dioxide   carbon monoxide   helium\nmethane   nitrogen   oxygen\n\nComplete the table by choosing a gas from the box that matches the information. You may use each gas once, more than once, or not at all.\n\nthe most abundant gas in air\na toxic gas that is a product of incomplete combustion of hydrocarbons\nan unreactive gas that exists as atoms\na gas produced by the fractional distillation of crude oil",
+        "marks": 4,
+        "answer_points": [
+          "The most abundant gas in air: nitrogen.",
+          "A toxic gas from incomplete combustion of hydrocarbons: carbon monoxide.",
+          "An unreactive gas that exists as atoms: helium.",
+          "A gas produced by the fractional distillation of crude oil: methane."
+        ],
+        "tip": "Each row scores one mark. Nitrogen is about 78% of dry air."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The four most abundant gases in dry air, by volume:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Nitrogen**: about 78%.",
+                "**Oxygen**: about 21%.",
+                "**Argon**: about 1%.",
+                "**Carbon dioxide**: about 0.04%."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -339,14 +416,21 @@
       "1a653e70-73f0-4f0e-b1a7-276e63820f11",
       "ee46ce56-7331-4993-ba68-ef5ee1272436",
       "e58fd0a0-5b52-4505-bf06-b7db38084f93",
-      "0e47f9ed-81f4-45c3-a84f-a7cf831cc831"
+      "0e47f9ed-81f4-45c3-a84f-a7cf831cc831",
+      "cbc42697-c4d7-42a6-b802-8b429cb59f89",
+      "97cc4fa1-d757-4489-94df-2b90998a2885",
+      "d348db5f-4ee1-4ca4-bbcc-9f1186989882",
+      "a9be8f86-fdab-4a66-917c-0b02b34033a3",
+      "b3a21bcb-89b4-443d-8004-7c80ce8e201c"
     ],
     "exemplar_ids": [
       "ca9cd955-86d8-4404-ae11-50382ebbae5b",
       "d637a8a5-2dd3-4efb-ac0f-95601c19a8a9",
-      "24445ba1-44ae-47e4-9a20-95ca5cb02f4b"
+      "24445ba1-44ae-47e4-9a20-95ca5cb02f4b",
+      "1dbb3e1a-7662-4082-905c-6519f2a94e71",
+      "ac2f6c6c-c6d5-4989-a3e1-ebf1c9150148"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

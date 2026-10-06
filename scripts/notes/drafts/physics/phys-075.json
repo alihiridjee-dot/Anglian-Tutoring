@@ -258,6 +258,44 @@
         ],
         "tip": "The two marks are still given if the wave chosen is wrong, but you should name X-rays."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.3.4"]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.13"],
+      "worked_example": {
+        "exemplar_id": "bacac471-33c5-45a8-8612-3f2431fcf591",
+        "source": "EDEXCEL jan 2023, Paper 2 (PR), Q2(b)",
+        "question": "Explain a hazard of ultraviolet radiation to the human body.",
+        "marks": 2,
+        "answer_points": [
+          "Ultraviolet causes mutations or damage in cells.",
+          "This can lead to skin cancer or blindness."
+        ],
+        "tip": "Skin burns, sunburn and cells being killed are also accepted for the first mark."
+      },
+      "extra": [
+        {
+          "heading": "Simple protective measures",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The risk is lowered by cutting the dose a person receives."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Limit the time of exposure.",
+                "Keep further from the source.",
+                "Put a screen between the source and the person. Lead absorbs X-rays and gamma rays.",
+                "Cover the skin, use sunscreen and wear sunglasses to protect against ultraviolet.",
+                "Too much ultraviolet can damage the surface cells of the eyes and cause blindness."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -269,14 +307,17 @@
       "2230d9ec-2cf6-4775-96d5-cceb444e2f38",
       "30e5ceea-c924-4d82-9749-4493a32c4e14",
       "caa832fe-4cdd-482d-918c-a16d45a9f44d",
-      "8dfef336-c595-4740-b832-9740577d33cd"
+      "8dfef336-c595-4740-b832-9740577d33cd",
+      "1d637522-cdd4-4335-91f1-88c780abf2a4",
+      "d5734e51-dadd-4a08-9579-6dbc9ea300ce"
     ],
     "exemplar_ids": [
       "057ba372-60c8-42b7-ad4c-4c7d2225437c",
       "91eee9a7-3997-49d9-883d-bf4775e8145f",
-      "3af036fe-c8c3-480b-9fae-5161897aa656"
+      "3af036fe-c8c3-480b-9fae-5161897aa656",
+      "bacac471-33c5-45a8-8612-3f2431fcf591"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

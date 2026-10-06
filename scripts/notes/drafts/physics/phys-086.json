@@ -324,6 +324,73 @@
         ],
         "tip": "Two marks for similarities and two for differences. Ignore references to energy."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.5.2.1S", "CAIE 4.5.2.2S", "CAIE 4.5.5.2S"],
+      "worked_example": {
+        "exemplar_id": "87474b5c-3e08-4270-84f9-d3e16f2aa77a",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q8(d)",
+        "question": "A horizontal, flat coil in a magnetic field is connected to a cell. The coil rotates.\nTo operate as a motor, a split-ring commutator and brushes are added to the parts shown.\nExplain the effects of the split-ring commutator and the brushes on the action of the motor.",
+        "marks": 3,
+        "answer_points": [
+          "The split-ring commutator reverses the current in the coil.",
+          "It does this every half turn (180°), so the coil rotates continuously in the same direction.",
+          "The brushes keep the current flowing to the coil as it turns, without the wires getting tangled."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A simple a.c. generator can have a rotating coil or a rotating magnet. The e.m.f. changes with the position of the coil."
+            },
+            {
+              "type": "list",
+              "items": [
+                "When the plane of the coil is parallel to the field, its sides cut the field lines fastest. The e.m.f. is at a peak or a trough.",
+                "When the plane of the coil is at right angles to the field, its sides move along the field lines and do not cut them. The e.m.f. is zero.",
+                "The e.m.f. is zero twice in each turn, and the sign of the e.m.f. changes each time.",
+                "Turning the coil faster gives a larger peak e.m.f. and a higher frequency."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "In a generator with a rotating coil, slip rings and brushes connect the coil to the outside circuit. A generator with a rotating magnet inside a fixed coil does not need them."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 6.16"],
+      "worked_example": {
+        "exemplar_id": "bdcef167-1412-4d52-8fb6-038278e9327b",
+        "source": "EDEXCEL jun 2024, Paper 1 (PR), Q10(a)",
+        "question": "A small wind turbine contains a generator. The generator is connected to a lamp and the windmill blades.\nWhen the coil rotates, the ammeter displays a small current.\nExplain how the generator produces a current.",
+        "marks": 2,
+        "answer_points": [
+          "The coil rotates through the magnetic field, cutting field lines.",
+          "A voltage is induced."
+        ],
+        "tip": "Say the coil cuts the field lines, then that this induces a voltage."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A generator can turn a coil in a magnetic field, or turn a magnet inside a coil of wire.",
+                "In both cases the coil cuts the field lines, so a voltage is induced.",
+                "The voltage is larger if the coil or magnet turns faster, the magnet is stronger or the coil has more turns."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -341,9 +408,11 @@
     "exemplar_ids": [
       "93ab0a24-ea5e-4e3b-b499-6cb09378754d",
       "d65d82b3-01e8-4574-be6a-6ba966fea55f",
-      "b2923f90-ab4f-4030-a2be-d620e13a7507"
+      "b2923f90-ab4f-4030-a2be-d620e13a7507",
+      "87474b5c-3e08-4270-84f9-d3e16f2aa77a",
+      "bdcef167-1412-4d52-8fb6-038278e9327b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

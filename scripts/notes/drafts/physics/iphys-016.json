@@ -1,0 +1,288 @@
+{
+  "format": 1,
+  "concept_id": "iphys-016",
+  "subject": "physics",
+  "title": "Star colour, brightness and the HR diagram",
+  "key_idea": "A star's colour shows its surface temperature: red stars are cool and blue-white stars are hot. Absolute magnitude measures a star's brightness at a standard distance. The Hertzsprung-Russell diagram plots absolute magnitude against colour and shows the main groups of stars.",
+  "sections": [
+    {
+      "heading": "Star colour and temperature",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Stars are different colours. This section covers what a star's colour tells us."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Astronomers classify stars according to their **colour**.",
+            "A star's colour is related to its **surface temperature**.",
+            "The Sun is yellow, with a surface temperature of about 5600 K.",
+            "A red or orange star is cooler than the Sun. A blue-white star is hotter."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Colour",
+            "Surface temperature",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Red",
+              "Coolest",
+              "Antares, Betelgeuse"
+            ],
+            [
+              "Orange",
+              "Cooler than the Sun",
+              "Star A in the data table below"
+            ],
+            [
+              "Yellow",
+              "About 5600 K",
+              "The Sun, Capella"
+            ],
+            [
+              "White",
+              "Hotter than the Sun",
+              "Sirius B"
+            ],
+            [
+              "Blue-white or blue",
+              "Hottest",
+              "Vega, Rigel"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity. Stars of different colours are put in order of surface temperature from coolest to hottest.",
+            "prompt": "Put these stars in order of surface temperature, coolest first.",
+            "steps": [
+              "Red star",
+              "Orange star",
+              "Yellow star",
+              "White star",
+              "Blue-white star"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stars are classified by colour.",
+            "Colour depends on surface temperature: red is coolest and blue-white is hottest."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Brightness and absolute magnitude",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Physics only) Some stars only look bright because they are close. This section covers a fair way to compare them."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Apparent magnitude",
+              "meaning": "How bright a star looks from the Earth. It depends on distance as well as on the star."
+            },
+            {
+              "term": "Absolute magnitude",
+              "meaning": "A measure of the brightness of a star at a standard distance."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The standard distance is 10 parsecs, which is about 32.6 light-years.",
+            "Using one distance for every star makes the comparison fair.",
+            "Absolute magnitude is a measure of the star's real brightness, also called luminosity or power.",
+            "A smaller (or more negative) number means a brighter star."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Star",
+            "Colour",
+            "Absolute magnitude"
+          ],
+          "rows": [
+            [
+              "A",
+              "Orange",
+              "+7.5"
+            ],
+            [
+              "B (the Sun)",
+              "Yellow",
+              "+4.8"
+            ],
+            [
+              "C",
+              "Blue",
+              "+1.4"
+            ],
+            [
+              "D",
+              "Blue",
+              "−16.8"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Star D has the lowest number, so it is by far the brightest star in the table.",
+            "Two stars can look equally bright from the Earth if the more powerful one is further away."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Absolute magnitude is brightness at a standard distance.",
+            "Using a standard distance removes the effect of how far away the star is."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The Hertzsprung-Russell diagram",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Physics only) The HR diagram plots every star as one point. This section covers its axes and its main groups."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The vertical axis is **absolute magnitude** (brightness). Brighter stars are at the top.",
+            "The horizontal axis is **colour**, which shows surface temperature. Hot, blue-white stars are on the left and cool, red stars are on the right.",
+            "The diagram shows how absolute magnitude relates to colour.",
+            "Supergiants are at the very top. Red giants are just below them on the right.",
+            "Only stars appear on it. The Moon does not, because it does not emit its own light.",
+            "To draw it, label both axes, then sketch the main sequence band, the giants at the top right and the white dwarfs at the bottom left."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of the three main groups of stars on the Hertzsprung-Russell diagram: the main sequence, red giants and supergiants, and white dwarfs.",
+            "items": [
+              "Main sequence",
+              "Red giants and supergiants",
+              "White dwarfs"
+            ],
+            "rows": [
+              {
+                "feature": "Where on the diagram",
+                "values": [
+                  "A diagonal band from top left to bottom right",
+                  "Top right",
+                  "Bottom left"
+                ]
+              },
+              {
+                "feature": "Surface temperature",
+                "values": [
+                  "Hot to cool along the band",
+                  "Cool",
+                  "Hot"
+                ]
+              },
+              {
+                "feature": "Brightness",
+                "values": [
+                  "Bright to dim along the band",
+                  "Very bright",
+                  "Dim"
+                ]
+              },
+              {
+                "feature": "Examples",
+                "values": [
+                  "The Sun, Vega, Capella",
+                  "Antares, Betelgeuse",
+                  "Sirius B"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The HR diagram plots absolute magnitude against colour.",
+            "Most stars lie on the main sequence, a diagonal band.",
+            "Red giants are top right and white dwarfs are bottom left."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what is meant by absolute magnitude.",
+      "a": "A measure of the brightness of a star at a standard distance.",
+      "marks": 2
+    },
+    {
+      "q": "Rigel is blue and Betelgeuse is red. State which has the higher surface temperature and why.",
+      "a": "Rigel, because a star's colour depends on its surface temperature and blue stars are hotter than red stars.",
+      "marks": 2
+    },
+    {
+      "q": "Suggest why a powerful star and a weak star can appear equally bright from the Earth.",
+      "a": "The weaker star is closer to the Earth than the more powerful star.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 8.7",
+        "IGCSE 8.8",
+        "IGCSE 8.11P",
+        "IGCSE 8.12P"
+      ],
+      "worked_example": {
+        "exemplar_id": "de92679f-0a3a-435f-a921-4d7e34fac5ed",
+        "source": "EDEXCEL jun 2025, Paper 1 (P), Q2(b)(ii)",
+        "question": "The table gives information about four different stars in the same galaxy as the Sun. Antares is red, Capella is yellow, Sirius B is white and Vega is blue-white. Explain how the stars can be classified according to their colour.",
+        "marks": 3,
+        "answer_points": [
+          "The colour of a star depends on its temperature.",
+          "Antares (red) is the coolest.",
+          "In order from coolest to hottest: Antares (red), Capella (yellow), Sirius B (white), Vega (blue-white)."
+        ],
+        "tip": "Link colour to temperature, then give the full order."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "b59212a2-e11f-47e3-9c9b-e5b3a5354c32",
+      "f6f7aca4-0681-4fa1-a93d-ecf27208e75d",
+      "9d0558d5-cf45-4a28-8797-6c2487c94daf",
+      "cfbac2ec-5d10-467d-ac94-4626b40271f2"
+    ],
+    "exemplar_ids": [
+      "de92679f-0a3a-435f-a921-4d7e34fac5ed"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

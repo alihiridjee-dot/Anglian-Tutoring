@@ -176,7 +176,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 5.15"],
+      "spec_codes": [
+        "AQA 5.15"
+      ],
       "worked_example": {
         "exemplar_id": "3e4288fd-de98-4521-bb98-c240803d488c",
         "source": "AQA jun 2019, Paper 2 (H), Q03.3",
@@ -191,7 +193,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 6.15B"],
+      "spec_codes": [
+        "EDEX 6.15B"
+      ],
       "worked_example": {
         "exemplar_id": "8bfa112c-44e4-4796-8d32-7461a89ee21e",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q7(c)",
@@ -206,7 +210,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 3.2g", "OCR 3.2h"],
+      "spec_codes": [
+        "OCR 3.2g",
+        "OCR 3.2h"
+      ],
       "worked_example": {
         "exemplar_id": "35f1cceb-56b0-4753-b9cd-7a3e7911a4c5",
         "source": "OCR jun 2022, Paper 3, Q18(a)",
@@ -220,6 +227,86 @@
         ],
         "tip": "Describe the result first, then explain it with auxin."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 14.5.1",
+        "CAIE 14.5.2",
+        "CAIE 14.5.3",
+        "CAIE 14.5.4S",
+        "CAIE 14.5.5S"
+      ],
+      "worked_example": {
+        "exemplar_id": "7ccc3b2d-9fd4-4c00-a70c-e2412b34f34e",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q6(a)(i)",
+        "question": "Some maize seeds were pinned on a board and provided with light from all directions.\n\nThe board was placed in a clinostat that rotated the board. The board was rotated continuously as the seeds germinated and the roots grew. After 5 days the roots had grown horizontally.\n\nComplete the sentences to explain the root growth.\n\nAuxin is produced in shoot and root ______ . The auxin travels down the root by the process of ______ .\nAs the clinostat rotates, the effect of ______ on all sides of the root is equal.\nThis causes the distribution of auxin in the root to be ______ .\nAuxin stimulates cell ______ causing the roots to grow horizontally.",
+        "marks": 5,
+        "answer_points": [
+          "tips",
+          "diffusion",
+          "gravity",
+          "equal",
+          "elongation"
+        ],
+        "tip": "One mark for each missing word."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) Auxin is made in the tip of the shoot and in the tip of the root.",
+                "(Supplement) Auxin diffuses down the shoot from the tip.",
+                "(Supplement) If gravity or light acts equally on all sides, auxin is spread equally and the shoot or root grows straight."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.83",
+        "IGCSE 2.84",
+        "IGCSE 2.85"
+      ],
+      "worked_example": {
+        "exemplar_id": "2feee8a4-5862-4a3b-9aa4-c91f79ea761b",
+        "source": "EDEXCEL jun 2019, Paper 1 (BR), Q3",
+        "question": "The passage describes how plants respond to stimuli.\n\nComplete the passage by writing a suitable word in each blank space.\n\nPlant responses to directional stimuli are known as ______ .\n\nPlant shoots respond to light coming from one direction by growing ______ the light. This is known as a positive ______ response. It is caused when a plant growth substance called ______ diffuses away from the light. This increases the rate of growth on the side of the shoot furthest away from the light.\n\nShoots also respond to ______ . This is known as a ______ geotropic response.",
+        "marks": 6,
+        "answer_points": [
+          "tropisms",
+          "towards",
+          "phototropic",
+          "auxin",
+          "gravity",
+          "negative"
+        ],
+        "tip": "One mark for each correct word."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Tropisms are named by the direction of growth."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Growing towards the stimulus is a **positive** response. Growing away is a **negative** response.",
+                "Shoots are positively phototropic and negatively geotropic.",
+                "Roots are positively geotropic.",
+                "Auxin diffuses away from the light, so the shoot grows towards it."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -230,7 +317,15 @@
       "8bf36646-c41e-417b-9272-c363b7f1f3af",
       "8094b288-066f-496b-8e92-21797758dcf0",
       "e938ff97-171d-4e5d-9deb-39dcacc2a6e5",
-      "15c8430a-c762-4f89-b7d9-63450cebc60e"
+      "15c8430a-c762-4f89-b7d9-63450cebc60e",
+      "88f33b83-f6c2-4db7-8068-79cae08394d0",
+      "3e0150bd-5c7f-40c5-9ac6-eff1150170d9",
+      "87d7884a-faed-4ce2-a7d4-8598fa7e1329",
+      "4f21c49a-63fe-47ee-9aaa-1bad15ff35f0",
+      "850ee35b-4196-41d1-8f3b-1e909b0d187c",
+      "3682493e-3080-4d00-8515-496b82c38285",
+      "310dd7f3-e0ef-4303-ac2a-e18c7b445d68",
+      "7c043e2a-f47e-46fa-bf2a-3937224005de"
     ],
     "exemplar_ids": [
       "3e4288fd-de98-4521-bb98-c240803d488c",
@@ -244,9 +339,11 @@
       "cfe57c97-7f64-40f1-bed4-5ed18c8d386c",
       "0df22414-3a17-44b6-988d-35c58de9f382",
       "172e23c8-388a-413c-b027-9f54027ba098",
-      "fd2cfcce-9322-4e18-958c-ff1ae9db375e"
+      "fd2cfcce-9322-4e18-958c-ff1ae9db375e",
+      "7ccc3b2d-9fd4-4c00-a70c-e2412b34f34e",
+      "2feee8a4-5862-4a3b-9aa4-c91f79ea761b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

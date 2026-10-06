@@ -119,7 +119,8 @@ for (const c of concepts) {
     s.questions.sort((a, b) => b.marks - a.marks);
 
   const pack = { concept: { ...c, spec_points: undefined }, boards: byBoard };
-  writeFileSync(join(outDir, `${c.id}.json`), JSON.stringify(pack, null, 2));
+  // A filtered pack goes to its own file so it never replaces the full pack validate.ts reads.
+  writeFileSync(join(outDir, `${c.id}${only ? ".igcse" : ""}.json`), JSON.stringify(pack, null, 2));
   const counts = Object.entries(byBoard)
     .map(([b, s]) => `${b} ${(s as { questions: unknown[] }).questions.length}q`)
     .join(", ");

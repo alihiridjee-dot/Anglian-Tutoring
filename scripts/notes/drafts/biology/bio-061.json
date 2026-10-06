@@ -218,6 +218,118 @@
         ],
         "tip": "Any two points. If any incorrect product is stated the answer is limited to one mark. Oxygen debt and ATP are ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 12.3.1",
+        "CAIE 12.3.2",
+        "CAIE 12.3.3",
+        "CAIE 12.3.4",
+        "CAIE 12.3.5S",
+        "CAIE 21.2.1",
+        "CAIE 21.2.2",
+        "CAIE 12.1.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "d8d1a635-3c68-4a7b-b629-a90314297817",
+        "source": "CAMBRIDGE nov 2024, Paper 43, Q4(a)(ii)",
+        "question": "Human muscle cells use anaerobic respiration during vigorous exercise.\n\nCompare the process of anaerobic respiration to aerobic respiration in human muscle cells.",
+        "marks": 3,
+        "answer_points": [
+          "Anaerobic respiration happens without oxygen. Aerobic respiration uses oxygen.",
+          "Anaerobic respiration releases less energy per glucose molecule.",
+          "Anaerobic respiration produces lactic acid. Aerobic respiration produces carbon dioxide and water.",
+          "Anaerobic respiration does not happen in the mitochondria.",
+          "Both types of respiration use glucose."
+        ],
+        "tip": "Any three of the points earn the three marks. Give a difference each time."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section covers the balanced equation for fermentation in yeast, and yeast as a source of biofuel."
+            },
+            {
+              "type": "equation",
+              "label": "Balanced equation for anaerobic respiration in yeast",
+              "formula": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂",
+              "where": [
+                "C₆H₁₂O₆ is glucose",
+                "C₂H₅OH is ethanol (alcohol)",
+                "CO₂ is carbon dioxide"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) You need to know this balanced equation."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Yeast respire anaerobically to make **ethanol**.",
+                "The ethanol can be used as a **biofuel**.",
+                "In bread-making, the carbon dioxide from yeast makes the dough rise."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.36", "IGCSE 2.38", "IGCSE 5.5", "IGCSE 5.6"],
+      "worked_example": {
+        "exemplar_id": "1813a702-8510-41ed-89b8-0e569d06373a",
+        "source": "EDEXCEL nov 2020, Paper 1 (BR), Q3(c)",
+        "question": "A horse breathes faster and deeper when running.\n\nExplain why the horse continues to breathe faster and deeper for a period of time after it has stopped running.",
+        "marks": 2,
+        "answer_points": [
+          "Anaerobic respiration had happened, so lactic acid built up.",
+          "The horse needs extra oxygen to break down the lactic acid (to repay the oxygen debt)."
+        ],
+        "tip": "Any two of: more oxygen is needed, lactic acid is broken down, the oxygen debt is repaid, anaerobic respiration had happened."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section covers a practical that shows yeast respiring anaerobically."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Put yeast in a glucose solution in a flask, and add a layer of oil to keep oxygen out."
+                },
+                {
+                  "lead": "Control.",
+                  "text": "Set up a second flask with no oil, so oxygen can reach the yeast."
+                },
+                {
+                  "lead": "Detect.",
+                  "text": "Pass the gas from each flask into limewater, or count the bubbles in a set time."
+                },
+                {
+                  "lead": "Conclude.",
+                  "text": "The limewater goes cloudy and bubbles appear, because the yeast makes carbon dioxide."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Keep the temperature and the amount of yeast and glucose the same in each flask.",
+                "Anaerobic respiration by yeast also makes ethanol."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -227,14 +339,25 @@
     "spec_point_ids": [
       "04d52e95-b605-4c02-8e0c-90780a5c6925",
       "3d3b702b-262c-4ade-91d6-1456ebdb51bc",
-      "1af85aef-61a7-42e2-850f-8d37fa23dc0f"
+      "1af85aef-61a7-42e2-850f-8d37fa23dc0f",
+      "2a547128-fc83-4201-a5d8-d2be4c7508f1",
+      "8c4644b8-8b81-4b63-b559-acd6860db916",
+      "29b90d5b-f3ec-4ae6-a54c-f08b7651ecb5",
+      "91d120cb-bfef-4dd1-ade6-2492efb99ba0",
+      "0eba4ce5-bf6e-41b6-84f0-7ae69dc385b1",
+      "73991198-2c82-439e-bf4f-602cf174c8ec",
+      "ea5834b9-986b-4f87-964f-bad74b747db8",
+      "62fe3856-d791-47ee-b02a-b715079b30af",
+      "3282e95a-633a-4b5a-8c86-790cdab0f4ce"
     ],
     "exemplar_ids": [
       "eacaef45-18ef-4da6-9957-c465c4448e20",
       "5595c02a-d638-4a32-b9c5-e91ff28c8e5b",
-      "3cfbccbc-ad49-4490-bf32-3caa13561422"
+      "3cfbccbc-ad49-4490-bf32-3caa13561422",
+      "d8d1a635-3c68-4a7b-b629-a90314297817",
+      "1813a702-8510-41ed-89b8-0e569d06373a"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

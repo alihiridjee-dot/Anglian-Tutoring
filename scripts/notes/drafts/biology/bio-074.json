@@ -258,6 +258,64 @@
         ],
         "tip": "One mark for glucose from the food and one for the pancreas detecting it or insulin increasing."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 14.3.5S", "CAIE 14.4.2", "CAIE 14.4.4S", "CAIE 14.3.6S", "CAIE 14.4.3S"],
+      "worked_example": {
+        "exemplar_id": "6839865e-5190-4a5a-be47-0883fe6f6001",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q3(b)",
+        "question": "Outline how blood glucose concentration is controlled.",
+        "marks": 6,
+        "answer_points": [
+          "It is an example of negative feedback (homeostasis).",
+          "A change in blood glucose concentration is detected by the pancreas.",
+          "The pancreas secretes insulin or glucagon.",
+          "Insulin decreases blood glucose concentration.",
+          "Insulin stimulates the conversion of glucose to glycogen, in the liver.",
+          "Glucagon increases blood glucose concentration.",
+          "Glucagon stimulates the conversion of glycogen to glucose."
+        ],
+        "tip": "Any six points score one mark each. Name the organ, both hormones and what each does."
+      },
+      "extra": [
+        {
+          "heading": "Set point",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The normal blood glucose concentration is the **set point**."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A rise above the set point triggers insulin, which brings the concentration down.",
+                "A fall below the set point triggers glucagon, which brings the concentration up.",
+                "Each response reverses the change. This is negative feedback."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Adrenaline and blood glucose",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Adrenaline also raises blood glucose concentration. It is released in the fight or flight response."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Adrenaline causes glycogen in the liver to be converted to glucose, which raises the blood glucose concentration.",
+                "It also increases heart rate.",
+                "The extra glucose is used in respiration to release energy for muscle contraction."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.94"]
     }
   },
   "meta": {
@@ -265,14 +323,17 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "a0581644-7bb1-4117-a4f1-082ebc1acf64",
       "85daac87-9957-46c2-834d-d08d1f48dc0c",
       "f4bc15a9-3701-4cb8-bd82-274b5907161f",
       "51c0c057-1c54-42e4-8869-8361fa783e67",
       "da98128a-8dc2-488c-b6bb-764fcc21f33e",
-      "f80eca9d-a954-4adf-9a53-ec5614c9310d"
+      "f80eca9d-a954-4adf-9a53-ec5614c9310d",
+      "24ebf6b8-66e6-42a4-a38b-90cfe5ced465",
+      "7682c3c5-a1e3-4692-bfbc-3d8b35ccd63e",
+      "fc01105f-23d8-478f-9797-98bededbacf8"
     ],
     "exemplar_ids": [
       "f84c87b3-f9bc-47cf-933d-8dc49b2a2aa2",
@@ -281,7 +342,8 @@
       "ed80b8a0-433c-44b4-b2b9-8e86ad698917",
       "ec3f3a7b-6d25-4284-8ad9-9825a982890c",
       "257054ff-0b40-48a6-808a-5f457e54ed8f",
-      "7fbd153c-e9c5-4072-9b8e-7b12aa8df5b2"
+      "7fbd153c-e9c5-4072-9b8e-7b12aa8df5b2",
+      "6839865e-5190-4a5a-be47-0883fe6f6001"
     ]
   }
 }

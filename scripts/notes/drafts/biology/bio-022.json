@@ -14,10 +14,19 @@
         },
         {
           "type": "table",
-          "columns": ["Type of variable", "In this investigation"],
+          "columns": [
+            "Type of variable",
+            "In this investigation"
+          ],
           "rows": [
-            ["Independent (what you change)", "The pH, set using buffer solutions"],
-            ["Dependent (what you measure)", "The time taken for all the starch to be digested"],
+            [
+              "Independent (what you change)",
+              "The pH, set using buffer solutions"
+            ],
+            [
+              "Dependent (what you measure)",
+              "The time taken for all the starch to be digested"
+            ],
             [
               "Control (kept the same)",
               "Volume and concentration of starch, amylase and buffer. Temperature, kept constant in a water bath or with an electric heater."
@@ -119,7 +128,10 @@
           "type": "equation",
           "label": "Rate of reaction",
           "formula": "rate = 1 ÷ time",
-          "where": ["rate, in s⁻¹ (per second)", "time taken for the starch to be digested, in s"]
+          "where": [
+            "rate, in s⁻¹ (per second)",
+            "time taken for the starch to be digested, in s"
+          ]
         },
         {
           "type": "diagram",
@@ -130,7 +142,16 @@
               "label": "pH",
               "min": 0,
               "max": 14,
-              "ticks": [0, 2, 4, 6, 8, 10, 12, 14]
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14
+              ]
             },
             "y": {
               "label": "Rate of reaction"
@@ -139,17 +160,50 @@
               {
                 "name": "Amylase",
                 "points": [
-                  [2, 0],
-                  [3, 0.05],
-                  [4, 0.2],
-                  [5, 0.5],
-                  [6, 0.85],
-                  [7, 1],
-                  [8, 0.8],
-                  [9, 0.5],
-                  [10, 0.15],
-                  [11, 0.03],
-                  [12, 0]
+                  [
+                    2,
+                    0
+                  ],
+                  [
+                    3,
+                    0.05
+                  ],
+                  [
+                    4,
+                    0.2
+                  ],
+                  [
+                    5,
+                    0.5
+                  ],
+                  [
+                    6,
+                    0.85
+                  ],
+                  [
+                    7,
+                    1
+                  ],
+                  [
+                    8,
+                    0.8
+                  ],
+                  [
+                    9,
+                    0.5
+                  ],
+                  [
+                    10,
+                    0.15
+                  ],
+                  [
+                    11,
+                    0.03
+                  ],
+                  [
+                    12,
+                    0
+                  ]
                 ]
               }
             ],
@@ -226,7 +280,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 2.5", "AQA T 4.2.2.1"],
+      "spec_codes": [
+        "AQA 2.5",
+        "AQA T 4.2.2.1"
+      ],
       "worked_example": {
         "exemplar_id": "09499812-c61f-4e31-98eb-e9c2f473d4c2",
         "source": "AQA jun 2023, Paper 1 (F), Q05.9",
@@ -245,7 +302,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 1.10"],
+      "spec_codes": [
+        "EDEX 1.10"
+      ],
       "worked_example": {
         "exemplar_id": "d0e5e410-0cdd-414a-a1f8-5f4ba8ce2c1f",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q2(c)",
@@ -262,7 +321,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 1.2f", "OCR 7.4"],
+      "spec_codes": [
+        "OCR 1.2f",
+        "OCR 7.4"
+      ],
       "worked_example": {
         "exemplar_id": "c7e0c91e-feae-422e-9443-501d934e0277",
         "source": "OCR jun 2022, Paper 1, Q23(b)",
@@ -275,6 +337,16 @@
         ],
         "tip": "Marks are given in three groups. In this question temperature is the variable you change, so it cannot also be a controlled variable. \"Amount\" is ignored, so give a volume or a mass. For a pH investigation the plan is the same, but you change the pH and keep the temperature constant."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 5.1.5"
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.14B"
+      ]
     }
   },
   "meta": {
@@ -282,11 +354,12 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "82a928db-f5de-4bed-9b60-5b76834c399c",
       "3309e2ec-798f-4f59-a638-f9dba7f0248f",
-      "d1524cd4-fd59-4ec8-9873-6eb3c435a75e"
+      "d1524cd4-fd59-4ec8-9873-6eb3c435a75e",
+      "3e373d25-5662-4e3e-a329-148a65ba22f5"
     ],
     "exemplar_ids": [
       "09499812-c61f-4e31-98eb-e9c2f473d4c2",

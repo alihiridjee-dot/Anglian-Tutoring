@@ -5,7 +5,8 @@ notation, signing). Differences for IGCSE:
 
 - Layer keys are `cambridge_igcse` and `edexcel_igcse`. The pack for an existing GCSE
   note is built with
-  `bun run scripts/notes/build-sources.ts <subject> <id> --only cambridge_igcse,edexcel_igcse`;
+  `bun run scripts/notes/build-sources.ts <subject> <id> --only cambridge_igcse,edexcel_igcse`
+  (it writes `.sources/<id>.igcse.json`; read that);
   a new IGCSE note's pack with `... <subject> <id>`.
 - **New IGCSE note** (`ibio-`, `ichem-`, `iphys-`): check it entirely, and check that it
   covers every spec point's wording for both courses.

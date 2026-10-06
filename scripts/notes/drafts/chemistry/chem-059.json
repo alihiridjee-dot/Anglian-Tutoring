@@ -275,6 +275,71 @@
         ],
         "tip": "One mark for each reaction. Give the type and the temperature evidence together."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 5.1.1", "CAIE 5.1.2", "CAIE 5.1.4S"],
+      "worked_example": {
+        "exemplar_id": "b0e248f4-8234-44f4-b73b-bc27e23af203",
+        "source": "CAMBRIDGE jun 2025, Paper 61, Q4",
+        "question": "Solid sodium hydrogencarbonate, NaHCO₃, reacts with dilute hydrochloric acid and with dilute ethanoic acid.\n\nNaHCO₃(s) + HCl(aq) → NaCl(aq) + CO₂(g) + H₂O(l)\nNaHCO₃(s) + CH₃COOH(aq) → CH₃COONa(aq) + CO₂(g) + H₂O(l)\n\nThese two reactions are endothermic.\n\nPlan an investigation to find which of the two reactions is the most endothermic. Your plan must include how you can use the results to find which reaction is the most endothermic.\n\nYou are provided with solid sodium hydrogencarbonate, dilute hydrochloric acid, dilute ethanoic acid and common laboratory apparatus.",
+        "marks": 6,
+        "answer_points": [
+          "Use a known mass of sodium hydrogencarbonate each time.",
+          "Use a known volume (and concentration) of each acid.",
+          "Name a suitable container, such as a polystyrene cup, and a way to measure the acid volume, such as a measuring cylinder.",
+          "Measure the temperature of the acid before mixing.",
+          "Add the reagents together and stir.",
+          "Measure the temperature of the mixture after the reaction.",
+          "The reaction with the biggest temperature decrease is the most endothermic."
+        ],
+        "tip": "Keep everything the same except the acid, so that the temperature falls can be compared fairly. Any six points score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The energy transferred in a reaction is the **enthalpy change**, ΔH."
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) ΔH is negative for an exothermic reaction, such as ΔH = −92 kJ/mol.",
+                "(Supplement) ΔH is positive for an endothermic reaction."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.1", "IGCSE 2.12"],
+      "worked_example": {
+        "exemplar_id": "165233e5-797b-48d0-b0ee-6826f8cba3bc",
+        "source": "EDEXCEL nov 2020, Paper 1 (C), Q8(d)",
+        "question": "A student dissolves hydrated copper(II) sulfate in water.\n\ninitial temperature = 23.8 °C\nfinal temperature when all the solid dissolves = 22.7 °C\n\nExplain what the results show about the type of energy change that occurs when hydrated copper(II) sulfate dissolves.",
+        "marks": 2,
+        "answer_points": [
+          "The temperature decreases (from 23.8 °C to 22.7 °C).",
+          "So the energy change is endothermic."
+        ],
+        "tip": "One mark for the evidence and one for the type."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Heating a metal carbonate decomposes it into a metal oxide and carbon dioxide.",
+                "For example, green copper(II) carbonate turns into black copper(II) oxide: CuCO₃ → CuO + CO₂."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -287,14 +352,19 @@
       "97265012-45e1-4988-8f9f-3b5a4c5130ca",
       "f7f464a9-6cb1-4330-bbcd-4d7631044a11",
       "a77f540b-93d3-446c-8381-522171c2c53e",
-      "b7d1e919-98ea-4827-a7d3-fe7d3198aa19"
+      "b7d1e919-98ea-4827-a7d3-fe7d3198aa19",
+      "c34e52c2-0427-4ddc-a806-23f8d8ef4ec9",
+      "37538694-08c0-4550-9018-f831a62a02ce",
+      "04500920-999d-41f7-a0d4-d88716cee066"
     ],
     "exemplar_ids": [
       "0847fd94-e72f-4738-8376-04881255d9d5",
       "9a4edd1a-a881-4990-be06-023278102801",
-      "17f70d70-88a8-4435-b55f-b5afb3dac3c0"
+      "17f70d70-88a8-4435-b55f-b5afb3dac3c0",
+      "b0e248f4-8234-44f4-b73b-bc27e23af203",
+      "165233e5-797b-48d0-b0ee-6826f8cba3bc"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

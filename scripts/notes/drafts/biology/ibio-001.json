@@ -1,0 +1,572 @@
+{
+  "format": 1,
+  "concept_id": "ibio-001",
+  "subject": "biology",
+  "title": "Characteristics and kingdoms of living organisms",
+  "key_idea": "All living organisms share the same set of characteristics. Scientists sort them into groups using features that can be seen or tested, and a dichotomous key does this one yes or no question at a time. Viruses have no cells and are not counted as living.",
+  "sections": [
+    {
+      "heading": "Characteristics of living organisms",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every living organism carries out the same set of processes. This section gives each one a clear meaning."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Movement",
+              "meaning": "An action by an organism, or part of it, that causes a change of position or place."
+            },
+            {
+              "term": "Respiration",
+              "meaning": "The chemical reactions in cells that break down nutrient molecules and release energy for metabolism."
+            },
+            {
+              "term": "Sensitivity",
+              "meaning": "The ability to detect and respond to changes in the internal or external environment."
+            },
+            {
+              "term": "Growth",
+              "meaning": "A permanent increase in size and dry mass."
+            },
+            {
+              "term": "Reproduction",
+              "meaning": "The processes that make more of the same kind of organism."
+            },
+            {
+              "term": "Excretion",
+              "meaning": "The removal of the waste products of metabolism and of substances in excess of requirements."
+            },
+            {
+              "term": "Nutrition",
+              "meaning": "Taking in materials for energy, growth and development."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The first letters spell **MRS GREN**: movement, respiration, sensitivity, growth, reproduction, excretion, nutrition.",
+            "Plants move parts of themselves, for example a shoot growing towards light.",
+            "Excretion is not the same as egestion. Egestion is the removal of undigested food, which was never part of the cells' chemistry."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "All living organisms show all seven characteristics.",
+            "Respiration releases energy. Excretion removes metabolic waste.",
+            "Growth is a permanent increase in size and dry mass."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Dichotomous keys",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A dichotomous key identifies an organism by a series of questions. Each question has two answers and each answer leads on to a name or to the next question."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use features that can be seen, such as the number of legs, the body covering or the leaf shape.",
+            "Use features that do not change, not size or colour, which vary within one species.",
+            "Each question must give exactly two choices.",
+            "To construct a key, split the group in two on one feature, then split each half again until every organism has its own name."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Using a key"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "1a.",
+              "text": "Has legs: go to 2. 1b. Has no legs: earthworm."
+            },
+            {
+              "lead": "2a.",
+              "text": "Has six legs: housefly. 2b. Has eight legs: spider."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Start at the first question and follow the answer that fits the specimen.",
+            "A specimen with eight legs is a spider."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Every question in a dichotomous key has two answers.",
+            "Use clear features that can be observed and that do not vary."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Vertebrates and arthropods",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Animals are split into groups using features that can be observed. This section covers the main vertebrate and arthropod groups."
+        },
+        {
+          "type": "subheading",
+          "text": "The five vertebrate groups"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Group",
+            "Skin or body covering",
+            "Reproduction and other features"
+          ],
+          "rows": [
+            [
+              "Mammals",
+              "Hair or fur",
+              "Young are fed on milk from mammary glands. Most give birth to live young. External ears."
+            ],
+            [
+              "Birds",
+              "Feathers",
+              "Wings and a beak. Lay eggs with hard shells."
+            ],
+            [
+              "Reptiles",
+              "Dry scales",
+              "Lay eggs with soft shells on land. Breathe with lungs."
+            ],
+            [
+              "Amphibians",
+              "Moist, smooth skin",
+              "Eggs laid in water. Larvae have gills and adults have lungs. Gas exchange also happens through the skin."
+            ],
+            [
+              "Fish",
+              "Wet scales",
+              "Gills for gas exchange and fins for swimming. Eggs laid in water."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The four arthropod groups"
+        },
+        {
+          "type": "list",
+          "items": [
+            "All arthropods have an **exoskeleton**, a segmented body and jointed legs.",
+            "**Myriapods** (centipedes, millipedes): many body segments, each with legs. No wings.",
+            "**Insects**: six legs, three body parts (head, thorax, abdomen) and antennae. Most have wings.",
+            "**Arachnids** (spiders, scorpions): eight legs and two body parts. No antennae and no wings.",
+            "**Crustaceans** (crabs, shrimps): five or more pairs of legs, two pairs of antennae and a hard exoskeleton."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Vertebrates have a backbone. Arthropods have an exoskeleton and jointed legs.",
+            "Insects have six legs. Arachnids have eight and no antennae.",
+            "Match the features given to the group, then name the group."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The five kingdoms (Supplement)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Every organism belongs to one of five kingdoms. This section gives the features that place an organism in each."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Kingdom",
+            "Cells and body",
+            "Cell wall",
+            "Feeding"
+          ],
+          "rows": [
+            [
+              "Animal",
+              "Multicellular, no chloroplasts",
+              "None",
+              "Feed on other organisms (heterotrophic)"
+            ],
+            [
+              "Plant",
+              "Multicellular, with chloroplasts",
+              "Cellulose",
+              "Make their own food by photosynthesis"
+            ],
+            [
+              "Fungus",
+              "Usually a mycelium of threads called hyphae. Some are single-celled (yeast)",
+              "Chitin",
+              "Secrete enzymes onto food and absorb the products (saprotrophic)"
+            ],
+            [
+              "Prokaryote",
+              "Single-celled, no nucleus. Circular DNA and plasmids",
+              "Present, not cellulose",
+              "Most feed on other organisms. A few photosynthesise"
+            ],
+            [
+              "Protoctist",
+              "Single-celled with a nucleus (eukaryote)",
+              "Varies",
+              "Amoeba feeds like an animal. Chlorella photosynthesises like a plant"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Plant groups"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Ferns**: have leaves called fronds, no flowers and reproduce by spores.",
+            "**Flowering plants** have flowers and make seeds. They split into monocotyledons and dicotyledons."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Monocotyledon",
+            "Dicotyledon"
+          ],
+          "rows": [
+            [
+              "Seed leaves (cotyledons)",
+              "One",
+              "Two"
+            ],
+            [
+              "Leaves",
+              "Narrow, parallel veins",
+              "Broad, network of veins"
+            ],
+            [
+              "Roots",
+              "Fibrous",
+              "A main (tap) root with side roots"
+            ],
+            [
+              "Flower parts",
+              "In multiples of three",
+              "In multiples of four or five"
+            ],
+            [
+              "Vascular bundles in the stem",
+              "Scattered throughout",
+              "In a ring"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Statements about cells and feeding are sorted into three groups: animal, plant and fungus.",
+            "prompt": "Sort each feature into the kingdom it identifies.",
+            "groups": [
+              "Animal",
+              "Plant",
+              "Fungus"
+            ],
+            "items": [
+              {
+                "text": "Multicellular with no cell wall",
+                "group": 0
+              },
+              {
+                "text": "Has nervous co-ordination and can usually move from place to place",
+                "group": 0
+              },
+              {
+                "text": "Cell walls made of cellulose",
+                "group": 1
+              },
+              {
+                "text": "Chloroplasts make food by photosynthesis",
+                "group": 1
+              },
+              {
+                "text": "Cell walls made of chitin",
+                "group": 2
+              },
+              {
+                "text": "Body is a mycelium of hyphae",
+                "group": 2
+              },
+              {
+                "text": "Secretes enzymes onto food and absorbs the products",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cellulose wall and chloroplasts: plant. Chitin wall and hyphae: fungus.",
+            "Prokaryotes have no nucleus. Protoctists are single-celled with a nucleus.",
+            "Ferns have spores and no flowers. Dicotyledons have two seed leaves."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Viruses",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Viruses are not cells and are not usually treated as living. This section covers what they are made of."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A virus has a **protein coat** around its genetic material, which is either DNA or RNA.",
+            "It has no cell membrane, cytoplasm or nucleus.",
+            "It is smaller than a bacterium.",
+            "It can reproduce only inside a living host cell, so it is parasitic. It can infect every type of living organism.",
+            "It does not grow, respire or excrete."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A table comparing a virus and a bacterium. A virus is smaller, has a protein coat and no cell structure, and reproduces only inside host cells. A bacterium is a single cell with a cell wall, membrane, cytoplasm and a circular chromosome, and can reproduce on its own.",
+            "items": [
+              "Virus",
+              "Bacterium"
+            ],
+            "rows": [
+              {
+                "feature": "Cell structure",
+                "values": [
+                  "None",
+                  "Single cell"
+                ]
+              },
+              {
+                "feature": "Outer layer",
+                "values": [
+                  "Protein coat",
+                  "Cell wall and cell membrane"
+                ]
+              },
+              {
+                "feature": "Genetic material",
+                "values": [
+                  "DNA or RNA",
+                  "Circular DNA and plasmids"
+                ]
+              },
+              {
+                "feature": "Cytoplasm",
+                "values": [
+                  "No",
+                  "Yes"
+                ]
+              },
+              {
+                "feature": "Reproduces",
+                "values": [
+                  "Only inside host cells",
+                  "On its own"
+                ]
+              },
+              {
+                "feature": "Living?",
+                "values": [
+                  "No",
+                  "Yes"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A virus is a protein coat around genetic material.",
+            "Viruses reproduce only inside living cells, so they are not living organisms."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what is meant by excretion.",
+      "a": "The removal of the waste products of metabolism and of substances in excess of requirements.",
+      "marks": 2
+    },
+    {
+      "q": "A small animal has eight legs, two body parts and no antennae. Name the group it belongs to.",
+      "a": "Arachnid.",
+      "marks": 1
+    },
+    {
+      "q": "(Supplement) A single-celled organism has chloroplasts, a cell wall and a nucleus. Name its kingdom.",
+      "a": "Protoctist.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.1.1",
+        "CAIE 1.2.4",
+        "CAIE 1.3.1",
+        "CAIE 1.3.2",
+        "CAIE 1.3.3",
+        "CAIE 1.3.4S",
+        "CAIE 1.3.5S",
+        "CAIE 1.3.6S",
+        "CAIE 1.3.7S"
+      ],
+      "worked_example": {
+        "exemplar_id": "89985b6a-4654-478a-bb4e-797c7bce5c99",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q3(a)(ii)",
+        "question": "Describe two identifying features of monocotyledons.",
+        "marks": 2,
+        "answer_points": [
+          "One seed leaf (one cotyledon).",
+          "Parallel veins in the leaves.",
+          "Fibrous (adventitious) roots.",
+          "Flower parts in multiples of three.",
+          "Vascular bundles scattered throughout the stem.",
+          "Narrow leaves."
+        ],
+        "tip": "Any two score one mark each. Give features that can be observed."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.1",
+        "IGCSE 1.2",
+        "IGCSE 1.3",
+        "IGCSE 1.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "1818e7c3-cd02-44d4-b275-600e42be6579",
+        "source": "EDEXCEL jun 2023, Paper 1 (B), Q1(b)(ii)",
+        "question": "Viruses are pathogens but not living organisms. Give three differences between the structure of viruses and bacteria.",
+        "marks": 3,
+        "answer_points": [
+          "Viruses are smaller.",
+          "Viruses have a protein coat.",
+          "Viruses have no cell wall.",
+          "Viruses have no cell membrane.",
+          "Viruses have no cytoplasm, organelles, ribosomes or vacuole.",
+          "Viruses have no plasmids.",
+          "Viruses have no flagella."
+        ],
+        "tip": "Any three score one mark each. Say which organism each feature belongs to."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course adds two more characteristics of life, and names examples for each group."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Living organisms also **control their internal conditions** (homeostasis).",
+                "Plants store carbohydrate as starch or sucrose. Animals and fungi often store it as glycogen.",
+                "Animals usually have nervous co-ordination and can move from place to place."
+              ]
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Pathogen",
+                  "meaning": "An organism that causes disease. Pathogens may be fungi, bacteria, protoctists or viruses."
+                }
+              ]
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Group",
+                "Examples to know"
+              ],
+              "rows": [
+                [
+                  "Plants",
+                  "Maize (a cereal). Peas or beans (a herbaceous legume)."
+                ],
+                [
+                  "Animals",
+                  "Humans (mammals). Housefly and mosquito (insects)."
+                ],
+                [
+                  "Fungi",
+                  "Mucor (hyphae with many nuclei). Yeast (single-celled)."
+                ],
+                [
+                  "Protoctists",
+                  "Amoeba (animal-like). Chlorella (has chloroplasts). Plasmodium (causes malaria)."
+                ],
+                [
+                  "Bacteria",
+                  "Lactobacillus bulgaricus (rod-shaped, makes yoghurt). Pneumococcus (spherical, causes pneumonia)."
+                ],
+                [
+                  "Viruses",
+                  "Tobacco mosaic virus (discolours leaves). Influenza virus (flu). HIV (causes AIDS)."
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "afe47fb8-4ea6-476c-90fd-aafb1657c7dd",
+      "795b218c-eab1-4fde-834e-f29330e0965f",
+      "f25fd56a-7b03-44e4-94ca-a3b98f5b66c6",
+      "42f02599-e58e-4a67-a7a5-4b411f9ef4b0",
+      "1f1c1960-83ac-430c-a909-40342bed06d5",
+      "4aed2cfe-15ca-481e-abda-bb3f2404503f",
+      "81f1f578-a45e-4137-9813-890a41e0a5e7",
+      "396b85ec-a236-4c94-a6e7-6e90df12b2a2",
+      "bd640f84-e4d1-4ef7-9a4c-12b558f70e2d",
+      "a27a3bd1-a010-42a2-a357-422c167ecb21",
+      "9afc78c6-c5bd-448d-9d6b-f572ef1968e3",
+      "26cce97d-0013-4c41-85c8-0d2516074252",
+      "8eb44476-472e-4037-8527-cb6f0cae3701"
+    ],
+    "exemplar_ids": [
+      "89985b6a-4654-478a-bb4e-797c7bce5c99",
+      "1818e7c3-cd02-44d4-b275-600e42be6579"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

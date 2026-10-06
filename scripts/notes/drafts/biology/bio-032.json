@@ -175,6 +175,9 @@
         ],
         "tip": "Four correct gives 3 marks, two or three correct gives 2 marks and one correct gives 1 mark."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 10.1.2"]
     }
   },
   "meta": {
@@ -196,6 +199,6 @@
       "c61da3fc-84ca-42d6-acc0-8051a040bb6b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

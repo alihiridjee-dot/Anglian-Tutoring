@@ -271,6 +271,54 @@
         ],
         "tip": "A reverse argument is ignored, and so is the phrase less likely. Say fewer or less frequent collisions."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 2.1.3.3S", "CAIE 2.1.3.1"],
+      "worked_example": {
+        "exemplar_id": "ad099380-8a5e-4ffa-93f4-04c179ddcd24",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q4(c)",
+        "question": "A cylinder contains 350 cm³ of gas at a pressure of 9.0 × 10⁴ Pa. The gas is transferred to a second cylinder and the pressure increases to 1.6 × 10⁵ Pa. The temperature remains constant. Calculate the volume of the second cylinder.",
+        "marks": 3,
+        "answer_points": [
+          "pV = constant, so 9.0 × 10⁴ × 350 = 1.6 × 10⁵ × V₂",
+          "V₂ = (9.0 × 10⁴ × 350) / (1.6 × 10⁵)",
+          "V₂ = 200 cm³ (197 cm³ before rounding)"
+        ],
+        "tip": "The volume can stay in cm³, because the same unit is on both sides."
+      },
+      "extra": [
+        {
+          "heading": "Graphs of pressure and volume",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) For a fixed mass of gas at constant temperature, pV is constant. Two graphs show this."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Pressure against volume is a curve. The pressure falls as the volume rises, and it never reaches zero.",
+                "Pressure against 1 / volume is a straight line through the origin. This shows that pressure is inversely proportional to volume."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 5.20", "IGCSE 5.22", "IGCSE 5.21"],
+      "worked_example": {
+        "exemplar_id": "a7a9c1aa-22b8-4b58-8b87-d1c8a5ceca1e",
+        "source": "EDEXCEL jan 2022, Paper 1 (PR), Q11(a)",
+        "question": "Some air has a volume of 0.0043 m³ at a pressure of 100 kPa. The pressure of this air inside a tyre is 270 kPa. Calculate the volume of this air inside the tyre, assuming the temperature of the air does not change. Give your answer in standard form.",
+        "marks": 3,
+        "answer_points": [
+          "p₁ × V₁ = p₂ × V₂, so 100 × 0.0043 = 270 × V₂",
+          "V₂ = 100 × 0.0043 / 270 = 0.0016 m³",
+          "V₂ = 1.6 × 10⁻³ m³ in standard form"
+        ],
+        "tip": "The pressures can stay in kPa because the same unit is on both sides."
+      }
     }
   },
   "meta": {
@@ -278,7 +326,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "74f5ee80-2911-4c81-8ca5-c0fb92292aa2",
       "98b26a14-d04e-45be-9b21-aae970dfea06",
@@ -289,7 +337,10 @@
       "8a05e42a-3f63-4fd3-a95f-3f30c9ab5d80",
       "065ac984-cf38-455e-8bed-fe73810249b8",
       "67b7fa1b-cd71-4672-8f03-da5615705092",
-      "ac62fa0e-67e3-4d57-9e11-2cb76b2283a3"
+      "ac62fa0e-67e3-4d57-9e11-2cb76b2283a3",
+      "0869a242-5cec-4457-b7f0-d4315816fe06",
+      "5af0f0ae-b932-49b7-a242-59087dff28c9",
+      "5acf742b-d99e-41a8-ac5f-ddb4ed37f614"
     ],
     "exemplar_ids": [
       "6c366ab6-f89e-4797-81ab-17b8e0d87d34",
@@ -305,7 +356,9 @@
       "6acaa177-9df0-479f-befd-02a89994e7a5",
       "97a936b2-7f2e-455a-82c9-766731f5ea87",
       "bd4310a7-e3bf-46a2-96dd-f48b7c395326",
-      "ffb2e8b8-d6a4-4aa5-944a-23f94aafa015"
+      "ffb2e8b8-d6a4-4aa5-944a-23f94aafa015",
+      "ad099380-8a5e-4ffa-93f4-04c179ddcd24",
+      "a7a9c1aa-22b8-4b58-8b87-d1c8a5ceca1e"
     ]
   }
 }

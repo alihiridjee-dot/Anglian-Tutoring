@@ -20,6 +20,8 @@ A board layer is keyed by course: `cambridge_igcse` and `edexcel_igcse` (GCSE ke
   `bun run scripts/notes/build-sources.ts <subject> <concept id>`
 - IGCSE layer on an existing GCSE note (a `bio-`, `chem-` or `phys-` id):
   `bun run scripts/notes/build-sources.ts <subject> <concept id> --only cambridge_igcse,edexcel_igcse`
+  (this writes `scripts/notes/.sources/<concept id>.igcse.json`, the IGCSE courses only;
+  read that file, not `<id>.json`)
 
 The pack lists, per course, the spec points (`primary` or not) with their full
 wording, and approved past questions with mark schemes. It is the only source of

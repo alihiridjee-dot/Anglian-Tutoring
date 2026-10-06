@@ -75,7 +75,10 @@
           "type": "equation",
           "label": "Surface area to volume ratio",
           "formula": "SA:V = surface area ÷ volume",
-          "where": ["surface area, in cm²", "volume, in cm³"]
+          "where": [
+            "surface area, in cm²",
+            "volume, in cm³"
+          ]
         },
         {
           "type": "subheading",
@@ -85,13 +88,18 @@
           "type": "equation",
           "label": "Surface area of a cube",
           "formula": "surface area = 6 × side × side",
-          "where": ["A cube has six square faces.", "side, in cm"]
+          "where": [
+            "A cube has six square faces.",
+            "side, in cm"
+          ]
         },
         {
           "type": "equation",
           "label": "Volume of a cube",
           "formula": "volume = side × side × side",
-          "where": ["side, in cm"]
+          "where": [
+            "side, in cm"
+          ]
         },
         {
           "type": "steps",
@@ -112,11 +120,31 @@
         },
         {
           "type": "table",
-          "columns": ["Side of cube", "Surface area", "Volume", "Surface area to volume ratio"],
+          "columns": [
+            "Side of cube",
+            "Surface area",
+            "Volume",
+            "Surface area to volume ratio"
+          ],
           "rows": [
-            ["1 cm", "6 cm²", "1 cm³", "6 : 1"],
-            ["2 cm", "24 cm²", "8 cm³", "3 : 1"],
-            ["3 cm", "54 cm²", "27 cm³", "2 : 1"]
+            [
+              "1 cm",
+              "6 cm²",
+              "1 cm³",
+              "6 : 1"
+            ],
+            [
+              "2 cm",
+              "24 cm²",
+              "8 cm³",
+              "3 : 1"
+            ],
+            [
+              "3 cm",
+              "54 cm²",
+              "27 cm³",
+              "2 : 1"
+            ]
           ]
         },
         {
@@ -153,7 +181,9 @@
           "type": "equation",
           "label": "Surface area of a block",
           "formula": "surface area = 2XY + 2XZ + 2YZ",
-          "where": ["X, Y and Z are the three sides, in cm"]
+          "where": [
+            "X, Y and Z are the three sides, in cm"
+          ]
         },
         {
           "type": "paragraph",
@@ -168,7 +198,15 @@
               "label": "Side of cube",
               "min": 0,
               "max": 6,
-              "ticks": [0, 1, 2, 3, 4, 5, 6],
+              "ticks": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
               "unit": "cm"
             },
             "y": {
@@ -178,12 +216,30 @@
               {
                 "name": "Cube",
                 "points": [
-                  [1, 1],
-                  [2, 0.5],
-                  [3, 0.33],
-                  [4, 0.25],
-                  [5, 0.2],
-                  [6, 0.17]
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    0.5
+                  ],
+                  [
+                    3,
+                    0.33
+                  ],
+                  [
+                    4,
+                    0.25
+                  ],
+                  [
+                    5,
+                    0.2
+                  ],
+                  [
+                    6,
+                    0.17
+                  ]
                 ]
               }
             ]
@@ -208,11 +264,27 @@
         },
         {
           "type": "table",
-          "columns": ["Substance", "Moves", "Why"],
+          "columns": [
+            "Substance",
+            "Moves",
+            "Why"
+          ],
           "rows": [
-            ["Oxygen", "Into cells", "Needed for aerobic respiration"],
-            ["Carbon dioxide", "Out of cells", "A waste product of respiration"],
-            ["Water", "Into cells", "Needed by all cells. Plants take it in from the soil"],
+            [
+              "Oxygen",
+              "Into cells",
+              "Needed for aerobic respiration"
+            ],
+            [
+              "Carbon dioxide",
+              "Out of cells",
+              "A waste product of respiration"
+            ],
+            [
+              "Water",
+              "Into cells",
+              "Needed by all cells. Plants take it in from the soil"
+            ],
             [
               "Dissolved food molecules, such as glucose",
               "Into cells",
@@ -248,13 +320,19 @@
         },
         {
           "type": "table",
-          "columns": ["Adaptation", "Why it speeds up diffusion"],
+          "columns": [
+            "Adaptation",
+            "Why it speeds up diffusion"
+          ],
           "rows": [
             [
               "**Large surface area**, from folds or many small projections",
               "More particles can cross at once"
             ],
-            ["**Thin walls**, often one cell thick", "Short diffusion distance"],
+            [
+              "**Thin walls**, often one cell thick",
+              "Short diffusion distance"
+            ],
             [
               "**Good blood supply**, a network of capillaries",
               "Carries substances away, so the concentration gradient stays steep"
@@ -306,7 +384,10 @@
           "type": "equation",
           "label": "Rate of colour change",
           "formula": "rate = 1 ÷ time",
-          "where": ["time to change colour, in seconds", "rate, in per second"]
+          "where": [
+            "time to change colour, in seconds",
+            "rate, in per second"
+          ]
         },
         {
           "type": "steps",
@@ -350,7 +431,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 1.13"],
+      "spec_codes": [
+        "AQA 1.13"
+      ],
       "worked_example": {
         "exemplar_id": "b92b3d1b-4a11-4b5b-886d-1868794fad6b",
         "source": "AQA jun 2025, Paper 1 (H), Q06.2",
@@ -385,7 +468,12 @@
       ]
     },
     "edexcel": {
-      "spec_codes": ["EDEX 8.2", "EDEX 8.5B", "EDEX 8.1", "EDEX 8.3"],
+      "spec_codes": [
+        "EDEX 8.2",
+        "EDEX 8.5B",
+        "EDEX 8.1",
+        "EDEX 8.3"
+      ],
       "worked_example": {
         "exemplar_id": "d86138a0-8ff7-4c18-8956-c12f8a5478e5",
         "source": "EDEXCEL jun 2019, Paper 2 (H), Q9(c)",
@@ -419,11 +507,27 @@
             },
             {
               "type": "table",
-              "columns": ["Factor", "If it increases", "Effect on rate of diffusion"],
+              "columns": [
+                "Factor",
+                "If it increases",
+                "Effect on rate of diffusion"
+              ],
               "rows": [
-                ["Surface area", "More places for particles to cross", "Rate increases"],
-                ["Concentration difference", "Steeper concentration gradient", "Rate increases"],
-                ["Thickness of the membrane", "Longer diffusion distance", "Rate decreases"]
+                [
+                  "Surface area",
+                  "More places for particles to cross",
+                  "Rate increases"
+                ],
+                [
+                  "Concentration difference",
+                  "Steeper concentration gradient",
+                  "Rate increases"
+                ],
+                [
+                  "Thickness of the membrane",
+                  "Longer diffusion distance",
+                  "Rate decreases"
+                ]
               ]
             }
           ]
@@ -431,7 +535,10 @@
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR 2.2a", "OCR 2.2b"],
+      "spec_codes": [
+        "OCR 2.2a",
+        "OCR 2.2b"
+      ],
       "worked_example": {
         "exemplar_id": "d4d1b2f1-51aa-4e53-8fb1-e9afa8234707",
         "source": "OCR nov 2020, Paper 1, Q21(a)(i)",
@@ -443,12 +550,76 @@
         ],
         "tip": "A correct answer of 3 : 1 on the answer line scores both marks. Show 24 : 8 to be safe."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 3.1.4",
+        "CAIE 7.5.3S"
+      ],
+      "extra": [
+        {
+          "heading": "Villi and microvilli",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The small intestine absorbs digested food through a very large internal surface area."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Villi** are finger-like projections of the wall of the small intestine.",
+                "**Microvilli** are tiny projections on the surface of the cells that cover the villi.",
+                "Both increase the surface area, so more digested food is absorbed more quickly."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.51",
+        "IGCSE 2.52",
+        "IGCSE 2.16"
+      ],
+      "worked_example": {
+        "exemplar_id": "8a5175a0-5ef5-4ace-a49e-9d2db13d429f",
+        "source": "EDEXCEL jun 2023, Paper 1 (B), Q3(b)",
+        "question": "A cell is shaped like a cube.\nEach side has a length of 0.053 mm.\nCalculate the surface area to volume ratio of this cell.\nGive your answer in the form n : 1",
+        "marks": 3,
+        "answer_points": [
+          "Volume = 0.053 × 0.053 × 0.053 = 0.000 148 877 mm³ (or 0.00015 mm³).",
+          "Surface area = 6 × 0.053 × 0.053 = 0.016 854 mm² (or 0.017 mm²).",
+          "Surface area to volume ratio = 0.016 854 ÷ 0.000 148 877 = 113 : 1 (113.2 : 1)."
+        ],
+        "tip": "The correct answer with no working scores full marks. One mark each for the surface area and the volume."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The rate at which substances move into and out of a cell increases with:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "a larger surface area to volume ratio",
+                "a shorter distance to travel",
+                "a higher temperature, because the particles move faster",
+                "a steeper concentration gradient"
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -457,12 +628,15 @@
       "dd4fa697-a501-46f9-8902-2c2949f499d8",
       "7277d655-ac69-4187-86a3-e203de2f690c",
       "a93cee80-af5b-46ed-b2b4-a29383473029",
-      "a2be5d4d-feee-4e41-9e53-6ceaa2dc6e36"
+      "a2be5d4d-feee-4e41-9e53-6ceaa2dc6e36",
+      "419cf44c-8041-480e-8ec5-8b7857090a5c",
+      "54a09bd1-f7f8-44ce-b883-e010dbe57b89"
     ],
     "exemplar_ids": [
       "b92b3d1b-4a11-4b5b-886d-1868794fad6b",
       "d86138a0-8ff7-4c18-8956-c12f8a5478e5",
-      "d4d1b2f1-51aa-4e53-8fb1-e9afa8234707"
+      "d4d1b2f1-51aa-4e53-8fb1-e9afa8234707",
+      "8a5175a0-5ef5-4ace-a49e-9d2db13d429f"
     ]
   }
 }

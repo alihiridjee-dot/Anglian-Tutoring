@@ -37,13 +37,49 @@
         },
         {
           "type": "table",
-          "columns": ["Halogen", "Formula", "Colour", "State at room temperature", "Boiling point"],
+          "columns": [
+            "Halogen",
+            "Formula",
+            "Colour",
+            "State at room temperature",
+            "Boiling point"
+          ],
           "rows": [
-            ["Fluorine", "F₂", "Pale yellow", "Gas", "−188 °C"],
-            ["Chlorine", "Cl₂", "Green", "Gas", "−34 °C"],
-            ["Bromine", "Br₂", "Red-brown", "Liquid", "59 °C"],
-            ["Iodine", "I₂", "Dark grey", "Solid", "184 °C"],
-            ["Astatine (predicted)", "At₂", "Black", "Solid", "Higher than iodine"]
+            [
+              "Fluorine",
+              "F₂",
+              "Pale yellow",
+              "Gas",
+              "−188 °C"
+            ],
+            [
+              "Chlorine",
+              "Cl₂",
+              "Green",
+              "Gas",
+              "−34 °C"
+            ],
+            [
+              "Bromine",
+              "Br₂",
+              "Red-brown",
+              "Liquid",
+              "59 °C"
+            ],
+            [
+              "Iodine",
+              "I₂",
+              "Dark grey",
+              "Solid",
+              "184 °C"
+            ],
+            [
+              "Astatine (predicted)",
+              "At₂",
+              "Black",
+              "Solid",
+              "Higher than iodine"
+            ]
           ]
         },
         {
@@ -86,10 +122,22 @@
         },
         {
           "type": "table",
-          "columns": ["Reacts with", "Product", "Example"],
+          "columns": [
+            "Reacts with",
+            "Product",
+            "Example"
+          ],
           "rows": [
-            ["A metal", "A metal halide, an ionic compound", "2Fe + 3Cl₂ → 2FeCl₃"],
-            ["A metal", "A metal halide, an ionic compound", "2Al + 3Br₂ → 2AlBr₃"],
+            [
+              "A metal",
+              "A metal halide, an ionic compound",
+              "2Fe + 3Cl₂ → 2FeCl₃"
+            ],
+            [
+              "A metal",
+              "A metal halide, an ionic compound",
+              "2Al + 3Br₂ → 2AlBr₃"
+            ],
             [
               "Hydrogen",
               "A hydrogen halide, which dissolves in water to form an acidic solution",
@@ -161,7 +209,11 @@
             "kind": "predictor",
             "alt": "Pick a halogen and a salt solution to see whether a displacement reaction happens.",
             "prompt": "Pick a halogen to add to a salt solution",
-            "result_labels": ["Does it react?", "Products", "What you see"],
+            "result_labels": [
+              "Does it react?",
+              "Products",
+              "What you see"
+            ],
             "options": [
               {
                 "label": "Chlorine + potassium bromide",
@@ -247,7 +299,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.1.2.6", "AQA T 5.1.2.6"],
+      "spec_codes": [
+        "AQA 4.1.2.6",
+        "AQA T 5.1.2.6"
+      ],
       "worked_example": {
         "exemplar_id": "a06df624-3d7e-4ad7-9ded-49947835e46b",
         "source": "AQA jun 2018, Paper 1 (F), Q02.4",
@@ -302,20 +357,27 @@
               "type": "equation",
               "label": "Half-equation: bromide ions oxidised",
               "formula": "2Br⁻ → Br₂ + 2e⁻",
-              "where": ["Electrons are on the right, so this is oxidation."]
+              "where": [
+                "Electrons are on the right, so this is oxidation."
+              ]
             },
             {
               "type": "equation",
               "label": "Half-equation: chlorine reduced",
               "formula": "Cl₂ + 2e⁻ → 2Cl⁻",
-              "where": ["Electrons are on the left, so this is reduction."]
+              "where": [
+                "Electrons are on the left, so this is reduction."
+              ]
             }
           ]
         }
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR C4.1a", "OCR C4.1b"],
+      "spec_codes": [
+        "OCR C4.1a",
+        "OCR C4.1b"
+      ],
       "worked_example": {
         "exemplar_id": "ad49e09d-1633-4ec1-9233-02fd6d429b50",
         "source": "OCR nov 2021, Paper 4, Q19(c)",
@@ -328,12 +390,75 @@
         ],
         "tip": "Assume an unqualified answer refers to fluorine. Fluorine gaining electrons more quickly is ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 8.3.1",
+        "CAIE 8.3.2",
+        "CAIE 8.3.3",
+        "CAIE 8.3.4",
+        "CAIE 8.1.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "6de9c863-c5cf-4569-b71c-9e5088a97dbd",
+        "source": "CAMBRIDGE nov 2023, Paper 41, Q3(b)(ii)",
+        "question": "A student bubbles chlorine gas into a test-tube containing aqueous potassium bromide.\nComplete the ionic equation for this reaction. Include state symbols.\n______ + ____Br⁻(aq) → ______ + ______",
+        "marks": 3,
+        "answer_points": [
+          "Cl₂(g) + 2Br⁻(aq) → Br₂(aq) + 2Cl⁻(aq)"
+        ],
+        "tip": "One mark for the products Br₂ and Cl⁻, one for balancing and one for the state symbols. The potassium ions do not change, so they are left out of an ionic equation."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Going down the group the density increases, as well as the melting and boiling points. Reactivity decreases.",
+                "At room temperature chlorine is a pale yellow-green gas, bromine is a red-brown liquid and iodine is a grey-black solid."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Displacement as an ionic equation",
+              "formula": "Cl₂(g) + 2Br⁻(aq) → Br₂(aq) + 2Cl⁻(aq)",
+              "where": [
+                "Chlorine gains electrons and is more reactive than bromine.",
+                "Bromide ions lose electrons and become bromine."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.5",
+        "IGCSE 2.6",
+        "IGCSE 2.7",
+        "IGCSE 2.8C"
+      ],
+      "worked_example": {
+        "exemplar_id": "52b394c2-e618-4def-8315-370f05ff304f",
+        "source": "EDEXCEL jun 2019, Paper 2 (C), Q2(c)",
+        "question": "A student is given an aqueous solution of chlorine and an aqueous solution of potassium bromide.\nExplain how he can use these two solutions to compare the reactivity of chlorine with the reactivity of bromine.",
+        "marks": 4,
+        "answer_points": [
+          "Add the chlorine solution to the potassium bromide solution",
+          "The solution turns orange",
+          "Bromine is displaced",
+          "So chlorine is more reactive than bromine"
+        ],
+        "tip": "Name the product as bromine, not bromide, when you say what is displaced."
+      }
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -347,12 +472,22 @@
       "46fff7a9-99f2-478d-b648-3242594811a0",
       "89ff3f3d-2209-471e-8831-95c0faea6d30",
       "7a0faa09-f358-4029-939f-a7ec394167a1",
-      "a62e76ed-9d93-4b0e-847a-48db3c96d8c6"
+      "a62e76ed-9d93-4b0e-847a-48db3c96d8c6",
+      "a887237e-9e63-40fd-82c9-a4b615e4c3ba",
+      "f7d20e94-5cb0-42b5-a7c9-b2879b6f43d8",
+      "79e58351-82f1-4a35-beb8-2695571d7e31",
+      "4f6b1299-bd02-4cc6-972e-7942f1c6f6a4",
+      "bf2a16bb-c67e-489a-80bc-c13af74b5c3b",
+      "8a932af8-0491-46fd-9cb8-aee5da8845d5",
+      "5a570c55-e2a8-4f73-895b-a640ac0ffdce",
+      "c522e024-cbc3-491e-9cc2-c82fa2e92c59"
     ],
     "exemplar_ids": [
       "a06df624-3d7e-4ad7-9ded-49947835e46b",
       "1f57bdc3-5961-4edd-bba3-8400e15acdb8",
-      "ad49e09d-1633-4ec1-9233-02fd6d429b50"
+      "ad49e09d-1633-4ec1-9233-02fd6d429b50",
+      "6de9c863-c5cf-4569-b71c-9e5088a97dbd",
+      "52b394c2-e618-4def-8315-370f05ff304f"
     ]
   }
 }

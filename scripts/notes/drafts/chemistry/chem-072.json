@@ -291,6 +291,155 @@
         ],
         "tip": "Any two of the three statements score."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 6.3.1",
+        "CAIE 6.3.2",
+        "CAIE 6.3.3S",
+        "CAIE 7.3.3",
+        "CAIE 7.3.5S",
+        "CAIE 10.1.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "d60be48f-96a6-4845-8b6d-74079ca1264b",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q4(a)",
+        "question": "Describe a reversible reaction at equilibrium in terms of:\n• the rate of the forward reaction and the rate of the reverse reaction\n• the concentration of reactants and products.",
+        "marks": 2,
+        "answer_points": [
+          "The rates of the forward and reverse reactions are equal (M1)",
+          "The concentrations of reactants and products are no longer changing (M2)"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Water can be combined in a crystal, and removing or adding it is a reversible change."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Hydrated substance",
+                  "meaning": "A substance that is chemically combined with water."
+                },
+                {
+                  "term": "Anhydrous substance",
+                  "meaning": "A substance that contains no water."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The water in hydrated crystals is called water of crystallisation. Examples are the 5H₂O in CuSO₄·5H₂O and the 6H₂O in CoCl₂·6H₂O."
+            },
+            {
+              "type": "equation",
+              "formula": "CoCl₂·6H₂O ⇌ CoCl₂ + 6H₂O",
+              "label": "Hydrated cobalt(II) chloride"
+            },
+            {
+              "type": "table",
+              "columns": ["Compound", "Hydrated form", "Anhydrous form"],
+              "rows": [
+                ["Copper(II) sulfate", "CuSO₄·5H₂O, blue", "CuSO₄, white"],
+                ["Cobalt(II) chloride", "CoCl₂·6H₂O, pink", "CoCl₂, blue"]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Heating the hydrated form drives off the water to give the anhydrous form.",
+                "Adding water to the anhydrous form gives the hydrated form again.",
+                "Test for water: anhydrous copper(II) sulfate turns from white to blue.",
+                "Test for water: anhydrous cobalt(II) chloride turns from blue to pink."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.49",
+        "IGCSE 3.17",
+        "IGCSE 3.18",
+        "IGCSE 3.19C",
+        "IGCSE 3.20C",
+        "IGCSE 1.31"
+      ],
+      "worked_example": {
+        "exemplar_id": "0e35ed3b-6f74-4189-9947-18d49662b293",
+        "source": "EDEXCEL jun 2019, Paper 2 (C), Q7(a)",
+        "question": "Dinitrogen tetraoxide, N₂O₄, is a colourless gas. Nitrogen dioxide, NO₂, is a brown gas.\n\nThe two gases can exist together in dynamic equilibrium according to the equation\n\nN₂O₄(g) ⇌ 2NO₂(g)\n\nExplain what is meant by the term dynamic equilibrium.",
+        "marks": 2,
+        "answer_points": [
+          "The reaction is taking place in both directions at the same time (M1)",
+          "at an equal rate (M2)"
+        ],
+        "tip": "The concentrations of reactants and products staying constant is worth one mark. They are not the same as each other."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Ammonium chloride is a second example of a reversible reaction."
+            },
+            {
+              "type": "equation",
+              "formula": "NH₄Cl(s) ⇌ NH₃(g) + HCl(g)",
+              "label": "Heating ammonium chloride"
+            },
+            {
+              "type": "list",
+              "items": [
+                "When white ammonium chloride is heated, it decomposes into ammonia and hydrogen chloride gases.",
+                "On cooling, the two gases react to form white ammonium chloride again.",
+                "The solid re-forms on the cooler part of the tube."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Finding the water in a hydrated salt",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The formula of a hydrated salt, such as CuSO₄·xH₂O, can be found by heating it and weighing it."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Weigh.",
+                  "text": "Find the mass of the hydrated salt, for example 2.495 g."
+                },
+                {
+                  "lead": "Heat.",
+                  "text": "Heat gently, let it cool and weigh it again. Repeat until the mass stops changing, so all the water has gone."
+                },
+                {
+                  "lead": "Find the mass of water.",
+                  "text": "Mass lost = mass of water. If 1.595 g of CuSO₄ is left, the water is 2.495 − 1.595 = 0.900 g."
+                },
+                {
+                  "lead": "Convert to moles.",
+                  "text": "CuSO₄: 1.595 ÷ 159.5 = 0.0100 mol. H₂O: 0.900 ÷ 18 = 0.0500 mol."
+                },
+                {
+                  "lead": "Find the ratio.",
+                  "text": "0.0500 ÷ 0.0100 = 5, so x = 5 and the formula is CuSO₄·5H₂O."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -307,14 +456,27 @@
       "c3fcfa2f-138b-4538-9829-b65eda8eaf86",
       "87af7ed8-e3c5-4477-82e2-f56e9905ef0e",
       "4409c141-9cd1-4c9f-adc8-2f9d0ea3f540",
-      "b97805c9-e688-45ca-b482-0d386a68290e"
+      "b97805c9-e688-45ca-b482-0d386a68290e",
+      "7f0a045c-f0a8-4037-b9b9-33aef694ad71",
+      "2676f7be-ae66-4cd1-a2b4-41d7e843181f",
+      "1f4d17de-1877-4ece-919b-47b8afc03b43",
+      "85de2c65-c75d-4609-b8ca-decd1b53be59",
+      "8b560dd3-2f26-4616-a720-8434e373842b",
+      "2e53ae8f-5ff8-4a18-a423-7b61461db973",
+      "35b0f9bd-391e-418a-a159-3e93968b0e74",
+      "331f51d4-aaa0-4d88-b404-b79b4019773e",
+      "4958d611-52e5-4a20-8907-f9dd62fd91ec",
+      "4f75ec2d-0b0a-44ba-a94d-073093c515c8",
+      "8124fc1d-c054-407d-8b2b-e57036c471bc"
     ],
     "exemplar_ids": [
       "f4d1c91a-24f8-4528-92d6-e0f8f2959fa7",
       "e8c7f52f-b860-4a2a-a8d5-4ca1e30251fd",
-      "36f613f0-197d-41dd-a153-ccae8bd40eda"
+      "36f613f0-197d-41dd-a153-ccae8bd40eda",
+      "d60be48f-96a6-4845-8b6d-74079ca1264b",
+      "0e35ed3b-6f74-4189-9947-18d49662b293"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

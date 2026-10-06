@@ -55,13 +55,37 @@
         {
           "type": "table",
           "rows": [
-            ["XHY", "Male", "Not affected"],
-            ["XhY", "Male", "Affected (has haemophilia)"],
-            ["XHXH", "Female", "Not affected"],
-            ["XHXh", "Female", "Not affected, but a carrier"],
-            ["XhXh", "Female", "Affected"]
+            [
+              "XHY",
+              "Male",
+              "Not affected"
+            ],
+            [
+              "XhY",
+              "Male",
+              "Affected (has haemophilia)"
+            ],
+            [
+              "XHXH",
+              "Female",
+              "Not affected"
+            ],
+            [
+              "XHXh",
+              "Female",
+              "Not affected, but a carrier"
+            ],
+            [
+              "XhXh",
+              "Female",
+              "Affected"
+            ]
           ],
-          "columns": ["Genotype", "Sex", "Phenotype"]
+          "columns": [
+            "Genotype",
+            "Sex",
+            "Phenotype"
+          ]
         },
         {
           "type": "list",
@@ -134,11 +158,19 @@
               },
               {
                 "label": "Unaffected mother (XHXH) and unaffected father (XHY)",
-                "results": ["None affected. None are carriers.", "None affected.", "0"],
+                "results": [
+                  "None affected. None are carriers.",
+                  "None affected.",
+                  "0"
+                ],
                 "explanation": "No parent has the recessive allele, so no child can inherit it."
               }
             ],
-            "result_labels": ["Daughters", "Sons", "Chance a child is affected"]
+            "result_labels": [
+              "Daughters",
+              "Sons",
+              "Chance a child is affected"
+            ]
           }
         },
         {
@@ -171,7 +203,9 @@
   ],
   "boards": {
     "edexcel": {
-      "spec_codes": ["EDEX 3.18B"],
+      "spec_codes": [
+        "EDEX 3.18B"
+      ],
       "worked_example": {
         "exemplar_id": "c07fd92d-edd8-4078-87b2-76a0cc472c6d",
         "source": "EDEXCEL nov 2020, Paper 1 (H), Q10(b)(ii)",
@@ -185,15 +219,39 @@
         ],
         "tip": "Any two of the first three points score; the fourth is also accepted."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 17.4.16S",
+        "CAIE 17.4.17S",
+        "CAIE 17.4.18S"
+      ],
+      "worked_example": {
+        "exemplar_id": "63ba3028-94f4-48f2-ac36-42d1298d150e",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q2(d)(ii)",
+        "question": "Red-green colour blindness is a sex-linked characteristic. It is controlled by a gene on the X chromosome.\nThere are two alternative versions of this gene:\n• no colour blindness Xᴬ\n• colour blindness Xᵃ.\nState the genotype of a male with colour blindness.",
+        "marks": 1,
+        "answer_points": [
+          "XᵃY"
+        ],
+        "tip": "A male has one X and one Y, so his genotype has one Xᵃ and a Y."
+      }
     }
   },
   "meta": {
     "status": "draft",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": ["0331eb10-f5ad-4ab2-83c4-75c818a170ac"],
-    "exemplar_ids": ["c07fd92d-edd8-4078-87b2-76a0cc472c6d"],
+    "spec_point_ids": [
+      "0331eb10-f5ad-4ab2-83c4-75c818a170ac",
+      "fbdc0a1d-6ae5-4695-ab19-449dbd50e109",
+      "74e98c8d-b56c-4729-8e3a-95645ad74594"
+    ],
+    "exemplar_ids": [
+      "c07fd92d-edd8-4078-87b2-76a0cc472c6d",
+      "63ba3028-94f4-48f2-ac36-42d1298d150e"
+    ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

@@ -41,7 +41,10 @@
         {
           "type": "equation",
           "label": "Poly(ethene)",
-          "where": ["CH₂–CH₂: the repeating unit", "n: a very large number of repeating units"],
+          "where": [
+            "CH₂–CH₂: the repeating unit",
+            "n: a very large number of repeating units"
+          ],
           "formula": "–(CH₂–CH₂)ₙ–"
         },
         {
@@ -64,14 +67,22 @@
         {
           "type": "table",
           "rows": [
-            ["What holds it", "Covalent bonds between atoms", "Intermolecular forces"],
+            [
+              "What holds it",
+              "Covalent bonds between atoms",
+              "Intermolecular forces"
+            ],
             [
               "Strength",
               "Strong",
               "Weaker than covalent bonds, but relatively strong compared with small molecules"
             ]
           ],
-          "columns": ["Feature", "Within a chain", "Between chains"]
+          "columns": [
+            "Feature",
+            "Within a chain",
+            "Between chains"
+          ]
         },
         {
           "type": "list",
@@ -88,11 +99,19 @@
             "kind": "compare",
             "rows": [
               {
-                "values": ["Small", "Very large", "Very large"],
+                "values": [
+                  "Small",
+                  "Very large",
+                  "Very large"
+                ],
                 "feature": "Size of molecule"
               },
               {
-                "values": ["Covalent", "Covalent", "Covalent"],
+                "values": [
+                  "Covalent",
+                  "Covalent",
+                  "Covalent"
+                ],
                 "feature": "Bonds in the molecule"
               },
               {
@@ -112,7 +131,11 @@
                 "feature": "At room temperature"
               }
             ],
-            "items": ["Methane", "Polymer without cross-links", "Polymer with cross-links"]
+            "items": [
+              "Methane",
+              "Polymer without cross-links",
+              "Polymer with cross-links"
+            ]
           }
         },
         {
@@ -134,12 +157,27 @@
         {
           "type": "table",
           "rows": [
-            ["Chains can slide over each other", "Chains are held in place"],
-            ["Flexible and can stretch", "Rigid and hard"],
-            ["Lower melting point", "Higher melting point; may not melt at all"],
-            ["Held by weak intermolecular forces", "Held by strong covalent bonds"]
+            [
+              "Chains can slide over each other",
+              "Chains are held in place"
+            ],
+            [
+              "Flexible and can stretch",
+              "Rigid and hard"
+            ],
+            [
+              "Lower melting point",
+              "Higher melting point; may not melt at all"
+            ],
+            [
+              "Held by weak intermolecular forces",
+              "Held by strong covalent bonds"
+            ]
           ],
-          "columns": ["Without cross-links", "With cross-links"]
+          "columns": [
+            "Without cross-links",
+            "With cross-links"
+          ]
         },
         {
           "type": "paragraph",
@@ -182,7 +220,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.2.5", "AQA T 5.2.2.5"],
+      "spec_codes": [
+        "AQA 4.2.2.5",
+        "AQA T 5.2.2.5"
+      ],
       "worked_example": {
         "exemplar_id": "15641ba3-29ff-481b-8a89-4f72a24f0af2",
         "source": "AQA jun 2023, Paper 1 (H), Q04.5",
@@ -198,10 +239,16 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 1.39", "EDEX 9.17C"]
+      "spec_codes": [
+        "EDEX 1.39",
+        "EDEX 9.17C"
+      ]
     },
     "ocr": {
-      "spec_codes": ["OCR C2.2d", "OCR C2.3f"],
+      "spec_codes": [
+        "OCR C2.2d",
+        "OCR C2.3f"
+      ],
       "worked_example": {
         "exemplar_id": "5c7b1662-1c3f-4014-8628-6aa470c6706b",
         "source": "OCR jun 2023, Paper 3, Q21(a)",
@@ -215,6 +262,39 @@
         ],
         "tip": "One mark for substance 3, then any two reasons. Choosing substance 1 or 2 scores zero, and substance 4 earns at most one mark."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 11.8.1",
+        "CAIE 11.8.4"
+      ],
+      "extra": [
+        {
+          "heading": "Disposing of plastics",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The properties of plastics cause problems when they are thrown away."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Most plastics are not biodegradable. The strong covalent bonds in the chains are not broken down by bacteria, so plastic waste in landfill lasts for a very long time.",
+                "Plastic waste in rivers and oceans pollutes the water and harms wildlife.",
+                "Burning plastics makes carbon dioxide, which adds to global warming, and can make toxic gases such as carbon monoxide.",
+                "Plastics that contain chlorine, such as PVC, make toxic hydrogen chloride gas when they burn."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Plastics are not biodegradable, so they build up as waste.",
+                "Burning plastics releases carbon dioxide and toxic gases."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -234,6 +314,6 @@
       "5c7b1662-1c3f-4014-8628-6aa470c6706b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

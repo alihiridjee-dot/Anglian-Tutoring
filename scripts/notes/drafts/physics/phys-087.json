@@ -367,6 +367,73 @@
         ],
         "tip": "Substitution and rearrangement can be in any order. Check the answer line first: 9.7 A gains all three marks."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.5.6.1",
+        "CAIE 4.5.6.2",
+        "CAIE 4.5.6.3",
+        "CAIE 4.5.6.6S",
+        "CAIE 4.5.6.7S",
+        "CAIE 4.5.6.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "d6c76ae4-d99f-4eb2-aeab-092e62fdef9c",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q7(b)(i)",
+        "question": "A step-down transformer is supplied with a mains voltage of 240 V. The output power of the transformer is 45 W. The transformer is 100% efficient.\nCalculate the input current to the transformer.",
+        "marks": 3,
+        "answer_points": [
+          "Power in the primary coil equals power in the secondary coil, so Vₚ × Iₚ = 45 W.",
+          "Iₚ = 45 ÷ 240.",
+          "Iₚ = 0.19 A."
+        ],
+        "tip": "For a 100% efficient transformer, input power equals output power."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A simple transformer has two coils of insulated wire wound on the same **soft-iron core**. The coils are not connected to each other.",
+                "The soft-iron core is used because it magnetises and demagnetises easily. It carries the changing magnetic field from the primary coil to the secondary coil.",
+                "The p.d. induced in the secondary coil is an induced **e.m.f.**",
+                "In the National Grid, step-up transformers raise the voltage for transmission, which lowers the current in the cables. Step-down transformers lower it again near homes."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 6.17P", "IGCSE 6.19P", "IGCSE 6.20P", "IGCSE 6.18P"],
+      "worked_example": {
+        "exemplar_id": "4caa31c1-df83-4f15-9322-bd7170fa5361",
+        "source": "EDEXCEL jan 2021, Paper 2 (P), Q5(a)(iii)",
+        "question": "A step-down transformer has an input voltage of 275 kV and an output voltage of 230 V. The transformer has an output current of 95 A.\nCalculate the input current to the transformer.\nAssume the transformer is 100% efficient.",
+        "marks": 3,
+        "answer_points": [
+          "Substitute into Vₚ × Iₚ = Vₛ × Iₛ: 275 000 × Iₚ = 230 × 95.",
+          "Rearrange: Iₚ = (230 × 95) ÷ 275 000.",
+          "Iₚ = 0.079 A."
+        ],
+        "tip": "Change kV to V before substituting. Forgetting a power of ten loses a mark."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Step-up transformers at the power station raise the voltage, so the current in the transmission cables is lower and less energy is wasted as heat.",
+                "Step-down transformers near homes lower the voltage to a level that is safe to use."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -387,9 +454,11 @@
     "exemplar_ids": [
       "53c4569f-2ab9-44c9-b5ea-eb315e48e701",
       "4b14a50e-3e5d-4f41-87c5-d4013bea080f",
-      "9e495e6b-795b-4aad-97be-854e6bf38985"
+      "9e495e6b-795b-4aad-97be-854e6bf38985",
+      "d6c76ae4-d99f-4eb2-aeab-092e62fdef9c",
+      "4caa31c1-df83-4f15-9322-bd7170fa5361"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

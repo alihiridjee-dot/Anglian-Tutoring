@@ -272,6 +272,70 @@
         ],
         "tip": "The answer 2.41 × 10²⁴ on the answer line scores all three marks."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.3.2S", "CAIE 3.3.3S"],
+      "worked_example": {
+        "exemplar_id": "b17dd74b-6dbd-44a4-960b-bbe39d848a06",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q5(c)",
+        "question": "Organic compounds contain hydrogen atoms.\n\nCalculate the number of hydrogen atoms in 44.0 g of the ester methyl propanoate, CH₃CH₂COOCH₃.\n\nOne mole of CH₃CH₂COOCH₃ contains 6.02 × 10²³ molecules.\n\nGive your answer in standard form.",
+        "marks": 4,
+        "answer_points": [
+          "Mr of CH₃CH₂COOCH₃ = 88",
+          "Moles of CH₃CH₂COOCH₃ = 44 ÷ 88 = 0.5",
+          "Moles of H atoms = 0.5 × 8 = 4.0",
+          "Number of H atoms = 4.0 × 6.02 × 10²³ = 2.408 × 10²⁴"
+        ],
+        "tip": "(Supplement) One mark for each step."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) You may be asked to find a molar mass, or an unknown Ar or Mr, from a mass and an amount in moles."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Molar mass",
+                  "meaning": "The mass of one mole of a substance, in g/mol. It is numerically equal to Mr."
+                }
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Molar mass",
+              "formula": "molar mass (g/mol) = mass (g) ÷ amount (mol)",
+              "where": ["mass in grams", "amount of substance in moles"]
+            },
+            {
+              "type": "list",
+              "items": [
+                "0.0500 mol of an element has a mass of 1.35 g. Molar mass = 1.35 ÷ 0.0500 = 27 g/mol, so Ar = 27.",
+                "The same method gives an unknown Mr, and so the identity of a compound."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.27", "IGCSE 1.28"],
+      "worked_example": {
+        "exemplar_id": "31baa827-0a5a-4c8f-a9ee-228fcc39ed5f",
+        "source": "EDEXCEL jun 2022, Paper 1 (CR), Q4(d)(iii)",
+        "question": "Sodium reacts with water. The equation for the reaction is\n\n2Na(s) + 2H₂O(l) → 2NaOH(aq) + H₂(g)\n\nThe reaction produces 0.036 g of hydrogen gas.\n\nOne mole of hydrogen gas contains 6.0 × 10²³ molecules.\n\nCalculate the number of molecules of hydrogen gas produced in the reaction. Give your answer to two significant figures.",
+        "marks": 3,
+        "answer_points": [
+          "Moles of hydrogen = 0.036 ÷ 2 = 0.018 mol",
+          "Number of molecules = 0.018 × 6.0 × 10²³ = 1.08 × 10²²",
+          "Answer to two significant figures = 1.1 × 10²² molecules"
+        ],
+        "tip": "One mark for the moles, one for multiplying by the Avogadro constant and one for the rounding."
+      }
     }
   },
   "meta": {
@@ -284,14 +348,20 @@
       "2b354305-1ba6-4e65-a71d-07e0554d83a0",
       "f1bc04da-f15f-4fef-b187-8a3a8304552c",
       "7203c6f7-6ced-4199-a271-ca8e99cd40d8",
-      "d092749b-e5b3-4a44-ac49-bef760803c4a"
+      "d092749b-e5b3-4a44-ac49-bef760803c4a",
+      "081d5bd3-c6cf-450a-9959-c413e59eef5d",
+      "a1b7482e-bcef-4edd-968b-f1c9f83ab0cb",
+      "0a939941-350c-4e78-8a80-aa7bb4f2b019",
+      "4616d96e-9e50-44fe-b019-c4c99ee06659"
     ],
     "exemplar_ids": [
       "de34fd35-2626-4888-88f0-f242574e9a5a",
       "92e2747e-42c4-4350-a9fd-0d7dbb5aab45",
-      "c5c0050f-d3de-4d43-a194-1e50cc8b1e0d"
+      "c5c0050f-d3de-4d43-a194-1e50cc8b1e0d",
+      "b17dd74b-6dbd-44a4-960b-bbe39d848a06",
+      "31baa827-0a5a-4c8f-a9ee-228fcc39ed5f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

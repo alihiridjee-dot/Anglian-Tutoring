@@ -75,7 +75,11 @@
         },
         {
           "type": "table",
-          "columns": ["Technique", "What it does", "Problem it solves"],
+          "columns": [
+            "Technique",
+            "What it does",
+            "Problem it solves"
+          ],
           "rows": [
             [
               "Fertilisers (including manure and compost)",
@@ -168,7 +172,10 @@
             "kind": "predictor",
             "alt": "Pick a farming problem to see which method is used to deal with it and how it helps.",
             "prompt": "Pick a problem",
-            "result_labels": ["Method", "How it helps"],
+            "result_labels": [
+              "Method",
+              "How it helps"
+            ],
             "options": [
               {
                 "label": "Soil is low in minerals",
@@ -267,7 +274,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 7.14"],
+      "spec_codes": [
+        "AQA 7.14"
+      ],
       "worked_example": {
         "exemplar_id": "22171df9-e142-418e-bade-0b7e39713f17",
         "source": "AQA jun 2020, Paper 2 (H), Q02.5",
@@ -285,7 +294,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 4.13B"],
+      "spec_codes": [
+        "EDEX 4.13B"
+      ],
       "worked_example": {
         "exemplar_id": "09d11110-7d4c-4b88-9ab8-9f1b667be675",
         "source": "EDEXCEL jun 2024, Paper 1 (H), Q7(c)",
@@ -302,7 +313,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.2b"],
+      "spec_codes": [
+        "OCR 6.2b"
+      ],
       "worked_example": {
         "exemplar_id": "cbede404-4a75-45c0-9c01-77d737a12b05",
         "source": "OCR jun 2025, Paper 2, Q18(a)",
@@ -316,6 +329,159 @@
         ],
         "tip": "One mark for each gap. The word minerals is ignored for the third gap."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 20.1.1",
+        "CAIE 20.1.2",
+        "CAIE 20.1.3",
+        "CAIE 20.4.1",
+        "CAIE 20.4.2",
+        "CAIE 20.4.6S",
+        "CAIE 19.2.19S"
+      ],
+      "worked_example": {
+        "exemplar_id": "1c51c92a-863c-4dc7-a81d-88fcabc12513",
+        "source": "CAMBRIDGE nov 2023, Paper 41, Q5(c)",
+        "question": "Describe and explain how fish stocks can be managed sustainably and how overfishing can be prevented through conservation.",
+        "marks": 6,
+        "answer_points": [
+          "Education and awareness.",
+          "Monitoring the fish populations.",
+          "Control the type of net and the mesh size.",
+          "Reduce demand to eat fish from unsustainable stocks, and use alternative sources of fish.",
+          "Treaties, licences, fines and laws.",
+          "Legal quotas that restrict the weight of the catch.",
+          "No-catch zones, nursery zones and marine protected areas.",
+          "Fish farms.",
+          "A closed fishing season.",
+          "Restocking, or captive breeding and release."
+        ],
+        "tip": "Any six points score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Sustainable resource",
+                  "meaning": "A resource that is produced as rapidly as it is removed from the environment, so it does not run out."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Forests and fish stocks are resources that can be conserved and managed sustainably."
+            },
+            {
+              "type": "subheading",
+              "text": "Ways humans have increased food production"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Agricultural machinery** lets farmers use larger areas of land and work more efficiently.",
+                "**Chemical fertilisers** improve yields.",
+                "**Insecticides** improve the quality and yield of crops.",
+                "**Herbicides** reduce competition from weeds.",
+                "**Selective breeding** improves production by crop plants and livestock."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Large-scale monocultures of crop plants"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Advantage: machinery can be used over a large area, so planting and harvesting are efficient.",
+                "Advantage: a high yield of one crop.",
+                "Disadvantage: fewer species live there, so biodiversity falls.",
+                "Disadvantage: pests and diseases spread easily between identical plants.",
+                "Disadvantage: more fertiliser and pesticide are needed."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Intensive livestock production"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Advantages: more food is produced, at a lower cost.",
+                "Disadvantages: animal welfare is poorer.",
+                "Disadvantages: disease spreads easily between animals kept close together.",
+                "Disadvantages: waste causes pollution, and antibiotics are used heavily."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Conserving fish stocks (Supplement)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Fish stocks can be conserved in several ways, as well as the quotas and mesh sizes already covered."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Education**, so people understand why fish stocks matter.",
+                "**Closed seasons**, when fishing is not allowed.",
+                "**Protected areas**, where fish can breed.",
+                "**Controlled net types** and mesh size.",
+                "**Quotas** on the catch.",
+                "**Monitoring** of fish populations."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 5.3",
+        "IGCSE 5.4",
+        "IGCSE 5.9B"
+      ],
+      "worked_example": {
+        "exemplar_id": "2dc5327c-f8ea-4e6f-b295-53a92387c922",
+        "source": "EDEXCEL nov 2020, Paper 1 (BR), Q10(a)",
+        "question": "Farmers may add chemical fertilisers to their soil.\n\nExplain how chemical fertilisers can increase crop yield.",
+        "marks": 4,
+        "answer_points": [
+          "Nitrates are needed for growth, to make amino acids and then protein.",
+          "Magnesium is needed for chlorophyll, so there is more photosynthesis and more glucose.",
+          "Phosphates are used to make ATP and DNA.",
+          "Potassium is used to control water movement."
+        ],
+        "tip": "Four different points score the four marks."
+      },
+      "extra": [
+        {
+          "heading": "Fish farming",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Farming large numbers of fish gives a source of protein. Fish farmers solve problems in these ways."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Keep the **water quality** high, for example by aerating it or using flowing water.",
+                "Control predation: grade fish by size so larger fish do not eat smaller ones, and use nets or cages to keep out other predators.",
+                "Control disease, for example with antibiotics or vaccination, and by removing dead fish.",
+                "Remove waste products, such as uneaten food and faeces, by filtering or changing the water.",
+                "Control the quality and frequency of feeding, using protein-rich food.",
+                "Use **selective breeding** to improve the fish."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -325,14 +491,25 @@
     "spec_point_ids": [
       "9b1fdb3f-09bd-4656-9951-5388ae777ca6",
       "d0f9e733-b1e7-46eb-b55d-55545e0d4baf",
-      "34f7caba-444c-48fb-9f16-1cc58391b435"
+      "34f7caba-444c-48fb-9f16-1cc58391b435",
+      "e5ba443f-3851-4f74-a962-403f5cb9a95a",
+      "56929851-d7c0-4b71-a8d6-1f1418d83e54",
+      "bc480c4b-1719-4e81-810f-27c37121b019",
+      "03a895af-a450-4ed8-b51f-648cbc40eda6",
+      "e1b53c84-ae7b-471e-a509-9215dd5e8915",
+      "6f656afe-8833-46a4-80d1-ce5b594ff904",
+      "2cb41b4b-16ea-4cb6-8dd9-ce301b2c71a7",
+      "f166139b-640e-445d-8ccc-c8da3b512504",
+      "de5626c5-7d75-4dcc-ba5e-c1ec71b28453"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "exemplar_ids": [
       "22171df9-e142-418e-bade-0b7e39713f17",
       "09d11110-7d4c-4b88-9ab8-9f1b667be675",
-      "cbede404-4a75-45c0-9c01-77d737a12b05"
+      "cbede404-4a75-45c0-9c01-77d737a12b05",
+      "1c51c92a-863c-4dc7-a81d-88fcabc12513",
+      "2dc5327c-f8ea-4e6f-b295-53a92387c922"
     ]
   }
 }

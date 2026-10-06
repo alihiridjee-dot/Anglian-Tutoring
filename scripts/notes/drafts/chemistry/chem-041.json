@@ -283,6 +283,137 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 6.4.2",
+        "CAIE 6.4.3",
+        "CAIE 6.4.4",
+        "CAIE 6.4.5",
+        "CAIE 6.4.11S",
+        "CAIE 6.4.12S",
+        "CAIE 6.4.13S",
+        "CAIE 9.1.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "163bc1e1-86b8-4bec-b9fe-7beb2837ca93",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q4(e)(v)",
+        "question": "Powdered aluminium reduces copper(II) oxide. Write the symbol equation for this reaction.",
+        "marks": 2,
+        "answer_points": [
+          "2Al + 3CuO → Al₂O₃ + 3Cu",
+          "1 mark for the correct products",
+          "1 mark for the rest of the equation correct (balanced)"
+        ],
+        "tip": "Aluminium takes oxygen from copper oxide, so aluminium oxide and copper are the products."
+      },
+      "extra": [
+        {
+          "heading": "Oxidising and reducing agents",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) This part names the substances that cause oxidation and reduction."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Oxidising agent",
+                  "meaning": "A substance that oxidises another substance and is itself reduced."
+                },
+                {
+                  "term": "Reducing agent",
+                  "meaning": "A substance that reduces another substance and is itself oxidised."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "In 2Al + Fe₂O₃ → Al₂O₃ + 2Fe, iron oxide is reduced, so it is the oxidising agent.",
+                "Aluminium is oxidised, so it is the reducing agent."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.11", "IGCSE 2.20"],
+      "extra": [
+        {
+          "heading": "Oxidation and reduction in terms of electrons",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part gives the second meaning of oxidation and reduction."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Oxidation",
+                  "meaning": "The loss of electrons (as well as the gain of oxygen)."
+                },
+                {
+                  "term": "Reduction",
+                  "meaning": "The gain of electrons (as well as the loss of oxygen)."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "In Mg → Mg²⁺ + 2e⁻ the magnesium loses electrons, so it is oxidised.",
+                "In Cu²⁺ + 2e⁻ → Cu the copper ions gain electrons, so they are reduced."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Burning elements in oxygen",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Each element burns in oxygen to form an oxide, so each is oxidised."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Magnesium burns with a bright white flame to form white magnesium oxide, MgO.",
+                "Hydrogen burns to form water: 2H₂ + O₂ → 2H₂O.",
+                "Sulfur burns with a blue flame to form sulfur dioxide gas: S + O₂ → SO₂."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Oxidising and reducing agents",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Oxidising agent",
+                  "meaning": "A substance that oxidises another substance and is itself reduced."
+                },
+                {
+                  "term": "Reducing agent",
+                  "meaning": "A substance that reduces another substance and is itself oxidised."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "In Zn + CuO → ZnO + Cu, copper oxide is reduced, so it is the oxidising agent.",
+                "Zinc is oxidised, so it is the reducing agent."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -290,17 +421,24 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "40b815dc-82d7-4f9a-a36a-29b0d868ddcb",
       "4fb80692-6001-450f-934a-31ca07164a8f",
       "20930848-f596-495a-8257-f2a678d58091",
-      "a2428503-907f-4b58-889f-b790c90285cf"
+      "a2428503-907f-4b58-889f-b790c90285cf",
+      "3bdc88dd-1459-4533-bf8f-edbf06cd7b63",
+      "36435648-1137-41df-b4f5-c9c4f4261c9c",
+      "71711d18-3abd-4438-91cd-44841fce51cf",
+      "afedc376-4652-4315-b148-bce46511f60b",
+      "f7651f5c-30c6-4cf6-897d-632eec643c98",
+      "0b325d2b-29a7-491f-87a0-92584eaf7c5d"
     ],
     "exemplar_ids": [
       "a54a3f67-d8b4-4be4-b5ac-84e6ea2db914",
       "baea6bb0-4474-45de-a9e6-07985a685a06",
-      "ea8b2340-9b1f-4305-8299-3ad39736fd8a"
+      "ea8b2340-9b1f-4305-8299-3ad39736fd8a",
+      "163bc1e1-86b8-4bec-b9fe-7beb2837ca93"
     ]
   }
 }

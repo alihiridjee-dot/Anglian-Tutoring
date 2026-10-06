@@ -228,24 +228,112 @@
         ],
         "tip": "One mark for the effect on circulation and one for a symptom. Reduced blood flow back to the heart is also allowed."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 9.3.1",
+        "CAIE 9.3.2",
+        "CAIE 9.3.4S",
+        "CAIE 9.3.5S",
+        "CAIE 9.3.6S",
+        "CAIE 7.5.5S",
+        "CAIE 9.1.1",
+        "CAIE 9.2.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "9b97a481-f7b3-4c22-b875-50bcceeede59",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q1(e)",
+        "question": "Explain how the structure of arteries and veins relates to the difference in the pressure of the blood transported by these vessels.",
+        "marks": 4,
+        "answer_points": [
+          "Arteries have thick walls, to withstand high pressure.",
+          "Arteries have a thick layer of elastic tissue, to stretch and recoil as the pressure changes.",
+          "Arteries have a thick layer of muscle tissue, to change the pressure.",
+          "Arteries have a narrower lumen, to maintain high pressure.",
+          "Veins have valves, to prevent backflow of blood at low pressure.",
+          "Veins have thin walls or a large lumen, so there is less resistance to blood flowing at low pressure."
+        ],
+        "tip": "Any four points score, with no more than three for arteries."
+      },
+      "extra": [
+        {
+          "heading": "Blood vessels of the liver",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Three main vessels carry blood to and from the liver."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The **hepatic artery** brings oxygenated blood to the liver.",
+                "The **hepatic portal vein** brings blood from the gut to the liver.",
+                "The **hepatic veins** take blood away from the liver."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.68", "IGCSE 2.69"],
+      "worked_example": {
+        "exemplar_id": "2f44217e-cbce-4d7b-b63d-7a2fbb6b7031",
+        "source": "EDEXCEL jun 2024, Paper 1 (BR), Q7(a)(i)",
+        "question": "Explain two differences between the structure of the wall of an artery and the wall of a vein.",
+        "marks": 4,
+        "answer_points": [
+          "An artery has a thick layer of elastic tissue, because blood pressure is higher and the wall can stretch and recoil.",
+          "An artery has a thick layer of muscle, to control blood flow.",
+          "An artery has no valves, because the blood pressure is high enough to prevent backflow."
+        ],
+        "tip": "Marks are given in pairs: a difference and its reason. The reverse for veins is accepted."
+      },
+      "extra": [
+        {
+          "heading": "Blood vessels to and from the organs",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Each main organ has its own artery and vein."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Lungs: the **pulmonary artery** takes blood to the lungs and the **pulmonary vein** brings it back to the heart.",
+                "Liver: the **hepatic artery** and the **hepatic portal vein** bring blood in, and the **hepatic veins** take it away.",
+                "Kidneys: the **renal artery** brings blood in and the **renal vein** takes it away."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "732961bd-de3e-4121-a47e-f0e5b4c44eca",
       "57209c99-4e8b-4f41-9cb3-1c4070056482",
       "e0fa0fc3-5266-46ac-a96a-b939bad1f87d",
-      "fa537cb3-6883-4a41-9632-c731ed800246"
+      "fa537cb3-6883-4a41-9632-c731ed800246",
+      "0ad4476e-a888-451b-9ed6-48b66f5df0b7",
+      "be36859f-8792-447e-812d-8e770c369418",
+      "40cb21ae-dede-42ba-919c-ed3abfa88e45",
+      "be3e57a4-a27f-4d83-8e96-fda7f7b2441a",
+      "9ab947ea-ef08-4548-9d52-108ee349f5b1",
+      "fcd546d5-c49c-489a-8a44-db2136e4be02"
     ],
     "exemplar_ids": [
       "66968b9e-b3e3-44be-9f66-06248d217b88",
       "4c5366bf-773a-4b90-a59b-7d8ca1e4976c",
-      "2a6f3b8e-1c26-49d2-8ffa-8ccf1b48f1a6"
+      "2a6f3b8e-1c26-49d2-8ffa-8ccf1b48f1a6",
+      "9b97a481-f7b3-4c22-b875-50bcceeede59",
+      "2f44217e-cbce-4d7b-b63d-7a2fbb6b7031"
     ]
   }
 }

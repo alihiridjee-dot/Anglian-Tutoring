@@ -264,12 +264,117 @@
         ],
         "tip": "If no other mark is scored, credit is given for saying that it makes specialised cells."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 2.1.6", "CAIE 16.4.4", "CAIE 16.4.5", "CAIE 16.4.6", "CAIE 17.1.9S"],
+      "worked_example": {
+        "exemplar_id": "cd5693a3-f99d-4085-b0a6-86e3192ada68",
+        "source": "CAMBRIDGE nov 2023, Paper 41, Q1(c)",
+        "question": "State three adaptive features of a sperm cell.",
+        "marks": 3,
+        "answer_points": [
+          "A flagellum (tail).",
+          "Many mitochondria.",
+          "An acrosome containing enzymes.",
+          "A haploid nucleus."
+        ],
+        "tip": "Any three features score one mark each."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Two more specialised cells, and more detail on the egg cell."
+            },
+            {
+              "type": "table",
+              "columns": ["Cell", "Function", "Adaptation"],
+              "rows": [
+                ["Palisade mesophyll cell", "Photosynthesis", "Many chloroplasts to absorb light"],
+                [
+                  "Egg cell",
+                  "Reproduction",
+                  "Food (energy) stores in the cytoplasm to feed the early embryo"
+                ],
+                [
+                  "Egg cell",
+                  "Reproduction",
+                  "A jelly coat that changes after fertilisation, so no other sperm can enter"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Ciliated cells move mucus in the trachea and bronchi.",
+                "Red blood cells transport oxygen. They contain haemoglobin, which binds oxygen, and have no nucleus, so there is more room for haemoglobin."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Comparing sperm and egg cells",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Male and female gametes differ in four ways."
+            },
+            {
+              "type": "table",
+              "columns": ["Feature", "Sperm cell", "Egg cell"],
+              "rows": [
+                ["Size", "Small", "Much larger"],
+                [
+                  "Structure",
+                  "Flagellum, many mitochondria, acrosome",
+                  "Food stores and a jelly coat"
+                ],
+                ["Movement", "Swims", "Cannot move by itself"],
+                ["Numbers", "Millions made", "Few released"]
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Same genes, different cells",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Most body cells in an organism contain the same genes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Many genes in a particular cell are not **expressed**: they are not switched on.",
+                "The cell only makes the specific proteins it needs.",
+                "This is why cells with the same genes can have different specialised functions."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.5B"],
+      "worked_example": {
+        "exemplar_id": "f1b8cb27-5072-4f72-9531-a76c6ea991a7",
+        "source": "EDEXCEL nov 2021, Paper 2 (B), Q7(a)",
+        "question": "As an embryo develops, its cells differentiate.\nExplain the importance of cell differentiation in the development of the growing embryo.",
+        "marks": 2,
+        "answer_points": [
+          "Unspecialised cells develop into specialised cells, which have specific functions.",
+          "This produces tissues and organs, for example muscle cells or bone cells."
+        ],
+        "tip": "Two points are needed for the two marks."
+      }
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -278,12 +383,18 @@
       "3dcb466b-563c-45e2-a0da-509a32d3a41a",
       "3bdfee1d-fd1d-4e9d-9de2-12a9b392d99b",
       "f810d40d-fdc2-4313-9361-ec78a458286d",
-      "a2b4c8f1-c388-46fd-8142-51c8c9210657"
+      "a2b4c8f1-c388-46fd-8142-51c8c9210657",
+      "fc3b8b73-99b7-4358-8fd0-d3f2f49f4aec",
+      "6e264cea-98dd-4e09-83c1-b444030b00e1",
+      "72d9e61f-6f75-49fc-b8db-88ac55cabbea",
+      "325a74df-abb6-4e96-a2a0-ea0b31c38103"
     ],
     "exemplar_ids": [
       "9a7d66db-09c3-49ef-a48f-3feb1cf8f386",
       "afa391fd-e8b5-441d-8ff7-bbb7edd5dd41",
-      "8b67b8a8-0eab-48bf-94c0-179136888a54"
+      "8b67b8a8-0eab-48bf-94c0-179136888a54",
+      "cd5693a3-f99d-4085-b0a6-86e3192ada68",
+      "f1b8cb27-5072-4f72-9531-a76c6ea991a7"
     ]
   }
 }

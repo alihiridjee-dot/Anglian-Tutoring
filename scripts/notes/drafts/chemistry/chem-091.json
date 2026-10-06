@@ -299,6 +299,49 @@
         ],
         "tip": "Each ion needs a reagent mark and a result mark. In the standard halide test, add the dilute nitric acid first, then the silver nitrate. Another soluble metal hydroxide or aqueous ammonia is allowed for the copper test."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 12.5.1"],
+      "worked_example": {
+        "exemplar_id": "4fe3e16f-9bad-4fb8-946c-3dfc864506a1",
+        "source": "CAMBRIDGE jun 2025, Paper 61, Q3(a)",
+        "question": "Solid F is calcium carbonate. A student adds about 15 cm³ of dilute hydrochloric acid to a sample of solid F in a boiling tube and tests any gas produced.\n\nDescribe the observations.",
+        "marks": 2,
+        "answer_points": ["Limewater becomes milky (M1)", "Effervescence (fizzing, bubbling) (M2)"]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course asks for three more anion tests, and a different acid for sulfate."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Nitrate, NO₃⁻**: add aqueous sodium hydroxide and aluminium foil, and warm. Ammonia gas is made, and it turns damp red litmus paper blue.",
+                "**Sulfate, SO₄²⁻**: acidify with dilute nitric acid, then add aqueous barium nitrate. A white precipitate forms.",
+                "**Sulfite, SO₃²⁻**: add acidified aqueous potassium manganate(VII). The purple solution turns colourless."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.48"],
+      "worked_example": {
+        "exemplar_id": "1aba70a4-a8ed-4305-9cb1-3f0ea73048b8",
+        "source": "EDEXCEL jun 2023, Paper 1 (CR), Q9(b)",
+        "question": "This question is about ionic compounds.\n\nA student has four unlabelled beakers, each containing a colourless solution of a different salt.\n\nThese are the four salt solutions.\n• calcium bromide\n• calcium chloride\n• sodium chloride\n• sodium sulfate\n\nDescribe a series of tests to identify each solution. Do not refer to safety precautions in your answer.",
+        "marks": 6,
+        "answer_points": [
+          "Any two from the flame test points: do a flame test (M1); sodium chloride and sodium sulfate give a yellow flame (M2); calcium chloride and calcium bromide give an orange-red flame (M3)",
+          "Any four from the anion tests: add acidified silver nitrate, or nitric acid and silver nitrate (M4); calcium bromide gives a cream precipitate (M5); calcium chloride and sodium chloride give a white precipitate (M6); add acidified barium chloride (M7); sodium sulfate gives a white precipitate (M8)"
+        ],
+        "tip": "Do not use hydrochloric or sulfuric acid to acidify the silver nitrate test."
+      }
     }
   },
   "meta": {
@@ -309,14 +352,18 @@
       "979c1a78-3995-4925-8c34-bfd7adf3a131",
       "abe572b9-b743-4406-92b1-11665d0773d6",
       "67bfb815-73c1-403d-8c3d-1f8ffec2f68a",
-      "b5371ffc-03f9-4c75-9779-b50a808180ca"
+      "b5371ffc-03f9-4c75-9779-b50a808180ca",
+      "28bcd682-f9e2-45bd-a04e-7e16c7a53edb",
+      "8b7ebb16-c2d5-4796-a585-bc4468f62fe3"
     ],
     "exemplar_ids": [
       "474deda7-024a-4b00-9837-88a90c4665f9",
       "b718b6a6-58b6-43fe-ac00-1de11a6170f5",
-      "06319414-cac8-42dd-92e6-fdc7b4f1658e"
+      "06319414-cac8-42dd-92e6-fdc7b4f1658e",
+      "4fe3e16f-9bad-4fb8-946c-3dfc864506a1",
+      "1aba70a4-a8ed-4305-9cb1-3f0ea73048b8"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

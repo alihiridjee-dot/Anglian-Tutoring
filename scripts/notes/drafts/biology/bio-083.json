@@ -102,7 +102,10 @@
         },
         {
           "type": "table",
-          "columns": ["Benefits", "Risks and concerns"],
+          "columns": [
+            "Benefits",
+            "Risks and concerns"
+          ],
           "rows": [
             [
               "Gives a woman the chance to have a baby of her own",
@@ -155,7 +158,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA T 4.5.3.5", "AQA 5.13"],
+      "spec_codes": [
+        "AQA T 4.5.3.5",
+        "AQA 5.13"
+      ],
       "worked_example": {
         "exemplar_id": "ce520e47-873a-4c25-a3b0-1d849c634e97",
         "source": "AQA jun 2024, Paper 2 (H), Q03.5",
@@ -171,7 +177,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 7.8"],
+      "spec_codes": [
+        "EDEX 7.8"
+      ],
       "worked_example": {
         "exemplar_id": "f0a3141c-756c-412c-886d-7cf7953ae409",
         "source": "EDEXCEL nov 2021, Paper 2 (H), Q6(c)",
@@ -187,7 +195,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 3.2f"],
+      "spec_codes": [
+        "OCR 3.2f"
+      ],
       "worked_example": {
         "exemplar_id": "79d41654-c914-41c7-840c-a92b27c19160",
         "source": "OCR jun 2018, Paper 3, Q20(d)(iii)",
@@ -201,6 +211,31 @@
         ],
         "tip": "Name the hormone and say what it does to the egg."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 20.4.8S"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Artificial insemination (AI) and IVF are also used in captive breeding programmes for endangered species."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**AI**: sperm is collected from a male and placed into a female without the animals mating.",
+                "**IVF**: eggs are fertilised with sperm in a laboratory, and the embryos are placed in a female.",
+                "Sperm, eggs or embryos can be taken from animals in different zoos, so they need not be moved and unrelated animals can breed.",
+                "This increases the number of offspring and keeps genetic variation in a small population."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -227,6 +262,6 @@
       "7a7cc31b-4b47-4d5a-8d0a-7d3327fe9566"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

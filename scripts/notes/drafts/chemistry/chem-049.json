@@ -252,6 +252,45 @@
         ],
         "tip": "Any four of five points score. Each improvement needs its reason."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 7.3.1"],
+      "worked_example": {
+        "exemplar_id": "fbab6513-0748-4144-8709-17dcca0bc351",
+        "source": "CAMBRIDGE jun 2023, Paper 61, Q4",
+        "question": "Solid cobalt(II) oxide is a base which is insoluble in water. It reacts very slowly with cold dilute sulfuric acid to form a solution of cobalt(II) sulfate. Describe how to make pure, dry crystals of hydrated cobalt(II) sulfate. You are provided with cobalt(II) oxide, dilute sulfuric acid and common laboratory apparatus.",
+        "marks": 6,
+        "answer_points": [
+          "Add cobalt(II) oxide to dilute sulfuric acid in a suitable container",
+          "Add the cobalt(II) oxide in excess",
+          "Stir the mixture",
+          "Warm or heat the mixture, because the reaction is slow in the cold",
+          "Filter to remove the excess cobalt(II) oxide",
+          "Heat the filtrate, or leave it to evaporate, but do not heat to dryness",
+          "Filter off the crystals and dry them"
+        ],
+        "tip": "Any six points score."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.39", "IGCSE 2.40C", "IGCSE 2.42"],
+      "worked_example": {
+        "exemplar_id": "729687fb-0a7f-45e3-bc32-23298fbd7142",
+        "source": "EDEXCEL jun 2019, Paper 1 (CR), Q7(a)(ii)",
+        "question": "A student makes some magnesium nitrate crystals from magnesium oxide and dilute nitric acid. The equation for the reaction is MgO(s) + 2HNO₃(aq) → Mg(NO₃)₂(aq) + H₂O(l). A student has a beaker containing dilute nitric acid. Describe a method that she could use to prepare a pure, dry sample of magnesium nitrate crystals from magnesium oxide.",
+        "marks": 6,
+        "answer_points": [
+          "Making the solution (any three of the next four): warm the acid, but do not boil it",
+          "Add magnesium oxide a little at a time until it is in excess and no more dissolves",
+          "Stir",
+          "Filter to remove the excess magnesium oxide",
+          "Getting the crystals from the filtrate (any three of the next four): heat the solution until crystals form in a cooled sample or on a glass rod",
+          "Leave the solution to cool and crystallise",
+          "Filter off the crystals",
+          "Dry the crystals, for example between filter paper or in a warm oven"
+        ],
+        "tip": "Three marks are for making the solution and three for obtaining the crystals."
+      }
     }
   },
   "meta": {
@@ -259,13 +298,17 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "1c5f1527-3224-422c-bad0-c121fbc9e30f",
       "1b092998-2777-487a-94fa-d11b084f75ab",
       "3bc4c0e5-3ac1-480c-88a8-02d2bf0e8de8",
       "ce3a2414-1e8c-438f-ad2e-a529bddc2d0b",
-      "d999ecc9-d546-4226-88be-04f49b7fe078"
+      "d999ecc9-d546-4226-88be-04f49b7fe078",
+      "b884ddf3-49dc-4655-a11d-1fa50786fb1d",
+      "975c5f31-4610-4c18-abe6-553683091304",
+      "86a781f1-38eb-41ea-ba3a-e9c4832fc4d9",
+      "fb0bdb2b-ebf6-46b4-8cbb-e30c84483adb"
     ],
     "exemplar_ids": [
       "50f1105c-cf60-4748-a8fa-945b5966c76f",
@@ -282,7 +325,9 @@
       "232a6150-be82-4dac-852b-9453cf5c806b",
       "265b83b2-4f04-4435-b730-18c7b9b24578",
       "4a811083-07fe-4125-b557-31035e0a4a9b",
-      "3bc99290-b726-4559-9529-39b1749e5a9a"
+      "3bc99290-b726-4559-9529-39b1749e5a9a",
+      "fbab6513-0748-4144-8709-17dcca0bc351",
+      "729687fb-0a7f-45e3-bc32-23298fbd7142"
     ]
   }
 }
