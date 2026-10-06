@@ -8,6 +8,8 @@ import { formatPence } from "@/lib/billing/billing";
 import { usePlanStep, type SearchParams } from "@/components/onboarding/usePlanStep";
 import { TrialCodeField } from "@/components/billing/TrialCodeField";
 import { TRIAL_DAYS } from "@/lib/billing/trialCode";
+import { WelcomeVideo } from "@/components/WelcomeVideo";
+import { markWelcomeVideoWatched } from "@/lib/profile/welcomeTour";
 import {
   AskParentCard,
   CadencePicker,
@@ -68,6 +70,8 @@ function PlanStep() {
     redirecting,
     confirmDelayed,
     setConfirmRound,
+    welcomeVideo,
+    enterDashboard,
     selectedPkg,
     selectedUnit,
     payNow,
@@ -77,6 +81,17 @@ function PlanStep() {
   } = step;
   // Only a student who has never had a plan can start a trial.
   const withTrial = neverSubscribed && !!trialCode.trim();
+
+  // Paid, and new here: the welcome video, full screen, then the dashboard tour.
+  if (search.checkout === "success" && welcomeVideo) {
+    return (
+      <WelcomeVideo
+        skippable={false}
+        onWatched={() => markWelcomeVideoWatched(user.id)}
+        onDone={enterDashboard}
+      />
+    );
+  }
 
   if (search.checkout === "success" && confirmDelayed) {
     return <PaymentStillConfirming onCheckAgain={() => setConfirmRound((n) => n + 1)} />;
