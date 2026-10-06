@@ -37,10 +37,15 @@ const MIGRATION = new URL(
   "../supabase/migrations/20261005220000_practice_queue.sql",
   import.meta.url,
 );
+// Its follow-up (a WHERE clause pg-safeupdate needs), applied after it as in production.
+const FIX = new URL(
+  "../supabase/migrations/20261006110000_practice_queue_safeupdate.sql",
+  import.meta.url,
+);
 const WORKER = new URL("../src/lib/practice/practiceQueue.server.ts", import.meta.url);
 const GENERATION = new URL("../src/lib/homework/examGeneration.ts", import.meta.url);
 const absent: string[] = [];
-for (const file of [MIGRATION, WORKER])
+for (const file of [MIGRATION, FIX, WORKER])
   await access(file).catch(() => absent.push(fileURLToPath(file)));
 if (absent.length) {
   console.error(`practice queue e2e: harness ready, waiting for ${absent.join(" and ")}`);
@@ -547,6 +552,7 @@ create trigger test_refuse_save before insert on public.mcq_sets
 
 try {
   await db.exec(await readFile(MIGRATION, "utf8"));
+  await db.exec(await readFile(FIX, "utf8"));
 } catch (error) {
   throw new Error(`the migration did not load on the fixture: ${(error as Error).message}`, {
     cause: error,
