@@ -226,7 +226,7 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       title: allSet(name),
       body: [
         "Start with this week’s plan on your dashboard.",
-        "Want to know more about any page? Press the 🧭 at the top. Here on your dashboard, it plays this tour again.",
+        "Want to know more about any page? Press the 🧭 at the top. Here on your dashboard, it plays the video and this tour again.",
       ],
     },
   ];

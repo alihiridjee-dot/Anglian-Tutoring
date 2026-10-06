@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { isStaffRole } from "@/lib/auth/guardState";
+import { isDemoMode } from "@/lib/auth/session";
 import { useViewer } from "@/hooks/useViewer";
 
 export type AppRole = "student" | "tutor" | "admin";
@@ -15,9 +16,11 @@ export function useRoles() {
   // a verdict, so it must not settle `loading` — the tutor pages redirect away
   // the moment they are told, with `loading` false, that this isn't a tutor.
   const viewerResolved = !!viewer && viewer.role !== null;
+  const demo = isDemoMode();
 
   const { data, isLoading } = useQuery({
     queryKey: ["user-roles-and-profile"],
+    enabled: !demo,
     queryFn: async () => {
       const { data: sData } = await supabase.auth.getSession();
       const user = sData.session?.user;
@@ -43,6 +46,12 @@ export function useRoles() {
     staleTime: 1000 * 60 * 10, // 10 minutes cache
     gcTime: 1000 * 60 * 30, // 30 minutes garbage collection
   });
+
+  // The showcase is signed out by design. A visitor still signed in to a real
+  // account in this browser must not carry it in: a tutor got working tutor
+  // controls (quiz generator, lesson and task forms) that wrote to the live
+  // database, and a student's id let the demo curriculum overwrite their plan.
+  if (demo) return { roles: [], isTutor: false, userId: null, email: null, loading: false };
 
   const roles = data?.roles ?? null;
   // The role list is what RLS consults, so it wins once it has arrived; until

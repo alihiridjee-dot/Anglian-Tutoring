@@ -3,12 +3,18 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter, useRouterState } from "@tanstack/react-router";
 import { CourseChip } from "@/components/CourseBadge";
 import { GuideOverlay } from "@/components/StudentGuide";
+import { WelcomeVideo } from "@/components/WelcomeVideo";
 import { useViewer } from "@/hooks/useViewer";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useCourseSummary } from "@/hooks/data/useCourseSummary";
 import { useChildLinks } from "@/hooks/data/useParentLinks";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
-import { markWelcomeTourSeen, readWelcomeTourSeen } from "@/lib/profile/welcomeTour";
+import {
+  markWelcomeTourSeen,
+  markWelcomeVideoWatched,
+  readWelcomeTourSeen,
+  readWelcomeVideoWatched,
+} from "@/lib/profile/welcomeTour";
 import {
   WELCOME_TOUR_START,
   firstName,
@@ -30,6 +36,9 @@ const SETTLE_MS = 700;
  * whichever device that is, and replays from "Show me around" there. Finishing
  * or skipping it is recorded on the profile. A student whose plan has lapsed
  * isn't started on it: their pages are empty until they resubscribe.
+ *
+ * A student watches the welcome video first, and can't skip it the first time
+ * (see WelcomeVideo). From the 🧭 it plays again, skippable, before the tour.
  *
  * Mounted once by the authenticated layout, which stays put while the pages
  * under it change, so the tour can walk from one page to the next.
@@ -74,6 +83,7 @@ export function WelcomeTour({ locked }: { locked: boolean }) {
   );
 
   const [index, setIndex] = useState<number | null>(null);
+  const [video, setVideo] = useState<"required" | "skippable" | null>(null);
   const step = index === null ? null : steps[index];
   const started = useRef(false);
   const here = useRef(pathname);
@@ -114,20 +124,26 @@ export function WelcomeTour({ locked }: { locked: boolean }) {
     if (!seen.isSuccess || seen.data !== null) return;
     const timer = window.setTimeout(() => {
       started.current = true;
-      go(0);
+      // Watched already on this device: they left partway through the tour.
+      if (audience === "student" && userId && !readWelcomeVideoWatched(userId)) {
+        setVideo("required");
+      } else go(0);
     }, SETTLE_MS);
     return () => window.clearTimeout(timer);
-  }, [go, home, index, locked, pathname, seen.data, seen.isSuccess]);
+  }, [audience, go, home, index, locked, pathname, seen.data, seen.isSuccess, userId]);
 
   // "Show me around" on a home page.
   useEffect(() => {
     const replay = () => {
       started.current = true;
-      go(0);
+      if (audience !== "student" || !userId) return go(0);
+      // Skippable once it's been watched, or once the tour has been done. A new
+      // student pressing the 🧭 before the tour starts still has to watch it.
+      setVideo(readWelcomeVideoWatched(userId) || seen.data !== null ? "skippable" : "required");
     };
     window.addEventListener(WELCOME_TOUR_START, replay);
     return () => window.removeEventListener(WELCOME_TOUR_START, replay);
-  }, [go]);
+  }, [audience, go, seen.data, userId]);
 
   // The browser's own Back and Forward still work mid-tour. Landing on a page
   // the tour has already been to steps back to it; anywhere else ends the tour.
@@ -141,6 +157,19 @@ export function WelcomeTour({ locked }: { locked: boolean }) {
     if (back >= 0) setIndex(back);
     else finish();
   }, [finish, index, pathname, steps]);
+
+  if (video) {
+    return (
+      <WelcomeVideo
+        skippable={video === "skippable"}
+        onWatched={() => userId && markWelcomeVideoWatched(userId)}
+        onDone={() => {
+          setVideo(null);
+          go(0);
+        }}
+      />
+    );
+  }
 
   if (!step || index === null) return null;
   const last = index === steps.length - 1;

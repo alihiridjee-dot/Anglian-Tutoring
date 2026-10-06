@@ -13,7 +13,6 @@ import { ThisWeekPanel } from "./ThisWeekPanel";
 import { DoNowPanel } from "./DoNowPanel";
 import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
-import { WeekReview } from "./WeekReview";
 import { PausedWeek } from "./PausedWeek";
 import { BreakWeek } from "./BreakWeek";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
@@ -221,8 +220,8 @@ export function WeeklyPlanPanel({
         <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
       )}
 
-      {/* The week as a checklist, between the plan and the review: the panel above
-          says what this week is and why, this one says what to press. */}
+      {/* The week as a checklist, under the plan: the panel above says what this
+          week is and why, this one says what to press. */}
       {!frozen && !resting && (
         <DoNowPanel
           points={week.points}
@@ -234,25 +233,6 @@ export function WeeklyPlanPanel({
             void week.setPointDone(id, done);
           }}
         />
-      )}
-
-      {/* The student's own read on the week — its own box, not a footnote to the plan. */}
-      {showReview && !frozen && !resting && week.plan && active && (
-        <div className="mb-6">
-          <WeekReview
-            studentId={studentId}
-            plan={week.plan}
-            points={week.points}
-            coverage={week.coverage}
-            activity={week.activity}
-            subject={active.subject as SubjectV}
-            board={active.board as BoardV}
-            level={level}
-            weekStart={weekStart}
-            examDate={week.roadmap?.examDate}
-            onChanged={week.reload}
-          />
-        </div>
       )}
     </>
   );

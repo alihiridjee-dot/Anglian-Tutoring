@@ -318,6 +318,14 @@ export interface Note {
   };
 }
 
+/** A published note that covers a spec point. */
+export interface SpecPointNote {
+  id: string;
+  title: string;
+  /** The note written for this point, as opposed to one that also touches it. */
+  primary: boolean;
+}
+
 // ---------------------------------------------------------------------------
 // Validation. Structural only: it proves a note will render, not that it is
 // right. Scientific review is a person's job.

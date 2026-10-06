@@ -20,6 +20,12 @@ export type GenerationPoint = {
   assessment_context: string | null;
 };
 
+/**
+ * A past-paper option as the library stores it: `{letter, text}` for most
+ * papers, a bare string for others (every AQA paper, some OCR and Edexcel).
+ */
+export type ExamOption = string | { letter: string; text: string };
+
 export type ExamExample = {
   id: string;
   board: string;
@@ -31,7 +37,7 @@ export type ExamExample = {
   shared_context: string | null;
   mark_scheme: string | null;
   marks: number | null;
-  options: { letter: string; text: string }[] | null;
+  options: ExamOption[] | null;
   command_word: string | null;
   assessment_objectives: string[];
   question_format: string | null;
@@ -144,7 +150,7 @@ function exampleForPrompt(e: ExamExample) {
     e.shared_context ?? "",
     e.prompt,
     e.mark_scheme ?? "",
-    ...(e.options ?? []).map((o) => o.text),
+    ...(e.options ?? []).map((o) => (typeof o === "string" ? o : o.text)),
   ]);
   return {
     id: e.id,
@@ -158,7 +164,11 @@ function exampleForPrompt(e: ExamExample) {
     shared_context: e.shared_context && shared,
     question,
     marks: e.marks,
-    options: e.options?.map((o, i) => ({ ...o, text: options[i] })) ?? null,
+    // Each option keeps its stored shape: spreading a bare string would turn
+    // it into one entry per character.
+    options:
+      e.options?.map((o, i) => (typeof o === "string" ? options[i] : { ...o, text: options[i] })) ??
+      null,
     mark_scheme: e.mark_scheme && scheme,
     command_word: e.command_word,
     assessment_objectives: e.assessment_objectives,
@@ -228,15 +238,22 @@ export function generationSchema(format: GenerationFormat): Record<string, unkno
     format === "written"
       ? {
           prompt: { type: "string" },
-          marks: { type: "integer" },
+          // Structured outputs enforce `enum` but not minimum/maximum, so the
+          // allowed values are listed: an out-of-range answer can't be produced.
+          marks: { type: "integer", enum: Array.from({ length: 30 }, (_, i) => i + 1) },
           answer_type: { type: "string", enum: ["short", "long", "numeric"] },
           mark_scheme: { type: "string" },
           ...assessmentProperties,
         }
       : {
           question: { type: "string" },
-          options: { type: "array", items: { type: "string" } },
-          correct_index: { type: "integer" },
+          options: {
+            type: "array",
+            description:
+              "Exactly four different options. Letter case is meaning: TT, Tt and tt differ.",
+            items: { type: "string" },
+          },
+          correct_index: { type: "integer", enum: [0, 1, 2, 3] },
           explanation: { type: "string" },
           ...assessmentProperties,
         };
@@ -316,48 +333,55 @@ export function validateQuestions(
   format: GenerationFormat,
 ): WrittenQuestion[] | McqQuestion[] {
   const raw = (value as { questions?: unknown } | null)?.questions;
-  if (!Array.isArray(raw) || raw.length !== count)
+  // More than asked for is still a full set: the extras are dropped rather than
+  // paying for the whole set again. Fewer is not.
+  if (!Array.isArray(raw) || raw.length < count)
     throw new Error("AI returned the wrong number of questions");
-  const questions = raw.map(withNotation) as (WrittenQuestion & McqQuestion)[];
-  const seen = new Set<string>();
-  for (const q of questions) {
+  const questions = raw.slice(0, count).map(withNotation) as (WrittenQuestion & McqQuestion)[];
+  // Every failure names the rule and the question: the message is what a tutor's
+  // toast and the generation log show.
+  const seen = new Map<string, number>();
+  for (const [i, q] of questions.entries()) {
+    const n = i + 1;
+    if (!q || typeof q !== "object") throw new Error(`Question ${n} is not a question`);
     if (
-      !q ||
-      typeof q !== "object" ||
       !Array.isArray(q.assessment_objectives) ||
       !q.assessment_objectives.every((a: unknown) => ["AO1", "AO2", "AO3"].includes(String(a))) ||
       typeof q.mathematical_demand !== "boolean" ||
       typeof q.practical_demand !== "boolean"
     ) {
-      throw new Error("AI returned invalid assessment metadata");
+      throw new Error(`Question ${n} has invalid assessment labels`);
     }
     const prompt = format === "written" ? q.prompt : q.question;
-    if (!nonempty(prompt)) throw new Error("AI returned an empty question");
-    const key = prompt.replace(/\s+/g, " ").trim().toLowerCase();
-    if (seen.has(key)) throw new Error("AI returned duplicate questions");
-    seen.add(key);
+    if (!nonempty(prompt)) throw new Error(`Question ${n} is empty`);
     if (format === "written") {
-      if (
-        !Number.isInteger(q.marks) ||
-        q.marks < 1 ||
-        q.marks > 30 ||
-        !["short", "long", "numeric"].includes(q.answer_type) ||
-        !nonempty(q.mark_scheme)
-      ) {
-        throw new Error("AI returned an invalid question or missing mark scheme");
-      }
-    } else if (
-      !Array.isArray(q.options) ||
-      q.options.length !== 4 ||
-      !q.options.every(nonempty) ||
-      new Set(q.options.map((o: string) => o.trim().toLowerCase())).size !== 4 ||
-      !Number.isInteger(q.correct_index) ||
-      q.correct_index < 0 ||
-      q.correct_index > 3 ||
-      !nonempty(q.explanation)
-    ) {
-      throw new Error("AI returned an invalid MCQ or answer key");
+      if (!Number.isInteger(q.marks) || q.marks < 1 || q.marks > 30)
+        throw new Error(`Question ${n}'s marks are not a whole number from 1 to 30`);
+      if (!["short", "long", "numeric"].includes(q.answer_type))
+        throw new Error(`Question ${n}'s answer type is not short, long or numeric`);
+      if (!nonempty(q.mark_scheme)) throw new Error(`Question ${n} has no mark scheme`);
+    } else {
+      if (!Array.isArray(q.options) || q.options.length !== 4)
+        throw new Error(`Question ${n} does not have four options`);
+      if (!q.options.every(nonempty)) throw new Error(`Question ${n} has an empty option`);
+      // Case is meaning in science: TT, Tt and tt are three genotypes, Co and CO
+      // two substances, mA and MA two quantities. Only spacing is ignored.
+      if (new Set(q.options.map(spacing)).size !== 4)
+        throw new Error(`Question ${n} has two identical options`);
+      if (!Number.isInteger(q.correct_index) || q.correct_index < 0 || q.correct_index > 3)
+        throw new Error(`Question ${n}'s answer key is not one of its four options`);
+      if (!nonempty(q.explanation)) throw new Error(`Question ${n} has no explanation`);
     }
+    // A repeat is the same question asked again. Case is kept, as for options
+    // ("genotype Tt" and "genotype tt" differ), and an MCQ counts its options:
+    // papers reuse a stem like "Which statement is correct?" with new options.
+    const key = [prompt, ...(format === "mcq" ? q.options : [])].map(spacing).join("\n");
+    const earlier = seen.get(key);
+    if (earlier) throw new Error(`Question ${n} repeats question ${earlier}`);
+    seen.set(key, n);
   }
   return questions;
 }
+
+/** Text compared as written, extra spacing aside. */
+const spacing = (text: string) => text.replace(/\s+/g, " ").trim();

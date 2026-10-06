@@ -63,7 +63,13 @@ export function useEnrolments(): EnrolmentsState {
         return {
           role: (getDemoRole() === "parent" ? "parent" : "student") as ProfileRole,
           enrolledCourses: [...DEMO_SUBJECTS],
-          enrolments: DEMO_ENROLMENTS.map((e) => ({ ...e })) as Enrolment[],
+          // With the target grade, so Alex's Target ring shows the same target
+          // the parent's page does.
+          enrolments: DEMO_ENROLMENTS.map(({ subject, board, targetGrade }) => ({
+            subject,
+            board,
+            targetGrade,
+          })) as Enrolment[],
           level: DEMO_LEVEL as LevelV,
           inviteCode: null,
           displayName: getDemoRole() === "parent" ? DEMO_PARENT_NAME : DEMO_STUDENT_NAME,

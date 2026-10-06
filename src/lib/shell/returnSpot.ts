@@ -302,7 +302,7 @@ export function installReturnSpots(router: AnyRouter) {
 const LIST_OF: [RegExp, string][] = [
   [/^((?:\/demo\/student)?)\/homework\/[^/]+$/, "$1/homework"],
   [/^((?:\/demo\/student)?)\/mcq\/[^/]+$/, "$1/mcqs"],
-  [/^\/notes\/[^/]+$/, "/curriculum"],
+  [/^((?:\/demo\/student)?)\/notes\/[^/]+$/, "$1/curriculum"],
   [/^\/students\/[^/]+$/, "/students"],
 ];
 

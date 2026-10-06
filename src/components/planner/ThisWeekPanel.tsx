@@ -7,6 +7,7 @@ import { currentWeekKey, plannerDateLabel, weekKeyToDate } from "@/lib/planner/w
 import { type PlanPoint, type WeeklyPlan } from "@/lib/planner/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { type PointCoverage, type PointWorkItem } from "@/lib/planner/coverage";
+import { reviewLock } from "@/lib/planner/reviewLock";
 import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import { VideoModal } from "@/components/VideoPlayer";
 import { type Activity } from "./useWeekPlan";
@@ -74,7 +75,6 @@ export function ThisWeekPanel({
     upcomingCatchUp,
     assigned,
     completed,
-    next,
   } = useWeekLanes({ plan, points, activity, coverage, roadmap, weekStart });
 
   const row = (p: PlanPoint) => (
@@ -159,9 +159,13 @@ export function ThisWeekPanel({
         <WeekProgressCard
           assigned={assigned}
           completed={completed}
-          next={next}
-          activity={activity}
-          coverage={coverage}
+          lock={reviewLock({
+            weekStart,
+            entries: points.map((p) => ({
+              coverage: coverage.get(p.spec_point_id),
+              activity: activity.get(p.spec_point_id),
+            })),
+          })}
         />
       )}
 

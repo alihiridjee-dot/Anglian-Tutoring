@@ -28,6 +28,7 @@ import { HomeworkLibrary } from "@/components/tutor/HomeworkLibrary";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
+import { plannerDateLabel } from "@/lib/planner/week";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { SUBJECT_LABEL, SUBJECT_TINT, subjectTint } from "@/lib/curriculum/subjectTheme";
 import { useEntryState } from "@/hooks/useEntryState";
@@ -39,7 +40,7 @@ import { PredictedGradeCard } from "@/components/homework/PredictedGradeCard";
  *
  * Deliberately only a list. Answering happens on `/homework/$homeworkId`,
  * because two writers now create homework — a tutor setting a brief, and the
- * planner filling in a sheet for each spec point — and a page that rendered
+ * practice queue writing a sheet for each spec point — and a page that rendered
  * every unsubmitted sheet's form inline stopped being viable the moment the
  * second one existed.
  *
@@ -289,11 +290,11 @@ function HomeworkCard({ item, summary }: { item: HomeworkItem; summary?: Homewor
                 : null,
               hw.origin === "tutor" ? "Set by your tutor" : "Practice",
               hw.due_at && !submission && !overdue
-                ? `Due ${new Date(hw.due_at).toLocaleDateString()}`
+                ? `Due ${plannerDateLabel(new Date(hw.due_at))}`
                 : null,
               awaiting ? "Being marked" : null,
               submission?.graded_at
-                ? `Marked ${new Date(submission.graded_at).toLocaleDateString()}`
+                ? `Marked ${plannerDateLabel(new Date(submission.graded_at))}`
                 : null,
             ]
               .filter(Boolean)
@@ -302,7 +303,7 @@ function HomeworkCard({ item, summary }: { item: HomeworkItem; summary?: Homewor
           {overdue && hw.due_at && (
             <span className="chip tint-rose inline-flex items-center gap-1">
               <Clock className="size-3" aria-hidden />
-              Overdue {new Date(hw.due_at).toLocaleDateString()}
+              Overdue {plannerDateLabel(new Date(hw.due_at))}
             </span>
           )}
         </div>
