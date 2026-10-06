@@ -928,10 +928,15 @@ const oldRun = (
 const catalogBefore = await catalog();
 const legacyBefore = await legacy();
 
-const migration = await readFile(
-  new URL("../supabase/migrations/20261005220000_practice_queue.sql", import.meta.url),
-  "utf8",
-);
+// The queue and its follow-up fix, applied in order as production has them.
+const migration = (
+  await Promise.all(
+    [
+      "../supabase/migrations/20261005220000_practice_queue.sql",
+      "../supabase/migrations/20261006110000_practice_queue_safeupdate.sql",
+    ].map((path) => readFile(new URL(path, import.meta.url), "utf8")),
+  )
+).join("\n");
 const rollback = await readFile(
   new URL("../supabase/rollbacks/20261005220000_practice_queue.down.sql", import.meta.url),
   "utf8",
@@ -2802,6 +2807,52 @@ assert.deepEqual(await legacy(), legacyBefore, "ensure_generated_* as they were,
       .rows,
     logBefore,
   );
+}
+
+// ── 22. Every UPDATE and DELETE names its rows (pg-safeupdate) ─────────
+// Supabase runs every API request with pg-safeupdate, which refuses an UPDATE
+// or DELETE without a WHERE clause, even inside a function. PGlite can't load
+// it, so every check above passed while, in production, the worker could not
+// record a failure or pause the queue (6 Oct). This reads the installed bodies.
+{
+  const writes =
+    /\bupdate\s+(?!set\b)[\w.]+(?:\s+(?:as\s+)?(?!set\b)\w+)?\s+set\b|\bdelete\s+from\b/i;
+  const unguarded = async () => {
+    const bodies = (
+      await db.query<{ name: string; body: string }>(
+        `select p.proname as name, p.prosrc as body from pg_proc p
+         where p.pronamespace in ('public'::regnamespace, 'private'::regnamespace)
+           and (p.proname like '%practice%' or p.proname like 'save_generated_%')`,
+      )
+    ).rows;
+    assert.ok(bodies.length >= 16, "the queue's functions are installed");
+    return bodies.flatMap(({ name, body }) =>
+      body
+        .replace(/--[^\n]*/g, "")
+        .split(";")
+        .filter((statement) => writes.test(statement) && !/\bwhere\b/i.test(statement))
+        .map((statement) => {
+          const write = statement.slice(statement.search(writes)).replace(/\s+/g, " ");
+          return `${name}: ${write.slice(0, 40)}`;
+        }),
+    );
+  };
+
+  // The check catches it: the queue as first written had two such updates.
+  await db.exec(
+    await readFile(
+      new URL("../supabase/migrations/20261005220000_practice_queue.sql", import.meta.url),
+      "utf8",
+    ),
+  );
+  assert.deepEqual(await unguarded(), [
+    "fail_practice_job: update private.practice_queue q set paus",
+    "pause_practice_queue: update private.practice_queue q set paus",
+  ]);
+
+  // With the fix, none.
+  await db.exec(migration);
+  assert.deepEqual(await unguarded(), [], "every UPDATE and DELETE has a WHERE clause");
 }
 
 console.log("practice queue: all checks passed");
