@@ -111,12 +111,14 @@ export function reorderTopics(params: {
         // The old review horizon is kept only for a band that had actually
         // opened. Keeping a never-reached band's start let a topic moved from
         // November to April be revised from November — untaught material
-        // assigned as revision.
+        // assigned as revision. The test is on the band's teaching, not its
+        // horizon: an order saved before this fix carries exactly that early
+        // horizon, which would pass as "reached" once its date went by.
         reviewStartWeek: [
           b.startWeek,
           ...previous
-            .map((p) => p.reviewStartWeek ?? p.startWeek)
-            .filter((w) => w <= (params.today ?? currentWeekKey())),
+            .filter((p) => (p.openedWeek ?? p.startWeek) <= (params.today ?? currentWeekKey()))
+            .map((p) => p.reviewStartWeek ?? p.startWeek),
         ].sort()[0],
       };
     },
@@ -175,11 +177,13 @@ export function resumeAfterPause(params: {
         .map((p) => p.openedWeek ?? p.startWeek)
         .filter((w) => w < pausedFrom)
         .sort()[0],
-      // As in reorderTopics: a review horizon survives only from a band that
-      // was reached before the pause.
+      // As in reorderTopics: a review horizon survives only from a band whose
+      // teaching was reached before the pause.
       reviewStartWeek: [
         b.startWeek,
-        ...previous.map((p) => p.reviewStartWeek ?? p.startWeek).filter((w) => w < pausedFrom),
+        ...previous
+          .filter((p) => (p.openedWeek ?? p.startWeek) < pausedFrom)
+          .map((p) => p.reviewStartWeek ?? p.startWeek),
       ].sort()[0],
     };
   });

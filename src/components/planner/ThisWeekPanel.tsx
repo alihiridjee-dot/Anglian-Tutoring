@@ -44,6 +44,7 @@ export function ThisWeekPanel({
   showCoverage,
   onFocusAgain,
   reviewMore,
+  onSetExamDate,
 }: {
   plan: WeeklyPlan | null;
   points: PlanPoint[];
@@ -57,6 +58,12 @@ export function ThisWeekPanel({
   onFocusAgain?: (point: PlanPoint) => void;
   /** "Review more now", where the surface offers it (the current week). */
   reviewMore?: ReviewMore;
+  /**
+   * On the planner itself: open its Full plan tab, where the exam date is set.
+   * "Set my exam date" links there too, but a link to the address already
+   * open (`?tab=plan`) goes nowhere, so the planner switches the tab directly.
+   */
+  onSetExamDate?: () => void;
 }) {
   // The video a Watch chip has opened, if any. Same modal the checklist uses —
   // a point's video plays where the student pressed it, not on another page.
@@ -124,6 +131,7 @@ export function ThisWeekPanel({
                 <Link
                   to="/planner"
                   search={{ tab: "plan" }}
+                  onClick={onSetExamDate}
                   className="btn-soft inline-flex min-h-11 items-center rounded-xl px-5 py-2.5 text-sm sm:pointer-fine:min-h-0"
                 >
                   Set my exam date

@@ -1,5 +1,5 @@
 import { useMemo, useState, type ReactNode } from "react";
-import { CalendarRange, Sparkles } from "lucide-react";
+import { CalendarRange } from "lucide-react";
 import { ThisWeekPanel } from "@/components/planner/ThisWeekPanel";
 import { DoNowPanel } from "@/components/planner/DoNowPanel";
 import { demoWeek } from "@/lib/demo/plannerDemo";

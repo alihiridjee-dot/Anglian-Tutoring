@@ -329,7 +329,8 @@ export class WeeklyPlanDAL {
     // This upsert sailed past it, and the next re-cut of an overfull week was then
     // refused for ever, taking the whole planner down with an error. So the cap
     // is applied here too, before anything is written, with a reason a student
-    // can act on. Only points not already in the week count towards it.
+    // can act on. Only points not already in the week count towards it. A
+    // ticked-off point still counts: only taking points out makes room.
     const { data: held, error: heldError } = await supabase
       .from("student_weekly_plan_points")
       .select("spec_point_id")
@@ -339,7 +340,7 @@ export class WeeklyPlanDAL {
     const incoming = new Set(specPointIds.filter((id) => !present.has(id)));
     if (present.size + incoming.size > MAX_WEEK_POINTS)
       throw new Error(
-        `This week already holds as much as it can (${MAX_WEEK_POINTS} points). Finish or tick off some of it before adding more.`,
+        `This week already holds as much as it can (${MAX_WEEK_POINTS} points). To make room, a tutor needs to remove or move some of it.`,
       );
 
     const points = await this.screen(

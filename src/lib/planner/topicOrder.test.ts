@@ -309,4 +309,48 @@ describe("review horizon after a reorder", () => {
         expect(band.reviewStartWeek ?? band.startWeek).toBe(old.startWeek);
     }
   });
+
+  // An order as the old code saved it: on 7 Sept, b (due 14 Sept) was moved,
+  // untaught, to 12 Oct, and kept 14 Sept as its review horizon.
+  const early = "2026-09-07";
+  const older = reorderTopics({
+    ...params,
+    from: early,
+    today: early,
+    order: orderInputs(baseline, topics, early)
+      .remaining.map((t) => t.topicId)
+      .reverse(),
+  }).map((b) => (b.topicId === "b" ? { ...b, reviewStartWeek: "2026-09-14" } : b));
+
+  test("an older saved order drops an early horizon from a topic not yet taught", () => {
+    // Re-ordered on 21 Sept: 14 Sept has gone by, but b's teaching has not begun.
+    const later = "2026-09-21";
+    const next = reorderTopics({
+      ...params,
+      bands: older,
+      from: later,
+      today: later,
+      order: orderInputs(older, topics, later).remaining.map((t) => t.topicId),
+    });
+    const b = next.find((band) => band.topicId === "b")!;
+    expect(b.startWeek > later).toBe(true);
+    expect(b.reviewStartWeek).toBe(b.startWeek);
+    expect(
+      admit(
+        { specPointId: "b0", topicId: "b", origin: "focus", hasEvidence: true },
+        { reach: spineReach(next), reviewReach: spineReach(next, true), weekStart: later },
+      ).ok,
+    ).toBe(false);
+  });
+  test("a pause on an older saved order drops it too", () => {
+    const next = resumeAfterPause({
+      bands: older,
+      topics,
+      pausedFrom: "2026-09-21",
+      resumeFrom: "2026-09-28",
+      examDate,
+    });
+    const b = next.find((band) => band.topicId === "b")!;
+    expect(b.reviewStartWeek).toBe(b.startWeek);
+  });
 });

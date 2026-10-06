@@ -246,6 +246,7 @@ export function StudentPlanner({
             level={level}
             refreshKey={weekRev}
             onScheduleApplied={() => setBoardRev((r) => r + 1)}
+            onSetExamDate={() => setTab("plan")}
           />
         ) : (
           <FullPlanTab
@@ -308,6 +309,7 @@ function ThisWeekTab({
   level,
   refreshKey,
   onScheduleApplied,
+  onSetExamDate,
 }: {
   data: RoadmapResult;
   studentId: string;
@@ -317,6 +319,8 @@ function ThisWeekTab({
   /** Reload after an explicit schedule update. */
   refreshKey: number;
   onScheduleApplied: () => void;
+  /** Open the Full plan tab, where the exam date is set. */
+  onSetExamDate: () => void;
 }) {
   /**
    * 0 = this week, -1 = last week, +1 = next.
@@ -441,6 +445,7 @@ function ThisWeekTab({
             isPast={isPast}
             showCoverage={showReview}
             reviewMore={reviewMore}
+            onSetExamDate={onSetExamDate}
           />
         )}
       </section>
@@ -560,6 +565,9 @@ function FullPlanTab({
   // for the box to lose focus) and only ever save a date in range.
   const queueExamDate = (value: string, now = false): boolean => {
     clearTimeout(pendingDate.current);
+    // The date the plan already uses is no change. Once the exams had passed,
+    // just clicking into the box and out again called it out of range.
+    if (value === lastSavedDate.current) return true;
     if (!value || value < minExamDate || value > maxExamDate) {
       // A date the box can't take used to vanish without a word.
       if (now && value) toast.error("Choose an exam date between today and four years from now.");

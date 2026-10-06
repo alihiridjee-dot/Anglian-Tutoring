@@ -222,6 +222,7 @@ export function WeekReview({
           count={loose.length}
           busy={busy}
           nextWeekLabel={nextWeekLabel}
+          intoThisWeek={nextStart === currentWeekKey()}
           onCarry={carryForward}
         />
       )}
