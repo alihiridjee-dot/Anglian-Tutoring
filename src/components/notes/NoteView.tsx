@@ -22,6 +22,7 @@ import {
   type LineGraphDiagram,
   type Note,
   type NoteBlock,
+  NOTE_COURSE,
   type NoteBoard,
   type NoteDiagram,
   type PredictorDiagram,
@@ -39,7 +40,6 @@ import {
   type Pt,
 } from "@/lib/notes/graphLayout";
 
-const BOARD_LABEL: Record<NoteBoard, string> = { aqa: "AQA", edexcel: "Edexcel", ocr: "OCR" };
 
 /** Text with **bold** runs, and proper notation (H₂O, Mg²⁺). */
 function Inline({ text }: { text: string }) {
@@ -826,8 +826,8 @@ function Section({ heading, children }: { heading: string; children: ReactNode }
 
 // ── The note ────────────────────────────────────────────────────────────────
 
-export function NoteView({ note, board }: { note: Note; board: NoteBoard }) {
-  const layer = note.boards[board];
+export function NoteView({ note, board }: { note: Note; board?: NoteBoard }) {
+  const layer = board ? note.boards[board] : undefined;
   const tint = SUBJECT_TINT[note.subject];
   // The eyebrow is set in capitals, which would turn OCR's "P3.2i" into a
   // code that doesn't exist, so the codes keep their own case.
@@ -836,7 +836,9 @@ export function NoteView({ note, board }: { note: Note; board: NoteBoard }) {
   // become an item with a gap between them.
   const eyebrow = (
     <span>
-      GCSE {SUBJECT_LABEL[note.subject]} · {BOARD_LABEL[board]}
+      {board ? `${NOTE_COURSE[board].level} ` : ""}
+      {SUBJECT_LABEL[note.subject]}
+      {board ? ` · ${NOTE_COURSE[board].board}` : ""}
       {codes.length > 0 && <span className="normal-case"> · {codes.join(" · ")}</span>}
     </span>
   );
