@@ -65,7 +65,9 @@ export function DemoWeekPlan({ after }: { after?: (subject: SubjectV) => ReactNo
           points={points}
           activity={week.activity}
           coverage={week.coverage}
-          roadmap={null}
+          // Only the catch-up part of a programme, so "Missed work returning"
+          // has something to show; nothing else reads it here.
+          roadmap={week.roadmap}
           loading={false}
           weekStart={week.plan.week_start}
           isPast={false}

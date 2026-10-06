@@ -14,6 +14,7 @@ import { useRoles } from "@/hooks/useRole";
 import { acknowledgeSubmission } from "@/lib/homework/homework.functions";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
+import { plannerDateLabel } from "@/lib/planner/week";
 import { needsMarkingStart, startMarking } from "@/lib/homework/startMarking";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { usePinSubject } from "@/hooks/useActiveSubject";
@@ -117,12 +118,12 @@ export function HomeworkSheetPage() {
                 {hw.due_at &&
                   !submission &&
                   !overdue &&
-                  ` · Due ${new Date(hw.due_at).toLocaleDateString()}`}
+                  ` · Due ${plannerDateLabel(new Date(hw.due_at))}`}
               </span>
               {hw.due_at && !submission && overdue && (
                 <span className="chip tint-rose inline-flex items-center gap-1">
                   <Clock className="size-3" aria-hidden />
-                  Overdue {new Date(hw.due_at).toLocaleDateString()}
+                  Overdue {plannerDateLabel(new Date(hw.due_at))}
                 </span>
               )}
             </div>
@@ -141,7 +142,7 @@ export function HomeworkSheetPage() {
           </p>
         )}
 
-        {isTutor && (
+        {isTutor && !demo && (
           <p className="premium-card text-muted-foreground mt-5 p-4 text-sm">
             This is the sheet as a student sees it, with the mark schemes shown. Marking happens in
             the queue on the{" "}
@@ -181,7 +182,9 @@ export function HomeworkSheetPage() {
               submission={submission ?? undefined}
               answers={answers}
               onChanged={reload}
-              readonly={demo || isTutor}
+              // The showcase answers like a student (the form keeps it local);
+              // a tutor signed in to this browser doesn't make it a preview.
+              readonly={isTutor && !demo}
               showMarkScheme={isTutor}
             />
           )}
@@ -224,7 +227,7 @@ function MarkPanel({
         )}
         {submission.graded_at && (
           <span className="text-muted-foreground text-xs">
-            Marked {new Date(submission.graded_at).toLocaleDateString()}
+            Marked {plannerDateLabel(new Date(submission.graded_at))}
           </span>
         )}
       </div>
@@ -260,8 +263,7 @@ function AcknowledgeFeedback({
     return (
       <div className="border-border text-muted-foreground mt-4 flex items-center gap-2 border-t pt-3 text-xs">
         <CheckCircle2 className="size-3.5 shrink-0 text-[color:var(--tint)]" />
-        You acknowledged this feedback on{" "}
-        {new Date(submission.acknowledged_at).toLocaleDateString()}
+        You acknowledged this feedback on {plannerDateLabel(new Date(submission.acknowledged_at))}
       </div>
     );
   }

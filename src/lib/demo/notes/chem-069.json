@@ -1,0 +1,323 @@
+{
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.6.1.2"
+      ],
+      "worked_example": {
+        "answer_points": [
+          "Increases.",
+          "Decreases.",
+          "Increases."
+        ],
+        "exemplar_id": "6b4d7eea-2c17-491f-9ae8-62b3badbd623",
+        "marks": 3,
+        "question": "The rate of reaction between gases is affected by changing the pressure.\n\nComplete the sentences.\n\nWhen the pressure of the reacting gases is increased, the rate of reaction ___.\n\nThis is because at higher pressures the distance between the particles ___.\n\nThis means that the frequency of collisions ___.",
+        "source": "AQA jun 2021, Paper 2 (F), Q04.4",
+        "tip": "One mark each. The words must be in this order."
+      }
+    }
+  },
+  "checks": [
+    {
+      "a": "Concentration (of solutions), pressure (of gases), surface area (of solids), temperature, and a catalyst.",
+      "marks": 3,
+      "q": "Name the five factors that affect the rate of a chemical reaction."
+    },
+    {
+      "a": "The powder has a larger surface area.",
+      "marks": 1,
+      "q": "Magnesium powder reacts with acid faster than magnesium ribbon of the same mass. Give the reason, in terms of the factors."
+    },
+    {
+      "a": "The time taken increases, because the rate is slower.",
+      "marks": 1,
+      "q": "A reaction mixture goes cloudy and hides a cross in 40 s. The experiment is repeated at a lower temperature. Predict the effect on the time taken."
+    }
+  ],
+  "concept_id": "chem-069",
+  "format": 1,
+  "key_idea": "Five factors change the rate of a reaction: concentration of reactants in solution, pressure of reacting gases, surface area of solid reactants, temperature and a catalyst. Increasing the first four, or adding a catalyst, increases the rate.",
+  "meta": {
+    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "exemplar_ids": [
+      "6b4d7eea-2c17-491f-9ae8-62b3badbd623",
+      "72b08153-693b-4752-ae7e-909e5df06e02",
+      "56d7161b-0bf5-4e5d-9126-abc4ef29855e"
+    ],
+    "spec_point_ids": [
+      "demo-sp-rates"
+    ],
+    "status": "approved",
+    "written_at": "2026-10-01",
+    "written_by": "sonnet-5-5"
+  },
+  "sections": [
+    {
+      "blocks": [
+        {
+          "text": "This section covers what each factor is and how it changes the rate. The reasons are in the collision theory note.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "How much of a substance is dissolved in a given volume of solution.",
+              "term": "Concentration"
+            },
+            {
+              "meaning": "The total area of the outside of a solid. Smaller pieces of the same mass have a larger surface area.",
+              "term": "Surface area"
+            },
+            {
+              "meaning": "A substance that changes the rate of a reaction and is not used up.",
+              "term": "Catalyst"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "columns": [
+            "Factor",
+            "Change that speeds up the reaction",
+            "Applies to"
+          ],
+          "rows": [
+            [
+              "Concentration",
+              "Use a more concentrated solution",
+              "Reactants in solution"
+            ],
+            [
+              "Pressure",
+              "Increase the pressure",
+              "Reacting gases"
+            ],
+            [
+              "Surface area",
+              "Use smaller pieces, or a powder",
+              "Solid reactants"
+            ],
+            [
+              "Temperature",
+              "Increase the temperature",
+              "All reactions"
+            ],
+            [
+              "Catalyst",
+              "Add a catalyst",
+              "Reactions that have a suitable catalyst"
+            ]
+          ],
+          "type": "table"
+        },
+        {
+          "diagram": {
+            "alt": "Pick a change to a reaction to see what happens to the rate.",
+            "kind": "predictor",
+            "options": [
+              {
+                "label": "More concentrated acid",
+                "results": [
+                  "**Faster**",
+                  "Reactants in solution"
+                ]
+              },
+              {
+                "label": "Higher pressure of reacting gases",
+                "results": [
+                  "**Faster**",
+                  "Reactions between gases"
+                ]
+              },
+              {
+                "label": "Smaller pieces of solid",
+                "results": [
+                  "**Faster**",
+                  "Solid reactants, with the same mass"
+                ]
+              },
+              {
+                "label": "Higher temperature",
+                "results": [
+                  "**Faster**",
+                  "All reactions"
+                ]
+              },
+              {
+                "label": "Add a catalyst",
+                "results": [
+                  "**Faster**",
+                  "Reactions with a suitable catalyst"
+                ]
+              },
+              {
+                "label": "Lower temperature",
+                "results": [
+                  "**Slower**",
+                  "All reactions"
+                ]
+              },
+              {
+                "label": "Use a larger flask",
+                "results": [
+                  "**Unchanged**",
+                  "A bigger flask does not change any of the five factors"
+                ]
+              }
+            ],
+            "prompt": "Pick a change to the reaction",
+            "result_labels": [
+              "Effect on the rate",
+              "When it applies"
+            ]
+          },
+          "type": "diagram"
+        },
+        {
+          "items": [
+            "Concentration, pressure, surface area, temperature and a catalyst all change the rate.",
+            "Higher concentration, higher pressure, smaller pieces, higher temperature or a catalyst: faster.",
+            "The size of the flask does not change the rate."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "The five factors"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Experiments show a faster rate in two ways: a steeper graph and a shorter time.",
+          "type": "paragraph"
+        },
+        {
+          "diagram": {
+            "alt": "A graph of volume of gas against time for large and small pieces of solid with the same mass. The line for small pieces is steeper at the start and reaches the top sooner. Both lines end at the same volume.",
+            "kind": "line-graph",
+            "markers": [
+              {
+                "label": "Small pieces: steeper, so faster",
+                "x": 25
+              }
+            ],
+            "series": [
+              {
+                "name": "Small pieces",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    25,
+                    0.45
+                  ],
+                  [
+                    50,
+                    0.7
+                  ],
+                  [
+                    100,
+                    0.92
+                  ],
+                  [
+                    150,
+                    1
+                  ],
+                  [
+                    300,
+                    1
+                  ]
+                ]
+              },
+              {
+                "name": "Large pieces",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    50,
+                    0.3
+                  ],
+                  [
+                    100,
+                    0.52
+                  ],
+                  [
+                    150,
+                    0.7
+                  ],
+                  [
+                    200,
+                    0.84
+                  ],
+                  [
+                    250,
+                    0.95
+                  ],
+                  [
+                    300,
+                    1
+                  ]
+                ]
+              }
+            ],
+            "x": {
+              "label": "Time",
+              "max": 300,
+              "min": 0,
+              "ticks": [
+                0,
+                50,
+                100,
+                150,
+                200,
+                250,
+                300
+              ],
+              "unit": "s"
+            },
+            "y": {
+              "label": "Volume of gas collected"
+            }
+          },
+          "type": "diagram"
+        },
+        {
+          "items": [
+            "A faster reaction gives a steeper line at the start of a graph.",
+            "A faster reaction takes **less time** to finish, or to make a cross disappear.",
+            "A lower temperature or a lower concentration makes the time taken longer.",
+            "Both lines end at the same height because the same mass of solid reacts."
+          ],
+          "type": "list"
+        },
+        {
+          "text": "Fair testing",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "Change one factor and keep the others the same.",
+            "To compare particle sizes, use the same mass of the solid, the same volume and concentration of acid, and the same temperature."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "A steeper graph or a shorter time means a faster rate.",
+            "Change only one factor in each experiment."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Seeing the effect in results"
+    }
+  ],
+  "subject": "chemistry",
+  "title": "Factors affecting the rate of reaction"
+}

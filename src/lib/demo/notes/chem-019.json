@@ -1,0 +1,197 @@
+{
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.2.2.3"
+      ],
+      "worked_example": {
+        "answer_points": [
+          "Because sodium chloride contains ions.",
+          "Which are free to move when molten.",
+          "But are fixed in the solid."
+        ],
+        "exemplar_id": "1b0e460d-476c-49e0-a196-4abf17087afe",
+        "marks": 3,
+        "question": "A substance conducts electricity when it has charged particles that are free to move. Explain why sodium chloride conducts electricity when molten but not when solid.",
+        "source": "AQA jun 2022, Paper 1 (F), Q4.6",
+        "tip": "Charged particles is allowed for the second and third points, but name the ions for the first."
+      }
+    }
+  },
+  "checks": [
+    {
+      "a": "It is a giant ionic lattice with strong electrostatic forces between oppositely charged ions. A lot of energy is needed to overcome them.",
+      "marks": 3,
+      "q": "Explain why sodium chloride has a high melting point."
+    },
+    {
+      "a": "Melt it, or dissolve it in water.",
+      "marks": 2,
+      "q": "Give two ways to make solid sodium chloride conduct electricity."
+    },
+    {
+      "a": "Ionic.",
+      "marks": 1,
+      "q": "Gallium oxide has a very high melting point. It does not conduct as a solid but does when molten. Name the type of substance."
+    }
+  ],
+  "concept_id": "chem-019",
+  "format": 1,
+  "key_idea": "Ionic compounds have high melting and boiling points because many strong electrostatic forces must be overcome. They conduct electricity when molten or dissolved, because the ions are then free to move. They do not conduct when solid.",
+  "meta": {
+    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "exemplar_ids": [
+      "1b0e460d-476c-49e0-a196-4abf17087afe",
+      "4cd8021b-2fba-4acd-86d2-7ffb9d9ee1d8",
+      "79ed422c-3bba-40e8-9487-26ffc3153030"
+    ],
+    "spec_point_ids": [
+      "demo-sp-ionic"
+    ],
+    "status": "approved",
+    "written_at": "2026-10-01",
+    "written_by": "claude-sonnet-5-5"
+  },
+  "sections": [
+    {
+      "blocks": [
+        {
+          "text": "Ionic compounds are solids at room temperature with high melting points. This section covers why, in three parts that every answer needs.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "lead": "Structure",
+              "text": "An ionic compound is a giant lattice of oppositely charged ions."
+            },
+            {
+              "lead": "Forces",
+              "text": "There are strong electrostatic forces of attraction between the oppositely charged ions, acting in all directions."
+            },
+            {
+              "lead": "Energy",
+              "text": "A large amount of energy is needed to overcome these forces, so the melting and boiling points are high."
+            }
+          ],
+          "type": "steps"
+        },
+        {
+          "text": "Other properties",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "Ionic solids are hard but brittle.",
+            "Many dissolve in water, but not all of them do.",
+            "Metal chlorides are usually ionic, so they are usually solids at room temperature with high melting points."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "Giant lattice, strong electrostatic forces in all directions, large amount of energy.",
+            "Ionic compounds have high melting and boiling points.",
+            "The forces overcome are between ions. No molecules are involved."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "High melting and boiling points"
+    },
+    {
+      "blocks": [
+        {
+          "text": "A substance conducts electricity when it has charged particles that are free to move. This section covers when an ionic compound does and does not.",
+          "type": "paragraph"
+        },
+        {
+          "columns": [
+            "State",
+            "Ions",
+            "Conducts?"
+          ],
+          "rows": [
+            [
+              "Solid",
+              "Fixed in the lattice, only vibrating",
+              "No"
+            ],
+            [
+              "Molten",
+              "Free to move",
+              "Yes"
+            ],
+            [
+              "Dissolved in water",
+              "Free to move",
+              "Yes"
+            ]
+          ],
+          "type": "table"
+        },
+        {
+          "diagram": {
+            "alt": "Sort each state of an ionic compound into conducts electricity or does not conduct.",
+            "groups": [
+              "Conducts electricity",
+              "Does not conduct"
+            ],
+            "items": [
+              {
+                "group": 1,
+                "text": "Solid sodium chloride"
+              },
+              {
+                "group": 0,
+                "text": "Molten sodium chloride"
+              },
+              {
+                "group": 0,
+                "text": "Sodium chloride dissolved in water"
+              },
+              {
+                "group": 1,
+                "text": "Solid magnesium oxide"
+              },
+              {
+                "group": 0,
+                "text": "Molten lead bromide"
+              },
+              {
+                "group": 1,
+                "text": "Solid lead bromide"
+              },
+              {
+                "group": 0,
+                "text": "Potassium chloride solution"
+              }
+            ],
+            "kind": "sort",
+            "prompt": "Does it conduct electricity? Sort each one."
+          },
+          "type": "diagram"
+        },
+        {
+          "items": [
+            "The charge is carried by the **ions**, not by electrons.",
+            "In a solid the ions cannot move, so no charge flows.",
+            "Metals conduct as solids because they have delocalised electrons. An ionic solid has none."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "Ionic compounds conduct when molten or dissolved, because the ions are free to move.",
+            "They do not conduct as solids, because the ions are held in fixed positions."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Conducting electricity"
+    }
+  ],
+  "subject": "chemistry",
+  "title": "Properties of ionic compounds"
+}

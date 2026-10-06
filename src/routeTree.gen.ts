@@ -63,6 +63,7 @@ import { Route as DemoStudentVideosRouteImport } from './routes/demo/student/vid
 import { Route as NotesPreviewCompareConceptIdRouteImport } from './routes/notes-preview/compare.$conceptId'
 import { Route as DemoStudentHomeworkHomeworkIdRouteImport } from './routes/demo/student/homework_.$homeworkId'
 import { Route as DemoStudentMcqSetIdRouteImport } from './routes/demo/student/mcq.$setId'
+import { Route as DemoStudentNotesConceptIdRouteImport } from './routes/demo/student/notes.$conceptId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -341,6 +342,12 @@ const DemoStudentMcqSetIdRoute = DemoStudentMcqSetIdRouteImport.update({
   path: '/mcq/$setId',
   getParentRoute: () => DemoStudentRouteRoute,
 } as any)
+const DemoStudentNotesConceptIdRoute =
+  DemoStudentNotesConceptIdRouteImport.update({
+    id: '/notes/$conceptId',
+    path: '/notes/$conceptId',
+    getParentRoute: () => DemoStudentRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -396,6 +403,7 @@ export interface FileRoutesByFullPath {
   '/notes-preview/compare/$conceptId': typeof NotesPreviewCompareConceptIdRoute
   '/demo/student/homework/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
+  '/demo/student/notes/$conceptId': typeof DemoStudentNotesConceptIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -450,6 +458,7 @@ export interface FileRoutesByTo {
   '/notes-preview/compare/$conceptId': typeof NotesPreviewCompareConceptIdRoute
   '/demo/student/homework/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
+  '/demo/student/notes/$conceptId': typeof DemoStudentNotesConceptIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -507,6 +516,7 @@ export interface FileRoutesById {
   '/notes-preview/compare/$conceptId': typeof NotesPreviewCompareConceptIdRoute
   '/demo/student/homework_/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
+  '/demo/student/notes/$conceptId': typeof DemoStudentNotesConceptIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -564,6 +574,7 @@ export interface FileRouteTypes {
     | '/notes-preview/compare/$conceptId'
     | '/demo/student/homework/$homeworkId'
     | '/demo/student/mcq/$setId'
+    | '/demo/student/notes/$conceptId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -618,6 +629,7 @@ export interface FileRouteTypes {
     | '/notes-preview/compare/$conceptId'
     | '/demo/student/homework/$homeworkId'
     | '/demo/student/mcq/$setId'
+    | '/demo/student/notes/$conceptId'
   id:
     | '__root__'
     | '/'
@@ -674,6 +686,7 @@ export interface FileRouteTypes {
     | '/notes-preview/compare/$conceptId'
     | '/demo/student/homework_/$homeworkId'
     | '/demo/student/mcq/$setId'
+    | '/demo/student/notes/$conceptId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -1074,6 +1087,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoStudentMcqSetIdRouteImport
       parentRoute: typeof DemoStudentRouteRoute
     }
+    '/demo/student/notes/$conceptId': {
+      id: '/demo/student/notes/$conceptId'
+      path: '/notes/$conceptId'
+      fullPath: '/demo/student/notes/$conceptId'
+      preLoaderRoute: typeof DemoStudentNotesConceptIdRouteImport
+      parentRoute: typeof DemoStudentRouteRoute
+    }
   }
 }
 
@@ -1175,6 +1195,7 @@ interface DemoStudentRouteRouteChildren {
   DemoStudentVideosRoute: typeof DemoStudentVideosRoute
   DemoStudentHomeworkHomeworkIdRoute: typeof DemoStudentHomeworkHomeworkIdRoute
   DemoStudentMcqSetIdRoute: typeof DemoStudentMcqSetIdRoute
+  DemoStudentNotesConceptIdRoute: typeof DemoStudentNotesConceptIdRoute
 }
 
 const DemoStudentRouteRouteChildren: DemoStudentRouteRouteChildren = {
@@ -1188,6 +1209,7 @@ const DemoStudentRouteRouteChildren: DemoStudentRouteRouteChildren = {
   DemoStudentVideosRoute: DemoStudentVideosRoute,
   DemoStudentHomeworkHomeworkIdRoute: DemoStudentHomeworkHomeworkIdRoute,
   DemoStudentMcqSetIdRoute: DemoStudentMcqSetIdRoute,
+  DemoStudentNotesConceptIdRoute: DemoStudentNotesConceptIdRoute,
 }
 
 const DemoStudentRouteRouteWithChildren =
