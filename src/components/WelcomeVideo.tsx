@@ -32,7 +32,7 @@ const LOAD_GRACE_MS = 5000;
  * the controls allows. The heading, video and controls all share it.
  */
 const WIDTH =
-  "w-[min(100%,calc((100dvh_-_12.5rem)*16/9))] short:w-[min(100%,calc((100dvh_-_4.5rem)*16/9))]";
+  "w-[min(100%,calc((100dvh_-_13rem)*16/9))] short:w-[min(100%,calc((100dvh_-_4.5rem)*16/9))]";
 
 function leaveFullscreen() {
   if (document.fullscreenElement) void document.exitFullscreen().catch(() => {});
