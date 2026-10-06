@@ -1,5 +1,7 @@
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import type { QuestionMark } from "@/hooks/data/useAnswerMarking";
+import { SciText } from "@/components/Shared";
+import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 
 /**
  * Marking a built-in homework question by question.
@@ -29,11 +31,15 @@ export function AnswerMarkingList({
       {questions.map((q, i) => {
         const a = answers[q.id];
         const m = marks[q.id] ?? { marks: "", feedback: "" };
+        // Read with the question, so "Cl3" beside a Cl₂ question reads Cl₃.
+        const notation = `${q.prompt}\n${q.mark_scheme ?? ""}`;
         return (
           <li key={q.id} className="rounded-xl bg-card border border-border p-4 space-y-2">
             <div className="flex items-start gap-2">
               <span className="text-xs font-semibold text-muted-foreground shrink-0">Q{i + 1}</span>
-              <p className="text-sm font-medium whitespace-pre-wrap flex-1">{q.prompt}</p>
+              <p className="text-sm font-medium whitespace-pre-wrap flex-1">
+                <SciText text={q.prompt} />
+              </p>
               <span className="text-[11px] text-muted-foreground shrink-0">[{q.marks}]</span>
             </div>
             <div className="rounded-lg bg-muted/50 border border-border px-3 py-2">
@@ -41,18 +47,24 @@ export function AnswerMarkingList({
                 Student's answer
               </p>
               <p className="text-sm whitespace-pre-wrap">
-                {a?.answer_text || <span className="italic text-muted-foreground">Left blank</span>}
+                {a?.answer_text ? (
+                  <SciText text={a.answer_text} context={notation} />
+                ) : (
+                  <span className="italic text-muted-foreground">Left blank</span>
+                )}
               </p>
             </div>
 
             {q.mark_scheme && (
               <details className="text-xs">
                 <summary className="cursor-pointer text-muted-foreground">Mark scheme</summary>
-                <p className="mt-1 whitespace-pre-wrap text-muted-foreground">{q.mark_scheme}</p>
+                <p className="mt-1 whitespace-pre-wrap text-muted-foreground">
+                  <SciText text={q.mark_scheme} context={notation} />
+                </p>
               </details>
             )}
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-start gap-3">
               <label className="inline-flex items-center gap-2 text-xs text-muted-foreground">
                 Marks
                 <input
@@ -63,16 +75,20 @@ export function AnswerMarkingList({
                   value={m.marks}
                   onChange={(e) => setMark(q.id, { marks: e.target.value })}
                   placeholder={`/${q.marks}`}
-                  className="w-20 h-11 sm:h-9 rounded-lg premium-input px-2 text-sm"
+                  className="w-20 h-11 sm:pointer-fine:h-9 rounded-lg premium-input px-2 text-sm"
                 />
               </label>
-              <input
-                value={m.feedback}
-                onChange={(e) => setMark(q.id, { feedback: e.target.value })}
-                placeholder="Comment on this answer (optional)"
-                aria-label="Comment on this answer"
-                className="flex-1 min-w-48 h-11 sm:h-9 rounded-lg premium-input px-3 text-sm"
-              />
+              <div className="flex-1 min-w-48">
+                <SciAnswerBox
+                  value={m.feedback}
+                  onValueChange={(feedback) => setMark(q.id, { feedback })}
+                  context={notation}
+                  rows={1}
+                  placeholder="Comment on this answer (optional)"
+                  aria-label="Comment on this answer"
+                  className="w-full min-h-11 sm:pointer-fine:min-h-9 rounded-lg premium-input px-3 py-2 text-sm"
+                />
+              </div>
             </div>
           </li>
         );

@@ -3,11 +3,14 @@ import { useState } from "react";
 import { type PlanPoint, type WeeklyPlan } from "@/lib/planner/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { type PointCoverage, type PointWorkItem } from "@/lib/planner/coverage";
+import { reviewLock } from "@/lib/planner/reviewLock";
 import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import { VideoModal } from "@/components/VideoPlayer";
 import { type Activity } from "./useWeekPlan";
 import { useWeekLanes } from "./useWeekLanes";
 import { WeekPointRow } from "./WeekPointRow";
+import { ReviewMoreStrip } from "./ReviewMoreStrip";
+import { type ReviewMore } from "./useReviewMore";
 import {
   NewLearningLane,
   ReturningLane,
@@ -36,6 +39,7 @@ export function ThisWeekPanel({
   isPast,
   showCoverage,
   onFocusAgain,
+  reviewMore,
 }: {
   plan: WeeklyPlan | null;
   points: PlanPoint[];
@@ -47,6 +51,8 @@ export function ThisWeekPanel({
   isPast: boolean;
   showCoverage: boolean;
   onFocusAgain?: (point: PlanPoint) => void;
+  /** "Review more now", where the surface offers it (the current week). */
+  reviewMore?: ReviewMore;
 }) {
   // The video a Watch chip has opened, if any. Same modal the checklist uses —
   // a point's video plays where the student pressed it, not on another page.
@@ -65,7 +71,6 @@ export function ThisWeekPanel({
     upcomingCatchUp,
     assigned,
     completed,
-    next,
   } = useWeekLanes({ plan, points, activity, coverage, roadmap, weekStart });
 
   const row = (p: PlanPoint) => (
@@ -105,9 +110,13 @@ export function ThisWeekPanel({
         <WeekProgressCard
           assigned={assigned}
           completed={completed}
-          next={next}
-          activity={activity}
-          coverage={coverage}
+          lock={reviewLock({
+            weekStart,
+            entries: points.map((p) => ({
+              coverage: coverage.get(p.spec_point_id),
+              activity: activity.get(p.spec_point_id),
+            })),
+          })}
         />
       )}
 
@@ -128,6 +137,8 @@ export function ThisWeekPanel({
         />
         <RevisionLane focus={focus} focusPointCount={focusPointCount} row={row} />
       </div>
+
+      {reviewMore && <ReviewMoreStrip more={reviewMore} />}
 
       {tutor.length > 0 && <TutorLane tutor={tutor} row={row} />}
       {yours.length > 0 && <YoursLane yours={yours} row={row} />}

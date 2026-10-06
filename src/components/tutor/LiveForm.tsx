@@ -1,11 +1,10 @@
 import { Field, inputCls, submitBtn } from "./Field";
 import { TaxonomyFields } from "./TaxonomyFields";
-import { SpecPointSelect } from "./SpecPointSelect";
 import { Video, Loader2, Sparkles } from "lucide-react";
 import { useLiveForm, type LiveFormProps } from "./useLiveForm";
-import { AiSuggestRow, BroadcastToggle, WeekLinkBanner } from "./LiveFormParts";
+import { BroadcastToggle } from "./LiveFormParts";
 
-export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps) {
+export function LiveForm({ userId, taxonomy }: LiveFormProps) {
   const {
     title,
     setTitle,
@@ -15,23 +14,15 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
     setStartsAt,
     joinUrl,
     setJoinUrl,
-    specPointIds,
-    setSpecPointIds,
     loading,
     generatingLink,
     generatingBlurb,
-    suggesting,
     broadcastWhatsApp,
     setBroadcastWhatsApp,
-    validStart,
-    weekLabel,
-    weekLoading,
-    weekFocus,
     generateZoomLink,
     generateDescription,
-    suggestFromDescription,
     submit,
-  } = useLiveForm({ userId, taxonomy, linkToWeek });
+  } = useLiveForm({ userId, taxonomy });
 
   return (
     <form onSubmit={submit} className="space-y-4">
@@ -94,7 +85,7 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
             onClick={generateDescription}
             disabled={generatingBlurb}
             className="self-end min-h-11 sm:min-h-0 sm:absolute sm:right-1.5 sm:top-1.5 px-2.5 py-1 rounded bg-primary/10 hover:bg-primary/15 text-primary text-xs font-semibold inline-flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-70"
-            title="Draft a description with AI from the title & spec points"
+            title="Draft a description with AI from the title"
           >
             {generatingBlurb ? (
               <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -107,21 +98,6 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
       </Field>
 
       <TaxonomyFields {...taxonomy} hideBoard />
-
-      {/* Week link banner — only in dashboard mode, once a date is picked. */}
-      {linkToWeek && validStart && (
-        <WeekLinkBanner weekLoading={weekLoading} weekFocus={weekFocus} weekLabel={weekLabel} />
-      )}
-
-      <AiSuggestRow suggesting={suggesting} suggestFromDescription={suggestFromDescription} />
-
-      <SpecPointSelect
-        subject={taxonomy.subject}
-        level={taxonomy.level}
-        value={specPointIds}
-        onChange={setSpecPointIds}
-        required
-      />
 
       {/* Broadcast Toggle Options */}
       <BroadcastToggle

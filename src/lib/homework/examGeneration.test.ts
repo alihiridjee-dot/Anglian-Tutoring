@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import {
   buildGenerationPrompt,
+  generationSchema,
   selectExamples,
   validateQuestions,
   type ExamExample,
@@ -58,6 +59,16 @@ const written = {
   marks: 2,
   answer_type: "long" as const,
   mark_scheme: "Greater particle kinetic energy (1); more frequent successful collisions (1).",
+  assessment_objectives: ["AO1"],
+  mathematical_demand: false,
+  practical_demand: false,
+};
+
+const genetics = {
+  question: "Which genotype is homozygous recessive?",
+  options: ["TT", "Tt", "tt", "Tt and tt"],
+  correct_index: 2,
+  explanation: "Homozygous recessive means two copies of the recessive allele: tt.",
   assessment_objectives: ["AO1"],
   mathematical_demand: false,
   practical_demand: false,
@@ -175,6 +186,36 @@ describe("exam generation selection", () => {
     expect(result.user).toContain("Rate calculations");
     expect(result.user).toContain("exactly four distinct");
   });
+
+  test("shows the model past-paper text in proper notation", () => {
+    const result = buildGenerationPrompt(
+      {
+        ...context,
+        examples: [
+          example("a", {
+            prompt: "Balance: H2 + O2 -> H2O",
+            mark_scheme: "Mg2+ and SO4^2- (1)",
+            options: [{ letter: "A", text: "25 cm3" }],
+          }),
+        ],
+      },
+      1,
+      "written",
+    );
+    expect(result.user).toContain("H₂ + O₂ → H₂O");
+    expect(result.user).toContain("Mg²⁺ and SO₄²⁻ (1)");
+    expect(result.user).toContain("25 cm³");
+    expect(result.system).toContain("Mg²⁺");
+  });
+  test("keeps options stored as bare strings as strings (every AQA paper)", () => {
+    const result = buildGenerationPrompt(
+      { ...context, examples: [example("a", { options: ["H2O", "CO2", "O2", "N2"] })] },
+      1,
+      "mcq",
+    );
+    expect(result.user).toContain('"options":["H₂O","CO₂","O₂","N₂"]');
+    expect(result.user).not.toContain('"0":"H"');
+  });
 });
 
 describe("generated set validation", () => {
@@ -210,10 +251,121 @@ describe("generated set validation", () => {
     for (const patch of [
       { correct_index: 4 },
       { correct_index: 0.5 },
-      { options: ["A", "a", "C", "D"] },
+      { options: ["A", "A", "C", "D"] },
       { explanation: "" },
     ]) {
       expect(() => validateQuestions({ questions: [{ ...q, ...patch }] }, 1, "mcq")).toThrow();
     }
+  });
+
+  test("writes every field in proper notation, whatever the model sent", () => {
+    const mcq = {
+      question: "Magnesium ions are Mg2+ and oxide ions are O2-. What is the formula?",
+      options: ["MgO2", "Mg2O", "MgO", "Mg2O2"],
+      correct_index: 2,
+      explanation: "The 2+ and 2- charges cancel, so MgO.",
+      assessment_objectives: ["AO1"],
+      mathematical_demand: false,
+      practical_demand: false,
+    };
+    const [out] = validateQuestions({ questions: [mcq] }, 1, "mcq");
+    expect(out.question).toBe(
+      "Magnesium ions are Mg²⁺ and oxide ions are O²⁻. What is the formula?",
+    );
+    expect(out.options).toEqual(["MgO₂", "Mg₂O", "MgO", "Mg₂O₂"]);
+    expect(out.correct_index).toBe(2);
+    const [w] = validateQuestions(
+      { questions: [{ ...written, prompt: "25 cm3 of acid", mark_scheme: "CO2 (1)" }] },
+      1,
+      "written",
+    );
+    expect(w.prompt).toBe("25 cm³ of acid");
+    expect(w.mark_scheme).toBe("CO₂ (1)");
+  });
+  test("options that differ only in notation are duplicates", () => {
+    const q = {
+      question: "Which is water?",
+      options: ["H2O", "H₂O", "CO₂", "O₂"],
+      correct_index: 0,
+      explanation: "Water is H₂O.",
+      assessment_objectives: ["AO1"],
+      mathematical_demand: false,
+      practical_demand: false,
+    };
+    expect(() => validateQuestions({ questions: [q] }, 1, "mcq")).toThrow();
+  });
+  test("options that differ only in case are different answers", () => {
+    expect(validateQuestions({ questions: [genetics] }, 1, "mcq")).toEqual([genetics]);
+    const formulas = { ...genetics, options: ["Co", "CO", "C", "O"], correct_index: 1 };
+    expect(validateQuestions({ questions: [formulas] }, 1, "mcq")).toEqual([formulas]);
+  });
+  test("exact duplicates still fail, however they are spaced", () => {
+    for (const options of [
+      ["TT", "Tt", "tt", "TT"],
+      ["TT", "Tt", "tt", " tt "],
+      ["Cell wall", "Cell  wall", "Nucleus", "Ribosome"],
+    ]) {
+      expect(() => validateQuestions({ questions: [{ ...genetics, options }] }, 1, "mcq")).toThrow(
+        "Question 1 has two identical options",
+      );
+    }
+  });
+  test("a failure names the rule and the question it is in", () => {
+    const second = { ...genetics, question: "Which genotype is heterozygous?", correct_index: 1 };
+    const mcq = (patch: object) =>
+      validateQuestions({ questions: [genetics, { ...second, ...patch }] }, 2, "mcq");
+    expect(() => mcq({ correct_index: 4 })).toThrow(
+      "Question 2's answer key is not one of its four options",
+    );
+    expect(() => mcq({ options: ["TT", "Tt", "tt"] })).toThrow(
+      "Question 2 does not have four options",
+    );
+    expect(() => mcq({ explanation: " " })).toThrow("Question 2 has no explanation");
+    expect(() => mcq({ question: genetics.question })).toThrow("Question 2 repeats question 1");
+    const sheet = (patch: object) =>
+      validateQuestions(
+        { questions: [written, { ...written, prompt: "Describe a fair test.", ...patch }] },
+        2,
+        "written",
+      );
+    expect(() => sheet({ marks: 31 })).toThrow("Question 2's marks are not a whole number");
+    expect(() => sheet({ mark_scheme: "" })).toThrow("Question 2 has no mark scheme");
+    expect(() => validateQuestions({ questions: [genetics, null] }, 2, "mcq")).toThrow(
+      "Question 2 is not a question",
+    );
+  });
+  test("a shared stem with different options is not a repeat", () => {
+    const stem = { ...genetics, question: "Which statement is correct?" };
+    const other = { ...stem, options: ["Mitosis", "Meiosis", "Fission", "Budding"] };
+    expect(validateQuestions({ questions: [stem, other] }, 2, "mcq")).toHaveLength(2);
+    expect(() => validateQuestions({ questions: [stem, { ...stem }] }, 2, "mcq")).toThrow(
+      "Question 2 repeats question 1",
+    );
+  });
+  test("extra questions are dropped; too few still fail", () => {
+    const second = { ...genetics, question: "Which genotype is heterozygous?" };
+    expect(validateQuestions({ questions: [genetics, second] }, 1, "mcq")).toEqual([genetics]);
+    expect(() => validateQuestions({ questions: [genetics] }, 2, "mcq")).toThrow(
+      "AI returned the wrong number of questions",
+    );
+  });
+  test("questions that differ only in case are different questions", () => {
+    const tt = { ...genetics, question: "A plant has genotype Tt. Which gametes can it make?" };
+    const lower = { ...tt, question: "A plant has genotype tt. Which gametes can it make?" };
+    expect(validateQuestions({ questions: [tt, lower] }, 2, "mcq")).toHaveLength(2);
+    const spaced = { ...tt, question: "A plant has  genotype Tt.  Which gametes can it make?" };
+    expect(() => validateQuestions({ questions: [tt, spaced] }, 2, "mcq")).toThrow(
+      "Question 2 repeats question 1",
+    );
+  });
+  test("the schema lists the only marks and answer keys a question can have", () => {
+    const item = (format: "mcq" | "written") =>
+      (
+        generationSchema(format) as {
+          properties: { questions: { items: { properties: Record<string, { enum?: unknown }> } } };
+        }
+      ).properties.questions.items.properties;
+    expect(item("written").marks.enum).toEqual(Array.from({ length: 30 }, (_, i) => i + 1));
+    expect(item("mcq").correct_index.enum).toEqual([0, 1, 2, 3]);
   });
 });

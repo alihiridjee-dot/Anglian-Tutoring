@@ -1,3 +1,4 @@
+import { useId } from "react";
 import { useReducedMotion } from "motion/react";
 import { ElectrolysisCell } from "@/components/notes/NoteScenes";
 import type {
@@ -43,8 +44,12 @@ const SCENE_FILL: Record<SceneColour, string> = {
 
 // ── Test tubes ──────────────────────────────────────────────────────────────
 
+/** White and cream look like the card behind them, so they are drawn cloudy: speckled, with an edge. */
+const CLOUDY: readonly SceneColour[] = ["white", "cream"];
+
 export function TubesView({ s }: { s: TubesScene }) {
   const still = !!useReducedMotion();
+  const cloud = `cloud-${useId().replace(/:/g, "")}`;
   const w = 70,
     gap = 26;
   const W = Math.max(260, s.tubes.length * (w + gap) + gap);
@@ -60,6 +65,12 @@ export function TubesView({ s }: { s: TubesScene }) {
         )
         .join("; ")}
     >
+      <defs>
+        <pattern id={cloud} width="6" height="6" patternUnits="userSpaceOnUse">
+          <circle cx="1.5" cy="1.5" r="1" fill="var(--foreground)" fillOpacity=".3" />
+          <circle cx="4.5" cy="4.5" r="1" fill="var(--foreground)" fillOpacity=".3" />
+        </pattern>
+      </defs>
       {s.tubes.map((t, i) => {
         const x = x0 + i * (w + gap);
         const r = w / 2 - 10;
@@ -77,12 +88,24 @@ export function TubesView({ s }: { s: TubesScene }) {
               fill={SCENE_FILL[t.colour]}
               style={{ transition: "fill .4s" }}
             />
+            {CLOUDY.includes(t.colour) ? (
+              <path
+                d={`M${x + 12} 80 V150 a${r - 2} ${r - 2} 0 0 0 ${w - 24} 0 V80 Z`}
+                fill={`url(#${cloud})`}
+              />
+            ) : null}
             {t.precipitate ? (
               <path
                 d={`M${x + 13} 150 a${r - 3} ${r - 3} 0 0 0 ${w - 26} 0 Z`}
                 fill={SCENE_FILL[t.precipitate]}
                 stroke="var(--foreground)"
-                strokeOpacity=".2"
+                strokeOpacity={CLOUDY.includes(t.precipitate) ? ".5" : ".2"}
+              />
+            ) : null}
+            {t.precipitate && CLOUDY.includes(t.precipitate) ? (
+              <path
+                d={`M${x + 13} 150 a${r - 3} ${r - 3} 0 0 0 ${w - 26} 0 Z`}
+                fill={`url(#${cloud})`}
               />
             ) : null}
             {t.bubbles
@@ -179,147 +202,156 @@ export function FlameView({ colour }: { colour: SceneColour }) {
 
 // ── Energy profile ──────────────────────────────────────────────────────────
 
+/** A vertical arrow from y1 to y2, with its head at y2. */
+function VArrow({ x, y1, y2, dashed }: { x: number; y1: number; y2: number; dashed?: boolean }) {
+  const dir = Math.sign(y2 - y1) || 1;
+  return (
+    <g stroke="var(--tint)" fill="var(--tint)">
+      <line
+        x1={x}
+        y1={y1}
+        x2={x}
+        y2={y2 - dir * 7}
+        strokeWidth="2.5"
+        strokeDasharray={dashed ? "5 4" : undefined}
+      />
+      <path d={`M${x} ${y2} L${x - 5} ${y2 - dir * 9} L${x + 5} ${y2 - dir * 9} Z`} stroke="none" />
+    </g>
+  );
+}
+
+/**
+ * A reaction profile drawn the way exam papers draw it: activation energy is
+ * an arrow from the reactants' energy straight up to the top of the peak, and
+ * the overall energy change is an arrow from reactants to products.
+ */
 export function EnergyProfileView({ s }: { s: EnergyProfileScene }) {
   const exo = s.direction === "exothermic";
-  const R = exo ? 120 : 165,
-    P = exo ? 165 : 110,
-    peak = 50,
-    cat = 88;
-  const path = (top: number) =>
-    `M50 ${R} H120 C165 ${R}, 175 ${top}, 210 ${top} S255 ${P}, 300 ${P} H370`;
+  const R = exo ? 165 : 230,
+    P = exo ? 230 : 165,
+    top = 55,
+    cat = 110,
+    peakX = 230,
+    changeX = 405,
+    axisY = 265;
+  const hump = (t: number) => `C185 ${R}, 195 ${t}, ${peakX} ${t} S275 ${P}, 320 ${P}`;
+  const amber = "color-mix(in oklab, var(--tint) 70%, var(--primary-deep))";
+  const label = { fontSize: 12, fontWeight: 800 } as const;
+  const H = s.catalyst ? 318 : 298;
   return (
     <svg
-      viewBox="0 0 420 230"
-      className="mx-auto w-full max-w-[520px]"
+      viewBox={`0 0 460 ${H}`}
+      className="mx-auto w-full max-w-[540px]"
       role="img"
-      aria-label={`${exo ? "Exothermic" : "Endothermic"} reaction profile${s.catalyst ? ", with the lower path a catalyst gives" : ""}`}
+      aria-label={`${exo ? "Exothermic" : "Endothermic"} reaction profile. The products have ${exo ? "less" : "more"} energy than the reactants. Activation energy is the arrow from the reactants up to the peak${s.catalyst ? "; a catalyst gives a lower peak, so a smaller activation energy" : ""}.`}
     >
-      <line
-        x1="40"
-        y1="20"
-        x2="40"
-        y2="200"
-        stroke="var(--foreground)"
-        strokeOpacity=".5"
-        strokeWidth="2"
-      />
-      <line
-        x1="40"
-        y1="200"
-        x2="405"
-        y2="200"
-        stroke="var(--foreground)"
-        strokeOpacity=".5"
-        strokeWidth="2"
-      />
+      {/* axes */}
+      <g stroke="var(--foreground)" strokeOpacity=".55" strokeWidth="2" fill="none">
+        <path d={`M48 ${axisY} V22 M42 30 L48 20 L54 30`} />
+        <path d={`M48 ${axisY} H440 M432 ${axisY - 6} L442 ${axisY} L432 ${axisY + 6}`} />
+      </g>
       <text
-        x="20"
-        y="110"
-        transform="rotate(-90 20 110)"
+        x="24"
+        y={(axisY + 22) / 2}
+        transform={`rotate(-90 24 ${(axisY + 22) / 2})`}
         textAnchor="middle"
-        fontSize="12"
-        fontWeight="700"
         fill="var(--foreground)"
+        {...label}
       >
         Energy
       </text>
-      <text
-        x="220"
-        y="220"
-        textAnchor="middle"
-        fontSize="12"
-        fontWeight="700"
-        fill="var(--foreground)"
-      >
+      <text x="244" y={axisY + 22} textAnchor="middle" fill="var(--foreground)" {...label}>
         Progress of reaction
       </text>
-      <path d={path(peak)} fill="none" stroke="var(--tint)" strokeWidth="3.5" />
+
+      {/* the reactants' energy, carried across so both arrows can start from it */}
+      <line
+        x1="140"
+        y1={R}
+        x2={changeX + 8}
+        y2={R}
+        stroke="var(--foreground)"
+        strokeOpacity=".45"
+        strokeDasharray="4 4"
+      />
+
       {s.catalyst ? (
         <path
-          d={path(cat)}
+          d={`M140 ${R} ${hump(cat)}`}
           fill="none"
           stroke="var(--tint)"
           strokeWidth="2.5"
-          strokeDasharray="6 5"
-          opacity=".8"
+          strokeDasharray="7 5"
         />
       ) : null}
-      <text
-        x="85"
-        y={R - 8}
-        textAnchor="middle"
-        fontSize="12"
-        fontWeight="800"
-        fill="var(--foreground)"
-      >
+      <path
+        d={`M60 ${R} H140 ${hump(top)} H420`}
+        fill="none"
+        stroke="var(--tint)"
+        strokeWidth="3.5"
+      />
+
+      <text x="62" y={R - 9} fill="var(--foreground)" {...label}>
         Reactants
       </text>
       <text
-        x="300"
-        y={P + (exo ? 18 : -8)}
+        x="362"
+        y={exo ? P + 20 : P - 9}
         textAnchor="middle"
-        fontSize="12"
-        fontWeight="800"
         fill="var(--foreground)"
+        {...label}
       >
         Products
       </text>
+
+      {/* activation energy: reactants up to the top of the peak */}
       <g className="tint-amber">
-        <line x1="150" y1={R} x2="150" y2={peak + 2} stroke="var(--tint)" strokeWidth="2" />
-        <text
-          x="145"
-          y={(R + peak) / 2 + 4}
-          textAnchor="end"
-          fontSize="11"
-          fontWeight="800"
-          fill="color-mix(in oklab, var(--tint) 70%, var(--primary-deep))"
-        >
+        {s.catalyst ? (
+          <>
+            <VArrow x={peakX - 7} y1={R} y2={top + 1} />
+            <VArrow x={peakX + 7} y1={R} y2={cat + 1} dashed />
+          </>
+        ) : (
+          <VArrow x={peakX} y1={R} y2={top} />
+        )}
+        <text x="176" y={(R + top) / 2 - 4} textAnchor="end" fill={amber} {...label}>
           Activation
         </text>
-        <text
-          x="145"
-          y={(R + peak) / 2 + 17}
-          textAnchor="end"
-          fontSize="11"
-          fontWeight="800"
-          fill="color-mix(in oklab, var(--tint) 70%, var(--primary-deep))"
-        >
+        <text x="176" y={(R + top) / 2 + 11} textAnchor="end" fill={amber} {...label}>
           energy
         </text>
       </g>
+
+      {/* overall energy change: reactants to products */}
       <g className={exo ? "tint-rose" : "tint-primary"}>
-        <line x1="388" y1={R} x2="388" y2={P} stroke="var(--tint)" strokeWidth="2.5" />
-        <line
-          x1="300"
-          y1={R}
-          x2="390"
-          y2={R}
-          stroke="var(--tint)"
-          strokeOpacity=".5"
-          strokeDasharray="4 3"
-        />
-        <text
-          x="380"
-          y={(R + P) / 2 + 4}
-          textAnchor="end"
-          fontSize="11"
-          fontWeight="800"
-          fill="var(--tint)"
-        >
-          {exo ? "energy released" : "energy taken in"}
+        <VArrow x={changeX} y1={R} y2={P} />
+        <text x={changeX - 9} y={(R + P) / 2 - 3} textAnchor="end" fill="var(--tint)" {...label}>
+          Energy
+        </text>
+        <text x={changeX - 9} y={(R + P) / 2 + 12} textAnchor="end" fill="var(--tint)" {...label}>
+          {exo ? "released" : "taken in"}
         </text>
       </g>
+
       {s.catalyst ? (
-        <text
-          x="210"
-          y={cat + 16}
-          textAnchor="middle"
-          fontSize="11"
-          fontWeight="800"
-          fill="var(--tint)"
-        >
-          catalyst
-        </text>
+        <g fontSize="12" fontWeight="700" fill="var(--foreground)">
+          <line x1="96" y1={H - 12} x2="124" y2={H - 12} stroke="var(--tint)" strokeWidth="3.5" />
+          <text x="130" y={H - 8}>
+            Without a catalyst
+          </text>
+          <line
+            x1="262"
+            y1={H - 12}
+            x2="290"
+            y2={H - 12}
+            stroke="var(--tint)"
+            strokeWidth="2.5"
+            strokeDasharray="7 5"
+          />
+          <text x="296" y={H - 8}>
+            With a catalyst
+          </text>
+        </g>
       ) : null}
     </svg>
   );
@@ -823,7 +855,8 @@ export function PhScaleView({ ph }: { ph: number }) {
         : p >= 11
           ? "strongly alkaline"
           : "weakly alkaline";
-  const x = 20 + (p / 14) * 420;
+  // The centre of pH p's block, so the pointer sits over its number.
+  const x = 34 + p * 28;
   return (
     <svg
       viewBox="0 0 460 120"

@@ -1,16 +1,16 @@
 import { useMemo } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { Video, Radio } from "lucide-react";
 import { useNow } from "@/hooks/useNow";
 import {
   DAY_MS,
   MINUTE_MS as MINUTE,
-  fetchLiveSessions,
+  demoJoinClick,
   nextSession,
   sessionStartMs,
   sessionTiming,
 } from "@/lib/live/liveSessions";
+import { useMyLiveSessions } from "@/components/live/useMyLiveSessions";
 
 function formatShort(diff: number) {
   const days = Math.floor(diff / DAY_MS);
@@ -28,13 +28,10 @@ function formatShort(diff: number) {
  * nothing otherwise, so the ribbon stays clean when there's no session soon.
  *
  * Shares the ["live","countdown"] query with the This Week card, so both agree
- * and there's no extra fetch.
+ * and there's no extra fetch, and shows only sessions on the student's course.
  */
 export function HeaderLiveButton({ liveHref }: { liveHref: "/live" | "/demo/student/live" }) {
-  const { data } = useQuery({
-    queryKey: ["live", "countdown"],
-    queryFn: () => fetchLiveSessions(),
-  });
+  const { data } = useMyLiveSessions();
   // This chip shows minutes, on every page of the app — it has no use for a
   // one-second tick.
   const now = useNow(15_000);
@@ -59,6 +56,7 @@ export function HeaderLiveButton({ liveHref }: { liveHref: "/live" | "/demo/stud
         href={next.join_url}
         target="_blank"
         rel="noreferrer"
+        onClick={demoJoinClick()}
         title={`${next.title}${isLive ? " — live now" : " — starting soon"}`}
         className={`tap-target inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-bold text-white shadow-sm transition ${
           isLive ? "bg-emerald-600 hover:bg-emerald-700" : "bg-[#2D8CFF] hover:bg-[#2681F2]"
@@ -72,8 +70,11 @@ export function HeaderLiveButton({ liveHref }: { liveHref: "/live" | "/demo/stud
         ) : (
           <Video className="w-3.5 h-3.5" />
         )}
-        <span className="hidden sm:inline">{isLive ? "Join live" : `Join · ${remaining}`}</span>
-        <span className="sm:hidden">Join</span>
+        {/* The short label on a phone either way up: the header is one row. */}
+        <span className="hidden sm:inline short:hidden">
+          {isLive ? "Join live" : `Join · ${remaining}`}
+        </span>
+        <span className="sm:hidden short:inline">Join</span>
       </a>
     );
   }
@@ -86,8 +87,8 @@ export function HeaderLiveButton({ liveHref }: { liveHref: "/live" | "/demo/stud
       className="tap-target inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-semibold border border-[#2D8CFF]/40 bg-[#2D8CFF]/10 text-[#2D8CFF] hover:bg-[#2D8CFF]/15 transition"
     >
       <Radio className="w-3.5 h-3.5 animate-pulse" />
-      <span className="hidden sm:inline">Live in {remaining}</span>
-      <span className="sm:hidden">{remaining}</span>
+      <span className="hidden sm:inline short:hidden">Live in {remaining}</span>
+      <span className="sm:hidden short:inline">{remaining}</span>
     </Link>
   );
 }

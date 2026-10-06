@@ -2,12 +2,11 @@ import { useMemo, useState, type ReactNode } from "react";
 import { CalendarRange, Sparkles } from "lucide-react";
 import { ThisWeekPanel } from "@/components/planner/ThisWeekPanel";
 import { DoNowPanel } from "@/components/planner/DoNowPanel";
-import { SubjectToggle } from "@/components/Shared";
 import { demoWeek } from "@/lib/demo/plannerDemo";
-import { DEMO_ENROLMENTS } from "@/lib/demo/studentDemo";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { mondayOf, weekRangeLabel } from "@/lib/planner/week";
 import type { SubjectV } from "@/lib/curriculum/taxonomy";
+import { useActiveSubject } from "@/hooks/useActiveSubject";
 
 /**
  * The showcase's "This week" — the planner a real student sees on their
@@ -20,11 +19,12 @@ import type { SubjectV } from "@/lib/curriculum/taxonomy";
  * Ticking a point off is local state only: it lasts until the page is left.
  *
  * @param after Rendered below the checklist for the same subject — the planner
- *   page hangs its road-to-the-exam view here, so one toggle drives both.
+ *   page hangs its road-to-the-exam view here, so the header slider drives both.
  */
 export function DemoWeekPlan({ after }: { after?: (subject: SubjectV) => ReactNode } = {}) {
-  const subjects = DEMO_ENROLMENTS.map((e) => e.subject as string);
-  const [subject, setSubject] = useState<SubjectV>("biology");
+  // The header slider's subject, as on the real dashboard.
+  const { subject: active } = useActiveSubject();
+  const subject = (active ?? "biology") as SubjectV;
   const [ticked, setTicked] = useState<Record<string, boolean>>({});
 
   const week = useMemo(() => demoWeek(subject), [subject]);
@@ -51,15 +51,6 @@ export function DemoWeekPlan({ after }: { after?: (subject: SubjectV) => ReactNo
               <p className="text-xs text-muted-foreground">{weekRangeLabel(mondayOf())}</p>
             </div>
           </div>
-          {/* On a phone the toggle scrolls sideways inside its own box rather
-              than widening the page. */}
-          <div className="scroll-slim max-w-full min-w-0 overflow-x-auto">
-            <SubjectToggle
-              subjects={subjects}
-              value={subject}
-              onChange={(s) => setSubject(s as SubjectV)}
-            />
-          </div>
         </div>
 
         {week.plan.ai_rationale && (
@@ -74,7 +65,9 @@ export function DemoWeekPlan({ after }: { after?: (subject: SubjectV) => ReactNo
           points={points}
           activity={week.activity}
           coverage={week.coverage}
-          roadmap={null}
+          // Only the catch-up part of a programme, so "Missed work returning"
+          // has something to show; nothing else reads it here.
+          roadmap={week.roadmap}
           loading={false}
           weekStart={week.plan.week_start}
           isPast={false}

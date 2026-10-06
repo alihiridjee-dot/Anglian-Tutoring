@@ -31,14 +31,34 @@ function youtubeId(u: URL): string | null {
   return null;
 }
 
-/** Extract a numeric Vimeo id, or null. */
-function vimeoId(u: URL): string | null {
+/** Seconds from a YouTube start time ("90", "90s", "1m30s", "1h2m3s"), or null. */
+function youtubeStart(u: URL): number | null {
+  const raw =
+    u.searchParams.get("t") ??
+    u.searchParams.get("start") ??
+    new URLSearchParams(u.hash.slice(1)).get("t");
+  const m = raw?.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s?)?$/);
+  if (!m) return null;
+  const secs = Number(m[1] ?? 0) * 3600 + Number(m[2] ?? 0) * 60 + Number(m[3] ?? 0);
+  return secs > 0 ? secs : null;
+}
+
+/**
+ * Extract a Vimeo video id, plus the hash an unlisted video can't play without
+ * (vimeo.com/<id>/<hash>, or ?h= on a player link), or null.
+ */
+function vimeoVideo(u: URL): { id: string; hash: string | null } | null {
   const host = u.hostname.replace(/^www\./, "");
-  if (host === "vimeo.com" || host === "player.vimeo.com") {
-    const m = u.pathname.match(/(\d+)/);
-    return m ? m[1] : null;
-  }
-  return null;
+  if (host !== "vimeo.com" && host !== "player.vimeo.com") return null;
+  const h = u.searchParams.get("h");
+  const queryHash = h && /^[0-9a-z]+$/i.test(h) ? h : null;
+  // Player links, and a video inside a showcase, album or group: /video/<id>.
+  const inner = u.pathname.match(/\/videos?\/(\d+)/);
+  if (inner) return { id: inner[1], hash: queryHash };
+  // vimeo.com/<id>, unlisted vimeo.com/<id>/<hash>, or channels/<name>/<id>.
+  // Anything else (a showcase on its own, a user page) isn't one video.
+  const m = u.pathname.match(/^\/(?:channels\/[^/]+\/)?(\d+)(?:\/([0-9a-z]+))?\/?$/i);
+  return m ? { id: m[1], hash: m[2] ?? queryHash } : null;
 }
 
 export function parseVideoUrl(raw: string | null | undefined): VideoEmbed | null {
@@ -56,20 +76,26 @@ export function parseVideoUrl(raw: string | null | undefined): VideoEmbed | null
   const yt = youtubeId(u);
   if (yt) {
     // Privacy-friendly nocookie host; enablejsapi off, modest branding on.
+    // A start time and a playlist the tutor linked to carry through.
+    const params = new URLSearchParams({ rel: "0", modestbranding: "1" });
+    const start = youtubeStart(u);
+    if (start) params.set("start", String(start));
+    const list = u.searchParams.get("list");
+    if (list && /^[\w-]+$/.test(list)) params.set("list", list);
     return {
       provider: "youtube",
-      embedUrl: `https://www.youtube-nocookie.com/embed/${yt}?rel=0&modestbranding=1`,
+      embedUrl: `https://www.youtube-nocookie.com/embed/${yt}?${params}`,
       fileUrl: null,
       thumbnailUrl: `https://i.ytimg.com/vi/${yt}/hqdefault.jpg`,
       originalUrl,
     };
   }
 
-  const vm = vimeoId(u);
+  const vm = vimeoVideo(u);
   if (vm) {
     return {
       provider: "vimeo",
-      embedUrl: `https://player.vimeo.com/video/${vm}`,
+      embedUrl: `https://player.vimeo.com/video/${vm.id}${vm.hash ? `?h=${vm.hash}` : ""}`,
       fileUrl: null,
       thumbnailUrl: null,
       originalUrl,

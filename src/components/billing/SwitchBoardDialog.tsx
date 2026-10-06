@@ -74,7 +74,7 @@ export function SwitchBoardDialog({
           </div>
           <button
             onClick={onClose}
-            className="size-11 sm:size-8 rounded-lg hover:bg-muted flex items-center justify-center shrink-0"
+            className="size-11 sm:pointer-fine:size-8 rounded-lg hover:bg-muted flex items-center justify-center shrink-0"
             aria-label="Close"
           >
             <X className="w-4 h-4" />
@@ -93,7 +93,7 @@ export function SwitchBoardDialog({
             <li className="flex gap-2.5">
               <Info className="w-4 h-4 text-primary shrink-0 mt-0.5" />
               <span>
-                {subjectLabel} lessons, videos, quizzes and homework switch to the{" "}
+                {subjectLabel} lessons, videos, quizzes and tasks switch to the{" "}
                 <strong>{spec}</strong> specification straight away.
               </span>
             </li>
@@ -122,14 +122,14 @@ export function SwitchBoardDialog({
             <button
               onClick={onClose}
               disabled={pending}
-              className="flex-1 h-11 sm:h-10 px-4 rounded-lg border border-border bg-card text-sm font-semibold hover:bg-muted disabled:opacity-50"
+              className="flex-1 h-11 sm:pointer-fine:h-10 px-4 rounded-lg border border-border bg-card text-sm font-semibold hover:bg-muted disabled:opacity-50"
             >
               Stay on {fromLabel}
             </button>
             <button
               onClick={onConfirm}
               disabled={pending}
-              className="h-11 sm:h-10 px-4 rounded-lg btn-solid text-sm font-semibold disabled:opacity-50 inline-flex items-center justify-center gap-2"
+              className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg btn-solid text-sm font-semibold disabled:opacity-50 inline-flex items-center justify-center gap-2"
             >
               {pending && <Loader2 className="w-4 h-4 animate-spin" />}
               Switch to {toLabel}

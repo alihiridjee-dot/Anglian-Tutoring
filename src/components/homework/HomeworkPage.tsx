@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { EmptyState, SegmentedToggle, Spinner, SubjectToggle } from "@/components/Shared";
+import { useQuery } from "@tanstack/react-query";
+import { EmptyState, SegmentedToggle, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -12,7 +13,6 @@ import {
 import type { Homework, SubmissionRow } from "@/lib/homework/types";
 import { useHomeworkSummaries, type HomeworkSummary } from "@/hooks/data/useHomeworkQuestions";
 import {
-  BUCKET_HINT,
   BUCKET_LABEL,
   BUCKET_ORDER,
   groupHomework,
@@ -21,25 +21,26 @@ import {
   type HomeworkBucket,
   type HomeworkItem,
 } from "@/lib/homework/homeworkBuckets";
-import { ChevronDown, Clock, Plus, TrendingUp } from "lucide-react";
+import { ChevronDown, Clock, Plus } from "lucide-react";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
-import { hasPrediction } from "@/lib/profile/analytics";
 import { MarkingQueue } from "@/components/tutor/MarkingQueue";
 import { HomeworkLibrary } from "@/components/tutor/HomeworkLibrary";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
+import { studentBreaksQuery } from "@/lib/planner/breakQueries";
+import { plannerDateLabel } from "@/lib/planner/week";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
-import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
-
-/** Remembers the last subject so the page opens where you left it. */
-const SUBJECT_KEY = "homework:subject";
+import { SUBJECT_LABEL, SUBJECT_TINT, subjectTint } from "@/lib/curriculum/subjectTheme";
+import { useEntryState } from "@/hooks/useEntryState";
+import { useActiveSubject } from "@/hooks/useActiveSubject";
+import { PredictedGradeCard } from "@/components/homework/PredictedGradeCard";
 
 /**
  * The homework list.
  *
  * Deliberately only a list. Answering happens on `/homework/$homeworkId`,
  * because two writers now create homework — a tutor setting a brief, and the
- * planner filling in a sheet for each spec point — and a page that rendered
+ * practice queue writing a sheet for each spec point — and a page that rendered
  * every unsubmitted sheet's form inline stopped being viable the moment the
  * second one existed.
  *
@@ -82,10 +83,10 @@ export function HomeworkPage() {
   // what exists stays available below as secondary context.
   if (isTutor) {
     return (
-      <AppLayout title="Homework & Grades">
+      <AppLayout title="Tasks & Grades">
         <p className="text-muted-foreground mb-6 max-w-2xl">
-          Set homework as questions students answer on the site — generate them from the spec with
-          AI, edit anything, then check the marks before they go out.
+          Set tasks as questions students answer on the site — generate them from the spec with AI,
+          edit anything, then check the marks before they go out.
         </p>
         {userId && <SetHomeworkPanel userId={userId} />}
         <MarkingQueue />
@@ -108,13 +109,13 @@ export function HomeworkPage() {
  * The student's homework list.
  *
  * Two controls narrow what is on screen, mirroring the MCQ page so the pair
- * read as one product: a subject toggle across the top, then the lifecycle as
- * tabs. Previously every lifecycle section was stacked open at once, which was
- * fine at four sheets and unreadable once the planner started writing one per
- * spec point — the practice section alone runs to fifteen.
+ * read as one product: the subject from the header slider, then the lifecycle
+ * as tabs. Previously every lifecycle section was stacked open at once, which
+ * was fine at four sheets and unreadable once the planner started writing one
+ * per spec point — the practice section alone runs to fifteen.
  *
  * Colour comes from the subject, not the bucket. The buckets used to tint
- * themselves amber/emerald, but a subject toggle that repaints the page cannot
+ * themselves amber/emerald, but a subject switch that repaints the page cannot
  * share a surface with a second colour system without one of them looking like
  * a bug. Urgency keeps its own signal regardless: overdue still carries a red
  * chip, a mark still carries its score.
@@ -130,9 +131,16 @@ function StudentHomework({
   loading: boolean;
   analytics: ReturnType<typeof useAnalytics>["rows"];
 }) {
-  const { enrolledCourses, enrolments } = useEnrolments();
-  const [subject, setSubject] = useState<string | null>(null);
-  const [bucket, setBucket] = useState<HomeworkBucket>("due");
+  const { enrolments, level } = useEnrolments();
+  const { userId } = useRoles();
+  const { subject } = useActiveSubject();
+  // Kept with the visit, so Back from a task reopens the tab it was on.
+  const [bucket, setBucket] = useEntryState<HomeworkBucket>("tasks.tab", "due");
+  // A brief due during a break isn't held against them (wasDueOnBreak).
+  const { data: breaks } = useQuery({
+    ...studentBreaksQuery(userId ?? ""),
+    enabled: !!userId && !isDemoStudent(),
+  });
 
   // The student sits each subject with one board. A sheet belongs on this page
   // if it is for that board, for every board, or already handed in — switching
@@ -142,12 +150,17 @@ function StudentHomework({
     const boardOf = new Map(enrolments.map((e) => [e.subject, e.board]));
     const enrolledAt = new Map(enrolments.map((e) => [e.subject, e.enrolledAt]));
     return homework
-      .map((hw) => ({ hw, submission: submissions[hw.id], enrolledAt: enrolledAt.get(hw.subject) }))
+      .map((hw) => ({
+        hw,
+        submission: submissions[hw.id],
+        enrolledAt: enrolledAt.get(hw.subject),
+        breaks,
+      }))
       .filter(({ hw, submission }) => {
         const board = boardOf.get(hw.subject);
         return !!submission || !hw.board || !board || hw.board === board;
       });
-  }, [homework, submissions, enrolments]);
+  }, [homework, submissions, enrolments, breaks]);
 
   // Only the sheets on screen need their question counts, but counting
   // everything at once is still one round trip rather than one per card.
@@ -155,36 +168,6 @@ function StudentHomework({
     items.map((i) => i.hw.id),
     items.length > 0,
   );
-
-  // Only subjects the student sits that actually have homework behind them — a
-  // toggle segment that opens an empty page is a dead end.
-  const subjects = useMemo(() => {
-    const withWork = new Set(items.map((i) => i.hw.subject).filter(Boolean));
-    const enrolled = enrolledCourses.filter((s) => withWork.has(s));
-    return enrolled.length > 0 ? enrolled : [...withWork].sort();
-  }, [items, enrolledCourses]);
-
-  // Settle on a subject once the list is known: the remembered one if it is
-  // still on offer, otherwise the first.
-  useEffect(() => {
-    if (subjects.length === 0 || (subject && subjects.includes(subject))) return;
-    let remembered: string | null = null;
-    try {
-      remembered = localStorage.getItem(SUBJECT_KEY);
-    } catch {
-      // Private browsing, or storage refused. Not worth a failure.
-    }
-    setSubject(remembered && subjects.includes(remembered) ? remembered : subjects[0]);
-  }, [subjects, subject]);
-
-  const chooseSubject = (next: string) => {
-    setSubject(next);
-    try {
-      localStorage.setItem(SUBJECT_KEY, next);
-    } catch {
-      // As above — remembering is a convenience, not a requirement.
-    }
-  };
 
   // Every bucket, including the empty ones: the tab row keeps its shape as work
   // moves through it, so the tab in a given position is always the same tab.
@@ -202,76 +185,48 @@ function StudentHomework({
     if (current && current.items.length > 0) return;
     const firstWithWork = sections.find((s) => s.items.length > 0);
     if (firstWithWork) setBucket(firstWithWork.bucket);
-  }, [sections, bucket]);
+  }, [sections, bucket, setBucket]);
 
   const active = sections.find((s) => s.bucket === bucket) ?? sections[0];
   const nothingAtAll = sections.every((s) => s.items.length === 0);
 
   return (
-    <AppLayout title="Homework & Grades">
-      <p className="text-muted-foreground mb-6 max-w-2xl">
-        Answer each homework here on the page — nothing to download, nothing to hand in. Your marks
-        and feedback appear here once they&apos;ve been checked.
-      </p>
-
-      {/* Predicted grades stay a whole-picture summary above the toggle: they
-          are the one block on this page that is about comparing subjects, so
-          filtering them to the selected one would remove their point. */}
-      {analytics.length > 0 && (
-        <div data-guide="homework-grades" className="mb-8">
-          <div className="mb-3 flex items-center gap-2">
-            <TrendingUp className="text-primary size-4" />
-            <h3 className="text-base">Predicted Grades</h3>
-          </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {analytics.map((a) => (
-              <div
-                key={a.subject}
-                className={`premium-card p-5 ${SUBJECT_TINT[a.subject] ?? "tint-primary"}`}
-              >
-                <p className="eyebrow-bare">{SUBJECT_LABEL[a.subject] ?? a.subject}</p>
-                <p className="numeral mt-1 text-2xl text-[color:var(--tint)]">
-                  {hasPrediction(a) ? `Grade ${a.predictedGrade}` : "—"}
-                </p>
-                <div className="border-border text-muted-foreground mt-3 flex items-center justify-between border-t pt-3 text-[11px]">
-                  <span>
-                    MCQs: <strong className="text-foreground">{a.mcqAverage}%</strong>
-                  </span>
-                  <span>
-                    Homework: <strong className="text-foreground">{a.hwAverage}%</strong>
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
+    <AppLayout title="Tasks & Grades">
+      {/* The predicted grade for the subject in the header, against its
+          target: just the rings, with no heading or intro above them — the
+          slider already names the subject. Keyed by subject so the rings
+          draw in again on a switch. Centred on a computer screen, where a
+          card this size would otherwise sit in the corner of a wide page. */}
+      {subject && (
+        <div data-guide="homework-grades" className="mb-8 lg:flex lg:justify-center">
+          <PredictedGradeCard
+            key={subject}
+            subject={subject}
+            row={analytics.find((a) => a.subject === subject)}
+            level={level}
+            targetGrade={enrolments.find((e) => e.subject === subject)?.targetGrade ?? null}
+            studentId={isDemoStudent() ? null : userId}
+          />
         </div>
       )}
 
       {loading ? (
-        <Spinner label="Fetching your homework" />
-      ) : subjects.length === 0 ? (
+        <Spinner label="Fetching your tasks" />
+      ) : !subject ? (
         <EmptyState
           mascot="star"
           mood="happy"
           title="Nothing due right now"
-          body="No homework has been set for your subjects yet. When your tutor posts one it lands here, with the questions and your marks in the same place."
+          body="No tasks have been set for your subjects yet. When your tutor posts one it lands here, with the questions and your marks in the same place."
         />
       ) : (
-        // The subject tint wraps the page, so the toggle, the tabs and every
-        // card and chip inside them are one colour without any of them naming it.
-        <div className={SUBJECT_TINT[subject ?? ""] ?? "tint-primary"}>
-          <div className="mb-5">
-            <SubjectToggle
-              subjects={subjects}
-              value={subject ?? subjects[0]}
-              onChange={chooseSubject}
-            />
-          </div>
-
+        // The subject tint wraps the page, so the tabs and every card and chip
+        // inside them are one colour without any of them naming it.
+        <div className={subjectTint(subject)}>
           <div className="mb-5 overflow-x-auto">
             <SegmentedToggle
               layoutId="homework-bucket-pill"
-              label="Homework status"
+              label="Task status"
               value={active?.bucket ?? "due"}
               onChange={(v) => setBucket(v as HomeworkBucket)}
               items={sections.map((s) => ({
@@ -286,13 +241,12 @@ function StudentHomework({
             <EmptyState
               mascot="star"
               mood="happy"
-              title={`No ${SUBJECT_LABEL[subject ?? ""] ?? ""} homework yet`}
+              title={`No ${SUBJECT_LABEL[subject ?? ""] ?? ""} tasks yet`}
               body="Nothing has been set for this subject so far. It'll appear here as soon as your tutor posts one, or your plan reaches a spec point with a sheet behind it."
             />
           ) : (
             active && (
               <div data-guide="homework-list">
-                <p className="text-muted-foreground mb-4 text-xs">{BUCKET_HINT[active.bucket]}</p>
                 <div className="space-y-3">
                   {active.items.map((item) => (
                     <HomeworkCard key={item.hw.id} item={item} summary={summaries[item.hw.id]} />
@@ -319,40 +273,58 @@ function HomeworkCard({ item, summary }: { item: HomeworkItem; summary?: Homewor
       // sign-in from a page whose whole job is to be browsable without an account.
       to={isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"}
       params={{ homeworkId: hw.id }}
-      className={`premium-card block p-4 transition hover:brightness-[0.99] ${
+      className={`premium-card flex items-center justify-between gap-4 p-4 transition hover:brightness-[0.99] ${
         SUBJECT_TINT[hw.subject] ?? "tint-primary"
       }`}
     >
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="chip">{SUBJECT_LABEL[hw.subject] ?? hw.subject}</span>
-        {hw.origin === "tutor" && <span className="chip">Set by your tutor</span>}
-        {overdue && <span className="chip tint-rose">Overdue</span>}
-        {submission?.graded_at && submission.score_pct != null && (
-          <span className="chip-solid">
-            <span className="numeral">{Number(submission.score_pct)}%</span>
-          </span>
-        )}
-      </div>
-
-      <p className="font-display mt-2 font-bold">{hw.title}</p>
-
-      <div className="text-muted-foreground mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
-        {summary && summary.count > 0 && (
+      {/* The same shape as the top of the sheet it opens: the title, one plain
+          line under it, and a number boxed on the right. No subject label —
+          the list only ever holds the subject in the header slider. */}
+      <div className="min-w-0">
+        <p className="font-display font-bold">{hw.title}</p>
+        <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-sm">
           <span>
-            {summary.count} question{summary.count === 1 ? "" : "s"} · {summary.marks} marks
+            {[
+              summary && summary.count > 0
+                ? `${summary.count} question${summary.count === 1 ? "" : "s"}`
+                : null,
+              hw.origin === "tutor" ? "Set by your tutor" : "Practice",
+              hw.due_at && !submission && !overdue
+                ? `Due ${plannerDateLabel(new Date(hw.due_at))}`
+                : null,
+              awaiting ? "Being marked" : null,
+              submission?.graded_at
+                ? `Marked ${plannerDateLabel(new Date(submission.graded_at))}`
+                : null,
+            ]
+              .filter(Boolean)
+              .join(" · ")}
           </span>
-        )}
-        {hw.due_at && !submission && (
-          <span className="inline-flex items-center gap-1">
-            <Clock className="size-3" aria-hidden />
-            Due {new Date(hw.due_at).toLocaleDateString()}
-          </span>
-        )}
-        {awaiting && <span>Being marked</span>}
-        {submission?.graded_at && (
-          <span>Marked {new Date(submission.graded_at).toLocaleDateString()}</span>
-        )}
+          {overdue && hw.due_at && (
+            <span className="chip tint-rose inline-flex items-center gap-1">
+              <Clock className="size-3" aria-hidden />
+              Overdue {plannerDateLabel(new Date(hw.due_at))}
+            </span>
+          )}
+        </div>
       </div>
+
+      {/* Once marked, the score is the number that matters, so it takes the
+          box in solid tint; until then the box holds the total marks. */}
+      {submission?.graded_at && submission.score_pct != null ? (
+        <div className="icon-tile icon-tile-solid min-w-16 shrink-0 flex-col px-3 py-2">
+          <span className="numeral text-2xl">{Number(submission.score_pct)}%</span>
+          <span className="mt-0.5 text-xs font-bold">score</span>
+        </div>
+      ) : (
+        summary &&
+        summary.count > 0 && (
+          <div className="icon-tile min-w-16 shrink-0 flex-col px-3 py-2">
+            <span className="numeral text-2xl">{summary.marks}</span>
+            <span className="mt-0.5 text-xs font-bold">mark{summary.marks === 1 ? "" : "s"}</span>
+          </div>
+        )
+      )}
     </Link>
   );
 }
@@ -376,7 +348,7 @@ function SetHomeworkPanel({ userId }: { userId: string }) {
       >
         <span className="inline-flex items-center gap-2 text-sm font-semibold">
           <Plus className="text-primary size-4" />
-          Set new homework
+          Set a new task
         </span>
         <ChevronDown
           className={`text-muted-foreground size-4 transition-transform ${open ? "rotate-180" : ""}`}

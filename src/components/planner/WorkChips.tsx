@@ -1,24 +1,25 @@
 import { Link } from "@tanstack/react-router";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
-import { CheckCircle2, ClipboardList, ListChecks, PlayCircle } from "lucide-react";
+import { BookOpen, CheckCircle2, ClipboardList, ListChecks, PlayCircle } from "lucide-react";
 import {
   type PointCoverage,
   type PointWork,
   type PointWorkItem,
   workItems,
 } from "@/lib/planner/coverage";
+import type { SpecPointNote } from "@/hooks/data/useNotes";
 
 /**
  * Everything a student can actually open on one spec point, as chips.
  *
  * Shared because "what can I press on this point" has exactly one answer, and
- * the week had been giving two. "What to do now" read the attached work itself
+ * the week had been giving two. "Weekly task list" read the attached work itself
  * and offered the video; "This week" read only the `hasHomework`/`hasQuiz`
  * booleans and, finding neither, wrote the point off as *practice not attached
  * yet* — on the same point, in the same week, with a video sitting behind it.
  *
  * The two panels now lay the same work out differently — "This week" runs it
- * inline after the spec point, "What to do now" sorts it into Watch / MCQs /
+ * inline after the spec point, "Weekly task list" sorts it into Watch / MCQs /
  * Homework columns — so what is shared is the *chip*, not the row. Each kind is
  * defined once here, with its icon, its route and the wording of its tooltip,
  * and the panels compose them. `label` is the only thing a layout gets to
@@ -43,6 +44,20 @@ export function VideoChip({
   );
 }
 
+/** Straight to the point's revision note. */
+export function NoteChip({ note, label = "Notes" }: { note: SpecPointNote; label?: string }) {
+  return (
+    <Link
+      to={isDemoStudent() ? "/demo/student/notes/$conceptId" : "/notes/$conceptId"}
+      params={{ conceptId: note.id }}
+      title={note.title}
+      className={CHIP}
+    >
+      <BookOpen className="w-3 h-3" /> {label}
+    </Link>
+  );
+}
+
 /**
  * Straight to the sheet. This used to land every chip on the homework list and
  * name the sheet in a tooltip, which asked a student who had pressed "the
@@ -50,7 +65,7 @@ export function VideoChip({
  */
 export function HomeworkChip({
   item,
-  label = "Homework",
+  label = "Task",
   coverage,
 }: {
   item: PointWorkItem;
@@ -64,12 +79,16 @@ export function HomeworkChip({
       // guarded route would bounce a visitor to sign-in.
       to={isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"}
       params={{ homeworkId: item.id }}
-      title={chipTitle(item, "Homework", done, coverage?.homeworkScore)}
+      title={chipTitle(item, "Task", done, coverage?.homeworkScore)}
       className={`${CHIP} ${done ? "tint-emerald" : ""}`}
     >
       {done ? <CheckCircle2 className="w-3 h-3" /> : <ClipboardList className="w-3 h-3" />}
       {done && coverage?.homeworkScore != null ? (
         <span className="tabular-nums font-semibold">{coverage.homeworkScore}%</span>
+      ) : done ? (
+        // Handed in but not marked yet: the layout's verb ("Start") would ask
+        // the student to do it again.
+        "Handed in"
       ) : (
         label
       )}

@@ -49,7 +49,7 @@ export function GradePredictorCard({
     <div className="premium-card p-4 sm:p-6">
       <SectionHeading
         title="Predicted grades"
-        hint={[levelLabel(level), "From quizzes and marked homework"].filter(Boolean).join(" · ")}
+        hint={[levelLabel(level), "From quizzes and marked tasks"].filter(Boolean).join(" · ")}
       >
         <span className="chip tint-emerald">
           <Sparkles className="size-3.5" aria-hidden /> Live data
@@ -83,7 +83,7 @@ export function GradePredictorCard({
                     ))}
                   <p className="text-muted-foreground mt-2 text-xs">
                     {row.mcqAttempts} quiz{row.mcqAttempts === 1 ? "" : "zes"} · {row.hwGraded}{" "}
-                    marked homework{row.hwGraded === 1 ? "" : "s"}
+                    marked task{row.hwGraded === 1 ? "" : "s"}
                   </p>
                   <dl className="border-border mt-4 space-y-2 border-t pt-3 text-xs">
                     <Row
@@ -91,7 +91,7 @@ export function GradePredictorCard({
                       value={row.mcqAttempts > 0 ? `${row.mcqAverage}%` : "—"}
                     />
                     <Row
-                      label="Homework average"
+                      label="Task average"
                       value={row.hwGraded > 0 ? `${row.hwAverage}%` : "—"}
                     />
                     {current && <Row label="Current grade" value={current} />}

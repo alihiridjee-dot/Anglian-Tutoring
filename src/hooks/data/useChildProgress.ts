@@ -4,6 +4,7 @@ import { currentWeekKey, mondayOf, toDateKey } from "@/lib/planner/week";
 import type { BoardV, LevelV, SubjectV } from "@/lib/curriculum/taxonomy";
 import { WeeklyPlanDAL, type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import { WeeklyNotesDAL } from "@/lib/planner/weeklyNotesDal";
+import { trendWeeks } from "@/lib/profile/analytics";
 
 /**
  * Real progress data for one student, read by a linked parent (or the student
@@ -88,46 +89,36 @@ export function useChildTrends(studentId: string | null, weeks = 6) {
       const since = new Date();
       since.setDate(since.getDate() - weeks * 7);
 
-      const { data, error } = await supabase
-        .from("mcq_attempts")
-        .select("score, total, created_at, mcq_sets(subject)")
-        .eq("user_id", studentId!)
-        .gte("created_at", since.toISOString())
-        .order("created_at", { ascending: true })
-        .limit(500);
+      // The read model, so a paused or lapsed child's quizzes keep their
+      // subject (S-23).
+      const { data, error } = await supabase.rpc("student_scored_work", {
+        _student_id: studentId!,
+        _since: since.toISOString(),
+      });
       if (error) throw new Error(error.message);
 
       // Bucket by week start, averaging per subject.
       const buckets: Record<string, Record<string, { sum: number; n: number }>> = {};
       for (const a of data ?? []) {
-        const subj = (a.mcq_sets as unknown as { subject: string | null } | null)?.subject;
-        if (!subj || !a.total) continue;
-        const week = toDateKey(mondayOf(new Date(a.created_at)));
+        if (a.kind !== "quiz" || !a.subject || a.pct === null) continue;
+        const subj = a.subject;
+        const week = toDateKey(mondayOf(new Date(a.scored_at)));
         buckets[week] = buckets[week] ?? {};
         buckets[week][subj] = buckets[week][subj] ?? { sum: 0, n: 0 };
-        buckets[week][subj].sum += (a.score / a.total) * 100;
+        buckets[week][subj].sum += Number(a.pct);
         buckets[week][subj].n += 1;
       }
 
       // Emit a continuous run of weeks ending this week, so the x-axis is
       // stable even when some weeks are quiet.
-      const points: WeeklyTrendPoint[] = [];
-      const thisWeek = mondayOf(new Date());
-      for (let i = weeks - 1; i >= 0; i--) {
-        const d = new Date(thisWeek);
-        d.setDate(d.getDate() - i * 7);
-        const key = toDateKey(d);
+      // Stepped and labelled in UK time, like the buckets above (S-25).
+      return trendWeeks(weeks).map(({ weekStart, label }) => {
         const averages: Record<string, number> = {};
-        for (const [subj, { sum, n }] of Object.entries(buckets[key] ?? {})) {
+        for (const [subj, { sum, n }] of Object.entries(buckets[weekStart] ?? {})) {
           averages[subj] = Math.round(sum / n);
         }
-        points.push({
-          weekStart: key,
-          label: d.toLocaleDateString("en-GB", { day: "numeric", month: "short" }),
-          averages,
-        });
-      }
-      return points;
+        return { weekStart, label, averages };
+      });
     },
     enabled: !!studentId,
   });
@@ -144,10 +135,15 @@ export interface ChildEngagement {
 /**
  * Attendance and homework-completion counts — the real engagement stats.
  *
- * Counted against the child's own course: sessions and homework at their level
- * only, and only sessions held since they joined. Counting every level's
- * sessions since the platform began told the parent of an iGCSE student who
- * joined last month that they had missed nearly all of them.
+ * Counted on the server (student_engagement) with the child's own list rules:
+ * their level, each subject's board, since they took that subject up, and
+ * only homework a tutor set whose due date has passed. Counting every brief at
+ * the level told the parent of a child who joined in October "0 of 12 handed
+ * in", including sheets the child never saw (S-24). The server also reads past
+ * the paywall, so a paused or lapsed child keeps their record (S-23).
+ *
+ * `subjects` and `course` aren't sent: they key the cache, so a changed board
+ * or level recounts, and hold the read until the course is known.
  */
 export function useChildEngagement(
   studentId: string | null,
@@ -164,76 +160,18 @@ export function useChildEngagement(
       course?.joinedAt,
     ],
     queryFn: async (): Promise<ChildEngagement> => {
-      const nowIso = new Date().toISOString();
-      const subjectList = subjects as ("biology" | "chemistry" | "physics")[];
-      // No level yet means the student's own pages don't filter by one either.
-      const level = course!.level;
-      const since = course!.joinedAt;
-
-      let sessionsQ = supabase
-        .from("resources")
-        .select("id", { count: "exact", head: true })
-        .eq("kind", "live_session")
-        .in("subject", subjectList)
-        .gte("starts_at", since)
-        .lt("starts_at", nowIso);
-      // The same population as above, so a join record for another level's
-      // session can't push attendance past what was held.
-      let attendedQ = supabase
-        .from("session_attendees")
-        .select("id, resources!inner(kind, subject, level, starts_at)", {
-          count: "exact",
-          head: true,
-        })
-        .eq("user_id", studentId!)
-        .eq("resources.kind", "live_session")
-        .in("resources.subject", subjectList)
-        .gte("resources.starts_at", since)
-        .lt("resources.starts_at", nowIso);
-      let homeworkQ = supabase
-        .from("resources")
-        .select("id", { count: "exact", head: true })
-        .eq("kind", "homework")
-        .eq("origin", "tutor")
-        .in("subject", subjectList);
-      let submissionsQ = supabase
-        .from("homework_submissions")
-        .select("id, resources!inner(origin, subject, level)", { count: "exact", head: true })
-        .eq("student_id", studentId!)
-        .eq("resources.origin", "tutor")
-        .in("resources.subject", subjectList);
-      if (level) {
-        sessionsQ = sessionsQ.eq("level", level);
-        attendedQ = attendedQ.eq("resources.level", level);
-        homeworkQ = homeworkQ.eq("level", level);
-        submissionsQ = submissionsQ.eq("resources.level", level);
-      }
-
-      const [sessions, attended, homework, submissions] = await Promise.all([
-        sessionsQ,
-        attendedQ,
-        // Only homework somebody actually set. The planner writes a practice
-        // sheet for every spec point a student's week reaches, and counting
-        // those would show a parent "4 of 180 handed in" — a number that says
-        // their child is failing when it is really measuring the size of the
-        // library.
-        homeworkQ,
-        // Counted against the same population as `homeworkSet` above. Without
-        // the join a term of enthusiastic practice reads as every set homework
-        // handed in, because the pair is clamped to each other below.
-        submissionsQ,
-      ]);
-      for (const r of [sessions, attended, homework, submissions]) {
-        if (r.error) throw new Error(r.error.message);
-      }
-
+      const { data, error } = await supabase.rpc("student_engagement", {
+        _student_id: studentId!,
+      });
+      if (error) throw new Error(error.message);
+      // No row means the caller isn't the student, a linked parent or a tutor.
+      const row = data?.[0];
+      if (!row) throw new Error("This student's engagement isn't available to your account.");
       return {
-        sessionsHeld: sessions.count ?? 0,
-        // A student can technically hold join-records for sessions since
-        // removed; never report more than 100%.
-        sessionsAttended: Math.min(attended.count ?? 0, sessions.count ?? 0),
-        homeworkSet: homework.count ?? 0,
-        homeworkSubmitted: Math.min(submissions.count ?? 0, homework.count ?? 0),
+        sessionsHeld: row.sessions_held,
+        sessionsAttended: row.sessions_attended,
+        homeworkSet: row.homework_set,
+        homeworkSubmitted: row.homework_submitted,
       };
     },
     enabled: !!studentId && subjects.length > 0 && !!course,
@@ -257,16 +195,31 @@ export function useChildFeedback(studentId: string | null, limit = 4) {
     queryFn: async (): Promise<FeedbackItem[]> => {
       const { data, error } = await supabase
         .from("homework_submissions")
-        .select("id, feedback, grade, score_pct, graded_at, resources(subject, title)")
+        .select("id, feedback, grade, score_pct, graded_at")
         .eq("student_id", studentId!)
         .not("feedback", "is", null)
         .not("graded_at", "is", null)
         .order("graded_at", { ascending: false })
         .limit(limit);
       if (error) throw new Error(error.message);
+      if (!data || data.length === 0) return [];
 
-      return (data ?? []).flatMap((s) => {
-        const res = s.resources as unknown as { subject: string; title: string } | null;
+      // Each sheet's subject and title come from the read model: an embed of
+      // resources is empty once the child's plan lapses (S-23).
+      const scored = await supabase
+        .rpc("student_scored_work", { _student_id: studentId! })
+        .eq("kind", "homework")
+        .in(
+          "item_id",
+          data.map((s) => s.id),
+        );
+      if (scored.error) throw new Error(scored.error.message);
+      const sheetOf = new Map((scored.data ?? []).map((w) => [w.item_id, w]));
+
+      return data.flatMap((s) => {
+        const sheet = sheetOf.get(s.id);
+        const res =
+          sheet && sheet.title !== null ? { subject: sheet.subject, title: sheet.title } : null;
         if (!res || !s.feedback || !s.graded_at) return [];
         return [
           {

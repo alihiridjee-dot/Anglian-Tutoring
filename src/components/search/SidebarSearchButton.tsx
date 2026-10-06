@@ -36,7 +36,7 @@ export function SidebarSearchButton({ onOpen }: { onOpen: () => void }) {
       <Search className="w-5 h-5 shrink-0" />
       <span className={`${SIDEBAR_LABEL_CLASS} flex-1 text-left`}>Search</span>
       <kbd
-        className={`${SIDEBAR_LABEL_CLASS} max-md:hidden inline-flex items-center justify-center h-5 px-1.5 rounded border border-border bg-muted text-[10px] font-semibold text-muted-foreground shrink-0`}
+        className={`${SIDEBAR_LABEL_CLASS} drawer:hidden inline-flex items-center justify-center h-5 px-1.5 rounded border border-border bg-muted text-[10px] font-semibold text-muted-foreground shrink-0`}
       >
         {isMac ? "⌘K" : "Ctrl K"}
       </kbd>

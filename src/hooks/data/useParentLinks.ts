@@ -42,7 +42,8 @@ export interface PendingInvite {
 }
 
 /** The outcomes `invite_parent_by_email` reports without raising. */
-export type InviteOutcome = "invited" | "no_account" | "not_a_parent" | "already_linked";
+export type InviteOutcome =
+  "invited" | "no_account" | "not_a_parent" | "already_linked" | "not_a_student" | "rate_limited";
 
 /** How each non-raising outcome of invite_parent_by_email reads to the student. */
 export const INVITE_MESSAGE: Record<InviteOutcome, string> = {
@@ -50,6 +51,8 @@ export const INVITE_MESSAGE: Record<InviteOutcome, string> = {
   no_account: "No account uses that email yet — share your invite code with them instead.",
   not_a_parent: "That account isn't a parent/guardian account.",
   already_linked: "That parent is already linked to you.",
+  not_a_student: "Only a student account can invite a parent.",
+  rate_limited: "Too many invites in the last hour. Please try again later.",
 };
 
 /** The outcomes `link_child_by_code` reports without raising. */

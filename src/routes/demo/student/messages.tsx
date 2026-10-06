@@ -16,7 +16,17 @@ export const Route = createFileRoute("/demo/student/messages")({
 
 const STUDENT = "demo-student";
 const TUTOR = "demo-tutor";
-const ago = (hours: number) => new Date(Date.now() - hours * 3_600_000).toISOString();
+/**
+ * A message sent `daysAgo` days ago at a set time of day on the viewer's
+ * clock — after school or in the evening, as a real conversation would be —
+ * rather than a fixed number of hours before whenever the page was opened.
+ */
+const at = (daysAgo: number, hour: number, minute: number) => {
+  const d = new Date();
+  d.setDate(d.getDate() - daysAgo);
+  d.setHours(hour, minute, 0, 0);
+  return d.toISOString();
+};
 
 type DemoMessage = { id: string; from: string; body: string; at: string };
 type DemoThread = ThreadSummary & {
@@ -49,7 +59,8 @@ const thread = (
     created_at: t.messages[0].at,
     last_message_at: last.at,
     lastMessage: last.body,
-    counterpartName: "Ms Patel (Biology)",
+    // The same tutor who writes "Ali's take" on the dashboard and planner.
+    counterpartName: "Ali (Tutor)",
     unread: t.unread ?? 0,
     ...t,
   };
@@ -60,7 +71,7 @@ const THREADS: DemoThread[] = [
     id: "demo-thread-photo",
     subject: "biology",
     subject_line: "Why does the rate plateau?",
-    context_label: "Homework · Photosynthesis: Limiting Factors",
+    context_label: "Task · Photosynthesis: Limiting Factors",
     contextKind: "homework",
     unread: 1,
     link: { to: "/demo/student/homework/$homeworkId", id: "demo-hw-photosynthesis" },
@@ -69,43 +80,43 @@ const THREADS: DemoThread[] = [
         id: "m1",
         from: STUDENT,
         body: "I lost a mark on question 2. I said CO₂ becomes the limiting factor — what was missing?",
-        at: ago(20),
+        at: at(2, 18, 40),
       },
       {
         id: "m2",
         from: TUTOR,
         body: "You were nearly there! The mark scheme wants you to say the rate is capped by whichever factor is in shortest supply. Naming CO₂ gets one mark; explaining why the line goes flat gets the other.",
-        at: ago(3),
+        at: at(1, 16, 20),
       },
       {
         id: "m3",
         from: TUTOR,
-        body: "Try this: “Beyond this point, increasing light has no effect because another factor, such as CO₂ concentration, is now limiting the rate.” We'll practise a few more in this week's live session.",
-        at: ago(2.9),
+        body: "Try this: “Beyond this point, increasing light has no effect because another factor, such as CO₂ concentration, is now limiting the rate.” We'll practise a few more in the next live lesson.",
+        at: at(1, 16, 22),
       },
     ],
   }),
   thread({
     id: "demo-thread-osmosis",
     subject: "biology",
-    subject_line: "Osmosis quiz — question 3",
-    context_label: "Quiz · Transport in Cells",
-    contextKind: "mcq_set",
-    link: { to: "/demo/student/mcq/$setId", id: "demo-mcq-transport" },
+    subject_line: "Osmosis task — question 2",
+    context_label: "Task · EDEX 1.15 Active, Passive & Osmotic Transport",
+    contextKind: "homework",
+    link: { to: "/demo/student/homework/$homeworkId", id: "demo-hw-osmosis" },
     messages: [
       {
         id: "m4",
         from: STUDENT,
-        body: "Why does the potato chip lose mass in salt water? I thought the salt would go in.",
-        at: ago(14),
+        body: "I'm on question 2 of the osmosis task. Does the potato gain mass in pure water? I thought water always moves out of cells.",
+        at: at(3, 17, 50),
       },
       {
         id: "m5",
         from: TUTOR,
-        body: "Good question. The membrane lets water through far more easily than salt. The solution outside is more concentrated, so water moves out of the potato cells by osmosis — that's the mass you lose.",
-        at: ago(11),
+        body: "Good question — it depends on what's outside. Pure water is more dilute than the solution inside the potato cells, so water moves into them by osmosis. The cells swell and become turgid, and the potato gains mass. In a strong salt solution it's the other way round, and the potato loses mass.",
+        at: at(3, 19, 15),
       },
-      { id: "m6", from: STUDENT, body: "Ah that makes sense now, thank you!", at: ago(10) },
+      { id: "m6", from: STUDENT, body: "Ah that makes sense now, thank you!", at: at(3, 19, 32) },
     ],
   }),
 ];
@@ -153,7 +164,7 @@ function DemoMessagesPage() {
       <div className="max-w-6xl">
         <div className="mb-4">
           <p className="text-sm text-muted-foreground">
-            Ask your tutor anything — attach the spec point, homework or quiz you're stuck on.
+            Ask your tutor anything — attach the spec point, task or quiz you're stuck on.
           </p>
         </div>
 

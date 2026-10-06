@@ -1,16 +1,17 @@
 import { useMemo } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { Video, CalendarClock, Radio } from "lucide-react";
 import { useNow } from "@/hooks/useNow";
 import {
   DAY_MS,
   MINUTE_MS as MINUTE,
-  fetchLiveSessions,
+  demoJoinClick,
   nextSession,
   sessionStartMs,
   sessionTiming,
 } from "@/lib/live/liveSessions";
+import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { SessionIdentity, WhatsCovered } from "@/components/live/SessionMeta";
+import { useMyLiveSessions } from "@/components/live/useMyLiveSessions";
 
 function pad(n: number) {
   return String(n).padStart(2, "0");
@@ -36,11 +37,15 @@ function Segment({ value, label }: { value: string; label: string }) {
  * Renders nothing when there's no upcoming session, so it can be dropped in
  * unconditionally.
  */
-export function NextSessionCountdown({ className = "" }: { className?: string }) {
-  const { data } = useQuery({
-    queryKey: ["live", "countdown"],
-    queryFn: () => fetchLiveSessions(),
-  });
+export function NextSessionCountdown({
+  className = "",
+  subject,
+}: {
+  className?: string;
+  /** Only this subject's sessions — the header slider's, where the page follows it. */
+  subject?: string | null;
+}) {
+  const { data } = useMyLiveSessions(subject);
   // Seconds are on screen here, so this one does tick every second.
   const now = useNow();
 
@@ -49,7 +54,11 @@ export function NextSessionCountdown({ className = "" }: { className?: string })
   if (!next || start === null) return null;
 
   // Join button only appears 10 min before or while live, avoiding empty waiting rooms.
-  const { untilStart: diff, isLive, withinDay, joinable } = sessionTiming(start, now);
+  // The showcase's lessons are days away, and the tour promises a join button,
+  // so there it shows from the start — and only says what it would open.
+  const timing = sessionTiming(start, now);
+  const { untilStart: diff, isLive, withinDay } = timing;
+  const joinable = timing.joinable || isDemoStudent();
 
   const days = Math.max(0, Math.floor(diff / DAY_MS));
   const hours = Math.max(0, Math.floor((diff % DAY_MS) / (60 * MINUTE)));
@@ -107,7 +116,8 @@ export function NextSessionCountdown({ className = "" }: { className?: string })
               href={next.join_url}
               target="_blank"
               rel="noreferrer"
-              className={`min-h-11 sm:min-h-0 px-4 py-2.5 rounded-lg text-sm font-semibold inline-flex items-center gap-2 text-white transition-colors ${
+              onClick={demoJoinClick()}
+              className={`min-h-11 sm:pointer-fine:min-h-0 px-4 py-2.5 rounded-lg text-sm font-semibold inline-flex items-center gap-2 text-white transition-colors ${
                 isLive ? "bg-emerald-600 hover:bg-emerald-700" : "bg-[#2D8CFF] hover:bg-[#2681F2]"
               }`}
             >

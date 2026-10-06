@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { ArrowLeft, MessageSquarePlus } from "lucide-react";
 import { ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
 import { useRoles } from "@/hooks/useRole";
-import { useChatThreads, type ThreadSummary } from "@/hooks/data/useChat";
+import { useChatThreads, usePinnedThread, type ThreadSummary } from "@/hooks/data/useChat";
 import { ThreadList } from "@/components/chat/ThreadList";
 import { ThreadView } from "@/components/chat/ThreadView";
 import { NewThreadDialog } from "@/components/chat/NewThreadDialog";
@@ -20,7 +20,6 @@ const EMPTY_THREADS: ThreadSummary[] = [];
 export function ParentMessages({ childId, childName }: { childId: string; childName: string }) {
   const { userId } = useRoles();
   const { data: threads = EMPTY_THREADS, isPending, error, refetch } = useChatThreads();
-  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [composing, setComposing] = useState(false);
   // On a phone the list and the thread take turns, as on the Messages page:
   // picking a row opens the thread, and the back arrow returns to the list.
@@ -30,7 +29,11 @@ export function ParentMessages({ childId, childName }: { childId: string; childN
     () => threads.filter((t) => t.about_student_id === childId),
     [threads, childId],
   );
-  const selected = aboutChild.find((t) => t.id === selectedId) ?? aboutChild[0] ?? null;
+  // Pinned, not "whichever is first": the poll re-sorts the list when a tutor
+  // replies elsewhere, and following it moved a parent's half-written reply
+  // into another conversation.
+  const [selectedId, setSelectedId] = usePinnedThread(aboutChild);
+  const selected = aboutChild.find((t) => t.id === selectedId) ?? null;
 
   return (
     <section data-tour="parent-messages" className="premium-card p-4 sm:p-6">
@@ -38,7 +41,7 @@ export function ParentMessages({ childId, childName }: { childId: string; childN
         <button
           type="button"
           onClick={() => setComposing(true)}
-          className="btn-solid inline-flex h-11 items-center sm:h-9 gap-1.5 rounded-lg px-3.5 text-sm font-semibold"
+          className="btn-solid inline-flex h-11 items-center sm:pointer-fine:h-9 gap-1.5 rounded-lg px-3.5 text-sm font-semibold"
         >
           <MessageSquarePlus className="size-4" aria-hidden /> Message a tutor
         </button>
@@ -66,19 +69,26 @@ export function ParentMessages({ childId, childName }: { childId: string; childN
                 showCounterpart
               />
             </div>
+            {/* A fixed 448px box is taller than a phone turned sideways, so
+                open there it takes the whole screen like the student's does. */}
             <div
-              className={`pop-card pop-card-flat flex h-[28rem] min-h-0 flex-col overflow-hidden ${threadOpen ? "" : "max-lg:hidden"}`}
+              className={`pop-card pop-card-flat flex h-[28rem] min-h-0 flex-col overflow-hidden ${threadOpen ? "thread-sideways" : "max-lg:hidden"}`}
             >
               <button
                 type="button"
                 onClick={() => setThreadOpen(false)}
-                className="border-border text-muted-foreground hover:text-foreground inline-flex min-h-11 items-center gap-2 border-b px-4 text-sm font-semibold lg:hidden"
+                className="border-border text-muted-foreground hover:text-foreground inline-flex min-h-11 items-center gap-2 border-b px-4 text-sm font-semibold lg:hidden short:hidden"
               >
                 <ArrowLeft className="size-4" aria-hidden /> All conversations
               </button>
               <div className="min-h-0 flex-1">
                 {selected && userId && (
-                  <ThreadView thread={selected} viewerId={userId} isTutor={false} />
+                  <ThreadView
+                    thread={selected}
+                    viewerId={userId}
+                    isTutor={false}
+                    onBack={() => setThreadOpen(false)}
+                  />
                 )}
               </div>
             </div>

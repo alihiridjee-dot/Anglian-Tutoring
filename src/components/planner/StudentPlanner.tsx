@@ -3,14 +3,13 @@ import { WeekBreakdown } from "./WeekBreakdown";
 import { FullPlanTimeline } from "./FullPlanTimeline";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { ErrorNote, Meter } from "@/components/Shared";
-import { usePlannerRoadmap, usePlannerMemory } from "@/hooks/data/usePlanner";
+import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
 import { ScheduleComparison } from "./ScheduleComparison";
 import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { toast } from "sonner";
 import {
   AlertTriangle,
-  Brain,
   CalendarDays,
   CheckCircle2,
   ChevronDown,
@@ -25,10 +24,10 @@ import {
   Undo2,
   type LucideIcon,
 } from "lucide-react";
-import { isTeachBand, type PacingBand } from "@/lib/planner/pacing";
+import { isTeachBand } from "@/lib/planner/pacing";
 import { ProgramDAL, examDateBounds } from "@/lib/planner/programDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
-import { ScheduleDAL, type MemoryStats, type TopicProgress } from "@/lib/planner/scheduleDal";
+import { ScheduleDAL, type TopicProgress } from "@/lib/planner/scheduleDal";
 import { type Enrolment } from "@/lib/profile/enrolment";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import {
@@ -41,14 +40,14 @@ import {
 import { CoveredLedger } from "./CoveredLedger";
 import { CatchUpPanel } from "./CatchUpPanel";
 import { ThisWeekPanel } from "./ThisWeekPanel";
+import { PausedWeek } from "./PausedWeek";
+import { BreakWeek } from "./BreakWeek";
 import { useWeekPlan } from "./useWeekPlan";
+import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
-import { subjectLabel } from "@/lib/curriculum/courseSummary";
-
-/** Stable identity for one focus-lane band — topic + kind + week it lands on. */
-function focusKey(b: PacingBand): string {
-  return `${b.topicId}|${b.kind}|${b.startWeek}`;
-}
+import { useActiveSubject } from "@/hooks/useActiveSubject";
+import { useEntryState } from "@/hooks/useEntryState";
+import { compareFocus, type SeenFocus } from "./focusSlots";
 
 type TabKey = "week" | "plan" | "topics";
 
@@ -59,9 +58,9 @@ const TABS: { key: TabKey; label: string; icon: typeof CalendarDays }[] = [
 ];
 
 /**
- * The whole student planner in one place: subject picked once up top, then
- * three tabs. "This week" is the landing view — the one topic being taught,
- * anything to revisit, and how memory is holding. "Full plan" is the road to
+ * The whole student planner in one place: the subject from the header slider,
+ * then three tabs. "This week" is the landing view — the one topic being taught
+ * and anything to revisit. "Full plan" is the road to
  * the exams. "My topics" is where the student reviews
  * what's been practised. Replaces the old four stacked panels, each of which
  * had its own subject tabs.
@@ -70,15 +69,12 @@ export function StudentPlanner({
   studentId,
   enrolments,
   level,
-  initialSubject,
   initialTab,
   focusWeek,
 }: {
   studentId: string;
   enrolments: Enrolment[];
   level: LevelV;
-  /** Opens on this course when the student is enrolled on it. */
-  initialSubject?: string;
   initialTab?: TabKey;
   /** A week the full plan opens at, e.g. from a curriculum point. */
   focusWeek?: string;
@@ -90,16 +86,15 @@ export function StudentPlanner({
     ],
     [enrolments],
   );
-  const [activeSubject, setActiveSubject] = useState(
-    ordered.find((e) => e.subject === initialSubject)?.subject ?? ordered[0]?.subject ?? "biology",
-  );
+  const { subject: activeSubject } = useActiveSubject();
   const active = ordered.find((e) => e.subject === activeSubject) ?? ordered[0];
   // Named separately so the effect below can depend on the two values it uses.
   // Depending on `active` itself would re-run the whole roadmap load whenever
   // the enrolments query hands back a fresh object for the same course.
   const activeCourseSubject = active?.subject;
   const activeBoard = active?.board;
-  const [tab, setTab] = useState<TabKey>(initialTab ?? "week");
+  // Kept with the visit, so Back from a note or a task reopens this tab.
+  const [tab, setTab] = useEntryState<TabKey>("planner.tab", initialTab ?? "week");
 
   // Bumped after an explicit schedule update.
   const [boardRev, setBoardRev] = useState(0);
@@ -111,7 +106,7 @@ export function StudentPlanner({
   // when a student re-rates topics we can point at exactly what their revision
   // schedule now does differently ("your new schedule"). Session-only, never
   // persisted: the diff is between the plan as it was and as it is right now.
-  const prevFocus = useRef<{ course: string; keys: Set<string> } | null>(null);
+  const prevFocus = useRef<SeenFocus | null>(null);
   const [newFocusKeys, setNewFocusKeys] = useState<Set<string>>(new Set());
 
   const courseParams = {
@@ -121,7 +116,6 @@ export function StudentPlanner({
     level,
   };
   const roadQuery = usePlannerRoadmap(courseParams, boardRev, !!active);
-  const memQuery = usePlannerMemory(courseParams, !!active);
   const data = roadQuery.data ?? null;
   // Keep the current assignment in sync even when Full plan is the open tab.
   // The weekly view shares this query, so only one load/write can run per course.
@@ -133,7 +127,6 @@ export function StudentPlanner({
     roadmap: data,
     enabled: !!active,
   });
-  const memory = memQuery.data ?? null;
   // A re-flowed plan left unapplied — the course changed, or an exam-date save
   // was cut short. It is settled quietly on sight, once per proposal, rather
   // than handed to the student as something to review.
@@ -153,17 +146,14 @@ export function StudentPlanner({
       // Stays pending and is tried again on the next visit.
       .catch(() => {});
   }, [data, studentId, activeCourseSubject, activeBoard, level]);
-  const loading = roadQuery.isLoading || memQuery.isLoading || currentWeek.loading;
+  const loading = roadQuery.isLoading || currentWeek.loading;
   useEffect(() => {
     const course = `${studentId}|${activeCourseSubject}|${activeBoard}|${level}`;
-    const keys = new Set((data?.bands ?? []).filter((b) => !isTeachBand(b)).map(focusKey));
-    const prev = prevFocus.current;
-    setNewFocusKeys(
-      prev && prev.course === course
-        ? new Set([...keys].filter((k) => !prev.keys.has(k)))
-        : new Set(),
-    );
-    prevFocus.current = { course, keys };
+    // Nothing to compare until the plan has loaded (see compareFocus).
+    const next = compareFocus(prevFocus.current, course, data?.bands ?? null);
+    if (!next) return;
+    setNewFocusKeys(next.added);
+    prevFocus.current = next.seen;
   }, [data, studentId, activeCourseSubject, activeBoard, level]);
 
   if (!active) {
@@ -178,32 +168,8 @@ export function StudentPlanner({
 
   return (
     <div className="rounded-2xl premium-card shadow-sm overflow-hidden">
-      {/* One header: subject picked once, tabs underneath. */}
+      {/* The subject is the header slider's; the section tabs sit here. */}
       <div className="px-4 sm:px-5 pt-4 border-b border-border">
-        {ordered.length > 1 && (
-          <div
-            className="flex flex-wrap items-center gap-2 mb-3"
-            role="tablist"
-            aria-label="Subject"
-          >
-            {ordered.map((e) => (
-              <button
-                key={e.subject}
-                type="button"
-                role="tab"
-                aria-selected={e.subject === activeSubject}
-                onClick={() => setActiveSubject(e.subject)}
-                className={`h-11 sm:h-8 px-3.5 rounded-full text-sm font-medium transition ${
-                  e.subject === activeSubject
-                    ? "btn-solid"
-                    : "bg-muted text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {subjectLabel(e.subject)}
-              </button>
-            ))}
-          </div>
-        )}
         <nav
           className="flex gap-1 -mb-px overflow-x-auto scroll-none -mx-4 px-4 sm:mx-0 sm:px-0"
           aria-label="Planner sections"
@@ -214,7 +180,7 @@ export function StudentPlanner({
               type="button"
               onClick={() => setTab(key)}
               aria-current={tab === key ? "page" : undefined}
-              className={`inline-flex shrink-0 whitespace-nowrap items-center gap-1.5 px-3.5 h-11 sm:h-10 text-sm font-medium border-b-2 transition ${
+              className={`inline-flex shrink-0 whitespace-nowrap items-center gap-1.5 px-3.5 h-11 sm:pointer-fine:h-10 text-sm font-medium border-b-2 transition ${
                 tab === key
                   ? "border-primary text-foreground"
                   : "border-transparent text-muted-foreground hover:text-foreground"
@@ -248,7 +214,6 @@ export function StudentPlanner({
         ) : tab === "week" ? (
           <ThisWeekTab
             data={data}
-            memory={memory}
             studentId={studentId}
             subject={active.subject as SubjectV}
             board={active.board as BoardV}
@@ -309,7 +274,6 @@ function useRoadmapView(data: RoadmapResult) {
 
 function ThisWeekTab({
   data,
-  memory,
   studentId,
   subject,
   board,
@@ -318,7 +282,6 @@ function ThisWeekTab({
   onScheduleApplied,
 }: {
   data: RoadmapResult;
-  memory: MemoryStats | null;
   studentId: string;
   subject: SubjectV;
   board: BoardV;
@@ -336,7 +299,7 @@ function ThisWeekTab({
    * has had these arrows all along; this is the same gesture, on the screen
    * where it is actually looked for.
    */
-  const [weekOffset, setWeekOffset] = useState(0);
+  const [weekOffset, setWeekOffset] = useEntryState("planner.week", 0);
   const weekStart = toDateKey(addWeeks(weekKeyToDate(currentWeekKey()), weekOffset));
   const isCurrent = weekOffset === 0;
   const isPast = weekOffset < 0;
@@ -358,6 +321,12 @@ function ThisWeekTab({
     roadmap: data,
     refreshKey,
   });
+
+  const reviewMore = useReviewMore({ ...week, isCurrent });
+  // A paused subject's week is frozen: shown as paused, with nothing to change.
+  // So is a week the student is on a break for.
+  const frozen = !!week.pause && !isPast;
+  const resting = !frozen && !!week.onBreak && !isPast;
 
   if (week.error) return <ErrorNote error={week.error} onRetry={() => void week.reload()} />;
 
@@ -394,7 +363,7 @@ function ThisWeekTab({
             <button
               type="button"
               onClick={() => setWeekOffset((w) => w - 1)}
-              className="size-11 sm:size-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+              className="size-11 sm:pointer-fine:size-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
               aria-label="Previous week"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -402,7 +371,7 @@ function ThisWeekTab({
             <button
               type="button"
               onClick={() => setWeekOffset((w) => w + 1)}
-              className="size-11 sm:size-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+              className="size-11 sm:pointer-fine:size-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
               aria-label="Next week"
             >
               <ChevronRight className="w-4 h-4" />
@@ -410,7 +379,11 @@ function ThisWeekTab({
           </div>
         </div>
 
-        {!week.loading && week.points.length === 0 && isPast ? (
+        {frozen && week.pause ? (
+          <PausedWeek subject={subject} pause={week.pause} />
+        ) : resting && week.onBreak ? (
+          <BreakWeek brk={week.onBreak} />
+        ) : !week.loading && week.points.length === 0 && isPast ? (
           // Said plainly, because the alternative reading — "you did nothing" —
           // is the wrong one, and on this account it was the common one: three
           // consecutive weeks of Topic 1 were saved with no points at all.
@@ -428,16 +401,19 @@ function ThisWeekTab({
             weekStart={weekStart}
             isPast={isPast}
             showCoverage={showReview}
+            reviewMore={reviewMore}
           />
         )}
       </section>
 
-      <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
+      {!frozen && !resting && (
+        <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
+      )}
 
       {/* Re-cutting a week is a statement about the week ahead. Offering it on a
           week that has gone by would let a student rewrite what was set for
-          them after the fact. */}
-      {week.plan && isCurrent && (
+          them after the fact, and a paused week has nothing to re-cut. */}
+      {week.plan && isCurrent && !frozen && !resting && (
         <ScheduleComparison
           studentId={studentId}
           subject={subject}
@@ -452,7 +428,7 @@ function ThisWeekTab({
       {/* Optional reflection and tutor feedback. */}
       {week.plan && showReview && (
         <details className="premium-card rounded-xl p-3">
-          <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:py-0 sm:my-0">
+          <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:pointer-fine:py-0 sm:pointer-fine:my-0">
             Weekly check-in and tutor feedback
           </summary>
           <WeekReview
@@ -467,50 +443,6 @@ function ThisWeekTab({
             weekStart={weekStart}
             onChanged={week.reload}
           />
-        </details>
-      )}
-
-      {/* Memory strip — how the course is held right now. */}
-      {memory && memory.total - memory.newCount > 0 && (
-        <details className="premium-card tint-primary rounded-xl p-3.5">
-          <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:py-0 sm:my-0">
-            Memory details
-          </summary>
-          <h3 className="flex items-center gap-1.5 text-sm font-bold mb-2">
-            <Brain className="w-4 h-4 text-violet-500" />
-            Your memory right now
-          </h3>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-1.5 text-sm">
-            {memory.avgRetention != null && (
-              <span>
-                <span className="font-display font-bold tabular-nums text-lg">
-                  {Math.round(memory.avgRetention * 100)}%
-                </span>{" "}
-                <span className="text-muted-foreground text-xs">average recall</span>
-              </span>
-            )}
-            <span className="text-xs text-muted-foreground">
-              <span className="font-semibold text-rose-600 dark:text-rose-400 tabular-nums">
-                {memory.dueNow}
-              </span>{" "}
-              due now · <span className="font-semibold tabular-nums">{memory.dueThisWeek}</span> due
-              this week · <span className="font-semibold tabular-nums">{memory.stable}</span>{" "}
-              holding
-            </span>
-          </div>
-          {memory.weakest.length > 0 && (
-            <ul className="mt-2.5 space-y-1">
-              {memory.weakest.map((w) => (
-                <li key={w.code} className="flex items-baseline gap-2 text-xs min-w-0">
-                  <span className="font-mono text-muted-foreground shrink-0">{w.code}</span>
-                  <span className="truncate">{w.title}</span>
-                  <span className="ml-auto shrink-0 font-semibold tabular-nums">
-                    {Math.round(w.retention * 100)}%
-                  </span>
-                </li>
-              ))}
-            </ul>
-          )}
         </details>
       )}
     </div>
@@ -633,7 +565,7 @@ function FullPlanTab({
               disabled={savingDate}
               onChange={(e) => queueExamDate(e.target.value)}
               onBlur={(e) => queueExamDate(e.target.value, true)}
-              className="btn-soft h-11 sm:h-9 w-full rounded-xl px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--tint)] disabled:opacity-50"
+              className="btn-soft h-11 sm:pointer-fine:h-9 w-full rounded-xl px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--tint)] disabled:opacity-50"
             />
           </label>
         </div>
@@ -647,7 +579,7 @@ function FullPlanTab({
           <Link
             to="/planner-order"
             search={{ subject }}
-            className="btn-soft mt-auto h-11 sm:h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
+            className="btn-soft mt-auto h-11 sm:pointer-fine:h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
           >
             <SlidersHorizontal className="size-4" aria-hidden /> Reorder topics
           </Link>
@@ -668,7 +600,7 @@ function FullPlanTab({
               type="button"
               aria-expanded={catchUpOpen}
               onClick={() => setCatchUpOpen((open) => !open)}
-              className="btn-soft mt-auto h-11 sm:h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
+              className="btn-soft mt-auto h-11 sm:pointer-fine:h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
             >
               {catchUpOpen ? "Hide catch-up" : "Catch up now"}
               <ChevronDown

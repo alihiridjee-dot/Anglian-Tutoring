@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { GraduationCap } from "lucide-react";
 import { isDemoMode } from "@/lib/auth/session";
 import { useCourseSummary } from "@/hooks/data/useCourseSummary";
+import { useActiveSubject } from "@/hooks/useActiveSubject";
 
 /**
  * The one chip that states a student's course — "GCSE · Edexcel",
@@ -26,14 +27,18 @@ export function CourseChip({
   return (
     <span className={`chip ${tint} whitespace-nowrap ${className}`}>
       {icon && <GraduationCap className="h-3.5 w-3.5 shrink-0" aria-hidden />}
-      {shown.map((p, i) => (
-        <span key={i} className="inline-flex items-center gap-1.5">
-          {i > 0 && <span aria-hidden>·</span>}
-          {p}
-        </span>
-      ))}
+      <CourseParts parts={shown} />
     </span>
   );
+}
+
+function CourseParts({ parts }: { parts: string[] }) {
+  return parts.map((p, i) => (
+    <span key={i} className="inline-flex items-center gap-1.5">
+      {i > 0 && <span aria-hidden>·</span>}
+      {p}
+    </span>
+  ));
 }
 
 /**
@@ -49,9 +54,14 @@ export function CourseChip({
  * profile still loading) rather than a placeholder. The showcase is excluded
  * because it holds no session, so its Billing link would bounce to /auth.
  */
-export function CourseBadge() {
+export function CourseBadge({ followsSlider = false }: { followsSlider?: boolean }) {
   const { headline, levelLabel, boardLabels, perSubject, mixedBoards, loading } =
     useCourseSummary();
+  // Where the subject slider sits beside this chip, the chip names that
+  // subject's board — a student sitting Biology with AQA and Physics with OCR
+  // reads the board of what's on screen, not both. Elsewhere it names them all.
+  const { subject } = useActiveSubject();
+  const active = followsSlider ? perSubject.find((s) => s.subject === subject) : undefined;
 
   if (isDemoMode() || loading || !headline) return null;
 
@@ -63,9 +73,25 @@ export function CourseBadge() {
     <Link
       to="/billing"
       title={title ? `${headline} — ${title}` : headline}
-      className="hidden sm:inline-flex rounded-full transition hover:opacity-80"
+      // Off on a phone either way up: upright there's no room beside the title,
+      // and sideways the header has to stay one row (see AppLayout).
+      // Drawn as the subject slider is, track and raised pill, at its size, so
+      // the two read as a pair in the header rather than a badge and a control.
+      className="tab-row tint-primary hidden sm:inline-flex short:hidden transition hover:opacity-80"
     >
-      <CourseChip icon parts={[levelLabel, ...boardLabels]} />
+      <span className="tab-item relative">
+        <span className="tab-pill absolute inset-0" aria-hidden />
+        <span className="relative inline-flex items-center gap-1.5 font-bold text-[color:var(--tint)]">
+          <GraduationCap className="size-4 shrink-0" aria-hidden />
+          <CourseParts
+            parts={
+              [levelLabel, ...(active ? [active.boardLabel] : boardLabels)].filter(
+                Boolean,
+              ) as string[]
+            }
+          />
+        </span>
+      </span>
     </Link>
   );
 }

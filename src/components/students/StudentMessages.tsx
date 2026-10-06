@@ -29,7 +29,7 @@ export function StudentMessages({ studentId }: { studentId: string }) {
       <SectionHeading title="Conversations">
         <Link
           to="/messages"
-          className="btn-soft inline-flex h-11 sm:h-9 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold"
+          className="btn-soft inline-flex h-11 sm:pointer-fine:h-9 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold"
         >
           <MessagesSquare className="size-4" aria-hidden /> Open messages
         </Link>
@@ -59,14 +59,14 @@ export function StudentMessages({ studentId }: { studentId: string }) {
                     </span>
                   )}
                   {t.context_label && (
-                    <span className="text-muted-foreground text-xs">{t.context_label}</span>
+                    <span className="chip tint-slate text-[10px]">{t.context_label}</span>
                   )}
                   {t.status !== "open" && (
                     <span className="chip tint-slate text-[10px] capitalize">{t.status}</span>
                   )}
                 </div>
               </div>
-              <span className="text-muted-foreground text-xs">{timeAgo(t.last_message_at)}</span>
+              <span className="text-xs font-semibold">{timeAgo(t.last_message_at)}</span>
             </li>
           );
         })}

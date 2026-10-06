@@ -732,6 +732,42 @@ a.when-link:hover .when-link-arrow {
   line-height: 0.95;
 }
 
+/* The small figures in science text (H₂O, Mg²⁺, cm³), drawn by <SciText> in
+   the surrounding face. Raised and lowered by position rather than
+   vertical-align, so a formula never pushes its line away from the next. */
+.sci-sub,
+.sci-sup {
+  position: relative;
+  font-size: 0.7em;
+  line-height: 0;
+  vertical-align: baseline;
+}
+.sci-sub {
+  bottom: -0.25em;
+}
+.sci-sup {
+  bottom: 0.5em;
+}
+/* A nuclide's mass number over its atomic number (²³⁸₉₂U), right-aligned
+   against the symbol that follows. */
+.sci-nuclide {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* The box sits on its top line's baseline: raised like a superscript, so
+     the bottom line falls where a subscript would, inside the line. */
+  vertical-align: 0.6em;
+  font-size: 0.58em;
+  line-height: 0.95;
+  margin-right: 0.08em;
+}
+.sci-nuclide > sup,
+.sci-nuclide > sub {
+  font-size: 1em;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
 /* ════════════════════════════════════════════════════════════════════════════
    NAV, BARS, INPUTS
    ════════════════════════════════════════════════════════════════════════════ */
@@ -776,6 +812,17 @@ a.when-link:hover .when-link-arrow {
   box-shadow:
     0 1px 0 0 color-mix(in oklab, var(--foreground) 12%, transparent),
     0 4px 10px -6px color-mix(in oklab, var(--tint) 60%, transparent);
+}
+/* The raised pill under the chosen segment of a sliding toggle, outlined in
+   its tint. The course badge in the header wears it too, so it reads as one of
+   a pair with the subject slider beside it. */
+.tab-pill {
+  border-radius: 999px;
+  background: var(--card);
+  border: 1.5px solid color-mix(in oklab, var(--tint) 30%, transparent);
+  box-shadow:
+    0 1px 0 0 color-mix(in oklab, var(--tint) 30%, transparent),
+    0 4px 10px -6px color-mix(in oklab, var(--tint) 70%, transparent);
 }
 
 .premium-input,
@@ -913,6 +960,50 @@ a.when-link:hover .when-link-arrow {
   animation-delay: var(--ring-delay, 0.1s);
 }
 
+/* A meter that fills on arrival: it runs up from empty with loader stripes
+   moving, lands on its value with a little give, and the stripes fade out.
+   The minimum width keeps a round start dot on an empty bar. */
+@keyframes meter-fill {
+  from {
+    width: 0;
+  }
+}
+@keyframes meter-stripes {
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@keyframes meter-stripes-out {
+  to {
+    opacity: 0;
+  }
+}
+.meter-fill {
+  position: relative;
+  min-width: 0.75rem;
+  animation: meter-fill 1.3s cubic-bezier(0.34, 1.25, 0.64, 1) 0.15s both;
+}
+.meter-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: linear-gradient(
+    -45deg,
+    rgb(255 255 255 / 0.28) 25%,
+    transparent 25% 50%,
+    rgb(255 255 255 / 0.28) 50% 75%,
+    transparent 75%
+  );
+  background-size: 1rem 1rem;
+  animation:
+    meter-stripes 0.45s linear 4,
+    meter-stripes-out 0.4s ease-out 1.4s forwards;
+}
+
 /* The cast blinks.
  *
  * The single cheapest bit of life in the kit: the eyes squash for two frames
@@ -998,6 +1089,13 @@ a.when-link:hover .when-link-arrow {
 .wordmark:focus-visible .wordmark-tile {
   animation: hop 0.55s cubic-bezier(0.34, 1.4, 0.64, 1);
 }
+/* The same hop on a grade ring when the pointer reaches it. A computer only —
+   a tap is not a hover — and silent until then, for the same reason. */
+@media (hover: hover) {
+  .ring-hop:hover {
+    animation: hop 0.55s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+}
 
 /* Tapping a nav tab pops its icon. The animation is declared only under the
    active state, so it fires on the transition INTO active — i.e. exactly once
@@ -1059,17 +1157,38 @@ a.when-link:hover .when-link-arrow {
   animation-delay: var(--confetti-delay, 0s);
 }
 
+/* Back lands on the card that was clicked, and it lights up once in its own
+   colour so the eye finds it (see returnSpot). Drawn inside the card's edge, so
+   a list that clips its overflow can't cut it off. A colour fade, not motion,
+   so it stays under reduced-motion. */
+@keyframes return-glow {
+  0%,
+  40% {
+    outline-color: color-mix(in oklab, var(--tint) 75%, transparent);
+  }
+  100% {
+    outline-color: transparent;
+  }
+}
+.return-glow {
+  outline: 3px solid transparent;
+  outline-offset: -3px;
+  animation: return-glow 1.8s ease-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .rise-in,
   .pop-in,
   .stamp-in,
   .ring-draw,
+  .meter-fill,
   .load-dot,
   .idle-tilt,
   .blink,
   .peek-in,
   .cheer,
-  .confetti-bit {
+  .confetti-bit,
+  .ring-hop:hover {
     animation: none;
   }
   .ring-draw {
@@ -1084,7 +1203,8 @@ a.when-link:hover .when-link-arrow {
   .premium-card-interactive:hover {
     transform: none;
   }
-  .confetti-bit {
+  .confetti-bit,
+  .meter-fill::after {
     display: none;
   }
   .wordmark:hover .wordmark-tile,
@@ -1176,6 +1296,23 @@ body {
    What a phone needs and no single screen should have to remember.
    ════════════════════════════════════════════════════════════════════════════ */
 
+/* A phone on its side. At 667–956px it is as wide as a tablet, so every width
+   breakpoint hands it the desktop layout, but at 340–440px tall it can't spare
+   the height that layout assumes. `short:` is that case: a pinned bar, a box
+   sized to the screen or a dialog that has to fit. No tablet or laptop is this
+   short. The shell keys its sidebar off the other two: the hover rail needs a
+   screen that is wide and tall, and every other screen gets the phone drawer. */
+@custom-variant short (@media (height <= 31.25rem));
+@custom-variant rail (@media (width >= 48rem) and (height > 31.25rem));
+@custom-variant drawer {
+  @media (width < 48rem) {
+    @slot;
+  }
+  @media (height <= 31.25rem) {
+    @slot;
+  }
+}
+
 /* The page never scrolls sideways. Set on `html` alone: from there it
    propagates to the viewport and every sticky bar keeps working. Set on `body`
    too, it would make the body its own scroll container and pin each `sticky`
@@ -1231,6 +1368,34 @@ body {
     font-size: 0.8125rem;
     line-height: 1.15;
     padding-inline: 0.375rem;
+  }
+}
+
+/* An open conversation on a phone turned sideways. Inside the page, under the
+   pinned header, its box had 34px left for messages once the title row and the
+   typing box were in, so it takes the whole screen instead, over the header, and
+   drops the card it sits in. The notch insets come back as padding because a
+   fixed layer misses the body's. Below `lg` only: from there the list and the
+   thread sit side by side. Unlayered, like the card rules it overrides. */
+@media (width < 64rem) and (height <= 31.25rem) {
+  .thread-sideways {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    height: auto;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  /* The page content is its own stacking context (`.page-aurora` isolates), so
+     no z-index lifts the thread over the pinned header beside it. The header
+     steps aside instead, `visibility` rather than `display` so the page under
+     the thread doesn't jump when it closes. The thread's title row has the way
+     back, and the drawer button returns with the header. */
+  main:has(.thread-sideways) > header {
+    visibility: hidden;
   }
 }
 

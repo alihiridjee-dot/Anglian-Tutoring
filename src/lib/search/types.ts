@@ -4,6 +4,7 @@ import type { ProfileRole } from "@/lib/profile/enrolment";
 
 /** The kinds of thing the global palette can turn up, in display order. */
 export const SEARCH_GROUPS = [
+  "help",
   "page",
   "spec_point",
   "topic",
@@ -17,10 +18,11 @@ export const SEARCH_GROUPS = [
 export type SearchGroup = (typeof SEARCH_GROUPS)[number];
 
 export const GROUP_LABEL: Record<SearchGroup, string> = {
+  help: "Help",
   page: "Pages",
   spec_point: "Specification points",
   topic: "Topics",
-  homework: "Homework",
+  homework: "Tasks",
   live_session: "Live sessions",
   video: "Videos",
   mcq_set: "Quizzes",

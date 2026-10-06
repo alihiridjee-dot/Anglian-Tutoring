@@ -6,10 +6,11 @@ import { toast } from "sonner";
 import { Field, inputCls, submitBtn } from "./Field";
 import { TaxonomyFields } from "./TaxonomyFields";
 import { SpecPointSelect } from "./SpecPointSelect";
-import { UseWeeklyFocusButton } from "./UseWeeklyFocusButton";
 import { QuestionBuilder } from "./QuestionBuilder";
 import { type BuilderQuestion } from "@/lib/homework/builderQuestion";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { toSciNotation, toSciNotationTogether } from "@/lib/platform/sciNotation";
+import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 
 /**
  * Writing a homework, and — with `editing` — correcting one already set.
@@ -27,6 +28,7 @@ import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxono
  */
 
 interface HomeworkFormProps {
+  /** Unused: save_homework_brief credits the brief to the signed-in tutor. */
   userId: string;
   taxonomy: {
     subject: SubjectV;
@@ -40,7 +42,7 @@ interface HomeworkFormProps {
   editing?: { id: string; onDone: () => void };
 }
 
-export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
+export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
   const qc = useQueryClient();
   const [title, setTitle] = useState("");
   const [instructions, setInstructions] = useState("");
@@ -49,10 +51,6 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
   const [questions, setQuestions] = useState<BuilderQuestion[]>([]);
   const [loading, setLoading] = useState(false);
   const [hydrating, setHydrating] = useState(!!editing);
-
-  // Which question rows existed when the form opened. Anything in here that the
-  // tutor has since removed is what gets deleted on save.
-  const [originalIds, setOriginalIds] = useState<string[]>([]);
 
   const editingId = editing?.id;
   useEffect(() => {
@@ -94,7 +92,7 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
         withSchemes = await withMarkSchemes(qs ?? []);
       } catch {
         if (!cancelled)
-          toast.error("Couldn't load this homework's mark schemes. Close it and try again.");
+          toast.error("Couldn't load this task's mark schemes. Close it and try again.");
         return;
       }
       if (cancelled) return;
@@ -109,7 +107,6 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
         spec_point_id: q.spec_point_id,
       }));
       setQuestions(rows);
-      setOriginalIds(rows.map((r) => r.id));
       setSpecPointIds((links ?? []).map((l) => l.spec_point_id));
       setHydrating(false);
     })();
@@ -128,7 +125,6 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
     setDueAt("");
     setSpecPointIds([]);
     setQuestions([]);
-    setOriginalIds([]);
   };
 
   const submit = async (e: React.FormEvent) => {
@@ -140,17 +136,47 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
     }
     setLoading(true);
     try {
-      const resourceId = editingId ?? (await insertResource());
-      if (editingId) await updateResource(editingId);
-      await saveQuestions(resourceId);
-      await saveSpecPoints(resourceId);
+      // One call writes the brief, its questions and its curriculum links, or
+      // nothing (S-11, M-20). Saving them one request at a time collided on the
+      // question order whenever two questions swapped places, and a failure
+      // part-way left an empty brief that a retry duplicated.
+      const { error } = await supabase.rpc("save_homework_brief", {
+        _id: editingId ?? null,
+        _title: title,
+        _instructions: toSciNotation(instructions),
+        _due_at: dueAt ? new Date(dueAt).toISOString() : null,
+        _subject: taxonomy.subject,
+        _board: taxonomy.board,
+        _level: taxonomy.level,
+        _spec_point_ids: specPointIds,
+        // In sheet order. A question with an id is updated in place, so the
+        // answers pointing at it stay; one the tutor removed is deleted, and
+        // takes its answers with it, which is why the builder says so.
+        // Saved in proper notation (H₂O, Mg²⁺), as generated questions are,
+        // each question read with its mark scheme.
+        _questions: questions.map((q) => {
+          const [prompt, markScheme] = toSciNotationTogether([
+            q.prompt.trim(),
+            q.mark_scheme.trim(),
+          ]);
+          return {
+            id: q.id ?? null,
+            prompt,
+            marks: q.marks,
+            answer_type: q.answer_type,
+            mark_scheme: markScheme || null,
+            spec_point_id: q.spec_point_id,
+          };
+        }),
+      });
+      if (error) throw error;
 
       toast.success(
         editingId
-          ? "Homework updated"
+          ? "Task updated"
           : questions.length > 0
-            ? `Homework set — ${questions.length} question${questions.length === 1 ? "" : "s"} students answer on the site`
-            : "Homework set",
+            ? `Task set — ${questions.length} question${questions.length === 1 ? "" : "s"} students answer on the site`
+            : "Task set",
       );
       qc.invalidateQueries({ queryKey: ["homework"] });
       if (editing) editing.onDone();
@@ -162,122 +188,8 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
     }
   };
 
-  const insertResource = async (): Promise<string> => {
-    const { data: created, error } = await supabase
-      .from("resources")
-      .insert({
-        kind: "homework",
-        title,
-        instructions,
-        due_at: dueAt ? new Date(dueAt).toISOString() : null,
-        subject: taxonomy.subject,
-        board: taxonomy.board,
-        level: taxonomy.level,
-        created_by: userId,
-        // A brief written here is a brief somebody decided to set, which is what
-        // separates it from the generated library in the student's list.
-        origin: "tutor",
-      })
-      .select("id")
-      .single();
-    if (error) throw error;
-    return created.id;
-  };
-
-  const updateResource = async (id: string) => {
-    const { error } = await supabase
-      .from("resources")
-      .update({
-        title,
-        instructions,
-        due_at: dueAt ? new Date(dueAt).toISOString() : null,
-        subject: taxonomy.subject,
-        board: taxonomy.board,
-        level: taxonomy.level,
-      })
-      .eq("id", id);
-    if (error) throw error;
-  };
-
-  /**
-   * Reconcile the question list against what is in the database.
-   *
-   * Deletes go first: if a question is being removed and another is being added
-   * at the same position, doing it the other way round would collide on
-   * whatever uniqueness position carries.
-   */
-  const saveQuestions = async (resourceId: string) => {
-    const keptIds = new Set(questions.map((q) => q.id).filter(Boolean) as string[]);
-    const removed = originalIds.filter((id) => !keptIds.has(id));
-
-    if (removed.length > 0) {
-      const { error } = await supabase.from("homework_questions").delete().in("id", removed);
-      if (error) throw error;
-    }
-
-    const updates = questions
-      .map((q, i) => ({ q, i }))
-      .filter(({ q }) => !!q.id)
-      .map(({ q, i }) =>
-        supabase
-          .from("homework_questions")
-          .update({
-            position: i,
-            prompt: q.prompt.trim(),
-            marks: q.marks,
-            answer_type: q.answer_type,
-            mark_scheme: q.mark_scheme.trim() || null,
-            spec_point_id: q.spec_point_id,
-          })
-          .eq("id", q.id!)
-          .then(({ error }) => {
-            if (error) throw error;
-          }),
-      );
-    const results = await Promise.allSettled(updates);
-    const failed = results.find((r) => r.status === "rejected");
-    if (failed) throw (failed as PromiseRejectedResult).reason;
-
-    const inserts = questions
-      .map((q, i) => ({ q, i }))
-      .filter(({ q }) => !q.id)
-      .map(({ q, i }) => ({
-        resource_id: resourceId,
-        position: i,
-        prompt: q.prompt.trim(),
-        marks: q.marks,
-        answer_type: q.answer_type,
-        mark_scheme: q.mark_scheme.trim() || null,
-        spec_point_id: q.spec_point_id,
-      }));
-    if (inserts.length > 0) {
-      const { error } = await supabase.from("homework_questions").insert(inserts);
-      if (error) throw error;
-    }
-  };
-
-  /**
-   * Curriculum links live in resource_spec_points, not resources.spec_point_id
-   * (deprecated) — homework can hang off several points, and students find it
-   * by browsing any of them.
-   */
-  const saveSpecPoints = async (resourceId: string) => {
-    if (editingId) {
-      const { error } = await supabase
-        .from("resource_spec_points")
-        .delete()
-        .eq("resource_id", resourceId);
-      if (error) throw error;
-    }
-    if (specPointIds.length === 0) return;
-    const { error } = await supabase
-      .from("resource_spec_points")
-      .insert(specPointIds.map((spec_point_id) => ({ resource_id: resourceId, spec_point_id })));
-    if (error) throw error;
-  };
-
   if (hydrating) {
-    return <p className="text-muted-foreground py-6 text-sm">Loading this homework…</p>;
+    return <p className="text-muted-foreground py-6 text-sm">Loading this task…</p>;
   }
 
   return (
@@ -291,10 +203,11 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
         />
       </Field>
       <Field label="Instructions">
-        <textarea
+        <SciAnswerBox
           className={`${inputCls} h-28 py-2`}
           value={instructions}
-          onChange={(e) => setInstructions(e.target.value)}
+          onValueChange={setInstructions}
+          aria-label="Instructions"
         />
       </Field>
       <Field label="Due at">
@@ -306,17 +219,10 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
         />
       </Field>
       <p className="text-muted-foreground text-xs">
-        Homework with no due date sits in the student&apos;s practice list rather than their
+        A task with no due date sits in the student&apos;s practice list rather than their
         deadlines.
       </p>
       <TaxonomyFields {...taxonomy} />
-      <UseWeeklyFocusButton
-        subject={taxonomy.subject}
-        board={taxonomy.board}
-        level={taxonomy.level}
-        value={specPointIds}
-        onApply={setSpecPointIds}
-      />
       <SpecPointSelect
         subject={taxonomy.subject}
         board={taxonomy.board}
@@ -337,14 +243,14 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
 
       <div className="flex flex-wrap gap-2">
         <button disabled={loading} className={submitBtn}>
-          {loading ? "Saving…" : editingId ? "Save changes" : "Set homework"}
+          {loading ? "Saving…" : editingId ? "Save changes" : "Set task"}
         </button>
         {editing && (
           <button
             type="button"
             onClick={editing.onDone}
             disabled={loading}
-            className="btn-premium h-11 sm:h-10 shrink-0 rounded-lg px-4 text-sm font-semibold disabled:opacity-60"
+            className="btn-premium h-11 sm:pointer-fine:h-10 shrink-0 rounded-lg px-4 text-sm font-semibold disabled:opacity-60"
           >
             Cancel
           </button>

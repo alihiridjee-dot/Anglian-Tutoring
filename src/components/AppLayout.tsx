@@ -29,6 +29,8 @@ import { useAvatarUrl } from "@/hooks/data/useAvatar";
 import { useChatUnread } from "@/hooks/data/useChat";
 import { NotificationBell } from "@/components/NotificationBell";
 import { CourseBadge } from "@/components/CourseBadge";
+import { HeaderSubjectToggle } from "@/components/HeaderSubjectToggle";
+import { followsSubject } from "@/lib/shell/subjectPages";
 import { UserMenu } from "@/components/UserMenu";
 import { HeaderLiveButton } from "@/components/live/HeaderLiveButton";
 import { GlobalSearchDialog } from "@/components/search/GlobalSearchDialog";
@@ -37,6 +39,7 @@ import { resolveInitials } from "@/lib/profile/displayName";
 import { buildAuthedNav } from "@/lib/shell/nav";
 import { SIDEBAR_LABEL_CLASS as labelClass } from "@/components/sidebarLabel";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
+import { pageAbove } from "@/lib/shell/returnSpot";
 
 /**
  * The showcase sidebar. It must stay inside `/demo/*`, or a click lands on a
@@ -49,7 +52,7 @@ const demoStudentNav = [
   { to: "/demo/student/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/demo/student/planner", label: "Planner", icon: Compass },
   { to: "/demo/student/curriculum", label: "Curriculum", icon: BookMarked },
-  { to: "/demo/student/homework", label: "Homework & Grades", icon: ClipboardList },
+  { to: "/demo/student/homework", label: "Tasks & Grades", icon: ClipboardList },
   { to: "/demo/student/live", label: "Live Sessions", icon: Video },
   { to: "/demo/student/mcqs", label: "MCQs", icon: ListChecks },
   { to: "/demo/student/messages", label: "Messages", icon: MessagesSquare },
@@ -76,7 +79,8 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
   const router = useRouter();
   const signOut = useSignOut();
   const [searchOpen, setSearchOpen] = useState(false);
-  // The phone drawer. Below `md` the sidebar has no hover to expand on, so it
+  // The phone drawer. Below `md`, and on a phone turned sideways (see `rail:`
+  // and `drawer:` in styles.css), the sidebar has no hover to expand on, so it
   // slides in from the left instead and is dismissed by the backdrop, Escape,
   // its own close button, or simply arriving somewhere.
   const [navOpen, setNavOpen] = useState(false);
@@ -135,9 +139,22 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
     ? (demoRole === "parent" ? DEMO_PARENT_NAME : DEMO_STUDENT_NAME).slice(0, 2).toUpperCase()
     : resolveInitials(profileName, email);
 
+  // Back follows the tab's history, landing on what was clicked (returnSpot).
+  // When this is the first page in the tab there is nothing behind it, and the
+  // arrow goes up a level instead of off the site; home has nothing above.
+  const location = useRouterState({ select: (s) => s.location });
+  const firstInTab = location.state.__TSR_index === 0;
+  const above = firstInTab ? pageAbove(location, nav[0].to) : null;
+  const goBack = () => {
+    if (!firstInTab) router.history.back();
+    else if (above) navigate({ href: above });
+  };
+
   // The live "Join" pill in the ribbon is a student affordance — tutors run
   // sessions and parents don't attend, so it only shows in a student context.
   const isStudentContext = isDemo ? demoRole === "student" : !isTutor && userRole !== "parent";
+  // The subject slider, only where the page follows it (see subjectPages).
+  const showSubjectSlider = isStudentContext && followsSubject(pathname);
 
   return (
     <div className="min-h-screen flex bg-background text-foreground">
@@ -147,8 +164,12 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
        * absolutely positioned and *overlays* the page as it widens, so hovering
        * never reflows the content beside it. Tailwind's `hover:` variant is
        * gated on `@media (hover: hover)`, so touch devices simply keep the rail.
+       * The placeholder is pinned to the screen and the rail scrolls inside it,
+       * so the links stay in reach however far down the page you are, and a
+       * short page can't cut the bottom of the rail off. Being sticky makes it
+       * a stacking context, so it carries the rail's z-index itself.
        */}
-      <div className="relative w-0 shrink-0 md:w-20">
+      <div className="relative w-0 shrink-0 rail:sticky rail:top-0 rail:z-50 rail:h-dvh rail:w-20 rail:self-start">
         {/* Phone only: the tap-to-close backdrop behind the open drawer. Sits
             under the drawer (z-50) and over the ribbon and header. */}
         {navOpen && (
@@ -156,17 +177,19 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             type="button"
             aria-label="Close menu"
             onClick={() => setNavOpen(false)}
-            className="bg-primary-deep/40 fixed inset-0 z-45 cursor-pointer md:hidden"
+            className="bg-primary-deep/40 fixed inset-0 z-45 cursor-pointer rail:hidden"
           />
         )}
         {/* Above the demo ribbon (z-40) and the sticky header (z-30), both of
-            which the expanded rail passes in front of. Below `md` the same
-            element is a fixed drawer: full labels, slid off-screen and made
-            `invisible` (so it leaves the tab order) until opened. */}
+            which the expanded rail passes in front of. Below `md`, and on a
+            phone turned sideways, the same element is a fixed drawer: full
+            labels, slid off-screen and made `invisible` (so it leaves the tab
+            order) until opened. A fixed layer misses the body's notch padding,
+            so the drawer widens and pads by the left inset itself. */}
         <aside
           id="app-sidebar"
-          className={`group/sidebar fixed inset-y-0 left-0 z-50 flex w-60 flex-col gap-1 overflow-y-auto overflow-x-hidden border-r border-sidebar-border bg-sidebar px-3 py-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] transition-[width,box-shadow,transform,visibility] duration-200 ease-out motion-reduce:transition-none md:absolute md:w-20 md:translate-x-0 md:overflow-hidden md:pb-5 md:hover:w-60 md:hover:shadow-2xl ${
-            navOpen ? "translate-x-0 shadow-2xl" : "max-md:invisible max-md:-translate-x-full"
+          className={`group/sidebar scroll-none fixed inset-y-0 left-0 z-50 flex w-[calc(15rem+env(safe-area-inset-left))] flex-col gap-1 overflow-y-auto overflow-x-hidden overscroll-contain border-r border-sidebar-border bg-sidebar py-5 pr-3 pl-[calc(0.75rem+env(safe-area-inset-left))] pb-[calc(1.25rem+env(safe-area-inset-bottom))] transition-[width,box-shadow,transform,visibility] duration-200 ease-out motion-reduce:transition-none rail:absolute rail:w-20 rail:translate-x-0 rail:pl-3 rail:pb-5 rail:hover:w-60 rail:hover:shadow-2xl ${
+            navOpen ? "translate-x-0 shadow-2xl" : "drawer:invisible drawer:-translate-x-full"
           }`}
         >
           <div className="mb-6 flex items-center justify-between gap-2">
@@ -187,7 +210,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
               type="button"
               onClick={() => setNavOpen(false)}
               aria-label="Close menu"
-              className="btn-ghost flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl md:hidden"
+              className="btn-ghost flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl rail:hidden"
             >
               <X className="size-5" aria-hidden />
             </button>
@@ -223,13 +246,17 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             );
           })}
           <div className="mt-auto">
+            {/* The showcase has no session of its own, but a visitor may be
+                signed in to a real account in this browser: a sign-out here
+                would end that one. It leaves the demo instead, as the banner's
+                Exit Sandbox does, and never touches auth. */}
             <button
-              onClick={signOut}
-              title="Sign out"
+              onClick={isDemo ? handleExitDemo : signOut}
+              title={isDemo ? "Exit demo" : "Sign out"}
               className="w-full flex min-h-11 items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-sidebar-foreground/70 hover:text-destructive hover:bg-destructive/10"
             >
               <LogOut className="w-5 h-5 shrink-0" />
-              <span className={labelClass}>Sign out</span>
+              <span className={labelClass}>{isDemo ? "Exit demo" : "Sign out"}</span>
             </button>
           </div>
         </aside>
@@ -268,7 +295,8 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 <Compass className="size-3.5" aria-hidden /> Guided tour
               </button>
               <Link
-                to="/"
+                to="/auth"
+                search={{ mode: "signup" }}
                 className="bg-card text-primary hover:bg-card/90 shrink-0 rounded-lg border-[1.5px] border-white/40 px-3.5 py-1.5 text-xs font-extrabold shadow-[0_2px_0_0_rgba(0,0,0,0.18)] transition"
               >
                 Join Now
@@ -282,27 +310,41 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             </div>
           </div>
         )}
-        <header className="glass-bar sticky top-0 z-30 flex flex-wrap gap-x-3 gap-y-2 items-center justify-between px-4 sm:px-6 lg:px-10 py-3 sm:py-4 shrink-0">
-          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+        {/* On a phone turned sideways the header stays one row: it is pinned,
+            and a second row would cover a third of a 390px screen. The course
+            chip and Forward drop out there, as they do on a phone held upright,
+            and the subject slider is at the top of the page, so the title has
+            the rest of the row. */}
+        <header className="glass-bar sticky top-0 z-30 flex flex-wrap gap-x-3 gap-y-2 items-center px-4 sm:px-6 lg:px-10 py-3 sm:py-4 shrink-0 short:flex-nowrap short:py-2">
+          {/* The bar is one row at any width. The title takes what's left and
+              wraps rather than being cut short: at least 120px of it on an
+              upright phone, and elsewhere at least its longest word. Only when
+              even that won't fit (a live lesson's Join button on a phone) do
+              the buttons drop to a second row. It never grows past its own
+              text, so on a wide screen the subject slider stays beside it. */}
+          <div className="flex max-w-max flex-1 items-center gap-2 sm:gap-3 max-sm:min-w-[10.75rem]">
             <button
               type="button"
               onClick={() => setNavOpen(true)}
               aria-label="Open menu"
               aria-controls="app-sidebar"
               aria-expanded={navOpen}
-              className="btn-soft flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl md:hidden"
+              className="btn-soft flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl rail:hidden"
             >
               <Menu className="size-5" aria-hidden />
             </button>
-            {/* History buttons are 44px on a phone. Forward waits for `sm`:
-                phones have a swipe for it, and the header has the space for a
-                menu button or a forward button, not both. */}
-            <div className="flex items-center gap-1 sm:gap-1.5">
+            {/* Back and Forward wait for `sm`: a phone has its own (a swipe from
+                the edge, or Android's back button), and an upright phone's bar
+                has room for the menu, the title and three buttons, not two
+                arrows as well. The site always runs in the browser (there is no
+                web-app manifest), so that back is always there. */}
+            <div className="hidden items-center gap-1 sm:flex sm:gap-1.5">
               <button
-                onClick={() => router.history.back()}
+                onClick={goBack}
+                disabled={firstInTab && !above}
                 title="Back"
                 aria-label="Back"
-                className="btn-soft size-11 sm:size-9 rounded-xl flex items-center justify-center cursor-pointer"
+                className="btn-soft size-11 sm:pointer-fine:size-9 rounded-xl flex items-center justify-center cursor-pointer disabled:cursor-default"
               >
                 <ArrowLeft className="w-4 h-4" />
               </button>
@@ -310,22 +352,28 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 onClick={() => router.history.forward()}
                 title="Forward"
                 aria-label="Forward"
-                className="btn-soft hidden size-9 rounded-xl sm:flex items-center justify-center cursor-pointer"
+                className="btn-soft hidden size-9 rounded-xl sm:flex short:hidden items-center justify-center cursor-pointer"
               >
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
             <div className="min-w-0">
-              <h1 className="font-display truncate text-lg font-extrabold tracking-tight sm:text-xl lg:text-2xl">
+              <h1 className="font-display break-words text-lg leading-tight font-extrabold tracking-tight sm:text-xl lg:text-2xl short:text-lg">
                 {title}
               </h1>
             </div>
             {/* Which spec this student is on, stated on every page — it decides
                 everything they're shown, and it used to appear nowhere after the
                 onboarding step that set it. */}
-            <CourseBadge />
+            <CourseBadge followsSlider={showSubjectSlider} />
           </div>
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          {/* The subject every student page is showing, beside the course chip
+              when the header has room. Below `xl` it doesn't fit beside the
+              title and buttons: there it sits at the top of the page instead
+              (below), so the pinned header never grows a row for it and never
+              cuts the page title short. */}
+          {showSubjectSlider && <HeaderSubjectToggle className="hidden xl:block" />}
+          <div className="ml-auto flex flex-wrap items-center gap-2 sm:gap-3 short:shrink-0 short:flex-nowrap short:gap-2">
             <StudentGuide
               key={`${pathname}:${title}`}
               pageTitle={title}
@@ -350,14 +398,24 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
               // Tutors manage families from /students; the item would point a
               // tutor at a page about their own parents, which they don't have.
               showLinkedParents={!isTutor}
+              isParent={userRole === "parent"}
               isDemo={isDemo}
             />
           </div>
         </header>
         <div
           data-guide="page-content"
+          data-return-scope
           className="page-aurora flex-1 overflow-x-clip p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] sm:p-6 lg:p-10"
         >
+          {/* The subject slider below `xl`: top of the page, full width on a
+              phone, scrolling away with the page rather than pinned. */}
+          {showSubjectSlider && (
+            <HeaderSubjectToggle
+              layoutId="subject-toggle-pill-page"
+              className="mb-4 sm:mb-6 xl:hidden"
+            />
+          )}
           {children}
         </div>
       </main>

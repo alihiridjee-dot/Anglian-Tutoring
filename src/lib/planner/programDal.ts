@@ -1,9 +1,9 @@
-import { customSchedule, reorderTopics } from "./topicOrder";
+import { customSchedule, reorderTopics, resumeAfterPause } from "./topicOrder";
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
 import { type SubjectV, type BoardV, type LevelV } from "../curriculum/taxonomy";
 import { type Json } from "@/integrations/supabase/types";
-import { mondayOf, addWeeks, toDateKey, weekKeyToDate } from "./week";
+import { mondayOf, addWeeks, currentWeekKey, toDateKey, weekKeyToDate } from "./week";
 import { ScheduleDAL, type TopicProgress } from "./scheduleDal";
 import {
   type PacingBand,
@@ -18,8 +18,17 @@ import { WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal";
 import { WeeklyActivityDAL } from "./weeklyActivityDal";
 import { PlanOverridesDAL } from "./planOverridesDal";
 import { blockedBy, indexOverrides, programmeMayAssign, type PlanOverride } from "./overrides";
-import { buildRoadmap, focusInputs, type RoadmapResult } from "./roadmap";
+import {
+  buildRoadmap,
+  focusInputs,
+  reviewBudgetFor,
+  spineIsForAnotherCourse,
+  type RoadmapResult,
+} from "./roadmap";
 import { mergeWeek, selectWeek, unsupportedReviews, type WeekSelection } from "./weekCut";
+import { SubjectPauseDAL } from "./pausesDal";
+import { BreakDAL } from "./breaksDal";
+import { breakWeekKeys, layBreaksOver, type StudentBreak } from "./breaks";
 
 export { handPicked } from "./weekCut";
 
@@ -37,6 +46,20 @@ export function isReadableExamDate(key: string): boolean {
 export function examDateBounds(today: Date = new Date()): { min: string; max: string } {
   const min = toDateKey(today);
   return { min, max: `${Number(min.slice(0, 4)) + 4}${min.slice(4)}` };
+}
+
+/** The course as the topic-order moves take it: topics in order, points with their weights. */
+function orderTopicsOf(progress: TopicProgress[]) {
+  return progress.map((t) => ({
+    topicId: t.topicId,
+    title: t.title,
+    points: t.points.map((pt) => ({
+      specPointId: pt.id,
+      code: pt.code,
+      title: pt.title,
+      weight: pt.weight,
+    })),
+  }));
 }
 
 /**
@@ -81,6 +104,26 @@ export class ProgramDAL {
     if (baseline && !isReadableExamDate(baseline.exam_date))
       baseline.exam_date = toDateKey(examMondayFor());
 
+    // A subject that has just restarted picks its programme up where it
+    // stopped, before anything is cut from it (see resumeAfterPause).
+    if (baseline) {
+      const resumed = await this.pickUpAfterPauses({ studentId, subject, baseline, progress });
+      if (resumed) baseline.pacing = resumed as unknown as Json;
+    }
+    // What a saved change to the programme starts from: the spine as stored,
+    // before any break still to come is laid over it below.
+    const storedBands = baseline
+      ? (baseline.pacing as unknown as PacingBand[]).filter(isTeachBand)
+      : null;
+    // A break booked, under way or just over shows the course as it will be
+    // picked up: nothing taught in its weeks, nothing in them missed. Its weeks
+    // are closed to the forecasts below too.
+    const breaks = baseline ? await BreakDAL.list(studentId) : [];
+    if (baseline) {
+      const ahead = this.withBreaksAhead({ baseline, progress, breaks });
+      if (ahead) baseline.pacing = ahead as unknown as Json;
+    }
+
     const thisMonday = mondayOf();
     const thisWeek = toDateKey(thisMonday);
 
@@ -105,9 +148,17 @@ export class ProgramDAL {
       savedWeek ??
       (params.projectOnly ? await WeeklyPlanDAL.getPlan(studentId, subject, thisWeek) : null);
 
+    // A tutor moved the student to another board or level: the stored spine
+    // teaches the old course's topics, so it is no programme for this one. It
+    // is built afresh from this week, keeping the exam date, exactly as a first
+    // view is — and, like one, saved only when the student is the one looking.
+    const courseChanged =
+      !!baseline && spineIsForAnotherCourse(baseline.pacing as unknown as PacingBand[], progress);
+    const current = courseChanged ? null : baseline;
+
     const roadmap = buildRoadmap({
       progress,
-      baseline: baseline && { ...baseline, pacing: baseline.pacing as unknown as PacingBand[] },
+      baseline: current && { ...current, pacing: current.pacing as unknown as PacingBand[] },
       savedWeek,
       catchUpWeek,
       ledger,
@@ -115,9 +166,11 @@ export class ProgramDAL {
       firstWeek: programStartFor(),
       examMonday,
       overrides,
+      breakWeeks: breakWeekKeys(breaks),
     });
+    if (current && storedBands) roadmap.storedBands = storedBands;
 
-    if (!baseline) {
+    if (!current) {
       // Seed the acknowledged baseline so the first view is calm (no diff) —
       // but ONLY when the student is the one looking.
       //
@@ -147,6 +200,91 @@ export class ProgramDAL {
       }
     }
     return roadmap;
+  }
+
+  /**
+   * Pick the programme up after every stop that has ended but not been picked
+   * up yet, oldest first. Returns the new spine, or null when nothing moved.
+   *
+   * It never fails the load. A stop that can't be saved now is tried again on
+   * the next one, and a viewer who may not change the plan (a parent) leaves
+   * it for the student or a tutor. The result doesn't depend on who looks or
+   * when: both ends of the stop are recorded by the database.
+   */
+  private static async pickUpAfterPauses(p: {
+    studentId: string;
+    subject: SubjectV;
+    baseline: { exam_date: string; pacing: Json };
+    progress: TopicProgress[];
+  }): Promise<PacingBand[] | null> {
+    const pending = (await SubjectPauseDAL.history(p.studentId, p.subject)).filter(
+      (r) => r.endedAt && !r.programmeResumedAt,
+    );
+    if (!pending.length) return null;
+    const stored = p.baseline.pacing as unknown as PacingBand[];
+    // A spine for another course is rebuilt from this week anyway.
+    const otherCourse = spineIsForAnotherCourse(stored, p.progress);
+    const topics = orderTopicsOf(p.progress);
+    let bands = stored.filter(isTeachBand);
+    let changed = false;
+    for (const pause of pending) {
+      let next: PacingBand[] | null = null;
+      if (!otherCourse) {
+        try {
+          const moved = resumeAfterPause({
+            bands,
+            topics,
+            pausedFrom: currentWeekKey(new Date(pause.startedAt)),
+            resumeFrom: currentWeekKey(new Date(pause.endedAt!)),
+            examDate: p.baseline.exam_date,
+          });
+          if (moved !== bands) next = moved;
+        } catch (e) {
+          // Too few weeks left, or the exams have begun: the plan stays as it is.
+          console.warn("[planner] couldn't re-plan after a pause", e);
+        }
+      }
+      try {
+        await SubjectPauseDAL.resumeProgramme({ pauseId: pause.id, expected: bands, pacing: next });
+      } catch (e) {
+        console.warn("[planner] couldn't save the plan after a pause", e);
+        break;
+      }
+      if (next) {
+        bands = next;
+        changed = true;
+      }
+    }
+    return changed ? bands : null;
+  }
+
+  /**
+   * The spine with every break not yet recorded laid over it (layBreaksOver):
+   * one booked, under way, or over and waiting for the hourly record. Returns
+   * null when there is none, or it moves nothing.
+   *
+   * Nothing is saved. Once a break is recorded as a stop, pickUpAfterPauses
+   * saves the same calendar, and laying a break over a spine it is already in
+   * changes nothing, so the plan doesn't shift when that happens.
+   */
+  private static withBreaksAhead(p: {
+    baseline: { exam_date: string; pacing: Json };
+    progress: TopicProgress[];
+    breaks: StudentBreak[];
+  }): PacingBand[] | null {
+    const breaks = p.breaks.filter((b) => !b.recordedAt);
+    if (!breaks.length) return null;
+    const stored = p.baseline.pacing as unknown as PacingBand[];
+    // A spine for another course is rebuilt from this week anyway.
+    if (spineIsForAnotherCourse(stored, p.progress)) return null;
+    const bands = stored.filter(isTeachBand);
+    const laid = layBreaksOver({
+      bands,
+      topics: orderTopicsOf(p.progress),
+      breaks,
+      examDate: p.baseline.exam_date,
+    });
+    return laid === bands ? null : laid;
   }
 
   /**
@@ -294,6 +432,7 @@ export class ProgramDAL {
       currentMonday: saved ? addWeeks(monday, 1) : monday,
       examMonday: weekKeyToDate(p.examDate),
       isBlocked: blockedBy(overrides),
+      weeklyBudget: reviewBudgetFor(p.progress, p.pacing.filter(isTeachBand)),
     }).bands;
   }
 
@@ -336,8 +475,12 @@ export class ProgramDAL {
         weight: p.weight,
       })),
     }));
+    // The spine as stored, not as a break still to come shows it: the database
+    // checks the change against what it holds, and the break is laid over the
+    // new order on the next load.
+    const saved = data.storedBands ?? data.baselineBands;
     const pacing = reorderTopics({
-      bands: data.baselineBands,
+      bands: saved,
       topics,
       order,
       from,
@@ -348,7 +491,7 @@ export class ProgramDAL {
       _board: board,
       _level: level,
       _from: from,
-      _expected_pacing: data.baselineBands as unknown as Json,
+      _expected_pacing: saved as unknown as Json,
       _expected_exam: data.examDate,
       _pacing: pacing as unknown as Json,
       _assessed: progress.flatMap((t) => t.points.filter((p) => p.reps > 0).map((p) => p.id)),

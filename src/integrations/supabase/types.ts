@@ -134,7 +134,7 @@ export type Database = {
           body: string;
           created_at: string;
           id: string;
-          sender_id: string;
+          sender_id: string | null;
           thread_id: string;
         };
         Insert: {
@@ -142,7 +142,7 @@ export type Database = {
           body: string;
           created_at?: string;
           id?: string;
-          sender_id: string;
+          sender_id?: string | null;
           thread_id: string;
         };
         Update: {
@@ -150,7 +150,7 @@ export type Database = {
           body?: string;
           created_at?: string;
           id?: string;
-          sender_id?: string;
+          sender_id?: string | null;
           thread_id?: string;
         };
         Relationships: [
@@ -436,6 +436,7 @@ export type Database = {
         Row: {
           acknowledged_at: string | null;
           ai_marked_at: string | null;
+          ai_marking_started_at: string | null;
           feedback: string | null;
           files: Json;
           files_deleted_at: string | null;
@@ -454,6 +455,7 @@ export type Database = {
         Insert: {
           acknowledged_at?: string | null;
           ai_marked_at?: string | null;
+          ai_marking_started_at?: string | null;
           feedback?: string | null;
           files?: Json;
           files_deleted_at?: string | null;
@@ -472,6 +474,7 @@ export type Database = {
         Update: {
           acknowledged_at?: string | null;
           ai_marked_at?: string | null;
+          ai_marking_started_at?: string | null;
           feedback?: string | null;
           files?: Json;
           files_deleted_at?: string | null;
@@ -801,6 +804,7 @@ export type Database = {
       notifications: {
         Row: {
           body: string | null;
+          chat_thread_id: string | null;
           created_at: string;
           id: string;
           link: string | null;
@@ -812,6 +816,7 @@ export type Database = {
         };
         Insert: {
           body?: string | null;
+          chat_thread_id?: string | null;
           created_at?: string;
           id?: string;
           link?: string | null;
@@ -823,6 +828,7 @@ export type Database = {
         };
         Update: {
           body?: string | null;
+          chat_thread_id?: string | null;
           created_at?: string;
           id?: string;
           link?: string | null;
@@ -833,6 +839,13 @@ export type Database = {
           user_id?: string;
         };
         Relationships: [
+          {
+            foreignKeyName: "notifications_chat_thread_id_fkey";
+            columns: ["chat_thread_id"];
+            isOneToOne: false;
+            referencedRelation: "chat_threads";
+            referencedColumns: ["id"];
+          },
           {
             foreignKeyName: "notifications_submission_id_fkey";
             columns: ["submission_id"];
@@ -1044,6 +1057,7 @@ export type Database = {
           subject: Database["public"]["Enums"]["subject"];
           title: string;
           video_url: string | null;
+          zoom_meeting_id: string | null;
         };
         Insert: {
           board?: Database["public"]["Enums"]["board"] | null;
@@ -1069,6 +1083,7 @@ export type Database = {
           subject: Database["public"]["Enums"]["subject"];
           title: string;
           video_url?: string | null;
+          zoom_meeting_id?: string | null;
         };
         Update: {
           board?: Database["public"]["Enums"]["board"] | null;
@@ -1094,6 +1109,7 @@ export type Database = {
           subject?: Database["public"]["Enums"]["subject"];
           title?: string;
           video_url?: string | null;
+          zoom_meeting_id?: string | null;
         };
         Relationships: [
           {
@@ -1248,6 +1264,48 @@ export type Database = {
             referencedColumns: ["id"];
           },
         ];
+      };
+      student_breaks: {
+        Row: {
+          booked_at: string;
+          booked_by: string | null;
+          cancelled_at: string | null;
+          ended_by: string | null;
+          ended_early_at: string | null;
+          ends_on: string;
+          id: string;
+          reason: string;
+          recorded_at: string | null;
+          starts_on: string;
+          student_id: string;
+        };
+        Insert: {
+          booked_at?: string;
+          booked_by?: string | null;
+          cancelled_at?: string | null;
+          ended_by?: string | null;
+          ended_early_at?: string | null;
+          ends_on: string;
+          id?: string;
+          reason: string;
+          recorded_at?: string | null;
+          starts_on: string;
+          student_id: string;
+        };
+        Update: {
+          booked_at?: string;
+          booked_by?: string | null;
+          cancelled_at?: string | null;
+          ended_by?: string | null;
+          ended_early_at?: string | null;
+          ends_on?: string;
+          id?: string;
+          reason?: string;
+          recorded_at?: string | null;
+          starts_on?: string;
+          student_id?: string;
+        };
+        Relationships: [];
       };
       student_enrolments: {
         Row: {
@@ -1486,6 +1544,39 @@ export type Database = {
             referencedColumns: ["id"];
           },
         ];
+      };
+      student_subject_pauses: {
+        Row: {
+          cancelled_at: string | null;
+          ended_at: string | null;
+          id: string;
+          programme_resumed_at: string | null;
+          reason: string;
+          started_at: string;
+          student_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+        };
+        Insert: {
+          cancelled_at?: string | null;
+          ended_at?: string | null;
+          id?: string;
+          programme_resumed_at?: string | null;
+          reason: string;
+          started_at?: string;
+          student_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+        };
+        Update: {
+          cancelled_at?: string | null;
+          ended_at?: string | null;
+          id?: string;
+          programme_resumed_at?: string | null;
+          reason?: string;
+          started_at?: string;
+          student_id?: string;
+          subject?: Database["public"]["Enums"]["subject"];
+        };
+        Relationships: [];
       };
       student_term_plans: {
         Row: {
@@ -1955,17 +2046,74 @@ export type Database = {
         };
         Returns: undefined;
       };
+      book_break: {
+        Args: {
+          _student_id: string;
+          _starts_on: string;
+          _weeks: number;
+          _reason: string;
+        };
+        Returns: string;
+      };
+      end_break: {
+        Args: {
+          _break_id: string;
+        };
+        Returns: string;
+      };
+      resume_programme_after_pause: {
+        Args: {
+          _pause_id: string;
+          _expected_pacing: Json;
+          _pacing: Json | null;
+        };
+        Returns: undefined;
+      };
       acknowledge_submission: {
         Args: { _submission_id: string };
         Returns: undefined;
       };
       assessment_scheduler_version: { Args: never; Returns: number };
+      chat_thread_summaries: {
+        Args: { p_thread_ids: string[] };
+        Returns: {
+          last_message: string;
+          thread_id: string;
+          unread: number;
+        }[];
+      };
       chat_unread_count: { Args: never; Returns: number };
+      claim_homework_marking: { Args: { _submission_id: string }; Returns: boolean };
       claim_ai_request: {
         Args: { _endpoint: string; _limit: number; _window: string };
         Returns: boolean;
       };
       claim_parent_role: { Args: never; Returns: Json };
+      confirm_homework_marks: {
+        Args: {
+          _feedback: string | null;
+          _marks: Json;
+          _score_pct: number | null;
+          _submission_id: string;
+        };
+        Returns: undefined;
+      };
+      create_linked_resource: {
+        Args: {
+          _board: Database["public"]["Enums"]["board"] | null;
+          _description: string;
+          _join_url?: string | null;
+          _kind: Database["public"]["Enums"]["resource_kind"];
+          _level: Database["public"]["Enums"]["level"];
+          _spec_point_ids: string[];
+          _starts_at?: string | null;
+          _subject: Database["public"]["Enums"]["subject"];
+          _title: string;
+          _video_url?: string | null;
+          _zoom_meeting_id?: string | null;
+        };
+        Returns: string;
+      };
       curriculum_coverage: {
         Args: never;
         Returns: {
@@ -2013,7 +2161,7 @@ export type Database = {
         Returns: number;
       };
       grade_mcq_attempt: {
-        Args: { _answers: Json; _set_id: string };
+        Args: { _answers: Json; _attempt_id?: string; _set_id: string };
         Returns: Json;
       };
       homework_points_with_sheet: {
@@ -2023,6 +2171,18 @@ export type Database = {
       homework_mark_schemes: {
         Args: { _resource_ids: string[] };
         Returns: { mark_scheme: string; question_id: string }[];
+      };
+      import_curriculum_topic: {
+        Args: {
+          _board: Database["public"]["Enums"]["board"];
+          _level: Database["public"]["Enums"]["level"];
+          _points: Json;
+          _subject: Database["public"]["Enums"]["subject"];
+          _topic_code: string;
+          _topic_description: string | null;
+          _topic_title: string;
+        };
+        Returns: Json;
       };
       invite_parent_by_email: { Args: { _email: string }; Returns: Json };
       is_enrolled_in: {
@@ -2053,6 +2213,10 @@ export type Database = {
           parent_id: string;
         }[];
       };
+      live_session_join_urls: {
+        Args: { _ids: string[] };
+        Returns: { id: string; join_url: string }[];
+      };
       delete_chat_thread: {
         Args: { p_thread_id: string };
         Returns: undefined;
@@ -2070,6 +2234,15 @@ export type Database = {
         Returns: {
           has_access: boolean;
           onboarding_complete: boolean;
+        }[];
+      };
+      student_engagement: {
+        Args: { _student_id: string };
+        Returns: {
+          homework_set: number;
+          homework_submitted: number;
+          sessions_attended: number;
+          sessions_held: number;
         }[];
       };
       planner_attempt_sources: { Args: { _ids: string[] }; Returns: Json };
@@ -2095,6 +2268,20 @@ export type Database = {
       };
       revoke_parent_invite: { Args: { _invite_id: string }; Returns: undefined };
       rotate_student_invite_code: { Args: never; Returns: string };
+      save_homework_brief: {
+        Args: {
+          _board: Database["public"]["Enums"]["board"];
+          _due_at: string | null;
+          _id: string | null;
+          _instructions: string;
+          _level: Database["public"]["Enums"]["level"];
+          _questions: Json;
+          _spec_point_ids: string[];
+          _subject: Database["public"]["Enums"]["subject"];
+          _title: string;
+        };
+        Returns: string;
+      };
       save_student_enrolments: { Args: { _subjects: Json }; Returns: undefined };
       save_weekly_plan: {
         Args: {
@@ -2124,6 +2311,10 @@ export type Database = {
         };
         Returns: Json;
       };
+      replace_generated_mcq_questions: {
+        Args: { _questions: Json; _set_id: string };
+        Returns: number;
+      };
       skip_plan_point: {
         Args: {
           _student_id: string;
@@ -2132,6 +2323,17 @@ export type Database = {
           _note?: string;
         };
         Returns: Json;
+      };
+      student_scored_work: {
+        Args: { _since?: string; _student_id: string };
+        Returns: {
+          item_id: string;
+          kind: string;
+          pct: number | null;
+          scored_at: string;
+          subject: Database["public"]["Enums"]["subject"];
+          title: string | null;
+        }[];
       };
       submit_homework_answers: {
         Args: { _answers: Json; _notes?: string; _resource_id: string };

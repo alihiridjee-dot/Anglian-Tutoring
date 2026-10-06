@@ -67,12 +67,24 @@ await db.query("insert into auth.users values($1,'other@example.com',null)", [ot
 await db.query("insert into auth.users values($1,'tutor@example.com',now())", [tutor]);
 await db.query("insert into auth.users values($1,'parent@example.com',now())", [parent]);
 await db.query("insert into user_roles values($1,'tutor')", [tutor]);
-await db.query("insert into profiles(id,display_name,role,level) values($1,'Bea','student','gcse')", [student]);
-await db.query("insert into profiles(id,display_name,role,level) values($1,'Al','student','gcse')", [other]);
+await db.query(
+  "insert into profiles(id,display_name,role,level) values($1,'Bea','student','gcse')",
+  [student],
+);
+await db.query(
+  "insert into profiles(id,display_name,role,level) values($1,'Al','student','gcse')",
+  [other],
+);
 await db.query("insert into profiles(id,display_name,role) values($1,'Ms T','tutor')", [tutor]);
 await db.query("insert into profiles(id,display_name,role) values($1,'Mum','parent')", [parent]);
-await db.query("insert into student_enrolments(student_id,subject,board) values($1,'biology','aqa')", [student]);
-await db.query("insert into subscriptions(user_id,student_id,status) values($1,$2,'active')", [parent, student]);
+await db.query(
+  "insert into student_enrolments(student_id,subject,board) values($1,'biology','aqa')",
+  [student],
+);
+await db.query("insert into subscriptions(user_id,student_id,status) values($1,$2,'active')", [
+  parent,
+  student,
+]);
 
 await db.exec(`grant usage on schema public,auth,private to authenticated;
  grant all on all tables in schema public to authenticated;
@@ -101,9 +113,15 @@ assert.deepEqual(
 assert(!dir.rows.some((r) => r.id === parent), "Directory leaked a parent");
 
 await as(student);
-await fails(() => db.query("select * from tutor_student_directory()"), "A student read the directory");
+await fails(
+  () => db.query("select * from tutor_student_directory()"),
+  "A student read the directory",
+);
 await as(parent);
-await fails(() => db.query("select * from tutor_student_directory()"), "A parent read the directory");
+await fails(
+  () => db.query("select * from tutor_student_directory()"),
+  "A parent read the directory",
+);
 
 // ── Level ─────────────────────────────────────────────────────────────────
 await as(tutor);
@@ -165,10 +183,7 @@ const edited = await db.query<{ updated_at: string; created_at: string }>(
   "update student_tutor_notes set body='Struggles with moles; improving' where id=$1 returning updated_at, created_at",
   [note.rows[0].id],
 );
-assert(
-  edited.rows[0].updated_at > edited.rows[0].created_at,
-  "updated_at did not move on edit",
-);
+assert(edited.rows[0].updated_at > edited.rows[0].created_at, "updated_at did not move on edit");
 await as(student);
 const seen = await db.query("select id from student_tutor_notes");
 assert.equal(seen.rows.length, 0, "The student can read tutor notes about them");

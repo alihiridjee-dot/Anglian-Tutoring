@@ -58,7 +58,7 @@ export function DeleteAccountSection({ studentId, name }: { studentId: string; n
                   },
                 )
               }
-              className="btn-soft inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:h-9"
+              className="btn-soft inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
             >
               {undo.isPending ? (
                 <Loader2 className="size-4 animate-spin" aria-hidden />
@@ -82,7 +82,7 @@ export function DeleteAccountSection({ studentId, name }: { studentId: string; n
         <button
           type="button"
           onClick={() => setConfirming(true)}
-          className="btn-solid tint-rose inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:h-9"
+          className="btn-solid tint-rose inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
         >
           <Trash2 className="size-4" aria-hidden /> Delete account
         </button>
@@ -215,7 +215,7 @@ function DeleteAccountDialog({
               type="button"
               onClick={onClose}
               disabled={schedule.isPending}
-              className="btn-soft tint-slate inline-flex h-11 items-center rounded-lg px-3.5 text-sm sm:h-9"
+              className="btn-soft tint-slate inline-flex h-11 items-center rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
             >
               Keep account
             </button>
@@ -223,7 +223,7 @@ function DeleteAccountDialog({
               type="button"
               onClick={confirm}
               disabled={!matches || schedule.isPending}
-              className="btn-solid tint-rose inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:h-9"
+              className="btn-solid tint-rose inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
             >
               {schedule.isPending ? (
                 <Loader2 className="size-4 animate-spin" aria-hidden />

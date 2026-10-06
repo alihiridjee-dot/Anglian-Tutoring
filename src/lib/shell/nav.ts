@@ -2,7 +2,6 @@ import {
   LayoutDashboard,
   ClipboardList,
   BookMarked,
-  BookOpen,
   ListChecks,
   Video,
   Users,
@@ -29,7 +28,6 @@ export type NavRoute =
   | "/dashboard"
   | "/planner"
   | "/curriculum"
-  | "/notes"
   | "/homework"
   | "/live"
   | "/mcqs"
@@ -55,7 +53,6 @@ export type NavRoute =
 export const STUDENT_SECTION_ROUTES = [
   "/planner",
   "/curriculum",
-  "/notes",
   "/homework",
   "/live",
   "/mcqs",
@@ -82,8 +79,7 @@ const studentNav: NavItem[] = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/planner", label: "Planner", icon: Compass },
   { to: "/curriculum", label: "Curriculum", icon: BookMarked },
-  { to: "/notes", label: "Revision Notes", icon: BookOpen },
-  { to: "/homework", label: "Homework & Grades", icon: ClipboardList },
+  { to: "/homework", label: "Tasks & Grades", icon: ClipboardList },
   { to: "/live", label: "Live Sessions", icon: Video },
   { to: "/mcqs", label: "MCQs", icon: ListChecks },
   // Sits with the learning sections, not with account settings: asking your

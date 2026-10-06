@@ -121,7 +121,7 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
         },
         {
           icon: ClipboardList,
-          label: "Homework",
+          label: "Tasks",
           detail: "Answer it on the page. It comes back marked, with feedback.",
         },
         {
@@ -160,7 +160,7 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       title: "Your plan for the week",
       body: [
         "Your plan covers your whole course, a few points each week, so you finish in time for your exams.",
-        "Anything that doesn’t stick comes back later for revision. Your quiz and homework marks decide when.",
+        "Anything that doesn’t stick comes back later for revision. Your quiz and task marks decide when.",
       ],
     },
     {
@@ -170,7 +170,7 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       icon: BookMarked,
       title: "Everything on your course",
       body: [
-        "Every topic you need to know is here. Open a topic, then a point, to find its videos, quizzes and homework.",
+        "Every topic you need to know is here. Open a topic, then a point, to find its videos, quizzes and tasks.",
       ],
     },
     {
@@ -190,12 +190,12 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
         '[data-guide="homework-grades"]',
         '[data-guide="page-content"] .pop-card',
       ],
-      chapter: "Homework & Grades",
+      chapter: "Tasks & Grades",
       icon: ClipboardList,
-      title: "Homework and grades",
+      title: "Tasks and grades",
       body: [
-        "Answer your homework right here on the page. It comes back with a mark and written feedback.",
-        "Once you’ve done a few, your quiz and homework results add up to a predicted grade for each subject.",
+        "Answer your tasks right here on the page. Each comes back with a mark and written feedback.",
+        "Once you’ve done a few, your quiz and task results add up to a predicted grade for each subject.",
       ],
     },
     {
@@ -205,7 +205,7 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       icon: MessagesSquare,
       title: "Stuck? Ask a tutor",
       body: [
-        "Press Ask a question to message a tutor. Add the topic, homework or quiz you’re stuck on, so they see exactly what you mean.",
+        "Press Ask a question to message a tutor. Add the topic, task or quiz you’re stuck on, so they see exactly what you mean.",
       ],
     },
     {
@@ -216,17 +216,17 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       title: "Bring a parent along",
       body: [
         "A parent or guardian can follow your progress. Invite them here, or give them the invite code on this page.",
-        "They see your grades, homework and plan, but never your messages.",
+        "They see your grades, tasks and plan, but never your messages.",
       ],
     },
     {
       path: home,
-      targets: [],
+      targets: ['[data-guide="guide"]'],
       chapter: "All set",
       title: allSet(name),
       body: [
         "Start with this week’s plan on your dashboard.",
-        "Want this tour again? Press Show me around at the top of your dashboard.",
+        "Want to know more about any page? Press the 🧭 at the top. Here on your dashboard, it plays the video and this tour again.",
       ],
     },
   ];
@@ -248,8 +248,8 @@ function parentSteps({ name, children }: WelcomeFacts): WelcomeStep[] {
     body: [
       `Anglia Educate is science tutoring. ${They} gets live lessons with real tutors every week.`,
       linked
-        ? `Between lessons, the site gives ${them} a study plan, quizzes and marked homework. This portal lets you follow along.`
-        : "Between lessons, the site gives them a study plan, quizzes and marked homework. Once you link their account, this portal lets you follow along.",
+        ? `Between lessons, the site gives ${them} a study plan, quizzes and marked tasks. This portal lets you follow along.`
+        : "Between lessons, the site gives them a study plan, quizzes and marked tasks. Once you link their account, this portal lets you follow along.",
     ],
   };
 
@@ -274,7 +274,7 @@ function parentSteps({ name, children }: WelcomeFacts): WelcomeStep[] {
       },
       {
         icon: ClipboardList,
-        label: "Marked homework",
+        label: "Marked tasks",
         detail: "Answered online, and returned with written feedback.",
       },
       {
@@ -294,7 +294,7 @@ function parentSteps({ name, children }: WelcomeFacts): WelcomeStep[] {
           icon: LayoutDashboard,
           title: "How they’re doing",
           body: [
-            `Here’s ${them}’s predicted grade in each subject, next to their target. A prediction appears once they’ve done a few quizzes and homework.`,
+            `Here’s ${them}’s predicted grade in each subject, next to their target. A prediction appears once they’ve done a few quizzes and tasks.`,
             "Further down: this week’s topics, the tutor’s note and upcoming lessons.",
           ],
         },
@@ -335,12 +335,12 @@ function parentSteps({ name, children }: WelcomeFacts): WelcomeStep[] {
 
   const done: WelcomeStep = {
     path: home,
-    targets: [],
+    targets: ['[data-guide="guide"]'],
     chapter: "All set",
     title: allSet(name),
     body: [
       "Check in whenever you like.",
-      "Want this tour again? Press Show me around at the top of the portal.",
+      "Want to know more about any page? Press the 🧭 at the top. Here on the portal, it plays this tour again.",
     ],
   };
 

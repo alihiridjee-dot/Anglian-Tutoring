@@ -12,19 +12,14 @@ import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { type PointCoverage, type PointActivity, type PointWork } from "@/lib/planner/coverage";
 import { getSessionUserId } from "@/lib/auth/session";
-import { ensureHomeworkForPoints } from "@/lib/homework/homeworkQuestions.functions";
-import { ensureMcqForPoints } from "@/lib/mcq/mcq.functions";
 import { courseKey, invalidatePlanner, roadmapQuery } from "@/lib/planner/queries";
+import { weekIsForAnotherCourse } from "@/lib/planner/weekCut";
+import { subjectPauseQuery, type SubjectPause } from "@/lib/planner/subjectPauses";
+import { breakCovering, type StudentBreak } from "@/lib/planner/breaks";
+import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 
 export type Activity = Map<string, PointActivity & PointWork>;
 
-/**
- * Generation already asked for this session, by student and missing points.
- * Module-level, not per hook: /planner mounts two week hooks for the current
- * week, and each kept its own guard, so every gap was generated twice at once —
- * double the Anthropic spend and double the claim_ai_request budget.
- */
-const generationAsked = new Set<string>();
 export interface WeekPlanState {
   plan: WeeklyPlan | null;
   points: PlanPoint[];
@@ -32,6 +27,10 @@ export interface WeekPlanState {
   activity: Activity;
   coverage: Map<string, PointCoverage>;
   roadmap: RoadmapResult | null;
+  /** The subject is stopped (plan paused, lapsed, ended or removed): nothing is planned. */
+  pause: SubjectPause | null;
+  /** The week falls in a break the student is taking: nothing is planned for it. */
+  onBreak: StudentBreak | null;
   loading: boolean;
   error: Error | null;
   reload: () => Promise<void>;
@@ -59,6 +58,13 @@ export function useWeekPlan(params: {
     enabled: !!studentId && params.enabled !== false,
     queryFn: async ({ signal }) => {
       let saved = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
+      // A paused subject is read, never planned: no week is built and nothing
+      // is added to one until the student can use it again. The database
+      // refuses those writes too; this is so the planner doesn't try.
+      if (await client.fetchQuery(subjectPauseQuery(studentId, subject))) return saved;
+      // A break week is read, never planned, in the same way (student_breaks).
+      if (breakCovering(await client.fetchQuery(studentBreaksQuery(studentId)), weekStart))
+        return saved;
       /**
        * A saved review with nothing behind it is repaired before the week is
        * read, not left sitting there.
@@ -83,6 +89,10 @@ export function useWeekPlan(params: {
       }
       if (!saved && isCurrent && (await getSessionUserId()) === studentId) {
         const roadmap = await client.fetchQuery(roadmapQuery(client, params, true));
+        // No curriculum came back (hidden from this student, or the read
+        // failed), so there is nothing to plan from. An empty week saved now
+        // would never be rebuilt: on the test account one sat there all week.
+        if (!roadmap) return null;
         const selection = await ProgramDAL.planForWeek({ ...params, roadmap });
         signal.throwIfAborted();
         await WeeklyPlanDAL.savePlan({
@@ -111,9 +121,18 @@ export function useWeekPlan(params: {
        * current week means the automatic lanes have not been through it yet,
        * and `refreshWeek` merges them in around what the person chose.
        */
+      /**
+       * A week saved for another course is re-cut for this one. After a tutor
+       * moves a student to another board or level mid-week, every point in the
+       * week is withheld as off-course, so the student saw "Nothing assigned
+       * this week" until Monday, and the tutor's add, move and catch-up were
+       * refused. `save_weekly_plan` moves the row onto the new course, and the
+       * old course's points with history stay withheld, not deleted.
+       */
+      const otherCourse = !!saved && weekIsForAnotherCourse(saved.plan, { board, level });
       if (
         saved &&
-        saved.plan.source !== "ai" &&
+        (saved.plan.source !== "ai" || otherCourse) &&
         isCurrent &&
         (await getSessionUserId()) === studentId
       ) {
@@ -150,93 +169,40 @@ export function useWeekPlan(params: {
     queryKey: [...courseKey(params), "activity", ids],
     queryFn: () => WeeklyActivityDAL.getActivity(ids),
     enabled: !!week.data,
+    // The practice queue writes a point's missing quiz and task once the week is
+    // saved (a database trigger); re-reading shows them without a reload. Only
+    // the current week: a past week is never queued again, so its gaps stay. At
+    // most twenty reads, so a point that never gets one stops costing requests.
+    refetchInterval: ({ state }) =>
+      isCurrent &&
+      state.dataUpdateCount + state.errorUpdateCount < 20 &&
+      points.some(({ spec_point_id: id }) => {
+        const work = state.data?.get(id);
+        return (work?.homework.length ?? 0) === 0 || !work?.hasQuiz;
+      })
+        ? 30_000
+        : false,
   });
   const coverage = useQuery({
     queryKey: [...weekKey, "coverage", ids],
     queryFn: () => WeeklyActivityDAL.getCoverage(studentId, ids, weekStart),
     enabled: !!week.data && withCoverage,
   });
+  const pause = useQuery({
+    ...subjectPauseQuery(studentId, subject),
+    enabled: !!studentId && params.enabled !== false,
+  });
+  const breaks = useQuery({
+    ...studentBreaksQuery(studentId),
+    enabled: !!studentId && params.enabled !== false,
+  });
+  const onBreak = breakCovering(breaks.data ?? [], weekStart);
   const road = useQuery({
     ...roadmapQuery(client, params),
     // `enabled` binds the roadmap too: without it, a panel with no course to
     // show still seeded a programme for its fallback subject.
     enabled: !!studentId && params.enabled !== false && params.roadmap === undefined,
   });
-  /**
-   * Fill in any homework or quiz this week's points are missing.
-   *
-   * Homework is one sheet per spec point, which makes it library content: the
-   * sheet for a point is written once and read by every student who ever
-   * reaches it. So the gap is filled here, at planning time, rather than by a
-   * 2,000-sheet backfill nobody would review — the first student to reach a
-   * point pays for it and everyone after reads the same rows for free.
-   *
-   * Keyed on the missing ids and remembered for the session, because the query
-   * that reveals the gap also re-runs whenever the week is refetched; without
-   * the guard a point the model keeps failing on would be retried on every
-   * render. Failures stay silent: a missing homework chip is a smaller problem
-   * than a dashboard that won't load.
-   *
-   * Quizzes follow the same rule — one shared set per spec point — and are filled
-   * the same way, as a separate request so one slow generation can't hold up the
-   * other.
-   */
-  const missingHomework = useMemo(() => {
-    if (!activity.data) return "";
-    return points
-      .map((p) => p.spec_point_id)
-      .filter((id) => (activity.data.get(id)?.homework.length ?? 0) === 0)
-      .sort()
-      .join(",");
-  }, [activity.data, points]);
-  const missingQuiz = useMemo(() => {
-    if (!activity.data) return "";
-    return points
-      .map((p) => p.spec_point_id)
-      .filter((id) => !activity.data.get(id)?.hasQuiz)
-      .sort()
-      .join(",");
-  }, [activity.data, points]);
-  useEffect(() => {
-    if (!missingHomework || !isCurrent) return;
-    const key = `${studentId}|homework:${missingHomework}`;
-    if (generationAsked.has(key)) return;
-    generationAsked.add(key);
-    void (async () => {
-      // Only the student's own week generates — a tutor looking at it is a
-      // reader, and should not be billing AI calls by browsing.
-      if ((await getSessionUserId()) !== studentId) return;
-      try {
-        const result = await ensureHomeworkForPoints({
-          data: { specPointIds: missingHomework.split(","), subject, board, level },
-        });
-        if (result.created > 0) {
-          await client.invalidateQueries({ queryKey: [...courseKey(params), "activity"] });
-        }
-      } catch {
-        // Soft by design — see above.
-      }
-    })();
-  }, [missingHomework, isCurrent, studentId, subject, board, level, client, params]);
-  useEffect(() => {
-    if (!missingQuiz || !isCurrent) return;
-    const key = `${studentId}|quiz:${missingQuiz}`;
-    if (generationAsked.has(key)) return;
-    generationAsked.add(key);
-    void (async () => {
-      if ((await getSessionUserId()) !== studentId) return;
-      try {
-        const result = await ensureMcqForPoints({
-          data: { specPointIds: missingQuiz.split(",") },
-        });
-        if (result.created > 0) {
-          await client.invalidateQueries({ queryKey: [...courseKey(params), "activity"] });
-        }
-      } catch {
-        // Soft by design — see above.
-      }
-    })();
-  }, [missingQuiz, isCurrent, studentId, client, params]);
 
   const reload = useCallback(async () => {
     await invalidatePlanner(client, studentId);
@@ -261,7 +227,15 @@ export function useWeekPlan(params: {
     activity: activity.data ?? new Map(),
     coverage: withCoverage ? (coverage.data ?? new Map()) : new Map(),
     roadmap: params.roadmap !== undefined ? params.roadmap : (road.data ?? null),
-    loading: week.isLoading || activity.isLoading || coverage.isLoading || road.isLoading,
+    pause: pause.data ?? null,
+    onBreak,
+    loading:
+      week.isLoading ||
+      activity.isLoading ||
+      coverage.isLoading ||
+      road.isLoading ||
+      pause.isLoading ||
+      breaks.isLoading,
     error: week.error ?? activity.error ?? coverage.error ?? road.error,
     reload,
     setPointDone: async (id, value) => {

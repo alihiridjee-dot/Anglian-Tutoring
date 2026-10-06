@@ -1,10 +1,29 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { Search, X, CornerDownLeft, ArrowUp, ArrowDown, Loader2 } from "lucide-react";
+import { useMutation } from "@tanstack/react-query";
+import {
+  Search,
+  X,
+  CornerDownLeft,
+  ArrowUp,
+  ArrowDown,
+  Loader2,
+  MessageCircleQuestion,
+} from "lucide-react";
 import { useGlobalSearch } from "@/hooks/useGlobalSearch";
 import { MIN_QUERY_LENGTH } from "@/lib/search/match";
+import { searchTerms, type HelpIntentId } from "@/lib/search/help";
+import { askHelp } from "@/lib/search/helpAsk.functions";
 import type { SearchHit } from "@/lib/search/types";
 import { Highlight } from "./Highlight";
+
+/** Tappable starters in a student's empty box, so it reads as taking sentences. */
+const HELP_EXAMPLES = [
+  "Find my MCQ for this week",
+  "What tasks are due?",
+  "When is my next live session?",
+  "Where are my grades?",
+];
 
 /**
  * The global search palette — one box that reaches every page and every piece
@@ -14,6 +33,10 @@ import { Highlight } from "./Highlight";
  * results *across* group boundaries, Enter opens the highlighted one, Esc
  * closes. The mouse can do all of the same, and hovering moves the highlight so
  * the two input methods never disagree about what Enter would do.
+ *
+ * For a student it is also the help box. A sentence the rules recognise is
+ * answered on top as they type; one they don't gets a last row, "Ask for
+ * help", which asks the model what it means — only when chosen, never per key.
  */
 export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [query, setQuery] = useState("");
@@ -22,18 +45,51 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
   const listRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
-  const { sections, terms, loading, active, error } = useGlobalSearch(query);
+  // The model's reading of one query, kept only while that query is on screen.
+  const [asked, setAsked] = useState<{ query: string; intent: HelpIntentId } | null>(null);
+  const forced = asked && asked.query === query.trim() ? asked.intent : null;
+  const { sections, terms, loading, active, error, helpOn, intent } = useGlobalSearch(
+    query,
+    forced,
+  );
 
   // Keyboard navigation walks one flat list; the group headers are purely visual.
   const flat = useMemo(() => sections.flatMap((s) => s.hits), [sections]);
 
+  const latestQuery = useRef(query);
+  latestQuery.current = query;
+  const ask = useMutation({
+    mutationFn: (question: string) => askHelp({ data: { question } }),
+    onSuccess: (reply, question) => {
+      // The student has typed on since; this answer is for a query that's gone.
+      if (latestQuery.current.trim() !== question) return;
+      if (reply.intent === "search" && reply.topic !== searchTerms(question).join(" ")) {
+        setQuery(reply.topic);
+        return;
+      }
+      // Nothing on the list fits: their tutor is the help.
+      const understood = reply.intent === "search" || reply.intent === "none" ? null : reply.intent;
+      setAsked({ query: question, intent: understood ?? "messages" });
+    },
+  });
+  const resetAsk = ask.reset;
+  useEffect(() => resetAsk(), [query, resetAsk]);
+
+  // Offered once a sentence has been typed that no rule recognised.
+  const askable = helpOn && active && !intent && query.trim().split(/\s+/).length >= 2;
+  const total = flat.length + (askable ? 1 : 0);
+  const runAsk = () => {
+    if (!ask.isPending) ask.mutate(query.trim());
+  };
+
   // A new result set invalidates the old cursor position.
-  useEffect(() => setActiveIndex(0), [flat]);
+  useEffect(() => setActiveIndex(0), [flat, askable]);
 
   // Reopening should be a fresh search, not a stale one from last time.
   useEffect(() => {
     if (open) {
       setQuery("");
+      setAsked(null);
       setActiveIndex(0);
       // Autofocus after the element is actually in the tree.
       requestAnimationFrame(() => inputRef.current?.focus());
@@ -58,17 +114,18 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
       onClose();
       return;
     }
-    if (flat.length === 0) return;
+    if (total === 0) return;
     if (e.key === "ArrowDown") {
       e.preventDefault();
-      setActiveIndex((i) => (i + 1) % flat.length);
+      setActiveIndex((i) => (i + 1) % total);
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      setActiveIndex((i) => (i - 1 + flat.length) % flat.length);
+      setActiveIndex((i) => (i - 1 + total) % total);
     } else if (e.key === "Enter") {
       e.preventDefault();
       const hit = flat[activeIndex];
       if (hit) select(hit);
+      else if (askable) runAsk();
     }
   };
 
@@ -97,7 +154,9 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
             ref={inputRef}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search spec points, homework, sessions, quizzes…"
+            placeholder={
+              helpOn ? "Search or ask for help…" : "Search spec points, tasks, sessions, quizzes…"
+            }
             aria-label="Search"
             className="flex-1 min-w-0 bg-transparent text-base focus:outline-none placeholder:text-muted-foreground/70"
           />
@@ -112,14 +171,21 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
         </div>
 
         <div ref={listRef} className="max-h-[60dvh] overflow-y-auto">
-          {!active ? (
+          {!active && helpOn ? (
+            <HelpStart
+              onPick={(q) => {
+                setQuery(q);
+                inputRef.current?.focus();
+              }}
+            />
+          ) : !active ? (
             <EmptyState
               title="Search everything"
-              body={`Type at least ${MIN_QUERY_LENGTH} characters to search across the specification, homework, live sessions, videos and quizzes.`}
+              body={`Type at least ${MIN_QUERY_LENGTH} characters to search across the specification, tasks, live sessions, videos and quizzes.`}
             />
           ) : error ? (
             <EmptyState title="Search failed" body={error} />
-          ) : flat.length === 0 ? (
+          ) : flat.length === 0 && !askable ? (
             <EmptyState
               title={loading ? "Searching…" : "No matches"}
               body={
@@ -155,6 +221,16 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
                 })}
               </div>
             ))
+          )}
+          {active && !error && askable && (
+            <AskRow
+              query={query.trim()}
+              active={activeIndex === flat.length}
+              pending={ask.isPending}
+              error={ask.error instanceof Error ? ask.error.message : null}
+              onHover={() => setActiveIndex(flat.length)}
+              onSelect={runAsk}
+            />
           )}
         </div>
 
@@ -220,6 +296,68 @@ function ResultRow({
         </span>
       )}
     </button>
+  );
+}
+
+/** The last row for a sentence no rule recognised: hands it to the model. */
+function AskRow({
+  query,
+  active,
+  pending,
+  error,
+  onHover,
+  onSelect,
+}: {
+  query: string;
+  active: boolean;
+  pending: boolean;
+  error: string | null;
+  onHover: () => void;
+  onSelect: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      data-active={active}
+      onMouseMove={onHover}
+      onClick={onSelect}
+      disabled={pending}
+      className={`w-full flex min-h-11 items-center gap-3 px-4 py-2.5 text-left border-t border-border transition cursor-pointer ${
+        active ? "bg-primary/10" : "hover:bg-secondary/40"
+      }`}
+    >
+      {pending ? (
+        <Loader2 className="w-4 h-4 shrink-0 animate-spin text-primary" />
+      ) : (
+        <MessageCircleQuestion
+          className={`w-4 h-4 shrink-0 ${active ? "text-primary" : "text-muted-foreground"}`}
+        />
+      )}
+      <span className="min-w-0 flex-1 text-sm font-semibold text-foreground truncate">
+        {pending ? "Working it out…" : (error ?? `Ask for help: “${query}”`)}
+      </span>
+    </button>
+  );
+}
+
+/** A student's empty box: what it can do, shown as things to press. */
+function HelpStart({ onPick }: { onPick: (query: string) => void }) {
+  return (
+    <div className="px-6 py-8 text-center">
+      <p className="font-display text-foreground text-sm font-bold">Search or ask for help</p>
+      <div className="mt-4 flex flex-wrap justify-center gap-2">
+        {HELP_EXAMPLES.map((q) => (
+          <button
+            key={q}
+            type="button"
+            onClick={() => onPick(q)}
+            className="chip tap-target cursor-pointer hover:brightness-95"
+          >
+            {q}
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }
 

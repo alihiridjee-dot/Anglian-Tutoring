@@ -42,11 +42,19 @@ export interface EnrolmentsState {
    * one.
    */
   avatarPath: string | null;
+  /**
+   * The read failed. Every field above is then its empty default, which means
+   * "unknown", not "none" — a page that prices or gates on the subjects must
+   * say so rather than act on an empty list.
+   */
+  error: Error | null;
+  /** Read again after an error. */
+  refetch: () => void;
 }
 
 /** Reads the current user's profile row (name + photo + role + subjects). */
 export function useEnrolments(): EnrolmentsState {
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, error, refetch } = useQuery({
     queryKey: ["user-enrolments-and-profile"],
     queryFn: async () => {
       // The showcase has no session, so a real read would return nothing and
@@ -55,7 +63,13 @@ export function useEnrolments(): EnrolmentsState {
         return {
           role: (getDemoRole() === "parent" ? "parent" : "student") as ProfileRole,
           enrolledCourses: [...DEMO_SUBJECTS],
-          enrolments: DEMO_ENROLMENTS.map((e) => ({ ...e })) as Enrolment[],
+          // With the target grade, so Alex's Target ring shows the same target
+          // the parent's page does.
+          enrolments: DEMO_ENROLMENTS.map(({ subject, board, targetGrade }) => ({
+            subject,
+            board,
+            targetGrade,
+          })) as Enrolment[],
           level: DEMO_LEVEL as LevelV,
           inviteCode: null,
           displayName: getDemoRole() === "parent" ? DEMO_PARENT_NAME : DEMO_STUDENT_NAME,
@@ -85,7 +99,7 @@ export function useEnrolments(): EnrolmentsState {
             .maybeSingle(),
           supabase
             .from("student_enrolments")
-            .select("subject, board, created_at")
+            .select("subject, board, created_at, target_grade")
             .eq("student_id", uid)
             .order("subject", { ascending: true }),
         ]);
@@ -101,6 +115,8 @@ export function useEnrolments(): EnrolmentsState {
         subject: r.subject as string,
         board: r.board as BoardV,
         enrolledAt: r.created_at,
+        // Blank is the same as unset, as with the display name.
+        targetGrade: r.target_grade?.trim() || null,
       }));
 
       return {
@@ -133,6 +149,8 @@ export function useEnrolments(): EnrolmentsState {
     inviteCode: data?.inviteCode ?? null,
     displayName: data?.displayName ?? null,
     avatarPath: data?.avatarPath ?? null,
+    error,
+    refetch: () => void refetch(),
   };
 }
 
@@ -185,6 +203,43 @@ export function useUpdateEnrolmentBoard() {
       // here leaves the student reading another board's spec, which is far worse
       // than a refetch they didn't need.
       qc.invalidateQueries();
+    },
+  });
+}
+
+/**
+ * Set the grade a student is aiming for in one subject, from the student's own
+ * predicted-grade card.
+ *
+ * The same column sign-up writes and the tutor edits on the student record, so
+ * all three see one target. Same RLS as the board ("enrolments self update"):
+ * only the student's own row, which is why the card offers it only to them.
+ */
+export function useSetTargetGrade() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async ({
+      studentId,
+      subject,
+      targetGrade,
+    }: {
+      studentId: string;
+      subject: SubjectV;
+      targetGrade: string;
+    }) => {
+      const { data, error } = await supabase
+        .from("student_enrolments")
+        .update({ target_grade: targetGrade })
+        .eq("student_id", studentId)
+        .eq("subject", subject)
+        .select("subject");
+      if (error) throw new Error(error.message);
+      // An empty result is RLS refusing the write, not a success.
+      if (!data?.length) throw new Error("Only your own account can set your target grade.");
+      return { subject, targetGrade };
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["user-enrolments-and-profile"] });
     },
   });
 }

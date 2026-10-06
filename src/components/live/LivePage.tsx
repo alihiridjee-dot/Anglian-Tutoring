@@ -7,9 +7,17 @@ import { useNow } from "@/hooks/useNow";
 import { AppLayout } from "@/components/AppLayout";
 import { FilterBar, type Filters } from "@/components/FilterBar";
 import { useRoles } from "@/hooks/useRole";
+import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useActiveSubject } from "@/hooks/useActiveSubject";
+import { subjectLabel } from "@/lib/curriculum/subjectTheme";
 import { LiveForm } from "@/components/tutor/LiveForm";
 import { NextSessionCountdown } from "@/components/live/NextSessionCountdown";
-import { fetchLiveSessions, hasSessionFinished, sessionStartMs } from "@/lib/live/liveSessions";
+import {
+  fetchLiveSessions,
+  hasSessionFinished,
+  sessionStartMs,
+  sessionsOnCourse,
+} from "@/lib/live/liveSessions";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import {
   LiveTabs,
@@ -23,6 +31,8 @@ import { useDeleteLiveSession } from "@/components/live/useDeleteLiveSession";
 
 export function Live() {
   const { isTutor, userId } = useRoles();
+  const course = useEnrolments();
+  const { subject: activeSubject } = useActiveSubject();
   const qc = useQueryClient();
   const [filters, setFilters] = useState<Filters>({});
   const [tab, setTab] = useState<LiveTab>("upcoming");
@@ -53,7 +63,18 @@ export function Live() {
   // countdown above), found the session they were joining filed as over.
   // Ticking, so the lists re-sort as lessons start and end on an open page.
   const now = useNow(30_000);
-  const dated = (data ?? []).filter((s) => sessionStartMs(s) !== null);
+  // A student's list is their own course: row-level security scopes sessions by
+  // subject only, which put every level's lessons in front of them. The header,
+  // the banner and the countdown apply the same rule. Then the header slider's
+  // subject, as on every student page (only the header's Join button looks
+  // across subjects).
+  const courseLoading = !isTutor && course.loading;
+  const sessions = isTutor
+    ? data
+    : data && !courseLoading
+      ? sessionsOnCourse(data, course).filter((s) => !activeSubject || s.subject === activeSubject)
+      : [];
+  const dated = (sessions ?? []).filter((s) => sessionStartMs(s) !== null);
   const upcoming = dated.filter((s) => !hasSessionFinished(s, now));
   const past = dated.filter((s) => hasSessionFinished(s, now));
 
@@ -70,12 +91,12 @@ export function Live() {
       )}
 
       {/* Students get a live countdown to their next session up top. */}
-      {!isTutor && <NextSessionCountdown />}
+      {!isTutor && <NextSessionCountdown subject={activeSubject} />}
 
       {/* Tutors see every session across every subject, so they keep the
-          filter. A student's list is already scoped to their own subjects by
-          RLS, and a subject/board/level picker would frame these as classes
-          run for everyone — so they get a heading instead. */}
+          filter. A student's list is already scoped to their own course, and
+          a subject/board/level picker would frame these as classes run for
+          everyone — so they get a heading instead. */}
       {isTutor ? (
         <FilterBar value={filters} onChange={setFilters} />
       ) : (
@@ -102,7 +123,7 @@ export function Live() {
         pastCount={past.length}
       />
 
-      {isLoading ? (
+      {isLoading || courseLoading ? (
         <Spinner label="Checking the timetable" />
       ) : error ? (
         // Not the empty state: "No lessons booked in" is a claim about the
@@ -114,7 +135,11 @@ export function Live() {
             <EmptyState
               mascot="owl"
               mood="sleepy"
-              title="No lessons booked in"
+              title={
+                !isTutor && activeSubject
+                  ? `No ${subjectLabel(activeSubject)} lessons booked in`
+                  : "No lessons booked in"
+              }
               body="There's nothing on the timetable right now. Once your tutor schedules the next session it appears here with a join link and the spec points it'll cover."
             />
           ) : (

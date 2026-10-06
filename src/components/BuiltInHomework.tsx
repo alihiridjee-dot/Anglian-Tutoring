@@ -11,7 +11,11 @@ import {
   syncServerDraft,
   type TimestampedDraft,
 } from "@/lib/homework/homeworkDrafts";
+import { isAlreadySubmitted, startMarking } from "@/lib/homework/startMarking";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
+import { SciText } from "@/components/Shared";
+import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
+import { isDemoStudent } from "@/lib/demo/studentDemo";
 
 /**
  * The body of a homework sheet: the questions, and either the boxes to answer
@@ -87,12 +91,14 @@ export function AnsweredView({
       <ol className="mt-3 space-y-3">
         {questions.map((q, i) => {
           const a = answers[q.id];
+          // Read with the question, so "Cl3" beside a Cl₂ question reads Cl₃.
+          const notation = `${q.prompt}\n${q.mark_scheme ?? ""}`;
           return (
             <li key={q.id} className="premium-card p-4">
               <div className="flex items-start gap-2">
                 <span className="numeral text-muted-foreground shrink-0 text-xs">Q{i + 1}</span>
                 <p className="min-w-0 flex-1 text-sm font-medium break-words whitespace-pre-wrap">
-                  {q.prompt}
+                  <SciText text={q.prompt} />
                 </p>
                 <span className="numeral text-muted-foreground shrink-0 text-xs">
                   {a?.awarded_marks != null
@@ -101,11 +107,15 @@ export function AnsweredView({
                 </span>
               </div>
               <p className="text-muted-foreground mt-2 text-sm whitespace-pre-wrap">
-                {a?.answer_text || <span className="italic">Left blank</span>}
+                {a?.answer_text ? (
+                  <SciText text={a.answer_text} context={notation} />
+                ) : (
+                  <span className="italic">Left blank</span>
+                )}
               </p>
               {a?.feedback && (
                 <p className="mt-2 text-xs whitespace-pre-wrap text-[color:var(--tint)]">
-                  {a.feedback}
+                  <SciText text={a.feedback} context={notation} />
                 </p>
               )}
               {/* The mark scheme is the answer — it stays hidden until the work
@@ -114,7 +124,7 @@ export function AnsweredView({
                 <div className="border-border mt-2 border-t pt-2">
                   <p className="eyebrow-bare">Mark scheme</p>
                   <p className="text-muted-foreground mt-1 text-xs whitespace-pre-wrap">
-                    {q.mark_scheme}
+                    <SciText text={q.mark_scheme} context={notation} />
                   </p>
                 </div>
               )}
@@ -133,7 +143,7 @@ const EMPTY_WORK: TimestampedDraft = { answers: {}, notes: "", stamps: {}, saved
 export function AnswerForm({
   hw,
   questions,
-  userId,
+  userId: viewerId,
   onChanged,
   readonly,
   showMarkScheme = false,
@@ -145,6 +155,12 @@ export function AnswerForm({
   readonly: boolean;
   showMarkScheme?: boolean;
 }) {
+  // The showcase lets a visitor type, but keeps every word in this component:
+  // no draft is read or saved and nothing is handed in. It has no student, yet
+  // whoever is signed in to this browser comes through as `userId`, so it is
+  // dropped here — every load, save and catch-up below waits on it.
+  const demo = isDemoStudent();
+  const userId = demo ? null : viewerId;
   // Every answer and the note, each with the time it was last edited here.
   // The times are what let copies from other devices merge in per question
   // (see mergeDrafts) instead of one whole draft overwriting another.
@@ -280,7 +296,6 @@ export function AnswerForm({
   }, [hasUnsent]);
 
   const answered = questions.filter((q) => draftOf(q.id).text.trim().length > 0).length;
-  const totalMarks = questions.reduce((sum, q) => sum + q.marks, 0);
 
   const submit = async () => {
     if (!userId) return toast.error("Not signed in");
@@ -298,18 +313,17 @@ export function AnswerForm({
         _answers: payload,
         _notes: notes || undefined,
       });
-      if (error) throw error;
+      // "Already submitted" means an earlier try got through and only its
+      // reply was lost: the work is in, which is what the student wanted. The
+      // sheet reloads with the submission and starts its marking from there.
+      if (error && !isAlreadySubmitted(error)) throw error;
 
       // Start the marking, but never wait on it or surface its failure. The
       // work is safely handed in either way; a submission that goes unmarked
       // simply waits for a tutor, which is what used to happen to all of them.
-      if (submissionId) {
-        void supabase.functions
-          .invoke("mark-homework", { body: { submissionId } })
-          .catch(() => undefined);
-      }
+      if (submissionId) startMarking(submissionId);
 
-      toast.success("Homework submitted");
+      toast.success("Task submitted");
       clearDraft(userId, hw.id);
       setWork(EMPTY_WORK);
       setRestored(false);
@@ -326,10 +340,10 @@ export function AnswerForm({
     // Two audiences reach this, wanting opposite things.
     //
     // A tutor previewing a sheet is checking it, so they get the mark schemes.
-    // The public showcase is a prospective student looking at what homework is
-    // like here, so it gets the boxes — disabled, but present, because a page
-    // of questions with nowhere to type them is a worse advert than the real
-    // thing — and never the mark schemes, which are the answers.
+    // Anyone else read-only gets the boxes — disabled, but present, because a
+    // page of questions with nowhere to type them reads as broken — and never
+    // the mark schemes, which are the answers. (The public showcase used to be
+    // read-only here; it now gets the form below, with nothing saved.)
     return (
       <div className="space-y-3">
         {questions.map((q, i) => (
@@ -340,7 +354,7 @@ export function AnswerForm({
                 <div className="border-border mt-3 border-t pt-2">
                   <p className="eyebrow-bare">Mark scheme</p>
                   <p className="text-muted-foreground mt-1 text-xs whitespace-pre-wrap">
-                    {q.mark_scheme}
+                    <SciText text={q.mark_scheme} context={q.prompt} />
                   </p>
                 </div>
               )
@@ -363,6 +377,12 @@ export function AnswerForm({
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        if (demo) {
+          toast(
+            "This is a demo, so nothing is saved. Sign up and your tasks are marked within minutes.",
+          );
+          return;
+        }
         // Answers typed on another device belong in what's handed in, and in
         // the count the confirmation shows.
         void catchUp().finally(() => setConfirming(true));
@@ -377,8 +397,8 @@ export function AnswerForm({
 
       <div className="flex flex-wrap items-center gap-2">
         <p className="eyebrow-bare">Answer on the page</p>
-        <span className="text-muted-foreground text-xs">
-          {answered}/{questions.length} answered · {totalMarks} marks
+        <span className="text-sm font-bold">
+          {answered}/{questions.length} answered
         </span>
       </div>
 
@@ -386,9 +406,10 @@ export function AnswerForm({
         {questions.map((q, i) => (
           <li key={q.id} className="premium-card space-y-2 p-4">
             <QuestionHeader q={q} index={i} />
-            <textarea
+            <SciAnswerBox
               value={draftOf(q.id).text}
-              onChange={(e) => patch(q.id, { text: e.target.value })}
+              onValueChange={(text) => patch(q.id, { text })}
+              context={q.prompt}
               placeholder={TYPE_HINT[q.answer_type]}
               aria-label={`Answer to question ${i + 1}`}
               className={`premium-input w-full rounded-lg px-3 py-2 text-sm ${
@@ -399,9 +420,9 @@ export function AnswerForm({
         ))}
       </ol>
 
-      <textarea
+      <SciAnswerBox
         value={notes}
-        onChange={(e) => edit(NOTES, e.target.value)}
+        onValueChange={(text) => edit(NOTES, text)}
         placeholder="Anything you'd like your tutor to know (optional)"
         aria-label="Note for your tutor (optional)"
         className="premium-input min-h-16 w-full rounded-lg px-3 py-2 text-sm"
@@ -421,7 +442,7 @@ export function AnswerForm({
               type="button"
               onClick={submit}
               disabled={saving}
-              className="btn-solid inline-flex h-11 items-center justify-center gap-2 rounded-lg px-5 text-sm font-semibold disabled:opacity-60 sm:h-10"
+              className="btn-solid inline-flex h-11 items-center justify-center gap-2 rounded-lg px-5 text-sm font-semibold disabled:opacity-60 sm:pointer-fine:h-10"
             >
               {saving ? <Loader2 className="size-4 animate-spin" /> : <Send className="size-4" />}
               {saving ? "Submitting…" : "Yes, hand it in"}
@@ -430,7 +451,7 @@ export function AnswerForm({
               type="button"
               onClick={() => setConfirming(false)}
               disabled={saving}
-              className="btn-premium inline-flex h-11 items-center rounded-lg px-4 text-sm font-semibold disabled:opacity-60 sm:h-10"
+              className="btn-premium inline-flex h-11 items-center rounded-lg px-4 text-sm font-semibold disabled:opacity-60 sm:pointer-fine:h-10"
             >
               Keep working
             </button>
@@ -438,13 +459,16 @@ export function AnswerForm({
         </div>
       ) : (
         <>
-          <p className="text-muted-foreground text-[11px] leading-relaxed">
-            Your answers save as you type, on this device and to your account — you can come back to
-            them. Submitting is final.
-          </p>
+          {/* Untrue in the showcase, which saves nothing. */}
+          {!demo && (
+            <p className="text-muted-foreground text-[11px] leading-relaxed">
+              Your answers save as you type, on this device and to your account — you can come back
+              to them. Submitting is final.
+            </p>
+          )}
           <button
             type="submit"
-            className="btn-solid inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg text-sm font-semibold sm:h-10"
+            className="btn-solid inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg text-sm font-semibold sm:pointer-fine:h-10"
           >
             <Send className="size-4" />
             Submit answers
@@ -460,7 +484,7 @@ function QuestionHeader({ q, index }: { q: HomeworkQuestion; index: number }) {
     <div className="flex items-start gap-2">
       <span className="numeral text-muted-foreground shrink-0 text-xs">Q{index + 1}</span>
       <p className="min-w-0 flex-1 text-sm font-medium break-words whitespace-pre-wrap">
-        {q.prompt}
+        <SciText text={q.prompt} />
       </p>
       <span className="numeral text-muted-foreground shrink-0 text-xs">[{q.marks}]</span>
     </div>

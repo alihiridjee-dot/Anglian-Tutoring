@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { BookMarked } from "lucide-react";
+import { BookMarked, MessageSquareQuote } from "lucide-react";
 import {
   useWeeklyFocus,
   useWeeklyFocusVideos,
@@ -12,19 +12,22 @@ import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import { VideoThumbnail, VideoModal } from "@/components/VideoPlayer";
 import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
 import { levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
-import { Spinner } from "@/components/Shared";
+import { SciText, Spinner } from "@/components/Shared";
+import { NoteChip } from "@/components/planner/WorkChips";
+import { useSpecPointNotes } from "@/hooks/data/useNotes";
 
 /**
- * Student "This Week" widget. Shows the curriculum spec points the tutor has set
- * for the current Mon–Sun week (with the exact dates spelled out), grouped by
- * subject and limited to the student's enrolments, plus an AI focus summary, the
- * spec points in a dropdown, related videos, a live-session strip and quick
- * links to the homework, MCQ and live-session surfaces.
+ * Student "From your tutor" card. Shows the spec points the tutor pinned into
+ * this student's current Mon–Sun week, grouped by subject and limited to the
+ * student's enrolments, with the tutor's note where there is one, the videos
+ * linked to them and an optional live-session strip.
  */
 export function WeeklyFocusCard({
+  studentId,
   subjects,
   showLive = true,
 }: {
+  studentId: string | null;
   subjects: string[];
   showLive?: boolean;
 }) {
@@ -32,7 +35,11 @@ export function WeeklyFocusCard({
   const rangeLabel = weekRangeLabel(mondayOf());
   // Only narrow to enrolments when we actually have some; an empty list would
   // otherwise hide every plan.
-  const { plans, loading } = useWeeklyFocus(weekKey, subjects.length > 0 ? subjects : undefined);
+  const { plans, loading } = useWeeklyFocus(
+    studentId,
+    weekKey,
+    subjects.length > 0 ? subjects : undefined,
+  );
   const demo = isDemoStudent();
   const linkTo = (to: string) => (demo ? `/demo/student${to}` : to);
 
@@ -40,6 +47,7 @@ export function WeeklyFocusCard({
   // show each under the plan whose points it matches.
   const allPointIds = useMemo(() => plans.flatMap((p) => p.points.map((pt) => pt.id)), [plans]);
   const { videos } = useWeeklyFocusVideos(allPointIds);
+  const { data: notesByPoint } = useSpecPointNotes(allPointIds);
   const [playing, setPlaying] = useState<RelatedVideo | null>(null);
 
   return (
@@ -93,31 +101,51 @@ export function WeeklyFocusCard({
                     </span>
                   </div>
 
-                  {(plan.summary || plan.note) && (
-                    <p className="text-sm text-foreground/90 leading-relaxed">
-                      {plan.summary ?? plan.note}
-                    </p>
+                  {/* The tutor's word on this subject, labelled and voiced like
+                      the weekly note students read on their planner. */}
+                  {plan.note && (
+                    <figure className="premium-card p-3.5">
+                      <figcaption className="flex items-center gap-2">
+                        <span className="icon-tile size-7 shrink-0">
+                          <MessageSquareQuote className="size-4" aria-hidden />
+                        </span>
+                        <span className="font-display text-sm font-bold">Ali's take</span>
+                      </figcaption>
+                      <blockquote className="mt-2 text-sm leading-relaxed whitespace-pre-wrap">
+                        <SciText text={plan.note} />
+                      </blockquote>
+                    </figure>
                   )}
 
                   {/* The points themselves, in the open — they are the reason this
                       card exists, and a dropdown hid the tutor's actual choice. */}
                   <ul className="space-y-1.5">
-                    {plan.points.map((p) => (
-                      <li
-                        key={p.id}
-                        className="flex items-start gap-2 rounded-lg border border-border bg-card/60 px-2.5 py-2"
-                      >
-                        <span className="font-mono text-[11px] text-primary bg-primary/10 px-1.5 py-0.5 rounded shrink-0">
-                          {p.code}
-                        </span>
-                        <span className="text-sm leading-snug">
-                          <span className="font-medium text-foreground">{p.title}</span>
-                          {p.topicLabel && (
-                            <span className="text-muted-foreground"> — {p.topicLabel}</span>
+                    {plan.points.map((p) => {
+                      const note = notesByPoint?.get(p.id)?.[0];
+                      return (
+                        <li
+                          key={p.id}
+                          className="flex items-start gap-2 rounded-lg border border-border bg-card/60 px-2.5 py-2"
+                        >
+                          <span className="font-mono text-[11px] text-primary bg-primary/10 px-1.5 py-0.5 rounded shrink-0">
+                            {p.code}
+                          </span>
+                          <span className="text-sm leading-snug">
+                            <span className="font-medium text-foreground">{p.title}</span>
+                            {p.topicLabel && (
+                              <span className="text-muted-foreground"> — {p.topicLabel}</span>
+                            )}
+                          </span>
+                          {/* The point's own revision note, one press away — the same
+                            "Read" the weekly task list offers. */}
+                          {note && (
+                            <span className="ml-auto shrink-0">
+                              <NoteChip note={note} label="Read" />
+                            </span>
                           )}
-                        </span>
-                      </li>
-                    ))}
+                        </li>
+                      );
+                    })}
                   </ul>
 
                   {planVideos.length > 0 && (

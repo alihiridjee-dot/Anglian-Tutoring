@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useRouter, useRouterState } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Compass, X } from "lucide-react";
 import { Meter } from "@/components/Shared";
+import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { readStep, START_EVENT, TOUR_STEPS, writeStep } from "@/lib/demo/tourSteps";
 
 type Box = { x: number; y: number; width: number; height: number };
@@ -45,6 +46,15 @@ export function DemoTour() {
     window.addEventListener(START_EVENT, onStart);
     return () => window.removeEventListener(START_EVENT, onStart);
   }, []);
+
+  // The tour is written around Biology: its dashboard cards and its quiz are
+  // Alex's Biology ones. Started from another subject, it spotlit empty cards
+  // and opened a Biology quiz under a Physics slider, so the first step puts
+  // the header slider back on Biology.
+  const { setSubject } = useActiveSubject();
+  useEffect(() => {
+    if (index === 0) setSubject("biology");
+  }, [index, setSubject]);
 
   const step = index === null ? null : TOUR_STEPS[index];
   const onPage = !!step && step.path === pathname;
@@ -256,7 +266,8 @@ export function DemoTour() {
                   Keep exploring
                 </button>
                 <Link
-                  to="/"
+                  to="/auth"
+                  search={{ mode: "signup" }}
                   onClick={() => go(null)}
                   className="btn-solid inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 rounded-xl px-3 py-2 text-sm"
                 >

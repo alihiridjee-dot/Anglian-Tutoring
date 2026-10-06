@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Field } from "./Field";
 import { Search, X, ChevronDown, Layers } from "lucide-react";
@@ -69,6 +69,14 @@ export function SpecPointSelect({
   const [query, setQuery] = useState("");
   const [openTopics, setOpenTopics] = useState<Set<string>>(new Set());
   const [closedBoards, setClosedBoards] = useState<Set<string>>(new Set());
+  // The selection as it is now, not as it was when the load below started. In
+  // the dashboard's week mode, switching subject re-seeds the new subject's
+  // focus points while this load is in flight; filtering the old selection
+  // then wiped them, under a banner still saying they'd been added.
+  const valueRef = useRef(value);
+  useEffect(() => {
+    valueRef.current = value;
+  });
 
   // Board sections only appear in all-boards mode (board prop omitted); a single
   // known board doesn't need a section wrapper.
@@ -136,8 +144,9 @@ export function SpecPointSelect({
 
       // Drop stale selections that don't exist under the new taxonomy.
       const valid = new Set(rows.map((r) => r.id));
-      const kept = value.filter((id) => valid.has(id));
-      if (kept.length !== value.length) onChange(kept);
+      const current = valueRef.current;
+      const kept = current.filter((id) => valid.has(id));
+      if (kept.length !== current.length) onChange(kept);
     })();
     return () => {
       cancelled = true;
@@ -198,7 +207,7 @@ export function SpecPointSelect({
         <button
           type="button"
           onClick={() => toggleTopic(g.topicId)}
-          className="w-full flex min-h-11 sm:min-h-0 items-center gap-2 px-3 py-1.5 bg-muted/80 backdrop-blur text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground hover:bg-muted"
+          className="w-full flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-2 px-3 py-1.5 bg-muted/80 backdrop-blur text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground hover:bg-muted"
         >
           <ChevronDown
             className={`w-3.5 h-3.5 shrink-0 transition-transform ${isOpen ? "" : "-rotate-90"}`}
@@ -215,7 +224,7 @@ export function SpecPointSelect({
           g.points.map((p) => (
             <label
               key={p.id}
-              className="flex min-h-11 sm:min-h-0 items-center sm:items-start gap-2.5 px-3 py-2 hover:bg-muted/40 cursor-pointer"
+              className="flex min-h-11 sm:pointer-fine:min-h-0 items-center sm:items-start gap-2.5 px-3 py-2 hover:bg-muted/40 cursor-pointer"
             >
               <input
                 type="checkbox"
@@ -236,7 +245,7 @@ export function SpecPointSelect({
   return (
     <Field label={label}>
       <div className="rounded-lg premium-card overflow-hidden">
-        <div className="flex min-h-11 sm:min-h-0 items-center gap-2 px-3 py-2 border-b border-border">
+        <div className="flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-2 px-3 py-2 border-b border-border">
           <Search className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
           <input
             value={query}
@@ -279,7 +288,7 @@ export function SpecPointSelect({
                   <button
                     type="button"
                     onClick={() => toggleBoard(b)}
-                    className="sticky top-0 z-20 w-full flex min-h-11 sm:min-h-0 items-center gap-2 px-3 py-2 bg-primary/10 border-y border-primary/15 text-xs font-bold uppercase tracking-wider text-primary hover:bg-primary/15"
+                    className="sticky top-0 z-20 w-full flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-2 px-3 py-2 bg-primary/10 border-y border-primary/15 text-xs font-bold uppercase tracking-wider text-primary hover:bg-primary/15"
                   >
                     <Layers className="w-3.5 h-3.5 shrink-0" />
                     <span className="text-left flex-1">

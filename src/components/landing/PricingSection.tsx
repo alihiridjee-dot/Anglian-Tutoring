@@ -4,6 +4,12 @@ import { useState } from "react";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
 import { boardLabel } from "@/lib/curriculum/courseSummary";
 import { isBoard, isSubject, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import {
+  BEST_VALUE_CADENCE,
+  BEST_VALUE_LABEL,
+  WEEKS_PER_CYCLE,
+  type Cadence,
+} from "@/lib/billing/entitlements";
 
 // ---------------------------------------------------------------------------
 // Pricing model
@@ -27,18 +33,11 @@ import { isBoard, isSubject, type BoardV, type LevelV } from "@/lib/curriculum/t
 // ---------------------------------------------------------------------------
 
 type Count = 1 | 2 | 3;
-type Cadence = "weekly" | "monthly" | "termly";
 
 const PRICE_PENCE: Record<Cadence, Record<Count, number>> = {
   weekly: { 1: 1999, 2: 2239, 3: 2399 },
   monthly: { 1: 4999, 2: 5599, 3: 5999 },
   termly: { 1: 13999, 2: 15699, 3: 16799 },
-};
-
-const SESSIONS: Record<Cadence, (n: Count) => number> = {
-  weekly: (n) => n,
-  monthly: (n) => 4 * n,
-  termly: (n) => 12 * n,
 };
 
 const CADENCES: {
@@ -56,7 +55,9 @@ const CADENCES: {
     badge: "Saving",
     highlight: true,
   },
-  { cadence: "termly", name: "Termly", billing: "per term", badge: "Best value", highlight: false },
+  // "Best value" goes on BEST_VALUE_CADENCE, shared with the plan step, so the
+  // badges below are what each card says when it isn't that one.
+  { cadence: "termly", name: "Termly", billing: "per term", badge: "Saving", highlight: false },
 ];
 
 // Maths is the one subject not taught at all yet. Whether a science is taught at
@@ -226,7 +227,7 @@ export function PricingSection() {
                   <button
                     type="button"
                     onClick={() => window.setTimeout(() => setOpenStep(1), 40)}
-                    className="mt-4 w-full min-h-11 rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors sm:min-h-0"
+                    className="mt-4 w-full min-h-11 rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors sm:pointer-fine:min-h-0"
                   >
                     Continue
                   </button>
@@ -289,7 +290,7 @@ export function PricingSection() {
               <button
                 type="button"
                 onClick={() => setOpenStep(2)}
-                className="mt-4 w-full min-h-11 rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors sm:min-h-0"
+                className="mt-4 w-full min-h-11 rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors sm:pointer-fine:min-h-0"
               >
                 Continue
               </button>
@@ -331,7 +332,7 @@ export function PricingSection() {
 /** Live pricing tiers — all three shown side by side, each a full-height
  *  premium card. The wrapper is h-full so the row (items-stretch on the outer
  *  grid) makes every card match the builder's height exactly. The middle
- *  "Best value" tier is lifted and styled dark to draw the eye. */
+ *  highlighted tier is lifted and styled dark to draw the eye. */
 function PricingTiers({
   count,
   level_key,
@@ -347,7 +348,8 @@ function PricingTiers({
     <div className="grid h-full grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
       {CADENCES.map((tier) => {
         const pence = PRICE_PENCE[tier.cadence][count];
-        const perSession = pence / SESSIONS[tier.cadence](count);
+        // One live session per subject per week, over the shared weeks per cycle.
+        const perSession = pence / (WEEKS_PER_CYCLE[tier.cadence] * count);
         const weeklyLessons = count;
         const dark = tier.highlight;
 
@@ -377,7 +379,7 @@ function PricingTiers({
                     : "chip text-[9px] tracking-wider uppercase"
                 }
               >
-                {tier.badge}
+                {tier.cadence === BEST_VALUE_CADENCE ? BEST_VALUE_LABEL : tier.badge}
               </span>
               <h3 className="mt-2.5 font-display text-lg font-bold leading-tight">{tier.name}</h3>
             </div>
@@ -418,22 +420,20 @@ function PricingTiers({
 
             {/* Feature list — fills the middle so cards feel substantial */}
             <ul className="relative mt-4 space-y-2 text-xs">
-              {["Homework & marking", "Weekly quizzes", "Parent portal", "Cancel anytime"].map(
-                (f) => (
-                  <li key={f} className="flex items-center gap-2">
-                    <span
-                      className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${
-                        dark
-                          ? "bg-white/15 text-white"
-                          : "bg-[var(--accent-soft)] text-[var(--primary-deep)]"
-                      }`}
-                    >
-                      <Check className="h-2.5 w-2.5" />
-                    </span>
-                    <span className={dark ? "text-white/85" : "text-muted-foreground"}>{f}</span>
-                  </li>
-                ),
-              )}
+              {["Tasks & marking", "Weekly quizzes", "Parent portal", "Cancel anytime"].map((f) => (
+                <li key={f} className="flex items-center gap-2">
+                  <span
+                    className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${
+                      dark
+                        ? "bg-white/15 text-white"
+                        : "bg-[var(--accent-soft)] text-[var(--primary-deep)]"
+                    }`}
+                  >
+                    <Check className="h-2.5 w-2.5" />
+                  </span>
+                  <span className={dark ? "text-white/85" : "text-muted-foreground"}>{f}</span>
+                </li>
+              ))}
             </ul>
 
             {/* Billed price + CTA pinned to the bottom */}
@@ -459,7 +459,7 @@ function PricingTiers({
                     board,
                   } as never
                 }
-                className={`mt-3 flex min-h-11 items-center justify-center rounded-xl py-2.5 text-center text-sm font-bold transition-all duration-200 sm:min-h-0 ${
+                className={`mt-3 flex min-h-11 items-center justify-center rounded-xl py-2.5 text-center text-sm font-bold transition-all duration-200 sm:pointer-fine:min-h-0 ${
                   dark
                     ? "bg-white text-[var(--primary-deep)] hover:bg-white/90 shadow-lg"
                     : "btn-solid hover:bg-[var(--primary-deep)]"
@@ -563,7 +563,7 @@ function Slider({
           key={o.value}
           type="button"
           onClick={() => onChange(o.value)}
-          className={`relative z-10 min-h-11 flex-1 rounded-full px-2 py-2 text-sm leading-tight font-semibold transition-colors duration-200 sm:min-h-0 sm:px-3 ${
+          className={`relative z-10 min-h-11 flex-1 rounded-full px-2 py-2 text-sm leading-tight font-semibold transition-colors duration-200 sm:pointer-fine:min-h-0 sm:px-3 ${
             value === o.value
               ? "text-[var(--primary-deep)]"
               : "text-muted-foreground hover:text-foreground"

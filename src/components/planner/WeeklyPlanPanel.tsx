@@ -1,7 +1,7 @@
 import { WeekBreakdown } from "./WeekBreakdown";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { ErrorNote } from "@/components/Shared";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { toast } from "sonner";
 import { Sparkles, CalendarRange, ChevronLeft, ChevronRight, Undo2 } from "lucide-react";
 import { WeeklyPlanDAL, type PlanPoint } from "@/lib/planner/weeklyPlanDal";
@@ -12,12 +12,15 @@ import { carryOrigin } from "@/lib/planner/coverage";
 import { ThisWeekPanel } from "./ThisWeekPanel";
 import { DoNowPanel } from "./DoNowPanel";
 import { useWeekPlan } from "./useWeekPlan";
-import { WeekReview } from "./WeekReview";
-import { subjectLabel } from "@/lib/curriculum/courseSummary";
+import { useReviewMore } from "./useReviewMore";
+import { PausedWeek } from "./PausedWeek";
+import { BreakWeek } from "./BreakWeek";
+import { useActiveSubject } from "@/hooks/useActiveSubject";
+import { useEntryState } from "@/hooks/useEntryState";
 
 /**
- * The dashboard's "this week": subject tabs and week navigation around the
- * shared {@link ThisWeekPanel}, with the end-of-week review as its own box
+ * The dashboard's "this week": the header slider's subject, with week
+ * navigation around the shared {@link ThisWeekPanel}, with the end-of-week review as its own box
  * underneath rather than buried at the bottom of the plan.
  *
  * The week itself needs no asking for — it's this week's slice of the year-long
@@ -41,11 +44,12 @@ export function WeeklyPlanPanel({
     ],
     [enrolments],
   );
-  const [activeSubject, setActiveSubject] = useState(ordered[0]?.subject ?? "biology");
+  const { subject: activeSubject } = useActiveSubject();
   const active = ordered.find((e) => e.subject === activeSubject) ?? ordered[0];
 
-  // 0 = this week, -1 = last week, +1 = next week…
-  const [weekOffset, setWeekOffset] = useState(0);
+  // 0 = this week, -1 = last week, +1 = next week… Kept with the visit, so
+  // Back from a task opened in another week comes back to that week.
+  const [weekOffset, setWeekOffset] = useEntryState("dashboard.week", 0);
   const weekStart = toDateKey(addWeeks(mondayOf(), weekOffset));
   const weekLabel = weekRangeLabel(addWeeks(mondayOf(), weekOffset));
   const isCurrent = weekOffset === 0;
@@ -66,6 +70,11 @@ export function WeeklyPlanPanel({
     // fallback subject above must never be generated, saved or paid for.
     enabled: !!active,
   });
+  const reviewMore = useReviewMore({ ...week, isCurrent });
+  // A paused subject's week is frozen: shown as paused, with nothing to press.
+  // So is a week the student is on a break for.
+  const frozen = !!week.pause && !isPast;
+  const resting = !frozen && !!week.onBreak && !isPast;
 
   // Pull a past-week point back into this week's plan, in the lane it was in —
   // the same rule the end-of-week carry follows ({@link carryOrigin}).
@@ -137,29 +146,11 @@ export function WeeklyPlanPanel({
                 weekStart={weekStart}
               />
             )}
-            {ordered.length > 1 && (
-              <div className="flex flex-wrap items-center gap-2">
-                {ordered.map((e) => (
-                  <button
-                    key={e.subject}
-                    type="button"
-                    onClick={() => setActiveSubject(e.subject)}
-                    className={`h-11 sm:h-8 px-3 rounded-lg text-sm font-medium transition ${
-                      e.subject === activeSubject
-                        ? "btn-solid"
-                        : "bg-muted text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {subjectLabel(e.subject)}
-                  </button>
-                ))}
-              </div>
-            )}
             <div className="flex items-center gap-2 sm:gap-1">
               <button
                 type="button"
                 onClick={() => setWeekOffset((w) => w - 1)}
-                className="size-11 sm:size-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+                className="size-11 sm:pointer-fine:size-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
                 aria-label="Previous week"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -167,7 +158,7 @@ export function WeeklyPlanPanel({
               <button
                 type="button"
                 onClick={() => setWeekOffset((w) => w + 1)}
-                className="size-11 sm:size-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+                className="size-11 sm:pointer-fine:size-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
                 aria-label="Next week"
               >
                 <ChevronRight className="w-4 h-4" />
@@ -176,7 +167,11 @@ export function WeeklyPlanPanel({
           </div>
         </div>
 
-        {!week.loading && week.points.length === 0 && !week.roadmap ? (
+        {frozen && week.pause ? (
+          <PausedWeek subject={active.subject} pause={week.pause} />
+        ) : resting && week.onBreak ? (
+          <BreakWeek brk={week.onBreak} />
+        ) : !week.loading && week.points.length === 0 && !week.roadmap ? (
           editable ? (
             <EmptyState future={isFuture} />
           ) : (
@@ -196,41 +191,28 @@ export function WeeklyPlanPanel({
             isPast={isPast}
             showCoverage={showReview}
             onFocusAgain={focusAgain}
+            reviewMore={reviewMore}
           />
         )}
       </div>
 
-      <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
+      {!frozen && !resting && (
+        <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
+      )}
 
-      {/* The week as a checklist, between the plan and the review: the panel above
-          says what this week is and why, this one says what to press. */}
-      <DoNowPanel
-        points={week.points}
-        activity={week.activity}
-        coverage={week.coverage}
-        subject={active?.subject ?? "biology"}
-        editable={editable}
-        onToggle={(id, done) => {
-          void week.setPointDone(id, done);
-        }}
-      />
-
-      {/* The student's own read on the week — its own box, not a footnote to the plan. */}
-      {showReview && week.plan && active && (
-        <div className="mb-6">
-          <WeekReview
-            studentId={studentId}
-            plan={week.plan}
-            points={week.points}
-            coverage={week.coverage}
-            activity={week.activity}
-            subject={active.subject as SubjectV}
-            board={active.board as BoardV}
-            level={level}
-            weekStart={weekStart}
-            onChanged={week.reload}
-          />
-        </div>
+      {/* The week as a checklist, under the plan: the panel above says what this
+          week is and why, this one says what to press. */}
+      {!frozen && !resting && (
+        <DoNowPanel
+          points={week.points}
+          activity={week.activity}
+          coverage={week.coverage}
+          subject={active?.subject ?? "biology"}
+          editable={editable}
+          onToggle={(id, done) => {
+            void week.setPointDone(id, done);
+          }}
+        />
       )}
     </>
   );

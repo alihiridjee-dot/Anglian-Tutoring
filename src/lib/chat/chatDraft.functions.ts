@@ -1,5 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
+import { NOTATION_RULE, NO_THINKING, completeText } from "@/lib/platform/aiText";
+import { toSciNotation } from "@/lib/platform/sciNotation";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 /**
@@ -19,7 +21,7 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
  * key exists only on the server.
  */
 
-const MODEL = "claude-sonnet-5";
+const MODEL = "claude-sonnet-5-5";
 
 /** Enough of the conversation for a useful answer, without sending everything. */
 const HISTORY_LIMIT = 12;
@@ -52,6 +54,7 @@ Rules:
 - Be specific to the exam board and level given. If the answer depends on the board and you can't tell, say so in one clause rather than guessing.
 - If you are not confident the answer is correct, say what you're unsure about instead of inventing detail — the tutor is checking this and a confident wrong answer costs them more time than a blank.
 - No greeting line and no sign-off; the tutor adds those.
+- ${NOTATION_RULE}
 - Return ONLY the message body. No preamble, no markdown headings, no quotes.`;
 
   const conversation = input.history
@@ -60,7 +63,7 @@ Rules:
 
   const user = `Student: ${input.studentName}
 Course: ${course || "(not recorded)"}
-Question is about: ${input.contextLabel ?? "(no specific spec point, homework or quiz attached)"}
+Question is about: ${input.contextLabel ?? "(no specific spec point, task or quiz attached)"}
 Thread subject: ${input.subjectLine}
 
 Conversation so far:
@@ -73,6 +76,7 @@ Draft the tutor's next reply.`;
     res = await client.messages.create({
       model: MODEL,
       max_tokens: 500,
+      thinking: NO_THINKING,
       system,
       messages: [{ role: "user", content: user }],
     });
@@ -83,11 +87,7 @@ Draft the tutor's next reply.`;
     throw new Error(`AI error: ${e instanceof Error ? e.message : String(e)}`);
   }
 
-  return res.content
-    .filter((b): b is Anthropic.TextBlock => b.type === "text")
-    .map((b) => b.text)
-    .join("")
-    .trim();
+  return toSciNotation(completeText(res).trim());
 }
 
 export const generateChatDraft = createServerFn({ method: "POST" })
@@ -131,12 +131,17 @@ export const generateChatDraft = createServerFn({ method: "POST" })
         .select("display_name, level")
         .eq("id", thread.student_id)
         .maybeSingle(),
-      supabase
-        .from("student_enrolments")
-        .select("board")
-        .eq("student_id", thread.student_id)
-        .limit(1)
-        .maybeSingle(),
+      // The board for this thread's subject: a student can sit Edexcel Physics
+      // and AQA Biology. A thread with no subject gets no board, rather than
+      // whichever enrolment happens to come first.
+      thread.subject
+        ? supabase
+            .from("student_enrolments")
+            .select("board")
+            .eq("student_id", thread.student_id)
+            .eq("subject", thread.subject)
+            .maybeSingle()
+        : Promise.resolve({ data: null }),
     ]);
 
     const history: Turn[] = (messages ?? [])

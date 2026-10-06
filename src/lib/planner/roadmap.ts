@@ -13,6 +13,7 @@ import {
   isTeachBand,
   mergeFocus,
   projectReviews,
+  reviewBudget,
   weeksBetween,
   withWeeklyPoints,
 } from "./pacing";
@@ -29,6 +30,39 @@ import { blockedBy, indexOverrides, type PlanOverride } from "./overrides";
 import { type PlanPoint, type WithheldPlanPoint } from "./weeklyPlanDal";
 
 /** Assessment-backed cards supply one next review per point. */
+/** Each topic's teaching weight, the input the spine and its weekly load are cut from. */
+function pacingInputs(progress: TopicProgress[]): PacingInput[] {
+  return progress.map((t) => ({
+    topicId: t.topicId,
+    title: t.title,
+    weight: t.points.reduce((sum, p) => sum + p.weight, 0) || 1,
+  }));
+}
+
+/**
+ * How much review one week of this course may hold ({@link reviewBudget}): three
+ * times its weekly teaching. Shared by the roadmap and the reorder path, so a
+ * saved future week and the live projection agree.
+ */
+export function reviewBudgetFor(progress: TopicProgress[], spine: PacingBand[]): number {
+  return reviewBudget(focusLoadFor({ topics: pacingInputs(progress), spine }).spine);
+}
+
+/**
+ * Whether a stored spine was cut for another course: it teaches topics, and
+ * none of them is on the student's course now. Topics belong to one
+ * subject/board/level, so a board or level change leaves the stored spine
+ * describing the old course entirely. Under a custom topic order the roadmap
+ * returned that spine as it stood, so every topic of the new course was
+ * "unscheduled" and no week ever taught again (S-29).
+ */
+export function spineIsForAnotherCourse(pacing: PacingBand[], progress: TopicProgress[]): boolean {
+  const taught = pacing.filter(isTeachBand);
+  if (taught.length === 0 || progress.length === 0) return false;
+  const onCourse = new Set(progress.map((t) => t.topicId));
+  return !taught.some((b) => onCourse.has(b.topicId));
+}
+
 export function focusInputs(progress: TopicProgress[]): {
   candidates: FocusCandidate[];
 } {
@@ -72,6 +106,12 @@ export interface RoadmapResult {
    * rather than something that has already happened to them.
    */
   baselineBands: PacingBand[];
+  /**
+   * The spine exactly as saved, when a break still to come has been laid over
+   * `baselineBands` for display (ProgramDAL.withBreaksAhead). A change to the
+   * programme is saved from this, because it is what the database holds.
+   */
+  storedBands?: PacingBand[];
   /** Topics whose start week moved since the student last acknowledged. */
   changes: PacingChange[];
   needsAck: boolean;
@@ -83,6 +123,12 @@ export interface RoadmapResult {
   /** Per-topic mastery + spec-point breakdown, for the expandable timeline. */
   progress: TopicProgress[];
   reviewBacklog: FocusCandidate[];
+  /**
+   * Reviews due now that this week had no room for, oldest due first. They
+   * roll into the following weeks on their own; "Review more now" pulls them
+   * into this week for a student who wants to keep going.
+   */
+  reviewsWaiting: FocusCandidate[];
   /**
    * Points the programme refused to assign, and why — work that would otherwise
    * have been scheduled for a topic the spine has not reached, a course the
@@ -148,6 +194,12 @@ export interface RoadmapInputs {
   examMonday: Date;
   /** The tutor's overrides for this course. Absent means none. */
   overrides?: PlanOverride[];
+  /**
+   * Mondays of the weeks the student is on a break. Every lane steps past
+   * them, as past a week a tutor closed: no catch-up or review is forecast
+   * into a break.
+   */
+  breakWeeks?: string[];
 }
 
 /**
@@ -161,13 +213,15 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
   // The tutor's overrides bind every automatic lane below: a skipped point is
   // neither reviewed nor chased, and a removed week is stepped past.
   const overrideIndex = indexOverrides(overrides);
-  const isBlocked = blockedBy(overrideIndex);
+  const closedByTutor = blockedBy(overrideIndex);
+  // A break week is closed to every lane too, whatever the point.
+  const offWeeks = new Set(inputs.breakWeeks ?? []);
+  const isBlocked = offWeeks.size
+    ? (specPointId: string, weekStart: string) =>
+        offWeeks.has(weekStart) || closedByTutor(specPointId, weekStart)
+    : closedByTutor;
 
-  const topics: PacingInput[] = progress.map((t) => ({
-    topicId: t.topicId,
-    title: t.title,
-    weight: t.points.reduce((sum, p) => sum + p.weight, 0) || 1,
-  }));
+  const topics: PacingInput[] = pacingInputs(progress);
 
   // Coverage is assessed understanding, separate from the next memory review.
   const coveredTopicIds = new Set(progress.filter((t) => t.settled).map((t) => t.topicId));
@@ -253,6 +307,8 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
     currentMonday: savedWeek ? addWeeks(thisMonday, 1) : thisMonday,
     examMonday,
     isBlocked,
+    weeklyBudget: reviewBudget(focusLoadFor({ topics, spine: live }).spine),
+    readyBy: thisMonday,
   });
   if (savedWeek) {
     // All saved-week consumers use the DAL's same active/history split.
@@ -369,6 +425,7 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
     completedPointIds: [...ledger.done],
     progress,
     reviewBacklog: projection.backlog,
+    reviewsWaiting: projection.waiting,
     inadmissible,
     backlog,
     backlogByTopic: byTopic(unaddressed),

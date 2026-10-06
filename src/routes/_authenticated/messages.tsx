@@ -1,12 +1,12 @@
 import { Mascot } from "@/components/Doodles";
 import { ErrorNote, Spinner } from "@/components/Shared";
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { ArrowLeft, MessageSquarePlus } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
 import { guardStudentSection } from "@/lib/auth/routeGuards";
 import { useRoles } from "@/hooks/useRole";
-import { useChatThreads, type ThreadSummary } from "@/hooks/data/useChat";
+import { useChatThreads, usePinnedThread, type ThreadSummary } from "@/hooks/data/useChat";
 import { ThreadList } from "@/components/chat/ThreadList";
 import { ThreadView } from "@/components/chat/ThreadView";
 import { NewThreadDialog } from "@/components/chat/NewThreadDialog";
@@ -36,7 +36,6 @@ const EMPTY_THREADS: ThreadSummary[] = [];
 function MessagesPage() {
   const { isTutor, userId, loading: rolesLoading } = useRoles();
   const { data: threads = EMPTY_THREADS, isPending, error, refetch } = useChatThreads();
-  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [composing, setComposing] = useState(false);
   // On a phone the list and the thread take turns in one column; picking a row
   // opens the thread and the back arrow returns to the list. Wide screens show
@@ -44,23 +43,10 @@ function MessagesPage() {
   const [threadOpen, setThreadOpen] = useState(false);
 
   // Open the most recent conversation on arrival, and again when the open one is
-  // deleted — an empty right-hand pane next to a full list is a dead end.
-  //
-  // "Not in the list" has two meanings, and only one of them is "deleted". A
-  // thread that was just created isn't in the list either until the refetch
-  // lands, and treating that as a deletion bounced the student out of the
-  // question they had just asked and into their previous conversation — where a
-  // follow-up would have gone to the wrong thread. So only a selection that
-  // *has been seen* in the list, and has now gone, is replaced.
-  const seenIds = useRef(new Set<string>());
-  useEffect(() => {
-    if (selectedId && threads.some((t) => t.id === selectedId)) {
-      seenIds.current.add(selectedId);
-      return;
-    }
-    if (selectedId && !seenIds.current.has(selectedId)) return;
-    if (threads.length > 0) setSelectedId(threads[0].id);
-  }, [threads, selectedId]);
+  // deleted — an empty right-hand pane next to a full list is a dead end. On a
+  // phone that pane is hidden until a row is tapped, and ThreadView leaves it
+  // unread until then.
+  const [selectedId, setSelectedId] = usePinnedThread(threads);
 
   const selected = useMemo(
     () => threads.find((t) => t.id === selectedId) ?? null,
@@ -86,14 +72,14 @@ function MessagesPage() {
                 ? unreadTotal > 0
                   ? `${unreadTotal} message${unreadTotal === 1 ? "" : "s"} waiting for a reply.`
                   : "Everything's answered."
-                : "Ask your tutor anything — attach the spec point, homework or quiz you're stuck on."}
+                : "Ask your tutor anything — attach the spec point, task or quiz you're stuck on."}
             </p>
           </div>
           {!isTutor && (
             <button
               data-guide="ask-question"
               onClick={() => setComposing(true)}
-              className="btn-hero inline-flex h-11 sm:h-10 shrink-0 items-center gap-2 rounded-xl px-4 text-sm"
+              className="btn-hero inline-flex h-11 sm:pointer-fine:h-10 shrink-0 items-center gap-2 rounded-xl px-4 text-sm"
             >
               <MessageSquarePlus className="size-4" aria-hidden /> Ask a question
             </button>
@@ -112,7 +98,7 @@ function MessagesPage() {
             </h2>
             <p className="text-muted-foreground mx-auto mt-2 max-w-sm text-sm leading-relaxed">
               {isTutor
-                ? "When a student asks a question it lands here, with the spec point or homework they were working on attached."
+                ? "When a student asks a question it lands here, with the spec point or task they were working on attached."
                 : "Stuck on something? Ask your tutor — they'll see exactly which part of the spec you mean."}
             </p>
             {!isTutor && (
@@ -141,20 +127,28 @@ function MessagesPage() {
                 showCounterpart={isTutor}
               />
             </div>
+            {/* Open on a phone turned sideways, the thread takes the whole
+                screen (`.thread-sideways`) and its own title row carries the
+                way back, so this row steps aside there. */}
             <div
               data-guide="message-thread"
-              className={`premium-card flex h-[70vh] min-h-0 flex-col overflow-hidden rounded-2xl ${threadOpen ? "" : "max-lg:hidden"}`}
+              className={`premium-card flex h-[70vh] min-h-0 flex-col overflow-hidden rounded-2xl ${threadOpen ? "thread-sideways" : "max-lg:hidden"}`}
             >
               <button
                 type="button"
                 onClick={() => setThreadOpen(false)}
-                className="inline-flex min-h-11 items-center gap-2 border-b border-border px-4 text-sm font-semibold text-muted-foreground hover:text-foreground lg:hidden"
+                className="inline-flex min-h-11 items-center gap-2 border-b border-border px-4 text-sm font-semibold text-muted-foreground hover:text-foreground lg:hidden short:hidden"
               >
                 <ArrowLeft className="size-4" aria-hidden /> All conversations
               </button>
               <div className="min-h-0 flex-1">
                 {selected && userId ? (
-                  <ThreadView thread={selected} viewerId={userId} isTutor={isTutor} />
+                  <ThreadView
+                    thread={selected}
+                    viewerId={userId}
+                    isTutor={isTutor}
+                    onBack={() => setThreadOpen(false)}
+                  />
                 ) : (
                   <p className="p-10 text-center text-sm text-muted-foreground">
                     Pick a conversation.

@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { isDemoMode } from "@/lib/auth/session";
 import { useRoles } from "@/hooks/useRole";
@@ -7,6 +8,7 @@ import {
   type ThreadSummary,
   type TutorOption,
 } from "@/lib/chat/chatDal";
+import { pinnedSelection } from "@/lib/chat/threadSelection";
 
 /** Everything chat-shaped sits under this prefix, so one invalidate refreshes it. */
 export const CHAT_KEY = ["chat"] as const;
@@ -121,6 +123,24 @@ export function useMarkThreadRead() {
     mutationFn: (threadId: string) => ChatDAL.markRead(threadId),
     onSuccess: () => qc.invalidateQueries({ queryKey: CHAT_KEY }),
   });
+}
+
+/**
+ * The open conversation in a list: the first on arrival, then pinned however
+ * the list re-sorts. See {@link pinnedSelection}.
+ */
+export function usePinnedThread(threads: readonly ThreadSummary[]) {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const seen = useRef(new Set<string>());
+  useEffect(() => {
+    const next = pinnedSelection(
+      threads.map((t) => t.id),
+      selectedId,
+      seen.current,
+    );
+    if (next !== selectedId) setSelectedId(next);
+  }, [threads, selectedId]);
+  return [selectedId, setSelectedId] as const;
 }
 
 export type { ThreadSummary };

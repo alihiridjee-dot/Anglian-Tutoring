@@ -1,5 +1,5 @@
 import { useNavigate } from "@tanstack/react-router";
-import { CreditCard, Loader2, Lock, PlayCircle, RotateCw } from "lucide-react";
+import { CreditCard, Loader2, Lock, MessageSquare, PlayCircle, RotateCw } from "lucide-react";
 import { useOwnPlanState } from "@/hooks/data/useBilling";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 
@@ -21,7 +21,8 @@ import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
  * this makes sure we never ask for it.
  *
  * Billing routes are exempt upstream (the guard never mounts this there), so a
- * student who paused or cancelled can always get back in to resume.
+ * student who paused or cancelled can always get back in to resume. Messages
+ * is exempt too, and linked from here, so they can always ask a tutor.
  */
 export function PaywallOverlay() {
   const navigate = useNavigate();
@@ -34,9 +35,11 @@ export function PaywallOverlay() {
       role="dialog"
       aria-modal="true"
       aria-labelledby="paywall-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/50 backdrop-blur-xl"
+      // The card is 405px tall, more than a phone turned sideways has, so the
+      // overlay scrolls; `m-auto` still centres the card wherever it fits.
+      className="fixed inset-0 z-50 flex overflow-y-auto overscroll-contain p-4 bg-background/50 backdrop-blur-xl"
     >
-      <div className="w-full max-w-md rounded-3xl border border-white/20 bg-card/80 backdrop-blur-md shadow-2xl p-6 sm:p-8 text-center ring-1 ring-black/5">
+      <div className="m-auto w-full max-w-md rounded-3xl border border-white/20 bg-card/80 backdrop-blur-md shadow-2xl p-6 sm:p-8 text-center ring-1 ring-black/5">
         <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
           <Lock className="h-6 w-6" />
         </div>
@@ -64,7 +67,7 @@ export function PaywallOverlay() {
             <button
               type="button"
               onClick={() => navigate({ to: "/billing" })}
-              className="mt-3 inline-flex min-h-11 items-center px-3 text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
+              className="mt-3 inline-flex min-h-11 items-center px-3 text-xs text-muted-foreground hover:text-foreground sm:pointer-fine:min-h-0"
             >
               Open Billing
             </button>
@@ -125,12 +128,22 @@ export function PaywallOverlay() {
             <button
               type="button"
               onClick={() => navigate({ to: "/billing" })}
-              className="mt-3 inline-flex min-h-11 items-center px-3 text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
+              className="mt-3 inline-flex min-h-11 items-center px-3 text-xs text-muted-foreground hover:text-foreground sm:pointer-fine:min-h-0"
             >
               Manage billing instead
             </button>
           </>
         )}
+
+        {/* Messages stays open whatever the plan's state (the guard exempts
+            it), so a family can always ask a tutor what happened. */}
+        <button
+          type="button"
+          onClick={() => navigate({ to: "/messages" })}
+          className="btn-soft mt-3 w-full h-11 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2"
+        >
+          <MessageSquare className="h-4 w-4" /> Message your tutor
+        </button>
       </div>
     </div>
   );

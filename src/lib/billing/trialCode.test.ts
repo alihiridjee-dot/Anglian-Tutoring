@@ -1,11 +1,12 @@
 import { describe, expect, test } from "bun:test";
 import {
   buildTrialEmail,
+  canonicalEmail,
   makeTrialCode,
   normaliseTrialCode,
   TRIAL_DAYS,
 } from "../../../supabase/functions/_shared/trialCode";
-import { TRIAL_DAYS as CLIENT_TRIAL_DAYS } from "./trialCode";
+import { mayOfferTrial, TRIAL_DAYS as CLIENT_TRIAL_DAYS } from "./trialCode";
 
 describe("makeTrialCode", () => {
   test("is AE- and two groups of four, from characters that can't be misread", () => {
@@ -61,4 +62,51 @@ describe("buildTrialEmail", () => {
 
 test("the plan page promises the same trial length the server grants", () => {
   expect(CLIENT_TRIAL_DAYS).toBe(TRIAL_DAYS);
+});
+
+describe("canonicalEmail", () => {
+  test("Gmail's dots, plus-tags and googlemail.com are one mailbox", () => {
+    for (const variant of [
+      "name@gmail.com",
+      "Name@Gmail.com",
+      " n.a.m.e@gmail.com ",
+      "name+trial@gmail.com",
+      "na.me+2@googlemail.com",
+    ]) {
+      expect(canonicalEmail(variant)).toBe("name@gmail.com");
+    }
+  });
+
+  test("a plus-tag is dropped anywhere, but dots only matter at Gmail", () => {
+    expect(canonicalEmail("sam+school@outlook.com")).toBe("sam@outlook.com");
+    expect(canonicalEmail("first.last@outlook.com")).toBe("first.last@outlook.com");
+  });
+
+  test("an address that is all tag keeps its name rather than becoming empty", () => {
+    expect(canonicalEmail("+x@gmail.com")).toBe("+x@gmail.com");
+  });
+});
+
+describe("mayOfferTrial", () => {
+  const NOW = Date.UTC(2026, 9, 3);
+  const DAY = 24 * 60 * 60_000;
+  const visitor = { signedIn: false, codeSent: false, heldCode: "", dismissedAt: null, now: NOW };
+
+  test("a new visitor is offered a trial", () => {
+    expect(mayOfferTrial(visitor)).toBe(true);
+  });
+
+  test("never to anyone signed in: they already have an account", () => {
+    expect(mayOfferTrial({ ...visitor, signedIn: true })).toBe(false);
+  });
+
+  test("never again once a code has been sent, even a week later", () => {
+    expect(mayOfferTrial({ ...visitor, codeSent: true, dismissedAt: NOW - 30 * DAY })).toBe(false);
+    expect(mayOfferTrial({ ...visitor, heldCode: "AE-ABCD-EFGH" })).toBe(false);
+  });
+
+  test("closed, it stays away a week", () => {
+    expect(mayOfferTrial({ ...visitor, dismissedAt: NOW - 6 * DAY })).toBe(false);
+    expect(mayOfferTrial({ ...visitor, dismissedAt: NOW - 8 * DAY })).toBe(true);
+  });
 });

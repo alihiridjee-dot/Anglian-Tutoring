@@ -32,8 +32,15 @@ export const pageGuides: Record<string, GuideStep[]> = {
     ),
   ],
   Curriculum: [
+    // A student picks the subject in the header; a tutor with the filters on
+    // the page. Each finds only its own, so one of the two steps shows.
+    at(
+      "subject-slider",
+      "Choose your subject",
+      "Pick the subject you want to work on here, at the top. Every page follows it, and the curriculum uses the exam board and level shown beside it.",
+    ),
     select(
-      '[data-guide="curriculum-filters"] > :first-child',
+      '[data-guide="curriculum-filters"] > .grid',
       "Choose your subject",
       "Pick the subject you want to work on. The curriculum follows the exam board and level shown here.",
     ),
@@ -93,11 +100,11 @@ export const pageGuides: Record<string, GuideStep[]> = {
       "Use Download to open the worksheet or paper. Check the subject, board and level beside the title before you begin.",
     ),
   ],
-  "Homework & Grades": [
+  "Tasks & Grades": [
     select(
-      '[data-guide="homework-grades"] h3',
+      '[data-guide="homework-grades"]',
       "See how you’re doing",
-      "Your predicted grades and practice averages appear here when enough results are available. Use them to spot subjects that need more attention.",
+      "Your target grade, next to the grade your quizzes and tasks say you’re working towards, for the subject picked at the top. No target yet? Set one here.",
     ),
     select(
       '[data-guide="homework-list"] a',
@@ -106,10 +113,10 @@ export const pageGuides: Record<string, GuideStep[]> = {
     ),
   ],
   "Weekly MCQs": [
-    select(
-      '[aria-label="Subject"]',
+    at(
+      "subject-slider",
       "Pick your subject",
-      "Switch subjects to see the quizzes for the course you want to work on.",
+      "Switch subjects here, at the top, to see the quizzes for the course you want to work on.",
     ),
     select(
       '[data-guide="mcq-this-week"] h2',
@@ -123,8 +130,16 @@ export const pageGuides: Record<string, GuideStep[]> = {
     ),
   ],
   "My Planner": [
+    at(
+      "subject-slider",
+      "Pick your subject",
+      "Switch subjects here, at the top, to see the plan for the course you want to work on.",
+    ),
+    // A tutor's planner keeps its own subject toggle, beside the student's name.
+    // Below `xl` the student's slider sits in the page too, so it is left out
+    // by name, or a student would get this step as well as the one above.
     select(
-      '[aria-label="Subject"]',
+      '[aria-label="Subject"]:not([data-guide="subject-slider"] *)',
       "Pick your subject",
       "Switch subjects to see the plan for the course you want to work on.",
     ),
@@ -151,7 +166,7 @@ export const pageGuides: Record<string, GuideStep[]> = {
     at(
       "ask-question",
       "Ask for a hand",
-      "Choose Ask a question to start a conversation with your tutor. Attach the topic, homework or quiz you’re stuck on to give them context.",
+      "Choose Ask a question to start a conversation with your tutor. Attach the topic, task or quiz you’re stuck on to give them context.",
     ),
     at(
       "message-list",
@@ -264,8 +279,8 @@ export const pageGuides: Record<string, GuideStep[]> = {
   "Revision Notes": [
     select(
       "h2, h3, p",
-      "Your revision notes",
-      "Read the information here for the current availability of revision notes. You can also explore the resources attached to individual curriculum points.",
+      "Your revision note",
+      "This note covers one topic, written for your exam board. Use Back to return to the spec point you opened it from.",
     ),
   ],
 };
@@ -281,8 +296,8 @@ export const pageIntroductions: Record<string, string> = {
     "Find a recorded explanation for your course. Filter the library, then select a video to watch. If no videos appear, try a wider selection.",
   Downloads:
     "Find worksheets and papers for your course, then open a file to study. If nothing is listed, try a wider filter or check back after your next lesson.",
-  "Homework & Grades":
-    "Complete your homework here and return for tutor feedback and grades. New assignments appear when your tutor sets them.",
+  "Tasks & Grades":
+    "Complete your tasks here and return for tutor feedback and grades. New assignments appear when your tutor sets them.",
   "Weekly MCQs":
     "Start with this week’s quizzes, then revisit earlier ones by topic. A quiz appears here once your plan reaches its spec point.",
   MCQ: "Choose an answer for each question, submit the set and review the explanations. Your answers stay untouched during this tour.",
@@ -301,6 +316,5 @@ export const pageIntroductions: Record<string, string> = {
     "Follow your linked student’s learning progress and explore the information available for them.",
   Students: "Find and manage your students and family links from this workspace.",
   "Tutor Studio": "Your workspace for managing learning resources and teaching activities.",
-  "Revision Notes":
-    "Personal notes are coming soon. For now, your dashboard brings together your week’s videos, quizzes and homework.",
+  "Revision Notes": "Read the note for this topic, then go back to its spec point to practise.",
 };

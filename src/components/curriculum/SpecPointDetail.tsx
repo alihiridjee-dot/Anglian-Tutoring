@@ -4,7 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
-import { generateMcqSet } from "@/lib/mcq/mcq.functions";
+import { generateMcqSet, replaceMcqQuestions } from "@/lib/mcq/mcq.functions";
 import { toast } from "sonner";
 import { CurriculumDAL } from "@/lib/curriculum/curriculumDal";
 import type { SpecPoint, Resource, McqSet } from "@/lib/curriculum/types";
@@ -12,6 +12,10 @@ import { VideoModal, VideoThumbnail } from "@/components/VideoPlayer";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { parseVideoUrl, type VideoEmbed } from "@/lib/curriculum/videoEmbed";
 import { SpecPointVideoEditor, type EditableVideo } from "@/components/tutor/SpecPointVideoEditor";
+import { useSpecPointNotes } from "@/hooks/data/useNotes";
+import { Chip } from "@/components/Shared";
+import { formatWhen } from "@/lib/live/liveSessions";
+import { plannerDateLabel } from "@/lib/planner/week";
 import {
   Plus,
   Pencil,
@@ -21,6 +25,7 @@ import {
   ClipboardList,
   CalendarClock,
   ListChecks,
+  BookOpen,
 } from "lucide-react";
 import {
   CollapsibleSection,
@@ -43,6 +48,7 @@ export function SpecPointDetail({
   const [resources, setResources] = useState<Resource[]>([]);
   const [mcqSets, setMcqSets] = useState<McqSet[]>([]);
   const [genLoading, setGenLoading] = useState(false);
+  const [replacingId, setReplacingId] = useState<string | null>(null);
   // `null` inside the object means "creating"; the outer null means closed.
   const [editingVideo, setEditingVideo] = useState<{ video: EditableVideo | null } | null>(null);
   const [activeVideo, setActiveVideo] = useState<{
@@ -51,6 +57,9 @@ export function SpecPointDetail({
     description?: string | null;
   } | null>(null);
   const genFn = useServerFn(generateMcqSet);
+  const replaceFn = useServerFn(replaceMcqQuestions);
+  const { data: notesByPoint } = useSpecPointNotes([point.id]);
+  const notes = notesByPoint?.get(point.id) ?? [];
 
   const reload = async () => {
     try {
@@ -71,11 +80,17 @@ export function SpecPointDetail({
     setGenLoading(true);
     try {
       const res = await genFn({ data: { specPointId: point.id } });
-      toast.success(
-        res.created
-          ? "Generated this point's MCQs — every student now shares them"
-          : "This point already has its MCQs — nothing new was generated",
-      );
+      // Queued is a deferral, not a result: the set doesn't exist yet.
+      if (res.queued)
+        toast.info(
+          "Queued — this point's MCQs will be written shortly; reopen the point to see them",
+        );
+      else
+        toast.success(
+          res.created
+            ? "Generated this point's MCQs — every student now shares them"
+            : "This point already has its MCQs — use Replace questions to write new ones",
+        );
       reload();
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Generation failed");
@@ -93,11 +108,37 @@ export function SpecPointDetail({
     reload();
   };
 
+  // A quiz students have taken is refused by the database (S-18): their
+  // results would go with it. The refusal says how many, and points here.
   const delSet = async (setId: string) => {
-    if (!confirm("Delete this MCQ set?")) return;
+    if (
+      !confirm(
+        "Delete this MCQ set and its questions? A quiz students have taken can't be deleted.",
+      )
+    )
+      return;
     const { error } = await supabase.from("mcq_sets").delete().eq("id", setId);
     if (error) return toast.error(error.message);
     reload();
+  };
+
+  const replaceSet = async (setId: string) => {
+    if (
+      !confirm(
+        "Write a new set of questions for this quiz? The current questions are replaced for every student. Scores from past attempts stay as they are.",
+      )
+    )
+      return;
+    setReplacingId(setId);
+    try {
+      const res = await replaceFn({ data: { setId } });
+      toast.success(`Questions replaced — ${res.questions} new questions`);
+      reload();
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Couldn't replace the questions");
+    } finally {
+      setReplacingId(null);
+    }
   };
 
   return (
@@ -107,19 +148,19 @@ export function SpecPointDetail({
           <button
             onClick={generate}
             disabled={genLoading}
-            className="inline-flex items-center gap-2 px-3 py-1.5 min-h-11 sm:min-h-0 rounded-md bg-accent/20 border border-accent/40 text-accent-foreground text-xs font-semibold hover:bg-accent/30 disabled:opacity-60"
+            className="inline-flex items-center gap-2 px-3 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-md bg-accent/20 border border-accent/40 text-accent-foreground text-xs font-semibold hover:bg-accent/30 disabled:opacity-60"
           >
             <Sparkles className="w-3.5 h-3.5" /> {genLoading ? "Generating…" : "AI generate MCQs"}
           </button>
           <button
             onClick={() => setEditingVideo({ video: null })}
-            className="inline-flex items-center gap-2 px-3 py-1.5 min-h-11 sm:min-h-0 rounded-md border border-border text-xs text-foreground font-semibold hover:bg-secondary/40 transition"
+            className="inline-flex items-center gap-2 px-3 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-md border border-border text-xs text-foreground font-semibold hover:bg-secondary/40 transition"
           >
             <PlayCircle className="w-3.5 h-3.5" /> Add video to this point
           </button>
           <Link
             to="/tutor"
-            className="inline-flex items-center gap-2 px-3 py-1.5 min-h-11 sm:min-h-0 rounded-md border border-border text-xs text-foreground font-semibold hover:bg-secondary/40 transition"
+            className="inline-flex items-center gap-2 px-3 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-md border border-border text-xs text-foreground font-semibold hover:bg-secondary/40 transition"
           >
             <Plus className="w-3.5 h-3.5" /> Add resource in Tutor Studio
           </Link>
@@ -144,12 +185,14 @@ export function SpecPointDetail({
                   className="flex flex-wrap items-center justify-between gap-2 px-3.5 py-3 rounded-xl bg-secondary/10 border border-border"
                 >
                   <div className="flex items-center gap-2 min-w-0">
-                    <span
-                      className={`text-[9px] px-1.5 py-0.5 rounded font-bold shrink-0 uppercase tracking-wider ${s.published ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400" : "bg-muted text-muted-foreground"}`}
-                    >
-                      {s.published ? "Published" : "Draft"}
-                    </span>
-                    <span className="text-sm font-semibold truncate text-foreground">
+                    {/* Publishing is the tutor's business: a student only
+                        ever sees the published sets, so it says nothing to them. */}
+                    {isTutor && (
+                      <Chip tint={s.published ? "tint-emerald" : "tint-slate"} className="shrink-0">
+                        {s.published ? "Published" : "Draft"}
+                      </Chip>
+                    )}
+                    <span className="text-sm font-semibold break-words min-w-0 text-foreground">
                       {s.title}
                     </span>
                   </div>
@@ -158,7 +201,7 @@ export function SpecPointDetail({
                       <Link
                         to={isDemoStudent() ? "/demo/student/mcq/$setId" : "/mcq/$setId"}
                         params={{ setId: s.id }}
-                        className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:min-h-0 rounded-lg border border-border bg-background hover:border-primary/50 text-foreground font-medium transition"
+                        className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-lg border border-border bg-background hover:border-primary/50 text-foreground font-medium transition"
                       >
                         Take
                       </Link>
@@ -167,10 +210,19 @@ export function SpecPointDetail({
                       <>
                         <button
                           onClick={() => publish(s.id, s.published)}
-                          className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:min-h-0 rounded-lg border border-border text-muted-foreground hover:text-foreground transition"
+                          className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-lg border border-border text-muted-foreground hover:text-foreground transition"
                         >
                           {s.published ? "Unpublish" : "Publish"}
                         </button>
+                        {s.origin === "generated" && (
+                          <button
+                            onClick={() => replaceSet(s.id)}
+                            disabled={replacingId !== null}
+                            className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-lg border border-border text-muted-foreground hover:text-foreground transition disabled:opacity-60"
+                          >
+                            {replacingId === s.id ? "Replacing…" : "Replace questions"}
+                          </button>
+                        )}
                         <button
                           onClick={() => delSet(s.id)}
                           aria-label={`Delete MCQ set ${s.title}`}
@@ -240,6 +292,25 @@ export function SpecPointDetail({
           }}
         />
 
+        {/* Revision Notes Section */}
+        <CollapsibleResourceGroup
+          label="Revision Notes"
+          icon={BookOpen}
+          items={notes}
+          render={(n) => (
+            <div className="flex items-start justify-between gap-2 w-full text-sm font-semibold text-foreground leading-snug">
+              <span>{n.title}</span>
+              <Link
+                to={isDemoStudent() ? "/demo/student/notes/$conceptId" : "/notes/$conceptId"}
+                params={{ conceptId: n.id }}
+                className="tap-target inline-flex items-center shrink-0 text-[10px] px-2 py-0.5 rounded btn-solid font-bold"
+              >
+                Read
+              </Link>
+            </div>
+          )}
+        />
+
         {/* Live Sessions Section */}
         <CollapsibleResourceGroup
           label="Live Sessions"
@@ -267,7 +338,7 @@ export function SpecPointDetail({
               )}
               {r.starts_at && (
                 <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold">
-                  Starts: {new Date(r.starts_at).toLocaleString()}
+                  Starts: {formatWhen(new Date(r.starts_at).getTime())}
                 </span>
               )}
             </div>
@@ -276,7 +347,7 @@ export function SpecPointDetail({
 
         {/* Homework Assignments Section */}
         <CollapsibleResourceGroup
-          label="Homework Assignments"
+          label="Tasks"
           icon={ClipboardList}
           items={resources.filter((r) => r.kind === "homework")}
           render={(r) => (
@@ -300,7 +371,7 @@ export function SpecPointDetail({
               )}
               {r.due_at && (
                 <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold">
-                  due {new Date(r.due_at).toLocaleDateString()}
+                  due {plannerDateLabel(new Date(r.due_at))}
                 </span>
               )}
             </div>

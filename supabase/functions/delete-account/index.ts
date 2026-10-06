@@ -7,9 +7,9 @@
 //                      in public.account_deletions, email everyone concerned
 //   undo      (tutor)  lift the ban and resume the plan this request paused
 //   purge     (cron)   for every request past its date: cancel the plan, delete
-//                      the student's own Stripe customer, their files and the
-//                      rows no foreign key reaches, then the auth user (which
-//                      cascades through the rest), and send the last emails
+//                      the student's own Stripe customer and their files, then
+//                      the auth user (which cascades through the rest), and
+//                      send the last emails
 //
 // "purge" takes no caller. The hourly cron in 20260923114330 calls it without a
 // key, so this function is deployed with verify_jwt off. That is safe because a
@@ -40,19 +40,6 @@ const BAN_FOREVER = "876000h";
 const LIVE_STATUSES = ["active", "trialing", "past_due", "unpaid"];
 /** A purge that has held a row this long has died; the next run may take it. */
 const CLAIM_TIMEOUT_MS = 15 * 60_000;
-
-/**
- * Student data with no foreign key to the account, so the auth delete does not
- * reach it. Everything else is keyed to auth.users or profiles with ON DELETE
- * CASCADE (checked against production on 2026-09-23). Children of these —
- * homework answers, AI marks, their notifications — cascade from them.
- */
-const UNLINKED_TABLES: [table: string, column: string][] = [
-  ["homework_submissions", "student_id"],
-  ["mcq_attempts", "user_id"],
-  ["session_attendees", "user_id"],
-  ["parent_student_links", "student_id"],
-];
 
 type Db = ReturnType<typeof admin>;
 
@@ -333,9 +320,9 @@ async function handleUndo(req: Request, studentId: string | undefined) {
   if (!row) throw new HttpError(404, "There's no deletion booked for this student.");
 
   // A purge that has started and failed may already have cancelled the plan and
-  // deleted the files and parent links. Undoing then would bring back a hollow
-  // account and email the family that all is well. And once the date has passed,
-  // a purge may start at any moment. So undo ends when either happens.
+  // deleted the Stripe customer and the files. Undoing then would bring back a
+  // hollow account and email the family that all is well. And once the date has
+  // passed, a purge may start at any moment. So undo ends when either happens.
   const now = new Date();
   if (row.attempts > 0 || new Date(row.purge_after) <= now) throw purgeStarted();
 
@@ -456,19 +443,15 @@ async function purgeOne(db: Db, stripe: Stripe, row: DeletionRow) {
     if (error) throw new Error(`avatars: ${error.message}`);
   }
 
-  // 4 · Rows no foreign key reaches.
-  for (const [table, column] of UNLINKED_TABLES) {
-    const { error } = await db.from(table).delete().eq(column, studentId);
-    if (error) throw new Error(`${table}: ${error.message}`);
-  }
-
-  // 5 · The account, which cascades through profiles and everything keyed to it.
+  // 4 · The account, which cascades through profiles and everything keyed to it.
+  //     Since 20261005170000 and 20261005171000 that includes the parent links,
+  //     task submissions, quiz attempts and attendance this used to delete itself.
   const { error: deleteError } = await db.auth.admin.deleteUser(studentId);
   if (deleteError && !/not.?found/i.test(deleteError.message)) {
     throw new Error(`auth user: ${deleteError.message}`);
   }
 
-  // 6 · Tell them, then forget who they were.
+  // 5 · Tell them, then forget who they were.
   const failed = await sendAll("completed", row.notify, {
     studentName: row.student_name ?? "The student",
     purgeAfter: row.purge_after,

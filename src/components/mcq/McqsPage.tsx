@@ -1,16 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { EmptyState, ErrorNote, SectionHeading, Spinner, SubjectToggle } from "@/components/Shared";
+import { EmptyState, ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { ChevronRight, ChevronDown, CalendarClock, CheckCircle2 } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ, DEMO_MCQ_ATTEMPTS, DEMO_MCQ_SETS } from "@/lib/demo/studentDemo";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useActiveSubject } from "@/hooks/useActiveSubject";
+import { useEntryState } from "@/hooks/useEntryState";
 import { McqManager } from "@/components/tutor/McqManager";
 import { SUBJECT_TINT, subjectLabel } from "@/lib/curriculum/subjectTheme";
 import { selectIn, selectInHistory } from "@/lib/platform/db/chunked";
 import { currentWeekKey, plannerDateLabel, weekRangeLabel, mondayOf } from "@/lib/planner/week";
+import { retakeOpensAt } from "@/lib/mcq/retakeLock";
 
 /** One quiz, with everything the list needs to place it and describe it. */
 type QuizSet = {
@@ -28,10 +31,12 @@ type QuizSet = {
 };
 
 /** The student's best attempt at a set, or nothing if they've never opened it. */
-type Attempt = { score: number; total: number };
-
-/** Remembers the last subject so the page opens where you left it. */
-const SUBJECT_KEY = "mcqs:subject";
+type Attempt = {
+  score: number;
+  total: number;
+  /** When the latest attempt's week is up (see retakeLock). Absent on the showcase. */
+  opensAt?: Date;
+};
 
 export function MCQs() {
   const { isTutor, loading: rolesLoading } = useRoles();
@@ -64,7 +69,7 @@ export function MCQs() {
  *
  * 1. **One subject at a time.** Every quiz used to sit in one scroll, so a
  *    student revising Chemistry had to read past Biology to find it. The
- *    toggle picks the subject and the whole page repaints to its colour.
+ *    header slider picks the subject and the whole page repaints to its colour.
  * 2. **This week is defined by the plan.** Tutors don't assign quizzes: every
  *    set is the shared one for a spec point, with no deadline. So "this week"
  *    reads the student's own weekly plan and asks which points they are on
@@ -73,14 +78,14 @@ export function MCQs() {
  *    without bound; left flat it buries the handful of quizzes that matter.
  */
 function StudentMCQs() {
-  const { enrolledCourses, loading: enrolmentsLoading } = useEnrolments();
+  const { loading: enrolmentsLoading } = useEnrolments();
+  const { subject } = useActiveSubject();
   const [sets, setSets] = useState<QuizSet[]>([]);
   const [attempts, setAttempts] = useState<Record<string, Attempt>>({});
   /** Spec points in this week's plan — including any carried in from earlier. */
   const [thisWeekPoints, setThisWeekPoints] = useState<ReadonlySet<string>>(new Set());
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
-  const [subject, setSubject] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -127,7 +132,7 @@ function StudentMCQs() {
           .from("student_weekly_plan_points")
           .select("spec_point_id, student_weekly_plans!inner(student_id, week_start)")
           .eq("student_weekly_plans.student_id", uid),
-        supabase.from("mcq_attempts").select("set_id, score, total").eq("user_id", uid),
+        supabase.from("mcq_attempts").select("set_id, score, total, created_at").eq("user_id", uid),
       ]);
       if (cancelled) return;
       // A failed read is not an empty shelf. Swallowing an error here is what
@@ -225,12 +230,15 @@ function StudentMCQs() {
       // Best attempt per set — a retake that went worse shouldn't replace a
       // good score on the card.
       const best: Record<string, Attempt> = {};
+      const latest: Record<string, string> = {};
       for (const a of (attemptRows ?? []) as unknown as AttemptRow[]) {
         const prev = best[a.set_id];
         if (!prev || a.score / Math.max(a.total, 1) > prev.score / Math.max(prev.total, 1)) {
           best[a.set_id] = { score: a.score, total: a.total };
         }
+        if (!latest[a.set_id] || a.created_at > latest[a.set_id]) latest[a.set_id] = a.created_at;
       }
+      for (const [setId, at] of Object.entries(latest)) best[setId].opensAt = retakeOpensAt(at);
       setAttempts(best);
       setLoading(false);
     })();
@@ -239,38 +247,6 @@ function StudentMCQs() {
       cancelled = true;
     };
   }, []);
-
-  // Only subjects the student actually sits, and only those with quizzes behind
-  // them — a toggle segment that opens an empty page is a dead end.
-  const subjects = useMemo(() => {
-    const withQuizzes = new Set(sets.map((s) => s.subject).filter(Boolean) as string[]);
-    const enrolled = enrolledCourses.filter((s) => withQuizzes.has(s));
-    // Fall back to whatever the quizzes say if enrolment hasn't loaded or
-    // doesn't overlap, so the page is never blank for want of a profile row.
-    return enrolled.length > 0 ? enrolled : [...withQuizzes].sort();
-  }, [sets, enrolledCourses]);
-
-  // Settle on a subject once the list is known: the remembered one if it is
-  // still on offer, otherwise the first.
-  useEffect(() => {
-    if (subjects.length === 0 || (subject && subjects.includes(subject))) return;
-    let remembered: string | null = null;
-    try {
-      remembered = localStorage.getItem(SUBJECT_KEY);
-    } catch {
-      // Private browsing, or storage refused. Not worth a failure.
-    }
-    setSubject(remembered && subjects.includes(remembered) ? remembered : subjects[0]);
-  }, [subjects, subject]);
-
-  const chooseSubject = (next: string) => {
-    setSubject(next);
-    try {
-      localStorage.setItem(SUBJECT_KEY, next);
-    } catch {
-      // As above — remembering is a convenience, not a requirement.
-    }
-  };
 
   // This week's work, and everything else filed under its topic.
   const { current, byTopic } = useMemo(() => {
@@ -313,7 +289,7 @@ function StudentMCQs() {
         <Spinner label="Loading your quizzes" />
       ) : loadError ? (
         <ErrorNote error={loadError} />
-      ) : subjects.length === 0 ? (
+      ) : !subject ? (
         <EmptyState
           mascot="pencil"
           mood="sleepy"
@@ -321,17 +297,9 @@ function StudentMCQs() {
           body="Nothing has been set for your subjects so far. Ask your tutor to generate one for this week — quizzes are the quickest way to find the spec points you haven't nailed yet."
         />
       ) : (
-        // The subject tint wraps the whole page, so the toggle, the cards and
-        // every chip inside them are one colour without any of them naming it.
-        <div className={SUBJECT_TINT[subject ?? ""] ?? "tint-primary"}>
-          <div className="mb-8">
-            <SubjectToggle
-              subjects={subjects}
-              value={subject ?? subjects[0]}
-              onChange={chooseSubject}
-            />
-          </div>
-
+        // The subject tint wraps the whole page, so the cards and every chip
+        // inside them are one colour without any of them naming it.
+        <div className={SUBJECT_TINT[subject] ?? "tint-primary"}>
           <ThisWeek sets={current} attempts={attempts} />
 
           {byTopic.length > 0 && (
@@ -357,7 +325,7 @@ function StudentMCQs() {
             <EmptyState
               mascot="pencil"
               mood="sleepy"
-              title={`No ${subjectLabel(subject ?? "")} quizzes yet`}
+              title={`No ${subjectLabel(subject)} quizzes yet`}
               body="Nothing has been written for this subject so far. It'll appear here as soon as your plan reaches a spec point with a quiz behind it."
             />
           )}
@@ -426,7 +394,8 @@ function TopicGroup({
   items: QuizSet[];
   attempts: Record<string, Attempt>;
 }) {
-  const [open, setOpen] = useState(false);
+  // Kept with the visit, so Back from a quiz finds its group still open.
+  const [open, setOpen] = useEntryState(`mcqs.group:${title}`, false);
   const done = items.filter((s) => attempts[s.id]).length;
 
   return (
@@ -441,7 +410,8 @@ function TopicGroup({
           className={`text-muted-foreground size-4 shrink-0 transition-transform ${open ? "" : "-rotate-90"}`}
           aria-hidden
         />
-        <span className="font-display min-w-0 flex-1 truncate font-bold">{title}</span>
+        {/* Wraps rather than truncates, like the curriculum's topic names. */}
+        <span className="font-display min-w-0 flex-1 font-bold break-words">{title}</span>
         {done === items.length && (
           <CheckCircle2 className="size-4 shrink-0 text-[color:var(--tint)]" aria-hidden />
         )}
@@ -487,7 +457,7 @@ function QuizCard({ set, attempt }: { set: QuizSet; attempt?: Attempt }) {
         {set.specCode && <span className="chip">{set.specCode}</span>}
         {!set.published && <span className="chip tint-slate">Draft</span>}
         {pct !== null && (
-          <span className="chip-solid">
+          <span className="chip chip-solid">
             <span className="numeral">{pct}%</span>
           </span>
         )}
@@ -502,7 +472,11 @@ function QuizCard({ set, attempt }: { set: QuizSet; attempt?: Attempt }) {
             : plannerDateLabel(new Date(set.created_at))}
         </span>
         <span className="inline-flex items-center gap-1 font-semibold text-[color:var(--tint)]">
-          {attempt ? "Review" : "Start"}
+          {!attempt
+            ? "Start"
+            : attempt.opensAt && attempt.opensAt.getTime() > Date.now()
+              ? "Review"
+              : "Retake"}
           <ChevronRight
             className="size-3 transition-transform group-hover:translate-x-0.5"
             aria-hidden
@@ -520,7 +494,7 @@ type PlanPointRow = {
   student_weekly_plans: { week_start: string } | null;
 };
 
-type AttemptRow = { set_id: string; score: number; total: number };
+type AttemptRow = { set_id: string; score: number; total: number; created_at: string };
 
 type SetQueryRow = {
   id: string;

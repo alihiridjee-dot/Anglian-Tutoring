@@ -1,5 +1,6 @@
-import { Spinner } from "@/components/Shared";
+import { ErrorNote, Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { BookMarked, ClipboardList, ListChecks, MessageSquare, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { CurriculumDAL } from "@/lib/curriculum/curriculumDal";
@@ -7,6 +8,9 @@ import type { SpecPointMatch } from "@/lib/curriculum/types";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 import { EMPTY_CONTEXT, type ChatContextSelection } from "@/lib/chat/chatContext";
+import { courseScopeFilter } from "@/lib/chat/contextScope";
+import { selectIn } from "@/lib/platform/db/chunked";
+import { CHAT_KEY } from "@/hooks/data/useChat";
 import type { BoardV, LevelV, SubjectV } from "@/lib/curriculum/taxonomy";
 
 /**
@@ -27,7 +31,7 @@ import type { BoardV, LevelV, SubjectV } from "@/lib/curriculum/taxonomy";
 const TABS = [
   { key: "general", label: "General", icon: MessageSquare },
   { key: "spec_point", label: "Spec point", icon: BookMarked },
-  { key: "homework", label: "Homework", icon: ClipboardList },
+  { key: "homework", label: "Tasks", icon: ClipboardList },
   { key: "mcq_set", label: "Quiz", icon: ListChecks },
 ] as const;
 
@@ -57,7 +61,7 @@ export function ContextPicker({ value, onChange }: Props) {
                 if (key === "general") select(EMPTY_CONTEXT);
                 else select({ kind: key });
               }}
-              className={`inline-flex items-center gap-1.5 h-11 sm:h-8 px-3 rounded-lg border text-xs font-semibold transition ${
+              className={`inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-8 px-3 rounded-lg border text-xs font-semibold transition ${
                 active
                   ? "border-primary bg-primary/10 text-foreground"
                   : "border-border text-muted-foreground hover:border-primary/40"
@@ -96,7 +100,9 @@ export function ContextPicker({ value, onChange }: Props) {
 /** Shared shell for the three attachment lists. */
 function PickerShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mt-2.5 max-h-52 overflow-y-auto rounded-xl border border-border divide-y divide-border">
+    // Shorter on a phone turned sideways, so the list can't fill the dialog's
+    // scrolling form and catch every swipe meant for the form around it.
+    <div className="mt-2.5 max-h-52 short:max-h-32 overflow-y-auto rounded-xl border border-border divide-y divide-border">
       {children}
     </div>
   );
@@ -120,6 +126,15 @@ function PickerRow({
       <div className="text-sm font-medium truncate">{title}</div>
       {subtitle && <div className="text-xs text-muted-foreground truncate">{subtitle}</div>}
     </button>
+  );
+}
+
+/** A failed list read, in the same slot the list would fill. */
+function PickerError({ error, onRetry }: { error: unknown; onRetry: () => void }) {
+  return (
+    <div className="mt-2.5">
+      <ErrorNote error={error} onRetry={onRetry} />
+    </div>
   );
 }
 
@@ -216,25 +231,50 @@ function SpecPointSearch({ onPick }: { onPick: (s: ChatContextSelection) => void
   );
 }
 
-function HomeworkList({ onPick }: { onPick: (s: ChatContextSelection) => void }) {
-  const [rows, setRows] = useState<{ id: string; title: string; subject: SubjectV }[] | null>(null);
+/** How many items each attachment list offers, newest first. */
+const PICKER_LIMIT = 25;
 
-  useEffect(() => {
-    supabase
-      .from("resources")
-      .select("id, title, subject, created_at")
-      .eq("kind", "homework")
-      .order("created_at", { ascending: false })
-      .limit(25)
-      .then(({ data }) => setRows(data ?? []));
-  }, []);
+/**
+ * The student's own homework, by the homework page's rule: their level, and
+ * each subject on its own board (or a brief for every board). Row-level
+ * security scopes `resources` by subject alone, so without this the newest 25
+ * sheets on the whole platform pushed the student's own work out of the list.
+ */
+function HomeworkList({ onPick }: { onPick: (s: ChatContextSelection) => void }) {
+  const { enrolledCourses, enrolments, level, loading } = useEnrolments();
+  const scope = courseScopeFilter(enrolledCourses, enrolments, { boardless: true });
+  const {
+    data: rows,
+    error,
+    refetch,
+  } = useQuery({
+    queryKey: [...CHAT_KEY, "picker", "homework", scope, level],
+    enabled: !loading,
+    queryFn: async () => {
+      if (!scope) return [];
+      let q = supabase
+        .from("resources")
+        .select("id, title, subject, created_at")
+        .eq("kind", "homework")
+        .in("subject", enrolledCourses as SubjectV[])
+        .or(scope);
+      // Null (not yet set) filters nothing, as on the homework page.
+      if (level) q = q.eq("level", level);
+      const { data, error } = await q.order("created_at", { ascending: false }).limit(PICKER_LIMIT);
+      // Thrown: an error is not "No homework set yet".
+      if (error) throw new Error(error.message);
+      return data ?? [];
+    },
+  });
+
+  if (error) return <PickerError error={error} onRetry={() => void refetch()} />;
 
   return (
     <PickerShell>
-      {rows === null ? (
+      {rows === undefined ? (
         <Spinner className="py-4" />
       ) : rows.length === 0 ? (
-        <EmptyRow>No homework set yet.</EmptyRow>
+        <EmptyRow>No tasks set yet.</EmptyRow>
       ) : (
         rows.map((r) => (
           <PickerRow
@@ -246,7 +286,7 @@ function HomeworkList({ onPick }: { onPick: (s: ChatContextSelection) => void })
                 kind: "homework",
                 resourceId: r.id,
                 subject: r.subject,
-                label: `Homework: ${r.title}`,
+                label: `Task: ${r.title}`,
               })
             }
           />
@@ -256,24 +296,64 @@ function HomeworkList({ onPick }: { onPick: (s: ChatContextSelection) => void })
   );
 }
 
-function QuizList({ onPick }: { onPick: (s: ChatContextSelection) => void }) {
-  const [rows, setRows] = useState<
-    { id: string; title: string; subject: SubjectV | null }[] | null
-  >(null);
+type QuizRow = { id: string; title: string; subject: SubjectV | null; created_at: string };
 
-  useEffect(() => {
-    supabase
-      .from("mcq_sets")
-      .select("id, title, subject, created_at")
-      .eq("published", true)
-      .order("created_at", { ascending: false })
-      .limit(25)
-      .then(({ data }) => setRows(data ?? []));
-  }, []);
+/**
+ * Published quizzes from the student's own courses. A quiz on a spec point
+ * carries its level and board through that point's topic, so those are read
+ * as the topics of the student's courses; a quiz with no spec point carries a
+ * subject and nothing else, so it is matched on subject.
+ */
+function QuizList({ onPick }: { onPick: (s: ChatContextSelection) => void }) {
+  const { enrolledCourses, enrolments, level, loading } = useEnrolments();
+  const scope = courseScopeFilter(enrolledCourses, enrolments, { boardless: false });
+  const {
+    data: rows,
+    error,
+    refetch,
+  } = useQuery({
+    queryKey: [...CHAT_KEY, "picker", "quizzes", scope, level],
+    enabled: !loading,
+    queryFn: async (): Promise<QuizRow[]> => {
+      if (!scope) return [];
+      const subjects = enrolledCourses as SubjectV[];
+      let topicsQuery = supabase.from("topics").select("id").in("subject", subjects).or(scope);
+      if (level) topicsQuery = topicsQuery.eq("level", level);
+      const [topics, unpinned] = await Promise.all([
+        topicsQuery,
+        supabase
+          .from("mcq_sets")
+          .select("id, title, subject, created_at")
+          .eq("published", true)
+          .is("spec_point_id", null)
+          .in("subject", subjects)
+          .order("created_at", { ascending: false })
+          .limit(PICKER_LIMIT),
+      ]);
+      if (topics.error) throw new Error(topics.error.message);
+      if (unpinned.error) throw new Error(unpinned.error.message);
+      const pinned = await selectIn<QuizRow>(
+        (topics.data ?? []).map((t) => t.id),
+        (batch) =>
+          supabase
+            .from("mcq_sets")
+            .select("id, title, subject, created_at, spec_points!inner(topic_id)")
+            .eq("published", true)
+            .in("spec_points.topic_id", batch)
+            .order("created_at", { ascending: false })
+            .limit(PICKER_LIMIT),
+      );
+      return [...pinned, ...(unpinned.data ?? [])]
+        .sort((a, b) => b.created_at.localeCompare(a.created_at))
+        .slice(0, PICKER_LIMIT);
+    },
+  });
+
+  if (error) return <PickerError error={error} onRetry={() => void refetch()} />;
 
   return (
     <PickerShell>
-      {rows === null ? (
+      {rows === undefined ? (
         <Spinner className="py-4" />
       ) : rows.length === 0 ? (
         <EmptyRow>No quizzes published yet.</EmptyRow>

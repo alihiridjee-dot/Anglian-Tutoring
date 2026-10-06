@@ -26,6 +26,10 @@ missed the lesson could learn the topic from this note alone.
   sentence. Give a `label` ("Magnification", "Percentage change in mass") and a
   `where` list with each term and its unit. A calculation that follows it is a
   `steps` block.
+- **Write science notation properly**, with Unicode subscripts and superscripts:
+  H₂O, CO₂, Al₂(SO₄)₃, Mg²⁺, SO₄²⁻, e⁻, cm³, mol/dm³, m/s², 3.0 × 10⁸, v².
+  Never H2O, Mg2+, cm3 or 10^8. Source packs are copied from PDFs, which lose
+  the small figures, so a quoted question may read "H2O": write it as H₂O.
 - **End each main section with `key-points`**: two to four lines a student should
   take away.
 - Short sentences. One idea per sentence. Plain words.
@@ -98,11 +102,8 @@ missed the lesson could learn the topic from this note alone.
    answers written the way a mark scheme would credit them.
 5. **boards** — one layer for every board that has a spec point in the concept:
    - `spec_codes`: that board's codes from the source pack (primary ones first).
-   - `exam_phrases`: 3 to 6 phrases lifted from that board's mark schemes in the
-     source pack, short enough to quote. These are the words that score.
-   - `mistakes`: 2 to 4, each `wrong` (what students write, as a sentence) and
-     `right` (the correction, one or two sentences). Base them on what the mark
-     schemes reject or ignore.
+   - Do **not** write `exam_phrases` or `mistakes`. The "Exam tips" section was
+     removed from every note and must not be written for new notes.
    - `worked_example`: one question from that board's questions in the pack,
      chosen to show the core idea (prefer 3 to 6 marks, no image needed). Copy the
      question accurately, give `answer_points` that follow its mark scheme, and

@@ -3,6 +3,9 @@ import { ProgramDAL } from "./programDal";
 import { ScheduleDAL, type ProgressPoint, type TopicProgress } from "./scheduleDal";
 import { WeeklyPlanDAL, type PlanPoint, type PlanPointOrigin } from "./weeklyPlanDal";
 import { WeeklyActivityDAL } from "./weeklyActivityDal";
+import { SubjectPauseDAL, type PauseRecord } from "./pausesDal";
+import { BreakDAL } from "./breaksDal";
+import type { StudentBreak } from "./breaks";
 import { computePacing, type PacingBand } from "./pacing";
 import { reorderTopics } from "./topicOrder";
 import { weekKeyToDate } from "./week";
@@ -157,6 +160,12 @@ function arrange(world: {
   viewer?: string;
   /** Rows of `student_plan_overrides`, as the API would return them. */
   overrides?: Record<string, unknown>[];
+  /** The subject's recorded stops. */
+  pauses?: PauseRecord[];
+  /** The database refuses to save the plan picked up after a stop. */
+  resumeFails?: boolean;
+  /** The student's breaks that stand. */
+  breaks?: StudentBreak[];
 }) {
   spies = [
     spyOn(ScheduleDAL, "getTopicProgress").mockImplementation(async (args) => {
@@ -173,6 +182,25 @@ function arrange(world: {
         done: new Set(world.ledger?.done ?? []),
         outstanding: new Set(world.ledger?.outstanding ?? []),
       };
+    }),
+    spyOn(SubjectPauseDAL, "history").mockImplementation(async (...args) => {
+      io.push(["pauseHistory", args]);
+      return world.pauses ?? [];
+    }),
+    spyOn(BreakDAL, "list").mockImplementation(async (...args) => {
+      io.push(["breaks", args]);
+      return world.breaks ?? [];
+    }),
+    spyOn(SubjectPauseDAL, "resumeProgramme").mockImplementation(async (args) => {
+      io.push([
+        "resumeProgramme",
+        {
+          pauseId: args.pauseId,
+          pacing: args.pacing?.map((b) => [b.topicId, b.startWeek, b.endWeek]) ?? null,
+        },
+      ]);
+      if (world.resumeFails)
+        throw new Error("Only the student or their tutor can pick their plan up after a pause.");
     }),
     spyOn(session, "getSessionUserId").mockImplementation(async () => {
       io.push(["getSessionUserId"]);
@@ -339,4 +367,123 @@ test("a failed baseline read throws rather than posing as a first view", async (
   arrange({});
   await expect(load()).rejects.toMatchObject({ code: "42501" });
   expect(io).toMatchSnapshot();
+});
+
+/**
+ * S-29. A custom order cut for the student's old course, after a tutor moved
+ * them to another board: the stored spine named only the old course's topics,
+ * and under a custom order the roadmap returned it as it stood, so nothing on
+ * the new course was ever scheduled. Asserted outright rather than
+ * snapshotted: this is a fix, not a characterisation.
+ */
+test("a custom order for another course is rebuilt for this one (S-29)", async () => {
+  // The old course (t1..t3) in a custom order; the student is now on e1, e2.
+  baseline = {
+    program_start: "2026-09-07",
+    exam_date: "2027-06-07",
+    pacing: customOrder("2027-06-07"),
+  };
+  const edexcel = [topic("e1", [point("x1"), point("x2")]), topic("e2", [point("y1")])];
+  arrange({ progress: edexcel });
+  const result = await load();
+
+  const teaching = result!.bands.filter((b) => b.kind !== "revisit");
+  expect(new Set(teaching.map((b) => b.topicId))).toEqual(new Set(["e1", "e2"]));
+  expect(teaching.some((b) => b.startWeek <= THIS_MONDAY && b.endWeek >= THIS_MONDAY)).toBe(true);
+  expect(result!.unscheduledTopicTitles).toEqual([]);
+  expect(result!.needsAck).toBe(false);
+  // Rebuilt from this week, keeping the exam date, and saved by the student.
+  expect(result!.programStart).toBe(THIS_MONDAY);
+  expect(result!.examDate).toBe("2027-06-07");
+  const seed = io.find((e) => Array.isArray(e) && e[0] === "db" && e[1] === "POST") as unknown[];
+  expect((seed[3] as { program_start: string }).program_start).toBe(THIS_MONDAY);
+});
+
+test("a tutor looking at a moved student's planner answers the same but saves nothing (S-29)", async () => {
+  baseline = {
+    program_start: "2026-09-07",
+    exam_date: "2027-06-07",
+    pacing: customOrder("2027-06-07"),
+  };
+  arrange({ progress: [topic("e1", [point("x1")])], viewer: "tutor" });
+  const result = await load();
+  expect(result!.bands.some((b) => b.topicId === "e1")).toBe(true);
+  expect(io.some((e) => Array.isArray(e) && e[0] === "db" && e[1] === "POST")).toBe(false);
+});
+
+// Paused in the week of 31 Aug, back on Monday 14 Sept: two weeks stopped.
+const stop = (values: Partial<PauseRecord> = {}): PauseRecord => ({
+  id: "p1",
+  reason: "paused",
+  startedAt: "2026-09-02T10:00:00Z",
+  endedAt: "2026-09-14T10:00:00Z",
+  programmeResumedAt: null,
+  ...values,
+});
+const taughtIn = (bands: PacingBand[], from: string, to: string) =>
+  bands.flatMap((b) => Object.keys(b.pointsByWeek ?? {})).filter((w) => w >= from && w < to);
+
+test("an ended stop is picked up before anything is cut from the programme", async () => {
+  baseline = {
+    program_start: "2026-08-24",
+    exam_date: "2027-06-07",
+    pacing: seeded("2026-08-24", "2027-06-07"),
+  };
+  arrange({ pauses: [stop({ id: "p0", programmeResumedAt: "2026-08-20T10:00:00Z" }), stop()] });
+  const result = await load();
+  expect(io.filter((e) => (e as unknown[])[0] === "resumeProgramme")).toHaveLength(1);
+  expect(taughtIn(result!.baselineBands, "2026-08-31", "2026-09-14")).toEqual([]);
+  expect({ result, io }).toMatchSnapshot();
+});
+
+test("a stop that can't be saved (a parent looking) leaves the programme as it was", async () => {
+  const pacing = seeded("2026-08-24", "2027-06-07");
+  baseline = { program_start: "2026-08-24", exam_date: "2027-06-07", pacing };
+  arrange({ pauses: [stop()], resumeFails: true, viewer: "parent" });
+  const result = await load();
+  expect(result!.baselineBands.map((b) => [b.topicId, b.startWeek, b.endWeek])).toEqual(
+    pacing.map((b) => [b.topicId, b.startWeek, b.endWeek]),
+  );
+});
+
+// Away for the fortnight of 12 Oct, back on Monday 26 Oct.
+const holiday = (values: Partial<StudentBreak> = {}): StudentBreak => ({
+  id: "b1",
+  startsOn: "2026-10-12",
+  endsOn: "2026-10-25",
+  reason: "holiday",
+  recordedAt: null,
+  ...values,
+});
+
+test("a break still to come shows the course as it will be picked up, and saves nothing", async () => {
+  const pacing = seeded("2026-08-24", "2027-06-07");
+  baseline = { program_start: "2026-08-24", exam_date: "2027-06-07", pacing };
+  arrange({ breaks: [holiday()] });
+  const result = await load();
+  // As stored, a topic is taught across the fortnight.
+  expect(pacing.some((b) => b.startWeek <= "2026-10-19" && b.endWeek >= "2026-10-12")).toBe(true);
+  expect(taughtIn(result!.baselineBands, "2026-10-12", "2026-10-26")).toEqual([]);
+  // A change to the programme is saved from what the database holds.
+  expect(result!.storedBands?.map((b) => [b.topicId, b.startWeek, b.endWeek])).toEqual(
+    pacing.map((b) => [b.topicId, b.startWeek, b.endWeek]),
+  );
+  expect(io.filter((e) => (e as unknown[])[0] === "resumeProgramme")).toEqual([]);
+  expect(io.some((e) => Array.isArray(e) && e[0] === "db" && e[1] !== "GET")).toBe(false);
+  // Nor is any catch-up or review forecast into it.
+  const inBreak = (week: string) => week >= "2026-10-12" && week < "2026-10-26";
+  expect(Object.keys(result!.catchUpSchedule?.weeks ?? {}).filter(inBreak)).toEqual([]);
+  expect(result!.bands.filter((b) => b.kind && b.kind !== "teach" && inBreak(b.startWeek))).toEqual(
+    [],
+  );
+});
+
+test("a recorded break is left to the stop it became", async () => {
+  const pacing = seeded("2026-08-24", "2027-06-07");
+  baseline = { program_start: "2026-08-24", exam_date: "2027-06-07", pacing };
+  arrange({ breaks: [holiday({ recordedAt: "2026-10-26T00:10:00Z" })] });
+  const result = await load();
+  expect(result!.baselineBands.map((b) => [b.topicId, b.startWeek, b.endWeek])).toEqual(
+    pacing.map((b) => [b.topicId, b.startWeek, b.endWeek]),
+  );
 });

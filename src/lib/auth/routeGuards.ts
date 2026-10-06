@@ -81,3 +81,16 @@ export function guardParentOnly(args: GuardArgs) {
     throw redirect({ to: "/dashboard" });
   }
 }
+
+/**
+ * Pages the paywall is never drawn over, for a student without a live plan.
+ *
+ * Billing, so a student who paused or cancelled can get back in to resume —
+ * covering it would push them into buying a second plan on top of the paused
+ * one. Messages, because messaging was never behind the paywall (RLS lets a
+ * lapsed student write to a tutor): a family whose plan has stopped is
+ * exactly who needs to be able to ask why.
+ */
+export function paywallExempt(pathname: string): boolean {
+  return pathname.startsWith("/billing") || pathname.startsWith("/messages");
+}

@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import { Loader2, Plus, Sparkles, TrendingUp, Check } from "lucide-react";
+import { useState } from "react";
+import { Loader2, Plus, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import {
   SUBJECTS,
@@ -12,15 +12,18 @@ import {
 import { usePackages, useAddSubjects } from "@/hooks/data/useBilling";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
 import { formatPence } from "@/lib/billing/billing";
+import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import {
   planCadence,
   planSubjectCount,
   tierFor,
+  pricePerWeek,
   CADENCES,
   PLAN_MAX_SUBJECTS,
+  WEEKS_PER_CYCLE,
 } from "@/lib/billing/entitlements";
 
-interface AddSubjectCardProps {
+interface AddSubjectTilesProps {
   /** subscriptions.student_id whose plan is being grown. */
   studentId: string;
   /** The student's current plan tier, e.g. "monthly_1". */
@@ -36,26 +39,35 @@ interface AddSubjectCardProps {
   level?: string | null;
 }
 
+/** Whole pounds drop the pence: "£1", not "£1.00". */
+const friendlyPence = (pence: number) =>
+  pence % 100 === 0 ? `£${pence / 100}` : formatPence(pence);
+
 /**
- * The frictionless upgrade: add another subject to a live plan without leaving
- * the billing page. Same cadence, one step up the subject-count ladder, prorated
- * and charged now. Deliberately a soft upsell — a premium card with a live price
- * delta and a light nudge, not a hard paywall.
+ * The frictionless upgrade, as tiles for the Subjects grid: one tile per
+ * subject that can still be added, in that subject's colour, leading with the
+ * smallest true figure — what it adds per week ("Just £1 a week") and the
+ * lessons that buys. Same cadence, one step up the subject-count ladder,
+ * prorated and charged now.
  *
- * Renders nothing when there's nothing to sell (plan already covers all three
- * subjects, or the tier isn't one we can upgrade automatically).
+ * Two taps, never one: the first opens the tile (board choice and the charge
+ * spelled out), the second adds it. Renders nothing when there's nothing to
+ * sell (plan already covers every subject, or the tier isn't one we can
+ * upgrade automatically).
  */
-export function AddSubjectCard({
+export function AddSubjectTiles({
   studentId,
   currentTier,
   enrolledSubjects,
   defaultBoard = "edexcel",
   ownerLabel,
   level,
-}: AddSubjectCardProps) {
+}: AddSubjectTilesProps) {
   const { data: packages = [] } = usePackages(level);
   const add = useAddSubjects();
   const { coverage } = useCurriculumCoverage();
+  const [open, setOpen] = useState<string | null>(null);
+  const [boards, setBoards] = useState<Record<string, BoardV>>({});
 
   const cadence = planCadence(currentTier);
   const currentCount = planSubjectCount(currentTier);
@@ -78,56 +90,31 @@ export function AddSubjectCard({
   const available = SUBJECTS.filter(
     (s) => !enrolledSubjects.includes(s.value) && boardsFor(s.value).length > 0,
   );
-  const [picked, setPicked] = useState<Record<string, boolean>>({});
-  const [boards, setBoards] = useState<Record<string, BoardV>>({});
 
-  const chosen = available.filter((s) => picked[s.value]);
-  const newCount = enrolledSubjects.length + chosen.length;
+  // Nothing to sell — no tiles at all.
+  if (!cadence || available.length === 0 || remaining <= 0) return null;
 
   const priceOf = (tier: string) => packages.find((p) => p.tier === tier)?.price_pence ?? null;
   const unit = CADENCES.find((c) => c.key === cadence)?.unit ?? "";
-
-  const delta = useMemo(() => {
-    if (!cadence || chosen.length === 0) return null;
-    const now = priceOf(tierFor(cadence, currentCount));
-    const next = priceOf(tierFor(cadence, newCount));
-    if (now == null || next == null) return null;
-    return next - now;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cadence, chosen.length, currentCount, newCount, packages]);
-
-  // Nothing to sell — don't render the card at all.
-  if (!cadence || available.length === 0 || remaining <= 0) return null;
-
+  const newCount = enrolledSubjects.length + 1;
+  const nowPrice = priceOf(tierFor(cadence, currentCount));
+  const nextPrice = priceOf(tierFor(cadence, newCount));
+  const delta = nowPrice != null && nextPrice != null ? nextPrice - nowPrice : null;
+  const deltaPerWeek = delta != null ? Math.round(pricePerWeek(cadence, delta)) : null;
+  // One live lesson a week per subject, so the extra lessons per billing cycle.
+  const extraLessons = WEEKS_PER_CYCLE[cadence];
+  const cycleWord = unit.replace(/^per /, "a ");
+  // Adding the last missing subject completes the set — worth saying so.
+  const completesSet = remaining === 1;
   const whose = ownerLabel ? `${ownerLabel}'s` : "your";
-  const atCapacity = chosen.length >= remaining;
 
-  const toggle = (value: string) => {
-    setPicked((prev) => {
-      const next = { ...prev, [value]: !prev[value] };
-      // Respect the 3-subject ceiling: block turning on more than remaining.
-      if (!prev[value] && Object.values(next).filter(Boolean).length > remaining) return prev;
-      return next;
-    });
-    setBoards((prev) => (prev[value] ? prev : { ...prev, [value]: startingBoard(value) }));
-  };
-
-  const submit = () => {
-    if (chosen.length === 0) return;
+  const submit = (subject: string, label: string) => {
     add.mutate(
+      { studentId, subjects: [{ subject, board: boards[subject] ?? startingBoard(subject) }] },
       {
-        studentId,
-        subjects: chosen.map((s) => ({
-          subject: s.value,
-          board: boards[s.value] ?? startingBoard(s.value),
-        })),
-      },
-      {
-        onSuccess: (res) => {
-          setPicked({});
-          toast.success(
-            `Added ${res.added.length === 1 ? "1 subject" : `${res.added.length} subjects`} — ${whose} access is unlocked.`,
-          );
+        onSuccess: () => {
+          setOpen(null);
+          toast.success(`${label} added — ${whose} access is unlocked.`);
         },
         onError: (err) => toast.error(err.message),
       },
@@ -135,122 +122,101 @@ export function AddSubjectCard({
   };
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-4 sm:p-6 shadow-sm">
-      {/* soft glow accent */}
-      <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
+    <>
+      {available.map((s) => {
+        const tint = SUBJECT_TINT[s.value] ?? "tint-primary";
+        const boardOptions = BOARDS.filter((b) => boardsFor(s.value).includes(b.value));
 
-      <div className="relative">
-        <div className="flex items-center gap-2 mb-1">
-          <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center">
-            <Sparkles className="w-4 h-4 text-primary" />
-          </div>
-          <h3 className="font-display text-lg font-bold">Add another subject</h3>
-        </div>
-        <p className="text-sm text-muted-foreground max-w-md">
-          The same expert tutoring across more of {whose} sciences. You only pay the difference,
-          prorated from today — nothing changes about how often you're billed.
-        </p>
-
-        {currentCount === 1 && (
-          <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-semibold text-primary">
-            <TrendingUp className="w-3.5 h-3.5" /> Most students study 2 or more subjects with us
-          </div>
-        )}
-
-        <div className="mt-5 space-y-2">
-          {available.map((s) => {
-            const on = !!picked[s.value];
-            const disabled = !on && atCapacity;
-            return (
-              <div
-                key={s.value}
-                className={`rounded-xl border p-3.5 transition ${
-                  on ? "border-primary bg-primary/10" : "border-border bg-card"
-                } ${disabled ? "opacity-50" : ""}`}
+        if (open !== s.value) {
+          return (
+            <div
+              key={s.value}
+              className={`pop-card pop-card-hero pop-card-banded relative flex flex-col items-start gap-3 p-4 sm:aspect-square sm:p-5 ${tint}`}
+            >
+              {completesSet && (
+                <span className="chip chip-solid">
+                  <Sparkles className="size-3.5" aria-hidden /> Complete your sciences
+                </span>
+              )}
+              <h3 className="text-xl font-bold text-[color:var(--tint)]">{s.label}</h3>
+              {deltaPerWeek != null && (
+                <p className="numeral text-3xl text-[color:var(--tint)]">
+                  Just {friendlyPence(deltaPerWeek)} <span className="text-lg">a week</span>
+                </p>
+              )}
+              <span className="chip">
+                +{extraLessons} live {extraLessons === 1 ? "lesson" : "lessons"} {cycleWord}
+              </span>
+              <button
+                type="button"
+                onClick={() => setOpen(s.value)}
+                className="btn-solid mt-auto inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
               >
-                <label className="-my-3 flex min-h-11 items-center gap-3 cursor-pointer select-none sm:my-0 sm:min-h-0">
-                  <span
-                    className={`flex h-5 w-5 items-center justify-center rounded-md border ${
-                      on ? "border-primary bg-primary text-primary-foreground" : "border-border"
-                    }`}
-                  >
-                    {on && <Check className="w-3.5 h-3.5" />}
-                  </span>
-                  <input
-                    type="checkbox"
-                    className="sr-only"
-                    checked={on}
-                    disabled={disabled}
-                    onChange={() => toggle(s.value)}
-                  />
-                  <span className="text-sm font-semibold flex-1">{s.label}</span>
-                </label>
-
-                {on && (
-                  <div className="mt-2.5 pl-8 flex items-center gap-2">
-                    <span className="text-xs text-muted-foreground">Exam board</span>
-                    <select
-                      value={boards[s.value] ?? startingBoard(s.value)}
-                      onChange={(e) => {
-                        const next = e.target.value;
-                        if (isBoard(next)) setBoards((prev) => ({ ...prev, [s.value]: next }));
-                      }}
-                      aria-label="Exam board"
-                      className="h-11 sm:h-8 rounded-lg premium-card px-2 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40"
-                    >
-                      {BOARDS.filter((b) => boardsFor(s.value).includes(b.value)).map((b) => (
-                        <option key={b.value} value={b.value}>
-                          {b.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-        {chosen.length > 0 && delta != null && (
-          <div className="mt-4 flex items-end justify-between rounded-xl border border-border bg-muted/40 p-4">
-            <div>
-              <div className="text-xs text-muted-foreground">Added to your plan</div>
-              <div className="font-display text-2xl font-bold text-primary">
-                +{formatPence(delta)}
-                <span className="text-sm font-medium text-muted-foreground"> {unit}</span>
-              </div>
+                <Plus className="size-4" aria-hidden /> Add {s.label}
+              </button>
             </div>
-            <p className="text-[11px] text-muted-foreground text-right max-w-[45%]">
-              Charged prorated today; then {formatPence(priceOf(tierFor(cadence, newCount)) ?? 0)}{" "}
-              {unit} from your next bill.
-            </p>
-          </div>
-        )}
+          );
+        }
 
-        <button
-          onClick={submit}
-          disabled={chosen.length === 0 || add.isPending}
-          className="mt-4 w-full h-11 rounded-xl btn-solid font-semibold hover:opacity-90 disabled:opacity-50 text-sm shadow-sm inline-flex items-center justify-center gap-2"
-        >
-          {add.isPending ? (
-            <>
-              <Loader2 className="w-4 h-4 animate-spin" /> Adding…
-            </>
-          ) : (
-            <>
-              <Plus className="w-4 h-4" />
-              {chosen.length === 0
-                ? "Choose a subject to add"
-                : `Add ${chosen.length === 1 ? "1 subject" : `${chosen.length} subjects`}${
-                    delta != null ? ` — +${formatPence(delta)} ${unit}` : ""
-                  }`}
-            </>
-          )}
-        </button>
-        <p className="mt-2 text-[11px] text-muted-foreground text-center">
-          Secure proration by Stripe. The new subject unlocks the moment payment clears.
-        </p>
-      </div>
-    </div>
+        return (
+          <div
+            key={s.value}
+            className={`pop-card flex flex-col gap-3 p-4 sm:aspect-square sm:p-5 ${tint}`}
+          >
+            <h3 className="text-xl font-bold text-[color:var(--tint)]">Add {s.label}</h3>
+            {boardOptions.length > 1 && (
+              <select
+                value={boards[s.value] ?? startingBoard(s.value)}
+                onChange={(e) => {
+                  const next = e.target.value;
+                  if (isBoard(next)) setBoards((prev) => ({ ...prev, [s.value]: next }));
+                }}
+                aria-label={`Exam board for ${s.label}`}
+                className="premium-card h-11 self-start rounded-lg px-2 text-sm font-semibold focus:ring-2 focus:ring-primary/40 focus:outline-none sm:pointer-fine:h-9"
+              >
+                {boardOptions.map((b) => (
+                  <option key={b.value} value={b.value}>
+                    {b.label}
+                  </option>
+                ))}
+              </select>
+            )}
+            {delta != null && nextPrice != null && (
+              <p className="text-sm">
+                Adds <strong>{formatPence(delta)}</strong> {unit}
+                {deltaPerWeek != null && cadence !== "weekly" && (
+                  <> — that&apos;s {friendlyPence(deltaPerWeek)} a week</>
+                )}
+                . Today you pay only for the days left in this billing period, then{" "}
+                <strong>{formatPence(nextPrice)}</strong> {unit}.
+              </p>
+            )}
+            <div className="mt-auto flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => submit(s.value, s.label)}
+                disabled={add.isPending}
+                className="btn-solid inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
+              >
+                {add.isPending ? (
+                  <Loader2 className="size-4 animate-spin" aria-hidden />
+                ) : (
+                  <Plus className="size-4" aria-hidden />
+                )}
+                Add {s.label}
+              </button>
+              <button
+                type="button"
+                onClick={() => setOpen(null)}
+                disabled={add.isPending}
+                className="btn-ghost inline-flex h-11 items-center rounded-lg px-3 text-sm sm:pointer-fine:h-9"
+              >
+                Not now
+              </button>
+            </div>
+          </div>
+        );
+      })}
+    </>
   );
 }

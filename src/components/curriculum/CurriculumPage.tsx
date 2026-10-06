@@ -1,4 +1,4 @@
-import { Spinner } from "@/components/Shared";
+import { SciText, Spinner } from "@/components/Shared";
 import { useNavigate, useSearch } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
@@ -7,6 +7,8 @@ import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEntitlements } from "@/hooks/data/useEntitlements";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useEntryState } from "@/hooks/useEntryState";
+import { useActiveSubject, useSubjectFromLink } from "@/hooks/useActiveSubject";
 import {
   SUBJECTS,
   BOARDS,
@@ -27,13 +29,14 @@ import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
 import { courseSchedule } from "@/lib/planner/pointSchedule";
 import { currentWeekKey } from "@/lib/planner/week";
 import { BookMarked, ChevronLeft } from "lucide-react";
-import { StudentSubjectPicker, Filter } from "@/components/curriculum/CurriculumFilters";
+import { AddSubjectsLink, Filter } from "@/components/curriculum/CurriculumFilters";
 import { SpecPointDetail } from "@/components/curriculum/SpecPointDetail";
 import { SpecSearchBar, SpecSearchResults } from "@/components/curriculum/SpecSearch";
 import { TopicCard } from "@/components/curriculum/TopicCard";
 import { TopicCreate } from "@/components/curriculum/TopicCreate";
 import { labelOf } from "@/components/curriculum/styles";
 import { CourseChip } from "@/components/CourseBadge";
+import { isDemoStudent } from "@/lib/demo/studentDemo";
 
 export function Curriculum() {
   const { isTutor, userId } = useRoles();
@@ -47,11 +50,20 @@ export function Curriculum() {
   // and a route-bound reader would throw there.
   const search = useSearch({ strict: false }) as CurriculumSearchParams;
   const navigate = useNavigate();
-  const [subject, setSubject] = useState<SubjectV>(search.subject ?? "biology");
+  // A student's subject is the header slider's; a tutor browses any subject
+  // with the filters below. The tutor's pick is also the fallback for a student
+  // with no subjects yet, whose content RLS hides either way.
+  const { subject: activeSubject } = useActiveSubject();
+  const [pickedSubject, setPickedSubject] = useState<SubjectV>(search.subject ?? "biology");
+  const subject: SubjectV = !isTutor && activeSubject ? (activeSubject as SubjectV) : pickedSubject;
   const [board, setBoard] = useState<BoardV>(search.board ?? "edexcel");
   const [level, setLevel] = useState<LevelV>(search.level ?? "gcse");
   const [topics, setTopics] = useState<Topic[]>([]);
-  const [openTopicId, setOpenTopicId] = useState<string | null>(search.topic ?? null);
+  // Kept with the visit, so Back from a spec point or a note reopens the topic.
+  const [openTopicId, setOpenTopicId] = useEntryState<string | null>(
+    "curriculum.topic",
+    search.topic ?? null,
+  );
   const [loading, setLoading] = useState(true);
 
   /** Writes a partial change into the URL without disturbing the rest of it. */
@@ -65,16 +77,12 @@ export function Curriculum() {
     [navigate],
   );
 
-  // Snap a student's filters onto their entitlement: the first subject they're
-  // enrolled in, at their board and level. Guards against the "biology/edexcel"
-  // defaults exposing a subject they don't pay for.
+  // Snap a student's level onto their own. Their subject needs no snapping: the
+  // header slider only offers subjects they're enrolled in.
   useEffect(() => {
     if (isTutor || ent.loading) return;
-    if (ent.entitledSubjects.length && !ent.entitledSubjects.includes(subject)) {
-      setSubject(ent.entitledSubjects[0]);
-    }
     if (profileLevel) setLevel(profileLevel);
-  }, [isTutor, ent.loading, ent.entitledSubjects, profileLevel, subject]);
+  }, [isTutor, ent.loading, profileLevel]);
 
   // A student's board is fixed to the one they sit the selected subject with.
   useEffect(() => {
@@ -90,7 +98,11 @@ export function Curriculum() {
   // covered, and when each uncovered point comes up. Only for a course they are
   // actually on — a tutor, or a subject they don't take, has no plan to show.
   const now = currentWeekKey();
+  // Never in the showcase. Its course is the fixture's, but `userId` is
+  // whoever is signed in to this browser, and loading a roadmap can seed that
+  // real student's programme — here, with the demo's board.
   const onOwnCourse =
+    !isDemoStudent() &&
     !isTutor &&
     !!userId &&
     ent.entitledSubjects.includes(subject) &&
@@ -183,14 +195,20 @@ export function Curriculum() {
   // Likewise for the taxonomy and the topic to expand. A student's own
   // entitlement effects run after these and clamp anything out of bounds.
   useEffect(() => {
-    if (search.subject) setSubject(search.subject);
+    if (search.subject) setPickedSubject(search.subject);
     if (search.board) setBoard(search.board);
     if (search.level) setLevel(search.level);
   }, [search.subject, search.board, search.level]);
 
+  // A student arriving with `?subject=` (global search, a plan link) is moved
+  // onto that subject in the header slider.
+  useSubjectFromLink(isTutor ? null : search.subject, () =>
+    patchSearch({ subject: undefined }, true),
+  );
+
   useEffect(() => {
     if (search.topic) setOpenTopicId(search.topic);
-  }, [search.topic]);
+  }, [search.topic, setOpenTopicId]);
 
   const loadTopics = async () => {
     setLoading(true);
@@ -208,6 +226,21 @@ export function Curriculum() {
     loadTopics(); /* eslint-disable-next-line */
   }, [subject, board, level]);
 
+  // A spec point is read under the subject it was opened in, so moving the
+  // header slider away from that subject goes back to the topic list for the
+  // new one. It waits for an incoming `?subject=` to reach the slider first,
+  // or the arrival itself would read as a switch.
+  const openedUnder = useRef<string | null>(null);
+  useEffect(() => {
+    if (isTutor || !selectedSpecPoint) {
+      openedUnder.current = null;
+      return;
+    }
+    if (search.subject) return;
+    if (openedUnder.current === null) openedUnder.current = subject;
+    else if (openedUnder.current !== subject) closeSpecPoint();
+  }, [isTutor, selectedSpecPoint, search.subject, subject, closeSpecPoint]);
+
   // Handle viewing full-page specification point details
   if (selectedSpecPoint) {
     return (
@@ -216,7 +249,7 @@ export function Curriculum() {
           <button
             data-guide="curriculum-back"
             onClick={closeSpecPoint}
-            className="inline-flex items-center gap-2 min-h-11 sm:min-h-0 text-sm text-muted-foreground hover:text-primary transition font-semibold"
+            className="inline-flex items-center gap-2 min-h-11 sm:pointer-fine:min-h-0 text-sm text-muted-foreground hover:text-primary transition font-semibold"
           >
             <ChevronLeft className="w-4 h-4" /> Back to Curriculum
           </button>
@@ -239,7 +272,7 @@ export function Curriculum() {
             </h2>
             {selectedSpecPoint.description && (
               <p className="text-sm text-muted-foreground mt-3 leading-relaxed whitespace-pre-wrap break-words">
-                {selectedSpecPoint.description}
+                <SciText text={selectedSpecPoint.description} />
               </p>
             )}
             {schedule?.byPoint.get(selectedSpecPoint.id) && (
@@ -272,9 +305,13 @@ export function Curriculum() {
           to Chemistry repaints every card, meter and shadow below in violet
           without a single conditional class in the markup. */}
       <div className={subjectTint(subject)}>
+        {/* Only a tutor has the level, board and subject pickers below. A
+            student's course is already set, and their subject is the header
+            slider's, so their invitation is to search or open a topic. */}
         <p className="text-muted-foreground mb-6 max-w-2xl">
-          Explore interactive specification points across chemistry, physics, and biology. Select
-          your level, exam board, and subject to begin.
+          {isTutor
+            ? "Explore interactive specification points across chemistry, physics, and biology. Select your level, exam board, and subject to begin."
+            : "Explore every specification point on your course, topic by topic. Search for one, or open a topic to begin."}
         </p>
 
         <div data-guide="curriculum-filters" className="rounded-2xl premium-card p-4 sm:p-5 mb-6">
@@ -283,7 +320,7 @@ export function Curriculum() {
               <Filter
                 label="Subject"
                 value={subject}
-                onChange={(v) => setSubject(v as SubjectV)}
+                onChange={(v) => setPickedSubject(v as SubjectV)}
                 opts={SUBJECTS}
               />
               <Filter
@@ -299,17 +336,14 @@ export function Curriculum() {
                 opts={LEVELS}
               />
             </div>
-          ) : (
-            <StudentSubjectPicker
-              subject={subject}
-              onSelect={setSubject}
-              board={board}
-              level={level}
-              entitlements={ent}
-            />
-          )}
+          ) : null}
 
-          <div data-guide="curriculum-search" className="mt-4 pt-4 border-t border-border">
+          {/* A student picks the subject in the header, so their box opens on
+              the search; a tutor's sits under the three filters. */}
+          <div
+            data-guide="curriculum-search"
+            className={isTutor ? "mt-4 pt-4 border-t border-border" : undefined}
+          >
             <SpecSearchBar
               value={query}
               onChange={setQuery}
@@ -318,6 +352,7 @@ export function Curriculum() {
               level={level}
             />
           </div>
+          {!isTutor && <AddSubjectsLink lockedSubjects={ent.lockedSubjects} />}
         </div>
 
         {searching ? (

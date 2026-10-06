@@ -49,7 +49,7 @@ export function SpecSearchBar({
         <button
           onClick={() => onChange("")}
           aria-label="Clear search"
-          className="shrink-0 inline-flex items-center gap-1 min-h-11 sm:min-h-0 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition"
+          className="shrink-0 inline-flex items-center gap-1 min-h-11 sm:pointer-fine:min-h-0 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition"
         >
           <X className="w-3.5 h-3.5" /> Clear
         </button>
@@ -107,7 +107,7 @@ export function SpecSearchResults({
         </p>
         <button
           onClick={onClear}
-          className="mt-4 inline-flex items-center gap-1.5 min-h-11 sm:min-h-0 text-xs font-semibold text-primary hover:underline cursor-pointer"
+          className="mt-4 inline-flex items-center gap-1.5 min-h-11 sm:pointer-fine:min-h-0 text-xs font-semibold text-primary hover:underline cursor-pointer"
         >
           <X className="w-3.5 h-3.5" /> Clear search
         </button>
@@ -126,7 +126,7 @@ export function SpecSearchResults({
         </p>
         <button
           onClick={onClear}
-          className="inline-flex items-center gap-1.5 min-h-11 sm:min-h-0 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition"
+          className="inline-flex items-center gap-1.5 min-h-11 sm:pointer-fine:min-h-0 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition"
         >
           <X className="w-3.5 h-3.5" /> Back to all topics
         </button>
@@ -140,7 +140,7 @@ export function SpecSearchResults({
                 {topic.code}
               </span>
             )}
-            <span className="font-display font-bold text-sm truncate">
+            <span className="font-display font-bold text-sm break-words min-w-0">
               <Highlight text={topic.title} terms={terms} />
             </span>
             <span className="ml-auto text-[11px] font-semibold text-muted-foreground shrink-0">

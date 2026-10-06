@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { Loader2, MessageSquarePlus, X } from "lucide-react";
 import { toast } from "sonner";
+import { Spinner } from "@/components/Shared";
 import { useStartThread, useTutorDirectory } from "@/hooks/data/useChat";
 import { ContextPicker } from "@/components/chat/ContextPicker";
+import { ErrorNote } from "@/components/Shared";
 import { EMPTY_CONTEXT, type ChatContextSelection } from "@/lib/chat/chatContext";
 
 interface Props {
@@ -28,7 +30,12 @@ interface Props {
  * and a new tutor appears here the moment their account is granted the role.
  */
 export function NewThreadDialog({ initialContext, about, onClose, onCreated }: Props) {
-  const { data: tutors = [], isPending: tutorsPending } = useTutorDirectory();
+  const {
+    data: tutors = [],
+    isPending: tutorsPending,
+    error: tutorsError,
+    refetch: refetchTutors,
+  } = useTutorDirectory();
   const start = useStartThread();
 
   const [tutorId, setTutorId] = useState<string>("");
@@ -52,20 +59,22 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
 
   const canSend = !!tutorId && subjectLine.trim().length > 0 && body.trim().length > 0;
 
-  // The sheet holds the page still underneath it, and Escape closes it. A tap
-  // on the backdrop closes it too, unless a half-written question would be lost.
+  // The sheet holds the page still underneath it. Escape and a tap on the
+  // backdrop both close it, unless a half-written question would be lost —
+  // Cancel and the X are the deliberate ways out. An Escape that ends an IME
+  // composition belongs to the input method, so it never closes anything.
   useBodyScrollLock(true);
   const dirty = subjectLine.trim().length > 0 || body.trim().length > 0;
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape" && !e.isComposing && !dirty) onClose();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
+  }, [onClose, dirty]);
 
   const submit = () => {
-    if (!canSend) return;
+    if (!canSend || start.isPending) return;
     start.mutate(
       {
         tutorId,
@@ -98,8 +107,11 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
         if (e.target === e.currentTarget && !dirty) onClose();
       }}
     >
-      <div className="w-full max-w-lg rounded-2xl premium-card shadow-xl max-h-[calc(100dvh-2rem)] overflow-y-auto">
-        <div className="flex items-start justify-between gap-3 p-4 sm:p-6 border-b border-border">
+      {/* The title and the Send row stay put and the form scrolls between
+          them. On a phone turned sideways the form is twice the height of the
+          box, and Send used to be the last thing in it, 286px below the fold. */}
+      <div className="flex w-full max-w-lg flex-col overflow-hidden rounded-2xl premium-card shadow-xl max-h-[calc(100dvh-2rem)]">
+        <div className="flex shrink-0 items-start justify-between gap-3 p-4 sm:p-6 short:p-3 border-b border-border">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
               <MessageSquarePlus className="w-5 h-5 text-primary" />
@@ -111,7 +123,7 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
               <p className="text-xs text-muted-foreground mt-0.5">
                 {about
                   ? `About ${about.name}`
-                  : "Attach the spec point, homework or quiz you're stuck on and they'll see it straight away."}
+                  : "Attach the spec point, task or quiz you're stuck on and they'll see it straight away."}
               </p>
             </div>
           </div>
@@ -124,19 +136,24 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
           </button>
         </div>
 
-        <div className="p-4 sm:p-6 space-y-4">
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 short:p-4 space-y-4">
           <div>
             <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               {about ? "Who are you writing to?" : "Who are you asking?"}
             </label>
             {tutorsPending ? (
-              <div className="mt-2 py-3">
-                <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
-              </div>
+              <Spinner label="Loading tutors" className="mt-2 py-3" />
             ) : tutors.length === 0 ? (
-              <p className="mt-2 text-sm text-muted-foreground">
-                No tutors are available to message right now.
-              </p>
+              // A failed read leaves the list empty too, but it isn't "no tutors".
+              tutorsError ? (
+                <div className="mt-2">
+                  <ErrorNote error={tutorsError} onRetry={() => void refetchTutors()} />
+                </div>
+              ) : (
+                <p className="mt-2 text-sm text-muted-foreground">
+                  No tutors are available to message right now.
+                </p>
+              )
             ) : (
               <div className="mt-2 flex flex-wrap gap-2">
                 {tutors.map((t) => (
@@ -144,7 +161,7 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
                     key={t.id}
                     type="button"
                     onClick={() => setTutorId(t.id)}
-                    className={`h-11 sm:h-9 px-3.5 rounded-lg border text-sm font-semibold transition ${
+                    className={`h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg border text-sm font-semibold transition ${
                       tutorId === t.id
                         ? "border-primary bg-primary/10"
                         : "border-border text-muted-foreground hover:border-primary/40"
@@ -211,17 +228,17 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
           </div>
         </div>
 
-        <div className="flex justify-end gap-2 p-4 sm:p-6 border-t border-border">
+        <div className="flex shrink-0 justify-end gap-2 p-4 sm:p-6 short:p-3 border-t border-border">
           <button
             onClick={onClose}
-            className="h-11 sm:h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted"
+            className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted"
           >
             Cancel
           </button>
           <button
             onClick={submit}
             disabled={!canSend || start.isPending}
-            className="btn-premium h-11 sm:h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-50"
+            className="btn-premium h-11 sm:pointer-fine:h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-50"
           >
             {start.isPending && <Loader2 className="w-4 h-4 animate-spin" />}{" "}
             {about ? "Send message" : "Send question"}

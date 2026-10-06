@@ -17,6 +17,11 @@ import {
   scoreToRating,
 } from "./scheduler";
 import { weightOf } from "./pacing";
+import { SubjectPauseDAL } from "./pausesDal";
+import { pausedMsSince } from "./pauseTime";
+import { BreakDAL } from "./breaksDal";
+import { backOn } from "./breaks";
+import { weekKeyToDate } from "./week";
 import { readCourseSnapshot, type CourseSnapshot } from "./readModels";
 import {
   assessablePoints,
@@ -327,10 +332,25 @@ export class ScheduleDAL {
     for (const row of foldReviews(evidence, new Map(), new Set()))
       cards.set(row.specPointId, row.card);
     const marks = await this.getMarks(params.studentId, pointIds, evidence);
+    // Paused time doesn't count. A review's clock stops while its subject is
+    // stopped, so a pause never comes back as a pile of overdue reviews.
+    const spans = [
+      ...(await SubjectPauseDAL.history(params.studentId, params.subject)).map((r) => ({
+        start: new Date(r.startedAt),
+        end: r.endedAt ? new Date(r.endedAt) : null,
+      })),
+      // A break stops it too. Once over, a break is recorded in the history
+      // above; until then it is read from the booking.
+      ...(await BreakDAL.list(params.studentId))
+        .filter((b) => !b.recordedAt)
+        .map((b) => ({ start: weekKeyToDate(b.startsOn), end: weekKeyToDate(backOn(b)) })),
+    ];
 
     const byTopic = new Map<string, ProgressPoint[]>();
     for (const p of pts) {
       const card = cards.get(p.id) ?? null;
+      const paused = card ? pausedMsSince(spans, card.last_review, now) : 0;
+      const at = paused ? new Date(now.getTime() - paused) : now;
       const confidence = null;
       const m = marks.get(p.id);
       const list = byTopic.get(p.topic_id) ?? [];
@@ -341,16 +361,16 @@ export class ScheduleDAL {
         confidence,
         homeworkScore: m?.homework ?? null,
         quizScore: m?.quiz ?? null,
-        status: pointStatus(card, now),
-        mastery: pointMastery(card, confidence, now),
+        status: pointStatus(card, at),
+        mastery: pointMastery(card, confidence, at),
         stability: card && !isFirstContact(card) ? card.stability : null,
         weight: weightOf(p),
         card,
-        dueAt: card?.due.toISOString() ?? null,
-        eligibleAt: card ? reviewEligibleAt(card).toISOString() : null,
+        dueAt: card ? new Date(card.due.getTime() + paused).toISOString() : null,
+        eligibleAt: card ? new Date(reviewEligibleAt(card).getTime() + paused).toISOString() : null,
         lastReviewedAt: card?.last_review?.toISOString() ?? null,
         reps: card?.reps ?? 0,
-        retention: retrievability(card, now),
+        retention: retrievability(card, at),
         assessability: pointAssessability({
           hasMaterial: assessable.has(p.id),
           // A mark, not a card: a point can hold an FSRS card only because

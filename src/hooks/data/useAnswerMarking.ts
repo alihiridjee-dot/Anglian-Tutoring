@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { QUESTION_COLUMNS, withMarkSchemes } from "@/lib/homework/markSchemes";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
+import { toSciNotation } from "@/lib/platform/sciNotation";
 
 /**
  * Loads one submission's questions and answers, and holds the marks the tutor
@@ -16,7 +17,13 @@ import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQ
  * proposal to check rather than an empty grid to fill — which is the difference
  * between marking a paper and reading one. A tutor's own saved marks always win
  * over the staged ones, so re-opening something already marked shows their
- * corrections and not the proposal they corrected.
+ * corrections and not the proposal they corrected. Once the work is published,
+ * the proposal is not offered at all: what was saved is the mark, including a
+ * comment the tutor cleared.
+ *
+ * The paper is the questions this student was set: those on the sheet when they
+ * handed in, plus any they answered. A question a tutor adds afterwards is not
+ * shown or counted against them, matching `publish_homework_marks`.
  */
 export type QuestionMark = { marks: string; feedback: string };
 
@@ -27,6 +34,7 @@ export function useAnswerMarking(
   resourceId: string | undefined,
   submissionId: string,
   open: boolean,
+  { submittedAt, graded }: { submittedAt: string; graded: boolean },
 ) {
   const [questions, setQuestions] = useState<HomeworkQuestion[]>([]);
   const [answers, setAnswers] = useState<Record<string, HomeworkAnswer>>({});
@@ -34,16 +42,19 @@ export function useAnswerMarking(
   const [summary, setSummary] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     if (!open || loaded || !resourceId) return;
     let cancelled = false;
     setLoading(true);
+    setError(null);
     (async () => {
       const [qRes, aRes, sRes] = await Promise.all([
         supabase
           .from("homework_questions")
-          .select(QUESTION_COLUMNS)
+          .select(`${QUESTION_COLUMNS}, created_at`)
           .eq("resource_id", resourceId)
           .order("position", { ascending: true }),
         supabase
@@ -57,12 +68,25 @@ export function useAnswerMarking(
           .maybeSingle(),
       ]);
       if (cancelled) return;
+      // A failed read is not an empty paper: read as one, every answer showed
+      // as "Left blank" and invited a 0.
+      const failed = qRes.error ?? aRes.error ?? sRes.error;
+      if (failed) {
+        setError(new Error(failed.message));
+        setLoading(false);
+        return;
+      }
 
       // A scheme that fails to load shows as none; marking still works.
-      const qs = (await withMarkSchemes(qRes.data ?? []).catch(() =>
+      const all = (await withMarkSchemes(qRes.data ?? []).catch(() =>
         (qRes.data ?? []).map((q) => ({ ...q, mark_scheme: null })),
-      )) as HomeworkQuestion[];
+      )) as (HomeworkQuestion & { created_at: string })[];
       if (cancelled) return;
+      const answered = new Set((aRes.data ?? []).map((a) => a.question_id));
+      const handedIn = new Date(submittedAt).getTime();
+      const qs = all.filter(
+        (q) => answered.has(q.id) || new Date(q.created_at).getTime() <= handedIn,
+      );
 
       // The staged proposal, if one was made, keyed for lookup below.
       const staged = new Map<string, StagedMark>();
@@ -70,12 +94,15 @@ export function useAnswerMarking(
         if (m && typeof m.question_id === "string") staged.set(m.question_id, m);
       }
 
+      // The AI's comments go into the boxes in proper notation (H₂O, Mg²⁺),
+      // each read with its question; what a tutor has written stays as typed.
+      const asked = new Map(qs.map((q) => [q.id, `${q.prompt}\n${q.mark_scheme ?? ""}`]));
       const map: Record<string, HomeworkAnswer> = {};
       const initial: Record<string, QuestionMark> = {};
       for (const a of aRes.data ?? []) {
         const row = a as HomeworkAnswer;
         map[row.question_id] = row;
-        const proposal = staged.get(row.question_id);
+        const proposal = graded ? undefined : staged.get(row.question_id);
         initial[row.question_id] = {
           marks:
             row.awarded_marks != null
@@ -83,20 +110,24 @@ export function useAnswerMarking(
               : proposal
                 ? String(proposal.marks)
                 : "",
-          feedback: row.feedback ?? proposal?.feedback ?? "",
+          feedback:
+            row.feedback ??
+            (proposal?.feedback
+              ? toSciNotation(proposal.feedback, asked.get(row.question_id))
+              : ""),
         };
       }
       setQuestions(qs);
       setAnswers(map);
       setMarks(initial);
-      setSummary(sRes.data?.summary ?? null);
+      setSummary(graded || !sRes.data?.summary ? null : toSciNotation(sRes.data.summary));
       setLoaded(true);
       setLoading(false);
     })();
     return () => {
       cancelled = true;
     };
-  }, [open, loaded, resourceId, submissionId]);
+  }, [open, loaded, resourceId, submissionId, submittedAt, graded, attempt]);
 
   const setMark = useCallback((questionId: string, changes: Partial<QuestionMark>) => {
     setMarks((prev) => ({
@@ -128,49 +159,37 @@ export function useAnswerMarking(
   const scorePct =
     totalMarks > 0 && markedCount > 0 ? Math.round((awarded / totalMarks) * 100) : null;
 
-  /** Persist the per-question marks. Called as part of saving the overall mark. */
-  const saveMarks = useCallback(async () => {
-    const updates = questions
-      .filter((q) => answers[q.id])
-      .map((q) => {
-        const m = marks[q.id];
-        const raw = m?.marks?.trim() ?? "";
-        const value = raw === "" ? null : Number(raw);
-        if (value != null && (!Number.isFinite(value) || value < 0 || value > q.marks)) {
-          throw new Error(`Q${q.position + 1}: marks must be between 0 and ${q.marks}`);
-        }
-        return {
-          id: answers[q.id].id,
-          awarded_marks: value,
-          feedback: m?.feedback?.trim() || null,
-        };
+  /**
+   * Publish: every answer's marks and comment, and the overall mark, in one
+   * transaction (`confirm_homework_marks`). Saved as separate requests, a
+   * failure part-way left per-question marks with no grade, which the timer
+   * then overwrote with the AI's. A comment the tutor emptied is sent as "",
+   * so it stays cleared rather than the proposal filling it back in.
+   */
+  const confirm = useCallback(
+    async (scorePct: number | null, feedback: string | null) => {
+      if (error) throw new Error("The answers didn't load. Retry before publishing.");
+      const payload = questions
+        .filter((q) => answers[q.id])
+        .map((q) => {
+          const m = marks[q.id];
+          const raw = m?.marks?.trim() ?? "";
+          const value = raw === "" ? null : Number(raw);
+          if (value != null && (!Number.isFinite(value) || value < 0 || value > q.marks)) {
+            throw new Error(`Q${q.position + 1}: marks must be between 0 and ${q.marks}`);
+          }
+          return { question_id: q.id, marks: value, feedback: m?.feedback?.trim() ?? "" };
+        });
+      const { error: rpcError } = await supabase.rpc("confirm_homework_marks", {
+        _submission_id: submissionId,
+        _marks: payload,
+        _score_pct: scorePct,
+        _feedback: feedback,
       });
-
-    // One request per answer, but concurrently rather than in a queue. Marking a
-    // twelve-question paper was twelve sequential round trips — over a second of
-    // the tutor staring at a spinner on a normal connection, for writes that
-    // don't depend on each other. Supabase has no "update many rows to many
-    // different values" call, so a batch needs a SECURITY DEFINER RPC in the
-    // shape of `record_reviews_atomic`; until that exists this is the same set
-    // of writes with the waiting removed.
-    //
-    // Partial failure is unchanged: neither form is a transaction, so a rejected
-    // write leaves the rest applied. This version at least attempts them all
-    // rather than abandoning everything after the first error.
-    const results = await Promise.allSettled(
-      updates.map((u) =>
-        supabase
-          .from("homework_answers")
-          .update({ awarded_marks: u.awarded_marks, feedback: u.feedback })
-          .eq("id", u.id)
-          .then(({ error }) => {
-            if (error) throw error;
-          }),
-      ),
-    );
-    const failed = results.find((r) => r.status === "rejected");
-    if (failed) throw failed.reason;
-  }, [questions, answers, marks]);
+      if (rpcError) throw rpcError;
+    },
+    [error, questions, answers, marks, submissionId],
+  );
 
   return {
     questions,
@@ -180,11 +199,17 @@ export function useAnswerMarking(
     /** The proposed overall comment, offered as a starting point for feedback. */
     summary,
     loading,
+    /** The questions or answers failed to load; `retry` asks again. */
+    error,
+    retry: () => {
+      setError(null);
+      setAttempt((n) => n + 1);
+    },
     hasQuestions: questions.length > 0,
     totalMarks,
     awarded,
     markedCount,
     scorePct,
-    saveMarks,
+    confirm,
   };
 }

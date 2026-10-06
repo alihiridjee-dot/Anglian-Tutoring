@@ -72,14 +72,7 @@ async function checkLink(url: string): Promise<CheckState> {
   }
 }
 
-export function SpecPointVideoEditor({
-  video,
-  specPointId,
-  taxonomy,
-  userId,
-  onClose,
-  onSaved,
-}: Props) {
+export function SpecPointVideoEditor({ video, specPointId, taxonomy, onClose, onSaved }: Props) {
   const isNew = video === null;
   const [title, setTitle] = useState(video?.title ?? "");
   const [description, setDescription] = useState(video?.description ?? "");
@@ -111,30 +104,20 @@ export function SpecPointVideoEditor({
     setBusy(true);
 
     if (isNew) {
-      const { data: created, error } = await supabase
-        .from("resources")
-        .insert({
-          kind: "video",
-          title,
-          description,
-          video_url: videoUrl,
-          subject: taxonomy.subject,
-          board: taxonomy.board,
-          level: taxonomy.level,
-          created_by: userId,
-        })
-        .select("id")
-        .single();
+      // The video and its link to this point, in one transaction.
+      const { error } = await supabase.rpc("create_linked_resource", {
+        _kind: "video",
+        _title: title,
+        _description: description,
+        _subject: taxonomy.subject,
+        _level: taxonomy.level,
+        _board: taxonomy.board,
+        _spec_point_ids: [specPointId],
+        _video_url: videoUrl,
+      });
       if (error) {
         setBusy(false);
         return toast.error(error.message);
-      }
-      const { error: linkError } = await supabase
-        .from("resource_spec_points")
-        .insert({ resource_id: created.id, spec_point_id: specPointId });
-      if (linkError) {
-        setBusy(false);
-        return toast.error(linkError.message);
       }
     } else {
       const { error } = await supabase
@@ -234,7 +217,7 @@ export function SpecPointVideoEditor({
             type="button"
             onClick={runCheck}
             disabled={!videoUrl || check.status === "checking"}
-            className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-foreground hover:bg-secondary/40 disabled:opacity-60"
+            className="inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-foreground hover:bg-secondary/40 disabled:opacity-60"
           >
             {check.status === "checking" ? (
               <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -289,7 +272,7 @@ export function SpecPointVideoEditor({
               type="button"
               onClick={unlink}
               disabled={busy}
-              className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-muted-foreground hover:text-foreground disabled:opacity-60"
+              className="inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-muted-foreground hover:text-foreground disabled:opacity-60"
             >
               <Link2Off className="w-3.5 h-3.5" /> Remove from this point
             </button>
@@ -297,7 +280,7 @@ export function SpecPointVideoEditor({
               type="button"
               onClick={destroy}
               disabled={busy}
-              className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-destructive/40 text-xs font-semibold text-destructive hover:bg-destructive/10 disabled:opacity-60"
+              className="inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-destructive/40 text-xs font-semibold text-destructive hover:bg-destructive/10 disabled:opacity-60"
             >
               <Trash2 className="w-3.5 h-3.5" /> Delete everywhere
             </button>

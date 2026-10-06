@@ -17,7 +17,7 @@ export const Route = createFileRoute("/privacy")({
   component: PrivacyPage,
 });
 
-const UPDATED = "1 October 2026";
+const UPDATED = "5 October 2026";
 const CONTACT = "angliaeducate@gmail.com";
 
 /**
@@ -54,6 +54,11 @@ const PROCESSORS = [
     name: "Anthropic",
     what: "Its AI, Claude, helps with marking and feedback, as described under AI marking.",
     where: "USA",
+  },
+  {
+    name: "DeepSeek",
+    what: "Its AI reads a question a student chooses to send with “Ask for help” in the search box, as described under AI help in the search box.",
+    where: "China",
   },
   {
     name: "YouTube and Vimeo",
@@ -124,10 +129,14 @@ function PrivacyPage() {
           <span className="eyebrow">If you&apos;re a student</span>
           <p className="mt-4 leading-relaxed">
             We keep your name, email address, school, grades and the work you do on the site, so
-            your tutors can teach you and mark your homework. An AI helps with marking, and your
-            tutors can check and change its marks. Your parent or guardian can see your progress if
-            you link your account to theirs. If you&apos;re under 13, please ask a parent or
-            guardian before you sign up. If something here worries you, talk to them or email us.
+            your tutors can teach you and mark your tasks. An AI helps with marking, and your tutors
+            can check and change its marks. Your parent or guardian can see your progress if you
+            link your account to theirs. If you&apos;re under 13, please ask a parent or guardian
+            before you sign up. If something here worries you, talk to them or email us.
+          </p>
+          <p className="mt-3 leading-relaxed">
+            If you press <strong>Ask for help</strong> in the search box, what you typed is sent to
+            an AI company in China. So don&apos;t type your name or anything personal there.
           </p>
         </div>
 
@@ -161,9 +170,9 @@ function PrivacyPage() {
           <h3>Learning records</h3>
           <p>
             Subjects and exam boards, previous, current and target grades, how you rate your own
-            study skills, homework answers, quiz answers and scores, how confident you feel about
-            each topic, weekly plans and the reflections you write in weekly check-ins, and the
-            marks, feedback and notes tutors write about your progress.
+            study skills, task answers, quiz answers and scores, how confident you feel about each
+            topic, weekly plans and the reflections you write in weekly check-ins, and the marks,
+            feedback and notes tutors write about your progress.
           </p>
           <h3>Messages</h3>
           <p>Messages between parents and tutors sent through the site.</p>
@@ -181,9 +190,9 @@ function PrivacyPage() {
           </p>
           <h3>Your browser</h3>
           <p>
-            We use your browser&apos;s own storage to keep you signed in, to save homework answers
-            you haven&apos;t sent yet, and to remember small things, like a trial code you&apos;ve
-            been sent. Anglia Educate sets no cookies. Lesson videos from YouTube and Vimeo, and
+            We use your browser&apos;s own storage to keep you signed in, to save task answers you
+            haven&apos;t sent yet, and to remember small things, like a trial code you&apos;ve been
+            sent. Anglia Educate sets no cookies. Lesson videos from YouTube and Vimeo, and
             Stripe&apos;s payment pages, may set their own. Vercel counts page visits without
             cookies.
           </p>
@@ -192,7 +201,7 @@ function PrivacyPage() {
         <Section title="How we use it, and why we're allowed to">
           <ul className="list-disc space-y-2 pl-5">
             <li>
-              <strong>To teach:</strong> lessons, homework, marking, feedback, plans and progress
+              <strong>To teach:</strong> lessons, tasks, marking, feedback, plans and progress
               reports. This is the service you or your parent signed up for (a contract).
             </li>
             <li>
@@ -219,7 +228,7 @@ function PrivacyPage() {
           <p>We use Claude, an AI made by Anthropic, in three places:</p>
           <ul className="list-disc space-y-2 pl-5">
             <li>
-              <strong>Homework:</strong> it receives the questions, the mark scheme and the
+              <strong>Tasks:</strong> it receives the questions, the mark scheme and the
               student&apos;s answers, but not their name or email, and suggests marks and feedback.
               A tutor can check and change them. If no tutor has reviewed them within 30 minutes,
               the suggested marks are released to the student automatically. Students and parents
@@ -237,6 +246,24 @@ function PrivacyPage() {
           </ul>
           <p>
             Anthropic does not use information sent through its business service to train its AI.
+          </p>
+        </Section>
+
+        <Section title="AI help in the search box">
+          <p>
+            Students can type a question into the search box, such as &quot;where&apos;s my quiz for
+            this week?&quot;. Most questions are answered by the site itself, and nothing leaves it.
+          </p>
+          <p>
+            If the site can&apos;t work a question out, the student can choose{" "}
+            <strong>Ask for help</strong>. Only then is the question they typed sent to DeepSeek, an
+            AI company based in China, which picks the page that answers it. We remove email
+            addresses and phone numbers first, and send nothing else: no name, account, marks or
+            work.
+          </p>
+          <p>
+            DeepSeek stores what it receives in China and may use it to improve its AI. That&apos;s
+            why students shouldn&apos;t type their name or anything personal into the search box.
           </p>
         </Section>
 
@@ -272,12 +299,24 @@ function PrivacyPage() {
             on the protections UK law requires, such as the UK&apos;s approved contract terms or the
             UK–US data bridge.
           </p>
+          <p>
+            DeepSeek is based in China, which UK law does not treat as protecting data to the same
+            standard. That&apos;s why it receives so little: only a question a student types and
+            chooses to send, with email addresses and phone numbers removed.
+          </p>
         </Section>
 
         <Section title="How long we keep it">
           <ul className="list-disc space-y-2 pl-5">
             <li>
-              <strong>Accounts and learning records:</strong> for as long as the account is open.
+              <strong>Accounts:</strong> for as long as the account is open.
+            </li>
+            <li>
+              <strong>Learning records</strong> (plans, quiz and task results, marks, revision
+              history and tutor notes): kept while a plan is active or paused. Pausing, or a payment
+              that hasn&apos;t gone through, never deletes anything. If a plan is cancelled,
+              they&apos;re permanently deleted 7 days after it ends, and removing a subject does the
+              same for that subject. Coming back within the 7 days keeps everything.
             </li>
             <li>
               <strong>Deleting an account:</strong> email us to ask. There&apos;s then a 7-day
@@ -285,7 +324,7 @@ function PrivacyPage() {
               deleted.
             </li>
             <li>
-              <strong>Cleared automatically:</strong> unsent homework drafts after 30 days,
+              <strong>Cleared automatically:</strong> unsent task drafts after 30 days,
               conversations 30 days after the last message once a tutor has replied, and records of
               past live lessons after 7 days.
             </li>
@@ -321,6 +360,26 @@ function PrivacyPage() {
               ico.org.uk
             </a>{" "}
             or on 0303 123 1113. We&apos;d appreciate the chance to put things right first.
+          </p>
+        </Section>
+
+        <Section title="The school list">
+          <p>
+            When you type your school, we suggest names from the UK&apos;s official lists of
+            schools. The list is downloaded to your device and searched there, so nothing you type
+            is sent anywhere until you save it.
+          </p>
+          <p>
+            It contains public sector information from the Department for Education, the Welsh
+            Government, the Scottish Government and the Department of Education (Northern Ireland),
+            licensed under the{" "}
+            <a
+              className="font-semibold underline"
+              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            >
+              Open Government Licence v3.0
+            </a>
+            .
           </p>
         </Section>
 

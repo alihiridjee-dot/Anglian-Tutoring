@@ -2,6 +2,7 @@ import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
 import { getAuthSession } from "@/lib/auth/session";
 import { whenHydrated } from "@/lib/auth/hydration";
 import { loadGuardState } from "@/lib/auth/guardState";
+import { paywallExempt } from "@/lib/auth/routeGuards";
 import { UserRole } from "@/types/user";
 import { PaywallOverlay } from "@/components/billing/PaywallOverlay";
 import { WelcomeTour } from "@/components/WelcomeTour";
@@ -65,11 +66,8 @@ export const Route = createFileRoute("/_authenticated")({
       // here is a page that renders empty rather than one that renders a false
       // demand for money.
       //
-      // /billing stays exempt regardless: a student who paused or cancelled
-      // their own plan must be able to get back in to resume it — covering it
-      // would push them into buying a second subscription on top of the paused
-      // one.
-      locked = guard.hasAccess === false && !location.pathname.startsWith("/billing");
+      // Billing and Messages stay exempt regardless — see paywallExempt.
+      locked = guard.hasAccess === false && !paywallExempt(location.pathname);
     }
 
     // `viewer` is the resolved identity every child route and page reads — see

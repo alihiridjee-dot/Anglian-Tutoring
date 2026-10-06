@@ -24,7 +24,6 @@ import { Route as AuthenticatedHomeworkRouteImport } from './routes/_authenticat
 import { Route as AuthenticatedLiveRouteImport } from './routes/_authenticated/live'
 import { Route as AuthenticatedMcqsRouteImport } from './routes/_authenticated/mcqs'
 import { Route as AuthenticatedMessagesRouteImport } from './routes/_authenticated/messages'
-import { Route as AuthenticatedNotesRouteImport } from './routes/_authenticated/notes'
 import { Route as AuthenticatedParentDashboardRouteImport } from './routes/_authenticated/parent-dashboard'
 import { Route as AuthenticatedParentsRouteImport } from './routes/_authenticated/parents'
 import { Route as AuthenticatedPlannerRouteImport } from './routes/_authenticated/planner'
@@ -35,6 +34,7 @@ import { Route as AuthenticatedStudentDashboardRouteImport } from './routes/_aut
 import { Route as AuthenticatedStudentsRouteImport } from './routes/_authenticated/students'
 import { Route as AuthenticatedTutorRouteImport } from './routes/_authenticated/tutor'
 import { Route as AuthenticatedVideosRouteImport } from './routes/_authenticated/videos'
+import { Route as ApiPracticeWorkerRouteImport } from './routes/api/practice-worker'
 import { Route as DemoIndexRouteImport } from './routes/demo/index'
 import { Route as DemoParentRouteRouteImport } from './routes/demo/parent/route'
 import { Route as DemoStudentRouteRouteImport } from './routes/demo/student/route'
@@ -63,6 +63,7 @@ import { Route as DemoStudentVideosRouteImport } from './routes/demo/student/vid
 import { Route as NotesPreviewCompareConceptIdRouteImport } from './routes/notes-preview/compare.$conceptId'
 import { Route as DemoStudentHomeworkHomeworkIdRouteImport } from './routes/demo/student/homework_.$homeworkId'
 import { Route as DemoStudentMcqSetIdRouteImport } from './routes/demo/student/mcq.$setId'
+import { Route as DemoStudentNotesConceptIdRouteImport } from './routes/demo/student/notes.$conceptId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -138,11 +139,6 @@ const AuthenticatedMessagesRoute = AuthenticatedMessagesRouteImport.update({
   path: '/messages',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedNotesRoute = AuthenticatedNotesRouteImport.update({
-  id: '/notes',
-  path: '/notes',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
 const AuthenticatedParentDashboardRoute =
   AuthenticatedParentDashboardRouteImport.update({
     id: '/parent-dashboard',
@@ -195,6 +191,11 @@ const AuthenticatedVideosRoute = AuthenticatedVideosRouteImport.update({
   id: '/videos',
   path: '/videos',
   getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const ApiPracticeWorkerRoute = ApiPracticeWorkerRouteImport.update({
+  id: '/api/practice-worker',
+  path: '/api/practice-worker',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const DemoIndexRoute = DemoIndexRouteImport.update({
   id: '/demo/',
@@ -341,6 +342,12 @@ const DemoStudentMcqSetIdRoute = DemoStudentMcqSetIdRouteImport.update({
   path: '/mcq/$setId',
   getParentRoute: () => DemoStudentRouteRoute,
 } as any)
+const DemoStudentNotesConceptIdRoute =
+  DemoStudentNotesConceptIdRouteImport.update({
+    id: '/notes/$conceptId',
+    path: '/notes/$conceptId',
+    getParentRoute: () => DemoStudentRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -359,7 +366,6 @@ export interface FileRoutesByFullPath {
   '/live': typeof AuthenticatedLiveRoute
   '/mcqs': typeof AuthenticatedMcqsRoute
   '/messages': typeof AuthenticatedMessagesRoute
-  '/notes': typeof AuthenticatedNotesRoute
   '/parent-dashboard': typeof AuthenticatedParentDashboardRoute
   '/parents': typeof AuthenticatedParentsRoute
   '/planner': typeof AuthenticatedPlannerRoute
@@ -370,6 +376,7 @@ export interface FileRoutesByFullPath {
   '/students': typeof AuthenticatedStudentsRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/videos': typeof AuthenticatedVideosRoute
+  '/api/practice-worker': typeof ApiPracticeWorkerRoute
   '/notes-preview/$conceptId': typeof NotesPreviewConceptIdRoute
   '/onboarding/board': typeof OnboardingBoardRoute
   '/onboarding/confidence': typeof OnboardingConfidenceRoute
@@ -396,6 +403,7 @@ export interface FileRoutesByFullPath {
   '/notes-preview/compare/$conceptId': typeof NotesPreviewCompareConceptIdRoute
   '/demo/student/homework/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
+  '/demo/student/notes/$conceptId': typeof DemoStudentNotesConceptIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -413,7 +421,6 @@ export interface FileRoutesByTo {
   '/live': typeof AuthenticatedLiveRoute
   '/mcqs': typeof AuthenticatedMcqsRoute
   '/messages': typeof AuthenticatedMessagesRoute
-  '/notes': typeof AuthenticatedNotesRoute
   '/parent-dashboard': typeof AuthenticatedParentDashboardRoute
   '/parents': typeof AuthenticatedParentsRoute
   '/planner': typeof AuthenticatedPlannerRoute
@@ -424,6 +431,7 @@ export interface FileRoutesByTo {
   '/students': typeof AuthenticatedStudentsRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/videos': typeof AuthenticatedVideosRoute
+  '/api/practice-worker': typeof ApiPracticeWorkerRoute
   '/notes-preview/$conceptId': typeof NotesPreviewConceptIdRoute
   '/onboarding/board': typeof OnboardingBoardRoute
   '/onboarding/confidence': typeof OnboardingConfidenceRoute
@@ -450,6 +458,7 @@ export interface FileRoutesByTo {
   '/notes-preview/compare/$conceptId': typeof NotesPreviewCompareConceptIdRoute
   '/demo/student/homework/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
+  '/demo/student/notes/$conceptId': typeof DemoStudentNotesConceptIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -470,7 +479,6 @@ export interface FileRoutesById {
   '/_authenticated/live': typeof AuthenticatedLiveRoute
   '/_authenticated/mcqs': typeof AuthenticatedMcqsRoute
   '/_authenticated/messages': typeof AuthenticatedMessagesRoute
-  '/_authenticated/notes': typeof AuthenticatedNotesRoute
   '/_authenticated/parent-dashboard': typeof AuthenticatedParentDashboardRoute
   '/_authenticated/parents': typeof AuthenticatedParentsRoute
   '/_authenticated/planner': typeof AuthenticatedPlannerRoute
@@ -481,6 +489,7 @@ export interface FileRoutesById {
   '/_authenticated/students': typeof AuthenticatedStudentsRoute
   '/_authenticated/tutor': typeof AuthenticatedTutorRoute
   '/_authenticated/videos': typeof AuthenticatedVideosRoute
+  '/api/practice-worker': typeof ApiPracticeWorkerRoute
   '/notes-preview/$conceptId': typeof NotesPreviewConceptIdRoute
   '/onboarding/board': typeof OnboardingBoardRoute
   '/onboarding/confidence': typeof OnboardingConfidenceRoute
@@ -507,6 +516,7 @@ export interface FileRoutesById {
   '/notes-preview/compare/$conceptId': typeof NotesPreviewCompareConceptIdRoute
   '/demo/student/homework_/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
+  '/demo/student/notes/$conceptId': typeof DemoStudentNotesConceptIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -527,7 +537,6 @@ export interface FileRouteTypes {
     | '/live'
     | '/mcqs'
     | '/messages'
-    | '/notes'
     | '/parent-dashboard'
     | '/parents'
     | '/planner'
@@ -538,6 +547,7 @@ export interface FileRouteTypes {
     | '/students'
     | '/tutor'
     | '/videos'
+    | '/api/practice-worker'
     | '/notes-preview/$conceptId'
     | '/onboarding/board'
     | '/onboarding/confidence'
@@ -564,6 +574,7 @@ export interface FileRouteTypes {
     | '/notes-preview/compare/$conceptId'
     | '/demo/student/homework/$homeworkId'
     | '/demo/student/mcq/$setId'
+    | '/demo/student/notes/$conceptId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -581,7 +592,6 @@ export interface FileRouteTypes {
     | '/live'
     | '/mcqs'
     | '/messages'
-    | '/notes'
     | '/parent-dashboard'
     | '/parents'
     | '/planner'
@@ -592,6 +602,7 @@ export interface FileRouteTypes {
     | '/students'
     | '/tutor'
     | '/videos'
+    | '/api/practice-worker'
     | '/notes-preview/$conceptId'
     | '/onboarding/board'
     | '/onboarding/confidence'
@@ -618,6 +629,7 @@ export interface FileRouteTypes {
     | '/notes-preview/compare/$conceptId'
     | '/demo/student/homework/$homeworkId'
     | '/demo/student/mcq/$setId'
+    | '/demo/student/notes/$conceptId'
   id:
     | '__root__'
     | '/'
@@ -637,7 +649,6 @@ export interface FileRouteTypes {
     | '/_authenticated/live'
     | '/_authenticated/mcqs'
     | '/_authenticated/messages'
-    | '/_authenticated/notes'
     | '/_authenticated/parent-dashboard'
     | '/_authenticated/parents'
     | '/_authenticated/planner'
@@ -648,6 +659,7 @@ export interface FileRouteTypes {
     | '/_authenticated/students'
     | '/_authenticated/tutor'
     | '/_authenticated/videos'
+    | '/api/practice-worker'
     | '/notes-preview/$conceptId'
     | '/onboarding/board'
     | '/onboarding/confidence'
@@ -674,6 +686,7 @@ export interface FileRouteTypes {
     | '/notes-preview/compare/$conceptId'
     | '/demo/student/homework_/$homeworkId'
     | '/demo/student/mcq/$setId'
+    | '/demo/student/notes/$conceptId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -687,6 +700,7 @@ export interface RootRouteChildren {
   ResetPasswordRoute: typeof ResetPasswordRoute
   DemoParentRouteRoute: typeof DemoParentRouteRouteWithChildren
   DemoStudentRouteRoute: typeof DemoStudentRouteRouteWithChildren
+  ApiPracticeWorkerRoute: typeof ApiPracticeWorkerRoute
   NotesPreviewConceptIdRoute: typeof NotesPreviewConceptIdRoute
   DemoIndexRoute: typeof DemoIndexRoute
   NotesPreviewIndexRoute: typeof NotesPreviewIndexRoute
@@ -800,13 +814,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedMessagesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/notes': {
-      id: '/_authenticated/notes'
-      path: '/notes'
-      fullPath: '/notes'
-      preLoaderRoute: typeof AuthenticatedNotesRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
     '/_authenticated/parent-dashboard': {
       id: '/_authenticated/parent-dashboard'
       path: '/parent-dashboard'
@@ -876,6 +883,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/videos'
       preLoaderRoute: typeof AuthenticatedVideosRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/api/practice-worker': {
+      id: '/api/practice-worker'
+      path: '/api/practice-worker'
+      fullPath: '/api/practice-worker'
+      preLoaderRoute: typeof ApiPracticeWorkerRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/demo/': {
       id: '/demo/'
@@ -1073,6 +1087,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoStudentMcqSetIdRouteImport
       parentRoute: typeof DemoStudentRouteRoute
     }
+    '/demo/student/notes/$conceptId': {
+      id: '/demo/student/notes/$conceptId'
+      path: '/notes/$conceptId'
+      fullPath: '/demo/student/notes/$conceptId'
+      preLoaderRoute: typeof DemoStudentNotesConceptIdRouteImport
+      parentRoute: typeof DemoStudentRouteRoute
+    }
   }
 }
 
@@ -1084,7 +1105,6 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedLiveRoute: typeof AuthenticatedLiveRoute
   AuthenticatedMcqsRoute: typeof AuthenticatedMcqsRoute
   AuthenticatedMessagesRoute: typeof AuthenticatedMessagesRoute
-  AuthenticatedNotesRoute: typeof AuthenticatedNotesRoute
   AuthenticatedParentDashboardRoute: typeof AuthenticatedParentDashboardRoute
   AuthenticatedParentsRoute: typeof AuthenticatedParentsRoute
   AuthenticatedPlannerRoute: typeof AuthenticatedPlannerRoute
@@ -1109,7 +1129,6 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedLiveRoute: AuthenticatedLiveRoute,
   AuthenticatedMcqsRoute: AuthenticatedMcqsRoute,
   AuthenticatedMessagesRoute: AuthenticatedMessagesRoute,
-  AuthenticatedNotesRoute: AuthenticatedNotesRoute,
   AuthenticatedParentDashboardRoute: AuthenticatedParentDashboardRoute,
   AuthenticatedParentsRoute: AuthenticatedParentsRoute,
   AuthenticatedPlannerRoute: AuthenticatedPlannerRoute,
@@ -1176,6 +1195,7 @@ interface DemoStudentRouteRouteChildren {
   DemoStudentVideosRoute: typeof DemoStudentVideosRoute
   DemoStudentHomeworkHomeworkIdRoute: typeof DemoStudentHomeworkHomeworkIdRoute
   DemoStudentMcqSetIdRoute: typeof DemoStudentMcqSetIdRoute
+  DemoStudentNotesConceptIdRoute: typeof DemoStudentNotesConceptIdRoute
 }
 
 const DemoStudentRouteRouteChildren: DemoStudentRouteRouteChildren = {
@@ -1189,6 +1209,7 @@ const DemoStudentRouteRouteChildren: DemoStudentRouteRouteChildren = {
   DemoStudentVideosRoute: DemoStudentVideosRoute,
   DemoStudentHomeworkHomeworkIdRoute: DemoStudentHomeworkHomeworkIdRoute,
   DemoStudentMcqSetIdRoute: DemoStudentMcqSetIdRoute,
+  DemoStudentNotesConceptIdRoute: DemoStudentNotesConceptIdRoute,
 }
 
 const DemoStudentRouteRouteWithChildren =
@@ -1205,6 +1226,7 @@ const rootRouteChildren: RootRouteChildren = {
   ResetPasswordRoute: ResetPasswordRoute,
   DemoParentRouteRoute: DemoParentRouteRouteWithChildren,
   DemoStudentRouteRoute: DemoStudentRouteRouteWithChildren,
+  ApiPracticeWorkerRoute: ApiPracticeWorkerRoute,
   NotesPreviewConceptIdRoute: NotesPreviewConceptIdRoute,
   DemoIndexRoute: DemoIndexRoute,
   NotesPreviewIndexRoute: NotesPreviewIndexRoute,

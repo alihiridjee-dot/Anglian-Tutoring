@@ -1,4 +1,4 @@
-import { Download, ExternalLink, Receipt } from "lucide-react";
+import { ChevronDown, Download, ExternalLink, Receipt } from "lucide-react";
 import { useInvoices } from "@/hooks/data/useBilling";
 import { formatPence } from "@/lib/billing/billing";
 import { Spinner } from "@/components/Shared";
@@ -26,8 +26,28 @@ export function InvoiceHistory() {
   }
 
   return (
-    <div className="scroll-slim -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
-      <table className="w-full min-w-[34rem] text-sm">
+    <>
+      {/* A phone gets one invoice per row. The five-column table was 544px
+          wide in a sideways-scrolling box, so the amount, status and receipt
+          started off a phone's screen. */}
+      <ul className="divide-y divide-border/60 text-sm sm:hidden">
+        {invoices.map((inv) => (
+          <li key={inv.id} className="space-y-1 py-3 first:pt-0 last:pb-0">
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <p className="font-semibold">{invoiceDate(inv)}</p>
+                <p className="break-words">{invoiceLabel(inv)}</p>
+              </div>
+              <div className="flex shrink-0 flex-col items-end gap-1">
+                <span className="font-semibold">{invoiceAmount(inv)}</span>
+                <StatusChip status={inv.status} />
+              </div>
+            </div>
+            <ReceiptLinks inv={inv} />
+          </li>
+        ))}
+      </ul>
+      <table className="hidden w-full text-sm sm:table">
         <thead>
           <tr className="text-left text-xs uppercase tracking-wider text-muted-foreground border-b border-border">
             <th className="py-2 pr-4 font-semibold">Date</th>
@@ -40,72 +60,78 @@ export function InvoiceHistory() {
         <tbody>
           {invoices.map((inv) => (
             <tr key={inv.id} className="border-b border-border/60 last:border-0">
-              <td className="py-3 pr-4 whitespace-nowrap">
-                {new Date(inv.created * 1000).toLocaleDateString()}
-              </td>
-              <td className="py-3 pr-4 text-muted-foreground">
-                {inv.description ?? inv.number ?? "Subscription"}
-              </td>
-              <td className="py-3 pr-4 font-semibold whitespace-nowrap">
-                {formatPence(inv.amount_paid || inv.amount_due, inv.currency)}
-              </td>
+              <td className="py-3 pr-4 whitespace-nowrap">{invoiceDate(inv)}</td>
+              <td className="py-3 pr-4 text-muted-foreground">{invoiceLabel(inv)}</td>
+              <td className="py-3 pr-4 font-semibold whitespace-nowrap">{invoiceAmount(inv)}</td>
               <td className="py-3 pr-4">
-                <span
-                  className={`text-[10px] px-2 py-0.5 rounded-full border font-bold uppercase tracking-wider ${
-                    inv.status === "paid"
-                      ? "bg-emerald-50 text-emerald-700 border-emerald-200"
-                      : inv.status === "open"
-                        ? "bg-amber-50 text-amber-700 border-amber-200"
-                        : "bg-secondary text-muted-foreground border-border"
-                  }`}
-                >
-                  {inv.status ?? "—"}
-                </span>
+                <StatusChip status={inv.status} />
               </td>
               <td className="py-3 text-right whitespace-nowrap">
-                {inv.hosted_invoice_url && (
-                  <a
-                    href={inv.hosted_invoice_url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex min-h-11 items-center gap-1 text-primary hover:underline font-semibold mr-3 sm:min-h-0"
-                  >
-                    View <ExternalLink className="w-3 h-3" />
-                  </a>
-                )}
-                {inv.invoice_pdf && (
-                  <a
-                    href={inv.invoice_pdf}
-                    className="inline-flex min-h-11 items-center gap-1 text-primary hover:underline font-semibold sm:min-h-0"
-                  >
-                    PDF <Download className="w-3 h-3" />
-                  </a>
-                )}
+                <ReceiptLinks inv={inv} />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
+    </>
   );
 }
 
-/** Card wrapper used by both the billing page and the parent dashboard. */
+type Invoice = NonNullable<ReturnType<typeof useInvoices>["data"]>[number];
+
+const invoiceDate = (inv: Invoice) => new Date(inv.created * 1000).toLocaleDateString();
+const invoiceLabel = (inv: Invoice) => inv.description ?? inv.number ?? "Subscription";
+const invoiceAmount = (inv: Invoice) =>
+  formatPence(inv.amount_paid || inv.amount_due, inv.currency);
+
+/** The kit's chip, tinted by state: paid green, still open amber. */
+function StatusChip({ status }: { status: Invoice["status"] }) {
+  const tint = status === "paid" ? "tint-emerald" : status === "open" ? "tint-amber" : "tint-slate";
+  return <span className={`chip ${tint} uppercase`}>{status ?? "—"}</span>;
+}
+
+function ReceiptLinks({ inv }: { inv: Invoice }) {
+  return (
+    <>
+      {inv.hosted_invoice_url && (
+        <a
+          href={inv.hosted_invoice_url}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex min-h-11 items-center gap-1 text-primary hover:underline font-semibold mr-3 sm:pointer-fine:min-h-0"
+        >
+          View <ExternalLink className="w-3 h-3" />
+        </a>
+      )}
+      {inv.invoice_pdf && (
+        <a
+          href={inv.invoice_pdf}
+          className="inline-flex min-h-11 items-center gap-1 text-primary hover:underline font-semibold sm:pointer-fine:min-h-0"
+        >
+          PDF <Download className="w-3 h-3" />
+        </a>
+      )}
+    </>
+  );
+}
+
+/**
+ * Card wrapper used by both the billing page and the parent dashboard. Closed
+ * by default: past invoices are looked up now and then, not read every visit.
+ */
 export function InvoiceHistoryCard() {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-4 sm:p-6 shadow-sm">
-      {/* soft glow accent */}
-      <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
-
-      <div className="relative">
-        <div className="flex items-center gap-2 mb-4">
-          <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center">
-            <Receipt className="w-4 h-4 text-primary" />
-          </div>
-          <h2 className="font-display text-xl font-bold">Payment history</h2>
-        </div>
+    <details className="group premium-card rounded-2xl p-4 sm:p-6">
+      <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 sm:pointer-fine:min-h-0 [&::-webkit-details-marker]:hidden">
+        <span className="icon-tile size-8 shrink-0">
+          <Receipt className="size-4" aria-hidden />
+        </span>
+        <h2 className="font-display flex-1 text-xl font-bold">Payment history</h2>
+        <ChevronDown className="size-5 transition group-open:rotate-180" aria-hidden />
+      </summary>
+      <div className="mt-4">
         <InvoiceHistory />
       </div>
-    </div>
+    </details>
   );
 }

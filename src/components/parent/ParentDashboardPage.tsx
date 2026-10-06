@@ -4,6 +4,7 @@ import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { useChildLinks } from "@/hooks/data/useParentLinks";
+import { useEntryState } from "@/hooks/useEntryState";
 import {
   useChildEnrolments,
   useChildCourse,
@@ -22,6 +23,7 @@ import { EngagementStats } from "@/components/parent/EngagementStats";
 import { FeedbackList } from "@/components/parent/FeedbackList";
 import { ParentMessages } from "@/components/parent/ParentMessages";
 import { ChildWeekCard } from "@/components/parent/ChildWeekCard";
+import { ChildBreakCard } from "@/components/parent/ChildBreakCard";
 import { UpcomingSessions } from "@/components/parent/UpcomingSessions";
 import { EnrolmentSummary } from "@/components/dashboard/StudentDashboardPage";
 import { isDemoMode } from "@/lib/auth/session";
@@ -31,12 +33,14 @@ import {
   DEMO_HOMEWORK,
   DEMO_LEVEL,
   DEMO_LIVE,
+  DEMO_MCQ_ATTEMPTS,
+  DEMO_MCQ_SETS,
   DEMO_PARENT_NAME,
   DEMO_SUBMISSIONS,
 } from "@/lib/demo/studentDemo";
 import { demoWeek } from "@/lib/demo/plannerDemo";
 import { resolveDisplayName } from "@/lib/profile/displayName";
-import { Suspense, lazy, useMemo, useState } from "react";
+import { Suspense, lazy, useMemo } from "react";
 import { EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/components/Shared";
 
 /**
@@ -57,21 +61,35 @@ const TrendsChart = lazy(() =>
 // feedback all come from the student fixtures, so the two demos agree.
 const DEMO_ANALYTICS_ROWS = DEMO_ANALYTICS;
 
+// This week's quiz average per subject, from the quizzes the student showcase
+// shows as done this week.
+const thisWeekQuizAverage = (subject: string) => {
+  const pcts = DEMO_MCQ_SETS.filter(
+    (s) => s.thisWeek && s.subject === subject && DEMO_MCQ_ATTEMPTS[s.id],
+  ).map((s) => (DEMO_MCQ_ATTEMPTS[s.id].score * 100) / DEMO_MCQ_ATTEMPTS[s.id].total);
+  return Math.round(pcts.reduce((a, b) => a + b, 0) / Math.max(pcts.length, 1));
+};
+
+// The weeks before this one are illustrative; this week is Alex's real quizzes.
 const DEMO_TRENDS: WeeklyTrendPoint[] = [
   { biology: 78, chemistry: 70, physics: 58 },
   { biology: 82, chemistry: 72, physics: 64 },
   { biology: 80, chemistry: 76, physics: 60 },
-  { biology: 86, chemistry: 78, physics: 68 },
-  { biology: 88, chemistry: 81, physics: 71 },
-  { biology: 91, chemistry: 83, physics: 76 },
+  { biology: 86, chemistry: 74, physics: 68 },
+  { biology: 88, chemistry: 78, physics: 71 },
+  {
+    biology: thisWeekQuizAverage("biology"),
+    chemistry: thisWeekQuizAverage("chemistry"),
+    physics: thisWeekQuizAverage("physics"),
+  },
 ].map((averages, i) => ({
   weekStart: `demo-${i}`,
   label: `Wk ${i + 1}`,
   averages,
 }));
 
-// Four pieces of set homework in the student demo; three are handed in and the
-// fourth isn't due yet.
+// The set tasks in the student demo (those with a due date): all handed in but
+// the I–V task, which isn't due yet.
 const DEMO_ENGAGEMENT = {
   sessionsHeld: 16,
   sessionsAttended: 15,
@@ -97,14 +115,12 @@ const DEMO_FEEDBACK = DEMO_HOMEWORK.flatMap((h) => {
 
 // The showcase child's tutor has recorded a target and a current grade for
 // each subject, a little under the predictions above so the two read together.
+// The same fixture gives Alex's own Target ring, so the two pages agree.
 const DEMO_CHILD_ENROLMENTS: ChildEnrolment[] = DEMO_ENROLMENTS.map((e) => ({
   subject: e.subject,
   board: e.board,
-  ...{
-    biology: { target_grade: "9", current_grade: "8" },
-    chemistry: { target_grade: "8", current_grade: "7" },
-    physics: { target_grade: "8", current_grade: "6" },
-  }[e.subject],
+  target_grade: e.targetGrade,
+  current_grade: e.currentGrade,
 }));
 
 // The same week the student showcase plans, so the two demos agree.
@@ -132,10 +148,10 @@ export function ParentDashboard() {
   const isDemo = isDemoMode();
 
   // Which child is being viewed. Defaults to the first linked child; a parent
-  // with several children gets a switcher.
+  // with several children gets a switcher, and Back comes back to the same one.
   const childrenQ = useChildLinks(!isDemo);
   const children = childrenQ.data ?? [];
-  const [selectedChildId, setSelectedChildId] = useState<string | null>(null);
+  const [selectedChildId, setSelectedChildId] = useEntryState<string | null>("portal.child", null);
   const childId = isDemo ? null : (selectedChildId ?? children[0]?.student_id ?? null);
   const selectedChild = children.find((c) => c.student_id === childId) ?? null;
   const childName = isDemo
@@ -270,6 +286,9 @@ export function ParentDashboard() {
       ) : (
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className={`space-y-8 ${showSide ? "lg:col-span-2" : "lg:col-span-3"}`}>
+            {!isDemo && childId && (
+              <ChildBreakCard childId={childId} childName={childName.split(" ")[0]} />
+            )}
             <div data-tour="parent-grades">
               <GradePredictorCard analytics={analytics} level={level} grades={enrolments} />
             </div>

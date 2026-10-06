@@ -13,6 +13,7 @@ import {
 import { type CourseSchedule } from "@/lib/planner/pointSchedule";
 import { Plus, Trash2, ChevronRight } from "lucide-react";
 import { inputCls } from "@/components/curriculum/styles";
+import { SciText } from "@/components/Shared";
 
 export function TopicCard({
   topic,
@@ -67,7 +68,14 @@ export function TopicCard({
   };
 
   const del = async () => {
-    if (!confirm(`Delete topic "${topic.title}" and all its spec points?`)) return;
+    // Refused by the database when students have work or planner history on
+    // the topic (S-18); the refusal says how much, and shows as the error.
+    if (
+      !confirm(
+        `Delete topic "${topic.title}" and all its spec points? A topic students have worked on can't be deleted.`,
+      )
+    )
+      return;
     const { error } = await supabase.from("topics").delete().eq("id", topic.id);
     if (error) return toast.error(error.message);
     toast.success("Topic deleted");
@@ -87,7 +95,10 @@ export function TopicCard({
               {topic.code}
             </span>
           )}
-          <span className="font-display font-bold truncate min-w-0 flex-1 sm:flex-initial">
+          {/* Wraps rather than truncates: a topic's name is what a student
+              scans the list for, and "Topic 4: Natural selection and genetic m…"
+              cut it off on every phone. */}
+          <span className="font-display font-bold break-words min-w-0 flex-1 sm:flex-initial">
             {topic.title}
           </span>
           {coverage ? <TopicCoverage {...coverage} /> : scheduleLoading && <TopicCoverageLoading />}
@@ -128,7 +139,7 @@ export function TopicCard({
                       </h4>
                       {p.description && (
                         <p className="text-xs text-muted-foreground line-clamp-2 mt-1 leading-normal">
-                          {p.description}
+                          <SciText text={p.description} />
                         </p>
                       )}
                     </div>
@@ -174,7 +185,7 @@ function SpecPointCreate({ topicId, onCreated }: { topicId: string; onCreated: (
     return (
       <button
         onClick={() => setOpen(true)}
-        className="w-full h-11 sm:h-10 border border-dashed border-border rounded-xl flex items-center justify-center gap-1.5 text-xs font-semibold hover:border-primary/50 text-muted-foreground hover:text-primary transition"
+        className="w-full h-11 sm:pointer-fine:h-10 border border-dashed border-border rounded-xl flex items-center justify-center gap-1.5 text-xs font-semibold hover:border-primary/50 text-muted-foreground hover:text-primary transition"
       >
         <Plus className="w-3.5 h-3.5" /> Add Specification Point
       </button>
@@ -224,13 +235,13 @@ function SpecPointCreate({ topicId, onCreated }: { topicId: string; onCreated: (
         <button
           type="button"
           onClick={() => setOpen(false)}
-          className="h-11 sm:h-8 px-3 rounded-md text-xs hover:bg-secondary border border-border"
+          className="h-11 sm:pointer-fine:h-8 px-3 rounded-md text-xs hover:bg-secondary border border-border"
         >
           Cancel
         </button>
         <button
           type="submit"
-          className="h-11 sm:h-8 px-3 rounded-md text-xs btn-solid font-semibold"
+          className="h-11 sm:pointer-fine:h-8 px-3 rounded-md text-xs btn-solid font-semibold"
         >
           Add Point
         </button>

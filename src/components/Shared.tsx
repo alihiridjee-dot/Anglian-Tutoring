@@ -12,12 +12,13 @@
  * those classes a given block earns.
  */
 import { Link } from "@tanstack/react-router";
-import { useEffect, useRef, type ReactNode } from "react";
+import { Fragment, useEffect, useMemo, useRef, type ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 import { describeError } from "@/lib/platform/errors";
+import { sciRuns } from "@/lib/platform/sciNotation";
 import { SUBJECT_TINT, subjectLabel } from "@/lib/curriculum/subjectTheme";
 import { Confetti, Mascot, Sparkles, type MascotName, type Mood } from "@/components/Doodles";
 
@@ -34,7 +35,7 @@ export function PageHeader({
   icon: Icon,
   children,
 }: {
-  eyebrow?: string;
+  eyebrow?: ReactNode;
   title: string;
   lede?: string;
   icon?: LucideIcon;
@@ -79,6 +80,34 @@ export function SectionHeading({
       </div>
       {children ? <div className="flex flex-wrap items-center gap-2">{children}</div> : null}
     </div>
+  );
+}
+
+/**
+ * A pill: status, a date, a count — anything small that labels the thing
+ * beside it.
+ *
+ * The `.chip` class already sets the shape and the colour; this decides what
+ * goes inside, so an icon is the same size and sits the same distance from its
+ * text on every screen. Pills drawn by hand had drifted to four icon sizes.
+ * `tint` takes a `tint-*` class; without one the pill follows its parent's.
+ */
+export function Chip({
+  icon: Icon,
+  tint,
+  className,
+  children,
+}: {
+  icon?: LucideIcon;
+  tint?: string;
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <span className={cn("chip", tint, className)}>
+      {Icon ? <Icon className="size-3.5 shrink-0" aria-hidden /> : null}
+      {children}
+    </span>
   );
 }
 
@@ -203,11 +232,17 @@ export function Meter({
   className,
   label,
   size = "md",
+  fillIn = false,
 }: {
   value: number;
   className?: string;
   label?: boolean;
   size?: "sm" | "md" | "lg";
+  /**
+   * Fill up from empty on arrival, loader stripes running, and settle on the
+   * value. Plays on mount, so key the meter by its value to replay it.
+   */
+  fillIn?: boolean;
 }) {
   const pct = Math.max(0, Math.min(100, value));
   const h = size === "sm" ? "h-2" : size === "lg" ? "h-4" : "h-3";
@@ -224,7 +259,10 @@ export function Meter({
       aria-valuemax={100}
     >
       <div
-        className="h-full rounded-full bg-[color:var(--tint)] transition-[width] duration-700 ease-out"
+        className={cn(
+          "h-full rounded-full bg-[color:var(--tint)]",
+          fillIn ? "meter-fill" : "transition-[width] duration-700 ease-out",
+        )}
         style={{ width: `${pct}%` }}
       />
     </div>
@@ -243,18 +281,24 @@ export function Meter({
  * A circular gauge, for the one number a screen is actually about.
  *
  * Draws with `--ring-len` / `--ring-end` so the sweep animates in CSS and the
- * reduced-motion rule can land it flat at the final value.
+ * reduced-motion rule can land it flat at the final value. The sweep plays on
+ * mount, so key a ring by its value to replay it when the number changes.
+ *
+ * `soft` draws the sweep in a paler mix of the tint, for a ring that sits
+ * beside a solid one and means something different — a goal next to progress.
  */
 export function Ring({
   value,
   size = 76,
   stroke = 9,
+  soft = false,
   children,
   className,
 }: {
   value: number;
   size?: number;
   stroke?: number;
+  soft?: boolean;
   children?: ReactNode;
   className?: string;
 }) {
@@ -275,23 +319,27 @@ export function Ring({
           strokeWidth={stroke}
           stroke="color-mix(in oklab, var(--foreground) 8%, transparent)"
         />
-        <circle
-          cx={size / 2}
-          cy={size / 2}
-          r={r}
-          fill="none"
-          strokeWidth={stroke}
-          strokeLinecap="round"
-          stroke="var(--tint)"
-          className="ring-draw"
-          style={
-            {
-              strokeDasharray: len,
-              "--ring-len": len,
-              "--ring-end": len * (1 - pct / 100),
-            } as React.CSSProperties
-          }
-        />
+        {/* Skipped at zero: a zero-length dash still paints its round cap, a
+            stray dot at twelve o'clock on a ring that should be empty. */}
+        {pct > 0 && (
+          <circle
+            cx={size / 2}
+            cy={size / 2}
+            r={r}
+            fill="none"
+            strokeWidth={stroke}
+            strokeLinecap="round"
+            stroke={soft ? "color-mix(in oklab, var(--tint) 40%, var(--card))" : "var(--tint)"}
+            className="ring-draw"
+            style={
+              {
+                strokeDasharray: len,
+                "--ring-len": len,
+                "--ring-end": len * (1 - pct / 100),
+              } as React.CSSProperties
+            }
+          />
+        )}
       </svg>
       <span className="absolute inset-0 flex flex-col items-center justify-center">
         {children ?? <span className="numeral text-lg">{Math.round(pct)}%</span>}
@@ -460,12 +508,7 @@ export function SegmentedToggle({
             {active && (
               <motion.span
                 layoutId={layoutId}
-                className="bg-card absolute inset-0 rounded-full"
-                style={{
-                  border: "1.5px solid color-mix(in oklab, var(--tint) 30%, transparent)",
-                  boxShadow:
-                    "0 1px 0 0 color-mix(in oklab, var(--tint) 30%, transparent), 0 4px 10px -6px color-mix(in oklab, var(--tint) 70%, transparent)",
-                }}
+                className="tab-pill absolute inset-0"
                 transition={
                   reduceMotion ? { duration: 0 } : { type: "spring", stiffness: 420, damping: 36 }
                 }
@@ -505,15 +548,18 @@ export function SubjectToggle({
   value,
   onChange,
   label = "Subject",
+  layoutId = "subject-toggle-pill",
 }: {
   subjects: string[];
   value: string;
   onChange: (subject: string) => void;
   label?: string;
+  /** Unique per mounted toggle: two sharing one would pass the pill between them. */
+  layoutId?: string;
 }) {
   return (
     <SegmentedToggle
-      layoutId="subject-toggle-pill"
+      layoutId={layoutId}
       label={label}
       value={value}
       onChange={onChange}
@@ -524,4 +570,53 @@ export function SubjectToggle({
       }))}
     />
   );
+}
+
+/**
+ * Science text: subscripts and superscripts drawn properly, however the text
+ * was typed or stored, so "Mg2+" and "SO4^2-" read as Mg²⁺ and SO₄²⁻.
+ *
+ * Use it for every question, option, explanation, mark scheme, answer and
+ * piece of feedback, wherever it is shown. The small figures are drawn in the
+ * surrounding face: the web fonts carry no subscript characters, so stored ₂
+ * would otherwise fall back to a system font mid-word.
+ */
+export function SciText({
+  text,
+  context,
+}: {
+  text: string | null | undefined;
+  /** Text shown alongside (a question beside its options), so they are all written alike. */
+  context?: string;
+}) {
+  const runs = useMemo(() => sciRuns(text ?? "", context), [text, context]);
+  const out: ReactNode[] = [];
+  for (let i = 0; i < runs.length; i++) {
+    const r = runs[i];
+    const below = runs[i + 1];
+    // A nuclide, ²³⁸₉₂U: mass number stacked over atomic number, in front of
+    // the symbol, as exam papers print it.
+    if (r.kind === "sup" && below?.kind === "sub" && /^[A-Z]/.test(runs[i + 2]?.text ?? "")) {
+      out.push(
+        <span key={i} className="sci-nuclide">
+          <sup>{r.text}</sup>
+          <sub>{below.text}</sub>
+        </span>,
+      );
+      i++;
+    } else if (r.kind === "sub")
+      out.push(
+        <sub key={i} className="sci-sub">
+          {r.text}
+        </sub>,
+      );
+    else if (r.kind === "sup")
+      out.push(
+        <sup key={i} className="sci-sup">
+          {r.text}
+        </sup>,
+      );
+    else out.push(<Fragment key={i}>{r.text}</Fragment>);
+  }
+  return <>{out}</>;
 }

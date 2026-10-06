@@ -7,11 +7,15 @@ import { FilterBar, type Filters } from "@/components/FilterBar";
 import { toast } from "sonner";
 import { ClipboardCheck, Clock, Inbox, Loader2, MessageSquare } from "lucide-react";
 import { AnswerMarkingList } from "./AnswerMarking";
-import { ErrorNote } from "@/components/Shared";
+import { ErrorNote, SciText } from "@/components/Shared";
+import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import { useAnswerMarking } from "@/hooks/data/useAnswerMarking";
 import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 import { gradeFromPct } from "@/lib/profile/analytics";
+import { BreakDAL } from "@/lib/planner/breaksDal";
+import { breakCovering, type StudentBreak } from "@/lib/planner/breaks";
+import { toDateKey } from "@/lib/planner/week";
 
 /** Derived lifecycle status for a submission. */
 type SubmissionStatus = "PENDING_REVIEW" | "GRADED";
@@ -75,10 +79,14 @@ function urgencyOf(s: Submission): Urgency {
   return "fresh";
 }
 
-/** Student handed it in after the due date. */
-function isLate(s: Submission): boolean {
+/**
+ * Student handed it in after the due date. Not if it was due during a break
+ * they took: nothing was asked of them that week, so it can't be late.
+ */
+function isLate(s: Submission, breaks: readonly StudentBreak[] = []): boolean {
   const due = s.resource?.due_at;
-  return !!due && new Date(s.submitted_at).getTime() > new Date(due).getTime();
+  if (!due || new Date(s.submitted_at).getTime() <= new Date(due).getTime()) return false;
+  return !breakCovering(breaks, toDateKey(new Date(due)));
 }
 
 /** Rows per request, for each segment. */
@@ -119,6 +127,7 @@ export function MarkingQueue() {
   const [pendingSeg, setPendingSeg] = useState<Segment>(EMPTY);
   const [gradedSeg, setGradedSeg] = useState<Segment>(EMPTY);
   const [names, setNames] = useState<Record<string, string>>({});
+  const [breaks, setBreaks] = useState<Record<string, StudentBreak[]>>({});
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState<unknown>(null);
@@ -131,15 +140,16 @@ export function MarkingQueue() {
   const addNames = useCallback(async (rows: Submission[]) => {
     const ids = [...new Set(rows.map((r) => r.student_id))];
     if (ids.length === 0) return;
-    const { data: profs } = await supabase
-      .from("profiles")
-      .select("id, display_name")
-      .in("id", ids);
+    const [{ data: profs }, theirBreaks] = await Promise.all([
+      supabase.from("profiles").select("id, display_name").in("id", ids),
+      BreakDAL.listFor(ids),
+    ]);
     setNames((prev) => {
       const next = { ...prev };
       for (const p of profs ?? []) next[p.id] = p.display_name ?? "";
       return next;
     });
+    setBreaks((prev) => ({ ...prev, ...theirBreaks }));
   }, []);
 
   // The site-wide subject/board/level filters go to the server with each
@@ -225,8 +235,7 @@ export function MarkingQueue() {
     return (
       <div className="rounded-2xl border border-dashed border-border p-6 sm:p-10 text-center text-muted-foreground">
         <Inbox className="w-8 h-8 mx-auto mb-3 opacity-50" />
-        No homework submissions yet. Once students answer their homework it will appear here to
-        review.
+        No task submissions yet. Once students answer their tasks they will appear here to review.
       </div>
     );
   }
@@ -270,6 +279,7 @@ export function MarkingQueue() {
               key={s.id}
               sub={s}
               studentName={nameOf(s.student_id)}
+              studentBreaks={breaks[s.student_id]}
               graderId={userId}
               onSaved={reload}
             />
@@ -313,7 +323,7 @@ function SegmentTab({
   return (
     <button
       onClick={onClick}
-      className={`inline-flex min-h-11 sm:min-h-0 items-center gap-2.5 rounded-xl border px-4 py-2.5 text-sm font-semibold transition ${
+      className={`inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-2.5 rounded-xl border px-4 py-2.5 text-sm font-semibold transition ${
         active
           ? activeCls
           : "bg-secondary border-border text-muted-foreground hover:text-foreground"
@@ -339,11 +349,14 @@ function SegmentTab({
 function MarkSubmissionCard({
   sub,
   studentName,
+  studentBreaks,
   graderId,
   onSaved,
 }: {
   sub: Submission;
   studentName: string;
+  /** Their breaks: work due during one is never Late. */
+  studentBreaks?: StudentBreak[];
   graderId: string | null;
   onSaved: () => void;
 }) {
@@ -358,7 +371,10 @@ function MarkSubmissionCard({
 
   // Built-in homework: the questions and this student's answers, loaded only
   // once the card is open.
-  const marking = useAnswerMarking(sub.resource?.id, sub.id, open);
+  const marking = useAnswerMarking(sub.resource?.id, sub.id, open, {
+    submittedAt: sub.submitted_at,
+    graded: !!sub.graded_at,
+  });
 
   // The awarded total is the honest source for score_pct, so keep the field in
   // step with the per-question marks until the tutor overrides it by hand.
@@ -369,7 +385,8 @@ function MarkSubmissionCard({
   }, [pctTouched, marking.hasQuestions, marking.scorePct]);
 
   // Same for the overall comment: offered, not imposed. A tutor who has written
-  // their own keeps it.
+  // their own keeps it, and one who emptied the box keeps it empty. (The hook
+  // offers no summary once the work is published.)
   const [feedbackTouched, setFeedbackTouched] = useState(false);
   useEffect(() => {
     if (feedbackTouched || !marking.summary || feedback.trim() !== "") return;
@@ -384,28 +401,12 @@ function MarkSubmissionCard({
     }
     setSaving(true);
     try {
-      // Per-question marks first: if one is out of range the overall mark isn't
-      // written either, so the two can't disagree.
-      if (marking.hasQuestions) await marking.saveMarks();
-
-      const { error } = await supabase
-        .from("homework_submissions")
-        .update({
-          // Derived, not typed. The marks are the mark; a grade box a tutor
-          // filled in by hand was a second source of truth that could — and
-          // did — disagree with the percentage printed next to it.
-          grade: pct != null ? String(gradeFromPct(pct)) : null,
-          score_pct: pct,
-          feedback: feedback.trim() || null,
-          graded_by: graderId,
-          graded_at: new Date().toISOString(),
-          // Publishing by hand is also the record that a person looked at it,
-          // which is the difference between a checked mark and one that ran out
-          // of clock.
-          tutor_reviewed_at: new Date().toISOString(),
-        })
-        .eq("id", sub.id);
-      if (error) throw error;
+      // Every answer's marks and the overall mark in one write, so they can't
+      // disagree and the timer can't publish over half of it. The grade is
+      // derived from the score on the server, by the rule gradeFromPct shows
+      // below; the write also records that a person looked at it, which is the
+      // difference between a checked mark and one that ran out of clock.
+      await marking.confirm(pct, feedback.trim() || null);
       toast.success(`Marked ${studentName}'s submission`);
       void invalidatePlanner(plannerQueryClient, sub.student_id);
       onSaved();
@@ -440,14 +441,14 @@ function MarkSubmissionCard({
                 </span>
               )}
               {isPending ? <UrgencyBadge sub={sub} /> : <GradedBadge />}
-              {isLate(sub) && (
+              {isLate(sub, studentBreaks) && (
                 <span className="text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">
                   Late
                 </span>
               )}
             </div>
             <p className="font-display font-bold truncate">
-              {sub.resource?.title ?? "Untitled homework"}
+              {sub.resource?.title ?? "Untitled task"}
             </p>
             <p className="text-xs text-muted-foreground mt-0.5">
               {studentName} · submitted {new Date(sub.submitted_at).toLocaleDateString()}
@@ -469,6 +470,8 @@ function MarkSubmissionCard({
               <p className="inline-flex items-center gap-2 text-sm text-muted-foreground">
                 <Loader2 className="w-3.5 h-3.5 animate-spin" /> Loading answers…
               </p>
+            ) : marking.error ? (
+              <ErrorNote error={marking.error} onRetry={marking.retry} />
             ) : marking.hasQuestions ? (
               // Built-in homework: the answers themselves are the work, and any
               // photos are shown inline against the question they belong to.
@@ -495,7 +498,9 @@ function MarkSubmissionCard({
             {sub.notes && (
               <div className="mt-3 flex items-start gap-2 text-sm text-muted-foreground">
                 <MessageSquare className="w-3.5 h-3.5 mt-0.5 shrink-0" />
-                <span className="italic">{sub.notes}</span>
+                <span className="italic">
+                  <SciText text={sub.notes} />
+                </span>
               </div>
             )}
             {sub.resource?.due_at && (
@@ -531,17 +536,22 @@ function MarkSubmissionCard({
             </span>
           </label>
 
-          <label className="block">
+          {/* A div, not a label: the box carries its own x₂/x² buttons. */}
+          <div className="block">
             <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
               Written feedback
             </span>
-            <textarea
+            <SciAnswerBox
               value={feedback}
-              onChange={(e) => setFeedback(e.target.value)}
+              onValueChange={(text) => {
+                setFeedbackTouched(true);
+                setFeedback(text);
+              }}
               placeholder="Feedback the student will see on their dashboard…"
+              aria-label="Written feedback"
               className="mt-1 w-full min-h-28 rounded-lg premium-input px-3 py-2 text-sm"
             />
-          </label>
+          </div>
 
           <div className="flex flex-wrap items-center justify-between gap-3">
             {sub.graded_at && (
@@ -551,8 +561,8 @@ function MarkSubmissionCard({
             )}
             <button
               onClick={save}
-              disabled={saving}
-              className="ml-auto inline-flex items-center gap-2 h-11 sm:h-10 px-5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
+              disabled={saving || marking.loading || !!marking.error}
+              className="ml-auto inline-flex items-center gap-2 h-11 sm:pointer-fine:h-10 px-5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
             >
               {saving ? (
                 <Loader2 className="w-4 h-4 animate-spin" />

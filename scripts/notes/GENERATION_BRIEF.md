@@ -29,18 +29,23 @@ This is the exact job given to a note-writing agent (Sonnet). One agent drafts
 ## Done means
 
 - Every concept in the chapter has a note, and the validator passes all of them.
-- Every board that has spec points in a concept has a board layer with real
-  exam phrases, real mistakes and a real worked example from that board's pack.
+- Every board that has spec points in a concept has a board layer with its spec
+  codes and a real worked example from that board's pack.
 - An interactive (`predictor` or `slider`) wherever the topic genuinely fits.
 
 ## Do not
 
+- Do not write an "Exam tips" section: no `exam_phrases` and no `mistakes` in
+  any board layer. It was removed from every note and is not written any more.
 - Do not edit anything outside your own notes in `scripts/notes/drafts/<subject>/`.
   Other writers are working on other chapters at the same time.
 - Do not touch git, the database (beyond the read-only source script), or the network.
 - Do not set `meta.checked_by`; only the science check signs a note.
 - Do not use or imitate any textbook or revision guide.
-- Do not invent exam questions or mark-scheme wording. Quote the pack.
+- Do not invent exam questions or mark-scheme wording. Quote the pack, but put
+  its science notation right (the pack's "H2O", "Mg2+" and "cm3" lost their
+  small figures in the PDF copy: write H₂O, Mg²⁺, cm³). `validate.ts` flags any
+  that are left.
 - Do not skip a concept. If a pack is empty or unusable, write the note from the
   spec wording, give it only the boards that have spec points, omit the worked
   example, and say so in the report.

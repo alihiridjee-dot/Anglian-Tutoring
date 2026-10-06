@@ -1,0 +1,27 @@
+-- Close the unused upload path under resources/submissions/ (security audit of
+-- 1 Oct 2026, finding 5).
+--
+-- Tasks have been typed answers since 20260909150000, and the app uploads
+-- nothing for a submission: its only file picker is the profile photo. But two
+-- storage rules from the photo era were still live:
+--
+--   "resources bucket student upload"  let any signed-in user put a file of any
+--       size or type under submissions/<their id>/. The resources bucket has no
+--       size or type limit.
+--   "resources bucket student delete acknowledged"  let a student delete those
+--       files once they had acknowledged their mark. It was made outside the
+--       repo; the rollback holds its live definition.
+--
+-- A file put there by hand would never be deleted: no cascade reaches Storage,
+-- and delete-account clears only avatars. On 5 Oct nothing sat under
+-- resources/submissions/.
+--
+-- Both rules go. Students and parents can no longer write to the resources
+-- bucket at all. Tutors keep their own write, update and delete rules, which
+-- task attachments use, and avatars keep theirs. The read rule is unchanged: its
+-- submissions/ branch now has nothing to read.
+--
+-- postgres may change policies on storage.objects through
+-- supautils.policy_grants, as 20261001104228 did. Safe to run twice.
+drop policy if exists "resources bucket student upload" on storage.objects;
+drop policy if exists "resources bucket student delete acknowledged" on storage.objects;

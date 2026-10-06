@@ -7,6 +7,7 @@ import {
   nextSession,
   sessionStartMs,
   sessionTiming,
+  sessionsOnCourse,
 } from "./liveSessions";
 
 const NOW = Date.parse("2026-09-21T16:00:00Z");
@@ -51,5 +52,54 @@ describe("nextSession", () => {
     expect(nextSession([finished, undated, garbage, tomorrow], NOW)?.id).toBe("next");
     expect(nextSession([finished, undated, garbage], NOW)).toBeNull();
     expect(hasSessionFinished(undated, NOW)).toBe(false);
+  });
+});
+
+describe("sessionsOnCourse", () => {
+  const session = (id: string, subject: string, level: string, board: string | null) => ({
+    id,
+    subject,
+    level,
+    board,
+  });
+  const gcseBio = session("gcse-bio", "biology", "gcse", null);
+  const alevelBio = session("alevel-bio", "biology", "alevel", null);
+  const gcseBioAqa = session("gcse-bio-aqa", "biology", "gcse", "aqa");
+  const gcseBioOcr = session("gcse-bio-ocr", "biology", "gcse", "ocr");
+  const gcsePhys = session("gcse-phys", "physics", "gcse", null);
+  const all = [gcseBio, alevelBio, gcseBioAqa, gcseBioOcr, gcsePhys];
+  const ids = (xs: { id: string }[]) => xs.map((x) => x.id);
+
+  test("a GCSE student isn't shown an A-level room in the same subject", () => {
+    const course = { level: "gcse", enrolments: [{ subject: "biology", board: "aqa" }] };
+    expect(ids(sessionsOnCourse(all, course))).toEqual(["gcse-bio", "gcse-bio-aqa"]);
+  });
+
+  test("a session for another board is left out; one with no board is open to all", () => {
+    const course = { level: "gcse", enrolments: [{ subject: "biology", board: "ocr" }] };
+    expect(ids(sessionsOnCourse(all, course))).toEqual(["gcse-bio", "gcse-bio-ocr"]);
+  });
+
+  test("each subject is matched against its own board", () => {
+    const course = {
+      level: "gcse",
+      enrolments: [
+        { subject: "biology", board: "aqa" },
+        { subject: "physics", board: "edexcel" },
+      ],
+    };
+    expect(ids(sessionsOnCourse(all, course))).toEqual(["gcse-bio", "gcse-bio-aqa", "gcse-phys"]);
+  });
+
+  test("an A-level student sees only A-level sessions", () => {
+    const course = { level: "alevel", enrolments: [{ subject: "biology", board: "aqa" }] };
+    expect(ids(sessionsOnCourse(all, course))).toEqual(["alevel-bio"]);
+  });
+
+  test("a student with no level, or no enrolments, is shown nothing", () => {
+    expect(
+      sessionsOnCourse(all, { level: null, enrolments: [{ subject: "biology", board: "aqa" }] }),
+    ).toEqual([]);
+    expect(sessionsOnCourse(all, { level: "gcse", enrolments: [] })).toEqual([]);
   });
 });

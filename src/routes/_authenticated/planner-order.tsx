@@ -6,6 +6,7 @@ import { TopicOrderEditor } from "@/components/planner/TopicOrderEditor";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
 import { useViewerId } from "@/hooks/useViewer";
+import { useActiveSubject, useSubjectFromLink } from "@/hooks/useActiveSubject";
 import { guardStudentSection } from "@/lib/auth/routeGuards";
 import { invalidatePlanner } from "@/lib/planner/queries";
 import { isSubject, type SubjectV } from "@/lib/curriculum/taxonomy";
@@ -23,13 +24,15 @@ function TopicOrderPage() {
   const { subject: requested } = Route.useSearch();
   const { enrolments, level, loading } = useEnrolments();
   const studentId = useViewerId();
-  // A bare /planner-order opens the student's own first subject. It used to
-  // assume Biology, which left a Physics-only student on "No course plan".
-  const enrolment = requested
-    ? enrolments.find((e) => e.subject === requested)
-    : enrolments.find((e) => isSubject(e.subject));
-  const subject: SubjectV =
-    requested ?? (isSubject(enrolment?.subject) ? enrolment.subject : "biology");
+  const navigate = useNavigate();
+  // The planner links here with its course, which moves the header slider; a
+  // bare /planner-order is on the slider's subject. Either way the slider
+  // decides from then on, so switching it reorders the other subject.
+  const { subject: active } = useActiveSubject();
+  useSubjectFromLink(requested, () => void navigate({ to: "/planner-order", replace: true }));
+  const chosen = requested ?? active;
+  const enrolment = enrolments.find((e) => e.subject === chosen);
+  const subject: SubjectV = isSubject(chosen) ? chosen : "biology";
   const course = {
     studentId: studentId ?? "",
     subject,
@@ -38,7 +41,6 @@ function TopicOrderPage() {
   };
   const query = usePlannerRoadmap(course, 0, !!studentId && !!enrolment && !!level);
   const client = useQueryClient();
-  const navigate = useNavigate();
   const back = () => {
     void navigate({ to: "/planner" });
   };
