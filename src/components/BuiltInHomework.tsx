@@ -17,6 +17,7 @@ import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import { SciText } from "@/components/Shared";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
+import { MarkScheme } from "@/components/homework/MarkScheme";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 
 /**
@@ -125,9 +126,11 @@ export function AnsweredView({
               {marked && q.mark_scheme && (
                 <div className="border-border mt-2 border-t pt-2">
                   <p className="eyebrow-bare">Mark scheme</p>
-                  <p className="text-muted-foreground mt-1 text-xs whitespace-pre-wrap">
-                    <SciText text={q.mark_scheme} context={notation} />
-                  </p>
+                  <MarkScheme
+                    scheme={q.mark_scheme}
+                    context={notation}
+                    className="mt-1.5 text-sm"
+                  />
                 </div>
               )}
             </li>
@@ -359,9 +362,11 @@ export function AnswerForm({
               q.mark_scheme && (
                 <div className="border-border mt-3 border-t pt-2">
                   <p className="eyebrow-bare">Mark scheme</p>
-                  <p className="text-muted-foreground mt-1 text-xs whitespace-pre-wrap">
-                    <SciText text={q.mark_scheme} context={q.prompt} />
-                  </p>
+                  <MarkScheme
+                    scheme={q.mark_scheme}
+                    context={q.prompt}
+                    className="mt-1.5 text-sm"
+                  />
                 </div>
               )
             ) : (
