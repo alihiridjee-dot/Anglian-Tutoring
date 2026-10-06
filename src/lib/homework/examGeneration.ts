@@ -194,6 +194,18 @@ Construct each question and its answer/rubric together. The command word, reason
 
 Return only the structured result requested. Never expose reference answers or marking instructions in the student-facing question. Do not include a claim that a generated question is an official exam-board question.`;
 
+/**
+ * How a written question's mark scheme is laid out. Students read it once
+ * their work is marked, drawn by `layoutMarkScheme`: this is the shape that
+ * draws cleanly, where a paragraph of points joined by semicolons does not.
+ */
+export const MARK_SCHEME_LAYOUT = `Lay out each mark_scheme as plain lines, one item per line, with no Markdown, HTML or blank lines:
+- Each creditworthy point is its own line starting "- " and ending with its credit when it carries one: "- Light is focused in front of the retina (1)". Never join points with semicolons or run them into a paragraph.
+- A line that introduces a list ends with a colon: "Any two from:" or "Indicative content:".
+- A question in parts puts each part label on its own line, "(a)", above that part's points.
+- A levels-of-response scheme gives its indicative content as points, then "Levels:" and one line per level from the top: "- Level 3 (5–6 marks): …", down to "- 0 marks: no relevant content."
+- Acceptable alternatives, rejections, error carried forward and other conditions come after the points they qualify, under a "Guidance:" line, one per line starting "- ".`;
+
 const block = (name: string, value: unknown) =>
   `<${name}>\n${JSON.stringify(value).replace(/</g, "\\u003c")}\n</${name}>`;
 
@@ -222,6 +234,7 @@ export function buildGenerationPrompt(
       format === "written"
         ? `Write exactly ${count} written questions. answer_type is short, long or numeric. marks is an integer from 1 to 30, justified by the rubric. mark_scheme must contain the answer and all credit rules.`
         : `Write exactly ${count} MCQs. Each has exactly four distinct, plausible options and one correct answer. correct_index is a zero-based integer from 0 to 3. Vary its position across the set. explanation must identify why the keyed answer is correct.`,
+      ...(format === "written" ? [MARK_SCHEME_LAYOUT] : []),
       "For each item record assessment_objectives (AO1/AO2/AO3 where applicable), mathematical_demand and practical_demand separately. These are internal labels, not student-facing text.",
     ].join("\n\n"),
   };
