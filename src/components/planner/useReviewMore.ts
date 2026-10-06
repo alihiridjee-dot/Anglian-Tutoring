@@ -1,13 +1,19 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import { WeeklyPlanDAL, type PlanPoint, type WeeklyPlan } from "@/lib/planner/weeklyPlanDal";
+import {
+  MAX_WEEK_POINTS,
+  WeeklyPlanDAL,
+  type PlanPoint,
+  type WeeklyPlan,
+} from "@/lib/planner/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
+import { indexOverrides, programmeMayAssign } from "@/lib/planner/overrides";
+import { spineReach } from "@/lib/planner/admissibility";
 
 /** How many waiting reviews one press of "Review more now" pulls into the week. */
 export const REVIEW_MORE_BATCH = 10;
 
-/** `save_weekly_plan` refuses a week holding more spec points than this. */
-export const MAX_WEEK_POINTS = 200;
+export { MAX_WEEK_POINTS };
 
 /**
  * "Review more now": pull the next reviews that are due but waiting — the ones
@@ -26,7 +32,22 @@ export function useReviewMore(params: {
   reload: () => Promise<void>;
 }) {
   const [busy, setBusy] = useState(false);
-  const waiting = params.isCurrent ? (params.roadmap?.reviewsWaiting ?? []) : [];
+  const weekStart = params.plan?.week_start ?? "";
+  const overrides = indexOverrides(params.roadmap?.overrides);
+  const reach = spineReach(params.roadmap?.baselineBands ?? [], true);
+  // Only reviews this week may actually hold: not ones the tutor took out of
+  // it, and not ones for a topic the programme has not opened yet. Offering
+  // those read "10 more ready", then "0 added", for ever.
+  const waiting = params.isCurrent
+    ? (params.roadmap?.reviewsWaiting ?? []).filter(
+        (c) =>
+          programmeMayAssign(
+            overrides,
+            { specPointId: c.specPointId, origin: "focus" },
+            weekStart,
+          ) && !((reach.get(c.topicId) ?? "") > weekStart),
+      )
+    : [];
   const room = Math.max(0, MAX_WEEK_POINTS - params.points.length);
   const next = waiting.slice(0, Math.min(REVIEW_MORE_BATCH, room));
 
@@ -40,7 +61,8 @@ export function useReviewMore(params: {
         "focus",
       );
       await params.reload();
-      toast.success(`${added} more ${added === 1 ? "review" : "reviews"} added to this week`);
+      if (added === 0) toast.error("Those reviews can't be added to this week right now.");
+      else toast.success(`${added} more ${added === 1 ? "review" : "reviews"} added to this week`);
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't add more reviews");
     } finally {

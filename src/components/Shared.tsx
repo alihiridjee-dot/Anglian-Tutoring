@@ -128,7 +128,8 @@ export function EmptyState({
   compact = false,
 }: {
   title: string;
-  body: string;
+  /** Optional: a title that says it all needs no grey line under it. */
+  body?: string;
   action?: { to: string; label: string };
   mascot?: MascotName;
   mood?: Mood;
@@ -138,7 +139,7 @@ export function EmptyState({
     return (
       <div className="space-y-2 text-sm">
         <h3 className="text-sm font-bold">{title}</h3>
-        <p className="text-muted-foreground">{body}</p>
+        {body && <p className="text-muted-foreground">{body}</p>}
         {action && (
           <Link to={action.to as never} className="btn-premium inline-flex px-3 py-2">
             {action.label}
@@ -150,7 +151,11 @@ export function EmptyState({
     <div className="pop-card flex flex-col items-center px-6 py-10 text-center">
       <Mascot name={mascot} mood={mood} size={104} className="mb-4" />
       <h3 className="font-display text-xl font-extrabold">{title}</h3>
-      <p className="text-muted-foreground mx-auto mt-2 max-w-md text-sm leading-relaxed">{body}</p>
+      {body && (
+        <p className="text-muted-foreground mx-auto mt-2 max-w-md text-sm leading-relaxed">
+          {body}
+        </p>
+      )}
       {action ? (
         <Link
           to={action.to as never}

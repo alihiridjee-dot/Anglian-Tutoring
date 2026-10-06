@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { EmptyState, SegmentedToggle, Spinner } from "@/components/Shared";
+import { EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -18,9 +18,12 @@ import {
   groupHomework,
   isAwaitingRelease,
   isOverdue,
+  splitDue,
   type HomeworkBucket,
   type HomeworkItem,
 } from "@/lib/homework/homeworkBuckets";
+import { useDueThisWeek } from "@/components/planner/useDueThisWeek";
+import { DueLanes, DueSection } from "@/components/planner/DueSection";
 import { ChevronDown, Clock, Plus } from "lucide-react";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { MarkingQueue } from "@/components/tutor/MarkingQueue";
@@ -30,7 +33,7 @@ import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { plannerDateLabel } from "@/lib/planner/week";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
-import { SUBJECT_LABEL, SUBJECT_TINT, subjectTint } from "@/lib/curriculum/subjectTheme";
+import { SUBJECT_LABEL, subjectTint } from "@/lib/curriculum/subjectTheme";
 import { useEntryState } from "@/hooks/useEntryState";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { PredictedGradeCard } from "@/components/homework/PredictedGradeCard";
@@ -44,8 +47,9 @@ import { PredictedGradeCard } from "@/components/homework/PredictedGradeCard";
  * every unsubmitted sheet's form inline stopped being viable the moment the
  * second one existed.
  *
- * Sections are lifecycle states, not sources: due, handed in, marked, then the
- * practice library. See `@/lib/homework/homeworkBuckets` for why that is the right axis.
+ * Sections are lifecycle states, not sources: due, handed in, marked. Due is
+ * this week's plan, split into the dashboard's lanes. See
+ * `@/lib/homework/homeworkBuckets` for why that is the right axis.
  */
 export function HomeworkPage() {
   const { isTutor, userId, loading: rolesLoading } = useRoles();
@@ -83,7 +87,7 @@ export function HomeworkPage() {
   // what exists stays available below as secondary context.
   if (isTutor) {
     return (
-      <AppLayout title="Tasks & Grades">
+      <AppLayout title="Tasks & Marking">
         <p className="text-muted-foreground mb-6 max-w-2xl">
           Set tasks as questions students answer on the site — generate them from the spec with AI,
           edit anything, then check the marks before they go out.
@@ -112,13 +116,17 @@ export function HomeworkPage() {
  * read as one product: the subject from the header slider, then the lifecycle
  * as tabs. Previously every lifecycle section was stacked open at once, which
  * was fine at four sheets and unreadable once the planner started writing one
- * per spec point — the practice section alone runs to fifteen.
+ * per spec point. Inside Due, the week is split as the dashboard splits it —
+ * new learning, missed work returning, revision — so a sheet sits under the
+ * same name on both pages.
  *
  * Colour comes from the subject, not the bucket. The buckets used to tint
  * themselves amber/emerald, but a subject switch that repaints the page cannot
  * share a surface with a second colour system without one of them looking like
- * a bug. Urgency keeps its own signal regardless: overdue still carries a red
- * chip, a mark still carries its score.
+ * a bug. The one exception is Due's lanes, which wear the dashboard's colours
+ * for them so the two pages match, with the subject's colour glowing behind
+ * (Ali, 6 Oct 2026). Urgency keeps its own signal regardless: overdue still
+ * carries a red chip, a mark still carries its score.
  */
 function StudentHomework({
   homework,
@@ -141,6 +149,10 @@ function StudentHomework({
     ...studentBreaksQuery(userId ?? ""),
     enabled: !!userId && !isDemoStudent(),
   });
+  // This week's plan for the subject in the header: which sheets are due, and
+  // under which of the dashboard's lanes.
+  const due = useDueThisWeek(subject);
+  const busy = loading || due.loading;
 
   // The student sits each subject with one board. A sheet belongs on this page
   // if it is for that board, for every board, or already handed in — switching
@@ -155,12 +167,13 @@ function StudentHomework({
         submission: submissions[hw.id],
         enrolledAt: enrolledAt.get(hw.subject),
         breaks,
+        slot: due.slots.tasks.get(hw.id),
       }))
       .filter(({ hw, submission }) => {
         const board = boardOf.get(hw.subject);
         return !!submission || !hw.board || !board || hw.board === board;
       });
-  }, [homework, submissions, enrolments, breaks]);
+  }, [homework, submissions, enrolments, breaks, due.slots]);
 
   // Only the sheets on screen need their question counts, but counting
   // everything at once is still one round trip rather than one per card.
@@ -179,13 +192,15 @@ function StudentHomework({
 
   // Land on something worth reading. "Due" is the right default when there is
   // anything due, but opening on an empty tab because nothing is would be a
-  // worse first impression than simply showing the work that does exist.
+  // worse first impression than simply showing the work that does exist. Not
+  // while the week is still loading, when Due is empty only for now.
   useEffect(() => {
+    if (busy) return;
     const current = sections.find((s) => s.bucket === bucket);
     if (current && current.items.length > 0) return;
     const firstWithWork = sections.find((s) => s.items.length > 0);
     if (firstWithWork) setBucket(firstWithWork.bucket);
-  }, [sections, bucket, setBucket]);
+  }, [busy, sections, bucket, setBucket]);
 
   const active = sections.find((s) => s.bucket === bucket) ?? sections[0];
   const nothingAtAll = sections.every((s) => s.items.length === 0);
@@ -210,7 +225,7 @@ function StudentHomework({
         </div>
       )}
 
-      {loading ? (
+      {busy ? (
         <Spinner label="Fetching your tasks" />
       ) : !subject ? (
         <EmptyState
@@ -223,6 +238,13 @@ function StudentHomework({
         // The subject tint wraps the page, so the tabs and every card and chip
         // inside them are one colour without any of them naming it.
         <div className={subjectTint(subject)}>
+          {/* Without the week, Due can't say what is due: say so rather than
+              pass off a half-empty tab as the whole of it. */}
+          {due.error && (
+            <div className="mb-5">
+              <ErrorNote error={due.error} onRetry={() => void due.reload()} />
+            </div>
+          )}
           <div className="mb-5 overflow-x-auto">
             <SegmentedToggle
               layoutId="homework-bucket-pill"
@@ -247,11 +269,30 @@ function StudentHomework({
           ) : (
             active && (
               <div data-guide="homework-list">
-                <div className="space-y-3">
-                  {active.items.map((item) => (
-                    <HomeworkCard key={item.hw.id} item={item} summary={summaries[item.hw.id]} />
-                  ))}
-                </div>
+                {active.bucket === "due" ? (
+                  // Every lane open at once, under the dashboard's names.
+                  <DueLanes>
+                    {splitDue(active.items).map(({ lane, items: work }) => (
+                      <DueSection key={lane} lane={lane} count={work.length}>
+                        <div className="space-y-3">
+                          {work.map((item) => (
+                            <HomeworkCard
+                              key={item.hw.id}
+                              item={item}
+                              summary={summaries[item.hw.id]}
+                            />
+                          ))}
+                        </div>
+                      </DueSection>
+                    ))}
+                  </DueLanes>
+                ) : (
+                  <div className="space-y-3">
+                    {active.items.map((item) => (
+                      <HomeworkCard key={item.hw.id} item={item} summary={summaries[item.hw.id]} />
+                    ))}
+                  </div>
+                )}
               </div>
             )
           )}
@@ -273,9 +314,9 @@ function HomeworkCard({ item, summary }: { item: HomeworkItem; summary?: Homewor
       // sign-in from a page whose whole job is to be browsable without an account.
       to={isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"}
       params={{ homeworkId: hw.id }}
-      className={`premium-card flex items-center justify-between gap-4 p-4 transition hover:brightness-[0.99] ${
-        SUBJECT_TINT[hw.subject] ?? "tint-primary"
-      }`}
+      // No tint of its own: it takes the subject's from the page, or its
+      // lane's inside Due, as the dashboard's rows take their lane's.
+      className="premium-card flex items-center justify-between gap-4 p-4 transition hover:brightness-[0.99]"
     >
       {/* The same shape as the top of the sheet it opens: the title, one plain
           line under it, and a number boxed on the right. No subject label —
@@ -288,7 +329,7 @@ function HomeworkCard({ item, summary }: { item: HomeworkItem; summary?: Homewor
               summary && summary.count > 0
                 ? `${summary.count} question${summary.count === 1 ? "" : "s"}`
                 : null,
-              hw.origin === "tutor" ? "Set by your tutor" : "Practice",
+              hw.origin === "tutor" ? "Set by your tutor" : null,
               hw.due_at && !submission && !overdue
                 ? `Due ${plannerDateLabel(new Date(hw.due_at))}`
                 : null,

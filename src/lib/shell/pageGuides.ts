@@ -119,14 +119,14 @@ export const pageGuides: Record<string, GuideStep[]> = {
       "Switch subjects here, at the top, to see the quizzes for the course you want to work on.",
     ),
     select(
-      '[data-guide="mcq-this-week"] h2',
-      "Start with this week",
-      "These quizzes match the spec points in this week’s plan. Open one to answer the questions, then read the explanations.",
+      '[data-guide="mcq-list"] a',
+      "Start with what’s due",
+      "Due holds this week’s quizzes, split the way your dashboard splits the week. Open one to answer the questions, then read the explanations.",
     ),
     select(
-      '[data-guide="mcq-past"] button',
-      "Revisit earlier quizzes",
-      "Quizzes from earlier weeks are filed under their topic. Open a topic to retake one.",
+      '[role="tablist"][aria-label="Quiz status"]',
+      "Find your scores",
+      "A quiz you’ve done moves to Marked with your best score. Open it there to look back over it or retake it.",
     ),
   ],
   "My Planner": [
