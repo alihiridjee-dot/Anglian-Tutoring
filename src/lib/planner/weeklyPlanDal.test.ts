@@ -230,3 +230,26 @@ test("refresh removes withheld work from the proposal without re-inserting histo
     coverage.mockRestore();
   }
 });
+
+test("addPoints refuses to push a week past the 200-point cap the database enforces on re-cuts", async () => {
+  tables.student_weekly_plan_points = Array.from({ length: 200 }, (_, i) => ({
+    ...pointRow(`p${i}`, "core"),
+    spec_point_id: `p${i}`,
+  }));
+  await expect(WeeklyPlanDAL.addPoints("plan", ["manual"], "tutor")).rejects.toThrow(
+    "as much as it can",
+  );
+  expect(writes).toEqual([]);
+});
+
+test("addPoints does not count a point the week already holds against the cap", async () => {
+  tables.student_weekly_plan_points = [
+    ...Array.from({ length: 199 }, (_, i) => ({
+      ...pointRow(`p${i}`, "core"),
+      spec_point_id: `p${i}`,
+    })),
+    { ...pointRow("manual", "tutor"), spec_point_id: "manual" },
+  ];
+  await expect(WeeklyPlanDAL.addPoints("plan", ["manual"], "tutor")).resolves.toBe(1);
+  expect(writes.some((w) => w.name === "student_weekly_plan_points")).toBe(true);
+});

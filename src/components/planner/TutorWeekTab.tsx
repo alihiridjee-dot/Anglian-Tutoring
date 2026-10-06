@@ -210,6 +210,7 @@ export function TutorWeekTab({ state }: { state: TutorPlannerState }) {
           board={active.board as BoardV}
           level={student.level ?? "gcse"}
           weekStart={weekStart}
+          examDate={state.roadmap?.examDate}
           onChanged={() => void state.refreshAll()}
           readOnly
         />

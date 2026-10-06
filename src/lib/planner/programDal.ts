@@ -25,7 +25,13 @@ import {
   spineIsForAnotherCourse,
   type RoadmapResult,
 } from "./roadmap";
-import { mergeWeek, selectWeek, unsupportedReviews, type WeekSelection } from "./weekCut";
+import {
+  MAX_WEEK_POINTS,
+  mergeWeek,
+  selectWeek,
+  unsupportedReviews,
+  type WeekSelection,
+} from "./weekCut";
 import { SubjectPauseDAL } from "./pausesDal";
 import { BreakDAL } from "./breaksDal";
 import { breakWeekKeys, layBreaksOver, type StudentBreak } from "./breaks";
@@ -318,7 +324,11 @@ export class ProgramDAL {
             params.weekStart,
           ),
       )
-      .map((p) => p.specPointId);
+      .map((p) => p.specPointId)
+      // `addPoints` refuses to push a week past the cap, and this runs on every
+      // load of the week, so a full week topped up mid-week showed an error all
+      // week. The top-up takes only the room that is left.
+      .slice(0, Math.max(0, MAX_WEEK_POINTS - existing.size));
     if (!missing.length) return false;
     return (await WeeklyPlanDAL.addPoints(params.planId, missing, "core")) > 0;
   }

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef } from "react";
+import { toast } from "sonner";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   WeeklyPlanDAL,
@@ -218,6 +219,28 @@ export function useWeekPlan(params: {
     mutationFn: async ({ id, value }: { id: string; value: boolean }) => {
       if (week.data) await WeeklyPlanDAL.setPointDone(week.data.plan.id, id, value);
     },
+    /**
+     * Tick the box at once. The round trip used to be the only thing that
+     * moved it, and `reload` refetches the whole planner, so for a second or
+     * two the box still read its old state. A second tap in that window sent
+     * the same value again: a double-tap left the point ticked. The cache is
+     * updated before the write and put back if the write fails.
+     */
+    onMutate: async ({ id, value }) => {
+      await client.cancelQueries({ queryKey: weekKey });
+      const previous = client.getQueryData<typeof week.data>(weekKey);
+      if (previous)
+        client.setQueryData(weekKey, {
+          ...previous,
+          points: previous.points.map((p) =>
+            p.spec_point_id === id ? { ...p, done_at: value ? new Date().toISOString() : null } : p,
+          ),
+        });
+      return { previous };
+    },
+    onError: (_error, _vars, context) => {
+      if (context?.previous) client.setQueryData(weekKey, context.previous);
+    },
     onSettled: reload,
   });
   return {
@@ -239,7 +262,12 @@ export function useWeekPlan(params: {
     error: week.error ?? activity.error ?? coverage.error ?? road.error,
     reload,
     setPointDone: async (id, value) => {
-      await done.mutateAsync({ id, value });
+      try {
+        await done.mutateAsync({ id, value });
+      } catch (e) {
+        // The box has already been put back (onError); say why.
+        toast.error(e instanceof Error ? e.message : "Couldn't save that tick — try again.");
+      }
     },
   };
 }

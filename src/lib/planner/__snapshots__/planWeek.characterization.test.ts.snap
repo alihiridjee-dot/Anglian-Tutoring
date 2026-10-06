@@ -91,7 +91,7 @@ exports[`planForWeek next week: its own review and catch-up slice; a teaching we
 exports[`planForWeek a week the spine leaves empty stays empty 1`] = `
 {
   "origins": {},
-  "rationale": "",
+  "rationale": "Nothing new from your course this week: its points are already covered. Missed work and reviews are added as they come due.",
   "specPointIds": [],
 }
 `;
@@ -114,7 +114,7 @@ exports[`planForWeek a custom topic order: a completed point's week vs an untouc
 [
   {
     "origins": {},
-    "rationale": "",
+    "rationale": "Nothing new from your course this week: its points are already covered. Missed work and reviews are added as they come due.",
     "specPointIds": [],
   },
   {

@@ -18,6 +18,7 @@ import { byTopic } from "@/lib/planner/backlog";
 import {
   addWeeks,
   currentWeekKey,
+  mondayOf,
   plannerDateLabel,
   toDateKey,
   weekKeyToDate,
@@ -40,6 +41,9 @@ export function FullPlanTimeline({
   focusWeek?: string;
 }) {
   const now = currentWeekKey();
+  // The exam date is stored as the day it falls on; the week it lands in is
+  // keyed by its Monday, or a Wednesday exam never showed an "Exams" week.
+  const examWeek = toDateKey(mondayOf(weekKeyToDate(data.examDate)));
   const viewport = useRef<HTMLDivElement>(null);
   const cards = useRef(new Map<string, HTMLElement>());
   const [expanded, setExpanded] = useState(new Set<string>());
@@ -236,10 +240,10 @@ export function FullPlanTimeline({
             >
               <header className="flex flex-wrap items-center justify-between gap-2 px-4 py-4 sm:px-5 border-b border-border">
                 <h3 className="text-base font-bold">{weekRangeLabel(weekKeyToDate(week))}</h3>
-                {(isNow || week >= data.examDate) && (
+                {(isNow || week >= examWeek) && (
                   <span className="flex flex-wrap gap-1.5">
                     {isNow && <span className="chip chip-solid text-xs">This week</span>}
-                    {week >= data.examDate && (
+                    {week >= examWeek && (
                       <span className="chip tint-rose text-xs">
                         <GraduationCap className="size-3.5" aria-hidden /> Exams
                       </span>
@@ -281,7 +285,7 @@ export function FullPlanTimeline({
                         </ul>
                       )}
                     </>
-                  ) : week >= data.examDate ? (
+                  ) : week >= examWeek ? (
                     <NothingDue mascot="panda" mood="proud" title="Exam time. Good luck!" />
                   ) : (
                     <NothingDue mascot="panda" mood="sleepy" title="No new topic this week" />
