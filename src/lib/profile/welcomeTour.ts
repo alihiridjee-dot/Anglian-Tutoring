@@ -31,3 +31,40 @@ export async function markWelcomeTourSeen(userId: string): Promise<string> {
   if (error) throw error;
   return seenAt;
 }
+
+/**
+ * Whether this student has watched the welcome video to the end, on this
+ * device.
+ *
+ * Only a convenience, so it lives in localStorage rather than on the profile:
+ * it spares a student who leaves partway through the tour from sitting through
+ * the video again before the tour picks up. Finishing the tour is what the
+ * profile records, and after that the video never plays by itself.
+ */
+const VIDEO_WATCHED = "anglia.welcome-video-watched.v1";
+
+function local(): Storage | null {
+  // Safari in private mode throws on access rather than returning null.
+  try {
+    if (typeof window === "undefined") return null;
+    return window.localStorage;
+  } catch {
+    return null;
+  }
+}
+
+export function readWelcomeVideoWatched(userId: string): boolean {
+  try {
+    return !!local()?.getItem(`${VIDEO_WATCHED}:${userId}`);
+  } catch {
+    return false;
+  }
+}
+
+export function markWelcomeVideoWatched(userId: string): void {
+  try {
+    local()?.setItem(`${VIDEO_WATCHED}:${userId}`, new Date().toISOString());
+  } catch {
+    // Blocked or full: the video plays once more, which does no harm.
+  }
+}
