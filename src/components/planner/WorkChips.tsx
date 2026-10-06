@@ -85,6 +85,10 @@ export function HomeworkChip({
       {done ? <CheckCircle2 className="w-3 h-3" /> : <ClipboardList className="w-3 h-3" />}
       {done && coverage?.homeworkScore != null ? (
         <span className="tabular-nums font-semibold">{coverage.homeworkScore}%</span>
+      ) : done ? (
+        // Handed in but not marked yet: the layout's verb ("Start") would ask
+        // the student to do it again.
+        "Handed in"
       ) : (
         label
       )}

@@ -28,7 +28,7 @@ export const DEMO_SPEC_POINT_NOTES: Record<string, SpecPointNote[]> = {
     { id: "bio-014", title: "Active transport", primary: false },
   ],
   "demo-sp-osmosis-practical": [
-    { id: "bio-013", title: "Required practical: osmosis in plant tissue", primary: true },
+    { id: "bio-013", title: "Core practical: osmosis in plant tissue", primary: true },
   ],
   "demo-sp-digestion": [{ id: "bio-023", title: "Digestive enzymes", primary: true }],
   "demo-sp-pathogens": [

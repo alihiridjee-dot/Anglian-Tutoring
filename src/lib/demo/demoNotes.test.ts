@@ -17,11 +17,7 @@ const fixtures = new Map(
 const onTheMap = Object.entries(DEMO_SPEC_POINT_NOTES).flatMap(([point, notes]) =>
   notes.map((n) => ({ point, ...n })),
 );
-// The weekly plan has one point the curriculum doesn't list: the osmosis practical.
-const demoPoints = [
-  ...Object.values(DEMO_CURRICULUM_SPEC_POINTS).flatMap((ps) => ps.map((p) => p.id)),
-  "demo-sp-osmosis-practical",
-];
+const demoPoints = Object.values(DEMO_CURRICULUM_SPEC_POINTS).flatMap((ps) => ps.map((p) => p.id));
 
 describe("the showcase's revision notes", () => {
   test("every fixture is a note that renders", () => {

@@ -100,7 +100,7 @@ const THREADS: DemoThread[] = [
     id: "demo-thread-osmosis",
     subject: "biology",
     subject_line: "Osmosis task — question 2",
-    context_label: "Task · 4.1.3 Osmosis",
+    context_label: "Task · EDEX 1.15 Active, Passive & Osmotic Transport",
     contextKind: "homework",
     link: { to: "/demo/student/homework/$homeworkId", id: "demo-hw-osmosis" },
     messages: [

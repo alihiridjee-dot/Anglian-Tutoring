@@ -829,11 +829,17 @@ function Section({ heading, children }: { heading: string; children: ReactNode }
 export function NoteView({ note, board }: { note: Note; board: NoteBoard }) {
   const layer = note.boards[board];
   const tint = SUBJECT_TINT[note.subject];
-  const eyebrow = [
-    `GCSE ${SUBJECT_LABEL[note.subject]}`,
-    BOARD_LABEL[board],
-    ...(layer?.spec_codes ?? []),
-  ].join(" · ");
+  // The eyebrow is set in capitals, which would turn OCR's "P3.2i" into a
+  // code that doesn't exist, so the codes keep their own case.
+  const codes = layer?.spec_codes ?? [];
+  // One span, because .eyebrow is a flex row and loose children would each
+  // become an item with a gap between them.
+  const eyebrow = (
+    <span>
+      GCSE {SUBJECT_LABEL[note.subject]} · {BOARD_LABEL[board]}
+      {codes.length > 0 && <span className="normal-case"> · {codes.join(" · ")}</span>}
+    </span>
+  );
 
   return (
     <div className={`${tint} space-y-6`}>

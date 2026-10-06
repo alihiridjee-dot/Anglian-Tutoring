@@ -2,7 +2,7 @@
   "boards": {
     "edexcel": {
       "spec_codes": [
-        "4.1.1"
+        "EDEX 1.1"
       ],
       "worked_example": {
         "answer_points": [

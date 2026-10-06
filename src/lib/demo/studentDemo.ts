@@ -155,10 +155,11 @@ export const DEMO_HOMEWORK: DemoHomework[] = [
     origin: "tutor",
   },
   // No due date, so these land in the practice section — which is where the
-  // planner's per-spec-point sheets live for a real student.
+  // planner's per-spec-point sheets live for a real student. Each is titled as
+  // the live generator titles one: the point's code, then its title.
   {
     id: "demo-hw-osmosis",
-    title: "4.1.3 Osmosis",
+    title: "EDEX 1.15 Active, Passive & Osmotic Transport",
     instructions: null,
     subject: "biology",
     due_at: null,
@@ -167,7 +168,7 @@ export const DEMO_HOMEWORK: DemoHomework[] = [
   },
   {
     id: "demo-hw-covalent",
-    title: "5.2.2 Covalent bonding",
+    title: "AQA 4.2.1.4 Covalent bonding",
     instructions: null,
     subject: "chemistry",
     due_at: null,
@@ -176,7 +177,7 @@ export const DEMO_HOMEWORK: DemoHomework[] = [
   },
   {
     id: "demo-hw-rates",
-    title: "5.6.1 Rate of reaction",
+    title: "AQA 4.6.1.3 Collision theory and activation energy",
     instructions:
       "Sodium thiosulfate and hydrochloric acid. Describe the trend, then evaluate the method.",
     subject: "chemistry",
@@ -186,7 +187,7 @@ export const DEMO_HOMEWORK: DemoHomework[] = [
   },
   {
     id: "demo-hw-series",
-    title: "6.2.2 Series & parallel circuits",
+    title: "OCR P3.2i Resistance in series and parallel",
     instructions: null,
     subject: "physics",
     due_at: null,
@@ -699,12 +700,13 @@ export const DEMO_VIDEOS: DemoVideo[] = [
   },
   {
     id: "demo-vid-2",
-    title: "Required Practical: Osmosis in Potato Cells",
+    title: "Core Practical: Osmosis in Potatoes",
     description: "Step-by-step method, results table, and how to plot percentage change in mass.",
     subject: "biology",
     board: "edexcel",
     level: "gcse",
     video_url: DEMO_YT.osmosis,
+    spec_point_id: "demo-sp-osmosis-practical",
   },
   {
     id: "demo-vid-3",
@@ -717,7 +719,7 @@ export const DEMO_VIDEOS: DemoVideo[] = [
   },
   {
     id: "demo-vid-4",
-    title: "Required Practical: Lamps in Series & Parallel",
+    title: "Practical: Lamps in Series & Parallel",
     description:
       "What happens to current and brightness when lamps are wired in series and in parallel.",
     subject: "physics",
@@ -801,24 +803,22 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     board: "edexcel",
     level: "gcse",
     subject: "biology",
-    topic: "Cell Biology",
+    topic: "Key concepts in biology",
     topicSort: 1,
-    specPoint: "4.1.3",
+    specPoint: "EDEX 1.15",
     thisWeek: true,
   },
-  // The osmosis practical is a point on the plan but not in the demo
-  // curriculum, so this set lives here and on the planner only.
   {
     id: "demo-mcq-osmosis-practical",
-    title: "Required Practical: Osmosis in Potato",
+    title: "Core Practical: Osmosis in Potatoes",
     published: true,
     created_at: daysFromNow(-1),
     board: "edexcel",
     level: "gcse",
     subject: "biology",
-    topic: "Cell Biology",
+    topic: "Key concepts in biology",
     topicSort: 1,
-    specPoint: "RP3",
+    specPoint: "EDEX 1.16",
     thisWeek: true,
   },
   {
@@ -829,9 +829,9 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     board: "aqa",
     level: "gcse",
     subject: "chemistry",
-    topic: "Bonding, Structure & Properties",
+    topic: "Bonding, structure, and the properties of matter",
     topicSort: 2,
-    specPoint: "5.2.1",
+    specPoint: "AQA 4.2.1.2",
     thisWeek: true,
   },
   {
@@ -842,9 +842,9 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     board: "aqa",
     level: "gcse",
     subject: "chemistry",
-    topic: "Bonding, Structure & Properties",
+    topic: "Bonding, structure, and the properties of matter",
     topicSort: 2,
-    specPoint: "5.2.2",
+    specPoint: "AQA 4.2.1.4",
     thisWeek: true,
   },
   {
@@ -856,8 +856,8 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     level: "gcse",
     subject: "physics",
     topic: "Electricity",
-    topicSort: 2,
-    specPoint: "6.2.1",
+    topicSort: 3,
+    specPoint: "OCR P3.2g",
     thisWeek: true,
   },
   {
@@ -869,8 +869,8 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     level: "gcse",
     subject: "physics",
     topic: "Electricity",
-    topicSort: 2,
-    specPoint: "6.2.2",
+    topicSort: 3,
+    specPoint: "OCR P3.2i",
     thisWeek: true,
   },
   // Earlier weeks — already attempted, so the archive shows scores.
@@ -878,13 +878,14 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     id: "demo-mcq-cells",
     title: "Cell Structure",
     published: true,
-    created_at: daysFromNow(-16),
+    // Last week: Topic 1's first week on the road to the exam.
+    created_at: daysFromNow(-6),
     board: "edexcel",
     level: "gcse",
     subject: "biology",
-    topic: "Cell Biology",
+    topic: "Key concepts in biology",
     topicSort: 1,
-    specPoint: "4.1.1",
+    specPoint: "EDEX 1.1",
     thisWeek: false,
   },
   {
@@ -895,9 +896,9 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     board: "edexcel",
     level: "gcse",
     subject: "biology",
-    topic: "Cell Biology",
-    topicSort: 1,
-    specPoint: "4.1.2",
+    topic: "Cells and control",
+    topicSort: 2,
+    specPoint: "EDEX 2.1",
     thisWeek: false,
   },
   {
@@ -908,9 +909,9 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     board: "edexcel",
     level: "gcse",
     subject: "biology",
-    topic: "Bioenergetics",
-    topicSort: 4,
-    specPoint: "4.4.1",
+    topic: "Plant structures and their functions",
+    topicSort: 6,
+    specPoint: "EDEX 6.3",
     thisWeek: false,
   },
   {
@@ -921,9 +922,9 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     board: "edexcel",
     level: "gcse",
     subject: "biology",
-    topic: "Bioenergetics",
-    topicSort: 4,
-    specPoint: "4.4.2",
+    topic: "Exchange and transport in animals",
+    topicSort: 8,
+    specPoint: "EDEX 8.9",
     thisWeek: false,
   },
   {
@@ -934,9 +935,9 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     board: "aqa",
     level: "gcse",
     subject: "chemistry",
-    topic: "Atomic Structure & the Periodic Table",
+    topic: "Atomic structure and the periodic table",
     topicSort: 1,
-    specPoint: "5.1.1",
+    specPoint: "AQA 4.1.1.5",
     thisWeek: false,
   },
   {
@@ -948,30 +949,32 @@ export const DEMO_MCQ_SETS: DemoMcqSet[] = [
     level: "gcse",
     subject: "physics",
     topic: "Energy",
-    topicSort: 1,
-    specPoint: "6.1.1",
+    topicSort: 7,
+    specPoint: "OCR P7.1b",
     thisWeek: false,
   },
 ];
 
 /**
- * Quizzes on points Alex's plan hasn't reached yet (B2 and B3 start in a few
- * weeks, C6 in eight). The curriculum shows them on their spec points, but the
- * Weekly MCQs page leaves them out, as it does for a real student: its "Past
- * MCQs" are what has been covered, and these haven't been.
+ * Quizzes on points Alex's plan hasn't reached yet: enzymes is still to come in
+ * Biology's Topic 1, which is under way; Biology's Topic 5 starts in thirteen
+ * weeks and Chemistry's Topic 6 in fifteen (see DEMO_ROADMAP in plannerDemo.ts).
+ * The curriculum shows them on their spec points, but the Weekly MCQs page
+ * leaves them out, as it does for a real student: its "Past MCQs" are what has
+ * been covered, and these haven't been.
  */
 export const DEMO_MCQ_SETS_LATER: DemoMcqSet[] = [
   {
     id: "demo-mcq-digestion",
-    title: "The Digestive System",
+    title: "Enzymes & Digestion",
     published: true,
     created_at: daysFromNow(-3),
     board: "edexcel",
     level: "gcse",
     subject: "biology",
-    topic: "Organisation",
-    topicSort: 2,
-    specPoint: "4.2.1",
+    topic: "Key concepts in biology",
+    topicSort: 1,
+    specPoint: "EDEX 1.12",
     thisWeek: false,
   },
   {
@@ -982,9 +985,9 @@ export const DEMO_MCQ_SETS_LATER: DemoMcqSet[] = [
     board: "edexcel",
     level: "gcse",
     subject: "biology",
-    topic: "Infection & Response",
-    topicSort: 3,
-    specPoint: "4.3.1",
+    topic: "Health, disease and the development of medicines",
+    topicSort: 5,
+    specPoint: "EDEX 5.4",
     thisWeek: false,
   },
   {
@@ -995,9 +998,9 @@ export const DEMO_MCQ_SETS_LATER: DemoMcqSet[] = [
     board: "aqa",
     level: "gcse",
     subject: "chemistry",
-    topic: "Rate of Chemical Change",
+    topic: "The rate and extent of chemical change",
     topicSort: 6,
-    specPoint: "5.6.1",
+    specPoint: "AQA 4.6.1.3",
     thisWeek: false,
   },
 ];
@@ -1849,74 +1852,87 @@ const liveOn = (pointId: string): Resource[] =>
     due_at: null,
   }));
 
+/**
+ * Each subject is labelled with its own board's codes and topic names, as the
+ * production curriculum stores them: Biology is Edexcel, Chemistry AQA and
+ * Physics OCR (see DEMO_ENROLMENTS). Topic titles drop the "Topic N:" prefix
+ * that some boards repeat in the title, since the code already says it.
+ */
 export const DEMO_CURRICULUM_TOPICS: Record<string, Topic[]> = {
   biology: [
     {
       id: "demo-topic-cells",
-      code: "B1",
-      title: "Cell Biology",
-      description: "Cell structure, division and transport.",
+      code: "Topic 1",
+      title: "Key concepts in biology",
+      description: "Cells, enzymes and how substances move in and out of cells.",
       sort_order: 1,
     },
     {
-      id: "demo-topic-organisation",
-      code: "B2",
-      title: "Organisation",
-      description: "Tissues, organs and the digestive system.",
+      id: "demo-topic-cell-control",
+      code: "Topic 2",
+      title: "Cells and control",
+      description: "Mitosis, growth, stem cells and the nervous system.",
       sort_order: 2,
     },
     {
       id: "demo-topic-infection",
-      code: "B3",
-      title: "Infection & Response",
+      code: "Topic 5",
+      title: "Health, disease and the development of medicines",
       description: "Pathogens, the immune system and drug development.",
-      sort_order: 3,
+      sort_order: 5,
     },
     {
       id: "demo-topic-bioenergetics",
-      code: "B4",
-      title: "Bioenergetics",
-      description: "Photosynthesis and respiration.",
-      sort_order: 4,
+      code: "Topic 6",
+      title: "Plant structures and their functions",
+      description: "Photosynthesis and how plants move water and sugars.",
+      sort_order: 6,
+    },
+    {
+      id: "demo-topic-organisation",
+      code: "Topic 8",
+      title: "Exchange and transport in animals",
+      description: "Gas exchange, the blood, the heart and respiration.",
+      sort_order: 8,
     },
   ],
   chemistry: [
     {
       id: "demo-topic-atomic",
-      code: "C1",
-      title: "Atomic Structure & the Periodic Table",
+      code: "Topic 1",
+      title: "Atomic structure and the periodic table",
       description: "Atoms, isotopes and periodicity.",
       sort_order: 1,
     },
     {
       id: "demo-topic-bonding",
-      code: "C2",
-      title: "Bonding, Structure & Properties",
+      code: "Topic 2",
+      title: "Bonding, structure, and the properties of matter",
       description: "Ionic, covalent and metallic bonding.",
       sort_order: 2,
     },
     {
       id: "demo-topic-rates",
-      code: "C6",
-      title: "Rate of Chemical Change",
+      code: "Topic 6",
+      title: "The rate and extent of chemical change",
       description: "Measuring rates, collision theory and catalysts.",
       sort_order: 6,
     },
   ],
   physics: [
     {
-      id: "demo-topic-energy",
-      code: "P1",
-      title: "Energy",
-      description: "Energy stores, transfers and efficiency.",
-      sort_order: 1,
-    },
-    {
       id: "demo-topic-electricity",
-      code: "P2",
+      code: "Topic 3",
       title: "Electricity",
       description: "Current, potential difference and circuits.",
-      sort_order: 2,
+      sort_order: 3,
+    },
+    {
+      id: "demo-topic-energy",
+      code: "Topic 7",
+      title: "Energy",
+      description: "Energy stores, transfers and efficiency.",
+      sort_order: 7,
     },
   ],
 };
@@ -1926,40 +1942,48 @@ export const DEMO_CURRICULUM_SPEC_POINTS: Record<string, SpecPoint[]> = {
     {
       id: "demo-sp-cell-structure",
       topic_id: "demo-topic-cells",
-      code: "4.1.1",
-      title: "Cell structure",
+      code: "EDEX 1.1",
+      title: "Eukaryotic and Prokaryotic Cells",
       description: "Eukaryotic and prokaryotic cells and their sub-cellular structures.",
     },
     {
-      id: "demo-sp-cell-division",
+      id: "demo-sp-digestion",
       topic_id: "demo-topic-cells",
-      code: "4.1.2",
-      title: "Cell division & mitosis",
-      description: "The cell cycle, mitosis and stem cells.",
+      code: "EDEX 1.12",
+      title: "Enzymes as Biological Catalysts",
+      description: "Enzymes and the products of digestion.",
     },
     {
       id: "demo-sp-transport",
       topic_id: "demo-topic-cells",
-      code: "4.1.3",
-      title: "Transport in cells",
+      code: "EDEX 1.15",
+      title: "Active, Passive & Osmotic Transport",
       description: "Diffusion, osmosis and active transport.",
     },
-  ],
-  "demo-topic-organisation": [
     {
-      id: "demo-sp-digestion",
-      topic_id: "demo-topic-organisation",
-      code: "4.2.1",
-      title: "The digestive system",
-      description: "Enzymes and the products of digestion.",
+      id: "demo-sp-osmosis-practical",
+      topic_id: "demo-topic-cells",
+      code: "EDEX 1.16",
+      title: "Core Practical – Osmosis in Potatoes",
+      description:
+        "Potato pieces in a range of sugar solutions, and the percentage change in mass.",
+    },
+  ],
+  "demo-topic-cell-control": [
+    {
+      id: "demo-sp-cell-division",
+      topic_id: "demo-topic-cell-control",
+      code: "EDEX 2.1",
+      title: "Mitosis and the Cell Cycle",
+      description: "The cell cycle and the stages of mitosis.",
     },
   ],
   "demo-topic-infection": [
     {
       id: "demo-sp-pathogens",
       topic_id: "demo-topic-infection",
-      code: "4.3.1",
-      title: "Communicable diseases",
+      code: "EDEX 5.4",
+      title: "Pathogens & Infectious Agents",
       description: "Bacterial, viral, fungal and protist pathogens.",
     },
   ],
@@ -1967,24 +1991,26 @@ export const DEMO_CURRICULUM_SPEC_POINTS: Record<string, SpecPoint[]> = {
     {
       id: "demo-sp-photosynthesis",
       topic_id: "demo-topic-bioenergetics",
-      code: "4.4.1",
-      title: "Photosynthesis",
-      description: "The reaction, limiting factors and the inverse-square law.",
+      code: "EDEX 6.3",
+      title: "Rate Limiting Factors on Photosynthesis",
+      description: "How light intensity, CO₂ and temperature limit the rate.",
     },
+  ],
+  "demo-topic-organisation": [
     {
       id: "demo-sp-respiration",
-      topic_id: "demo-topic-bioenergetics",
-      code: "4.4.2",
-      title: "Respiration",
-      description: "Aerobic and anaerobic respiration and metabolism.",
+      topic_id: "demo-topic-organisation",
+      code: "EDEX 8.9",
+      title: "Exothermic Respiration & Cellular Energy",
+      description: "Respiration as an exothermic reaction that transfers energy in every cell.",
     },
   ],
   "demo-topic-atomic": [
     {
       id: "demo-sp-atoms",
       topic_id: "demo-topic-atomic",
-      code: "5.1.1",
-      title: "Atoms & isotopes",
+      code: "AQA 4.1.1.5",
+      title: "Size and mass of atoms",
       description: "Atomic structure, isotopes and relative atomic mass.",
     },
   ],
@@ -1992,14 +2018,14 @@ export const DEMO_CURRICULUM_SPEC_POINTS: Record<string, SpecPoint[]> = {
     {
       id: "demo-sp-ionic",
       topic_id: "demo-topic-bonding",
-      code: "5.2.1",
+      code: "AQA 4.2.1.2",
       title: "Ionic bonding",
-      description: "Formation and properties of ionic compounds.",
+      description: "Electron transfer between metals and non-metals, and the ions it forms.",
     },
     {
       id: "demo-sp-covalent",
       topic_id: "demo-topic-bonding",
-      code: "5.2.2",
+      code: "AQA 4.2.1.4",
       title: "Covalent bonding",
       description: "Shared pairs of electrons and simple molecules.",
     },
@@ -2008,34 +2034,34 @@ export const DEMO_CURRICULUM_SPEC_POINTS: Record<string, SpecPoint[]> = {
     {
       id: "demo-sp-rates",
       topic_id: "demo-topic-rates",
-      code: "5.6.1",
-      title: "Rate of reaction",
-      description: "Measuring rate, collision theory and the factors that affect it.",
-    },
-  ],
-  "demo-topic-energy": [
-    {
-      id: "demo-sp-energy-stores",
-      topic_id: "demo-topic-energy",
-      code: "6.1.1",
-      title: "Energy stores & transfers",
-      description: "Kinetic, gravitational and elastic energy stores.",
+      code: "AQA 4.6.1.3",
+      title: "Collision theory and activation energy",
+      description: "Collision frequency, activation energy and why each factor changes the rate.",
     },
   ],
   "demo-topic-electricity": [
     {
       id: "demo-sp-circuits",
       topic_id: "demo-topic-electricity",
-      code: "6.2.1",
-      title: "Circuits & I–V characteristics",
+      code: "OCR P3.2g",
+      title: "Linear and non-linear components (I–V graphs)",
       description: "Resistance, V = IR and how components behave.",
     },
     {
       id: "demo-sp-series",
       topic_id: "demo-topic-electricity",
-      code: "6.2.2",
-      title: "Series & parallel circuits",
+      code: "OCR P3.2i",
+      title: "Resistance in series and parallel",
       description: "Current, potential difference and resistance in each kind of circuit.",
+    },
+  ],
+  "demo-topic-energy": [
+    {
+      id: "demo-sp-energy-stores",
+      topic_id: "demo-topic-energy",
+      code: "OCR P7.1b",
+      title: "How energy stores change in a system",
+      description: "Kinetic, gravitational and elastic energy stores.",
     },
   ],
 };
@@ -2197,13 +2223,27 @@ const CURRICULUM_CONTENT: Record<string, { resources: Resource[]; mcqSets: McqSe
       ),
       demoVid(
         "demo-res-v-osmosis",
-        "Required Practical: Osmosis in Potato Cells",
+        "Core Practical: Osmosis in Potatoes",
         "Method, results and percentage change in mass.",
         DEMO_YT.osmosis,
       ),
       demoHw("demo-hw-osmosis"),
     ],
     mcqSets: [quiz("demo-mcq-transport")],
+  },
+  // The osmosis task is written for both transport and the practical, so it
+  // sits on both points, as a sheet linked to two points does live.
+  "demo-sp-osmosis-practical": {
+    resources: [
+      demoVid(
+        "demo-res-v-osmosis",
+        "Core Practical: Osmosis in Potatoes",
+        "Method, results and percentage change in mass.",
+        DEMO_YT.osmosis,
+      ),
+      demoHw("demo-hw-osmosis"),
+    ],
+    mcqSets: [quiz("demo-mcq-osmosis-practical")],
   },
   "demo-sp-digestion": {
     resources: [
@@ -2237,7 +2277,7 @@ const CURRICULUM_CONTENT: Record<string, { resources: Resource[]; mcqSets: McqSe
       ),
       demoVid(
         "demo-res-v-photo-practical",
-        "Required Practical: Rates of Photosynthesis",
+        "Core Practical: Rates of Photosynthesis",
         "The pondweed practical, step by step.",
         DEMO_YT.photosynthesisPractical,
       ),
@@ -2338,7 +2378,7 @@ const CURRICULUM_CONTENT: Record<string, { resources: Resource[]; mcqSets: McqSe
     resources: [
       demoVid(
         "demo-res-v-series",
-        "Required Practical: Lamps in Series & Parallel",
+        "Practical: Lamps in Series & Parallel",
         "What happens to current and brightness in each circuit.",
         DEMO_YT.seriesParallel,
       ),

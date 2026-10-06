@@ -2,7 +2,7 @@
   "boards": {
     "aqa": {
       "spec_codes": [
-        "5.6.1"
+        "AQA 4.6.1.2"
       ],
       "worked_example": {
         "answer_points": [

@@ -2,7 +2,7 @@
   "boards": {
     "edexcel": {
       "spec_codes": [
-        "4.1.3"
+        "EDEX 1.15"
       ],
       "worked_example": {
         "answer_points": [
@@ -330,7 +330,7 @@
             "Plot percentage change in mass against concentration.",
             "Where the line crosses zero there is no net movement of water.",
             "That solution has the same concentration as the solution inside the cells.",
-            "The full method is in the required practical note."
+            "The full method is in the core practical note."
           ],
           "type": "list"
         },

@@ -2,7 +2,7 @@
   "boards": {
     "edexcel": {
       "spec_codes": [
-        "RP3"
+        "EDEX 1.16"
       ],
       "worked_example": {
         "answer_points": [
@@ -333,5 +333,5 @@
     }
   ],
   "subject": "biology",
-  "title": "Required practical: osmosis in plant tissue"
+  "title": "Core practical: osmosis in plant tissue"
 }

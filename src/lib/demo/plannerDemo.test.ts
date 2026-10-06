@@ -102,7 +102,7 @@ describe("the demo week agrees with the fixtures", () => {
         expect(back).toEqual([]);
         continue;
       }
-      expect(back.map((b) => b.code)).toEqual(["6.2.1"]);
+      expect(back.map((b) => b.code)).toEqual(["OCR P3.2g"]);
       const monday = new Date(`${week.plan.week_start}T00:00:00Z`).getTime();
       for (const b of back) {
         const weeksAgo = (monday - new Date(`${b.plannedWeek}T00:00:00Z`).getTime()) / 604_800_000;
@@ -119,15 +119,19 @@ describe("the demo week agrees with the fixtures", () => {
 });
 
 describe("the road to the exam", () => {
+  // Every topic of the board each subject sits: Edexcel Biology, AQA Chemistry
+  // and OCR Physics.
+  const SPEC_TOPICS: Record<SubjectV, number> = { biology: 9, chemistry: 10, physics: 8 };
+
   for (const subject of SUBJECTS) {
     const road = [...DEMO_ROADMAP[subject]].sort((a, b) => a.startsIn - b.startsIn);
     const topics = road.filter((t) => t.code);
 
     test(`${subject}: every topic, numbered without gaps, then revision and mocks`, () => {
-      const prefix = topics[0].code[0];
-      const numbers = topics.map((t) => Number(t.code.slice(1))).sort((a, b) => a - b);
-      expect(topics.every((t) => t.code[0] === prefix)).toBe(true);
-      expect(numbers).toEqual(numbers.map((_, i) => i + 1));
+      const numbers = topics
+        .map((t) => Number(/^Topic (\d+)$/.exec(t.code)?.[1]))
+        .sort((a, b) => a - b);
+      expect(numbers).toEqual(Array.from({ length: SPEC_TOPICS[subject] }, (_, i) => i + 1));
       const last = road.at(-1)!;
       expect(last.title).toBe("Revision & mocks");
       expect(last.startsIn + last.weeks).toBe(DEMO_WEEKS_TO_EXAMS);

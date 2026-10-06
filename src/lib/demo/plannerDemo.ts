@@ -103,27 +103,14 @@ const energyQuiz = demoQuizPct("demo-mcq-energy");
 export const DEMO_WEEK_SEEDS: Record<SubjectV, { rationale: string; points: PointSeed[] }> = {
   biology: {
     rationale:
-      "Cell Biology is on schedule, with transport in cells and the osmosis practical this week. Mitosis and photosynthesis come back for spaced revision, so they stay secure before the mocks.",
+      "Topic 1 is on schedule, with transport in cells and the osmosis core practical this week. Mitosis and photosynthesis come back for spaced revision, so they stay secure before the mocks.",
     points: [
       {
-        id: "demo-sp-cell-division",
-        code: "4.1.2",
-        title: "Cell division & mitosis",
-        topicId: "demo-topic-cells",
-        topicTitle: "Cell Biology",
-        lane: "focus",
-        work: {
-          video: ["Cell Division by Mitosis", DEMO_YT.mitosis],
-          quiz: "demo-mcq-mitosis",
-          task: "demo-hw-mitosis",
-        },
-      },
-      {
         id: "demo-sp-transport",
-        code: "4.1.3",
-        title: "Transport in cells",
+        code: "EDEX 1.15",
+        title: "Active, Passive & Osmotic Transport",
         topicId: "demo-topic-cells",
-        topicTitle: "Cell Biology",
+        topicTitle: "Key concepts in biology",
         lane: "core",
         work: {
           video: ["Diffusion, Osmosis & Active Transport", DEMO_YT.transport],
@@ -133,25 +120,38 @@ export const DEMO_WEEK_SEEDS: Record<SubjectV, { rationale: string; points: Poin
       },
       {
         id: "demo-sp-osmosis-practical",
-        code: "RP3",
-        title: "Required practical: osmosis in potato",
+        code: "EDEX 1.16",
+        title: "Core Practical – Osmosis in Potatoes",
         topicId: "demo-topic-cells",
-        topicTitle: "Cell Biology",
+        topicTitle: "Key concepts in biology",
         lane: "core",
-        // The osmosis sheet is written for both 4.1.3 and the practical, so it
-        // sits on both rows, as a sheet linked to two points does live.
+        // The osmosis sheet is written for both EDEX 1.15 and the practical, so
+        // it sits on both rows, as a sheet linked to two points does live.
         work: {
-          video: ["Required Practical: Osmosis", DEMO_YT.osmosis],
+          video: ["Core Practical: Osmosis", DEMO_YT.osmosis],
           quiz: "demo-mcq-osmosis-practical",
           task: "demo-hw-osmosis",
         },
       },
       {
+        id: "demo-sp-cell-division",
+        code: "EDEX 2.1",
+        title: "Mitosis and the Cell Cycle",
+        topicId: "demo-topic-cell-control",
+        topicTitle: "Cells and control",
+        lane: "focus",
+        work: {
+          video: ["Cell Division by Mitosis", DEMO_YT.mitosis],
+          quiz: "demo-mcq-mitosis",
+          task: "demo-hw-mitosis",
+        },
+      },
+      {
         id: "demo-sp-photosynthesis",
-        code: "4.4.1",
-        title: "Photosynthesis",
+        code: "EDEX 6.3",
+        title: "Rate Limiting Factors on Photosynthesis",
         topicId: "demo-topic-bioenergetics",
-        topicTitle: "Bioenergetics",
+        topicTitle: "Plant structures and their functions",
         lane: "focus",
         work: {
           video: ["Photosynthesis: Limiting Factors", DEMO_YT.photosynthesis],
@@ -163,14 +163,14 @@ export const DEMO_WEEK_SEEDS: Record<SubjectV, { rationale: string; points: Poin
   },
   chemistry: {
     rationale:
-      "Bonding starts this week, with ionic and covalent bonding. Atoms & isotopes comes back for a quick revision pass, so it stays secure now Atomic Structure is done.",
+      "Bonding starts this week, with ionic and covalent bonding. The size and mass of atoms comes back for a quick revision pass, so it stays secure now Topic 1 is done.",
     points: [
       {
         id: "demo-sp-atoms",
-        code: "5.1.1",
-        title: "Atoms & isotopes",
+        code: "AQA 4.1.1.5",
+        title: "Size and mass of atoms",
         topicId: "demo-topic-atomic",
-        topicTitle: "Atomic Structure & the Periodic Table",
+        topicTitle: "Atomic structure and the periodic table",
         lane: "focus",
         work: {
           video: ["Elements, Isotopes & Relative Atomic Mass", DEMO_YT.isotopes],
@@ -180,10 +180,10 @@ export const DEMO_WEEK_SEEDS: Record<SubjectV, { rationale: string; points: Poin
       },
       {
         id: "demo-sp-ionic",
-        code: "5.2.1",
+        code: "AQA 4.2.1.2",
         title: "Ionic bonding",
         topicId: "demo-topic-bonding",
-        topicTitle: "Bonding, Structure & Properties",
+        topicTitle: "Bonding, structure, and the properties of matter",
         lane: "core",
         work: {
           video: ["Properties of Ionic Compounds", DEMO_YT.ionic],
@@ -193,10 +193,10 @@ export const DEMO_WEEK_SEEDS: Record<SubjectV, { rationale: string; points: Poin
       },
       {
         id: "demo-sp-covalent",
-        code: "5.2.2",
+        code: "AQA 4.2.1.4",
         title: "Covalent bonding",
         topicId: "demo-topic-bonding",
-        topicTitle: "Bonding, Structure & Properties",
+        topicTitle: "Bonding, structure, and the properties of matter",
         lane: "core",
         work: {
           video: ["Covalent Bonding", DEMO_YT.covalent],
@@ -207,27 +207,14 @@ export const DEMO_WEEK_SEEDS: Record<SubjectV, { rationale: string; points: Poin
     ],
   },
   physics: {
-    rationale: `Series & parallel circuits is new this week. Circuits & I–V characteristics was missed last week, so it comes back as catch-up. Energy stores returns for revision${
+    rationale: `Resistance in series and parallel is new this week. I–V graphs were missed last week, so they come back as catch-up. Energy stores returns for revision${
       energyQuiz != null ? `: its quiz was ${energyQuiz}%, so the quiz is worth another go` : ""
     }.`,
     points: [
       {
-        id: "demo-sp-energy-stores",
-        code: "6.1.1",
-        title: "Energy stores & transfers",
-        topicId: "demo-topic-energy",
-        topicTitle: "Energy",
-        lane: "focus",
-        work: {
-          video: ["Energy Stores: a Worked Example", DEMO_YT.energyStores],
-          quiz: "demo-mcq-energy",
-          task: "demo-hw-energy",
-        },
-      },
-      {
         id: "demo-sp-circuits",
-        code: "6.2.1",
-        title: "Circuits & I–V characteristics",
+        code: "OCR P3.2g",
+        title: "Linear and non-linear components (I–V graphs)",
         topicId: "demo-topic-electricity",
         topicTitle: "Electricity",
         lane: "core",
@@ -240,8 +227,8 @@ export const DEMO_WEEK_SEEDS: Record<SubjectV, { rationale: string; points: Poin
       },
       {
         id: "demo-sp-series",
-        code: "6.2.2",
-        title: "Series & parallel circuits",
+        code: "OCR P3.2i",
+        title: "Resistance in series and parallel",
         topicId: "demo-topic-electricity",
         topicTitle: "Electricity",
         lane: "core",
@@ -249,6 +236,19 @@ export const DEMO_WEEK_SEEDS: Record<SubjectV, { rationale: string; points: Poin
           video: ["Lamps in Series & Parallel", DEMO_YT.seriesParallel],
           quiz: "demo-mcq-series",
           task: "demo-hw-series",
+        },
+      },
+      {
+        id: "demo-sp-energy-stores",
+        code: "OCR P7.1b",
+        title: "How energy stores change in a system",
+        topicId: "demo-topic-energy",
+        topicTitle: "Energy",
+        lane: "focus",
+        work: {
+          video: ["Energy Stores: a Worked Example", DEMO_YT.energyStores],
+          quiz: "demo-mcq-energy",
+          task: "demo-hw-energy",
         },
       },
     ],
@@ -468,41 +468,48 @@ const road = (subject: SubjectV, topics: ReturnType<typeof topic>[]): DemoRoadTo
  *
  * Laid out from the week of 5 October 2026: teaching from early September,
  * nothing new over the school holidays, and revision and mocks before the
- * exams in May. The order is the tutor's: Biology took Bioenergetics first,
- * which is why photosynthesis already has marks while Cell Biology is under
- * way.
+ * exams in May. Each subject lists every topic of its board's spec: Edexcel
+ * Biology's 9, AQA Chemistry's 10 and OCR Physics' 8.
+ *
+ * The order is the tutor's, not the spec's. Topics that hold Alex's marked work
+ * come first, then the topic under way, then the rest in spec order. Biology
+ * opened with photosynthesis, respiration and mitosis (Topics 6, 8 and 2), which
+ * is why they already have marks while Topic 1 is under way. Physics took
+ * Energy (Topic 7) before Electricity (Topic 3), as many schools do.
  */
 export const DEMO_ROADMAP: Record<SubjectV, DemoRoadTopic[]> = {
   biology: road("biology", [
-    topic("B4", "Bioenergetics", ROAD_START, 2),
-    topic("B1", "Cell Biology", -2, 5),
-    topic("B2", "Organisation", 4, 4),
-    topic("B3", "Infection & Response", 8, 3),
-    topic("B5", "Homeostasis & Response", 13, 6),
-    topic("B6", "Inheritance, Variation & Evolution", 20, 3),
-    topic("B7", "Ecology", 23, 2),
+    topic("Topic 6", "Plant structures and their functions", ROAD_START, 1),
+    topic("Topic 8", "Exchange and transport in animals", -3, 1),
+    topic("Topic 2", "Cells and control", -2, 1),
+    topic("Topic 1", "Key concepts in biology", -1, 4),
+    topic("Topic 3", "Genetics", 4, 4),
+    topic("Topic 4", "Natural selection and genetic modification", 8, 3),
+    topic("Topic 5", "Health, disease and the development of medicines", 13, 6),
+    topic("Topic 7", "Animal coordination, control and homeostasis", 20, 3),
+    topic("Topic 9", "Ecosystems and material cycles", 23, 2),
   ]),
   chemistry: road("chemistry", [
-    topic("C1", "Atomic Structure & the Periodic Table", ROAD_START, 4),
-    topic("C2", "Bonding, Structure & Properties", 0, 3),
-    topic("C3", "Quantitative Chemistry", 4, 4),
-    topic("C4", "Chemical Changes", 8, 3),
-    topic("C5", "Energy Changes", 13, 2),
-    topic("C6", "Rate of Chemical Change", 15, 2),
-    topic("C7", "Organic Chemistry", 17, 2),
-    topic("C8", "Chemical Analysis", 20, 2),
-    topic("C9", "Chemistry of the Atmosphere", 22, 1),
-    topic("C10", "Using Resources", 23, 2),
+    topic("Topic 1", "Atomic structure and the periodic table", ROAD_START, 4),
+    topic("Topic 2", "Bonding, structure, and the properties of matter", 0, 3),
+    topic("Topic 3", "Quantitative chemistry", 4, 4),
+    topic("Topic 4", "Chemical changes", 8, 3),
+    topic("Topic 5", "Energy changes", 13, 2),
+    topic("Topic 6", "The rate and extent of chemical change", 15, 2),
+    topic("Topic 7", "Organic chemistry", 17, 2),
+    topic("Topic 8", "Chemical analysis", 20, 2),
+    topic("Topic 9", "Chemistry of the atmosphere", 22, 1),
+    topic("Topic 10", "Using resources", 23, 2),
   ]),
   physics: road("physics", [
-    topic("P1", "Energy", ROAD_START, 3),
+    topic("Topic 7", "Energy", ROAD_START, 3),
     // Under way since last week. Its first point, missed then, is this week's catch-up.
-    topic("P2", "Electricity", -1, 4),
-    topic("P3", "Particle Model of Matter", 4, 3),
-    topic("P4", "Atomic Structure", 7, 4),
-    topic("P5", "Forces", 13, 6),
-    topic("P6", "Waves", 20, 2),
-    topic("P7", "Magnetism & Electromagnetism", 22, 2),
-    topic("P8", "Space Physics", 24, 1),
+    topic("Topic 3", "Electricity", -1, 4),
+    topic("Topic 1", "Matter", 4, 3),
+    topic("Topic 2", "Forces", 7, 4),
+    topic("Topic 4", "Magnetism and magnetic fields", 13, 3),
+    topic("Topic 5", "Waves in matter", 16, 3),
+    topic("Topic 6", "Radioactivity", 20, 3),
+    topic("Topic 8", "Global challenges", 23, 2),
   ]),
 };

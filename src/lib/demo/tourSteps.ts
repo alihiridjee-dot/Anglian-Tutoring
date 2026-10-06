@@ -28,7 +28,7 @@ export const TOUR_STEPS: TourStep[] = [
     target: '[data-tour="welcome"]',
     chapter: "Student",
     title: "Alex's dashboard",
-    body: "Everything Alex needs this week starts here. Alex takes Biology, Chemistry and Physics, and each can follow a different exam board. The subject switch at the top moves the whole site between them.",
+    body: "Everything Alex needs this week starts here. Alex sits Biology with Edexcel, Chemistry with AQA and Physics with OCR, and each subject follows its own board's spec. The subject switch at the top moves the whole site between them.",
   },
   {
     path: "/demo/student/dashboard",

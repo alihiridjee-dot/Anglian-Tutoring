@@ -100,9 +100,9 @@ const DEMO_PLANS: WeeklyFocusPlan[] = [
     points: [
       {
         id: "demo-sp-photosynthesis",
-        code: "4.4.1",
-        title: "Photosynthesis",
-        topicLabel: "B4 · Bioenergetics",
+        code: "EDEX 6.3",
+        title: "Rate Limiting Factors on Photosynthesis",
+        topicLabel: "Topic 6 · Plant structures and their functions",
       },
     ],
     note: "Great work getting a grade 8 on photosynthesis. You asked how to word the plateau, so here it is: once light stops being the limiting factor, the rate is limited by whichever factor is in shortest supply, such as CO₂ or temperature. Watch the video, read the note, then write that sentence from memory, because it is what stands between you and a 9.",
@@ -115,9 +115,9 @@ const DEMO_PLANS: WeeklyFocusPlan[] = [
     points: [
       {
         id: "demo-sp-ionic",
-        code: "5.2.1",
+        code: "AQA 4.2.1.2",
         title: "Ionic bonding",
-        topicLabel: "C2 · Bonding, Structure & Properties",
+        topicLabel: "Topic 2 · Bonding, structure, and the properties of matter",
       },
     ],
     note: "Bonding starts this week, so watch the ionic bonding video and read the note. For any melting-point question, the phrase that scores is 'strong electrostatic forces of attraction between oppositely charged ions', and never call an ionic compound a molecule. Your bonding task is with me now, and I'll answer your question about what carries the charge when it comes back.",
@@ -130,9 +130,9 @@ const DEMO_PLANS: WeeklyFocusPlan[] = [
     points: [
       {
         id: "demo-sp-series",
-        code: "6.2.2",
-        title: "Series & parallel circuits",
-        topicLabel: "P2 · Electricity",
+        code: "OCR P3.2i",
+        title: "Resistance in series and parallel",
+        topicLabel: "Topic 3 · Electricity",
       },
     ],
     note: "Alongside your I–V task, due in four days, let's lock in series and parallel, because that is where Electricity marks usually leak. In series the current is the same everywhere and the potential difference is shared; in parallel each branch has the same potential difference and the current splits between them. Watch the lamps practical and read the note, then retake the Energy quiz, where you scored 3/5.",

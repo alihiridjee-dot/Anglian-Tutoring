@@ -105,7 +105,9 @@ function RoadToExam({ subject }: { subject: SubjectV }) {
                   {t.title}
                 </p>
                 <p className="text-muted-foreground text-xs">
-                  {fmt(t.startsIn)} – {fmt(t.startsIn + t.weeks - 1)} · {t.weeks} weeks
+                  {t.weeks === 1
+                    ? `${fmt(t.startsIn)} · 1 week`
+                    : `${fmt(t.startsIn)} – ${fmt(t.startsIn + t.weeks - 1)} · ${t.weeks} weeks`}
                 </p>
               </div>
               <span className={`chip shrink-0 ${now ? "chip-solid" : done ? "" : "tint-slate"}`}>

@@ -2,7 +2,7 @@
   "boards": {
     "ocr": {
       "spec_codes": [
-        "6.1.1"
+        "OCR P7.1b"
       ],
       "worked_example": {
         "answer_points": [
