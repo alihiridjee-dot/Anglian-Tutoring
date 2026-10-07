@@ -15,6 +15,7 @@ import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
 import { PausedWeek } from "./PausedWeek";
 import { BreakWeek } from "./BreakWeek";
+import { PastWeek } from "./PastWeek";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { useNow } from "@/hooks/useNow";
 import { useEntryState } from "@/hooks/useEntryState";
@@ -191,6 +192,10 @@ export function WeeklyPlanPanel({
           <PausedWeek subject={active.subject} pause={week.pause} canManage />
         ) : resting && week.onBreak ? (
           <BreakWeek brk={week.onBreak} />
+        ) : !week.loading && week.pastGap ? (
+          // A week gone by that was empty on purpose: a break, a pause, or
+          // the course before a board or level change.
+          <PastWeek gap={week.pastGap} subject={active.subject} own />
         ) : !week.loading && week.points.length === 0 && !week.roadmap ? (
           editable ? (
             <EmptyState future={isFuture} />
@@ -216,7 +221,7 @@ export function WeeklyPlanPanel({
         )}
       </div>
 
-      {!frozen && !resting && (
+      {!frozen && !resting && week.pastGap?.kind !== "old-course" && (
         <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
       )}
 

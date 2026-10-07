@@ -15,6 +15,13 @@ const WHY: Record<PauseReason, string> = {
   break: "On a break",
 };
 
+const day = (iso: string) =>
+  new Date(iso).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    timeZone: PLANNER_TIME_ZONE,
+  });
+
 /**
  * In place of a week, for a subject that is stopped. Nothing is planned while
  * it is, so there is nothing else to show: no empty lanes, and no sentence
@@ -24,26 +31,32 @@ export function PausedWeek({
   subject,
   pause,
   canManage = false,
+  past,
 }: {
   subject: string;
   pause: SubjectPause;
   /** The student's own view: every reason here is settled on their billing page. */
   canManage?: boolean;
+  /**
+   * A week gone by inside the stop, rather than the stop in force: said in the
+   * past tense, with when it ended. `endedAt` null means it still stands.
+   */
+  past?: { endedAt: string | null };
 }) {
-  const since = new Date(pause.startedAt).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    timeZone: PLANNER_TIME_ZONE,
-  });
+  const since = day(pause.startedAt);
   return (
     <div className="tint-amber flex flex-col items-center gap-2.5 py-6 text-center">
       <span className="icon-tile inline-flex w-11 h-11">
         <PauseCircle className="w-5 h-5" />
       </span>
-      <h3 className="text-base">{subjectLabel(subject)} is paused</h3>
+      <h3 className="text-base">
+        {subjectLabel(subject)} {past ? "was" : "is"} paused
+      </h3>
       <div className="flex flex-wrap justify-center gap-1.5">
         <span className="chip">{WHY[pause.reason]}</span>
-        <span className="chip">Since {since}</span>
+        <span className="chip">
+          {past?.endedAt ? `${since} – ${day(past.endedAt)}` : `Since ${since}`}
+        </span>
       </div>
       {canManage && (
         <Link
