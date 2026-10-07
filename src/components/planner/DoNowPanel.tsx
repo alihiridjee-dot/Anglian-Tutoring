@@ -41,13 +41,13 @@ import { useSpecPointNotes, type SpecPointNote } from "@/hooks/data/useNotes";
  * The columns are also the answer to "what have I actually covered": a cell is
  * either something to press, a mark, or an honest dash. Nothing is implied.
  *
- * The tick is mostly the student's own mark. A week is mostly work that leaves
- * no trace — watching the video, reading the spec point, doing the questions on
- * paper — so only the student can say it is done. The one exception is a point
- * whose every task and quiz is in ({@link practiceComplete}): that row is
- * crossed off for them, and stays crossed off, because handed-in work can't be
- * un-done. Coverage also fills the cells: a task handed in shows a tick, and
- * its mark once it is back, instead of asking the student to start it again.
+ * The tick is earned, not claimed. On a point with a quiz or a task the box is
+ * locked: the database ticks it (20261007094747) once every task and quiz is in
+ * ({@link practiceComplete}), and the row is crossed off for good, because
+ * handed-in work can't be un-done. Only a point with no practice attached yet
+ * keeps a box the student ticks themselves. Coverage also fills the cells: a
+ * task handed in shows a tick, and its mark once it is back, instead of asking
+ * the student to start it again.
  */
 
 /** The row's shape: the spec point takes the slack, the four cells are fixed. */
@@ -176,8 +176,14 @@ function ChecklistRow({
   onPlay: (item: PointWorkItem) => void;
 }) {
   const done = !!point.done_at || workDone;
-  // Handed-in work can't be un-done, so neither can its tick.
-  const locked = !editable || workDone;
+  // What the database waits for before it ticks this point. Empty means no
+  // practice is attached yet, and the box is still the student's own.
+  const earnedBy = [
+    work?.quizzes.length ? "the quiz" : null,
+    work?.homework.length ? "the task" : null,
+  ].filter(Boolean);
+  // Earned, never claimed: and handed-in work can't be un-done, so neither can its tick.
+  const locked = !editable || workDone || earnedBy.length > 0;
 
   return (
     <li
@@ -193,14 +199,23 @@ function ChecklistRow({
           aria-label={
             workDone
               ? `${point.code} ${point.title}: done, every task and quiz is in`
-              : `${done ? "Untick" : "Tick off"} ${point.code} ${point.title}`
+              : earnedBy.length > 0
+                ? `${point.code} ${point.title}: ticks itself once you attempt ${earnedBy.join(" and ")}`
+                : `${done ? "Untick" : "Tick off"} ${point.code} ${point.title}`
+          }
+          title={
+            earnedBy.length > 0 && !done
+              ? `Ticks itself once you attempt ${earnedBy.join(" and ")}`
+              : undefined
           }
           disabled={locked}
           onClick={() => onToggle(point.spec_point_id, !done)}
           className={`tap-target shrink-0 transition ${
             done
               ? "text-[color:var(--tint)]"
-              : "text-muted-foreground/40 hover:text-[color:var(--tint)]"
+              : locked
+                ? "text-muted-foreground/40"
+                : "text-muted-foreground/40 hover:text-[color:var(--tint)]"
           } ${locked ? "cursor-default" : ""}`}
         >
           {done ? <CheckCircle2 className="w-5 h-5" /> : <Circle className="w-5 h-5" />}
