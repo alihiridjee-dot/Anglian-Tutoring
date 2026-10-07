@@ -85,8 +85,10 @@ Not fixed — product decisions for Ali:
   holiday inside a two-year plan, and a Year 9 option.
 - Hand-picked additions ("Practise now", "Retake this topic") cannot be undone by
   the student; the tutor's remove/skip is the only way out.
-- Paused-subject history reads "No plan was set" for past weeks; a board change
-  does the same. Both need a design.
+- ~~Paused-subject history reads "No plan was set" for past weeks; a board change
+  does the same.~~ Settled 7 Oct (Ali chose "say what happened"): a past break week
+  shows the break card, a paused week the paused card with its dates, and an old-course
+  week its points under "Planned for your old course" (`pastWeekGap`).
 - ~~`reorder_student_topics` may refuse a reorder when old-course rows are
   protected.~~ **Confirmed and fixed 7 Oct** (20261007103000): after a board or
   level change, every reorder that week failed with "spec point … is on a

@@ -15,9 +15,15 @@ import { type PointCoverage, type PointActivity, type PointWork } from "@/lib/pl
 import { getSessionUserId } from "@/lib/auth/session";
 import { courseKey, invalidatePlanner, roadmapQuery } from "@/lib/planner/queries";
 import { weekIsForAnotherCourse } from "@/lib/planner/weekCut";
-import { subjectPauseQuery, type SubjectPause } from "@/lib/planner/subjectPauses";
+import {
+  subjectPauseHistoryQuery,
+  subjectPauseQuery,
+  type SubjectPause,
+} from "@/lib/planner/subjectPauses";
 import { breakCovering, type StudentBreak } from "@/lib/planner/breaks";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
+import { pastWeekGap, type PastWeekGap } from "@/lib/planner/pastWeek";
+import { currentWeekKey } from "@/lib/planner/week";
 
 export type Activity = Map<string, PointActivity & PointWork>;
 
@@ -35,6 +41,8 @@ export interface WeekPlanState {
   pause: SubjectPause | null;
   /** The week falls in a break the student is taking: nothing is planned for it. */
   onBreak: StudentBreak | null;
+  /** A week gone by with nothing in it, and why: a break, a pause or another course. */
+  pastGap: PastWeekGap | null;
   loading: boolean;
   error: Error | null;
   reload: () => Promise<void>;
@@ -235,6 +243,13 @@ export function useWeekPlan(params: {
     enabled: !!studentId && params.enabled !== false,
   });
   const onBreak = breakCovering(breaks.data ?? [], weekStart);
+  // Only a week gone by needs its stops: it is the one that would otherwise
+  // read "No plan was set" through a pause.
+  const past = weekStart < currentWeekKey();
+  const pauses = useQuery({
+    ...subjectPauseHistoryQuery(studentId, subject),
+    enabled: !!studentId && params.enabled !== false && past,
+  });
   const road = useQuery({
     ...roadmapQuery(client, params),
     // `enabled` binds the roadmap too: without it, a panel with no course to
@@ -289,13 +304,26 @@ export function useWeekPlan(params: {
     roadmap: params.roadmap !== undefined ? params.roadmap : (road.data ?? null),
     pause: pause.data ?? null,
     onBreak,
+    pastGap:
+      past && week.data !== undefined
+        ? pastWeekGap({
+            weekStart,
+            plan: week.data?.plan ?? null,
+            points,
+            withheld,
+            course: { board, level },
+            onBreak,
+            pauses: pauses.data ?? [],
+          })
+        : null,
     loading:
       week.isLoading ||
       activity.isLoading ||
       coverage.isLoading ||
       road.isLoading ||
       pause.isLoading ||
-      breaks.isLoading,
+      breaks.isLoading ||
+      pauses.isLoading,
     error: week.error ?? activity.error ?? coverage.error ?? road.error,
     reload,
     setPointDone: async (id, value) => {
