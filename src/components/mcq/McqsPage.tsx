@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/components/Shared";
+import { Chip, EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
-import { ChevronRight } from "lucide-react";
+import { CalendarCheck, ChevronRight } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ, DEMO_MCQ_ATTEMPTS, DEMO_MCQ_SETS } from "@/lib/demo/studentDemo";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -18,6 +18,8 @@ import { DUE_LANE_ORDER, type DueSlot } from "@/lib/planner/dueLanes";
 import { retakeOpensAt } from "@/lib/mcq/retakeLock";
 import { useDueThisWeek } from "@/components/planner/useDueThisWeek";
 import { DueLanes, DueSection } from "@/components/planner/DueSection";
+import { MarkedTopic } from "@/components/planner/MarkedTopic";
+import { groupUnderTopics, noTopic, type TopicRef } from "@/lib/curriculum/topicGroups";
 
 /** One quiz, with everything the list needs to place it and describe it. */
 type QuizSet = {
@@ -28,6 +30,8 @@ type QuizSet = {
   subject: string | null;
   specPointId: string | null;
   specCode: string | null;
+  /** The course topic its spec point sits in, which Marked files it under. */
+  topic: TopicRef | null;
   questionCount: number;
 };
 
@@ -79,9 +83,10 @@ export function MCQs() {
  *    dashboard's lanes ({@link useDueThisWeek}) — the same names, in the same
  *    order, as the dashboard and the Tasks page.
  * 3. **Done moves to Marked.** A quiz marks itself, so there is no "handed in"
- *    step: taking it moves it to Marked with its best score, newest first.
- *    That replaced "Past MCQs", every reached quiz filed by topic, which read as
- *    optional extras beside a week that was mostly the same quizzes.
+ *    step: taking it moves it to Marked with its best score, filed under its
+ *    topic as Tasks' Marked is (see `MarkedTopic`). That replaced "Past MCQs",
+ *    every reached quiz filed by topic, which read as optional extras beside a
+ *    week that was mostly the same quizzes.
  */
 function StudentMCQs() {
   const { loading: enrolmentsLoading } = useEnrolments();
@@ -126,6 +131,8 @@ function StudentMCQs() {
             subject: s.subject,
             specPointId: s.id,
             specCode: s.specPoint,
+            // The showcase names its topics but doesn't number them.
+            topic: { id: s.topic, title: s.topic, order: 0 },
             questionCount: DEMO_MCQ[s.id]?.questions.length ?? 0,
           })),
         );
@@ -170,7 +177,7 @@ function StudentMCQs() {
           supabase
             .from("mcq_sets")
             .select(
-              "id, title, published, created_at, spec_point_id, subject, spec_points(code, topics(subject))",
+              "id, title, published, created_at, spec_point_id, subject, spec_points(code, topics(id, title, sort_order, subject))",
             )
             .in("id", batch),
         );
@@ -191,6 +198,13 @@ function StudentMCQs() {
           subject: r.subject ?? r.spec_points?.topics?.subject ?? null,
           specPointId: r.spec_point_id,
           specCode: r.spec_points?.code ?? null,
+          topic: r.spec_points?.topics
+            ? {
+                id: r.spec_points.topics.id,
+                title: r.spec_points.topics.title,
+                order: r.spec_points.topics.sort_order,
+              }
+            : null,
           questionCount: 0,
         }));
 
@@ -249,7 +263,7 @@ function StudentMCQs() {
 
   // Due: this week's quizzes not yet taken this week, in the week's order. A
   // revision quiz taken in an earlier week is due again — that is what revision
-  // is. Marked: every quiz taken, newest first.
+  // is. Marked: every quiz taken, filed under its topic below.
   const { dueByLane, marked } = useMemo(() => {
     const mine = sets.filter((s) => s.subject === subject);
     const dueSets: Array<{ set: QuizSet; slot: DueSlot }> = [];
@@ -341,7 +355,23 @@ function StudentMCQs() {
                     ))}
                   </DueLanes>
                 ) : (
-                  <QuizGrid sets={marked} attempts={attempts} />
+                  <div className="space-y-3">
+                    {groupUnderTopics(
+                      marked,
+                      (s) => s.topic ?? noTopic("other", "Other quizzes"),
+                      (s) => s.specCode ?? s.title,
+                    ).map((group) => (
+                      <MarkedTopic
+                        key={group.key}
+                        stateKey={`mcqs.marked.${group.key}`}
+                        title={group.title}
+                        count={group.items.length}
+                        noun={["quiz", "quizzes"]}
+                      >
+                        <QuizGrid sets={group.items} attempts={attempts} />
+                      </MarkedTopic>
+                    ))}
+                  </div>
                 )}
               </div>
             </>
@@ -395,10 +425,16 @@ function QuizCard({ set, attempt }: { set: QuizSet; attempt?: Attempt }) {
       <p className="font-display mt-2 flex-1 font-bold leading-snug">{set.title}</p>
 
       <div className="text-muted-foreground mt-3 flex items-center justify-between gap-2 text-xs">
-        <span>
-          {set.questionCount > 0
-            ? `${set.questionCount} question${set.questionCount === 1 ? "" : "s"}`
-            : plannerDateLabel(new Date(set.created_at))}
+        <span className="flex flex-wrap items-center gap-2">
+          <span>
+            {set.questionCount > 0
+              ? `${set.questionCount} question${set.questionCount === 1 ? "" : "s"}`
+              : plannerDateLabel(new Date(set.created_at))}
+          </span>
+          {/* When it was last taken, as a pill like a task's "Marked" date. */}
+          {attempt?.lastAt && (
+            <Chip icon={CalendarCheck}>Taken {plannerDateLabel(new Date(attempt.lastAt))}</Chip>
+          )}
         </span>
         <span className="inline-flex items-center gap-1 font-semibold text-[color:var(--tint)]">
           {!attempt
@@ -429,6 +465,6 @@ type SetQueryRow = {
   subject: string | null;
   spec_points: {
     code: string | null;
-    topics: { subject: string } | null;
+    topics: { id: string; title: string; sort_order: number; subject: string } | null;
   } | null;
 };

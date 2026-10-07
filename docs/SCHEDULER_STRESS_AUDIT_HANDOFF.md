@@ -87,8 +87,12 @@ Not fixed — product decisions for Ali:
   the student; the tutor's remove/skip is the only way out.
 - Paused-subject history reads "No plan was set" for past weeks; a board change
   does the same. Both need a design.
-- `reorder_student_topics` may refuse a reorder when old-course rows are
-  protected (finder claim, not verified).
+- ~~`reorder_student_topics` may refuse a reorder when old-course rows are
+  protected.~~ **Confirmed and fixed 7 Oct** (20261007103000): after a board or
+  level change, every reorder that week failed with "spec point … is on a
+  different course". The reorder now re-sends only the current course's points;
+  old-course rows with the student's work stay under "Kept aside from this
+  week", as the This week re-cut leaves them. This week itself never broke.
 
 Not verified in the browser: every change above compiles and is unit-tested,
 but the signed-in test session lives on the `localhost:8080` origin, which

@@ -34,7 +34,7 @@ import {
 } from "./weekCut";
 import { SubjectPauseDAL } from "./pausesDal";
 import { BreakDAL } from "./breaksDal";
-import { breakWeekKeys, layBreaksOver, type StudentBreak } from "./breaks";
+import { breakCovering, breakWeekKeys, layBreaksOver, type StudentBreak } from "./breaks";
 
 export { handPicked } from "./weekCut";
 
@@ -595,7 +595,7 @@ export class ProgramDAL {
   }
 
   /**
-   * Make the re-flowed plan the plan, with no accept step.
+   * Make the re-flowed plan the plan, this week included, with no accept step.
    *
    * A spine only re-flows when the exam date or the course itself changes, and
    * neither is a choice the student can decline — so asking them to review and
@@ -609,7 +609,7 @@ export class ProgramDAL {
     level: LevelV;
   }): Promise<RoadmapResult | null> {
     const fresh = await this.loadRoadmap(course);
-    if (fresh?.needsAck)
+    if (fresh?.needsAck) {
       await this.acknowledge({
         studentId: course.studentId,
         subject: course.subject,
@@ -617,7 +617,38 @@ export class ProgramDAL {
         programStart: fresh.programStart,
         examDate: fresh.examDate,
       });
+      // A custom order's weeks are re-cut by `reorder_student_topics` as it is
+      // saved. Curriculum order's never were: the full plan moved to the new
+      // date and this week kept the points the old one gave it.
+      if (!customSchedule(fresh.bands)) await this.recutThisWeek(course);
+    }
     return fresh;
+  }
+
+  /**
+   * Re-cut this week's saved plan from the spine just accepted. The usual
+   * merge (`refreshWeek`): anything ticked, started, handed in, carried or
+   * added by hand stays; untouched automatic points are swapped for what the
+   * new spine gives this week.
+   *
+   * A paused subject or a break week is read, never planned (see useWeekPlan),
+   * and the database refuses the write. It never fails the apply: the new plan
+   * is saved, and "Check for a better week" re-cuts by hand.
+   */
+  private static async recutThisWeek(course: {
+    studentId: string;
+    subject: SubjectV;
+    board: BoardV;
+    level: LevelV;
+  }): Promise<void> {
+    const weekStart = currentWeekKey();
+    try {
+      if (await SubjectPauseDAL.open(course.studentId, course.subject)) return;
+      if (breakCovering(await BreakDAL.list(course.studentId), weekStart)) return;
+      await this.refreshWeek({ ...course, weekStart });
+    } catch (e) {
+      console.warn("[planner] couldn't re-cut this week to the new plan", e);
+    }
   }
 
   /**

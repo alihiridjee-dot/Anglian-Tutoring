@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import {
   bucketOf,
+  groupByTopic,
   groupHomework,
   isOverdue,
   splitDue,
@@ -168,6 +169,52 @@ describe("the Due tab", () => {
       "4.1.1.2 Animal cells",
       "4.1.1.9 Diffusion",
       "4.1.1.10 Osmosis",
+    ]);
+  });
+});
+
+describe("the Marked tab, under topics", () => {
+  const sheet = (id: string, title: string) => ({
+    hw: brief({ id, title, origin: "generated" }),
+  });
+  const topics = {
+    a: { id: "t2", title: "Cells and control", order: 2 },
+    b: { id: "t1", title: "Key concepts in biology", order: 1 },
+    c: { id: "t2", title: "Cells and control", order: 2 },
+    d: { id: "t1", title: "Key concepts in biology", order: 1 },
+  };
+
+  test("files each sheet under its topic, topics in the course's order", () => {
+    const groups = groupByTopic(
+      [
+        sheet("a", "EDEX 2.17B"),
+        sheet("b", "EDEX 1.10"),
+        sheet("c", "EDEX 2.2"),
+        sheet("d", "EDEX 1.2"),
+      ],
+      topics,
+    );
+    expect(groups.map((g) => g.title)).toEqual(["Key concepts in biology", "Cells and control"]);
+    // Spec point order inside a topic: 1.2 before 1.10, 2.2 before 2.17B.
+    expect(groups.map((g) => g.items.map((i) => i.hw.id))).toEqual([
+      ["d", "b"],
+      ["c", "a"],
+    ]);
+  });
+
+  test("puts a tutor's brief after the topics, and never drops a sheet with no topic", () => {
+    const groups = groupByTopic(
+      [
+        { hw: brief({ id: "x", title: "Photosynthesis" }) },
+        sheet("y", "EDEX 9.1"),
+        sheet("a", "EDEX 2.17B"),
+      ],
+      topics,
+    );
+    expect(groups.map((g) => g.title)).toEqual([
+      "Cells and control",
+      "From your tutor",
+      "Other tasks",
     ]);
   });
 });
