@@ -83,8 +83,13 @@ Not fixed — product decisions for Ali:
   on step 1 (level and exam board), which can't be skipped. Left for later, by choice:
   a profile setting to change the year (the date box is the only way), the summer
   holiday inside a two-year plan, and a Year 9 option.
-- Hand-picked additions ("Practise now", "Retake this topic") cannot be undone by
-  the student; the tutor's remove/skip is the only way out.
+- ~~Hand-picked additions ("Practise now", "Retake this topic") cannot be undone by
+  the student.~~ Settled 7 Oct: Ali thought students couldn't add to their week at
+  all, and none ever had (0 student-added points live). Both buttons are gone for
+  students, so there is nothing to undo. Tutors still add ("Add to this week" on
+  their Full plan; "Retake this topic" on the course checklist). Left in place:
+  "Carry into next week", "Focus again" and "Review more now", which keep points in
+  their own lanes.
 - Paused-subject history reads "No plan was set" for past weeks; a board change
   does the same. Both need a design.
 - ~~`reorder_student_topics` may refuse a reorder when old-course rows are

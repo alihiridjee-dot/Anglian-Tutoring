@@ -36,12 +36,18 @@ export function CoveredLedger({
   enrolments,
   level,
   subject,
+  canRetake = false,
 }: {
   studentId: string;
   enrolments: Enrolment[];
   level: LevelV;
   /** When set, the subject is controlled by the parent and the tabs are hidden. */
   subject?: string;
+  /**
+   * Offer "Retake this topic" on a topic with work done. A tutor's view only:
+   * students don't add to their own week (Ali, 7 Oct).
+   */
+  canRetake?: boolean;
 }) {
   const ordered = useMemo(
     () => [
@@ -253,7 +259,7 @@ export function CoveredLedger({
                         </td>
                       </tr>
                     ))}
-                  {isOpen && done > 0 && (
+                  {canRetake && isOpen && done > 0 && (
                     <tr className="bg-muted/20">
                       <td colSpan={3} className="pt-1 pr-4 pb-3 pl-9 sm:pl-11">
                         <button

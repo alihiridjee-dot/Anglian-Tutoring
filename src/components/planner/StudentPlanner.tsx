@@ -12,7 +12,6 @@ import {
   AlertTriangle,
   CalendarDays,
   CheckCircle2,
-  ChevronDown,
   ChevronLeft,
   ChevronRight,
   CircleDot,
@@ -38,7 +37,6 @@ import {
   weekRangeLabel,
 } from "@/lib/planner/week";
 import { CoveredLedger } from "./CoveredLedger";
-import { CatchUpPanel } from "./CatchUpPanel";
 import { ThisWeekPanel } from "./ThisWeekPanel";
 import { PausedWeek } from "./PausedWeek";
 import { BreakWeek } from "./BreakWeek";
@@ -553,7 +551,6 @@ function FullPlanTab({
   const now = useNow(60_000);
   const { nowKey, covered, spine } = useRoadmapView(data, now);
   const [savingDate, setSavingDate] = useState(false);
-  const [catchUpOpen, setCatchUpOpen] = useState(false);
 
   const { min: minExamDate, max: maxExamDate } = examDateBounds();
   const lastSavedDate = useRef(data.examDate);
@@ -694,24 +691,14 @@ function FullPlanTab({
               <AlertTriangle className="size-3.5" aria-hidden /> {held} won’t fit before exams
             </span>
           )}
+          {/* Missed work comes back on its own, a little each week. Students
+              don't add to their week (Ali, 7 Oct): a tutor can, from their
+              Full plan. */}
           {paused ? (
             <span className="chip tint-amber text-xs self-start mt-auto">
               Paused — catch-up waits for your plan
             </span>
-          ) : owed > 0 ? (
-            <button
-              type="button"
-              aria-expanded={catchUpOpen}
-              onClick={() => setCatchUpOpen((open) => !open)}
-              className="btn-soft mt-auto h-11 sm:pointer-fine:h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
-            >
-              {catchUpOpen ? "Hide catch-up" : "Catch up now"}
-              <ChevronDown
-                className={`size-4 transition-transform ${catchUpOpen ? "rotate-180" : ""}`}
-                aria-hidden
-              />
-            </button>
-          ) : (
+          ) : owed > 0 ? null : (
             <span className="chip tint-emerald text-xs self-start mt-auto">
               <CheckCircle2 className="size-3.5" aria-hidden /> All caught up
             </span>
@@ -719,20 +706,6 @@ function FullPlanTab({
         </div>
       </div>
 
-      {catchUpOpen && owed > 0 && !paused && (
-        <div className="premium-card tint-amber rounded-2xl p-4 mb-4">
-          <CatchUpPanel
-            studentId={studentId}
-            subject={subject}
-            board={board}
-            level={level}
-            weekStart={nowKey}
-            backlog={backlog}
-            asTutor={false}
-            onAdded={onChanged}
-          />
-        </div>
-      )}
       {/* Your new schedule — what the latest ratings changed in the focus lane. */}
       {newFocusKeys.size > 0 && (
         <div className="flex items-start gap-2 rounded-xl border border-rose-500/30 bg-rose-500/[0.06] px-3 py-2.5 mb-3">
