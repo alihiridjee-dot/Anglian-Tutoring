@@ -12,6 +12,7 @@ import {
 } from "@/lib/demo/studentDemo";
 import type { HomeworkAnswer, HomeworkQuestion } from "@/hooks/data/useHomeworkQuestions";
 import type { Homework, HomeworkOrigin, SubmissionRow } from "@/lib/homework/types";
+import type { HomeworkTopic } from "@/lib/homework/homeworkBuckets";
 import type { LevelV } from "@/lib/curriculum/taxonomy";
 import { courseParts, type LibraryFilter } from "@/lib/curriculum/libraryFilter";
 import { ilikePattern } from "@/lib/search/match";
@@ -67,6 +68,35 @@ export function useHomework({
       return (data ?? []) as Homework[];
     },
     enabled,
+  });
+}
+
+/**
+ * The topic each sheet's spec point sits in, keyed by sheet id — what the
+ * Marked tab files its marks under. A tutor's brief has no spec point, so it
+ * has no entry.
+ */
+export function useHomeworkTopics(resourceIds: string[], enabled = true) {
+  const ids = [...resourceIds].sort();
+  return useQuery({
+    queryKey: [...HOMEWORK_KEY, "topics", ids],
+    queryFn: async (): Promise<Record<string, HomeworkTopic>> => {
+      // The showcase's sheets are tutor briefs, with no spec point behind them.
+      if (isDemoStudent() || ids.length === 0) return {};
+      // Named key: `resource_spec_points` links the two tables as well (see below).
+      const { data, error } = await supabase
+        .from("resources")
+        .select("id, spec_points!resources_spec_point_id_fkey(topics(id, title, sort_order))")
+        .in("id", ids);
+      if (error) throw error;
+      const map: Record<string, HomeworkTopic> = {};
+      for (const r of data ?? []) {
+        const t = r.spec_points?.topics;
+        if (t) map[r.id] = { id: t.id, title: t.title, order: t.sort_order };
+      }
+      return map;
+    },
+    enabled: enabled && ids.length > 0,
   });
 }
 

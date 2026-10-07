@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
@@ -8,6 +8,7 @@ import { useEnrolments } from "@/hooks/data/useEnrolments";
 import {
   useHomework,
   useHomeworkSubmissions,
+  useHomeworkTopics,
   useInvalidateHomework,
 } from "@/hooks/data/useHomework";
 import type { Homework, SubmissionRow } from "@/lib/homework/types";
@@ -15,6 +16,7 @@ import { useHomeworkSummaries, type HomeworkSummary } from "@/hooks/data/useHome
 import {
   BUCKET_LABEL,
   BUCKET_ORDER,
+  groupByTopic,
   groupHomework,
   isAwaitingRelease,
   isOverdue,
@@ -37,6 +39,7 @@ import { SUBJECT_LABEL, subjectTint } from "@/lib/curriculum/subjectTheme";
 import { useEntryState } from "@/hooks/useEntryState";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { PredictedGradeCard } from "@/components/homework/PredictedGradeCard";
+import { cn } from "@/lib/utils";
 
 /**
  * The homework list.
@@ -286,6 +289,8 @@ function StudentHomework({
                       </DueSection>
                     ))}
                   </DueLanes>
+                ) : active.bucket === "marked" ? (
+                  <MarkedByTopic items={active.items} />
                 ) : (
                   <div className="space-y-3">
                     {active.items.map((item) => (
@@ -365,6 +370,100 @@ function HomeworkCard({ item, summary }: { item: HomeworkItem; summary?: Homewor
             <span className="mt-0.5 text-xs font-bold">mark{summary.marks === 1 ? "" : "s"}</span>
           </div>
         )
+      )}
+    </Link>
+  );
+}
+
+/**
+ * Marked, under the course's topics: a heading per topic and one slim line per
+ * sheet — what it was, when it came back, what it scored — so a term of marks
+ * stays a page you can scan (Ali, 7 Oct 2026). See `groupByTopic` for the order.
+ */
+function MarkedByTopic({ items }: { items: HomeworkItem[] }) {
+  const { data: topics, isPending, error, refetch } = useHomeworkTopics(items.map((i) => i.hw.id));
+  if (error) return <ErrorNote error={error} onRetry={() => void refetch()} />;
+  if (isPending) return <Spinner label="Fetching your marks" className="py-10" />;
+  return (
+    <div className="space-y-4">
+      {groupByTopic(items, topics).map((group) => (
+        <MarkedTopic key={group.key} groupKey={group.key} title={group.title} items={group.items} />
+      ))}
+    </div>
+  );
+}
+
+/**
+ * One topic's marks, as a card. Folds from its heading, open to begin with and
+ * kept with the visit, as Due's lanes are, so Back from a sheet finds it as left.
+ */
+function MarkedTopic({
+  groupKey,
+  title,
+  items,
+}: {
+  groupKey: string;
+  title: string;
+  items: HomeworkItem[];
+}) {
+  const id = useId();
+  const [open, setOpen] = useEntryState(`tasks.marked.${groupKey}`, true);
+  return (
+    <section className="premium-card wash-top overflow-hidden">
+      <h3 className="text-base leading-tight">
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          aria-controls={id}
+          className="flex min-h-11 w-full items-center gap-3 px-4 py-2.5 text-left"
+        >
+          <span className="min-w-0 flex-1">{title}</span>
+          <span className="chip shrink-0">
+            <span className="numeral">{items.length}</span>
+          </span>
+          <ChevronDown
+            className={cn(
+              "size-4 shrink-0 text-[color:var(--tint)] transition-transform",
+              !open && "-rotate-90",
+            )}
+            aria-hidden
+          />
+        </button>
+      </h3>
+      <ul id={id} hidden={!open} className="divide-border border-border divide-y border-t">
+        {items.map((item) => (
+          <li key={item.hw.id}>
+            <MarkedRow item={item} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+/** One marked sheet on one line: its title, the day it came back, its score. */
+function MarkedRow({ item }: { item: HomeworkItem }) {
+  const { hw, submission } = item;
+  return (
+    <Link
+      // The showcase's own sheet route, as on `HomeworkCard`.
+      to={isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"}
+      params={{ homeworkId: hw.id }}
+      className="flex min-h-11 items-center gap-3 px-4 py-2 transition-colors hover:bg-[color-mix(in_oklab,var(--tint)_6%,transparent)] sm:pointer-fine:min-h-0"
+    >
+      <span className="line-clamp-2 min-w-0 flex-1 text-sm font-semibold sm:line-clamp-1">
+        {hw.title}
+      </span>
+      {submission?.graded_at && (
+        <span className="hidden shrink-0 text-sm sm:inline">
+          {plannerDateLabel(new Date(submission.graded_at))}
+        </span>
+      )}
+      {submission?.score_pct != null && (
+        <span className="chip chip-solid shrink-0">
+          <span className="numeral">{Number(submission.score_pct)}%</span>
+        </span>
       )}
     </Link>
   );
