@@ -1,4 +1,4 @@
-/** Isolated PostgreSQL regression checks for 20261007120000_plan_tick_from_work.
+/** Isolated PostgreSQL regression checks for 20261007094747_plan_tick_from_work.
  * No production data is read or written.
  *
  *   PGLITE_MODULE=/path/to/@electric-sql/pglite/dist/index.js bun scripts/test-plan-tick-from-work-db.ts
@@ -63,11 +63,11 @@ insert into public.resource_spec_points values ('${task}', '${taskOnly}');
 `);
 
 const migration = await readFile(
-  new URL("../supabase/migrations/20261007120000_plan_tick_from_work.sql", import.meta.url),
+  new URL("../supabase/migrations/20261007094747_plan_tick_from_work.sql", import.meta.url),
   "utf8",
 );
 const rollback = await readFile(
-  new URL("../supabase/rollbacks/20261007120000_plan_tick_from_work.down.sql", import.meta.url),
+  new URL("../supabase/rollbacks/20261007094747_plan_tick_from_work.down.sql", import.meta.url),
   "utf8",
 );
 

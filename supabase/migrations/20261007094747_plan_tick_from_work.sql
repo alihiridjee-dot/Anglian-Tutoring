@@ -200,10 +200,10 @@ revoke all on function private.plan_ticks_after_hand_in() from public, anon, aut
 
 -- Keep the hand ticks as they stood, so the rollback can put them back. Made
 -- once: running this file again must not overwrite it with earned ticks.
-create table if not exists private.plan_ticks_before_20261007120000 as
+create table if not exists private.plan_ticks_before_20261007094747 as
   select plan_id, spec_point_id, done_at
   from public.student_weekly_plan_points where done_at is not null;
-revoke all on private.plan_ticks_before_20261007120000 from public, anon, authenticated;
+revoke all on private.plan_ticks_before_20261007094747 from public, anon, authenticated;
 
 -- Re-evaluate every existing row. Only rows whose point has practice change.
 -- `where true`: pg-safeupdate refuses an UPDATE with no WHERE clause.

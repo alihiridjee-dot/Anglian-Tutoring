@@ -42,7 +42,7 @@ import { useSpecPointNotes, type SpecPointNote } from "@/hooks/data/useNotes";
  * either something to press, a mark, or an honest dash. Nothing is implied.
  *
  * The tick is earned, not claimed. On a point with a quiz or a task the box is
- * locked: the database ticks it (20261007120000) once every task and quiz is in
+ * locked: the database ticks it (20261007094747) once every task and quiz is in
  * ({@link practiceComplete}), and the row is crossed off for good, because
  * handed-in work can't be un-done. Only a point with no practice attached yet
  * keeps a box the student ticks themselves. Coverage also fills the cells: a
