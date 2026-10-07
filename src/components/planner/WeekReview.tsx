@@ -1,4 +1,5 @@
 import { toast } from "sonner";
+import { useQuery } from "@tanstack/react-query";
 import { Target } from "lucide-react";
 import { ErrorNote } from "@/components/Shared";
 import {
@@ -9,6 +10,8 @@ import {
 } from "@/lib/planner/weeklyPlanDal";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { carryOrigin, type PointCoverage } from "@/lib/planner/coverage";
+import { breakCovering } from "@/lib/planner/breaks";
+import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import {
   addWeeks,
   currentWeekKey,
@@ -101,6 +104,9 @@ export function WeekReview({
   const nextWeekLabel = weekRangeLabel(weekKeyToDate(nextStart));
   // Nothing is ever planned at or after the exam date, so there is nothing to carry into.
   const beyondExam = !!examDate && nextStart >= examDate;
+  // Nor for a week the student is on a break for.
+  const { data: breaks = [] } = useQuery(studentBreaksQuery(studentId));
+  const intoBreak = !!breakCovering(breaks, nextStart);
   // A tick is the student's own word that a point is done; it is not carried.
   const ticked = new Set(points.filter((p) => p.done_at).map((p) => p.spec_point_id));
   const loose = summary.toRevisit.filter((id) => !ticked.has(id));
@@ -217,7 +223,7 @@ export function WeekReview({
         studentFeltReady={coveredOk}
       />
 
-      {!locked && !beyondExam && loose.length > 0 && (
+      {!locked && !beyondExam && !intoBreak && loose.length > 0 && (
         <CarryForwardBar
           count={loose.length}
           busy={busy}

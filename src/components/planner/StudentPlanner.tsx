@@ -2,7 +2,7 @@ import { Link, useRouter } from "@tanstack/react-router";
 import { WeekBreakdown } from "./WeekBreakdown";
 import { FullPlanTimeline } from "./FullPlanTimeline";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
-import { EmptyState, ErrorNote, Meter } from "@/components/Shared";
+import { Chip, EmptyState, ErrorNote, Meter } from "@/components/Shared";
 import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
 import { ScheduleComparison } from "./ScheduleComparison";
 import { Spinner } from "@/components/Shared";
@@ -21,6 +21,7 @@ import {
   Repeat,
   Scale,
   SlidersHorizontal,
+  TreePalm,
   Undo2,
   type LucideIcon,
 } from "lucide-react";
@@ -252,6 +253,7 @@ export function StudentPlanner({
           <FullPlanTab
             key={active.subject}
             paused={!!currentWeek.pause}
+            onBreak={!!currentWeek.onBreak}
             data={data}
             studentId={studentId}
             subject={active.subject as SubjectV}
@@ -536,6 +538,7 @@ function FullPlanTab({
   focusWeek,
   onChanged,
   paused,
+  onBreak,
 }: {
   data: RoadmapResult;
   studentId: string;
@@ -549,6 +552,8 @@ function FullPlanTab({
   onChanged: () => void;
   /** The subject is stopped: nothing may be added to a week until it restarts. */
   paused: boolean;
+  /** This week is a break: nothing may be added to it. */
+  onBreak: boolean;
 }) {
   const now = useNow(60_000);
   const { nowKey, covered, spine } = useRoadmapView(data, now);
@@ -698,6 +703,10 @@ function FullPlanTab({
             <span className="chip tint-amber text-xs self-start mt-auto">
               Paused — catch-up waits for your plan
             </span>
+          ) : onBreak && owed > 0 ? (
+            <Chip icon={TreePalm} tint="tint-accent" className="text-xs self-start mt-auto">
+              On a break — catch-up waits till you’re back
+            </Chip>
           ) : owed > 0 ? (
             <button
               type="button"
@@ -719,7 +728,7 @@ function FullPlanTab({
         </div>
       </div>
 
-      {catchUpOpen && owed > 0 && !paused && (
+      {catchUpOpen && owed > 0 && !paused && !onBreak && (
         <div className="premium-card tint-amber rounded-2xl p-4 mb-4">
           <CatchUpPanel
             studentId={studentId}

@@ -67,6 +67,28 @@ export class BreakDAL {
   }
 
   /**
+   * Whether the week starting `weekStart` falls in a break that stands.
+   *
+   * Unlike {@link list}, a failed read throws instead of reading as "no
+   * break". A tutor's move takes a point out of one week before it puts it in
+   * the other, and the database refuses a break week only at that second
+   * step, so the move has to know the week is open before it starts.
+   */
+  static async isBreakWeek(studentId: string, weekStart: string): Promise<boolean> {
+    if (isDemoMode()) return false;
+    const { data, error } = await supabase
+      .from("student_breaks")
+      .select("id")
+      .eq("student_id", studentId)
+      .is("cancelled_at", null)
+      .lte("starts_on", weekStart)
+      .gte("ends_on", weekStart)
+      .limit(1);
+    if (error) throw new Error(error.message);
+    return (data ?? []).length > 0;
+  }
+
+  /**
    * Each programme's exam date, for the booking form: which weeks are too
    * close to an exam to pick. A failed read reads as none known; `book_break`
    * still checks the exams.
