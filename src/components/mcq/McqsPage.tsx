@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/components/Shared";
+import { Chip, EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
-import { ChevronRight } from "lucide-react";
+import { CalendarCheck, ChevronRight } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ, DEMO_MCQ_ATTEMPTS, DEMO_MCQ_SETS } from "@/lib/demo/studentDemo";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -425,10 +425,16 @@ function QuizCard({ set, attempt }: { set: QuizSet; attempt?: Attempt }) {
       <p className="font-display mt-2 flex-1 font-bold leading-snug">{set.title}</p>
 
       <div className="text-muted-foreground mt-3 flex items-center justify-between gap-2 text-xs">
-        <span>
-          {set.questionCount > 0
-            ? `${set.questionCount} question${set.questionCount === 1 ? "" : "s"}`
-            : plannerDateLabel(new Date(set.created_at))}
+        <span className="flex flex-wrap items-center gap-2">
+          <span>
+            {set.questionCount > 0
+              ? `${set.questionCount} question${set.questionCount === 1 ? "" : "s"}`
+              : plannerDateLabel(new Date(set.created_at))}
+          </span>
+          {/* When it was last taken, as a pill like a task's "Marked" date. */}
+          {attempt?.lastAt && (
+            <Chip icon={CalendarCheck}>Taken {plannerDateLabel(new Date(attempt.lastAt))}</Chip>
+          )}
         </span>
         <span className="inline-flex items-center gap-1 font-semibold text-[color:var(--tint)]">
           {!attempt
