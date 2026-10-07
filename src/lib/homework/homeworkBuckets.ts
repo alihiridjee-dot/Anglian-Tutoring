@@ -2,6 +2,7 @@ import type { Homework, SubmissionRow } from "@/lib/homework/types";
 import { breakCovering, type StudentBreak } from "@/lib/planner/breaks";
 import { DUE_LANE_ORDER, type DueLane, type DueSlot } from "@/lib/planner/dueLanes";
 import { toDateKey } from "@/lib/planner/week";
+import { groupUnderTopics, noTopic, type TopicRef } from "@/lib/curriculum/topicGroups";
 
 /**
  * How the homework list is ordered: by what the student has to do about it.
@@ -156,6 +157,32 @@ export function splitDue(items: HomeworkItem[]): Array<{ lane: DueLane; items: H
     items: items.filter((i) => dueLaneOf(i) === lane),
   })).filter((section) => section.items.length > 0);
 }
+
+/**
+ * Marked, filed under the course's topics (see `groupUnderTopics`). A
+ * generated sheet's title is its spec point code, so the title order inside a
+ * topic is the spec's. A tutor's brief has no spec point, so briefs go after
+ * the topics under the lane name the dashboard gives them.
+ */
+export function groupByTopic(
+  items: HomeworkItem[],
+  topics: Record<string, TopicRef>,
+): Array<{ key: string; title: string; items: HomeworkItem[] }> {
+  return groupUnderTopics(
+    items,
+    (item) =>
+      topics[item.hw.id] ??
+      (item.hw.origin === "tutor" ? TUTOR_BRIEFS : noTopic("other", "Other tasks")),
+    (item) => item.hw.title,
+  );
+}
+
+/** Where a tutor's briefs go: after the topics, before anything unfiled. */
+const TUTOR_BRIEFS: TopicRef = {
+  id: "tutor",
+  title: "From your tutor",
+  order: Number.MAX_SAFE_INTEGER - 1,
+};
 
 export const BUCKET_LABEL: Record<HomeworkBucket, string> = {
   due: "Due",

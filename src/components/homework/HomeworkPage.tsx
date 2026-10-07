@@ -1,13 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/components/Shared";
+import { Chip, EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import {
   useHomework,
   useHomeworkSubmissions,
+  useHomeworkTopics,
   useInvalidateHomework,
 } from "@/hooks/data/useHomework";
 import type { Homework, SubmissionRow } from "@/lib/homework/types";
@@ -15,6 +16,7 @@ import { useHomeworkSummaries, type HomeworkSummary } from "@/hooks/data/useHome
 import {
   BUCKET_LABEL,
   BUCKET_ORDER,
+  groupByTopic,
   groupHomework,
   isAwaitingRelease,
   isOverdue,
@@ -24,7 +26,8 @@ import {
 } from "@/lib/homework/homeworkBuckets";
 import { useDueThisWeek } from "@/components/planner/useDueThisWeek";
 import { DueLanes, DueSection } from "@/components/planner/DueSection";
-import { ChevronDown, Clock, Plus } from "lucide-react";
+import { MarkedTopic } from "@/components/planner/MarkedTopic";
+import { CalendarCheck, ChevronDown, Clock, Plus } from "lucide-react";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { MarkingQueue } from "@/components/tutor/MarkingQueue";
 import { HomeworkLibrary } from "@/components/tutor/HomeworkLibrary";
@@ -286,6 +289,8 @@ function StudentHomework({
                       </DueSection>
                     ))}
                   </DueLanes>
+                ) : active.bucket === "marked" ? (
+                  <MarkedByTopic items={active.items} summaries={summaries} />
                 ) : (
                   <div className="space-y-3">
                     {active.items.map((item) => (
@@ -334,9 +339,6 @@ function HomeworkCard({ item, summary }: { item: HomeworkItem; summary?: Homewor
                 ? `Due ${plannerDateLabel(new Date(hw.due_at))}`
                 : null,
               awaiting ? "Being marked" : null,
-              submission?.graded_at
-                ? `Marked ${plannerDateLabel(new Date(submission.graded_at))}`
-                : null,
             ]
               .filter(Boolean)
               .join(" · ")}
@@ -346,6 +348,11 @@ function HomeworkCard({ item, summary }: { item: HomeworkItem; summary?: Homewor
               <Clock className="size-3" aria-hidden />
               Overdue {plannerDateLabel(new Date(hw.due_at))}
             </span>
+          )}
+          {submission?.graded_at && (
+            <Chip icon={CalendarCheck}>
+              Marked {plannerDateLabel(new Date(submission.graded_at))}
+            </Chip>
           )}
         </div>
       </div>
@@ -367,6 +374,41 @@ function HomeworkCard({ item, summary }: { item: HomeworkItem; summary?: Homewor
         )
       )}
     </Link>
+  );
+}
+
+/**
+ * Marked, under the course's topics (see `MarkedTopic`), the sheets inside each
+ * the same cards as Due's. See `groupByTopic` for the order.
+ */
+function MarkedByTopic({
+  items,
+  summaries,
+}: {
+  items: HomeworkItem[];
+  summaries: Record<string, HomeworkSummary>;
+}) {
+  const { data: topics, isPending, error, refetch } = useHomeworkTopics(items.map((i) => i.hw.id));
+  if (error) return <ErrorNote error={error} onRetry={() => void refetch()} />;
+  if (isPending) return <Spinner label="Fetching your marks" className="py-10" />;
+  return (
+    <div className="space-y-3">
+      {groupByTopic(items, topics).map((group) => (
+        <MarkedTopic
+          key={group.key}
+          stateKey={`tasks.marked.${group.key}`}
+          title={group.title}
+          count={group.items.length}
+          noun={["task", "tasks"]}
+        >
+          <div className="space-y-3">
+            {group.items.map((item) => (
+              <HomeworkCard key={item.hw.id} item={item} summary={summaries[item.hw.id]} />
+            ))}
+          </div>
+        </MarkedTopic>
+      ))}
+    </div>
   );
 }
 
