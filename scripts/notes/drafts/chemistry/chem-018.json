@@ -53,13 +53,19 @@
               "Ball and stick model",
               "The sticks suggest bonds between pairs of ions, but the force acts in all directions"
             ],
-            ["2D diagram", "Shows only one layer of the structure"],
+            [
+              "2D diagram",
+              "Shows only one layer of the structure"
+            ],
             [
               "3D diagram",
               "Ions in the middle are hidden, and the size and spacing may not be to scale"
             ]
           ],
-          "columns": ["Model", "Limitation"]
+          "columns": [
+            "Model",
+            "Limitation"
+          ]
         },
         {
           "type": "paragraph",
@@ -93,15 +99,55 @@
         {
           "type": "table",
           "rows": [
-            ["Sodium", "Na⁺", "Chloride", "Cl⁻"],
-            ["Potassium", "K⁺", "Oxide", "O²⁻"],
-            ["Ammonium", "NH₄⁺", "Hydroxide", "OH⁻"],
-            ["Magnesium", "Mg²⁺", "Nitrate", "NO₃⁻"],
-            ["Calcium", "Ca²⁺", "Carbonate", "CO₃²⁻"],
-            ["Aluminium", "Al³⁺", "Sulfate", "SO₄²⁻"],
-            ["Barium", "Ba²⁺", "Phosphate", "PO₄³⁻"]
+            [
+              "Sodium",
+              "Na⁺",
+              "Chloride",
+              "Cl⁻"
+            ],
+            [
+              "Potassium",
+              "K⁺",
+              "Oxide",
+              "O²⁻"
+            ],
+            [
+              "Ammonium",
+              "NH₄⁺",
+              "Hydroxide",
+              "OH⁻"
+            ],
+            [
+              "Magnesium",
+              "Mg²⁺",
+              "Nitrate",
+              "NO₃⁻"
+            ],
+            [
+              "Calcium",
+              "Ca²⁺",
+              "Carbonate",
+              "CO₃²⁻"
+            ],
+            [
+              "Aluminium",
+              "Al³⁺",
+              "Sulfate",
+              "SO₄²⁻"
+            ],
+            [
+              "Barium",
+              "Ba²⁺",
+              "Phosphate",
+              "PO₄³⁻"
+            ]
           ],
-          "columns": ["Positive ion", "Formula", "Negative ion", "Formula"]
+          "columns": [
+            "Positive ion",
+            "Formula",
+            "Negative ion",
+            "Formula"
+          ]
         },
         {
           "type": "subheading",
@@ -133,46 +179,90 @@
             "options": [
               {
                 "label": "Sodium chloride",
-                "results": ["Na⁺ and Cl⁻", "1+ and 1−", "**NaCl**"]
+                "results": [
+                  "Na⁺ and Cl⁻",
+                  "1+ and 1−",
+                  "**NaCl**"
+                ]
               },
               {
                 "label": "Magnesium oxide",
-                "results": ["Mg²⁺ and O²⁻", "2+ and 2−", "**MgO**"]
+                "results": [
+                  "Mg²⁺ and O²⁻",
+                  "2+ and 2−",
+                  "**MgO**"
+                ]
               },
               {
                 "label": "Calcium chloride",
-                "results": ["Ca²⁺ and Cl⁻", "2+ and 2 × 1−", "**CaCl₂**"]
+                "results": [
+                  "Ca²⁺ and Cl⁻",
+                  "2+ and 2 × 1−",
+                  "**CaCl₂**"
+                ]
               },
               {
                 "label": "Aluminium oxide",
-                "results": ["Al³⁺ and O²⁻", "2 × 3+ = 6+ and 3 × 2− = 6−", "**Al₂O₃**"]
+                "results": [
+                  "Al³⁺ and O²⁻",
+                  "2 × 3+ = 6+ and 3 × 2− = 6−",
+                  "**Al₂O₃**"
+                ]
               },
               {
                 "label": "Sodium sulfate",
-                "results": ["Na⁺ and SO₄²⁻", "2 × 1+ and 2−", "**Na₂SO₄**"]
+                "results": [
+                  "Na⁺ and SO₄²⁻",
+                  "2 × 1+ and 2−",
+                  "**Na₂SO₄**"
+                ]
               },
               {
                 "label": "Calcium carbonate",
-                "results": ["Ca²⁺ and CO₃²⁻", "2+ and 2−", "**CaCO₃**"]
+                "results": [
+                  "Ca²⁺ and CO₃²⁻",
+                  "2+ and 2−",
+                  "**CaCO₃**"
+                ]
               },
               {
                 "label": "Magnesium nitrate",
-                "results": ["Mg²⁺ and NO₃⁻", "2+ and 2 × 1−", "**Mg(NO₃)₂**"]
+                "results": [
+                  "Mg²⁺ and NO₃⁻",
+                  "2+ and 2 × 1−",
+                  "**Mg(NO₃)₂**"
+                ]
               },
               {
                 "label": "Ammonium sulfate",
-                "results": ["NH₄⁺ and SO₄²⁻", "2 × 1+ and 2−", "**(NH₄)₂SO₄**"]
+                "results": [
+                  "NH₄⁺ and SO₄²⁻",
+                  "2 × 1+ and 2−",
+                  "**(NH₄)₂SO₄**"
+                ]
               },
               {
                 "label": "Aluminium sulfate",
-                "results": ["Al³⁺ and SO₄²⁻", "2 × 3+ = 6+ and 3 × 2− = 6−", "**Al₂(SO₄)₃**"]
+                "results": [
+                  "Al³⁺ and SO₄²⁻",
+                  "2 × 3+ = 6+ and 3 × 2− = 6−",
+                  "**Al₂(SO₄)₃**"
+                ]
               },
               {
                 "label": "Calcium phosphate",
-                "results": ["Ca²⁺ and PO₄³⁻", "3 × 2+ = 6+ and 2 × 3− = 6−", "**Ca₃(PO₄)₂**"]
+                "results": [
+                  "Ca²⁺ and PO₄³⁻",
+                  "3 × 2+ = 6+ and 2 × 3− = 6−",
+                  "**Ca₃(PO₄)₂**"
+                ]
               }
             ],
-            "result_labels": ["Ions", "Charges balance", "Formula"]
+            "result_labels": [
+              "Ions",
+              "Charges balance",
+              "Formula"
+            ]
           }
         },
         {
@@ -238,7 +328,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.1.3", "AQA T 5.2.1.3"],
+      "spec_codes": [
+        "AQA 4.2.1.3",
+        "AQA T 5.2.1.3"
+      ],
       "worked_example": {
         "exemplar_id": "436fd64d-6667-45fb-8d3a-142480f4d47e",
         "source": "AQA jun 2025, Paper 1 (H), Q6.1",
@@ -254,7 +347,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 1.25", "EDEX 1.26", "EDEX 1.27"],
+      "spec_codes": [
+        "EDEX 1.25",
+        "EDEX 1.26",
+        "EDEX 1.27"
+      ],
       "worked_example": {
         "exemplar_id": "e605e15c-4118-42e1-b58c-78dc0d6a463d",
         "source": "EDEXCEL nov 2021, Paper 1 (H), Q3(d)",
@@ -268,7 +365,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C3.1d"],
+      "spec_codes": [
+        "OCR C3.1d"
+      ],
       "worked_example": {
         "exemplar_id": "26b0e228-35e8-4f8c-8d3a-dbe16803c012",
         "source": "OCR nov 2020, Paper 1, Q18(a)(iii)",
@@ -280,6 +379,97 @@
         ],
         "tip": "Check that the total positive charge equals the total negative charge."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.4.5S",
+        "CAIE 3.1.6S",
+        "CAIE 2.4.2",
+        "CAIE 3.1.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "593cbcb2-7cae-47d8-a028-448d21b4949e",
+        "source": "CAMBRIDGE jun 2023, Paper 43, Q3(a)(ii)",
+        "question": "Magnesium forms ionic compounds. Magnesium reacts with fluorine to form the ionic compound magnesium fluoride. Deduce the formula of magnesium fluoride.",
+        "marks": 1,
+        "answer_points": [
+          "MgF₂"
+        ],
+        "tip": "The ions are Mg²⁺ and F⁻, so two fluoride ions balance the charge on one magnesium ion."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.38",
+        "IGCSE 1.39",
+        "IGCSE 1.41"
+      ],
+      "worked_example": {
+        "exemplar_id": "784a95b4-dc67-4505-9851-c87f10409d1d",
+        "source": "EDEXCEL nov 2020, Paper 1 (C), Q4(c)(i)",
+        "question": "Ammonium sulfate is used by gardeners as a fertiliser because it contains nitrogen. Explain why the chemical formula of ammonium sulfate is (NH₄)₂SO₄. Refer to the charges on the ions in your answer.",
+        "marks": 2,
+        "answer_points": [
+          "The ammonium ion is NH₄⁺, charge 1+, and the sulfate ion is SO₄²⁻, charge 2−.",
+          "So two ammonium ions balance the charge on one sulfate ion, and the compound has no overall charge."
+        ],
+        "tip": "The second mark does not depend on the first."
+      },
+      "extra": [
+        {
+          "heading": "More ions and their charges",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course also asks for the charges on these ions."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Ion",
+                "Formula"
+              ],
+              "rows": [
+                [
+                  "Silver",
+                  "Ag⁺"
+                ],
+                [
+                  "Copper(II)",
+                  "Cu²⁺"
+                ],
+                [
+                  "Iron(II)",
+                  "Fe²⁺"
+                ],
+                [
+                  "Iron(III)",
+                  "Fe³⁺"
+                ],
+                [
+                  "Lead(II)",
+                  "Pb²⁺"
+                ],
+                [
+                  "Zinc",
+                  "Zn²⁺"
+                ],
+                [
+                  "Hydrogen",
+                  "H⁺"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Group 3 metals form 3+ ions, such as Al³⁺.",
+                "Group 5 non-metals form 3− ions, such as the nitride ion, N³⁻."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -287,19 +477,25 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "4e5e550e-e760-4063-8ec5-2ff9d9f292c4",
       "588c6424-ae3e-45a2-aaca-678805219fd6",
       "a609c1f8-85c7-48ef-a40a-92eaace66f76",
       "a4b44fa8-ee6e-40cb-baf7-8551b9829d77",
       "bd7fee4e-e71f-46cd-8665-55bf1183d5a3",
-      "2879ddaf-47d3-4a04-b3bf-51423b7ebcd3"
+      "2879ddaf-47d3-4a04-b3bf-51423b7ebcd3",
+      "229e501e-7c92-4364-ae87-7311bb7b9685",
+      "8b5735e0-aed7-46b4-816d-7ce030ea91a1",
+      "d6ca00a6-e0db-4905-8cbd-54877b87f8e1",
+      "c823ee26-8a24-4e8d-9795-43a4eebcb44b"
     ],
     "exemplar_ids": [
       "436fd64d-6667-45fb-8d3a-142480f4d47e",
       "e605e15c-4118-42e1-b58c-78dc0d6a463d",
-      "26b0e228-35e8-4f8c-8d3a-dbe16803c012"
+      "26b0e228-35e8-4f8c-8d3a-dbe16803c012",
+      "593cbcb2-7cae-47d8-a028-448d21b4949e",
+      "784a95b4-dc67-4505-9851-c87f10409d1d"
     ]
   }
 }

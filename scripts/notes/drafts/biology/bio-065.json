@@ -216,6 +216,53 @@
         ],
         "tip": "Any two of the points above score. A specific answer about temperature or thyroxine is also allowed."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 14.4.1", "CAIE 14.4.3S", "CAIE 14.1.3"],
+      "worked_example": {
+        "exemplar_id": "1f1cbf5a-2903-4383-a69e-40886b54ce33",
+        "source": "CAMBRIDGE nov 2023, Paper 43, Q4(a)",
+        "question": "Complete the sentences about the control of body temperature.\nThe human body maintains a constant internal temperature. This is an example of ______. When the temperature moves away from the set point, the mechanism of ______ returns the temperature to the set point.",
+        "marks": 2,
+        "answer_points": ["homeostasis", "negative feedback"],
+        "tip": "One mark for each term. Both terms are needed in the right order."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Negative feedback works around a **set point**. This is the value the body tries to keep a condition at."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A receptor detects when the condition moves away from the set point.",
+                "The control centre compares the condition with the set point.",
+                "An effector acts to return the condition to the set point.",
+                "The response reverses the change, so the condition stays close to the set point.",
+                "The nervous system helps to coordinate and regulate these body functions."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.80", "IGCSE 2.81", "IGCSE 2.82"],
+      "worked_example": {
+        "exemplar_id": "f74027ea-9fc2-4264-a4f2-284d46e65413",
+        "source": "EDEXCEL jun 2024, Paper 2 (BR), Q2(b)(i)",
+        "question": "The table shows the water output per day for a person in normal temperature conditions.\n\nWater output (losses), volume in litres: urine 1.5; gas exchange 0.4; sweating 0.5; faeces 0.1.\n\nThe water loss from gas exchange plus the loss from sweating is called the insensible water loss. It is called insensible because it cannot be measured directly.\n\nCalculate the percentage of the water loss that is classified as insensible.",
+        "marks": 2,
+        "answer_points": [
+          "Insensible loss = 0.4 + 0.5 = 0.9 litres",
+          "Total loss = 1.5 + 0.4 + 0.5 + 0.1 = 2.5 litres",
+          "(0.9 ÷ 2.5) × 100 = 36 %"
+        ],
+        "tip": "One mark for 0.9 or for dividing by 2.5, and one for the correct answer. 36 % with no working scores both."
+      }
     }
   },
   "meta": {
@@ -227,14 +274,21 @@
       "d6c30671-27aa-4151-87a1-afa8e05110f8",
       "3eda23ba-f63f-4671-a3e7-dba172b13bc7",
       "764bc65b-093c-492c-9299-45ff6cf3ce6a",
-      "09e91686-db9f-4fbf-9f4d-5e572446b040"
+      "09e91686-db9f-4fbf-9f4d-5e572446b040",
+      "501714b1-fa08-44de-a44d-528453367851",
+      "45467b8f-dacd-42ae-98d4-a213f9474c10",
+      "2124498a-392d-4938-9c32-b6ba1c6b95a2",
+      "a9d70a1e-4a6f-41d8-b916-e818a3f976a1",
+      "b9e5cf45-7199-4970-b73d-f927dedcdeb7"
     ],
     "exemplar_ids": [
       "ddba1045-a41a-4d4b-b014-8436637c9469",
       "3bf4ca4f-b741-4f3e-ba0f-47c99ee71630",
-      "da2dabea-4474-44ff-b6e4-b3db825e6679"
+      "da2dabea-4474-44ff-b6e4-b3db825e6679",
+      "1f1cbf5a-2903-4383-a69e-40886b54ce33",
+      "f74027ea-9fc2-4264-a4f2-284d46e65413"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

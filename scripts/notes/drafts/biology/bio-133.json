@@ -96,7 +96,10 @@
               "unit": "g",
               "decimals": 0
             },
-            "working": ["Mass of mycoprotein = {P} ÷ {Q} × 100", "= {answer} g"]
+            "working": [
+              "Mass of mycoprotein = {P} ÷ {Q} × 100",
+              "= {answer} g"
+            ]
           }
         },
         {
@@ -138,7 +141,10 @@
             "kind": "sort",
             "alt": "Sort statements about insect-resistant GM crops into advantages and disadvantages.",
             "prompt": "Advantage or disadvantage of insect-resistant GM crops?",
-            "groups": ["Advantage", "Disadvantage"],
+            "groups": [
+              "Advantage",
+              "Disadvantage"
+            ],
             "items": [
               {
                 "text": "Less crop damage, so a higher yield",
@@ -212,7 +218,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 7.15"],
+      "spec_codes": [
+        "AQA 7.15"
+      ],
       "worked_example": {
         "exemplar_id": "399efa44-2d51-48b6-82d7-ecc91f7b17a4",
         "source": "AQA jun 2018, Paper 2 (F), Q07.1",
@@ -226,7 +234,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 4.12B"],
+      "spec_codes": [
+        "EDEX 4.12B"
+      ],
       "worked_example": {
         "exemplar_id": "52526374-47a3-48fd-8420-51dd283f0ee8",
         "source": "EDEXCEL nov 2021, Paper 1 (F), Q7(c)",
@@ -244,7 +254,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.2g"],
+      "spec_codes": [
+        "OCR 6.2g"
+      ],
       "worked_example": {
         "exemplar_id": "92a20a45-ec72-4f09-ad77-2606c0c0d420",
         "source": "OCR jun 2019, Paper 2, Q17(b)(ii)",
@@ -256,23 +268,140 @@
         ],
         "tip": "Yield and size of fruit are ignored, because the question has already used yield."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 21.2.6S",
+        "CAIE 21.2.7S"
+      ],
+      "worked_example": {
+        "exemplar_id": "f84da997-d329-4e0e-93fb-0b2732cb4715",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q6(c)(ii)",
+        "question": "Penicillin can be produced in fermenters.\n\nExplain why the temperature in the fermenter must be controlled.",
+        "marks": 3,
+        "answer_points": [
+          "Respiration by the organisms produces heat.",
+          "The organisms contain enzymes.",
+          "Enzymes are denatured by too much heat.",
+          "The temperature is kept at the optimum, so the organisms are not killed.",
+          "This gives the maximum yield of product."
+        ],
+        "tip": "Any three points score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Fermenters are used on a large scale to make useful products from bacteria and fungi."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Bacteria make **insulin**.",
+                "The fungus Penicillium makes **penicillin**.",
+                "The fungus Fusarium makes **mycoprotein**."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "(Supplement) Conditions controlled in a fermenter"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Condition",
+                "Why it is controlled"
+              ],
+              "rows": [
+                [
+                  "Temperature",
+                  "Respiration releases heat. Too much heat denatures enzymes, so the temperature is kept at the optimum for the greatest yield."
+                ],
+                [
+                  "pH",
+                  "The enzymes work best at their optimum pH, so it is monitored and kept constant."
+                ],
+                [
+                  "Oxygen",
+                  "The organisms need oxygen for aerobic respiration, which releases energy for growth."
+                ],
+                [
+                  "Nutrient supply",
+                  "Glucose and other nutrients are needed for the organisms to grow and make the product."
+                ],
+                [
+                  "Waste products",
+                  "Waste, such as carbon dioxide and heat, is removed so that it does not harm the organisms."
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 5.8"
+      ],
+      "worked_example": {
+        "exemplar_id": "7fb81bc0-414b-4b0f-8616-64faf2645ee5",
+        "source": "EDEXCEL jun 2023, Paper 1 (B), Q8(d)(i)",
+        "question": "Industrial fermenters are used to grow microorganisms. These microorganisms produce penicillin, an antibiotic that is used to treat bacterial infections.\n\nExplain how named conditions in an industrial fermenter are controlled.",
+        "marks": 4,
+        "answer_points": [
+          "Oxygen is provided for respiration, using an aerator or air inlet.",
+          "The temperature is kept at the optimum and overheating is prevented, using a temperature monitor and a water jacket.",
+          "The pH is kept at the optimum, using a pH monitor and an inlet for acid or alkali.",
+          "Contamination is prevented to keep the fermenter aseptic, using an air filter and by sterilising or steam cleaning before use.",
+          "The contents are mixed so that nutrients, oxygen and heat are spread evenly, using a stirrer or paddles."
+        ],
+        "tip": "Each mark is for a named condition, then for the method used to control it."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Any microorganism can be grown in an industrial fermenter, not only Fusarium. These conditions are controlled."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Aseptic precautions**: the fermenter is sterilised, for example with steam, and air is filtered, so other microorganisms cannot contaminate it.",
+                "**Nutrients**: a nutrient broth supplies food for growth.",
+                "**Optimum temperature and pH**, kept steady by monitors, a cooling jacket and the addition of acid or alkali.",
+                "**Oxygenation**: air is bubbled in so the organisms can respire aerobically.",
+                "**Agitation**: stirring spreads nutrients, oxygen and heat evenly."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "90ee36a4-042e-4ddf-bea8-09c0309946a0",
       "12d05f6d-0a4f-4f26-a25f-78824c8a97bb",
-      "05138f3f-96e9-473c-a618-42d3abdd19a4"
+      "05138f3f-96e9-473c-a618-42d3abdd19a4",
+      "78be7070-3279-4a8f-b5da-49b48f829e23",
+      "31740266-0031-470d-9622-68076170d799",
+      "5942fa50-79b9-4b68-8484-89c9b06e6ca4"
     ],
     "exemplar_ids": [
       "399efa44-2d51-48b6-82d7-ecc91f7b17a4",
       "52526374-47a3-48fd-8420-51dd283f0ee8",
-      "92a20a45-ec72-4f09-ad77-2606c0c0d420"
+      "92a20a45-ec72-4f09-ad77-2606c0c0d420",
+      "f84da997-d329-4e0e-93fb-0b2732cb4715",
+      "7fb81bc0-414b-4b0f-8616-64faf2645ee5"
     ]
   }
 }

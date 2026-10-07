@@ -291,6 +291,30 @@
         ],
         "tip": "Check the answer first: any value from 0.5 to 3.0 m/s² scores all 3 marks."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.2.8", "CAIE 3.4.5"],
+      "worked_example": {
+        "exemplar_id": "e4f5606f-b077-4a90-a3d6-301da040e09d",
+        "source": "CAMBRIDGE mar 2025, Paper 42, Q7(b)(ii)",
+        "question": "A foghorn emits a sound with frequency 380 Hz. The sound is heard by a ship 2.5 km away from the foghorn. The speed of sound in air is 330 m/s.\n\nCalculate the time it takes for sound to travel to the ship from the foghorn.",
+        "marks": 2,
+        "answer_points": ["t = s ÷ v", "t = 2500 ÷ 330", "t = 7.6 s"]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The speed of sound in air is about **330 to 350 m/s**. Any value in this range is a correct typical value.",
+                "Near the Earth's surface the acceleration of free fall is approximately constant, at about **9.8 m/s²**."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -301,14 +325,17 @@
       "7ce56a02-5f18-4d63-955b-267e1d857747",
       "cfbee96b-371a-4c2a-a651-38585550fad6",
       "ff5c7d2a-7ad6-42c1-a138-96e7ad3155e2",
-      "5e59e576-cfcc-4b5f-82a0-134e7fe98e5c"
+      "5e59e576-cfcc-4b5f-82a0-134e7fe98e5c",
+      "35a05f9a-1895-4866-b397-af02cce3c435",
+      "2a563da1-98a8-4a89-8472-b9707ac9f411"
     ],
     "exemplar_ids": [
       "61630483-28f6-4522-8118-e6ffa4df5246",
       "4528cbe2-5790-4d01-8328-349751a3517c",
-      "1ff35a4a-84ae-45d8-992f-5933c20b74ce"
+      "1ff35a4a-84ae-45d8-992f-5933c20b74ce",
+      "e4f5606f-b077-4a90-a3d6-301da040e09d"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

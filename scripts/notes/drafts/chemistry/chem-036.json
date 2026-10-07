@@ -222,23 +222,43 @@
         "answer_points": ["Concentration = mass ÷ volume = 0.6 ÷ 0.25", "= 2.4 g/dm³"],
         "tip": "The volume must be in dm³. 250 cm³ ÷ 1000 = 0.25 dm³. To change g/dm³ into mol/dm³, divide by the Mr."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.3.1", "CAIE 3.3.5S"]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.34C"],
+      "worked_example": {
+        "exemplar_id": "177a9e2c-e236-437a-beed-5daf8a1d2f2a",
+        "source": "EDEXCEL nov 2020, Paper 2 (CR), Q6(d)",
+        "question": "A student needs 21.50 cm³ of hydrochloric acid to neutralise 25.0 cm³ of sodium hydroxide solution of concentration 0.800 mol/dm³.\n\nThe equation for the reaction is\n\nNaOH + HCl → NaCl + H₂O\n\nCalculate the concentration, in mol/dm³, of the hydrochloric acid.",
+        "marks": 3,
+        "answer_points": [
+          "Moles of NaOH = 0.0250 × 0.800 = 0.0200 mol",
+          "Concentration of HCl = 0.0200 ÷ 0.0215",
+          "= 0.930 mol/dm³"
+        ],
+        "tip": "One mark for the moles, one for dividing by the volume in dm³ and one for the answer."
+      }
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "2c812b33-2a38-4bcc-97d4-f8a67e46c735",
       "379b87e0-c12d-4ef4-8bfe-c3b1fb417654",
-      "be7eb613-d8d6-4e80-8171-e96d5ce8da1b"
+      "be7eb613-d8d6-4e80-8171-e96d5ce8da1b",
+      "4fa0dd74-0af2-408b-b27a-068cfdcc9ee2"
     ],
     "exemplar_ids": [
       "63db084e-c65f-4251-9bec-086910c375ed",
       "0530259e-61aa-42d0-b3ca-5eee5076243c",
-      "f8031dac-885d-4475-b5e6-73c562af8cb7"
+      "f8031dac-885d-4475-b5e6-73c562af8cb7",
+      "177a9e2c-e236-437a-beed-5daf8a1d2f2a"
     ]
   }
 }

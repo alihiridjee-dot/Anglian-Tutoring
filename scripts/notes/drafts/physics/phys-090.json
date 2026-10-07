@@ -231,6 +231,100 @@
         ],
         "tip": "Any three points score."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 6.1.2.5",
+        "CAIE 6.1.2.6",
+        "CAIE 6.1.1.4S",
+        "CAIE 6.1.2.7S",
+        "CAIE 6.1.2.9S"
+      ],
+      "worked_example": {
+        "exemplar_id": "ed92d6cd-a535-439b-8346-67ce71e006c6",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q11(b)",
+        "question": "Venus has an average radius of orbit of 1.1 × 10¹¹ m and an orbital period of 220 Earth days.\nCalculate the average orbital speed of Venus. Give your answer in m/s.",
+        "marks": 3,
+        "answer_points": [
+          "T = 220 × 24 × 60 × 60 = 1.9 × 10⁷ s.",
+          "v = 2πr ÷ T = 2π × 1.1 × 10¹¹ ÷ (220 × 24 × 60 × 60).",
+          "v = 3.6 × 10⁴ m/s."
+        ],
+        "tip": "Convert the time period to seconds before substituting."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The Sun contains most of the mass of the Solar System. Its gravitational attraction is the force that keeps the planets in orbit around it.",
+                "(Supplement) Planets, minor planets and comets have elliptical orbits. The Sun is not at the centre of an ellipse, except when the orbit is almost circular.",
+                "(Supplement) The Sun's gravitational field gets weaker with distance from the Sun. So the orbital speeds of the planets decrease as the distance from the Sun increases."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The average orbital speed is the distance around the orbit divided by the orbital period."
+            },
+            {
+              "type": "equation",
+              "label": "Average orbital speed",
+              "formula": "v = 2 × π × r ÷ T",
+              "where": [
+                "v is the average orbital speed, in metres per second, m/s",
+                "r is the average radius of the orbit, in metres, m",
+                "T is the orbital period, the time for one orbit, in seconds, s"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 8.4", "IGCSE 8.5", "IGCSE 8.6"],
+      "worked_example": {
+        "exemplar_id": "02279700-c535-489a-ac0c-6cc3989e6cfe",
+        "source": "EDEXCEL jan 2023, Paper 1 (PR), Q2(b)",
+        "question": "The Earth orbits the Sun in 365 days with an orbital radius of 150 000 000 km.\nCalculate the Earth's orbital speed in km/s.",
+        "marks": 3,
+        "answer_points": [
+          "Convert the time to seconds: 365 × 24 × 60 × 60 = 31.5 × 10⁶ s.",
+          "Orbital speed = (2 × π × r) ÷ T = (2 × π × 150 000 000) ÷ (31.5 × 10⁶).",
+          "Orbital speed = 29.9 km/s (about 30 km/s)."
+        ],
+        "tip": "One mark is for converting days to seconds."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The orbital speed is the distance around the orbit divided by the time period."
+            },
+            {
+              "type": "equation",
+              "label": "Orbital speed",
+              "formula": "v = 2 × π × r ÷ T",
+              "where": [
+                "v is the orbital speed, in metres per second, m/s",
+                "r is the orbital radius, in metres, m",
+                "T is the time period, the time for one orbit, in seconds, s"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Moons and artificial satellites orbit a planet. Planets and comets orbit the Sun. Gravity provides the force in every case.",
+                "Moons, planets and artificial satellites have orbits that are nearly circular.",
+                "A comet has a much more elliptical orbit than a planet, so its speed and its distance from the Sun change a lot."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -248,9 +342,11 @@
     "exemplar_ids": [
       "6c58adf7-7bce-4d21-a531-9b7955ad3794",
       "6e3cddaf-543e-448c-9e17-08020c66c24e",
-      "ed6c7f3c-d3ff-43d1-b82c-5c7b821c89f0"
+      "ed6c7f3c-d3ff-43d1-b82c-5c7b821c89f0",
+      "ed92d6cd-a535-439b-8346-67ce71e006c6",
+      "02279700-c535-489a-ac0c-6cc3989e6cfe"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

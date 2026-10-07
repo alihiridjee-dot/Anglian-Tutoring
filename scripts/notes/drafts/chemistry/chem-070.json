@@ -279,6 +279,57 @@
         ],
         "tip": "Just more particles and just more collisions are ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 6.2.5S", "CAIE 6.2.6S"],
+      "worked_example": {
+        "exemplar_id": "0d3bee99-ccfa-40fb-b96c-062b7c14717e",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q3(b)(v)",
+        "question": "The Haber process is used to manufacture ammonia. The equation is shown.\n\nN₂(g) + 3H₂(g) ⇌ 2NH₃(g)   ΔH = –92 kJ/mol\n\nThe reaction is reversible. The forward reaction is exothermic.\n\nExplain in terms of collision theory why increasing the temperature increases the rate of the reaction.",
+        "marks": 3,
+        "answer_points": [
+          "The kinetic energy of the particles increases (M1)",
+          "The frequency of collisions between particles increases (M2)",
+          "A higher proportion of the collisions (or particles) have energy greater than or equal to the activation energy (M3)"
+        ],
+        "tip": "One mark for each of kinetic energy, frequency of collisions and the proportion with enough energy."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A catalyst changes the rate by lowering the activation energy, not by changing how often particles collide."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A catalyst gives the reaction an alternative pathway with a lower activation energy.",
+                "So a greater proportion of collisions have energy equal to or greater than the activation energy, and the rate increases.",
+                "Enzymes work in the same way. Removing a catalyst raises the activation energy again, so the rate falls.",
+                "Higher concentration or pressure means more particles per unit volume, so collisions are more frequent.",
+                "Higher temperature raises the kinetic energy of the particles. They collide more often, and a greater proportion have enough energy to react."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.11"],
+      "worked_example": {
+        "exemplar_id": "a435b42f-509f-4d8c-95de-e3438d3ba677",
+        "source": "EDEXCEL nov 2020, Paper 1 (C), Q7(f)",
+        "question": "Explain, in terms of particle collision theory, the effect that increasing the temperature has on the rate of a reaction.",
+        "marks": 3,
+        "answer_points": [
+          "The mean kinetic energy of the particles increases, so they move faster (M1)",
+          "so there are more successful collisions per second: more frequent collisions between particles with energy greater than or equal to the activation energy (M2)",
+          "The rate of reaction increases (M3)"
+        ],
+        "tip": "One mark for the energy, one for the successful collisions and one for the effect on the rate."
+      }
     }
   },
   "meta": {
@@ -291,14 +342,19 @@
       "bf96f425-a218-4b76-ba27-73c07f873ee9",
       "f8699284-3cf5-4dca-8025-7609145bb5fa",
       "cb1537ff-ba3c-46da-96b7-11d69a18faa5",
-      "d667c28a-5049-42d3-85d4-cd3f2d960ba0"
+      "d667c28a-5049-42d3-85d4-cd3f2d960ba0",
+      "ab9ab80e-ecc7-4cc7-bc1a-4a2222ada4be",
+      "089cbc74-cadc-4929-a201-ee46187d1584",
+      "3f9ec431-23b1-4783-b534-6972c0e77636"
     ],
     "exemplar_ids": [
       "93f62dbb-bb64-46e3-8809-5c5a9a8c998d",
       "4e4d5923-1656-4a1b-8e7c-a31961fd84ef",
-      "d1cc345d-07ea-460a-8a37-f61fd38971ba"
+      "d1cc345d-07ea-460a-8a37-f61fd38971ba",
+      "0d3bee99-ccfa-40fb-b96c-062b7c14717e",
+      "a435b42f-509f-4d8c-95de-e3438d3ba677"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

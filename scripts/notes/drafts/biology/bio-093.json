@@ -162,7 +162,10 @@
                 "group": 1
               }
             ],
-            "groups": ["Mutation in coding DNA", "Mutation in non-coding DNA"],
+            "groups": [
+              "Mutation in coding DNA",
+              "Mutation in non-coding DNA"
+            ],
             "prompt": "Which type of mutation causes this effect?"
           }
         },
@@ -196,7 +199,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 6.5", "AQA 6.9"],
+      "spec_codes": [
+        "AQA 6.5",
+        "AQA 6.9"
+      ],
       "worked_example": {
         "exemplar_id": "147ca045-1045-4e51-97d5-58a57813689e",
         "source": "AQA jun 2018, Paper 2 (H), Q08.4",
@@ -211,7 +217,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 3.9B", "EDEX 3.10B"],
+      "spec_codes": [
+        "EDEX 3.9B",
+        "EDEX 3.10B"
+      ],
       "worked_example": {
         "exemplar_id": "0ec97ece-d01d-4d8e-a465-f236772ff43b",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q9(b)",
@@ -226,7 +235,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 5.1e"],
+      "spec_codes": [
+        "OCR 5.1e"
+      ],
       "worked_example": {
         "exemplar_id": "63941fe4-fc32-4273-abfc-4772985fbc07",
         "source": "OCR sample, Paper 4, Q19(a)",
@@ -240,6 +251,83 @@
         ],
         "tip": "One mark for each link in the chain. Write them in order."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 18.1.6",
+        "CAIE 18.1.7",
+        "CAIE 18.1.8",
+        "CAIE 18.1.9S"
+      ],
+      "worked_example": {
+        "exemplar_id": "de6a6827-6d08-455c-a487-55d41fe1b73e",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q2(c)",
+        "question": "Complete the sentences about drug resistance and genetic variation by writing a suitable word or phrase in the spaces provided.\n\nBacteria can be killed by drugs called ______. The development of strains of bacteria that are resistant to these drugs is an example of ______ selection.\n\nResistant strains of bacteria have gene mutations that enable them to survive drug treatment.\n\nGene mutations are caused by random changes in the ______ of bases in DNA and result in the formation of new ______ in the bacteria. Mutation rates can be increased by ______ radiation and some chemicals.\n\nIn animals and plants, another source of genetic variation is a type of nuclear division called ______.",
+        "marks": 6,
+        "answer_points": [
+          "Drugs that kill bacteria: antibiotics.",
+          "Resistance is an example of natural selection.",
+          "Random changes in the sequence of bases in DNA.",
+          "Mutations form new alleles.",
+          "Mutation rates are increased by ionising radiation and some chemicals.",
+          "Another source of genetic variation: meiosis."
+        ],
+        "tip": "One mark for each missing word or phrase."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A **mutation** is a genetic change.",
+                "(Supplement) A **gene mutation** is a random change in the base sequence of DNA.",
+                "Mutation is the way new **alleles** are formed.",
+                "Ionising radiation and some chemicals increase the rate of mutation."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.34",
+        "IGCSE 3.35B",
+        "IGCSE 3.36B",
+        "IGCSE 3.37B"
+      ],
+      "worked_example": {
+        "exemplar_id": "1919e7a3-d1dd-4e1a-a710-f767fda63476",
+        "source": "EDEXCEL jun 2024, Paper 2 (BR), Q6(c)",
+        "question": "Cells use genetic information when carrying out protein synthesis.\n\nExplain why a change in the sequence of bases in the DNA does not always result in a change in enzyme function.",
+        "marks": 3,
+        "answer_points": [
+          "Different codons (sequences of bases) may code for the same amino acid.",
+          "So there is no change in the protein or the enzyme.",
+          "The change may not affect the shape or bonding of the enzyme, so the active site still binds to the substrate.",
+          "The allele may be recessive and so not expressed.",
+          "The change may be in non-coding DNA."
+        ],
+        "tip": "Any three points score the three marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A mutation is a **rare**, random change in genetic material. It can be inherited.",
+                "Ionising radiation, such as gamma rays, X-rays and ultraviolet rays, increases the number of mutations.",
+                "Some **chemical mutagens**, such as chemicals in tobacco smoke, also increase the number of mutations.",
+                "Most mutations have no effect on the phenotype, some have a small effect and rarely one has a significant effect."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -249,14 +337,24 @@
     "spec_point_ids": [
       "2f766f63-874a-499f-b946-2624736d2ea3",
       "c5d4b9b9-1006-4899-a305-1f261df2297e",
-      "536d0648-76a2-407d-ba71-9ddf9fc52ffa"
+      "536d0648-76a2-407d-ba71-9ddf9fc52ffa",
+      "7629496a-2c3f-4621-a491-785a2ea0c710",
+      "a42e8ad5-9675-4484-ba59-f42f6fdaa845",
+      "053292cd-ed47-4b6e-9140-36a3cd4abc7d",
+      "748cdbb5-c68a-4490-ab76-2021dc02583a",
+      "3a30114c-3db5-450b-a483-b4a79617c15f",
+      "bbe18783-8eba-48a0-bfa0-0ab868533e0d",
+      "346511a2-8afd-4d25-a9e0-9f98d4f46e0e",
+      "ef6b701f-7bc1-46ad-84ac-cdf4fa81e2b8"
     ],
     "exemplar_ids": [
       "147ca045-1045-4e51-97d5-58a57813689e",
       "0ec97ece-d01d-4d8e-a465-f236772ff43b",
-      "63941fe4-fc32-4273-abfc-4772985fbc07"
+      "63941fe4-fc32-4273-abfc-4772985fbc07",
+      "de6a6827-6d08-455c-a487-55d41fe1b73e",
+      "1919e7a3-d1dd-4e1a-a710-f767fda63476"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

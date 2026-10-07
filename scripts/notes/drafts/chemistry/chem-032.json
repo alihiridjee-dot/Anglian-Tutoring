@@ -252,6 +252,73 @@
           "heading": "Foundation tier"
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.2.3", "CAIE 3.3.5S"],
+      "worked_example": {
+        "exemplar_id": "4ff5924f-6d1f-453a-899a-7e0bd6dbd017",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q4(a)(iii)",
+        "question": "When magnesium nitrate is heated strongly, magnesium oxide is formed. The equation for this reaction is shown.\n\n2Mg(NO₃)₂ → 2MgO + 4NO₂ + O₂\n\nCalculate the volume of NO₂ gas, at r.t.p., formed when 7.40 g of Mg(NO₃)₂ is heated.\n\nUse the following steps.\n● Calculate the Mr of Mg(NO₃)₂.\n● Calculate the number of moles of Mg(NO₃)₂ used.\n● Determine the number of moles of NO₂ formed.\n● Calculate the volume of NO₂ gas, in cm³, at r.t.p.",
+        "marks": 4,
+        "answer_points": [
+          "Mr of Mg(NO₃)₂ = 148",
+          "Moles of Mg(NO₃)₂ = 7.40 ÷ 148 = 0.0500 mol",
+          "Moles of NO₂ = 0.0500 × 4 ÷ 2 = 0.100 mol",
+          "Volume of NO₂ = 0.100 × 24 000 = 2400 cm³"
+        ],
+        "tip": "One mark for each step."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Core questions ask for a reacting mass by simple proportion, without moles. Use the Mr values and the equation to scale the masses."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find the masses in the equation.",
+                  "text": "CaCO₃ → CaO + CO₂. Ar: Ca = 40, C = 12, O = 16. 100 g of CaCO₃ makes 56 g of CaO."
+                },
+                {
+                  "lead": "Scale to the mass you have.",
+                  "text": "For 25 g of CaCO₃, divide by 100 and multiply by 25. This is a quarter of the amounts."
+                },
+                {
+                  "lead": "Find the answer.",
+                  "text": "Mass of CaO = 56 × 25 ÷ 100 = 14 g."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Multiply each Mr by the big number in front of it before you scale.",
+                "The masses in the equation are in grams, but any one unit works if you use it for both substances.",
+                "(Supplement) For a gas at r.t.p., volume = moles × 24 dm³ (24 000 cm³). One mole of any gas has this volume."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.29", "IGCSE 1.28"],
+      "worked_example": {
+        "exemplar_id": "13f5f65d-71b6-46f8-a0dc-4bceab8266bc",
+        "source": "EDEXCEL jun 2023, Paper 1 (CR), Q7(c)",
+        "question": "Heptane burns completely in oxygen. This is the equation for the complete combustion of heptane.\n\nC₇H₁₆ + 11O₂ → 7CO₂ + 8H₂O\n\nCalculate the minimum mass of oxygen needed for the complete combustion of 30.0 g of heptane.\n\n[for C₇H₁₆, Mr = 100; for O₂, Mr = 32]",
+        "marks": 3,
+        "answer_points": [
+          "Moles of heptane = 30 ÷ 100 = 0.30 mol",
+          "Moles of oxygen = 0.30 × 11 = 3.3 mol",
+          "Mass of oxygen = 3.3 × 32 = 106 g"
+        ],
+        "tip": "One mark for each step. Use the ratio of 1 : 11 from the equation, not the masses."
+      }
     }
   },
   "meta": {
@@ -262,14 +329,19 @@
       "18ddd924-bf38-477a-9482-2304e40544b4",
       "5d0298e0-ce75-4871-895e-aba922b1c8ce",
       "e7a1720f-19f7-474a-b076-b55511c5201b",
-      "6354c1c0-d24c-4f0e-aa05-690c473cff58"
+      "6354c1c0-d24c-4f0e-aa05-690c473cff58",
+      "8e7b4178-708e-4dee-a410-2399c1d46e8d",
+      "a9502971-f330-43da-9a49-ac0651f7fbf3",
+      "99fa5ae0-2d9a-489c-b62d-5f5f5c80ad8a"
     ],
     "exemplar_ids": [
       "89213bf2-c0d1-42c4-86d6-879718fe5458",
       "364c7b71-1974-44b9-93ad-c785cdd49cc6",
-      "b0606aae-8e61-4386-b4c6-6d17fd26fa69"
+      "b0606aae-8e61-4386-b4c6-6d17fd26fa69",
+      "4ff5924f-6d1f-453a-899a-7e0bd6dbd017",
+      "13f5f65d-71b6-46f8-a0dc-4bceab8266bc"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

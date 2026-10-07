@@ -312,6 +312,112 @@
         ],
         "tip": "Any three of the four marking points score. Drag is accepted for air resistance."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.1.7S", "CAIE 1.5.1.3", "CAIE 1.2.13S", "CAIE 1.5.2.4"],
+      "worked_example": {
+        "exemplar_id": "0ca7d2b3-ba05-4520-b99d-df0ec5f4d6d0",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q1(a)",
+        "question": "A boat crosses a river. The boat points at right angles to the river bank and it travels at a speed of 3.5 m/s relative to the water. A river current acts at right angles to the direction the boat points. The river current has a speed of 2.5 m/s. By drawing a scale diagram or by calculation, determine the speed and direction of the boat relative to the river bank.",
+        "marks": 4,
+        "answer_points": [
+          "Speed: use Pythagoras, √(2.5² + 3.5²) = 4.3 m/s.",
+          "Direction: use trigonometry, tan θ = 3.5 ÷ 2.5, so θ is about 54° to the river bank.",
+          "A correct scale diagram, drawn as a right-angled triangle with the resultant arrow, also earns the method marks."
+        ],
+        "tip": "Draw the two velocities as the sides of a right-angled triangle. The resultant is the longest side."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The resultant of two forces or two velocities at right angles can be calculated instead of drawn."
+            },
+            {
+              "type": "equation",
+              "label": "Resultant of two vectors at right angles",
+              "formula": "R = √(a² + b²)",
+              "where": [
+                "R is the resultant, in N for forces or m/s for velocities.",
+                "a and b are the two vectors at right angles, in the same unit."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Direction of the resultant",
+              "formula": "tan θ = b ÷ a",
+              "where": [
+                "θ is the angle between the resultant and the vector a.",
+                "b is the side opposite the angle θ, and a is the side next to it."
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find the resultant.",
+                  "text": "Forces of 3.0 N and 4.0 N at right angles: R = √(3.0² + 4.0²) = 5.0 N."
+                },
+                {
+                  "lead": "Find the angle.",
+                  "text": "tan θ = 4.0 ÷ 3.0, so θ = 53° to the 3.0 N force."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Equilibrium and falling objects"
+            },
+            {
+              "type": "list",
+              "items": [
+                "An object is in equilibrium when there is no resultant force and no resultant moment.",
+                "(Supplement) Without air resistance, an object falls with a constant acceleration, g.",
+                "(Supplement) With air resistance, the resultant force and the acceleration fall to zero as the speed rises. The object then falls at a constant terminal velocity."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.15", "IGCSE 1.16", "IGCSE 1.21"],
+      "worked_example": {
+        "exemplar_id": "dab36435-90fa-447a-b7a4-49946c66228c",
+        "source": "EDEXCEL jun 2019, Paper 1 (P), Q8(a)(ii)",
+        "question": "A spacecraft slows down as it falls vertically through the atmosphere of Mars. The spacecraft then opens a parachute to slow down. Explain how the spacecraft reached a low terminal velocity after opening its parachute. Use ideas about forces in your answer.",
+        "marks": 4,
+        "answer_points": [
+          "Air resistance increases greatly when the parachute opens.",
+          "Air resistance is greater than the weight, so the resultant force is upwards.",
+          "As the speed decreases, air resistance decreases.",
+          "The resultant force eventually becomes zero, with air resistance equal to weight.",
+          "The speed is then constant, which is the terminal velocity."
+        ],
+        "tip": "Any four of these points earn the marks. Drag can be written for air resistance."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "How a falling object reaches terminal velocity."
+            },
+            {
+              "type": "list",
+              "items": [
+                "At first only weight acts, so the object accelerates downwards.",
+                "As the speed increases, air resistance increases, so the resultant force decreases.",
+                "When air resistance equals weight, the resultant force is zero.",
+                "The object then falls at a constant speed, the terminal velocity."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -328,14 +434,20 @@
       "14834a88-6b13-41c3-b2dd-66cafae2c667",
       "523e320f-0c2c-4660-9f62-756f57a362d7",
       "11ce994d-7600-453c-86a3-411d918b4923",
-      "8fd6468e-6cef-42ac-bd0d-51ad7ff976bb"
+      "8fd6468e-6cef-42ac-bd0d-51ad7ff976bb",
+      "0fe5946f-2e72-4102-9d52-14de3c9fc797",
+      "3d6bb256-3519-434f-b28f-b76e8d66da55",
+      "382a7969-ea35-4d2e-beb0-6eec6caa9005",
+      "0db6f126-b8e2-4279-9a2b-f4ee449fce9b"
     ],
     "exemplar_ids": [
       "df76daf2-b485-4384-97e7-79e26b2e22dd",
       "9ee52bef-9b64-41f2-ab3f-714e72c9a860",
-      "198adfb1-befe-4211-a073-2467d4eb37cb"
+      "198adfb1-befe-4211-a073-2467d4eb37cb",
+      "0ca7d2b3-ba05-4520-b99d-df0ec5f4d6d0",
+      "dab36435-90fa-447a-b7a4-49946c66228c"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

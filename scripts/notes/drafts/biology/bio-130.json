@@ -25,7 +25,9 @@
           "type": "equation",
           "label": "Percentage lost",
           "formula": "percentage lost = ((previous level − next level) ÷ previous level) × 100",
-          "where": ["previous level and next level, in the same unit"]
+          "where": [
+            "previous level and next level, in the same unit"
+          ]
         },
         {
           "type": "steps",
@@ -210,7 +212,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 7.12"],
+      "spec_codes": [
+        "AQA 7.12"
+      ],
       "worked_example": {
         "exemplar_id": "4f825a34-cc23-4ae9-aa40-37bfcd9ea09b",
         "source": "AQA jun 2018, Paper 2 (H), Q07.2",
@@ -271,7 +275,9 @@
       ]
     },
     "edexcel": {
-      "spec_codes": ["EDEX 9.8B"],
+      "spec_codes": [
+        "EDEX 9.8B"
+      ],
       "worked_example": {
         "exemplar_id": "77dfe0f0-2b36-4269-a803-a6bcf2b263f1",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q4(a)(iii)",
@@ -310,7 +316,87 @@
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR 4.1j"]
+      "spec_codes": [
+        "OCR 4.1j"
+      ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 19.2.17S",
+        "CAIE 19.2.18S",
+        "CAIE 19.2.19S",
+        "CAIE 19.1.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "60f1d566-de8a-4d92-98af-bfbff6c1c98b",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q4(c)",
+        "question": "Animals such as salmon can be farmed for meat.\n\nExplain why it is more energy efficient for humans to eat crop plants than to eat livestock that have been fed on crop plants.",
+        "marks": 4,
+        "answer_points": [
+          "Plants are at a lower trophic level, so there are fewer trophic levels in the food chain.",
+          "Energy transfer along a food chain is inefficient.",
+          "Energy is lost in respiration, as heat and in movement.",
+          "More material is lost as faeces (egested) or is inedible in the longer food chain.",
+          "Energy is lost in excretion (urine)."
+        ],
+        "tip": "Any four points score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Crop plants or livestock? (Supplement)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Humans can eat crop plants directly, or eat livestock that were fed on crop plants."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Crop plants are at a lower trophic level, so the food chain is shorter.",
+                "Less energy is lost between trophic levels, so more of the energy in the crop reaches humans.",
+                "Feeding crops to livestock adds a step, where energy is lost in respiration, movement, egestion and excretion."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Energy flow through organisms",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Energy flows through living things and ends up in the environment."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Light energy from the Sun is absorbed by producers and stored as chemical energy in the food they make.",
+                "Chemical energy passes along the food chain when organisms are eaten.",
+                "At each level, energy is transferred to the environment as heat."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.9",
+        "IGCSE 4.8"
+      ],
+      "worked_example": {
+        "exemplar_id": "fc9d9c07-60a3-4cc1-8a5e-5b3190c8b9bf",
+        "source": "EDEXCEL jun 2019, Paper 1 (BR), Q1(c)",
+        "question": "Explain why a large percentage of the energy in rabbits is not available for growth in owls.",
+        "marks": 3,
+        "answer_points": [
+          "Energy is lost in respiration, movement and as heat.",
+          "Some material is egested (faeces), undigested or not absorbed.",
+          "Energy is lost in excretion (urine, urea).",
+          "Some of the rabbit is uneaten, for example bones, teeth and fur.",
+          "Rabbits die and decompose."
+        ],
+        "tip": "Any three different ways energy is lost score the marks."
+      }
     }
   },
   "meta": {
@@ -320,13 +406,19 @@
     "spec_point_ids": [
       "2fa5b0a6-fc4c-4aad-a619-ba5ad74c0aa0",
       "af2fb38b-4635-4ccf-b21d-f7c9c3f44ad9",
-      "1d65868a-a9ff-4661-af80-a1ea224817ce"
+      "1d65868a-a9ff-4661-af80-a1ea224817ce",
+      "501d0969-4c87-44c8-85ec-8673ab2d29cf",
+      "50839f1f-c542-4b8b-8c72-80beef6e9c90",
+      "f7a98f94-67e6-4a93-8106-c1ef337331d2",
+      "036e379a-08a1-4cd2-8135-53d7659439aa"
     ],
     "exemplar_ids": [
       "4f825a34-cc23-4ae9-aa40-37bfcd9ea09b",
-      "77dfe0f0-2b36-4269-a803-a6bcf2b263f1"
+      "77dfe0f0-2b36-4269-a803-a6bcf2b263f1",
+      "60f1d566-de8a-4d92-98af-bfbff6c1c98b",
+      "fc9d9c07-60a3-4cc1-8a5e-5b3190c8b9bf"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

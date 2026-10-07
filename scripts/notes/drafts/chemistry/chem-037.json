@@ -213,20 +213,43 @@
         ],
         "tip": "0.3968, 0.397 and 0.40 are all accepted. The unit is not needed on the answer line."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.3.6S"],
+      "worked_example": {
+        "exemplar_id": "d6877b45-0c73-4ce7-a3ee-4144c1ba8d55",
+        "source": "CAMBRIDGE nov 2024, Paper 43, Q4(b)",
+        "question": "25.0 cm³ of aqueous sodium hydroxide, NaOH, of concentration 0.100 mol/dm³ is neutralised by 20.0 cm³ of dilute sulfuric acid, H₂SO₄.\n\nThe equation for the reaction is shown.\n\n2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O\n\nCalculate the concentration of H₂SO₄ using the following steps.\n● Calculate the number of moles of NaOH used.\n● Determine the number of moles of H₂SO₄ that react with the NaOH.\n● Calculate the concentration of H₂SO₄.",
+        "marks": 3,
+        "answer_points": [
+          "Moles of NaOH = 0.100 × 25.0 ÷ 1000 = 0.0025 mol",
+          "Moles of H₂SO₄ = 0.0025 ÷ 2 = 0.00125 mol",
+          "Concentration of H₂SO₄ = 0.00125 ÷ 0.0200 = 0.0625 mol/dm³"
+        ],
+        "tip": "(Supplement) One mark for each step."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.34C", "IGCSE 2.33C"]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "19496611-84af-48ef-b817-792c74c97d0c",
       "be26760a-35b6-42e8-89aa-b9bab69676dd",
       "2c812b33-2a38-4bcc-97d4-f8a67e46c735",
-      "324d052b-e81e-400b-bee3-e0be1dd3c57e"
+      "324d052b-e81e-400b-bee3-e0be1dd3c57e",
+      "4f6c6ebd-deb4-4835-9057-9bb4deb12c9d"
     ],
-    "exemplar_ids": ["e83a9801-b77e-4169-b58c-d8abd41fabcf", "9e1c49d9-cd43-400a-a45b-a0ffc770a244"]
+    "exemplar_ids": [
+      "e83a9801-b77e-4169-b58c-d8abd41fabcf",
+      "9e1c49d9-cd43-400a-a45b-a0ffc770a244",
+      "d6877b45-0c73-4ce7-a3ee-4144c1ba8d55"
+    ]
   }
 }

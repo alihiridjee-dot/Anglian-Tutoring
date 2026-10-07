@@ -1,0 +1,252 @@
+{
+  "format": 1,
+  "concept_id": "ibio-004",
+  "subject": "biology",
+  "title": "Absorption in the small intestine",
+  "key_idea": "Digested nutrients are absorbed in the small intestine, which is lined with villi. Villi and the microvilli on their cells give a very large surface area. Each villus has a thin lining, a capillary network and a lacteal, so absorption is fast and efficient.",
+  "sections": [
+    {
+      "heading": "Where absorption happens",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Absorption is the movement of digested food molecules and water into the blood. This section covers where it happens."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **small intestine** is the region where nutrients are absorbed.",
+            "Most water is absorbed from the small intestine.",
+            "Some water is also absorbed from the **colon**.",
+            "Molecules pass into the blood by diffusion and by active transport."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Nutrients are absorbed in the small intestine.",
+            "Most water is absorbed in the small intestine, and some in the colon."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Villi and microvilli",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) The inside of the small intestine is not smooth. It is covered in tiny finger-like folds that increase its surface area."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Villus",
+              "meaning": "A tiny finger-like projection of the lining of the small intestine."
+            },
+            {
+              "term": "Microvilli",
+              "meaning": "Tiny projections on the surface of the cells that line a villus."
+            },
+            {
+              "term": "Lacteal",
+              "meaning": "A lymph vessel in the centre of a villus."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Villi and microvilli greatly increase the internal **surface area** of the small intestine.",
+            "A larger surface area means more nutrients can be absorbed in a shorter time."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Structure of a villus"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The wall is a single layer of cells (epithelium), so the **diffusion distance** is short.",
+            "The cells have microvilli, which add more surface area.",
+            "A network of **capillaries** lies just under the surface.",
+            "A **lacteal** lies in the middle."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Villi and microvilli increase the surface area for absorption.",
+            "The villus wall is one cell thick, so substances cross quickly."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Capillaries and lacteals",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each villus has two routes out. Which one a nutrient takes depends on what it is."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Vessel",
+            "Absorbs",
+            "Where it goes"
+          ],
+          "rows": [
+            [
+              "Capillaries",
+              "Glucose, amino acids, water, mineral ions and water-soluble vitamins",
+              "Blood, then the hepatic portal vein to the liver"
+            ],
+            [
+              "Lacteal",
+              "Fatty acids and glycerol (the products of fat digestion), and fat-soluble vitamins",
+              "Lymph, which later joins the blood"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Blood in the capillaries carries absorbed molecules away, so their concentration stays low next to the villus.",
+            "A good blood supply keeps a **steep concentration gradient**, so diffusion continues.",
+            "Amino acids move into the capillaries, are carried in the plasma and reach the liver in the hepatic portal vein."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Absorbed substances are sorted into those carried away by the capillaries and those carried away by the lacteal.",
+            "prompt": "Sort each substance into the vessel in the villus that absorbs it.",
+            "groups": [
+              "Capillary",
+              "Lacteal"
+            ],
+            "items": [
+              {
+                "text": "Glucose",
+                "group": 0
+              },
+              {
+                "text": "Amino acids",
+                "group": 0
+              },
+              {
+                "text": "Mineral ions",
+                "group": 0
+              },
+              {
+                "text": "Water",
+                "group": 0
+              },
+              {
+                "text": "Fatty acids",
+                "group": 1
+              },
+              {
+                "text": "Glycerol",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Capillaries absorb glucose and amino acids into the blood.",
+            "The lacteal absorbs fatty acids and glycerol.",
+            "A good blood supply keeps the concentration gradient steep."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State where most water is absorbed.",
+      "a": "In the small intestine. Some is also absorbed in the colon.",
+      "marks": 1
+    },
+    {
+      "q": "(Supplement) Explain why a villus has a wall that is only one cell thick.",
+      "a": "It makes the diffusion distance short, so nutrients are absorbed quickly.",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) State the job of the lacteal in a villus.",
+      "a": "It absorbs fatty acids and glycerol, the products of fat digestion, and carries them away.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 7.5.1",
+        "CAIE 7.5.2",
+        "CAIE 7.5.3S",
+        "CAIE 7.5.4S",
+        "CAIE 7.5.5S"
+      ],
+      "worked_example": {
+        "exemplar_id": "bf197bca-9a0e-48ea-b567-c55ee41a2daf",
+        "source": "CAMBRIDGE nov 2023, Paper 41, Q2(a)(iv)",
+        "question": "The small intestine is lined with many villi and is adapted to absorb glucose. Describe and explain how the structure of a villus is adapted for its function.",
+        "marks": 4,
+        "answer_points": [
+          "Microvilli provide a large surface area.",
+          "The epithelium (lining) is one cell thick, so diffusion is fast.",
+          "Diffusion of glucose takes place across the lining.",
+          "A good blood supply maintains a steep concentration gradient.",
+          "A lacteal carries away fats."
+        ],
+        "tip": "Any four score one mark each. Pair each structure with what it does."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.32"
+      ],
+      "worked_example": {
+        "exemplar_id": "0c435e56-8a3d-4e08-a48b-246d8771f523",
+        "source": "EDEXCEL jan 2021, Paper 1 (BR), Q3(c)(i)",
+        "question": "Some people have a condition called coeliac disease. In this condition the body reacts to eating gluten, a protein found in wheat. This reaction damages the villi in the small intestine. Explain how the undamaged villi are adapted for their function.",
+        "marks": 4,
+        "answer_points": [
+          "They have a large surface area.",
+          "They have microvilli.",
+          "Capillaries and a blood supply maintain the concentration gradient.",
+          "They absorb digested food molecules, vitamins and minerals.",
+          "A lacteal absorbs and transports fats.",
+          "The wall is thin, one cell thick, with capillaries close to the surface.",
+          "This gives a short diffusion path and rapid diffusion."
+        ],
+        "tip": "Any four score one mark each. Give the structure and say why it helps."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "e00c0cda-5fca-4e3d-b102-14147c1d9307",
+      "84932dd3-09a7-41cc-be24-63f5d0f31ae7",
+      "e6c4ff17-4565-4616-9687-5ace21a0df02",
+      "4de7a0b2-6107-42c8-81cb-83e9c5484c88",
+      "24e32c1f-8429-4d04-8403-35ab19bcf3a2",
+      "54245e1c-d226-4e1d-8329-a631681b6f9f"
+    ],
+    "exemplar_ids": [
+      "bf197bca-9a0e-48ea-b567-c55ee41a2daf",
+      "0c435e56-8a3d-4e08-a48b-246d8771f523"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

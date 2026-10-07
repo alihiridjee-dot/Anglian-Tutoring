@@ -123,7 +123,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA T 4.3.1.6", "AQA 3.3"],
+      "spec_codes": [
+        "AQA T 4.3.1.6",
+        "AQA 3.3"
+      ],
       "worked_example": {
         "exemplar_id": "a915096f-4270-4304-bcfc-e5d1749ac5f3",
         "source": "AQA jun 2019, Paper 1 (F), Q08.6",
@@ -141,7 +144,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.12"],
+      "spec_codes": [
+        "EDEX 5.12"
+      ],
       "worked_example": {
         "exemplar_id": "d6d1be55-d658-4fa7-b322-66a186b343d8",
         "source": "EDEXCEL nov 2021, Paper 1 (F), Q9(c)",
@@ -159,7 +164,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3k"],
+      "spec_codes": [
+        "OCR 6.3k"
+      ],
       "worked_example": {
         "exemplar_id": "f9439e60-e00f-488e-ad56-570011c37435",
         "source": "OCR (series and year not recorded)",
@@ -173,6 +180,47 @@
         ],
         "tip": "Name each defence and say what it does: a barrier, enzymes, acid."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 10.1.4",
+        "CAIE 11.1.11S",
+        "CAIE 7.4.5",
+        "CAIE 9.4.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "f7bb0db9-0eaa-4806-90e6-04b5e38089ce",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q6(b)",
+        "question": "Blood clotting helps to prevent some infections.\nOutline how a blood clot is formed and how it can prevent infections.",
+        "marks": 3,
+        "answer_points": [
+          "A blood clot or scab is a barrier that prevents pathogens entering, and traps pathogens in its mesh.",
+          "Soluble fibrinogen is converted to insoluble fibrin, a fibrous protein.",
+          "The fibrin forms a network (mesh) of fibres.",
+          "Platelets are involved in forming the clot, and a scab forms."
+        ],
+        "tip": "One mark for the clot preventing entry of pathogens, and up to two for how the clot forms."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course also asks for the following defences."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Hairs in the nose** trap particles and pathogens before they reach the lungs.",
+                "(Supplement) **Goblet cells** make mucus, which traps pathogens and particles. **Ciliated cells** have cilia that move the mucus away from the lungs.",
+                "**Blood clotting** stops blood loss and the entry of pathogens. Soluble fibrinogen is converted to insoluble **fibrin**, which forms a mesh of fibres. Platelets help to form the clot.",
+                "**Hydrochloric acid** in gastric juice kills harmful microorganisms in food. It also gives the acidic pH that stomach enzymes need to work best."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -182,14 +230,17 @@
     "spec_point_ids": [
       "e98602bf-c0f9-4ff6-87e0-e7e4e8b0a6b5",
       "18b3fbda-0f46-4171-bc88-7f79cfd7280b",
-      "291355c2-1ce8-4efa-bedc-2aa01c875b93"
+      "291355c2-1ce8-4efa-bedc-2aa01c875b93",
+      "4385d666-783f-4bdf-9707-e3260d29fa36",
+      "f0ea1f53-0534-43ee-ad81-d04f2b6d8915"
     ],
     "exemplar_ids": [
       "a915096f-4270-4304-bcfc-e5d1749ac5f3",
       "d6d1be55-d658-4fa7-b322-66a186b343d8",
-      "f9439e60-e00f-488e-ad56-570011c37435"
+      "f9439e60-e00f-488e-ad56-570011c37435",
+      "f7bb0db9-0eaa-4806-90e6-04b5e38089ce"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

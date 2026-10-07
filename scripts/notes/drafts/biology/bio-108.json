@@ -133,7 +133,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 6.16", "AQA T 4.6.3.4"],
+      "spec_codes": [
+        "AQA 6.16",
+        "AQA T 4.6.3.4"
+      ],
       "worked_example": {
         "exemplar_id": "acbff562-a096-4c70-b1dc-f7c53cdb73bd",
         "source": "AQA jun 2020, Paper 2 (H), Q03.5",
@@ -149,7 +152,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 4.3"],
+      "spec_codes": [
+        "EDEX 4.3"
+      ],
       "worked_example": {
         "exemplar_id": "e99f4103-146c-432f-86c2-a0255ec3c98b",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q5(a)(i)",
@@ -166,14 +171,61 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 5.2e"],
+      "spec_codes": [
+        "OCR 5.2e"
+      ],
       "worked_example": {
         "exemplar_id": "918f6a81-d7c6-4d85-97b7-8e3992bc37bb",
         "source": "OCR jun 2025, Paper 2, Q20(c)",
         "question": "Complete the sentences about how bacterial populations can develop antibiotic resistance.\nUse words from the list: change, die, gene technology, mitosis, mutation, natural selection, survive.\n\nSome bacteria have a gene for antibiotic resistance which has been produced by ____.\nThis gene allows bacteria to ____ and reproduce.\nThis means that the bacterial population can become resistant to antibiotics.\nThis process is an example of ____.",
         "marks": 3,
-        "answer_points": ["mutation", "survive", "natural selection"],
+        "answer_points": [
+          "mutation",
+          "survive",
+          "natural selection"
+        ],
         "tip": "One mark for each correct word, in the order of the blanks."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 15.1.3",
+        "CAIE 15.1.5S",
+        "CAIE 18.3.5S"
+      ],
+      "worked_example": {
+        "exemplar_id": "dec85fdc-55a9-4573-bdac-92cd32b4af3a",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q3(a)(iv)",
+        "question": "Antibiotic resistance is an increasing problem worldwide.\nExplain how bacteria become resistant to antibiotics.",
+        "marks": 5,
+        "answer_points": [
+          "Random mutations occur in some of the bacteria.",
+          "There is genetic variation in the ability of bacteria to survive antibiotic treatment.",
+          "Bacteria with antibiotic resistance survive and reproduce.",
+          "They pass on the resistance allele to their offspring.",
+          "The resistance allele increases in frequency in the population.",
+          "This is natural selection: the bacteria become better adapted to the new environment."
+        ],
+        "tip": "Any five points score."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.39"
+      ],
+      "worked_example": {
+        "exemplar_id": "ca128ab8-e2fb-429f-94ab-4cd1fff93bf5",
+        "source": "EDEXCEL jun 2023, Paper 1 (B), Q8(d)(ii)",
+        "question": "Some antibiotics are becoming less effective at controlling bacterial infections.\nExplain how bacteria have evolved so that antibiotics are less effective.",
+        "marks": 4,
+        "answer_points": [
+          "A mutation in some bacteria gives resistance to the antibiotic.",
+          "Only the resistant bacteria survive.",
+          "The resistant bacteria reproduce.",
+          "They pass on the alleles for resistance.",
+          "The resistant bacteria increase in number, so most of the disease is caused by resistant strains."
+        ],
+        "tip": "Any four points score."
       }
     }
   },
@@ -184,14 +236,20 @@
     "spec_point_ids": [
       "dddfa641-fc04-49bb-9d10-aa1a6481c644",
       "0b91c11a-8500-48bb-b5de-a172fba6ccad",
-      "83fe871b-afbd-46c1-b6cb-7c6bcf83af60"
+      "83fe871b-afbd-46c1-b6cb-7c6bcf83af60",
+      "ade9d90f-5ecb-4c55-96df-62abd347c111",
+      "b780ec86-fac7-4a5c-ab8f-db78bda10cf6",
+      "565a9589-aacc-4e9f-af49-37e12fca260f",
+      "16ee145b-bbff-4c95-a332-f517e4ac915c"
     ],
     "exemplar_ids": [
       "acbff562-a096-4c70-b1dc-f7c53cdb73bd",
       "e99f4103-146c-432f-86c2-a0255ec3c98b",
-      "918f6a81-d7c6-4d85-97b7-8e3992bc37bb"
+      "918f6a81-d7c6-4d85-97b7-8e3992bc37bb",
+      "dec85fdc-55a9-4573-bdac-92cd32b4af3a",
+      "ca128ab8-e2fb-429f-94ab-4cd1fff93bf5"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

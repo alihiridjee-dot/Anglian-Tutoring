@@ -334,6 +334,43 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.5.1.11S"],
+      "worked_example": {
+        "exemplar_id": "b2769fe8-60d9-452c-9426-308239b71009",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q1(c)(ii)",
+        "question": "An object of mass 0.50 kg hangs from a spring. The object is pulled downwards until the tension in the spring is 6.5 N. The object is released. Take g = 9.8 N/kg.\n\nCalculate the acceleration of the object immediately after it is released.",
+        "marks": 3,
+        "answer_points": [
+          "The weight of the object is 0.50 × 9.8 = 4.9 N downwards.",
+          "resultant force = 6.5 − 4.9 = 1.6 N",
+          "a = F ÷ m = 1.6 ÷ 0.50",
+          "a = 3.2 m/s², upwards"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The acceleration is always in the same direction as the resultant force."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.17"],
+      "worked_example": {
+        "exemplar_id": "1f98bf6c-ff80-45e0-a896-914aa2c28d3f",
+        "source": "EDEXCEL jun 2019, Paper 1 (PR), Q10(b)(ii)",
+        "question": "A van of mass 1900 kg brakes. The resultant force acting on the van is 14 kN.\n\nCalculate the acceleration of the van when it brakes. Give the unit.",
+        "marks": 3,
+        "answer_points": ["F = m × a, so a = F ÷ m", "a = 14 000 ÷ 1900", "a = 7.4", "unit: m/s²"],
+        "tip": "The unit has its own mark."
+      }
     }
   },
   "meta": {
@@ -347,14 +384,18 @@
       "2d8c1e8d-a07a-427c-bf0d-3de226629613",
       "f14be378-daa2-4fdc-93ba-748e83f0d775",
       "7bbfb593-408e-4453-becc-c762f3816eb6",
-      "7e8a95e5-cc69-4d91-bb4c-12f0c5bcd75b"
+      "7e8a95e5-cc69-4d91-bb4c-12f0c5bcd75b",
+      "13bdd438-fd5f-406e-a661-62d84398878d",
+      "d36e1dd0-13e6-44ce-958b-027f7f762f76"
     ],
     "exemplar_ids": [
       "a63b8eb2-767a-45d5-9f60-cea5afdd560a",
       "d21aa28f-faa1-4d9a-a50a-945767ac2b3e",
-      "3c22ba54-07f1-4f7d-9dfd-9a370eae6de4"
+      "3c22ba54-07f1-4f7d-9dfd-9a370eae6de4",
+      "b2769fe8-60d9-452c-9426-308239b71009",
+      "1f98bf6c-ff80-45e0-a896-914aa2c28d3f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

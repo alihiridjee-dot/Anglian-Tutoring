@@ -27,13 +27,37 @@
         },
         {
           "type": "table",
-          "columns": ["Property", "Group 1 metals", "Transition metals"],
+          "columns": [
+            "Property",
+            "Group 1 metals",
+            "Transition metals"
+          ],
           "rows": [
-            ["Melting point", "Low", "High"],
-            ["Density", "Low", "High"],
-            ["Strength and hardness", "Soft and weak", "Hard and strong"],
-            ["Reactivity with oxygen, water and halogens", "Very reactive", "Much less reactive"],
-            ["Electrical conductivity", "Conduct electricity", "Conduct electricity"]
+            [
+              "Melting point",
+              "Low",
+              "High"
+            ],
+            [
+              "Density",
+              "Low",
+              "High"
+            ],
+            [
+              "Strength and hardness",
+              "Soft and weak",
+              "Hard and strong"
+            ],
+            [
+              "Reactivity with oxygen, water and halogens",
+              "Very reactive",
+              "Much less reactive"
+            ],
+            [
+              "Electrical conductivity",
+              "Conduct electricity",
+              "Conduct electricity"
+            ]
           ]
         },
         {
@@ -75,7 +99,11 @@
             "kind": "sort",
             "alt": "Sort each property into Group 1 metals, transition metals or both.",
             "prompt": "Which metals?",
-            "groups": ["Group 1 metals", "Transition metals", "Both"],
+            "groups": [
+              "Group 1 metals",
+              "Transition metals",
+              "Both"
+            ],
             "items": [
               {
                 "text": "Low melting points",
@@ -146,7 +174,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.1.3.1", "AQA 4.1.3.2"],
+      "spec_codes": [
+        "AQA 4.1.3.1",
+        "AQA 4.1.3.2"
+      ],
       "worked_example": {
         "exemplar_id": "63d59d73-bc1f-46cc-887d-79f49d0b3d11",
         "source": "AQA jun 2025, Paper 1 (H), Q3.4",
@@ -163,18 +194,24 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.1C"],
+      "spec_codes": [
+        "EDEX 5.1C"
+      ],
       "worked_example": {
         "exemplar_id": "c0434aed-d4a0-46aa-8fbc-ee5e5e2ce0b6",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q1(b)(ii)",
         "question": "In a hydrogen-oxygen fuel cell, hydrogen and oxygen react at the electrodes.\n\nPlatinum acts as a catalyst.\n\nState, in terms of its position in the periodic table, why you would expect platinum to act as a catalyst.",
         "marks": 1,
-        "answer_points": ["Platinum is a transition metal (or transition element)."],
+        "answer_points": [
+          "Platinum is a transition metal (or transition element)."
+        ],
         "tip": "Name the block of the periodic table that platinum is in. Irrelevant extra information is ignored."
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C4.1c"],
+      "spec_codes": [
+        "OCR C4.1c"
+      ],
       "worked_example": {
         "exemplar_id": "4f13613e-724a-49ce-b630-b9230f225694",
         "source": "OCR jun 2023, Paper 2, Q17(c)(i)",
@@ -188,24 +225,57 @@
         ],
         "tip": "Any two of the physical points, plus the idea that Group 1 metals are more reactive. An unqualified answer is taken to refer to Group 1 metals."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 8.4.1",
+        "CAIE 8.4.2S"
+      ],
+      "worked_example": {
+        "exemplar_id": "c41c2e9f-94c6-4afc-bc36-bfeb5ebf3df5",
+        "source": "CAMBRIDGE nov 2023, Paper 42, Q2(b)",
+        "question": "One physical property of transition elements such as copper and cobalt is that they are hard.\nOther metals such as lithium are softer.\nState two other physical properties of copper and cobalt which are significantly different from lithium.",
+        "marks": 2,
+        "answer_points": [
+          "High density",
+          "High melting point"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Transition elements are metals with high densities and high melting points. They often act as catalysts, both as elements and in their compounds.",
+                "(Supplement) Transition elements have ions with variable oxidation numbers. Iron forms iron(II), Fe²⁺, and iron(III), Fe³⁺."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "1032bd86-e891-4b89-803f-a1880cd67c02",
       "c03e4a69-5ed8-4d94-a9da-7314c7f31695",
       "04559104-64e7-48d4-9ae8-d97f5ed97d95",
-      "27b06f7c-d3a6-43f7-b269-6cbfd91baeb8"
+      "27b06f7c-d3a6-43f7-b269-6cbfd91baeb8",
+      "67edcfac-2a7d-45a9-9538-2e79463fc05e",
+      "b5383d1d-b73f-4624-98be-84d162ceb36a"
     ],
     "exemplar_ids": [
       "63d59d73-bc1f-46cc-887d-79f49d0b3d11",
       "c0434aed-d4a0-46aa-8fbc-ee5e5e2ce0b6",
-      "4f13613e-724a-49ce-b630-b9230f225694"
+      "4f13613e-724a-49ce-b630-b9230f225694",
+      "c41c2e9f-94c6-4afc-bc36-bfeb5ebf3df5"
     ]
   }
 }

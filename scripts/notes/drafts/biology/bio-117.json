@@ -56,7 +56,13 @@
             "kind": "sequence",
             "alt": "Put the organisms of a food chain in order, starting with the producer.",
             "prompt": "Put this food chain in order, starting with the producer.",
-            "steps": ["Nettles", "Caterpillars", "Ladybirds", "Beetles", "Toads"]
+            "steps": [
+              "Nettles",
+              "Caterpillars",
+              "Ladybirds",
+              "Beetles",
+              "Toads"
+            ]
           }
         },
         {
@@ -89,7 +95,13 @@
               "label": "Time",
               "min": 0,
               "max": 20,
-              "ticks": [0, 5, 10, 15, 20],
+              "ticks": [
+                0,
+                5,
+                10,
+                15,
+                20
+              ],
               "unit": "years"
             },
             "y": {
@@ -99,29 +111,83 @@
               {
                 "name": "Prey",
                 "points": [
-                  [0, 0.5],
-                  [2.5, 0.9],
-                  [5, 0.5],
-                  [7.5, 0.15],
-                  [10, 0.5],
-                  [12.5, 0.9],
-                  [15, 0.5],
-                  [17.5, 0.15],
-                  [20, 0.5]
+                  [
+                    0,
+                    0.5
+                  ],
+                  [
+                    2.5,
+                    0.9
+                  ],
+                  [
+                    5,
+                    0.5
+                  ],
+                  [
+                    7.5,
+                    0.15
+                  ],
+                  [
+                    10,
+                    0.5
+                  ],
+                  [
+                    12.5,
+                    0.9
+                  ],
+                  [
+                    15,
+                    0.5
+                  ],
+                  [
+                    17.5,
+                    0.15
+                  ],
+                  [
+                    20,
+                    0.5
+                  ]
                 ]
               },
               {
                 "name": "Predator",
                 "points": [
-                  [0, 0.3],
-                  [2.5, 0.5],
-                  [4.5, 0.9],
-                  [7.5, 0.5],
-                  [9.5, 0.15],
-                  [12.5, 0.5],
-                  [14.5, 0.9],
-                  [17.5, 0.5],
-                  [19.5, 0.15]
+                  [
+                    0,
+                    0.3
+                  ],
+                  [
+                    2.5,
+                    0.5
+                  ],
+                  [
+                    4.5,
+                    0.9
+                  ],
+                  [
+                    7.5,
+                    0.5
+                  ],
+                  [
+                    9.5,
+                    0.15
+                  ],
+                  [
+                    12.5,
+                    0.5
+                  ],
+                  [
+                    14.5,
+                    0.9
+                  ],
+                  [
+                    17.5,
+                    0.5
+                  ],
+                  [
+                    19.5,
+                    0.15
+                  ]
                 ]
               }
             ]
@@ -184,7 +250,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA T 4.7.2.1", "AQA 7.4"],
+      "spec_codes": [
+        "AQA T 4.7.2.1",
+        "AQA 7.4"
+      ],
       "worked_example": {
         "exemplar_id": "16218d32-1eec-459a-92b4-b13a04e75063",
         "source": "AQA jun 2023, Paper 2 (F), Q03.4",
@@ -199,13 +268,17 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 9.7B"],
+      "spec_codes": [
+        "EDEX 9.7B"
+      ],
       "worked_example": {
         "exemplar_id": "44212dae-7069-4040-bffb-365919bbbf3f",
         "source": "EDEXCEL jun 2022, Paper 2 (H), Q4(c)(i)",
         "question": "A student saw caterpillars eating the leaves of some nettles. The student also saw a toad eating a large beetle. Large beetles eat ladybirds. Ladybirds eat caterpillars.\n\nGive the food chain for these feeding relationships.",
         "marks": 3,
-        "answer_points": ["nettles → caterpillars → ladybirds → beetles → toads"],
+        "answer_points": [
+          "nettles → caterpillars → ladybirds → beetles → toads"
+        ],
         "tip": "If the chain is wrong, 1 mark is given for each correct link, up to 2 marks."
       },
       "extra": [
@@ -234,22 +307,132 @@
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR 4.1h", "OCR 4.1g"],
+      "spec_codes": [
+        "OCR 4.1h",
+        "OCR 4.1g"
+      ],
       "worked_example": {
         "exemplar_id": "7df6f4ff-f575-4b4c-81a0-11438e7d98e5",
         "source": "OCR sample null, Paper 2, Q20(a)",
         "question": "The rock pocket mouse lives in Mexico. These mice are the main food for owls. Rattlesnakes also feed on these mice. The mice get most of their food from grass plants.\n\nComplete the sentences about this food web.\nThe grass plants are producers in the food web.\nMice are primary ........................ in this food web.\nThe group of mice living in this habitat is called a population.\nAll the organisms living in this habitat is called the ........................",
         "marks": 2,
-        "answer_points": ["Consumers.", "Community."],
+        "answer_points": [
+          "Consumers.",
+          "Community."
+        ],
         "tip": "Mice eat the producers, so they are primary consumers. All the populations in a habitat make a community."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 19.2.1",
+        "CAIE 19.2.2",
+        "CAIE 19.2.4",
+        "CAIE 19.2.5",
+        "CAIE 19.2.6",
+        "CAIE 19.2.3",
+        "CAIE 19.2.7",
+        "CAIE 19.2.8",
+        "CAIE 19.2.13",
+        "CAIE 19.4.4",
+        "CAIE 20.2.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "d257fc53-3938-453c-a062-9f26316c19de",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q4(a)(iii)",
+        "question": "A student recorded the feeding relationships in an aquatic habitat.\n\nAquatic plants provide food for freshwater shrimps and midges. Mayflies also feed on aquatic plants. The mayflies provide food for salmon. Stoneflies feed on midges and are eaten by salmon. Salmon also eat freshwater shrimps. Herons feed on salmon.\n\nOutline how the energy in the primary consumers in this aquatic food web is used to produce biomass in the secondary consumers.",
+        "marks": 3,
+        "answer_points": [
+          "Primary consumers contain chemical energy in their tissues.",
+          "Energy is transferred to the secondary consumers (predators) when they eat the primary consumers.",
+          "The food is digested, so glucose is available for respiration.",
+          "The energy released is used for growth, to make new or larger cells.",
+          "Energy is used for protein synthesis, reproduction or storage as fat or glycogen."
+        ],
+        "tip": "Any three of these score one mark each."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A food chain shows the transfer of energy from one organism to the next, beginning with a producer."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Consumer",
+                  "meaning": "An organism that gets its energy by feeding on other organisms."
+                },
+                {
+                  "term": "Quaternary consumer",
+                  "meaning": "A consumer that eats tertiary consumers. Consumers are named primary, secondary, tertiary and quaternary by their position in the chain."
+                },
+                {
+                  "term": "Herbivore",
+                  "meaning": "An animal that gets its energy by eating plants."
+                },
+                {
+                  "term": "Carnivore",
+                  "meaning": "An animal that gets its energy by eating other animals."
+                },
+                {
+                  "term": "Trophic level",
+                  "meaning": "The position of an organism in a food chain, food web or ecological pyramid."
+                },
+                {
+                  "term": "Food web",
+                  "meaning": "A network of interconnected food chains."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Population growth and human impact",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Four factors affect the rate of population growth."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Food supply:** more food means faster growth.",
+                "**Competition:** shared resources run short, so growth slows.",
+                "**Predation:** more predators mean more prey are eaten.",
+                "**Disease:** disease kills organisms and slows growth."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Humans can change food webs and food chains, for example by removing a species. This can have a negative impact on habitats."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.6",
+        "IGCSE 4.7"
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": ["08aa2ba9-2abe-4388-88a6-89587ddd6fc6"],
+    "spec_point_ids": [
+      "08aa2ba9-2abe-4388-88a6-89587ddd6fc6",
+      "a8d07d91-dff6-4a0e-b385-244fca623ebf",
+      "3e3553d9-aaa1-4b46-ac25-4f666f1ea7b6",
+      "1fbe7211-e49b-4a50-8db0-150468fa8659",
+      "5f7b2b45-f300-49ce-b589-de349f54c096",
+      "3a6d98c2-e259-4306-90ea-fff536ff13e0"
+    ],
     "exemplar_ids": [
       "16218d32-1eec-459a-92b4-b13a04e75063",
       "44212dae-7069-4040-bffb-365919bbbf3f",
@@ -257,9 +440,10 @@
       "4bf3f68d-100d-4459-96da-518675dec2ef",
       "166fb9c1-8677-4027-9641-4cceaf5deebc",
       "04d923a5-744f-481e-863e-bb22d2ae1594",
-      "95e005e9-5c47-4a38-a07e-55d8e6a4cc72"
+      "95e005e9-5c47-4a38-a07e-55d8e6a4cc72",
+      "d257fc53-3938-453c-a062-9f26316c19de"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

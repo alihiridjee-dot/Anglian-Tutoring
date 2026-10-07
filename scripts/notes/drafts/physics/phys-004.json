@@ -304,6 +304,81 @@
         ],
         "tip": "A correct answer of 2.6 J scores all 4 marks. A missing unit conversion can still earn marks for the working."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.7.2.1",
+        "CAIE 1.7.2.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "22818bad-edea-4883-a39d-3b5f580bfffe",
+        "source": "CAMBRIDGE jun 2025, Paper 43, Q3(a)",
+        "question": "An archer pulls back on the bow string, doing a total of 110 J of work. Her hand moves a distance of 0.45 m. The bow is bent and stores energy.\n\nShow that the average force applied by the archer in pulling the string back is approximately 240 N.",
+        "marks": 2,
+        "answer_points": [
+          "W = F × d, so F = W ÷ d",
+          "F = 110 ÷ 0.45 = 244 N, which is about 240 N"
+        ],
+        "tip": "One mark for the equation and one mark for the value of 244 N."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Work done is also written W = Fd, where d is the distance moved (s in the equation above)."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Mechanical work done = F × d.",
+                "Work done = energy transferred, so W = Fd = ΔE, where ΔE is the change in energy.",
+                "Electrical work done is also equal to the energy transferred."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.11",
+        "IGCSE 4.12",
+        "IGCSE 4.15"
+      ],
+      "worked_example": {
+        "exemplar_id": "274bbfa7-ac07-46f9-a565-ed25247b5744",
+        "source": "EDEXCEL jan 2023, Paper 1 (P), Q3(a)(ii)",
+        "question": "A winch is used to pull a truck along a horizontal road.\nThe winch does 41 kJ of useful work on the truck when the truck is pulled a horizontal distance of 15 m.\n\nCalculate the force that the rope exerts on the truck.",
+        "marks": 3,
+        "answer_points": [
+          "Convert: 41 kJ = 41 000 J",
+          "Substitute: 41 000 = force × 15",
+          "Rearrange: force = 41 000 ÷ 15",
+          "force = 2700 N"
+        ],
+        "tip": "One mark each for substitution, rearrangement and evaluation. Forgetting to convert kJ to J loses a mark."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Conservation of energy links work done, gravitational potential energy and kinetic energy."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Lifting a load at a steady speed: work done by the lifting force = gain in gravitational potential energy.",
+                "A force speeding up an object: work done = gain in kinetic energy.",
+                "A falling object with no energy dissipated: gravitational potential energy lost = kinetic energy gained."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -317,14 +392,20 @@
       "08baa296-689c-4f9a-9e19-d2123c094fb6",
       "d426aa33-8325-4024-9a74-1d2aa8840cdb",
       "83ef7aa1-5dcc-4d3c-9b1c-da316cc97d33",
-      "80501033-2978-4c55-933d-b0ca652ca0e3"
+      "80501033-2978-4c55-933d-b0ca652ca0e3",
+      "e42666e6-a8ff-48e4-9afa-a67d0a60bd88",
+      "fad34b58-c8f1-4113-b9ce-94eca841fae2",
+      "fc5a9eb2-c65d-4cb8-87b5-6d7751908906",
+      "dbc449da-0215-4eeb-88f7-0af7c02648a4"
     ],
     "exemplar_ids": [
       "eb52c982-1dd2-45d0-ae4a-f852c777af86",
       "2981b334-a6a8-416c-8360-0c2dc38f7e42",
-      "a70f9b71-fbdd-4380-9a78-135fb732ba05"
+      "a70f9b71-fbdd-4380-9a78-135fb732ba05",
+      "22818bad-edea-4883-a39d-3b5f580bfffe",
+      "274bbfa7-ac07-46f9-a565-ed25247b5744"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

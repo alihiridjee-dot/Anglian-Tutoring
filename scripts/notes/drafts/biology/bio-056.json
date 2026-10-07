@@ -333,6 +333,61 @@
         ],
         "tip": "Give one effect of the cloudiness and one effect of the minerals, each with its consequence."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 6.1.8", "CAIE 6.1.11S"],
+      "worked_example": {
+        "exemplar_id": "20784196-a050-44c4-8d87-8371482a82e7",
+        "source": "CAMBRIDGE nov 2023, Paper 43, Q2(b)",
+        "question": "In an experiment, thale cress plants were grown in normal atmospheric and high carbon dioxide concentrations. The transpiration rate, the mean number of chloroplasts per cell and the concentrations of starch and magnesium ions were measured.\n\nfactor measured | normal carbon dioxide | high carbon dioxide\ntranspiration rate / AU | 8.1 | 5.6\nmean number of chloroplasts per cell | 8 | 11\nconcentration of starch / µg per mg of leaf | 38 | 67\nconcentration of magnesium ions / mg per g of leaf | 2.7 | 2.3\n\nComplete the sentences about the data.\n\nIncreasing the carbon dioxide concentration caused more starch to be produced in the leaves. This shows that, at a normal carbon dioxide concentration, carbon dioxide is a ______ for photosynthesis.\n\nDuring photosynthesis, ______ molecules of carbon dioxide are required to make one molecule of glucose.\n\nThe greater number of chloroplasts per cell in the leaves grown in the higher carbon dioxide concentration means that more energy can be absorbed from ______ and transferred to ______ energy.\n\nThe transpiration rate is lower when the carbon dioxide concentration is higher. This means reduced loss of ______ from the leaves.\n\nMagnesium ion concentration is lower in these leaves because they have used the magnesium ions to make ______.",
+        "marks": 6,
+        "answer_points": [
+          "limiting factor (1 mark).",
+          "6 / six (1 mark).",
+          "(sun)light (1 mark).",
+          "chemical (1 mark).",
+          "water vapour (1 mark).",
+          "chlorophyll (1 mark)."
+        ],
+        "tip": "One mark for each blank. Starch increased when carbon dioxide increased, so carbon dioxide was limiting."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.20", "IGCSE 2.22", "IGCSE 5.1", "IGCSE 5.2"],
+      "worked_example": {
+        "exemplar_id": "d549fd98-b688-4dbf-866b-9ee31bb278ba",
+        "source": "EDEXCEL jun 2022, Paper 1 (BR), Q8(b)(ii)",
+        "question": "A student investigates the effect of fertiliser on the growth of plant seedlings. Two trays have equal masses of compost and 100 seeds each. Both are under the same lamp and given the same volume of water every day. One tray has fertiliser added every day. Every four days the student dries five seedlings from each tray in an oven and finds their mass.\n\nDry mass of seedlings in g:\nDay 4: 3.5 without fertiliser, 3.8 with fertiliser\nDay 8: 4.9 without, 5.8 with\nDay 12: 5.8 without, 6.7 with\nDay 16: 6.3 without, 7.8 with\nDay 20: 6.8 without, 8.5 with\n\nThe fertiliser contains magnesium ions and nitrate ions.\n\nExplain the effect of these two ions on the growth of the seedlings.",
+        "marks": 4,
+        "answer_points": [
+          "Magnesium ions are needed to make chlorophyll / chloroplasts (1 mark).",
+          "So there is more photosynthesis (1 mark).",
+          "Which produces carbohydrates / glucose / starch / cellulose (1 mark).",
+          "Nitrate ions are needed to make amino acids (1 mark).",
+          "Amino acids are used to make protein for growth (1 mark)."
+        ],
+        "tip": "Any four of the five points earn the four marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section covers what nitrate ions do, because the shared note mentions them only as a shortage."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Plants take in **nitrate ions** from the soil.",
+                "Nitrate ions are needed to make amino acids.",
+                "Amino acids are joined to make proteins, which plants need to grow.",
+                "A shortage of nitrate ions slows growth."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -343,14 +398,20 @@
       "a18696a1-44c5-4707-a2c3-04ee3b01f42f",
       "fb1e6c8e-7c2a-4558-8c8e-2f2fc8a216db",
       "5b9066b9-8936-4b90-929e-4b24da061f39",
-      "4949f289-1471-4c22-bdeb-555a6aea3bdc"
+      "4949f289-1471-4c22-bdeb-555a6aea3bdc",
+      "29d48196-b63e-482f-822d-ae3109b3a96c",
+      "3638fb81-a343-45ec-9893-f0d909fd1eb4",
+      "5286671c-0af6-4a05-abb4-b11830c84443",
+      "303c3e51-c7c8-420a-bf5e-b5527524e394"
     ],
     "exemplar_ids": [
       "8088cbbf-af5e-46cf-9a58-5ffc32c6e04f",
       "553289e5-36a5-4513-8f0b-5e3d24f11de1",
-      "0f15263a-9e23-467a-94a9-6915389180e7"
+      "0f15263a-9e23-467a-94a9-6915389180e7",
+      "20784196-a050-44c4-8d87-8371482a82e7",
+      "d549fd98-b688-4dbf-866b-9ee31bb278ba"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

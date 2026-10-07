@@ -34,7 +34,13 @@
               "label": "Potential difference",
               "min": -6,
               "max": 6,
-              "ticks": [-6, -3, 0, 3, 6],
+              "ticks": [
+                -6,
+                -3,
+                0,
+                3,
+                6
+              ],
               "unit": "V"
             },
             "y": {
@@ -45,31 +51,76 @@
               {
                 "name": "Fixed resistor",
                 "points": [
-                  [-6, 0.05],
-                  [0, 0.5],
-                  [6, 0.95]
+                  [
+                    -6,
+                    0.05
+                  ],
+                  [
+                    0,
+                    0.5
+                  ],
+                  [
+                    6,
+                    0.95
+                  ]
                 ]
               },
               {
                 "name": "Filament lamp",
                 "points": [
-                  [-6, 0.1],
-                  [-3, 0.2],
-                  [-1, 0.38],
-                  [0, 0.5],
-                  [1, 0.62],
-                  [3, 0.8],
-                  [6, 0.9]
+                  [
+                    -6,
+                    0.1
+                  ],
+                  [
+                    -3,
+                    0.2
+                  ],
+                  [
+                    -1,
+                    0.38
+                  ],
+                  [
+                    0,
+                    0.5
+                  ],
+                  [
+                    1,
+                    0.62
+                  ],
+                  [
+                    3,
+                    0.8
+                  ],
+                  [
+                    6,
+                    0.9
+                  ]
                 ]
               },
               {
                 "name": "Diode",
                 "points": [
-                  [-6, 0.5],
-                  [0, 0.5],
-                  [1.5, 0.52],
-                  [2.5, 0.75],
-                  [3.5, 1]
+                  [
+                    -6,
+                    0.5
+                  ],
+                  [
+                    0,
+                    0.5
+                  ],
+                  [
+                    1.5,
+                    0.52
+                  ],
+                  [
+                    2.5,
+                    0.75
+                  ],
+                  [
+                    3.5,
+                    1
+                  ]
                 ]
               }
             ]
@@ -154,7 +205,11 @@
             "kind": "sort",
             "alt": "Sort each statement into thermistor, LDR or diode.",
             "prompt": "Which component does each statement describe?",
-            "groups": ["Thermistor", "LDR", "Diode"],
+            "groups": [
+              "Thermistor",
+              "LDR",
+              "Diode"
+            ],
             "items": [
               {
                 "text": "Resistance decreases as temperature increases",
@@ -250,7 +305,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.1.4", "AQA T 6.2.1.4"],
+      "spec_codes": [
+        "AQA 4.2.1.4",
+        "AQA T 6.2.1.4"
+      ],
       "worked_example": {
         "exemplar_id": "11c3235a-4bd9-4066-8cdd-757ea7d2350a",
         "source": "AQA jun 2021, Paper 1 (H), Q03.2",
@@ -264,7 +322,13 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 10.18", "EDEX 10.19", "EDEX 10.20", "EDEX 10.17", "EDEX 10.21"],
+      "spec_codes": [
+        "EDEX 10.18",
+        "EDEX 10.19",
+        "EDEX 10.20",
+        "EDEX 10.17",
+        "EDEX 10.21"
+      ],
       "worked_example": {
         "exemplar_id": "c2b27ca1-380a-4415-a41e-dd62ddd30116",
         "source": "EDEXCEL nov 2021, Paper 2 (F), Q8(c)(iv)",
@@ -280,7 +344,12 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P3.2e", "OCR P3.2g", "OCR P3.2h", "OCR P3.2f"],
+      "spec_codes": [
+        "OCR P3.2e",
+        "OCR P3.2g",
+        "OCR P3.2h",
+        "OCR P3.2f"
+      ],
       "worked_example": {
         "exemplar_id": "7a42cdca-e3c7-454a-9473-1593ac75623f",
         "source": "OCR nov 2020, Paper 3, Q19(b)(i)",
@@ -293,6 +362,59 @@
         ],
         "tip": "Any two of the points score. Atoms, particles or molecules are allowed in place of ions."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.2.4.4S"
+      ],
+      "worked_example": {
+        "exemplar_id": "423b2740-d2d4-434a-bb2f-ba1aeeb2d249",
+        "source": "CAMBRIDGE jun 2023, Paper 63, Q2(e)",
+        "question": "A student suggests that the potential difference across resistor U and the current in it are proportional.\n\nState how a graph of potential difference against current for resistor U can confirm this suggestion.",
+        "marks": 1,
+        "answer_points": [
+          "The graph is a straight line.",
+          "The line goes through the origin."
+        ],
+        "tip": "Both features are needed for the mark."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.9",
+        "IGCSE 2.11"
+      ],
+      "worked_example": {
+        "exemplar_id": "8c69fcf6-5ba8-449a-86da-f9a495135c14",
+        "source": "EDEXCEL jun 2023, Paper 1 (PR), Q6(c)(ii)",
+        "question": "A student investigates how the current in a 60 Ω resistor varies with the voltage across the resistor. The student repeats the investigation with a 120 Ω resistor.\n\nExplain how a current–voltage graph for the 120 Ω resistor compares with the current–voltage graph for the 60 Ω resistor.",
+        "marks": 3,
+        "answer_points": [
+          "The line has the same shape: a straight line through the origin.",
+          "The line for the 120 Ω resistor has a lower gradient (half the gradient).",
+          "This is because a larger resistance gives a lower current for the same voltage."
+        ],
+        "tip": "Any three of these ideas earn the three marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A metal wire at constant temperature gives the same I–V graph as a fixed resistor. These points improve the investigation."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Repeat the readings at each voltage and find the average.",
+                "Switch off the circuit between readings, so the component does not heat up.",
+                "Use a wide range of voltages. For a filament lamp, take more readings to show the curve."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -307,7 +429,10 @@
       "f989fb65-9917-45b4-b0c5-9fa761b17629",
       "7b544a63-970e-4dd0-a372-239791af4e39",
       "d96f77cc-decd-480a-9f1a-b03619e1aa55",
-      "252292df-aa2f-46d8-8c85-2571de0b8c9c"
+      "252292df-aa2f-46d8-8c85-2571de0b8c9c",
+      "eb70b4fc-8af0-465c-8bf3-dccf795f3f44",
+      "719b8f7a-82ad-4add-93ff-8f451823c777",
+      "abf47740-62a8-4148-942c-a381e79d8810"
     ],
     "exemplar_ids": [
       "11c3235a-4bd9-4066-8cdd-757ea7d2350a",
@@ -320,9 +445,11 @@
       "7a42cdca-e3c7-454a-9473-1593ac75623f",
       "02d778ff-a56f-4799-8ed5-69069b84ae04",
       "607822d9-b1ee-4115-993d-08b1c67fd8b1",
-      "1f7ed5c1-7cac-4580-9f15-c468b69c2c87"
+      "1f7ed5c1-7cac-4580-9f15-c468b69c2c87",
+      "423b2740-d2d4-434a-bb2f-ba1aeeb2d249",
+      "8c69fcf6-5ba8-449a-86da-f9a495135c14"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

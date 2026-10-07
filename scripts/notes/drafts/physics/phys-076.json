@@ -325,6 +325,102 @@
         ],
         "tip": "A near object focused behind the retina, or an eyeball that is too short, is also accepted for the first mark."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 3.2.3.1",
+        "CAIE 3.2.3.2",
+        "CAIE 3.2.3.3",
+        "CAIE 3.2.3.4",
+        "CAIE 3.2.3.5",
+        "CAIE 3.2.3.6S",
+        "CAIE 3.2.3.7S",
+        "CAIE 3.2.3.8S"
+      ],
+      "worked_example": {
+        "exemplar_id": "fbd1967e-e836-4cc4-9156-ef1a2a4a6975",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q4(c)",
+        "question": "The lens in a magnifying glass is a converging lens.\n\nConverging lenses are used in spectacles (glasses) to correct one problem with vision.\n\nState the name of the problem and explain how a converging lens is used to correct it.",
+        "marks": 3,
+        "answer_points": [
+          "The problem is long-sightedness.",
+          "The converging lens moves the image towards the lens and the retina (it shortens the focal length of the combined lens).",
+          "It focuses the image on the retina (back of the eye)."
+        ],
+        "tip": "One mark for the name and two marks for the explanation."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Principal axis",
+                  "meaning": "The line through the centre of the lens, at right angles to it. Parallel rays travel along it or parallel to it."
+                },
+                {
+                  "term": "Virtual image",
+                  "meaning": "Formed where diverging rays seem to come from when they are extended backwards. It cannot be shown on a screen."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "F is the principal focus. 2F is twice the focal length from the lens. The image from a convex lens depends on where the object is."
+            },
+            {
+              "type": "table",
+              "columns": ["Object position", "Size", "Upright or inverted", "Real or virtual"],
+              "rows": [
+                ["Beyond 2F", "Diminished", "Inverted", "Real"],
+                ["At 2F", "Same size", "Inverted", "Real"],
+                ["Between F and 2F", "Enlarged", "Inverted", "Real"],
+                ["(Supplement) Closer than F", "Enlarged", "Upright", "Virtual"]
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Ray 1.",
+                  "text": "From the top of the object, draw a ray parallel to the principal axis. The lens refracts it through the principal focus."
+                },
+                {
+                  "lead": "Ray 2.",
+                  "text": "From the top of the object, draw a ray through the centre of the lens. It carries straight on."
+                },
+                {
+                  "lead": "Real image.",
+                  "text": "Where the two refracted rays cross is the top of the image. Draw the image from the principal axis up to that point."
+                },
+                {
+                  "lead": "(Supplement) Virtual image.",
+                  "text": "If the object is closer than F, the rays spread out after the lens. Extend them backwards with dotted lines. They meet at the top of the virtual image."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Supplement) Correcting short sight",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A short-sighted eye focuses distant objects in front of the retina."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A concave (diverging) lens spreads the rays out slightly before they enter the eye.",
+                "The image then forms on the retina.",
+                "Long sight is corrected with a convex lens and short sight with a concave lens."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -336,14 +432,23 @@
       "1da0ba28-db03-48c6-94ba-28f533897178",
       "2609afff-ad97-4c24-ab1d-78b6685e3820",
       "dfa8f1f2-7523-47c3-a3a7-9b3cd290be3c",
-      "6f6da19a-db7f-47da-a17f-06b93c98ec5a"
+      "6f6da19a-db7f-47da-a17f-06b93c98ec5a",
+      "6699331e-7b8d-4f20-a4eb-c345abcc1a64",
+      "05688470-229c-4360-81ca-52c879fea5c9",
+      "0eef09fa-cc74-4e91-8796-a370d55f5d64",
+      "8ed0abb3-e0d6-443f-a010-8f3cbebddfc6",
+      "f9060535-45d1-4aa1-8dfe-e8ac14d63949",
+      "52059880-91d3-41d7-bf6e-c0b6f97ab1e8",
+      "a5034179-48b7-432a-bed6-171c84e87703",
+      "c55a7e27-7dda-4dfe-b72e-c833c2d686d4"
     ],
     "exemplar_ids": [
       "7345f879-15d1-462f-a8f8-2882c4d2f895",
       "64235ff2-04bf-4f7c-8de3-a40e67d41981",
-      "20fdcfe3-e7d4-4506-a967-12850df0eb51"
+      "20fdcfe3-e7d4-4506-a967-12850df0eb51",
+      "fbd1967e-e836-4cc4-9156-ef1a2a4a6975"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

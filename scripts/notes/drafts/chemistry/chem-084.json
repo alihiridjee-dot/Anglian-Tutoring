@@ -103,12 +103,27 @@
         },
         {
           "type": "table",
-          "columns": ["Natural polymer", "Monomer"],
+          "columns": [
+            "Natural polymer",
+            "Monomer"
+          ],
           "rows": [
-            ["DNA", "Nucleotides"],
-            ["Protein", "Amino acids"],
-            ["Starch", "Sugars (glucose)"],
-            ["Cellulose", "Sugars (glucose)"]
+            [
+              "DNA",
+              "Nucleotides"
+            ],
+            [
+              "Protein",
+              "Amino acids"
+            ],
+            [
+              "Starch",
+              "Sugars (glucose)"
+            ],
+            [
+              "Cellulose",
+              "Sugars (glucose)"
+            ]
           ]
         },
         {
@@ -117,7 +132,11 @@
             "kind": "sort",
             "alt": "Sort each natural polymer or description by its monomer.",
             "prompt": "Sort each item by the monomer it is made from.",
-            "groups": ["Nucleotides", "Amino acids", "Sugars"],
+            "groups": [
+              "Nucleotides",
+              "Amino acids",
+              "Sugars"
+            ],
             "items": [
               {
                 "text": "DNA",
@@ -175,21 +194,31 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.7.3.3", "AQA 4.7.3.4"],
+      "spec_codes": [
+        "AQA 4.7.3.3",
+        "AQA 4.7.3.4"
+      ],
       "worked_example": {
         "exemplar_id": "c8f7d81d-1920-4d29-a550-904e8d10c708",
         "source": "AQA jun 2020, Paper 2 (H), Q9.2",
         "question": "Glucose is produced when algae photosynthesise.\n\nName two naturally occurring polymers produced from glucose.",
         "marks": 2,
-        "answer_points": ["Starch.", "Cellulose (glycogen is also allowed)."],
+        "answer_points": [
+          "Starch.",
+          "Cellulose (glycogen is also allowed)."
+        ],
         "tip": "One mark for each polymer."
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 9.25C"]
+      "spec_codes": [
+        "EDEX 9.25C"
+      ]
     },
     "ocr": {
-      "spec_codes": ["OCR C6.2h"],
+      "spec_codes": [
+        "OCR C6.2h"
+      ],
       "worked_example": {
         "exemplar_id": "fa7ac3df-b68d-49f6-9399-979ae2c76c88",
         "source": "OCR nov 2021, Paper 4, Q21(a)",
@@ -202,6 +231,45 @@
         ],
         "tip": "One mark for each correct monomer."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 11.8.12S",
+        "CAIE 11.8.13S"
+      ],
+      "worked_example": {
+        "exemplar_id": "5a4e35cb-6b1b-4732-baa7-3a07ae906b3d",
+        "source": "CAMBRIDGE nov 2023, Paper 43, Q6(f)(ii)",
+        "question": "Naturally occurring polyamides are found in food.\n\nName the type of monomer which forms naturally occurring polyamides.",
+        "marks": 1,
+        "answer_points": [
+          "Amino acids."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Proteins are natural polyamides. They are made from amino acid monomers."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Amino acid",
+                  "meaning": "A monomer with the general structure H₂N–CHR–COOH, where R is a side chain that differs between amino acids."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A protein is drawn as –NH–□–CO–NH–□–CO–NH–□–CO–, where each box is a different amino acid unit."
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -212,13 +280,16 @@
       "eb2a06bd-3c57-4c79-baf6-37721222ef66",
       "f83fb842-c8e2-4bd9-8e62-d45e6a8e94a0",
       "fdcbe390-d22e-41f1-9fcd-3602ea46e4be",
-      "37bbba7a-6877-4a03-9d43-7018c8bfecea"
+      "37bbba7a-6877-4a03-9d43-7018c8bfecea",
+      "adaa7560-e3a9-4b0e-97ea-f4fd5eabe8a8",
+      "b8d601b4-477d-4907-83e7-93b45df4fbb9"
     ],
     "exemplar_ids": [
       "c8f7d81d-1920-4d29-a550-904e8d10c708",
-      "fa7ac3df-b68d-49f6-9399-979ae2c76c88"
+      "fa7ac3df-b68d-49f6-9399-979ae2c76c88",
+      "5a4e35cb-6b1b-4732-baa7-3a07ae906b3d"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

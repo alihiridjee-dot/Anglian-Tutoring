@@ -66,8 +66,18 @@
               "dominant": "Male",
               "recessive": "Female"
             },
-            "parent_labels": ["Mother", "Father"],
-            "parent_options": [["XX"], ["XY"]]
+            "parent_labels": [
+              "Mother",
+              "Father"
+            ],
+            "parent_options": [
+              [
+                "XX"
+              ],
+              [
+                "XY"
+              ]
+            ]
           }
         },
         {
@@ -182,7 +192,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 6.8", "AQA T 4.6.1.6"],
+      "spec_codes": [
+        "AQA 6.8",
+        "AQA T 4.6.1.6"
+      ],
       "worked_example": {
         "exemplar_id": "7df37df4-36b8-40a3-8493-29377ae292e9",
         "source": "AQA jun 2020, Paper 2 (H), Q05.2",
@@ -196,18 +209,24 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 3.15"],
+      "spec_codes": [
+        "EDEX 3.15"
+      ],
       "worked_example": {
         "exemplar_id": "126ef9f7-0ecc-4744-b8df-0bdbaae611e9",
         "source": "EDEXCEL jun 2019, Paper 1 (F), Q6(a)(iv)",
         "question": "A karyogram is a picture of the chromosomes found in the nucleus of a single cell.\n\nState the probability that a child will be male.",
         "marks": 1,
-        "answer_points": ["0.5 (50%, ½, 1 in 2 or 2 in 4)."],
+        "answer_points": [
+          "0.5 (50%, ½, 1 in 2 or 2 in 4)."
+        ],
         "tip": "50 : 50 is a ratio, not a probability, and scores 0."
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 5.1k"],
+      "spec_codes": [
+        "OCR 5.1k"
+      ],
       "worked_example": {
         "exemplar_id": "411f6f85-85d3-477c-a211-78537d0ebb16",
         "source": "OCR jun 2018, Paper 4, Q19(a)",
@@ -219,6 +238,29 @@
         ],
         "tip": "A correct Punnett square that shows XY is male and XX is female earns both marks. Without the labels it earns the gamete mark only."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 17.1.4"
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.26",
+        "IGCSE 3.27"
+      ],
+      "worked_example": {
+        "exemplar_id": "d155da84-4b7c-4365-89ec-4d733cfc9c53",
+        "source": "EDEXCEL nov 2020, Paper 1 (BR), Q9(b)(ii)",
+        "question": "Cleft chin is a phenotype believed to be controlled by a single gene that has two alleles.\nThe dominant allele, N, codes for cleft chin and the recessive, n, allele codes for the absence of the cleft chin.\nA woman with a cleft chin has a child with a man who also has a cleft chin.\nThe child does not have a cleft chin.\n\nThe parents then have a second child. Calculate the probability that this child will be female and not have a cleft chin.",
+        "marks": 2,
+        "answer_points": [
+          "Both parents are Nn, so the probability of no cleft chin (nn) is 0.25.",
+          "The probability of a female is 0.5.",
+          "Multiply: 0.25 × 0.5 = 0.125 (1/8 or 12.5%)."
+        ],
+        "tip": "One mark for 0.25 (or 25%, 1/4) and one for the final answer."
+      }
     }
   },
   "meta": {
@@ -229,14 +271,18 @@
       "b6e6a435-8272-4a73-a08e-ba11fea8aeef",
       "96271803-3be3-4a8f-bf3d-1fde7a9a342a",
       "11efcabd-7ede-47f0-a514-63e342424890",
-      "e9aa02e4-d588-4ab1-aa87-d3a5e985f79e"
+      "e9aa02e4-d588-4ab1-aa87-d3a5e985f79e",
+      "dfe26c0c-6e2c-4b69-87d7-7bbc1bafbf1b",
+      "d1f80646-b761-4ec8-8a76-5a5bcfdbeb2b",
+      "57fd55c0-adb5-4338-8d0e-64d3da38d02f"
     ],
     "exemplar_ids": [
       "7df37df4-36b8-40a3-8493-29377ae292e9",
       "126ef9f7-0ecc-4744-b8df-0bdbaae611e9",
-      "411f6f85-85d3-477c-a211-78537d0ebb16"
+      "411f6f85-85d3-477c-a211-78537d0ebb16",
+      "d155da84-4b7c-4365-89ec-4d733cfc9c53"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

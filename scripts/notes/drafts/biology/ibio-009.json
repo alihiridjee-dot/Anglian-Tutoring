@@ -1,0 +1,246 @@
+{
+  "format": 1,
+  "concept_id": "ibio-009",
+  "subject": "biology",
+  "title": "Parts of the flower and pollination",
+  "key_idea": "A flower is the reproductive organ of a flowering plant. Pollination is the transfer of pollen grains from an anther to a stigma. Insect-pollinated and wind-pollinated flowers have different structures, and their pollen grains differ too.",
+  "sections": [
+    {
+      "heading": "Parts of an insect-pollinated flower",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An insect-pollinated flower has male parts, female parts and parts that protect or attract. This section covers each part and its job."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "An activity naming the parts of an insect-pollinated flower: sepal, petal, filament, anther, stigma, style, ovary and ovule. Each part can be tapped to show its function.",
+            "prompt": "Tap each part of the flower to learn its job, then test yourself.",
+            "parts": [
+              {
+                "name": "Sepal",
+                "detail": "Protects the flower while it is a bud."
+              },
+              {
+                "name": "Petal",
+                "detail": "Often brightly coloured and scented. It attracts insects to the flower."
+              },
+              {
+                "name": "Filament",
+                "detail": "Holds the anther up. The filament and the anther together make a stamen."
+              },
+              {
+                "name": "Anther",
+                "detail": "Makes and releases the pollen grains, which contain the male gametes."
+              },
+              {
+                "name": "Stigma",
+                "detail": "The top of the carpel. It is sticky and catches pollen grains."
+              },
+              {
+                "name": "Style",
+                "detail": "Joins the stigma to the ovary and holds the stigma up."
+              },
+              {
+                "name": "Ovary",
+                "detail": "Contains and protects the ovules."
+              },
+              {
+                "name": "Ovule",
+                "detail": "Contains the female gamete, the egg cell. After fertilisation it becomes a seed."
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **stamen** is the male part. It is made of the **filament** and the **anther**.",
+            "The **carpel** is the female part. It is made of the **stigma**, the **style** and the **ovary**, which contains the ovules."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stamen = anther + filament. The anther makes pollen.",
+            "Carpel = stigma + style + ovary. The ovary contains ovules.",
+            "Sepals protect the bud and petals attract insects."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Pollination",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Pollination happens before fertilisation. It only moves the pollen. It does not fuse the gametes."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Pollination",
+              "meaning": "The transfer of pollen grains from an anther to a stigma."
+            },
+            {
+              "term": "Pollen grain",
+              "meaning": "A tiny structure made in the anther that contains the male gamete."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Insects carry pollen from flower to flower on their bodies.",
+            "Wind blows pollen from anthers to stigmas.",
+            "Pollination is not fertilisation. Fertilisation happens later, when the gametes fuse."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Pollination is the transfer of pollen from an anther to a stigma.",
+            "It is carried out by insects or by the wind."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Insect-pollinated and wind-pollinated flowers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The two types of flower are adapted to catch the pollen carrier they depend on. Their pollen grains are different too."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Insect-pollinated",
+            "Wind-pollinated"
+          ],
+          "rows": [
+            [
+              "Petals",
+              "Large, brightly coloured and scented to attract insects",
+              "Small, dull and green, or no petals"
+            ],
+            [
+              "Nectar",
+              "Produced, as a food reward for insects",
+              "None"
+            ],
+            [
+              "Anthers",
+              "Inside the flower, where an insect brushes past",
+              "Large, on long filaments that hang outside the flower, so the wind can blow the pollen away"
+            ],
+            [
+              "Stigma",
+              "Inside the flower and sticky, so pollen from the insect sticks to it",
+              "Large, long and feathery, hanging outside the flower to catch pollen from the air"
+            ],
+            [
+              "Pollen grains",
+              "Larger, with a sticky or spiky surface so they stick to insects. Fewer are made.",
+              "Smaller and lighter, with a smooth surface so they are carried by the wind. Very many are made."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A wind-pollinated plant makes huge amounts of pollen. Most of it is lost, so this increases the chance that some reaches a stigma.",
+            "A feathery stigma has a large surface area to catch pollen."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Insect-pollinated flowers attract insects with colour, scent and nectar.",
+            "Wind-pollinated flowers have anthers and stigmas outside the flower and make lots of light pollen."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the two parts that make up a stamen.",
+      "a": "The filament and the anther.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how the stigma of a wind-pollinated flower is adapted for pollination.",
+      "a": "It is large, long and feathery, and hangs outside the flower, so it catches pollen from the air.",
+      "marks": 2
+    },
+    {
+      "q": "Give two differences between the pollen grains of insect-pollinated and wind-pollinated flowers.",
+      "a": "Any two from: insect-pollinated pollen is larger, wind-pollinated pollen is smaller and lighter; insect-pollinated pollen has a sticky or spiky surface, wind-pollinated pollen is smooth; fewer grains are made by insect-pollinated flowers, very many by wind-pollinated flowers.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 16.3.1",
+        "CAIE 16.3.2",
+        "CAIE 16.3.3",
+        "CAIE 16.3.4",
+        "CAIE 16.3.5",
+        "CAIE 16.3.7"
+      ],
+      "worked_example": {
+        "exemplar_id": "9ee6e86c-c2b5-49cc-9313-dc0cc665b8ea",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q2(b)(ii)",
+        "question": "Pollen has been released from the flowers of a hazel tree. These flowers are wind-pollinated.\n\nDescribe how a stigma from a wind-pollinated plant is adapted for pollination.",
+        "marks": 1,
+        "answer_points": [
+          "The stigma is large, long or feathery, and hangs outside the flower."
+        ],
+        "tip": "One mark. Give a feature and say where the stigma is."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "e94e22a5-da58-4d66-b90a-5afeb5be7d59",
+        "source": "EDEXCEL jun 2024, Paper 1 (BR), Q2(b)(i)",
+        "question": "A pollen grain is shown in an image. The diameter of the pollen grain in the image is 30 mm. The pollen grain has an actual diameter of 313 µm.\n\nCalculate the magnification of the pollen grain in the image. Give your answer to the nearest whole number. [1 mm = 1000 µm]",
+        "marks": 3,
+        "answer_points": [
+          "Convert the image size to micrometres: 30 mm = 30 000 µm.",
+          "Divide the image size by the actual size: 30 000 ÷ 313.",
+          "Magnification = 96 (95.8 to the nearest whole number is 96)."
+        ],
+        "tip": "Use the same units for both lengths before dividing. Image size ÷ actual size gives the magnification."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "e8708b31-6cb3-4ca0-9e87-bb0bf26a15a8",
+      "9de31462-57cf-4960-8309-553abe389a7b",
+      "0d0d9a3c-f975-4802-971d-302199c1ba0b",
+      "6462b808-2edf-4ed9-8a88-c16d4983a94c",
+      "230ab8f0-d902-4f28-a77d-6a6433eb1075",
+      "fdbc172c-ea35-45ff-9fe1-342371d3d535",
+      "a368a5a4-b431-4fe6-955c-d581969de0b8"
+    ],
+    "exemplar_ids": [
+      "9ee6e86c-c2b5-49cc-9313-dc0cc665b8ea",
+      "e94e22a5-da58-4d66-b90a-5afeb5be7d59"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

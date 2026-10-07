@@ -304,6 +304,42 @@
         ],
         "tip": "The ear drum moving in and out is accepted for vibrates."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.4.3", "CAIE 3.4.11S"],
+      "extra": [
+        {
+          "heading": "Speed of sound in different materials",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The speed of sound depends on the state of the material."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Sound travels faster in solids than in liquids.",
+                "Sound travels faster in liquids than in gases."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.24P", "IGCSE 3.7", "IGCSE 3.26P"],
+      "worked_example": {
+        "exemplar_id": "6371da5a-57fa-4a50-b7ef-e4b85001f84e",
+        "source": "EDEXCEL jun 2023, Paper 2 (PR), Q7(a)",
+        "question": "The table gives the frequencies of some different sound waves.\n\nA: 10 Hz\nB: 30 Hz\nC: 500 Hz\nD: 2000 Hz\nE: 10 000 Hz\nF: 25 000 Hz\n\nState which of these sound waves can be heard by humans.",
+        "marks": 2,
+        "answer_points": [
+          "Humans can hear frequencies from 20 Hz to 20 000 Hz.",
+          "B, C, D and E can be heard.",
+          "A is too low (below 20 Hz) and F is too high (above 20 000 Hz), so neither can be heard."
+        ],
+        "tip": "Two marks if B, C, D and E are chosen and A and F are not. Choosing A or F scores nothing."
+      }
     }
   },
   "meta": {
@@ -316,15 +352,18 @@
       "e74b05d6-1732-4620-9917-fcb30e417b89",
       "c2f7be2a-c790-4f9a-b940-236a54f2caca",
       "3d2002fb-13ad-45c0-8fd7-f6acc1c4668a",
-      "1c7ddf44-161a-4a36-a392-8bd2e74d2d84"
+      "1c7ddf44-161a-4a36-a392-8bd2e74d2d84",
+      "cfc226cd-5687-4022-9ba9-8d189e4d50f3",
+      "4cad58a9-61de-4dc5-b1cc-7ea5759416c6"
     ],
     "exemplar_ids": [
       "6eb1422b-32e8-44a9-aaf9-d4802a3ca7aa",
       "408a80b6-1a71-4235-bf85-b812f53cd4dc",
       "242b340d-af10-46fd-80f2-4dffb41ed044",
-      "589d6f0b-1b96-4aac-8183-8752cc701516"
+      "589d6f0b-1b96-4aac-8183-8752cc701516",
+      "6371da5a-57fa-4a50-b7ef-e4b85001f84e"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

@@ -328,6 +328,121 @@
         "answer_points": ["Density = mass ÷ volume", "Volume = 0.60 / 50", "= 0.012 m³"],
         "tip": "The second mark is for rearranging and substituting. 1.2 × 10 to any other power scores 2 marks."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.4.1",
+        "CAIE 2.1.1.1",
+        "CAIE 2.1.2.1",
+        "CAIE 2.1.2.6S",
+        "CAIE 1.4.3",
+        "CAIE 1.4.4S",
+        "CAIE 2.1.2.4",
+        "CAIE 2.2.1.3S",
+        "CAIE 2.3.2.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "608cfb39-d7cb-4f93-85f6-eb96de15c409",
+        "source": "CAMBRIDGE nov 2023, Paper 43, Q1(b)(ii)",
+        "question": "An irregularly shaped solid object has a density of 2.7 g/cm³. The volume of the object is 83 cm³. Calculate the mass of the object.",
+        "marks": 3,
+        "answer_points": ["ρ = m / V, so m = ρV", "m = 2.7 × 83", "m = 220 g (2.2 × 10² g)"],
+        "tip": "One mark for the equation, one for the substitution and one for the answer. The units g/cm³ and cm³ give an answer in g."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The forces between particles, the distances between them and how they move decide the properties of each state."
+            },
+            {
+              "type": "table",
+              "columns": ["Property", "Solid", "Liquid", "Gas"],
+              "rows": [
+                [
+                  "Density",
+                  "High: particles touching",
+                  "High: particles touching",
+                  "Low: particles far apart"
+                ],
+                [
+                  "Compressed",
+                  "Hardly at all: no gaps",
+                  "Hardly at all: no gaps",
+                  "Easily: large gaps"
+                ],
+                [
+                  "Flow",
+                  "Does not flow: particles held in place",
+                  "Flows: particles slide past each other",
+                  "Flows: particles move freely"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Floating and sinking",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "An object floats in a liquid if its density is less than the density of the liquid.",
+                "It sinks if its density is greater than the density of the liquid.",
+                "(Supplement) Of two liquids that do not mix, the one with the lower density floats on top of the other."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Evidence for moving particles",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Brownian motion is the random, jerky movement of tiny specks such as pollen grains in water or smoke particles in air."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The specks are hit from all sides by fast-moving, invisible particles of the water or air.",
+                "The hits are uneven, so the speck moves in a random way.",
+                "This is evidence that the particles of a liquid or a gas are in constant random motion."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Expansion when heated",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) When a substance is heated, its particles move or vibrate faster and the average distance between them grows.",
+                "A gas expands the most, because the forces between its particles are negligible.",
+                "A liquid expands less than a gas, and a solid expands the least, because the forces between its particles are strong."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 5.3", "IGCSE 5.10P"],
+      "worked_example": {
+        "exemplar_id": "2ac0d615-07ab-43e5-b6cf-69e71a902aea",
+        "source": "EDEXCEL jun 2023, Paper 1 (P), Q6(c)",
+        "question": "A scientist finds the mass and the volume of a small bone. The mass of the bone is 17 g. The volume of the bone is 13 cm³. Calculate the density of the bone. Give your answer to 2 significant figures.",
+        "marks": 4,
+        "answer_points": [
+          "density = mass / volume",
+          "density = 17 / 13",
+          "density = 1.3077… g/cm³",
+          "density = 1.3 g/cm³ (to 2 significant figures)"
+        ],
+        "tip": "Marks are given for the formula, the substitution, the evaluation and the rounding."
+      }
     }
   },
   "meta": {
@@ -342,14 +457,22 @@
       "d85bc68d-5727-4a47-aa57-7c296026e5a8",
       "8857d7f5-d3c0-472d-9d93-1c0192689434",
       "b2811351-1bd2-427a-b06c-0d02018e017c",
-      "fbd49186-8285-4d83-a24a-873d71c3c926"
+      "fbd49186-8285-4d83-a24a-873d71c3c926",
+      "540c201b-a2d7-425b-81e1-f51f9949d599",
+      "a216367f-e9b3-49e4-bc5b-dad726839fac",
+      "5c1407ae-0651-4a80-8d5b-3e62de3b88e1",
+      "5fc591c1-4fec-4fd8-b2f1-bfbd4f1fd1a9",
+      "4b365cab-78e4-4f07-9fc0-c9a41d57f0de",
+      "e03710f0-3436-4fb8-857f-77691c7e6de3"
     ],
     "exemplar_ids": [
       "e81ddb52-2189-4365-8d26-6945c496b912",
       "de1c201e-01c6-4b95-adac-7d61e7d866d2",
-      "88301efb-885e-43eb-8837-ec8ff453a934"
+      "88301efb-885e-43eb-8837-ec8ff453a934",
+      "608cfb39-d7cb-4f93-85f6-eb96de15c409",
+      "2ac0d615-07ab-43e5-b6cf-69e71a902aea"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

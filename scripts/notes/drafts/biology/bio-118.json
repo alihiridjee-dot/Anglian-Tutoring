@@ -90,13 +90,19 @@
           "type": "equation",
           "label": "Mean number per quadrat",
           "formula": "mean = total number of organisms counted ÷ number of quadrats",
-          "where": ["total number counted, in organisms", "number of quadrats"]
+          "where": [
+            "total number counted, in organisms",
+            "number of quadrats"
+          ]
         },
         {
           "type": "equation",
           "label": "Estimated population size",
           "formula": "population size = mean number per m² × total area of the habitat",
-          "where": ["mean number per m², in organisms per m²", "total area, in m² (length × width)"]
+          "where": [
+            "mean number per m², in organisms per m²",
+            "total area, in m² (length × width)"
+          ]
         },
         {
           "type": "paragraph",
@@ -168,14 +174,22 @@
         },
         {
           "type": "table",
-          "columns": ["Feature", "Random quadrats", "Transect"],
+          "columns": [
+            "Feature",
+            "Random quadrats",
+            "Transect"
+          ],
           "rows": [
             [
               "Used for",
               "Estimating how many of a species there are in an area",
               "Investigating how distribution changes along a line, such as away from a woodland"
             ],
-            ["Quadrat positions", "Chosen at random", "At regular intervals along a line"],
+            [
+              "Quadrat positions",
+              "Chosen at random",
+              "At regular intervals along a line"
+            ],
             [
               "Factor measured",
               "Not needed to estimate a population",
@@ -237,7 +251,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 7.4", "AQA T 4.7.2.1"],
+      "spec_codes": [
+        "AQA 7.4",
+        "AQA T 4.7.2.1"
+      ],
       "worked_example": {
         "exemplar_id": "6837c0a6-4bcb-4c32-ad66-d61f4e41f0de",
         "source": "AQA jun 2019, Paper 2 (H), Q07.1",
@@ -256,7 +273,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 9.5", "EDEX 9.6"],
+      "spec_codes": [
+        "EDEX 9.5",
+        "EDEX 9.6"
+      ],
       "worked_example": {
         "exemplar_id": "4602cadc-a82c-49ec-9c77-4c32aca8104c",
         "source": "EDEXCEL jun 2023, Paper 2 (F), Q6(d)",
@@ -331,7 +351,10 @@
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR 6.1a", "OCR 7.6"],
+      "spec_codes": [
+        "OCR 6.1a",
+        "OCR 7.6"
+      ],
       "worked_example": {
         "exemplar_id": "882e3d58-44d4-4ea1-a2d4-bea2a1ae5ee4",
         "source": "OCR jun 2025, Paper 2, Q23(a)",
@@ -399,6 +422,53 @@
           ]
         }
       ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.2",
+        "IGCSE 4.4B"
+      ],
+      "worked_example": {
+        "exemplar_id": "1adb7068-f454-4399-a792-1ce4216bf7e2",
+        "source": "EDEXCEL jun 2022, Paper 1 (B), Q4(a)(ii)",
+        "question": "Scientists collect data from a grassland ecosystem. For each trophic level they determine the mean number of organisms in a square metre.\n\nDescribe how you could collect data to find the mean number of producers per square metre in the ecosystem.",
+        "marks": 3,
+        "answer_points": [
+          "Use a quadrat (a grid).",
+          "Place the quadrat at random positions (a random sample).",
+          "Count all the plants (producers) in the quadrat.",
+          "Repeat, then divide the total number of plants by the area sampled."
+        ],
+        "tip": "Any three of these score one mark each."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Quadrats can also measure biodiversity, which is the number of different species in a habitat."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Sample.",
+                  "text": "Place quadrats at random in each habitat."
+                },
+                {
+                  "lead": "Count species.",
+                  "text": "Record how many different species are in each quadrat."
+                },
+                {
+                  "lead": "Compare.",
+                  "text": "The habitat with more species has the higher biodiversity."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -410,7 +480,9 @@
       "872079da-e686-47aa-b1c6-3952b0e6cf47",
       "3f5c6e75-11d5-4477-a4a8-32ff16064fff",
       "914df6d7-53f0-42a8-bd3d-bae2df31b215",
-      "4be6be53-c76c-4a0a-b0de-ca6ed0091c80"
+      "4be6be53-c76c-4a0a-b0de-ca6ed0091c80",
+      "4b315937-82c7-4397-8f5a-388d0b42df1b",
+      "63396b34-889e-4a0a-93c6-0163f4c3927d"
     ],
     "exemplar_ids": [
       "6837c0a6-4bcb-4c32-ad66-d61f4e41f0de",
@@ -423,9 +495,10 @@
       "fe348284-a98c-40fe-aa47-b1b66e21c52d",
       "d577d350-3456-4ba5-9303-3367d60f7ac7",
       "68164a6e-701f-4f59-ac62-66a24739909c",
-      "5e7ea7fc-aeff-41a3-8346-996f061f8696"
+      "5e7ea7fc-aeff-41a3-8346-996f061f8696",
+      "1adb7068-f454-4399-a792-1ce4216bf7e2"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

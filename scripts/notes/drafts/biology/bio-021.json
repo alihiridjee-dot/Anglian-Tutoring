@@ -154,7 +154,10 @@
           "type": "equation",
           "label": "Rate from the time taken",
           "formula": "rate = 1 ÷ time",
-          "where": ["rate, in s⁻¹ (per second)", "time taken for the reaction, in s"]
+          "where": [
+            "rate, in s⁻¹ (per second)",
+            "time taken for the reaction, in s"
+          ]
         },
         {
           "type": "equation",
@@ -201,7 +204,10 @@
               "unit": "s⁻¹",
               "decimals": 3
             },
-            "working": ["Rate = 1 ÷ time", "Rate = 1 ÷ {t} = **{answer}** s⁻¹"]
+            "working": [
+              "Rate = 1 ÷ time",
+              "Rate = 1 ÷ {t} = **{answer}** s⁻¹"
+            ]
           }
         },
         {
@@ -233,7 +239,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 2.5", "AQA T 4.2.2.1"],
+      "spec_codes": [
+        "AQA 2.5",
+        "AQA T 4.2.2.1"
+      ],
       "worked_example": {
         "exemplar_id": "6942a23d-7a2e-4cd2-9a7c-0b9f33dbf2ff",
         "source": "AQA jun 2021, Paper 1 (H), Q05.7",
@@ -250,7 +259,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 1.8", "EDEX 1.9", "EDEX 1.11"],
+      "spec_codes": [
+        "EDEX 1.8",
+        "EDEX 1.9",
+        "EDEX 1.11"
+      ],
       "worked_example": {
         "exemplar_id": "d85db5fb-6932-4682-b42b-ca849799ffa4",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q5(c)(ii)",
@@ -264,7 +277,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 1.2g"],
+      "spec_codes": [
+        "OCR 1.2g"
+      ],
       "worked_example": {
         "exemplar_id": "04e9e6a0-7df3-4ec8-8517-ac6b60d816cb",
         "source": "OCR jun 2023, Paper 3, Q20(a)",
@@ -278,6 +293,133 @@
         ],
         "tip": "One mark for each of the four points. Heat denatures the enzyme. Do not say that the heat killed it."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 5.1.5",
+        "CAIE 5.1.8S",
+        "CAIE 5.1.9S"
+      ],
+      "worked_example": {
+        "exemplar_id": "9de7a632-1153-4195-ac37-5545cd9fa59c",
+        "source": "CAMBRIDGE jun 2024, Paper 63, Q1(c)",
+        "question": "Amylase is an enzyme that catalyses the breakdown of starch to form reducing sugars.\nPlan an investigation to determine the effect of temperature on the rate of breakdown of starch by amylase.",
+        "marks": 6,
+        "answer_points": [
+          "Independent variable: at least two temperatures.",
+          "Dependent variable: the time taken for a positive result for reducing sugar, or a negative result for starch.",
+          "Method: a way of maintaining each temperature, such as a water bath.",
+          "Method: use the iodine test or Benedict's test, taking samples at intervals.",
+          "Keep two things constant, such as the concentration and volume of starch, the concentration and volume of amylase, or the pH.",
+          "Repeat at least twice.",
+          "Give a relevant safety precaution."
+        ],
+        "tip": "Six marks are given across these points."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A temperature investigation changes one thing, the temperature, and measures how fast the enzyme works."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set the temperatures.",
+                  "text": "Put tubes of starch solution and amylase solution in water baths at different temperatures, such as 20, 30, 40, 50 and 60 °C."
+                },
+                {
+                  "lead": "Mix.",
+                  "text": "Add the amylase to the starch at each temperature and start a timer."
+                },
+                {
+                  "lead": "Test.",
+                  "text": "Take samples at intervals and add iodine. Record the time when the starch has gone and the iodine stays orange-brown."
+                },
+                {
+                  "lead": "Keep it fair.",
+                  "text": "Use the same volume and concentration of starch and amylase, and the same pH, at every temperature."
+                },
+                {
+                  "lead": "Repeat.",
+                  "text": "Repeat each temperature and find the mean time."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The shortest time shows the temperature at which the enzyme works fastest.",
+                "The temperature with the shortest time is close to the optimum.",
+                "Wear eye protection and take care with hot water."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.11",
+        "IGCSE 2.12",
+        "IGCSE 2.13"
+      ],
+      "worked_example": {
+        "exemplar_id": "c5fdcb0b-b4d2-489b-aa23-1b4e90c668f7",
+        "source": "EDEXCEL jun 2023, Paper 1 (B), Q7(e)",
+        "question": "Lipase digests lipid into fatty acids and glycerol. The fatty acids change the pH of the solution.\nA student uses this method to investigate the effect of temperature on the activity of lipase.\nStep 1 label a test tube with the temperature (20 °C)\nStep 2 add 5 drops of phenolphthalein indicator to the test tube\nStep 3 add 5 cm³ of milk to the test tube\nStep 4 add 7 cm³ of sodium carbonate solution to the test tube (the contents of the test tube will now be pink)\nStep 5 place a thermometer in the test tube\nStep 6 place the test tube in a water bath at 20 °C for 5 minutes\nStep 7 place a beaker containing lipase in the same water bath for 5 minutes\nStep 8 replace the thermometer with a glass rod\nStep 9 measure out 1 cm³ of lipase from the beaker in the water bath\nStep 10 add the lipase to the test tube, stir the contents and record the time until the contents lose their pink colour\nThe student repeats this method for five more temperatures, 25 °C, 30 °C, 35 °C, 40 °C and 45 °C.\nExplain why increasing temperature affects the time taken for the contents of the test tube to lose the pink colour.",
+        "marks": 4,
+        "answer_points": [
+          "Increased kinetic energy, so molecules move faster.",
+          "More collisions, so more enzyme-substrate complexes form.",
+          "So the time to lose the pink colour decreases, up to the optimum temperature.",
+          "Above the optimum, bonds in the active site break and the enzyme is denatured.",
+          "The active site changes shape, so the enzyme and substrate can no longer fit."
+        ],
+        "tip": "Any four of these points score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "In the practical, you change the temperature and time how long the reaction takes."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set the temperatures.",
+                  "text": "Warm the enzyme and its substrate separately in water baths at each temperature, such as 20, 30, 40, 50 and 60 °C."
+                },
+                {
+                  "lead": "Mix and time.",
+                  "text": "Mix them at that temperature and time the reaction. For example, time how long starch takes to disappear, or an indicator to change colour."
+                },
+                {
+                  "lead": "Keep it fair.",
+                  "text": "Keep the volume and concentration of enzyme and substrate, and the pH, the same each time."
+                },
+                {
+                  "lead": "Repeat.",
+                  "text": "Repeat each temperature and find the mean time."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A shorter time means a faster rate.",
+                "The temperature with the shortest time is closest to the optimum."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -285,17 +427,25 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "de188d30-d767-4c9b-b53d-b5d546469476",
       "0162eebf-2203-4888-ad39-dcf62aec3b66",
       "e0b529e3-db13-4545-afa7-8edfe8becc85",
-      "019d89d3-91a5-41d7-81ec-221fb757c80c"
+      "019d89d3-91a5-41d7-81ec-221fb757c80c",
+      "47840082-4b9e-4eef-990d-51f36b171756",
+      "b6e07200-9bc3-46fc-b834-46c9568eb62c",
+      "8a84b906-9fcf-4bd7-a1eb-f73670da0874",
+      "861dcae3-1994-4260-be97-8696e83188a8",
+      "63375305-4f02-4e47-b9b6-508485a1c8f1",
+      "1953462b-6ebd-483d-b104-efcfe4d679f0"
     ],
     "exemplar_ids": [
       "6942a23d-7a2e-4cd2-9a7c-0b9f33dbf2ff",
       "d85db5fb-6932-4682-b42b-ca849799ffa4",
-      "04e9e6a0-7df3-4ec8-8517-ac6b60d816cb"
+      "04e9e6a0-7df3-4ec8-8517-ac6b60d816cb",
+      "9de7a632-1153-4195-ac37-5545cd9fa59c",
+      "c5fdcb0b-b4d2-489b-aa23-1b4e90c668f7"
     ]
   }
 }

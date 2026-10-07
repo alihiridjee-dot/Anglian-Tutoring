@@ -269,7 +269,9 @@
   ],
   "boards": {
     "edexcel": {
-      "spec_codes": ["EDEX 8.12"],
+      "spec_codes": [
+        "EDEX 8.12"
+      ],
       "worked_example": {
         "exemplar_id": "28c9872d-5954-498f-8183-0acc83dfdfa2",
         "source": "EDEXCEL jun 2024, Paper 2 (H), Q8(b)(i)",
@@ -283,6 +285,47 @@
         ],
         "tip": "One mark for each step. 8992 gets 2 marks. 8990 with no working gets 3 marks, and the units give the fourth."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 9.2.3",
+        "CAIE 9.2.11S"
+      ],
+      "worked_example": {
+        "exemplar_id": "9d2a3714-2c01-42dd-ac0c-abf8dac2b8a0",
+        "source": "CAMBRIDGE jun 2023, Paper 43, Q3(d)(iii)",
+        "question": "An athlete measured her heart rate during a running race. She recorded it before the race, during the race and during her recovery.\nExplain why heart rate must increase during exercise.",
+        "marks": 3,
+        "answer_points": [
+          "To increase blood flow to the muscles.",
+          "To provide more oxygen for aerobic respiration.",
+          "To provide more glucose for respiration.",
+          "To release more energy for muscle contraction.",
+          "To remove excess carbon dioxide.",
+          "To remove lactic acid from the muscles.",
+          "To remove heat from the muscles."
+        ],
+        "tip": "Any three of these points score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The activity of the heart can be monitored in three ways."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Pulse rate:** count the beats at a pulse point, such as the wrist or neck.",
+                "**ECG:** an electrocardiogram records the electrical activity of the heart.",
+                "**Listening to the sounds of the valves closing:** the heart makes a sound each time its valves shut."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -290,8 +333,14 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
-    "spec_point_ids": ["1f7c5270-8833-44b9-964e-fd60583ea125"],
-    "exemplar_ids": ["28c9872d-5954-498f-8183-0acc83dfdfa2"]
+    "checked_at": "2026-10-06",
+    "spec_point_ids": [
+      "1f7c5270-8833-44b9-964e-fd60583ea125",
+      "3e82fa45-4986-4d95-ad2f-3252ca095d48"
+    ],
+    "exemplar_ids": [
+      "28c9872d-5954-498f-8183-0acc83dfdfa2",
+      "9d2a3714-2c01-42dd-ac0c-abf8dac2b8a0"
+    ]
   }
 }

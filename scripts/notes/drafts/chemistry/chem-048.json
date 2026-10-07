@@ -444,6 +444,35 @@
         ],
         "tip": "Any correct multiple is allowed. The balancing mark depends on correct formulae."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 7.1.1"],
+      "worked_example": {
+        "exemplar_id": "8118c855-1fc2-4e6b-a865-6190c0814048",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q3(c)(i)",
+        "question": "Powdered copper(II) carbonate is added to dilute sulfuric acid and the mixture is stirred. A reaction occurs. Give two observations.",
+        "marks": 2,
+        "answer_points": [
+          "The solid disappears or dissolves",
+          "Fizzing, bubbling or effervescence",
+          "A blue solution forms",
+          "Any two of these three observations score the 2 marks"
+        ],
+        "tip": "The fizzing is carbon dioxide, and the blue colour is copper(II) sulfate solution."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.21", "IGCSE 2.37"],
+      "worked_example": {
+        "exemplar_id": "0e0aaceb-bae2-4535-8006-6ddbd0f47581",
+        "source": "EDEXCEL jun 2019, Paper 1 (CR), Q5(b)",
+        "question": "This is the equation for the reaction between marble chips and dilute hydrochloric acid. Complete the equation by adding the state symbols. CaCO₃(______) + 2HCl(______) → CaCl₂(______) + H₂O(______) + CO₂(______)",
+        "marks": 2,
+        "answer_points": [
+          "CaCO₃(s) + 2HCl(aq) → CaCl₂(aq) + H₂O(l) + CO₂(g)",
+          "All 5 state symbols correct scores 2 marks; 3 or 4 correct scores 1 mark"
+        ]
+      }
     }
   },
   "meta": {
@@ -451,12 +480,15 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "fdabe1c6-b081-438c-8e72-ccc3f67adbfb",
       "3343453e-40ff-4cbd-a839-0d3559754a2b",
       "7c23963c-07d6-4b99-b836-08c0934d018f",
-      "98b026bf-4be0-42c1-9a41-c3a2c02a17b1"
+      "98b026bf-4be0-42c1-9a41-c3a2c02a17b1",
+      "d049e9ae-5478-4797-8891-1b6f47d0cb8d",
+      "603d5a5b-2391-4627-ae96-edeaf3796f56",
+      "42a552f2-69f3-4242-abac-15cd8876e170"
     ],
     "exemplar_ids": [
       "ad042274-dc1c-4cb7-8c1f-51aeac5ad2f7",
@@ -470,7 +502,9 @@
       "254e7470-0bd9-48f1-a354-a5b92b2a0470",
       "5fff98c5-9acd-4fc2-bb94-eefea9245f6c",
       "af9ec295-13af-4ffa-a035-91410209344f",
-      "5110dba6-53d1-4ff4-899d-4984ff7eef9a"
+      "5110dba6-53d1-4ff4-899d-4984ff7eef9a",
+      "8118c855-1fc2-4e6b-a865-6190c0814048",
+      "0e0aaceb-bae2-4535-8006-6ddbd0f47581"
     ]
   }
 }

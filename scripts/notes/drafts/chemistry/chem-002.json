@@ -53,7 +53,11 @@
         },
         {
           "type": "table",
-          "columns": ["Technique", "Separates", "It works because"],
+          "columns": [
+            "Technique",
+            "Separates",
+            "It works because"
+          ],
           "rows": [
             [
               "Filtration",
@@ -154,7 +158,11 @@
             "kind": "sort",
             "alt": "Sort each separation into filtration, crystallisation or distillation.",
             "prompt": "Which technique separates it?",
-            "groups": ["Filtration", "Crystallisation", "Distillation"],
+            "groups": [
+              "Filtration",
+              "Crystallisation",
+              "Distillation"
+            ],
             "items": [
               {
                 "text": "Sand from a mixture of sand and water",
@@ -268,7 +276,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.1.1.2", "AQA T 5.1.1.2"],
+      "spec_codes": [
+        "AQA 4.1.1.2",
+        "AQA T 5.1.1.2"
+      ],
       "worked_example": {
         "exemplar_id": "e4ac9d60-0348-4b6a-8f1d-694e348c035b",
         "source": "AQA jun 2019, Paper 1 (F), Q03.7",
@@ -285,7 +296,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 2.7", "EDEX 2.8"],
+      "spec_codes": [
+        "EDEX 2.7",
+        "EDEX 2.8"
+      ],
       "worked_example": {
         "exemplar_id": "de41311a-924c-4f19-800e-7348a2337bea",
         "source": "EDEXCEL nov 2020, Paper 1 (H), Q5(a)(ii)",
@@ -301,7 +315,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C2.1f", "OCR C2.1j"],
+      "spec_codes": [
+        "OCR C2.1f",
+        "OCR C2.1j"
+      ],
       "worked_example": {
         "exemplar_id": "d65a65ae-4ea7-459a-b87c-2fd8ada5ab73",
         "source": "OCR jun 2018, Paper 3, Q20(a)",
@@ -315,12 +332,99 @@
         ],
         "tip": "Keep to the order: filter, then distil. The wrong order scores at most 3 marks, and each method needs its reason."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 12.4.1",
+        "CAIE 12.4.2",
+        "CAIE 2.1.1",
+        "CAIE 12.1.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "7d6105b4-f3e5-48b1-bfb1-62e871df0e1b",
+        "source": "CAMBRIDGE jun 2024, Paper 61, Q4",
+        "question": "A mixture contains three compounds: liquid ethanol, solid sodium chloride and solid zinc carbonate.\nEthanol is soluble in water. Sodium chloride is soluble in water but insoluble in ethanol. Zinc carbonate is insoluble in both water and ethanol.\nDescribe how to obtain a pure sample of each of the three compounds from the mixture. You are provided with common laboratory apparatus.",
+        "marks": 6,
+        "answer_points": [
+          "Filter the initial mixture: the ethanol is the filtrate",
+          "Add water to the residue and stir (or warm)",
+          "Filter again to leave zinc carbonate as the residue",
+          "Wash the residue with water",
+          "Dry the solid zinc carbonate",
+          "Heat the filtrate from the second filtration to remove the water and leave solid sodium chloride"
+        ],
+        "tip": "One mark for each point, up to 6. Getting the ethanol as the first filtrate is worth a mark of its own."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Solute",
+                  "meaning": "A substance that is dissolved in a solvent."
+                },
+                {
+                  "term": "Solvent",
+                  "meaning": "A substance that dissolves a solute."
+                },
+                {
+                  "term": "Solution",
+                  "meaning": "A mixture of one or more solutes dissolved in a solvent."
+                },
+                {
+                  "term": "Saturated solution",
+                  "meaning": "A solution holding the maximum amount of solute at a given temperature."
+                },
+                {
+                  "term": "Residue",
+                  "meaning": "The substance left behind after filtering, evaporating or distilling."
+                },
+                {
+                  "term": "Filtrate",
+                  "meaning": "The liquid or solution that has passed through the filter."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use a suitable solvent to separate a mixture: pick a liquid that dissolves one component but not the other.",
+                "Filter. The insoluble solid is the residue and the solution is the filtrate.",
+                "Recover the dissolved solid from the filtrate by crystallisation."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.10",
+        "IGCSE 1.8"
+      ],
+      "worked_example": {
+        "exemplar_id": "04652eb5-06cb-493b-94df-ccd53a7faf5e",
+        "source": "EDEXCEL jun 2022, Paper 1 (C), Q2(b)(iii)",
+        "question": "A student plans to obtain salt crystals from a mixture of salt and sand.\nThe student adds pure water to the mixture to dissolve the salt.\nDescribe how the student can obtain pure dry crystals of salt from the salt solution.",
+        "marks": 4,
+        "answer_points": [
+          "Heat or boil the solution",
+          "Evaporate some of the water",
+          "Leave the solution to cool so that crystals form",
+          "Pour off the liquid or filter to obtain the crystals",
+          "Dry the crystals, for example in an oven or between filter paper"
+        ],
+        "tip": "Any four of these points score 4 marks."
+      }
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -329,12 +433,17 @@
       "0b74e84d-4c94-4413-aaea-45b7ec778176",
       "f50245d8-f874-4251-b23a-7aa03bddba6a",
       "2856952d-00f1-4464-afe5-d0c16099850d",
-      "d3e92dbf-2bb4-4948-9ed1-573bda1b9502"
+      "d3e92dbf-2bb4-4948-9ed1-573bda1b9502",
+      "cbfed24f-72b2-4aa0-bdac-f7caf44d5055",
+      "4790b6cc-50d6-4a9f-8598-5f5ce0f9d5a7",
+      "4d32ec2f-82d3-4a04-94eb-58a744c76dde"
     ],
     "exemplar_ids": [
       "e4ac9d60-0348-4b6a-8f1d-694e348c035b",
       "de41311a-924c-4f19-800e-7348a2337bea",
-      "d65a65ae-4ea7-459a-b87c-2fd8ada5ab73"
+      "d65a65ae-4ea7-459a-b87c-2fd8ada5ab73",
+      "7d6105b4-f3e5-48b1-bfb1-62e871df0e1b",
+      "04652eb5-06cb-493b-94df-ccd53a7faf5e"
     ]
   }
 }

@@ -292,6 +292,99 @@
         ],
         "tip": "One mark for the kinetic store and one for the thermal store it is transferred to."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.7.1.1",
+        "CAIE 1.7.1.2",
+        "CAIE 1.7.1.3",
+        "CAIE 1.7.2.1",
+        "CAIE 1.7.1.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "a58d2cf2-3efc-47f3-9383-229fe8f2fae4",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q3(a)",
+        "question": "A student drops a heavy ball from a vertical height of 1.8 m above the ground. The ball falls to the ground. It does not bounce after hitting the ground.\n\nDescribe the transfers of energy of the ball between stores from when the ball begins to fall to when it reaches the ground.",
+        "marks": 3,
+        "answer_points": [
+          "The ball starts with energy in its gravitational potential store.",
+          "Energy is transferred to the kinetic store as the ball falls, so the kinetic store increases.",
+          "Energy is then transferred from the kinetic store to the internal (thermal) store."
+        ],
+        "tip": "One mark for each of the three stores, in the right order."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Energy is also transferred by waves. Electromagnetic waves, such as light, and sound waves both carry energy. A solar panel transfers energy from the Sun by radiation."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Work done by a force is equal to the energy transferred.",
+                "Electrical work done is equal to the energy transferred."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) A Sankey diagram shows energy transfers through several stages, as an arrow that splits.",
+                "The width of each arrow shows the amount of energy.",
+                "Energy in = useful energy out + wasted energy out."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.2",
+        "IGCSE 4.3",
+        "IGCSE 4.5"
+      ],
+      "worked_example": {
+        "exemplar_id": "214ff92c-7f6a-4898-b717-9eeca9fd1cce",
+        "source": "EDEXCEL jun 2025, Paper 2 (P), Q3(a)",
+        "question": "A solar panel on a camper van is connected to a battery. The solar panel receives energy from the Sun to charge the battery.\n\nDescribe how energy is transferred from the Sun's energy store to the battery's energy store.",
+        "marks": 3,
+        "answer_points": [
+          "The nuclear store of the Sun decreases.",
+          "Energy is transferred by radiation (light) to the solar panel, which absorbs it.",
+          "Energy is transferred electrically from the panel to the battery.",
+          "The chemical store of the battery increases."
+        ],
+        "tip": "Any three of the four points score. Name the store and say how the energy is transferred."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Learn the full list of stores and the four ways energy is transferred."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Stores: chemical, kinetic, gravitational, elastic, thermal, magnetic, electrostatic and nuclear.",
+                "Transfers: mechanically (a force does work), electrically, by heating and by radiation (light and sound)."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A Sankey diagram shows how input energy is split into useful and wasted energy.",
+                "The width of each arrow shows the amount of energy.",
+                "Energy in = useful energy out + wasted energy out."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -310,14 +403,22 @@
       "f72bd231-bcaf-4fef-aa1a-c79801e1f590",
       "4adf7a1c-4e4d-4a5c-b72a-21fb5900969b",
       "0c375621-8875-4ec5-b45e-5c11b312298c",
-      "e2d364ca-94f8-47e5-a2db-798336442e6a"
+      "e2d364ca-94f8-47e5-a2db-798336442e6a",
+      "65bf1422-b7a5-4160-ae6b-7765fc49014f",
+      "80721ec3-6f28-49dd-b7b5-0bdf253de7c8",
+      "5b09810e-5e79-476f-a7df-70fd30174b4f",
+      "e42666e6-a8ff-48e4-9afa-a67d0a60bd88",
+      "d08cd5f2-bd66-4cfd-9276-a600ae0cc472",
+      "8f8e1c54-21b3-4cdd-b59e-3e8282b6112b"
     ],
     "exemplar_ids": [
       "87de8752-f165-4c72-8a3f-26e9e6491f78",
       "f2512db5-deb2-4818-887d-24e16273e906",
-      "33530d73-f0aa-4fc6-b658-a3d64fdcc892"
+      "33530d73-f0aa-4fc6-b658-a3d64fdcc892",
+      "a58d2cf2-3efc-47f3-9383-229fe8f2fae4",
+      "214ff92c-7f6a-4898-b717-9eeca9fd1cce"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

@@ -43,7 +43,10 @@
           "diagram": {
             "kind": "compare",
             "alt": "A table comparing nuclear fission and nuclear fusion.",
-            "items": ["Nuclear fission", "Nuclear fusion"],
+            "items": [
+              "Nuclear fission",
+              "Nuclear fusion"
+            ],
             "rows": [
               {
                 "feature": "What happens",
@@ -61,15 +64,24 @@
               },
               {
                 "feature": "Chain reaction",
-                "values": ["Yes. It has to be controlled", "No"]
+                "values": [
+                  "Yes. It has to be controlled",
+                  "No"
+                ]
               },
               {
                 "feature": "Energy per kilogram of fuel",
-                "values": ["Large", "Even larger"]
+                "values": [
+                  "Large",
+                  "Even larger"
+                ]
               },
               {
                 "feature": "Conditions",
-                "values": ["Lower temperature and pressure", "Very high temperature and pressure"]
+                "values": [
+                  "Lower temperature and pressure",
+                  "Very high temperature and pressure"
+                ]
               },
               {
                 "feature": "Waste",
@@ -136,7 +148,10 @@
             "kind": "sort",
             "alt": "Sort statements into fission and fusion.",
             "prompt": "Does each statement describe fission or fusion?",
-            "groups": ["Fission", "Fusion"],
+            "groups": [
+              "Fission",
+              "Fusion"
+            ],
             "items": [
               {
                 "text": "A large nucleus splits",
@@ -195,7 +210,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.4.4.2"],
+      "spec_codes": [
+        "AQA 4.4.4.2"
+      ],
       "worked_example": {
         "exemplar_id": "c0c4ce41-3791-4a0c-8677-aadac2856665",
         "source": "AQA jun 2025, Paper 1 (H), Q05.2",
@@ -210,7 +227,12 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 6.43P", "EDEX 6.44P", "EDEX 6.45P", "EDEX 6.46P"],
+      "spec_codes": [
+        "EDEX 6.43P",
+        "EDEX 6.44P",
+        "EDEX 6.45P",
+        "EDEX 6.46P"
+      ],
       "worked_example": {
         "exemplar_id": "d036c69f-f7f3-4c3c-82ee-5155427923aa",
         "source": "EDEXCEL jun 2018, Paper 1 (H), Q10(a)(i)",
@@ -273,7 +295,9 @@
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR P6.2e"],
+      "spec_codes": [
+        "OCR P6.2e"
+      ],
       "worked_example": {
         "exemplar_id": "0b8ee910-4037-445f-b9b5-7f2084802565",
         "source": "OCR jun 2025, Paper 4, Q21(b)",
@@ -289,6 +313,76 @@
         ],
         "tip": "Level-marked. Cover the difference between the reactions, the benefits and the difficulties, using the data."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.7.3.5S",
+        "CAIE 1.7.3.6S",
+        "CAIE 5.1.2.6S",
+        "CAIE 6.2.1.2S"
+      ],
+      "worked_example": {
+        "exemplar_id": "17c08a5e-e298-4bc1-ac05-f7d4ab120f3f",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q9(b)",
+        "question": "Deuterium is an isotope of hydrogen (H) with 1 proton and 1 neutron. Nuclear fusion occurs when two nuclei of deuterium combine. An isotope of helium (He) and a neutron are formed.\n\nUse nuclide notation to write down the nuclide equation for this reaction.",
+        "marks": 3,
+        "answer_points": [
+          "²₁H + ²₁H on the left-hand side.",
+          "³₂He on the right-hand side.",
+          "¹₀n on the right-hand side.",
+          "Equation: ²₁H + ²₁H → ³₂He + ¹₀n"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Fusion can be written as a nuclide equation. The mass numbers balance and the proton numbers balance."
+            },
+            {
+              "type": "equation",
+              "label": "Fusion of deuterium",
+              "formula": "²₁H + ²₁H → ³₂He + ¹₀n",
+              "where": [
+                "Mass numbers: 2 + 2 = 3 + 1",
+                "Proton numbers: 1 + 1 = 2 + 0"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) The total mass of the nucleus formed is slightly smaller than the total mass of the nuclei that joined.",
+                "(Supplement) The mass difference is released as energy.",
+                "In a stable star, such as the Sun, hydrogen fuses into helium in the core.",
+                "Research is being carried out to find how the energy from fusion can be used to produce electricity on a large scale."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 7.23",
+        "IGCSE 7.24",
+        "IGCSE 7.25",
+        "IGCSE 7.26",
+        "IGCSE 7.17"
+      ],
+      "worked_example": {
+        "exemplar_id": "9cab514b-af1f-4501-b21f-3d53860d0af6",
+        "source": "EDEXCEL jan 2022, Paper 2 (PR), Q5(a)(iii)",
+        "question": "This question is about nuclear fusion.\n\nExplain why a fusion reaction will only happen at high temperature and high pressure.",
+        "marks": 3,
+        "answer_points": [
+          "At low temperature the nuclei move too slowly, and collide less often.",
+          "The nuclei repel each other.",
+          "The nuclei cannot get close enough together to fuse."
+        ],
+        "tip": "Any three points score the 3 marks. High temperature and pressure give the opposite of each point."
+      }
     }
   },
   "meta": {
@@ -301,14 +395,22 @@
       "f03b2f7e-2880-4470-ae1f-2a1b5a73d510",
       "1910f384-ce07-43bf-9428-662fdbf5c4e0",
       "b8332929-23d3-48fb-8a6a-842bd3ff7a55",
-      "706a329a-f7d9-46a1-a8e8-716dd2ddacfc"
+      "706a329a-f7d9-46a1-a8e8-716dd2ddacfc",
+      "d68e01ff-c749-49d1-9216-700d0b35ffad",
+      "85e82ed7-ad37-4d2d-a29b-5830a2b7b76d",
+      "817e3ea6-11c2-4fa0-b302-84f218ad71e2",
+      "54b3938e-5bb0-4395-aecc-e85db1456df1",
+      "73d35489-0120-46e0-a237-9cbbe13d8bd9",
+      "4fd6ce01-0c4c-4d16-89d7-ad794da9e8d8"
     ],
     "exemplar_ids": [
       "c0c4ce41-3791-4a0c-8677-aadac2856665",
       "d036c69f-f7f3-4c3c-82ee-5155427923aa",
-      "0b8ee910-4037-445f-b9b5-7f2084802565"
+      "0b8ee910-4037-445f-b9b5-7f2084802565",
+      "17c08a5e-e298-4bc1-ac05-f7d4ab120f3f",
+      "9cab514b-af1f-4501-b21f-3d53860d0af6"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

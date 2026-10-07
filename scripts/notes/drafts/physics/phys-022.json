@@ -211,6 +211,23 @@
         "answer_points": ["High voltages can cause electric shocks or electrocution."],
         "tip": "Unqualified answers such as dangerous or heating are ignored. Electrocution, with damage to the nervous system or heart, is also credited."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.2.1.8S", "CAIE 4.2.1.9S", "CAIE 4.2.1.10S"],
+      "worked_example": {
+        "exemplar_id": "c7201566-df6f-45df-9fda-9e73cbbbf843",
+        "source": "CAMBRIDGE nov 2024, Paper 43, Q5(a)(iii)",
+        "question": "A metal sphere is negatively charged. A small negatively charged particle is released from rest at a position next to the sphere. Describe the motion of the particle due to the electric field around the sphere.",
+        "marks": 2,
+        "answer_points": [
+          "The particle accelerates, because there is a resultant force on it",
+          "It moves away from the sphere, because like charges repel"
+        ],
+        "tip": "Say that it accelerates, and say which way it moves."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.26P"]
     }
   },
   "meta": {
@@ -218,18 +235,22 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "0fd5d872-2e66-4ae9-84ed-a6061a88d118",
       "7f53d359-af24-4ad6-9ecc-654fabdc9f03",
       "b568c287-6a62-43cd-b853-bb65b721f8f7",
       "729259cf-0ba3-401c-99b1-4309c12d5dd4",
-      "5e28fcae-7582-4bcf-a472-040c2e811f92"
+      "5e28fcae-7582-4bcf-a472-040c2e811f92",
+      "112b61c9-fcda-4453-adc4-922b6e4b4e9d",
+      "e467d383-0157-4f74-b499-80a992a0f155",
+      "51ff4dc9-6e03-48b8-95c6-4d6ba9794d6a"
     ],
     "exemplar_ids": [
       "aff95144-94a0-4025-b0d7-9154b36a47c4",
       "d1bdb08b-bd22-4615-b3c1-4ee889b13f8b",
-      "9c3ee270-07dc-471b-9053-709f0dc87908"
+      "9c3ee270-07dc-471b-9053-709f0dc87908",
+      "c7201566-df6f-45df-9fda-9e73cbbbf843"
     ]
   }
 }

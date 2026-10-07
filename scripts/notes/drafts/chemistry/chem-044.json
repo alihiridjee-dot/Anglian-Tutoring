@@ -244,6 +244,72 @@
         ],
         "tip": "Oxidised and reduced together score 1 mark. Lose and gain together score 1 mark. They are marked independently."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 6.4.6S",
+        "CAIE 6.4.7S",
+        "CAIE 6.4.8S",
+        "CAIE 6.4.2",
+        "CAIE 6.4.5",
+        "CAIE 6.4.13S",
+        "CAIE 9.4.4S"
+      ],
+      "worked_example": {
+        "exemplar_id": "217fa301-6a42-47e9-9857-9134c41b440d",
+        "source": "CAMBRIDGE mar 2025, Paper 42, Q3(g)(ii)",
+        "question": "Aqueous chlorine, Cl₂, reacts with aqueous potassium iodide, KI. One of the products formed is iodine, I₂. Explain why this reaction is defined as a redox reaction. Give your answer in terms of electron transfer.",
+        "marks": 2,
+        "answer_points": ["Iodide ions, I⁻, lose electrons", "Chlorine, Cl₂, gains electrons"],
+        "tip": "One mark for the particle that loses electrons and one for the particle that gains them."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Oxidation and reduction can also be defined using oxidation numbers."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Oxidation number",
+                  "meaning": "A number showing the charge an atom has, or seems to have, in a substance."
+                },
+                {
+                  "term": "Oxidation (oxidation number)",
+                  "meaning": "An increase in oxidation number."
+                },
+                {
+                  "term": "Reduction (oxidation number)",
+                  "meaning": "A decrease in oxidation number."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "An uncombined element has an oxidation number of 0.",
+                "A simple ion has an oxidation number equal to its charge, for example +2 for Zn²⁺.",
+                "In Mg + Zn²⁺ → Mg²⁺ + Zn, magnesium goes from 0 to +2. It is oxidised.",
+                "Zinc goes from +2 to 0. It is reduced."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "An oxidising agent gains electrons, so it is reduced.",
+                "A reducing agent loses electrons, so it is oxidised."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.20"]
     }
   },
   "meta": {
@@ -251,18 +317,22 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "6f9a5c6d-bb04-4e01-bb11-683b2401b162",
       "6f5476cc-5fd6-4242-8fe5-6f8fe26ab842",
       "93fe4676-e108-4fb0-ab6a-602be0f5abb5",
       "f11f72d1-cdc3-4868-a78d-89a1e8114087",
-      "6717bba8-3918-4aff-81c8-a9c3caef83af"
+      "6717bba8-3918-4aff-81c8-a9c3caef83af",
+      "5d19b284-2137-4f35-96a4-33e64f1249ab",
+      "10edf4e6-7301-4642-888a-7a5e25d9dd71",
+      "386e8f1c-0d3e-434e-b825-6d86785d7031"
     ],
     "exemplar_ids": [
       "f676baa6-af41-4b77-844a-81189445d9a9",
       "e11f64da-a35d-4404-a19a-9af47af882dc",
-      "894caed8-91c1-4255-9101-c88028886603"
+      "894caed8-91c1-4255-9101-c88028886603",
+      "217fa301-6a42-47e9-9857-9134c41b440d"
     ]
   }
 }

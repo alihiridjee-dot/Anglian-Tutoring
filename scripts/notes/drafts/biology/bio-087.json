@@ -171,7 +171,11 @@
                 "group": 2
               }
             ],
-            "groups": ["Sexual only", "Asexual only", "Both"],
+            "groups": [
+              "Sexual only",
+              "Asexual only",
+              "Both"
+            ],
             "prompt": "Sexual, asexual or both?"
           }
         },
@@ -205,7 +209,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 6.1", "AQA T 4.6.1.1"],
+      "spec_codes": [
+        "AQA 6.1",
+        "AQA T 4.6.1.1"
+      ],
       "worked_example": {
         "exemplar_id": "c8cda2af-7ca9-4967-b4ef-7873945aac51",
         "source": "AQA jun 2023, Paper 2 (H), Q1.2",
@@ -219,7 +226,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 3.1B", "EDEX 3.2B"],
+      "spec_codes": [
+        "EDEX 3.1B",
+        "EDEX 3.2B"
+      ],
       "worked_example": {
         "exemplar_id": "1488cd5b-6292-405e-89c6-5fe165c781f0",
         "source": "EDEXCEL nov 2020, Paper 1 (H), Q4(b)(ii)",
@@ -233,7 +243,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 5.1f"],
+      "spec_codes": [
+        "OCR 5.1f"
+      ],
       "worked_example": {
         "exemplar_id": "159e08d7-6ab0-4da2-abff-95b8c5265118",
         "source": "OCR jun 2022, Paper 4, Q18(a)",
@@ -246,6 +258,91 @@
         ],
         "tip": "Any two points score, one mark each."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 16.1.1",
+        "CAIE 16.1.2",
+        "CAIE 16.2.1",
+        "CAIE 16.2.2",
+        "CAIE 18.1.10S"
+      ],
+      "worked_example": {
+        "exemplar_id": "1ad0e0d5-ed01-4888-9681-90e543cb5d82",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q4(b)",
+        "question": "Explain why self-pollination that results in production of offspring is a form of sexual reproduction and not asexual reproduction.",
+        "marks": 3,
+        "answer_points": [
+          "It involves gametes (sex cells), such as pollen and ovules.",
+          "The gametes are haploid, and they are made by meiosis (reduction division).",
+          "Fertilisation happens: the nuclei fuse and a zygote forms.",
+          "The offspring show genetic variation."
+        ],
+        "tip": "Any three of these points score the three marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Fertilisation is the fusion of the nuclei of two gametes. It forms a zygote."
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Sources of genetic variation in a population:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "mutation",
+                "meiosis, which makes gametes with different alleles",
+                "random mating",
+                "random fertilisation, because any male gamete can fuse with any female gamete"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.1",
+        "IGCSE 3.7",
+        "IGCSE 3.29"
+      ],
+      "worked_example": {
+        "exemplar_id": "62435aab-2ef4-4ee9-879a-7f05e6a6e278",
+        "source": "EDEXCEL jun 2024, Paper 1 (B), Q2(d)",
+        "question": "Give three differences between asexual and sexual reproduction.",
+        "marks": 3,
+        "answer_points": [
+          "Asexual reproduction makes no gametes and has no meiosis; sexual reproduction makes gametes by meiosis.",
+          "Asexual reproduction has no fertilisation or fusion; sexual reproduction does.",
+          "Asexual offspring are clones with no genetic variation; sexual offspring show genetic variation.",
+          "Asexual reproduction is faster; sexual reproduction is slower."
+        ],
+        "tip": "Any three differences score the three marks. Each point must say what happens in both types, or what happens in one and the opposite in the other."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Plants can reproduce asexually by natural methods and by artificial methods. Mitosis makes the new cells in both."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Natural method:** runners. A strawberry plant sends out a stem that grows a new plant.",
+                "**Artificial method:** cuttings. A gardener cuts a piece off a plant and grows it into a new plant.",
+                "Mitosis also happens in growth, in repair and in cloning."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -254,14 +351,21 @@
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "90fe6b7d-029c-4e3c-9aa2-3b2100ac55b2",
-      "0cdea175-4fb8-45c7-b73c-f2be462c54c3"
+      "0cdea175-4fb8-45c7-b73c-f2be462c54c3",
+      "c2a8ca7a-c06d-40e6-9e34-b2020255ce58",
+      "2d73a132-ef23-4142-927a-cc7091e8e20d",
+      "ebd32e09-8dc9-4554-bd93-69486d1946a7",
+      "4fa71f10-5a3d-4c09-99f2-edbb5e35fa24",
+      "2f76f142-3b54-43f0-83ae-7f4b9104aa56"
     ],
     "exemplar_ids": [
       "c8cda2af-7ca9-4967-b4ef-7873945aac51",
       "1488cd5b-6292-405e-89c6-5fe165c781f0",
-      "159e08d7-6ab0-4da2-abff-95b8c5265118"
+      "159e08d7-6ab0-4da2-abff-95b8c5265118",
+      "1ad0e0d5-ed01-4888-9681-90e543cb5d82",
+      "62435aab-2ef4-4ee9-879a-7f05e6a6e278"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

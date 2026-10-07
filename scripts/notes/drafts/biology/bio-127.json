@@ -39,13 +39,19 @@
         },
         {
           "type": "table",
-          "columns": ["Gas", "Human sources"],
+          "columns": [
+            "Gas",
+            "Human sources"
+          ],
           "rows": [
             [
               "Carbon dioxide",
               "Burning fuels, for example in cars and power stations. Deforestation. Burning and decay of peat. Respiration of farm animals."
             ],
-            ["Methane", "Farming cows. Rice paddy fields. Rotting vegetables in landfill."]
+            [
+              "Methane",
+              "Farming cows. Rice paddy fields. Rotting vegetables in landfill."
+            ]
           ]
         },
         {
@@ -177,7 +183,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 7.9", "AQA T 4.7.3.5"],
+      "spec_codes": [
+        "AQA 7.9",
+        "AQA T 4.7.3.5"
+      ],
       "worked_example": {
         "exemplar_id": "d9dee04f-fab4-4504-b12d-595bb71a91be",
         "source": "AQA jun 2021, Paper 2 (F), Q07.3",
@@ -194,6 +203,88 @@
         ],
         "tip": "Levelled answer. Linked points that run from cause to effect reach the top level (3 to 4 marks)."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 20.3.3",
+        "CAIE 20.2.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "34310ed2-eec7-413a-ba31-bc3ba070667b",
+        "source": "CAMBRIDGE mar 2024, Paper 42, Q6(a)(iv)",
+        "question": "Describe the effect on the environment of additional carbon dioxide in the atmosphere.",
+        "marks": 3,
+        "answer_points": [
+          "Carbon dioxide is a greenhouse gas.",
+          "It causes global warming, climate change and an enhanced greenhouse effect.",
+          "Up to two named effects of climate change, for example melting ice caps and rising sea levels, or more extreme weather.",
+          "Any other valid point."
+        ],
+        "tip": "Marks are for naming the greenhouse effect and then for effects of climate change."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Enhanced greenhouse effect",
+                  "meaning": "Extra warming caused by human activities adding carbon dioxide and methane to the greenhouse gases already in the air."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The enhanced greenhouse effect leads to global warming and climate change."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.13",
+        "IGCSE 4.14",
+        "IGCSE 4.15",
+        "IGCSE 4.18B"
+      ],
+      "worked_example": {
+        "exemplar_id": "baf9b356-7a65-4b44-b145-4aded13d1ea8",
+        "source": "EDEXCEL jun 2019, Paper 2 (BR), Q1(g)",
+        "question": "An increased concentration of carbon dioxide in the atmosphere is causing climate change.\n\nScientists hope that an increase in the rate of photosynthesis may limit climate change.\n\nDescribe three other methods of reducing climate change.",
+        "marks": 3,
+        "answer_points": [
+          "Use renewable energy, for example wind or solar.",
+          "Use less fossil fuel (coal, oil, gas).",
+          "Use public transport or cycle, or have fewer cars and vehicles.",
+          "Prevent deforestation or plant trees.",
+          "Keep fewer cattle.",
+          "Grow less rice in paddy fields.",
+          "Use fewer CFCs, for example in air conditioning, refrigerators and aerosols."
+        ],
+        "tip": "Any three different methods score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Carbon dioxide and methane are not the only greenhouse gases. This course also asks for three more."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Water vapour**.",
+                "**Nitrous oxide**.",
+                "**CFCs** (chlorofluorocarbons), which come from sources such as aerosols, air conditioning and refrigerators."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -202,10 +293,18 @@
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "71a93be3-b8d4-49fa-856e-3f4b38456027",
-      "3068b47b-b814-4c5c-a649-2481ebfb13bf"
+      "3068b47b-b814-4c5c-a649-2481ebfb13bf",
+      "603ff045-ac09-43d2-8b1d-b89e6c3ef699",
+      "6d233ca1-01a6-468f-a7f0-792fe1e37aa3",
+      "4bda84b7-31e1-4862-88ce-6f5b77d4b5fa",
+      "f31237bb-c5c6-40b4-9f3d-9a322e9df06f"
     ],
-    "exemplar_ids": ["d9dee04f-fab4-4504-b12d-595bb71a91be"],
+    "exemplar_ids": [
+      "d9dee04f-fab4-4504-b12d-595bb71a91be",
+      "34310ed2-eec7-413a-ba31-bc3ba070667b",
+      "baf9b356-7a65-4b44-b145-4aded13d1ea8"
+    ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

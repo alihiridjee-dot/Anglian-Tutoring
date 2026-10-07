@@ -27,12 +27,32 @@
         },
         {
           "type": "table",
-          "columns": ["Name", "Formula", "Carbon atoms"],
+          "columns": [
+            "Name",
+            "Formula",
+            "Carbon atoms"
+          ],
           "rows": [
-            ["Methanoic acid", "HCOOH", "1"],
-            ["Ethanoic acid", "CH₃COOH", "2"],
-            ["Propanoic acid", "CH₃CH₂COOH", "3"],
-            ["Butanoic acid", "CH₃CH₂CH₂COOH", "4"]
+            [
+              "Methanoic acid",
+              "HCOOH",
+              "1"
+            ],
+            [
+              "Ethanoic acid",
+              "CH₃COOH",
+              "2"
+            ],
+            [
+              "Propanoic acid",
+              "CH₃CH₂COOH",
+              "3"
+            ],
+            [
+              "Butanoic acid",
+              "CH₃CH₂CH₂COOH",
+              "4"
+            ]
           ]
         },
         {
@@ -49,7 +69,11 @@
             "kind": "sort",
             "alt": "Sort formulae into alcohols, carboxylic acids and neither.",
             "prompt": "Sort each formula into the right group.",
-            "groups": ["Alcohol", "Carboxylic acid", "Neither"],
+            "groups": [
+              "Alcohol",
+              "Carboxylic acid",
+              "Neither"
+            ],
             "items": [
               {
                 "text": "CH₃OH",
@@ -192,23 +216,38 @@
           "diagram": {
             "kind": "compare",
             "alt": "A strong acid compared with a weak carboxylic acid at the same concentration.",
-            "items": ["Strong acid", "Weak acid (ethanoic acid)"],
+            "items": [
+              "Strong acid",
+              "Weak acid (ethanoic acid)"
+            ],
             "rows": [
               {
                 "feature": "Ionisation",
-                "values": ["Complete", "Incomplete (partial)"]
+                "values": [
+                  "Complete",
+                  "Incomplete (partial)"
+                ]
               },
               {
                 "feature": "pH at the same concentration",
-                "values": ["Lower", "Higher"]
+                "values": [
+                  "Lower",
+                  "Higher"
+                ]
               },
               {
                 "feature": "Concentration of hydrogen ions",
-                "values": ["Higher", "Lower"]
+                "values": [
+                  "Higher",
+                  "Lower"
+                ]
               },
               {
                 "feature": "Rate with a carbonate",
-                "values": ["Faster", "Slower"]
+                "values": [
+                  "Faster",
+                  "Slower"
+                ]
               }
             ]
           }
@@ -247,7 +286,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.7.2.4"],
+      "spec_codes": [
+        "AQA 4.7.2.4"
+      ],
       "worked_example": {
         "exemplar_id": "d3d0cb0d-32ea-4b02-9877-08ebdec085e9",
         "source": "AQA jun 2020, Paper 2 (H), Q7.4",
@@ -262,7 +303,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 9.29C", "EDEX 9.30C", "EDEX 9.31C"],
+      "spec_codes": [
+        "EDEX 9.29C",
+        "EDEX 9.30C",
+        "EDEX 9.31C"
+      ],
       "worked_example": {
         "exemplar_id": "2728f0cf-0cca-45b9-b112-810aa2412995",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q*10(b)",
@@ -280,7 +325,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C6.2b", "OCR C6.2c"],
+      "spec_codes": [
+        "OCR C6.2b",
+        "OCR C6.2c"
+      ],
       "worked_example": {
         "exemplar_id": "c6047c52-9df1-4df8-97c6-055eaee064bc",
         "source": "OCR nov 2020, Paper 4, Q20(c)",
@@ -296,6 +344,185 @@
         ],
         "tip": "Level 3 needs the tests, the results, an identification of all three samples and correct balanced symbol equations."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 7.1.12S",
+        "CAIE 11.7.1",
+        "CAIE 11.7.3S",
+        "CAIE 11.2.1",
+        "CAIE 11.2.4S",
+        "CAIE 11.7.2S"
+      ],
+      "worked_example": {
+        "exemplar_id": "b91f48bb-70c8-414f-8c9f-d788c33f8f89",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q4(f)(iii)",
+        "question": "Ethanoic acid, CH₃COOH, is a weak acid.\n\nComplete the symbol equation to show the dissociation of ethanoic acid.\n\nCH₃COOH",
+        "marks": 3,
+        "answer_points": [
+          "CH₃COOH ⇌ CH₃COO⁻ + H⁺",
+          "H⁺ is the hydrogen ion.",
+          "CH₃COO⁻ is the ethanoate ion.",
+          "The reversible arrow ⇌ shows the acid is only partly dissociated."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Ethanoic acid reacts with metals, bases and carbonates. Each makes an ethanoate salt."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Magnesium: magnesium ethanoate and hydrogen. 2CH₃COOH + Mg → (CH₃COO)₂Mg + H₂",
+                "Sodium hydroxide, a base: sodium ethanoate and water. CH₃COOH + NaOH → CH₃COONa + H₂O",
+                "Sodium carbonate: sodium ethanoate, water and carbon dioxide. 2CH₃COOH + Na₂CO₃ → 2CH₃COONa + H₂O + CO₂"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Making an ester from a carboxylic acid and an alcohol needs an acid catalyst."
+            }
+          ]
+        },
+        {
+          "heading": "Naming and drawing esters (Supplement)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Esters contain the –COO– group."
+            },
+            {
+              "type": "paragraph",
+              "text": "An ester is named from its alcohol first, then its acid. The alcohol part ends in -yl and the acid part ends in -oate."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Ethanol and ethanoic acid make ethyl ethanoate, CH₃COOCH₂CH₃.",
+                "Methanol and ethanoic acid make methyl ethanoate, CH₃COOCH₃.",
+                "Propanol and methanoic acid make propyl methanoate, HCOOCH₂CH₂CH₃.",
+                "In a displayed formula, draw the –COO– group with C=O, and a carbon chain from each acid and alcohol on either side of it."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.34C",
+        "IGCSE 4.35C",
+        "IGCSE 4.36C",
+        "IGCSE 4.37C",
+        "IGCSE 4.38C",
+        "IGCSE 4.39C",
+        "IGCSE 4.40C",
+        "IGCSE 4.42C",
+        "IGCSE 4.43C",
+        "IGCSE 4.31C",
+        "IGCSE 4.41C"
+      ],
+      "worked_example": {
+        "exemplar_id": "00777430-d01e-4fdc-bfeb-1ff7a793f7a5",
+        "source": "EDEXCEL jun 2019, Paper 2 (C), Q6(d)(iii)",
+        "question": "The structural formula of ethanoic acid is CH₃COOH.\n\nComplete the equation for the reaction of ethanoic acid with sodium.\n\n___CH₃COOH(aq) + ___Na(s) → ___ (aq) + ___ (g)",
+        "marks": 2,
+        "answer_points": [
+          "The products are sodium ethanoate, CH₃COONa, and hydrogen, H₂.",
+          "2CH₃COOH(aq) + 2Na(s) → 2CH₃COONa(aq) + H₂(g)"
+        ],
+        "tip": "One mark for both products correct and one for the balancing. The balancing mark depends on the products."
+      },
+      "extra": [
+        {
+          "heading": "Reaction with a metal",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Aqueous ethanoic acid reacts with a reactive metal such as magnesium to make a salt and hydrogen."
+            },
+            {
+              "type": "equation",
+              "label": "Ethanoic acid with magnesium",
+              "formula": "2CH₃COOH + Mg → (CH₃COO)₂Mg + H₂",
+              "where": [
+                "(CH₃COO)₂Mg is magnesium ethanoate, the salt",
+                "H₂ is hydrogen gas"
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Esters and how to make them",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Ester",
+                  "meaning": "A compound with the functional group –COO–."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Ethyl ethanoate is made from ethanol and ethanoic acid.",
+                "An acid catalyst is needed: concentrated sulfuric acid.",
+                "Esters are volatile and have distinctive sweet smells.",
+                "They are used in food flavourings and perfumes."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Preparing ethyl ethanoate"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Mix.",
+                  "text": "Put ethanol, ethanoic acid and a little concentrated sulfuric acid in a test tube."
+                },
+                {
+                  "lead": "Warm.",
+                  "text": "Warm the mixture so the ester forms."
+                },
+                {
+                  "lead": "Pour.",
+                  "text": "Pour it into sodium carbonate solution, which reacts with the leftover acid."
+                },
+                {
+                  "lead": "Smell.",
+                  "text": "Smell the ester, which has a sweet smell."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Naming esters from the alcohol and acid",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "An ester is named from its alcohol first, then its acid. The alcohol part ends in -yl and the acid part ends in -oate."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Ethanol and ethanoic acid make ethyl ethanoate, CH₃COOCH₂CH₃.",
+                "Methanol and ethanoic acid make methyl ethanoate, CH₃COOCH₃.",
+                "Propanol and methanoic acid make propyl methanoate, HCOOCH₂CH₂CH₃.",
+                "In a displayed formula, draw the –COO– group with C=O, and a carbon chain from each acid and alcohol on either side of it."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -308,14 +535,28 @@
       "0b942768-3d0d-42d3-afc8-0421a3df4304",
       "8ce96d5d-902c-428c-9f40-0a4d2d5a03c7",
       "a73a758c-0020-4740-8bfc-4e66440366c4",
-      "15bac1b0-1201-4af2-8a95-bf41e2543c51"
+      "15bac1b0-1201-4af2-8a95-bf41e2543c51",
+      "c8b8f0df-0abe-42fc-8e9f-7b2728417616",
+      "c486b261-6032-4ba6-b96f-176eaa5524eb",
+      "75fe7fed-4f79-41a3-af5c-805e87d9daa7",
+      "12f29522-b9ed-4501-8d18-65f5053d2325",
+      "7245b68e-7624-436b-95c4-fb400083f872",
+      "d82db9a5-3837-4cf5-b762-fd480917912f",
+      "95535782-f74c-4e63-b86a-9b71644ec3ee",
+      "351bfd81-100c-4780-88b1-8c7ce02aea22",
+      "eddecb13-a473-4be7-aa15-8037d1081d35",
+      "4e0e44cd-5340-477a-8898-4403a075a7cb",
+      "1553b429-8062-442d-aa64-c51a8667ef24",
+      "f6bdf055-f43e-4f2b-96e6-f5d04baba010"
     ],
     "exemplar_ids": [
       "d3d0cb0d-32ea-4b02-9877-08ebdec085e9",
       "2728f0cf-0cca-45b9-b112-810aa2412995",
-      "c6047c52-9df1-4df8-97c6-055eaee064bc"
+      "c6047c52-9df1-4df8-97c6-055eaee064bc",
+      "b91f48bb-70c8-414f-8c9f-d788c33f8f89",
+      "00777430-d01e-4fdc-bfeb-1ff7a793f7a5"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

@@ -3,7 +3,7 @@
   "concept_id": "phys-084",
   "subject": "physics",
   "title": "Electric motors and loudspeakers",
-  "key_idea": "(AQA: Higher tier) A coil carrying a current in a magnetic field has forces on its two sides in opposite directions, so it rotates. This is the basis of an electric motor. (Separate science) A loudspeaker uses the motor effect to turn a changing current into a vibrating cone that makes sound.",
+  "key_idea": "(AQA: Higher tier) A coil carrying a current in a magnetic field has forces on its two sides in opposite directions, so it rotates. This is the basis of an electric motor. (Separate science) A loudspeaker uses the motor effect to turn a changing current into a vibrating cone.",
   "sections": [
     {
       "heading": "How an electric motor works",
@@ -214,6 +214,95 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.5.5.1", "CAIE 4.5.5.2S", "CAIE 4.5.3.3"],
+      "worked_example": {
+        "exemplar_id": "87474b5c-3e08-4270-84f9-d3e16f2aa77a",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q8(d)",
+        "question": "A horizontal, flat coil in a magnetic field is connected to a cell. The coil rotates.\nTo operate as a motor, a split-ring commutator and brushes are added to the parts shown.\nExplain the effects of the split-ring commutator and the brushes on the action of the motor.",
+        "marks": 3,
+        "answer_points": [
+          "The split-ring commutator reverses the current in the coil.",
+          "It does this every half turn (180°), so the coil rotates continuously in the same direction.",
+          "The brushes keep the current flowing to the coil as it turns, without the wires getting tangled."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A simple d.c. motor needs two extra parts to keep the coil turning in one direction."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Split-ring commutator",
+                  "meaning": "Two halves of a ring on the axle. It reverses the current in the coil every half turn."
+                },
+                {
+                  "term": "Brushes",
+                  "meaning": "Carbon contacts that press on the commutator. They pass the current to the coil while it spins."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Without a commutator, the coil turns to the vertical position and stops. The turning effect is zero there.",
+                "The commutator reverses the current just as the coil passes the vertical, so the forces keep turning it the same way.",
+                "The turning effect is bigger with more turns on the coil, a bigger current or a stronger magnetic field."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 6.12"],
+      "worked_example": {
+        "exemplar_id": "ec5f45f3-d2f7-40b3-959d-9d5870a0ac35",
+        "source": "EDEXCEL jan 2022, Paper 2 (PR), Q4(b)(ii)",
+        "question": "A racing car uses an engine and an electric motor to power its wheels.\nExplain the purpose of the brushes and the commutator in the d.c. motor.",
+        "marks": 3,
+        "answer_points": [
+          "They provide a connection, and so a current, to the coil.",
+          "The commutator reverses the current in the coil every half turn.",
+          "This reverses the force, so that the force is always in the same direction and the motor keeps turning the same way."
+        ],
+        "tip": "Say when the current reverses (every half turn) and why (to keep the coil turning one way)."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Split-ring commutator",
+                  "meaning": "Two halves of a ring on the axle. It reverses the current in the coil every half turn."
+                },
+                {
+                  "term": "Brushes",
+                  "meaning": "Carbon contacts that press on the commutator. They pass the current to the coil while it spins."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The commutator reverses the current just as the coil passes the vertical position.",
+                "This reverses the force on each side of the coil, so the forces always turn it in the same direction.",
+                "The motor then keeps turning continuously."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -229,9 +318,11 @@
     ],
     "exemplar_ids": [
       "f6c8a93d-ac3b-4769-a361-3df1c0d28aa8",
-      "50888809-d832-4c56-ba4d-526040a88578"
+      "50888809-d832-4c56-ba4d-526040a88578",
+      "87474b5c-3e08-4270-84f9-d3e16f2aa77a",
+      "ec5f45f3-d2f7-40b3-959d-9d5870a0ac35"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

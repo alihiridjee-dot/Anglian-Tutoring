@@ -295,6 +295,43 @@
         ],
         "tip": "One mark for each type. Write about treatment only."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 14.4.5S"],
+      "worked_example": {
+        "exemplar_id": "a934eb9c-f7de-4c15-b331-ca020787be41",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q3(c)(ii)",
+        "question": "A gene mutation may be involved in the development of type 1 diabetes.\n\nOutline the treatment of type 1 diabetes.",
+        "marks": 3,
+        "answer_points": [
+          "Insulin is given by injections or by a pump.",
+          "Blood (or urine) glucose concentration is monitored.",
+          "Carbohydrate intake in the diet is controlled.",
+          "Exercise after eating helps to lower blood glucose."
+        ],
+        "tip": "Any three points score one mark each. Name the insulin treatment and one way of managing diet or monitoring."
+      },
+      "extra": [
+        {
+          "heading": "Treating type 1 diabetes",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Insulin is only part of the treatment of type 1 diabetes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Insulin is given by **injections** or by a **pump** that delivers it through the day.",
+                "Blood glucose concentration is **monitored**.",
+                "Carbohydrate intake is counted and matched to activity.",
+                "Exercise after eating helps to lower blood glucose.",
+                "A pancreas transplant or an artificial pancreas can also be used."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -302,13 +339,14 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "2379c612-83c0-49b3-b6cd-2c4c72bb525d",
       "3e79cc14-db30-458a-b9cd-c583fdd1f5a6",
       "ab9d2a9c-5f3b-444b-96a1-d85a95c71cbf",
       "8be68259-ce78-467e-a689-4435e226ee57",
-      "cbbd3fd8-4c66-4259-a06c-98de94ac6516"
+      "cbbd3fd8-4c66-4259-a06c-98de94ac6516",
+      "685953fd-4f6a-4a55-aebe-16d79ca6e827"
     ],
     "exemplar_ids": [
       "8f4cee7d-1100-4e04-a198-23822593e4fb",
@@ -324,7 +362,8 @@
       "ecaf62d0-dcc7-4ddc-b478-733cb4198b1a",
       "3c13f619-fa11-4a46-b964-2f29809db321",
       "ccad2d4c-2d52-434d-bc91-89ad460b5968",
-      "0cebda33-cebc-40f1-a173-ca3109451c64"
+      "0cebda33-cebc-40f1-a173-ca3109451c64",
+      "a934eb9c-f7de-4c15-b331-ca020787be41"
     ]
   }
 }

@@ -217,6 +217,69 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 12.5.3"],
+      "worked_example": {
+        "exemplar_id": "af4a6725-762a-4b22-b262-00baa49472bd",
+        "source": "CAMBRIDGE nov 2023, Paper 42, Q4(b)(iii)",
+        "question": "A student carries out an electrolysis experiment on molten lead(II) chloride, PbCl₂. Chlorine gas forms at the anode and escapes from the apparatus.\n\nState the test for chlorine gas.\n\ntest ______\nobservations ______",
+        "marks": 2,
+        "answer_points": [
+          "Test: damp litmus paper (M1)",
+          "Observations: the litmus paper is bleached (goes white) (M2)"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Two more gases have tests that you need."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Ammonia**: hold damp red litmus paper in the gas. It turns blue.",
+                "**Sulfur dioxide**: add acidified aqueous potassium manganate(VII). The purple solution turns colourless."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.44"],
+      "worked_example": {
+        "exemplar_id": "4b786a09-66dd-49d7-b94a-b0db0d7762e5",
+        "source": "EDEXCEL jun 2022, Paper 2 (C), Q1(c)",
+        "question": "Describe a test for carbon dioxide.",
+        "marks": 2,
+        "answer_points": [
+          "Bubble (pass) the gas into limewater (M1)",
+          "The limewater turns cloudy (milky) (M2)"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Ammonia is the fifth gas to know."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Ammonia is a pungent, alkaline gas.",
+                "Hold damp red litmus paper in the gas.",
+                "The litmus paper turns blue."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -235,7 +298,9 @@
       "bc816181-5a63-4592-ac86-96be0f8998c0",
       "f5f52557-92e1-4050-86b6-2fa7d0c26bff",
       "ea5b7b7c-1ce6-4116-ab13-a6153aa3f117",
-      "000353ea-a33b-404f-861f-14798005284a"
+      "000353ea-a33b-404f-861f-14798005284a",
+      "2521886e-f6b4-4a76-a604-0ef0ae3d521d",
+      "167194e0-69de-4514-bad9-6b9eb3f83e5f"
     ],
     "exemplar_ids": [
       "36cc95e7-1b89-4083-9602-39878ac9cde0",
@@ -247,9 +312,11 @@
       "78d30893-e5c6-418b-b917-5c2ac61a538e",
       "98abe865-2556-4e07-b191-21de7b2a7e74",
       "4957de6c-61d8-41d8-9580-2527bece04f6",
-      "b913c4c1-00f8-48f8-8399-f0f9a1468de0"
+      "b913c4c1-00f8-48f8-8399-f0f9a1468de0",
+      "af4a6725-762a-4b22-b262-00baa49472bd",
+      "4b786a09-66dd-49d7-b94a-b0db0d7762e5"
     ],
     "checked_by": "sonnet-science-check, opus-5-5-diagram-audit",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

@@ -129,7 +129,11 @@
                 "group": 2
               }
             ],
-            "groups": ["Metallic", "Ionic", "Simple molecular"],
+            "groups": [
+              "Metallic",
+              "Ionic",
+              "Simple molecular"
+            ],
             "prompt": "Which type of substance has this property? Sort each one."
           }
         },
@@ -153,13 +157,37 @@
         {
           "type": "table",
           "rows": [
-            ["Appearance", "Shiny solids", "Not shiny"],
-            ["Melting and boiling points", "High", "Low boiling points"],
-            ["Density", "High", "Low"],
-            ["Conduct electricity", "Good conductors", "Poor conductors"],
-            ["Ions formed", "Positive", "Negative"]
+            [
+              "Appearance",
+              "Shiny solids",
+              "Not shiny"
+            ],
+            [
+              "Melting and boiling points",
+              "High",
+              "Low boiling points"
+            ],
+            [
+              "Density",
+              "High",
+              "Low"
+            ],
+            [
+              "Conduct electricity",
+              "Good conductors",
+              "Poor conductors"
+            ],
+            [
+              "Ions formed",
+              "Positive",
+              "Negative"
+            ]
           ],
-          "columns": ["Property", "Most metals", "Most non-metals"]
+          "columns": [
+            "Property",
+            "Most metals",
+            "Most non-metals"
+          ]
         },
         {
           "type": "list",
@@ -220,7 +248,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 1.40", "EDEX 1.42"],
+      "spec_codes": [
+        "EDEX 1.40",
+        "EDEX 1.42"
+      ],
       "worked_example": {
         "exemplar_id": "4ccf4f89-0616-46d5-a044-ab12f7df29a3",
         "source": "EDEXCEL jun 2018, Paper 1 (H), Q1(d)",
@@ -235,7 +266,11 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C2.2a", "OCR C2.2d", "OCR C2.3f"],
+      "spec_codes": [
+        "OCR C2.2a",
+        "OCR C2.2d",
+        "OCR C2.3f"
+      ],
       "worked_example": {
         "exemplar_id": "f71f6603-6911-4a41-bfda-4da5de686544",
         "source": "OCR jun 2022, Paper 1, Q18(b)(i)",
@@ -248,12 +283,98 @@
         ],
         "tip": "A diagram needs positive ions with at least one labelled electron between them. Any reference to ionic or covalent bonding scores zero."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.7.1S",
+        "CAIE 2.7.2S",
+        "CAIE 9.1.1",
+        "CAIE 9.2.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "ca6b11df-7110-4ce0-978b-7647a46bfb64",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q3(a)(i)",
+        "question": "This question is about copper and compounds of copper. Describe the bonding in a metallic element such as copper.",
+        "marks": 3,
+        "answer_points": [
+          "Positive ions (cations).",
+          "A sea of delocalised (mobile) electrons.",
+          "Attraction between the positive ions and the electrons."
+        ],
+        "tip": "One mark for each of the three parts."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Metals are malleable and ductile. A ductile metal can be drawn out into a wire."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The positive ions are in layers.",
+                "The layers can slide over each other without the metal breaking.",
+                "The delocalised electrons keep holding the ions together as they move."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Uses of metals"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Aluminium in aircraft: it has a low density, so the aircraft is light.",
+                "Aluminium in overhead electrical cables: it has a low density and conducts electricity well.",
+                "Aluminium in food containers: it resists corrosion.",
+                "Copper in electrical wiring: it conducts electricity well and is ductile, so it can be drawn into wires."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.52C",
+        "IGCSE 1.53C",
+        "IGCSE 1.54C"
+      ],
+      "worked_example": {
+        "exemplar_id": "9a12ea6d-941f-4052-ab95-3a15c4021971",
+        "source": "EDEXCEL jun 2022, Paper 2 (CR), Q4(a)",
+        "question": "Explain three properties of copper that make it a suitable metal to use in electrical wiring.",
+        "marks": 5,
+        "answer_points": [
+          "It conducts electricity, because the delocalised electrons can move through the structure.",
+          "It is malleable and ductile, because the layers of positive ions can slide over each other.",
+          "It has a high melting point, because of the strong attraction between the positive ions and the delocalised electrons."
+        ],
+        "tip": "Each property needs its reason. Do not say that ions move when explaining electrical conductivity."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A 2-D diagram of a metallic lattice shows rows of positive ions in a regular pattern, drawn as circles marked +.",
+                "The delocalised electrons are drawn between and around the ions, as small dots or e⁻.",
+                "Label the positive ions and the delocalised electrons."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -267,12 +388,19 @@
       "d3e10139-92c2-42ea-a408-28c02fecea61",
       "afa6f85e-7ac3-4f6b-91be-381866768470",
       "29692a5d-d366-4fc3-a655-3736e23b93d9",
-      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8"
+      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8",
+      "a99cab40-d453-427e-b751-1fa1f24273e6",
+      "d7486545-b198-4e8c-88b3-da918ba72273",
+      "2599c63c-ebfe-49eb-b0a2-2d7440950fd7",
+      "9b2c3344-cbf9-4459-a6a6-bd79ee84fa11",
+      "e2fc392d-00cd-42e5-9ddb-7c47756b28ed"
     ],
     "exemplar_ids": [
       "867ecb61-4c47-41b9-af8a-fd321ee3381b",
       "4ccf4f89-0616-46d5-a044-ab12f7df29a3",
-      "f71f6603-6911-4a41-bfda-4da5de686544"
+      "f71f6603-6911-4a41-bfda-4da5de686544",
+      "ca6b11df-7110-4ce0-978b-7647a46bfb64",
+      "9a12ea6d-941f-4052-ab95-3a15c4021971"
     ]
   }
 }

@@ -301,18 +301,48 @@
         ],
         "tip": "Describe the curve. Comments about heat or the process are ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.3.3.3",
+        "CAIE 2.3.3.7S",
+        "CAIE 2.3.3.8S",
+        "CAIE 2.3.3.1",
+        "CAIE 2.3.4.1",
+        "CAIE 2.3.4.2S"
+      ],
+      "worked_example": {
+        "exemplar_id": "949f6942-e066-416a-9f1a-30ae7d8ef4b8",
+        "source": "CAMBRIDGE jun 2025, Paper 42, Q4(a)(i)",
+        "question": "Two metal containers, A and B, both contain very hot water at time = 0. Container A has a dull black outer surface and container B has a shiny white outer surface. The temperature of the water in each container is recorded every minute.\n\nState which container has the larger temperature change over the first 5 minutes. Explain your answer.",
+        "marks": 2,
+        "answer_points": [
+          "Container A, the one with the dull black surface.",
+          "Dull black surfaces are better emitters of infrared radiation than shiny white surfaces."
+        ],
+        "tip": "One mark for the container and one mark for the explanation in terms of emission."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 4.8", "IGCSE 4.9"]
     }
   },
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": ["9c02dcdb-ea91-4850-b402-0e26e063f32a"],
+    "spec_point_ids": [
+      "9c02dcdb-ea91-4850-b402-0e26e063f32a",
+      "773272b7-d34c-4ca3-b499-51c4b23ae849",
+      "405b67b3-6c62-43b2-826f-60298e24d950",
+      "a434ce20-4b2e-430a-bc1a-022d5a06e625"
+    ],
     "exemplar_ids": [
       "38d5909b-6c24-4c45-aba6-c814bc66f358",
-      "46f418eb-7106-4cd4-838a-a6a7342512af"
+      "46f418eb-7106-4cd4-838a-a6a7342512af",
+      "949f6942-e066-416a-9f1a-30ae7d8ef4b8"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

@@ -114,7 +114,10 @@
         },
         {
           "type": "table",
-          "columns": ["Question", "What to say"],
+          "columns": [
+            "Question",
+            "What to say"
+          ],
           "rows": [
             [
               "How does amylase break down starch?",
@@ -159,7 +162,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 2.3"],
+      "spec_codes": [
+        "AQA 2.3"
+      ],
       "worked_example": {
         "exemplar_id": "e030fbf1-237a-41d5-8961-46b1e09f2b28",
         "source": "AQA jun 2021, Paper 1 (H), Q05.3",
@@ -174,7 +179,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 1.7", "EDEX 1.12"],
+      "spec_codes": [
+        "EDEX 1.7",
+        "EDEX 1.12"
+      ],
       "worked_example": {
         "exemplar_id": "515f7ba1-3d19-424f-b35e-90f43c21d920",
         "source": "EDEXCEL nov 2021, Paper 2 (H), Q4(e)",
@@ -190,7 +198,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 1.2g"],
+      "spec_codes": [
+        "OCR 1.2g"
+      ],
       "worked_example": {
         "exemplar_id": "f69ab95c-9bf1-4dce-91e2-e43d5a83094d",
         "source": "OCR jun 2025, Paper 1, Q18(b)",
@@ -205,6 +215,87 @@
         ],
         "tip": "Any three points score one mark each. Mentioning lock and key is allowed. Saying the enzyme is denatured loses the active site shape, fit and complex points."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 5.1.1",
+        "CAIE 5.1.2",
+        "CAIE 5.1.3",
+        "CAIE 5.1.4",
+        "CAIE 5.1.6S",
+        "CAIE 5.1.7S",
+        "CAIE 21.2.3",
+        "CAIE 21.2.5S"
+      ],
+      "worked_example": {
+        "exemplar_id": "bb8f9b85-5cb6-41d4-8979-eb4b719972f2",
+        "source": "CAMBRIDGE jun 2023, Paper 41, Q1(d)",
+        "question": "Explain why lipase cannot be used to catalyse the breakdown of proteins.",
+        "marks": 3,
+        "answer_points": [
+          "Enzymes are specific.",
+          "The only substrate for lipase is fat (lipid) molecules.",
+          "The shape of the active site is complementary to fat, not to protein.",
+          "Protein cannot fit into or bind to the active site of lipase.",
+          "Enzyme-substrate complexes cannot form."
+        ],
+        "tip": "Any three of these points score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Metabolic reactions are the chemical reactions that keep an organism alive. Enzymes are involved in all of them."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Without enzymes these reactions would be too slow to sustain life at body temperature.",
+                "The substrate binds to the active site to form an **enzyme-substrate complex**.",
+                "The substrate is changed into products, which leave the active site. The enzyme is unchanged."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Specificity depends on the complementary shape and fit of the active site with the substrate."
+            },
+            {
+              "type": "subheading",
+              "text": "Enzymes in industry"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Pectinase** breaks down pectin in fruit cell walls. This gives more juice and a clearer juice.",
+                "(Supplement) **Lactase** changes lactose into glucose and galactose. This makes lactose-free milk."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.10",
+        "IGCSE 2.11",
+        "IGCSE 2.13"
+      ],
+      "worked_example": {
+        "exemplar_id": "75269c6c-c1ee-4f43-af68-ec510c8123cd",
+        "source": "EDEXCEL jan 2021, Paper 1 (BR), Q7(a)(ii)",
+        "question": "In some countries, snails are farmed as a source of protein. A scientist investigates the effect of temperature on the growth of snails.\nThe scientist measures the mean shell height of groups of snails kept at three different temperatures for 24 weeks.\n\nTime in weeks | Mean shell height in mm at 8 °C | at 15 °C | at 23 °C\n0 | 15.0 | 15.0 | 15.0\n8 | 15.2 | 15.8 | 17.0\n16 | 15.5 | 16.8 | 20.4\n24 | 16.4 | 18.2 | 21.8\n\nExplain the effect of temperature on the growth of snails in this investigation.",
+        "marks": 3,
+        "answer_points": [
+          "Higher temperatures produce more growth.",
+          "Enzymes are involved.",
+          "More kinetic energy.",
+          "More frequent collisions, so enzyme-substrate complexes form faster.",
+          "Faster respiration."
+        ],
+        "tip": "Any three of these points score the marks."
+      }
     }
   },
   "meta": {
@@ -214,14 +305,23 @@
     "spec_point_ids": [
       "120da19d-3949-41c9-a63b-e1ffb407cfc6",
       "7d51f483-b22a-473b-969a-818aaff2f264",
-      "ace0e3f4-fad5-467e-be20-8b0a94ba6469"
+      "ace0e3f4-fad5-467e-be20-8b0a94ba6469",
+      "4acdaf85-bab3-454a-8b46-b15291799359",
+      "1dbcece3-06d5-4d32-af16-3fd8a0a83cda",
+      "dc54e1ad-f9db-40ac-80dd-c2aa8fab1dce",
+      "c1eeed88-e65d-430b-94ce-46738d451084",
+      "b0024866-4ce6-4cff-af3a-e1087a3fe71f",
+      "e4b43303-b6b6-406a-bf58-86287c3bb82d",
+      "efc8658f-0bc9-456f-962a-9d60504f8bb6"
     ],
     "exemplar_ids": [
       "e030fbf1-237a-41d5-8961-46b1e09f2b28",
       "515f7ba1-3d19-424f-b35e-90f43c21d920",
-      "f69ab95c-9bf1-4dce-91e2-e43d5a83094d"
+      "f69ab95c-9bf1-4dce-91e2-e43d5a83094d",
+      "bb8f9b85-5cb6-41d4-8979-eb4b719972f2",
+      "75269c6c-c1ee-4f43-af68-ec510c8123cd"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

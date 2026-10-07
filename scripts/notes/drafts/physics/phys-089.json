@@ -3,7 +3,7 @@
   "concept_id": "phys-089",
   "subject": "physics",
   "title": "Life cycle of stars",
-  "key_idea": "A star forms from a nebula and is stable while the inward force of gravity is balanced by the outward pressure from fusion. A star like the Sun becomes a red giant and then a white dwarf. A much more massive star ends in a supernova and leaves a neutron star or black hole.",
+  "key_idea": "A star forms from a nebula and is stable while gravity is balanced by the outward pressure from fusion. A star like the Sun becomes a red giant and then a white dwarf. A more massive star ends in a supernova and leaves a neutron star or black hole.",
   "sections": [
     {
       "heading": "Why a star is stable",
@@ -211,6 +211,71 @@
         ],
         "tip": "Any two points score. 'Heat' is ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 6.2.1.1", "CAIE 6.2.1.2S", "CAIE 6.2.2.3S", "CAIE 1.7.3.5S"],
+      "worked_example": {
+        "exemplar_id": "41e9ebbd-c55d-4b9c-82dc-5b88a1a5da5b",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q9(c)(ii)",
+        "question": "Approximately 4.6 billion years ago, the Sun formed from an interstellar cloud of gas and became a stable star.\nDescribe and explain what happens as a protostar becomes a stable star.",
+        "marks": 3,
+        "answer_points": [
+          "Nuclear fusion (nuclear reactions) begins in the star.",
+          "The forces are balanced.",
+          "The gravitational force is inwards and the outward force is due to the high temperature."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The Sun is a medium-sized star, made mostly of hydrogen and helium.",
+                "The Sun radiates most of its energy as infrared, visible light and ultraviolet.",
+                "(Supplement) Stars are powered by nuclear reactions that release energy. In a stable star, hydrogen fuses into helium.",
+                "(Supplement) A supernova forms a nebula containing hydrogen and new heavier elements. This nebula may form new stars with planets orbiting them."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 8.9", "IGCSE 8.10", "IGCSE 7.25", "IGCSE 8.12P"],
+      "worked_example": {
+        "exemplar_id": "83f3a0ed-0eb3-43c5-95c3-383365582ae1",
+        "source": "EDEXCEL nov 2020, Paper 1 (P), Q3(a)",
+        "question": "Describe the stages in the evolution of a star similar in mass to the Sun.",
+        "marks": 4,
+        "answer_points": [
+          "A nebula (cloud of dust and gas) becomes a protostar.",
+          "The protostar becomes a main sequence star.",
+          "The main sequence star becomes a red giant.",
+          "The red giant becomes a white dwarf, which finally cools to a black dwarf."
+        ],
+        "tip": "Give the stages in the correct order and link each to the next."
+      },
+      "extra": [
+        {
+          "heading": "The Hertzsprung–Russell diagram",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "An HR diagram plots the brightness (luminosity) of stars against their surface temperature. The temperature axis runs backwards: hot on the left, cool on the right."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Most stars lie on a band from the hot, bright top left to the cool, dim bottom right. This is the main sequence.",
+                "Red giants and red supergiants are cool and very bright, at the top right.",
+                "White dwarfs are hot and dim, at the bottom left."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -226,9 +291,11 @@
     "exemplar_ids": [
       "bb4e8e32-4587-42c9-8d42-a64d1f34a25e",
       "05de4c4f-4b60-41f9-8881-0621aeed960d",
-      "e5315711-ab22-4f40-8f87-bbe3a999ed10"
+      "e5315711-ab22-4f40-8f87-bbe3a999ed10",
+      "41e9ebbd-c55d-4b9c-82dc-5b88a1a5da5b",
+      "83f3a0ed-0eb3-43c5-95c3-383365582ae1"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

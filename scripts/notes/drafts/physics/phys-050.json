@@ -327,12 +327,62 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.8.1", "CAIE 1.8.2", "CAIE 1.8.3", "CAIE 1.8.4S"],
+      "worked_example": {
+        "exemplar_id": "9f51c0d0-a801-416e-99fe-8aeaec011e73",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q3(b)",
+        "question": "A layer of ice floats freely on the water of a pond. The surface area of the pond is 5.0 m². The mass of the ice is 690 kg. The density of water is 1000 kg/m³. Point X is 0.45 m below the ice. Calculate the pressure at point X due to the ice and the water.",
+        "marks": 4,
+        "answer_points": [
+          "Pressure due to the water: p = ρgh = 1000 × 9.8 × 0.45 = 4410 Pa.",
+          "Weight of the ice: W = mg = 690 × 9.8 = 6762 N, so the pressure due to the ice is 6762 ÷ 5.0 = 1352 Pa.",
+          "Total pressure = 4410 + 1352.",
+          "Total pressure = 5.8 × 10³ Pa."
+        ],
+        "tip": "Add the two pressures: the one from the ice and the one from the water."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 5.5", "IGCSE 5.6", "IGCSE 5.7"],
+      "worked_example": {
+        "exemplar_id": "28adc57e-7373-471a-8a1e-d3c59c8a11f9",
+        "source": "EDEXCEL jun 2019, Paper 2 (P), Q9(a)(i)",
+        "question": "The mass of an ice cube is 3.7 g and its area of contact with the ground is 2.6 × 10⁻⁴ m². Calculate the pressure the ice cube exerts on the ground.",
+        "marks": 4,
+        "answer_points": [
+          "Select p = F ÷ A.",
+          "Convert the mass to kilograms: 3.7 g = 0.0037 kg.",
+          "Weight = 0.0037 × 10 = 0.037 N.",
+          "Pressure = 0.037 ÷ (2.6 × 10⁻⁴) = 142 Pa, which is about 140 Pa."
+        ],
+        "tip": "Convert grams to kilograms before finding the weight. Using g = 9.8 N/kg gives 139 Pa, which is also accepted."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Pressure in a liquid or gas at rest acts equally in all directions."
+            },
+            {
+              "type": "list",
+              "items": [
+                "At a point in a fluid at rest, the pressure is the same in every direction.",
+                "So the same pressure pushes on every surface at that depth, whichever way it faces."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -346,7 +396,14 @@
       "524274e2-1cdb-444c-9ef5-6b4e55932793",
       "aecc6962-0f20-4170-9a1a-1066cd2ece3e",
       "0d3e6785-2c7d-470e-bd99-b2681d8990a4",
-      "d1746be2-b55e-4658-aa5d-07413df5acfd"
+      "d1746be2-b55e-4658-aa5d-07413df5acfd",
+      "170d1ee3-5c81-4cc3-847b-74ffb1d2f52b",
+      "a4d84cde-365f-4fae-9296-87af2491d952",
+      "e02dc2a0-fc81-460a-8abb-fdca46a1f99e",
+      "c278d14b-67a2-400b-8253-5ceed73ebf09",
+      "b1d5ffb1-c00f-45d5-b87a-25fb57f0456a",
+      "20bc30d3-8d75-45e5-8cba-a399c66e1d4b",
+      "0364bf3c-0973-4d42-93e1-f73bc2ad5661"
     ],
     "exemplar_ids": [
       "0e948eb6-951d-48fc-9b55-2f58c76fade9",
@@ -358,7 +415,9 @@
       "5ed42503-9522-4c70-8364-2159ee06c6ef",
       "393bdd5d-43ef-4869-b54e-9fe2830a1bad",
       "57699e5a-0305-4626-bde3-5f90f46e5be2",
-      "384bf61c-536b-4411-97b2-e50c2c83292f"
+      "384bf61c-536b-4411-97b2-e50c2c83292f",
+      "9f51c0d0-a801-416e-99fe-8aeaec011e73",
+      "28adc57e-7373-471a-8a1e-d3c59c8a11f9"
     ]
   }
 }

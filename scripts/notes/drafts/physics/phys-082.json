@@ -288,6 +288,122 @@
         ],
         "tip": "Any three points score. One mark is given for using the plotting compass to show the field if nothing else scores."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.1.9",
+        "CAIE 4.5.3.1",
+        "CAIE 4.5.3.2",
+        "CAIE 4.5.3.3",
+        "CAIE 4.5.3.4S",
+        "CAIE 4.5.3.5S"
+      ],
+      "worked_example": {
+        "exemplar_id": "12365d0a-343e-4ff1-83f1-69d9468437bd",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q7(b)(ii)",
+        "question": "A solid bar is inside a copper solenoid. The solenoid is connected in series with a battery and a variable resistor. The device is an electromagnet.\nThe resistance of the variable resistor increases.\nExplain what happens to the magnetic field surrounding the bar and state how the pattern of field lines that represents the field changes.",
+        "marks": 3,
+        "answer_points": [
+          "The current in the coil decreases.",
+          "Because the current decreases, the magnetic field strength decreases.",
+          "Because the field is weaker, there are fewer field lines in the same area, or the field lines are further apart."
+        ],
+        "tip": "Link each step to the one before: resistance, then current, then field strength, then spacing of the lines."
+      },
+      "extra": [
+        {
+          "heading": "Field around wires and solenoids",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The field lines around a straight wire are circles that get further apart away from the wire, so the field is weaker there.",
+                "Right-hand grip rule: point the thumb along the current and the curled fingers show the direction of the field lines. For a solenoid, curl the fingers the way the current goes round and the thumb points to the north end."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Uses of magnets and relays",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Permanent magnets are used in fridge catches, loudspeakers and compasses.",
+                "Electromagnets are used in cranes, locks, bells and relays.",
+                "A loudspeaker uses a changing current in a coil next to a permanent magnet to move a cone and make sound."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "How a relay works"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Switch on",
+                  "text": "A small current in the first circuit flows through the coil of an electromagnet."
+                },
+                {
+                  "lead": "Attract",
+                  "text": "The electromagnet attracts a soft iron armature."
+                },
+                {
+                  "lead": "Close the contacts",
+                  "text": "The armature moves and closes the contacts of a second circuit, which switches on a larger current."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "A relay lets a small current in a safe circuit switch a larger current, such as a mains motor."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 6.8", "IGCSE 6.9P", "IGCSE 6.10P"],
+      "worked_example": {
+        "exemplar_id": "7dc47772-8b1f-4ee1-838b-1d81ed91fa61",
+        "source": "EDEXCEL jun 2024, Paper 2 (P), Q6(a)",
+        "question": "Describe the construction of a simple electromagnet that is producing a magnetic field.\nYou may draw a diagram to help your answer.",
+        "marks": 3,
+        "answer_points": [
+          "A solenoid or coil of wire.",
+          "A (direct) current in the wire, coil or solenoid.",
+          "A (soft) iron core."
+        ],
+        "tip": "Labels on a diagram can score all three marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "An electromagnet is a coil of wire with a current in it, wound round a core of **soft iron**.",
+                "Soft iron is used because it magnetises and demagnetises easily."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "The field of a flat circular coil"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Near each part of the wire, the field lines are circles around the wire.",
+                "Through the middle of the coil, the field lines pass in the same direction, and the field is strongest there.",
+                "Reversing the current reverses the direction of the field.",
+                "Right-hand grip rule: point the thumb along the current and the curled fingers show the direction of the field lines. For a solenoid, curl the fingers the way the current goes round and the thumb points to the north end."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -307,9 +423,11 @@
     "exemplar_ids": [
       "9e60023b-497a-4655-903d-4daf01dd5fbe",
       "b222be2c-e68c-4702-acf5-14d5018df178",
-      "3b9ac6d9-3e9a-46b2-881e-fc531c82e91a"
+      "3b9ac6d9-3e9a-46b2-881e-fc531c82e91a",
+      "12365d0a-343e-4ff1-83f1-69d9468437bd",
+      "7dc47772-8b1f-4ee1-838b-1d81ed91fa61"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

@@ -284,13 +284,79 @@
         ],
         "tip": "Say what is right and what is wrong."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 7.1.2", "CAIE 7.1.5", "CAIE 7.1.6", "CAIE 7.1.7", "CAIE 7.1.8"],
+      "worked_example": {
+        "exemplar_id": "1f400bc0-f665-4f89-a2d7-c0cc22abfc35",
+        "source": "CAMBRIDGE mar 2024, Paper 42, Q3(d)(i)",
+        "question": "The pH values of some solutions are: NaOH(aq) 14, Ca(OH)₂(aq) 10, H₂O(l) 7, CH₃COOH(aq) 4, HNO₃(aq) 1. Use this information to identify the substance with the highest concentration of H⁺(aq) ions. Explain your answer.",
+        "marks": 2,
+        "answer_points": ["HNO₃", "It has the lowest pH"],
+        "tip": "The lower the pH, the higher the concentration of hydrogen ions."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Thymolphthalein is another indicator. It is colourless in acid and blue in alkali."
+            },
+            {
+              "type": "table",
+              "columns": ["Indicator", "In acid", "In alkali"],
+              "rows": [
+                ["Litmus", "Red", "Blue"],
+                ["Methyl orange", "Red", "Yellow"],
+                ["Thymolphthalein", "Colourless", "Blue"]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.28", "IGCSE 2.29", "IGCSE 2.30", "IGCSE 2.31", "IGCSE 2.32"],
+      "worked_example": {
+        "exemplar_id": "b15b52d5-0df1-4c97-88c1-56aa0c8cb86a",
+        "source": "EDEXCEL jun 2022, Paper 1 (CR), Q4(d)(i)",
+        "question": "A teacher adds a small piece of sodium to a glass trough containing water and universal indicator. The universal indicator changes colour. The equation for the reaction is 2Na(s) + 2H₂O(l) → 2NaOH(aq) + H₂(g). Explain the final colour of the universal indicator.",
+        "marks": 2,
+        "answer_points": [
+          "The universal indicator turns blue or purple",
+          "Because an alkali is produced (hydroxide ions, OH⁻, are produced)"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The pH scale can be split into bands to describe how strong an acid or alkali is."
+            },
+            {
+              "type": "table",
+              "columns": ["pH", "Type of solution"],
+              "rows": [
+                ["0 to 3", "Strongly acidic"],
+                ["4 to 6", "Weakly acidic"],
+                ["7", "Neutral"],
+                ["8 to 10", "Weakly alkaline"],
+                ["11 to 14", "Strongly alkaline"]
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "1903c6f6-8196-4065-91cf-afb7f23b339a",
@@ -301,12 +367,22 @@
       "805fca61-581c-46c7-a0ee-1b2bf4e7a89f",
       "b2eedffa-3fff-4ab9-8285-14261481a556",
       "3b4fc45b-851c-422c-a3bb-97bf7263b730",
-      "24aa70bf-ed4c-451b-bd61-7451545958ca"
+      "24aa70bf-ed4c-451b-bd61-7451545958ca",
+      "e18d7b60-363c-47de-acfb-576d07154485",
+      "c1c85016-93ad-4c4f-bb1d-95ba627f6db2",
+      "d82a64a3-91fe-4038-bd8d-8cba43353932",
+      "76ca2788-c591-4cc7-8cd6-d4c4d1f0fec9",
+      "408d8ad8-17fe-4014-afce-38db3fac994c",
+      "191f44f8-3333-4df0-adfa-dafaa143a1c3",
+      "583596f6-f32d-4ffd-a968-465cb6ab9ba3",
+      "4f0bf2dc-a1e6-4987-9f40-d2656ebc1af5"
     ],
     "exemplar_ids": [
       "2168a08c-9e39-4474-a761-ed3c62070390",
       "47599955-d978-414d-ac43-1349e8d088b8",
-      "2e9d7a3c-b85f-4475-ac18-8f21ea80473e"
+      "2e9d7a3c-b85f-4475-ac18-8f21ea80473e",
+      "1f400bc0-f665-4f89-a2d7-c0cc22abfc35",
+      "b15b52d5-0df1-4c97-88c1-56aa0c8cb86a"
     ]
   }
 }

@@ -108,7 +108,10 @@
             "kind": "sort",
             "alt": "Sort each process into whether it removes carbon dioxide from the air or adds carbon dioxide to the air.",
             "prompt": "Does each process remove carbon dioxide from the air or add it?",
-            "groups": ["Removes carbon dioxide", "Adds carbon dioxide"],
+            "groups": [
+              "Removes carbon dioxide",
+              "Adds carbon dioxide"
+            ],
             "items": [
               {
                 "text": "Photosynthesis in leaves",
@@ -166,7 +169,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 7.5", "AQA T 4.7.2.2"],
+      "spec_codes": [
+        "AQA 7.5",
+        "AQA T 4.7.2.2"
+      ],
       "worked_example": {
         "exemplar_id": "5ffad999-331b-48dd-9f61-a56ffe55ac95",
         "source": "AQA jun 2022, Paper 2 (H), Q01.5",
@@ -182,7 +188,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 9.12", "EDEX 9.13"],
+      "spec_codes": [
+        "EDEX 9.12",
+        "EDEX 9.13"
+      ],
       "worked_example": {
         "exemplar_id": "d42859e0-aa6b-4e85-b032-daea079dff61",
         "source": "EDEXCEL jun 2019, Paper 2 (H), Q2(b)",
@@ -220,7 +229,10 @@
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR 4.1b", "OCR 4.1c"],
+      "spec_codes": [
+        "OCR 4.1b",
+        "OCR 4.1c"
+      ],
       "worked_example": {
         "exemplar_id": "b6002457-dfbd-489c-be41-acec5834d009",
         "source": "OCR jun 2018, Paper 4, Q20(c)",
@@ -233,6 +245,60 @@
         ],
         "tip": "One mark each for the idea of recycling, a named example and the reason it matters."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 19.3.1",
+        "CAIE 19.2.9"
+      ],
+      "worked_example": {
+        "exemplar_id": "370976b8-85dc-40f2-9270-ac0271e04fd8",
+        "source": "CAMBRIDGE mar 2024, Paper 42, Q6(a)(i)",
+        "question": "Phytoplankton contain chlorophyll.\n\nExplain how phytoplankton lower carbon dioxide concentrations in the atmosphere.",
+        "marks": 2,
+        "answer_points": [
+          "Phytoplankton are producers, so they photosynthesise.",
+          "They use carbon dioxide for photosynthesis, to produce carbohydrates."
+        ],
+        "tip": "Any two of these score one mark each."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Decomposer",
+                  "meaning": "An organism that gets its energy from dead or waste organic material."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.10",
+        "IGCSE 4.18B"
+      ],
+      "worked_example": {
+        "exemplar_id": "cc30d666-a16c-479e-8182-dfe2a205ec60",
+        "source": "EDEXCEL jun 2022, Paper 2 (B), Q1(b)",
+        "question": "Scientists plan to produce genetically engineered, perennial crop plants with extra suberin in their roots. Perennial plants live for many years rather than dying each winter.\n\nSuberin is a waterproof substance with a high proportion of carbon atoms. It is decomposed very slowly, so it remains in the soil for a long time.\n\nExplain why producing genetically engineered plants with additional suberin in their roots could reduce atmospheric carbon dioxide.",
+        "marks": 4,
+        "answer_points": [
+          "Plants take in carbon dioxide.",
+          "For photosynthesis.",
+          "The carbon is converted into suberin, so it is locked up in the roots.",
+          "Suberin decomposes slowly, so it stays for a long time.",
+          "Perennial plants do not die off each year, so they remain for long periods.",
+          "Less carbon dioxide is released from the decomposers (their respiration)."
+        ],
+        "tip": "Any four of these score one mark each."
+      }
     }
   },
   "meta": {
@@ -244,7 +310,9 @@
       "e20f41ea-7788-440a-84ad-f0d1bc8682be",
       "74455c4d-ab71-4d11-a174-2ff3eed278da",
       "a8efd256-a9f4-4ba7-9c50-d6b0d846317c",
-      "2b7da137-0d4b-4a78-95de-e94646a9548e"
+      "2b7da137-0d4b-4a78-95de-e94646a9548e",
+      "1cb5481b-4ebc-47ae-9c50-4e3bb966b520",
+      "1dbe940a-35d6-49ef-a91d-35b50dd54569"
     ],
     "exemplar_ids": [
       "5ffad999-331b-48dd-9f61-a56ffe55ac95",
@@ -252,9 +320,11 @@
       "b6002457-dfbd-489c-be41-acec5834d009",
       "1487004b-a590-4580-aa93-666b169efaef",
       "649270f2-6dd2-44b0-b8dc-86c77815b1b3",
-      "bcf5e4b3-fa7d-4585-82b4-f786578c7ad2"
+      "bcf5e4b3-fa7d-4585-82b4-f786578c7ad2",
+      "370976b8-85dc-40f2-9270-ac0271e04fd8",
+      "cc30d666-a16c-479e-8182-dfe2a205ec60"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

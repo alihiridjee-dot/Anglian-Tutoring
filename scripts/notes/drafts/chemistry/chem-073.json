@@ -329,6 +329,35 @@
         ],
         "tip": "The marks are for the explanation. Do not link the lower yield to rate."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 6.3.4S"],
+      "worked_example": {
+        "exemplar_id": "d4655bc7-979f-4321-bc5d-7e973a61320f",
+        "source": "CAMBRIDGE mar 2025, Paper 42, Q4(e)",
+        "question": "Carbonyl chloride, COCl₂, is manufactured by reacting carbon monoxide with chlorine.\n\nCO(g) + Cl₂(g) ⇌ COCl₂(g)   ΔH = –105 kJ/mol\n\nThe process takes place in a closed system and an equilibrium is reached. The conditions are 200 °C and 200 kPa.\n\nState the effect, if any, on the concentration of COCl₂(g) at equilibrium when each change is made. Use only the words increases, decreases or no change.\n• the temperature is increased\n• some CO is added\n• the pressure is increased\n• a catalyst is added",
+        "marks": 4,
+        "answer_points": [
+          "Temperature increased: decreases",
+          "Some CO added: increases",
+          "Pressure increased: increases",
+          "Catalyst added: no change"
+        ],
+        "tip": "One mark for each change."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.21C", "IGCSE 3.22C"],
+      "worked_example": {
+        "exemplar_id": "054d9ab1-4bbf-4377-b48d-de6a74478c8f",
+        "source": "EDEXCEL jun 2022, Paper 2 (CR), Q7(b)(i)",
+        "question": "In the presence of an iron catalyst, nitrogen reacts with hydrogen to form ammonia. The conditions are a temperature of 450 °C and a pressure of 200 atmospheres.\n\nN₂ + 3H₂ ⇌ 2NH₃   ΔH = –92 kJ/mol\n\nThe reaction mixture is kept at a pressure of 200 atmospheres, but the temperature is increased to 550 °C.\n\nExplain the effect of this change on the yield of ammonia at equilibrium.",
+        "marks": 2,
+        "answer_points": [
+          "The yield decreases (M1)",
+          "because the forward reaction is exothermic, and the backward reaction is endothermic (M2)"
+        ]
+      }
     }
   },
   "meta": {
@@ -345,14 +374,19 @@
       "bedde499-ad78-4cbc-9a0d-adedc28a920b",
       "61e9dfa8-0fd3-4cd5-9ed0-f8c418087a67",
       "2d840086-75b3-44ed-a293-32e7ed51fb22",
-      "a68d3ebc-974b-4672-b8a7-399f506734e0"
+      "a68d3ebc-974b-4672-b8a7-399f506734e0",
+      "46bffd5e-0a95-44c0-878e-8032f826a36d",
+      "68935002-4d7b-4e9c-ace2-7eb7d322f7a5",
+      "2f099572-fb76-4d7a-afa3-b4f648cc7c96"
     ],
     "exemplar_ids": [
       "7c52525b-a9e1-4836-8d5d-ef2cae309d80",
       "3ad3da5f-34c5-4c1e-9ec3-1fba45eb4846",
-      "e28e32e7-1369-4a6e-8fc1-b2a1c9ab63cb"
+      "e28e32e7-1369-4a6e-8fc1-b2a1c9ab63cb",
+      "d4655bc7-979f-4321-bc5d-7e973a61320f",
+      "054d9ab1-4bbf-4377-b48d-de6a74478c8f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

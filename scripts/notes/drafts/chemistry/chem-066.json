@@ -235,6 +235,38 @@
         ],
         "tip": "Two advantages and one disadvantage, one mark each. Each must be a comparison, not a restatement of the data. The fuel cell reaction itself makes only water; any CO₂ in a table like this comes from making the hydrogen or the electricity."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.2.1", "CAIE 4.2.2S"],
+      "worked_example": {
+        "exemplar_id": "ae1d32c3-fd74-4f14-b235-b8c62cc3437d",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q5(a)(ii)",
+        "question": "Hydrogen is the first element of the Periodic Table.\n\nHydrogen is used in fuel cells to produce electricity in vehicles.\n\nGive one advantage and one disadvantage of using fuel cells instead of gasoline in vehicle engines.",
+        "marks": 2,
+        "answer_points": [
+          "Advantage, any one: water is the only product, or no carbon dioxide is produced, or it is more efficient.",
+          "Disadvantage, any one: hydrogen needs to be stored at high pressure, or it is hard to store, or heavy tanks are needed, or there are fewer hydrogen filling stations, or it is less efficient."
+        ],
+        "tip": "One mark for each side. Give a different point for each."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Compare a hydrogen–oxygen fuel cell with a petrol engine in a vehicle."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Advantages:** water is the only product, so no carbon dioxide is made, and the fuel cell is more efficient.",
+                "**Disadvantages:** hydrogen is hard to store, needs high pressure and heavy tanks, and there are fewer hydrogen filling stations."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -245,14 +277,17 @@
       "1486a17c-869e-4c3f-81bb-eab95945b0fd",
       "ee52c863-a428-47dd-9314-954af15d6a97",
       "1078bfa3-2350-4d0e-b4e6-70fb393e6b17",
-      "fa7a7652-6b25-422c-ac62-8cfeb2e6f1c3"
+      "fa7a7652-6b25-422c-ac62-8cfeb2e6f1c3",
+      "d5c508bb-bdcb-449f-b841-9fe7eab9ca4c",
+      "7e6ec4cb-a7ff-4491-868a-fb9337541201"
     ],
     "exemplar_ids": [
       "cb91103b-52eb-470f-a714-4915e8666498",
       "5c6fd271-2851-4c54-9689-810ddd848783",
-      "27ab86f3-fc58-4c28-9014-e030aa76d66d"
+      "27ab86f3-fc58-4c28-9014-e030aa76d66d",
+      "ae1d32c3-fd74-4f14-b235-b8c62cc3437d"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

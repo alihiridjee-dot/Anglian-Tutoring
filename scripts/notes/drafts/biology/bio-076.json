@@ -258,6 +258,125 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 3.2.1",
+        "CAIE 13.1.2",
+        "CAIE 13.1.6S",
+        "CAIE 13.1.7S",
+        "CAIE 13.1.8S",
+        "CAIE 13.1.9S",
+        "CAIE 13.1.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "0183964e-92c7-447b-9006-11ab645bc94d",
+        "source": "CAMBRIDGE nov 2023, Paper 42, Q5(d)",
+        "question": "Describe the role of the liver in excretion.",
+        "marks": 4,
+        "answer_points": [
+          "Deamination: removal of the nitrogen-containing part of amino acids.",
+          "Excess amino acids are removed from the blood, which regulates their concentration.",
+          "Urea is formed.",
+          "Urea passes into the blood to travel to the kidney.",
+          "Lactic acid is broken down (respired or oxidised)."
+        ],
+        "tip": "Any four points score one mark each. Use the word deamination and say that urea is formed."
+      },
+      "extra": [
+        {
+          "heading": "Excretion and urea",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Excretion",
+                  "meaning": "The removal of waste products of metabolism and of substances in excess of requirements."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The lungs excrete carbon dioxide.",
+                "The kidneys excrete urea, excess water and excess ions.",
+                "(Supplement) Urea is toxic, so it must be removed before it builds up in the body."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "What the liver does with amino acids",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The liver processes amino acids in two ways."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Assimilation**: amino acids are built into proteins, such as plasma proteins.",
+                "**Deamination**: excess amino acids lose their nitrogen-containing part. This forms urea, which passes into the blood."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Water as a solvent",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Water is a **solvent**. Many substances dissolve in it, so it is important in three ways."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Digestion: the products of digestion dissolve in water.",
+                "Excretion: urea and excess ions are carried in urine.",
+                "Transport: dissolved ions and nutrients are carried in blood plasma."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.71"],
+      "worked_example": {
+        "exemplar_id": "2280173d-6468-4ece-81e2-1727d1f2c214",
+        "source": "EDEXCEL jan 2021, Paper 2 (BR), Q7(b)",
+        "question": "The human kidney is an organ that is able to process excretory products from human metabolism.\n\nName another organ that carries out excretion in the human body.",
+        "marks": 1,
+        "answer_points": [
+          "The lungs, or the skin."
+        ],
+        "tip": "Give one organ only. A second, incorrect answer cancels the mark."
+      },
+      "extra": [
+        {
+          "heading": "Excretion and the organs that do it",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Excretion",
+                  "meaning": "The removal of waste products of metabolism and of substances in excess of requirements."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Lungs**: carbon dioxide and water.",
+                "**Kidneys**: urea, excess water and excess ions.",
+                "**Skin**: sweat, which contains water, ions and a little urea."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -265,15 +384,23 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "54150b15-fab5-4ca6-874e-57abd8434cee",
       "0dfddd94-f250-49c4-9e34-41bb6ebc890b",
       "5996e7d1-4ad7-451d-8788-94f16c46d762",
       "a935fbbe-b68f-4021-ad5f-27751d2117ff",
-      "bfa453c8-62b1-4a6f-b61b-d7e3735ce4d8"
+      "bfa453c8-62b1-4a6f-b61b-d7e3735ce4d8",
+      "26cd01d7-6212-4435-909f-4e82e6bb777f",
+      "e5ca6048-c7a1-4787-acd4-2ae9e5dc9d6e",
+      "5ebd91b5-96c6-466f-9d34-3ecec6b02a79",
+      "4db49148-be05-4c80-bb56-9793edbddd51",
+      "20c03095-13ed-4dca-989d-964f52b92ed9",
+      "99f2b19a-0369-4c1e-b246-3596fd09c696",
+      "bdad5444-fd49-4b81-a4bf-3232bcf8d57c"
     ],
     "exemplar_ids": [
+      "2280173d-6468-4ece-81e2-1727d1f2c214",
       "7cebf4de-baa3-445d-8d89-33a5124f3283",
       "c4bb07c5-0cf7-4c05-ad6e-886c8b688f87",
       "0226b3ae-140c-416d-a2f5-cfc2540eed08",
@@ -286,7 +413,8 @@
       "0cebda33-cebc-40f1-a173-ca3109451c64",
       "6351c631-a512-4678-b0be-64cd812ba808",
       "4f5b5291-aa96-46c0-a518-46f4e65cbd55",
-      "a4569d9d-4f1e-41c8-b2a3-33a6f93b9172"
+      "a4569d9d-4f1e-41c8-b2a3-33a6f93b9172",
+      "0183964e-92c7-447b-9006-11ab645bc94d"
     ]
   }
 }

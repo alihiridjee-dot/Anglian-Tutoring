@@ -16,6 +16,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { validateNote, type Note } from "../../src/lib/notes/noteFormat";
 import { toSciNotation } from "../../src/lib/platform/sciNotation";
+import { layerOf, loadConceptMap } from "./conceptMap";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const args = process.argv.slice(2);
@@ -32,7 +33,7 @@ for (const subject of ["biology", "chemistry", "physics"]) {
   if (only && only !== subject) continue;
   const dir = join(here, set, subject);
   if (!existsSync(dir)) continue;
-  const map = JSON.parse(readFileSync(join(here, "concepts", `gcse-${subject}.json`), "utf8"));
+  const map = loadConceptMap(subject);
   for (const file of readdirSync(dir)
     .filter((f) => f.endsWith(".json") && (!ids || ids.has(f.slice(0, -5))))
     .sort()) {
@@ -47,8 +48,8 @@ for (const subject of ["biology", "chemistry", "physics"]) {
       continue;
     }
     errs.push(...validateNote(note));
-    const concept = map.concepts.find((c: { id: string }) => c.id === note.concept_id);
-    if (!concept) errs.push(`concept ${note.concept_id} is not in gcse-${subject}.json`);
+    const concept = map.concepts.find((c) => c.id === note.concept_id);
+    if (!concept) errs.push(`concept ${note.concept_id} is not in the ${subject} concept maps`);
     else {
       if (file !== `${note.concept_id}.json`)
         errs.push(`file should be named ${note.concept_id}.json`);
@@ -58,7 +59,7 @@ for (const subject of ["biology", "chemistry", "physics"]) {
           errs.push(`spec point ${id} is not part of ${concept.id}`);
       for (const [b, layer] of Object.entries(note.boards ?? {})) {
         const codes = refs
-          .filter((r) => (r.board.startsWith("aqa") ? "aqa" : r.board) === b)
+          .filter((r) => layerOf(r.board) === b)
           .map((r) => r.code);
         if (!codes.length) errs.push(`boards.${b}: this board has no spec point in ${concept.id}`);
         for (const c of layer?.spec_codes ?? [])

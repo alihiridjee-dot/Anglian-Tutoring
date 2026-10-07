@@ -31,11 +31,27 @@
         },
         {
           "type": "table",
-          "columns": ["Wire", "Insulation colour", "Potential difference to earth"],
+          "columns": [
+            "Wire",
+            "Insulation colour",
+            "Potential difference to earth"
+          ],
           "rows": [
-            ["Live", "brown", "about 230 V"],
-            ["Neutral", "blue", "0 V, or close to it"],
-            ["Earth", "green and yellow stripes", "0 V"]
+            [
+              "Live",
+              "brown",
+              "about 230 V"
+            ],
+            [
+              "Neutral",
+              "blue",
+              "0 V, or close to it"
+            ],
+            [
+              "Earth",
+              "green and yellow stripes",
+              "0 V"
+            ]
           ]
         },
         {
@@ -221,7 +237,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.3.2", "AQA T 6.2.3.2"],
+      "spec_codes": [
+        "AQA 4.2.3.2",
+        "AQA T 6.2.3.2"
+      ],
       "worked_example": {
         "exemplar_id": "9067ff27-e96d-4c2c-88df-d5a2eb8908be",
         "source": "AQA jun 2020, Paper 1 (H), Q09.2",
@@ -236,7 +255,13 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 10.37", "EDEX 10.38", "EDEX 10.39", "EDEX 10.40", "EDEX 10.41"],
+      "spec_codes": [
+        "EDEX 10.37",
+        "EDEX 10.38",
+        "EDEX 10.39",
+        "EDEX 10.40",
+        "EDEX 10.41"
+      ],
       "worked_example": {
         "exemplar_id": "d464d7e7-e7c4-4042-badc-610414999d28",
         "source": "EDEXCEL jun 2024, Paper 2 (F), Q6(c)(ii)",
@@ -250,7 +275,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P8.2i", "OCR P8.2j"],
+      "spec_codes": [
+        "OCR P8.2i",
+        "OCR P8.2j"
+      ],
       "worked_example": {
         "exemplar_id": "edd5008d-566d-480a-989e-fce3f8528126",
         "source": "OCR nov 2020, Paper 2, Q21(c)(ii)",
@@ -262,6 +290,153 @@
         ],
         "tip": "One mark for the earth wire preventing a shock with a metal case, and one for the plastic case being an insulator."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.4.1",
+        "CAIE 4.4.2",
+        "CAIE 4.4.3",
+        "CAIE 4.4.4",
+        "CAIE 4.4.5"
+      ],
+      "worked_example": {
+        "exemplar_id": "11f38769-1626-434c-8f22-a4aafc80f5ec",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q4(b)(ii)",
+        "question": "A heater has a power of 2.0 kW when it is connected to the mains supply with an e.m.f. of 230 V. The plug connecting the heater to the mains supply is fitted with a fuse.\n\nFuse ratings of 3 A, 5 A, 10 A and 13 A are available.\n\nState which fuse is used. Explain your answer.",
+        "marks": 2,
+        "answer_points": [
+          "10 A.",
+          "The fuse rating must be higher than the normal current in the heater, which is about 8.7 A.",
+          "A smaller fuse would melt in normal use.",
+          "A larger fuse might not melt before the wiring is damaged."
+        ],
+        "tip": "One mark for the correct fuse and one for any one valid reason."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Mains hazards"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Damaged insulation** can expose a live wire, so a person can get an electric shock.",
+                "**Overheating cables** can start a fire.",
+                "**Damp conditions** make a shock more likely, because water conducts electricity.",
+                "**Overloading** plugs, extension leads and sockets draws an excess current, which overheats the cables."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Double-insulated appliances"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The outer casing of an appliance must be either earthed or non-conducting (double-insulated).",
+                "A double-insulated appliance has a non-conducting casing, so it has no earth wire.",
+                "Its fuse still protects the circuit and the cabling."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A trip switch (circuit breaker) switches the circuit off when the current is too large. It is reset by switching it back on.",
+                "Set the trip switch just above the normal current, in the same way as a fuse rating."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Electrical power",
+              "formula": "P = I × V",
+              "where": [
+                "P = power, in watts (W)",
+                "I = current, in amperes (A)",
+                "V = potential difference, in volts (V)"
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find the current.",
+                  "text": "A 920 W kettle works from 230 V. I = P ÷ V = 920 ÷ 230 = 4.0 A."
+                },
+                {
+                  "lead": "Choose the fuse.",
+                  "text": "Fuses of 3 A, 5 A and 13 A are available. Use the 5 A fuse, the smallest rating above 4.0 A."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.2",
+        "IGCSE 2.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "e41ae140-0c35-47aa-98c3-2cb285c0c93a",
+        "source": "EDEXCEL jun 2023, Paper 1 (P), Q3(b)(i)",
+        "question": "A family has a television set. In normal use, the current in the television set is 0.31 A.\n\nExplain how a fuse works to protect the television set if there is a fault.",
+        "marks": 3,
+        "answer_points": [
+          "The current becomes greater than the fuse rating.",
+          "The fuse wire melts.",
+          "This breaks the circuit, so the television set is isolated from the mains."
+        ],
+        "tip": "One mark for each stage: too much current, the wire melting and the circuit breaking."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Double insulation, earthing, fuses and circuit breakers protect the user or the device."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A double-insulated appliance has a plastic outer case and no earth wire.",
+                "A fuse or circuit breaker switches off the current if it is too large, which protects the wiring and the appliance."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Use power, current and potential difference to choose a fuse. The rating must be just above the normal current."
+            },
+            {
+              "type": "equation",
+              "label": "Electrical power",
+              "formula": "P = I × V",
+              "where": [
+                "P = power, in watts (W)",
+                "I = current, in amperes (A)",
+                "V = potential difference, in volts (V)"
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find the current.",
+                  "text": "A 920 W kettle works from 230 V. I = P ÷ V = 920 ÷ 230 = 4.0 A."
+                },
+                {
+                  "lead": "Choose the fuse.",
+                  "text": "Fuses of 3 A, 5 A and 13 A are available. Use the 5 A fuse, the smallest rating above 4.0 A."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -277,14 +452,22 @@
       "19280874-09c8-4cd2-9b34-4252a6fe1a6c",
       "4e85097b-e124-4320-8035-f847b3f0b6f6",
       "883ef74b-15a9-48f6-9ec0-de1db50f9b95",
-      "ec42224e-3e59-4641-9bbc-d405d494049e"
+      "ec42224e-3e59-4641-9bbc-d405d494049e",
+      "d039fe22-0ccc-4670-b13d-ae683b98982c",
+      "27adf1e0-36d0-418f-87b4-5085f69a982d",
+      "f185af9f-0fee-4340-9d11-de4ee479d8fe",
+      "2430efde-1a44-4e3f-9f80-028c504c0198",
+      "394618bc-8539-4f5c-a91a-89aab4a4c549",
+      "bc371361-fced-4bc7-8657-a11dbc873751"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "exemplar_ids": [
       "9067ff27-e96d-4c2c-88df-d5a2eb8908be",
       "d464d7e7-e7c4-4042-badc-610414999d28",
-      "edd5008d-566d-480a-989e-fce3f8528126"
+      "edd5008d-566d-480a-989e-fce3f8528126",
+      "11f38769-1626-434c-8f22-a4aafc80f5ec",
+      "e41ae140-0c35-47aa-98c3-2cb285c0c93a"
     ]
   }
 }

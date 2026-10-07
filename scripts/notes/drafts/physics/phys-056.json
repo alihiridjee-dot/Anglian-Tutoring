@@ -187,6 +187,19 @@
         ],
         "tip": "Any two of the four points score the 2 marks."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.5.1.4", "CAIE 1.5.1.5"],
+      "worked_example": {
+        "exemplar_id": "1e108ebd-b25e-440c-9004-24c7111a4390",
+        "source": "CAMBRIDGE jun 2023, Paper 41, Q1(b)",
+        "question": "A swimmer is crossing a river. His actions produce a constant forward force on his body.\n\nExplain why he moves at a constant speed.",
+        "marks": 2,
+        "answer_points": [
+          "The water exerts a friction (resistance) force backwards on the swimmer.",
+          "This force balances the forward force, so there is no resultant force."
+        ]
+      }
     }
   },
   "meta": {
@@ -195,14 +208,17 @@
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "1a367b8a-416e-42e9-8999-193a27293341",
-      "ba92461c-c575-4b46-870c-fadcbbf15366"
+      "ba92461c-c575-4b46-870c-fadcbbf15366",
+      "40726ac6-dfbe-42d8-bb44-bc5bf3ec2ac1",
+      "ca9bc15b-b33f-4396-93a9-7b967490ee16"
     ],
     "exemplar_ids": [
       "40821b73-ff94-4b15-8960-21ecef57908e",
       "66373386-6554-4fb7-9f8a-cf1bd45f909c",
-      "8ab45c3e-daaa-4783-9b1a-ca0ba665f333"
+      "8ab45c3e-daaa-4783-9b1a-ca0ba665f333",
+      "1e108ebd-b25e-440c-9004-24c7111a4390"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

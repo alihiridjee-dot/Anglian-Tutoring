@@ -176,7 +176,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 5.10"],
+      "spec_codes": [
+        "AQA 5.10"
+      ],
       "worked_example": {
         "exemplar_id": "8718724b-b53f-4226-bcdb-0c175760b883",
         "source": "AQA jun 2024, Paper 2 (H), Q08.3",
@@ -192,7 +194,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 7.20B"],
+      "spec_codes": [
+        "EDEX 7.20B"
+      ],
       "worked_example": {
         "exemplar_id": "8c01ceaa-2038-4a52-ae12-b201ce99555e",
         "source": "EDEXCEL jun 2023, Paper 2 (H), Q10(b)",
@@ -210,7 +214,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 3.3i"],
+      "spec_codes": [
+        "OCR 3.3i"
+      ],
       "worked_example": {
         "exemplar_id": "2f905652-12db-4a97-86bb-9618c52b42a1",
         "source": "OCR nov 2020, Paper 3, Q22(b)(iii)",
@@ -224,6 +230,27 @@
         ],
         "tip": "Two marks from three points. Say hypothalamus, then ADH, then the effect on the kidney tubule."
       }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.76B",
+        "IGCSE 2.78B",
+        "IGCSE 2.95B",
+        "IGCSE 2.72B"
+      ],
+      "worked_example": {
+        "exemplar_id": "bb903355-9fb1-4fb1-8a4b-e376552cd91d",
+        "source": "EDEXCEL jun 2022, Paper 2 (B), Q4(c)",
+        "question": "When the body becomes dehydrated, the concentration of urine increases.\n\nExplain the changes that occur in the body that lead to the production of concentrated urine.",
+        "marks": 4,
+        "answer_points": [
+          "The hypothalamus detects that the blood is too concentrated (it has a low water content).",
+          "The pituitary gland releases ADH.",
+          "ADH makes the collecting duct more permeable.",
+          "More water is reabsorbed into the blood."
+        ],
+        "tip": "Follow the chain in order: detect, release ADH, collecting duct, water reabsorbed."
+      }
     }
   },
   "meta": {
@@ -231,10 +258,13 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "31134818-3827-42aa-bf53-498ecc93b236",
-      "438f47d8-5ca7-46f2-8a2d-efa03f2e297a"
+      "438f47d8-5ca7-46f2-8a2d-efa03f2e297a",
+      "55b938ff-28cc-4a6d-acc9-010f85add4ef",
+      "e1eb3a60-b062-4b1e-ab6b-dbb5b564623c",
+      "7ce628d5-c44d-4d40-8fb8-c5136ddd5279"
     ],
     "exemplar_ids": [
       "8718724b-b53f-4226-bcdb-0c175760b883",
@@ -244,7 +274,8 @@
       "a2749c79-1b47-480b-89c2-ab22dcbda5a9",
       "2f2d93e2-ec71-4190-8b2f-3c1be2690979",
       "54791e7a-e82a-430c-8e33-5a36bd1a4027",
-      "40b76244-3923-4644-9f6c-233299651a6f"
+      "40b76244-3923-4644-9f6c-233299651a6f",
+      "bb903355-9fb1-4fb1-8a4b-e376552cd91d"
     ]
   }
 }

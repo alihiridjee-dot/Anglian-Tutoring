@@ -220,6 +220,81 @@
         ],
         "tip": "One mark for each stage: wire, moisten and dip, blue flame."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 12.5.4"],
+      "worked_example": {
+        "exemplar_id": "c343abda-afa7-406f-8b36-8768398854e3",
+        "source": "CAMBRIDGE nov 2023, Paper 61, Q3(c)",
+        "question": "Describe how to carry out a flame test.",
+        "marks": 2,
+        "answer_points": [
+          "Use a wire or a splint to put the sample into a flame (M1)",
+          "Put the sample into a roaring (blue, hot) Bunsen flame and observe the colour (M2)"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "One more metal ion is needed, and two colours have other names."
+            },
+            {
+              "type": "table",
+              "columns": ["Metal ion", "Flame colour"],
+              "rows": [
+                ["Barium, Ba²⁺", "Light green"],
+                ["Lithium, Li⁺", "Red (crimson)"],
+                ["Copper(II), Cu²⁺", "Blue-green"]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use a roaring (non-luminous) blue flame. A yellow safety flame is cooler and its own colour hides the colour of the sample.",
+                "Clean the wire between samples so that an earlier sample does not change the colour."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.45", "IGCSE 2.46"],
+      "worked_example": {
+        "exemplar_id": "d48bf4a0-07de-4a1c-bc6c-adf572faa5a4",
+        "source": "EDEXCEL jun 2023, Paper 1 (C), Q5(b)",
+        "question": "This question is about lithium and some of its compounds.\n\nAn unlabelled bottle containing a white powder is found in a laboratory.\n\nDescribe tests to show that the white powder in the bottle is lithium carbonate.",
+        "marks": 5,
+        "answer_points": [
+          "Do a flame test (M1)",
+          "The flame is red (M2)",
+          "Add dilute hydrochloric acid (M3)",
+          "Pass the gas into limewater (M4)",
+          "The limewater turns cloudy (milky) (M5)"
+        ],
+        "tip": "The flame test shows the lithium ion. The acid and limewater show the carbonate ion."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The colour names for two ions differ slightly."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Lithium ions give a red flame. Crimson is also correct.",
+                "Copper(II) ions give a blue-green flame. Green is also correct."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -230,7 +305,10 @@
       "35a51cd1-ffbd-44a7-b1db-29d5e217e3b3",
       "f017484b-8b66-4403-9fa9-39c49b55d9e1",
       "7dc9928d-53ef-4881-9cd7-12c3234ae9c1",
-      "77c8310a-3547-4822-9406-58b71f0f5683"
+      "77c8310a-3547-4822-9406-58b71f0f5683",
+      "4feeb515-43a8-4646-8848-71ca967b27b8",
+      "a464d6c5-e8ad-4e2a-bb71-ed5a7da57147",
+      "30370fd2-9c67-4bfd-95e6-c6b824d3af98"
     ],
     "exemplar_ids": [
       "c5488ff9-8a2f-41d0-a1d1-cddcca0f141e",
@@ -248,9 +326,11 @@
       "4b5429af-6610-42a2-be4d-78aaab42d184",
       "0b2eb425-13c7-4802-a51c-96705e17cb70",
       "189c7a0c-f2dc-40c2-bc83-a09bda625634",
-      "4bb56669-1f98-43c3-8d61-837b235a9008"
+      "4bb56669-1f98-43c3-8d61-837b235a9008",
+      "c343abda-afa7-406f-8b36-8768398854e3",
+      "d48bf4a0-07de-4a1c-bc6c-adf572faa5a4"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

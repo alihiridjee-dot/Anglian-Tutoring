@@ -118,12 +118,37 @@
         },
         {
           "type": "table",
-          "columns": ["Name", "Carbon atoms", "Molecular formula", "Structural formula"],
+          "columns": [
+            "Name",
+            "Carbon atoms",
+            "Molecular formula",
+            "Structural formula"
+          ],
           "rows": [
-            ["Methane", "1", "CH₄", "CH₄"],
-            ["Ethane", "2", "C₂H₆", "CH₃CH₃"],
-            ["Propane", "3", "C₃H₈", "CH₃CH₂CH₃"],
-            ["Butane", "4", "C₄H₁₀", "CH₃CH₂CH₂CH₃"]
+            [
+              "Methane",
+              "1",
+              "CH₄",
+              "CH₄"
+            ],
+            [
+              "Ethane",
+              "2",
+              "C₂H₆",
+              "CH₃CH₃"
+            ],
+            [
+              "Propane",
+              "3",
+              "C₃H₈",
+              "CH₃CH₂CH₃"
+            ],
+            [
+              "Butane",
+              "4",
+              "C₄H₁₀",
+              "CH₃CH₂CH₂CH₃"
+            ]
           ]
         },
         {
@@ -190,7 +215,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.7.1.1", "AQA T 5.7.1.1"],
+      "spec_codes": [
+        "AQA 4.7.1.1",
+        "AQA T 5.7.1.1"
+      ],
       "worked_example": {
         "exemplar_id": "6939c0f5-1f9d-4948-86e0-1107672e23d3",
         "source": "AQA jun 2024, Paper 2 (H), Q03.1",
@@ -206,7 +234,13 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 8.1", "EDEX 8.2", "EDEX 8.15", "EDEX 9.10C", "EDEX 9.11C"],
+      "spec_codes": [
+        "EDEX 8.1",
+        "EDEX 8.2",
+        "EDEX 8.15",
+        "EDEX 9.10C",
+        "EDEX 9.11C"
+      ],
       "worked_example": {
         "exemplar_id": "261f31d4-5419-474c-8748-ae8df13024e9",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q6(b)(ii)",
@@ -235,7 +269,12 @@
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR C6.2l", "OCR C6.2m", "OCR C6.2n", "OCR C6.2b"],
+      "spec_codes": [
+        "OCR C6.2l",
+        "OCR C6.2m",
+        "OCR C6.2n",
+        "OCR C6.2b"
+      ],
       "worked_example": {
         "exemplar_id": "f1e5b5e9-89f0-4b80-9613-54c22f3f95bd",
         "source": "OCR jun 2019, Paper 2, Q17(b)",
@@ -247,6 +286,83 @@
         ],
         "tip": "One mark for each word. Fitting the formula CₙH₂ₙ₊₂ is also accepted for hydrocarbon."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 11.1.1",
+        "CAIE 11.1.5",
+        "CAIE 11.3.1",
+        "CAIE 11.3.2",
+        "CAIE 11.3.3",
+        "CAIE 11.3.4",
+        "CAIE 11.4.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "4de28e98-76fb-416d-89ff-8e5344cc41f7",
+        "source": "CAMBRIDGE nov 2024, Paper 43, Q6(a)",
+        "question": "State the meaning of the term hydrocarbon.",
+        "marks": 1,
+        "answer_points": [
+          "A compound containing carbon and hydrogen only."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The three fossil fuels are **coal**, **natural gas** and **petroleum** (crude oil)."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Methane is the main constituent of natural gas.",
+                "Petroleum is a mixture of hydrocarbons."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.1",
+        "IGCSE 4.7",
+        "IGCSE 4.19",
+        "IGCSE 4.20",
+        "IGCSE 4.21"
+      ],
+      "worked_example": {
+        "exemplar_id": "490485e3-05d2-4ad9-b87e-d62a7957bfa5",
+        "source": "EDEXCEL nov 2020, Paper 1 (C), Q6(a)(i)",
+        "question": "The table shows the molecular formulae of six organic compounds, A, B, C, D, E and F.\n\nA: C₂H₄\nB: C₂H₆\nC: C₃H₆\nD: C₃H₈\nE: C₄H₈\nF: C₄H₁₀\n\nExplain which homologous series compound B belongs to.",
+        "marks": 2,
+        "answer_points": [
+          "Alkanes.",
+          "Because its formula fits the general formula CₙH₂ₙ₊₂ (C₂H₆ has 2 × 2 + 2 = 6 hydrogen atoms)."
+        ],
+        "tip": "The second mark can be scored even if the series is wrong or missing."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The fifth alkane is **pentane**, with five carbon atoms."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Molecular formula: C₅H₁₂.",
+                "Structural formula: CH₃CH₂CH₂CH₂CH₃.",
+                "Displayed: a chain of five carbon atoms joined by single bonds, with hydrogen atoms completing four bonds on each carbon."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -263,14 +379,27 @@
       "f8db5365-58c7-49c4-88e9-119c8f230da5",
       "a8f5c343-2e17-4dbc-b1a4-af679bd52816",
       "60a54d21-fd1b-4f1a-b8d8-88a382e6f5bd",
-      "a0722096-1afb-426f-aa1f-643a27d9db58"
+      "a0722096-1afb-426f-aa1f-643a27d9db58",
+      "5bd88a00-2588-43ce-b61d-8b5cac3f9ca9",
+      "94d56397-549e-403f-82c7-b4e3044b31fa",
+      "99d8bef6-31e9-4606-b72c-e9bd10d18e19",
+      "ccc37e89-4c40-4fb9-b281-1df9be02caf8",
+      "3832d1c5-ff92-4e0e-ab13-c865de8b815f",
+      "624d828e-7997-4c06-8b86-6df918e9734f",
+      "a762f92f-42bf-46de-a49f-512f67391c8b",
+      "cc214ca9-75fd-4946-bbdd-f1059fc11caf",
+      "6d289ea6-e0a6-47d0-bac0-1252c18575b1",
+      "5eca1e9c-b1b3-47aa-a8a8-0621c4f0b607",
+      "523a0d1a-ef94-45c2-9da7-b3f2ed71fd19"
     ],
     "exemplar_ids": [
       "6939c0f5-1f9d-4948-86e0-1107672e23d3",
       "261f31d4-5419-474c-8748-ae8df13024e9",
-      "f1e5b5e9-89f0-4b80-9613-54c22f3f95bd"
+      "f1e5b5e9-89f0-4b80-9613-54c22f3f95bd",
+      "4de28e98-76fb-416d-89ff-8e5344cc41f7",
+      "490485e3-05d2-4ad9-b87e-d62a7957bfa5"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

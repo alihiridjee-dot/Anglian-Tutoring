@@ -396,6 +396,95 @@
         ],
         "tip": "A correct answer of 0.75 m scores 3 marks. A correct substitution into the given equation scores 1 mark."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.1.3", "CAIE 3.1.4", "CAIE 3.4.7"],
+      "worked_example": {
+        "exemplar_id": "0edd2185-2387-4e50-8656-b18a6b913657",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q6(b)",
+        "question": "A sound of frequency 13 kHz is transmitted through water.\nThe speed of sound in water is 1500 m / s.\nCalculate the wavelength of this sound in water.",
+        "marks": 3,
+        "answer_points": [
+          "Write the equation: v = f × λ, so λ = v ÷ f.",
+          "Change the frequency to hertz: 13 kHz = 13 000 Hz.",
+          "Substitute: λ = 1500 ÷ 13 000.",
+          "λ = 0.115 m, which is 0.12 m to 2 significant figures."
+        ],
+        "tip": "One mark for the equation, one for the substitution and one for the answer."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Two more words describe the shape of a wave, and a sound wave has two properties you hear."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Crest (peak)",
+                  "meaning": "The highest point of a wave."
+                },
+                {
+                  "term": "Trough",
+                  "meaning": "The lowest point of a wave."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A larger amplitude makes a louder sound.",
+                "A higher frequency makes a higher pitch."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.3",
+        "IGCSE 3.5",
+        "IGCSE 3.6",
+        "IGCSE 3.7",
+        "IGCSE 3.25P",
+        "IGCSE 3.27P",
+        "IGCSE 3.28P"
+      ],
+      "worked_example": {
+        "exemplar_id": "dd0e47ee-5e8b-4133-a7ff-83d03acbfb70",
+        "source": "EDEXCEL jun 2023, Paper 1 (P), Q4(a)(ii)",
+        "question": "Ground-penetrating radar (GPR) uses radio waves to detect changes in material underground.\n\nGPR radio waves have a frequency of 170 MHz.\n\nThe speed of radio waves is 3.0 × 10⁸ m/s.\n\nCalculate the wavelength of the waves.",
+        "marks": 3,
+        "answer_points": [
+          "Change the frequency to hertz: 170 MHz = 170 000 000 Hz.",
+          "Write the equation: λ = v ÷ f.",
+          "Substitute: λ = 3.0 × 10⁸ ÷ 170 000 000.",
+          "λ = 1.8 m."
+        ],
+        "tip": "One mark is lost if the frequency is not converted to hertz."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The pitch of a sound depends on the frequency of the vibrating source."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A source vibrating at a higher frequency makes a higher pitch.",
+                "A source vibrating at a lower frequency makes a lower pitch."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -411,7 +500,13 @@
       "1a5298c9-2b21-4dfd-b1a0-ac35f0165503",
       "b6678b3e-a443-430c-8920-b07f45f837c5",
       "ce653765-11e8-4574-8418-4d50cd59e0eb",
-      "2a167b23-84fb-43cd-8f76-1617523da3e5"
+      "2a167b23-84fb-43cd-8f76-1617523da3e5",
+      "98ed3427-65f3-4fe4-9a66-34a9441f2378",
+      "c436f475-eb75-4674-bbad-f0ae721410f2",
+      "b59af1be-d2d0-4a2e-9327-000344522755",
+      "fc37bf42-e7d6-4146-9fd5-fcb55f67ae0a",
+      "fec535f1-60df-4fe7-a7ad-c074080b2d86",
+      "8187f610-deb8-424e-a36e-775db0b2a558"
     ],
     "exemplar_ids": [
       "0b95d22e-38b9-452d-b580-87c6cc908d7b",
@@ -427,9 +522,11 @@
       "bcbed736-f54e-422d-9a80-9c6a0a7ae907",
       "c65749e7-9afa-47da-80d1-f841abd12cfd",
       "c6f5cd70-1a51-496d-ac46-52bb1cbdc5eb",
-      "d969ef8f-a29a-414e-9206-ef6ac6cf6518"
+      "d969ef8f-a29a-414e-9206-ef6ac6cf6518",
+      "0edd2185-2387-4e50-8656-b18a6b913657",
+      "dd0e47ee-5e8b-4133-a7ff-83d03acbfb70"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

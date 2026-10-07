@@ -156,10 +156,14 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 6.14"]
+      "spec_codes": [
+        "AQA 6.14"
+      ]
     },
     "edexcel": {
-      "spec_codes": ["EDEX 4.1B"],
+      "spec_codes": [
+        "EDEX 4.1B"
+      ],
       "worked_example": {
         "exemplar_id": "71798adc-79e6-47cf-a1fa-89f91291fa38",
         "source": "EDEXCEL jun 2024, Paper 1 (H), Q1(b)(i)",
@@ -176,7 +180,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 5.2f"],
+      "spec_codes": [
+        "OCR 5.2f"
+      ],
       "worked_example": {
         "exemplar_id": "805e3166-2404-400f-8e63-1069bfe84ef2",
         "source": "OCR nov 2021, Paper 4, Q23(b)",
@@ -190,6 +196,31 @@
         ],
         "tip": "One mark for each point."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 20.4.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Endangered species can be conserved in several ways."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Monitoring and protecting species and habitats.",
+                "Education, so that people understand why species matter.",
+                "Captive breeding programmes.",
+                "Seed banks, which store seeds from many plant species for a long time."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -206,6 +237,6 @@
       "805e3166-2404-400f-8e63-1069bfe84ef2"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

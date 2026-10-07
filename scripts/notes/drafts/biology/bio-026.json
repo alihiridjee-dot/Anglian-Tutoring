@@ -57,10 +57,22 @@
         },
         {
           "type": "table",
-          "columns": ["Gas", "Moves from", "Moves to"],
+          "columns": [
+            "Gas",
+            "Moves from",
+            "Moves to"
+          ],
           "rows": [
-            ["Oxygen", "Air in the alveolus", "Blood in the capillary"],
-            ["Carbon dioxide", "Blood in the capillary", "Air in the alveolus"]
+            [
+              "Oxygen",
+              "Air in the alveolus",
+              "Blood in the capillary"
+            ],
+            [
+              "Carbon dioxide",
+              "Blood in the capillary",
+              "Air in the alveolus"
+            ]
           ]
         },
         {
@@ -128,9 +140,15 @@
         },
         {
           "type": "table",
-          "columns": ["Adaptation", "Why it helps"],
+          "columns": [
+            "Adaptation",
+            "Why it helps"
+          ],
           "rows": [
-            ["Many alveoli", "A large surface area for gas exchange"],
+            [
+              "Many alveoli",
+              "A large surface area for gas exchange"
+            ],
             [
               "Walls of the alveolus and capillary are one cell thick",
               "A short diffusion distance"
@@ -179,7 +197,11 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA T 4.2.2.2", "AQA 2.6", "AQA 1.13"],
+      "spec_codes": [
+        "AQA T 4.2.2.2",
+        "AQA 2.6",
+        "AQA 1.13"
+      ],
       "worked_example": {
         "exemplar_id": "a3be6d48-f1a2-4478-b1c1-79193c519328",
         "source": "AQA jun 2024, Paper 1 (H), Q02.4",
@@ -194,7 +216,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 8.3"],
+      "spec_codes": [
+        "EDEX 8.3"
+      ],
       "worked_example": {
         "exemplar_id": "1bd3bc38-7fd9-4885-a313-65cef829a69a",
         "source": "EDEXCEL jun 2023, Paper 2 (H), Q6(a)(iii)",
@@ -224,7 +248,9 @@
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR 2.2c"],
+      "spec_codes": [
+        "OCR 2.2c"
+      ],
       "worked_example": {
         "exemplar_id": "8e68c622-2261-4613-8190-b3e426dff957",
         "source": "OCR jun 2022, Paper 1, Q17(e)",
@@ -253,6 +279,119 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 11.1.1",
+        "CAIE 13.1.1",
+        "CAIE 9.3.3",
+        "CAIE 11.1.2",
+        "CAIE 11.1.8S",
+        "CAIE 11.1.11S"
+      ],
+      "worked_example": {
+        "exemplar_id": "fdb65dd8-3fce-4323-929c-13071f33daa4",
+        "source": "CAMBRIDGE jun 2025, Paper 43, Q2(a)",
+        "question": "Alveoli are the gas exchange surface in humans.\nState three features of alveoli that make them an effective gas exchange surface.",
+        "marks": 3,
+        "answer_points": [
+          "Large surface area.",
+          "Thin wall (short diffusion distance, one cell thick).",
+          "Good blood supply (a network of capillaries).",
+          "Good ventilation with air."
+        ],
+        "tip": "Any three of these points score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The lungs are also organs of excretion. Excretion is the removal of the waste products of metabolism."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Carbon dioxide is made by respiration in the cells.",
+                "It is carried in the blood to the lungs and **excreted** in the air we breathe out."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Parts of the breathing system"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Air passes through the larynx, trachea, bronchi and bronchioles to the alveoli.",
+                "The ribs, intercostal muscles and diaphragm move to ventilate the lungs.",
+                "Each alveolus is surrounded by capillaries."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Blood vessels to and from the lungs"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The pulmonary artery carries deoxygenated blood from the heart to the lungs.",
+                "The pulmonary vein carries oxygenated blood from the lungs to the heart."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.48",
+        "IGCSE 2.40B",
+        "IGCSE 2.71"
+      ],
+      "worked_example": {
+        "exemplar_id": "7e762a88-b629-4b00-8541-def8564046ff",
+        "source": "EDEXCEL jun 2019, Paper 2 (B), Q6(c)",
+        "question": "The surface area of a lung is increased because there are many small alveoli rather than one large one.\nExplain three other ways that alveoli are adapted to maximise gas exchange.",
+        "marks": 3,
+        "answer_points": [
+          "Thin walls, one cell thick, close to the capillaries, so the diffusion distance is short.",
+          "A wet or moist lining, so gases dissolve.",
+          "Capillaries give a good blood supply, which maintains the concentration gradient."
+        ],
+        "tip": "One mark for each adaptation with its reason."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The inside of each alveolus is covered in a thin layer of moisture."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Oxygen dissolves in the moisture before it diffuses into the blood.",
+                "Moisture helps gas exchange, because gases must dissolve before they diffuse."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Excretory products"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Lungs: carbon dioxide and water vapour.",
+                "Kidneys: urea, excess water and salts, in urine.",
+                "Skin: water, salts and a little urea, in sweat."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -261,14 +400,19 @@
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "fa537cb3-6883-4a41-9632-c731ed800246",
-      "329f9f7d-d630-437c-9840-12a4b0456350"
+      "329f9f7d-d630-437c-9840-12a4b0456350",
+      "ac447b36-2d76-405e-9581-c373112f6cb6",
+      "62c18f33-0ea7-4a14-80ac-b76f45181dad",
+      "5cd57295-2978-4695-94c5-939330ea013f"
     ],
     "exemplar_ids": [
       "a3be6d48-f1a2-4478-b1c1-79193c519328",
       "1bd3bc38-7fd9-4885-a313-65cef829a69a",
-      "8e68c622-2261-4613-8190-b3e426dff957"
+      "8e68c622-2261-4613-8190-b3e426dff957",
+      "fdb65dd8-3fce-4323-929c-13071f33daa4",
+      "7e762a88-b629-4b00-8541-def8564046ff"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

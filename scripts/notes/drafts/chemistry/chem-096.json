@@ -294,6 +294,9 @@
         ],
         "tip": "More electricity, transport or manufacturing is allowed for more energy. Answers in terms of respiration are ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 10.3.2"]
     }
   },
   "meta": {
@@ -312,6 +315,6 @@
       "e60126bb-82a1-4661-a91e-24a76bed96a8"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

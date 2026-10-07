@@ -236,6 +236,65 @@
         ],
         "tip": "Any two of the marking points score. The answer must be about direction."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.1.4S", "CAIE 1.1.5S", "CAIE 1.1.6S", "CAIE 1.1.7S"],
+      "worked_example": {
+        "exemplar_id": "a5442491-7495-4716-ba3a-6b163b619af4",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q1(b)",
+        "question": "Speed is a scalar quantity and velocity is a vector quantity. State the names of one other scalar quantity and one other vector quantity.",
+        "marks": 2,
+        "answer_points": [
+          "A scalar: distance, time, mass, energy or temperature.",
+          "A vector: force, weight, acceleration, momentum, electric field strength or gravitational field strength."
+        ],
+        "tip": "One mark for each quantity, so name one scalar and one vector."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) More quantities to sort into scalars and vectors."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Scalars also include time and temperature, as well as distance, speed, mass and energy.",
+                "Vectors also include electric field strength and gravitational field strength, as well as force, weight, velocity, acceleration and momentum.",
+                "Two forces or two velocities at right angles can be combined into one resultant, by calculation or by a scale drawing."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.13", "IGCSE 1.14", "IGCSE 1.5"],
+      "worked_example": {
+        "exemplar_id": "0b3b7129-5b1d-4381-9a40-cdad7ec5ff93",
+        "source": "EDEXCEL jan 2022, Paper 1 (PR), Q4(b)",
+        "question": "This question is about scalar quantities and vector quantities. Draw a circle around each physical quantity in the box that is a scalar. The box: acceleration, charge, force, power, temperature, velocity, weight.",
+        "marks": 3,
+        "answer_points": ["Charge is a scalar.", "Power is a scalar.", "Temperature is a scalar."],
+        "tip": "Circle only the scalars. Circling extra quantities loses marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "More scalars to know."
+            },
+            {
+              "type": "list",
+              "items": ["Charge and power are scalars.", "Time and temperature are scalars too."]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -251,14 +310,21 @@
       "4ef26eae-6868-4103-ac82-b0082de0a4d4",
       "d32095b5-ab35-4092-85c5-2b55e456eeb7",
       "4826d15e-76e4-4ef4-b12c-a1353a046884",
-      "1a153dd7-7ae3-4bca-a9d3-0ed838ea55fe"
+      "1a153dd7-7ae3-4bca-a9d3-0ed838ea55fe",
+      "a41e4b21-27b5-4d30-b072-34a85ea04562",
+      "7a117592-ec52-4fe6-a0dc-d8190b59f570",
+      "6b09ac1c-861d-4f60-83e0-9a85f9f30b12",
+      "de7434f2-796e-48c4-a65d-e0114cd31fb6",
+      "eccc4b44-705f-4f61-9855-c21fcdd7f97b"
     ],
     "exemplar_ids": [
       "aee38b70-88e7-4d7f-8325-547e3a632a31",
       "8c8cbcbc-bb0b-47fc-a990-d081a00103cd",
-      "97285c9f-5a3d-4435-9bc5-c7fc72d22764"
+      "97285c9f-5a3d-4435-9bc5-c7fc72d22764",
+      "a5442491-7495-4716-ba3a-6b163b619af4",
+      "0b3b7129-5b1d-4381-9a40-cdad7ec5ff93"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

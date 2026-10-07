@@ -217,6 +217,104 @@
         ],
         "tip": "Any two of the three points score. Plant cells have mitochondria, which are the site of respiration."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 12.1.1", "CAIE 12.2.1", "CAIE 12.2.2", "CAIE 12.2.3S", "CAIE 11.1.9S"],
+      "worked_example": {
+        "exemplar_id": "5e03c6f3-018a-4475-96ec-36526d049953",
+        "source": "CAMBRIDGE mar 2024, Paper 42, Q2(c)(ii)",
+        "question": "State the balanced chemical equation for aerobic respiration.",
+        "marks": 2,
+        "answer_points": ["C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O (2 marks)."],
+        "tip": "One mark for the correct reactants and one for the correct products."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section lists the uses of energy in living organisms, and how air changes in the lungs."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Muscle contraction.",
+                "Protein synthesis.",
+                "Cell division and growth.",
+                "Active transport.",
+                "The passage of nerve impulses.",
+                "Maintaining a constant body temperature."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Inspired and expired air"
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) Expired air has less oxygen than inspired air, because oxygen is used in aerobic respiration.",
+                "(Supplement) Expired air has more carbon dioxide, because carbon dioxide is released by respiration.",
+                "(Supplement) Expired air has more water vapour, because water is also made by respiration.",
+                "Expired air is about 16% oxygen and 4% carbon dioxide. Inspired air is about 21% oxygen and 0.04% carbon dioxide."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.34",
+        "IGCSE 2.35",
+        "IGCSE 2.37",
+        "IGCSE 2.36",
+        "IGCSE 2.41B",
+        "IGCSE 2.44B",
+        "IGCSE 2.70"
+      ],
+      "worked_example": {
+        "exemplar_id": "7fbedbe1-c52d-497f-9b02-7a5fa990bd8d",
+        "source": "EDEXCEL jan 2021, Paper 1 (BR), Q9(a)",
+        "question": "Aerobic respiration uses oxygen and produces ATP.\n\nComplete the word equation for aerobic respiration.\n\noxygen + ______ → ______ + ______ + ATP",
+        "marks": 2,
+        "answer_points": [
+          "glucose (first blank).",
+          "carbon dioxide and water (the other two blanks, in either order).",
+          "All three correct scores 2 marks. One or two correct scores 1 mark."
+        ],
+        "tip": "Correct formulae are also accepted."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section covers ATP, the molecule that respiration makes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Respiration produces **ATP** in living organisms.",
+                "ATP provides the energy cells need for their reactions, movement and active transport.",
+                "Respiration takes in oxygen and gives out carbon dioxide, and it goes on day and night."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Word equation for aerobic respiration, with ATP",
+              "formula": "glucose + oxygen → carbon dioxide + water + ATP",
+              "where": [
+                "glucose is the fuel",
+                "oxygen comes from the air",
+                "ATP is the molecule that carries the energy released"
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -228,14 +326,23 @@
       "888a0273-6824-40d3-94e5-777b04ad7690",
       "01af95ca-a6f9-47b3-b290-698616837205",
       "45c0e962-0878-49fa-a497-8120f4d79318",
-      "b3e23b05-8553-4dce-a89e-8e46dd544fb6"
+      "b3e23b05-8553-4dce-a89e-8e46dd544fb6",
+      "dc9f313c-c543-4a26-865c-ff3effda2595",
+      "03ac513f-ee0f-483b-9795-fc7609d4385d",
+      "21a03b0f-0291-40df-8e15-b75aa54f1a0a",
+      "5f56e034-979a-46e3-9d67-d26e1e476e61",
+      "e7114ff2-92b4-4438-a354-44032ac7eb7c",
+      "0522a543-8785-445d-8c14-8efe9c9f96eb",
+      "de35d7e0-1523-40f2-b2dd-fc3e51a16983"
     ],
     "exemplar_ids": [
       "cb8e0754-bef4-4f1f-ae8c-cc2fbd96cffa",
       "3bf4ca4f-b741-4f3e-ba0f-47c99ee71630",
-      "1819bea2-2acf-46cd-a5e8-abaaed32ca04"
+      "1819bea2-2acf-46cd-a5e8-abaaed32ca04",
+      "5e03c6f3-018a-4475-96ec-36526d049953",
+      "7fbedbe1-c52d-497f-9b02-7a5fa990bd8d"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

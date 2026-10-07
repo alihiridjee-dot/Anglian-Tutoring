@@ -287,6 +287,123 @@
         ],
         "tip": "Three marks: bonds made, bonds broken, then the C–H value. Divide by 4 because there are four C–H bonds. The answer alone scores 0 without working."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 5.1.7S", "CAIE 5.1.8S"],
+      "worked_example": {
+        "exemplar_id": "2215a22b-bd24-4ab5-a70a-ce1692132cf7",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q6(d)(ii)",
+        "question": "Iodine and bromine react at high temperatures to form iodine monobromide, IBr.\n\nI₂(g) + Br₂(g) → 2IBr(g)\n\nThe structures of the molecules involved in the reaction are I–I, Br–Br and I–Br.\n\nbond | bond energy in kJ/mol\nI–I | 150\nBr–Br | 193\nI–Br | 175\n\nCalculate the enthalpy change, ΔH, for the reaction using the bond energies.\n\nUse the following steps.\n• Calculate the total energy required to break the bonds in 1 mol of I₂(g) and 1 mol of Br₂(g).\n• Calculate the total energy released when the bonds in 2 mol of IBr(g) are formed.\n• Calculate the enthalpy change, ΔH, for the reaction. Your answer should include a sign.",
+        "marks": 3,
+        "answer_points": [
+          "Energy to break bonds: 150 + 193 = 343 kJ.",
+          "Energy released making bonds: 2 × 175 = 350 kJ.",
+          "ΔH = 343 − 350 = −7 kJ/mol."
+        ],
+        "tip": "Subtract in the order broken minus made. The sign tells you the reaction is slightly exothermic."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The overall energy change is called the **enthalpy change, ΔH**."
+            },
+            {
+              "type": "equation",
+              "label": "Enthalpy change",
+              "formula": "ΔH = energy to break bonds − energy released making bonds",
+              "where": [
+                "ΔH is in kJ/mol",
+                "energy to break bonds is the sum of the bond energies of the reactants, in kJ",
+                "energy released making bonds is the sum of the bond energies of the products, in kJ"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) Always give a sign.",
+                "(Supplement) ΔH is negative for an exothermic reaction and positive for an endothermic reaction."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.6C", "IGCSE 3.7C", "IGCSE 3.4"],
+      "worked_example": {
+        "exemplar_id": "79fa799d-c388-4326-bf27-8baefef437b6",
+        "source": "EDEXCEL nov 2021, Paper 2 (C), Q7(b)",
+        "question": "Hydrogen gas reacts with fluorine gas to form hydrogen fluoride gas.\n\nH₂(g) + F₂(g) → 2HF(g)\n\nBond | Bond energy in kJ/mol\nH–H | 436\nF–F | 158\nH–F | 562\n\nUse the equation and the data in the table to calculate the enthalpy change (ΔH), in kJ/mol, for the reaction.\n\nInclude a sign in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Bonds broken: 436 + 158 = 594 kJ.",
+          "Bonds made: 2 × 562 = 1124 kJ.",
+          "ΔH = 594 − 1124 = −530 kJ/mol."
+        ],
+        "tip": "The sign is part of the answer. A negative ΔH means the reaction is exothermic."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The overall energy change is called the **enthalpy change, ΔH**."
+            },
+            {
+              "type": "equation",
+              "label": "Enthalpy change",
+              "formula": "ΔH = energy to break bonds − energy released making bonds",
+              "where": [
+                "ΔH is in kJ/mol",
+                "energy to break bonds is the sum of the bond energies of the reactants, in kJ",
+                "energy released making bonds is the sum of the bond energies of the products, in kJ"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Always give a sign.",
+                "ΔH is negative for an exothermic reaction and positive for an endothermic reaction."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "You can also find the **molar enthalpy change** from the heat energy change, Q."
+            },
+            {
+              "type": "equation",
+              "label": "Molar enthalpy change",
+              "formula": "ΔH = Q ÷ n",
+              "where": [
+                "ΔH is in J/mol",
+                "Q is the heat energy change in J, negative if energy is released",
+                "n is the amount of reactant in mol"
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find Q.",
+                  "text": "A reaction releases 2800 J when 0.050 mol reacts, so Q = −2800 J."
+                },
+                {
+                  "lead": "Divide.",
+                  "text": "ΔH = −2800 ÷ 0.050 = −56 000 J/mol."
+                },
+                {
+                  "lead": "Convert.",
+                  "text": "ΔH = −56 kJ/mol."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -299,14 +416,20 @@
       "8af253c5-da1d-40d9-a3f1-60caf51355b5",
       "0b738aef-0cf7-40a4-a7fd-7ab4b4f27986",
       "f036a177-b9aa-43bb-ba03-1d1393042fae",
-      "9fb7bfed-8c43-47a1-bff4-262619b6795c"
+      "9fb7bfed-8c43-47a1-bff4-262619b6795c",
+      "32a8532c-ec4e-46eb-875e-79b8b8f4f482",
+      "c0a66dd9-053c-4eb3-a5e5-5bf932841b85",
+      "93a8a097-47de-4265-8dba-59f7d851ca87",
+      "54c90551-d6ac-472c-a80e-875822935443"
     ],
     "exemplar_ids": [
       "2f066c27-1ad8-4478-bcc4-9ecd96bdb8f7",
       "d49d2b3c-9499-470b-801b-53b37faff954",
-      "5aae00e6-f649-4461-a3e0-9d9fb757ed36"
+      "5aae00e6-f649-4461-a3e0-9d9fb757ed36",
+      "2215a22b-bd24-4ab5-a70a-ce1692132cf7",
+      "79fa799d-c388-4326-bf27-8baefef437b6"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

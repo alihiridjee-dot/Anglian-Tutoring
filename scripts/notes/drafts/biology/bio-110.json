@@ -145,7 +145,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 6.11", "AQA T 4.6.2.3"],
+      "spec_codes": [
+        "AQA 6.11",
+        "AQA T 4.6.2.3"
+      ],
       "worked_example": {
         "exemplar_id": "619c2575-0d21-4389-b236-a0267406366f",
         "source": "AQA jun 2023, Paper 2 (F), Q09.9",
@@ -161,7 +164,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 4.8"],
+      "spec_codes": [
+        "EDEX 4.8"
+      ],
       "worked_example": {
         "exemplar_id": "8c089cff-ac5e-4e89-8dae-c69e4cd5f674",
         "source": "EDEXCEL nov 2021, Paper 1 (H), Q7(b)",
@@ -176,7 +181,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.2c"],
+      "spec_codes": [
+        "OCR 6.2c"
+      ],
       "worked_example": {
         "exemplar_id": "c968868a-5dc9-4a9a-9aab-bcba7f08a113",
         "source": "OCR sample, Paper 4, Q20(a)(ii)",
@@ -189,6 +196,109 @@
         ],
         "tip": "One mark for each step."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 18.3.2",
+        "CAIE 18.3.3",
+        "CAIE 18.3.6S",
+        "CAIE 20.1.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "f6e2fd4a-210a-4743-ab73-a1d15f0e8d85",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q4(b)(i)",
+        "question": "Wheat is a crop plant. A farmer wants to produce a type of wheat that flowers when there are fewer hours of daylight.\nDescribe how the farmer could selectively breed this type of wheat.",
+        "marks": 3,
+        "answer_points": [
+          "Select individual plants that flower in fewer hours of daylight.",
+          "Cross these individuals to produce the next generation.",
+          "Select the offspring that show the desirable feature.",
+          "Repeat for many generations."
+        ],
+        "tip": "Any three points score."
+      },
+      "extra": [
+        {
+          "heading": "Natural and artificial selection",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Selective breeding is artificial selection. It differs from natural selection in who chooses."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Feature",
+                "Natural selection",
+                "Artificial selection"
+              ],
+              "rows": [
+                [
+                  "What chooses",
+                  "The environment, through selection pressure",
+                  "Humans, who choose the features they want"
+                ],
+                [
+                  "Which individuals reproduce",
+                  "The better adapted ones survive and reproduce",
+                  "The individuals that humans choose"
+                ],
+                [
+                  "Features produced",
+                  "Many characteristics, all suited to the environment",
+                  "Specific features, for economic or aesthetic reasons"
+                ],
+                [
+                  "Speed",
+                  "Slower",
+                  "Faster"
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Artificial selection decreases genetic variation and the size of the gene pool."
+            }
+          ]
+        },
+        {
+          "heading": "Other ways humans increase food production",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Selective breeding is one of five ways humans have increased food production."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Agricultural machinery** lets farmers use larger areas of land and work more efficiently.",
+                "**Chemical fertilisers** improve yields.",
+                "**Insecticides** improve the quality and yield of crops.",
+                "**Herbicides** reduce competition from weeds.",
+                "**Selective breeding** improves production by crop plants and livestock."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 5.10",
+        "IGCSE 5.11"
+      ],
+      "worked_example": {
+        "exemplar_id": "ea7054a8-12ad-4d65-b00e-6ba2b05d07e2",
+        "source": "EDEXCEL jun 2022, Paper 1 (B), Q9(a)",
+        "question": "Selective breeding has been used to develop modern varieties of wheat.\nDescribe how scientists could use selective breeding to increase wheat yield.",
+        "marks": 3,
+        "answer_points": [
+          "Cross the parent plants that have the highest grain mass or yield.",
+          "Select the offspring that have the highest grain mass or yield.",
+          "Repeat for many generations."
+        ],
+        "tip": "Each of the three steps scores one mark."
+      }
     }
   },
   "meta": {
@@ -199,14 +309,21 @@
       "3868e1ad-67e9-488c-897b-7d04b5b0990b",
       "aec8f10a-c479-498a-bfe5-040e61d3200f",
       "fcdd86c3-5d39-4408-b0f6-9866fbeb95e5",
-      "db5733f2-62f3-4022-b156-af2559927d0c"
+      "db5733f2-62f3-4022-b156-af2559927d0c",
+      "f025df51-549d-4579-b041-ccad38ba4646",
+      "5bf3e9fa-7998-4858-b628-670f3dc73f49",
+      "a9a03b9b-bb78-4b4b-aa47-a5991852d1f9",
+      "6cdf2fa7-a2f3-4de7-994b-97eb0ef3632e",
+      "8a40974d-9c02-4f5c-988e-5a3a641f1bc9"
     ],
     "exemplar_ids": [
       "619c2575-0d21-4389-b236-a0267406366f",
       "8c089cff-ac5e-4e89-8dae-c69e4cd5f674",
-      "c968868a-5dc9-4a9a-9aab-bcba7f08a113"
+      "c968868a-5dc9-4a9a-9aab-bcba7f08a113",
+      "f6e2fd4a-210a-4743-ab73-a1d15f0e8d85",
+      "ea7054a8-12ad-4d65-b00e-6ba2b05d07e2"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

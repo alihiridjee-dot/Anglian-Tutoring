@@ -226,6 +226,38 @@
         ],
         "tip": "Correct multiples are allowed. Cr − 3e⁻ → Cr³⁺ is also allowed."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.1.11S", "CAIE 4.1.8S"],
+      "worked_example": {
+        "exemplar_id": "e464fd87-53fb-4354-910a-64133a93b082",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q3(e)(v)",
+        "question": "Aqueous copper(II) sulfate undergoes electrolysis using graphite electrodes.\nWrite the ionic half-equation for the reaction at the anode.",
+        "marks": 3,
+        "answer_points": [
+          "4OH⁻ → 2H₂O + O₂ + 4e⁻",
+          "O₂ is written as a product.",
+          "OH⁻ and e⁻ are included.",
+          "The equation is balanced for atoms and charge."
+        ],
+        "tip": "One mark for oxygen as a product, one for OH⁻ and electrons, one for the correct balanced equation."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.59C"],
+      "worked_example": {
+        "exemplar_id": "f1c4609c-2e8e-4c62-ac4d-e84ca6bfe417",
+        "source": "EDEXCEL jun 2023, Paper 2 (C), Q5(b)",
+        "question": "When copper(II) sulfate solution is electrolysed, copper forms at the negative electrode.\nDescribe how copper metal forms at the negative electrode.",
+        "marks": 3,
+        "answer_points": [
+          "Copper ions, Cu²⁺, are positively charged.",
+          "They are attracted to the negative electrode.",
+          "There they accept electrons.",
+          "They become copper atoms."
+        ],
+        "tip": "Any three points score. A correct half equation, Cu²⁺ + 2e⁻ → Cu, earns the first and third points."
+      }
     }
   },
   "meta": {
@@ -233,17 +265,21 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "48195747-431e-47b6-9d06-662f75d41250",
       "1579b7dc-49a3-4e72-bd60-0da6dec0467a",
       "552ad8e2-1b5c-4ed7-92cf-1b905e6ee847",
-      "a1cc8e24-e9c7-4f2f-97a4-5d7fe82e3917"
+      "a1cc8e24-e9c7-4f2f-97a4-5d7fe82e3917",
+      "d08b0313-1088-4410-970b-01f4c51738ee",
+      "e1a607cb-2d9d-40f2-8941-ae152ebff87d"
     ],
     "exemplar_ids": [
       "a4b58e04-e2ee-4814-b962-e70ca8fd7df4",
       "b5512029-de5c-457f-953f-ce621567ac28",
-      "1d57cad7-5c50-4e5f-8bf3-b1ec4fd3c839"
+      "1d57cad7-5c50-4e5f-8bf3-b1ec4fd3c839",
+      "e464fd87-53fb-4354-910a-64133a93b082",
+      "f1c4609c-2e8e-4c62-ac4d-e84ca6bfe417"
     ]
   }
 }

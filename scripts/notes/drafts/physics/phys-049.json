@@ -338,12 +338,117 @@
         ],
         "tip": "A correct answer of 1260 N m, or 1300 N m, scores all 4 marks. Using mass instead of weight loses a mark."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.5.2.1",
+        "CAIE 1.5.2.2",
+        "CAIE 1.5.2.3",
+        "CAIE 1.5.2.4",
+        "CAIE 1.5.2.5S",
+        "CAIE 1.5.2.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "fe139eb2-dc4f-4ab0-aa5d-a5753f9f1295",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q2(b)",
+        "question": "Describe how a uniform metre ruler, a pivot and a selection of masses can be used to demonstrate that there is no resultant moment on an object in equilibrium. You may include a labelled diagram in your answer.",
+        "marks": 4,
+        "answer_points": [
+          "Place the centre of the metre ruler on the pivot.",
+          "Add a mass on one side of the pivot, then add a mass on the other side to balance the ruler.",
+          "Moment = force × perpendicular distance from the pivot.",
+          "In equilibrium, the sum of the clockwise moments equals the sum of the anticlockwise moments."
+        ],
+        "tip": "Measure each distance from the pivot to the mass to get the moments."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) This experiment shows that there is no resultant moment on an object in equilibrium."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Balance.",
+                  "text": "Rest a uniform metre ruler on a pivot at its centre, so that it is level."
+                },
+                {
+                  "lead": "Load.",
+                  "text": "Hang masses on each side of the pivot and move them until the ruler is level again."
+                },
+                {
+                  "lead": "Measure.",
+                  "text": "Measure the distance from the pivot to each mass."
+                },
+                {
+                  "lead": "Calculate.",
+                  "text": "Find each moment as weight × distance from the pivot."
+                },
+                {
+                  "lead": "Compare.",
+                  "text": "The total clockwise moment equals the total anticlockwise moment."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "More than one force on a side"
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) Add up all the moments on each side of the pivot, then compare the two totals.",
+                "An object is in equilibrium when there is no resultant force and no resultant moment."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.30P", "IGCSE 1.32P", "IGCSE 1.33P"],
+      "worked_example": {
+        "exemplar_id": "48e0e0b3-d5ac-48b0-9908-2878047d7c48",
+        "source": "EDEXCEL nov 2021, Paper 2 (P), Q5(c)",
+        "question": "A student investigates how the support forces acting on a metre rule are affected by the position of a mass hanger. The metre rule is suspended from its 10 cm and 90 cm marks using two newton meters, A and B. A mass hanger with a weight of 5 N is placed on the rule and moved to different positions. Using ideas about moments, explain why the reading on newton meter A decreases as the mass hanger is moved towards newton meter B.",
+        "marks": 3,
+        "answer_points": [
+          "The clockwise moments equal the anticlockwise moments, so the moments must balance.",
+          "The distance of the mass hanger from newton meter B decreases.",
+          "So the anticlockwise moment of the weight about B decreases, which means the clockwise moment of the reading on A decreases, so its reading decreases."
+        ],
+        "tip": "Take moments about newton meter B. Any three points earn the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A light beam rests on two supports, one at each end, with a heavy load on it."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The two upward support forces add up to the weight of the load.",
+                "The support nearer the load carries more of the weight.",
+                "Moving the load towards one support increases that support force and decreases the other.",
+                "Find each support force by taking moments about the other support."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -354,7 +459,16 @@
       "122b7af2-812f-4ac2-a2db-a27d8c9ff6b2",
       "c8fc848e-42bc-46b2-8b4e-ac6dc12c3a5d",
       "f115c447-476b-4fc0-a134-542ad4f66fe3",
-      "d1be1237-5f8a-42f9-ab4c-5872b7bef289"
+      "d1be1237-5f8a-42f9-ab4c-5872b7bef289",
+      "177af35a-f15c-4b4e-93cf-30a6283ada51",
+      "a11caa57-89ad-4c1b-9081-58f847b1f430",
+      "48b2a7b0-3228-4deb-a9dd-0c29fbb65411",
+      "84ef423a-73ff-4093-b77d-d29de2403568",
+      "7d0c42a1-dc0e-40ce-a917-1c35e6d014a6",
+      "4a24c80a-b3fd-4523-ba85-485aab1a507c",
+      "cbc7eb23-c4e9-4a3b-b418-e503ae6d4ee5",
+      "019e5cd3-e6ad-4e3b-b2eb-ca0896262b28",
+      "827e4a52-4c15-4cc6-87a9-06fe038bc9e4"
     ],
     "exemplar_ids": [
       "0340d0c0-80fe-4106-a799-a3b9b34e97d9",
@@ -364,7 +478,9 @@
       "c8edd2a2-4406-402e-8931-306be9ae319d",
       "ddc5581c-2cfe-46fd-b0ab-96f9ada7be75",
       "c84bb2de-130a-4a8a-97ef-eed70fdc5c88",
-      "d08616af-485f-406b-9c88-acdf9b054941"
+      "d08616af-485f-406b-9c88-acdf9b054941",
+      "fe139eb2-dc4f-4ab0-aa5d-a5753f9f1295",
+      "48e0e0b3-d5ac-48b0-9908-2878047d7c48"
     ]
   }
 }

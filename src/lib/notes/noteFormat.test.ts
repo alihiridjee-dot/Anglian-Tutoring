@@ -1,5 +1,12 @@
 import { describe, expect, test } from "bun:test";
-import { fillTemplate, stepsOf, validateNote, type NoteDiagram } from "./noteFormat";
+import {
+  fillTemplate,
+  noteLayerFor,
+  pickNoteLayer,
+  stepsOf,
+  validateNote,
+  type NoteDiagram,
+} from "./noteFormat";
 
 const noteWith = (diagram: NoteDiagram) => ({
   format: 1,
@@ -112,5 +119,29 @@ describe("helpers", () => {
   });
   test("stepsOf avoids float drift", () => {
     expect(stepsOf({ min: 0.1, max: 0.5, step: 0.1 })).toEqual([0.1, 0.2, 0.3, 0.4, 0.5]);
+  });
+});
+
+describe("a student reads the layer for their own course", () => {
+  test("board and level give the layer key", () => {
+    expect(noteLayerFor("edexcel", "gcse")).toBe("edexcel");
+    expect(noteLayerFor("edexcel", "igcse")).toBe("edexcel_igcse");
+    expect(noteLayerFor("cambridge", "igcse")).toBe("cambridge_igcse");
+    expect(noteLayerFor("aqa", "gcse_trilogy")).toBe("aqa");
+    expect(noteLayerFor("cambridge", "gcse")).toBeUndefined();
+    expect(noteLayerFor("oxford_aqa", "igcse")).toBeUndefined();
+    expect(noteLayerFor(undefined, "igcse")).toBeUndefined();
+  });
+
+  test("a missing layer falls back within the level, never across it", () => {
+    expect(pickNoteLayer(["aqa", "edexcel_igcse"], "cambridge_igcse", "igcse")).toBe("edexcel_igcse");
+    expect(pickNoteLayer(["aqa", "edexcel_igcse"], undefined, "gcse")).toBe("aqa");
+    expect(pickNoteLayer(["aqa"], "cambridge_igcse", "igcse")).toBeUndefined();
+  });
+
+  test("IGCSE layers validate", () => {
+    const n = noteWith({ kind: "flow", alt: "a", steps: ["a", "b"] }) as any;
+    n.boards = { cambridge_igcse: { spec_codes: ["CAIE 1.1.1"] }, edexcel_igcse: { spec_codes: ["IGCSE 1.1"] } };
+    expect(validateNote(n)).toEqual([]);
   });
 });

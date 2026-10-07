@@ -31,19 +31,41 @@
         },
         {
           "type": "table",
-          "columns": ["Name", "Formula", "Carbon atoms"],
+          "columns": [
+            "Name",
+            "Formula",
+            "Carbon atoms"
+          ],
           "rows": [
-            ["Methanol", "CH₃OH", "1"],
-            ["Ethanol", "CH₃CH₂OH (or C₂H₅OH)", "2"],
-            ["Propanol", "CH₃CH₂CH₂OH (or C₃H₇OH)", "3"],
-            ["Butanol", "CH₃CH₂CH₂CH₂OH (or C₄H₉OH)", "4"]
+            [
+              "Methanol",
+              "CH₃OH",
+              "1"
+            ],
+            [
+              "Ethanol",
+              "CH₃CH₂OH (or C₂H₅OH)",
+              "2"
+            ],
+            [
+              "Propanol",
+              "CH₃CH₂CH₂OH (or C₃H₇OH)",
+              "3"
+            ],
+            [
+              "Butanol",
+              "CH₃CH₂CH₂CH₂OH (or C₄H₉OH)",
+              "4"
+            ]
           ]
         },
         {
           "type": "equation",
           "label": "General formula of an alcohol",
           "formula": "CₙH₂ₙ₊₁OH",
-          "where": ["n is the number of carbon atoms, with no unit."]
+          "where": [
+            "n is the number of carbon atoms, with no unit."
+          ]
         },
         {
           "type": "list",
@@ -77,7 +99,10 @@
             "kind": "predictor",
             "alt": "Pick a reaction of ethanol to see what you observe and what is made.",
             "prompt": "Pick a reaction of ethanol",
-            "result_labels": ["What happens", "Products"],
+            "result_labels": [
+              "What happens",
+              "Products"
+            ],
             "options": [
               {
                 "label": "Burn in air",
@@ -95,7 +120,10 @@
               },
               {
                 "label": "Add to water",
-                "results": ["It dissolves to make a neutral solution.", "No new substance is made."]
+                "results": [
+                  "It dissolves to make a neutral solution.",
+                  "No new substance is made."
+                ]
               },
               {
                 "label": "Warm with an oxidising agent",
@@ -247,7 +275,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.7.2.3"],
+      "spec_codes": [
+        "AQA 4.7.2.3"
+      ],
       "worked_example": {
         "exemplar_id": "fc99d8cb-9348-4566-8421-d7ab4838339e",
         "source": "AQA jun 2018, Paper 2 (H), Q02.5",
@@ -262,7 +292,13 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 9.26C", "EDEX 9.27C", "EDEX 9.31C", "EDEX 9.33C", "EDEX 9.34C"],
+      "spec_codes": [
+        "EDEX 9.26C",
+        "EDEX 9.27C",
+        "EDEX 9.31C",
+        "EDEX 9.33C",
+        "EDEX 9.34C"
+      ],
       "worked_example": {
         "exemplar_id": "4280f93c-688d-4194-b88f-6c2a021b9ac1",
         "source": "EDEXCEL jun 2018, Paper 2 (F), Q10(b)",
@@ -321,7 +357,10 @@
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR C6.2b", "OCR C6.2c"],
+      "spec_codes": [
+        "OCR C6.2b",
+        "OCR C6.2c"
+      ],
       "extra": [
         {
           "heading": "OCR only: oxidation by potassium manganate(VII)",
@@ -341,6 +380,162 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 11.6.1",
+        "CAIE 11.6.2",
+        "CAIE 11.6.3",
+        "CAIE 11.6.4S",
+        "CAIE 11.7.2S",
+        "CAIE 11.2.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "95726600-764c-4ba4-a639-eac26be70a07",
+        "source": "CAMBRIDGE nov 2023, Paper 41, Q6(d)",
+        "question": "Ethanol is manufactured by two methods.\n\nmethod 1: fermentation of aqueous glucose\nmethod 2: catalytic addition of steam to an alkene\n\nGive one advantage of each method of production of ethanol.\n\nmethod 1\nmethod 2",
+        "marks": 2,
+        "answer_points": [
+          "Method 1: uses renewable resources.",
+          "Method 2: high rate of reaction."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Conditions for making ethanol",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Fermentation: aqueous glucose, yeast, 25 to 35 °C and no oxygen.",
+                "Ethene and steam: 300 °C, 6000 kPa (60 atm) and an acid catalyst."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Fermentation and ethene compared (Supplement)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Each method of making ethanol has advantages and disadvantages."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Feature",
+                "Fermentation",
+                "Ethene and steam"
+              ],
+              "rows": [
+                [
+                  "Raw material",
+                  "Renewable (sugar)",
+                  "Finite (from crude oil)"
+                ],
+                [
+                  "Rate",
+                  "Slow",
+                  "Fast"
+                ],
+                [
+                  "Type of process",
+                  "Batch",
+                  "Continuous"
+                ],
+                [
+                  "Purity of ethanol",
+                  "Impure",
+                  "Pure"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Making ethanoic acid from ethanol (Supplement)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Ethanol is oxidised to ethanoic acid in two ways."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Heat with acidified aqueous potassium manganate(VII).",
+                "Bacterial oxidation in air, as in vinegar production."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.29C",
+        "IGCSE 4.30C",
+        "IGCSE 4.31C",
+        "IGCSE 4.32C",
+        "IGCSE 4.33C"
+      ],
+      "worked_example": {
+        "exemplar_id": "b006389b-fcb2-4564-91e4-89bbaa3df343",
+        "source": "EDEXCEL nov 2020, Paper 2 (C), Q4(b)(ii)",
+        "question": "Alcohols contain the functional group –OH.\n\nEthanol (C₂H₅OH) is an alcohol that can be obtained from glucose (C₆H₁₂O₆).\n\nExplain why this process is carried out in the absence of air and at a temperature below 40 °C.",
+        "marks": 4,
+        "answer_points": [
+          "Fermentation needs to be anaerobic.",
+          "In air, ethanol is not produced; the ethanol would be oxidised to ethanoic acid (vinegar), or carbon dioxide and water form.",
+          "Above about 40 °C the enzymes in yeast are denatured (lose their shape).",
+          "So the reaction slows down or stops."
+        ],
+        "tip": "Any four of these points score the four marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Ethanol can be made in two ways, and it can be oxidised to ethanoic acid in two ways."
+            },
+            {
+              "type": "subheading",
+              "text": "Manufacture"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Ethene and steam with a phosphoric acid catalyst, at about 300 °C and 60 to 70 atm.",
+                "Fermentation of glucose with the enzymes in yeast, in the absence of air, at about 30 °C."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Why fermentation uses no air and about 30 °C"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Without air, ethanol is not oxidised to ethanoic acid.",
+                "At about 30 °C the enzymes work best.",
+                "If it is too hot, the enzymes are denatured and fermentation stops."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Oxidation of ethanol"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Microbial oxidation: ethanol reacts with oxygen in the air to form ethanoic acid.",
+                "Heating with potassium dichromate(VI) in dilute sulfuric acid also forms ethanoic acid."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -355,13 +550,25 @@
       "9dcd1913-456d-4bc9-9c92-c22a3823bf2f",
       "102cdea3-4429-48a0-8d36-c0d40e0460f2",
       "a73a758c-0020-4740-8bfc-4e66440366c4",
-      "15bac1b0-1201-4af2-8a95-bf41e2543c51"
+      "15bac1b0-1201-4af2-8a95-bf41e2543c51",
+      "ed8381f4-3718-4630-925a-d934ef455a34",
+      "bd3647a5-f093-4899-a53c-7147f26ec9e1",
+      "8852f813-b237-48a2-85ea-e49c79f4a47a",
+      "1c70e017-598d-460f-af42-aaacfb8227cf",
+      "e0c6e578-1a08-4597-a80a-f222044675c7",
+      "1f1a65a0-ddc8-41d1-aea5-1b5c2b1e656f",
+      "665a555d-a5c9-49ad-9256-fd8d55134736",
+      "3954d78d-ad62-4a2f-8577-e9aec0ae6362",
+      "2b4deaa1-dab2-4360-8524-fb77791b8b7e",
+      "2d2b5955-7388-4ba3-a21c-4750b37a5e10"
     ],
     "exemplar_ids": [
       "fc99d8cb-9348-4566-8421-d7ab4838339e",
-      "4280f93c-688d-4194-b88f-6c2a021b9ac1"
+      "4280f93c-688d-4194-b88f-6c2a021b9ac1",
+      "95726600-764c-4ba4-a639-eac26be70a07",
+      "b006389b-fcb2-4564-91e4-89bbaa3df343"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

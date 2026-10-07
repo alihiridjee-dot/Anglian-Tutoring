@@ -366,12 +366,85 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.1.5",
+        "CAIE 17.1.12S",
+        "CAIE 17.2.1S",
+        "CAIE 17.2.2S",
+        "CAIE 17.2.3S",
+        "CAIE 17.2.4S",
+        "CAIE 17.1.1",
+        "CAIE 17.1.11S"
+      ],
+      "worked_example": {
+        "exemplar_id": "f1e4be00-3214-474d-8bb2-3f091d4ebeb8",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q3(d)",
+        "question": "Describe mitosis and its roles in organisms.",
+        "marks": 4,
+        "answer_points": [
+          "Mitosis is nuclear division.",
+          "It produces genetically identical cells.",
+          "The copies of the replicated chromosomes separate.",
+          "The chromosome number is maintained in each daughter cell.",
+          "Roles (two named): growth, repair of damaged tissues, replacement of cells, asexual reproduction."
+        ],
+        "tip": "Four marks come from any four of these points, and the roles need to be named."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) A **diploid** nucleus contains two sets of chromosomes, one set from each parent.",
+                "(Supplement) Mitosis also replaces cells, for example cells lost from the skin."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.28", "IGCSE 3.29", "IGCSE 3.15", "IGCSE 3.32"],
+      "worked_example": {
+        "exemplar_id": "5a52a683-60ac-4c70-9650-c78e4425fee2",
+        "source": "EDEXCEL nov 2020, Paper 1 (B), Q8(b)",
+        "question": "The table lists features comparing the processes of meiosis and mitosis in human cells.\nComplete the table by giving the missing information.\nFeature | Meiosis | Mitosis\nnumber of chromosomes in each original cell | 46 | ______\nnumber of daughter cells produced from each original cell | ______ | 2\nnumber of chromosomes in each daughter cell | ______ | ______\nploidy level of daughter cells produced | ______ | diploid\ngenetic differences in daughter cells | present | ______\ntype of cell produced | ______ | body cell",
+        "marks": 6,
+        "answer_points": [
+          "Mitosis, original cell: 46 chromosomes.",
+          "Meiosis, daughter cells produced: 4.",
+          "Chromosomes in each daughter cell: meiosis 23, mitosis 46.",
+          "Ploidy level of meiosis daughter cells: haploid.",
+          "Genetic differences in mitosis daughter cells: none (identical).",
+          "Type of cell produced by meiosis: gamete (sperm or egg cell)."
+        ],
+        "tip": "One mark for each row of the table."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The **haploid** number of chromosomes in a human cell is 23. The diploid number is 46.",
+                "Mitosis is also used for cloning, because it makes genetically identical cells.",
+                "Meiosis is different. One cell with 46 chromosomes makes four haploid cells, each with 23 chromosomes. They are genetically different gametes (sex cells)."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -382,12 +455,22 @@
       "a0d1dcdf-1ee2-4ffc-864d-5142b408d2fa",
       "3abb7067-bb34-414c-96a3-986fcee62d91",
       "876e9400-2083-4d5a-8625-3e8f4839b608",
-      "34aebdc3-ae72-41bc-a415-7f4ffedd65e3"
+      "34aebdc3-ae72-41bc-a415-7f4ffedd65e3",
+      "fabdd6f7-ae13-426b-b1d6-269a832d9b36",
+      "d8526ae3-6edb-4e6b-83a6-8c66bbda1eba",
+      "2f4e30f6-19d1-43d0-89e5-75d59ab943c5",
+      "a90453dc-00b1-4cf2-9ec3-09bf3b498903",
+      "d821d4f7-1077-4e90-b6da-310d9fd76bcf",
+      "dc9a5c61-75d4-4f8b-b2f7-67921e0b4488",
+      "250b363f-3bcd-4eac-8dcc-160dea8a6d82",
+      "4607fcc9-ec2d-4a5c-af2d-ce9d76acb37b"
     ],
     "exemplar_ids": [
       "7f71d009-81eb-463d-a33c-a9086f84e983",
       "bd288192-e30c-4cdd-b96f-7f7ec79ed505",
-      "b14a9a16-7d66-4a52-9fc3-f9e6ea78f8d0"
+      "b14a9a16-7d66-4a52-9fc3-f9e6ea78f8d0",
+      "f1e4be00-3214-474d-8bb2-3f091d4ebeb8",
+      "5a52a683-60ac-4c70-9650-c78e4425fee2"
     ]
   }
 }

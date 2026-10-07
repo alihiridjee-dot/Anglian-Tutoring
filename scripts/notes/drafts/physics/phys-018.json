@@ -308,6 +308,60 @@
         "answer_points": ["P = I²R", "P = 0.25² × 16", "P = 1 W"],
         "tip": "Full marks for the correct answer of 1 W. You are given the current and the resistance, so use P = I²R."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.2.5.2"],
+      "worked_example": {
+        "exemplar_id": "bb3b87c2-7765-4861-bf77-a3cfcfc2456b",
+        "source": "CAMBRIDGE jun 2023, Paper 41, Q8(b)(ii)",
+        "question": "A transformer steps the supply voltage down from 220 000 V to 33 000 V. The electrical power transferred to the transformer by the high-voltage cable is 77 MW. Calculate the current in the primary coil.",
+        "marks": 3,
+        "answer_points": ["P = IV, so I = P / V", "I = 7.7 × 10⁷ / 220 000", "I = 350 A"],
+        "tip": "One mark for the equation, one for the substitution with the power in watts, and one for the answer."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.3", "IGCSE 2.4", "IGCSE 2.2"],
+      "worked_example": {
+        "exemplar_id": "20ce3a07-e175-4a21-b088-7df7de5ce4d9",
+        "source": "EDEXCEL jun 2024, Paper 1 (PR), Q2(b)(ii)",
+        "question": "The voltage of the mains electricity supply is 230 V. The normal operating current of a heater is 11 A. Calculate the input power to the heater for this current. Give your answer in kW.",
+        "marks": 3,
+        "answer_points": [
+          "power = 11 × 230",
+          "power = 2530 W (about 2500 W)",
+          "power = 2.53 kW (about 2.5 kW)"
+        ],
+        "tip": "One mark each for the substitution, the answer in watts and the answer in kilowatts."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A fuse protects a device. Use P = IV to find the normal current, then choose a fuse that is rated just above it."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find the current.",
+                  "text": "I = P / V. A 1200 W heater on 230 V has a current of about 5.2 A."
+                },
+                {
+                  "lead": "Choose the fuse.",
+                  "text": "Pick the nearest standard rating above the current, such as 3 A, 5 A or 13 A. Here that is 13 A."
+                },
+                {
+                  "lead": "Why it works.",
+                  "text": "If a fault makes the current too large, the fuse wire heats up and melts. The circuit breaks and the device is protected."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -326,14 +380,19 @@
       "c87c4fc2-d838-4723-8309-9202dff8afae",
       "70ce42aa-c7c5-40c7-b4e8-6e60f8bab4c7",
       "15ee130f-7b5f-4413-a4f8-e85e6b1d6774",
-      "b70b348d-1d94-45f6-bd19-c8581aeaa335"
+      "b70b348d-1d94-45f6-bd19-c8581aeaa335",
+      "1c4fce21-eaaf-4691-90a0-335aeaa65f34",
+      "42d00cb5-a4cf-4783-86a0-26c32aaf207f",
+      "7b84a914-9620-42dc-b2c3-f578a9bc4628"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "exemplar_ids": [
       "02bfab1a-4b1f-4164-ae75-6a9c87186e6b",
       "c2b27ca1-380a-4415-a41e-dd62ddd30116",
-      "2984fe7e-dcbc-44a2-bb9d-946078209f61"
+      "2984fe7e-dcbc-44a2-bb9d-946078209f61",
+      "bb3b87c2-7765-4861-bf77-a3cfcfc2456b",
+      "20ce3a07-e175-4a21-b088-7df7de5ce4d9"
     ]
   }
 }

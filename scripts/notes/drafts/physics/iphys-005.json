@@ -1,0 +1,151 @@
+{
+  "format": 1,
+  "concept_id": "iphys-005",
+  "subject": "physics",
+  "title": "Brownian motion",
+  "key_idea": "Tiny specks in air or water jiggle about at random when seen through a microscope. They are knocked by fast, light molecules that are too small to see. This is evidence that matter is made of particles in constant random motion.",
+  "sections": [
+    {
+      "heading": "What Brownian motion is",
+      "blocks": [
+        { "type": "paragraph", "text": "Brownian motion is the random movement of microscopic particles. You can see it with a microscope, but only in a liquid or a gas." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Brownian motion", "meaning": "The continuous, random movement of microscopic particles in a fluid." },
+            { "term": "Suspension", "meaning": "Tiny solid particles spread through a liquid or a gas." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Smoke particles in air, seen as bright specks, move in a jerky, zigzag path.",
+            "Pollen grains in water move continually and randomly.",
+            "The particles do not all move in the same direction, and their path keeps changing.",
+            "The movement never stops."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Microscopic particles in a liquid or gas move continually and randomly.",
+            "This is called Brownian motion."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Explaining the motion",
+      "blocks": [
+        { "type": "paragraph", "text": "The air or water is made of molecules that are far too small to see. They are always moving, and they collide with the visible particle." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Molecules move", "text": "The molecules of air or water move quickly in random directions." },
+            { "lead": "Collisions", "text": "They collide with the microscopic particle from all sides." },
+            { "lead": "Unbalanced", "text": "At any moment there are more collisions on one side than on the other." },
+            { "lead": "A push", "text": "The unbalanced force pushes the particle a tiny distance in one direction." },
+            { "lead": "Random path", "text": "The imbalance keeps changing direction, so the path is random." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity. Put the steps that make a smoke particle move randomly in the correct order.",
+            "prompt": "Put these steps in order to explain why a smoke particle moves.",
+            "steps": [
+              "Air molecules move quickly in random directions.",
+              "The air molecules collide with the smoke particle.",
+              "More molecules hit one side of the particle than the other.",
+              "The unbalanced force pushes the particle a tiny distance.",
+              "The imbalance changes direction, so the path is random."
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The molecules are **light** and **fast-moving**, so their collisions can move the much heavier particle.",
+            "Brownian motion is **evidence** for the kinetic particle model. It shows that the molecules exist and are in constant random motion."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Random collisions with fast molecules cause the motion.",
+            "It is evidence that matter is made of moving particles."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Molecules and microscopic particles",
+      "blocks": [
+        { "type": "paragraph", "text": "(Supplement) Use the words carefully. What you see is not a molecule." },
+        {
+          "type": "list",
+          "items": [
+            "A **microscopic particle** such as smoke or pollen is large enough to see with a microscope. It is made of a huge number of atoms or molecules.",
+            "A **molecule** or atom, such as nitrogen or water, is far too small to see.",
+            "Each molecule is far lighter than the particle, so one collision moves the particle only a tiny amount."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort each item into microscopic particles seen under a microscope, and molecules too small to see.",
+            "prompt": "Is each one a microscopic particle you can see with a microscope, or a molecule you cannot?",
+            "groups": ["Microscopic particle", "Molecule"],
+            "items": [
+              { "text": "Smoke particle", "group": 0 },
+              { "text": "Pollen grain", "group": 0 },
+              { "text": "Nitrogen molecule", "group": 1 },
+              { "text": "Water molecule", "group": 1 },
+              { "text": "Oxygen molecule", "group": 1 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Smoke and pollen are microscopic particles, not molecules.",
+            "Light, fast-moving molecules knock the microscopic particles about."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the motion of pollen grains in water seen through a microscope.",
+      "a": "They move continually and randomly, in a jerky, zigzag path.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a smoke particle in air moves randomly.",
+      "a": "Fast-moving air molecules hit it at random from all sides. The collisions on each side are unbalanced at any moment, and the imbalance keeps changing direction.",
+      "marks": 3
+    },
+    {
+      "q": "(Supplement) State why Brownian motion is evidence for the particle model of matter.",
+      "a": "It shows that molecules too small to see are moving randomly and colliding with the visible particles.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 2.1.2.4", "CAIE 2.1.2.5", "CAIE 2.1.2.8S"]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": ["52e2d822-4007-4361-8bd8-f0df7d493449", "d4ea4ccd-b6ec-417d-97b8-999aad25ec40", "1d12faee-e32b-4374-8e8d-a450bb6660bb"],
+    "exemplar_ids": []
+  }
+}

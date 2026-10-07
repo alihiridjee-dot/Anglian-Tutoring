@@ -222,6 +222,33 @@
         ],
         "tip": "Any two of these points score. Energy needed to increase the separation of the molecules is also allowed."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 2.2.2.1", "CAIE 2.2.2.2S", "CAIE 2.2.3.1"],
+      "worked_example": {
+        "exemplar_id": "4c1a056d-ddc6-438d-91ac-2bd768cd29d2",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q3(b)(iv)",
+        "question": "The temperature of the water in a beaker decreases. State what happens to the internal energy of the water. Describe the change in terms of the energy of the particles.",
+        "marks": 2,
+        "answer_points": [
+          "The internal energy decreases",
+          "The (average) kinetic energy of the particles decreases"
+        ]
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 5.8P", "IGCSE 5.9P", "IGCSE 5.19"],
+      "worked_example": {
+        "exemplar_id": "090cd840-0066-4f4d-a8be-62cb77844203",
+        "source": "EDEXCEL nov 2020, Paper 2 (P), Q1(c)",
+        "question": "Liquid nitrogen warms up and changes state from a liquid into a gas. Describe the changes to the arrangement and motion of particles when the liquid nitrogen changes state.",
+        "marks": 3,
+        "answer_points": [
+          "The particles are much further apart",
+          "The particles move with a much higher speed (higher kinetic energy)",
+          "The particles move more randomly"
+        ]
+      }
     }
   },
   "meta": {
@@ -232,13 +259,18 @@
       "38ac1ccd-c458-450d-832a-78dff68182f3",
       "ab072255-4ced-4e4f-a518-e8aedc1316b9",
       "8b023ec2-4e48-4a5d-b4a6-ddbfef15250b",
-      "25043cb9-3814-41c7-a2ba-1630825b0bd6"
+      "25043cb9-3814-41c7-a2ba-1630825b0bd6",
+      "9ed2036b-8ffb-4853-8d33-498f18834d76",
+      "3938ef98-806c-4e2e-a814-84c4333831ae",
+      "b86377af-674c-41b8-9a43-ed817d2c820c"
     ],
     "exemplar_ids": [
       "1cf92678-08bd-4447-b537-420412b41df3",
-      "76ee8714-93df-4842-8e63-b1bdf8862fac"
+      "76ee8714-93df-4842-8e63-b1bdf8862fac",
+      "4c1a056d-ddc6-438d-91ac-2bd768cd29d2",
+      "090cd840-0066-4f4d-a8be-62cb77844203"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }
