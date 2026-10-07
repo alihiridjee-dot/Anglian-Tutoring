@@ -442,7 +442,12 @@ function ExamYearCard() {
         invalidatePlanner(qc, studentId),
         qc.invalidateQueries({ queryKey: ["profile-exam-year"] }),
       ]);
-      toast.success(`Exams set to summer ${selected}.`);
+      // The year is saved either way; a subject that couldn't move says why.
+      toast.success(
+        refused.length === 0
+          ? `Exams set to summer ${selected}.`
+          : `Exam year saved: summer ${selected}.`,
+      );
       for (const r of refused) toast.error(`${subjectLabel(r.subject)}: ${r.message}`);
       setPicked(null);
       setConfirming(false);
