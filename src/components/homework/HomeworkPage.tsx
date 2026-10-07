@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useId, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Chip, EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
@@ -26,6 +26,7 @@ import {
 } from "@/lib/homework/homeworkBuckets";
 import { useDueThisWeek } from "@/components/planner/useDueThisWeek";
 import { DueLanes, DueSection } from "@/components/planner/DueSection";
+import { MarkedTopic } from "@/components/planner/MarkedTopic";
 import { CalendarCheck, ChevronDown, Clock, Plus } from "lucide-react";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { MarkingQueue } from "@/components/tutor/MarkingQueue";
@@ -39,7 +40,6 @@ import { SUBJECT_LABEL, subjectTint } from "@/lib/curriculum/subjectTheme";
 import { useEntryState } from "@/hooks/useEntryState";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { PredictedGradeCard } from "@/components/homework/PredictedGradeCard";
-import { cn } from "@/lib/utils";
 
 /**
  * The homework list.
@@ -378,10 +378,8 @@ function HomeworkCard({ item, summary }: { item: HomeworkItem; summary?: Homewor
 }
 
 /**
- * Marked, under the course's topics: a slim bar per topic, folded to begin
- * with, so a term of marks opens as a short list of topics; open one and its
- * sheets are the same cards as Due's (Ali, 7 Oct 2026). See `groupByTopic` for
- * the order.
+ * Marked, under the course's topics (see `MarkedTopic`), the sheets inside each
+ * the same cards as Due's. See `groupByTopic` for the order.
  */
 function MarkedByTopic({
   items,
@@ -398,63 +396,19 @@ function MarkedByTopic({
       {groupByTopic(items, topics).map((group) => (
         <MarkedTopic
           key={group.key}
-          groupKey={group.key}
+          stateKey={`tasks.marked.${group.key}`}
           title={group.title}
-          items={group.items}
-          summaries={summaries}
-        />
+          count={group.items.length}
+          noun={["task", "tasks"]}
+        >
+          <div className="space-y-3">
+            {group.items.map((item) => (
+              <HomeworkCard key={item.hw.id} item={item} summary={summaries[item.hw.id]} />
+            ))}
+          </div>
+        </MarkedTopic>
       ))}
     </div>
-  );
-}
-
-/**
- * One topic: its name and how many marked sheets are in it, on a bar that
- * opens onto the cards. Open or folded is kept with the visit, as Due's lanes
- * are, so Back from a sheet finds the topic as left.
- */
-function MarkedTopic({
-  groupKey,
-  title,
-  items,
-  summaries,
-}: {
-  groupKey: string;
-  title: string;
-  items: HomeworkItem[];
-  summaries: Record<string, HomeworkSummary>;
-}) {
-  const id = useId();
-  const [open, setOpen] = useEntryState(`tasks.marked.${groupKey}`, false);
-  return (
-    <section>
-      <h3 className="text-sm leading-tight font-bold sm:text-base">
-        <button
-          type="button"
-          onClick={() => setOpen((o) => !o)}
-          aria-expanded={open}
-          aria-controls={id}
-          className="premium-card flex min-h-11 w-full items-center gap-3 px-4 py-2 text-left"
-        >
-          <span className="min-w-0 flex-1">{title}</span>
-          <span className="chip shrink-0">
-            <span className="numeral">{items.length}</span> task{items.length === 1 ? "" : "s"}
-          </span>
-          <ChevronDown
-            className={cn(
-              "size-4 shrink-0 text-[color:var(--tint)] transition-transform",
-              !open && "-rotate-90",
-            )}
-            aria-hidden
-          />
-        </button>
-      </h3>
-      <div id={id} hidden={!open} className="mt-3 space-y-3">
-        {items.map((item) => (
-          <HomeworkCard key={item.hw.id} item={item} summary={summaries[item.hw.id]} />
-        ))}
-      </div>
-    </section>
   );
 }
 

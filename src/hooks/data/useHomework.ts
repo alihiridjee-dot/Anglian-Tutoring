@@ -12,7 +12,7 @@ import {
 } from "@/lib/demo/studentDemo";
 import type { HomeworkAnswer, HomeworkQuestion } from "@/hooks/data/useHomeworkQuestions";
 import type { Homework, HomeworkOrigin, SubmissionRow } from "@/lib/homework/types";
-import type { HomeworkTopic } from "@/lib/homework/homeworkBuckets";
+import type { TopicRef } from "@/lib/curriculum/topicGroups";
 import type { LevelV } from "@/lib/curriculum/taxonomy";
 import { courseParts, type LibraryFilter } from "@/lib/curriculum/libraryFilter";
 import { ilikePattern } from "@/lib/search/match";
@@ -80,7 +80,7 @@ export function useHomeworkTopics(resourceIds: string[], enabled = true) {
   const ids = [...resourceIds].sort();
   return useQuery({
     queryKey: [...HOMEWORK_KEY, "topics", ids],
-    queryFn: async (): Promise<Record<string, HomeworkTopic>> => {
+    queryFn: async (): Promise<Record<string, TopicRef>> => {
       // The showcase's sheets are tutor briefs, with no spec point behind them.
       if (isDemoStudent() || ids.length === 0) return {};
       // Named key: `resource_spec_points` links the two tables as well (see below).
@@ -89,7 +89,7 @@ export function useHomeworkTopics(resourceIds: string[], enabled = true) {
         .select("id, spec_points!resources_spec_point_id_fkey(topics(id, title, sort_order))")
         .in("id", ids);
       if (error) throw error;
-      const map: Record<string, HomeworkTopic> = {};
+      const map: Record<string, TopicRef> = {};
       for (const r of data ?? []) {
         const t = r.spec_points?.topics;
         if (t) map[r.id] = { id: t.id, title: t.title, order: t.sort_order };

@@ -2,6 +2,7 @@ import type { Homework, SubmissionRow } from "@/lib/homework/types";
 import { breakCovering, type StudentBreak } from "@/lib/planner/breaks";
 import { DUE_LANE_ORDER, type DueLane, type DueSlot } from "@/lib/planner/dueLanes";
 import { toDateKey } from "@/lib/planner/week";
+import { groupUnderTopics, noTopic, type TopicRef } from "@/lib/curriculum/topicGroups";
 
 /**
  * How the homework list is ordered: by what the student has to do about it.
@@ -157,50 +158,31 @@ export function splitDue(items: HomeworkItem[]): Array<{ lane: DueLane; items: H
   })).filter((section) => section.items.length > 0);
 }
 
-/** The topic a sheet's spec point sits in (see `useHomeworkTopics`). */
-export type HomeworkTopic = { id: string; title: string; order: number };
-
 /**
- * Marked, filed under the course's topics.
- *
- * Marked is a record that only grows: at a sheet per spec point a term of it
- * runs to dozens, and one long newest-first list stopped saying anything once
- * it did (Ali, 7 Oct 2026). Under its topic a mark reads as part of the course.
- * Topics go in the course's order and sheets in spec point order inside each —
- * a generated sheet's title is its code, so the numeric title order is the
- * spec's. A tutor's brief has no spec point, so briefs go after the topics
- * under the lane name the dashboard gives them; a sheet whose topic didn't come
- * back still gets a heading rather than vanishing.
+ * Marked, filed under the course's topics (see `groupUnderTopics`). A
+ * generated sheet's title is its spec point code, so the title order inside a
+ * topic is the spec's. A tutor's brief has no spec point, so briefs go after
+ * the topics under the lane name the dashboard gives them.
  */
 export function groupByTopic(
   items: HomeworkItem[],
-  topics: Record<string, HomeworkTopic>,
+  topics: Record<string, TopicRef>,
 ): Array<{ key: string; title: string; items: HomeworkItem[] }> {
-  const groups = new Map<
-    string,
-    { key: string; title: string; order: number; items: HomeworkItem[] }
-  >();
-  for (const item of items) {
-    const topic = topics[item.hw.id];
-    const [key, title, order] = topic
-      ? [topic.id, topic.title, topic.order]
-      : item.hw.origin === "tutor"
-        ? ["tutor", "From your tutor", Number.MAX_SAFE_INTEGER - 1]
-        : ["other", "Other tasks", Number.MAX_SAFE_INTEGER];
-    const group = groups.get(key) ?? { key, title, order, items: [] };
-    group.items.push(item);
-    groups.set(key, group);
-  }
-  return [...groups.values()]
-    .sort((a, b) => a.order - b.order || byKey(a.title, b.title))
-    .map(({ key, title, items: list }) => ({
-      key,
-      title,
-      items: [...list].sort((a, b) =>
-        byKey(a.hw.title.toLocaleLowerCase(), b.hw.title.toLocaleLowerCase()),
-      ),
-    }));
+  return groupUnderTopics(
+    items,
+    (item) =>
+      topics[item.hw.id] ??
+      (item.hw.origin === "tutor" ? TUTOR_BRIEFS : noTopic("other", "Other tasks")),
+    (item) => item.hw.title,
+  );
 }
+
+/** Where a tutor's briefs go: after the topics, before anything unfiled. */
+const TUTOR_BRIEFS: TopicRef = {
+  id: "tutor",
+  title: "From your tutor",
+  order: Number.MAX_SAFE_INTEGER - 1,
+};
 
 export const BUCKET_LABEL: Record<HomeworkBucket, string> = {
   due: "Due",
