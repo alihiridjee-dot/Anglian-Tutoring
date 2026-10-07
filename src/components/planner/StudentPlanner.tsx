@@ -40,6 +40,7 @@ import { CoveredLedger } from "./CoveredLedger";
 import { ThisWeekPanel } from "./ThisWeekPanel";
 import { PausedWeek } from "./PausedWeek";
 import { BreakWeek } from "./BreakWeek";
+import { PastWeek } from "./PastWeek";
 import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
@@ -425,12 +426,17 @@ function ThisWeekTab({
         ) : resting && week.onBreak ? (
           <BreakWeek brk={week.onBreak} />
         ) : !week.loading && week.points.length === 0 && isPast ? (
-          // Said plainly, because the alternative reading — "you did nothing" —
-          // is the wrong one, and on this account it was the common one: three
-          // consecutive weeks of Topic 1 were saved with no points at all.
-          <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
-            No plan was set for this week.
-          </p>
+          // A break, a paused subject or a course since left says so. Anything
+          // else is said plainly, because the alternative reading — "you did
+          // nothing" — is the wrong one, and on this account it was the common
+          // one: three consecutive weeks of Topic 1 were saved with no points.
+          week.pastGap ? (
+            <PastWeek gap={week.pastGap} subject={subject} own />
+          ) : (
+            <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
+              No plan was set for this week.
+            </p>
+          )
         ) : (
           <ThisWeekPanel
             plan={week.plan}
@@ -448,7 +454,8 @@ function ThisWeekTab({
         )}
       </section>
 
-      {!frozen && !resting && (
+      {/* An old course's week lists its points above, as what was set. */}
+      {!frozen && !resting && week.pastGap?.kind !== "old-course" && (
         <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
       )}
 

@@ -2,8 +2,27 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { Camera, ImagePlus, KeyRound, Loader2, Mail, Trash2, UserCog } from "lucide-react";
+import {
+  CalendarDays,
+  Camera,
+  ImagePlus,
+  KeyRound,
+  Loader2,
+  Mail,
+  Trash2,
+  UserCog,
+} from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
+import { ErrorNote, Spinner } from "@/components/Shared";
+import { ChoiceTile } from "@/components/onboarding/StepCard";
+import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useRoles } from "@/hooks/useRole";
+import { useViewerId } from "@/hooks/useViewer";
+import { examYearOptions } from "@/lib/auth/onboarding";
+import { subjectLabel } from "@/lib/curriculum/courseSummary";
+import { type BoardV, type SubjectV } from "@/lib/curriculum/taxonomy";
+import { ProgramDAL } from "@/lib/planner/programDal";
+import { invalidatePlanner } from "@/lib/planner/queries";
 // Shared form primitives. They live under components/tutor for historical
 // reasons but carry nothing tutor-specific; reusing them beats restating the
 // same class strings a fourth time.
@@ -351,6 +370,164 @@ function DetailsCard() {
   );
 }
 
+/**
+ * The summer a student sits their exams. Asked at sign-up; this is where it
+ * changes after. Picking a year moves every subject to that June at once
+ * (`ProgramDAL.setExamYear`). The planner's date box moves one subject at a
+ * time, and left this answer wrong, which a subject added later is planned to.
+ *
+ * Students only. The level stays with the tutor: a new level is a different
+ * qualification, and can be a different price.
+ */
+function ExamYearCard() {
+  const qc = useQueryClient();
+  const { isTutor } = useRoles();
+  const { role, level, enrolments } = useEnrolments();
+  const studentId = useViewerId();
+  const isStudent = !isTutor && role === "student" && !!level && enrolments.length > 0;
+  const [picked, setPicked] = useState<number | null>(null);
+  const [confirming, setConfirming] = useState(false);
+  const [saving, setSaving] = useState(false);
+
+  const { data, error, refetch, isLoading } = useQuery({
+    queryKey: ["profile-exam-year", studentId],
+    enabled: isStudent && !!studentId,
+    queryFn: async () => {
+      const [profile, plans] = await Promise.all([
+        supabase.from("profiles").select("exam_year").eq("id", studentId!).maybeSingle(),
+        supabase.from("student_program_plan").select("exam_date").eq("student_id", studentId!),
+      ]);
+      if (profile.error) throw new Error(profile.error.message);
+      if (plans.error) throw new Error(plans.error.message);
+      return {
+        examYear: profile.data?.exam_year ?? null,
+        planYears: (plans.data ?? []).map((p) => Number(p.exam_date.slice(0, 4))),
+      };
+    },
+  });
+
+  if (!isStudent || !studentId || !level) return null;
+
+  const options = examYearOptions(level);
+  const onOffer = (year: number | null | undefined) =>
+    year != null && options.some((o) => o.year === year) ? year : null;
+  // The year on the profile; before anyone was asked, the year the plans share.
+  const planYears = data?.planYears ?? [];
+  const current =
+    onOffer(data?.examYear) ??
+    (planYears.length > 0 && planYears.every((y) => y === planYears[0])
+      ? onOffer(planYears[0])
+      : null);
+  const selected = picked ?? current;
+  // Only a tap changes anything. Before one, the tile shown may be a guess from
+  // the plans (nobody was asked before 7 Oct), and Save would only confirm it.
+  const changes =
+    picked != null && (picked !== data?.examYear || planYears.some((year) => year !== picked));
+  // Earlier exams squeeze every subject's weeks, so that is asked first.
+  const earlier = selected != null && planYears.some((year) => year > selected);
+
+  const save = async () => {
+    if (selected == null) return;
+    setSaving(true);
+    try {
+      const { refused } = await ProgramDAL.setExamYear({
+        studentId,
+        year: selected,
+        level,
+        courses: enrolments.map((e) => ({
+          subject: e.subject as SubjectV,
+          board: e.board as BoardV,
+        })),
+      });
+      await Promise.all([
+        invalidatePlanner(qc, studentId),
+        qc.invalidateQueries({ queryKey: ["profile-exam-year"] }),
+      ]);
+      // The year is saved either way; a subject that couldn't move says why.
+      toast.success(
+        refused.length === 0
+          ? `Exams set to summer ${selected}.`
+          : `Exam year saved: summer ${selected}.`,
+      );
+      for (const r of refused) toast.error(`${subjectLabel(r.subject)}: ${r.message}`);
+      setPicked(null);
+      setConfirming(false);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Couldn't save your exam year. Try again.");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <Card
+      title="Exam year"
+      description="The summer you sit your exams. Your plan is paced to it."
+      icon={CalendarDays}
+    >
+      {error ? (
+        <ErrorNote error={error} onRetry={() => void refetch()} />
+      ) : isLoading ? (
+        <Spinner className="py-6" />
+      ) : (
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {options.map((o) => (
+              <ChoiceTile
+                key={o.year}
+                title={o.label}
+                selected={selected === o.year}
+                onClick={() => {
+                  setPicked(o.year);
+                  setConfirming(false);
+                }}
+              />
+            ))}
+          </div>
+          {confirming ? (
+            <div className="surface-soft max-w-xl rounded-xl p-3.5 text-sm">
+              <p>
+                Move every subject’s exams to <span className="font-bold">summer {selected}</span>?
+                Your weeks get fuller to fit the course in.
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  disabled={saving}
+                  onClick={() => void save()}
+                  className="btn-solid inline-flex h-11 sm:pointer-fine:h-9 items-center gap-1.5 rounded-lg px-4 text-sm font-semibold"
+                >
+                  {saving && <Loader2 className="size-4 animate-spin" aria-hidden />}
+                  Move my exams
+                </button>
+                <button
+                  type="button"
+                  disabled={saving}
+                  onClick={() => setConfirming(false)}
+                  className="btn-soft inline-flex h-11 sm:pointer-fine:h-9 items-center rounded-lg px-4 text-sm font-semibold"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="max-w-sm">
+              <button
+                type="button"
+                disabled={!changes || saving}
+                onClick={() => (earlier ? setConfirming(true) : void save())}
+                className={submitBtn}
+              >
+                {saving ? "Saving…" : "Save exam year"}
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+    </Card>
+  );
+}
+
 function EmailCard({ currentEmail }: { currentEmail: string | null }) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -535,6 +712,7 @@ function ProfilePage() {
       <div key={user?.id ?? "nobody"} className="max-w-2xl space-y-6">
         <PhotoCard currentEmail={user?.email ?? null} />
         <DetailsCard />
+        <ExamYearCard />
         <EmailCard currentEmail={user?.email ?? null} />
         <PasswordCard currentEmail={user?.email ?? null} />
       </div>

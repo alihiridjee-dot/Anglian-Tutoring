@@ -3,6 +3,7 @@ import { useOnboardingUser } from "@/hooks/useOnboardingUser";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { dbError } from "@/lib/platform/errors";
 import {
   LEARNING_QUESTIONS,
   DEFAULT_LEARNING_RESPONSES,
@@ -52,7 +53,7 @@ function LearningStep() {
         },
         { onConflict: "student_id" },
       );
-      if (error) throw error;
+      if (error) throw dbError(error);
 
       navigate({ to: "/onboarding/school" });
     } catch (err) {

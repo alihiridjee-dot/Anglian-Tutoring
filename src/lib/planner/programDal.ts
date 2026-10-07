@@ -1,6 +1,7 @@
 import { customSchedule, reorderTopics, resumeAfterPause } from "./topicOrder";
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
+import { dbError } from "@/lib/platform/errors";
 import { type SubjectV, type BoardV, type LevelV } from "../curriculum/taxonomy";
 import { type Json } from "@/integrations/supabase/types";
 import { mondayOf, addWeeks, currentWeekKey, toDateKey, weekKeyToDate } from "./week";
@@ -105,7 +106,7 @@ export class ProgramDAL {
       .eq("subject", subject)
       .maybeSingle();
 
-    if (baselineError) throw baselineError;
+    if (baselineError) throw dbError(baselineError);
     // A stored date the calendar can't resolve (a half-typed "0002-06-01") must
     // not take the whole planner down, or the date box that would fix it never
     // renders. Plan against the default exam week instead; the next save
@@ -207,7 +208,7 @@ export class ProgramDAL {
           },
           { onConflict: "student_id,subject" },
         );
-        if (seedError) throw seedError;
+        if (seedError) throw dbError(seedError);
       }
     }
     return roadmap;
@@ -229,7 +230,7 @@ export class ProgramDAL {
       .select("exam_year")
       .eq("id", studentId)
       .maybeSingle();
-    if (error) throw error;
+    if (error) throw dbError(error);
     return examMondayIn(data?.exam_year);
   }
 
@@ -595,7 +596,7 @@ export class ProgramDAL {
       .eq("student_id", params.studentId)
       .eq("subject", params.subject)
       .maybeSingle();
-    if (readError) throw readError;
+    if (readError) throw dbError(readError);
     const stored = (saved?.pacing ?? []) as unknown as PacingBand[];
     const custom = customSchedule(stored);
     if (custom) {
@@ -617,7 +618,89 @@ export class ProgramDAL {
       .update({ exam_date: params.examDate, updated_at: new Date().toISOString() })
       .eq("student_id", params.studentId)
       .eq("subject", params.subject);
+    if (error) throw dbError(error);
+  }
+
+  /**
+   * Move every subject to one exam summer: the exam year on the profile.
+   *
+   * The year is saved on the profile first, because it is also what a subject
+   * added later is planned to ({@link defaultExamMonday}). Fixing each date
+   * with the date box left that answer wrong. Then each subject with a plan
+   * moves to the first Monday of that June and re-flows, this week included
+   * ({@link applyPending}). A subject whose exam is already in that year keeps
+   * its date: one set by hand, a May paper say, is the better answer.
+   *
+   * One subject at a time, and a refusal doesn't stop the rest: a custom topic
+   * order refuses a date that leaves too few weeks. So the caller is told
+   * which subjects moved, which kept their date and which couldn't move.
+   *
+   * `db` is for tests; the two calls it makes are the only ones not spied on.
+   */
+  static async setExamYear(
+    params: {
+      studentId: string;
+      year: number;
+      level: LevelV;
+      courses: { subject: SubjectV; board: BoardV }[];
+    },
+    db: Pick<typeof supabase, "from"> = supabase,
+  ): Promise<{
+    moved: SubjectV[];
+    kept: SubjectV[];
+    refused: { subject: SubjectV; message: string }[];
+  }> {
+    const examDate = toDateKey(examMondayIn(params.year));
+    // A year the planner won't plan to (past, or too far ahead) would be
+    // saved and then quietly ignored, so it is refused here instead.
+    if (!examDate.startsWith(`${params.year}-`))
+      throw new Error("Choose one of the exam years shown.");
+    const { error } = await db
+      .from("profiles")
+      .update({ exam_year: params.year })
+      .eq("id", params.studentId);
     if (error) throw error;
+    const { data: plans, error: plansError } = await db
+      .from("student_program_plan")
+      .select("subject, exam_date")
+      .eq("student_id", params.studentId);
+    if (plansError) throw plansError;
+
+    const result = {
+      moved: [] as SubjectV[],
+      kept: [] as SubjectV[],
+      refused: [] as { subject: SubjectV; message: string }[],
+    };
+    for (const course of params.courses) {
+      const plan = (plans ?? []).find((p) => p.subject === course.subject);
+      // No plan yet: the first one is cut to the year just saved.
+      if (!plan) {
+        result.moved.push(course.subject);
+        continue;
+      }
+      if (isReadableExamDate(plan.exam_date) && plan.exam_date.startsWith(`${params.year}-`)) {
+        result.kept.push(course.subject);
+        continue;
+      }
+      try {
+        await this.setExamDate({ studentId: params.studentId, subject: course.subject, examDate });
+      } catch (e) {
+        result.refused.push({
+          subject: course.subject,
+          message: e instanceof Error ? e.message : "Its exam date couldn't change.",
+        });
+        continue;
+      }
+      result.moved.push(course.subject);
+      try {
+        await this.applyPending({ ...course, studentId: params.studentId, level: params.level });
+      } catch (e) {
+        // The date is saved. The re-flow is tried again on the next planner
+        // visit, as it is after the date box.
+        console.warn("[planner] couldn't re-flow a subject to the new exam year", e);
+      }
+    }
+    return result;
   }
 
   /**
