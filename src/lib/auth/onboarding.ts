@@ -112,9 +112,11 @@ export function gradeOptions(level: LevelV | null): string[] {
 }
 
 /**
- * The two summers a student can be sitting, nearest first, each named by the
- * school year that sits it. GCSE and A-Level are two-year courses, so that is
- * the whole choice; the planner's exam date box covers anyone off that track.
+ * The summers a student can be sitting, nearest first, each named by the
+ * school year that sits it. A-Level is a two-year course, so two summers. A
+ * GCSE can start in Year 9, so three: offered only Years 11 and 10, a Year 9
+ * had no right answer and was planned a year short. The planner's exam date
+ * box covers anyone off that track.
  *
  * From the exam Monday to the end of August the nearest series is next
  * summer's and the student is between years. "Going into Year 11" says which
@@ -128,7 +130,8 @@ export function examYearOptions(
   const [calendarYear, month] = toDateKey(today).split("-").map(Number);
   const between = nearest > calendarYear && month <= 8;
   const finalYear = level === "alevel" ? 13 : 11;
-  return [0, 1].map((ahead) => ({
+  const summers = level === "alevel" ? [0, 1] : [0, 1, 2];
+  return summers.map((ahead) => ({
     year: nearest + ahead,
     label: `${between ? "Going into Year" : "Year"} ${finalYear - ahead} · Exams in summer ${nearest + ahead}`,
   }));

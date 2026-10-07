@@ -44,6 +44,11 @@ function BoardStep() {
 
   const teachableLevels = coverage.levels();
   const teachableBoards = coverage.boardsFor(level);
+  // A-Level offers one summer fewer than GCSE, so a Year 9 answer that then
+  // switches to A-Level would be saved without a tile showing it. The nearest
+  // summer stands in, as it does before any answer.
+  const yearOptions = examYearOptions(level);
+  const chosenYear = yearOptions.some((o) => o.year === examYear) ? examYear : yearOptions[0].year;
 
   // Coverage arrives after the first paint, and the student may have saved a
   // combination that has since lost its curriculum. Once we know what is
@@ -72,8 +77,8 @@ function BoardStep() {
       if (profile?.level) setLevel(profile.level as LevelV);
       else if (intendedLevel && LEVELS.some((l) => l.value === intendedLevel))
         setLevel(intendedLevel as LevelV);
-      // A saved year that is still one of the two on offer; an older one has
-      // had its exams, and the nearest summer stands.
+      // A saved year that is still one on offer; an older one has had its
+      // exams, and the nearest summer stands.
       const savedYear = profile?.exam_year;
       if (savedYear && examYearOptions(null).some((o) => o.year === savedYear))
         setExamYear(savedYear);
@@ -89,7 +94,7 @@ function BoardStep() {
     try {
       const { error } = await supabase
         .from("profiles")
-        .update({ level, exam_year: examYear })
+        .update({ level, exam_year: chosenYear })
         .eq("id", user.id);
       if (error) throw error;
 
@@ -138,11 +143,11 @@ function BoardStep() {
           Exam year
         </label>
         <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
-          {examYearOptions(level).map((o) => (
+          {yearOptions.map((o) => (
             <ChoiceTile
               key={o.year}
               title={o.label}
-              selected={examYear === o.year}
+              selected={chosenYear === o.year}
               onClick={() => setExamYear(o.year)}
             />
           ))}
