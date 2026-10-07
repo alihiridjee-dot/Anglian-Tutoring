@@ -3,6 +3,9 @@ import { handPicked, ProgramDAL } from "./programDal";
 import { focusInputs, type RoadmapResult } from "./roadmap";
 import { MAX_WEEK_POINTS, WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal";
 import { WeeklyActivityDAL } from "./weeklyActivityDal";
+import { SubjectPauseDAL } from "./pausesDal";
+import { BreakDAL } from "./breaksDal";
+import { currentWeekKey } from "./week";
 import { type RejectionReason } from "./admissibility";
 import type { ProgressPoint, TopicProgress } from "./scheduleDal";
 
@@ -158,6 +161,71 @@ describe("saved review repair", () => {
       coverage.mockRestore();
       select.mockRestore();
       save.mockRestore();
+    }
+  });
+});
+describe("applying a new exam date", () => {
+  const course = {
+    studentId: "student",
+    subject: "biology",
+    board: "cambridge",
+    level: "igcse",
+  } as const;
+  const teach = { topicId: "t", title: "T", startWeek: "2026-10-05", endWeek: "2026-10-19" };
+  const reflowed = (bands: object[], needsAck = true) =>
+    ({ needsAck, bands, programStart: "2026-10-05", examDate: "2028-06-30" }) as RoadmapResult;
+
+  test("re-cuts this week too, not just the full plan", async () => {
+    // The bug: the full plan moved to the new date, and this week kept the 15
+    // points the old date gave it.
+    const load = spyOn(ProgramDAL, "loadRoadmap");
+    const ack = spyOn(ProgramDAL, "acknowledge").mockResolvedValue();
+    const recut = spyOn(ProgramDAL, "refreshWeek").mockResolvedValue(true);
+    const pause = spyOn(SubjectPauseDAL, "open").mockResolvedValue(null);
+    const breaks = spyOn(BreakDAL, "list").mockResolvedValue([]);
+    try {
+      load.mockResolvedValue(reflowed([teach]));
+      await ProgramDAL.applyPending(course);
+      expect(ack).toHaveBeenCalledTimes(1);
+      expect(recut).toHaveBeenCalledWith({ ...course, weekStart: currentWeekKey() });
+
+      // Nothing re-flowed: nothing is written.
+      load.mockResolvedValue(reflowed([teach], false));
+      await ProgramDAL.applyPending(course);
+      expect(ack).toHaveBeenCalledTimes(1);
+      expect(recut).toHaveBeenCalledTimes(1);
+
+      // A custom order's weeks are re-cut by reorder_student_topics instead.
+      const schedule = { version: 1, from: "2026-10-05", examDate: "2028-06-30" };
+      load.mockResolvedValue(reflowed([{ ...teach, schedule }]));
+      await ProgramDAL.applyPending(course);
+      expect(recut).toHaveBeenCalledTimes(1);
+
+      // A paused subject or a break week is never planned.
+      load.mockResolvedValue(reflowed([teach]));
+      pause.mockResolvedValueOnce({ reason: "paused", startedAt: "2026-10-01T00:00:00Z" });
+      await ProgramDAL.applyPending(course);
+      breaks.mockResolvedValueOnce([
+        { startsOn: currentWeekKey(), endsOn: currentWeekKey() } as never,
+      ]);
+      await ProgramDAL.applyPending(course);
+      expect(recut).toHaveBeenCalledTimes(1);
+
+      // The plan is saved even when the week can't follow it just now.
+      recut.mockRejectedValueOnce(new Error("offline"));
+      const warn = spyOn(console, "warn").mockImplementation(() => {});
+      try {
+        expect(await ProgramDAL.applyPending(course)).toEqual(reflowed([teach]));
+        expect(warn).toHaveBeenCalledTimes(1);
+      } finally {
+        warn.mockRestore();
+      }
+    } finally {
+      load.mockRestore();
+      ack.mockRestore();
+      recut.mockRestore();
+      pause.mockRestore();
+      breaks.mockRestore();
     }
   });
 });
