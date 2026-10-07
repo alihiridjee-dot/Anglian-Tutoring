@@ -1,5 +1,7 @@
 import { supabase } from "@/integrations/supabase/client";
 import { isBoard, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { examMondayFor } from "@/lib/planner/pacing";
+import { toDateKey } from "@/lib/planner/week";
 
 /**
  * Profile setup — the steps between verifying an email and reaching payment.
@@ -107,6 +109,29 @@ export function gradeOptions(level: LevelV | null): string[] {
   return level === "alevel"
     ? ["A*", "A", "B", "C", "D", "E", "U"]
     : ["9", "8", "7", "6", "5", "4", "3", "2", "1", "U"];
+}
+
+/**
+ * The two summers a student can be sitting, nearest first, each named by the
+ * school year that sits it. GCSE and A-Level are two-year courses, so that is
+ * the whole choice; the planner's exam date box covers anyone off that track.
+ *
+ * From the exam Monday to the end of August the nearest series is next
+ * summer's and the student is between years. "Going into Year 11" says which
+ * to pick there, where "Year 11" would send a Year 10 in July a year late.
+ */
+export function examYearOptions(
+  level: LevelV | null,
+  today: Date = new Date(),
+): { year: number; label: string }[] {
+  const nearest = Number(toDateKey(examMondayFor(today)).slice(0, 4));
+  const [calendarYear, month] = toDateKey(today).split("-").map(Number);
+  const between = nearest > calendarYear && month <= 8;
+  const finalYear = level === "alevel" ? 13 : 11;
+  return [0, 1].map((ahead) => ({
+    year: nearest + ahead,
+    label: `${between ? "Going into Year" : "Year"} ${finalYear - ahead} · Exams in summer ${nearest + ahead}`,
+  }));
 }
 
 /** Setup was finished with no subject saved. */

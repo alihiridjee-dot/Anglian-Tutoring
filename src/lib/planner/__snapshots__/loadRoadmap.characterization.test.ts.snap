@@ -36,6 +36,12 @@ exports[`first view by the student: seeds the baseline 1`] = `
       "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
     ],
     [
+      "db",
+      "GET",
+      "profiles",
+      "?select=exam_year&id=eq.student",
+    ],
+    [
       "getPlan",
       [
         "student",
@@ -488,6 +494,12 @@ exports[`first view by someone else: answers the same but leaves no mark 1`] = `
       "GET",
       "student_program_plan",
       "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
+    ],
+    [
+      "db",
+      "GET",
+      "profiles",
+      "?select=exam_year&id=eq.student",
     ],
     [
       "getPlan",

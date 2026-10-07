@@ -260,8 +260,16 @@ async function resolvePackage(
   return rows.find((r) => r.level === level) ?? rows.find((r) => r.level === null) ?? null;
 }
 
+/**
+ * The live site, where Stripe sends the payer back. Refused rather than
+ * guessed: a localhost address sends every payer to "can't connect to the
+ * server" (APP_URL itself was localhost until 6 Oct 2026). Failing here stops
+ * before Stripe is opened, so nobody pays.
+ */
 function appUrl() {
-  return Deno.env.get("APP_URL") ?? "http://localhost:3000";
+  const url = Deno.env.get("APP_URL")?.trim();
+  if (!url) throw new HttpError(500, "Payments aren't set up on the server yet.");
+  return url.replace(/\/+$/, "");
 }
 
 function returnPath(key: string | undefined, fallback: string) {
@@ -272,6 +280,8 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
   const user = await requireUser(req);
   const db = admin();
   const stripe = stripeClient();
+  // First, so a missing APP_URL changes nothing: no checkout expired, no customer made.
+  const back = `${appUrl()}${returnPath(payload.return_to, RETURN_PATHS.onboarding)}`;
 
   const beneficiary = payload.student_id ?? user.id;
 
@@ -326,7 +336,6 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
     : null;
 
   const customerId = await resolveCustomer(stripe, user.id, user.email);
-  const back = `${appUrl()}${returnPath(payload.return_to, RETURN_PATHS.onboarding)}`;
 
   const session = await stripe.checkout.sessions.create({
     mode: "subscription",

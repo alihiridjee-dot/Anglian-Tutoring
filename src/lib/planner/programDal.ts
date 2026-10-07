@@ -7,7 +7,7 @@ import { mondayOf, addWeeks, currentWeekKey, toDateKey, weekKeyToDate } from "./
 import { ScheduleDAL, type TopicProgress } from "./scheduleDal";
 import {
   type PacingBand,
-  examMondayFor,
+  examMondayIn,
   programStartFor,
   isTeachBand,
   projectReviews,
@@ -108,7 +108,7 @@ export class ProgramDAL {
     // renders. Plan against the default exam week instead; the next save
     // replaces the bad value.
     if (baseline && !isReadableExamDate(baseline.exam_date))
-      baseline.exam_date = toDateKey(examMondayFor());
+      baseline.exam_date = toDateKey(await this.defaultExamMonday(studentId));
 
     // A subject that has just restarted picks its programme up where it
     // stopped, before anything is cut from it (see resumeAfterPause).
@@ -135,7 +135,9 @@ export class ProgramDAL {
 
     // One figure for the year, computed once from the same candidates both the
     // roadmap and the week are about to be cut from.
-    const examMonday = baseline ? weekKeyToDate(baseline.exam_date) : examMondayFor();
+    const examMonday = baseline
+      ? weekKeyToDate(baseline.exam_date)
+      : await this.defaultExamMonday(studentId);
 
     const savedWeek = params.projectOnly
       ? null
@@ -206,6 +208,26 @@ export class ProgramDAL {
       }
     }
     return roadmap;
+  }
+
+  /**
+   * The exam week a new plan is cut to: the first Monday of June in the year
+   * the student gave at sign-up, else the nearest June ([[examMondayIn]]).
+   * Read only while a subject has no plan, because after that the plan's own
+   * date is the answer and the date box is how it changes.
+   *
+   * A failed read throws rather than guessing. The student's first view saves
+   * the plan on this answer, and a passing fault must not quietly put a Year 10
+   * on next June's exam.
+   */
+  private static async defaultExamMonday(studentId: string): Promise<Date> {
+    const { data, error } = await supabase
+      .from("profiles")
+      .select("exam_year")
+      .eq("id", studentId)
+      .maybeSingle();
+    if (error) throw error;
+    return examMondayIn(data?.exam_year);
   }
 
   /**
