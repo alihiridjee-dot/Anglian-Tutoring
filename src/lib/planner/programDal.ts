@@ -30,6 +30,9 @@ import {
   mergeWeek,
   selectWeek,
   unsupportedReviews,
+  weekDrift,
+  type SavedWeekPoints,
+  type WeekDrift,
   type WeekSelection,
 } from "./weekCut";
 import { SubjectPauseDAL } from "./pausesDal";
@@ -439,6 +442,29 @@ export class ProgramDAL {
       origin: "ai",
     });
     return true;
+  }
+
+  /**
+   * Where this week's saved plan has fallen behind the full plan ([[weekDrift]]),
+   * or null when it hasn't. A point started this week stays in it whatever the
+   * plan says (mergeWeek), so it is no reason to re-cut on its own. The
+   * coverage read that tells is made only when nothing else already says yes.
+   */
+  static async weekBehindPlan(params: {
+    studentId: string;
+    weekStart: string;
+    saved: SavedWeekPoints;
+    roadmap: RoadmapResult | null;
+  }): Promise<WeekDrift | null> {
+    const drift = weekDrift(params.saved, params.roadmap, params.weekStart);
+    if (!drift || drift.missing.length) return drift;
+    const coverage = await WeeklyActivityDAL.getCoverage(
+      params.studentId,
+      drift.stale,
+      params.weekStart,
+    );
+    const stale = drift.stale.filter((id) => !coverage.get(id)?.attempted);
+    return stale.length ? { missing: [], stale } : null;
   }
 
   private static async reorderedReviews(p: {
