@@ -2,6 +2,7 @@ import { WeekBreakdown } from "./WeekBreakdown";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { ErrorNote, EmptyState as KitEmptyState } from "@/components/Shared";
 import { useMemo } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { CalendarRange, ChevronLeft, ChevronRight, Undo2 } from "lucide-react";
 import { WeeklyPlanDAL, type PlanPoint } from "@/lib/planner/weeklyPlanDal";
@@ -9,6 +10,8 @@ import { type Enrolment } from "@/lib/profile/enrolment";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { currentWeekKey, mondayOf, addWeeks, toDateKey, weekRangeLabel } from "@/lib/planner/week";
 import { carryOrigin } from "@/lib/planner/coverage";
+import { breakCovering } from "@/lib/planner/breaks";
+import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { ThisWeekPanel } from "./ThisWeekPanel";
 import { DoNowPanel } from "./DoNowPanel";
 import { useWeekPlan } from "./useWeekPlan";
@@ -87,6 +90,10 @@ export function WeeklyPlanPanel({
   const atExam = !!week.roadmap && nextStart >= week.roadmap.examDate;
   const atStart = !!week.roadmap && weekStart <= week.roadmap.programStart;
   const resting = !frozen && !!week.onBreak && !isPast;
+  // "Focus again" puts a past point into this week, so it isn't offered while
+  // this week is a break: nothing new can be planned for one.
+  const breaks = useQuery({ ...studentBreaksQuery(studentId), enabled: !!active });
+  const thisWeekOnBreak = !!breakCovering(breaks.data ?? [], toDateKey(monday));
 
   // Pull a past-week point back into this week's plan, in the lane it was in —
   // the same rule the end-of-week carry follows ({@link carryOrigin}).
@@ -210,7 +217,7 @@ export function WeeklyPlanPanel({
             weekStart={weekStart}
             isPast={isPast}
             showCoverage={showReview}
-            onFocusAgain={focusAgain}
+            onFocusAgain={thisWeekOnBreak ? undefined : focusAgain}
             reviewMore={reviewMore}
           />
         )}

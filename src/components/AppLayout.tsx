@@ -193,7 +193,12 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
           }`}
         >
           <div className="mb-6 flex items-center justify-between gap-2">
-            <Link to="/" className="wordmark flex min-w-0 items-center gap-2 px-2">
+            {/* Signed in, the logo is the way home: this role's dashboard, the
+                sidebar's first entry. The showcase keeps it as the way out. */}
+            <Link
+              to={isDemo ? "/" : nav[0].to}
+              className="wordmark flex min-w-0 items-center gap-2 px-2"
+            >
               <span className="icon-tile icon-tile-solid wordmark-tile size-10 shrink-0">
                 <GraduationCap className="size-5" aria-hidden />
               </span>

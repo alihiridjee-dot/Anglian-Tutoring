@@ -255,9 +255,11 @@ export class WeeklyPlanDAL {
     /** Whose plan — omit for the signed-in student; a tutor passes the target. */
     studentId?: string;
   }): Promise<string> {
-    const uid = await getSessionUserId();
-    if (!uid) throw new Error("Not signed in");
-    const studentId = params.studentId ?? uid;
+    // Who may save whose week is the database's call (RLS and grants). A
+    // session only names the student when nobody else does: the nightly plan
+    // check (planHeal.server) names them and has no session.
+    const studentId = params.studentId ?? (await getSessionUserId());
+    if (!studentId) throw new Error("Not signed in");
 
     // One transaction, server-side (`save_weekly_plan`). This used to be an
     // upsert followed by a separate delete and insert, which left the plan

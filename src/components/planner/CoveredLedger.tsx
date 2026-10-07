@@ -11,6 +11,8 @@ import { isDueBy, retrievability } from "@/lib/planner/scheduler";
 import { type Enrolment } from "@/lib/profile/enrolment";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { currentWeekKey } from "@/lib/planner/week";
+import { breakCovering } from "@/lib/planner/breaks";
+import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 import { useNow } from "@/hooks/useNow";
 
@@ -81,6 +83,9 @@ export function CoveredLedger({
   const data = progress.data ?? [];
   // Reviews come due with the clock, not only with new work.
   const now = new Date(useNow(60_000));
+  // A retake goes into this week, and nothing new can be planned for a break week.
+  const breaks = useQuery({ ...studentBreaksQuery(studentId), enabled: canRetake && !!active });
+  const thisWeekOnBreak = !!breakCovering(breaks.data ?? [], currentWeekKey(now));
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [retaking, setRetaking] = useState<string | null>(null);
 
@@ -259,7 +264,7 @@ export function CoveredLedger({
                         </td>
                       </tr>
                     ))}
-                  {canRetake && isOpen && done > 0 && (
+                  {canRetake && isOpen && done > 0 && !thisWeekOnBreak && (
                     <tr className="bg-muted/20">
                       <td colSpan={3} className="pt-1 pr-4 pb-3 pl-9 sm:pl-11">
                         <button
