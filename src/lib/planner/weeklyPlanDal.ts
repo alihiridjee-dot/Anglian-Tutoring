@@ -12,6 +12,7 @@ import {
 import { ScheduleDAL } from "./scheduleDal";
 import { type PacingBand } from "./pacing";
 import { selectIn } from "../platform/db/chunked";
+import { dbError } from "../platform/errors";
 import { getSessionUserId } from "@/lib/auth/session";
 
 import { MAX_WEEK_POINTS } from "./weekCut";
@@ -116,7 +117,7 @@ export class WeeklyPlanDAL {
         : Promise.resolve([]),
     ]);
     for (const result of [baselineResult, enrolmentResult, profileResult])
-      if (result.error) throw new Error(result.error.message);
+      if (result.error) throw dbError(result.error);
     const baseline = baselineResult.data;
     const enrolments = enrolmentResult.data ?? [];
     const level = profileResult.data?.level;
@@ -186,7 +187,7 @@ export class WeeklyPlanDAL {
       .eq("week_start", weekStart)
       .maybeSingle();
     if (error) {
-      throw new Error(error.message);
+      throw dbError(error);
     }
     if (!plan) return null;
 
@@ -197,7 +198,7 @@ export class WeeklyPlanDAL {
       )
       .eq("plan_id", plan.id);
 
-    if (pointsError) throw new Error(pointsError.message);
+    if (pointsError) throw dbError(pointsError);
 
     const points: PlanPoint[] = ((rows ?? []) as unknown as PointRow[])
       .filter((r) => !!r.spec_points)
@@ -296,7 +297,7 @@ export class WeeklyPlanDAL {
       _rationale: (params.rationale ?? null) as string,
       _points: points as unknown as Json,
     });
-    if (error) throw error;
+    if (error) throw dbError(error);
     return planId;
   }
 
@@ -324,7 +325,7 @@ export class WeeklyPlanDAL {
       .select("student_id, subject, board, level, week_start")
       .eq("id", planId)
       .maybeSingle();
-    if (planError) throw planError;
+    if (planError) throw dbError(planError);
     if (!plan) throw new Error("That weekly plan no longer exists.");
 
     // The database caps a week at MAX_WEEK_POINTS, but only in `save_weekly_plan`.
@@ -337,7 +338,7 @@ export class WeeklyPlanDAL {
       .from("student_weekly_plan_points")
       .select("spec_point_id")
       .eq("plan_id", planId);
-    if (heldError) throw heldError;
+    if (heldError) throw dbError(heldError);
     const present = new Set((held ?? []).map((r) => r.spec_point_id));
     const incoming = new Set(specPointIds.filter((id) => !present.has(id)));
     if (present.size + incoming.size > MAX_WEEK_POINTS)
@@ -361,7 +362,7 @@ export class WeeklyPlanDAL {
       points.map((p) => ({ plan_id: planId, ...p })),
       { onConflict: "plan_id,spec_point_id", ignoreDuplicates: true },
     );
-    if (error) throw error;
+    if (error) throw dbError(error);
     return points.length;
   }
 
@@ -429,7 +430,7 @@ export class WeeklyPlanDAL {
       .from("spec_points")
       .select("id")
       .eq("topic_id", params.topicId);
-    if (error) throw error;
+    if (error) throw dbError(error);
     const ids = (pts ?? []).map((p) => p.id);
     if (ids.length === 0) return 0;
 
@@ -472,7 +473,7 @@ export class WeeklyPlanDAL {
       .update({ done_at: done ? new Date().toISOString() : null })
       .eq("plan_id", planId)
       .eq("spec_point_id", specPointId);
-    if (error) throw error;
+    if (error) throw dbError(error);
   }
 
   /** Persist the student's free-text note on the plan. */
@@ -481,6 +482,6 @@ export class WeeklyPlanDAL {
       .from("student_weekly_plans")
       .update({ note, updated_at: new Date().toISOString() })
       .eq("id", planId);
-    if (error) throw error;
+    if (error) throw dbError(error);
   }
 }
