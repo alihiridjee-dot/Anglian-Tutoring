@@ -47,14 +47,14 @@ const CHAPTERS = [
 const FOUNDERS = [
   {
     name: "Dr Nadia",
-    role: "Head of Biology & Chemistry",
+    role: "Head of Curriculum & Assessment",
     image: "/tutors/nadia.jpg",
     sticker: "🧬",
     tilt: -4,
   },
   {
     name: "Ali",
-    role: "Head of Physics & Maths",
+    role: "Head of Teaching & Learning",
     image: "/tutors/ali.jpg",
     sticker: "⚛️",
     tilt: 4,

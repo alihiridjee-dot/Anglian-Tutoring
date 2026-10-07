@@ -9,6 +9,7 @@ import {
   type TutorOption,
 } from "@/lib/chat/chatDal";
 import { pinnedSelection } from "@/lib/chat/threadSelection";
+import { suggestQuestions } from "@/lib/chat/questionIdeas.functions";
 
 /** Everything chat-shaped sits under this prefix, so one invalidate refreshes it. */
 export const CHAT_KEY = ["chat"] as const;
@@ -72,6 +73,24 @@ export function useTutorDirectory() {
     queryFn: (): Promise<TutorOption[]> => ChatDAL.listTutors(),
     enabled,
     staleTime: 1000 * 60 * 30,
+  });
+}
+
+/**
+ * Suggested questions for a student's new question, about the topics they did
+ * worst on. Each fetch is a paid DeepSeek call, so it is kept for half an hour
+ * and sits outside CHAT_KEY: sending a question must not ask again.
+ */
+export function useQuestionIdeas(wanted: boolean) {
+  const { userId, loading } = useRoles();
+  return useQuery({
+    queryKey: ["question-ideas", userId],
+    queryFn: () => suggestQuestions(),
+    enabled: wanted && !isDemoMode() && !loading && !!userId,
+    staleTime: 1000 * 60 * 30,
+    gcTime: 1000 * 60 * 30,
+    retry: false,
+    refetchOnWindowFocus: false,
   });
 }
 
