@@ -44,7 +44,10 @@
             "kind": "sort",
             "alt": "Sort statements into irradiation and contamination.",
             "prompt": "Does each statement describe irradiation or contamination?",
-            "groups": ["Irradiation", "Contamination"],
+            "groups": [
+              "Irradiation",
+              "Contamination"
+            ],
             "items": [
               {
                 "text": "The source is outside the object",
@@ -115,7 +118,11 @@
           "diagram": {
             "kind": "compare",
             "alt": "A table comparing alpha, beta and gamma radiation by penetration, ionising power and risk from a source outside the body.",
-            "items": ["Alpha", "Beta", "Gamma"],
+            "items": [
+              "Alpha",
+              "Beta",
+              "Gamma"
+            ],
             "rows": [
               {
                 "feature": "Penetration",
@@ -127,7 +134,11 @@
               },
               {
                 "feature": "Ionising power",
-                "values": ["Highest", "Less than alpha", "Weakly ionising"]
+                "values": [
+                  "Highest",
+                  "Less than alpha",
+                  "Weakly ionising"
+                ]
               },
               {
                 "feature": "Risk from a source outside the body",
@@ -221,7 +232,11 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.4.2.4", "AQA T 6.4.2.4", "AQA 4.4.3.2"],
+      "spec_codes": [
+        "AQA 4.4.2.4",
+        "AQA T 6.4.2.4",
+        "AQA 4.4.3.2"
+      ],
       "worked_example": {
         "exemplar_id": "8490d86b-253f-4285-9351-d3214fb9ae85",
         "source": "AQA jun 2022, Paper 1 (H), Q07.3",
@@ -252,7 +267,12 @@
       ]
     },
     "edexcel": {
-      "spec_codes": ["EDEX 6.29", "EDEX 6.30P", "EDEX 6.31", "EDEX 6.32"],
+      "spec_codes": [
+        "EDEX 6.29",
+        "EDEX 6.30P",
+        "EDEX 6.31",
+        "EDEX 6.32"
+      ],
       "worked_example": {
         "exemplar_id": "d51abfeb-a56d-4de5-825f-0896b66c829c",
         "source": "EDEXCEL nov 2021, Paper 1 (F), Q9(d)*",
@@ -269,7 +289,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P6.2a", "OCR P6.2b"],
+      "spec_codes": [
+        "OCR P6.2a",
+        "OCR P6.2b"
+      ],
       "worked_example": {
         "exemplar_id": "61787676-f16c-4205-8cfd-ea17e3f6cb6e",
         "source": "OCR jun 2024, Paper 4, Q17(a)",
@@ -281,6 +304,91 @@
         ],
         "tip": "Keep the two ideas apart. A contamination answer that mentions radiation touching the workers does not score."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 5.2.5.1",
+        "CAIE 5.2.5.2",
+        "CAIE 5.2.5.3S"
+      ],
+      "worked_example": {
+        "exemplar_id": "8dfee8c4-72f0-4f81-b878-e6b311fc37fd",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q9(a)(i)",
+        "question": "Radioactive isotopes that emit ionising radiation are used in hospitals.\n\nState and explain two safety precautions necessary for the use of these isotopes in medical procedures.",
+        "marks": 2,
+        "answer_points": [
+          "Reduce the exposure time, so a lower amount of radiation is absorbed.",
+          "Increase the distance between the source and the staff, so a lower amount of radiation reaches them.",
+          "Use shielding, such as walls or lead, so the radiation is absorbed and cannot pass through.",
+          "Any two precautions, each with its explanation."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Each precaution works by cutting the amount of radiation that reaches living tissue."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Reduce the time of exposure, so less radiation is absorbed.",
+                "Increase the distance between the source and living tissue, so less radiation reaches it.",
+                "Use shielding, so the radiation is absorbed before it reaches living tissue."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Radioactive materials are moved in sealed, lead-lined containers.",
+                "They are used for as short a time as possible and handled with tongs.",
+                "They are stored in lead-lined boxes, away from people."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 7.15",
+        "IGCSE 7.16",
+        "IGCSE 7.22"
+      ],
+      "worked_example": {
+        "exemplar_id": "97943716-c9d3-464f-ba5f-315381cf8abb",
+        "source": "EDEXCEL jun 2022, Paper 1 (P), Q5(c)",
+        "question": "A material called granite is used as a work surface in a kitchen. Thorium-232 is a solid and remains in the work surface. Radon-220 is a gas and is emitted from the work surface. Thorium-232 and radon-220 both emit alpha radiation.\n\nDiscuss the hazards due to the granite work surface when a person is working in the kitchen.\n\nRefer to contamination and irradiation in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Alpha radiation can cause cell mutation or cancer.",
+          "Alpha radiation is blocked by skin and by a few cm of air, so it is only dangerous inside the body.",
+          "Thorium stays in the work surface and cannot enter the body, so it can only cause irradiation.",
+          "Radon is a gas that can be breathed in, so it can cause contamination as well as irradiation."
+        ],
+        "tip": "Any three points score the 3 marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Radioactive waste stays dangerous for a long time. Disposing of it is a problem, and the risk is reduced in these ways."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Keep it in strong, sealed containers that will not rust or leak.",
+                "Bury it in a secure underground site, away from water and earthquakes.",
+                "Limit how often people handle it, and keep the site guarded."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -296,14 +404,21 @@
       "a0136f48-3a68-42da-92c2-f3b998025c1d",
       "34f7f5af-189f-48be-bced-77943fb27fb8",
       "74063584-ccc3-4454-b518-e3eadbe76ea5",
-      "e7f80910-8b6e-4b24-b3c5-023b9b182daa"
+      "e7f80910-8b6e-4b24-b3c5-023b9b182daa",
+      "cb528134-ee12-49f8-a267-1842faeac3db",
+      "eec56aab-76a8-4c53-8d7c-54097e6024b0",
+      "1d798e75-b400-43fe-b0a0-1b3ba0ea44e6",
+      "d6805adf-83f8-4779-b889-b0ece2297ab6",
+      "3694cc07-ad87-4596-bc76-57fd613487fa"
     ],
     "exemplar_ids": [
       "8490d86b-253f-4285-9351-d3214fb9ae85",
       "d51abfeb-a56d-4de5-825f-0896b66c829c",
-      "61787676-f16c-4205-8cfd-ea17e3f6cb6e"
+      "61787676-f16c-4205-8cfd-ea17e3f6cb6e",
+      "8dfee8c4-72f0-4f81-b878-e6b311fc37fd",
+      "97943716-c9d3-464f-ba5f-315381cf8abb"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

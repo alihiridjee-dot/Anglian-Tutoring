@@ -146,7 +146,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 6.12", "AQA T 4.6.2.4"],
+      "spec_codes": [
+        "AQA 6.12",
+        "AQA T 4.6.2.4"
+      ],
       "worked_example": {
         "exemplar_id": "92efb369-acc9-405f-80c6-f5d867816b87",
         "source": "AQA jun 2019, Paper 2 (H), Q03.2",
@@ -198,7 +201,10 @@
       ]
     },
     "edexcel": {
-      "spec_codes": ["EDEX 4.10", "EDEX 4.11"],
+      "spec_codes": [
+        "EDEX 4.10",
+        "EDEX 4.11"
+      ],
       "worked_example": {
         "exemplar_id": "ae9873b5-37c0-42e0-98fd-ffab324c8b41",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q5(c)",
@@ -214,7 +220,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.2d", "OCR 6.2e"],
+      "spec_codes": [
+        "OCR 6.2d",
+        "OCR 6.2e"
+      ],
       "worked_example": {
         "exemplar_id": "b1c31e72-31f3-4b7a-9122-0be4ead986da",
         "source": "OCR nov 2020, Paper 4, Q20(c)(i)",
@@ -248,6 +257,136 @@
           "heading": "Host bacteria and antibiotic markers"
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 21.1.1",
+        "CAIE 21.1.2S",
+        "CAIE 21.3.1",
+        "CAIE 21.3.2",
+        "CAIE 21.3.3S",
+        "CAIE 21.2.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "061848db-d77b-478e-b209-cde784af75da",
+        "source": "CAMBRIDGE jun 2025, Paper 42, Q3(b)(iii)",
+        "question": "Human proteins can also be made using bacteria that have been genetically modified.\nDescribe how a gene can be transferred from one organism to another using genetic modification.",
+        "marks": 6,
+        "answer_points": [
+          "The gene is isolated from the chromosome of the first organism.",
+          "Restriction enzymes cut the gene and the bacterial plasmid.",
+          "The same restriction enzyme is used for both, so sticky ends form.",
+          "The sticky ends are complementary.",
+          "DNA ligase joins the gene into the plasmid, forming a recombinant plasmid.",
+          "The recombinant plasmid is inserted into bacteria.",
+          "The bacteria multiply and make the protein from the gene."
+        ],
+        "tip": "Any six points score."
+      },
+      "extra": [
+        {
+          "heading": "Why bacteria are used",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Bacteria are useful in biotechnology and genetic modification for several reasons."
+            },
+            {
+              "type": "list",
+              "items": [
+                "They reproduce rapidly.",
+                "They can make complex molecules.",
+                "They are small and need simple conditions to grow.",
+                "They share the same genetic code as other organisms, so a human gene works in them.",
+                "(Supplement) There are few ethical concerns about growing and changing them.",
+                "(Supplement) They contain plasmids, which can carry genes."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "More examples of genetic modification",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A gene for resistance to insect pests is inserted into a crop plant. For example, maize that makes its own insecticide.",
+                "Genes are inserted into crop plants to improve their nutritional quality. For example, rice that contains beta-carotene."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Making products in a fermenter",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Fermenters are used for large-scale production of useful products by bacteria and fungi, such as insulin, penicillin and mycoprotein. The conditions inside are controlled."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A nutrient broth feeds the bacteria.",
+                "The fermenter is cleaned with steam or hot water first. These aseptic conditions stop contamination and competition from other microorganisms.",
+                "Paddles stir the contents so that they are mixed.",
+                "Oxygen is bubbled in.",
+                "A cooling jacket controls the temperature."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 5.12",
+        "IGCSE 5.13",
+        "IGCSE 5.14"
+      ],
+      "worked_example": {
+        "exemplar_id": "99245f58-c8f5-4ccd-8230-5546225e7441",
+        "source": "EDEXCEL jun 2023, Paper 1 (B), Q9(a)",
+        "question": "Genetically modified bacteria are used to produce the hormone insulin.\nExplain how these genetically modified bacteria are produced.",
+        "marks": 4,
+        "answer_points": [
+          "A restriction enzyme cuts the gene for human insulin out of the DNA.",
+          "The same restriction enzyme cuts the bacterial plasmid.",
+          "This makes complementary sticky ends.",
+          "Ligase joins the gene into the plasmid.",
+          "The plasmid is taken up by a bacterium."
+        ],
+        "tip": "Any four points score."
+      },
+      "extra": [
+        {
+          "heading": "Vectors and fermenters",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Viruses as well as plasmids can act as vectors. A vector takes up a piece of DNA and inserts the recombinant DNA into another cell."
+            },
+            {
+              "type": "paragraph",
+              "text": "Large amounts of human insulin are made by growing the genetically modified bacteria in a fermenter."
+            }
+          ]
+        },
+        {
+          "heading": "Conditions in the fermenter",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A nutrient broth feeds the bacteria.",
+                "The fermenter is cleaned with steam or hot water first. These aseptic conditions stop contamination and competition from other microorganisms.",
+                "Paddles stir the contents so that they are mixed.",
+                "Oxygen is bubbled in.",
+                "A cooling jacket controls the temperature."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -260,14 +399,24 @@
       "57ff6100-014d-48c9-8a81-63d1d81cbeb1",
       "a70fad16-3291-4200-9e31-a21e0ada5b2f",
       "ac85dc96-babf-4f59-be05-308d7371bf14",
-      "4939d756-2ac4-4f66-a569-7693651bcaeb"
+      "4939d756-2ac4-4f66-a569-7693651bcaeb",
+      "4f2aef59-d567-4539-a909-a9c1332a53d0",
+      "8f445717-ec3a-4990-8b25-095792693097",
+      "ea13bf57-3c83-42f3-be62-67a71bdf3016",
+      "aae2062b-f2c8-4780-bc9f-c8596c0cdd46",
+      "05ace682-47da-4c19-814a-30fa6fc312b3",
+      "a2366649-c019-4274-92ca-c82c15effb8e",
+      "65ad7ce1-f004-4fd1-bef1-e21ae99138a4",
+      "ccb34952-e5ec-4a0c-8f66-432532edceec"
     ],
     "exemplar_ids": [
       "92efb369-acc9-405f-80c6-f5d867816b87",
       "ae9873b5-37c0-42e0-98fd-ffab324c8b41",
-      "b1c31e72-31f3-4b7a-9122-0be4ead986da"
+      "b1c31e72-31f3-4b7a-9122-0be4ead986da",
+      "061848db-d77b-478e-b209-cde784af75da",
+      "99245f58-c8f5-4ccd-8230-5546225e7441"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

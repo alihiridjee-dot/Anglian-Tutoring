@@ -109,11 +109,17 @@
           "diagram": {
             "kind": "compare",
             "alt": "A table comparing treating a tumour with a source outside the body and with a source inside the body.",
-            "items": ["Source outside the body", "Source inside the body"],
+            "items": [
+              "Source outside the body",
+              "Source inside the body"
+            ],
             "rows": [
               {
                 "feature": "Radiation used",
-                "values": ["Gamma rays or X-rays", "Such as alpha, which has a short range"]
+                "values": [
+                  "Gamma rays or X-rays",
+                  "Such as alpha, which has a short range"
+                ]
               },
               {
                 "feature": "Why it works",
@@ -161,7 +167,10 @@
         },
         {
           "type": "table",
-          "columns": ["Use", "How it works"],
+          "columns": [
+            "Use",
+            "How it works"
+          ],
           "rows": [
             [
               "Smoke alarm",
@@ -215,7 +224,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.4.3.3"],
+      "spec_codes": [
+        "AQA 4.4.3.3"
+      ],
       "worked_example": {
         "exemplar_id": "97544f5f-97cc-4a92-84e7-2c67e30f9967",
         "source": "AQA jun 2018, Paper 1 (H), Q6.5",
@@ -231,7 +242,12 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 6.28P", "EDEX 6.33P", "EDEX 6.34P", "EDEX 6.35P"],
+      "spec_codes": [
+        "EDEX 6.28P",
+        "EDEX 6.33P",
+        "EDEX 6.34P",
+        "EDEX 6.35P"
+      ],
       "worked_example": {
         "exemplar_id": "9f6f0a72-69dc-46fb-9d6c-248bd578f50f",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q8(a)(ii)",
@@ -286,7 +302,9 @@
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR P6.2c"],
+      "spec_codes": [
+        "OCR P6.2c"
+      ],
       "worked_example": {
         "exemplar_id": "f71fa96e-f7aa-479f-a8aa-4c5ea97b1548",
         "source": "OCR jun 2023, Paper 2, Q23(a)(i)",
@@ -297,6 +315,54 @@
           "The half-life is long enough to allow repeat readings, or for the examination to take place."
         ],
         "tip": "Each reason needs the idea of short enough or long enough. Less damage or harm, and it lasts for a long time, are ignored."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 5.2.4.3S"
+      ],
+      "worked_example": {
+        "exemplar_id": "aeb30d5e-da23-4adb-92c3-e94cc64303dc",
+        "source": "CAMBRIDGE nov 2023, Paper 43, Q9(a)(i)",
+        "question": "For a household smoke alarm, state and explain which type of radioactive emission is suitable and suggest an appropriate half-life for the isotope.",
+        "marks": 3,
+        "answer_points": [
+          "Alpha radiation.",
+          "It is highly ionising and not very penetrating.",
+          "A half-life of any value between 10 and 500 years."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) In a thickness gauge the source and detector sit on opposite sides of the material. For thin sheets, such as paper, plastic or aluminium foil, use beta radiation: it passes through, and the amount absorbed depends on the thickness.",
+                "(Supplement) Alpha is no use for a thickness gauge because the material stops it. Gamma is used for thick material, because beta cannot pass through.",
+                "(Supplement) The count rate can be used to control the thickness: if the count rate falls, the material is too thick and the rollers are moved closer together.",
+                "(Supplement) A source used in a smoke alarm, a thickness gauge or to sterilise equipment needs a half-life of years, so that it keeps working and does not need replacing often. A medical tracer needs a half-life of only hours."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 7.14"
+      ],
+      "worked_example": {
+        "exemplar_id": "0c379822-ca8a-43de-97ed-96351d3b9353",
+        "source": "EDEXCEL jan 2020, Paper 1 (P), Q11(b)(ii)",
+        "question": "Technetium-99m is an isotope of the element technetium. It has a half-life of 6 hours and can be used as a medical tracer.\n\nIt is injected into a patient's blood and moves around the patient's body. Technetium-99m emits gamma radiation, which is used to locate the position of the tracer in the patient's body.\n\nExplain why technetium-99m is an effective isotope to use as a medical tracer.",
+        "marks": 2,
+        "answer_points": [
+          "Gamma radiation can penetrate out of the body, so it can be detected outside the body.",
+          "The half-life is long enough to complete the procedure, but the activity falls to a safe level quickly, so it is not in the body for long."
+        ],
+        "tip": "One mark comes from the type of radiation and one from the half-life."
       }
     }
   },
@@ -310,14 +376,18 @@
       "26f1b022-56a0-49c6-90b2-2ed215698eb9",
       "d8bb22e0-0711-4deb-a349-8278deb22b5e",
       "06da0b28-896f-436e-acc9-f607675b9de2",
-      "5c5f43a1-6ca7-437a-a171-7924db690b52"
+      "5c5f43a1-6ca7-437a-a171-7924db690b52",
+      "72edce5c-edf7-4210-977f-4aca5e715bb1",
+      "6201870b-de04-47ff-9a66-10fa871b6e50"
     ],
     "exemplar_ids": [
       "97544f5f-97cc-4a92-84e7-2c67e30f9967",
       "9f6f0a72-69dc-46fb-9d6c-248bd578f50f",
-      "f71fa96e-f7aa-479f-a8aa-4c5ea97b1548"
+      "f71fa96e-f7aa-479f-a8aa-4c5ea97b1548",
+      "aeb30d5e-da23-4adb-92c3-e94cc64303dc",
+      "0c379822-ca8a-43de-97ed-96351d3b9353"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

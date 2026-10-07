@@ -224,6 +224,71 @@
         ],
         "tip": "One mark for each step. Labelled diagrams can also score."
       }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.2", "IGCSE 3.8", "IGCSE 3.3"],
+      "worked_example": {
+        "exemplar_id": "0ede73ca-9822-4c43-923d-14ede3893fa0",
+        "source": "EDEXCEL nov 2021, Paper 1 (C), Q9(a)(iii)",
+        "question": "A student investigates the temperature change when solid hydrated sodium carbonate reacts with dilute hydrochloric acid.\n\nShe pours 25.0 cm³ of dilute hydrochloric acid into a polystyrene cup, records the temperature, adds the solid and records the lowest temperature of the mixture.\n\nExplain why it is better to use a polystyrene cup instead of a glass beaker in this experiment.",
+        "marks": 2,
+        "answer_points": [
+          "Polystyrene is an insulator.",
+          "This reduces the energy transferred from the surroundings to the mixture.",
+          "So the temperature decrease is closer to the true value (the results are more accurate)."
+        ],
+        "tip": "Any two points score. Link the insulator to what it does to the energy transfer."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Combustion can be tested too. A burning fuel heats a known volume of water in a metal container."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Measure the temperature rise of the water.",
+                "Weigh the fuel burner before and after to find the mass of fuel burned."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The heat energy change can be calculated from the temperature change."
+            },
+            {
+              "type": "equation",
+              "label": "Heat energy change",
+              "formula": "Q = m × c × ΔT",
+              "where": [
+                "Q is the heat energy change in J",
+                "m is the mass of water in g",
+                "c is the specific heat capacity of water, 4.2 J/g °C",
+                "ΔT is the temperature change in °C"
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find the mass.",
+                  "text": "25 cm³ of water has a mass of 25 g."
+                },
+                {
+                  "lead": "Substitute.",
+                  "text": "The temperature rises by 7.0 °C, so Q = 25 × 4.2 × 7.0."
+                },
+                {
+                  "lead": "Calculate.",
+                  "text": "Q = 735 J."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -234,14 +299,17 @@
       "a77f540b-93d3-446c-8381-522171c2c53e",
       "b7d1e919-98ea-4827-a7d3-fe7d3198aa19",
       "6c7a26d7-db6c-4d9f-a19c-85292604c7e5",
-      "f66f3609-f421-43f7-b036-2e5ff458a849"
+      "f66f3609-f421-43f7-b036-2e5ff458a849",
+      "51c4c4f8-ff23-4f5a-8c75-67ff4b9483e7",
+      "6ab00af2-7b98-4a39-b623-62376367e6ff"
     ],
     "exemplar_ids": [
       "4e539719-04c4-48ea-bb36-945b8fc09053",
       "264de51c-7b47-40bf-82a8-6fe329655b3f",
-      "63cbe95e-46aa-4bbd-b5b0-f8fe259f0f69"
+      "63cbe95e-46aa-4bbd-b5b0-f8fe259f0f69",
+      "0ede73ca-9822-4c43-923d-14ede3893fa0"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

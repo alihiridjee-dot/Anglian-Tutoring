@@ -307,6 +307,116 @@
         ],
         "tip": "Use both columns. C reacts fastest in water, and B does not react at all."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 9.1.2",
+        "CAIE 9.4.1",
+        "CAIE 9.4.2",
+        "CAIE 9.4.3",
+        "CAIE 9.4.4S",
+        "CAIE 9.4.5S",
+        "CAIE 9.5.5S",
+        "CAIE 9.6.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "e73e2df8-d83a-4bea-a927-cec4239dc9d8",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q2(b)(iv)",
+        "question": "Sodium reacts with cold water to form hydrogen gas and a solution of a strong alkali. Write the symbol equation for the reaction between sodium and cold water. Include state symbols.",
+        "marks": 3,
+        "answer_points": [
+          "2Na(s) + 2H₂O(l) → 2NaOH(aq) + H₂(g)",
+          "1 mark for NaOH as a product",
+          "1 mark for the fully correct equation",
+          "1 mark for the state symbols"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Magnesium reacts very slowly with cold water, but reacts quickly with steam.",
+                "Silver and gold, like copper, do not react with dilute hydrochloric acid, because they are below hydrogen in the series.",
+                "Aluminium is a reactive metal, but it seems unreactive because of a thin oxide layer on its surface."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Magnesium and steam",
+              "formula": "Mg + H₂O → MgO + H₂",
+              "where": [
+                "Mg: magnesium, heated in steam",
+                "H₂O: steam (water as a gas)",
+                "MgO: magnesium oxide, a white solid",
+                "H₂: hydrogen gas"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The oxide layer on aluminium is thin and unreactive. It stops water and acid reaching the metal underneath."
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Displacement can also rank metals by their tendency to form positive ions. A metal displaces any metal below it from a solution of its ions."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Test each metal in solutions of magnesium, zinc, iron, copper and silver ions.",
+                "Magnesium displaces all the others, so it forms positive ions most easily.",
+                "Silver displaces none of them, so it forms positive ions least easily."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.15", "IGCSE 2.16", "IGCSE 2.17", "IGCSE 2.21"],
+      "worked_example": {
+        "exemplar_id": "a4462c2f-8c50-4791-8c36-0c9dafd5ccb7",
+        "source": "EDEXCEL nov 2021, Paper 1 (C), Q11(b)",
+        "question": "Copper is a brown metal and its sulfate solution is blue. Iron is a dark grey metal and its sulfate solution is green. Magnesium is a silvery metal and its sulfate solution is colourless. Zinc is a light grey metal and its sulfate solution is colourless. Use this information and your knowledge of the reactivity series to explain any colour changes in these two experiments. Copper added to magnesium sulfate solution. Zinc added to iron sulfate solution.",
+        "marks": 5,
+        "answer_points": [
+          "Copper and magnesium sulfate: no colour change",
+          "Copper is less reactive than magnesium, so it cannot displace magnesium",
+          "Zinc and iron sulfate: zinc turns from light grey to dark grey",
+          "The solution turns from green to colourless",
+          "Zinc is more reactive than iron, so zinc displaces iron"
+        ],
+        "tip": "The first two points are for the copper experiment and the last three for the zinc experiment."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A more reactive metal also displaces a less reactive metal from its oxide when they are heated together."
+            },
+            {
+              "type": "equation",
+              "label": "Displacement from an oxide",
+              "formula": "magnesium + copper(II) oxide → magnesium oxide + copper",
+              "where": [
+                "magnesium: the more reactive metal, which takes the oxygen",
+                "copper: the less reactive metal, set free"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "If the metal oxide is reduced, the metal added is more reactive.",
+                "If nothing happens, the metal added is less reactive than the metal in the oxide."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -314,7 +424,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check, opus-5-5-diagram-audit",
-    "checked_at": "2026-10-03",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "64bb97a5-d18e-41f9-9805-f89e1ce66bbe",
       "a03ed155-a7a4-4514-89d1-e8acb13d47b0",
@@ -322,12 +432,23 @@
       "c29d0393-9c0e-4aa2-bfc0-2838e54eaf2b",
       "c25275aa-7e97-4d06-86de-d9314e2455c6",
       "e92078ad-3c04-4c1e-bb8c-c519a167c521",
-      "c3dad98e-a9cc-423e-9bf4-a5259f3d2fb4"
+      "c3dad98e-a9cc-423e-9bf4-a5259f3d2fb4",
+      "c838d82e-0022-455a-914e-d4090195bc37",
+      "fb72575f-ace3-4480-84bb-c920abdad3cf",
+      "09af7691-fadf-4e06-9679-8045403b8759",
+      "1fe1dbda-4a52-42b3-8b11-197fbe293b42",
+      "51f1b00e-9321-4cc6-9c22-e23292fe73e8",
+      "411c1d20-9254-49bf-a116-99ea6309a826",
+      "7d515b6b-0736-418b-a127-bd61edc5240e",
+      "e633eede-dfae-4d12-a951-11d7b272660e",
+      "52b545ac-ab40-44bd-b414-480265c0c88f"
     ],
     "exemplar_ids": [
       "68ebb496-c5eb-444c-871e-ee556f69e32e",
       "50eb0a88-d203-48dc-85cc-ef045a1e89af",
-      "05963311-a8e6-44e2-ad48-e7f8ddfe90e8"
+      "05963311-a8e6-44e2-ad48-e7f8ddfe90e8",
+      "e73e2df8-d83a-4bea-a927-cec4239dc9d8",
+      "a4462c2f-8c50-4791-8c36-0c9dafd5ccb7"
     ]
   }
 }

@@ -27,7 +27,12 @@
         },
         {
           "type": "table",
-          "columns": ["Trophic level", "Name", "Example", "How it gets its energy"],
+          "columns": [
+            "Trophic level",
+            "Name",
+            "Example",
+            "How it gets its energy"
+          ],
           "rows": [
             [
               "1",
@@ -35,9 +40,24 @@
               "Algae",
               "Makes food by photosynthesis, using light absorbed by chlorophyll"
             ],
-            ["2", "Primary consumer", "Invertebrate animals", "Eats the producers"],
-            ["3", "Secondary consumer", "Small fish", "Eats the primary consumers"],
-            ["4", "Tertiary consumer", "Large fish", "Eats the secondary consumers"]
+            [
+              "2",
+              "Primary consumer",
+              "Invertebrate animals",
+              "Eats the producers"
+            ],
+            [
+              "3",
+              "Secondary consumer",
+              "Small fish",
+              "Eats the primary consumers"
+            ],
+            [
+              "4",
+              "Tertiary consumer",
+              "Large fish",
+              "Eats the secondary consumers"
+            ]
           ]
         },
         {
@@ -195,10 +215,14 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 7.11"]
+      "spec_codes": [
+        "AQA 7.11"
+      ]
     },
     "edexcel": {
-      "spec_codes": ["EDEX 9.7B"],
+      "spec_codes": [
+        "EDEX 9.7B"
+      ],
       "worked_example": {
         "exemplar_id": "c060fc0a-7c18-4eed-a8f1-40df1e2fb100",
         "source": "EDEXCEL jun 2022, Paper 2 (F), Q10(c)(iii)",
@@ -215,7 +239,11 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 4.1h", "OCR 4.1i", "OCR 4.1j"],
+      "spec_codes": [
+        "OCR 4.1h",
+        "OCR 4.1i",
+        "OCR 4.1j"
+      ],
       "worked_example": {
         "exemplar_id": "9bdf587c-222b-4056-a128-d874ab8679a3",
         "source": "OCR jun 2018, Paper 4, Q23(a)(ii)",
@@ -227,6 +255,104 @@
         ],
         "tip": "Movement is ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 19.2.11",
+        "CAIE 19.2.13",
+        "CAIE 19.2.14",
+        "CAIE 19.2.12",
+        "CAIE 19.2.15S"
+      ],
+      "worked_example": {
+        "exemplar_id": "c8a7a50d-4122-4d35-8828-f464f39bdabd",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q4(a)(ii)",
+        "question": "A student recorded information about an aquatic habitat.\n\nAquatic plants provide food for freshwater shrimps and midges. Mayflies also feed on aquatic plants. The mayflies provide food for salmon. Stoneflies feed on midges and are eaten by salmon. Salmon also eat freshwater shrimps. Herons feed on salmon.\n\nComplete the table by naming the missing trophic levels and giving one organism at each different trophic level.\n\nproducer: aquatic plants\nprimary consumer: ______\nsecondary consumer: ______\n______: ______\n______: ______",
+        "marks": 3,
+        "answer_points": [
+          "Primary consumer: mayflies, midges or freshwater shrimps.",
+          "Secondary consumer: salmon or stoneflies.",
+          "Tertiary consumer: salmon or herons.",
+          "Quaternary consumer: herons."
+        ],
+        "tip": "One mark for a correct primary and a correct secondary consumer, one for tertiary consumer with an organism, one for quaternary consumer with an organism."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Some food chains have a fourth consumer. It eats the tertiary consumers and is called a **quaternary consumer**."
+            },
+            {
+              "type": "subheading",
+              "text": "Pyramids of numbers"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A pyramid of numbers has one bar for each trophic level.",
+                "The length of each bar is in proportion to the number of organisms at that level.",
+                "It can differ from a pyramid of biomass: one large tree can feed thousands of insects, so a bar can be shorter than the one above it.",
+                "A pyramid of biomass is more reliable. Mass allows for the size of organisms, and it never gives an inverted shape."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Pyramids of energy"
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) A pyramid of energy has one bar for each trophic level.",
+                "(Supplement) Each bar is in proportion to the energy at that level, for example in kJ per m² per year.",
+                "(Supplement) It is always a pyramid shape, because energy is lost as heat at each level."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.6",
+        "IGCSE 4.7",
+        "IGCSE 4.8"
+      ],
+      "worked_example": {
+        "exemplar_id": "8604003b-a15b-43c9-abf8-1b2ee9e894a3",
+        "source": "EDEXCEL nov 2021, Paper 1 (B), Q9(b)(ii)",
+        "question": "This food chain is found in a food web.\n\nmicroscopic algae → limpet → lobster → common seal\n\nExplain why the amount of energy available to the organisms changes along this food chain.",
+        "marks": 3,
+        "answer_points": [
+          "Energy is lost between each level.",
+          "It is lost as heat, or used in respiration or movement.",
+          "It is lost in excretion (urine).",
+          "Some material is not eaten, not digested or is egested (faeces).",
+          "Some organisms die and decompose."
+        ],
+        "tip": "Any three different ways energy is lost score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The course also asks for pyramids of number and pyramids of energy."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A pyramid of numbers has one bar for each trophic level. Each bar is in proportion to the number of organisms.",
+                "It can differ from a pyramid of biomass: one large tree can feed thousands of insects, so a bar can be shorter than the one above it.",
+                "A pyramid of energy has one bar for each level, in proportion to the energy transferred. Energy is lost as heat at each level, so it is always a pyramid shape."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -237,13 +363,19 @@
       "dae1f22e-6b50-4c41-b9de-19643a4465d0",
       "fdc5f7b9-4bf9-4c50-9c82-2e700d379cc4",
       "cb63e6bb-aa28-4980-8eb9-0db87358ad75",
-      "a77d6af8-ddad-4b1b-ab5c-432b30720118"
+      "a77d6af8-ddad-4b1b-ab5c-432b30720118",
+      "1f96be20-6921-42b8-b7c7-262fccb1ace0",
+      "7336ed1c-590a-4adb-a3c5-459fa5f5ead0",
+      "3a76c683-342f-4ece-91a1-750be15eeec6",
+      "b3b63f0a-d0e5-4d89-bda8-c1284124514c"
     ],
     "exemplar_ids": [
       "9bdf587c-222b-4056-a128-d874ab8679a3",
-      "c060fc0a-7c18-4eed-a8f1-40df1e2fb100"
+      "c060fc0a-7c18-4eed-a8f1-40df1e2fb100",
+      "c8a7a50d-4122-4d35-8828-f464f39bdabd",
+      "8604003b-a15b-43c9-abf8-1b2ee9e894a3"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

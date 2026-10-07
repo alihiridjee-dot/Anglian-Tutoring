@@ -153,7 +153,11 @@
             "kind": "sort",
             "alt": "Sort each statement into a benefit, a risk or an ethical issue of using stem cells.",
             "prompt": "Benefit, risk or ethical issue?",
-            "groups": ["Benefit", "Risk", "Ethical issue"],
+            "groups": [
+              "Benefit",
+              "Risk",
+              "Ethical issue"
+            ],
             "items": [
               {
                 "text": "The patient's own cells are unlikely to be rejected",
@@ -246,7 +250,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 1.9", "AQA T 4.1.2.3"],
+      "spec_codes": [
+        "AQA 1.9",
+        "AQA T 4.1.2.3"
+      ],
       "worked_example": {
         "exemplar_id": "4d768fd2-1300-4e3e-b122-02be004728ed",
         "source": "AQA jun 2018, Paper 1 (H), Q06.6",
@@ -266,7 +273,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 2.9"],
+      "spec_codes": [
+        "EDEX 2.9"
+      ],
       "worked_example": {
         "exemplar_id": "8c37f7d0-e1d4-480a-ab6f-564f2f6766fb",
         "source": "EDEXCEL nov 2021, Paper 1 (H), Q5(c)",
@@ -283,7 +292,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3v"],
+      "spec_codes": [
+        "OCR 6.3v"
+      ],
       "worked_example": {
         "exemplar_id": "eb150d11-9153-48db-ba57-486d39bd3446",
         "source": "OCR jun 2022, Paper 2, Q16(e)",
@@ -296,23 +307,41 @@
         ],
         "tip": "Link the three steps in order: stem cells become muscle cells, the heart works better, the body's cells get more oxygen and glucose."
       }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.6B"
+      ],
+      "worked_example": {
+        "exemplar_id": "ce325e3c-2ece-4ffa-b41b-41ba48d99f37",
+        "source": "EDEXCEL nov 2021, Paper 2 (B), Q7(b)(ii)",
+        "question": "Adult stem cells or embryonic stem cells can be used in medical treatments.\nExplain why the choice between these two types of stem cells can cause issues for doctors.",
+        "marks": 2,
+        "answer_points": [
+          "Embryonic stem cells can make any cell type, or many more cell types. Adult stem cells can become fewer cell types.",
+          "There are ethical issues about using embryonic cells, for example people object to destroying embryos because they are potential human lives."
+        ],
+        "tip": "One mark for the difference in what the cells can become and one for the ethical issue."
+      }
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "e457157c-a4c2-4ccd-80d8-735e441e864f",
       "02ec7f9b-593e-4ed2-98cc-bc334c8602e5",
-      "c6088a6a-3ff8-4c4c-94a3-4003caa88e92"
+      "c6088a6a-3ff8-4c4c-94a3-4003caa88e92",
+      "dd0ade84-9968-4a29-8a5e-4a23a28fb3e2"
     ],
     "exemplar_ids": [
       "4d768fd2-1300-4e3e-b122-02be004728ed",
       "8c37f7d0-e1d4-480a-ab6f-564f2f6766fb",
-      "eb150d11-9153-48db-ba57-486d39bd3446"
+      "eb150d11-9153-48db-ba57-486d39bd3446",
+      "ce325e3c-2ece-4ffa-b41b-41ba48d99f37"
     ]
   }
 }

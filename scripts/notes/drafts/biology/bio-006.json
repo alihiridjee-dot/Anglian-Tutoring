@@ -271,23 +271,41 @@
         "answer_points": ["5 ÷ 400 = 0.0125 mm.", "0.0125 × 1000 = 12.5 µm."],
         "tip": "The correct answer of 12.5 scores both marks. A correct conversion by × 1000 earns a mark."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 2.2.1", "CAIE 2.2.2", "CAIE 2.2.3S"],
+      "worked_example": {
+        "exemplar_id": "169769cb-77ef-4744-b9fc-53e5b9817b8b",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q5(c)",
+        "question": "The actual length of a cell structure is 0.000 75 mm.\nConvert this value to micrometres (µm).",
+        "marks": 1,
+        "answer_points": [
+          "Multiply millimetres by 1000 to get micrometres.",
+          "0.000 75 × 1000 = 0.75 µm."
+        ],
+        "tip": "This is a unit conversion, so write the unit with the answer."
+      }
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "6d5e3b85-92a8-4504-b4c7-ec63c293aea1",
       "fa0bba27-ee0b-4783-ab88-954822ee4545",
-      "e501296b-de8d-42d0-a0d4-2a67f325d649"
+      "e501296b-de8d-42d0-a0d4-2a67f325d649",
+      "14451cb8-a207-4872-862e-3ffe74a811ff",
+      "8712e1a8-c756-400c-beda-44fe02f17301",
+      "d2775477-0a43-4ae2-b081-64467748c39d"
     ],
     "exemplar_ids": [
       "ef102107-9714-4b17-88d8-d082d1f2a842",
       "6cf56d86-20f1-46fd-ba32-cc3cb0418790",
-      "8c0a0acf-b0ed-4a2c-a265-bda8914683a1"
+      "8c0a0acf-b0ed-4a2c-a265-bda8914683a1",
+      "169769cb-77ef-4744-b9fc-53e5b9817b8b"
     ]
   }
 }

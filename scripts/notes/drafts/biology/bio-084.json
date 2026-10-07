@@ -69,7 +69,10 @@
             "kind": "sort",
             "alt": "Sort statements into adrenaline and thyroxine.",
             "prompt": "Which hormone does each statement describe?",
-            "groups": ["Adrenaline", "Thyroxine"],
+            "groups": [
+              "Adrenaline",
+              "Thyroxine"
+            ],
             "items": [
               {
                 "text": "Made by the adrenal glands",
@@ -201,7 +204,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 5.14", "AQA T 4.5.3.6"],
+      "spec_codes": [
+        "AQA 5.14",
+        "AQA T 4.5.3.6"
+      ],
       "worked_example": {
         "exemplar_id": "2dc04d1b-4983-4b9e-bdea-53acb6785130",
         "source": "AQA jun 2023, Paper 2 (H), Q6.7",
@@ -216,7 +222,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 7.2", "EDEX 7.3"],
+      "spec_codes": [
+        "EDEX 7.2",
+        "EDEX 7.3"
+      ],
       "worked_example": {
         "exemplar_id": "02745c41-fca9-4885-b4b2-4ead668dfd39",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q9(b)",
@@ -232,7 +241,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 3.2b"],
+      "spec_codes": [
+        "OCR 3.2b"
+      ],
       "worked_example": {
         "exemplar_id": "706b6a58-0be8-4451-910a-535b3d75d8ca",
         "source": "OCR jun 2022, Paper 3, Q20(a)",
@@ -244,6 +255,63 @@
         ],
         "tip": "Link thyroxine to metabolic rate, and metabolic rate to heat."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 14.3.3",
+        "CAIE 14.3.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "098302f2-7f4a-49f2-8ba8-a9286b58446d",
+        "source": "CAMBRIDGE jun 2025, Paper 43, Q3(d)",
+        "question": "Adrenaline also affects blood glucose concentration.\n\nSuggest how this is an advantage for the \"fight or flight\" response.",
+        "marks": 3,
+        "answer_points": [
+          "Adrenaline causes glycogen to be broken down into glucose.",
+          "This increases the blood glucose concentration.",
+          "The glucose is used in respiration, which releases energy.",
+          "The energy is used for muscle contraction."
+        ],
+        "tip": "Three of these points score. Link glucose to respiration, then to the muscles."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Adrenaline also increases pupil diameter, so the pupils widen."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.66",
+        "IGCSE 2.94"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Heart rate rises during exercise and under the influence of adrenaline."
+            },
+            {
+              "type": "list",
+              "items": [
+                "During exercise, muscles respire faster and make more carbon dioxide.",
+                "The brain detects the higher carbon dioxide concentration in the blood and sends signals to the heart.",
+                "The heart beats faster, so more blood carries oxygen and glucose to the muscles and removes carbon dioxide.",
+                "Adrenaline from the adrenal glands also makes the heart beat faster.",
+                "Heart rate falls back to normal after exercise."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -255,7 +323,9 @@
       "a4f9af00-299a-44bf-9f66-14b89f4597b7",
       "212f927a-2cf1-4c48-811b-a4c27cc0fb20",
       "3212b8a2-6e11-4f84-8676-f93f9c56fcaf",
-      "821e62e3-61d2-40d2-a8bc-a98fd0752486"
+      "821e62e3-61d2-40d2-a8bc-a98fd0752486",
+      "7c404ce5-2b8e-452e-ad7e-85d130f14b48",
+      "e9cf14f7-542c-4348-88ba-5d8b269096a9"
     ],
     "exemplar_ids": [
       "2dc04d1b-4983-4b9e-bdea-53acb6785130",
@@ -270,9 +340,10 @@
       "770ac808-92ac-4e40-8c01-085c5c71df85",
       "f81889ba-b237-4b9a-b4f7-f37180f5801b",
       "9a87385b-5b8d-4f3e-9931-150f093d74b9",
-      "96714cb5-c9d8-4dd4-9def-39feee3ae2b8"
+      "96714cb5-c9d8-4dd4-9def-39feee3ae2b8",
+      "098302f2-7f4a-49f2-8ba8-a9286b58446d"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

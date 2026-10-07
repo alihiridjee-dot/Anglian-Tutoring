@@ -226,6 +226,60 @@
         ],
         "tip": "Name both objects in each force and say which acts on which."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.5.1.6"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section covers what friction does between two solid surfaces."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Solid friction is the force between two surfaces that may impede motion.",
+                "Friction between rubbing surfaces also produces heating."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.11", "IGCSE 1.12", "IGCSE 1.14", "IGCSE 1.16"],
+      "worked_example": {
+        "exemplar_id": "14c197f0-3eae-4ea2-bc1f-6aee6e21c0ed",
+        "source": "EDEXCEL jun 2025, Paper 1 (P), Q1(b)(ii)",
+        "question": "A puck travels across some rough ice. The rough ice exerts a frictional force on the puck. Explain how the force of friction changes the velocity of the puck.",
+        "marks": 2,
+        "answer_points": [
+          "The velocity (speed) of the puck decreases.",
+          "The force of friction acts in the opposite direction to the velocity."
+        ],
+        "tip": "Say that the force is opposite to the motion. Slows down or decelerates is accepted."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A force can change the speed, shape or direction of an object."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Speed: a driving force makes a car speed up, and friction from the brakes slows it down.",
+                "Shape: squeezing a sponge or stretching a spring changes its shape.",
+                "Direction: a kick from the side changes the direction of a rolling ball."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -237,14 +291,18 @@
       "68ff07ff-59a3-4acf-bd16-9354458d13b3",
       "28acd09e-8e4c-4e36-bfa2-c7e7df211be7",
       "272d493f-a7e0-4403-998e-fa3de7c5a588",
-      "3fd58c2a-e790-456d-ac60-743d36ec7155"
+      "3fd58c2a-e790-456d-ac60-743d36ec7155",
+      "f057b125-4133-4daa-8bf6-d8a00ed34e14",
+      "f3924bc9-bdcf-4254-b7cf-500b4a567394",
+      "306c011c-fbbf-491b-a173-86321a069992"
     ],
     "exemplar_ids": [
       "f0ae7788-fbd0-4801-a13e-74488e7643bd",
       "4a245630-2e3b-4621-af00-20848d19c719",
-      "d89201ae-365f-4db5-8eaf-52a300599c27"
+      "d89201ae-365f-4db5-8eaf-52a300599c27",
+      "14c197f0-3eae-4ea2-bc1f-6aee6e21c0ed"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

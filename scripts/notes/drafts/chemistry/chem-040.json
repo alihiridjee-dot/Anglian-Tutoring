@@ -253,6 +253,36 @@
         ],
         "tip": "The mole ratio CO : CO₂ is 2 : 2, which is 1 : 1. The molar gas volume at room temperature and pressure is 24 dm³."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.3.4S", "CAIE 3.3.5S"],
+      "worked_example": {
+        "exemplar_id": "b51b9ab0-7a4b-43eb-8ff5-9df060ea3de3",
+        "source": "CAMBRIDGE jun 2025, Paper 43, Q4(d)",
+        "question": "Dilute sulfuric acid reacts with sodium hydrogencarbonate, NaHCO₃, to produce carbon dioxide gas, CO₂.\n\nH₂SO₄(aq) + 2NaHCO₃(s) → Na₂SO₄(aq) + 2CO₂(g) + 2H₂O(l)\n\n4.20 g of NaHCO₃ is added to excess dilute sulfuric acid.\n\nCalculate the volume of CO₂(g), measured at r.t.p., produced using the following steps.\n● Calculate the number of moles of NaHCO₃ in 4.20 g. The Mr of NaHCO₃ is 84.\n● Deduce the number of moles of CO₂(g) that are produced.\n● Calculate the volume of CO₂(g) produced in cm³. One mole of any gas occupies 24 000 cm³ at r.t.p.",
+        "marks": 3,
+        "answer_points": [
+          "Moles of NaHCO₃ = 4.20 ÷ 84 = 0.0500 mol",
+          "Moles of CO₂ = 0.0500 mol, because the ratio NaHCO₃ : CO₂ is 2 : 2",
+          "Volume of CO₂ = 0.0500 × 24 000 = 1200 cm³"
+        ],
+        "tip": "(Supplement) One mark for each step."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.35C"],
+      "worked_example": {
+        "exemplar_id": "64a4f5c3-85fa-4eb9-bde8-81775d6905b0",
+        "source": "EDEXCEL nov 2020, Paper 2 (C), Q7(a)",
+        "question": "Potassium carbonate reacts with dilute hydrochloric acid to produce carbon dioxide gas.\n\nThe equation for the reaction is\n\nK₂CO₃(s) + 2HCl(aq) → 2KCl(aq) + H₂O(l) + CO₂(g)\n\nCalculate the volume, in cm³, of carbon dioxide gas produced when 6.9 g of potassium carbonate reacts with excess dilute hydrochloric acid.\n\n[Mr of K₂CO₃ = 138]\n[molar volume of CO₂ at rtp = 24 dm³]",
+        "marks": 3,
+        "answer_points": [
+          "Moles of K₂CO₃ = 6.9 ÷ 138 = 0.05 mol",
+          "Moles of CO₂ = 0.05 mol, so volume = 0.05 × 24 = 1.2 dm³",
+          "Volume in cm³ = 1.2 × 1000 = 1200 cm³"
+        ],
+        "tip": "One mark for the moles, one for multiplying by the molar volume and one for the answer in cm³."
+      }
     }
   },
   "meta": {
@@ -265,14 +295,18 @@
       "d8fb0831-dfda-40df-a1d8-3ad19923caa9",
       "f22b0093-d724-40a9-b3a6-dc579c433587",
       "d8fed1e7-b648-49c6-ab82-762347548710",
-      "befcad6c-e40d-43f3-86e5-a35500eb8cbb"
+      "befcad6c-e40d-43f3-86e5-a35500eb8cbb",
+      "8184b26a-1f57-45a4-b5ac-0605e4321453",
+      "5b953e14-3cf1-4483-b90a-eb92cf478b0b"
     ],
     "exemplar_ids": [
       "a0305ce2-2dab-4d3a-b69d-d01636abe699",
       "d1cefb1b-b4f9-46da-91a7-c6f7c097542e",
-      "98b71828-ccf9-48c2-83cf-42866f2597fc"
+      "98b71828-ccf9-48c2-83cf-42866f2597fc",
+      "b51b9ab0-7a4b-43eb-8ff5-9df060ea3de3",
+      "64a4f5c3-85fa-4eb9-bde8-81775d6905b0"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

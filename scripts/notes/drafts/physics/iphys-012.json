@@ -1,0 +1,298 @@
+{
+  "format": 1,
+  "concept_id": "iphys-012",
+  "subject": "physics",
+  "title": "E.m.f. and potential dividers",
+  "key_idea": "The e.m.f. of a source is the electrical work it does moving a unit charge around a complete circuit. It is measured in volts. Two resistors in series share the e.m.f. in proportion to their resistances, which is how a potential divider works.",
+  "sections": [
+    {
+      "heading": "Electromotive force",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A cell or battery gives energy to charge. This section covers how e.m.f. measures that energy."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Electromotive force (e.m.f.)",
+              "meaning": "The electrical work done by a source in moving a unit charge around a complete circuit."
+            },
+            {
+              "term": "Volt (V)",
+              "meaning": "The unit of e.m.f. One volt is one joule per coulomb (J/C)."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Electromotive force",
+          "formula": "E = W / Q",
+          "where": [
+            "E = e.m.f. of the source, in volts (V)",
+            "W = work done by the source, in joules (J)",
+            "Q = charge moved around the circuit, in coulombs (C)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The work done is the energy the source transfers to the charge.",
+            "(Supplement) Use E = W / Q in calculations.",
+            "A 9.0 V battery transfers 9.0 J to every coulomb that goes around a complete circuit.",
+            "Rearranged, W = E × Q."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question on e.m.f. A battery has a given e.m.f. and moves a given charge around a circuit. The student calculates the work done.",
+            "question": "A battery has an e.m.f. of {E} V. Calculate the work done by the battery when it moves a charge of {Q} C around a complete circuit.",
+            "variables": [
+              {
+                "id": "E",
+                "min": 1.5,
+                "max": 12,
+                "step": 1.5
+              },
+              {
+                "id": "Q",
+                "min": 10,
+                "max": 60,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "E * Q",
+              "unit": "J",
+              "decimals": 1
+            },
+            "working": [
+              "W = E × Q",
+              "W = {E} × {Q}",
+              "W = {answer} J"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "E.m.f. is work done per unit charge around a complete circuit, E = W / Q.",
+            "E.m.f. is measured in volts, and 1 V = 1 J/C."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Sources in series",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cells can be joined end to end. This section covers the e.m.f. of the combination."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cells connected in series, facing the same way, have a combined e.m.f. equal to the **sum** of their e.m.f.s.",
+            "Three 1.5 V cells in series give 1.5 + 1.5 + 1.5 = 4.5 V.",
+            "A cell connected the opposite way round subtracts from the total."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Add the e.m.f.s of cells in series to find the combined e.m.f.",
+            "A cell connected the wrong way round reduces the total."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Potential dividers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A potential divider shares the e.m.f. of a supply between components in series. This section covers how the share is worked out. (Supplement) The equation and variable dividers are Supplement content."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Potential divider",
+              "meaning": "Two or more resistors or components in series that split the e.m.f. of a supply between them."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The same current flows through both resistors.",
+            "The larger resistor gets the larger share of the e.m.f.",
+            "The two p.d.s add up to the e.m.f. of the supply."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Potential divider (Supplement)",
+          "formula": "R₁ / R₂ = V₁ / V₂",
+          "where": [
+            "R₁, R₂ = resistances of the two resistors, in ohms (Ω)",
+            "V₁, V₂ = p.d. across each resistor, in volts (V)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Example",
+              "text": "R₁ = 20 Ω and R₂ = 60 Ω are in series with a 12 V supply."
+            },
+            {
+              "lead": "Ratio",
+              "text": "V₁ / V₂ = 20 / 60 = 1 / 3, so the 12 V is shared in the ratio 1 : 3."
+            },
+            {
+              "lead": "Answer",
+              "text": "V₁ = 3.0 V and V₂ = 9.0 V."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Variable potential dividers"
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) Replace one resistor with a variable resistor, an LDR or a thermistor, and the output p.d. changes.",
+            "If that component's resistance goes up, it takes a larger share of the e.m.f.",
+            "If its resistance goes down, its p.d. falls and the other component's p.d. rises.",
+            "An LDR has a lower resistance in bright light. A thermistor has a lower resistance when hot."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing a supply shared between two resistors in series. Changing the e.m.f. or either resistance changes the p.d. across each resistor.",
+            "inputs": [
+              {
+                "id": "E",
+                "label": "E.m.f. of supply",
+                "unit": "V",
+                "min": 3,
+                "max": 12,
+                "step": 1,
+                "value": 12
+              },
+              {
+                "id": "R1",
+                "label": "Resistor 1",
+                "unit": "Ω",
+                "min": 10,
+                "max": 100,
+                "step": 10,
+                "value": 20
+              },
+              {
+                "id": "R2",
+                "label": "Resistor 2",
+                "unit": "Ω",
+                "min": 10,
+                "max": 100,
+                "step": 10,
+                "value": 60
+              }
+            ],
+            "outputs": [
+              {
+                "label": "p.d. across resistor 1",
+                "unit": "V",
+                "formula": "E * R1 / (R1 + R2)",
+                "decimals": 1,
+                "bar": true
+              },
+              {
+                "label": "p.d. across resistor 2",
+                "unit": "V",
+                "formula": "E * R2 / (R1 + R2)",
+                "decimals": 1,
+                "bar": true
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A potential divider splits the e.m.f. in proportion to the resistances: R₁ / R₂ = V₁ / V₂.",
+            "The p.d.s across the two resistors add up to the e.m.f.",
+            "(Supplement) A variable resistor in a divider gives a p.d. that can be changed."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define electromotive force.",
+      "a": "The electrical work done by a source in moving a unit charge around a complete circuit.",
+      "marks": 2
+    },
+    {
+      "q": "A 6.0 V battery moves 20 C of charge around a complete circuit. Calculate the work done by the battery.",
+      "a": "W = E × Q = 6.0 × 20 = 120 J.",
+      "marks": 2
+    },
+    {
+      "q": "Two resistors of 30 Ω and 90 Ω are in series with a 12 V supply. Calculate the p.d. across the 30 Ω resistor.",
+      "a": "V₁ / V₂ = 30 / 90 = 1 / 3, so the 12 V is shared 1 : 3. The p.d. across the 30 Ω resistor is 3.0 V.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.2.3.1",
+        "CAIE 4.2.3.2",
+        "CAIE 4.2.3.6S",
+        "CAIE 4.3.2.3",
+        "CAIE 4.3.3.2S",
+        "CAIE 4.3.3.3S"
+      ],
+      "worked_example": {
+        "exemplar_id": "cce5b00e-9dc5-4e99-a83c-80f33dc12fde",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q6(c)(ii)",
+        "question": "A potential divider is made by connecting a light-dependent resistor (LDR) and a thermistor in series to a direct current (d.c.) power supply. A voltmeter measures the potential difference (p.d.) across the LDR. The resistance of the LDR decreases and the resistance of the thermistor increases. Explain what happens to the reading on the voltmeter.",
+        "marks": 3,
+        "answer_points": [
+          "The reading on the voltmeter decreases.",
+          "The e.m.f. is constant.",
+          "The resistance of the LDR is now a smaller proportion of the total resistance, so R(LDR) / R(thermistor) decreases.",
+          "So V(LDR) / V(thermistor) decreases: the LDR takes a smaller share of the e.m.f. (R₁ / R₂ = V₁ / V₂)."
+        ],
+        "tip": "One mark for the decrease, then any two from the explanation points."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "4a6d2b2f-751b-49a1-93a7-99292e0ff97a",
+      "4d3816d3-24e9-4342-af6e-ecb8e965428b",
+      "0e5aa17d-7b46-4ef1-bb5d-72e865a81f91",
+      "772ca3b7-4aba-40a8-b6ac-924b5097e56a",
+      "48fe7186-3ab9-4c26-9bd5-06927c81e6dd",
+      "9f19fd54-30da-4812-8085-57f4678f86ad"
+    ],
+    "exemplar_ids": [
+      "cce5b00e-9dc5-4e99-a83c-80f33dc12fde"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

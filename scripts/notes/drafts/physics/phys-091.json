@@ -219,6 +219,107 @@
         ],
         "tip": "Do not say that one galaxy is moving towards the Earth."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 6.2.3.2", "CAIE 6.2.3.3", "CAIE 6.2.3.4", "CAIE 6.2.3.7S"],
+      "worked_example": {
+        "exemplar_id": "0f8a59ae-b385-4887-8553-a58580ae7844",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q10(c)(i)",
+        "question": "Light from a distant galaxy is redshifted.\nExplain what is meant by redshift.",
+        "marks": 2,
+        "answer_points": [
+          "The wavelength of the light from distant galaxies increases.",
+          "It occurs when the galaxies are moving away from the Earth."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Light from distant galaxies is red-shifted when compared with light from the same source on the Earth.",
+                "Red-shift in the light from distant galaxies is evidence that the Universe is expanding. It supports the Big Bang theory.",
+                "(Supplement) The speed at which a galaxy moves away from the Earth can be found from the change in wavelength of its starlight."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Speed of a receding galaxy",
+              "formula": "Δλ ÷ λ₀ = v ÷ c",
+              "where": [
+                "Δλ is the change in wavelength, observed minus Earth measurement, in metres, m",
+                "λ₀ is the wavelength of the same light measured on the Earth, in metres, m",
+                "v is the speed of the galaxy away from the Earth, in metres per second, m/s",
+                "c is the speed of light, 3.0 × 10⁸ m/s"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.8",
+        "IGCSE 8.15P",
+        "IGCSE 8.17P",
+        "IGCSE 8.18P",
+        "IGCSE 8.13P",
+        "IGCSE 8.14P",
+        "IGCSE 8.16P"
+      ],
+      "worked_example": {
+        "exemplar_id": "91dcc1fb-4fca-466e-9e8f-6bf174cd228d",
+        "source": "EDEXCEL jan 2021, Paper 1 (PR), Q9",
+        "question": "Two students hold a piece of string with a box attached. The box has a buzzer inside and can move along the string. The buzzer emits a loud sound of constant frequency.\nThe box moves away from student A at a constant speed.\nExplain why the sound heard by student A has a different frequency to the sound emitted by the buzzer.",
+        "marks": 5,
+        "answer_points": [
+          "This is the Doppler effect.",
+          "The wavefronts are emitted at a constant frequency by the buzzer.",
+          "The wavefronts arrive at student A further apart than when they were emitted.",
+          "The distance between wavefronts is the wavelength, so the wavelength increases.",
+          "Wave speed = frequency × wavelength, and the speed of the waves is constant.",
+          "So as the wavelength has increased, the frequency must decrease, which is heard as a lower pitch."
+        ],
+        "tip": "Link wavelength and frequency through the constant wave speed."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Why the Doppler effect happens"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A source emits wavefronts at a constant frequency.",
+                "If the source moves away, each wavefront starts further away than the last. The wavefronts reach the observer further apart, so the wavelength is longer.",
+                "The wave speed is constant, so a longer wavelength means a lower frequency.",
+                "If the source moves towards the observer, the wavefronts are closer together. The wavelength is shorter and the frequency is higher."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Calculating the speed of a galaxy"
+            },
+            {
+              "type": "equation",
+              "label": "Speed of a receding galaxy",
+              "formula": "(λ − λ₀) ÷ λ₀ = Δλ ÷ λ₀ = v ÷ c",
+              "where": [
+                "λ is the observed wavelength, in metres, m",
+                "λ₀ is the reference wavelength, measured on the Earth, in metres, m",
+                "Δλ is the change in wavelength, in metres, m",
+                "v is the velocity of the galaxy, in metres per second, m/s",
+                "c is the speed of light, 3.0 × 10⁸ m/s"
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -235,9 +336,11 @@
     "exemplar_ids": [
       "3896815f-0a62-4be9-98bb-9e1701b86432",
       "3195f79b-2b51-4230-b3ad-429537fc4cb0",
-      "308ea677-53aa-4ffc-b07f-4908d8af3c55"
+      "308ea677-53aa-4ffc-b07f-4908d8af3c55",
+      "0f8a59ae-b385-4887-8553-a58580ae7844",
+      "91dcc1fb-4fca-466e-9e8f-6bf174cd228d"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

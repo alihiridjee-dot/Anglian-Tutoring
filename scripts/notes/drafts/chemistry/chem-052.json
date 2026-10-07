@@ -262,11 +262,46 @@
         ],
         "tip": "Any four points score. Each improvement is paired with its reason."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 12.2.1", "CAIE 12.2.2", "CAIE 7.3.1"],
+      "worked_example": {
+        "exemplar_id": "0312ca1d-5f08-485c-86c9-7e1dda657303",
+        "source": "CAMBRIDGE nov 2024, Paper 62, Q4",
+        "question": "Limes and lemons are citrus fruits which contain aqueous citric acid in their juice. Citric acid reacts with alkalis such as aqueous sodium hydroxide.\nPlan an investigation to find which of lime juice and lemon juice contains the most concentrated aqueous citric acid. Assume that citric acid is the only acid present in the juices.\nYour plan must include:\n● the method to use\n● how the results are used to determine which juice contains the most concentrated aqueous citric acid.\nYou are provided with lime juice, lemon juice, aqueous sodium hydroxide and common laboratory apparatus and chemicals.",
+        "marks": 6,
+        "answer_points": [
+          "Measure the same known volume of each juice into a suitable container, such as a conical flask.",
+          "Add a named acid-alkali indicator to the juice.",
+          "Add aqueous sodium hydroxide from a burette.",
+          "Swirl the flask to mix.",
+          "Stop when the indicator changes colour.",
+          "The juice that needs the most sodium hydroxide to reach the end-point is the most concentrated."
+        ],
+        "tip": "Any six points score. You can instead put the sodium hydroxide in the flask and add juice from the burette: then the juice that needs the smallest volume is the most concentrated."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.33C", "IGCSE 2.40C"],
+      "worked_example": {
+        "exemplar_id": "cb934861-b6e2-4921-a338-1e8360e40eac",
+        "source": "EDEXCEL jun 2024, Paper 2 (CR), Q5(a)(ii)",
+        "question": "Sodium sulfate can be prepared by the reaction between sodium hydroxide solution and sodium hydrogensulfate (NaHSO₄) solution.\nNaOH(aq) + NaHSO₄(aq) → Na₂SO₄(aq) + H₂O(l)\nSodium hydrogensulfate solution is acidic.\nA student adds 25.0 cm³ of sodium hydroxide solution to a conical flask and adds two drops of indicator. The student does a titration.\nDescribe the method the student should use to find the accurate volume of sodium hydrogensulfate solution needed to neutralise the 25.0 cm³ of sodium hydroxide solution.",
+        "marks": 5,
+        "answer_points": [
+          "Fill a burette with sodium hydrogensulfate solution.",
+          "Add the sodium hydrogensulfate solution until the indicator changes colour.",
+          "Swirl the conical flask as you add it.",
+          "Add the solution drop by drop near the end-point.",
+          "Repeat until the results are concordant."
+        ],
+        "tip": "The acid goes in the burette here, because the alkali is already in the flask."
+      }
     }
   },
   "meta": {
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
@@ -274,7 +309,10 @@
       "324d052b-e81e-400b-bee3-e0be1dd3c57e",
       "c9ea421c-a5bd-4f57-8e01-7e24ff51f9bc",
       "56de391d-7e12-435b-9190-e62c1f555e32",
-      "48a2a981-70ae-4956-917b-5ad097b9cdf3"
+      "48a2a981-70ae-4956-917b-5ad097b9cdf3",
+      "90497862-3e5a-4127-953c-f72c3a83243f",
+      "6ba26ccb-e6ca-463d-a9dd-9f96aa1df58d",
+      "6b599758-f2a6-4fc1-bb10-ae9d1a99a43e"
     ],
     "exemplar_ids": [
       "3f7a713f-bbfc-405a-8ba8-fde0dec9d0b5",
@@ -293,7 +331,9 @@
       "d2ffd94b-d633-4501-9f64-d9c48398f4ad",
       "c187623d-d420-4078-8972-68305e74c82a",
       "85a9b8f3-2d26-4722-9ecc-e8ba1441941d",
-      "9123e46d-a3c0-487d-91bb-1cf5d5b2f5d4"
+      "9123e46d-a3c0-487d-91bb-1cf5d5b2f5d4",
+      "0312ca1d-5f08-485c-86c9-7e1dda657303",
+      "cb934861-b6e2-4921-a338-1e8360e40eac"
     ]
   }
 }

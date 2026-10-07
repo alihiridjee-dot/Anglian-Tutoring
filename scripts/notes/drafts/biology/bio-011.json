@@ -332,23 +332,131 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 3.1.1",
+        "CAIE 3.1.2",
+        "CAIE 3.1.3",
+        "CAIE 3.1.4",
+        "CAIE 3.1.5",
+        "CAIE 16.4.9S"
+      ],
+      "worked_example": {
+        "exemplar_id": "54a59280-af57-4eda-8986-97d6aab5fa3e",
+        "source": "CAMBRIDGE nov 2023, Paper 61, Q1(c)(i)",
+        "question": "Cubes of agar jelly can be used as model cells.\nAgar jelly cubes are colourless and can be stained pink with an indicator. When placed in an acid solution, the acid diffuses into the agar jelly cubes and the pink colour starts to disappear. When the acid has reached the centre of the agar jelly cube, the agar is completely colourless.\nPlan an investigation to determine the effect of temperature on the rate of diffusion in model cells.",
+        "marks": 6,
+        "answer_points": [
+          "Independent variable: use at least two different temperatures.",
+          "Method: a way of keeping the acid at each temperature, such as a water bath.",
+          "Cut the agar into cubes of the same size, and use enough acid to cover the cubes.",
+          "Keep constant: size and shape of the cubes, type of agar, concentration (pH) and volume of acid, type of indicator (maximum three).",
+          "Dependent variable: the time taken for the cube to become completely colourless.",
+          "Repeat at least twice more.",
+          "Give a safety precaution, such as wearing goggles or cutting the agar away from the hands."
+        ],
+        "tip": "Marks are for the variable you change, the variables you control, what you measure, repeats and safety."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The energy for diffusion comes from the **kinetic energy** of the random movement of molecules and ions.",
+                "Because the particles move at random, more of them move down the concentration gradient than up it.",
+      "(Supplement) In the placenta, dissolved nutrients and oxygen diffuse from the mother's blood into the fetus's blood. Carbon dioxide and urea diffuse the other way. The umbilical cord carries the fetus's blood to and from the placenta."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.15", "IGCSE 2.16", "IGCSE 2.40B", "IGCSE 2.17"],
+      "worked_example": {
+        "exemplar_id": "8a5175a0-5ef5-4ace-a49e-9d2db13d429f",
+        "source": "EDEXCEL jun 2023, Paper 1 (B), Q3(b)",
+        "question": "A cell is shaped like a cube. Each side has a length of 0.053 mm.\nCalculate the surface area to volume ratio of this cell.\nGive your answer in the form n : 1",
+        "marks": 3,
+        "answer_points": [
+          "Volume = 0.053 × 0.053 × 0.053 = 0.000 148 877 mm³.",
+          "Surface area = 6 × 0.053 × 0.053 = 0.016 854 mm².",
+          "Surface area to volume ratio = 0.016 854 ÷ 0.000 148 877 = 113 : 1 (to 3 significant figures)."
+        ],
+        "tip": "Marks are for the volume, the surface area and the ratio."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The size of a cell changes how fast substances can enter it, because of its surface area to volume ratio."
+            },
+            {
+              "type": "equation",
+              "label": "Surface area to volume ratio",
+              "formula": "ratio = surface area ÷ volume",
+              "where": ["surface area in mm² (or cm²)", "volume in mm³ (or cm³)"]
+            },
+            {
+              "type": "list",
+              "items": [
+                "For a cube, surface area = 6 × side², and volume = side³.",
+                "A larger ratio means more surface for each unit of volume, so diffusion in and out is faster for the whole cell.",
+                "Small cells and flattened or folded shapes have a larger ratio than big cells."
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Cube of side 2 cm.",
+                  "text": "Surface area = 6 × 2 × 2 = 24 cm². Volume = 2 × 2 × 2 = 8 cm³."
+                },
+                {
+                  "lead": "Divide.",
+                  "text": "24 ÷ 8 = 3, so the ratio is 3 : 1."
+                },
+                {
+                  "lead": "Cube of side 1 cm.",
+                  "text": "Surface area = 6 cm² and volume = 1 cm³, so the ratio is 6 : 1. The smaller cube has the larger ratio."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "c0f5e28f-e4e1-4183-8bc5-3714830e0c46",
       "98f298dc-0091-411a-95ea-e8f109513b36",
-      "467e4a86-a73b-41e1-8046-18c9c61f76ae"
+      "467e4a86-a73b-41e1-8046-18c9c61f76ae",
+      "42645fc9-10df-47c0-9d0a-ce6d6bc6e196",
+      "4fd73336-8db9-4563-9dc6-dcea27c06386",
+      "8b1281c8-6506-43e0-a91e-1c57c1cc59c3",
+      "254200d5-ccd0-4ac7-ae5e-fd703b0c3df1",
+      "fe74da6f-91d2-4fac-b7cb-45da9c7c485f",
+      "9e3845a5-504c-43f9-8552-02579289d93a",
+      "31af353f-5eb6-4dc6-94cc-57b2315aa496",
+      "1aaeef23-f6d4-4850-b292-7de6017b004f"
     ],
     "exemplar_ids": [
       "91f53dc0-7e5a-4409-b19c-a06d9ead4fab",
       "d437b9a9-6445-4aa5-865c-315d1b6e2b14",
-      "6cb3c97d-5aba-49e2-9a9b-5c0a2b635ce5"
+      "6cb3c97d-5aba-49e2-9a9b-5c0a2b635ce5",
+      "54a59280-af57-4eda-8986-97d6aab5fa3e",
+      "8a5175a0-5ef5-4ace-a49e-9d2db13d429f"
     ]
   }
 }

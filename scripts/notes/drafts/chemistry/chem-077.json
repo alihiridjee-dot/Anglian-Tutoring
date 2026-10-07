@@ -46,31 +46,52 @@
           "diagram": {
             "kind": "compare",
             "alt": "Small hydrocarbon molecules compared with large hydrocarbon molecules.",
-            "items": ["Small molecules", "Large molecules"],
+            "items": [
+              "Small molecules",
+              "Large molecules"
+            ],
             "rows": [
               {
                 "feature": "Number of carbon atoms",
-                "values": ["Few", "Many"]
+                "values": [
+                  "Few",
+                  "Many"
+                ]
               },
               {
                 "feature": "Forces between molecules",
-                "values": ["Weaker", "Stronger"]
+                "values": [
+                  "Weaker",
+                  "Stronger"
+                ]
               },
               {
                 "feature": "Boiling point",
-                "values": ["Lower", "Higher"]
+                "values": [
+                  "Lower",
+                  "Higher"
+                ]
               },
               {
                 "feature": "Viscosity",
-                "values": ["Lower, flows easily", "Higher, flows slowly"]
+                "values": [
+                  "Lower, flows easily",
+                  "Higher, flows slowly"
+                ]
               },
               {
                 "feature": "Flammability",
-                "values": ["Higher, ignites easily", "Lower, ignites less easily"]
+                "values": [
+                  "Higher, ignites easily",
+                  "Lower, ignites less easily"
+                ]
               },
               {
                 "feature": "Example",
-                "values": ["Petrol, LPG", "Heavy fuel oil, bitumen"]
+                "values": [
+                  "Petrol, LPG",
+                  "Heavy fuel oil, bitumen"
+                ]
               }
             ]
           }
@@ -116,7 +137,9 @@
           "type": "equation",
           "label": "Complete combustion of a hydrocarbon",
           "formula": "hydrocarbon + oxygen → carbon dioxide + water",
-          "where": ["energy is released (the reaction is exothermic)"]
+          "where": [
+            "energy is released (the reaction is exothermic)"
+          ]
         },
         {
           "type": "list",
@@ -129,7 +152,9 @@
           "type": "equation",
           "label": "Complete combustion of methane (word equation)",
           "formula": "methane + oxygen → carbon dioxide + water",
-          "where": ["energy is released"]
+          "where": [
+            "energy is released"
+          ]
         },
         {
           "type": "subheading",
@@ -220,7 +245,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.7.1.3", "AQA T 5.7.1.3"],
+      "spec_codes": [
+        "AQA 4.7.1.3",
+        "AQA T 5.7.1.3"
+      ],
       "worked_example": {
         "exemplar_id": "5f0228ba-dbef-4d2a-be83-9e2802bdcd1f",
         "source": "AQA jun 2020, Paper 2 (H), Q05.4",
@@ -235,7 +263,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 8.7", "EDEX 9.16C"],
+      "spec_codes": [
+        "EDEX 8.7",
+        "EDEX 9.16C"
+      ],
       "worked_example": {
         "exemplar_id": "91570c90-9e13-46b1-92ea-8e4461460502",
         "source": "EDEXCEL jun 2022, Paper 2 (H), Q5(b)(iii)",
@@ -260,14 +291,19 @@
               "type": "equation",
               "label": "Complete combustion of ethene",
               "formula": "C₂H₄ + 3O₂ → 2CO₂ + 2H₂O",
-              "where": ["energy is released"]
+              "where": [
+                "energy is released"
+              ]
             }
           ]
         }
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR C6.2c", "OCR C6.2k"],
+      "spec_codes": [
+        "OCR C6.2c",
+        "OCR C6.2k"
+      ],
       "worked_example": {
         "exemplar_id": "9c5c714a-73f5-47a7-9249-18b8982f6fe4",
         "source": "OCR sample, Paper 1, Q21(b)(iii)",
@@ -279,6 +315,100 @@
         ],
         "tip": "One mark for the trend and one for the explanation in terms of forces between molecules."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 11.3.6",
+        "CAIE 11.4.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Alkanes are generally unreactive. They react mainly in two ways."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Combustion:** they burn in oxygen, as above.",
+                "**Substitution** by chlorine: a chlorine atom replaces a hydrogen atom, in ultraviolet light.",
+                "Example: CH₄ + Cl₂ → CH₃Cl + HCl."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Up a fractionating column, the shorter molecules are more volatile: they evaporate more easily."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.11",
+        "IGCSE 4.6",
+        "IGCSE 4.10",
+        "IGCSE 4.12"
+      ],
+      "worked_example": {
+        "exemplar_id": "7a0e58eb-c12a-400b-b2ad-3a3cd9361d94",
+        "source": "EDEXCEL jun 2024, Paper 1 (CR), Q6(a)",
+        "question": "Explain what is meant by the term fuel.",
+        "marks": 2,
+        "answer_points": [
+          "A substance that burns (catches fire) when it is ignited.",
+          "It releases heat (thermal) energy."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Fuel",
+                  "meaning": "A substance that releases heat energy when it burns."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Hydrocarbons such as petrol, kerosene and diesel oil are fuels."
+            },
+            {
+              "type": "paragraph",
+              "text": "Hydrocarbons can burn in three types of reaction. Reactions of organic compounds are classed as:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Combustion:** burning in oxygen.",
+                "**Substitution:** an atom or group is replaced by a different atom or group.",
+                "**Addition:** atoms add across a C=C double bond."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "When there is not enough oxygen, combustion is incomplete."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Complete combustion makes carbon dioxide and water.",
+                "Incomplete combustion can make carbon monoxide, carbon (soot) and water."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Colour also changes with molecule size: fractions of small molecules are colourless or pale, and fractions of large molecules are dark."
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -289,14 +419,16 @@
       "5d3e9f33-e123-4585-8601-fd5ebcfcb415",
       "1715e037-553e-476c-93f1-dc7cbf42dd4b",
       "c17ff4d0-6a75-42ad-8736-22a5845f174d",
-      "35e03ef4-e1b5-42e0-95f8-5c04af97b7c1"
+      "35e03ef4-e1b5-42e0-95f8-5c04af97b7c1",
+      "0bb4f2a0-5d13-4063-bb16-5b672c8f822f"
     ],
     "exemplar_ids": [
       "5f0228ba-dbef-4d2a-be83-9e2802bdcd1f",
       "91570c90-9e13-46b1-92ea-8e4461460502",
-      "9c5c714a-73f5-47a7-9249-18b8982f6fe4"
+      "9c5c714a-73f5-47a7-9249-18b8982f6fe4",
+      "7a0e58eb-c12a-400b-b2ad-3a3cd9361d94"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

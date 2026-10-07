@@ -261,23 +261,62 @@
         ],
         "tip": "Three separate points. \"Plant survival\" is ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.3.1", "CAIE 3.3.2S", "CAIE 3.3.3S", "CAIE 3.2.9S"],
+      "worked_example": {
+        "exemplar_id": "115b3dda-11d4-41ad-9169-5c39e5dc8cd5",
+        "source": "CAMBRIDGE jun 2023, Paper 43, Q1(b)",
+        "question": "Explain why active transport is important in root hair cells.",
+        "marks": 3,
+        "answer_points": [
+          "It is used for the uptake (absorption) of ions.",
+          "The ion concentration is lower in the soil than in the root hair cell.",
+          "The ions move against the concentration gradient.",
+          "This creates a water potential gradient.",
+          "A named example of an ion, such as nitrate or magnesium."
+        ],
+        "tip": "Any three points score one mark each."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) **Protein carriers** in the cell membrane carry molecules or ions across the membrane during active transport.",
+                "(Supplement) Each carrier picks up a particular substance, so the cell can take in the ions it needs.",
+                "(Supplement) Active transport is important because it moves molecules and ions across membranes against a gradient, including ion uptake by root hairs."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.15", "IGCSE 2.55B"]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "aa4531e6-a8c0-425f-be01-cb3db3dfd609",
       "42d3ab58-666a-4490-8379-92ee10955d43",
-      "86fd14d8-fc24-4fe3-97eb-ddfdd03c0b83"
+      "86fd14d8-fc24-4fe3-97eb-ddfdd03c0b83",
+      "c3db9686-49a6-45de-b34c-7fb66fba8666",
+      "38662156-c42c-4ba6-9095-52f62bba0885",
+      "c1456dbf-1677-4420-b400-2d88b19d6534"
     ],
     "exemplar_ids": [
       "62e22ccd-469e-4186-8c8e-d21a16520e93",
       "16e71e8c-85f3-4c1b-8694-fa059780d651",
-      "bdaaf491-dc6e-4d6f-8bf2-8f4f206f2501"
+      "bdaaf491-dc6e-4d6f-8bf2-8f4f206f2501",
+      "115b3dda-11d4-41ad-9169-5c39e5dc8cd5"
     ]
   }
 }

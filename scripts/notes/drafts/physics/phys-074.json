@@ -254,6 +254,80 @@
         ],
         "tip": "One mark for naming the alternating current or oscillations and one mark for saying that these produce radio waves."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.3.3", "CAIE 3.2.2.9S", "CAIE 3.3.5", "CAIE 3.3.7S"],
+      "worked_example": {
+        "exemplar_id": "22090d42-1956-4582-84f0-d52a6c089fa7",
+        "source": "CAMBRIDGE mar 2024, Paper 42, Q5(a)(i)",
+        "question": "The table shows applications of regions of the electromagnetic spectrum.\n\ncancer treatment: gamma rays\nBluetooth data connection: ______\noptical fibres: ______\nsecurity marking: ______\nsterilising food: ______\nwireless internet: ______\n\nComplete the table with the region of the electromagnetic spectrum used for each application. Choose from: gamma rays, infrared, microwaves, radio waves, ultraviolet. Each region may be used once, more than once or not at all.",
+        "marks": 3,
+        "answer_points": [
+          "Bluetooth data connection: radio waves",
+          "optical fibres: infrared",
+          "security marking: ultraviolet",
+          "sterilising food: gamma rays",
+          "wireless internet: microwaves"
+        ],
+        "tip": "Three marks for all five correct, two marks for four correct and one mark for three correct."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Radio waves are also used in astronomy and in radio frequency identification (RFID).",
+                "Infrared is also used in electric grills and intruder alarms.",
+                "Communication with artificial satellites is mainly by microwaves.",
+                "Some satellite phones use low orbit satellites.",
+                "Some satellite phones and satellite television use geostationary satellites."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "(Supplement) Why each wave suits its communication system"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Mobile phones and wireless internet use **microwaves**. They penetrate some walls and need only a short aerial.",
+                "Bluetooth uses **radio waves**. They pass through walls, but the signal is weakened.",
+                "Optical fibres carry visible light or short wavelength infrared. Glass is transparent to both, and both carry high rates of data."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.12", "IGCSE 3.20"],
+      "worked_example": {
+        "exemplar_id": "4b649497-f3a8-4982-be77-50de66fb60ef",
+        "source": "EDEXCEL jan 2022, Paper 1 (PR), Q2(b)",
+        "question": "X-rays and gamma rays are examples of ionising radiation.\n\nGive one use of X-rays and one use of gamma rays.",
+        "marks": 2,
+        "answer_points": [
+          "X-rays: taking images of bones or of the internal structure of objects",
+          "gamma rays: sterilising medical equipment, radiotherapy to treat cancer, or irradiating food to preserve it"
+        ],
+        "tip": "One mark for a correct use of each."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Night vision equipment uses infrared. Warm objects emit infrared, so they can be seen in the dark.",
+                "Ultraviolet makes fluorescent lamps work: the ultraviolet inside the tube makes the coating glow with visible light."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -266,14 +340,18 @@
       "873dc208-829e-48f6-9517-06e88743bf67",
       "bd2add22-a660-497c-a965-86d7472b158d",
       "57f85d6b-5873-441f-bcad-1dd0893a52bd",
-      "0bd3ca9a-2345-4706-b512-c3e4c0729353"
+      "0bd3ca9a-2345-4706-b512-c3e4c0729353",
+      "02c0106a-b70a-4e0c-b2b0-40607d8a2a7c",
+      "ed2b2874-f2b9-4b76-b4cc-694c868edc44"
     ],
     "exemplar_ids": [
       "46d01f25-f796-4987-8d35-92d3c81e7004",
       "7a4b34b7-cca9-4263-b31d-3eda0f53c328",
-      "b6dae34e-7b75-4997-874d-d0b589ebdba3"
+      "b6dae34e-7b75-4997-874d-d0b589ebdba3",
+      "22090d42-1956-4582-84f0-d52a6c089fa7",
+      "4b649497-f3a8-4982-be77-50de66fb60ef"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

@@ -326,6 +326,95 @@
         ],
         "tip": "Two of the five marks are for rounding correctly to 3 significant figures, and one is for the unit."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.3.1",
+        "CAIE 1.3.2",
+        "CAIE 1.3.3",
+        "CAIE 1.3.4",
+        "CAIE 1.3.5S",
+        "CAIE 1.2.8",
+        "CAIE 1.5.3.1",
+        "CAIE 6.1.2.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "2bedfa3a-ffc6-44e8-b5d2-ce73a1cea49c",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q10(b)(i)",
+        "question": "The gravitational field strength at the surface of the Earth is approximately 9.8 N/kg. The gravitational field strength at the surface of Jupiter is approximately 23 N/kg. Define gravitational field strength.",
+        "marks": 2,
+        "answer_points": [
+          "Gravitational field strength is the gravitational force per unit mass.",
+          "Or: weight ÷ mass."
+        ],
+        "tip": "A force on a mass, or W = m × g, earns one mark. Force per unit mass earns both."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Weights and masses can be compared with a balance, not only measured with a newtonmeter."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A balance compares the weight of an object with the weight of known masses.",
+                "If the two weights balance, the masses are equal, because g is the same for both.",
+                "A lever balance or an electronic balance can be used for this comparison."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Field strength"
+            },
+            {
+              "type": "list",
+              "items": [
+                "g in N/kg is equal to the acceleration of free fall in m/s², about 9.8 near the Earth's surface.",
+                "g is approximately constant for objects close to the surface of a planet.",
+                "At the surface, g is greater for a planet of greater mass.",
+                "Around a planet, g decreases as the distance from the planet increases."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.18", "IGCSE 1.31P", "IGCSE 8.3"],
+      "worked_example": {
+        "exemplar_id": "d1e12dcb-a8bb-4f34-892d-8da8f10a1d4e",
+        "source": "EDEXCEL nov 2021, Paper 1 (P), Q8(c)(ii)",
+        "question": "Callisto has a gravitational field strength of 1.2 N/kg at its surface. The Earth's moon has a gravitational field strength of 1.6 N/kg at its surface. An object has a weight of 59 N on the surface of the Earth's moon. Calculate the weight of the same object if it were on the surface of Callisto.",
+        "marks": 3,
+        "answer_points": [
+          "Use W = m × g.",
+          "Mass of the object = 59 ÷ 1.6 = 37 kg.",
+          "Weight on Callisto = 37 × 1.2 = 44 N."
+        ],
+        "tip": "The mass does not change from place to place. Find it first, then use the new g."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The field strength g is not the same everywhere."
+            },
+            {
+              "type": "list",
+              "items": [
+                "g is different on the Moon and on other planets from its value on the Earth.",
+                "At the surface, g depends on the mass and the size of the planet.",
+                "Around a planet, g decreases as the distance from the planet increases."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -342,14 +431,22 @@
       "7b3f8e92-1f9a-4782-b74d-988e2c643cf9",
       "1fe25125-da8d-43a7-aaa5-b74cbc5fe73e",
       "0bf2edfa-499b-48c0-98d9-0ff7ac7ab50e",
-      "add197db-ba4b-48ef-bfe7-d79421f259d8"
+      "add197db-ba4b-48ef-bfe7-d79421f259d8",
+      "99704bab-4a7d-4d20-b9ea-7d12db86b71e",
+      "5168c238-c5e2-4b6a-81da-2496e2fbecff",
+      "16a42dde-cc5f-4fb0-a5bd-b9c3aff031c0",
+      "7b6ed053-02a1-4fa3-9186-3cf359459262",
+      "b8f97c05-537d-4fd9-aa28-f06d4defbdac",
+      "cfd8a7cd-0ac3-456c-b320-2079da8ecb3d"
     ],
     "exemplar_ids": [
       "d137546d-d311-4062-926b-2dda9b1d84db",
       "30788382-ddae-4cb5-b664-61256af1439e",
-      "4010c7ce-644d-41ad-886f-47619f6b6970"
+      "4010c7ce-644d-41ad-886f-47619f6b6970",
+      "2bedfa3a-ffc6-44e8-b5d2-ce73a1cea49c",
+      "d1e12dcb-a8bb-4f34-892d-8da8f10a1d4e"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

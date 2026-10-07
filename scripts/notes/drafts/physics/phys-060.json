@@ -227,6 +227,40 @@
         "answer_points": ["The telescope constantly changes direction", "So its velocity changes"],
         "tip": "Ignore answers saying the velocity increases or decreases."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.5.1.12S"],
+      "worked_example": {
+        "exemplar_id": "12b72042-59b1-48f0-9e53-15123d6cbc3c",
+        "source": "CAMBRIDGE jun 2023, Paper 41, Q2(b)(iii)",
+        "question": "A motorcyclist travels around a horizontal bend in a circular path at a constant speed.\n\nExplain why there must be a resultant force on the motorcyclist as she travels around the bend.",
+        "marks": 2,
+        "answer_points": [
+          "Her direction of motion is changing, so her velocity is changing.",
+          "A change in velocity is an acceleration, and an acceleration needs a resultant force.",
+          "The resultant force acts perpendicular to her motion."
+        ],
+        "tip": "Any two of these points score the two marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The centripetal force acts perpendicular to the motion. Changing one quantity at a time shows how the motion changes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "If the force increases (mass and radius constant), the speed increases.",
+                "If the force increases (mass and speed constant), the radius decreases, so the circle is tighter.",
+                "If the mass increases (speed and radius constant), a bigger force is needed."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -236,14 +270,16 @@
     "spec_point_ids": [
       "a42be171-a3be-4f24-8326-0eb06b0b516c",
       "dd260783-3697-47e9-bd5b-00ec30b5a01c",
-      "42cc65ec-3cdf-42cd-8d64-99e871df769b"
+      "42cc65ec-3cdf-42cd-8d64-99e871df769b",
+      "01fc46bf-1a09-40a4-9947-1ea3a08bfbeb"
     ],
     "exemplar_ids": [
       "6c58adf7-7bce-4d21-a531-9b7955ad3794",
       "7db079a4-4798-401f-9f1f-9e5ef8df3c89",
-      "c68a154a-5a9f-47db-8c17-25900ad5c004"
+      "c68a154a-5a9f-47db-8c17-25900ad5c004",
+      "12b72042-59b1-48f0-9e53-15123d6cbc3c"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

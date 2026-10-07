@@ -59,7 +59,11 @@
             "kind": "sort",
             "alt": "Sort each statement into the type of medicine it describes: antibiotic, painkiller or antiseptic.",
             "prompt": "Which type of medicine does each statement describe?",
-            "groups": ["Antibiotic", "Painkiller", "Antiseptic"],
+            "groups": [
+              "Antibiotic",
+              "Painkiller",
+              "Antiseptic"
+            ],
             "items": [
               {
                 "text": "Kills bacteria inside the body",
@@ -159,7 +163,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 3.5", "AQA T 4.3.1.8"],
+      "spec_codes": [
+        "AQA 3.5",
+        "AQA T 4.3.1.8"
+      ],
       "worked_example": {
         "exemplar_id": "d3b68048-13ea-48ee-93d9-dda812ec9ed8",
         "source": "AQA jun 2018, Paper 2 (H), Q02",
@@ -177,7 +184,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.16"],
+      "spec_codes": [
+        "EDEX 5.16"
+      ],
       "worked_example": {
         "exemplar_id": "79039139-54d2-4d9a-8b34-c010b3e0e2a3",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q3(b)(ii)",
@@ -192,7 +201,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3o"],
+      "spec_codes": [
+        "OCR 6.3o"
+      ],
       "worked_example": {
         "exemplar_id": "cc614c10-dad0-42f5-b10c-9cb377c4fae1",
         "source": "OCR jun 2025, Paper 2, Q22(b)(ii)",
@@ -204,6 +215,49 @@
         ],
         "tip": "One mark for the change and one for the reason. Mentioning a vaccine is ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 15.1.1",
+        "CAIE 15.1.2",
+        "CAIE 15.1.4",
+        "CAIE 15.1.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "de6a6827-6d08-455c-a487-55d41fe1b73e",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q2(c)",
+        "question": "Complete the sentences about drug resistance and genetic variation by writing a suitable word or phrase in the spaces provided.\n\nBacteria can be killed by drugs called ______. The development of strains of bacteria that are resistant to these drugs is an example of ______ selection.\n\nResistant strains of bacteria have gene mutations that enable them to survive drug treatment.\n\nGene mutations are caused by random changes in the ______ of bases in DNA and result in the formation of new ______ in the bacteria. Mutation rates can be increased by ______ radiation and some chemicals.\n\nIn animals and plants, another source of genetic variation is a type of nuclear division called ______.",
+        "marks": 6,
+        "answer_points": [
+          "Gap 1: antibiotics.",
+          "Gap 2: natural.",
+          "Gap 3: sequence.",
+          "Gap 4: alleles.",
+          "Gap 5: ionising.",
+          "Gap 6: meiosis."
+        ],
+        "tip": "One mark for each word."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Drug",
+                  "meaning": "Any substance taken into the body that modifies or affects chemical reactions in the body."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Resistance starts with a **mutation**: a random change in the sequence of bases in DNA, which forms a new allele. Ionising radiation and some chemicals increase the mutation rate. Resistant bacteria survive treatment and reproduce. This is natural selection."
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -214,14 +268,18 @@
       "d96f39cd-ff37-42f5-a7c4-4ab82e5d93c1",
       "9316cc03-c9d2-4de1-8075-1cabad1438f8",
       "60a614c2-f9e2-464c-b5d5-ca2881765775",
-      "dd84cb13-9250-4270-95ca-cf94db292195"
+      "dd84cb13-9250-4270-95ca-cf94db292195",
+      "69635788-7e61-4001-90f2-389988155fc0",
+      "0587458b-7ffa-4b4f-bcb2-075224bfc1c8",
+      "cf6038a7-0950-4d6b-a970-34d8ecea27b4"
     ],
     "exemplar_ids": [
       "d3b68048-13ea-48ee-93d9-dda812ec9ed8",
       "79039139-54d2-4d9a-8b34-c010b3e0e2a3",
-      "cc614c10-dad0-42f5-b10c-9cb377c4fae1"
+      "cc614c10-dad0-42f5-b10c-9cb377c4fae1",
+      "de6a6827-6d08-455c-a487-55d41fe1b73e"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

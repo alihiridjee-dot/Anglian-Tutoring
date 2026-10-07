@@ -14,11 +14,31 @@
         },
         {
           "type": "table",
-          "columns": ["Particle", "Symbol", "Mass number", "Atomic number (charge)"],
+          "columns": [
+            "Particle",
+            "Symbol",
+            "Mass number",
+            "Atomic number (charge)"
+          ],
           "rows": [
-            ["Alpha particle", "⁴₂He or ⁴₂α", "4", "2"],
-            ["Beta particle (electron)", "⁰₋₁e or ⁰₋₁β", "0", "-1"],
-            ["Gamma ray", "γ", "0", "0"]
+            [
+              "Alpha particle",
+              "⁴₂He or ⁴₂α",
+              "4",
+              "2"
+            ],
+            [
+              "Beta particle (electron)",
+              "⁰₋₁e or ⁰₋₁β",
+              "0",
+              "-1"
+            ],
+            [
+              "Gamma ray",
+              "γ",
+              "0",
+              "0"
+            ]
           ]
         },
         {
@@ -47,7 +67,12 @@
         },
         {
           "type": "table",
-          "columns": ["Decay", "Mass number", "Atomic number", "What happens"],
+          "columns": [
+            "Decay",
+            "Mass number",
+            "Atomic number",
+            "What happens"
+          ],
           "rows": [
             [
               "Alpha",
@@ -61,7 +86,12 @@
               "Increases by 1",
               "A neutron becomes a proton and an electron. The electron is emitted."
             ],
-            ["Gamma", "No change", "No change", "The nucleus loses energy as gamma radiation."]
+            [
+              "Gamma",
+              "No change",
+              "No change",
+              "The nucleus loses energy as gamma radiation."
+            ]
           ]
         },
         {
@@ -132,13 +162,17 @@
           "type": "equation",
           "label": "Mass number balance",
           "formula": "mass number before = mass numbers added together after",
-          "where": ["Mass numbers are the top numbers in the symbols."]
+          "where": [
+            "Mass numbers are the top numbers in the symbols."
+          ]
         },
         {
           "type": "equation",
           "label": "Atomic number balance",
           "formula": "atomic number before = atomic numbers added together after",
-          "where": ["Atomic numbers are the bottom numbers in the symbols."]
+          "where": [
+            "Atomic numbers are the bottom numbers in the symbols."
+          ]
         },
         {
           "type": "steps",
@@ -220,7 +254,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.4.2.2", "AQA T 6.4.2.2"],
+      "spec_codes": [
+        "AQA 4.4.2.2",
+        "AQA T 6.4.2.2"
+      ],
       "worked_example": {
         "exemplar_id": "608f863e-e34e-418a-ab96-655cad681f17",
         "source": "AQA jun 2021, Paper 1 (H), Q06.5",
@@ -235,7 +272,13 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 6.18", "EDEX 6.19", "EDEX 6.20", "EDEX 6.21", "EDEX 6.22"],
+      "spec_codes": [
+        "EDEX 6.18",
+        "EDEX 6.19",
+        "EDEX 6.20",
+        "EDEX 6.21",
+        "EDEX 6.22"
+      ],
       "extra": [
         {
           "heading": "Beta-plus decay and neutron emission",
@@ -260,12 +303,19 @@
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q7(c)",
         "question": "Describe what happens in the nucleus of an atom when a positron is emitted.",
         "marks": 2,
-        "answer_points": ["A proton", "becomes a neutron."],
+        "answer_points": [
+          "A proton",
+          "becomes a neutron."
+        ],
         "tip": "Writing p → n scores both marks. If no other mark is scored, the atomic number decreasing by one, the mass number staying the same or the charge of the nucleus reducing by one earns 1 mark."
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P6.1e", "OCR P6.1f", "OCR P6.1g"],
+      "spec_codes": [
+        "OCR P6.1e",
+        "OCR P6.1f",
+        "OCR P6.1g"
+      ],
       "extra": [
         {
           "heading": "Neutron emission",
@@ -292,6 +342,69 @@
         ],
         "tip": "One mark for each of the three numbers or pairs of numbers."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 5.2.3.2",
+        "CAIE 5.2.3.4S",
+        "CAIE 5.2.3.5S",
+        "CAIE 5.1.2.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "696b64ac-1916-43e0-a6b9-5bbc3b4b5a66",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q9(b)",
+        "question": "Sodium-24 is an isotope of sodium (Na) that has a proton number of 11 and a nucleon number of 24.\n\nSodium-24 decays by emission of a beta-particle to form an isotope of magnesium (Mg).\n\nUse nuclide notation to write down the nuclide equation for this decay.",
+        "marks": 3,
+        "answer_points": [
+          "²⁴₁₁Na on the left-hand side.",
+          "⁰₋₁β on the right-hand side.",
+          "²⁴₁₂Mg on the right-hand side.",
+          "Equation: ²⁴₁₁Na → ²⁴₁₂Mg + ⁰₋₁β"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In alpha decay and in beta decay the nucleus changes into the nucleus of a different element, because its proton number changes.",
+                "(Supplement) Decay makes an unstable nucleus more stable. It reduces the number of excess neutrons or the extra energy in the nucleus.",
+                "(Supplement) In beta emission a neutron changes into a proton and an electron: n → p + e⁻. The electron is emitted as the beta particle."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 7.7",
+        "IGCSE 7.8"
+      ],
+      "worked_example": {
+        "exemplar_id": "fa38fc0d-3ce1-47dc-a5e4-5cb56ec2274e",
+        "source": "EDEXCEL jun 2022, Paper 1 (P), Q5(b)(ii)",
+        "question": "Thorium-232 (²³²₉₀Th) decays by a sequence of alpha decays and beta decays to form radon-220 (²²⁰₈₆Rn).\n\nThe incomplete nuclear decay equation summarises the decay sequence:\n\n²³²₉₀Th → ²²⁰₈₆Rn + ___ ⁴₂α + ___ ⁰₋₁β\n\nCalculate the number of alpha particles and the number of beta particles emitted in this decay sequence.",
+        "marks": 3,
+        "answer_points": [
+          "Balance the mass numbers: 232 - 220 = 12, and 12 ÷ 4 gives 3 alpha particles.",
+          "Balance the atomic numbers: 90 = 86 + (3 × 2) + (number of betas × -1).",
+          "Number of alpha particles = 3 and number of beta particles = 2."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Neutron emission also changes the nucleus. The mass number falls by 1 and the atomic number stays the same, because a neutron has mass number 1 and no charge. The symbol for a neutron is ¹₀n."
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -308,7 +421,12 @@
       "7cc17727-beb9-4748-ab02-affff607ff0d",
       "875bc979-900b-4ebc-95b4-b2c59e640405",
       "30a45ea4-5f5d-4534-9364-fd745c804848",
-      "73eed43e-862b-47a7-9dd2-27e5e5d04c25"
+      "73eed43e-862b-47a7-9dd2-27e5e5d04c25",
+      "7c9ca620-56a2-47fa-9801-44258b5135dc",
+      "d9930b6f-1486-4895-a86a-6bb41eb79b00",
+      "b18e14d4-c311-4169-a23d-654c6593d1b8",
+      "bec3cd4b-789e-4334-b05f-ddc71b93f585",
+      "6d82a4ca-baee-4cb9-bd1d-1a90e50fd706"
     ],
     "exemplar_ids": [
       "608f863e-e34e-418a-ab96-655cad681f17",
@@ -319,9 +437,11 @@
       "6d5ad996-70f2-42a5-9988-217eb834e486",
       "b06b6db5-81b2-45ba-9103-0ff723082bc2",
       "b140a442-8e2f-4d92-98fc-1fe3a2e1e7fe",
-      "f627dfe4-25ee-40e5-9390-fc75f48f280a"
+      "f627dfe4-25ee-40e5-9390-fc75f48f280a",
+      "696b64ac-1916-43e0-a6b9-5bbc3b4b5a66",
+      "fa38fc0d-3ce1-47dc-a5e4-5cb56ec2274e"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

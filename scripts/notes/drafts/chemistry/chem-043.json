@@ -257,6 +257,40 @@
         ],
         "tip": "Use only the elements in the list."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 9.6.1", "CAIE 9.6.2"],
+      "worked_example": {
+        "exemplar_id": "a0360b7b-e395-4b3c-881f-37d2e40bd556",
+        "source": "CAMBRIDGE jun 2024, Paper 62, Q4",
+        "question": "Bismuth is a metal that has a reactivity similar to that of copper. The ore bismite contains the compound bismuth(III) oxide, Bi₂O₃. Bismuth(III) oxide is insoluble in water and reacts with dilute acids to form an aqueous solution of a salt. The ore contains no other compounds that are insoluble in water and no other compounds that react with acids to form aqueous solutions. Describe how you could obtain a sample of bismuth metal starting with a large lump of the ore. You have access to common laboratory apparatus and chemicals.",
+        "marks": 6,
+        "answer_points": [
+          "Crush the lump of ore into a powder, for example with a pestle and mortar",
+          "Add water, stir and filter",
+          "Either: add a more reactive element or a suitable reducing agent, such as carbon, to the residue",
+          "Heat the ore or the bismuth(III) oxide",
+          "Bismuth is formed by displacement or reduction",
+          "Or: add a named strong acid to the residue, electrolyse the solution using inert electrodes, and bismuth forms at the cathode",
+          "Or: add a named strong acid to the residue, then add a more reactive metal such as zinc or iron to the solution so that bismuth is displaced"
+        ],
+        "tip": "Any six points score. Choose one route and give its steps in order."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.22C", "IGCSE 2.23C", "IGCSE 2.24C"],
+      "worked_example": {
+        "exemplar_id": "6f938d6e-e1bc-42a0-82bf-753a8f288296",
+        "source": "EDEXCEL nov 2020, Paper 2 (C), Q3(b)",
+        "question": "This is the order of reactivity of four metals: most reactive aluminium, then iron, then lead, least reactive copper. The method used to obtain a metal from its oxide depends on the reactivity of the metal. Two possible methods are Method 1, heating the metal oxide with carbon, and Method 2, electrolysis. Explain which method should be used to obtain lead from lead(II) oxide, PbO. Include an equation for the formation of lead in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Method 1: heating the lead(II) oxide with carbon",
+          "Lead is less reactive than iron, and iron is obtained from iron oxide by carbon extraction",
+          "2PbO + C → 2Pb + CO₂"
+        ],
+        "tip": "One mark for the method, one for the reason using the reactivity order and one for the equation."
+      }
     }
   },
   "meta": {
@@ -264,19 +298,25 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "3306eee4-45ff-4bd2-93c2-d27a551a87b2",
       "617ba2a3-198f-4e0b-aa06-66c9fcf751a1",
       "56c601fb-6a0f-421b-8ff4-45f7963a55cc",
       "e4bf55f5-a0d1-4bd4-80ea-b085b3e788c4",
       "19209296-9744-4519-b0c0-861770ba23e5",
-      "ba94b5f8-3a30-44bd-806f-22d4e158aa61"
+      "ba94b5f8-3a30-44bd-806f-22d4e158aa61",
+      "1e92a31d-594d-4ccd-b6bb-534d68003352",
+      "86a13635-cb5e-4ddc-8154-29e5eb86e9f9",
+      "a0ee590a-d2a4-47e4-841d-c55e992f0337",
+      "a9306691-eadc-4018-8c3c-525c6736a290"
     ],
     "exemplar_ids": [
       "62acbf4d-16f8-4741-ada7-4d4cd8a98b0e",
       "9d49c437-807a-4b13-87cd-d5c4598ff372",
-      "5e706c7c-fdef-4126-8ed0-ce702dc5b978"
+      "5e706c7c-fdef-4126-8ed0-ce702dc5b978",
+      "a0360b7b-e395-4b3c-881f-37d2e40bd556",
+      "6f938d6e-e1bc-42a0-82bf-753a8f288296"
     ]
   }
 }

@@ -132,7 +132,10 @@
         {
           "type": "equation",
           "label": "Maximum number of amino acids coded for",
-          "where": ["number of bases in the coding strand", "three bases code for one amino acid"],
+          "where": [
+            "number of bases in the coding strand",
+            "three bases code for one amino acid"
+          ],
           "formula": "number of amino acids = number of bases ÷ 3"
         },
         {
@@ -191,7 +194,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 6.5"],
+      "spec_codes": [
+        "AQA 6.5"
+      ],
       "worked_example": {
         "exemplar_id": "3a9b19bb-1d92-4045-92b5-20c5bfa03779",
         "source": "AQA jun 2025, Paper 2 (H), Q08.3",
@@ -207,7 +212,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 3.8B", "EDEX 3.7B"],
+      "spec_codes": [
+        "EDEX 3.8B",
+        "EDEX 3.7B"
+      ],
       "worked_example": {
         "exemplar_id": "e0663e83-73e2-45e0-b554-b8bbde9ed1cc",
         "source": "EDEXCEL jun 2024, Paper 1 (H), Q7(b)(i)",
@@ -223,7 +231,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 1.2d"],
+      "spec_codes": [
+        "OCR 1.2d"
+      ],
       "worked_example": {
         "exemplar_id": "81492978-c456-4cea-b5a2-5bdb1c7aa973",
         "source": "OCR nov 2020, Paper 3, Q22(a)",
@@ -239,6 +249,87 @@
         ],
         "tip": "Any four of the six points score. Do not say that amino acids are produced."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 17.1.7S",
+        "CAIE 17.1.8S",
+        "CAIE 17.1.9S",
+        "CAIE 17.1.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "8d2856e0-ec24-4f0a-88de-d71ce362065b",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q3(a)",
+        "question": "Proteins are biological molecules.\nExplain how proteins are made.",
+        "marks": 6,
+        "answer_points": [
+          "Messenger RNA (mRNA) is a copy of a gene (DNA).",
+          "The mRNA is made in the nucleus.",
+          "The gene (DNA) stays in the nucleus.",
+          "The mRNA moves to the cytoplasm.",
+          "The mRNA passes through a ribosome.",
+          "The ribosome assembles amino acids into a polypeptide (protein).",
+          "The sequence of amino acids is determined by the sequence of bases in the mRNA."
+        ],
+        "tip": "Any six points score the six marks. Cover where the mRNA is made, where it goes and what the ribosome does."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) DNA controls what a cell does by controlling which proteins it makes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The sequence of amino acids decides the **shape** of the protein, and the shape decides what it can do.",
+                "The proteins include **enzymes**, membrane carriers and receptors for neurotransmitters.",
+                "Most body cells in an organism have the same genes.",
+                "Many genes in a cell are not **expressed**. The cell makes only the specific proteins it needs."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.17B",
+        "IGCSE 3.18B",
+        "IGCSE 3.35B"
+      ],
+      "worked_example": {
+        "exemplar_id": "28e71afa-b85c-4576-8a56-9f2e41e79f2f",
+        "source": "EDEXCEL jun 2019, Paper 2 (B), Q3(a)(iii)",
+        "question": "Amylase is a protein.\n\nDescribe how protein is made in a cell.",
+        "marks": 5,
+        "answer_points": [
+          "Transcription: the gene is copied into mRNA.",
+          "The mRNA leaves the nucleus and enters the cytoplasm.",
+          "The mRNA binds to a ribosome.",
+          "tRNA brings the amino acids, each attached to its tRNA.",
+          "Codons on the mRNA pair with anticodons (complementary bases) on the tRNA.",
+          "Translation: the amino acids join into a chain (polypeptide)."
+        ],
+        "tip": "Any five points score the five marks. Use the words transcription, translation, codon and anticodon."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "RNA is **single stranded**. DNA has two strands.",
+                "RNA contains **uracil (U)** instead of thymine (T).",
+                "A change in the DNA base sequence changes the mRNA codons, the tRNA anticodons and the amino acids. This can change the protein and so the phenotype."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -248,14 +339,21 @@
     "spec_point_ids": [
       "388de71a-6ae6-485c-90f7-1939b21ac8b5",
       "995b4e16-b612-48bb-9cc0-48c0c570417f",
-      "a72c0a4f-26b5-44ae-8aed-fada81c9cc2f"
+      "a72c0a4f-26b5-44ae-8aed-fada81c9cc2f",
+      "d31be715-0c29-43ee-b528-c10b62d010ec",
+      "bef89259-3e19-4533-bb8b-40fc9e514353",
+      "6e98697d-15ce-4416-a482-6a462ae29735",
+      "f54a021f-dcde-4c78-b991-dab4ed65a4fe",
+      "1aaf8b01-13f7-411b-b939-0bef99205538"
     ],
     "exemplar_ids": [
       "3a9b19bb-1d92-4045-92b5-20c5bfa03779",
       "e0663e83-73e2-45e0-b554-b8bbde9ed1cc",
-      "81492978-c456-4cea-b5a2-5bdb1c7aa973"
+      "81492978-c456-4cea-b5a2-5bdb1c7aa973",
+      "8d2856e0-ec24-4f0a-88de-d71ce362065b",
+      "28e71afa-b85c-4576-8a56-9f2e41e79f2f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

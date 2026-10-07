@@ -303,6 +303,51 @@
         "answer_points": ["Positive electrode: bromine.", "Negative electrode: lead."],
         "tip": "Bromide is not allowed. If the two are reversed, 1 mark is available."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.1.5", "CAIE 4.1.3", "CAIE 4.1.10S"],
+      "worked_example": {
+        "exemplar_id": "2efdb452-4b29-42b8-879a-19162915f4ad",
+        "source": "CAMBRIDGE nov 2023, Paper 42, Q4(b)(iv)",
+        "question": "Molten lead(II) chloride, PbCl₂, is electrolysed using inert electrodes. Chlorine gas forms at the anode and escapes from the apparatus.\nDescribe what is observed at the cathode.",
+        "marks": 1,
+        "answer_points": ["A shiny grey solid forms (lead)."]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You should be able to describe what is seen when molten lead(II) bromide is electrolysed with inert electrodes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "At the cathode, lead forms as a shiny grey solid.",
+                "At the anode, bromine forms as a brown gas."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.58C"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "At the anode, bromine forms as a brown vapour.",
+                "Graphite or platinum electrodes are used. They are inert and withstand the high temperature of the molten salt."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -310,18 +355,20 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "24b3667d-6f02-4295-84bc-b762b2a1b865",
       "de3da8fa-7f72-4358-a3ac-93fa2a03071a",
       "bba26182-3ebc-49e6-a5ec-ea2c825089f2",
       "c1718ad6-8f98-40f4-8a2a-90acebd84afe",
-      "3859a627-53ee-4cd2-8986-9cd24550c75e"
+      "3859a627-53ee-4cd2-8986-9cd24550c75e",
+      "fc4a2f80-afa9-468f-9a3f-3ae0939fdea8"
     ],
     "exemplar_ids": [
       "4686aca3-953c-4331-83ca-1019889c16f0",
       "c6789ecf-1320-456b-8ab0-b300bab06646",
-      "4f8090fe-7457-445f-a8f9-91cb95a10d36"
+      "4f8090fe-7457-445f-a8f9-91cb95a10d36",
+      "2efdb452-4b29-42b8-879a-19162915f4ad"
     ]
   }
 }

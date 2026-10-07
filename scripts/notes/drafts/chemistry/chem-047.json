@@ -267,6 +267,112 @@
         ],
         "tip": "Any correct multiple is allowed. The state symbol mark depends on the formulae mark."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 7.1.3", "CAIE 7.1.4", "CAIE 7.1.8", "CAIE 7.1.9S", "CAIE 7.1.1"],
+      "worked_example": {
+        "exemplar_id": "483c719b-4760-4080-a828-cb13747a96f6",
+        "source": "CAMBRIDGE jun 2023, Paper 41, Q6(c)",
+        "question": "When sulfuric acid reacts with ammonia the salt produced is ammonium sulfate. Write the symbol equation for this reaction.",
+        "marks": 2,
+        "answer_points": [
+          "2NH₃ + H₂SO₄ → (NH₄)₂SO₄",
+          "1 mark for (NH₄)₂SO₄ on the right",
+          "1 mark for the correct, balanced equation"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Acids and bases can also be defined by the transfer of a proton, H⁺."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Acid (proton)",
+                  "meaning": "A proton donor: it gives an H⁺ ion to another substance."
+                },
+                {
+                  "term": "Base (proton)",
+                  "meaning": "A proton acceptor: it takes an H⁺ ion from another substance."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Bases and ammonium salts"
+            },
+            {
+              "type": "equation",
+              "label": "Base with an ammonium salt",
+              "formula": "ammonium salt + base → salt + water + ammonia",
+              "where": [
+                "ammonia: a gas with a pungent smell, which turns damp red litmus paper blue"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "For example, NH₄Cl + NaOH → NaCl + H₂O + NH₃.",
+                "Warming the mixture gently releases the ammonia, so this reaction can be used to test for an ammonium salt."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.32",
+        "IGCSE 2.35",
+        "IGCSE 2.36",
+        "IGCSE 2.38",
+        "IGCSE 2.31",
+        "IGCSE 2.37"
+      ],
+      "worked_example": {
+        "exemplar_id": "4a11a4ce-078b-4c08-babc-11450ba6e4bd",
+        "source": "EDEXCEL jun 2023, Paper 2 (C), Q4(g)",
+        "question": "This is the ionic equation for the reaction between an acid and an alkali: H⁺(aq) + OH⁻(aq) → H₂O(l). Explain why the OH⁻ ion is a proton acceptor in this reaction.",
+        "marks": 2,
+        "answer_points": [
+          "An H⁺ ion is a proton",
+          "The OH⁻ ion reacts (bonds) with the H⁺ ion to form water"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Acid (proton)",
+                  "meaning": "A proton donor: it gives an H⁺ ion to another substance."
+                },
+                {
+                  "term": "Base (proton)",
+                  "meaning": "A proton acceptor: it takes an H⁺ ion from another substance."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "In H⁺(aq) + OH⁻(aq) → H₂O(l), the acid gives a proton to the base.",
+                "The OH⁻ ion is the proton acceptor, because it bonds to the H⁺ ion.",
+                "Metal oxides, metal hydroxides and ammonia can all act as bases.",
+                "Alkalis are bases that dissolve in water."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -274,7 +380,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "2b381918-1faa-44e1-9cbe-78352890923e",
       "8f066a57-607c-4a7f-9a31-a8937e54772e",
@@ -283,7 +389,15 @@
       "09a7333c-6ee1-4f37-a762-8049507af6d0",
       "4bd74017-9a9c-4e3c-8d10-3ae2e9d82f39",
       "0c07baa2-6442-409a-b365-86e326bd2b96",
-      "5389a49b-c7b2-470b-ac37-9471023dcc2b"
+      "5389a49b-c7b2-470b-ac37-9471023dcc2b",
+      "48dd7490-3217-4e47-b5e7-505acff395bd",
+      "7604a657-d8fa-45a7-b5e6-a33433b6d87a",
+      "27cad640-8d51-415a-96d6-71aa3edfd408",
+      "b250bbe5-5987-4e91-99fd-d58ed6132c34",
+      "cf2ef885-5bf5-42d5-b87c-f5df3afb1b36",
+      "4a28917e-608e-4859-bcb5-54e89fe3a89f",
+      "cc2626bd-30f7-4271-8a9d-351366d42804",
+      "f3c6e5e3-7e4e-4801-9790-0932e3d7134f"
     ],
     "exemplar_ids": [
       "d1df8ea2-126a-41ba-b4ae-2ecf08341915",
@@ -299,7 +413,9 @@
       "223bb42c-7838-4ba8-9a86-a6903363703b",
       "24be8fe9-9938-4b23-b0b1-06e958399686",
       "c5e7e1e4-5cf3-4f55-967f-011f6abc409f",
-      "ad3a87bf-31d6-4a3c-9484-c56d8a2e821c"
+      "ad3a87bf-31d6-4a3c-9484-c56d8a2e821c",
+      "483c719b-4760-4080-a828-cb13747a96f6",
+      "4a11a4ce-078b-4c08-babc-11450ba6e4bd"
     ]
   }
 }

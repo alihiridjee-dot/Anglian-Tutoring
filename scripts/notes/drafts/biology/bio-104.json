@@ -154,7 +154,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 6.10", "AQA T 4.6.2.2"],
+      "spec_codes": [
+        "AQA 6.10",
+        "AQA T 4.6.2.2"
+      ],
       "worked_example": {
         "exemplar_id": "7cd982bc-8013-4871-a8fb-a1b425bf1e90",
         "source": "AQA jun 2018, Paper 2 (F), Q03.5",
@@ -169,7 +172,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 4.2"],
+      "spec_codes": [
+        "EDEX 4.2"
+      ],
       "worked_example": {
         "exemplar_id": "c3c91f6c-44a3-4c3e-8e89-8f213be5475e",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q8(a)",
@@ -187,7 +192,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 5.2c", "OCR 5.2d"],
+      "spec_codes": [
+        "OCR 5.2c",
+        "OCR 5.2d"
+      ],
       "worked_example": {
         "exemplar_id": "78e76895-2f1a-49bb-bf34-ccdca7ce35a3",
         "source": "OCR sample, Paper 2, Q20(c)",
@@ -201,6 +209,99 @@
         ],
         "tip": "One mark for each point."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 18.3.1",
+        "CAIE 18.3.4S",
+        "CAIE 18.3.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "d1953d6b-c679-4d13-af61-cab9590f2a45",
+        "source": "CAMBRIDGE mar 2024, Paper 42, Q5(b)(iii)",
+        "question": "Monkey flower plants were introduced to Europe from North America about 200 years ago.\nAncestors of monkey flower plants had a much smaller leaf area.\nExplain how the monkey flower plants have developed a larger leaf area over time.",
+        "marks": 5,
+        "answer_points": [
+          "Mutation produced a larger leaf area.",
+          "Natural selection acts on the variation.",
+          "Many offspring are produced, so there is competition for light and other resources.",
+          "Plants with a larger leaf area have a survival advantage and are better adapted.",
+          "Larger leaves absorb more light for photosynthesis.",
+          "Plants with larger leaves reproduce and pass on the alleles for a larger leaf area.",
+          "This happens over many generations until larger leaves are common in the population."
+        ],
+        "tip": "Any five points score."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Natural selection must be described in full, and adaptation defined."
+            },
+            {
+              "type": "subheading",
+              "text": "Natural selection in full"
+            },
+            {
+              "type": "list",
+              "items": [
+                "There is genetic variation within the population.",
+                "More offspring are produced than can survive.",
+                "There is a struggle for survival, including competition for resources.",
+                "Individuals that are better adapted to the environment have a greater chance of reproducing.",
+                "These individuals pass on their alleles to the next generation."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Adaptation"
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Adaptation",
+                  "meaning": "(Supplement) The process, resulting from natural selection, by which populations become more suited to their environment over many generations."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Natural and artificial selection"
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) In **natural selection**, the environment decides which individuals survive and reproduce.",
+                "(Supplement) In **artificial selection**, humans choose which individuals breed, to get the features they want.",
+                "Both depend on variation, and both pass useful alleles on to the next generation.",
+                "Natural selection leads to adaptation. Artificial selection is quicker and gives features useful to humans."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.38"
+      ],
+      "worked_example": {
+        "exemplar_id": "24dcfe0b-9442-44e6-8504-a57ef68cccf9",
+        "source": "EDEXCEL jun 2019, Paper 1 (B), Q3(c)",
+        "question": "Sandpipers have long beaks so that they can dig for worms in the mud.\nExplain how sandpipers evolved to have long beaks.",
+        "marks": 4,
+        "answer_points": [
+          "There is variation in beak length.",
+          "Mutation produced the allele for a longer beak.",
+          "A longer beak reaches deeper for worms, so the bird gets more food.",
+          "Birds with longer beaks survive and reproduce, so they have offspring.",
+          "They pass on the allele for a long beak."
+        ],
+        "tip": "Any four points score."
+      }
     }
   },
   "meta": {
@@ -212,14 +313,19 @@
       "1fa75109-f690-4497-94b2-84bf3ec23982",
       "e977b08d-59f3-46bd-83d2-782782ec145b",
       "12e2c8e9-a7e9-4383-b2e7-71514d910ce8",
-      "d5b100b3-acb9-45cc-86f6-53200d238e22"
+      "d5b100b3-acb9-45cc-86f6-53200d238e22",
+      "cac7193f-bee4-4eaf-8126-44f7a02821a0",
+      "71f9dadb-3833-42e6-b769-4909faf92343",
+      "7ac19c23-bee8-46cf-bc05-796bfaa94488"
     ],
     "exemplar_ids": [
       "7cd982bc-8013-4871-a8fb-a1b425bf1e90",
       "c3c91f6c-44a3-4c3e-8e89-8f213be5475e",
-      "78e76895-2f1a-49bb-bf34-ccdca7ce35a3"
+      "78e76895-2f1a-49bb-bf34-ccdca7ce35a3",
+      "d1953d6b-c679-4d13-af61-cab9590f2a45",
+      "24dcfe0b-9442-44e6-8504-a57ef68cccf9"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

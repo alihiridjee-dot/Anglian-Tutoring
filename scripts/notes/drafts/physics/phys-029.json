@@ -241,6 +241,39 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 2.2.2.4S"],
+      "worked_example": {
+        "exemplar_id": "d1d9c418-e35c-405a-b196-5105a02b3f07",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q4(a)",
+        "question": "Describe an experiment to determine the specific heat capacity of aluminium. You may draw a diagram. Include in your answer the measurements made and any equations needed.",
+        "marks": 4,
+        "answer_points": [
+          "Heat an aluminium block with an electric heater, so that a measurable amount of thermal energy transfers to it",
+          "Find the energy transferred using E = Pt or E = IVt",
+          "Measure the mass of the block, the time of heating, and the initial and final temperatures",
+          "Use c = E / (mΔθ)"
+        ],
+        "tip": "Other workable methods score too, such as heating the block and placing it in a known mass of water."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 5.14P", "IGCSE 5.11P"],
+      "worked_example": {
+        "exemplar_id": "d167fe96-4fb1-470a-a44f-563985cb558e",
+        "source": "EDEXCEL jan 2023, Paper 2 (PR), Q6(a)",
+        "question": "A student does an investigation to find the specific heat capacity of water. The equipment is a 50 W heater, a power supply, a beaker, water, a thermometer, a stopwatch, connecting leads and a balance. Describe an investigation the student could use to find the specific heat capacity of water.",
+        "marks": 5,
+        "answer_points": [
+          "Measure the mass of the water, by finding the difference between the empty beaker and the beaker with water",
+          "Measure the temperature increase (initial and final temperatures)",
+          "Measure the time taken",
+          "Allow the temperature to rise to its maximum after the heater is switched off",
+          "Calculate the energy using E = P × t, then use E = m × c × Δθ to find c"
+        ],
+        "tip": "Any five of these ideas score the marks. Plotting a temperature–time graph and using its gradient also scores."
+      }
     }
   },
   "meta": {
@@ -248,11 +281,12 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "60e73727-82bc-489c-9aec-4905102a2a7b",
       "920d5b82-0da1-4056-ae3e-efd5805bc95c",
-      "d6e13b88-d99b-4a5b-9920-522afb61d365"
+      "d6e13b88-d99b-4a5b-9920-522afb61d365",
+      "5ee45f15-242d-4d70-8dd5-b765388066b7"
     ],
     "exemplar_ids": [
       "dbd1e4dc-1a5d-4ed7-b295-7af4257159e4",
@@ -263,7 +297,9 @@
       "0b09aa94-5d67-4ead-aa95-a2b7b643fdc3",
       "cd9d0dc4-2adb-4585-91b2-17cfb6f4e3e8",
       "5005ce70-83df-4530-93c3-15dc9a641d36",
-      "b4253d6d-fbd4-4702-986a-28cd63a140d3"
+      "b4253d6d-fbd4-4702-986a-28cd63a140d3",
+      "d1d9c418-e35c-405a-b196-5105a02b3f07",
+      "d167fe96-4fb1-470a-a44f-563985cb558e"
     ]
   }
 }

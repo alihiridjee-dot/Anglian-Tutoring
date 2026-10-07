@@ -35,11 +35,31 @@
         },
         {
           "type": "table",
-          "columns": ["Particle", "Where it is", "Relative charge", "Relative mass"],
+          "columns": [
+            "Particle",
+            "Where it is",
+            "Relative charge",
+            "Relative mass"
+          ],
           "rows": [
-            ["Proton", "In the nucleus", "+1", "1"],
-            ["Neutron", "In the nucleus", "0", "1"],
-            ["Electron", "Orbiting the nucleus", "-1", "Very small"]
+            [
+              "Proton",
+              "In the nucleus",
+              "+1",
+              "1"
+            ],
+            [
+              "Neutron",
+              "In the nucleus",
+              "0",
+              "1"
+            ],
+            [
+              "Electron",
+              "Orbiting the nucleus",
+              "-1",
+              "Very small"
+            ]
           ]
         },
         {
@@ -97,13 +117,17 @@
           "type": "equation",
           "label": "Diameter",
           "formula": "diameter = 2 × radius",
-          "where": ["diameter and radius are in metres (m)."]
+          "where": [
+            "diameter and radius are in metres (m)."
+          ]
         },
         {
           "type": "equation",
           "label": "Length of a line of atoms",
           "formula": "length = number of atoms × diameter of one atom",
-          "where": ["length and diameter are in metres (m)."]
+          "where": [
+            "length and diameter are in metres (m)."
+          ]
         },
         {
           "type": "diagram",
@@ -170,19 +194,31 @@
           "diagram": {
             "kind": "compare",
             "alt": "Compare an electron absorbing radiation with an electron emitting radiation.",
-            "items": ["Absorbs radiation", "Emits radiation"],
+            "items": [
+              "Absorbs radiation",
+              "Emits radiation"
+            ],
             "rows": [
               {
                 "feature": "Energy of the electron",
-                "values": ["Increases", "Decreases"]
+                "values": [
+                  "Increases",
+                  "Decreases"
+                ]
               },
               {
                 "feature": "Electron moves",
-                "values": ["Further from the nucleus", "Closer to the nucleus"]
+                "values": [
+                  "Further from the nucleus",
+                  "Closer to the nucleus"
+                ]
               },
               {
                 "feature": "New energy level",
-                "values": ["Higher", "Lower"]
+                "values": [
+                  "Higher",
+                  "Lower"
+                ]
               }
             ]
           }
@@ -227,7 +263,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.4.1.1", "AQA T 6.4.1.1"],
+      "spec_codes": [
+        "AQA 4.4.1.1",
+        "AQA T 6.4.1.1"
+      ],
       "worked_example": {
         "exemplar_id": "edcff7ae-2e96-47f0-881e-aad89bd8110c",
         "source": "AQA jun 2023, Paper 1 (H), Q08.6",
@@ -262,12 +301,32 @@
             },
             {
               "type": "table",
-              "columns": ["Particle", "Relative charge", "Relative mass"],
+              "columns": [
+                "Particle",
+                "Relative charge",
+                "Relative mass"
+              ],
               "rows": [
-                ["Proton", "+1", "1"],
-                ["Neutron", "0", "1"],
-                ["Electron", "-1", "Very small"],
-                ["Positron", "+1", "Very small (the same as an electron)"]
+                [
+                  "Proton",
+                  "+1",
+                  "1"
+                ],
+                [
+                  "Neutron",
+                  "0",
+                  "1"
+                ],
+                [
+                  "Electron",
+                  "-1",
+                  "Very small"
+                ],
+                [
+                  "Positron",
+                  "+1",
+                  "Very small (the same as an electron)"
+                ]
               ]
             }
           ]
@@ -286,7 +345,12 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P1.1b", "OCR P1.1c", "OCR P6.1h", "OCR P6.1i"],
+      "spec_codes": [
+        "OCR P1.1b",
+        "OCR P1.1c",
+        "OCR P6.1h",
+        "OCR P6.1i"
+      ],
       "worked_example": {
         "exemplar_id": "86d18641-8108-4af5-81ab-b09ceb5eb9f6",
         "source": "OCR jun 2025, Paper 3, Q18(c)",
@@ -298,6 +362,65 @@
         ],
         "tip": "The 2 turns the radius into a diameter. The correct answer on the answer line scores both marks."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 5.1.1.1",
+        "CAIE 5.1.2.1",
+        "CAIE 5.1.2.2",
+        "CAIE 5.1.2.7S",
+        "CAIE 5.1.1.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "892de938-e7f2-4ee9-9735-af7aec26970c",
+        "source": "CAMBRIDGE jun 2023, Paper 43, Q8(a)(ii)",
+        "question": "During β-decay, one of the neutrons in the nucleus changes.\n\nExplain how charge is conserved during this change.",
+        "marks": 2,
+        "answer_points": [
+          "The charge on a neutron is 0, so the total charge of the products must be 0.",
+          "The charge on the proton is +1 and the charge on the electron is -1, so the charges add up to 0."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "An atom that gains electrons becomes a negative ion.",
+                "(Supplement) The relative charge on a nucleus equals its proton number (the number of protons), because neutrons have no charge."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 7.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "c061c21a-fd92-45bf-bf19-2939d2e453e1",
+        "source": "EDEXCEL jun 2022, Paper 2 (PR), Q3(a)",
+        "question": "Neutral sulfur particles can become positively charged sulfur particles.\n\nDescribe the difference between a neutral sulfur particle and a positively charged sulfur particle.",
+        "marks": 2,
+        "answer_points": [
+          "A neutral particle has the same number of protons and electrons.",
+          "A positive particle has more protons than electrons (it has lost electrons)."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A nuclear symbol shows the make-up of a nucleus. In ¹⁴₆C the top number is the number of protons plus neutrons and the bottom number is the number of protons."
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -305,7 +428,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "e94dd4a0-cddb-4ee8-9714-7f1db1c91e97",
       "f8f2395b-05a1-4711-9ecd-f6b482d40d52",
@@ -321,7 +444,12 @@
       "24564680-80fa-476a-9ba7-8e2b5f448cc2",
       "5ecf9c05-e7f3-4906-8fd5-f0e7c5bb1d4f",
       "d97e9e6c-b7da-41f1-b2a4-7b58ac37f119",
-      "7c3c1df5-650f-4133-8cb9-58a044ede6a7"
+      "7c3c1df5-650f-4133-8cb9-58a044ede6a7",
+      "a3246f5a-077a-4434-9ffa-e4ddac696ec1",
+      "d1a8e8bd-53e8-4156-8c36-fc46297075cd",
+      "9577a70c-d9d0-4dca-8281-82c67e8ab7c6",
+      "4367e917-c4b0-4ac0-be0e-83a2124dede9",
+      "8f6e87a0-a2dc-45fe-b884-0ade2f93221c"
     ],
     "exemplar_ids": [
       "edcff7ae-2e96-47f0-881e-aad89bd8110c",
@@ -332,7 +460,9 @@
       "aea7ce20-fb82-4661-9ad4-916d297748bc",
       "0aa843c4-885d-4e59-b40a-1b579d9fe398",
       "6f13d2a3-eefc-4b17-a65c-fdeda136088e",
-      "6a5d18e9-f459-4678-93c7-83b95218c823"
+      "6a5d18e9-f459-4678-93c7-83b95218c823",
+      "892de938-e7f2-4ee9-9735-af7aec26970c",
+      "c061c21a-fd92-45bf-bf19-2939d2e453e1"
     ]
   }
 }

@@ -283,6 +283,83 @@
         ],
         "tip": "The answer 100 nm scores all 3 marks. Writing the equation in symbols or words is not credited on its own."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.3.1", "CAIE 3.3.2", "CAIE 3.3.6S", "CAIE 2.3.3.2", "CAIE 6.1.2.4"],
+      "worked_example": {
+        "exemplar_id": "6a0d23f9-708f-4297-891e-e4de36e54b87",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q9(b)",
+        "question": "Electromagnetic radiation from the Sun travels at a speed of 3.0 × 10⁸ m/s. The radiation takes 500 s to reach the Earth.\n\nCalculate the distance from the Sun to the Earth.",
+        "marks": 2,
+        "answer_points": [
+          "distance = speed × time",
+          "distance = 3.0 × 10⁸ × 500",
+          "distance = 1.5 × 10¹¹ m"
+        ],
+        "tip": "One mark for the working and one mark for the answer."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Light and other electromagnetic waves travel so fast that distances in space are timed with the speed equation."
+            },
+            {
+              "type": "equation",
+              "label": "Time for light to travel",
+              "formula": "time = distance ÷ speed",
+              "where": [
+                "time is in seconds, s",
+                "distance is in metres, m",
+                "speed is 3.0 × 10⁸ m/s"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The Sun is 1.5 × 10¹¹ m from the Earth. Light takes 1.5 × 10¹¹ ÷ 3.0 × 10⁸ = 500 s to arrive.",
+                "Thermal radiation is infrared radiation. It needs no medium, so it crosses the vacuum of space from the Sun to the Earth."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.10", "IGCSE 3.11", "IGCSE 3.7"],
+      "worked_example": {
+        "exemplar_id": "da7bc04d-3af2-4abb-9067-0be06a0cf869",
+        "source": "EDEXCEL nov 2020, Paper 2 (PR), Q2(b)",
+        "question": "X-rays are electromagnetic waves used to obtain images of bones. An X-ray machine produces X-rays with a frequency of 1.25 × 10¹⁸ Hz.\n\nX-rays have a speed of 3.00 × 10⁸ m/s in air.\n\nCalculate the wavelength of these X-rays.",
+        "marks": 3,
+        "answer_points": [
+          "wave speed = frequency × wavelength",
+          "3.00 × 10⁸ = 1.25 × 10¹⁸ × wavelength, or wavelength = 3.00 × 10⁸ ÷ (1.25 × 10¹⁸)",
+          "wavelength = 2.40 × 10⁻¹⁰ m"
+        ],
+        "tip": "One mark each for the equation, the substitution or rearrangement, and the answer. A power-of-ten error loses a mark."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The visible colours in order, from the longest wavelength and lowest frequency to the shortest wavelength and highest frequency:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Red, orange, yellow, green, blue, indigo, violet.",
+                "Red has the longest wavelength and the lowest frequency.",
+                "Violet has the shortest wavelength and the highest frequency."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -302,14 +379,21 @@
       "e6b7e7c3-e6c0-4ee4-af50-66ecf24a6b13",
       "fba9b734-02fc-422d-9910-4266e3a02b0a",
       "90f22883-2995-4cfc-9706-47feb90356a2",
-      "f3c2b713-8542-4e64-be3c-49cd41d75543"
+      "f3c2b713-8542-4e64-be3c-49cd41d75543",
+      "d617ff65-a661-4f55-9ea3-b1ee657aa661",
+      "9f89c5dd-8090-48cf-a3b3-48d65f3eb319",
+      "b4562263-8150-4af5-90a7-b6c716dddbd1",
+      "8484d987-3073-4a14-bb14-a0def28af0bf",
+      "4630f862-e38f-49ca-a875-c4fa48c1ea08"
     ],
     "exemplar_ids": [
       "ca9e5750-b38f-4425-8792-7f240c8c7969",
       "a9253cd4-c6eb-4bb0-9406-64d79c355c14",
-      "0d8d02c2-17c0-4f30-b042-e6f6d04d09a4"
+      "0d8d02c2-17c0-4f30-b042-e6f6d04d09a4",
+      "6a0d23f9-708f-4297-891e-e4de36e54b87",
+      "da7bc04d-3af2-4abb-9067-0be06a0cf869"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

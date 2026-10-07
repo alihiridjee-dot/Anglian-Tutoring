@@ -266,6 +266,51 @@
         ],
         "tip": "Half equations also score: Cu²⁺ + 2e⁻ → Cu at the cathode and Cu → Cu²⁺ + 2e⁻ at the anode."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.1.6", "CAIE 4.1.7", "CAIE 4.1.9S"],
+      "worked_example": {
+        "exemplar_id": "eee9cb5c-aa3e-49eb-9b6b-1a2f0d5e3093",
+        "source": "CAMBRIDGE jun 2023, Paper 43, Q5(c)(i)",
+        "question": "Spoons can be electroplated with silver.\nName the substances used as:\nthe anode (positive electrode) ______\nthe cathode (negative electrode) ______\nthe electrolyte ______",
+        "marks": 3,
+        "answer_points": [
+          "Anode: silver.",
+          "Cathode: the spoon.",
+          "Electrolyte: aqueous silver nitrate (a solution of silver nitrate)."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "**Electroplating** coats a metal object with a thin layer of another metal."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Metal objects are electroplated to improve their appearance and to resist corrosion.",
+                "The object to be plated is the cathode (negative electrode).",
+                "The plating metal is the anode (positive electrode).",
+                "The electrolyte is a solution of a salt of the plating metal, such as silver nitrate to plate silver.",
+                "To find the mass plated, weigh the object before and after, then subtract."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) With graphite electrodes, the blue colour of the copper sulfate solution becomes lighter.",
+                "(Supplement) With copper electrodes, the blue colour stays the same, no bubbles form at the anode and the anode dissolves."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.60C"]
     }
   },
   "meta": {
@@ -273,16 +318,21 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "2aabe9e7-24b9-4c10-a8e8-5ea0d124765a",
       "e4ddeeac-5459-4151-8bf5-b60e26c707ce",
-      "de1aed7b-3fca-4a4a-946e-46dd49a6ff46"
+      "de1aed7b-3fca-4a4a-946e-46dd49a6ff46",
+      "5c4dcdbb-a285-4219-a431-88351bb70267",
+      "4c43c006-fac7-49da-8d20-e79942a090ec",
+      "4b5cee21-08f4-49d2-9848-21de16d73fe0",
+      "181b53c8-b087-4cf0-a022-f12b30089332"
     ],
     "exemplar_ids": [
       "c351fb90-37e0-4216-a3bb-fceb000375c9",
       "4ec6dde3-e36d-46be-8ca9-9f4e34e83e77",
-      "033f7fc5-b016-4368-a302-f9522e139883"
+      "033f7fc5-b016-4368-a302-f9522e139883",
+      "eee9cb5c-aa3e-49eb-9b6b-1a2f0d5e3093"
     ]
   }
 }

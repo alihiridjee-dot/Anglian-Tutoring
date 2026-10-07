@@ -346,6 +346,20 @@
         ],
         "tip": "A correct answer of 0.75 s scores all 3 marks. A correct substitution is ignored if it is not rearranged."
       }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.19", "IGCSE 1.20"],
+      "worked_example": {
+        "exemplar_id": "ec0f03cb-4cdf-44c2-9f91-5cda4a6a2cc7",
+        "source": "EDEXCEL jun 2019, Paper 1 (P), Q4(b)",
+        "question": "The speed of a car affects the thinking distance and the braking distance.\n\nDiscuss other factors that affect the thinking distance and the braking distance of the car.",
+        "marks": 4,
+        "answer_points": [
+          "Up to two factors that change the thinking distance: tiredness of the driver, age of the driver, alcohol or drugs, or a distraction such as a mobile phone.",
+          "Up to two factors that change the braking distance: mass of the car, condition of the brakes, condition of the road (icy or wet), condition of the tyres, or the slope of the road."
+        ],
+        "tip": "Each factor scores a mark, up to two for thinking distance and two for braking distance."
+      }
     }
   },
   "meta": {
@@ -362,7 +376,9 @@
       "6aea149a-5d8a-4214-a328-270ae28b89ed",
       "c69541c4-9ce5-4a46-b75f-cae7f7116f83",
       "9e06b462-3148-49d2-98ff-5b38c68a5165",
-      "b403667f-c165-48fc-a8d6-70af60145d79"
+      "b403667f-c165-48fc-a8d6-70af60145d79",
+      "5275b5d1-cab9-4d74-be6f-09021eb3c1f9",
+      "3641ea89-c68a-4775-801e-c36026bd8f84"
     ],
     "exemplar_ids": [
       "06b2ae90-133f-4292-832f-4db297f06fe1",
@@ -373,9 +389,10 @@
       "8b75db64-2869-48d6-aa57-017cedbbe0dc",
       "9061ba10-fa10-485b-ab98-e54ee3e9323e",
       "ae23d552-ebea-4dd6-9934-2d245366c2e5",
-      "ce75c31d-5c9c-4900-bb4e-3cefa8ed8e43"
+      "ce75c31d-5c9c-4900-bb4e-3cefa8ed8e43",
+      "ec0f03cb-4cdf-44c2-9f91-5cda4a6a2cc7"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

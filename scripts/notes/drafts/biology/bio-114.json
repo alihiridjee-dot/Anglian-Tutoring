@@ -51,7 +51,12 @@
             "kind": "sequence",
             "alt": "Put the levels of organisation in order, from a single organism up to a whole ecosystem.",
             "prompt": "Put these levels of organisation in order, from smallest to largest.",
-            "steps": ["Organism", "Population", "Community", "Ecosystem"]
+            "steps": [
+              "Organism",
+              "Population",
+              "Community",
+              "Ecosystem"
+            ]
           }
         },
         {
@@ -89,10 +94,19 @@
         },
         {
           "type": "table",
-          "columns": ["Organisms", "Compete for"],
+          "columns": [
+            "Organisms",
+            "Compete for"
+          ],
           "rows": [
-            ["Plants", "Light, space, water and mineral ions from the soil"],
-            ["Animals", "Food, mates and territory"]
+            [
+              "Plants",
+              "Light, space, water and mineral ions from the soil"
+            ],
+            [
+              "Animals",
+              "Food, mates and territory"
+            ]
           ]
         },
         {
@@ -159,15 +173,24 @@
           "diagram": {
             "kind": "compare",
             "alt": "A comparison of parasitism and mutualism by who benefits and who is harmed.",
-            "items": ["Parasitism", "Mutualism"],
+            "items": [
+              "Parasitism",
+              "Mutualism"
+            ],
             "rows": [
               {
                 "feature": "Who benefits?",
-                "values": ["The parasite", "Both organisms"]
+                "values": [
+                  "The parasite",
+                  "Both organisms"
+                ]
               },
               {
                 "feature": "Who is harmed?",
-                "values": ["The host", "Neither"]
+                "values": [
+                  "The host",
+                  "Neither"
+                ]
               },
               {
                 "feature": "Example",
@@ -216,7 +239,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 7.1", "AQA T 4.7.1.1"],
+      "spec_codes": [
+        "AQA 7.1",
+        "AQA T 4.7.1.1"
+      ],
       "worked_example": {
         "exemplar_id": "cee99778-6b72-4e9f-b7dc-2aa720ea18a6",
         "source": "AQA jun 2024, Paper 2 (F), Q03.4",
@@ -233,7 +259,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 9.1", "EDEX 9.3", "EDEX 9.4"],
+      "spec_codes": [
+        "EDEX 9.1",
+        "EDEX 9.3",
+        "EDEX 9.4"
+      ],
       "worked_example": {
         "exemplar_id": "adb24a42-e6ba-4632-9c20-8e007aedd573",
         "source": "EDEXCEL nov 2021, Paper 2 (F), Q2(c)(ii)",
@@ -247,7 +277,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 4.1e", "OCR 4.1g"],
+      "spec_codes": [
+        "OCR 4.1e",
+        "OCR 4.1g"
+      ],
       "worked_example": {
         "exemplar_id": "87a08034-9302-4a87-bb3f-578daf7aa7a3",
         "source": "OCR jun 2023, Paper 2, Q19(b)",
@@ -262,6 +295,100 @@
         ],
         "tip": "Marked by level. The top level needs both positive and negative actions of buddleia, each explained, in a clear logical order."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 19.4.1",
+        "CAIE 19.4.2",
+        "CAIE 19.4.3",
+        "CAIE 19.4.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "f6f548e5-5f00-4947-92bf-fb57b911bd70",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q1(b)(i)",
+        "question": "A new species was introduced to an ecosystem.\n\nComplete the sentence to describe the term population.\nA population is a group of organisms of one species living in the same ______ at the same ______ .",
+        "marks": 1,
+        "answer_points": [
+          "area",
+          "(same) time"
+        ],
+        "tip": "One mark for both words, in the right order."
+      },
+      "extra": [
+        {
+          "heading": "Population in detail",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A population is a group of organisms of one species living in the same area at the same time."
+            }
+          ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The rate at which a population grows depends on four factors."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Food supply:** more food means more organisms survive and reproduce, so the population grows faster.",
+                "**Competition:** organisms that compete for the same resources have fewer survivors, so growth slows.",
+                "**Predation:** more predators means more prey are eaten, so the prey population grows more slowly.",
+                "**Disease:** disease kills organisms, so growth slows."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.1",
+        "IGCSE 4.3B",
+        "IGCSE 4.5"
+      ],
+      "worked_example": {
+        "exemplar_id": "3d6c1e84-2ae5-4a1a-b258-caf8b2519e5e",
+        "source": "EDEXCEL jun 2019, Paper 2 (B), Q1(a)",
+        "question": "Coral reefs are under water ecosystems.\n\nWhat is meant by the term ecosystem?",
+        "marks": 2,
+        "answer_points": [
+          "All the living organisms (the community or different species) in an area.",
+          "And their environment (the non-living or abiotic factors) in the same area."
+        ],
+        "tip": "One mark for the living organisms and one for the environment."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Biodiversity",
+                  "meaning": "The variety of living organisms in an area, shown by the number of different species."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Abiotic and biotic factors affect the size and distribution of a population."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Abiotic factors** such as light, temperature, water and soil pH decide where a species can live and how many survive.",
+                "**Biotic factors** such as food, competition, predators and disease change how many organisms there are.",
+                "A species is found where its needs are met, so its distribution changes as these factors change."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -275,14 +402,20 @@
       "12c67f09-2587-4ac9-a474-89559bccdbb0",
       "fbe35e76-933d-4f5b-87b2-1c688bcbf496",
       "b2ccac28-7033-4913-a3c7-1a62edc8c9bb",
-      "23cf7849-fce5-45ef-8683-33fb05babd79"
+      "23cf7849-fce5-45ef-8683-33fb05babd79",
+      "60e26f03-895a-4324-9271-0237c4403fc6",
+      "4bbf7eeb-dfce-494b-b96a-272ecdeb9f5f",
+      "997a25cd-c70f-454d-b75b-54e53cfceaec",
+      "14d6ba7b-b12e-4e1f-bd5e-9ffa719af145"
     ],
     "exemplar_ids": [
       "cee99778-6b72-4e9f-b7dc-2aa720ea18a6",
       "adb24a42-e6ba-4632-9c20-8e007aedd573",
-      "87a08034-9302-4a87-bb3f-578daf7aa7a3"
+      "87a08034-9302-4a87-bb3f-578daf7aa7a3",
+      "f6f548e5-5f00-4947-92bf-fb57b911bd70",
+      "3d6c1e84-2ae5-4a1a-b258-caf8b2519e5e"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

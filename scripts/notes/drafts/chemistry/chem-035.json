@@ -244,6 +244,65 @@
         ],
         "tip": "You can instead convert 21 g/dm³ to 0.021 g/cm³ and multiply by 25."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.3.1", "CAIE 12.1.3"],
+      "worked_example": {
+        "exemplar_id": "af89d609-d80d-4afc-b57b-30d5ef28b42f",
+        "source": "CAMBRIDGE jun 2025, Paper 62, Q4",
+        "question": "Magnesium sulfate is a salt. Magnesium sulfate is soluble in water.\n\nThe solubility of a salt is the mass of the salt, in g, that dissolves in 100 cm³ of water at a specified temperature.\n\nPlan an investigation to determine the solubility of magnesium sulfate in water at 50 °C. Your plan must include how the solubility of magnesium sulfate, in g per 100 cm³ of water, can be found.\n\nYou are provided with solid magnesium sulfate, distilled water and common laboratory apparatus.",
+        "marks": 6,
+        "answer_points": [
+          "Measure 100 cm³ of water with a measuring cylinder and put it in a beaker",
+          "Heat the water to 50 °C and keep it at that temperature",
+          "Add magnesium sulfate in excess, or in portions until no more dissolves, and stir",
+          "Filter off the undissolved solid, or use the known mass of solid that was added",
+          "Use the measurements to calculate the solubility: mass dissolved = mass added − mass of undissolved solid, in g per 100 cm³ of water"
+        ],
+        "tip": "Any six marking points score. The plan needs a method for how the solubility is found."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Concentration can be measured in g/dm³ or in mol/dm³. This note uses g/dm³."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Solvent",
+                  "meaning": "A substance that dissolves a solute."
+                },
+                {
+                  "term": "Saturated solution",
+                  "meaning": "A solution containing the maximum amount of solute dissolved in the solvent at a given temperature."
+                },
+                {
+                  "term": "Residue",
+                  "meaning": "The solid that remains after evaporation, distillation, filtration or a similar process."
+                },
+                {
+                  "term": "Filtrate",
+                  "meaning": "The liquid or solution that has passed through a filter."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "mol/dm³ is the number of moles of solute in 1 dm³ of solution.",
+                "Solubility is often given as the mass in g that dissolves in 100 cm³ of water at a stated temperature."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.34C"]
     }
   },
   "meta": {
@@ -251,18 +310,20 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "801450c1-c607-4de7-a09b-7337a91475c1",
       "82d9f92f-3dcb-449e-a9be-0c7a2856d1c7",
       "a11b078c-7843-451b-adec-7e3f96489123",
       "77c9e2ff-974f-451b-a68b-4e271c242029",
-      "be7eb613-d8d6-4e80-8171-e96d5ce8da1b"
+      "be7eb613-d8d6-4e80-8171-e96d5ce8da1b",
+      "11a84ca5-9b37-4930-a18f-27f4f8b97be1"
     ],
     "exemplar_ids": [
       "02cc4c91-71c6-40f6-a8d9-2a56d1b42dd5",
       "756dba57-5cbc-4516-be31-d9746a7b27c9",
-      "a3f5d9c6-017c-4c7e-b29a-ca596ba947b0"
+      "a3f5d9c6-017c-4c7e-b29a-ca596ba947b0",
+      "af89d609-d80d-4afc-b57b-30d5ef28b42f"
     ]
   }
 }

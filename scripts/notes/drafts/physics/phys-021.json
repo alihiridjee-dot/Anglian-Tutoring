@@ -287,6 +287,104 @@
         ],
         "tip": "One mark for the transfer of electrons and one for the charges no longer being equal. Do not say that protons or positive charges move."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.2.1.1",
+        "CAIE 4.2.1.2",
+        "CAIE 4.2.1.3",
+        "CAIE 4.2.1.4",
+        "CAIE 4.2.1.5",
+        "CAIE 4.2.1.6"
+      ],
+      "worked_example": {
+        "exemplar_id": "6e252389-390d-4efc-8324-c6e9ed3de5f5",
+        "source": "CAMBRIDGE nov 2023, Paper 41, Q7(a)",
+        "question": "An uncharged plastic rod is rubbed with a woollen cloth. The rod becomes negatively charged. Explain, in terms of particles, why the rod becomes negatively charged.",
+        "marks": 2,
+        "answer_points": [
+          "Electrons move from the cloth to the rod",
+          "The rod gains electrons, so it has more negative charge than positive charge"
+        ],
+        "tip": "Say that electrons move, and say which way. Protons never move."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Showing and detecting charge"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Rub a plastic rod with a cloth to charge it by friction.",
+                "Hang a second charged rod from an insulating thread. A rod with the same charge pushes it away. A rod with the opposite charge pulls it closer.",
+                "A charged rod also picks up small pieces of paper, which shows that it is charged."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Conductors and insulators",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Put the material in a simple circuit with a cell and a lamp or an ammeter. A conductor lets a current through. An insulator does not."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Conductors have free electrons that can move through the material. Metals and graphite are conductors.",
+                "Insulators hold their electrons tightly, so no electrons are free to move. Plastic, glass, rubber and dry wood are insulators."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.22P",
+        "IGCSE 2.23P",
+        "IGCSE 2.24P",
+        "IGCSE 2.25P",
+        "IGCSE 2.26P",
+        "IGCSE 2.27P",
+        "IGCSE 2.28P"
+      ],
+      "worked_example": {
+        "exemplar_id": "70482c07-decf-4ade-ba27-b60c00ac9d36",
+        "source": "EDEXCEL jan 2023, Paper 2 (PR), Q3(b)",
+        "question": "Clothes in a tumble dryer often stick together when they are dry, because they become electrostatically charged. Explain how pieces of material stick together. Use ideas about electrostatic charge in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Friction (rubbing) between the pieces of material",
+          "Electrons transfer between the pieces, so one becomes negative (it gains electrons) and the other positive",
+          "Opposite charges attract"
+        ],
+        "tip": "Any three of these ideas score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Metals are conductors. Plastics, rubber and glass are insulators.",
+                "Insulators can be charged by rubbing. A conductor held in the hand loses its charge to earth.",
+                "To investigate, rub a plastic rod with a cloth. Hang it from a thread and bring other charged rods near it. You see attraction and repulsion."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Photocopiers and inkjet printers use charge in the same way. Charged toner or ink droplets are attracted to a drum or to paper with the opposite charge."
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -294,7 +392,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "189fa500-7394-4e36-903e-bbee81a0a5b6",
       "dafcb82e-c38f-4a71-96e4-4be7e673ae75",
@@ -306,12 +404,27 @@
       "33ac4d7d-b750-4781-8fbf-1a65ff30e2f4",
       "d3f49a4f-de91-43ac-93a1-d4beb39c4cb1",
       "e29f40ff-638b-44eb-9aad-0288e0d3abc7",
-      "93c4db64-10b3-4ff3-9cd9-3529d21bdcab"
+      "93c4db64-10b3-4ff3-9cd9-3529d21bdcab",
+      "58214990-4a7d-4949-87eb-66793bccd16a",
+      "5be6b31d-4e7a-4055-9e62-226e9b561b1d",
+      "f440a7b2-a6e2-4b48-96d0-26df16e4ea0e",
+      "5e7e396a-fa1c-492f-842a-9b05721592fe",
+      "cdeedcf8-f5c1-4318-9122-5ef230d6e241",
+      "2f234e46-fb9f-49cc-b41a-b877019613a5",
+      "b14c97b4-2955-4f39-a90d-03dec5012daf",
+      "d90f6953-c3fe-41e4-a95d-fadd3807c40f",
+      "cb7bfd1f-2ecd-4d70-afd1-e8bc44617cd8",
+      "ce146008-93b0-47d0-a1ce-f2b8e90f09ab",
+      "c7cf7245-028f-48c6-b16f-2c93fd35611b",
+      "db183ecc-644a-4cc1-92ba-26e8fc97782a",
+      "f22b5d8c-af21-4745-9f63-a76095805ee7"
     ],
     "exemplar_ids": [
       "41a0547d-f89c-47bf-98f6-418c8880e558",
       "2111c247-9048-4c8e-a87a-5e2296c2545d",
-      "470270d3-f73d-448a-bf67-1faa1f27bae0"
+      "470270d3-f73d-448a-bf67-1faa1f27bae0",
+      "6e252389-390d-4efc-8324-c6e9ed3de5f5",
+      "70482c07-decf-4ade-ba27-b60c00ac9d36"
     ]
   }
 }

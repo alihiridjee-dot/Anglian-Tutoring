@@ -49,12 +49,37 @@
         {
           "type": "table",
           "rows": [
-            ["1", "Lose 1", "1+", "Na⁺"],
-            ["2", "Lose 2", "2+", "Mg²⁺"],
-            ["6", "Gain 2", "2−", "O²⁻"],
-            ["7", "Gain 1", "1−", "Cl⁻"]
+            [
+              "1",
+              "Lose 1",
+              "1+",
+              "Na⁺"
+            ],
+            [
+              "2",
+              "Lose 2",
+              "2+",
+              "Mg²⁺"
+            ],
+            [
+              "6",
+              "Gain 2",
+              "2−",
+              "O²⁻"
+            ],
+            [
+              "7",
+              "Gain 1",
+              "1−",
+              "Cl⁻"
+            ]
           ],
-          "columns": ["Group", "Electrons", "Ion", "Example"]
+          "columns": [
+            "Group",
+            "Electrons",
+            "Ion",
+            "Example"
+          ]
         },
         {
           "type": "paragraph",
@@ -63,13 +88,21 @@
         {
           "type": "equation",
           "label": "A metal atom forming an ion (Group 1)",
-          "where": ["Na: sodium atom", "Na⁺: sodium ion", "e⁻: an electron"],
+          "where": [
+            "Na: sodium atom",
+            "Na⁺: sodium ion",
+            "e⁻: an electron"
+          ],
           "formula": "Na → Na⁺ + e⁻"
         },
         {
           "type": "equation",
           "label": "A non-metal atom forming an ion (Group 7)",
-          "where": ["Cl: chlorine atom", "e⁻: an electron", "Cl⁻: chloride ion"],
+          "where": [
+            "Cl: chlorine atom",
+            "e⁻: an electron",
+            "Cl⁻: chloride ion"
+          ],
           "formula": "Cl + e⁻ → Cl⁻"
         },
         {
@@ -92,10 +125,25 @@
         {
           "type": "table",
           "rows": [
-            ["Sodium, Na", "2.8.1", "Na⁺", "2.8"],
-            ["Chlorine, Cl", "2.8.7", "Cl⁻", "2.8.8"]
+            [
+              "Sodium, Na",
+              "2.8.1",
+              "Na⁺",
+              "2.8"
+            ],
+            [
+              "Chlorine, Cl",
+              "2.8.7",
+              "Cl⁻",
+              "2.8.8"
+            ]
           ],
-          "columns": ["Atom", "Electronic structure", "Ion", "Electronic structure of ion"]
+          "columns": [
+            "Atom",
+            "Electronic structure",
+            "Ion",
+            "Electronic structure of ion"
+          ]
         },
         {
           "type": "steps",
@@ -195,7 +243,11 @@
                 ]
               }
             ],
-            "result_labels": ["Electron transfer", "Ions formed", "Atoms that react"]
+            "result_labels": [
+              "Electron transfer",
+              "Ions formed",
+              "Atoms that react"
+            ]
           }
         },
         {
@@ -253,7 +305,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.1.2", "AQA T 5.2.1.2"],
+      "spec_codes": [
+        "AQA 4.2.1.2",
+        "AQA T 5.2.1.2"
+      ],
       "worked_example": {
         "exemplar_id": "5eca7831-500c-42e9-9ae1-d4c912503803",
         "source": "AQA jun 2023, Paper 1 (H), Q03.2",
@@ -269,7 +324,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 1.21", "EDEX 1.22", "EDEX 1.24"],
+      "spec_codes": [
+        "EDEX 1.21",
+        "EDEX 1.22",
+        "EDEX 1.24"
+      ],
       "worked_example": {
         "exemplar_id": "cd6c9cd8-7bcc-40b0-9da7-353c2ef5537e",
         "source": "EDEXCEL jun 2023, Paper 1 (F), Q6(d)",
@@ -285,7 +344,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C2.2e", "OCR C2.2f"],
+      "spec_codes": [
+        "OCR C2.2e",
+        "OCR C2.2f"
+      ],
       "worked_example": {
         "exemplar_id": "ddb3698b-9d14-49d9-8384-ce6de6237db2",
         "source": "OCR jun 2023, Paper 3, Q20(c)(iv)",
@@ -297,6 +359,79 @@
         ],
         "tip": "Mentioning intermolecular forces, covalent bonds or metallic bonds scores zero for the whole question."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.4.1",
+        "CAIE 2.4.2",
+        "CAIE 2.4.3",
+        "CAIE 2.4.6S",
+        "CAIE 8.1.3",
+        "CAIE 2.2.5"
+      ],
+      "worked_example": {
+        "exemplar_id": "937b222d-5a3a-4e05-8033-3ea289aba0f8",
+        "source": "CAMBRIDGE mar 2025, Paper 42, Q2(a)",
+        "question": "State what is meant by the term ionic bond.",
+        "marks": 2,
+        "answer_points": [
+          "A strong electrostatic attraction between ions.",
+          "The ions have opposite charges."
+        ],
+        "tip": "One mark for the electrostatic attraction between ions and one for the opposite charges."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.37",
+        "IGCSE 1.40",
+        "IGCSE 1.41",
+        "IGCSE 1.57C",
+        "IGCSE 1.38"
+      ],
+      "worked_example": {
+        "exemplar_id": "44a935c9-0ba8-4784-b7d3-1dc410974d87",
+        "source": "EDEXCEL jun 2023, Paper 1 (C), Q5(c)",
+        "question": "Lithium carbonate has ionic bonding. State what is meant by the term ionic bonding.",
+        "marks": 2,
+        "answer_points": [
+          "Electrostatic attraction.",
+          "Between oppositely charged ions."
+        ],
+        "tip": "Anions and cations count as oppositely charged ions. Do not describe the sharing of electrons."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Dot-and-cross diagrams for this course include Groups 3 and 5. Only the outer electrons need to be shown."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A Group 3 metal loses three electrons to make a 3+ ion, such as Al³⁺.",
+                "A Group 5 non-metal gains three electrons to make a 3− ion, such as N³⁻.",
+                "Aluminium oxide, Al₂O₃: two aluminium atoms lose six electrons in total and three oxygen atoms gain six.",
+                "Magnesium nitride, Mg₃N₂: three magnesium atoms lose six electrons in total and two nitrogen atoms gain six."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Charges of other common ions"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Positive ions: silver Ag⁺, copper(II) Cu²⁺, iron(II) Fe²⁺, iron(III) Fe³⁺, lead Pb²⁺, zinc Zn²⁺, hydrogen H⁺, ammonium NH₄⁺.",
+                "Negative ions: hydroxide OH⁻, nitrate NO₃⁻, carbonate CO₃²⁻, sulfate SO₄²⁻.",
+                "Learn these: they cannot be worked out from the group number."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -304,7 +439,7 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "c4e82df5-75b6-43d9-ac92-6a3abc67cc38",
       "0c1d56d3-8362-4ebc-94bc-87fabb7c6b2f",
@@ -312,12 +447,23 @@
       "a5117c51-c1bb-4eec-afed-34461a3aba2c",
       "a94a23cf-8bff-4279-b729-3cc759024047",
       "0b280586-513f-4bc9-ad42-92175d44f6f5",
-      "a5ca7818-027c-4b03-a613-1403e9c333bc"
+      "a5ca7818-027c-4b03-a613-1403e9c333bc",
+      "cc5744bd-7fc0-464d-aaf4-41feca2e660c",
+      "f2c4102e-48a6-4b72-be63-2b008c637526",
+      "27051f0d-fcfe-4400-86d5-1baf834978c9",
+      "7e3f5e52-a8f5-46ac-8f8d-c0cf40c53860",
+      "f5ba3549-a7f3-4cf0-862f-0d73781f4b09",
+      "b18b6bba-4df1-4274-9b74-2f80c7779f76",
+      "574bef63-7aa0-496a-8d92-426f4ff8ec1b",
+      "232394b4-399e-40dc-8fef-601eadc9b3dc",
+      "73599d12-d37d-4ae5-ac8a-5297d33afb8e"
     ],
     "exemplar_ids": [
       "5eca7831-500c-42e9-9ae1-d4c912503803",
       "cd6c9cd8-7bcc-40b0-9da7-353c2ef5537e",
-      "ddb3698b-9d14-49d9-8384-ce6de6237db2"
+      "ddb3698b-9d14-49d9-8384-ce6de6237db2",
+      "937b222d-5a3a-4e05-8033-3ea289aba0f8",
+      "44a935c9-0ba8-4784-b7d3-1dc410974d87"
     ]
   }
 }

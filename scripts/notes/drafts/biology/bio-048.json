@@ -85,7 +85,15 @@
               "label": "Time",
               "min": 0,
               "max": 60,
-              "ticks": [0, 10, 20, 30, 40, 50, 60],
+              "ticks": [
+                0,
+                10,
+                20,
+                30,
+                40,
+                50,
+                60
+              ],
               "unit": "days"
             },
             "y": {
@@ -95,17 +103,50 @@
               {
                 "name": "Antibodies in the blood",
                 "points": [
-                  [0, 0],
-                  [5, 0.05],
-                  [10, 0.2],
-                  [15, 0.3],
-                  [22, 0.2],
-                  [30, 0.12],
-                  [32, 0.5],
-                  [35, 0.9],
-                  [42, 0.85],
-                  [50, 0.6],
-                  [60, 0.4]
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    5,
+                    0.05
+                  ],
+                  [
+                    10,
+                    0.2
+                  ],
+                  [
+                    15,
+                    0.3
+                  ],
+                  [
+                    22,
+                    0.2
+                  ],
+                  [
+                    30,
+                    0.12
+                  ],
+                  [
+                    32,
+                    0.5
+                  ],
+                  [
+                    35,
+                    0.9
+                  ],
+                  [
+                    42,
+                    0.85
+                  ],
+                  [
+                    50,
+                    0.6
+                  ],
+                  [
+                    60,
+                    0.4
+                  ]
                 ]
               }
             ],
@@ -217,7 +258,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 3.4", "AQA T 4.3.1.7"],
+      "spec_codes": [
+        "AQA 3.4",
+        "AQA T 4.3.1.7"
+      ],
       "worked_example": {
         "exemplar_id": "0c084486-f8a1-450b-828a-de801cb3ebc9",
         "source": "AQA jun 2024, Paper 1 (H), Q3.3",
@@ -234,7 +278,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.14", "EDEX 5.15B"],
+      "spec_codes": [
+        "EDEX 5.14",
+        "EDEX 5.15B"
+      ],
       "worked_example": {
         "exemplar_id": "163afc43-0683-442d-9d9c-b412b2f4b0be",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q3(a)",
@@ -250,7 +297,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3o"],
+      "spec_codes": [
+        "OCR 6.3o"
+      ],
       "worked_example": {
         "exemplar_id": "e02a8753-836b-4569-80be-cfc70feddf0f",
         "source": "OCR jun 2022, Paper 4, Q21(a)",
@@ -263,6 +312,59 @@
         ],
         "tip": "One mark for each point. Saying antibodies make memory cells does not score."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 10.1.10S",
+        "CAIE 10.1.11S",
+        "CAIE 10.1.12S"
+      ],
+      "worked_example": {
+        "exemplar_id": "db048b30-5208-4f94-92bb-c22ed11f92ab",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q3(d)",
+        "question": "Vaccination can help to prevent the spread of diseases such as cholera.\n\nOutline the process of vaccination and explain how it can prevent the spread of diseases.",
+        "marks": 6,
+        "answer_points": [
+          "Vaccination gives active, long-term immunity.",
+          "The vaccine contains weakened or dead bacteria (pathogens).",
+          "It contains antigens of the pathogen.",
+          "The antigens stimulate an immune response.",
+          "Lymphocytes make antibodies.",
+          "The antibodies bind to the antigens. They have a complementary shape, so are specific to the pathogen.",
+          "Memory cells are formed.",
+          "Mass vaccination programmes mean most of the population is immune, so the disease spreads less."
+        ],
+        "tip": "Any six points score a mark each."
+      },
+      "extra": [
+        {
+          "heading": "Active immunity",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) **Active immunity** is gained after an infection by a pathogen, as well as by vaccination. Either way, the body makes its own antibodies and memory cells."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.63B"
+      ],
+      "worked_example": {
+        "exemplar_id": "30b4b37c-3957-44e6-ac29-4ba069c1e439",
+        "source": "EDEXCEL nov 2020, Paper 2 (BR), Q5(b)",
+        "question": "Explain how vaccination protects humans from pathogens.",
+        "marks": 3,
+        "answer_points": [
+          "The vaccine contains a dead, weakened or harmless pathogen.",
+          "It makes memory cells (lymphocytes).",
+          "On later infection there is a (secondary) immune response.",
+          "Antibodies are made faster and in greater numbers."
+        ],
+        "tip": "Any three points score a mark each."
+      }
     }
   },
   "meta": {
@@ -274,14 +376,20 @@
       "9bc43e3e-dbf6-4aa3-ae55-d3b308e16550",
       "561018dc-0845-4f61-8317-c30ccc351415",
       "6cb4b201-e80c-46d1-81d3-d62021e12c58",
-      "dd84cb13-9250-4270-95ca-cf94db292195"
+      "dd84cb13-9250-4270-95ca-cf94db292195",
+      "fdb6ea2c-3afc-4e39-97a0-f4b186f67fd0",
+      "fcb4e2d2-eb43-42cb-a450-7c5eef017a31",
+      "7416abff-b5b5-4443-9e4c-43ebcf2822f2",
+      "4d23feca-85e1-438e-96c9-dd59a5c30261"
     ],
     "exemplar_ids": [
       "0c084486-f8a1-450b-828a-de801cb3ebc9",
       "163afc43-0683-442d-9d9c-b412b2f4b0be",
-      "e02a8753-836b-4569-80be-cfc70feddf0f"
+      "e02a8753-836b-4569-80be-cfc70feddf0f",
+      "db048b30-5208-4f94-92bb-c22ed11f92ab",
+      "30b4b37c-3957-44e6-ac29-4ba069c1e439"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

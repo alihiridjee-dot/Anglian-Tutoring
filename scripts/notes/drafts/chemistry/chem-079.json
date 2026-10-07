@@ -47,12 +47,37 @@
         },
         {
           "type": "table",
-          "columns": ["Name", "Carbon atoms", "Molecular formula", "Structural formula"],
+          "columns": [
+            "Name",
+            "Carbon atoms",
+            "Molecular formula",
+            "Structural formula"
+          ],
           "rows": [
-            ["Ethene", "2", "C₂H₄", "CH₂=CH₂"],
-            ["Propene", "3", "C₃H₆", "CH₃CH=CH₂"],
-            ["Butene", "4", "C₄H₈", "CH₃CH₂CH=CH₂"],
-            ["Pentene", "5", "C₅H₁₀", "CH₃CH₂CH₂CH=CH₂"]
+            [
+              "Ethene",
+              "2",
+              "C₂H₄",
+              "CH₂=CH₂"
+            ],
+            [
+              "Propene",
+              "3",
+              "C₃H₆",
+              "CH₃CH=CH₂"
+            ],
+            [
+              "Butene",
+              "4",
+              "C₄H₈",
+              "CH₃CH₂CH=CH₂"
+            ],
+            [
+              "Pentene",
+              "5",
+              "C₅H₁₀",
+              "CH₃CH₂CH₂CH=CH₂"
+            ]
           ]
         },
         {
@@ -93,11 +118,17 @@
             "kind": "predictor",
             "alt": "Pick a hydrocarbon to see what happens to bromine water.",
             "prompt": "Pick a hydrocarbon to shake with bromine water",
-            "result_labels": ["Type of hydrocarbon", "What you see"],
+            "result_labels": [
+              "Type of hydrocarbon",
+              "What you see"
+            ],
             "options": [
               {
                 "label": "Ethane, C₂H₆",
-                "results": ["Alkane", "Stays orange"],
+                "results": [
+                  "Alkane",
+                  "Stays orange"
+                ],
                 "explanation": "Ethane is saturated, so bromine does not add to it.",
                 "scene": {
                   "kind": "tubes",
@@ -115,7 +146,10 @@
               },
               {
                 "label": "Ethene, C₂H₄",
-                "results": ["Alkene", "Orange to colourless"],
+                "results": [
+                  "Alkene",
+                  "Orange to colourless"
+                ],
                 "explanation": "Ethene has a C=C bond, so bromine adds across it.",
                 "scene": {
                   "kind": "tubes",
@@ -133,7 +167,10 @@
               },
               {
                 "label": "Hexane, C₆H₁₄",
-                "results": ["Alkane", "Stays orange"],
+                "results": [
+                  "Alkane",
+                  "Stays orange"
+                ],
                 "explanation": "Hexane is saturated, so there is no reaction.",
                 "scene": {
                   "kind": "tubes",
@@ -151,7 +188,10 @@
               },
               {
                 "label": "Hexene, C₆H₁₂",
-                "results": ["Alkene", "Orange to colourless"],
+                "results": [
+                  "Alkene",
+                  "Orange to colourless"
+                ],
                 "explanation": "Hexene has a C=C bond, so the bromine water is decolourised.",
                 "scene": {
                   "kind": "tubes",
@@ -202,7 +242,9 @@
           "type": "equation",
           "label": "Complete combustion of ethene",
           "formula": "C₂H₄ + 3O₂ → 2CO₂ + 2H₂O",
-          "where": ["energy is released"]
+          "where": [
+            "energy is released"
+          ]
         },
         {
           "type": "subheading",
@@ -216,19 +258,25 @@
           "type": "equation",
           "label": "Ethene and hydrogen make ethane",
           "formula": "C₂H₄ + H₂ → C₂H₆",
-          "where": ["needs a catalyst and a raised temperature"]
+          "where": [
+            "needs a catalyst and a raised temperature"
+          ]
         },
         {
           "type": "equation",
           "label": "Ethene and steam (water) make ethanol",
           "formula": "C₂H₄ + H₂O → C₂H₅OH",
-          "where": ["needs a catalyst, high temperature and high pressure"]
+          "where": [
+            "needs a catalyst, high temperature and high pressure"
+          ]
         },
         {
           "type": "equation",
           "label": "Ethene and bromine make 1,2-dibromoethane",
           "formula": "C₂H₄ + Br₂ → C₂H₄Br₂",
-          "where": ["chlorine and iodine react in the same way"]
+          "where": [
+            "chlorine and iodine react in the same way"
+          ]
         },
         {
           "type": "list",
@@ -242,31 +290,52 @@
           "diagram": {
             "kind": "compare",
             "alt": "Ethane compared with ethene.",
-            "items": ["Ethane (alkane)", "Ethene (alkene)"],
+            "items": [
+              "Ethane (alkane)",
+              "Ethene (alkene)"
+            ],
             "rows": [
               {
                 "feature": "Formula",
-                "values": ["C₂H₆", "C₂H₄"]
+                "values": [
+                  "C₂H₆",
+                  "C₂H₄"
+                ]
               },
               {
                 "feature": "Bond between carbon atoms",
-                "values": ["Single C–C", "Double C=C"]
+                "values": [
+                  "Single C–C",
+                  "Double C=C"
+                ]
               },
               {
                 "feature": "Saturated?",
-                "values": ["Saturated", "Unsaturated"]
+                "values": [
+                  "Saturated",
+                  "Unsaturated"
+                ]
               },
               {
                 "feature": "Bromine water",
-                "values": ["Stays orange", "Turns colourless"]
+                "values": [
+                  "Stays orange",
+                  "Turns colourless"
+                ]
               },
               {
                 "feature": "Addition reactions",
-                "values": ["No", "Yes: hydrogen, water, halogens"]
+                "values": [
+                  "No",
+                  "Yes: hydrogen, water, halogens"
+                ]
               },
               {
                 "feature": "Reactivity",
-                "values": ["Less reactive", "More reactive"]
+                "values": [
+                  "Less reactive",
+                  "More reactive"
+                ]
               }
             ]
           }
@@ -300,18 +369,30 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.7.2.1", "AQA 4.7.2.2"],
+      "spec_codes": [
+        "AQA 4.7.2.1",
+        "AQA 4.7.2.2"
+      ],
       "worked_example": {
         "exemplar_id": "6a70d740-75bd-416f-ac05-ed7e47374b2b",
         "source": "AQA jun 2020, Paper 2 (H), Q01.5",
         "question": "This question is about the Earth's resources.\nPropene is an alkene.\n\nDescribe the test for alkenes.\nGive the colour change in the test.",
         "marks": 3,
-        "answer_points": ["Bromine (water).", "Orange.", "To colourless."],
+        "answer_points": [
+          "Bromine (water).",
+          "Orange.",
+          "To colourless."
+        ],
         "tip": "One mark each for the reagent, the starting colour and the final colour. Colourless to orange earns only 1 mark."
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 9.12C", "EDEX 9.13C", "EDEX 9.14C", "EDEX 9.15C"],
+      "spec_codes": [
+        "EDEX 9.12C",
+        "EDEX 9.13C",
+        "EDEX 9.14C",
+        "EDEX 9.15C"
+      ],
       "worked_example": {
         "exemplar_id": "05d0b627-da92-458b-9a3a-4cafa8a42397",
         "source": "EDEXCEL nov 2021, Paper 2 (H), Q10(a)(ii)",
@@ -349,14 +430,18 @@
               "type": "equation",
               "label": "Butene and bromine",
               "formula": "C₄H₈ + Br₂ → C₄H₈Br₂",
-              "where": ["the double bond becomes a single bond"]
+              "where": [
+                "the double bond becomes a single bond"
+              ]
             }
           ]
         }
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR C6.2c"],
+      "spec_codes": [
+        "OCR C6.2c"
+      ],
       "worked_example": {
         "exemplar_id": "ce80f3dc-6b28-47d3-a90c-887472611b31",
         "source": "OCR jun 2019, Paper 2, Q17(c)",
@@ -368,6 +453,118 @@
         ],
         "tip": "One mark for each hydrocarbon."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 11.1.6",
+        "CAIE 11.5.1",
+        "CAIE 11.5.4",
+        "CAIE 11.5.5S",
+        "CAIE 11.5.6S",
+        "CAIE 11.2.1",
+        "CAIE 11.6.1",
+        "CAIE 11.6.4S"
+      ],
+      "worked_example": {
+        "exemplar_id": "23f81962-04c7-4b80-92c1-6c186d919701",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q6(c)(i)",
+        "question": "Ethanol is made by reacting ethene with steam in an industrial process.\n\nState the conditions and type of catalyst used in this industrial production of ethanol.\n\ntemperature and units\npressure and units\ntype of catalyst used",
+        "marks": 3,
+        "answer_points": [
+          "Temperature: 300 °C.",
+          "Pressure: 60 atm (or 6000 kPa).",
+          "Catalyst: an acid."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Ethene's addition reactions need particular conditions, and each makes one product."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Hydrogen needs a nickel catalyst. The product is ethane, CH₃CH₃.",
+                "Steam needs an acid catalyst. The product is ethanol, CH₃CH₂OH.",
+                "Bromine or aqueous bromine gives 1,2-dibromoethane, CH₂BrCH₂Br."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) In the displayed formula of each product, the C=C has become a C–C single bond and each carbon atom has gained one new bond."
+            },
+            {
+              "type": "paragraph",
+              "text": "Ethene and steam are used to make ethanol on a large scale."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Temperature: 300 °C.",
+                "Pressure: 6000 kPa (60 atm).",
+                "Catalyst: an acid, such as phosphoric acid."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.23",
+        "IGCSE 4.24",
+        "IGCSE 4.25",
+        "IGCSE 4.27",
+        "IGCSE 4.28",
+        "IGCSE 4.6",
+        "IGCSE 4.26",
+        "IGCSE 4.32C"
+      ],
+      "worked_example": {
+        "exemplar_id": "17d59332-365a-4dee-91d6-8624bd584e9a",
+        "source": "EDEXCEL jun 2023, Paper 1 (CR), Q7(b)(i)",
+        "question": "The equation represents the complete combustion of an alkene.\n\nCₙH₂ₙ + oxygen → carbon dioxide + nH₂O\n\nComplete combustion of 0.0100 mol of the alkene produces 2.16 g of water.\n\nDetermine the molecular formula of this alkene.\n\n[for H₂O, Mr = 18]",
+        "marks": 3,
+        "answer_points": [
+          "Amount of water = 2.16 ÷ 18 = 0.12 mol.",
+          "Number of hydrogen atoms = (0.12 ÷ 0.0100) × 2 = 24.",
+          "The alkene is C₁₂H₂₄ (from the general formula CₙH₂ₙ)."
+        ],
+        "tip": "Full marks for C₁₂H₂₄. C₆H₁₂ scores 2 marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Butene has two unbranched isomers, so the double bond position is in the name."
+            },
+            {
+              "type": "list",
+              "items": [
+                "But-1-ene: CH₂=CHCH₂CH₃.",
+                "But-2-ene: CH₃CH=CHCH₃."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Ethene and steam make ethanol on a large scale."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The catalyst is phosphoric acid.",
+                "The temperature is about 300 °C.",
+                "The pressure is about 60 to 70 atm."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -381,14 +578,26 @@
       "fa6725ef-e204-427b-a702-da5d85252b63",
       "f5eaca34-76cc-4c56-934c-4adaea0aa205",
       "16f97797-7939-4bb9-963c-da887fda0730",
-      "15bac1b0-1201-4af2-8a95-bf41e2543c51"
+      "15bac1b0-1201-4af2-8a95-bf41e2543c51",
+      "79c08025-3753-4898-9cc5-f583d742c6eb",
+      "d452e58b-7f1c-47f9-bad0-13f0b2c6f337",
+      "87c1986d-2d0b-41cb-8cd8-7b6af01253bc",
+      "fd5d6974-4313-41a7-a160-5af3c4c4b791",
+      "3a95d652-5ef0-4e86-82bd-f4f8bdab3d38",
+      "8d692136-d090-451e-9652-fdde397cc74e",
+      "904d1119-7c56-43ce-9595-f21bb8e8523b",
+      "7d9cffd1-f126-4533-9b7e-4f8a4b5470f4",
+      "f7d2cd5e-81d8-4a9c-88cc-64b1ae52a35b",
+      "aa4a918d-5bcd-43d4-a213-9d40cf309081"
     ],
     "exemplar_ids": [
       "6a70d740-75bd-416f-ac05-ed7e47374b2b",
       "05d0b627-da92-458b-9a3a-4cafa8a42397",
-      "ce80f3dc-6b28-47d3-a90c-887472611b31"
+      "ce80f3dc-6b28-47d3-a90c-887472611b31",
+      "23f81962-04c7-4b80-92c1-6c186d919701",
+      "17d59332-365a-4dee-91d6-8624bd584e9a"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

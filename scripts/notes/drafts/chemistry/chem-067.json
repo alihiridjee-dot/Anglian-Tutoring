@@ -318,6 +318,9 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 6.2.4"]
     }
   },
   "meta": {
@@ -328,13 +331,14 @@
       "68d3360b-69d0-442e-bd0e-fb919f7dcf15",
       "5e7ffb62-ac35-467a-a73a-02f82f1dc7a9",
       "74c6d0bf-7dff-4575-be5a-7ecf0b1ef93b",
-      "0c3577a4-e237-4f96-ad1e-b8498d75a620"
+      "0c3577a4-e237-4f96-ad1e-b8498d75a620",
+      "14628bf9-5b96-4739-bb70-20f1e789185d"
     ],
     "exemplar_ids": [
       "c997fc4e-d93e-4fcf-883a-11ae4ede3f2c",
       "198ed042-e1e2-4154-84ad-5699caa9de7c"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

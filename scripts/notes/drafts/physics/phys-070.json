@@ -220,6 +220,126 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.9"]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.2.2.2"],
+      "worked_example": {
+        "exemplar_id": "a1be63dd-e4cc-4dc9-bf45-a3ed770444d2",
+        "source": "CAMBRIDGE mar 2025, Paper 62, Q3(e)",
+        "question": "A student investigates the refraction of light by a transparent block.\n\nDescribe two techniques to use in this type of experiment to ensure results are accurate.",
+        "marks": 2,
+        "answer_points": [
+          "Draw thin rays with a sharp pencil.",
+          "Look at the base of the pins and keep the pins vertical.",
+          "Use thin pins, or place the pins as far apart as possible."
+        ],
+        "tip": "Any two valid techniques earn the two marks."
+      },
+      "extra": [
+        {
+          "heading": "Blocks of different shapes",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The same method works with blocks of other shapes. Trace the ray through each one."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Rectangular block: the ray bends towards the normal going in and away from it coming out. The emerging ray is parallel to the incident ray.",
+                "Semicircular block: aim the ray at the centre of the flat face, through the curved side. It meets the curved side along the normal, so only the flat face refracts it.",
+                "Triangular prism: the ray is refracted at both sloping faces and is turned towards the base of the prism."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Accurate ray traces",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "If the ray is traced with pins, these steps make the ray trace more accurate."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use a sharp pencil and draw thin lines.",
+                "Use thin pins and keep them upright.",
+                "Look at the bases of the pins, not the tops.",
+                "Place the pins as far apart as possible."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.17", "IGCSE 3.19"],
+      "worked_example": {
+        "exemplar_id": "a8a13184-1176-427d-917e-958a4e712a0a",
+        "source": "EDEXCEL jan 2022, Paper 1 (PR), Q7(a)",
+        "question": "Describe an experiment to determine the refractive index of a glass block.\nIn your answer you should include\n• a labelled diagram\n• the apparatus needed\n• the method used",
+        "marks": 6,
+        "answer_points": [
+          "Apparatus: a ray box (or laser) to make a thin beam of light, and a protractor.",
+          "Draw around the glass block on paper.",
+          "Shine the light into the block at an angle to the normal.",
+          "Mark the incident and refracted rays.",
+          "Measure the angles from the normal.",
+          "Repeat for different angles of incidence.",
+          "Plot sin i against sin r. The gradient gives the refractive index, n."
+        ],
+        "tip": "Any five points score. A labelled diagram can earn marks too."
+      },
+      "extra": [
+        {
+          "heading": "Blocks of different shapes",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The same method works with blocks of other shapes. Trace the ray through each one."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Rectangular block: the ray bends towards the normal going in and away from it coming out. The emerging ray is parallel to the incident ray.",
+                "Semicircular block: aim the ray at the centre of the flat face, through the curved side. It meets the curved side along the normal, so only the flat face refracts it.",
+                "Triangular prism: the ray is refracted at both sloping faces and is turned towards the base of the prism."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Finding the refractive index of glass",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The rectangular block can be used to find its refractive index."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Measure.",
+                  "text": "Draw the normal and measure the angle of incidence, i, and the angle of refraction, r, from it. Repeat for a range of angles."
+                },
+                {
+                  "lead": "Calculate.",
+                  "text": "Work out sin i and sin r for each pair of angles."
+                },
+                {
+                  "lead": "Plot.",
+                  "text": "Plot sin i against sin r. The points lie on a straight line through the origin."
+                },
+                {
+                  "lead": "Read the gradient.",
+                  "text": "The gradient of the line is the refractive index, n."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -228,13 +348,17 @@
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "501a5dfc-1260-4680-9b36-43eebaf5f3a5",
-      "a884de6f-c06d-44d3-970a-b46ddef6cb24"
+      "a884de6f-c06d-44d3-970a-b46ddef6cb24",
+      "0628dc1a-61e8-4dfb-8aaa-fc1a6431f209",
+      "84e36b6b-48f4-4101-b39b-4bb52a1f6a93"
     ],
     "exemplar_ids": [
       "dd4a11fb-3ea4-42a9-8645-07a294f64dfa",
-      "1a15e8f0-7549-4922-bb3f-d574905eeb82"
+      "1a15e8f0-7549-4922-bb3f-d574905eeb82",
+      "a1be63dd-e4cc-4dc9-bf45-a3ed770444d2",
+      "a8a13184-1176-427d-917e-958a4e712a0a"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

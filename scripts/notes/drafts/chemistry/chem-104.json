@@ -42,7 +42,9 @@
           "type": "equation",
           "label": "Rusting of iron",
           "formula": "iron + oxygen + water → hydrated iron(III) oxide (rust)",
-          "where": ["Both oxygen and water must be present."]
+          "where": [
+            "Both oxygen and water must be present."
+          ]
         },
         {
           "type": "diagram",
@@ -50,27 +52,45 @@
             "kind": "predictor",
             "alt": "Pick the conditions for an iron nail and see whether it rusts.",
             "prompt": "Pick the conditions around an iron nail",
-            "result_labels": ["Does the nail rust?", "Why"],
+            "result_labels": [
+              "Does the nail rust?",
+              "Why"
+            ],
             "options": [
               {
                 "label": "Air and water",
-                "results": ["Yes", "Both oxygen and water are present."]
+                "results": [
+                  "Yes",
+                  "Both oxygen and water are present."
+                ]
               },
               {
                 "label": "Air only (drying agent in a stoppered tube)",
-                "results": ["No", "There is no water."]
+                "results": [
+                  "No",
+                  "There is no water."
+                ]
               },
               {
                 "label": "Water only (boiled water with a layer of oil)",
-                "results": ["No", "Boiling removes dissolved air and the oil stops air getting in."]
+                "results": [
+                  "No",
+                  "Boiling removes dissolved air and the oil stops air getting in."
+                ]
               },
               {
                 "label": "Air and water, nail coated in paint",
-                "results": ["No", "The paint is a barrier to oxygen and water."]
+                "results": [
+                  "No",
+                  "The paint is a barrier to oxygen and water."
+                ]
               },
               {
                 "label": "Air and water, nail coated in zinc and then scratched",
-                "results": ["No", "Zinc is more reactive than iron, so it corrodes instead."]
+                "results": [
+                  "No",
+                  "Zinc is more reactive than iron, so it corrodes instead."
+                ]
               }
             ]
           }
@@ -138,7 +158,10 @@
             "kind": "sort",
             "alt": "Sort each method of corrosion prevention into barrier or sacrificial protection.",
             "prompt": "Which type of protection is each method?",
-            "groups": ["Barrier", "Sacrificial protection"],
+            "groups": [
+              "Barrier",
+              "Sacrificial protection"
+            ],
             "items": [
               {
                 "text": "Painting a bridge",
@@ -197,7 +220,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.10.3.1"],
+      "spec_codes": [
+        "AQA 4.10.3.1"
+      ],
       "worked_example": {
         "exemplar_id": "439ffd4f-c2fd-4931-85df-099300ec3bed",
         "source": "AQA jun 2019, Paper 2 (F), Q06.1",
@@ -214,7 +239,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.2C", "EDEX 5.3C", "EDEX 5.4C"],
+      "spec_codes": [
+        "EDEX 5.2C",
+        "EDEX 5.3C",
+        "EDEX 5.4C"
+      ],
       "worked_example": {
         "exemplar_id": "3bdcc0b8-ec69-4c91-a687-fc2eb6014d2f",
         "source": "EDEXCEL jun 2018, Paper 1 (H), Q1(c)",
@@ -228,7 +257,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C6.1p", "OCR C6.1q"],
+      "spec_codes": [
+        "OCR C6.1p",
+        "OCR C6.1q"
+      ],
       "worked_example": {
         "exemplar_id": "e4c5c224-d7cc-4e8e-89ef-69a06238154a",
         "source": "OCR sample null, Paper 4, Q24(b)",
@@ -242,6 +274,77 @@
         ],
         "tip": "Any three. Each conclusion must be backed by a comparison of the results."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 9.5.1",
+        "CAIE 9.5.2",
+        "CAIE 9.5.3",
+        "CAIE 9.5.4S",
+        "CAIE 9.5.5S",
+        "CAIE 4.1.6",
+        "CAIE 4.1.7",
+        "CAIE 9.4.5S"
+      ],
+      "worked_example": {
+        "exemplar_id": "772d5a31-013c-4501-bd2c-7c58f2ef1554",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q6(c)(ii)",
+        "question": "Zinc is used to coat iron to prevent rusting.\n\nWhen the zinc coating is scratched, the iron underneath does not rust.\n\nExplain why the iron underneath the zinc does not rust.",
+        "marks": 2,
+        "answer_points": [
+          "Zinc is more reactive than iron.",
+          "Zinc is oxidised in preference to the iron: it loses electrons and forms zinc ions."
+        ],
+        "tip": "One mark for the reactivity comparison and one for what the zinc does instead of the iron."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Sacrificial protection can be explained in terms of reactivity and electron loss."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The more reactive metal, such as zinc or magnesium, loses electrons more readily than iron.",
+                "It loses electrons in preference to the iron, so it is oxidised and forms positive ions.",
+                "The iron keeps its electrons, so it does not rust."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Electroplating uses electrolysis to coat an object with a thin layer of metal."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The object to be plated is the cathode.",
+                "The anode is the plating metal.",
+                "The electrolyte is a solution that contains ions of the plating metal."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.18",
+        "IGCSE 2.19"
+      ],
+      "worked_example": {
+        "exemplar_id": "c4e0c0b1-e219-463c-b70d-2458edaa390f",
+        "source": "EDEXCEL jun 2023, Paper 1 (CR), Q5(b)(iii)",
+        "question": "Iron can be prevented from rusting by painting or by coating with zinc.\n\nExplain why a layer of zinc protects iron from rusting, even if the layer of zinc is scratched.",
+        "marks": 2,
+        "answer_points": [
+          "Zinc is more reactive than iron.",
+          "So zinc is oxidised, or loses electrons more readily, in preference to the iron."
+        ],
+        "tip": "Do not say that the zinc rusts. Say that it reacts or corrodes instead of the iron."
+      }
     }
   },
   "meta": {
@@ -254,14 +357,23 @@
       "0c5b7af9-8abf-49ee-a96d-99e17c3a6579",
       "bd7fc04e-5cda-452e-8d53-aa1eeb89d6a6",
       "53b7b81b-f889-415e-aff9-9c9f96b4f908",
-      "31f6a5f8-e320-4d88-89f7-e2896192f7c6"
+      "31f6a5f8-e320-4d88-89f7-e2896192f7c6",
+      "93188319-6e82-4551-b1cf-29d23ca6168b",
+      "db067af8-80d3-4835-a7ea-ca0eb5ed8076",
+      "392f7fa7-314d-432c-9e7b-45a3b8125d5e",
+      "e5af1047-c832-4202-96e9-d6ffd040272a",
+      "1ba28a19-a3ac-4ab2-b89b-3383250e167f",
+      "ee8d7b6c-ea9b-4d28-ab45-0931d22b4225",
+      "e51be4a1-a020-40c3-ac4b-507c4b9e9cd0"
     ],
     "exemplar_ids": [
       "439ffd4f-c2fd-4931-85df-099300ec3bed",
       "3bdcc0b8-ec69-4c91-a687-fc2eb6014d2f",
-      "e4c5c224-d7cc-4e8e-89ef-69a06238154a"
+      "e4c5c224-d7cc-4e8e-89ef-69a06238154a",
+      "772d5a31-013c-4501-bd2c-7c58f2ef1554",
+      "c4e0c0b1-e219-463c-b70d-2458edaa390f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

@@ -318,18 +318,73 @@
         ],
         "tip": "The washing and drying marks depend on filtering. Crystallisation is rejected, and washing must come before drying."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 7.3.2", "CAIE 7.3.4S"],
+      "worked_example": {
+        "exemplar_id": "592ea391-fd96-4973-8ee7-c260596a1740",
+        "source": "CAMBRIDGE jun 2025, Paper 63, Q4",
+        "question": "Lead(II) chloride, PbCl₂, is an insoluble salt. Solid lead(II) chloride can be made by reacting aqueous sodium chloride with aqueous lead(II) nitrate.\n2NaCl(aq) + Pb(NO₃)₂(aq) → 2NaNO₃(aq) + PbCl₂(s)\nDescribe how to make a pure, dry sample of solid lead(II) chloride. You are provided with solid sodium chloride, solid lead(II) nitrate, distilled water and common laboratory apparatus.",
+        "marks": 6,
+        "answer_points": [
+          "Add the sodium chloride and the lead(II) nitrate to water, in separate containers.",
+          "Stir or shake each one to dissolve the solid.",
+          "Mix the two solutions together in a suitable container.",
+          "Filter the mixture to collect lead(II) chloride as the residue.",
+          "Pour distilled water over the residue in the funnel to wash it.",
+          "Dry the solid, for example in a warm place or with filter paper."
+        ],
+        "tip": "Any six of these points score the six marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            { "type": "paragraph", "text": "Calcium hydroxide is **slightly soluble** in water. Treat it as an exception to the rule that hydroxides are insoluble." }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.34", "IGCSE 2.41C", "IGCSE 2.43C"],
+      "worked_example": {
+        "exemplar_id": "49cea649-c9c5-4bf4-8fb3-e36fc606100c",
+        "source": "EDEXCEL jun 2023, Paper 2 (CR), Q5(a)",
+        "question": "Lead(II) bromide is an insoluble salt. It can be made by a precipitation reaction.\nPb(NO₃)₂(aq) + 2KBr(aq) → PbBr₂(s) + 2KNO₃(aq)\nDescribe how solutions of lead nitrate and potassium bromide can be used to make a pure, dry sample of lead(II) bromide.",
+        "marks": 4,
+        "answer_points": [
+          "Mix the two solutions together.",
+          "Filter the mixture to collect the solid lead(II) bromide.",
+          "Wash the solid with deionised water.",
+          "Dry the solid, for example by leaving it in a warm place or in an oven, or with filter paper."
+        ],
+        "tip": "One mark for each stage: mix, filter, wash, dry."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            { "type": "paragraph", "text": "Calcium hydroxide is **slightly soluble** in water. Treat it as an exception to the rule that hydroxides are insoluble." }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "832483eb-0aff-4234-bb84-013fb02ecb58",
       "69e99340-c1a2-43c6-b300-43c818763c53",
-      "5a8432c5-eeff-4ccb-82f4-3d5b6db7db49"
+      "5a8432c5-eeff-4ccb-82f4-3d5b6db7db49",
+      "df496cfc-600b-47f9-a113-071f317ebeaa",
+      "4a5cb05f-acba-4b0d-b5dc-8393e484fa3b",
+      "40b0fbd0-2b34-4a31-aae3-45d5fea81773",
+      "c194aa0b-eb36-4a9f-bdcf-09317f22b222",
+      "c1f5d8e5-e58c-4c4e-8a92-4dea98a1c48c"
     ],
     "exemplar_ids": [
       "d7646dc6-9e49-41ed-8c73-b2488a8dfdf5",
@@ -338,7 +393,9 @@
       "d82cb923-814f-4795-b100-13adf86f409a",
       "e10f4b98-6d80-4736-9869-ccf8c81ae820",
       "7716f560-fc9c-4f38-9099-3fef070c7d38",
-      "fb8a5052-6ad0-4a39-b096-844f438914cc"
+      "fb8a5052-6ad0-4a39-b096-844f438914cc",
+      "592ea391-fd96-4973-8ee7-c260596a1740",
+      "49cea649-c9c5-4bf4-8fb3-e36fc606100c"
     ]
   }
 }

@@ -3,7 +3,7 @@
   "concept_id": "phys-092",
   "subject": "physics",
   "title": "The Big Bang and Steady State theories",
-  "key_idea": "The Big Bang theory says the Universe began from a very small, extremely hot, dense region and is expanding. The Steady State theory says it has no beginning and new matter forms continually. Red-shift (and, for boards that require it, CMB radiation) supports the Big Bang, which is the accepted model.",
+  "key_idea": "The Big Bang theory says the Universe began from a very small, extremely hot, dense region and is expanding. The Steady State theory says it has no beginning and new matter forms continually. Red-shift (and CMB radiation) supports the Big Bang, which is the accepted model.",
   "sections": [
     {
       "heading": "Two theories of the origin of the Universe",
@@ -206,6 +206,84 @@
         "answer_points": ["Big Bang.", "Red shift.", "Expanding."],
         "tip": "One mark for each correct word."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 6.2.3.5S", "CAIE 6.2.3.6S", "CAIE 6.2.3.4", "CAIE 6.2.3.11S"],
+      "worked_example": {
+        "exemplar_id": "83789363-6359-4c6c-9dfb-14160d291665",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q11(c)(ii)",
+        "question": "Cosmic microwave background radiation (CMBR) is observed at all points in space.\nExplain why this radiation is now in the microwave region of the electromagnetic spectrum.",
+        "marks": 2,
+        "answer_points": [
+          "The Universe has expanded.",
+          "The radiation has been redshifted to the microwave region of the electromagnetic spectrum."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) Microwave radiation of a specific frequency is observed at all points in space. This is cosmic microwave background radiation (CMBR).",
+                "(Supplement) The CMBR was produced shortly after the Universe was formed.",
+                "(Supplement) As the Universe expanded, the wavelength of this radiation stretched, so it is now in the microwave region of the electromagnetic spectrum."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The age of the Universe can be estimated from the Hubble constant H₀. This is evidence that all the matter in the Universe was once at a single point."
+            },
+            {
+              "type": "equation",
+              "label": "Estimate of the age of the Universe",
+              "formula": "d ÷ v = 1 ÷ H₀",
+              "where": [
+                "d is the distance of a galaxy from the Earth",
+                "v is the speed at which the galaxy is moving away from the Earth",
+                "H₀ is the Hubble constant, in per second, 1/s"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "For H₀ = 2.2 × 10⁻¹⁸ per second, the age is 1 ÷ (2.2 × 10⁻¹⁸) = 4.5 × 10¹⁷ s. This is about 14 billion years."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 8.13P", "IGCSE 8.14P"],
+      "worked_example": {
+        "exemplar_id": "5ed4f57e-41cd-4222-bd37-812f0208313f",
+        "source": "EDEXCEL nov 2020, Paper 2 (PR), Q8(b)",
+        "question": "The Big Bang theory suggests that the Universe is approximately 14 billion years old.\nDescribe the evidence that supports the Big Bang theory.",
+        "marks": 4,
+        "answer_points": [
+          "There is cosmic microwave background radiation (CMBR), and it comes from all directions.",
+          "The wavelength of the CMBR has increased as the Universe expanded.",
+          "Galaxies show red-shift, and further or faster galaxies show a greater red-shift.",
+          "Red-shift indicates that galaxies are moving away from each other."
+        ],
+        "tip": "Give evidence from both the CMBR and red-shift."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Since the Big Bang, the Universe has expanded and cooled. It began as a hot, dense point.",
+                "The CMBR is the same in all directions, which implies that all parts of the Universe were once in contact.",
+                "The Universe was significantly hotter long ago.",
+                "The relative amounts of hydrogen and helium in the Universe also support the Big Bang. Helium formed when the Universe was hot enough for protons to fuse."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -223,9 +301,11 @@
     "exemplar_ids": [
       "09b47cac-2d29-441e-9189-93be448766f2",
       "8fcc90e5-fc71-4be9-afd3-42b4a443a866",
-      "7c8a459a-9976-43af-a2d2-887346be0758"
+      "7c8a459a-9976-43af-a2d2-887346be0758",
+      "83789363-6359-4c6c-9dfb-14160d291665",
+      "5ed4f57e-41cd-4222-bd37-812f0208313f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

@@ -27,16 +27,32 @@
         },
         {
           "type": "table",
-          "columns": ["Hormone", "Stimulates", "Inhibits"],
+          "columns": [
+            "Hormone",
+            "Stimulates",
+            "Inhibits"
+          ],
           "rows": [
             [
               "FSH",
               "Egg maturing in a follicle; oestrogen from the ovaries",
               "No other hormone in this chain"
             ],
-            ["Oestrogen", "Thickening of the uterus lining; LH", "FSH"],
-            ["LH", "Ovulation (release of the egg)", "No other hormone in this chain"],
-            ["Progesterone", "Maintenance of the uterus lining", "FSH and LH"]
+            [
+              "Oestrogen",
+              "Thickening of the uterus lining; LH",
+              "FSH"
+            ],
+            [
+              "LH",
+              "Ovulation (release of the egg)",
+              "No other hormone in this chain"
+            ],
+            [
+              "Progesterone",
+              "Maintenance of the uterus lining",
+              "FSH and LH"
+            ]
           ]
         },
         {
@@ -82,7 +98,13 @@
               "label": "Day of the cycle",
               "min": 0,
               "max": 28,
-              "ticks": [0, 7, 14, 21, 28],
+              "ticks": [
+                0,
+                7,
+                14,
+                21,
+                28
+              ],
               "unit": "days"
             },
             "y": {
@@ -92,50 +114,137 @@
               {
                 "name": "FSH",
                 "points": [
-                  [0, 0.4],
-                  [4, 0.45],
-                  [8, 0.3],
-                  [12, 0.2],
-                  [14, 0.3],
-                  [16, 0.12],
-                  [21, 0.1],
-                  [28, 0.2]
+                  [
+                    0,
+                    0.4
+                  ],
+                  [
+                    4,
+                    0.45
+                  ],
+                  [
+                    8,
+                    0.3
+                  ],
+                  [
+                    12,
+                    0.2
+                  ],
+                  [
+                    14,
+                    0.3
+                  ],
+                  [
+                    16,
+                    0.12
+                  ],
+                  [
+                    21,
+                    0.1
+                  ],
+                  [
+                    28,
+                    0.2
+                  ]
                 ]
               },
               {
                 "name": "LH",
                 "points": [
-                  [0, 0.1],
-                  [10, 0.12],
-                  [12, 0.25],
-                  [14, 1],
-                  [16, 0.25],
-                  [21, 0.12],
-                  [28, 0.1]
+                  [
+                    0,
+                    0.1
+                  ],
+                  [
+                    10,
+                    0.12
+                  ],
+                  [
+                    12,
+                    0.25
+                  ],
+                  [
+                    14,
+                    1
+                  ],
+                  [
+                    16,
+                    0.25
+                  ],
+                  [
+                    21,
+                    0.12
+                  ],
+                  [
+                    28,
+                    0.1
+                  ]
                 ]
               },
               {
                 "name": "Oestrogen",
                 "points": [
-                  [0, 0.1],
-                  [5, 0.2],
-                  [10, 0.55],
-                  [13, 0.9],
-                  [15, 0.35],
-                  [21, 0.55],
-                  [25, 0.3],
-                  [28, 0.12]
+                  [
+                    0,
+                    0.1
+                  ],
+                  [
+                    5,
+                    0.2
+                  ],
+                  [
+                    10,
+                    0.55
+                  ],
+                  [
+                    13,
+                    0.9
+                  ],
+                  [
+                    15,
+                    0.35
+                  ],
+                  [
+                    21,
+                    0.55
+                  ],
+                  [
+                    25,
+                    0.3
+                  ],
+                  [
+                    28,
+                    0.12
+                  ]
                 ]
               },
               {
                 "name": "Progesterone",
                 "points": [
-                  [0, 0.05],
-                  [13, 0.05],
-                  [15, 0.15],
-                  [21, 0.8],
-                  [25, 0.4],
-                  [28, 0.08]
+                  [
+                    0,
+                    0.05
+                  ],
+                  [
+                    13,
+                    0.05
+                  ],
+                  [
+                    15,
+                    0.15
+                  ],
+                  [
+                    21,
+                    0.8
+                  ],
+                  [
+                    25,
+                    0.4
+                  ],
+                  [
+                    28,
+                    0.08
+                  ]
                 ]
               }
             ],
@@ -211,7 +320,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 5.12", "AQA T 4.5.3.3"],
+      "spec_codes": [
+        "AQA 5.12",
+        "AQA T 4.5.3.3"
+      ],
       "worked_example": {
         "exemplar_id": "cf7d1ce0-15e0-4fd2-8b1a-6c9dcb21889d",
         "source": "AQA jun 2021, Paper 2 (H), Q06.4",
@@ -228,7 +340,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 7.5"],
+      "spec_codes": [
+        "EDEX 7.5"
+      ],
       "worked_example": {
         "exemplar_id": "32540e13-af55-45c6-b305-42b73e18af07",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q9(c)",
@@ -246,15 +360,58 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 3.2d"],
+      "spec_codes": [
+        "OCR 3.2d"
+      ],
       "worked_example": {
         "exemplar_id": "7429d96c-91b2-4044-9c51-936000055bcc",
         "source": "OCR jun 2019, Paper 3, Q19(a)(ii)",
         "question": "Name two hormones that peak immediately before ovulation.",
         "marks": 1,
-        "answer_points": ["Any two from: oestrogen, FSH, LH."],
+        "answer_points": [
+          "Any two from: oestrogen, FSH, LH."
+        ],
         "tip": "One mark for any two of the three named hormones."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 16.5.4S",
+        "CAIE 16.5.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "c021f617-9316-43cd-a0e6-d38aadc38b57",
+        "source": "CAMBRIDGE jun 2023, Paper 43, Q5(a)",
+        "question": "Describe the role of progesterone in pregnancy.",
+        "marks": 3,
+        "answer_points": [
+          "Progesterone maintains the pregnancy.",
+          "It maintains the thickness of the lining of the uterus.",
+          "It prevents menstruation.",
+          "It inhibits contraction of the muscular wall of the uterus.",
+          "It prevents the secretion of FSH and LH, so no more follicles develop and there is no ovulation."
+        ],
+        "tip": "Three of these points score. Link progesterone to the lining, to the cycle stopping and to FSH and LH."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) In pregnancy, progesterone also:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "maintains the pregnancy",
+                "inhibits contractions of the muscular wall of the uterus",
+                "prevents menstruation, so the cycle does not continue"
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -263,7 +420,8 @@
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "3acdfdb1-e62e-43f5-aff8-8156ece1f9b2",
-      "e79c9102-51c9-448d-bf56-cf588bd58785"
+      "e79c9102-51c9-448d-bf56-cf588bd58785",
+      "af4e0d85-c680-4c72-88a2-047815d1efd3"
     ],
     "exemplar_ids": [
       "cf7d1ce0-15e0-4fd2-8b1a-6c9dcb21889d",
@@ -273,9 +431,10 @@
       "407b6a94-65d9-43cb-882d-e420c884eaf7",
       "dbeec3b5-fedb-42ed-b541-bf205e919948",
       "af582fba-25ee-4799-8010-5cca624e6f79",
-      "62cca1d6-61a8-4993-9ede-8844866ed451"
+      "62cca1d6-61a8-4993-9ede-8844866ed451",
+      "c021f617-9316-43cd-a0e6-d38aadc38b57"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

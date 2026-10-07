@@ -303,6 +303,69 @@
         ],
         "tip": "Any two of the three points. Do not write that energy losses stop completely."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.5.6.4", "CAIE 4.5.6.5", "CAIE 4.5.6.8S"],
+      "worked_example": {
+        "exemplar_id": "3776f307-56cc-4ff8-aaf0-3447ced9969b",
+        "source": "CAMBRIDGE mar 2024, Paper 42, Q8(b)",
+        "question": "Electricity is transmitted at high voltage. Explain why a high voltage increases the efficiency of transmission even with thinner wires.",
+        "marks": 3,
+        "answer_points": [
+          "Power lost = I²R",
+          "A high voltage means a low current for the same power, so less energy is lost",
+          "Thin wires have a high resistance, but the low current has a greater effect on the energy lost than the high resistance"
+        ],
+        "tip": "Any three of these ideas score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A high voltage lets the grid use thinner, cheaper cables. Thin cables have more resistance, but the current is so small that the power lost is still low."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Power lost = I²R, so the current matters more than the resistance.",
+                "Halving the current cuts the power lost to a quarter.",
+                "The cables can be thinner, so they are lighter and cheaper to build."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 6.18P"],
+      "worked_example": {
+        "exemplar_id": "483f7c95-c3ac-4a24-a2f6-ceb3b717e15f",
+        "source": "EDEXCEL jun 2022, Paper 2 (PR), Q5(a)",
+        "question": "There is a step-up transformer at the power station end of a transmission line and a step-down transformer at a distant town. Explain why step-up transformers and step-down transformers are used in this way.",
+        "marks": 4,
+        "answer_points": [
+          "The step-up transformer increases the voltage (the step-down transformer decreases it)",
+          "The step-up transformer reduces the current",
+          "A lower current means less heating, so less energy is lost",
+          "The town needs a low voltage, for safety or so that appliances work correctly"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A step-down transformer lowers the voltage before it reaches homes.",
+                "A low voltage is safer for people and is the voltage that appliances are designed to use."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -310,7 +373,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "bac89603-adb4-493d-afa7-3891eab71e00",
       "0e6ba1a4-54d2-44aa-aadb-823b6d927f13",
@@ -319,12 +382,18 @@
       "bfe5783f-8827-47a3-b176-52871c5f6a49",
       "c614005b-7de1-4f38-b3bd-6cf7889ad163",
       "9c7c51fb-bc5d-4cf1-8576-43fc39b78c90",
-      "77722fa9-3bd8-4b17-841f-eabbb0a278cb"
+      "77722fa9-3bd8-4b17-841f-eabbb0a278cb",
+      "2e3ed6fa-f831-49b9-8dbb-4b14b5e034a7",
+      "e9d2077e-a808-45f5-9c1e-b15022cb0ef8",
+      "8677d1e0-2a53-4633-b3b8-9af20fd7532a",
+      "4ae6235b-8d2d-4d8b-af09-1a9b36e34935"
     ],
     "exemplar_ids": [
       "b2b3a421-8ba3-4b51-80e5-e2ce2b2e3d7c",
       "dffd3e4e-0df3-4414-a16f-e1198cfc941e",
-      "910916e1-2aab-479b-8d02-0c936962c6a3"
+      "910916e1-2aab-479b-8d02-0c936962c6a3",
+      "3776f307-56cc-4ff8-aaf0-3447ced9969b",
+      "483f7c95-c3ac-4a24-a2f6-ceb3b717e15f"
     ]
   }
 }

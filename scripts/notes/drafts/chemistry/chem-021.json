@@ -85,7 +85,10 @@
                 "group": 1
               }
             ],
-            "groups": ["Intermolecular forces overcome", "Covalent bonds broken"],
+            "groups": [
+              "Intermolecular forces overcome",
+              "Covalent bonds broken"
+            ],
             "prompt": "What is happening to the molecules? Sort each change."
           }
         },
@@ -109,12 +112,32 @@
         {
           "type": "table",
           "rows": [
-            ["Fluorine", "−188", "Gas"],
-            ["Chlorine", "−35", "Gas"],
-            ["Bromine", "59", "Liquid"],
-            ["Iodine", "184", "Solid"]
+            [
+              "Fluorine",
+              "−188",
+              "Gas"
+            ],
+            [
+              "Chlorine",
+              "−35",
+              "Gas"
+            ],
+            [
+              "Bromine",
+              "59",
+              "Liquid"
+            ],
+            [
+              "Iodine",
+              "184",
+              "Solid"
+            ]
           ],
-          "columns": ["Halogen", "Boiling point (°C)", "State at room temperature"]
+          "columns": [
+            "Halogen",
+            "Boiling point (°C)",
+            "State at room temperature"
+          ]
         },
         {
           "type": "list",
@@ -187,7 +210,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.2.4", "AQA T 5.2.2.4"],
+      "spec_codes": [
+        "AQA 4.2.2.4",
+        "AQA T 5.2.2.4"
+      ],
       "worked_example": {
         "exemplar_id": "e2102a24-aeb8-4e98-9ccb-6f57445e6f2b",
         "source": "AQA jun 2019, Paper 1 (H), Q05.3",
@@ -202,7 +228,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 1.34"],
+      "spec_codes": [
+        "EDEX 1.34"
+      ],
       "worked_example": {
         "exemplar_id": "027e085d-88bb-421f-be31-33765a41c4fe",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q2(c)(ii)",
@@ -217,7 +245,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C2.3d", "OCR C2.3f"],
+      "spec_codes": [
+        "OCR C2.3d",
+        "OCR C2.3f"
+      ],
       "worked_example": {
         "exemplar_id": "8df18a8d-92f4-4e0c-b0b0-66b4106d4b10",
         "source": "OCR jun 2022, Paper 3, Q21(b)(ii)",
@@ -231,6 +262,61 @@
         ],
         "tip": "Choose the compound, then give any two reasons linking the forces to the energy and the melting or boiling point."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.5.3",
+        "CAIE 2.5.5S"
+      ],
+      "worked_example": {
+        "exemplar_id": "80843efc-3e33-44dc-bee8-d7a6e06c8b8d",
+        "source": "CAMBRIDGE nov 2024, Paper 43, Q3(d)(ii)",
+        "question": "Tin(IV) chloride, SnCl₄, is covalently bonded. Tin(II) oxide, SnO, is ionically bonded. SnCl₄ has a melting point of –33 °C and SnO has a melting point of 1080 °C. Explain, in terms of structure and bonding, why SnCl₄ has a much lower melting point than SnO.",
+        "marks": 3,
+        "answer_points": [
+          "There is attraction between molecules (intermolecular forces) in tin(IV) chloride.",
+          "Tin(II) oxide has a giant ionic structure.",
+          "The attraction between particles in tin(IV) chloride is weaker."
+        ],
+        "tip": "The covalent bonds inside the SnCl₄ molecules are not broken when it melts."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.47",
+        "IGCSE 1.48",
+        "IGCSE 1.51",
+        "IGCSE 1.55C"
+      ],
+      "worked_example": {
+        "exemplar_id": "d6c41e3d-7c73-421c-913c-c51318dc16b1",
+        "source": "EDEXCEL jun 2024, Paper 1 (CR), Q9(b)(iii)",
+        "question": "Hydrogen chloride and magnesium chloride have different types of bonding and have different structures. Explain why magnesium chloride has a much higher melting point than hydrogen chloride. Refer to structure and bonding in your answer.",
+        "marks": 5,
+        "answer_points": [
+          "Hydrogen chloride is simple molecular (simple covalent).",
+          "Magnesium chloride is a giant ionic lattice.",
+          "There is strong electrostatic attraction between the oppositely charged ions in magnesium chloride.",
+          "There are only weak intermolecular forces between hydrogen chloride molecules.",
+          "Much more energy is needed to break the ionic bonds in magnesium chloride than to overcome the forces between hydrogen chloride molecules."
+        ],
+        "tip": "Five of these points score. Never refer to breaking the covalent bonds in hydrogen chloride."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Relative molecular mass, Mᵣ, is the sum of the relative atomic masses of the atoms in a molecule.",
+                "In general, the melting and boiling points of simple molecular substances increase as Mᵣ increases.",
+                "In the halogens, Mᵣ rises from 38 for F₂ to 254 for I₂, and the boiling point rises with it."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -238,18 +324,26 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "02d65818-dc2b-4dd2-a336-52bcddc0fe93",
       "dcfef170-a9a4-461b-a9fc-e68642ae765e",
       "d944dcb0-4293-40db-aa06-b3a64dc9eba9",
       "3c9ac078-5a30-4a23-874b-fda5c2eee247",
-      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8"
+      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8",
+      "a138cc31-d21e-40fa-9fcf-c87bfe6b0cd5",
+      "64adace0-c96a-46c7-b34e-c58d123d5924",
+      "781cecad-eec5-461e-936c-f6643b61311f",
+      "3f7d129a-ae42-421f-8f19-71d6a5d46336",
+      "df58aa23-d938-4846-9c6f-f35f54433269",
+      "7db617b8-e52c-471b-81f0-29d8b37d3bd5"
     ],
     "exemplar_ids": [
       "e2102a24-aeb8-4e98-9ccb-6f57445e6f2b",
       "027e085d-88bb-421f-be31-33765a41c4fe",
-      "8df18a8d-92f4-4e0c-b0b0-66b4106d4b10"
+      "8df18a8d-92f4-4e0c-b0b0-66b4106d4b10",
+      "80843efc-3e33-44dc-bee8-d7a6e06c8b8d",
+      "d6c41e3d-7c73-421c-913c-c51318dc16b1"
     ]
   }
 }

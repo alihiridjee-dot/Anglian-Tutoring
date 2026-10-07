@@ -316,6 +316,58 @@
         ],
         "tip": "Any two matching values from the table can be used. The final mark is for rounding to 2 significant figures."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.5.1.1", "CAIE 1.5.1.2", "CAIE 1.5.1.9S", "CAIE 1.5.1.10S"],
+      "worked_example": {
+        "exemplar_id": "70f3a99c-78f2-4c0f-b121-9f1f2beae5c8",
+        "source": "CAMBRIDGE nov 2024, Paper 43, Q2(a)",
+        "question": "Describe an experiment to determine the spring constant of a spring. State the apparatus you need, details of how to take measurements, and how to calculate the spring constant.",
+        "marks": 4,
+        "answer_points": [
+          "Hang masses (weights) from the bottom of the spring.",
+          "Use a ruler to measure the extension of the spring.",
+          "Calculate the spring constant using k = F ÷ x, or find k from the gradient of a load-extension graph.",
+          "Any one of: repeat with different masses and plot a graph of load against extension; measure the final and initial lengths and subtract to find the extension; use a pointer on the bottom of the spring for more accurate readings on the ruler."
+        ],
+        "tip": "The graph method uses the straight part of the line. Its gradient is the spring constant."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Some questions use different words for the same ideas."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The load is the force on the spring, so a load-extension graph is a force-extension graph.",
+                "(Supplement) The limit of proportionality is the point on the graph where the straight line starts to curve.",
+                "Mark the limit of proportionality at the end of the straight part of the line."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.23", "IGCSE 1.24", "IGCSE 1.22"],
+      "worked_example": {
+        "exemplar_id": "51ed2a8e-8840-4909-97b4-a2b0981b869e",
+        "source": "EDEXCEL jan 2022, Paper 1 (P), Q9(b)(iv)",
+        "question": "A student investigates how the extension of a spring varies when the mass attached to the spring is changed. The student calculates the force each mass applies to the spring. Force in N and extension in cm: 0.0 and 0.0; 1.0 and 2.5; 2.0 and 5.0; 3.0 and 9.8; 4.0 and 10.0; 5.0 and 12.5; 6.0 and 15.5; 7.0 and 19.5. Explain whether the spring obeys Hooke's law.",
+        "marks": 3,
+        "answer_points": [
+          "Hooke's law says that the force is directly proportional to the extension.",
+          "If the spring obeys it, the graph is a straight line through the origin.",
+          "Up to 2.0 N the extension is 2.5 cm for each newton, so the line is straight through the origin.",
+          "At 3.0 N the extension is 9.8 cm, not 7.5 cm, so the line is no longer straight.",
+          "So the spring does not obey Hooke's law over the whole range. It obeys it only up to 2.0 N, before the elastic limit is passed."
+        ],
+        "tip": "Any three of these points earn the marks. Check the extension for each newton: if it is not constant, the line is not straight."
+      }
     }
   },
   "meta": {
@@ -335,14 +387,22 @@
       "db8df4f3-5417-4986-bd23-efe3ceec4d71",
       "4625f6c2-b554-47c9-a115-5820f2c8ff33",
       "77ddf25a-a4c6-4b39-b74b-ddc20dfe2649",
-      "ea064ab1-453d-472f-ac4c-b50afce0fe73"
+      "ea064ab1-453d-472f-ac4c-b50afce0fe73",
+      "5415d06a-22ac-4d92-9026-3e764744e24c",
+      "b31aa82f-b37a-4ebb-9b90-23ffd2781977",
+      "201bee03-e706-42c1-966c-ffed3671adf7",
+      "2a16760d-1821-4d7f-957c-3e0e936cb8f2",
+      "8a219418-84cc-4c76-b4b3-add31c529e0b",
+      "6645cfcf-e277-4792-99c9-6d797935619b"
     ],
     "exemplar_ids": [
       "acfb5091-078c-4013-b9c0-649fa681c5af",
       "1ea68aa4-d222-44cc-9596-0bece2e9075d",
-      "cf253643-9739-43e0-96ae-b81c743ab04f"
+      "cf253643-9739-43e0-96ae-b81c743ab04f",
+      "70f3a99c-78f2-4c0f-b121-9f1f2beae5c8",
+      "51ed2a8e-8840-4909-97b4-a2b0981b869e"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

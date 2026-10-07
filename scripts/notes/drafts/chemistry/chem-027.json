@@ -314,6 +314,75 @@
         ],
         "tip": "The state symbols mark is independent, so you can score it even if the balancing is wrong."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.1.4", "CAIE 3.1.7S", "CAIE 3.1.8S"],
+      "worked_example": {
+        "exemplar_id": "c0030fad-30d7-46e7-9b3b-20559c447285",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q5(a)(iii)",
+        "question": "Barium sulfate, BaSO₄, is an insoluble salt and is made by precipitation.\n\nWrite an ionic equation for the precipitation reaction which produces barium sulfate. Include state symbols.",
+        "marks": 3,
+        "answer_points": [
+          "Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s)",
+          "BaSO₄ is the only product",
+          "Ba²⁺ and SO₄²⁻ are the only reactants",
+          "State symbols: (aq) + (aq) → (s)"
+        ],
+        "tip": "(Supplement) One mark each for the product, the two reacting ions and the state symbols."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Equations may be for reactions you have not met before. You are given the information you need."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use the information given to work out every reactant and product, then write each formula.",
+                "Balance last. Fe₃O₄ + 8HCl → 2FeCl₃ + FeCl₂ + 4H₂O is balanced by counting each atom on both sides.",
+                "(Supplement) Deducing equations with state symbols and writing ionic equations are Supplement skills. Core students need word and symbol equations with state symbols."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.25"],
+      "worked_example": {
+        "exemplar_id": "6306db5c-ffa9-4fd0-b600-deda3bca5256",
+        "source": "EDEXCEL jun 2024, Paper 2 (CR), Q3(b)(i)",
+        "question": "Magnesium burns in oxygen gas to form solid magnesium oxide.\n\nComplete the chemical equation for the reaction by balancing the equation and adding the state symbols.\n\n___Mg(s) + O₂(___) → ___MgO(___)",
+        "marks": 2,
+        "answer_points": [
+          "2Mg(s) + O₂(g) → 2MgO(s)",
+          "Balancing: 2 in front of Mg and 2 in front of MgO",
+          "State symbols: O₂(g) and MgO(s)"
+        ],
+        "tip": "One mark for the balancing and one mark for the state symbols."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Equations may be for reactions you have not met before. You are given the information you need."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use the information given to work out every reactant and product, then write each formula.",
+                "Balance last. Pb₃O₄(s) + 4HNO₃(aq) → 2Pb(NO₃)₂(aq) + PbO₂(s) + 2H₂O(l) is balanced by counting each atom on both sides.",
+                "Write the state symbol for every substance, using the information given about solubility."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -329,14 +398,20 @@
       "b6cdb4eb-79a9-4d1f-959f-24f489322941",
       "b70de8ca-b890-4fb3-96dc-27bad926f525",
       "7671f931-e2fc-473e-a2ac-21ef7a621d40",
-      "64f85bad-cc4d-4935-b584-84fd2ad7e84b"
+      "64f85bad-cc4d-4935-b584-84fd2ad7e84b",
+      "72a4999a-c2d2-409d-9108-961efa03033c",
+      "40e8744c-d362-4bc9-bf7d-2c71dd26ee4d",
+      "4bb05601-8ed1-4ee7-bfda-6c818552651d",
+      "37cc24ec-b38f-42d8-b86a-cb40276823b0"
     ],
     "exemplar_ids": [
       "392ace0e-ee7b-495f-aa1b-24218717b373",
       "91570c90-9e13-46b1-92ea-8e4461460502",
-      "9d7213ed-e73f-48b7-8f93-e0c43f172731"
+      "9d7213ed-e73f-48b7-8f93-e0c43f172731",
+      "c0030fad-30d7-46e7-9b3b-20559c447285",
+      "6306db5c-ffa9-4fd0-b600-deda3bca5256"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

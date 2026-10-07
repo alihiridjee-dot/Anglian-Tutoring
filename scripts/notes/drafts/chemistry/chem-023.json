@@ -86,11 +86,23 @@
         {
           "type": "table",
           "rows": [
-            ["Electrodes", "Conducts electricity, and is inert and does not react"],
-            ["Lubricant", "Layers slide over each other"],
-            ["Pencils", "It is a soft material"]
+            [
+              "Electrodes",
+              "Conducts electricity, and is inert and does not react"
+            ],
+            [
+              "Lubricant",
+              "Layers slide over each other"
+            ],
+            [
+              "Pencils",
+              "It is a soft material"
+            ]
           ],
-          "columns": ["Use of graphite", "Reason"]
+          "columns": [
+            "Use of graphite",
+            "Reason"
+          ]
         },
         {
           "type": "key-points",
@@ -124,7 +136,11 @@
             "kind": "compare",
             "rows": [
               {
-                "values": ["Carbon atoms", "Carbon atoms", "Silicon and oxygen atoms"],
+                "values": [
+                  "Carbon atoms",
+                  "Carbon atoms",
+                  "Silicon and oxygen atoms"
+                ],
                 "feature": "Made of"
               },
               {
@@ -144,15 +160,27 @@
                 "feature": "Structure"
               },
               {
-                "values": ["Very high", "Very high", "Very high"],
+                "values": [
+                  "Very high",
+                  "Very high",
+                  "Very high"
+                ],
                 "feature": "Melting point"
               },
               {
-                "values": ["No", "Yes: delocalised electrons", "No"],
+                "values": [
+                  "No",
+                  "Yes: delocalised electrons",
+                  "No"
+                ],
                 "feature": "Conducts electricity?"
               }
             ],
-            "items": ["Diamond", "Graphite", "Silicon dioxide"]
+            "items": [
+              "Diamond",
+              "Graphite",
+              "Silicon dioxide"
+            ]
           }
         },
         {
@@ -206,7 +234,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 1.35", "EDEX 1.36", "EDEX 1.37"],
+      "spec_codes": [
+        "EDEX 1.35",
+        "EDEX 1.36",
+        "EDEX 1.37"
+      ],
       "worked_example": {
         "exemplar_id": "51d19efd-e5aa-4b29-a655-0129580b92ee",
         "source": "EDEXCEL jun 2024, Paper 1 (H), Q8(c)",
@@ -222,7 +254,11 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C2.3a", "OCR C2.3c", "OCR C2.3f"],
+      "spec_codes": [
+        "OCR C2.3a",
+        "OCR C2.3c",
+        "OCR C2.3f"
+      ],
       "worked_example": {
         "exemplar_id": "09c2e088-7404-48df-b824-dab48f5492d8",
         "source": "OCR nov 2021, Paper 3, Q16(b)(ii)",
@@ -235,6 +271,86 @@
         ],
         "tip": "Any two score one mark each. A reference to ionic bonds scores zero for the whole question."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.6.1",
+        "CAIE 2.6.2",
+        "CAIE 2.6.3S",
+        "CAIE 2.6.4S"
+      ],
+      "worked_example": {
+        "exemplar_id": "eada2815-4f8a-423c-a8fb-ef99789ba9d3",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q3(a)(iv)",
+        "question": "Graphite has a melting point of 3652 °C. Carbon monoxide has a melting point of –199 °C. Explain in terms of structure and bonding why graphite has a much higher melting point than carbon monoxide.",
+        "marks": 3,
+        "answer_points": [
+          "Graphite has a giant covalent structure.",
+          "There is attraction between the molecules in carbon monoxide.",
+          "The attraction between particles in carbon monoxide is weaker."
+        ],
+        "tip": "Carbon monoxide is simple molecular, so only the weak attraction between its molecules is overcome when it melts."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Silicon(IV) oxide and diamond have similar properties because they have the same type of structure."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Silicon dioxide is a giant covalent lattice, like diamond.",
+                "Each silicon atom is bonded to four oxygen atoms and each oxygen atom to two silicon atoms.",
+                "Like diamond, it is very hard and has a very high melting point.",
+                "Like diamond, it does not conduct electricity, because all the outer electrons are used in bonding and none are free to move."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.49",
+        "IGCSE 1.50"
+      ],
+      "worked_example": {
+        "exemplar_id": "f2b63806-5b57-41e2-ae20-3dbb236fdb83",
+        "source": "EDEXCEL jun 2024, Paper 1 (CR), Q11(c)(ii)",
+        "question": "Diamond and graphite are both forms of the element carbon. Diamond and graphite both have covalent bonds and giant covalent structures. Explain why diamond is hard but graphite is soft.",
+        "marks": 4,
+        "answer_points": [
+          "Diamond has a rigid three-dimensional lattice, with every carbon atom bonded to four others.",
+          "The covalent bonds in diamond need a lot of energy to break.",
+          "Graphite has layers.",
+          "The layers can slide over one another."
+        ],
+        "tip": "Do not write about intermolecular forces in diamond."
+      },
+      "extra": [
+        {
+          "heading": "Fullerenes: C₆₀",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Fullerenes are a third form of carbon. The C₆₀ fullerene is a molecule of 60 carbon atoms."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The atoms are joined in rings of five and six carbon atoms, making a hollow sphere.",
+                "Each carbon atom forms three covalent bonds with other carbon atoms in the same molecule.",
+                "C₆₀ is made of separate molecules, so there are only weak intermolecular forces between them.",
+                "Little energy is needed to overcome these forces, so C₆₀ is soft and has a much lower melting point than diamond or graphite.",
+                "C₆₀ does not conduct electricity well, because the electrons cannot pass from one molecule to the next."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -253,14 +369,22 @@
       "afcae6ec-56c8-4a7f-b8ea-88da3d7a41eb",
       "4906d4e2-45b9-411e-9ae0-f0280b2b05fb",
       "73fe3209-43af-4f19-a34b-ce411227df0a",
-      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8"
+      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8",
+      "fee30db4-e54b-4334-9fa4-a91a72385f0d",
+      "2926a944-04a7-4943-853b-1e258f903bd9",
+      "aa08121a-9f58-4e18-a8e7-81f341a06776",
+      "b836fc74-1edb-4e2a-a802-ae57f45e944c",
+      "6673857e-2ed8-4caf-85ed-5cd0d0ac3c39",
+      "8ddd1e85-414f-4366-ad22-06b68b492f86"
     ],
     "exemplar_ids": [
       "2d70ad0c-6db2-4528-a1b6-ef7bd85c9c2f",
       "51d19efd-e5aa-4b29-a655-0129580b92ee",
-      "09c2e088-7404-48df-b824-dab48f5492d8"
+      "09c2e088-7404-48df-b824-dab48f5492d8",
+      "eada2815-4f8a-423c-a8fb-ef99789ba9d3",
+      "f2b63806-5b57-41e2-ae20-3dbb236fdb83"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

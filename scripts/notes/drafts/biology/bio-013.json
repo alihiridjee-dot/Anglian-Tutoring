@@ -325,23 +325,84 @@
         ],
         "tip": "Any three score one mark each."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.2.5"],
+      "worked_example": {
+        "exemplar_id": "2af26283-0e3f-4f11-9d10-c5c5d3f41804",
+        "source": "CAMBRIDGE mar 2024, Paper 62, Q2(b)",
+        "question": "Plan an investigation to determine the effect of the concentration of sodium chloride solution on osmosis in plant tissue.",
+        "marks": 6,
+        "answer_points": [
+          "Independent variable: use at least two different concentrations of sodium chloride solution, or the solution and distilled water.",
+          "Cut cylinders or pieces of the plant tissue.",
+          "Leave the pieces in the solutions for a suitable length of time.",
+          "Measure the length, mass or angle of each piece before and after immersion.",
+          "Extra detail, such as drying the surface of the tissue before weighing, or keeping floating pieces submerged.",
+          "Keep two variables constant, such as the type of tissue, immersion time, temperature or volume of solution.",
+          "Repeat at least twice more at each concentration.",
+          "Give a safety precaution, such as cutting on a flat surface and away from the hands."
+        ],
+        "tip": "The marks are shared between the variable you change, the method, the controls, repeats and safety."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.17"],
+      "worked_example": {
+        "exemplar_id": "31959a3f-2aae-4696-9dc9-3276ea8378d4",
+        "source": "EDEXCEL jun 2022, Paper 1 (B), Q6(c)",
+        "question": "Describe an experiment you could do to show how different concentrations of sodium chloride solution affect the appearance of plant cells.",
+        "marks": 4,
+        "answer_points": [
+          "Use a thin layer of plant tissue, such as onion epidermis.",
+          "Use the same volume of each solution.",
+          "Use at least two different concentrations of sodium chloride solution.",
+          "Leave the cells in each solution for the same stated time.",
+          "Observe the cells under a microscope."
+        ],
+        "tip": "Four of these points score one mark each."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Diffusion and osmosis can also be investigated in living and non-living systems."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Non-living, diffusion: agar cubes containing an indicator are placed in acid. The colour change shows how far the acid has diffused.",
+                "Non-living, osmosis: Visking tubing is a partially permeable membrane. A tube of sugar solution placed in water gains mass as water enters.",
+                "Living, osmosis: potato pieces change in mass in different solutions.",
+                "Living, appearance: onion epidermis in salt solutions, seen under a microscope. In a concentrated solution the cell contents shrink away from the cell wall."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "3db3bfea-0af0-42f4-9e96-4a91a32e659f",
       "7b945151-4e26-455b-b86c-b2d0b0b4d77f",
-      "1ffb6f36-bb2f-4b46-b633-ff85101cd3c4"
+      "1ffb6f36-bb2f-4b46-b633-ff85101cd3c4",
+      "d0b246f9-d101-42ab-a350-89ce0e9e4548",
+      "eb08fecd-0ec0-4fc7-98ff-6698cb3cfe46"
     ],
     "exemplar_ids": [
       "b20e00fb-c9b8-4d6b-b035-a206bc2fdf12",
       "ee79f4bf-a75a-40fe-bf9a-9abe9b828925",
-      "a4f69bdc-b1af-4c06-baba-6b79c080e469"
+      "a4f69bdc-b1af-4c06-baba-6b79c080e469",
+      "2af26283-0e3f-4f11-9d10-c5c5d3f41804",
+      "31959a3f-2aae-4696-9dc9-3276ea8378d4"
     ]
   }
 }

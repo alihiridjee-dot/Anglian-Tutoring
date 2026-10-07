@@ -211,6 +211,65 @@
         ],
         "tip": "One mark for each gas. Contributing to global warming is ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 10.3.8S", "CAIE 10.3.2", "CAIE 10.3.3", "CAIE 10.3.4"],
+      "worked_example": {
+        "exemplar_id": "09aff86a-f0b4-4b62-a25a-cb53fb30faab",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q1(b)",
+        "question": "Nitrogen dioxide, NO₂, and carbon monoxide are removed from a car exhaust by a catalytic converter.\n\nWrite the symbol equation for this reaction.",
+        "marks": 2,
+        "answer_points": [
+          "Nitrogen and carbon dioxide are the only products.",
+          "2NO₂ + 4CO → N₂ + 4CO₂ (the equation balanced)."
+        ],
+        "tip": "One mark for the correct products and one for balancing."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A catalytic converter in a car exhaust removes oxides of nitrogen and carbon monoxide. They react to form nitrogen and carbon dioxide."
+            },
+            {
+              "type": "equation",
+              "label": "Catalytic converter reaction",
+              "formula": "2CO + 2NO → 2CO₂ + N₂",
+              "where": [
+                "CO is carbon monoxide",
+                "NO is nitrogen monoxide",
+                "CO₂ is carbon dioxide",
+                "N₂ is nitrogen"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Oxides of nitrogen also cause **photochemical smog**.",
+                "Ways to reduce acid rain: use catalytic converters in vehicles, use low-sulfur fuels, and use flue gas desulfurisation.",
+                "In flue gas desulfurisation, calcium oxide neutralises acidic gases such as sulfur dioxide."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 4.14", "IGCSE 4.15", "IGCSE 4.16"],
+      "worked_example": {
+        "exemplar_id": "66dfb74e-0f5b-4cda-a63c-7e89ed20db87",
+        "source": "EDEXCEL jun 2022, Paper 1 (C), Q3(c)",
+        "question": "Crude oil is an important source of organic compounds.\n\nSulfur is an impurity in crude oil.\n\nExplain why this is a problem for the environment.",
+        "marks": 3,
+        "answer_points": [
+          "Sulfur dioxide is produced when the fuel is burned.",
+          "Sulfur dioxide dissolves in (reacts with) rain water.",
+          "This causes acid rain."
+        ],
+        "tip": "Link the three steps in order: burning, dissolving, acid rain."
+      }
     }
   },
   "meta": {
@@ -222,15 +281,21 @@
       "8af93210-6751-4688-a658-121ae0c36d4f",
       "c6930562-5f79-45b1-8726-a6df5e166659",
       "e925ab1a-3dcf-4e1c-bca9-86ad87441d9b",
-      "2f419dd2-9360-4320-a2ae-d2a0bcd95671"
+      "2f419dd2-9360-4320-a2ae-d2a0bcd95671",
+      "c8a3b4b2-5687-45bd-967d-7d2558fba8d5",
+      "ac6be116-a1bb-470f-b79a-eef5baa1b72c",
+      "26295aef-7cbc-4052-932d-69baee51b42a",
+      "4b9b6a25-5b29-4a59-a2d4-1ea759ffd3b8"
     ],
     "exemplar_ids": [
       "3be3805c-63d8-45cc-8a3b-b025a0b5105d",
       "ae651c6f-4239-405c-beab-91a5f123ddc3",
-      "b811a93d-34dc-4fa8-a97d-a1e7e926383b"
+      "b811a93d-34dc-4fa8-a97d-a1e7e926383b",
+      "09aff86a-f0b4-4b62-a25a-cb53fb30faab",
+      "66dfb74e-0f5b-4cda-a63c-7e89ed20db87"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   },
   "format": 1,
   "subject": "chemistry"

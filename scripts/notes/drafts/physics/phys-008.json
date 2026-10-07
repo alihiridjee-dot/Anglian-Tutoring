@@ -303,13 +303,93 @@
         ],
         "tip": "A correct answer of 6 J scores all 3 marks. Working out only the useful energy, 4 J, scores 2 marks."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.7.3.3",
+        "CAIE 1.7.3.7S",
+        "CAIE 1.7.1.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "3a95a1d7-1f93-43e4-aebf-21f3802e3ed6",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q3(b)(ii)",
+        "question": "A wind turbine is used to generate electricity.\nThe useful output from the turbine in 1.0 s is 6000 J. The kinetic energy of the wind hitting the turbine in 1.0 s is 11 000 J. The velocity of the wind hitting the turbine is 6.3 m/s.\n\nCalculate the efficiency of the turbine. You may assume that all the kinetic energy stored in the wind is transferred to the turbine.",
+        "marks": 2,
+        "answer_points": [
+          "efficiency = useful energy output ÷ total energy input × 100%",
+          "efficiency = 6000 ÷ 11 000 × 100 = 55%"
+        ],
+        "tip": "One mark for the equation or substitution and one mark for 55%. The wind speed is not needed."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Efficiency is usually given as a percentage. The equation is the same for energy and for power."
+            },
+            {
+              "type": "equation",
+              "label": "Percentage efficiency",
+              "formula": "efficiency (%) = useful energy output ÷ total energy input × 100%",
+              "where": [
+                "Both energies are in joules (J).",
+                "For power, use useful power output ÷ total power input × 100%, with both in watts (W)."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.4",
+        "IGCSE 4.5"
+      ],
+      "worked_example": {
+        "exemplar_id": "0d2ffd6f-d2a2-4cfc-b1f7-c8096c7ea00b",
+        "source": "EDEXCEL jun 2023, Paper 1 (PR), Q3(c)(i)",
+        "question": "A joulemeter measures the amount of energy transferred electrically to a model electric motor as the motor lifts a load.\nThe joulemeter displays a reading of 11.0 J when the load has gained 3.2 J of energy in its gravitational store.\n\nCalculate the efficiency of the motor.",
+        "marks": 3,
+        "answer_points": [
+          "efficiency = useful energy output ÷ total energy output",
+          "efficiency = 3.2 ÷ 11.0 (× 100%)",
+          "efficiency = 0.29 or 29%"
+        ],
+        "tip": "One mark each for the equation, the substitution and the evaluation."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course writes efficiency with the total energy output of the device. This is the same as the total energy input."
+            },
+            {
+              "type": "equation",
+              "label": "Percentage efficiency",
+              "formula": "efficiency (%) = useful energy output ÷ total energy output × 100%",
+              "where": [
+                "Both energies are in joules (J).",
+                "Total energy output = useful energy output + wasted energy."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "A Sankey diagram shows the useful energy and the wasted energy for a device, with arrow widths drawn to scale."
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "9f864548-6e12-42e3-a09b-126d9842d5f1",
@@ -318,12 +398,17 @@
       "dd7d358b-28c0-4079-9c28-0236034a95a2",
       "22de61e6-2637-480b-bdaf-acbad68f6e35",
       "a26e6870-2f77-42cc-97aa-95bae6204023",
-      "59d29726-e3ba-4bb3-a3c3-e87719ba7b85"
+      "59d29726-e3ba-4bb3-a3c3-e87719ba7b85",
+      "692e0fb4-c173-4405-81db-c2df410513cf",
+      "3b1c1870-2cd9-41a8-a814-cb862793df2d",
+      "9c1147db-3224-4d60-91f9-fb79e39e47ed"
     ],
     "exemplar_ids": [
       "2ca9164a-7f64-4db4-98ac-84801249e1bc",
       "4bfd8596-c429-4780-bc97-936796d9d9b6",
-      "25f934f7-0726-4fad-90d8-a2ce740bf63a"
+      "25f934f7-0726-4fad-90d8-a2ce740bf63a",
+      "3a95a1d7-1f93-43e4-aebf-21f3802e3ed6",
+      "0d2ffd6f-d2a2-4cfc-b1f7-c8096c7ea00b"
     ]
   }
 }

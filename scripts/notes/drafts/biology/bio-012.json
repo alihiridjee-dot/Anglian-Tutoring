@@ -282,7 +282,7 @@
       "worked_example": {
         "exemplar_id": "77809530-0a95-441a-ac89-88e1679d0a83",
         "source": "AQA jun 2018, Paper 1 (H), Q04.3",
-        "question": "A student carried out an investigation using chicken eggs, placing each egg into a separate beaker containing 200 cm3 of distilled water. The masses of the eggs increased.\n\nExplain why the masses of the eggs increased.",
+        "question": "A student carried out an investigation using chicken eggs, placing each egg into a separate beaker containing 200 cm³ of distilled water. The masses of the eggs increased.\n\nExplain why the masses of the eggs increased.",
         "marks": 3,
         "answer_points": [
           "Water entered the egg by osmosis.",
@@ -340,23 +340,106 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 3.2.2",
+        "CAIE 3.2.3",
+        "CAIE 3.2.4",
+        "CAIE 3.2.6",
+        "CAIE 3.2.7S",
+        "CAIE 3.2.8S",
+        "CAIE 3.2.9S",
+        "CAIE 8.3.7S",
+        "CAIE 10.1.17S"
+      ],
+      "worked_example": {
+        "exemplar_id": "56c47271-f6a3-4e54-94f1-84cb5045cc55",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q1(b)(i)",
+        "question": "Explain how water moves into and out of animal cells.",
+        "marks": 3,
+        "answer_points": [
+          "Water moves by osmosis.",
+          "It moves from a higher water potential to a lower water potential, down a water potential gradient.",
+          "It moves through a partially permeable membrane (the cell membrane).",
+          "The movement is caused by the kinetic energy of the random motion of molecules."
+        ],
+        "tip": "Any three of these points score one mark each."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Turgor pressure",
+                  "meaning": "The pressure of the water inside a plant cell pushing outwards on the cell wall."
+                },
+                {
+                  "term": "Flaccid",
+                  "meaning": "A plant cell that has lost some water, so it is soft and no longer firm. It is between turgid and plasmolysed."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Plants are supported by turgor pressure, so turgid cells keep stems and leaves firm.",
+                "(Supplement) Use the terms turgid, turgor pressure, flaccid and plasmolysis to explain what happens to a plant cell in solutions of different concentrations.",
+                "(Supplement) Osmosis is important in the uptake of water by roots and the loss of water by organisms.",
+                "(Supplement) Wilting: if a plant loses water faster than its roots take it in, its cells lose turgor pressure and become flaccid. The stems and leaves then droop.",
+                "(Supplement) Cholera toxin makes cells in the small intestine secrete chloride ions into the gut. Water then moves into the gut by osmosis, causing diarrhoea, dehydration and loss of ions from the blood."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.15", "IGCSE 2.17", "IGCSE 2.55B"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Root hair cells absorb water from the soil by osmosis.",
+                "The water in the soil is more dilute than the cell sap, so it has a higher water potential.",
+                "Water moves into the root hair cell through the partially permeable cell membrane.",
+                "The long, thin root hair gives a large surface area for absorbing water."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "4334d423-b85f-4557-a19c-b9597d5aaa7b",
       "9162cfab-b880-4b20-b59e-118950e16986",
-      "b7b2f691-01d8-4241-9c7a-d4815edd4622"
+      "b7b2f691-01d8-4241-9c7a-d4815edd4622",
+      "34a3e376-88e8-49bf-820d-ce7599977edf",
+      "4c57d655-48fd-47b2-bff3-32bd985101c5",
+      "b59d5068-737a-43cb-979e-78c2091f9bdb",
+      "92b981e6-e26e-4676-bc84-7d6da2c4e154",
+      "7a45e1e0-04e2-4643-858c-f001b70bdd4f",
+      "b7f5f53b-5c22-47e6-b799-01b6febbe802",
+      "4edaeece-0d05-4f7f-954f-9ccf1e0cf6b9"
     ],
     "exemplar_ids": [
       "77809530-0a95-441a-ac89-88e1679d0a83",
       "fde5890d-b6bb-4151-9888-373a87c807bc",
-      "b984aad1-e61e-451c-a9d0-f1b25c424966"
+      "b984aad1-e61e-451c-a9d0-f1b25c424966",
+      "56c47271-f6a3-4e54-94f1-84cb5045cc55"
     ]
   }
 }

@@ -225,6 +225,47 @@
         ],
         "tip": "One mark for toxic and one mark for a specific effect."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 10.3.2", "CAIE 10.3.3"],
+      "worked_example": {
+        "exemplar_id": "77cdeb16-3dec-455e-bf4e-112783145d23",
+        "source": "CAMBRIDGE nov 2023, Paper 43, Q1(e)",
+        "question": "Give the name of the substance that is a product of incomplete combustion of fossil fuels.",
+        "marks": 1,
+        "answer_points": ["Carbon monoxide."],
+        "tip": "Soot (carbon particulates) is also a product, but carbon monoxide is the substance this question wants."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Particulates from incomplete combustion increase the risk of **respiratory problems** and **cancer**.",
+                "Carbon monoxide is a toxic gas.",
+                "Other pollutants have other sources: methane comes from decomposing vegetation and waste gases from animal digestion, oxides of nitrogen from car engines, and sulfur dioxide from burning fossil fuels that contain sulfur compounds."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 4.12", "IGCSE 4.13"],
+      "worked_example": {
+        "exemplar_id": "d6348a1e-ef04-4dfe-8979-02edf7586189",
+        "source": "EDEXCEL jun 2022, Paper 2 (CR), Q3(d)",
+        "question": "This question is about alkanes.\n\nWhen an alkane burns in a limited supply of air, incomplete combustion occurs.\n\nExplain why incomplete combustion of an alkane could be harmful to humans.",
+        "marks": 2,
+        "answer_points": [
+          "Carbon monoxide is produced, and it is toxic (it reduces the capacity of the blood to carry oxygen).",
+          "Or: carbon (soot) is produced, and it causes asthma, bronchitis or respiratory problems.",
+          "One pair of linked points scores the two marks."
+        ],
+        "tip": "Name the product first, then say what it does. The second mark depends on the first."
+      }
     }
   },
   "meta": {
@@ -237,15 +278,20 @@
       "5c520aae-a988-47f3-aec2-57aa992cbb9c",
       "15a28432-773a-4abd-834b-da264c925767",
       "00b44334-8727-4976-92f8-a2636ec149b7",
-      "abafb2e8-3e18-4a9d-b8b2-3ffbe7494f8b"
+      "abafb2e8-3e18-4a9d-b8b2-3ffbe7494f8b",
+      "33b2af49-718c-49e1-a6ca-20f1624c42c8",
+      "5c0eeef6-6754-48c3-991e-239b8eb9fb13",
+      "63a02840-0441-4fab-88de-a19ef82cad2d"
     ],
     "exemplar_ids": [
       "c09a49c4-a73a-4786-9966-7a73e3406534",
       "64468262-3adf-47d3-becd-8691fb28c6c1",
-      "90cc8b0a-dc82-4d89-a268-ceb01b17e7ad"
+      "90cc8b0a-dc82-4d89-a268-ceb01b17e7ad",
+      "77cdeb16-3dec-455e-bf4e-112783145d23",
+      "d6348a1e-ef04-4dfe-8979-02edf7586189"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   },
   "format": 1,
   "subject": "chemistry"

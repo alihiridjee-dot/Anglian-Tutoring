@@ -249,7 +249,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.1.3", "AQA T 6.2.1.3"],
+      "spec_codes": [
+        "AQA 4.2.1.3",
+        "AQA T 6.2.1.3"
+      ],
       "worked_example": {
         "exemplar_id": "8a543a5e-266b-4748-906b-0c95afd90fa7",
         "source": "AQA jun 2025, Paper 1 (H), Q03.2",
@@ -265,7 +268,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 10.12", "EDEX 10.13"],
+      "spec_codes": [
+        "EDEX 10.12",
+        "EDEX 10.13"
+      ],
       "worked_example": {
         "exemplar_id": "f4481dfd-e4fe-44e8-a9e4-b120a9afe29f",
         "source": "EDEXCEL jun 2023, Paper 2 (F), Q8(c)(iv)",
@@ -280,7 +286,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P3.2c", "OCR P3.2d"],
+      "spec_codes": [
+        "OCR P3.2c",
+        "OCR P3.2d"
+      ],
       "worked_example": {
         "exemplar_id": "9db941ac-2ca8-4d21-b0a6-d57e1e81e734",
         "source": "OCR jun 2019, Paper 1, Q17(b)",
@@ -294,6 +303,122 @@
         ],
         "tip": "The unit is marked on its own. Ω, ohm(s) or V/A are allowed."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.2.4.1",
+        "CAIE 4.3.3.1",
+        "CAIE 4.2.4.3",
+        "CAIE 4.2.4.5S"
+      ],
+      "worked_example": {
+        "exemplar_id": "d57c2910-c6da-4240-9dfa-b525930c2add",
+        "source": "CAMBRIDGE mar 2025, Paper 42, Q3(d)(i)",
+        "question": "The mains voltage is 230 V. Two identical heating elements are connected in parallel to the mains. Each heating element has a resistance of 89 Ω.\n\nCalculate the current in one heating element.",
+        "marks": 2,
+        "answer_points": [
+          "I = V ÷ R (from R = V ÷ I).",
+          "I = 230 ÷ 89 = 2.6 A."
+        ],
+        "tip": "One mark for the equation or substitution and one for the answer. Each element has the full 230 V across it."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Resistance of a metal wire"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A longer wire has a greater resistance.",
+                "A wire with a larger cross-sectional area (a thicker wire) has a smaller resistance.",
+                "(Supplement) Resistance is directly proportional to length and inversely proportional to cross-sectional area."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Potential difference and resistance"
+            },
+            {
+              "type": "paragraph",
+              "text": "For a constant current, the potential difference across a conductor increases as its resistance increases. This follows from V = I × R."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.10",
+        "IGCSE 2.13",
+        "IGCSE 2.8",
+        "IGCSE 2.19"
+      ],
+      "worked_example": {
+        "exemplar_id": "b3559ad4-4103-4cd9-a19c-3eb729a3ce32",
+        "source": "EDEXCEL jan 2021, Paper 1 (P), Q3(c)(ii)",
+        "question": "A decorative lamp has seven identical bulbs connected in series. Each bulb has a working resistance of 390 Ω. The voltage across each bulb is 33 V.\n\nCalculate the current in each bulb.",
+        "marks": 3,
+        "answer_points": [
+          "Substitute into V = I × R: 33 = I × 390.",
+          "Rearrange: I = 33 ÷ 390.",
+          "I = 0.085 A."
+        ],
+        "tip": "One mark each for the substitution, the rearrangement and the answer."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "In a series circuit, the current depends on the applied voltage and on the other components in the circuit."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A larger voltage from the supply gives a larger current.",
+                "Adding more resistive components in series increases the total resistance, so the current falls.",
+                "The same current is in every component in series.",
+                "The voltages across components in series add up to the supply voltage."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "For two resistive components in series, add the resistances to find the total. Then use V = I × R."
+            },
+            {
+              "type": "equation",
+              "label": "Total resistance in series",
+              "formula": "R = R₁ + R₂",
+              "where": [
+                "R = total resistance, in ohms (Ω)",
+                "R₁, R₂ = the two resistances, in ohms (Ω)"
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Add.",
+                  "text": "A 4 Ω and a 6 Ω resistor are in series with a 20 V supply. R = 4 + 6 = 10 Ω."
+                },
+                {
+                  "lead": "Current.",
+                  "text": "I = V ÷ R = 20 ÷ 10 = 2 A."
+                },
+                {
+                  "lead": "Voltage across the 4 Ω resistor.",
+                  "text": "V = I × R = 2 × 4 = 8 V."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -306,7 +431,11 @@
       "61b23f25-c76a-4a27-8443-720cd256db9a",
       "4e397086-a947-4d70-a19f-85084f6f8327",
       "73e872b9-8062-4c28-b669-acf68989786f",
-      "01f4a5e2-b552-4cdc-886c-1a551611e3a4"
+      "01f4a5e2-b552-4cdc-886c-1a551611e3a4",
+      "5a507f6a-2cc7-4c58-b147-7e0d04aec4be",
+      "6b7a64c2-825c-40ab-b53f-4785b0ceed29",
+      "100123a1-5f0a-41ab-bca8-39fb7dddc2d6",
+      "86530248-7ca4-4b81-b943-ae3309de7fac"
     ],
     "exemplar_ids": [
       "8a543a5e-266b-4748-906b-0c95afd90fa7",
@@ -316,9 +445,11 @@
       "9db941ac-2ca8-4d21-b0a6-d57e1e81e734",
       "abe38cfe-5784-4361-9649-4655f6a4351e",
       "cc6675fe-a95e-406d-a3ad-18be818bd2a6",
-      "741ee8d7-5faf-4cdb-ba79-071ca3c315fa"
+      "741ee8d7-5faf-4cdb-ba79-071ca3c315fa",
+      "d57c2910-c6da-4240-9dfa-b525930c2add",
+      "b3559ad4-4103-4cd9-a19c-3eb729a3ce32"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

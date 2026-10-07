@@ -371,6 +371,78 @@
         ],
         "tip": "Name both metals and compare each with hydrogen."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.1.3", "CAIE 4.1.10S", "CAIE 4.1.4"],
+      "worked_example": {
+        "exemplar_id": "5ba34b58-c3df-416c-b39e-94f7fb9082ea",
+        "source": "CAMBRIDGE mar 2025, Paper 42, Q2(d)(iii)",
+        "question": "Ionic compounds can be decomposed by the passage of an electric current using inert electrodes.\nName the products and state the observations at the negative and positive electrodes when dilute aqueous potassium bromide, KBr, is decomposed by the passage of an electric current.\nproduct at the negative electrode ______\nobservations at the negative electrode ______\nproducts at the positive electrode ______ and ______\nobservations at the positive electrode ______",
+        "marks": 5,
+        "answer_points": [
+          "Product at the negative electrode: hydrogen.",
+          "Observation at the negative electrode: bubbles.",
+          "Products at the positive electrode: oxygen and water.",
+          "Observation at the positive electrode: bubbles."
+        ],
+        "tip": "The solution is dilute, so oxygen forms at the positive electrode, not bromine."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The anode product of a halide solution depends on its concentration."
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) A **concentrated** halide solution gives the halogen at the positive electrode.",
+                "(Supplement) A **dilute** halide solution gives oxygen at the positive electrode, and water forms too.",
+                "Hydrogen forms at the negative electrode in both."
+              ]
+            },
+            {
+              "type": "table",
+              "columns": ["Electrolyte", "Negative electrode", "Positive electrode"],
+              "rows": [
+                [
+                  "Concentrated sodium chloride solution",
+                  "Hydrogen: bubbles",
+                  "Chlorine: bubbles of a pale yellow-green gas"
+                ],
+                ["Dilute sulfuric acid", "Hydrogen: bubbles", "Oxygen: bubbles"]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.58C", "IGCSE 1.60C"],
+      "worked_example": {
+        "exemplar_id": "60123603-c879-45f7-9d93-09e4b0e36f1d",
+        "source": "EDEXCEL jun 2023, Paper 2 (C), Q5(c)",
+        "question": "When copper(II) sulfate solution is electrolysed using inert electrodes, copper forms at the negative electrode.\nState the appearance of the copper that forms on the negative electrode.",
+        "marks": 1,
+        "answer_points": ["A pink (or pink-brown) solid coating on the electrode."]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Dilute sulfuric acid gives hydrogen at the negative electrode and oxygen at the positive electrode.",
+                "Bubbles are seen at both electrodes.",
+                "The electrodes must be inert. Zinc electrodes would react with the acid, so platinum or graphite is used."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -378,17 +450,22 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "b2c37116-8c41-499f-ac6d-557bb818f820",
       "061cfa73-9899-4162-802b-ae9509172967",
       "fc42e875-9c0d-4639-991e-f1bca921134b",
-      "9f5a0c2a-24de-4129-a7cf-54aeb124842a"
+      "9f5a0c2a-24de-4129-a7cf-54aeb124842a",
+      "8a86be5d-14ee-44a3-a5ed-2c100cab9f56",
+      "ec1b15cd-a5d8-47b8-a9e4-5af066456caf",
+      "c7ad4082-7c96-4a03-9788-e2c07b5e7f52"
     ],
     "exemplar_ids": [
       "2a1a8b99-bbb1-481c-b29c-8f8ec58f8e65",
       "372bdf16-fd7c-4cb3-bd62-19ada72c71eb",
-      "9f60a13f-8728-41b3-811d-43e1eb28890a"
+      "9f60a13f-8728-41b3-811d-43e1eb28890a",
+      "5ba34b58-c3df-416c-b39e-94f7fb9082ea",
+      "60123603-c879-45f7-9d93-09e4b0e36f1d"
     ]
   }
 }

@@ -147,7 +147,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 5.10"],
+      "spec_codes": [
+        "AQA 5.10"
+      ],
       "worked_example": {
         "exemplar_id": "012fa7cc-ebb5-46ca-9dcc-6b8c626d0800",
         "source": "AQA jun 2024, Paper 2 (H), Q08.2",
@@ -163,7 +165,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 7.18B", "EDEX 7.19B"],
+      "spec_codes": [
+        "EDEX 7.18B",
+        "EDEX 7.19B"
+      ],
       "worked_example": {
         "exemplar_id": "f20a6b7e-971c-4616-bb14-ede4aa2073a4",
         "source": "EDEXCEL jun 2024, Paper 2 (H), Q10(b)(ii)",
@@ -181,7 +186,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 3.3h", "OCR 3.3g"],
+      "spec_codes": [
+        "OCR 3.3h",
+        "OCR 3.3g"
+      ],
       "worked_example": {
         "exemplar_id": "673ec240-ce96-4600-bef2-c5e8678f4f99",
         "source": "OCR nov 2020, Paper 3, Q17(b)",
@@ -196,6 +204,98 @@
         ],
         "tip": "The marks are for the correct order: 5 before 2, 2 before 3, 3 before 4."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 13.1.3",
+        "CAIE 13.1.4S",
+        "CAIE 13.1.5S",
+        "CAIE 9.3.3",
+        "CAIE 13.1.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "86966c4a-33a9-4d27-9e18-c293de254355",
+        "source": "CAMBRIDGE jun 2023, Paper 43, Q4(a)(iv)",
+        "question": "Urea is a waste product.\n\nState the name of the blood vessel that carries blood away from the kidney.",
+        "marks": 1,
+        "answer_points": [
+          "The renal vein."
+        ],
+        "tip": "The renal artery brings blood to the kidney. The renal vein takes it away."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The kidney and nephron points below are for the Supplement."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The kidney has an outer layer, the **cortex**, and an inner layer, the **medulla**.",
+                "The glomerulus, Bowman's capsule and coiled tubules lie in the cortex. The loops of Henlé and collecting ducts run into the medulla.",
+                "All the glucose, some ions and most of the water are reabsorbed into the blood.",
+                "Urine contains urea, excess water and excess ions."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.72B",
+        "IGCSE 2.73B",
+        "IGCSE 2.74B",
+        "IGCSE 2.75B",
+        "IGCSE 2.77B",
+        "IGCSE 2.79B",
+        "IGCSE 2.71",
+        "IGCSE 2.76B"
+      ],
+      "worked_example": {
+        "exemplar_id": "6166a22e-7ecb-407e-941b-7c9f20ff5343",
+        "source": "EDEXCEL jun 2019, Paper 2 (BR), Q3(c)",
+        "question": "The table lists three molecules. It also gives their concentrations in the glomerulus, the Bowman's capsule and the bladder.\n\nMolecule | Concentration in glomerulus (%) | Concentration in Bowman's capsule (%) | Concentration in bladder (%)\nprotein | 8.00 | 0.00 | 0.00\nglucose | 0.10 | 0.10 | 0.00\nurea | 0.03 | 0.03 | 2.00\n\nExplain the difference between the concentration of each substance in the glomerulus and in the bladder.",
+        "marks": 4,
+        "answer_points": [
+          "Protein molecules are large, so they cannot pass out of the glomerulus into the Bowman's capsule.",
+          "Glucose is reabsorbed back into the blood.",
+          "This happens in the proximal convoluted tubule, by active transport.",
+          "The urea concentration is higher in the bladder.",
+          "This is because water is reabsorbed into the blood."
+        ],
+        "tip": "Take each molecule in turn: protein, glucose, then urea. Four of the points score."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Ultrafiltration",
+                  "meaning": "Filtration under high pressure, which forces small molecules out of the blood into the Bowman's capsule."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Urine contains water, urea and ions."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Glucose is reabsorbed in the proximal convoluted tubule so that none is lost in the urine. Cells need it for respiration.",
+                "Water is reabsorbed by osmosis from the collecting duct back into the blood."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -203,13 +303,23 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "d3519732-063c-4ce3-af43-afa0a2c04120",
       "f3da0cc0-2031-4473-b9cf-8bf5cf85451e",
-      "8429e121-003e-49a0-aeb2-18841aaa6bce"
+      "8429e121-003e-49a0-aeb2-18841aaa6bce",
+      "11ed4cbf-e6b7-4b17-851a-f17702fa99ac",
+      "fd430423-b673-4b5e-aace-56c80ddb0f96",
+      "fc5dce6d-e30d-45fa-a8df-7476891aa602",
+      "b39706db-6902-4fbe-82c4-a3a21760c738",
+      "898dbad6-e07a-4b97-a3d5-a7e9d8649973",
+      "303f4f5d-016e-47d9-8162-bb0fbba84848",
+      "8aaee9ed-451e-44e9-aae1-d81a3caf7a7c",
+      "ee7ed7d1-de75-42d9-8b11-3f8c49099205",
+      "9d829104-88c9-4fdf-a792-c1a6e0862e4f"
     ],
     "exemplar_ids": [
+      "86966c4a-33a9-4d27-9e18-c293de254355",
       "012fa7cc-ebb5-46ca-9dcc-6b8c626d0800",
       "f20a6b7e-971c-4616-bb14-ede4aa2073a4",
       "673ec240-ce96-4600-bef2-c5e8678f4f99",
@@ -217,7 +327,8 @@
       "75799b12-ad6f-4d31-960b-5fb20915b710",
       "707b9f11-c0f8-4c48-b0a8-aaf85c6b8cd2",
       "f8f28ad0-31dc-4825-8c2d-d68a882eec52",
-      "16799ec4-51c1-4857-b9f9-e96194722ded"
+      "16799ec4-51c1-4857-b9f9-e96194722ded",
+      "6166a22e-7ecb-407e-941b-7c9f20ff5343"
     ]
   }
 }

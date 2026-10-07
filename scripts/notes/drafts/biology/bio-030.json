@@ -196,24 +196,110 @@
         ],
         "tip": "Any five points score, but explanation marks only count if they follow the feature they explain."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 9.4.1",
+        "CAIE 9.4.2",
+        "CAIE 9.4.3",
+        "CAIE 9.4.4",
+        "CAIE 9.4.7S",
+        "CAIE 2.1.6",
+        "CAIE 3.2.1",
+        "CAIE 9.4.5S"
+      ],
+      "worked_example": {
+        "exemplar_id": "d15bf871-0a67-41dc-ab63-20b462f0161c",
+        "source": "CAMBRIDGE nov 2024, Paper 43, Q6(a)(ii)",
+        "question": "Describe the process of blood clotting.",
+        "marks": 4,
+        "answer_points": [
+          "Platelets are involved.",
+          "Soluble fibrinogen is converted to insoluble fibrin.",
+          "The fibrin forms a mesh.",
+          "The mesh traps blood cells."
+        ],
+        "tip": "Any four points score."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Clotting is a chain of steps that ends in a mesh across the wound."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Platelets help to start clotting.",
+                "Soluble **fibrinogen** is converted to insoluble **fibrin**.",
+                "The fibrin forms a mesh of fibres across the wound that traps blood cells.",
+                "Plasma also carries blood cells and ions around the body."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.59", "IGCSE 2.60", "IGCSE 2.61", "IGCSE 2.64B"],
+      "worked_example": {
+        "exemplar_id": "1e2666c2-798c-4575-93e0-b576f8a56ad2",
+        "source": "EDEXCEL jan 2021, Paper 1 (BR), Q10(a)",
+        "question": "Blood consists of cells and plasma. Plasma transports various substances to and from different parts of the body. Describe the function of plasma in transporting named substances in the body.",
+        "marks": 4,
+        "answer_points": [
+          "Glucose is carried from the intestine to body cells.",
+          "Amino acids are carried from the intestine to body cells and the liver.",
+          "Hormones are carried from glands to organs or tissues.",
+          "Urea is carried from the liver to the kidneys.",
+          "Carbon dioxide is carried from cells to the lungs.",
+          "Fatty acids, vitamins and minerals are carried from the intestine to cells.",
+          "Antibodies or clotting proteins are carried to a site of infection or a wound."
+        ],
+        "tip": "Any four points score. Each needs a named substance and where it is carried from or to."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Plasma also carries heat energy around the body."
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "c44181b6-c167-42b9-87f4-8f9b612f6bd9",
       "ef3220ed-8a9b-4cfd-9897-9b0fdc6bd50a",
       "985466d4-cded-45e6-bfe8-59b044fb14a5",
-      "fc670465-814a-4d71-86d6-1fceda0f7b0a"
+      "fc670465-814a-4d71-86d6-1fceda0f7b0a",
+      "e1e59d0d-3dde-450a-9e32-e7db4dff34ca",
+      "65fe5e5e-8b55-49fc-9ebf-46c1461d7347",
+      "8a32ccf7-45c7-44f3-8b36-ff6bc9c902ea",
+      "e9940a71-0f1b-45a5-b85f-1666ce688f6f",
+      "6193be49-9654-421f-9ae1-e32e165c0f16",
+      "74293cdc-378a-454a-9705-b5222512bdfd",
+      "88c9c695-76c2-40b6-97be-5b99eecec574",
+      "4677e5e6-092f-49de-8d6b-470662ecca09",
+      "025226f4-4178-4058-875a-77e8463cb895"
     ],
     "exemplar_ids": [
       "ece9adaf-6dee-4c34-9340-746d07cc0536",
       "68350b9c-3a38-44ac-b7f7-d4ba1cb7a93c",
-      "34d27309-d209-4095-94ff-fdfb784bae23"
+      "34d27309-d209-4095-94ff-fdfb784bae23",
+      "d15bf871-0a67-41dc-ab63-20b462f0161c",
+      "1e2666c2-798c-4575-93e0-b576f8a56ad2"
     ]
   }
 }

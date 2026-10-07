@@ -253,6 +253,61 @@
         ],
         "tip": "Using 1.0 as the radius gives 226.08, or 230 when rounded. These score only 1 and 2 marks. Rounding correctly to 2 significant figures earns a mark."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 8.3.3", "CAIE 8.3.6S"],
+      "worked_example": {
+        "exemplar_id": "9f3c87d2-3640-449f-af85-dee08d6f4ff2",
+        "source": "CAMBRIDGE nov 2024, Paper 61, Q2",
+        "question": "Water moves up the stem in xylem vessels as a column of water molecules as a result of transpiration. A celery stalk with its leaves attached can be used to investigate the movement of water in a plant, using a coloured dye. Plan an investigation to determine the effect of temperature on the rate of movement of a coloured dye through celery stalks.",
+        "marks": 6,
+        "answer_points": [
+          "Use at least two different temperatures (independent variable).",
+          "Measure the time for the dye to reach the leaves or a set distance, or the distance moved by the dye in a set time (dependent variable).",
+          "Describe a method of keeping the air at each temperature.",
+          "Slice the end off the celery before putting it in the dye, or cut sections with a knife to see how far the dye has moved.",
+          "Keep constant: wind speed, humidity, light intensity, size of celery stalk, number of leaves, type of celery, and the colour, concentration and volume of the dye.",
+          "Do at least two replicates at each temperature.",
+          "Give a suitable safety precaution, such as cutting on a flat surface or wearing goggles."
+        ],
+        "tip": "Marks are given for the variable changed, the variable measured, method detail, variables kept constant, repeats and safety. Any six points score."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Explain each effect by what happens to the water vapour in and around the leaf."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Higher temperature: water molecules have more kinetic energy, so they evaporate and diffuse out faster.",
+                "More wind: moving air carries away the humid air at the stomata, which keeps a steep concentration gradient for diffusion.",
+                "Higher humidity: the air already holds a lot of water vapour, so the gradient is shallower and transpiration is slower."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.57B", "IGCSE 2.58B"],
+      "worked_example": {
+        "exemplar_id": "999a5351-e215-4db9-8c3f-248e76feca58",
+        "source": "EDEXCEL nov 2020, Paper 2 (B), Q6(b)",
+        "question": "Describe how you could determine the rate of water loss from a leafy shoot.",
+        "marks": 4,
+        "answer_points": [
+          "Use a potometer (bubble or weight potometer).",
+          "Cut the shoot under water, dry the leaves, and put mineral oil on the surface of the water.",
+          "Measure the distance moved by the bubble, the mass lost, or the change in volume of water.",
+          "Measure it over a set time.",
+          "Repeat and calculate a mean rate."
+        ],
+        "tip": "Any four points score."
+      }
     }
   },
   "meta": {
@@ -260,18 +315,24 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "spec_point_ids": [
       "39deadc2-70b2-4466-bcb8-b34c34abf5c1",
       "83f00c44-b5ed-475c-95d7-f78e57b411bb",
       "7a878e43-b5e0-44b8-a628-3afb86d6779f",
       "1cad6204-b711-4745-b91f-04b53be4f5b4",
-      "f9f253c2-dd6e-4ef8-8d7a-5452ae4e5f6e"
+      "f9f253c2-dd6e-4ef8-8d7a-5452ae4e5f6e",
+      "79fbf2f4-53f6-47f1-87fe-7f92dba630e4",
+      "1b7d6cee-44ed-4f44-81c6-79e513631385",
+      "48688ac6-3da8-4ba4-b015-4332b6c046d9",
+      "89c2053d-6e7a-42fb-a3e9-456b9066ab49"
     ],
     "exemplar_ids": [
       "2f80492c-d690-4be6-9fdd-ba5fb627a29e",
       "14d865a2-767a-45bc-b963-0cbafc6dffe5",
-      "bac65d6a-90e8-475e-a409-0bf44e2c2cf9"
+      "bac65d6a-90e8-475e-a409-0bf44e2c2cf9",
+      "9f3c87d2-3640-449f-af85-dee08d6f4ff2",
+      "999a5351-e215-4db9-8c3f-248e76feca58"
     ]
   }
 }

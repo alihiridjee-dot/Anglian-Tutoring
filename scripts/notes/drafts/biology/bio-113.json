@@ -78,14 +78,23 @@
               "Nutrients in the agar",
               "For making proteins or chlorophyll, and for respiration to provide energy."
             ],
-            ["Hormones in the agar", "So cells differentiate and roots and shoots develop."],
+            [
+              "Hormones in the agar",
+              "So cells differentiate and roots and shoots develop."
+            ],
             [
               "Sterile conditions",
               "To prevent the growth or entry of microorganisms, which cause decay or disease. The growth medium is sterilised, for example in an autoclave."
             ],
-            ["Suitable temperature, such as 20°C", "For optimum growth, because enzymes work well."]
+            [
+              "Suitable temperature, such as 20°C",
+              "For optimum growth, because enzymes work well."
+            ]
           ],
-          "columns": ["Step or condition", "Reason"]
+          "columns": [
+            "Step or condition",
+            "Reason"
+          ]
         },
         {
           "type": "key-points",
@@ -169,7 +178,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 6.13"],
+      "spec_codes": [
+        "AQA 6.13"
+      ],
       "worked_example": {
         "exemplar_id": "e6e6ad2e-4c01-4687-af3f-14acfdbe5092",
         "source": "AQA jun 2019, Paper 2 (H), Q05.6",
@@ -186,7 +197,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 4.9B"],
+      "spec_codes": [
+        "EDEX 4.9B"
+      ],
       "worked_example": {
         "exemplar_id": "cd41e9e8-9c33-4ee7-9bb4-ffd38db27b3c",
         "source": "EDEXCEL jun 2018, Paper 1 (F), Q10(a)(ii)",
@@ -201,6 +214,93 @@
         ],
         "tip": "Any two of these score one mark each."
       }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.7",
+        "IGCSE 5.17B",
+        "IGCSE 5.18B",
+        "IGCSE 5.19B",
+        "IGCSE 5.20B"
+      ],
+      "worked_example": {
+        "exemplar_id": "5a5fe936-ccaf-411c-a47c-a43b1a420d2f",
+        "source": "EDEXCEL jan 2021, Paper 2 (BR), Q5(b)",
+        "question": "Many mammals have been cloned since Dolly the sheep was produced by cloning in 1996.\nDescribe the stages used to clone a male dog.",
+        "marks": 5,
+        "answer_points": [
+          "Take a nucleus from a body cell (a diploid cell) of the male dog.",
+          "Insert the nucleus into an enucleated egg cell.",
+          "Use an electric shock.",
+          "The cell divides by mitosis.",
+          "The embryo is put into the uterus (womb).",
+          "A surrogate mother carries it."
+        ],
+        "tip": "Any five points score."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Asexual reproduction in plants"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Plants reproduce asexually by natural methods, such as **runners**. A runner is a stem that grows along the ground and forms a new plant.",
+                "Artificial methods include **cuttings**."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Micropropagation"
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Micropropagation",
+                  "meaning": "Another name for tissue culture: growing plants from small pieces of tissue."
+                },
+                {
+                  "term": "Explant",
+                  "meaning": "The small piece of plant tissue used to start the culture."
+                },
+                {
+                  "term": "In vitro",
+                  "meaning": "Grown in a container with a sterile medium, not in a living plant."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Cloning a mammal"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The nucleus put into the egg is diploid and comes from a mature body cell.",
+                "Dolly the sheep was cloned this way.",
+                "An egg cell with its nucleus removed is enucleated."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Cloned transgenic animals"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A transgenic animal has a gene from a different species, such as a human gene.",
+                "Cloning produces many of these animals.",
+                "Each one can make a human protein, which is collected from its milk."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -209,13 +309,18 @@
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "ee093666-8637-4caa-a722-d52bc568b841",
-      "0c1e6ef6-b9d6-4532-ad24-978840609648"
+      "0c1e6ef6-b9d6-4532-ad24-978840609648",
+      "0164b796-c546-4ec9-88a5-20362f07eeb4",
+      "5d7a0098-ce33-4b3a-9e1a-6159dc794b9e",
+      "4b446359-0485-462d-b628-18b2a81424fa",
+      "60920055-a67c-4930-b37e-9c67430424a2"
     ],
     "exemplar_ids": [
       "e6e6ad2e-4c01-4687-af3f-14acfdbe5092",
-      "cd41e9e8-9c33-4ee7-9bb4-ffd38db27b3c"
+      "cd41e9e8-9c33-4ee7-9bb4-ffd38db27b3c",
+      "5a5fe936-ccaf-411c-a47c-a43b1a420d2f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

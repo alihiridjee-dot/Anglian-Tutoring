@@ -14,7 +14,11 @@
         },
         {
           "type": "table",
-          "columns": ["Component", "Symbol", "What it does"],
+          "columns": [
+            "Component",
+            "Symbol",
+            "What it does"
+          ],
           "rows": [
             [
               "Cell",
@@ -26,15 +30,31 @@
               "Two or more cells joined end to end",
               "Supplies energy. Cells in series add their potential differences."
             ],
-            ["Switch", "A gap in the wire with a hinged contact", "Opens or closes the circuit."],
-            ["Fixed resistor", "A rectangle on the wire", "Has a constant resistance."],
+            [
+              "Switch",
+              "A gap in the wire with a hinged contact",
+              "Opens or closes the circuit."
+            ],
+            [
+              "Fixed resistor",
+              "A rectangle on the wire",
+              "Has a constant resistance."
+            ],
             [
               "Variable resistor",
               "A rectangle with an arrow through it",
               "Resistance can be changed by hand."
             ],
-            ["Filament lamp", "A circle with a cross inside", "Transfers energy as light."],
-            ["Motor", "A circle with an M inside", "Transfers energy as movement."],
+            [
+              "Filament lamp",
+              "A circle with a cross inside",
+              "Transfers energy as light."
+            ],
+            [
+              "Motor",
+              "A circle with an M inside",
+              "Transfers energy as movement."
+            ],
             [
               "Diode",
               "A triangle pointing at a bar",
@@ -55,8 +75,16 @@
               "A rectangle in a circle with two arrows pointing in",
               "Resistance changes with light intensity."
             ],
-            ["Ammeter", "A circle with an A inside", "Measures current."],
-            ["Voltmeter", "A circle with a V inside", "Measures potential difference."]
+            [
+              "Ammeter",
+              "A circle with an A inside",
+              "Measures current."
+            ],
+            [
+              "Voltmeter",
+              "A circle with a V inside",
+              "Measures potential difference."
+            ]
           ]
         },
         {
@@ -111,7 +139,10 @@
             "kind": "sort",
             "alt": "Sort each statement into ammeter or voltmeter.",
             "prompt": "Ammeter or voltmeter?",
-            "groups": ["Ammeter", "Voltmeter"],
+            "groups": [
+              "Ammeter",
+              "Voltmeter"
+            ],
             "items": [
               {
                 "text": "Connected in series with the component",
@@ -213,10 +244,18 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.1.1", "AQA T 6.2.1.1"]
+      "spec_codes": [
+        "AQA 4.2.1.1",
+        "AQA T 6.2.1.1"
+      ]
     },
     "edexcel": {
-      "spec_codes": ["EDEX 10.2", "EDEX 10.4", "EDEX 10.7", "EDEX 10.16"],
+      "spec_codes": [
+        "EDEX 10.2",
+        "EDEX 10.4",
+        "EDEX 10.7",
+        "EDEX 10.16"
+      ],
       "worked_example": {
         "exemplar_id": "0d2734c3-fe7f-417d-a0e7-c749e28c8bf0",
         "source": "EDEXCEL jun 2019, Paper 2 (H), Q3(b)(iii)",
@@ -231,7 +270,11 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P3.2b", "OCR P3.2k", "OCR P3.2a"],
+      "spec_codes": [
+        "OCR P3.2b",
+        "OCR P3.2k",
+        "OCR P3.2a"
+      ],
       "worked_example": {
         "exemplar_id": "02d778ff-a56f-4799-8ed5-69069b84ae04",
         "source": "OCR jun 2024, Paper 3, Q18(c)",
@@ -244,6 +287,146 @@
         ],
         "tip": "Each mistake needs its correction. Light emitting diode or LED is allowed for diode."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.2.2.2",
+        "CAIE 4.2.3.5",
+        "CAIE 4.3.1.1",
+        "CAIE 4.3.1.2S",
+        "CAIE 4.3.2.2",
+        "CAIE 4.3.3.2S"
+      ],
+      "worked_example": {
+        "exemplar_id": "5ef1eb17-06e9-47bd-bd28-987386f691ac",
+        "source": "CAMBRIDGE jun 2023, Paper 41, Q7(a)",
+        "question": "A circuit contains a battery, a switch, a voltmeter and three 40 Ω resistors, R₁, R₂ and R₃. With the switch open, resistors R₁ and R₂ form a potential divider.\n\nDescribe what is meant by a potential divider.",
+        "marks": 2,
+        "answer_points": [
+          "It splits (shares) the potential difference of the power source between two resistors or components connected in series.",
+          "The potential difference is shared in proportion to the resistances."
+        ],
+        "tip": "Any two of these ideas earn the two marks."
+      },
+      "extra": [
+        {
+          "heading": "More components and how they behave",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "These components also appear in circuit diagrams."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Component",
+                "How it behaves in the circuit"
+              ],
+              "rows": [
+                [
+                  "Power supply",
+                  "Gives a potential difference to the circuit. A d.c. supply pushes current one way."
+                ],
+                [
+                  "Generator",
+                  "Transfers kinetic energy to electrical energy."
+                ],
+                [
+                  "Heater",
+                  "Transfers electrical energy as thermal energy."
+                ],
+                [
+                  "Bell",
+                  "Rings when a current flows through it."
+                ],
+                [
+                  "Fuse",
+                  "Melts and breaks the circuit if the current is too large."
+                ],
+                [
+                  "Magnetising coil",
+                  "Becomes a magnet when a current flows in it."
+                ],
+                [
+                  "Relay",
+                  "A switch that is turned on by a small current in a coil. It switches a separate circuit."
+                ],
+                [
+                  "Transformer",
+                  "Two coils that change the size of an alternating potential difference."
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Thermistor (NTC only):** its resistance falls as the temperature rises.",
+                "**LDR:** its resistance falls as the light intensity rises.",
+                "**Variable resistor:** moving the slider changes the resistance and so the current."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Meter ranges and potential dividers",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Meters can be analogue (a pointer on a scale) or digital (a number on a display). Many have more than one range."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Choose the range just above the largest current or potential difference you expect.",
+                "Read the scale that belongs to the range selected.",
+                "If the reading is very small on a large range, switch to a smaller range for a more precise reading."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A potential divider splits the potential difference of the supply between resistors in series, in proportion to their resistances."
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A variable potential divider lets the output potential difference be changed. Change the resistance of one resistor, for example with a variable resistor, an LDR or a thermistor."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.12"
+      ],
+      "worked_example": {
+        "exemplar_id": "01f6b050-938a-4495-9c5b-a08097c651b0",
+        "source": "EDEXCEL jan 2023, Paper 1 (P), Q7(c)",
+        "question": "A student replaces a filament lamp in a circuit with a light emitting diode (LED). The student also replaces the cell with an alternating current (a.c.) power supply.\n\nExplain why the LED flashes on and off in this circuit.",
+        "marks": 2,
+        "answer_points": [
+          "The current changes direction.",
+          "An LED only allows current in one direction, so it does not light when the current is reversed."
+        ],
+        "tip": "Any two of these ideas earn the two marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A lamp or an LED can be used as an indicator in a circuit."
+            },
+            {
+              "type": "list",
+              "items": [
+                "If the lamp or LED lights, a current is flowing in that part of the circuit.",
+                "If it is off, there is no current in that part."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -258,7 +441,12 @@
       "c740e228-cc4e-4f11-a4e2-a61a1e77f7b7",
       "ff732ef2-dfdf-416f-8dbd-f0da7bbfed42",
       "b2b80588-90e9-4c43-9dec-07fce2dff1c3",
-      "13d699ff-45da-4bfa-b3d0-853bfef69c47"
+      "13d699ff-45da-4bfa-b3d0-853bfef69c47",
+      "4530fe78-26ac-403b-8cdc-b43dda508d53",
+      "2280884e-30d8-4ec0-b112-0a668ccd2352",
+      "4b6056fb-474e-461f-9746-16353936ded1",
+      "70fc74f8-6b5b-489c-a9a8-601a584ac4c2",
+      "c04d0064-7a8e-47b8-95f9-3c1099596652"
     ],
     "exemplar_ids": [
       "0d2734c3-fe7f-417d-a0e7-c749e28c8bf0",
@@ -267,9 +455,11 @@
       "a3c84ea7-57c4-46ed-92c4-33827ca33a22",
       "6102753a-0d37-4411-bd16-eb6f5b156657",
       "65ff13ab-11cb-423e-8431-66b7768c53fb",
-      "95ba9a1c-7409-4d77-b13b-c1b73ecdfa0b"
+      "95ba9a1c-7409-4d77-b13b-c1b73ecdfa0b",
+      "5ef1eb17-06e9-47bd-bd28-987386f691ac",
+      "01f6b050-938a-4495-9c5b-a08097c651b0"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

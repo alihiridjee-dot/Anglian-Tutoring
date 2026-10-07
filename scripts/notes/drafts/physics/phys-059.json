@@ -227,6 +227,19 @@
         ],
         "tip": "Any two of the four points. 'Forces are equal and opposite' alone earns 2 marks."
       }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.29P"],
+      "worked_example": {
+        "exemplar_id": "1aed4247-b1d8-48dc-8106-cb55c07606e5",
+        "source": "EDEXCEL jun 2024, Paper 2 (PR), Q5(a)",
+        "question": "Two balls, A and B, collide. Ball B is stationary before the collision. When the balls collide, ball B applies a force on ball A, which causes the velocity of ball A to change. Ball A also applies a force on ball B during the collision.\n\nDescribe how the force applied on ball A compares with the force applied on ball B during the collision.",
+        "marks": 2,
+        "answer_points": [
+          "The two forces are the same size.",
+          "The two forces act in opposite directions."
+        ]
+      }
     }
   },
   "meta": {
@@ -235,14 +248,16 @@
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "d5f3bbf8-196e-448b-9ebe-05c2f22328cf",
-      "3458b682-a2da-48a3-a3fb-886681ab4ca8"
+      "3458b682-a2da-48a3-a3fb-886681ab4ca8",
+      "b60dffc6-bfa2-4982-8f02-4b7709ea5e00"
     ],
     "exemplar_ids": [
       "3af80880-ca8d-475a-87d8-f621419a4314",
       "665e6043-bdea-46e1-8465-814b567f652f",
-      "b99ea03a-a5ea-4e07-9613-0ed840c526ef"
+      "b99ea03a-a5ea-4e07-9613-0ed840c526ef",
+      "1aed4247-b1d8-48dc-8106-cb55c07606e5"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

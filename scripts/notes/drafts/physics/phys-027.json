@@ -346,6 +346,37 @@
         ],
         "tip": "A correct answer of 480 scores 4 marks. 0.48 or 4.8 × 10 to another power scores 3 marks."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 2.2.2.3S", "CAIE 2.2.2.4S"],
+      "worked_example": {
+        "exemplar_id": "c1069fb5-6166-43ca-aa8e-9351621fea89",
+        "source": "CAMBRIDGE jun 2023, Paper 41, Q4(a)(i)",
+        "question": "The temperature of the water in a beaker rises from 19.0 °C to 21.5 °C. The mass of the water is 600 g. The specific heat capacity of water is 4200 J/(kg °C). Show that the increase in the internal energy of the water is 6300 J.",
+        "marks": 3,
+        "answer_points": [
+          "ΔE = mcΔθ",
+          "Δθ = 21.5 − 19.0 = 2.5 °C",
+          "ΔE = 0.60 × 4200 × 2.5 = 6300 J"
+        ],
+        "tip": "Convert 600 g to 0.60 kg. One mark each for the equation, the temperature change and the substitution."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 5.12P", "IGCSE 5.13P", "IGCSE 5.14P"],
+      "worked_example": {
+        "exemplar_id": "8baad51e-d795-4aad-a7d5-401aebed9ede",
+        "source": "EDEXCEL nov 2020, Paper 2 (P), Q6(b)",
+        "question": "Electric circuits inside a spacecraft are cooled by 4.5 kg of water. The initial temperature of the water is 35 °C. The thermal store of the water increases by 210 kJ. Calculate the final temperature of the water. The specific heat capacity of water is 4200 J/kg °C.",
+        "marks": 4,
+        "answer_points": [
+          "ΔQ = m × c × ΔT, so 210 000 = 4.5 × 4200 × ΔT",
+          "ΔT = 210 000 / (4.5 × 4200)",
+          "ΔT = 11 °C",
+          "Final temperature = 35 + 11 = 46 °C"
+        ],
+        "tip": "Convert 210 kJ to 210 000 J. The last mark is for adding the temperature change to the starting temperature."
+      }
     }
   },
   "meta": {
@@ -361,14 +392,20 @@
       "0bdfdf29-1cac-4401-831e-e8c814430fdf",
       "192fbfa3-cc37-447b-a548-9c21460b0b02",
       "b1bb38e2-1db1-4d4d-85c2-fcd1e731d44c",
-      "fdaeda44-cd92-459a-8b95-b7f163bdafdd"
+      "fdaeda44-cd92-459a-8b95-b7f163bdafdd",
+      "39e5c747-9f92-49d1-98f9-7a71b9b24c9a",
+      "ddb64766-aa3d-444c-b486-ab12ad350648",
+      "c24d62e5-dad5-4142-b700-469bae203982",
+      "df7979e6-6c7f-47f0-9f80-d6f552f1beb0"
     ],
     "exemplar_ids": [
       "7a395922-2e9e-4582-84c1-103f406e0165",
       "bf47e517-af9b-4d14-af3f-8ab150906b2c",
-      "b57991f8-69aa-4094-b3f1-0ff115c4c7c0"
+      "b57991f8-69aa-4094-b3f1-0ff115c4c7c0",
+      "c1069fb5-6166-43ca-aa8e-9351621fea89",
+      "8baad51e-d795-4aad-a7d5-401aebed9ede"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

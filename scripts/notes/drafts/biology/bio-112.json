@@ -92,7 +92,10 @@
                 "group": 1
               }
             ],
-            "groups": ["Advantage", "Disadvantage"],
+            "groups": [
+              "Advantage",
+              "Disadvantage"
+            ],
             "prompt": "Advantage or disadvantage of insect-resistant GM crops?"
           }
         },
@@ -170,7 +173,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 6.12", "AQA T 4.6.2.4"],
+      "spec_codes": [
+        "AQA 6.12",
+        "AQA T 4.6.2.4"
+      ],
       "worked_example": {
         "exemplar_id": "9715adef-9fba-4e1c-b31d-4bdb1bd630a3",
         "source": "AQA jun 2018, Paper 2 (H), Q05.2",
@@ -188,7 +194,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 4.12B", "EDEX 4.14"],
+      "spec_codes": [
+        "EDEX 4.12B",
+        "EDEX 4.14"
+      ],
       "worked_example": {
         "exemplar_id": "52526374-47a3-48fd-8420-51dd283f0ee8",
         "source": "EDEXCEL nov 2021, Paper 1 (F), Q7(c)",
@@ -206,7 +215,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.2f", "OCR 6.3w"],
+      "spec_codes": [
+        "OCR 6.2f",
+        "OCR 6.3w"
+      ],
       "worked_example": {
         "exemplar_id": "01034b9d-db92-419c-8283-d61bb15232b3",
         "source": "OCR nov 2021, Paper 2, Q18(c)(ii)",
@@ -219,6 +231,102 @@
         ],
         "tip": "Any two of these score one mark each."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 21.3.4S",
+        "CAIE 21.3.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "56a0d8ca-ec95-4053-b186-bd6ba24394d0",
+        "source": "CAMBRIDGE nov 2024, Paper 43, Q6(c)",
+        "question": "Crop plants such as soya can also be genetically modified.\nDiscuss the advantages and disadvantages of genetic modification of crop plants.",
+        "marks": 4,
+        "answer_points": [
+          "Advantage: increased yield.",
+          "Advantage: improved nutritional quality.",
+          "Advantage: resistance to insect pests, so less insecticide is used and less damage is done to the crop.",
+          "Advantage: resistance to herbicides, disease, salinity, cold or drought.",
+          "Disadvantage: the seeds cost more.",
+          "Disadvantage: the modified genes may transfer to other nearby plants by cross-pollination.",
+          "Disadvantage: ethical or religious concerns about altering natural genomes.",
+          "Disadvantage: reduced genetic variability, so the crop is less able to adapt to a change in the environment."
+        ],
+        "tip": "Four marks in total: up to three advantages and up to three disadvantages."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) These disadvantages of GM crops are also asked for."
+            },
+            {
+              "type": "list",
+              "items": [
+                "GM seeds may be sterile, so farmers must buy new seed for each crop.",
+                "The crop has reduced genetic variability, so it is less able to adapt to a change in the environment."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 5.15",
+        "IGCSE 5.16",
+        "IGCSE 5.20B",
+        "IGCSE 5.14"
+      ],
+      "worked_example": {
+        "exemplar_id": "76fa5df0-627a-41ae-b3f0-ec1a88e5af5e",
+        "source": "EDEXCEL jan 2021, Paper 1 (BR), Q6(b)",
+        "question": "Scientists have developed genetically modified (GM) crops in order to increase food production by increasing crop yields.\nSome GM crops are resistant to herbicides (weedkillers). Other GM crops are resistant to diseases caused by viruses and to damage by insects.\nSome people are for the use of GM crops because they may be beneficial to ecosystems. Some people are against the use of GM crops because they could harm ecosystems.\nDiscuss these opinions for and against the use of GM crops.",
+        "marks": 4,
+        "answer_points": [
+          "For: less insecticide is used.",
+          "For: less bioaccumulation of pesticides, and less evolution of resistance to pesticides.",
+          "For: pest-resistant crops do not affect non-target species such as pollinators.",
+          "For: a weedkiller kills the weeds but not the GM crop.",
+          "For: less spread of viruses to other crops.",
+          "Against: genes may transfer to other species by cross-pollination.",
+          "Against: GM plants may outcompete native species or affect food chains.",
+          "Against: the insect population may fall.",
+          "Against: it needs herbicide use, or more use of herbicides."
+        ],
+        "tip": "Any four points score."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Large amounts of human insulin are made by growing genetically modified bacteria in a fermenter."
+            }
+          ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Transgenic",
+                  "meaning": "Describes an organism that has had genetic material transferred into it from a different species."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Cloned transgenic animals can be used to produce human proteins. For example, mammals with a human gene for a blood-clotting protein can be cloned in large numbers, and the protein is removed from their milk."
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -229,14 +337,20 @@
       "05138f3f-96e9-473c-a618-42d3abdd19a4",
       "976ab6bb-54d5-4a7d-9341-9ac517d142e0",
       "5bc74106-a4bf-4b69-8787-4a6a3f767555",
-      "4fe4ab2c-e05b-414c-aa25-be3915c5254c"
+      "4fe4ab2c-e05b-414c-aa25-be3915c5254c",
+      "566dec49-f382-4ed2-91e5-1b2e6a4c3476",
+      "1bf637cb-2932-4c2d-a5f0-80230ed6187e",
+      "c66146a3-0f6c-4994-9800-441d9b867e81",
+      "681d64a5-eeb0-4237-9268-862bdaed3d5b"
     ],
     "exemplar_ids": [
       "9715adef-9fba-4e1c-b31d-4bdb1bd630a3",
       "52526374-47a3-48fd-8420-51dd283f0ee8",
-      "01034b9d-db92-419c-8283-d61bb15232b3"
+      "01034b9d-db92-419c-8283-d61bb15232b3",
+      "56a0d8ca-ec95-4053-b186-bd6ba24394d0",
+      "76fa5df0-627a-41ae-b3f0-ec1a88e5af5e"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

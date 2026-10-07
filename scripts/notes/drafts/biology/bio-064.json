@@ -281,6 +281,85 @@
         ],
         "tip": "Use the words monomer and polymer. Glucose is accepted as the sugar."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.1.1", "CAIE 4.1.2", "CAIE 5.1.2"],
+      "worked_example": {
+        "exemplar_id": "9f1e886c-c187-4b46-828c-84ef2093570c",
+        "source": "CAMBRIDGE mar 2024, Paper 42, Q1(a)(ii)",
+        "question": "Enzymes are proteins.\n\nState the names of the chemical elements found in all proteins.",
+        "marks": 2,
+        "answer_points": ["carbon, hydrogen and oxygen (1 mark).", "nitrogen (1 mark)."],
+        "tip": "Carbohydrates and fats have carbon, hydrogen and oxygen. Only proteins also have nitrogen."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section lists the chemical elements in the three main food molecules."
+            },
+            {
+              "type": "table",
+              "columns": ["Molecule", "Elements"],
+              "rows": [
+                ["Carbohydrates", "Carbon, hydrogen and oxygen"],
+                ["Fats (lipids)", "Carbon, hydrogen and oxygen"],
+                ["Proteins", "Carbon, hydrogen, oxygen and nitrogen. Some also contain sulfur."]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Nitrogen is the element found in proteins but not in carbohydrates or fats.",
+                "Enzymes are proteins. They are biological catalysts that speed up all the reactions of metabolism."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.7", "IGCSE 2.8"],
+      "worked_example": {
+        "exemplar_id": "d3e7c489-fdcc-4701-a96c-fc3c49c540aa",
+        "source": "EDEXCEL jan 2021, Paper 1 (BR), Q4(c)",
+        "question": "Plants convert the glucose they produce into starch.\n\nExplain why plants store carbohydrate as starch rather than as glucose.",
+        "marks": 2,
+        "answer_points": [
+          "Starch is insoluble.",
+          "So it does not have an osmotic effect on the plant cell, and does not diffuse out of the cells."
+        ],
+        "tip": "Glucose is soluble, so it would draw water into the cell and could diffuse out."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section lists the chemical elements in the three main food molecules."
+            },
+            {
+              "type": "table",
+              "columns": ["Molecule", "Elements"],
+              "rows": [
+                ["Carbohydrates", "Carbon, hydrogen and oxygen"],
+                ["Lipids (fats and oils)", "Carbon, hydrogen and oxygen"],
+                ["Proteins", "Carbon, hydrogen, oxygen and nitrogen. Some also contain sulfur."]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Starch and glycogen are made from simple sugars.",
+                "Starch is **insoluble**, so it is a good store: it does not affect the water balance of the cell."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -292,14 +371,20 @@
       "6052ddc4-1d05-4482-9b42-ef95e2e27014",
       "ea6e9475-512a-46b7-b02a-0759bad1ae78",
       "1d5df90a-3540-48b6-b263-7674c2f563e6",
-      "ca0f2e01-8c2b-4bcd-9421-fd9736e23797"
+      "ca0f2e01-8c2b-4bcd-9421-fd9736e23797",
+      "99a7388c-b3ea-41c7-b1e7-1229aa1af61b",
+      "3268e01d-9766-4341-96ee-173e41341219",
+      "4451f1c6-9d29-47fd-a12a-170abba0e0a7",
+      "9412b745-1e29-4005-bacb-d6c53efd00fb"
     ],
     "exemplar_ids": [
       "ac329d10-9ebf-4d7e-a7ba-eab99f76a15a",
       "51b24e35-7391-463a-9a0e-d05ff1375329",
-      "efba3ddd-6c4c-486f-a736-dbf37a2b6846"
+      "efba3ddd-6c4c-486f-a736-dbf37a2b6846",
+      "9f1e886c-c187-4b46-828c-84ef2093570c",
+      "d3e7c489-fdcc-4701-a96c-fc3c49c540aa"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

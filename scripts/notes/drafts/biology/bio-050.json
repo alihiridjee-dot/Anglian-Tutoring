@@ -14,11 +14,27 @@
         },
         {
           "type": "table",
-          "columns": ["Drug", "Used for", "Where it comes from"],
+          "columns": [
+            "Drug",
+            "Used for",
+            "Where it comes from"
+          ],
           "rows": [
-            ["Digitalis", "Heart drug", "Foxgloves"],
-            ["Aspirin", "Painkiller", "Willow"],
-            ["Penicillin", "Antibiotic", "Penicillium mould (discovered by Alexander Fleming)"]
+            [
+              "Digitalis",
+              "Heart drug",
+              "Foxgloves"
+            ],
+            [
+              "Aspirin",
+              "Painkiller",
+              "Willow"
+            ],
+            [
+              "Penicillin",
+              "Antibiotic",
+              "Penicillium mould (discovered by Alexander Fleming)"
+            ]
           ]
         },
         {
@@ -160,7 +176,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 3.6", "AQA T 4.3.1.9"],
+      "spec_codes": [
+        "AQA 3.6",
+        "AQA T 4.3.1.9"
+      ],
       "worked_example": {
         "exemplar_id": "fa810eea-81c6-47ab-8c09-8789f3f2f690",
         "source": "AQA jun 2020, Paper 1 (H), Q07.3",
@@ -178,7 +197,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.20"],
+      "spec_codes": [
+        "EDEX 5.20"
+      ],
       "worked_example": {
         "exemplar_id": "bc9d920d-7d6d-4f06-9e9a-44bb4977cb2e",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q5(b)",
@@ -194,7 +215,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3q"],
+      "spec_codes": [
+        "OCR 6.3q"
+      ],
       "worked_example": {
         "exemplar_id": "2df0c151-fe55-40ae-86aa-85db1d46ed10",
         "source": "OCR jun 2019, Paper 4, Q20(b)(i)",
@@ -207,6 +230,31 @@
         ],
         "tip": "One mark for each point. A placebo contains no active drug."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 15.1.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Drug",
+                  "meaning": "Any substance taken into the body that modifies or affects chemical reactions in the body."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Medicines are drugs. Every new drug must be tested before it is used."
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -225,6 +273,6 @@
       "2df0c151-fe55-40ae-86aa-85db1d46ed10"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

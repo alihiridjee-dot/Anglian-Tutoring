@@ -36,19 +36,31 @@
           "diagram": {
             "kind": "compare",
             "alt": "A pure metal compared with an alloy.",
-            "items": ["Pure metal", "Alloy"],
+            "items": [
+              "Pure metal",
+              "Alloy"
+            ],
             "rows": [
               {
                 "feature": "Size of atoms",
-                "values": ["All the same", "Different sizes"]
+                "values": [
+                  "All the same",
+                  "Different sizes"
+                ]
               },
               {
                 "feature": "Layers of atoms",
-                "values": ["Regular and can slide easily", "Distorted and cannot easily slide"]
+                "values": [
+                  "Regular and can slide easily",
+                  "Distorted and cannot easily slide"
+                ]
               },
               {
                 "feature": "Hardness",
-                "values": ["Soft", "Harder"]
+                "values": [
+                  "Soft",
+                  "Harder"
+                ]
               }
             ]
           }
@@ -72,9 +84,17 @@
         },
         {
           "type": "table",
-          "columns": ["Alloy", "Made from", "Properties and uses"],
+          "columns": [
+            "Alloy",
+            "Made from",
+            "Properties and uses"
+          ],
           "rows": [
-            ["Bronze", "Copper and tin", "Used for bells, statues and ship propellers."],
+            [
+              "Bronze",
+              "Copper and tin",
+              "Used for bells, statues and ship propellers."
+            ],
             [
               "Brass",
               "Copper and zinc",
@@ -85,7 +105,11 @@
               "Gold with silver, copper and zinc",
               "Harder than pure gold, and cheaper."
             ],
-            ["High carbon steel", "Iron with a high amount of carbon", "Strong but brittle."],
+            [
+              "High carbon steel",
+              "Iron with a high amount of carbon",
+              "Strong but brittle."
+            ],
             [
               "Low carbon steel",
               "Iron with a low amount of carbon",
@@ -101,8 +125,16 @@
               "Aluminium with other metals",
               "Low density. Used for aircraft parts."
             ],
-            ["Duralumin", "Copper and aluminium", "Used for aircraft parts."],
-            ["Solder", "Tin and lead", "Harder than pure tin."]
+            [
+              "Duralumin",
+              "Copper and aluminium",
+              "Used for aircraft parts."
+            ],
+            [
+              "Solder",
+              "Tin and lead",
+              "Harder than pure tin."
+            ]
           ]
         },
         {
@@ -121,13 +153,18 @@
           "type": "equation",
           "label": "Percentage of gold in an alloy",
           "formula": "percentage of gold = (carats ÷ 24) × 100",
-          "where": ["carats = the carat value of the alloy", "percentage of gold in %"]
+          "where": [
+            "carats = the carat value of the alloy",
+            "percentage of gold in %"
+          ]
         },
         {
           "type": "equation",
           "label": "Mass of gold in an object",
           "formula": "mass of gold = (percentage of gold ÷ 100) × mass of object",
-          "where": ["mass in grams (g)"]
+          "where": [
+            "mass in grams (g)"
+          ]
         },
         {
           "type": "diagram",
@@ -245,7 +282,11 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.10.3.2", "AQA 4.2.2.7", "AQA T 5.2.2.7"],
+      "spec_codes": [
+        "AQA 4.10.3.2",
+        "AQA 4.2.2.7",
+        "AQA T 5.2.2.7"
+      ],
       "worked_example": {
         "exemplar_id": "47f699fa-a60d-454d-9cb6-098c101df3c3",
         "source": "AQA jun 2024, Paper 1 (H), Q07.2",
@@ -260,7 +301,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.5C", "EDEX 5.6C", "EDEX 5.7C"],
+      "spec_codes": [
+        "EDEX 5.5C",
+        "EDEX 5.6C",
+        "EDEX 5.7C"
+      ],
       "worked_example": {
         "exemplar_id": "25750aa3-fb18-4fe5-b665-2c69591eb578",
         "source": "EDEXCEL nov 2021, Paper 1 (F), Q10(a)",
@@ -275,7 +320,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C6.1o"],
+      "spec_codes": [
+        "OCR C6.1o"
+      ],
       "worked_example": {
         "exemplar_id": "ef7d27d0-9c91-487b-84b8-6d5b57231385",
         "source": "OCR jun 2025, Paper 2, Q16(c)",
@@ -288,6 +335,96 @@
         ],
         "tip": "Each point must be a comparison, not just a quoted value."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 9.2.1",
+        "CAIE 9.3.1",
+        "CAIE 9.3.2",
+        "CAIE 9.3.3",
+        "CAIE 9.3.4",
+        "CAIE 9.3.5S"
+      ],
+      "worked_example": {
+        "exemplar_id": "11efe5fc-3a24-4183-98b1-ea0dc67a02ab",
+        "source": "CAMBRIDGE nov 2023, Paper 41, Q2(d)",
+        "question": "State two physical properties of aluminium that make it suitable for use in overhead electrical cables.",
+        "marks": 2,
+        "answer_points": [
+          "It is a good conductor of electricity.",
+          "It has a low density."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section links uses of metals and alloys to their properties."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Aluminium is used for aircraft because it has a low density.",
+                "Aluminium is used for overhead electrical cables because it has a low density and conducts electricity well.",
+                "Aluminium is used for food containers because it resists corrosion.",
+                "Copper is used for electrical wiring because it conducts electricity well and is ductile.",
+                "Stainless steel is used for cutlery because it is hard and resists rusting."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "In a diagram of structure, a pure metal shows atoms that are all the same size in regular layers. An alloy shows atoms of different sizes."
+            },
+            {
+              "type": "paragraph",
+              "text": "Stainless steel is iron mixed with chromium, nickel and carbon."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.25C",
+        "IGCSE 2.26C",
+        "IGCSE 2.27C"
+      ],
+      "worked_example": {
+        "exemplar_id": "0991ce46-2a34-42bc-9545-9e894ee1c437",
+        "source": "EDEXCEL jun 2019, Paper 2 (C), Q4(c)(ii)",
+        "question": "Magnalium is an alloy of aluminium and magnesium.\n\nExplain why magnalium is harder than aluminium.",
+        "marks": 3,
+        "answer_points": [
+          "The regular arrangement of atoms is distorted or disrupted.",
+          "Magnesium atoms are larger than aluminium atoms.",
+          "So it is more difficult for the layers to slide over one another."
+        ],
+        "tip": "Ignore the strength of metallic bonds. The marks are for the different sized atoms and the layers that cannot slide."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Uses link to properties."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Aluminium: aircraft and overhead cables because it has a low density, and food containers because it resists corrosion.",
+                "Copper: electrical wiring because it conducts electricity well and is ductile. It also conducts heat well, so it is used in cooking pans.",
+                "Low carbon (mild) steel: soft and easily shaped, so it is used for car bodies.",
+                "High carbon steel: hard but brittle, so it is used for cutting tools.",
+                "Stainless steel: hard and resists rusting, so it is used for cutlery.",
+                "Iron rusts, so most iron is used as steel."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -299,14 +436,25 @@
       "63d3c891-b3a1-47fd-abf5-70b6df46d1a9",
       "3204745d-b9ae-49d8-b36d-90eb958b4dc3",
       "970e3d3e-56ea-436e-ab8d-897dab60cdd2",
-      "97440902-fca9-464b-9d40-b635ec4c19ef"
+      "97440902-fca9-464b-9d40-b635ec4c19ef",
+      "2a822b60-48a4-467c-9bc7-7181f9e955f7",
+      "623a8c9d-74b4-4a7c-b0c5-6bc39dc5feff",
+      "15a7b84b-6b0c-4e14-9909-b9c8dabea5cb",
+      "a839a7a3-8a5e-4927-ac0c-df85acecf0b6",
+      "5713ed66-4e9f-4c80-8a3f-7f505d654bb6",
+      "dbf03e16-0276-4b4a-b0d5-c7b3e111218f",
+      "84821662-65bf-4774-ac0c-57aa72423207",
+      "c5dd39e6-4606-4681-afd8-8668017c6949",
+      "2ef5fcb9-a271-4b7b-9746-9457b90b8cc4"
     ],
     "exemplar_ids": [
       "47f699fa-a60d-454d-9cb6-098c101df3c3",
       "25750aa3-fb18-4fe5-b665-2c69591eb578",
-      "ef7d27d0-9c91-487b-84b8-6d5b57231385"
+      "ef7d27d0-9c91-487b-84b8-6d5b57231385",
+      "11efe5fc-3a24-4183-98b1-ea0dc67a02ab",
+      "0991ce46-2a34-42bc-9545-9e894ee1c437"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

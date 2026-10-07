@@ -259,6 +259,61 @@
         ],
         "tip": "Any three of the four points score."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.5.1.1",
+        "CAIE 4.5.1.2",
+        "CAIE 4.5.1.3",
+        "CAIE 4.5.1.4S",
+        "CAIE 4.5.1.5S"
+      ],
+      "worked_example": {
+        "exemplar_id": "3021dd19-d0b2-4f2b-a26d-8ee65c95fc06",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q9(a)",
+        "question": "A mobile phone is being charged on a wireless charging plate.\nWhen the charging plate is switched on, there is an alternating current (a.c.) in the primary coil.\nA secondary coil is in the mobile phone.\nExplain how a current is produced in the secondary coil.",
+        "marks": 3,
+        "answer_points": [
+          "The alternating current in the primary coil produces a changing magnetic field.",
+          "The secondary coil cuts this magnetic field, or is in this changing magnetic field.",
+          "The changing magnetic field causes an induced current in the secondary coil."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "An induced potential difference is also called an induced **e.m.f.**",
+                "To show induction, connect a coil to a sensitive voltmeter or galvanometer and move a magnet into and out of the coil. The meter deflects only while the magnet moves.",
+                "The e.m.f. is larger with a faster movement, a stronger magnet or more turns on the coil.",
+                "(Supplement) The direction of the induced e.m.f. opposes the change that causes it."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) For a wire moving across a field, the right-hand rule gives the direction of the induced current: thumb for the motion, first finger for the field, second finger for the current."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 6.15", "IGCSE 6.16"],
+      "worked_example": {
+        "exemplar_id": "fd879616-98c2-4ab8-8709-ac6a1f7842e8",
+        "source": "EDEXCEL nov 2021, Paper 1 (P), Q3(a)",
+        "question": "A torch has a battery that is recharged by shaking the torch up and down.\nShaking the torch causes a magnet to move up and down inside a coil of wire.\nExplain why the movement of the magnet causes a current in the coil.",
+        "marks": 3,
+        "answer_points": [
+          "The magnet moves through or near the coil of wire.",
+          "The field lines of the magnet are cut by the coil.",
+          "A voltage is induced across the coil."
+        ],
+        "tip": "Name the cutting of field lines, then the induced voltage."
+      }
     }
   },
   "meta": {
@@ -274,9 +329,11 @@
     "exemplar_ids": [
       "46ddca11-eb06-40a7-a7b3-4fb0ceda87d4",
       "2f141646-1fed-4ecd-a8b6-69c6f8abcd5d",
-      "4a21be75-ed75-4980-a525-a7377141317a"
+      "4a21be75-ed75-4980-a525-a7377141317a",
+      "3021dd19-d0b2-4f2b-a26d-8ee65c95fc06",
+      "fd879616-98c2-4ab8-8709-ac6a1f7842e8"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-06"
   }
 }

@@ -219,6 +219,77 @@
         ],
         "tip": "The ratio of H₂SO₄ to (NH₄)₂SO₄ is 1 : 1, so the Mr values scale the mass directly."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.3.8S"],
+      "worked_example": {
+        "exemplar_id": "06ed5c5c-4ca4-432c-90d5-1edd8178a3f4",
+        "source": "CAMBRIDGE mar 2024, Paper 42, Q1(b)(i)",
+        "question": "Iron(III) oxide, Fe₂O₃, in iron ore is converted to iron when it reacts with carbon monoxide in a blast furnace.\n\nCalculate the percentage by mass of iron in iron(III) oxide, Fe₂O₃.",
+        "marks": 2,
+        "answer_points": [
+          "Mr of Fe₂O₃ = 160",
+          "Mass of iron in one formula unit = 2 × 56 = 112",
+          "Percentage of iron = 112 ÷ 160 × 100 = 70.0%"
+        ],
+        "tip": "(Supplement) One mark for the Mr and one mark for the percentage."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Percentage purity compares the mass of the pure substance with the mass of the whole sample."
+            },
+            {
+              "type": "equation",
+              "label": "Percentage purity",
+              "formula": "percentage purity = (mass of pure substance ÷ mass of impure sample) × 100",
+              "where": ["Both masses in the same unit, such as g."]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find the mass of pure substance.",
+                  "text": "A 2.50 g sample of impure copper(II) sulfate contains 2.00 g of pure copper(II) sulfate."
+                },
+                {
+                  "lead": "Divide by the sample mass.",
+                  "text": "2.00 ÷ 2.50 = 0.80."
+                },
+                {
+                  "lead": "Multiply by 100.",
+                  "text": "Percentage purity = 80%."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A purity below 100% means impurities are present.",
+                "Rearrange to find the pure mass: pure mass = purity ÷ 100 × sample mass. A 10.0 g sample that is 80% pure contains 8.0 g of the substance."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.30"],
+      "worked_example": {
+        "exemplar_id": "ef34b2c3-2841-4902-ad0d-a3e6fba3f119",
+        "source": "EDEXCEL jun 2024, Paper 2 (CR), Q4(c)(ii)",
+        "question": "Ethanol is made by the fermentation of glucose.\n\nA mixture containing 500 mol of glucose is fermented. A mass of 5750 g of ethanol is obtained.\n\nCalculate the percentage yield.\n\n[for ethanol, Mr = 46]",
+        "marks": 3,
+        "answer_points": [
+          "Fermentation: C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂, so 500 mol of glucose gives 500 × 2 = 1000 mol of ethanol",
+          "Theoretical mass of ethanol = 1000 × 46 = 46 000 g",
+          "Percentage yield = 5750 ÷ 46 000 × 100 = 12.5%"
+        ],
+        "tip": "One mark for each step. The answer can also be found by comparing the moles: 125 ÷ 1000 × 100."
+      }
     }
   },
   "meta": {
@@ -230,14 +301,18 @@
       "9a059639-d749-40a6-88e1-00935f0a63ff",
       "5018c837-a756-4c12-9848-811df7f3cf59",
       "696104bb-a0a6-4e01-a473-abd24e71dbb5",
-      "58b930d9-0268-4269-ab2d-ca76dbf432ac"
+      "58b930d9-0268-4269-ab2d-ca76dbf432ac",
+      "e426e3d3-b2eb-48b5-a244-42554b8ad392",
+      "a0881b58-3fba-47a1-95e2-72195075cfa4"
     ],
     "exemplar_ids": [
       "f7d07c8d-2d3b-409e-9ed3-2617a6459bb3",
       "6939ec65-a157-4153-bad3-23ca218864d6",
-      "c1b25bf0-5985-4853-8797-525696feb6e0"
+      "c1b25bf0-5985-4853-8797-525696feb6e0",
+      "06ed5c5c-4ca4-432c-90d5-1edd8178a3f4",
+      "ef34b2c3-2841-4902-ad0d-a3e6fba3f119"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

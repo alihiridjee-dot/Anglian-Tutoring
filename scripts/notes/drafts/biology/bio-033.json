@@ -241,6 +241,48 @@
         ],
         "tip": "Show each total. A correct deduction from your own totals is still credited if there is a slip in adding up the points."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 9.2.5", "CAIE 9.2.6"]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.49", "IGCSE 2.67"],
+      "worked_example": {
+        "exemplar_id": "161b89c1-3431-4268-b1fb-b02fee1ab9ab",
+        "source": "EDEXCEL jun 2023, Paper 2 (BR), Q6(c)",
+        "question": "Smoking cigarettes has harmful effects on the body. Smoking causes harmful effects on the lungs. Describe the consequences of smoking cigarettes for the functioning of the lungs.",
+        "marks": 5,
+        "answer_points": [
+          "Cilia in the trachea are destroyed and no longer work.",
+          "Mucus builds up and cannot be removed.",
+          "This leads to infection, such as pneumonia.",
+          "Alveoli are damaged and surface area is lost (emphysema).",
+          "Airways are inflamed or narrowed (bronchitis).",
+          "It can lead to COPD.",
+          "It can lead to lung cancer."
+        ],
+        "tip": "Any five points score."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Cigarette smoke contains substances that harm the lungs and the circulation."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Tar** damages the lungs. It causes bronchitis and emphysema, and it can cause lung cancer.",
+                "**Carbon monoxide** reduces the oxygen carried by red blood cells.",
+                "**Nicotine** is addictive and raises blood pressure.",
+                "Together these raise the risk of coronary heart disease."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -253,14 +295,16 @@
       "58134996-9263-4b93-95dc-c40774050ddd",
       "277b4067-e95a-41e9-b6ca-7d56f1f252ef",
       "39af4d98-a044-4727-ac7d-123b5ccdba61",
-      "b13c8b98-f4a8-47a6-90b2-5f85d688a5ba"
+      "b13c8b98-f4a8-47a6-90b2-5f85d688a5ba",
+      "99023a0d-6bab-4bd3-8bfb-04ab3f87d451"
     ],
     "exemplar_ids": [
       "67ce1ff8-4f78-4825-855e-a5cd3b5ec59e",
       "28b1a476-f1ff-4400-8eed-b8308e4f6585",
-      "9b1242a8-c354-4ab8-b823-d7bc684d9632"
+      "9b1242a8-c354-4ab8-b823-d7bc684d9632",
+      "161b89c1-3431-4268-b1fb-b02fee1ab9ab"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

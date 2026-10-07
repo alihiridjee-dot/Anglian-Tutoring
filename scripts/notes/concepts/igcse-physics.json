@@ -1,0 +1,4738 @@
+{
+  "subject": "physics",
+  "level": "igcse",
+  "boards": [
+    "cambridge_igcse",
+    "edexcel_igcse"
+  ],
+  "note": "IGCSE-only concepts (new notes) and the IGCSE spec points that join existing GCSE concepts. Merged with gcse-physics.json by conceptMap.ts. Each IGCSE spec point is primary in exactly one concept.",
+  "joins": [
+    {
+      "concept_id": "phys-001",
+      "spec_points": [
+        {
+          "id": "34210ab5-0144-4822-b5f4-a55880cbee5b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.1",
+          "primary": true
+        },
+        {
+          "id": "74eaf83b-41f8-4792-8f17-4fdcdb84cdff",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.2P",
+          "primary": true
+        },
+        {
+          "id": "ddb7509a-7a79-417b-83e9-7a5bc946697d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.1",
+          "primary": true
+        },
+        {
+          "id": "6b98656c-f224-4d0d-b90d-c7f2e010794f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.1",
+          "primary": true
+        },
+        {
+          "id": "bac26933-4b94-43f2-9d59-f362947cfd60",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.1",
+          "primary": true
+        },
+        {
+          "id": "7ee3faee-f8db-455a-af59-2ccf42a70a06",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.1",
+          "primary": true
+        },
+        {
+          "id": "dded7e6b-6a2a-401d-b9fe-fdc92903ca1c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.2P",
+          "primary": true
+        },
+        {
+          "id": "7c9c68fd-0b8a-4cba-b21d-4e72dbca71af",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.1",
+          "primary": true
+        },
+        {
+          "id": "2ff05286-b134-4283-ad73-6c324f8f6827",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.1",
+          "primary": true
+        },
+        {
+          "id": "856b6359-0c8f-4d01-9af6-a9de2f8bb733",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.1",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-002",
+      "spec_points": [
+        {
+          "id": "65bf1422-b7a5-4160-ae6b-7765fc49014f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.1.1",
+          "primary": true
+        },
+        {
+          "id": "80721ec3-6f28-49dd-b7b5-0bdf253de7c8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.1.2",
+          "primary": true
+        },
+        {
+          "id": "5b09810e-5e79-476f-a7df-70fd30174b4f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.1.3",
+          "primary": true
+        },
+        {
+          "id": "12835c26-ad6b-4e7a-802e-3e26edd76e8c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.1.6S",
+          "primary": false
+        },
+        {
+          "id": "e42666e6-a8ff-48e4-9afa-a67d0a60bd88",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.2.1",
+          "primary": false
+        },
+        {
+          "id": "d08cd5f2-bd66-4cfd-9276-a600ae0cc472",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.2",
+          "primary": true
+        },
+        {
+          "id": "8f8e1c54-21b3-4cdd-b59e-3e8282b6112b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.3",
+          "primary": true
+        },
+        {
+          "id": "321a758d-d6a3-4caf-8599-e167ade8abac",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.5",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-003",
+      "spec_points": [
+        {
+          "id": "d8c439dc-3ec0-4506-9eef-1b6f059dda21",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.1.4S",
+          "primary": true
+        },
+        {
+          "id": "2ef54813-c79b-49ce-b5bd-d242cd87a6fe",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.1.5S",
+          "primary": true
+        },
+        {
+          "id": "79b0d083-7ecf-4121-9819-487d7fc48681",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.10S",
+          "primary": false
+        },
+        {
+          "id": "2a716b32-705a-429f-a970-0e70a2c9001d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.13",
+          "primary": true
+        },
+        {
+          "id": "29df38c3-b6fc-4d11-9bd7-26aafbc0d411",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.14",
+          "primary": true
+        },
+        {
+          "id": "f852eeb0-f264-4e3e-b50e-10e414cf245f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.15",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-004",
+      "spec_points": [
+        {
+          "id": "e42666e6-a8ff-48e4-9afa-a67d0a60bd88",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.2.1",
+          "primary": true
+        },
+        {
+          "id": "fad34b58-c8f1-4113-b9ce-94eca841fae2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.2.2",
+          "primary": true
+        },
+        {
+          "id": "fc5a9eb2-c65d-4cb8-87b5-6d7751908906",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.11",
+          "primary": true
+        },
+        {
+          "id": "dbc449da-0215-4eeb-88f7-0af7c02648a4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.12",
+          "primary": true
+        },
+        {
+          "id": "f852eeb0-f264-4e3e-b50e-10e414cf245f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.15",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-005",
+      "spec_points": [
+        {
+          "id": "fb0943bc-797f-4559-a4b4-800e546c25d3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.4.1",
+          "primary": true
+        },
+        {
+          "id": "7288a84f-1e63-4633-9f97-5018a22fadf6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.5.4",
+          "primary": false
+        },
+        {
+          "id": "53897e0e-8e98-49aa-bb1b-896f55422f7a",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.16",
+          "primary": true
+        },
+        {
+          "id": "68e91c41-a94e-45e2-a91f-974bcc7b9054",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.17",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-006",
+      "spec_points": [
+        {
+          "id": "f057b125-4133-4daa-8bf6-d8a00ed34e14",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.1.6",
+          "primary": false
+        },
+        {
+          "id": "12835c26-ad6b-4e7a-802e-3e26edd76e8c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.1.6S",
+          "primary": true
+        },
+        {
+          "id": "692e0fb4-c173-4405-81db-c2df410513cf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.3.3",
+          "primary": false
+        },
+        {
+          "id": "321a758d-d6a3-4caf-8599-e167ade8abac",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.5",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-007",
+      "spec_points": [
+        {
+          "id": "68d8cb96-171e-4a35-94a7-9723b8bde3cb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.1.1",
+          "primary": false
+        },
+        {
+          "id": "760d5b48-71e3-409f-800d-e5ccfd24db8e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.4.1",
+          "primary": false
+        },
+        {
+          "id": "78ff9917-c7ee-411b-804f-16f34890d151",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.10",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-008",
+      "spec_points": [
+        {
+          "id": "12835c26-ad6b-4e7a-802e-3e26edd76e8c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.1.6S",
+          "primary": false
+        },
+        {
+          "id": "692e0fb4-c173-4405-81db-c2df410513cf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.3.3",
+          "primary": true
+        },
+        {
+          "id": "3b1c1870-2cd9-41a8-a814-cb862793df2d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.3.7S",
+          "primary": true
+        },
+        {
+          "id": "9c1147db-3224-4d60-91f9-fb79e39e47ed",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.4",
+          "primary": true
+        },
+        {
+          "id": "321a758d-d6a3-4caf-8599-e167ade8abac",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.5",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-009",
+      "spec_points": [
+        {
+          "id": "5a66c66f-01f3-4a33-bc87-e5c749aa1fc3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.3.1",
+          "primary": true
+        },
+        {
+          "id": "42a24f5d-2527-4b23-8b0a-d65dcee11669",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.3.2",
+          "primary": true
+        },
+        {
+          "id": "295a7527-4664-4b9d-ab6d-7953b9f3cdbe",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.3.4S",
+          "primary": true
+        },
+        {
+          "id": "35d8ad63-cd15-43bf-a7e9-2bdbe76d4c30",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.18P",
+          "primary": true
+        },
+        {
+          "id": "136a23ab-f7bb-4892-84e6-12046c71347b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.19P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-010",
+      "spec_points": [
+        {
+          "id": "4530fe78-26ac-403b-8cdc-b43dda508d53",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.2.2",
+          "primary": true
+        },
+        {
+          "id": "2280884e-30d8-4ec0-b112-0a668ccd2352",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.3.5",
+          "primary": true
+        },
+        {
+          "id": "4b6056fb-474e-461f-9746-16353936ded1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.1.1",
+          "primary": true
+        },
+        {
+          "id": "70fc74f8-6b5b-489c-a9a8-601a584ac4c2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.1.2S",
+          "primary": true
+        },
+        {
+          "id": "0d2b1103-d970-43f0-9a6b-414e0ec5a6d1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.2.2",
+          "primary": false
+        },
+        {
+          "id": "48fe7186-3ab9-4c26-9bd5-06927c81e6dd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.3.2S",
+          "primary": false
+        },
+        {
+          "id": "c04d0064-7a8e-47b8-95f9-3c1099596652",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.12",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-011",
+      "spec_points": [
+        {
+          "id": "cdeedcf8-f5c1-4318-9122-5ef230d6e241",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.1.5",
+          "primary": false
+        },
+        {
+          "id": "2f234e46-fb9f-49cc-b41a-b877019613a5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.1.6",
+          "primary": false
+        },
+        {
+          "id": "db025d3a-ba7e-4984-928c-9f4d4281cb53",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.1.7S",
+          "primary": true
+        },
+        {
+          "id": "ff8fc51f-78ad-4957-8951-ebd7fe002d79",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.2.1",
+          "primary": true
+        },
+        {
+          "id": "990126b6-5ead-4e72-8944-925e7b00beb4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.2.3",
+          "primary": true
+        },
+        {
+          "id": "8c0b02d9-9b35-4037-9d37-90abfeb3b833",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.2.5S",
+          "primary": true
+        },
+        {
+          "id": "9c41a97b-430d-4321-8384-0af75b92f263",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.2.6S",
+          "primary": true
+        },
+        {
+          "id": "bf93b4d2-e1c2-4899-99e4-22324788b7a6",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.14",
+          "primary": true
+        },
+        {
+          "id": "1da05d46-2726-41ef-9bf2-4fba2557d975",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.15",
+          "primary": true
+        },
+        {
+          "id": "977959df-3e44-45df-840c-0240b48721cd",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.16",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-012",
+      "spec_points": [
+        {
+          "id": "5a507f6a-2cc7-4c58-b147-7e0d04aec4be",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.4.1",
+          "primary": true
+        },
+        {
+          "id": "cb6ebcfb-a7c7-4a43-8807-685540b7b540",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.4.3",
+          "primary": false
+        },
+        {
+          "id": "cde73d55-891a-4d5c-823b-5c399c57f97e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.4.5S",
+          "primary": false
+        },
+        {
+          "id": "6b7a64c2-825c-40ab-b53f-4785b0ceed29",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.3.1",
+          "primary": true
+        },
+        {
+          "id": "9c0b9c4a-4a24-4170-8712-1fe5dc4376af",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.8",
+          "primary": false
+        },
+        {
+          "id": "100123a1-5f0a-41ab-bca8-39fb7dddc2d6",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.10",
+          "primary": true
+        },
+        {
+          "id": "86530248-7ca4-4b81-b943-ae3309de7fac",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.13",
+          "primary": true
+        },
+        {
+          "id": "86d7f741-a361-4c85-a898-ec2255155fd1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.19",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-013",
+      "spec_points": [
+        {
+          "id": "eb70b4fc-8af0-465c-8bf3-dccf795f3f44",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.4.4S",
+          "primary": true
+        },
+        {
+          "id": "719b8f7a-82ad-4add-93ff-8f451823c777",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.9",
+          "primary": true
+        },
+        {
+          "id": "abf47740-62a8-4148-942c-a381e79d8810",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.11",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-014",
+      "spec_points": [
+        {
+          "id": "9547129d-5316-4682-b05c-4dcdbf769bca",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.4.2",
+          "primary": true
+        },
+        {
+          "id": "cb6ebcfb-a7c7-4a43-8807-685540b7b540",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.4.3",
+          "primary": true
+        },
+        {
+          "id": "cde73d55-891a-4d5c-823b-5c399c57f97e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.4.5S",
+          "primary": true
+        },
+        {
+          "id": "719b8f7a-82ad-4add-93ff-8f451823c777",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.9",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-015",
+      "spec_points": [
+        {
+          "id": "b94f3146-f2eb-46e2-a8f5-0194c376283f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.2.1",
+          "primary": true
+        },
+        {
+          "id": "0d2b1103-d970-43f0-9a6b-414e0ec5a6d1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.2.2",
+          "primary": true
+        },
+        {
+          "id": "772ca3b7-4aba-40a8-b6ac-924b5097e56a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.2.3",
+          "primary": false
+        },
+        {
+          "id": "33aae3b0-9643-4d8c-b4a3-315386e99266",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.2.4",
+          "primary": true
+        },
+        {
+          "id": "6b981c26-6355-4d1e-81bc-43e43e1d4ea0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.2.5",
+          "primary": true
+        },
+        {
+          "id": "61e7b52c-ed3d-478c-b885-483b67c69665",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.2.6",
+          "primary": true
+        },
+        {
+          "id": "b557c29d-6ee7-4b6b-ab93-47e41168698c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.2.7",
+          "primary": true
+        },
+        {
+          "id": "6c02e2e4-15ff-4cbb-b1cd-4308d557f230",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.2.8S",
+          "primary": true
+        },
+        {
+          "id": "728496f8-d9c2-4de7-b0e7-b3483ddca4ff",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.2.9S",
+          "primary": true
+        },
+        {
+          "id": "a22d6479-f7c5-43c1-8a97-eeeef69ffea0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.2.10S",
+          "primary": true
+        },
+        {
+          "id": "6b7a64c2-825c-40ab-b53f-4785b0ceed29",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.3.1",
+          "primary": false
+        },
+        {
+          "id": "9f19fd54-30da-4812-8085-57f4678f86ad",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.3.3S",
+          "primary": false
+        },
+        {
+          "id": "4e195e85-36c4-4062-bdb5-f17682816e6d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.7",
+          "primary": true
+        },
+        {
+          "id": "9c0b9c4a-4a24-4170-8712-1fe5dc4376af",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.8",
+          "primary": true
+        },
+        {
+          "id": "b8876106-1c38-4fab-bf98-a3c13463c0b1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.17",
+          "primary": true
+        },
+        {
+          "id": "22d4aa23-2056-4665-b16c-09f8bef2556d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.18",
+          "primary": true
+        },
+        {
+          "id": "86d7f741-a361-4c85-a898-ec2255155fd1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.19",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-016",
+      "spec_points": [
+        {
+          "id": "9f217986-057d-46e7-a18e-6e05eee0b30c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.2.4",
+          "primary": true
+        },
+        {
+          "id": "a9d61ee9-a990-48f4-a87a-e89190705655",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.6",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-017",
+      "spec_points": [
+        {
+          "id": "d039fe22-0ccc-4670-b13d-ae683b98982c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.4.1",
+          "primary": true
+        },
+        {
+          "id": "27adf1e0-36d0-418f-87b4-5085f69a982d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.4.2",
+          "primary": true
+        },
+        {
+          "id": "f185af9f-0fee-4340-9d11-de4ee479d8fe",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.4.3",
+          "primary": true
+        },
+        {
+          "id": "2430efde-1a44-4e3f-9f80-028c504c0198",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.4.4",
+          "primary": true
+        },
+        {
+          "id": "394618bc-8539-4f5c-a91a-89aab4a4c549",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.4.5",
+          "primary": true
+        },
+        {
+          "id": "bc371361-fced-4bc7-8657-a11dbc873751",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.2",
+          "primary": true
+        },
+        {
+          "id": "7b84a914-9620-42dc-b2c3-f578a9bc4628",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.4",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-018",
+      "spec_points": [
+        {
+          "id": "1c4fce21-eaaf-4691-90a0-335aeaa65f34",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.5.2",
+          "primary": true
+        },
+        {
+          "id": "bc371361-fced-4bc7-8657-a11dbc873751",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.2",
+          "primary": false
+        },
+        {
+          "id": "42d00cb5-a4cf-4783-86a0-26c32aaf207f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.3",
+          "primary": true
+        },
+        {
+          "id": "7b84a914-9620-42dc-b2c3-f578a9bc4628",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.4",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-019",
+      "spec_points": [
+        {
+          "id": "4a6d2b2f-751b-49a1-93a7-99292e0ff97a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.3.1",
+          "primary": false
+        },
+        {
+          "id": "1b7f6ebc-3d11-43ae-aa9b-c24549d82098",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.3.3",
+          "primary": true
+        },
+        {
+          "id": "736693d2-a612-4ab2-b163-f226f35b4033",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.3.4",
+          "primary": true
+        },
+        {
+          "id": "0e5aa17d-7b46-4ef1-bb5d-72e865a81f91",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.3.6S",
+          "primary": false
+        },
+        {
+          "id": "ca702b55-7344-49e9-a447-ad2fc2f98fd5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.3.7S",
+          "primary": true
+        },
+        {
+          "id": "373ed270-9e4b-464b-a770-5daf542f1c4b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.5.1",
+          "primary": true
+        },
+        {
+          "id": "93a8298b-5271-439e-bc07-d5202ffa4f66",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.5.3",
+          "primary": true
+        },
+        {
+          "id": "7288a84f-1e63-4633-9f97-5018a22fadf6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.5.4",
+          "primary": true
+        },
+        {
+          "id": "d8ded2a2-62a2-4828-b025-39971d8ef8fd",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.5",
+          "primary": true
+        },
+        {
+          "id": "a949c6e0-fa7a-4582-9deb-2823a3c6576f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.20",
+          "primary": true
+        },
+        {
+          "id": "0f95120d-906d-4577-93fb-c7ac93ad0ffd",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.21",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-020",
+      "spec_points": [
+        {
+          "id": "2e3ed6fa-f831-49b9-8dbb-4b14b5e034a7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.6.4",
+          "primary": true
+        },
+        {
+          "id": "e9d2077e-a808-45f5-9c1e-b15022cb0ef8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.6.5",
+          "primary": true
+        },
+        {
+          "id": "8677d1e0-2a53-4633-b3b8-9af20fd7532a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.6.8S",
+          "primary": true
+        },
+        {
+          "id": "4ae6235b-8d2d-4d8b-af09-1a9b36e34935",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.18P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-021",
+      "spec_points": [
+        {
+          "id": "58214990-4a7d-4949-87eb-66793bccd16a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.1.1",
+          "primary": true
+        },
+        {
+          "id": "5be6b31d-4e7a-4055-9e62-226e9b561b1d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.1.2",
+          "primary": true
+        },
+        {
+          "id": "f440a7b2-a6e2-4b48-96d0-26df16e4ea0e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.1.3",
+          "primary": true
+        },
+        {
+          "id": "5e7e396a-fa1c-492f-842a-9b05721592fe",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.1.4",
+          "primary": true
+        },
+        {
+          "id": "cdeedcf8-f5c1-4318-9122-5ef230d6e241",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.1.5",
+          "primary": true
+        },
+        {
+          "id": "2f234e46-fb9f-49cc-b41a-b877019613a5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.1.6",
+          "primary": true
+        },
+        {
+          "id": "b14c97b4-2955-4f39-a90d-03dec5012daf",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.22P",
+          "primary": true
+        },
+        {
+          "id": "d90f6953-c3fe-41e4-a95d-fadd3807c40f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.23P",
+          "primary": true
+        },
+        {
+          "id": "cb7bfd1f-2ecd-4d70-afd1-e8bc44617cd8",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.24P",
+          "primary": true
+        },
+        {
+          "id": "ce146008-93b0-47d0-a1ce-f2b8e90f09ab",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.25P",
+          "primary": true
+        },
+        {
+          "id": "c7cf7245-028f-48c6-b16f-2c93fd35611b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.26P",
+          "primary": true
+        },
+        {
+          "id": "db183ecc-644a-4cc1-92ba-26e8fc97782a",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.27P",
+          "primary": true
+        },
+        {
+          "id": "f22b5d8c-af21-4745-9f63-a76095805ee7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.28P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-022",
+      "spec_points": [
+        {
+          "id": "112b61c9-fcda-4453-adc4-922b6e4b4e9d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.1.8S",
+          "primary": true
+        },
+        {
+          "id": "e467d383-0157-4f74-b499-80a992a0f155",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.1.9S",
+          "primary": true
+        },
+        {
+          "id": "51ff4dc9-6e03-48b8-95c6-4d6ba9794d6a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.1.10S",
+          "primary": true
+        },
+        {
+          "id": "c7cf7245-028f-48c6-b16f-2c93fd35611b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.26P",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-023",
+      "spec_points": [
+        {
+          "id": "540c201b-a2d7-425b-81e1-f51f9949d599",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.4.1",
+          "primary": true
+        },
+        {
+          "id": "ccfa52b0-4324-4362-8762-d3bd60d1995d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.4.3",
+          "primary": false
+        },
+        {
+          "id": "8b564078-bbc5-44e3-b421-d629b90cbef8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.4.4S",
+          "primary": false
+        },
+        {
+          "id": "a216367f-e9b3-49e4-bc5b-dad726839fac",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.1.1",
+          "primary": true
+        },
+        {
+          "id": "5c1407ae-0651-4a80-8d5b-3e62de3b88e1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.2.1",
+          "primary": true
+        },
+        {
+          "id": "52e2d822-4007-4361-8bd8-f0df7d493449",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.2.4",
+          "primary": false
+        },
+        {
+          "id": "5fc591c1-4fec-4fd8-b2f1-bfbd4f1fd1a9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.2.6S",
+          "primary": true
+        },
+        {
+          "id": "62a7a088-7012-4592-9e2e-727df5ab2bfe",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.1.3S",
+          "primary": false
+        },
+        {
+          "id": "cd98cb20-aeff-4dbe-b2b6-322c02ce66d5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.2.2",
+          "primary": false
+        },
+        {
+          "id": "4b365cab-78e4-4f07-9fc0-c9a41d57f0de",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.3",
+          "primary": true
+        },
+        {
+          "id": "e03710f0-3436-4fb8-857f-77691c7e6de3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.10P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-024",
+      "spec_points": [
+        {
+          "id": "4b04e177-b7df-48ce-a00d-8f731a9df7fd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.4.2",
+          "primary": true
+        },
+        {
+          "id": "5dc68ac1-c228-4101-9bfe-e3053105fa7b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.4",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-025",
+      "spec_points": [
+        {
+          "id": "d6927f3b-60e0-44e3-a3ba-0d8a5f9669ae",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.1.2",
+          "primary": true
+        },
+        {
+          "id": "5fc591c1-4fec-4fd8-b2f1-bfbd4f1fd1a9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.2.6S",
+          "primary": false
+        },
+        {
+          "id": "8da6964e-d299-4cbb-a354-e004dc580196",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.3.2",
+          "primary": true
+        },
+        {
+          "id": "9eb58ffe-2232-43b7-a082-5fa34d3dc2ac",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.3.3",
+          "primary": true
+        },
+        {
+          "id": "545117a8-ac1a-44f9-a744-f5ad477f6a93",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.3.4",
+          "primary": false
+        },
+        {
+          "id": "408f0444-9f71-49f8-b048-ea8238083bbe",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.3.6S",
+          "primary": false
+        },
+        {
+          "id": "116c6354-0a11-4569-9cac-fe90a997f160",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.9P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-026",
+      "spec_points": [
+        {
+          "id": "9ed2036b-8ffb-4853-8d33-498f18834d76",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.2.1",
+          "primary": true
+        },
+        {
+          "id": "3938ef98-806c-4e2e-a814-84c4333831ae",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.2.2S",
+          "primary": true
+        },
+        {
+          "id": "160ffcdd-3843-4040-850e-ad61391a8935",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.3.1",
+          "primary": false
+        },
+        {
+          "id": "b86377af-674c-41b8-9a43-ed817d2c820c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.8P",
+          "primary": true
+        },
+        {
+          "id": "116c6354-0a11-4569-9cac-fe90a997f160",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.9P",
+          "primary": false
+        },
+        {
+          "id": "dc09b617-1fae-45e9-b2ca-f1686c3fd955",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.19",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-027",
+      "spec_points": [
+        {
+          "id": "39e5c747-9f92-49d1-98f9-7a71b9b24c9a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.2.3S",
+          "primary": true
+        },
+        {
+          "id": "ddb64766-aa3d-444c-b486-ab12ad350648",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.2.4S",
+          "primary": true
+        },
+        {
+          "id": "c24d62e5-dad5-4142-b700-469bae203982",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.12P",
+          "primary": true
+        },
+        {
+          "id": "df7979e6-6c7f-47f0-9f80-d6f552f1beb0",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.13P",
+          "primary": true
+        },
+        {
+          "id": "5ee45f15-242d-4d70-8dd5-b765388066b7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.14P",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-028",
+      "spec_points": [
+        {
+          "id": "160ffcdd-3843-4040-850e-ad61391a8935",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.3.1",
+          "primary": true
+        },
+        {
+          "id": "f9e475cb-d191-4e75-b56b-ab792afe102f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.11P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-029",
+      "spec_points": [
+        {
+          "id": "ddb64766-aa3d-444c-b486-ab12ad350648",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.2.4S",
+          "primary": false
+        },
+        {
+          "id": "f9e475cb-d191-4e75-b56b-ab792afe102f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.11P",
+          "primary": false
+        },
+        {
+          "id": "5ee45f15-242d-4d70-8dd5-b765388066b7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.14P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-030",
+      "spec_points": [
+        {
+          "id": "b19bb6c6-9ec4-4bcc-893d-17003fe8187d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.2.2",
+          "primary": true
+        },
+        {
+          "id": "9e53e2a2-0d5f-4af5-8e27-8e040c1bd7e4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.2.3",
+          "primary": true
+        },
+        {
+          "id": "9580822b-3ce6-4cb5-adf6-1e62cd1ba471",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.2.7S",
+          "primary": true
+        },
+        {
+          "id": "1d12faee-e32b-4374-8e8d-a450bb6660bb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.2.8S",
+          "primary": false
+        },
+        {
+          "id": "4902dc4f-a984-4898-a412-b1716c482864",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.3.1",
+          "primary": true
+        },
+        {
+          "id": "12d49adb-2daa-41aa-8a40-2a8955c84b5f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.3.2",
+          "primary": true
+        },
+        {
+          "id": "20bc30d3-8d75-45e5-8cba-a399c66e1d4b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.6",
+          "primary": false
+        },
+        {
+          "id": "e03710f0-3436-4fb8-857f-77691c7e6de3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.10P",
+          "primary": false
+        },
+        {
+          "id": "e0958993-c5cf-42a9-bea0-dba808a2fe5b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.15",
+          "primary": true
+        },
+        {
+          "id": "4db27c58-c319-4d17-a7fc-e760f5cc3bf1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.16",
+          "primary": true
+        },
+        {
+          "id": "2aa69ec4-a106-4fb4-86d0-426f8ff6f5ae",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.17",
+          "primary": true
+        },
+        {
+          "id": "a1c93254-53a0-475a-8894-1161ea9b0075",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.18",
+          "primary": true
+        },
+        {
+          "id": "dc09b617-1fae-45e9-b2ca-f1686c3fd955",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.19",
+          "primary": true
+        },
+        {
+          "id": "5af0f0ae-b932-49b7-a242-59087dff28c9",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.20",
+          "primary": false
+        },
+        {
+          "id": "92752c11-3233-4fba-83d6-3d1ee8532d20",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.21",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-031",
+      "spec_points": [
+        {
+          "id": "4902dc4f-a984-4898-a412-b1716c482864",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.3.1",
+          "primary": false
+        },
+        {
+          "id": "0869a242-5cec-4457-b7f0-d4315816fe06",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.3.3S",
+          "primary": true
+        },
+        {
+          "id": "5af0f0ae-b932-49b7-a242-59087dff28c9",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.20",
+          "primary": true
+        },
+        {
+          "id": "92752c11-3233-4fba-83d6-3d1ee8532d20",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.21",
+          "primary": false
+        },
+        {
+          "id": "5acf742b-d99e-41a8-ac5f-ddb4ed37f614",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.22",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-032",
+      "spec_points": [
+        {
+          "id": "a3246f5a-077a-4434-9ffa-e4ddac696ec1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.1.1",
+          "primary": true
+        },
+        {
+          "id": "cb7f8cce-3e53-4596-a550-9bf06843de14",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.1.2",
+          "primary": false
+        },
+        {
+          "id": "d1a8e8bd-53e8-4156-8c36-fc46297075cd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.2.1",
+          "primary": true
+        },
+        {
+          "id": "9577a70c-d9d0-4dca-8281-82c67e8ab7c6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.2.2",
+          "primary": true
+        },
+        {
+          "id": "4367e917-c4b0-4ac0-be0e-83a2124dede9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.2.7S",
+          "primary": true
+        },
+        {
+          "id": "8f6e87a0-a2dc-45fe-b884-0ade2f93221c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.2",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-033",
+      "spec_points": [
+        {
+          "id": "cb7f8cce-3e53-4596-a550-9bf06843de14",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.1.2",
+          "primary": true
+        },
+        {
+          "id": "7da24b12-3ff6-4446-8ea5-aebef2d04065",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.2.3",
+          "primary": true
+        },
+        {
+          "id": "fb38c4c9-4f0a-4273-8de6-8a9136a33bce",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.2.4",
+          "primary": true
+        },
+        {
+          "id": "45e9db70-cede-4c21-bd7a-1e0764b89079",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.2.5",
+          "primary": true
+        },
+        {
+          "id": "4367e917-c4b0-4ac0-be0e-83a2124dede9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.2.7S",
+          "primary": false
+        },
+        {
+          "id": "8eb71f5a-bae4-48c6-818b-6f7502c4c567",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.2.8S",
+          "primary": true
+        },
+        {
+          "id": "821a5b99-cee8-4b40-b4ee-2b5242a970f2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.3.3S",
+          "primary": false
+        },
+        {
+          "id": "8f6e87a0-a2dc-45fe-b884-0ade2f93221c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.2",
+          "primary": false
+        },
+        {
+          "id": "1a0a4480-1105-48ad-8237-482b0699c5ef",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.3",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-034",
+      "spec_points": [
+        {
+          "id": "5c70e564-621c-4bc6-a097-0475414285ee",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.1.3S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-035",
+      "spec_points": [
+        {
+          "id": "297c4d99-125d-482e-a2db-b44a90366ffb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.4.3S",
+          "primary": false
+        },
+        {
+          "id": "71f4d33f-3adf-46e0-bcd4-755e38300bfb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.1.3",
+          "primary": true
+        },
+        {
+          "id": "ad245a51-2005-4f3d-85b1-4ddf92835794",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.1.4",
+          "primary": true
+        },
+        {
+          "id": "b86bd405-6df6-40da-be9b-b62fd775bc1e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.1.5S",
+          "primary": false
+        },
+        {
+          "id": "6ff206d3-a662-45e0-bd5e-71b3ccfe1c76",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.2.1",
+          "primary": true
+        },
+        {
+          "id": "05236ff4-3ff5-4364-92c3-59b4350f581d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.2.2",
+          "primary": true
+        },
+        {
+          "id": "e5181289-94cf-4dee-9bb3-5d1ec700c2c6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.2.3S",
+          "primary": true
+        },
+        {
+          "id": "d3e8849f-e52e-4cf2-947a-2d83a65d4598",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.2.4S",
+          "primary": true
+        },
+        {
+          "id": "991eb735-7c71-4d53-af93-810bfc73659b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.3.1",
+          "primary": true
+        },
+        {
+          "id": "7c9ca620-56a2-47fa-9801-44258b5135dc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.3.2",
+          "primary": false
+        },
+        {
+          "id": "821a5b99-cee8-4b40-b4ee-2b5242a970f2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.3.3S",
+          "primary": true
+        },
+        {
+          "id": "d9930b6f-1486-4895-a86a-6bb41eb79b00",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.3.4S",
+          "primary": false
+        },
+        {
+          "id": "55dc9430-2787-4521-92e0-5a4baa13b666",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.4",
+          "primary": true
+        },
+        {
+          "id": "434f1952-bf43-4a71-8c71-df2f7b5627f4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.5",
+          "primary": true
+        },
+        {
+          "id": "c8b9def3-bdc7-49dd-99d1-5c181c55b602",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.6",
+          "primary": true
+        },
+        {
+          "id": "bec3cd4b-789e-4334-b05f-ddc71b93f585",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.7",
+          "primary": false
+        },
+        {
+          "id": "90aef0e5-4eb1-4d72-98c6-03ef31ef0db9",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.9",
+          "primary": true
+        },
+        {
+          "id": "a468a9f5-ff94-4c47-958c-5a49fef83c8d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.11",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-036",
+      "spec_points": [
+        {
+          "id": "a7a99c3f-064e-4337-ae8b-3c6a6428e935",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.2.6S",
+          "primary": false
+        },
+        {
+          "id": "7c9ca620-56a2-47fa-9801-44258b5135dc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.3.2",
+          "primary": true
+        },
+        {
+          "id": "d9930b6f-1486-4895-a86a-6bb41eb79b00",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.3.4S",
+          "primary": true
+        },
+        {
+          "id": "b18e14d4-c311-4169-a23d-654c6593d1b8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.3.5S",
+          "primary": true
+        },
+        {
+          "id": "bec3cd4b-789e-4334-b05f-ddc71b93f585",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.7",
+          "primary": true
+        },
+        {
+          "id": "6d82a4ca-baee-4cb9-bd1d-1a90e50fd706",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.8",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-037",
+      "spec_points": [
+        {
+          "id": "4d3eb1ed-a85d-4507-a4a5-98c5c55672a6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.4.1",
+          "primary": true
+        },
+        {
+          "id": "b4659bb3-54e2-4a30-9605-452d0ce9f9c5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.4.2S",
+          "primary": true
+        },
+        {
+          "id": "72edce5c-edf7-4210-977f-4aca5e715bb1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.4.3S",
+          "primary": false
+        },
+        {
+          "id": "a468a9f5-ff94-4c47-958c-5a49fef83c8d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.11",
+          "primary": true
+        },
+        {
+          "id": "abf38614-7423-40b4-99d0-6f5e0dc87b89",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.12",
+          "primary": true
+        },
+        {
+          "id": "2ce0abff-a7f0-4c65-a702-899e709f5cb6",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.13",
+          "primary": true
+        },
+        {
+          "id": "9379a31b-4ed4-47c8-8453-177ea41387dd",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.17",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-038",
+      "spec_points": [
+        {
+          "id": "4eb1a1b2-9e7e-454c-b029-20ac7cd73edc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.1.1",
+          "primary": true
+        },
+        {
+          "id": "ab73c5f3-591f-4f69-beeb-f73894eafb59",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.1.2",
+          "primary": true
+        },
+        {
+          "id": "b86bd405-6df6-40da-be9b-b62fd775bc1e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.1.5S",
+          "primary": true
+        },
+        {
+          "id": "b4659bb3-54e2-4a30-9605-452d0ce9f9c5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.4.2S",
+          "primary": false
+        },
+        {
+          "id": "a61c6775-3b5a-4e00-8f92-8a41ffd8af0f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.10",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-039",
+      "spec_points": [
+        {
+          "id": "cb528134-ee12-49f8-a267-1842faeac3db",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.5.1",
+          "primary": true
+        },
+        {
+          "id": "eec56aab-76a8-4c53-8d7c-54097e6024b0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.5.2",
+          "primary": true
+        },
+        {
+          "id": "1d798e75-b400-43fe-b0a0-1b3ba0ea44e6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.5.3S",
+          "primary": true
+        },
+        {
+          "id": "d6805adf-83f8-4779-b889-b0ece2297ab6",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.15",
+          "primary": true
+        },
+        {
+          "id": "3694cc07-ad87-4596-bc76-57fd613487fa",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.16",
+          "primary": true
+        },
+        {
+          "id": "bef276d5-352a-4415-afe5-85d38a75724e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.22",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-040",
+      "spec_points": [
+        {
+          "id": "72edce5c-edf7-4210-977f-4aca5e715bb1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.4.3S",
+          "primary": true
+        },
+        {
+          "id": "6201870b-de04-47ff-9a66-10fa871b6e50",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.14",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-041",
+      "spec_points": [
+        {
+          "id": "a7a99c3f-064e-4337-ae8b-3c6a6428e935",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.2.6S",
+          "primary": true
+        },
+        {
+          "id": "3694cc07-ad87-4596-bc76-57fd613487fa",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.16",
+          "primary": false
+        },
+        {
+          "id": "9379a31b-4ed4-47c8-8453-177ea41387dd",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.17",
+          "primary": true
+        },
+        {
+          "id": "5fd4eb2b-8332-47c8-b325-88f704aa0a34",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.18",
+          "primary": true
+        },
+        {
+          "id": "6bd65f6c-0ce5-44be-ae80-47ddae7dee80",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.19",
+          "primary": true
+        },
+        {
+          "id": "fb99c584-3275-4799-b9a5-92ae09111edf",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.20",
+          "primary": true
+        },
+        {
+          "id": "14539129-53c0-4de7-94c8-0d1dc810bc9e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.21",
+          "primary": true
+        },
+        {
+          "id": "bef276d5-352a-4415-afe5-85d38a75724e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.22",
+          "primary": true
+        },
+        {
+          "id": "817e3ea6-11c2-4fa0-b302-84f218ad71e2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.23",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-042",
+      "spec_points": [
+        {
+          "id": "d68e01ff-c749-49d1-9216-700d0b35ffad",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.3.5S",
+          "primary": true
+        },
+        {
+          "id": "85e82ed7-ad37-4d2d-a29b-5830a2b7b76d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.3.6S",
+          "primary": true
+        },
+        {
+          "id": "a7a99c3f-064e-4337-ae8b-3c6a6428e935",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.2.6S",
+          "primary": false
+        },
+        {
+          "id": "e35a3178-f32d-4732-8150-46c04a322aa7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.1.2S",
+          "primary": false
+        },
+        {
+          "id": "9379a31b-4ed4-47c8-8453-177ea41387dd",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.17",
+          "primary": false
+        },
+        {
+          "id": "817e3ea6-11c2-4fa0-b302-84f218ad71e2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.23",
+          "primary": true
+        },
+        {
+          "id": "54b3938e-5bb0-4395-aecc-e85db1456df1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.24",
+          "primary": true
+        },
+        {
+          "id": "73d35489-0120-46e0-a237-9cbbe13d8bd9",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.25",
+          "primary": true
+        },
+        {
+          "id": "4fd6ce01-0c4c-4d16-89d7-ad794da9e8d8",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.26",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-043",
+      "spec_points": [
+        {
+          "id": "a41e4b21-27b5-4d30-b072-34a85ea04562",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.4S",
+          "primary": true
+        },
+        {
+          "id": "7a117592-ec52-4fe6-a0dc-d8190b59f570",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.5S",
+          "primary": true
+        },
+        {
+          "id": "6b09ac1c-861d-4f60-83e0-9a85f9f30b12",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.6S",
+          "primary": true
+        },
+        {
+          "id": "0fe5946f-2e72-4102-9d52-14de3c9fc797",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.7S",
+          "primary": false
+        },
+        {
+          "id": "a8c20bb7-d49b-458c-a76a-4bfc1cf7ae11",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.5",
+          "primary": false
+        },
+        {
+          "id": "de7434f2-796e-48c4-a65d-e0114cd31fb6",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.13",
+          "primary": true
+        },
+        {
+          "id": "eccc4b44-705f-4f61-9855-c21fcdd7f97b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.14",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-044",
+      "spec_points": [
+        {
+          "id": "f057b125-4133-4daa-8bf6-d8a00ed34e14",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.1.6",
+          "primary": true
+        },
+        {
+          "id": "f3924bc9-bdcf-4254-b7cf-500b4a567394",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.11",
+          "primary": true
+        },
+        {
+          "id": "306c011c-fbbf-491b-a173-86321a069992",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.12",
+          "primary": true
+        },
+        {
+          "id": "eccc4b44-705f-4f61-9855-c21fcdd7f97b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.14",
+          "primary": false
+        },
+        {
+          "id": "0db6f126-b8e2-4279-9a2b-f4ee449fce9b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.16",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-045",
+      "spec_points": [
+        {
+          "id": "35a05f9a-1895-4866-b397-af02cce3c435",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.8",
+          "primary": false
+        },
+        {
+          "id": "99704bab-4a7d-4d20-b9ea-7d12db86b71e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.3.1",
+          "primary": true
+        },
+        {
+          "id": "5168c238-c5e2-4b6a-81da-2496e2fbecff",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.3.2",
+          "primary": true
+        },
+        {
+          "id": "16a42dde-cc5f-4fb0-a5bd-b9c3aff031c0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.3.3",
+          "primary": true
+        },
+        {
+          "id": "7b6ed053-02a1-4fa3-9186-3cf359459262",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.3.4",
+          "primary": true
+        },
+        {
+          "id": "b8f97c05-537d-4fd9-aa28-f06d4defbdac",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.3.5S",
+          "primary": true
+        },
+        {
+          "id": "05ad5d18-209e-4941-a415-903a85bc64d9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.3.1",
+          "primary": false
+        },
+        {
+          "id": "4950f42b-1636-4978-ac24-b9b9c76b5b48",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.3",
+          "primary": false
+        },
+        {
+          "id": "cfd8a7cd-0ac3-456c-b320-2079da8ecb3d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.18",
+          "primary": true
+        },
+        {
+          "id": "653a31af-88c1-4442-a0f9-da1da83b604b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.31P",
+          "primary": false
+        },
+        {
+          "id": "6e25ef31-d46b-4227-8334-4218c8daa1a2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-046",
+      "spec_points": [
+        {
+          "id": "0fe5946f-2e72-4102-9d52-14de3c9fc797",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.7S",
+          "primary": true
+        },
+        {
+          "id": "98aef786-00fc-4d25-8e03-4bc86f23a1b6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.13S",
+          "primary": false
+        },
+        {
+          "id": "3d6bb256-3519-434f-b28f-b76e8d66da55",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.1.3",
+          "primary": true
+        },
+        {
+          "id": "84ef423a-73ff-4093-b77d-d29de2403568",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.2.4",
+          "primary": false
+        },
+        {
+          "id": "382a7969-ea35-4d2e-beb0-6eec6caa9005",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.15",
+          "primary": true
+        },
+        {
+          "id": "0db6f126-b8e2-4279-9a2b-f4ee449fce9b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.16",
+          "primary": true
+        },
+        {
+          "id": "c8d500d3-b2d1-4b86-b391-15d6bb0a768d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.21",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-047",
+      "spec_points": [
+        {
+          "id": "5415d06a-22ac-4d92-9026-3e764744e24c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.1.1",
+          "primary": true
+        },
+        {
+          "id": "b31aa82f-b37a-4ebb-9b90-23ffd2781977",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.1.2",
+          "primary": true
+        },
+        {
+          "id": "201bee03-e706-42c1-966c-ffed3671adf7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.1.9S",
+          "primary": true
+        },
+        {
+          "id": "2a16760d-1821-4d7f-957c-3e0e936cb8f2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.1.10S",
+          "primary": true
+        },
+        {
+          "id": "f56ae785-7198-48ce-9f11-b7373d1b7d8f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.22",
+          "primary": false
+        },
+        {
+          "id": "8a219418-84cc-4c76-b4b3-add31c529e0b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.23",
+          "primary": true
+        },
+        {
+          "id": "6645cfcf-e277-4792-99c9-6d797935619b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.24",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-048",
+      "spec_points": [
+        {
+          "id": "b31aa82f-b37a-4ebb-9b90-23ffd2781977",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.1.2",
+          "primary": false
+        },
+        {
+          "id": "201bee03-e706-42c1-966c-ffed3671adf7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.1.9S",
+          "primary": false
+        },
+        {
+          "id": "f56ae785-7198-48ce-9f11-b7373d1b7d8f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.22",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-049",
+      "spec_points": [
+        {
+          "id": "177af35a-f15c-4b4e-93cf-30a6283ada51",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.2.1",
+          "primary": true
+        },
+        {
+          "id": "a11caa57-89ad-4c1b-9081-58f847b1f430",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.2.2",
+          "primary": true
+        },
+        {
+          "id": "48b2a7b0-3228-4deb-a9dd-0c29fbb65411",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.2.3",
+          "primary": true
+        },
+        {
+          "id": "84ef423a-73ff-4093-b77d-d29de2403568",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.2.4",
+          "primary": true
+        },
+        {
+          "id": "7d0c42a1-dc0e-40ce-a917-1c35e6d014a6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.2.5S",
+          "primary": true
+        },
+        {
+          "id": "4a24c80a-b3fd-4523-ba85-485aab1a507c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.2.6S",
+          "primary": true
+        },
+        {
+          "id": "cbc7eb23-c4e9-4a3b-b418-e503ae6d4ee5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.30P",
+          "primary": true
+        },
+        {
+          "id": "019e5cd3-e6ad-4e3b-b2eb-ca0896262b28",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.32P",
+          "primary": true
+        },
+        {
+          "id": "827e4a52-4c15-4cc6-87a9-06fe038bc9e4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.33P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-050",
+      "spec_points": [
+        {
+          "id": "170d1ee3-5c81-4cc3-847b-74ffb1d2f52b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.8.1",
+          "primary": true
+        },
+        {
+          "id": "a4d84cde-365f-4fae-9296-87af2491d952",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.8.2",
+          "primary": true
+        },
+        {
+          "id": "e02dc2a0-fc81-460a-8abb-fdca46a1f99e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.8.3",
+          "primary": true
+        },
+        {
+          "id": "c278d14b-67a2-400b-8253-5ceed73ebf09",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.8.4S",
+          "primary": true
+        },
+        {
+          "id": "b1d5ffb1-c00f-45d5-b87a-25fb57f0456a",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.5",
+          "primary": true
+        },
+        {
+          "id": "20bc30d3-8d75-45e5-8cba-a399c66e1d4b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.6",
+          "primary": true
+        },
+        {
+          "id": "0364bf3c-0973-4d42-93e1-f73bc2ad5661",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.7",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-051",
+      "spec_points": [
+        {
+          "id": "ccfa52b0-4324-4362-8762-d3bd60d1995d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.4.3",
+          "primary": true
+        },
+        {
+          "id": "8b564078-bbc5-44e3-b421-d629b90cbef8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.4.4S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-053",
+      "spec_points": [
+        {
+          "id": "43e2ae15-1e41-41c1-ae49-110709e53567",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.3",
+          "primary": false
+        },
+        {
+          "id": "6e7d7fe1-42d2-4cff-aed8-b3266d42e52b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.1",
+          "primary": true
+        },
+        {
+          "id": "63bfa699-70f7-4d06-9bc9-7c87231b59c9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.2",
+          "primary": true
+        },
+        {
+          "id": "20f94103-e97f-4307-9c0c-3ed8a5bb6732",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.3",
+          "primary": true
+        },
+        {
+          "id": "b213d72b-3083-4f87-bc3e-ff162346a3c7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.4",
+          "primary": true
+        },
+        {
+          "id": "5209a828-de2d-4a61-bd3a-7e15c12e380d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.5",
+          "primary": true
+        },
+        {
+          "id": "ecc594bb-3dc0-4a4d-8def-77a276492ce4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.6",
+          "primary": true
+        },
+        {
+          "id": "d2d90b28-6a57-468e-93f9-539b50552ba6",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.3",
+          "primary": true
+        },
+        {
+          "id": "cdab1694-96d2-4028-8a83-25ba82ef55f1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.4",
+          "primary": true
+        },
+        {
+          "id": "a8c20bb7-d49b-458c-a76a-4bfc1cf7ae11",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.5",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-054",
+      "spec_points": [
+        {
+          "id": "b213d72b-3083-4f87-bc3e-ff162346a3c7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.4",
+          "primary": false
+        },
+        {
+          "id": "5209a828-de2d-4a61-bd3a-7e15c12e380d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.5",
+          "primary": false
+        },
+        {
+          "id": "9be712d2-fc8d-4d48-b43d-57d6c68eb52a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.7",
+          "primary": true
+        },
+        {
+          "id": "e9708b57-2d5c-418f-b5f3-12cb11713138",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.9S",
+          "primary": true
+        },
+        {
+          "id": "dffb75ef-3c94-42f7-8c7f-cb6c6b966551",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.10S",
+          "primary": true
+        },
+        {
+          "id": "bc8bdda2-a948-4d1e-bf49-def3a1bf1c23",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.11S",
+          "primary": true
+        },
+        {
+          "id": "9ed0530b-55ff-4eec-9f40-ab7a32c55bc1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.12S",
+          "primary": true
+        },
+        {
+          "id": "8dcf91cf-ad8b-4d9b-b4bf-0591d3cee932",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.6",
+          "primary": true
+        },
+        {
+          "id": "fe9a4310-af5b-4bc7-b975-0a3033667c1b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.7",
+          "primary": true
+        },
+        {
+          "id": "78c1124e-f25f-47f3-ac76-4b4d27b45671",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.8",
+          "primary": true
+        },
+        {
+          "id": "7f24b618-0d12-4bdd-9ee7-fd4e5f1446a0",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.9",
+          "primary": true
+        },
+        {
+          "id": "e5954028-bc86-481e-aa6c-05293a3dae7a",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.10",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-055",
+      "spec_points": [
+        {
+          "id": "35a05f9a-1895-4866-b397-af02cce3c435",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.8",
+          "primary": true
+        },
+        {
+          "id": "2a563da1-98a8-4a89-8472-b9707ac9f411",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.4.5",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-056",
+      "spec_points": [
+        {
+          "id": "40726ac6-dfbe-42d8-bb44-bc5bf3ec2ac1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.1.4",
+          "primary": true
+        },
+        {
+          "id": "ca9bc15b-b33f-4396-93a9-7b967490ee16",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.1.5",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-057",
+      "spec_points": [
+        {
+          "id": "13bdd438-fd5f-406e-a661-62d84398878d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.1.11S",
+          "primary": true
+        },
+        {
+          "id": "d36e1dd0-13e6-44ce-958b-027f7f762f76",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.17",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-059",
+      "spec_points": [
+        {
+          "id": "b60dffc6-bfa2-4982-8f02-4b7709ea5e00",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.29P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-060",
+      "spec_points": [
+        {
+          "id": "01fc46bf-1a09-40a4-9947-1ea3a08bfbeb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.1.12S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-061",
+      "spec_points": [
+        {
+          "id": "5275b5d1-cab9-4d74-be6f-09021eb3c1f9",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.19",
+          "primary": true
+        },
+        {
+          "id": "3641ea89-c68a-4775-801e-c36026bd8f84",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.20",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-063",
+      "spec_points": [
+        {
+          "id": "9c65d729-91b4-4c48-be30-9b857852631e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.6.1S",
+          "primary": true
+        },
+        {
+          "id": "10c8c357-0aaa-4b44-827e-6fa6bbbc50d5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.6.2S",
+          "primary": false
+        },
+        {
+          "id": "b908f03b-0c57-45df-9c63-702a20b60a87",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.6.3S",
+          "primary": true
+        },
+        {
+          "id": "dbd9bba6-d521-4de5-8af2-ed1fb28c42f7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.25P",
+          "primary": true
+        },
+        {
+          "id": "915b7ccb-fefc-4ae5-9544-c4b602885f07",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.26P",
+          "primary": false
+        },
+        {
+          "id": "78f9cd44-437b-442e-8dfa-130dcd857ca4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.27P",
+          "primary": true
+        },
+        {
+          "id": "bb3b09ee-2588-4ebe-be1c-233e7b9ae4e4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.28P",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-064",
+      "spec_points": [
+        {
+          "id": "10c8c357-0aaa-4b44-827e-6fa6bbbc50d5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.6.2S",
+          "primary": true
+        },
+        {
+          "id": "6f48e801-6ea2-45ea-b615-dac3ef9ee6ab",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.6.4S",
+          "primary": true
+        },
+        {
+          "id": "915b7ccb-fefc-4ae5-9544-c4b602885f07",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.26P",
+          "primary": true
+        },
+        {
+          "id": "bb3b09ee-2588-4ebe-be1c-233e7b9ae4e4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.28P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-065",
+      "spec_points": [
+        {
+          "id": "0f80c3cf-dfa2-4b67-9eff-49d62fdafe6a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.1",
+          "primary": true
+        },
+        {
+          "id": "3fff2b4d-8e3c-4fcc-b7fb-4793b76fe230",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.2",
+          "primary": true
+        },
+        {
+          "id": "01949204-e55f-4cc8-ad54-4942a8117c60",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.5",
+          "primary": true
+        },
+        {
+          "id": "ba6fb546-c8f7-49f3-9e78-cdcfce80f20a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.6",
+          "primary": true
+        },
+        {
+          "id": "529bcf21-e5fd-4e55-a2d6-b7fd68ce3feb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.4.2",
+          "primary": true
+        },
+        {
+          "id": "05c31938-6491-407b-931a-76223629c77a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.4.10S",
+          "primary": true
+        },
+        {
+          "id": "2a9fc856-ec15-487f-af0c-b569a1a89894",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.2",
+          "primary": true
+        },
+        {
+          "id": "b59af1be-d2d0-4a2e-9327-000344522755",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.3",
+          "primary": false
+        },
+        {
+          "id": "bd60acf2-f4e7-4e59-899f-c638bf0a757b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.4",
+          "primary": true
+        },
+        {
+          "id": "a8b26deb-6029-49a4-a9e9-a0cbfa4873d3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.14",
+          "primary": true
+        },
+        {
+          "id": "f4578475-6ffb-45ee-b03b-d7e55c0df50d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.23",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-066",
+      "spec_points": [
+        {
+          "id": "98ed3427-65f3-4fe4-9a66-34a9441f2378",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.3",
+          "primary": true
+        },
+        {
+          "id": "c436f475-eb75-4674-bbad-f0ae721410f2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.4",
+          "primary": true
+        },
+        {
+          "id": "a9779c45-75e1-478e-93da-e519718fa267",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.4.7",
+          "primary": false
+        },
+        {
+          "id": "b59af1be-d2d0-4a2e-9327-000344522755",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.3",
+          "primary": true
+        },
+        {
+          "id": "fc37bf42-e7d6-4146-9fd5-fcb55f67ae0a",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.5",
+          "primary": true
+        },
+        {
+          "id": "fec535f1-60df-4fe7-a7ad-c074080b2d86",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.6",
+          "primary": true
+        },
+        {
+          "id": "8187f610-deb8-424e-a36e-775db0b2a558",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.7",
+          "primary": true
+        },
+        {
+          "id": "3dfc35fa-99cf-48cc-9a6b-e7dfc07d7f99",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.25P",
+          "primary": false
+        },
+        {
+          "id": "95086576-3966-4237-bc06-1902d6c4d3e2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.27P",
+          "primary": false
+        },
+        {
+          "id": "3693df36-0302-4a49-b44c-f780adf5ac78",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.28P",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-067",
+      "spec_points": [
+        {
+          "id": "172889b1-0ea6-4aff-9431-11d5457499a5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.8",
+          "primary": false
+        },
+        {
+          "id": "2a563da1-98a8-4a89-8472-b9707ac9f411",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.4.5",
+          "primary": false
+        },
+        {
+          "id": "3ebb6ca5-c8cc-48e1-9242-2a3eacfc3e69",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.4.6",
+          "primary": true
+        },
+        {
+          "id": "3dfc35fa-99cf-48cc-9a6b-e7dfc07d7f99",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.25P",
+          "primary": true
+        },
+        {
+          "id": "ee8977f2-d51d-43b8-b96e-70f29370152a",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.26P",
+          "primary": true
+        },
+        {
+          "id": "95086576-3966-4237-bc06-1902d6c4d3e2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.27P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-068",
+      "spec_points": [
+        {
+          "id": "9084551c-6144-485d-b057-f248f214dc40",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.7",
+          "primary": false
+        },
+        {
+          "id": "f1d9ff48-c932-4664-ac42-4fe2fd33a1ef",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.1.1",
+          "primary": true
+        },
+        {
+          "id": "265a4ea8-4089-4075-9e6e-15de93bdf7c6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.1.2",
+          "primary": true
+        },
+        {
+          "id": "1e256494-f25c-451d-92ee-cf65e729bb3a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.1.3",
+          "primary": true
+        },
+        {
+          "id": "72e872f0-6317-4357-9c36-5de9b9cb477b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.1.4S",
+          "primary": true
+        },
+        {
+          "id": "734628e3-f702-426d-b0ce-c76314306238",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2.4",
+          "primary": true
+        },
+        {
+          "id": "1c18291a-0561-4d45-81a5-d554affa3ba7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2.5",
+          "primary": true
+        },
+        {
+          "id": "1fea0377-cb09-41f0-883c-f6a6778410a1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2.8S",
+          "primary": false
+        },
+        {
+          "id": "341448ff-35c0-40b1-9275-dd44c8bd8050",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2.9S",
+          "primary": false
+        },
+        {
+          "id": "3e03e87a-6c1d-46bd-86de-6f1d98505f57",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.4.8",
+          "primary": true
+        },
+        {
+          "id": "3ea053ca-145c-4246-8a16-17ce7cfc7f7b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.9",
+          "primary": true
+        },
+        {
+          "id": "a8b26deb-6029-49a4-a9e9-a0cbfa4873d3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.14",
+          "primary": false
+        },
+        {
+          "id": "8fc830e0-b29b-4148-ad5a-11f01e5f5ad1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.15",
+          "primary": true
+        },
+        {
+          "id": "d595617c-1584-436b-94f1-bb81a5c1cafc",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.16",
+          "primary": true
+        },
+        {
+          "id": "120834c6-5726-473b-b2ba-2c6e5a843a07",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.20",
+          "primary": false
+        },
+        {
+          "id": "3c9abeea-71ea-4a3d-9dbd-3a4a5b8c76c4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.21",
+          "primary": true
+        },
+        {
+          "id": "f4578475-6ffb-45ee-b03b-d7e55c0df50d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.23",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-069",
+      "spec_points": [
+        {
+          "id": "9084551c-6144-485d-b057-f248f214dc40",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.7",
+          "primary": false
+        },
+        {
+          "id": "cb1de564-4f20-440b-8e61-18b90a3aab62",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2.1",
+          "primary": true
+        },
+        {
+          "id": "dd023f4e-3c1b-46f3-9812-4973866694f2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2.3",
+          "primary": true
+        },
+        {
+          "id": "1c18291a-0561-4d45-81a5-d554affa3ba7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2.5",
+          "primary": false
+        },
+        {
+          "id": "3349903e-42dc-4aff-ab4f-3ff4c6b6b9aa",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2.6S",
+          "primary": false
+        },
+        {
+          "id": "c85377ac-37de-4fae-9e06-14331448adcd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.4.1",
+          "primary": true
+        },
+        {
+          "id": "3ea053ca-145c-4246-8a16-17ce7cfc7f7b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.9",
+          "primary": false
+        },
+        {
+          "id": "a8b26deb-6029-49a4-a9e9-a0cbfa4873d3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.14",
+          "primary": false
+        },
+        {
+          "id": "d595617c-1584-436b-94f1-bb81a5c1cafc",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.16",
+          "primary": false
+        },
+        {
+          "id": "cb4b8211-dc63-48fe-bb5f-0ab0faaf6b60",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.18",
+          "primary": false
+        },
+        {
+          "id": "f4578475-6ffb-45ee-b03b-d7e55c0df50d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.23",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-070",
+      "spec_points": [
+        {
+          "id": "0628dc1a-61e8-4dfb-8aaa-fc1a6431f209",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2.2",
+          "primary": true
+        },
+        {
+          "id": "84e36b6b-48f4-4101-b39b-4bb52a1f6a93",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.17",
+          "primary": true
+        },
+        {
+          "id": "6a495082-cfde-4bab-9d3b-85a39408aee8",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.19",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-071",
+      "spec_points": [
+        {
+          "id": "cfc226cd-5687-4022-9ba9-8d189e4d50f3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.4.3",
+          "primary": true
+        },
+        {
+          "id": "3d189f35-6e96-46fa-a205-d6a00a68f79e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.4.11S",
+          "primary": false
+        },
+        {
+          "id": "8187f610-deb8-424e-a36e-775db0b2a558",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.7",
+          "primary": false
+        },
+        {
+          "id": "4cad58a9-61de-4dc5-b1cc-7ea5759416c6",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.24P",
+          "primary": true
+        },
+        {
+          "id": "ee8977f2-d51d-43b8-b96e-70f29370152a",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.26P",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-072",
+      "spec_points": [
+        {
+          "id": "3d97d60c-027e-4952-b73a-5c8a821faf37",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.9S",
+          "primary": false
+        },
+        {
+          "id": "990f12aa-f1b8-4f5d-9a29-6744c62bcd0f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.4.9",
+          "primary": true
+        },
+        {
+          "id": "044b4514-868b-40de-aa66-d331cd970c95",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.4.12S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-073",
+      "spec_points": [
+        {
+          "id": "d3be199a-42e2-4742-b37f-a363a6de7f56",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.3.2",
+          "primary": false
+        },
+        {
+          "id": "d617ff65-a661-4f55-9ea3-b1ee657aa661",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.1",
+          "primary": true
+        },
+        {
+          "id": "9f89c5dd-8090-48cf-a3b3-48d65f3eb319",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.2",
+          "primary": true
+        },
+        {
+          "id": "b4562263-8150-4af5-90a7-b6c716dddbd1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.6S",
+          "primary": true
+        },
+        {
+          "id": "40ff99cd-cc11-4719-b3f8-19ee90a431dd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.4",
+          "primary": false
+        },
+        {
+          "id": "8187f610-deb8-424e-a36e-775db0b2a558",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.7",
+          "primary": false
+        },
+        {
+          "id": "8484d987-3073-4a14-bb14-a0def28af0bf",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.10",
+          "primary": true
+        },
+        {
+          "id": "4630f862-e38f-49ca-a875-c4fa48c1ea08",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.11",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-074",
+      "spec_points": [
+        {
+          "id": "341448ff-35c0-40b1-9275-dd44c8bd8050",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2.9S",
+          "primary": false
+        },
+        {
+          "id": "02c0106a-b70a-4e0c-b2b0-40607d8a2a7c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.3",
+          "primary": true
+        },
+        {
+          "id": "eac1801b-9d0d-4c29-a325-010d5eac8584",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.5",
+          "primary": false
+        },
+        {
+          "id": "c6eaa4b9-3e90-4fb2-ab12-3daad3fee9f7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.7S",
+          "primary": false
+        },
+        {
+          "id": "ed2b2874-f2b9-4b76-b4cc-694c868edc44",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.12",
+          "primary": true
+        },
+        {
+          "id": "120834c6-5726-473b-b2ba-2c6e5a843a07",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.20",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-075",
+      "spec_points": [
+        {
+          "id": "1d637522-cdd4-4335-91f1-88c780abf2a4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.4",
+          "primary": true
+        },
+        {
+          "id": "d5734e51-dadd-4a08-9579-6dbc9ea300ce",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.13",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-076",
+      "spec_points": [
+        {
+          "id": "6699331e-7b8d-4f20-a4eb-c345abcc1a64",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.3.1",
+          "primary": true
+        },
+        {
+          "id": "05688470-229c-4360-81ca-52c879fea5c9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.3.2",
+          "primary": true
+        },
+        {
+          "id": "0eef09fa-cc74-4e91-8796-a370d55f5d64",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.3.3",
+          "primary": true
+        },
+        {
+          "id": "8ed0abb3-e0d6-443f-a010-8f3cbebddfc6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.3.4",
+          "primary": true
+        },
+        {
+          "id": "f9060535-45d1-4aa1-8dfe-e8ac14d63949",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.3.5",
+          "primary": true
+        },
+        {
+          "id": "52059880-91d3-41d7-bf6e-c0b6f97ab1e8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.3.6S",
+          "primary": true
+        },
+        {
+          "id": "a5034179-48b7-432a-bed6-171c84e87703",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.3.7S",
+          "primary": true
+        },
+        {
+          "id": "c55a7e27-7dda-4dfe-b72e-c833c2d686d4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.3.8S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-077",
+      "spec_points": [
+        {
+          "id": "c85377ac-37de-4fae-9e06-14331448adcd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.4.1",
+          "primary": false
+        },
+        {
+          "id": "e8e471fd-7a7b-4483-9b35-5b9c5985a360",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.4.2",
+          "primary": true
+        },
+        {
+          "id": "755c2f5e-f8ff-4410-9269-30c66f45c54b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.4.3S",
+          "primary": true
+        },
+        {
+          "id": "4630f862-e38f-49ca-a875-c4fa48c1ea08",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.11",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-078",
+      "spec_points": [
+        {
+          "id": "adc40e5f-f66e-461a-8b75-fc1750d9c771",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.3.1",
+          "primary": true
+        },
+        {
+          "id": "d3be199a-42e2-4742-b37f-a363a6de7f56",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.3.2",
+          "primary": true
+        },
+        {
+          "id": "773272b7-d34c-4ca3-b499-51c4b23ae849",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.3.3",
+          "primary": false
+        },
+        {
+          "id": "845ae1a3-c18e-4e43-8af2-cb9e4af76e9e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.3.4S",
+          "primary": true
+        },
+        {
+          "id": "809d50b6-32d2-4821-aea0-4c8979cae95e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.3.5S",
+          "primary": true
+        },
+        {
+          "id": "1c2f1786-07da-4e6e-addb-96976ec51bb6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.3.6S",
+          "primary": true
+        },
+        {
+          "id": "11ddf569-a252-46c2-a99f-dff49bf9495d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.3.9S",
+          "primary": true
+        },
+        {
+          "id": "35624c29-3571-4f7a-8f16-26b8346c2212",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.6",
+          "primary": false
+        },
+        {
+          "id": "9f1fc896-6052-4570-b778-3c6f112dd703",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.8",
+          "primary": true
+        },
+        {
+          "id": "f6f7aca4-0681-4fa1-a93d-ecf27208e75d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.8",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-079",
+      "spec_points": [
+        {
+          "id": "adc40e5f-f66e-461a-8b75-fc1750d9c771",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.3.1",
+          "primary": false
+        },
+        {
+          "id": "773272b7-d34c-4ca3-b499-51c4b23ae849",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.3.3",
+          "primary": true
+        },
+        {
+          "id": "405b67b3-6c62-43b2-826f-60298e24d950",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.3.7S",
+          "primary": true
+        },
+        {
+          "id": "a434ce20-4b2e-430a-bc1a-022d5a06e625",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.3.8S",
+          "primary": true
+        },
+        {
+          "id": "760d5b48-71e3-409f-800d-e5ccfd24db8e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.4.1",
+          "primary": false
+        },
+        {
+          "id": "6909aa39-44f5-43d0-b3cb-8bb691ae7db1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.4.2S",
+          "primary": false
+        },
+        {
+          "id": "9f1fc896-6052-4570-b778-3c6f112dd703",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.8",
+          "primary": false
+        },
+        {
+          "id": "24575967-25a2-4c9c-8a9b-7926e94c2f4b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.9",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-080",
+      "spec_points": [
+        {
+          "id": "92952a53-92b9-47be-a0f8-3bec91c07b5c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.1",
+          "primary": true
+        },
+        {
+          "id": "e8c6226d-3903-4db1-8403-52d081247264",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.2",
+          "primary": true
+        },
+        {
+          "id": "4b310e68-ae54-472f-988c-f1ee544fa9ec",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.3",
+          "primary": true
+        },
+        {
+          "id": "0d0feabe-e7da-4293-9d9a-677249385e13",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.4",
+          "primary": true
+        },
+        {
+          "id": "918ebf29-3354-4368-86bf-74bace95c47c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.9",
+          "primary": false
+        },
+        {
+          "id": "b5650401-d588-4161-9c45-2ed5423cede0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.10S",
+          "primary": false
+        },
+        {
+          "id": "5ce2d2f2-a366-47ce-a495-607f5e9fce43",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.2",
+          "primary": true
+        },
+        {
+          "id": "e67e6250-983f-475d-856d-5fa6f8d38943",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.3",
+          "primary": true
+        },
+        {
+          "id": "4b25daa6-a910-484f-a53e-f3f63e475a93",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.5",
+          "primary": true
+        },
+        {
+          "id": "d8bf4278-2429-4fd8-8043-10f62eb1999c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.7",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-081",
+      "spec_points": [
+        {
+          "id": "6b2ac5d8-e320-42e0-9e12-afbdcdbd34f9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.5",
+          "primary": true
+        },
+        {
+          "id": "687268bb-6d72-4b6d-a661-ec6166c3b953",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.6",
+          "primary": true
+        },
+        {
+          "id": "04d35dd6-3a56-4fe0-afc9-c1a518eec2d6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.7",
+          "primary": true
+        },
+        {
+          "id": "c9217be5-e0d3-4e7a-b28e-c307b5418c1f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.8",
+          "primary": true
+        },
+        {
+          "id": "b5650401-d588-4161-9c45-2ed5423cede0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.10S",
+          "primary": true
+        },
+        {
+          "id": "3344de1b-d13d-41a8-8aeb-e3cbc482762d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.11S",
+          "primary": true
+        },
+        {
+          "id": "48892d07-59c0-410c-82c0-bdfb67907701",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.4",
+          "primary": true
+        },
+        {
+          "id": "4026778b-d74c-4d86-ad9a-de0b8e8fed63",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.6",
+          "primary": true
+        },
+        {
+          "id": "d8bf4278-2429-4fd8-8043-10f62eb1999c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.7",
+          "primary": true
+        },
+        {
+          "id": "f236fc36-caa9-4ad6-9590-761a501b0f5d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.10P",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-082",
+      "spec_points": [
+        {
+          "id": "918ebf29-3354-4368-86bf-74bace95c47c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.9",
+          "primary": true
+        },
+        {
+          "id": "587cb65b-5d4b-47a4-b081-d505bf0f05dc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.3.1",
+          "primary": true
+        },
+        {
+          "id": "dabdf81b-f464-4a56-9006-72714b6a4171",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.3.2",
+          "primary": true
+        },
+        {
+          "id": "b7d313de-1064-4cf3-9b14-2d54ce93690c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.3.3",
+          "primary": true
+        },
+        {
+          "id": "820592ea-a8fd-42d7-94e9-bc25931c2d2b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.3.4S",
+          "primary": true
+        },
+        {
+          "id": "f3d58b1e-3130-47d2-9557-275d416c613a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.3.5S",
+          "primary": true
+        },
+        {
+          "id": "1ba010d1-428b-4bff-b9c1-65791585f016",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.8",
+          "primary": true
+        },
+        {
+          "id": "4d57c028-7e1a-492d-b607-ead3fbcc6829",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.9P",
+          "primary": true
+        },
+        {
+          "id": "f236fc36-caa9-4ad6-9590-761a501b0f5d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.10P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-083",
+      "spec_points": [
+        {
+          "id": "d0759c03-8e98-45b5-b3af-e9862a6e28f7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.1.5S",
+          "primary": true
+        },
+        {
+          "id": "2147fd3c-448d-4ffe-af50-03d543618a1f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.4.1",
+          "primary": true
+        },
+        {
+          "id": "f8cf16b1-21a4-46bd-afce-e30f49ecc59c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.4.2S",
+          "primary": true
+        },
+        {
+          "id": "297c4d99-125d-482e-a2db-b44a90366ffb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.4.3S",
+          "primary": true
+        },
+        {
+          "id": "e5181289-94cf-4dee-9bb3-5d1ec700c2c6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.2.2.3S",
+          "primary": false
+        },
+        {
+          "id": "c7c4b5fe-4137-42f5-b52e-9b533fd5052c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.11P",
+          "primary": true
+        },
+        {
+          "id": "00a853b2-4fc5-4d92-82eb-164a16a803d1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.12",
+          "primary": false
+        },
+        {
+          "id": "35a3aa56-089a-4bcb-bf17-0c468874f5b7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.13",
+          "primary": true
+        },
+        {
+          "id": "d8dfb425-0f71-4594-9811-13926d43ccaf",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.14",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-084",
+      "spec_points": [
+        {
+          "id": "b7d313de-1064-4cf3-9b14-2d54ce93690c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.3.3",
+          "primary": false
+        },
+        {
+          "id": "6df5033c-8f77-4ba4-a716-5553d42383e5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.5.1",
+          "primary": true
+        },
+        {
+          "id": "3dbbe048-d328-4c95-8641-7477bc88a23c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.5.2S",
+          "primary": true
+        },
+        {
+          "id": "00a853b2-4fc5-4d92-82eb-164a16a803d1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.12",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-085",
+      "spec_points": [
+        {
+          "id": "35964f28-42e9-482d-b9bb-164aae46c49d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.1.1",
+          "primary": true
+        },
+        {
+          "id": "307b04bb-62df-4e13-915f-78d26b5fd61f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.1.2",
+          "primary": true
+        },
+        {
+          "id": "9510564f-c9ac-491f-9b12-17a7c9c7deeb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.1.3",
+          "primary": true
+        },
+        {
+          "id": "0f69bb98-66c9-4758-a756-a5f7e3ee28b4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.1.4S",
+          "primary": true
+        },
+        {
+          "id": "d0759c03-8e98-45b5-b3af-e9862a6e28f7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.1.5S",
+          "primary": false
+        },
+        {
+          "id": "a20c4ed1-9d31-44fe-83a3-c228535fe6e5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.15",
+          "primary": true
+        },
+        {
+          "id": "bb081c74-edbb-4ca5-95bf-667ab89cec31",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.16",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-086",
+      "spec_points": [
+        {
+          "id": "a91ba879-6b67-40a7-ac04-8ede1a08ae3d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.2.1S",
+          "primary": true
+        },
+        {
+          "id": "f79cd6f7-b315-41dc-8699-b332613b5d76",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.2.2S",
+          "primary": true
+        },
+        {
+          "id": "3dbbe048-d328-4c95-8641-7477bc88a23c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.5.2S",
+          "primary": false
+        },
+        {
+          "id": "bb081c74-edbb-4ca5-95bf-667ab89cec31",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.16",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-087",
+      "spec_points": [
+        {
+          "id": "06cb053d-d2d1-449e-9b85-42c7d01584cd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.6.1",
+          "primary": true
+        },
+        {
+          "id": "9441a2bb-e02f-4ab5-bf70-04784b9fe06f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.6.2",
+          "primary": true
+        },
+        {
+          "id": "e5ecef3a-e1f0-463f-863a-655587fa630b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.6.3",
+          "primary": true
+        },
+        {
+          "id": "2e3ed6fa-f831-49b9-8dbb-4b14b5e034a7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.6.4",
+          "primary": false
+        },
+        {
+          "id": "539b55a4-d188-4594-8219-cf895e53f8a0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.6.6S",
+          "primary": true
+        },
+        {
+          "id": "b6767771-d976-477e-963f-885304f00169",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.5.6.7S",
+          "primary": true
+        },
+        {
+          "id": "7ec759a8-01df-4946-a8e3-3faa07b90c08",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.17P",
+          "primary": true
+        },
+        {
+          "id": "4ae6235b-8d2d-4d8b-af09-1a9b36e34935",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.18P",
+          "primary": false
+        },
+        {
+          "id": "70ad72a6-f91a-41f6-80bb-a2aff79a098f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.19P",
+          "primary": true
+        },
+        {
+          "id": "c501c993-8a21-4fd0-b077-7b22459dbc57",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 6.20P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-088",
+      "spec_points": [
+        {
+          "id": "dc1090fe-27b7-4121-992c-7d1ac9b9635c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.1",
+          "primary": true
+        },
+        {
+          "id": "21398d5b-7101-4e6d-be03-ab366ed8e348",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.2",
+          "primary": true
+        },
+        {
+          "id": "5cbb15f7-8c4c-4583-8082-04809e17a3c7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.5",
+          "primary": false
+        },
+        {
+          "id": "f7f6c7b4-7549-48b8-8b29-0e8fb50c3497",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.1.1",
+          "primary": false
+        },
+        {
+          "id": "c387e96f-7238-4216-a7a1-4e1650de13d3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.2.1",
+          "primary": false
+        },
+        {
+          "id": "473c4f8a-cfcb-4d4b-b12c-7ec35b9be10d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.2",
+          "primary": false
+        },
+        {
+          "id": "e8099364-5819-4798-ad81-cbe4fd2e2e82",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.4",
+          "primary": false
+        },
+        {
+          "id": "3f1e61d9-a36b-4526-a1f5-9fc2d5713a7e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.5",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-089",
+      "spec_points": [
+        {
+          "id": "d68e01ff-c749-49d1-9216-700d0b35ffad",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.7.3.5S",
+          "primary": false
+        },
+        {
+          "id": "f7f6c7b4-7549-48b8-8b29-0e8fb50c3497",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.1.1",
+          "primary": true
+        },
+        {
+          "id": "e35a3178-f32d-4732-8150-46c04a322aa7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.1.2S",
+          "primary": true
+        },
+        {
+          "id": "169f55ad-a877-431d-9a42-954d3003ce86",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.2.3S",
+          "primary": true
+        },
+        {
+          "id": "73d35489-0120-46e0-a237-9cbbe13d8bd9",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 7.25",
+          "primary": false
+        },
+        {
+          "id": "b8029306-d99d-4277-98cf-7d8eccb55e2f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.9",
+          "primary": true
+        },
+        {
+          "id": "aecbce62-5bec-435c-910b-2a2e02d6b7a4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.10",
+          "primary": true
+        },
+        {
+          "id": "cfbac2ec-5d10-467d-ac94-4626b40271f2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.12P",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-090",
+      "spec_points": [
+        {
+          "id": "8b4d2764-8fa4-4e33-9351-4382c7c12ae3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.1.4S",
+          "primary": false
+        },
+        {
+          "id": "5cbb15f7-8c4c-4583-8082-04809e17a3c7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.5",
+          "primary": true
+        },
+        {
+          "id": "bcad5793-6c76-420d-a645-1b3f66bd3107",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.6",
+          "primary": true
+        },
+        {
+          "id": "4f317bf5-f411-47ea-aa6d-1e64a58171f1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.7S",
+          "primary": false
+        },
+        {
+          "id": "8a4bcc34-0d04-40d7-b9c5-1267bcbd51a4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.9S",
+          "primary": false
+        },
+        {
+          "id": "e8099364-5819-4798-ad81-cbe4fd2e2e82",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.4",
+          "primary": true
+        },
+        {
+          "id": "3f1e61d9-a36b-4526-a1f5-9fc2d5713a7e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.5",
+          "primary": false
+        },
+        {
+          "id": "75180fc1-d459-49a5-998d-9b79fb4bc251",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.6",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-091",
+      "spec_points": [
+        {
+          "id": "078c2a43-6f88-4470-8933-38d5af07457b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3.2",
+          "primary": true
+        },
+        {
+          "id": "c08e7e78-8c68-4c5b-9bfc-ebf955df519c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3.3",
+          "primary": true
+        },
+        {
+          "id": "e5761fe9-3a67-435e-9497-013bed0f62ea",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3.4",
+          "primary": true
+        },
+        {
+          "id": "df554c5e-f15d-4f65-8c4b-e203922af144",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3.7S",
+          "primary": false
+        },
+        {
+          "id": "b72e802a-c027-4cd6-8e32-504958063c2c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.8",
+          "primary": true
+        },
+        {
+          "id": "5aedb63a-3579-4152-ab71-0c4972033c98",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.13P",
+          "primary": false
+        },
+        {
+          "id": "9dbdcea0-94a9-4300-88a9-9c328fa88c5f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.14P",
+          "primary": false
+        },
+        {
+          "id": "147f0122-1315-4ea2-911a-ba3adf932430",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.15P",
+          "primary": true
+        },
+        {
+          "id": "02b8f5cf-5e22-42aa-aa76-3e4d46ae606d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.16P",
+          "primary": false
+        },
+        {
+          "id": "38e3e065-c0fd-4d58-9a5b-21969a54a047",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.17P",
+          "primary": true
+        },
+        {
+          "id": "e360599f-fe3d-4ff0-9e5b-a238f997753d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.18P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "phys-092",
+      "spec_points": [
+        {
+          "id": "e5761fe9-3a67-435e-9497-013bed0f62ea",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3.4",
+          "primary": false
+        },
+        {
+          "id": "b0cc1c05-99a7-4cc3-b3e5-43998d477f4b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3.5S",
+          "primary": true
+        },
+        {
+          "id": "20419b7c-59d2-4acb-acd0-6dc9367cb1c9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3.6S",
+          "primary": true
+        },
+        {
+          "id": "28a9f7de-acea-4fa7-bfd2-79bc1e902b7f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3.11S",
+          "primary": false
+        },
+        {
+          "id": "5aedb63a-3579-4152-ab71-0c4972033c98",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.13P",
+          "primary": true
+        },
+        {
+          "id": "9dbdcea0-94a9-4300-88a9-9c328fa88c5f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.14P",
+          "primary": true
+        }
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "id": "iphys-001",
+      "group": "IGCSE Working scientifically / practical skills",
+      "title": "Measuring length, volume and time",
+      "scope": "Choosing rulers, measuring cylinders, clocks and timers, and averaging multiples to find small distances and short intervals such as the period of a pendulum.",
+      "kind": "skills",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a99d6578-2692-4abe-86da-5532a15f4c35",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.1",
+          "primary": true
+        },
+        {
+          "id": "5878bf60-6c66-4253-83e8-16b9e4cbe9c7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.2",
+          "primary": true
+        },
+        {
+          "id": "43e2ae15-1e41-41c1-ae49-110709e53567",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.3",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "iphys-002",
+      "group": "IGCSE Motion",
+      "title": "Drag and terminal velocity",
+      "scope": "Friction (drag) on objects moving through liquids and gases, and how falling objects reach terminal velocity with and without air resistance.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "98aef786-00fc-4d25-8e03-4bc86f23a1b6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.13S",
+          "primary": true
+        },
+        {
+          "id": "dc0d47a7-eb5b-4dd7-b50c-04507d9b4c06",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.1.7",
+          "primary": true
+        },
+        {
+          "id": "93c6d2f3-0e8e-484c-bad1-42076ec2fdc3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.1.8",
+          "primary": true
+        },
+        {
+          "id": "c8d500d3-b2d1-4b86-b391-15d6bb0a768d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.21",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "iphys-003",
+      "group": "IGCSE Forces",
+      "title": "Centre of gravity and stability",
+      "scope": "What centre of gravity means, finding it for an irregular lamina with a plumb line, and how its position and the base width affect stability.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "05ad5d18-209e-4941-a415-903a85bc64d9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.3.1",
+          "primary": true
+        },
+        {
+          "id": "2aa05729-a20f-4907-82c1-6ece3efdcbf2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.3.2",
+          "primary": true
+        },
+        {
+          "id": "6558e116-0407-49f2-bd99-8a1a61e0fd3b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.5.3.3",
+          "primary": true
+        },
+        {
+          "id": "653a31af-88c1-4442-a0f9-da1da83b604b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.31P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "iphys-004",
+      "group": "IGCSE Particle model of matter",
+      "title": "Thermal expansion",
+      "scope": "How solids, liquids and gases expand when heated, everyday uses and problems of expansion, and the particle explanation of their different expansions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "d8497bb5-2ccb-4e8f-a36a-71738a6a11ca",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.1.1",
+          "primary": true
+        },
+        {
+          "id": "de114f00-7f09-409a-9a50-52b79df1624f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.1.2",
+          "primary": true
+        },
+        {
+          "id": "62a7a088-7012-4592-9e2e-727df5ab2bfe",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.1.3S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "iphys-005",
+      "group": "IGCSE Particle model of matter",
+      "title": "Brownian motion",
+      "scope": "Random motion of microscopic particles in a suspension, and how collisions with fast, light molecules explain it as evidence for the particle model.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "52e2d822-4007-4361-8bd8-f0df7d493449",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.2.4",
+          "primary": true
+        },
+        {
+          "id": "d4ea4ccd-b6ec-417d-97b8-999aad25ec40",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.2.5",
+          "primary": true
+        },
+        {
+          "id": "1d12faee-e32b-4374-8e8d-a450bb6660bb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.2.8S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "iphys-006",
+      "group": "IGCSE Particle model of matter",
+      "title": "Evaporation and cooling",
+      "scope": "Evaporation as escape of energetic surface particles, how it differs from boiling, what affects its rate and why it cools a liquid and objects touching it.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "545117a8-ac1a-44f9-a744-f5ad477f6a93",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.3.4",
+          "primary": true
+        },
+        {
+          "id": "64e3ef3d-765f-4e64-b29b-12a506fc39f6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.3.5",
+          "primary": true
+        },
+        {
+          "id": "408f0444-9f71-49f8-b048-ea8238083bbe",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.3.6S",
+          "primary": true
+        },
+        {
+          "id": "fa44347c-e6a6-440c-a57a-61ac450bb22f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.3.7S",
+          "primary": true
+        },
+        {
+          "id": "3d1a91f5-e39a-46fc-b503-5e332ba54f98",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.3.8S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "iphys-007",
+      "group": "IGCSE Energy",
+      "title": "Conduction and convection",
+      "scope": "Thermal conduction in solids by lattice vibrations and free electrons, poor conduction in gases and liquids, convection currents, experiments, and everyday applications of heat transfer.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "68d8cb96-171e-4a35-94a7-9723b8bde3cb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.1.1",
+          "primary": true
+        },
+        {
+          "id": "58af52c5-2d7d-4eaa-9d1a-a850562e1aae",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.1.2S",
+          "primary": true
+        },
+        {
+          "id": "82f998e0-fdaa-44b8-a086-2912ad731d49",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.1.3S",
+          "primary": true
+        },
+        {
+          "id": "b5854b09-8495-4693-94de-390d35265c7b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.1.4S",
+          "primary": true
+        },
+        {
+          "id": "ac07d9a7-5be4-41c4-a621-9f50c2a34160",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.2.1",
+          "primary": true
+        },
+        {
+          "id": "cd98cb20-aeff-4dbe-b2b6-322c02ce66d5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.2.2",
+          "primary": true
+        },
+        {
+          "id": "760d5b48-71e3-409f-800d-e5ccfd24db8e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.4.1",
+          "primary": true
+        },
+        {
+          "id": "6909aa39-44f5-43d0-b3cb-8bb691ae7db1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.4.2S",
+          "primary": true
+        },
+        {
+          "id": "35624c29-3571-4f7a-8f16-26b8346c2212",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.6",
+          "primary": true
+        },
+        {
+          "id": "d11ec1e1-8ff6-460c-aa24-e7b77c9a7640",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.7",
+          "primary": true
+        },
+        {
+          "id": "24575967-25a2-4c9c-8a9b-7926e94c2f4b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.9",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "iphys-008",
+      "group": "IGCSE Waves",
+      "title": "Diffraction of waves",
+      "scope": "Waves spreading through a gap or round an edge, how wavelength and gap size change it, and showing it in a ripple tank.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "9084551c-6144-485d-b057-f248f214dc40",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.7",
+          "primary": true
+        },
+        {
+          "id": "172889b1-0ea6-4aff-9431-11d5457499a5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.8",
+          "primary": true
+        },
+        {
+          "id": "7473841f-df57-4c6b-83c2-f47c1310f457",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.9S",
+          "primary": true
+        },
+        {
+          "id": "9de678bb-6d37-4306-acee-c79f081e0319",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.10S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "iphys-009",
+      "group": "IGCSE Waves",
+      "title": "Refractive index and optical fibres",
+      "scope": "Refractive index as a ratio of speeds, n = sin i / sin r and n = 1 / sin c, and optical fibres in telecommunications.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3349903e-42dc-4aff-ab4f-3ff4c6b6b9aa",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2.6S",
+          "primary": true
+        },
+        {
+          "id": "c64f0817-dfbf-4f25-afc4-8650c90fb14b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2.7S",
+          "primary": true
+        },
+        {
+          "id": "1fea0377-cb09-41f0-883c-f6a6778410a1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2.8S",
+          "primary": true
+        },
+        {
+          "id": "341448ff-35c0-40b1-9275-dd44c8bd8050",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2.9S",
+          "primary": true
+        },
+        {
+          "id": "cb4b8211-dc63-48fe-bb5f-0ab0faaf6b60",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.18",
+          "primary": true
+        },
+        {
+          "id": "6a495082-cfde-4bab-9d3b-85a39408aee8",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.19",
+          "primary": true
+        },
+        {
+          "id": "120834c6-5726-473b-b2ba-2c6e5a843a07",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.20",
+          "primary": true
+        },
+        {
+          "id": "ce6e553c-670e-4a53-8f8d-fad824827687",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.22",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "iphys-010",
+      "group": "IGCSE Waves",
+      "title": "Sound: pitch, loudness and speed",
+      "scope": "How vibrating sources make sound, why it needs a medium, how frequency and amplitude set pitch and loudness, and why sound is fastest in solids.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "43843bfe-07d7-4747-a7d9-dcfdb442905b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.4.1",
+          "primary": true
+        },
+        {
+          "id": "7a1dc6d7-b242-4ed5-876d-86b281343146",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.4.4",
+          "primary": true
+        },
+        {
+          "id": "a9779c45-75e1-478e-93da-e519718fa267",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.4.7",
+          "primary": true
+        },
+        {
+          "id": "3d189f35-6e96-46fa-a205-d6a00a68f79e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.4.11S",
+          "primary": true
+        },
+        {
+          "id": "3693df36-0302-4a49-b44c-f780adf5ac78",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.28P",
+          "primary": true
+        },
+        {
+          "id": "ec612ed2-a212-4fa0-a5e3-44f8b951fcb2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.29P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "iphys-011",
+      "group": "IGCSE Waves",
+      "title": "Communication using electromagnetic waves",
+      "scope": "Satellite and mobile communications by microwaves and other EM waves, and the difference between analogue and digital signals and the benefits of digital.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "eac1801b-9d0d-4c29-a325-010d5eac8584",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.5",
+          "primary": true
+        },
+        {
+          "id": "c6eaa4b9-3e90-4fb2-ab12-3daad3fee9f7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.7S",
+          "primary": true
+        },
+        {
+          "id": "1004303f-d486-4b97-a55c-0a376fbcbddf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.8S",
+          "primary": true
+        },
+        {
+          "id": "3d97d60c-027e-4952-b73a-5c8a821faf37",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.9S",
+          "primary": true
+        },
+        {
+          "id": "9e33e752-795f-4ae6-8d6b-badf6555b863",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.10S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "iphys-012",
+      "group": "IGCSE Electricity",
+      "title": "E.m.f. and potential dividers",
+      "scope": "Electromotive force as work done per unit charge by a source, E = W/Q, combining e.m.f.s in series, and potential dividers with R1/R2 = V1/V2.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "4a6d2b2f-751b-49a1-93a7-99292e0ff97a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.3.1",
+          "primary": true
+        },
+        {
+          "id": "4d3816d3-24e9-4342-af6e-ecb8e965428b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.3.2",
+          "primary": true
+        },
+        {
+          "id": "0e5aa17d-7b46-4ef1-bb5d-72e865a81f91",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.3.6S",
+          "primary": true
+        },
+        {
+          "id": "772ca3b7-4aba-40a8-b6ac-924b5097e56a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.2.3",
+          "primary": true
+        },
+        {
+          "id": "48fe7186-3ab9-4c26-9bd5-06927c81e6dd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.3.2S",
+          "primary": true
+        },
+        {
+          "id": "9f19fd54-30da-4812-8085-57f4678f86ad",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.3.3.3S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "iphys-013",
+      "group": "IGCSE Space physics",
+      "title": "Earth, Sun and Moon",
+      "scope": "How the Earth's rotation and tilt, its orbit of the Sun and the Moon's monthly orbit explain day and night, seasons and phases, and average orbital speed v = 2πr/T.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "0a5aa129-6db9-45af-86c0-fd3eacf9bc40",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.1.1",
+          "primary": true
+        },
+        {
+          "id": "f9773d92-45d1-4b7b-bb30-ccf72fb93b4f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.1.2",
+          "primary": true
+        },
+        {
+          "id": "69a34d44-2aef-4d8f-8186-698dccf2bd7d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.1.3",
+          "primary": true
+        },
+        {
+          "id": "8b4d2764-8fa4-4e33-9351-4382c7c12ae3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.1.4S",
+          "primary": true
+        },
+        {
+          "id": "75180fc1-d459-49a5-998d-9b79fb4bc251",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.6",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "iphys-014",
+      "group": "IGCSE Space physics",
+      "title": "Elliptical orbits and planetary data",
+      "scope": "Elliptical orbits with the Sun off-centre, why speed rises nearer the Sun, how gravity and orbital speed change with distance, and reading planetary data.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "4950f42b-1636-4978-ac24-b9b9c76b5b48",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.3",
+          "primary": true
+        },
+        {
+          "id": "4f317bf5-f411-47ea-aa6d-1e64a58171f1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.7S",
+          "primary": true
+        },
+        {
+          "id": "74ac83cf-0ab5-464b-ad58-13c8024f83c0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.8S",
+          "primary": true
+        },
+        {
+          "id": "8a4bcc34-0d04-40d7-b9c5-1267bcbd51a4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.9S",
+          "primary": true
+        },
+        {
+          "id": "79b0d083-7ecf-4121-9819-487d7fc48681",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.10S",
+          "primary": true
+        },
+        {
+          "id": "6e25ef31-d46b-4227-8334-4218c8daa1a2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.3",
+          "primary": true
+        },
+        {
+          "id": "3f1e61d9-a36b-4526-a1f5-9fc2d5713a7e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.5",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "iphys-015",
+      "group": "IGCSE Space physics",
+      "title": "Light-years, galaxies and the Hubble constant",
+      "scope": "Light travel times, light-years, galaxies, finding galaxy speed and distance, the Hubble constant H0 = v/d and the age of the Universe 1/H0.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "40ff99cd-cc11-4719-b3f8-19ee90a431dd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2.4",
+          "primary": true
+        },
+        {
+          "id": "c387e96f-7238-4216-a7a1-4e1650de13d3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.2.1",
+          "primary": true
+        },
+        {
+          "id": "3d005fe1-d512-4213-97d2-de9c4b58533a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.2.2S",
+          "primary": true
+        },
+        {
+          "id": "38cb4912-faf7-4285-a16d-676f08d9c2af",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3.1",
+          "primary": true
+        },
+        {
+          "id": "df554c5e-f15d-4f65-8c4b-e203922af144",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3.7S",
+          "primary": true
+        },
+        {
+          "id": "0231e857-7a22-4d1f-8420-3b28b97df8c4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3.8S",
+          "primary": true
+        },
+        {
+          "id": "3dbd7efb-840c-4ec4-9dad-3e9ca4c3e4c2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3.9S",
+          "primary": true
+        },
+        {
+          "id": "f7cb7b85-93e6-46aa-ad76-82ef1338569f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3.10S",
+          "primary": true
+        },
+        {
+          "id": "28a9f7de-acea-4fa7-bfd2-79bc1e902b7f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3.11S",
+          "primary": true
+        },
+        {
+          "id": "473c4f8a-cfcb-4d4b-b12c-7ec35b9be10d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.2",
+          "primary": true
+        },
+        {
+          "id": "02b8f5cf-5e22-42aa-aa76-3e4d46ae606d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.16P",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "iphys-016",
+      "group": "IGCSE Space physics",
+      "title": "Star colour, brightness and the HR diagram",
+      "scope": "How a star's colour shows its surface temperature, how absolute magnitude measures brightness at a standard distance, and the main groups on a Hertzsprung-Russell diagram.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "b59212a2-e11f-47e3-9c9b-e5b3a5354c32",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.7",
+          "primary": true
+        },
+        {
+          "id": "f6f7aca4-0681-4fa1-a93d-ecf27208e75d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.8",
+          "primary": true
+        },
+        {
+          "id": "9d0558d5-cf45-4a28-8797-6c2487c94daf",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.11P",
+          "primary": true
+        },
+        {
+          "id": "cfbac2ec-5d10-467d-ac94-4626b40271f2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 8.12P",
+          "primary": true
+        }
+      ]
+    }
+  ]
+}

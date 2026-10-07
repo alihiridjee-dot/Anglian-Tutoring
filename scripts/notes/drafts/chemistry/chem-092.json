@@ -341,6 +341,9 @@
         ],
         "tip": "One mark for the three correct ions and one mark for each explanation, linked to the correct ion."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 12.5.2"]
     }
   },
   "meta": {
@@ -359,6 +362,6 @@
       "62904850-f46c-4fa1-8b77-f6b0224f492f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

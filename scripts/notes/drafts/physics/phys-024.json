@@ -252,18 +252,58 @@
         ],
         "tip": "The fourth mark needs a specific improvement. Repeating and averaging is ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.4.2"],
+      "worked_example": {
+        "exemplar_id": "04ec1add-7a45-4cf7-819c-d1817dd4e548",
+        "source": "CAMBRIDGE nov 2023, Paper 43, Q1(b)(i)",
+        "question": "Describe a method to measure the volume of an irregularly shaped solid object.",
+        "marks": 2,
+        "answer_points": [
+          "Measure the volume of water in a measuring cylinder, then immerse the object in it",
+          "Subtract the starting volume from the new volume to find the volume of the object",
+          "(Alternative) Fill a displacement can with water, immerse the object and measure the volume of water displaced"
+        ],
+        "tip": "Either method scores both marks."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 5.4"],
+      "worked_example": {
+        "exemplar_id": "61a7ad6d-195f-4b54-bd60-eed1695934f7",
+        "source": "EDEXCEL jun 2024, Paper 1 (PR), Q5(a)",
+        "question": "A student needs to determine the density of some small rocks that appear to all be made of the same material. The student decides to measure the mass and the volume of each rock. Describe a method the student could use to accurately determine the mass and the volume of each rock.",
+        "marks": 5,
+        "answer_points": [
+          "Use a balance to measure the mass",
+          "Use a measuring cylinder to measure the volume",
+          "Check that the balance reads zero before the rock is placed on it, and that it is on a level surface",
+          "Make sure the rock is dry when its mass is measured",
+          "Record the volume of water before the rock is added, and find the difference after the rock is added",
+          "Make sure the rock is fully submerged and no water is spilt",
+          "Read the measuring cylinder at eye level, at the bottom of the meniscus"
+        ],
+        "tip": "Two marks are for the balance and the measuring cylinder. The other three are for any three of the detail points."
+      }
     }
   },
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": ["bd41094a-c05e-47a3-b02a-5fc869c893cd"],
+    "spec_point_ids": [
+      "bd41094a-c05e-47a3-b02a-5fc869c893cd",
+      "4b04e177-b7df-48ce-a00d-8f731a9df7fd",
+      "5dc68ac1-c228-4101-9bfe-e3053105fa7b"
+    ],
     "exemplar_ids": [
       "5211ea3c-3275-4a60-98ca-edfc7294b871",
-      "b5ba045f-13af-4d86-914e-7f6194bc0108"
+      "b5ba045f-13af-4d86-914e-7f6194bc0108",
+      "04ec1add-7a45-4cf7-819c-d1817dd4e548",
+      "61a7ad6d-195f-4b54-bd60-eed1695934f7"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

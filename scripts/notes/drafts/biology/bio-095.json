@@ -102,11 +102,27 @@
         {
           "type": "table",
           "rows": [
-            ["TT", "Homozygous dominant", "Tall plant"],
-            ["Tt", "Heterozygous", "Tall plant"],
-            ["tt", "Homozygous recessive", "Short plant"]
+            [
+              "TT",
+              "Homozygous dominant",
+              "Tall plant"
+            ],
+            [
+              "Tt",
+              "Heterozygous",
+              "Tall plant"
+            ],
+            [
+              "tt",
+              "Homozygous recessive",
+              "Short plant"
+            ]
           ],
-          "columns": ["Genotype", "Name", "Phenotype (pea plant height, T dominant)"]
+          "columns": [
+            "Genotype",
+            "Name",
+            "Phenotype (pea plant height, T dominant)"
+          ]
         },
         {
           "type": "diagram",
@@ -151,7 +167,11 @@
                 "group": 0
               }
             ],
-            "groups": ["Homozygous dominant", "Heterozygous", "Homozygous recessive"],
+            "groups": [
+              "Homozygous dominant",
+              "Heterozygous",
+              "Homozygous recessive"
+            ],
             "prompt": "What is each genotype called?"
           }
         },
@@ -223,7 +243,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 6.6", "AQA T 4.6.1.4"],
+      "spec_codes": [
+        "AQA 6.6",
+        "AQA T 4.6.1.4"
+      ],
       "worked_example": {
         "exemplar_id": "e2b1c7d7-9c3a-4800-aae2-4940c2c726f7",
         "source": "AQA jun 2025, Paper 2 (H), Q01.3",
@@ -238,7 +261,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 3.12", "EDEX 3.13", "EDEX 3.19"],
+      "spec_codes": [
+        "EDEX 3.12",
+        "EDEX 3.13",
+        "EDEX 3.19"
+      ],
       "worked_example": {
         "exemplar_id": "5b3acefb-1f4e-445f-b0ff-033dc4e3b5f4",
         "source": "EDEXCEL jun 2018, Paper 1 (H), Q7(b)(ii)",
@@ -254,7 +281,11 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 5.1a", "OCR 5.1i", "OCR 5.1l"],
+      "spec_codes": [
+        "OCR 5.1a",
+        "OCR 5.1i",
+        "OCR 5.1l"
+      ],
       "worked_example": {
         "exemplar_id": "8fbc91f2-4d4e-446c-8280-1d3afdfe0c72",
         "source": "OCR jun 2018, Paper 4, Q18(a)",
@@ -265,6 +296,67 @@
           "Allele: an alternative form (version) of a gene."
         ],
         "tip": "One mark for each term. A particular copy of a gene is accepted for allele."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 17.1.2",
+        "CAIE 17.1.3",
+        "CAIE 17.4.1",
+        "CAIE 17.4.2",
+        "CAIE 17.4.3",
+        "CAIE 17.4.4",
+        "CAIE 17.4.5",
+        "CAIE 17.4.6",
+        "CAIE 17.4.7",
+        "CAIE 17.4.8",
+        "CAIE 17.4.9"
+      ],
+      "worked_example": {
+        "exemplar_id": "0e6a4906-3d42-4b8b-8384-527008a88660",
+        "source": "CAMBRIDGE nov 2024, Paper 43, Q6(a)(i)",
+        "question": "Some blood-clotting disorders can be inherited.\n\nDescribe what is meant by the term inheritance.",
+        "marks": 2,
+        "answer_points": [
+          "The transmission of genetic information",
+          "from generation to generation."
+        ],
+        "tip": "One mark for each part."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Inheritance** is the transmission of genetic information from generation to generation.",
+                "Two identical homozygous individuals that breed together are **pure-breeding**.",
+                "A heterozygous individual is not pure-breeding."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.19",
+        "IGCSE 3.20",
+        "IGCSE 3.22"
+      ],
+      "worked_example": {
+        "exemplar_id": "1adaeec3-213f-40f0-85dc-49e9bb132e0c",
+        "source": "EDEXCEL nov 2020, Paper 1 (BR), Q9(c)",
+        "question": "Most inherited conditions are not controlled by a single gene, but by many genes.\nDescribe how a scientist could distinguish between a genetic condition in rats controlled by a single gene and one controlled by many genes.",
+        "marks": 3,
+        "answer_points": [
+          "Use crosses between different rats, or look at pedigree diagrams (family trees), to predict the outcomes.",
+          "A single gene gives a simple pattern in the offspring, such as a 3 : 1 ratio, or offspring that look like one parent.",
+          "A single gene shows discontinuous variation: two or three phenotypes.",
+          "Many genes (polygenic) give continuous variation: intermediate expression and many different phenotypes."
+        ],
+        "tip": "Any three points score the three marks."
       }
     }
   },
@@ -280,14 +372,30 @@
       "a0f91049-eb4b-4b5e-b63f-765432721f87",
       "f6d3bfdf-338d-4aec-bef7-87d5c4fbb8fd",
       "5d501197-7c22-4089-b847-57768c9be2c3",
-      "992317ea-44bc-49e3-b78c-c7e6494e5bef"
+      "992317ea-44bc-49e3-b78c-c7e6494e5bef",
+      "57adc142-63c3-4fd4-b8f5-bde35f5ce26e",
+      "3c939643-935c-412b-a727-7022879c44d5",
+      "37120078-f254-4558-938f-2ff7689a378e",
+      "969b7dd6-33eb-4922-b4d1-21c96ffb304b",
+      "b86733ed-1457-4903-bcc0-666d140ed9e6",
+      "ea18eab8-3166-4b01-87bc-c7cd28e65238",
+      "ab7b6794-a3ba-44c0-b45c-f419b182f8f9",
+      "65ecc6d7-791e-4037-bc98-ca3c86549fb5",
+      "c6d3c58d-587a-472e-aa04-cc5148e74689",
+      "867f8f95-584e-4038-8af5-d5b034ad5227",
+      "50084bca-64c8-498f-a0a3-578c5b5742fd",
+      "be3a9fac-6f6d-4dc1-bafd-ec9ce4b59c54",
+      "f4d1b559-a108-4cfd-995d-58a524a05a3d",
+      "7a72fa39-0aa7-47f5-aa15-6f3ed4a5f42b"
     ],
     "exemplar_ids": [
       "e2b1c7d7-9c3a-4800-aae2-4940c2c726f7",
       "5b3acefb-1f4e-445f-b0ff-033dc4e3b5f4",
-      "8fbc91f2-4d4e-446c-8280-1d3afdfe0c72"
+      "8fbc91f2-4d4e-446c-8280-1d3afdfe0c72",
+      "0e6a4906-3d42-4b8b-8384-527008a88660",
+      "1adaeec3-213f-40f0-85dc-49e9bb132e0c"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

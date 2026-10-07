@@ -278,6 +278,42 @@
         ],
         "tip": "One mark for each problem, up to two. Acid rain and the ozone layer are not allowed."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 10.3.3", "CAIE 10.3.4"],
+      "worked_example": {
+        "exemplar_id": "3b73afe0-51f3-47ee-83dc-89f2da180955",
+        "source": "CAMBRIDGE jun 2023, Paper 43, Q5(d)(i)",
+        "question": "Hydrogen–oxygen fuel cells can be used to produce electricity to power cars.\n\nPetrol produces carbon dioxide and carbon monoxide when it powers cars.\n\nState one adverse effect of carbon dioxide and carbon monoxide.\n\ncarbon dioxide\ncarbon monoxide",
+        "marks": 2,
+        "answer_points": [
+          "Carbon dioxide: increased global warming.",
+          "Carbon monoxide: it is toxic."
+        ],
+        "tip": "Give a different effect for each gas."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "More ways to reduce climate change:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Plant trees.** Trees take in carbon dioxide for photosynthesis.",
+                "Use more **hydrogen** as a fuel, because burning it makes only water.",
+                "Use more renewable energy, such as **wind** and solar power, instead of fossil fuels."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.13"]
     }
   },
   "meta": {
@@ -290,14 +326,17 @@
       "e4e508d0-1909-4a14-9b73-5caf38eb9acc",
       "060193e8-50ab-46e8-8cf0-46ed19f7561c",
       "88132f0d-7963-48dc-b58e-739ff940d55f",
-      "804be853-e189-4e16-a6ce-9cf0b20d18c5"
+      "804be853-e189-4e16-a6ce-9cf0b20d18c5",
+      "45dc76d2-77b7-433b-85f5-81909b8bda74",
+      "7f083ab1-1167-415b-8799-580c7d1c1daf"
     ],
     "exemplar_ids": [
       "ed802034-c60e-4697-8034-bf5a7c45a05d",
-      "3c077690-8725-4c31-b729-5b9fdd072c24"
+      "3c077690-8725-4c31-b729-5b9fdd072c24",
+      "3b73afe0-51f3-47ee-83dc-89f2da180955"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   },
   "format": 1,
   "subject": "chemistry"

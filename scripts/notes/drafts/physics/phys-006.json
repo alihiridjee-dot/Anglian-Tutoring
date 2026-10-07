@@ -243,6 +243,76 @@
         ],
         "tip": "Heat is allowed for thermal energy. Energy transferred to the surroundings by heating scores both marks."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.7.1.6S",
+        "CAIE 1.5.1.6",
+        "CAIE 1.7.3.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "1ab0bc0c-d866-4669-8eaa-111224d198e9",
+        "source": "CAMBRIDGE nov 2023, Paper 42, Q1(d)",
+        "question": "A car decelerates from 13.0 m/s to 0 m/s at a constant deceleration.\nOn another day, the car travels a longer distance while it decelerates from 13.0 m/s to 0 m/s. The deceleration is constant.\n\nSuggest and explain what causes the stopping distance to increase.",
+        "marks": 2,
+        "answer_points": [
+          "A sensible suggestion that increases the stopping distance, such as a wet or icy road.",
+          "An explanation that matches the suggestion, such as less friction between the tyres and the road, so the deceleration is smaller."
+        ],
+        "tip": "One mark for the suggestion and one for an explanation that fits it."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A Sankey diagram shows where the energy goes in a process with several stages."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The width of each arrow is drawn to scale to show the amount of energy.",
+                "The arrow into a stage shows the energy supplied. The arrows out show the useful energy and the wasted energy.",
+                "At each stage the widths of the arrows out add up to the width of the arrow in.",
+                "The useful output of one stage is the input to the next stage."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Solid friction is the force between two surfaces that may impede motion and produce heating.",
+                "Efficiency is how much of the input energy is transferred usefully. A more efficient device wastes less energy."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A Sankey diagram shows where the input energy of a device goes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The width of each arrow is drawn to scale to show the amount of energy.",
+                "The arrow in shows the input energy.",
+                "One arrow out shows the useful energy. A branch shows the wasted energy.",
+                "The widths of the arrows out add up to the width of the arrow in."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -256,14 +326,17 @@
       "a4cc48ad-887a-47b9-a8b9-b91a18f6e5d2",
       "109da1ff-4c55-4bdd-8675-4736443c8345",
       "c218a517-feae-4205-bcae-f9e238f6f51e",
-      "182696c2-b293-4cc2-848d-c337832a61f1"
+      "182696c2-b293-4cc2-848d-c337832a61f1",
+      "12835c26-ad6b-4e7a-802e-3e26edd76e8c",
+      "321a758d-d6a3-4caf-8599-e167ade8abac"
     ],
     "exemplar_ids": [
       "3d466d20-89ac-44f9-bec0-c10db45901d8",
       "0208d8bb-90e4-43f0-8d84-aa0a5ae83512",
-      "2552dca8-dbad-45c4-8861-dca6c9867d40"
+      "2552dca8-dbad-45c4-8861-dca6c9867d40",
+      "1ab0bc0c-d866-4669-8eaa-111224d198e9"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

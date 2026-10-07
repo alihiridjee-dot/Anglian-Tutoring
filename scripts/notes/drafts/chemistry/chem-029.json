@@ -231,6 +231,36 @@
         ],
         "tip": "Count each type of atom first, then add."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.2.2", "CAIE 3.2.3", "CAIE 3.3.8S"],
+      "worked_example": {
+        "exemplar_id": "1be7d164-8da8-413d-a806-d3ccc10e0406",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q3(c)(iii)",
+        "question": "Ammonia reacts with an acid to form ammonium sulfate, (NH₄)₂SO₄.\n\nCalculate the percentage composition by mass of nitrogen in (NH₄)₂SO₄.",
+        "marks": 2,
+        "answer_points": [
+          "Mr of (NH₄)₂SO₄ = 132",
+          "Mass of nitrogen in one formula unit = 2 × 14 = 28",
+          "Percentage of nitrogen = 100 × 28 ÷ 132 = 21.2%"
+        ],
+        "tip": "One mark for the Mr and one mark for the percentage."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.26", "IGCSE 1.28"],
+      "worked_example": {
+        "exemplar_id": "040a58da-c60b-4dce-bcbb-d5b7e3bfc177",
+        "source": "EDEXCEL nov 2020, Paper 1 (C), Q4(c)(iii)",
+        "question": "Ammonium sulfate, (NH₄)₂SO₄, is used by gardeners as a fertiliser because it contains nitrogen.\n\nCalculate the mass, in grams, of nitrogen in 1.0 kg of ammonium sulfate.\n\n[Mr of (NH₄)₂SO₄ = 132; Ar of N = 14]",
+        "marks": 3,
+        "answer_points": [
+          "132 g of ammonium sulfate contains 28 g of nitrogen",
+          "1000 g of ammonium sulfate contains 1000 × (28 ÷ 132) g of nitrogen",
+          "= 212 g"
+        ],
+        "tip": "One mark for each step of the working. Using 14 instead of 28 loses marks, because there are 2 nitrogen atoms in the formula."
+      }
     }
   },
   "meta": {
@@ -241,14 +271,18 @@
       "9e257fbc-d158-4b11-8bf1-8be56a4d0b0b",
       "d1e872d6-63e0-4ff3-8f90-8d3396927619",
       "d6c2e220-83a2-4dd8-bbcd-d3d310642986",
-      "45fa3927-17d8-481c-892d-2eb8d6f1f143"
+      "45fa3927-17d8-481c-892d-2eb8d6f1f143",
+      "3e9ad5f7-101f-424c-a41b-677950cbda15",
+      "2f4759fc-b6a6-4e05-b665-d84cc4f009b5"
     ],
     "exemplar_ids": [
       "ba378f38-db96-4c5c-94ca-439611bb44b5",
       "7e437f33-ec11-4789-95a3-78640946e73c",
-      "a6118302-5fbf-4332-b9fa-218a79f068f3"
+      "a6118302-5fbf-4332-b9fa-218a79f068f3",
+      "1be7d164-8da8-413d-a806-d3ccc10e0406",
+      "040a58da-c60b-4dce-bcbb-d5b7e3bfc177"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

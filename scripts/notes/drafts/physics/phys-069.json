@@ -320,6 +320,150 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 3.2.2.1",
+        "CAIE 3.2.2.3",
+        "CAIE 3.2.4.1",
+        "CAIE 3.1.7",
+        "CAIE 3.2.2.5",
+        "CAIE 3.2.2.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "ec77e21a-d541-404c-8d57-6e556b29c4d7",
+        "source": "CAMBRIDGE nov 2024, Paper 43, Q4(a)(i)",
+        "question": "A ray of light passes from air into a plastic block.\n\nState how the speed, wavelength and frequency of the wave in the plastic compare with their values in the air.",
+        "marks": 2,
+        "answer_points": [
+          "Speed: decreases (slower).",
+          "Wavelength: decreases (shorter).",
+          "Frequency: unchanged (stays the same)."
+        ],
+        "tip": "Any two correct earns one mark. All three correct earn two marks."
+      },
+      "extra": [
+        {
+          "heading": "Light passing through a transparent material",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Angle of incidence",
+                  "meaning": "The angle between the incoming ray and the normal."
+                },
+                {
+                  "term": "Angle of refraction",
+                  "meaning": "The angle between the refracted ray and the normal."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Going into glass (or water), light slows down and bends towards the normal.",
+                "Going out of glass into air, light speeds up and bends away from the normal.",
+                "Its frequency does not change. Its speed and wavelength both decrease in the glass.",
+                "Only the boundary changes the ray. Inside the glass, the light travels in a straight line."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Refractive index",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Refractive index compares the speed of light in two materials."
+            },
+            {
+              "type": "equation",
+              "label": "Refractive index",
+              "formula": "n = speed of light in air ÷ speed of light in the material",
+              "where": ["n = refractive index (no unit)", "speeds in m/s"]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Refractive index is a ratio of two speeds, so it has no unit.",
+                "A bigger refractive index means the light slows down more and bends more."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Dispersion",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A glass prism splits white light into a spectrum."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Dispersion",
+                  "meaning": "The splitting of white light into its colours as it is refracted."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Each colour is refracted by a different amount.",
+                "Violet is refracted the most and red the least."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.9", "IGCSE 3.14", "IGCSE 3.16", "IGCSE 3.18", "IGCSE 3.23"],
+      "extra": [
+        {
+          "heading": "Refractive index",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Angle of incidence",
+                  "meaning": "The angle between the incoming ray and the normal."
+                },
+                {
+                  "term": "Angle of refraction",
+                  "meaning": "The angle between the refracted ray and the normal."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The refractive index links the angle of incidence to the angle of refraction."
+            },
+            {
+              "type": "equation",
+              "label": "Refractive index",
+              "formula": "n = sin i ÷ sin r",
+              "where": [
+                "n = refractive index (no unit)",
+                "i = angle of incidence (°)",
+                "r = angle of refraction (°)"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Light going from air into a material has n greater than 1.",
+                "A bigger refractive index means the ray bends more towards the normal.",
+                "In a ray diagram, draw the normal, the incident ray and the refracted ray, and mark i and r. The ray bends towards the normal in the denser material.",
+                "Sound waves are refracted too, because their speed changes when they pass from one material into another."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -334,14 +478,18 @@
       "c42aa054-c47c-458f-966e-ee210b455276",
       "ec30fe8e-933f-46f5-b6dc-3e73bf0acb7f",
       "71c88bc4-c8ee-4654-bcb7-853f45c9ba0b",
-      "c6fcca5c-ddf9-49ec-8eb8-d07b77f3a16a"
+      "c6fcca5c-ddf9-49ec-8eb8-d07b77f3a16a",
+      "cb1de564-4f20-440b-8e61-18b90a3aab62",
+      "dd023f4e-3c1b-46f3-9812-4973866694f2",
+      "c85377ac-37de-4fae-9e06-14331448adcd"
     ],
     "exemplar_ids": [
       "fe15ffe9-4d6d-4cb4-85fd-07a62dd392bb",
       "12a6430c-cf01-40b7-830f-90e55bcb5699",
-      "1d8efa40-bf6a-48ed-a9ba-11b2d1b4a130"
+      "1d8efa40-bf6a-48ed-a9ba-11b2d1b4a130",
+      "ec77e21a-d541-404c-8d57-6e556b29c4d7"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

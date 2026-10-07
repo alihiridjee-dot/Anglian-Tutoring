@@ -166,6 +166,10 @@ function arrange(world: {
   resumeFails?: boolean;
   /** The student's breaks that stand. */
   breaks?: StudentBreak[];
+  /** The exam year the student gave at sign-up. */
+  examYear?: number | null;
+  /** The database fails to answer the exam-year read. */
+  profileFails?: boolean;
 }) {
   spies = [
     spyOn(ScheduleDAL, "getTopicProgress").mockImplementation(async (args) => {
@@ -224,6 +228,16 @@ function arrange(world: {
         return new Response(JSON.stringify(world.overrides ?? []), {
           headers: { "Content-Type": "application/json" },
         });
+      // The exam year from sign-up, read only while the subject has no plan.
+      if (table === "profiles" && method === "GET") {
+        if (world.profileFails)
+          return new Response(JSON.stringify({ message: "statement timeout", code: "57014" }), {
+            status: 500,
+          });
+        return new Response(JSON.stringify([{ exam_year: world.examYear ?? null }]), {
+          headers: { "Content-Type": "application/json" },
+        });
+      }
       if (table !== "student_program_plan") throw new Error(`Unexpected request: ${url.pathname}`);
       if (method === "GET") {
         if (baselineFails)
@@ -367,6 +381,60 @@ test("a failed baseline read throws rather than posing as a first view", async (
   arrange({});
   await expect(load()).rejects.toMatchObject({ code: "42501" });
   expect(io).toMatchSnapshot();
+});
+
+/**
+ * The exam year given at sign-up. The nearest June was the only answer before,
+ * so a Year 10 who joined in September had a two-year course squeezed into
+ * nine months. Asserted outright rather than snapshotted: this is a fix, not
+ * a characterisation.
+ */
+const seedOf = () =>
+  (
+    io.find((e) => Array.isArray(e) && e[0] === "db" && e[1] === "POST") as unknown[] | undefined
+  )?.[3] as { exam_date: string } | undefined;
+const readExamYear = () => io.some((e) => Array.isArray(e) && e[0] === "db" && e[2] === "profiles");
+
+test("first view by a Year 10: the plan runs to the summer after next", async () => {
+  arrange({ examYear: 2028 });
+  const result = await load();
+  expect(result!.examDate).toBe("2028-06-05");
+  expect(seedOf()?.exam_date).toBe("2028-06-05");
+});
+
+test("first view with no exam year given: the nearest summer, as before", async () => {
+  arrange({ examYear: null });
+  const result = await load();
+  expect(result!.examDate).toBe("2027-06-07");
+  expect(seedOf()?.exam_date).toBe("2027-06-07");
+});
+
+test("a plan that exists keeps its own date and never reads the exam year", async () => {
+  baseline = {
+    program_start: "2026-09-07",
+    exam_date: "2027-06-07",
+    pacing: seeded("2026-09-07", "2027-06-07"),
+  };
+  arrange({ examYear: 2028 });
+  const result = await load();
+  expect(result!.examDate).toBe("2027-06-07");
+  expect(readExamYear()).toBe(false);
+});
+
+test("an unreadable stored date is repaired to the exam year", async () => {
+  baseline = {
+    program_start: "2026-09-07",
+    exam_date: "0002-06-01",
+    pacing: seeded("2026-09-07", "2027-06-07"),
+  };
+  arrange({ examYear: 2028 });
+  expect((await load())!.examDate).toBe("2028-06-05");
+});
+
+test("a failed exam-year read throws rather than saving a plan on the guess", async () => {
+  arrange({ profileFails: true });
+  await expect(load()).rejects.toMatchObject({ code: "57014" });
+  expect(seedOf()).toBeUndefined();
 });
 
 /**

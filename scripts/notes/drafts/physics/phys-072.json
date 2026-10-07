@@ -306,6 +306,69 @@
         ],
         "tip": "The time is divided by 2 because the wave travels to the boundary and back."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.4.9", "CAIE 3.4.12S", "CAIE 3.3.9S"],
+      "worked_example": {
+        "exemplar_id": "866af461-72cc-4f73-97c6-a5735be8907c",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q8(b)",
+        "question": "A fisherman uses high frequency sound waves to locate fish in the sea.\n\nSound waves travel from the boat through the sea water. The speed of sound in water is 1500 m/s. The seabed is 22 m below the boat.\n\nCalculate the time taken for the boat to receive the reflected wave from the seabed after the sound is emitted.",
+        "marks": 3,
+        "answer_points": [
+          "The pulse travels down and back: distance = 22 × 2 = 44 m.",
+          "Use speed = distance ÷ time, so time = 44 ÷ 1500.",
+          "Time = 0.029 s."
+        ],
+        "tip": "The pulse travels to the seabed and back, so the distance is doubled."
+      },
+      "extra": [
+        {
+          "heading": "Non-destructive testing",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Ultrasound can test a material without damaging it."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Pulses are sent into a metal or other solid.",
+                "A crack or flaw inside reflects the pulse back earlier than the far side does.",
+                "The echo time shows where the flaw is, so the part does not need to be cut open."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Analogue and digital signals",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A sound can be sent as an analogue signal or as a digital signal."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Analogue signal",
+                  "meaning": "A signal whose value varies continuously, so it can take any value within a range."
+                },
+                {
+                  "term": "Digital signal",
+                  "meaning": "A signal that has only two values, on and off, which are written as 1 and 0."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Interference adds noise to both kinds of signal.",
+                "A digital signal can be cleaned and regenerated, so the sound arrives with better quality."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -319,14 +382,17 @@
       "435460bf-9968-4429-9ddb-4aa7a4cbaa2e",
       "375a6a82-37ab-4f74-8b54-238076f84918",
       "0f2f6839-c075-4535-a158-c38579d47b9a",
-      "a6129881-120a-4aed-8413-0f41be6df421"
+      "a6129881-120a-4aed-8413-0f41be6df421",
+      "990f12aa-f1b8-4f5d-9a29-6744c62bcd0f",
+      "044b4514-868b-40de-aa66-d331cd970c95"
     ],
     "exemplar_ids": [
       "a379ad40-2f74-4dba-9c6f-04a9af64cfaa",
       "8c405010-0536-4d6a-940e-2c49d77a5003",
-      "ba6ec042-5cdd-4cdd-b5c3-af54d6e292a6"
+      "ba6ec042-5cdd-4cdd-b5c3-af54d6e292a6",
+      "866af461-72cc-4f73-97c6-a5735be8907c"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

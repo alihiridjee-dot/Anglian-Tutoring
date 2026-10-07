@@ -319,6 +319,113 @@
         ],
         "tip": "Any two differences from the list score. The slower-acting and longer-lived points can be given the other way round for the nervous system."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 14.1.1",
+        "CAIE 14.1.2",
+        "CAIE 14.1.3",
+        "CAIE 14.1.4",
+        "CAIE 14.1.7",
+        "CAIE 14.1.8S",
+        "CAIE 14.1.9S",
+        "CAIE 14.1.10S",
+        "CAIE 2.1.6",
+        "CAIE 14.2.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "9316bf3e-6f22-4da7-b17d-637be9f191fd",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q2(b)(ii)",
+        "question": "Describe how the events that occur at a synapse generate an impulse in the next neurone.",
+        "marks": 3,
+        "answer_points": [
+          "A neurotransmitter is involved.",
+          "The neurotransmitter is released from vesicles in the first neurone into the synaptic gap.",
+          "The neurotransmitter molecules diffuse across the gap.",
+          "They bind to receptor proteins on the next neurone, which stimulates an impulse."
+        ],
+        "tip": "Any three points score. Name the neurotransmitter, the diffusion and the binding to receptors."
+      },
+      "extra": [
+        {
+          "heading": "The peripheral nervous system",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The nervous system has two parts. The CNS is the brain and spinal cord."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The **peripheral nervous system (PNS)** is the nerves outside the brain and spinal cord.",
+                "The PNS links the receptors and effectors to the CNS."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Synapse structure and one-way transmission",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A synapse has three main features."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The first neurone has **vesicles** that contain neurotransmitter molecules.",
+                "The **synaptic gap** is the space between the two neurones.",
+                "The next neurone has **receptor proteins** that the neurotransmitter binds to."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Only the first neurone releases neurotransmitter, and only the next neurone has receptors. So a synapse makes impulses travel in one direction only."
+            }
+          ]
+        },
+        {
+          "heading": "Sense organs",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A **sense organ** is a group of receptor cells that respond to a specific stimulus."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Light: the eye.",
+                "Sound: the ear.",
+                "Touch and temperature: the skin.",
+                "Chemicals: the tongue and nose."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.87",
+        "IGCSE 2.88",
+        "IGCSE 2.89",
+        "IGCSE 2.80",
+        "IGCSE 2.82",
+        "IGCSE 2.86"
+      ],
+      "worked_example": {
+        "exemplar_id": "27c20789-427c-4e4b-bc23-8003470fa8de",
+        "source": "EDEXCEL jun 2022, Paper 2 (BR), Q5(b)",
+        "question": "Give three differences between hormones and neurotransmitters.",
+        "marks": 3,
+        "answer_points": [
+          "Hormones are produced in endocrine glands. Neurotransmitters are produced in the first (presynaptic) neurone.",
+          "Hormones are carried in the blood. Neurotransmitters pass across a synapse.",
+          "Hormones affect many target cells all around the body. Neurotransmitters affect one cell.",
+          "Hormones give a long-term effect. Neurotransmitters give a short-term effect."
+        ],
+        "tip": "Any three differences score one mark each. Write both sides of each difference."
+      }
     }
   },
   "meta": {
@@ -330,14 +437,27 @@
       "e3c47ee5-13ee-4efd-af2b-5e3ef87cc7d8",
       "aa916ef6-f3af-40f6-a287-bb1c8eba668f",
       "21effacc-c360-4170-b045-3eb75ff6dee3",
-      "d1d58c20-6ce8-4a6a-befc-81e9556e49f3"
+      "d1d58c20-6ce8-4a6a-befc-81e9556e49f3",
+      "047c7383-3ae5-4930-9fb8-778bc94d89dc",
+      "a37906b7-0813-48fb-885c-e5371edfba05",
+      "339ffa59-f233-4fcc-a655-7b30fffc3ae5",
+      "857317dc-7331-464a-9150-363727d7fb83",
+      "5d9b35e1-212f-4324-a9ab-43ecc1a3a889",
+      "5f06721a-141f-46e1-90f8-2b9deb521538",
+      "30ea6d90-94ff-4920-9256-09465b5db8a8",
+      "e5a32284-8060-4790-8ba5-5df7a138ec84",
+      "8fda8bc8-1e74-453b-be62-ec72395dac79",
+      "6383e4fa-91c6-4f33-b15c-0b398f54a109",
+      "09686e8d-a9ce-40b3-b773-cd98cd951a0b"
     ],
     "exemplar_ids": [
       "5d8d123f-4509-45a8-8134-eba903d1ade3",
       "7a3f0f7a-c049-4815-bd7e-8d43f71f7b28",
-      "18d8c02f-68c6-401b-945f-0e1d96d0d07d"
+      "18d8c02f-68c6-401b-945f-0e1d96d0d07d",
+      "9316bf3e-6f22-4da7-b17d-637be9f191fd",
+      "27c20789-427c-4e4b-bc23-8003470fa8de"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }

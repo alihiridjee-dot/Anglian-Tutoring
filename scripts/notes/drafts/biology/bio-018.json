@@ -42,7 +42,13 @@
           "diagram": {
             "kind": "flow",
             "alt": "The levels of organisation in order: cell, tissue, organ, organ system, organism. Each level is made of the one before.",
-            "steps": ["Cell", "Tissue", "Organ", "Organ system", "Organism"]
+            "steps": [
+              "Cell",
+              "Tissue",
+              "Organ",
+              "Organ system",
+              "Organism"
+            ]
           }
         },
         {
@@ -109,7 +115,13 @@
             "kind": "sequence",
             "alt": "Put the structures in order of size, smallest first.",
             "prompt": "Put these in order, smallest to largest",
-            "steps": ["Nucleus", "Cell", "Tissue", "Organ", "Organ system"]
+            "steps": [
+              "Nucleus",
+              "Cell",
+              "Tissue",
+              "Organ",
+              "Organ system"
+            ]
           }
         },
         {
@@ -141,27 +153,88 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 2.1", "AQA T 4.2.1"],
+      "spec_codes": [
+        "AQA 2.1",
+        "AQA T 4.2.1"
+      ],
       "worked_example": {
         "exemplar_id": "0e397f32-b50c-4580-aa5f-9f5ce923ba8d",
         "source": "AQA jun 2019, Paper 1 (F), Q3.1",
         "question": "Write the biological structures from the box in the correct size order.\n\ncell   nucleus   organ   tissue\n\nSmallest\n\nLargest",
         "marks": 3,
-        "answer_points": ["Smallest: nucleus", "Then: cell", "Then: tissue", "Largest: organ"],
+        "answer_points": [
+          "Smallest: nucleus",
+          "Then: cell",
+          "Then: tissue",
+          "Largest: organ"
+        ],
         "tip": "All four in the correct order scores full marks. One mark is given for each consecutive pair in the right order."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.1.7"
+      ],
+      "worked_example": {
+        "exemplar_id": "ffa17cea-e4f8-4904-bb62-5ba3904818b8",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q1(a)",
+        "question": "Explain why a leaf is considered to be an organ.",
+        "marks": 2,
+        "answer_points": [
+          "It is made of (named) tissues.",
+          "The tissues work together for a specific (named) function."
+        ]
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "d7a2a763-be71-4eea-8421-fb0cc80c90f5",
+        "source": "EDEXCEL jan 2021, Paper 1 (BR), Q2(b)",
+        "question": "The adrenal gland is an organ that secretes adrenaline.\nState what is meant by the term organ.",
+        "marks": 1,
+        "answer_points": [
+          "Several or different tissues carrying out a particular function."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Organelles are the level below the cell. The full order is organelle, cell, tissue, organ, organ system."
+            },
+            {
+              "type": "list",
+              "items": [
+                "An **organelle** is a structure inside a cell with its own job.",
+                "Examples are the nucleus, mitochondria and chloroplasts."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "630f6f04-55e3-4352-85df-1a98bd839364",
-      "294f73f0-3f53-43d0-8deb-fa399f6d591d"
+      "294f73f0-3f53-43d0-8deb-fa399f6d591d",
+      "3c757058-d3b5-422f-8b04-cee2dd300ffc",
+      "99e72a00-c26b-424f-b2e7-40db2826aaac"
     ],
-    "exemplar_ids": ["0e397f32-b50c-4580-aa5f-9f5ce923ba8d"]
+    "exemplar_ids": [
+      "0e397f32-b50c-4580-aa5f-9f5ce923ba8d",
+      "ffa17cea-e4f8-4904-bb62-5ba3904818b8",
+      "d7a2a763-be71-4eea-8421-fb0cc80c90f5"
+    ]
   }
 }

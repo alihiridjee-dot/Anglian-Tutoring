@@ -248,12 +248,45 @@
         ],
         "tip": "Any three points score. Saying only that the boat is hollow or contains air scores a maximum of 1 mark."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.4.3", "CAIE 1.4.4S"],
+      "worked_example": {
+        "exemplar_id": "11dffc53-54fe-4009-ae42-243d2fc71161",
+        "source": "CAMBRIDGE nov 2023, Paper 43, Q1(a)",
+        "question": "Oil of density 0.80 g/cm³ is poured gently onto the surface of water of density 1.0 g/cm³. The oil and the water do not mix. Describe and explain the final position of the oil relative to the water.",
+        "marks": 2,
+        "answer_points": [
+          "Description: the oil stays on the surface, floating on the water.",
+          "Explanation: the oil has a lower density than the water. A liquid of lower density floats on a liquid of higher density."
+        ],
+        "tip": "One mark for where the oil is, and one for the density reason."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Liquids that do not mix can float on each other."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A liquid floats on another liquid it does not mix with if it is less dense.",
+                "A denser liquid sinks below a less dense one.",
+                "Use the density data to put the liquids in order, with the least dense on top."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -261,7 +294,9 @@
       "a003684d-a39e-46cc-b753-4ccc26c5c1cf",
       "44379e5d-725a-4033-b3c8-339f0cf8fe53",
       "0aefd7c5-86a6-4a1d-befb-0622b9a15afb",
-      "0fb8b8d4-4cf2-4e42-b809-12326bb36d46"
+      "0fb8b8d4-4cf2-4e42-b809-12326bb36d46",
+      "ccfa52b0-4324-4362-8762-d3bd60d1995d",
+      "8b564078-bbc5-44e3-b421-d629b90cbef8"
     ],
     "exemplar_ids": [
       "b99bf34c-e3d7-4d99-af99-2cf1341c3a2f",
@@ -269,7 +304,8 @@
       "a44bd684-7baa-4e3e-9ad2-81b33dc07bca",
       "c1550ce8-0b66-48df-9b00-4bc5458a095e",
       "34cacf70-3d0f-47c4-96b9-7845029fa1fd",
-      "a8c2663e-a3ae-4172-aaf0-39b93e843830"
+      "a8c2663e-a3ae-4172-aaf0-39b93e843830",
+      "11dffc53-54fe-4009-ae42-243d2fc71161"
     ]
   }
 }

@@ -252,6 +252,83 @@
         ],
         "tip": "One mark for the idea that mass is conserved and one for the explanation in terms of particles. Atoms or molecules are accepted for particles."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.1.1.2",
+        "CAIE 2.2.3.2",
+        "CAIE 2.2.3.3",
+        "CAIE 2.1.2.6S",
+        "CAIE 2.2.3.4",
+        "CAIE 2.2.3.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "2c949b9d-7424-4213-b50a-e723692746d5",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q4(b)(iii)",
+        "question": "The water in a dish evaporates. Explain, in terms of the water molecules, what is meant by evaporation.",
+        "marks": 2,
+        "answer_points": [
+          "Water molecules with more energy (enough energy) escape",
+          "They escape from the surface of the water"
+        ],
+        "tip": "Say that the more energetic molecules leave, and that they leave from the surface."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "At standard atmospheric pressure, pure water melts (and freezes) at 0 °C and boils at 100 °C.",
+                "Condensation: gas particles slow down as they lose energy. Attractive forces pull them together into a liquid.",
+                "Solidification: liquid particles slow down further and settle into fixed positions in a solid."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Evaporation and boiling",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Evaporation is the escape of the more energetic particles from the surface of a liquid. Boiling is a different way for a liquid to become a gas."
+            },
+            {
+              "type": "table",
+              "columns": ["Feature", "Evaporation", "Boiling"],
+              "rows": [
+                ["Where it happens", "At the surface only", "Throughout the liquid, with bubbles"],
+                [
+                  "Temperature",
+                  "At any temperature below the boiling point",
+                  "At one fixed temperature, the boiling point"
+                ],
+                ["Speed", "Slow", "Fast"]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Evaporation cools the liquid left behind, because the particles that escape are the ones with the most energy."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 5.9P"],
+      "worked_example": {
+        "exemplar_id": "9177142c-16ac-4520-b90f-753445060934",
+        "source": "EDEXCEL jun 2022, Paper 2 (PR), Q4(d)",
+        "question": "When water boils, the liquid water becomes a gas called steam. Describe the changes in arrangement and motion of the molecules in liquid water and the molecules in steam.",
+        "marks": 4,
+        "answer_points": [
+          "Liquid: the molecules are close together",
+          "Gas: the molecules are widely spaced",
+          "Liquid: the molecules move (slide) past each other",
+          "Gas: the molecules move faster, freely and randomly in straight lines"
+        ]
+      }
     }
   },
   "meta": {
@@ -263,14 +340,20 @@
       "36e24922-8e21-4c0e-b87d-f16f2fa8643e",
       "01c0dfd5-66d3-400a-9765-004501a10701",
       "34a7aa2c-3875-439e-9cc8-9bb57a5cd8a3",
-      "c2bcfe4d-42f5-4559-a0a9-5dd8b12736ea"
+      "c2bcfe4d-42f5-4559-a0a9-5dd8b12736ea",
+      "d6927f3b-60e0-44e3-a3ba-0d8a5f9669ae",
+      "8da6964e-d299-4cbb-a354-e004dc580196",
+      "9eb58ffe-2232-43b7-a082-5fa34d3dc2ac",
+      "116c6354-0a11-4569-9cac-fe90a997f160"
     ],
     "exemplar_ids": [
       "58eb63d0-0573-4cdf-87e9-7dc255b216e3",
       "2cce56c7-9b48-4ce9-94fe-73cc8abecf93",
-      "6893cbf4-b2b2-48ec-90da-31c14ab520d4"
+      "6893cbf4-b2b2-48ec-90da-31c14ab520d4",
+      "2c949b9d-7424-4213-b50a-e723692746d5",
+      "9177142c-16ac-4520-b90f-753445060934"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-06"
   }
 }
