@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { PlannerRosterDAL, type PlannerStudent } from "@/lib/planner/plannerRosterDal";
 import { BreakDAL } from "@/lib/planner/breaksDal";
 import { breakCovering } from "@/lib/planner/breaks";
+import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { PlanOverridesDAL } from "@/lib/planner/planOverridesDal";
 import { selectWeek } from "@/lib/planner/weekCut";
 import { overridesForWeek } from "@/lib/planner/overrides";
@@ -245,7 +246,15 @@ export function useTutorPlanner() {
       ),
     [roadmap],
   );
-  /** Mondays a point can be moved to: from this week to the exam, minus the week in view. */
+  // The open student's breaks: nothing new can be planned for their weeks.
+  const studentBreaks = useQuery({
+    ...studentBreaksQuery(studentId),
+    enabled: !!student && !!active,
+  });
+  /**
+   * Mondays a point can be moved to: from this week to the exam, minus the
+   * week in view and any week the student is on a break for.
+   */
   const weekChoices = useMemo(() => {
     const out: string[] = [];
     if (!roadmap) return out;
@@ -254,9 +263,9 @@ export function useTutorPlanner() {
       w < roadmap.examDate && out.length < 60;
       w = toDateKey(addWeeks(weekKeyToDate(w), 1))
     )
-      if (w !== weekStart) out.push(w);
+      if (w !== weekStart && !breakCovering(studentBreaks.data ?? [], w)) out.push(w);
     return out;
-  }, [roadmap, currentWeek, weekStart]);
+  }, [roadmap, currentWeek, weekStart, studentBreaks.data]);
 
   const warnings = useMemo(
     () => assignmentWarnings({ specPointIds: toAdd, roadmap, saved: points, overrides }),
