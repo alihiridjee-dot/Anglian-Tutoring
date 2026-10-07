@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Clock3, Loader2, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -12,9 +13,12 @@ import {
   type TimestampedDraft,
 } from "@/lib/homework/homeworkDrafts";
 import { isAlreadySubmitted, startMarking } from "@/lib/homework/startMarking";
+import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import { SciText } from "@/components/Shared";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
+import { MarkScheme } from "@/components/homework/MarkScheme";
+import { isDemoStudent } from "@/lib/demo/studentDemo";
 
 /**
  * The body of a homework sheet: the questions, and either the boxes to answer
@@ -122,9 +126,11 @@ export function AnsweredView({
               {marked && q.mark_scheme && (
                 <div className="border-border mt-2 border-t pt-2">
                   <p className="eyebrow-bare">Mark scheme</p>
-                  <p className="text-muted-foreground mt-1 text-xs whitespace-pre-wrap">
-                    <SciText text={q.mark_scheme} context={notation} />
-                  </p>
+                  <MarkScheme
+                    scheme={q.mark_scheme}
+                    context={notation}
+                    className="mt-1.5 text-sm"
+                  />
                 </div>
               )}
             </li>
@@ -142,7 +148,7 @@ const EMPTY_WORK: TimestampedDraft = { answers: {}, notes: "", stamps: {}, saved
 export function AnswerForm({
   hw,
   questions,
-  userId,
+  userId: viewerId,
   onChanged,
   readonly,
   showMarkScheme = false,
@@ -154,6 +160,12 @@ export function AnswerForm({
   readonly: boolean;
   showMarkScheme?: boolean;
 }) {
+  // The showcase lets a visitor type, but keeps every word in this component:
+  // no draft is read or saved and nothing is handed in. It has no student, yet
+  // whoever is signed in to this browser comes through as `userId`, so it is
+  // dropped here — every load, save and catch-up below waits on it.
+  const demo = isDemoStudent();
+  const userId = demo ? null : viewerId;
   // Every answer and the note, each with the time it was last edited here.
   // The times are what let copies from other devices merge in per question
   // (see mergeDrafts) instead of one whole draft overwriting another.
@@ -164,6 +176,7 @@ export function AnswerForm({
   const [saving, setSaving] = useState(false);
   const [restored, setRestored] = useState(false);
   const [confirming, setConfirming] = useState(false);
+  const queryClient = useQueryClient();
   const notes = work.notes;
 
   const draftOf = (id: string): Draft => ({ text: work.answers[id] ?? "" });
@@ -322,6 +335,9 @@ export function AnswerForm({
       setRestored(false);
       setConfirming(false);
       onChanged();
+      // The weekly task list reads hand-ins too; without this it kept offering
+      // "Start" on the task just handed in until its cache went stale.
+      void invalidatePlanner(queryClient, userId);
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Could not submit");
     } finally {
@@ -333,10 +349,10 @@ export function AnswerForm({
     // Two audiences reach this, wanting opposite things.
     //
     // A tutor previewing a sheet is checking it, so they get the mark schemes.
-    // The public showcase is a prospective student looking at what homework is
-    // like here, so it gets the boxes — disabled, but present, because a page
-    // of questions with nowhere to type them is a worse advert than the real
-    // thing — and never the mark schemes, which are the answers.
+    // Anyone else read-only gets the boxes — disabled, but present, because a
+    // page of questions with nowhere to type them reads as broken — and never
+    // the mark schemes, which are the answers. (The public showcase used to be
+    // read-only here; it now gets the form below, with nothing saved.)
     return (
       <div className="space-y-3">
         {questions.map((q, i) => (
@@ -346,9 +362,11 @@ export function AnswerForm({
               q.mark_scheme && (
                 <div className="border-border mt-3 border-t pt-2">
                   <p className="eyebrow-bare">Mark scheme</p>
-                  <p className="text-muted-foreground mt-1 text-xs whitespace-pre-wrap">
-                    <SciText text={q.mark_scheme} context={q.prompt} />
-                  </p>
+                  <MarkScheme
+                    scheme={q.mark_scheme}
+                    context={q.prompt}
+                    className="mt-1.5 text-sm"
+                  />
                 </div>
               )
             ) : (
@@ -370,6 +388,12 @@ export function AnswerForm({
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        if (demo) {
+          toast(
+            "This is a demo, so nothing is saved. Sign up and your tasks are marked within minutes.",
+          );
+          return;
+        }
         // Answers typed on another device belong in what's handed in, and in
         // the count the confirmation shows.
         void catchUp().finally(() => setConfirming(true));
@@ -446,10 +470,13 @@ export function AnswerForm({
         </div>
       ) : (
         <>
-          <p className="text-muted-foreground text-[11px] leading-relaxed">
-            Your answers save as you type, on this device and to your account — you can come back to
-            them. Submitting is final.
-          </p>
+          {/* Untrue in the showcase, which saves nothing. */}
+          {!demo && (
+            <p className="text-muted-foreground text-[11px] leading-relaxed">
+              Your answers save as you type, on this device and to your account — you can come back
+              to them. Submitting is final.
+            </p>
+          )}
           <button
             type="submit"
             className="btn-solid inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg text-sm font-semibold sm:pointer-fine:h-10"

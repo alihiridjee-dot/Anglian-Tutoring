@@ -1,0 +1,359 @@
+{
+  "format": 1,
+  "concept_id": "phys-025",
+  "subject": "physics",
+  "title": "Changes of state",
+  "key_idea": "Melting, freezing, boiling, evaporating, condensing and sublimating are changes of state. They are physical changes. The particles stay the same, so the mass is conserved and the material recovers its original properties if the change is reversed.",
+  "sections": [
+    {
+      "heading": "The six changes of state",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A change of state turns a solid, liquid or gas into another state. This section names the six changes and shows what happens to the particles as a substance is heated."
+        },
+        {
+          "type": "table",
+          "columns": ["Change", "Starts as", "Ends as"],
+          "rows": [
+            ["Melting", "Solid", "Liquid"],
+            ["Freezing", "Liquid", "Solid"],
+            ["Boiling", "Liquid", "Gas"],
+            ["Evaporating", "Liquid", "Gas"],
+            ["Condensing", "Gas", "Liquid"],
+            ["Sublimating", "Solid", "Gas, directly, without becoming a liquid"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heating can cause melting, boiling, evaporating and sublimating.",
+            "Cooling can cause freezing and condensing.",
+            "Sublimation can also run in reverse, from a gas directly to a solid."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the temperature of water and watch its particles change state.",
+            "inputs": [
+              {
+                "id": "T",
+                "label": "Temperature of water",
+                "unit": "°C",
+                "min": -20,
+                "max": 120,
+                "step": 5,
+                "value": 20
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Water temperature",
+                "unit": "°C",
+                "formula": "T",
+                "decimals": 0
+              }
+            ],
+            "scene": {
+              "kind": "particles",
+              "temperature": "T",
+              "melting": 0,
+              "boiling": 100
+            }
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Melting: solid to liquid. Freezing: liquid to solid.",
+            "Boiling and evaporating: liquid to gas. Condensing: gas to liquid.",
+            "Sublimating: solid directly to gas."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What the particles do",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The arrangement and movement of the particles change with the state. The particles themselves do not change."
+        },
+        {
+          "type": "subheading",
+          "text": "Heating a solid to a liquid"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a solid, the particles are in a regular pattern, vibrating about fixed positions.",
+            "In a liquid, the particles are in a random arrangement and move freely.",
+            "While the solid melts, the temperature stays constant. The energy goes into the potential energy of the particles.",
+            "Once it has melted, more heating makes the particles move faster, so the temperature rises again."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Cooling a gas to a solid"
+        },
+        {
+          "type": "list",
+          "items": [
+            "As a gas cools, the particles slow down.",
+            "Gas to liquid: the particles change from being spread apart to touching each other.",
+            "Liquid to solid: the particles change from a random arrangement to a regular pattern, and from moving freely to vibrating in fixed positions.",
+            "Attractive forces between the particles are stronger in a solid than in a liquid. In a gas the forces are negligible."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "While a substance melts or boils, its temperature stays constant.",
+            "Solid: regular pattern, vibrating in fixed positions. Liquid: random arrangement, moving freely.",
+            "Cooling slows the particles down. The energy changes are in the internal energy note."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Physical changes and conservation of mass",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Changes of state are physical changes. This section covers why the mass stays the same and how a physical change differs from a chemical change."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The particles are rearranged, but none are gained or lost. The number of particles stays the same.",
+            "So the mass is conserved. Mass before = mass after.",
+            "For example, 40 g of ice that melts makes 40 g of water.",
+            "The volume and the density do change, because the particles are arranged differently."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Physical change",
+              "meaning": "A change where the material recovers its original properties if the change is reversed."
+            },
+            {
+              "term": "Chemical change",
+              "meaning": "A change that makes new substances. It cannot easily be reversed."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each change into physical or chemical.",
+            "prompt": "Sort each change into physical or chemical.",
+            "groups": ["Physical change", "Chemical change"],
+            "items": [
+              {
+                "text": "Ice melting",
+                "group": 0
+              },
+              {
+                "text": "Steam condensing on a cold window",
+                "group": 0
+              },
+              {
+                "text": "Water freezing",
+                "group": 0
+              },
+              {
+                "text": "Dry ice turning directly into gas",
+                "group": 0
+              },
+              {
+                "text": "Wood burning",
+                "group": 1
+              },
+              {
+                "text": "Iron rusting",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mass is conserved in every change of state, because the particles are only rearranged.",
+            "Physical change: the original properties return when the change is reversed.",
+            "Chemical change: new substances form and it cannot easily be reversed."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is the name of the change of state from a solid directly to a gas?",
+      "a": "Sublimation (sublimating).",
+      "marks": 1
+    },
+    {
+      "q": "100 g of steam condenses. What is the mass of the water formed? Explain your answer.",
+      "a": "100 g. Mass is conserved because the particles are only rearranged and the number of particles stays the same.",
+      "marks": 2
+    },
+    {
+      "q": "How is a physical change different from a chemical change?",
+      "a": "In a physical change the material recovers its original properties if the change is reversed. A chemical change cannot easily be reversed.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.1.2", "AQA T 6.3.1.2"],
+      "worked_example": {
+        "exemplar_id": "58eb63d0-0573-4cdf-87e9-7dc255b216e3",
+        "source": "AQA jun 2019, Paper 1 (F), Q07.4",
+        "question": "Argon in the air changed from a gas to a liquid to a solid as the temperature decreased from 20 °C to –190 °C. Explain the changes in the arrangement and movement of the particles of the argon as the temperature of the air decreased.",
+        "marks": 6,
+        "answer_points": [
+          "as the argon cools the particles slow down",
+          "gas to liquid: the particles change from being spread apart to touching each other",
+          "liquid to solid: the particles change from a random arrangement to a regular pattern",
+          "liquid to solid: the particles change from moving freely to vibrating in fixed positions",
+          "the (kinetic) energy of the particles decreases with temperature",
+          "attractive forces between the particles are stronger in a solid than in a liquid"
+        ],
+        "tip": "For the top level, explain the changes in arrangement and movement during either cooling or a change of state, and link the points logically."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 14.5"],
+      "worked_example": {
+        "exemplar_id": "2cce56c7-9b48-4ce9-94fe-73cc8abecf93",
+        "source": "EDEXCEL jun 2022, Paper 2 (H), Q3(d)",
+        "question": "Describe what happens when a substance experiences sublimation.",
+        "marks": 2,
+        "answer_points": ["a change of state: a solid changes", "directly to a gas / vapour"],
+        "tip": "The reverse, gas to solid, is also accepted. An example such as ice to water vapour also scores."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P1.2a", "OCR P1.2b"],
+      "worked_example": {
+        "exemplar_id": "6893cbf4-b2b2-48ec-90da-31c14ab520d4",
+        "source": "OCR jun 2019, Paper 1, Q22(a)(ii)",
+        "question": "A student puts an ice cube of mass 40 g into a beaker. The ice cube melts. The mass of the water produced is 40 g. Explain why.",
+        "marks": 2,
+        "answer_points": [
+          "mass before = mass after / mass is conserved",
+          "the particles are rearranged, and the number of particles stays the same"
+        ],
+        "tip": "One mark for the idea that mass is conserved and one for the explanation in terms of particles. Atoms or molecules are accepted for particles."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.1.1.2",
+        "CAIE 2.2.3.2",
+        "CAIE 2.2.3.3",
+        "CAIE 2.1.2.6S",
+        "CAIE 2.2.3.4",
+        "CAIE 2.2.3.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "2c949b9d-7424-4213-b50a-e723692746d5",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q4(b)(iii)",
+        "question": "The water in a dish evaporates. Explain, in terms of the water molecules, what is meant by evaporation.",
+        "marks": 2,
+        "answer_points": [
+          "Water molecules with more energy (enough energy) escape",
+          "They escape from the surface of the water"
+        ],
+        "tip": "Say that the more energetic molecules leave, and that they leave from the surface."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "At standard atmospheric pressure, pure water melts (and freezes) at 0 °C and boils at 100 °C.",
+                "Condensation: gas particles slow down as they lose energy. Attractive forces pull them together into a liquid.",
+                "Solidification: liquid particles slow down further and settle into fixed positions in a solid."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Evaporation and boiling",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Evaporation is the escape of the more energetic particles from the surface of a liquid. Boiling is a different way for a liquid to become a gas."
+            },
+            {
+              "type": "table",
+              "columns": ["Feature", "Evaporation", "Boiling"],
+              "rows": [
+                ["Where it happens", "At the surface only", "Throughout the liquid, with bubbles"],
+                [
+                  "Temperature",
+                  "At any temperature below the boiling point",
+                  "At one fixed temperature, the boiling point"
+                ],
+                ["Speed", "Slow", "Fast"]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Evaporation cools the liquid left behind, because the particles that escape are the ones with the most energy."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 5.9P"],
+      "worked_example": {
+        "exemplar_id": "9177142c-16ac-4520-b90f-753445060934",
+        "source": "EDEXCEL jun 2022, Paper 2 (PR), Q4(d)",
+        "question": "When water boils, the liquid water becomes a gas called steam. Describe the changes in arrangement and motion of the molecules in liquid water and the molecules in steam.",
+        "marks": 4,
+        "answer_points": [
+          "Liquid: the molecules are close together",
+          "Gas: the molecules are widely spaced",
+          "Liquid: the molecules move (slide) past each other",
+          "Gas: the molecules move faster, freely and randomly in straight lines"
+        ]
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "ba0c62ba-0791-4e31-a302-988c0b7b9730",
+      "36e24922-8e21-4c0e-b87d-f16f2fa8643e",
+      "01c0dfd5-66d3-400a-9765-004501a10701",
+      "34a7aa2c-3875-439e-9cc8-9bb57a5cd8a3",
+      "c2bcfe4d-42f5-4559-a0a9-5dd8b12736ea",
+      "d6927f3b-60e0-44e3-a3ba-0d8a5f9669ae",
+      "8da6964e-d299-4cbb-a354-e004dc580196",
+      "9eb58ffe-2232-43b7-a082-5fa34d3dc2ac",
+      "116c6354-0a11-4569-9cac-fe90a997f160"
+    ],
+    "exemplar_ids": [
+      "58eb63d0-0573-4cdf-87e9-7dc255b216e3",
+      "2cce56c7-9b48-4ce9-94fe-73cc8abecf93",
+      "6893cbf4-b2b2-48ec-90da-31c14ab520d4",
+      "2c949b9d-7424-4213-b50a-e723692746d5",
+      "9177142c-16ac-4520-b90f-753445060934"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

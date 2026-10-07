@@ -1,0 +1,266 @@
+{
+  "format": 1,
+  "concept_id": "ibio-010",
+  "subject": "biology",
+  "title": "Fertilisation in flowering plants and germination",
+  "key_idea": "After pollination a pollen tube grows to the ovule and the pollen nucleus fuses with a nucleus in the ovule. This is fertilisation. The ovule becomes a seed, which germinates when it has water, oxygen and a suitable temperature.",
+  "sections": [
+    {
+      "heading": "Self-pollination and cross-pollination",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Pollen can reach a stigma from the same plant or from a different plant. The two methods have different effects on a population."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Self-pollination",
+              "meaning": "The transfer of pollen grains from the anther of a flower to the stigma of the same flower or a different flower on the same plant."
+            },
+            {
+              "term": "Cross-pollination",
+              "meaning": "The transfer of pollen grains from the anther of a flower to the stigma of a flower on a different plant of the same species."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Self-pollination",
+            "Cross-pollination"
+          ],
+          "rows": [
+            [
+              "Genetic variation",
+              "Less variation, as only one plant's genes are used",
+              "More variation, as genes from two plants are mixed"
+            ],
+            [
+              "Response to a change in the environment",
+              "Less able to adapt. A new disease or change may kill many plants.",
+              "More likely that some offspring survive the change"
+            ],
+            [
+              "Reliance on pollinators",
+              "Little or none, so it works if pollinators are scarce or the plant is isolated",
+              "Needs wind or insects, so pollen is wasted and more energy is used making it"
+            ],
+            [
+              "Other",
+              "Higher chance of fertilisation. Keeps useful varieties unchanged. More chance of inherited disease.",
+              "Needs more than one plant of the species nearby"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Self-pollination uses one plant. Cross-pollination uses two plants of the same species.",
+            "Cross-pollination gives more variation, so a population adapts better to change.",
+            "Self-pollination is more reliable but gives less variation."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Pollen tube growth and fertilisation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Once a pollen grain lands on a stigma, it grows a tube down to the ovule. Fertilisation is the fusion of the pollen nucleus with a nucleus in the ovule."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity. Six events are put in order, from a pollen grain landing on the stigma to the zygote forming after the pollen nucleus fuses with the nucleus in the ovule.",
+            "prompt": "Put these events in order, from pollination to fertilisation.",
+            "steps": [
+              "A pollen grain lands on the stigma.",
+              "The pollen grain grows a pollen tube.",
+              "The tube grows down through the style, releasing enzymes.",
+              "The tube reaches the ovary and enters the ovule through the micropyle.",
+              "The pollen nucleus travels down the tube into the ovule.",
+              "The pollen nucleus fuses with the nucleus in the ovule. This is fertilisation."
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The pollen tube carries the male nucleus to the ovule. The style tissue supplies sugars and water for the tube to grow.",
+            "Fertilisation forms a **zygote**.",
+            "The ovule then becomes a **seed** and the ovary becomes a **fruit**."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The pollen tube grows from the stigma through the style to the ovule.",
+            "Fertilisation is the fusion of the pollen nucleus with a nucleus in the ovule.",
+            "After fertilisation the ovule becomes a seed and the ovary becomes a fruit."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Germination",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Germination is the start of growth of a seed into a seedling. A seed will not germinate unless its conditions are right."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Condition",
+            "Why it is needed"
+          ],
+          "rows": [
+            [
+              "Water",
+              "It makes the seed swell and lets enzymes work. Enzymes then break down the food stores."
+            ],
+            [
+              "Oxygen",
+              "It is needed for aerobic respiration, which releases energy for growth."
+            ],
+            [
+              "A suitable temperature",
+              "Enzymes work best at a warm temperature. If it is too cold they work slowly, and if it is too hot they are denatured."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light is not needed for most seeds to germinate. The seed has its own food store.",
+            "The seed stores food such as starch. Enzymes such as amylase digest the starch into sugars.",
+            "The sugars are used in respiration to release energy until the seedling can photosynthesise."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Investigating germination"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up.",
+              "text": "Put equal numbers of seeds on damp cotton wool in separate tubes."
+            },
+            {
+              "lead": "Change one condition.",
+              "text": "Leave out water, or use boiled water with a layer of oil to remove oxygen, or place a tube in a fridge, and keep a control with all three."
+            },
+            {
+              "lead": "Keep the rest the same.",
+              "text": "Use the same type and number of seeds, and keep the other two conditions the same in every tube."
+            },
+            {
+              "lead": "Compare.",
+              "text": "Count how many seeds have germinated in each tube after a set time."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Seeds need water, oxygen and a suitable temperature to germinate.",
+            "Enzymes digest the seed's food stores, and the energy is used until the seedling can photosynthesise."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "(Supplement) Describe cross-pollination.",
+      "a": "The transfer of pollen grains from the anther to the stigma of a flower on a different plant of the same species.",
+      "marks": 2
+    },
+    {
+      "q": "Explain the role of the pollen tube.",
+      "a": "It grows down the style into the ovary and ovule. It carries the pollen (male) nucleus to the ovule so that it can fuse with the female nucleus in fertilisation.",
+      "marks": 3
+    },
+    {
+      "q": "State three conditions a seed needs to germinate.",
+      "a": "Water, oxygen and a suitable temperature.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 16.3.6",
+        "CAIE 16.3.8",
+        "CAIE 16.3.9S",
+        "CAIE 16.3.10S",
+        "CAIE 16.3.11S",
+        "CAIE 16.3.12S"
+      ],
+      "worked_example": {
+        "exemplar_id": "029f8bbe-c9fe-42a6-bcd2-401d56aa33c3",
+        "source": "CAMBRIDGE nov 2023, Paper 43, Q1(b)(ii)",
+        "question": "Outline the advantages and disadvantages of self-pollination compared with cross-pollination.",
+        "marks": 4,
+        "answer_points": [
+          "Advantage: a greater chance of successful pollination and fertilisation.",
+          "Advantage: less pollen is wasted, and there is less or no need for pollinators.",
+          "Advantage: pollination can still occur in plants that become isolated.",
+          "Disadvantage: less genetic variation.",
+          "Disadvantage: a limited ability to adapt to a change in the environment, and more chance of inherited disease.",
+          "Disadvantage: fewer individuals survive a new infectious disease."
+        ],
+        "tip": "Any four score one mark each. Give at least one advantage and one disadvantage."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.4",
+        "IGCSE 3.5",
+        "IGCSE 3.6"
+      ],
+      "worked_example": {
+        "exemplar_id": "6db09cda-3836-4628-a905-f0342fa7809c",
+        "source": "EDEXCEL nov 2021, Paper 2 (B), Q2(b)",
+        "question": "After a pollen grain lands on the stigma of a flower, a pollen tube grows.\n\nExplain the role of the pollen tube.",
+        "marks": 3,
+        "answer_points": [
+          "The tube grows down the style.",
+          "The tube enters the ovary and the ovule, through the micropyle.",
+          "It transports the pollen nucleus (male gamete) to the ovule.",
+          "This allows fertilisation, where the male nucleus fuses with the egg nucleus."
+        ],
+        "tip": "Any three score one mark each. Say where the tube goes and what it carries."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "ca7592da-88bf-407c-9cdd-6e58b94a56bd",
+      "e84c7adc-54ca-46d6-ac58-82174f271410",
+      "48f47949-50f0-4cda-86d2-349e19d7ce76",
+      "d034f102-c662-4657-8a6d-8ee4042efffa",
+      "d6e4dc02-1119-4a43-9161-9742e179a51b",
+      "d6633767-4d43-4b69-9197-b7592b72b817",
+      "fb8d96d6-a958-49a7-9c5a-5c61bc96a239",
+      "e7bb91cf-159f-464b-a91e-c2b576393d54",
+      "52a1ce64-bc32-4526-9f44-a826bc8e6e6d"
+    ],
+    "exemplar_ids": [
+      "029f8bbe-c9fe-42a6-bcd2-401d56aa33c3",
+      "6db09cda-3836-4628-a905-f0342fa7809c"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

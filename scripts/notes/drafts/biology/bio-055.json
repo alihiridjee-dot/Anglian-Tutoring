@@ -1,0 +1,401 @@
+{
+  "format": 1,
+  "concept_id": "bio-055",
+  "subject": "biology",
+  "title": "Photosynthesis",
+  "key_idea": "Plants and algae make their own food by photosynthesis. Carbon dioxide and water react to make glucose and oxygen. The reaction is endothermic: it takes in light energy, absorbed by chlorophyll in the chloroplasts.",
+  "sections": [
+    {
+      "heading": "The photosynthesis equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Photosynthesis is a chemical reaction. This section covers what goes in, what comes out and how to write it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Photosynthesis",
+              "meaning": "The reaction in plants and algae that makes glucose and oxygen from carbon dioxide and water, using light energy."
+            },
+            {
+              "term": "Chlorophyll",
+              "meaning": "The green substance that absorbs light for photosynthesis."
+            },
+            {
+              "term": "Chloroplast",
+              "meaning": "The part of a plant or algal cell that contains chlorophyll, where photosynthesis happens."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Word equation for photosynthesis",
+          "formula": "carbon dioxide + water → glucose + oxygen",
+          "where": [
+            "carbon dioxide and water are the reactants",
+            "glucose and oxygen are the products",
+            "light energy is needed, and chlorophyll absorbs it (both are written above the arrow)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Symbol equation for photosynthesis",
+          "formula": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
+          "where": [
+            "CO₂ is carbon dioxide",
+            "H₂O is water",
+            "C₆H₁₂O₆ is glucose",
+            "O₂ is oxygen",
+            "the reaction is endothermic, with light and chlorophyll above the arrow"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Sort each substance below by whether photosynthesis takes it in or makes it."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort carbon dioxide, water, light energy, glucose and oxygen into the things photosynthesis takes in and the things it makes.",
+            "prompt": "Does photosynthesis take it in, or make it?",
+            "groups": ["Taken in", "Made"],
+            "items": [
+              {
+                "text": "Carbon dioxide",
+                "group": 0
+              },
+              {
+                "text": "Water",
+                "group": 0
+              },
+              {
+                "text": "Light energy",
+                "group": 0
+              },
+              {
+                "text": "Glucose",
+                "group": 1
+              },
+              {
+                "text": "Oxygen",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carbon dioxide + water → glucose + oxygen.",
+            "Glucose and oxygen are the two products.",
+            "Know the symbols CO₂, H₂O, C₆H₁₂O₆ and O₂."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "An endothermic reaction in the chloroplasts",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Photosynthesis needs energy. This section covers where the energy comes from and where the reaction happens."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Endothermic",
+              "meaning": "A reaction that takes in energy from the surroundings."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Photosynthesis is an **endothermic** reaction.",
+            "The energy is transferred from the environment to the chloroplasts by **light**.",
+            "Chlorophyll in the chloroplasts absorbs (traps) the light.",
+            "Algae also photosynthesise, because they have chlorophyll."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Photosynthesis is endothermic: it takes in energy.",
+            "The energy comes from light, absorbed by chlorophyll in the chloroplasts."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Producers and biomass",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Photosynthesis is how energy from light enters living things. This section covers why plants and algae matter to every food chain."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Producer",
+              "meaning": "An organism that makes its own food, here by photosynthesis."
+            },
+            {
+              "term": "Biomass",
+              "meaning": "The mass of living material."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Plants and algae are the main **producers** of food on Earth.",
+            "The glucose they make is used to build their biomass.",
+            "Other organisms get their food, and so their biomass, from plants and algae.",
+            "Photosynthesis also releases oxygen. When the number of algae in a river rises, the dissolved oxygen concentration rises."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Photosynthetic organisms are the main producers of food and biomass.",
+            "Algae photosynthesise too, so they add oxygen to water."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write the word equation for photosynthesis.",
+      "a": "carbon dioxide + water → glucose + oxygen (light energy is needed).",
+      "marks": 3
+    },
+    {
+      "q": "Describe how plants gain the energy for photosynthesis.",
+      "a": "They absorb light. The light is trapped by chlorophyll in the chloroplasts.",
+      "marks": 2
+    },
+    {
+      "q": "The number of green algae in a river increases. Explain why the concentration of dissolved oxygen increases.",
+      "a": "The algae carry out photosynthesis, which produces oxygen.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1", "AQA T 4.4.1.1"],
+      "worked_example": {
+        "exemplar_id": "37a795eb-646c-4b5a-92a8-6a5722f65733",
+        "source": "AQA jun 2023, Paper 1 (F), Q03.1",
+        "question": "Photosynthesis produces oxygen.\n\nComplete the word equation for photosynthesis.\n\nChoose answers from the box.\n\ncarbon dioxide   fat   glucose\nnitrogen   protein   water\n\n______ + ______ → ______ + oxygen",
+        "marks": 3,
+        "answer_points": [
+          "carbon dioxide (left-hand side, 1 mark).",
+          "water (left-hand side, 1 mark). The two reactants can be in either order.",
+          "glucose (right-hand side, 1 mark)."
+        ],
+        "tip": "One mark for each correct word. If you write words and formulae, the words are marked."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.1", "EDEX 6.2"],
+      "worked_example": {
+        "exemplar_id": "31a9fa3e-2215-4bc8-b883-90abf4810088",
+        "source": "EDEXCEL nov 2021, Paper 2 (F), Q8(a)",
+        "question": "Some small plants are growing in the ground between the trees in a woodland. The leaves of the small plants are green.\n\nDescribe how these plants make glucose.",
+        "marks": 2,
+        "answer_points": [
+          "They have chlorophyll / chloroplasts, which absorb (sun)light.",
+          "They carry out photosynthesis, in which water reacts with carbon dioxide (a word or symbol equation is accepted)."
+        ],
+        "tip": "Any two of the four points earn the two marks: chlorophyll or chloroplasts, photosynthesis, absorbing light, water reacting with carbon dioxide."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 1.4a", "OCR 1.4b", "OCR 1.4c"],
+      "worked_example": {
+        "exemplar_id": "d2d9b868-83f3-435f-92e4-40da0549fe55",
+        "source": "OCR jun 2025, Paper 3, Q19(a)",
+        "question": "Describe the process of photosynthesis.",
+        "marks": 3,
+        "answer_points": [
+          "Light is absorbed / collected by chlorophyll / chloroplasts. It takes place in the chloroplasts.",
+          "It is a two-stage process (a light-dependent and a light-independent stage).",
+          "Water is split into hydrogen and oxygen.",
+          "Carbon dioxide is combined with hydrogen to make glucose.",
+          "Any three of these points score. Identifying both the reactants and the products can earn 1 mark if the last two points are not awarded."
+        ],
+        "tip": "Name the reactants and products, say where it happens and what the light does."
+      },
+      "extra": [
+        {
+          "heading": "The two stages of photosynthesis",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Photosynthesis happens in two stages. This section gives a short description of each."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Light energy is absorbed by chlorophyll in the chloroplasts.",
+                "In the light-dependent stage, light energy splits water into hydrogen and oxygen. The oxygen is released.",
+                "Light energy is also used to make ATP.",
+                "In the light-independent stage, carbon dioxide is combined with hydrogen to make glucose."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 6.1.1",
+        "CAIE 6.1.2",
+        "CAIE 6.1.3",
+        "CAIE 6.1.4",
+        "CAIE 6.1.10S",
+        "CAIE 6.1.7",
+        "CAIE 19.2.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "8b25051f-32ad-4d27-9785-c97718481cf7",
+        "source": "CAMBRIDGE nov 2023, Paper 42, Q4(e)",
+        "question": "Describe the role of chlorophyll in photosynthesis.",
+        "marks": 2,
+        "answer_points": [
+          "It absorbs / traps / captures light.",
+          "It transfers light energy into chemical energy.",
+          "The energy is used for the synthesis of glucose / carbohydrates."
+        ],
+        "tip": "Any two of the three points earn the two marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section covers what chlorophyll does and how to investigate what photosynthesis needs."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Chlorophyll is a green pigment found in chloroplasts.",
+                "Chlorophyll transfers energy from light into chemical energy in the carbohydrates that are made.",
+                "Photosynthesis needs **chlorophyll**, **light** and **carbon dioxide**."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Investigating what photosynthesis needs"
+            },
+            {
+              "type": "list",
+              "items": [
+                "First destarch the plant by keeping it in the dark for 1 to 2 days.",
+                "Change only one factor and keep a control, so the result shows what that factor does.",
+                "Chlorophyll: use a variegated leaf. Only the green parts make starch.",
+                "Light: cover part of a leaf with foil. The covered part makes no starch.",
+                "Carbon dioxide: put the plant in sealed air with the carbon dioxide removed. The control has air with carbon dioxide.",
+                "Test a leaf for starch with iodine solution. Blue-black means starch is present, so photosynthesis happened."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.18", "IGCSE 2.19", "IGCSE 2.41B", "IGCSE 2.44B", "IGCSE 2.70"],
+      "worked_example": {
+        "exemplar_id": "47889a92-0272-4956-aed8-9aea1f89650c",
+        "source": "EDEXCEL nov 2020, Paper 2 (BR), Q7(a)",
+        "question": "Gas exchange in a flowering plant changes depending on conditions.\n\nPlants carry out photosynthesis to produce ______. To enable this process to occur the leaf cells absorb carbon dioxide and release oxygen.\n\nAt the same time the cells in the leaves are respiring. This means that they are using ______ and producing carbon dioxide. If the leaves are in bright sunlight, then the rate of photosynthesis will be ______ than the rate of respiration. If the leaves are in dim light, then the rate of respiration will be greater than the rate of photosynthesis and there will be a net production of ______.\n\nIn conditions when there is no net absorption or release of carbon dioxide the rate of photosynthesis and respiration are ______ and the plant is at its compensation point.\n\nComplete the passage by writing a suitable word or words in each blank space.",
+        "marks": 5,
+        "answer_points": [
+          "carbohydrate / a named carbohydrate (1 mark).",
+          "oxygen (1 mark).",
+          "higher / greater / more (1 mark).",
+          "carbon dioxide (1 mark).",
+          "equal / the same / balanced (1 mark)."
+        ],
+        "tip": "One mark for each blank."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section covers gas exchange in leaves, which links photosynthesis to respiration."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Photosynthesis converts light energy into chemical energy, which is stored in glucose.",
+                "Photosynthesis takes in carbon dioxide and gives out oxygen. Respiration takes in oxygen and gives out carbon dioxide.",
+                "Both gases are waste products of one process and raw materials of the other.",
+                "Both gases move in and out of a leaf by diffusion through the stomata.",
+                "Respiration goes on day and night. Photosynthesis only goes on in the light."
+              ]
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Compensation point",
+                  "meaning": "The light intensity at which photosynthesis and respiration go at the same rate, so there is no net gas exchange."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "In dim light, respiration is faster than photosynthesis, so the leaf gives out net **carbon dioxide**.",
+                "In bright light, photosynthesis is faster than respiration, so the leaf gives out net **oxygen**."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "80d6e1be-7282-4d95-9516-5c5c1cfda9aa",
+      "1d08495f-244d-4940-900a-310c917d0ba1",
+      "00eff3ab-d165-491c-84e7-8f6f2697bafc",
+      "9be7c105-082e-4459-b165-4bb7a58c2a89",
+      "5883bb36-6c30-472e-8980-2c471e07cda9",
+      "97251274-e175-4d62-b632-20b416d67a37",
+      "52dbc783-67d9-40c7-8529-8eda3e98b77f",
+      "5d30dd45-ec12-48fd-8ee7-678b26e5cac1",
+      "641e07da-bd08-41cb-8d06-84f9a7c5470b",
+      "8394a23c-8f96-4068-8bc7-cac41f2e0533",
+      "05a5c72b-a0e8-4c35-a2ad-d8a52fdc1f29",
+      "c925b219-40da-4ae5-b2c6-6591b45d99b3",
+      "16ff1e3b-b76b-4afb-9e74-8211174d83d9",
+      "35a1c3a0-58c2-40d1-b6aa-337b154df0c4",
+      "475f74fb-08b7-46d6-bcef-36d1dd1c8fd4",
+      "dbf6c914-0611-4944-b851-51da14647713",
+      "2141b195-bdad-4cdb-aa07-700e739f74a2"
+    ],
+    "exemplar_ids": [
+      "37a795eb-646c-4b5a-92a8-6a5722f65733",
+      "31a9fa3e-2215-4bc8-b883-90abf4810088",
+      "d2d9b868-83f3-435f-92e4-40da0549fe55",
+      "8b25051f-32ad-4d27-9785-c97718481cf7",
+      "47889a92-0272-4956-aed8-9aea1f89650c"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

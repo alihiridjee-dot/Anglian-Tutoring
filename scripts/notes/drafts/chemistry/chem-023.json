@@ -1,0 +1,390 @@
+{
+  "format": 1,
+  "concept_id": "chem-023",
+  "subject": "chemistry",
+  "title": "Giant covalent structures: diamond, graphite and silicon dioxide",
+  "key_idea": "In a giant covalent structure every atom is joined to its neighbours by strong covalent bonds, so the melting points are very high. Diamond and graphite are two forms of carbon. Diamond is hard and does not conduct, while graphite is soft and conducts.",
+  "sections": [
+    {
+      "heading": "Giant covalent structures",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some covalent substances are not small molecules. This section covers what a giant covalent structure is and why it has a very high melting point."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Giant covalent structure",
+              "meaning": "A very large network of atoms, all joined by covalent bonds."
+            },
+            {
+              "term": "Allotropes",
+              "meaning": "Different forms of the same element, such as diamond and graphite."
+            },
+            {
+              "term": "Delocalised electron",
+              "meaning": "An electron that is not held by one atom and can move through the structure."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Diamond, graphite and silicon dioxide (silica) are giant covalent structures.",
+            "They are solids with very high melting points.",
+            "All the atoms are linked to other atoms by strong covalent bonds.",
+            "Many strong bonds must be broken to melt or boil them, so a lot of energy is needed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Giant covalent structures have very high melting points.",
+            "Many strong covalent bonds must be broken, not weak intermolecular forces.",
+            "Carbon can form four covalent bonds."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Diamond and graphite",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Diamond and graphite are both pure carbon, but their atoms are arranged differently. This section covers each structure and the properties it gives."
+        },
+        {
+          "type": "subheading",
+          "text": "Diamond"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each carbon atom forms **four** covalent bonds with four other carbon atoms.",
+            "This makes a giant lattice, a repeating three-dimensional pattern.",
+            "It is very hard, because of the many strong bonds throughout the structure. It is used in cutting tools.",
+            "It has a very high melting point.",
+            "It does not conduct electricity, because all four outer electrons of each atom are used in bonding. No electrons can move."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Graphite"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each carbon atom forms **three** covalent bonds with three other carbon atoms.",
+            "The bonds make layers of hexagonal rings. There are no covalent bonds between the layers.",
+            "One electron from each carbon atom is delocalised, so graphite conducts electricity, as a metal does.",
+            "The layers can slide over each other because the forces between them are weak. So graphite is soft and slippery.",
+            "It has a high melting point, because of the many strong covalent bonds in the layers."
+          ]
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Electrodes",
+              "Conducts electricity, and is inert and does not react"
+            ],
+            [
+              "Lubricant",
+              "Layers slide over each other"
+            ],
+            [
+              "Pencils",
+              "It is a soft material"
+            ]
+          ],
+          "columns": [
+            "Use of graphite",
+            "Reason"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Diamond: four bonds per carbon, no free electrons, very hard.",
+            "Graphite: three bonds per carbon, layers, delocalised electrons.",
+            "Graphite conducts and is soft. Diamond does neither."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Silicon dioxide and comparing structures",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Silicon dioxide is a third giant covalent structure. This section covers it, and sets all three side by side."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Silicon dioxide, SiO₂, is made of silicon and oxygen atoms.",
+            "Each silicon atom forms four bonds, and each oxygen atom forms two.",
+            "It has a giant structure with strong covalent bonds, so a very high melting point."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "A table comparing the structure, bonding and properties of diamond, graphite and silicon dioxide.",
+            "kind": "compare",
+            "rows": [
+              {
+                "values": [
+                  "Carbon atoms",
+                  "Carbon atoms",
+                  "Silicon and oxygen atoms"
+                ],
+                "feature": "Made of"
+              },
+              {
+                "values": [
+                  "4 covalent bonds per carbon",
+                  "3 covalent bonds per carbon",
+                  "4 per silicon, 2 per oxygen"
+                ],
+                "feature": "Bonds"
+              },
+              {
+                "values": [
+                  "Giant three-dimensional lattice",
+                  "Layers of hexagonal rings",
+                  "Giant lattice"
+                ],
+                "feature": "Structure"
+              },
+              {
+                "values": [
+                  "Very high",
+                  "Very high",
+                  "Very high"
+                ],
+                "feature": "Melting point"
+              },
+              {
+                "values": [
+                  "No",
+                  "Yes: delocalised electrons",
+                  "No"
+                ],
+                "feature": "Conducts electricity?"
+              }
+            ],
+            "items": [
+              "Diamond",
+              "Graphite",
+              "Silicon dioxide"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "All three are giant covalent: strong bonds throughout and very high melting points.",
+            "Only graphite conducts, because only graphite has delocalised electrons."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why diamond has a very high melting point.",
+      "a": "The covalent bonds are strong, and many of them must be broken, so a lot of energy is needed.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why graphite conducts electricity.",
+      "a": "Each carbon atom forms three covalent bonds, so one electron per atom is delocalised. These electrons can move through the structure and carry charge.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why graphite is soft and slippery.",
+      "a": "It has layers with weak forces between them and no covalent bonds between the layers, so the layers slide over each other.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.2.2.6",
+        "AQA 4.2.3.1",
+        "AQA 4.2.3.2",
+        "AQA T 5.2.2.6",
+        "AQA T 5.2.3.1",
+        "AQA T 5.2.3.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "2d70ad0c-6db2-4528-a1b6-ef7bd85c9c2f",
+        "source": "AQA jun 2022, Paper 1 (H), Q03.2",
+        "question": "Diamond is a form of carbon with a giant covalent structure. Explain why diamond has a very high melting point.",
+        "marks": 3,
+        "answer_points": [
+          "The covalent bonds are strong.",
+          "Many covalent bonds must be broken.",
+          "So a lot of energy is required."
+        ],
+        "tip": "One mark each: strong, many, a lot of energy. Do not write about intermolecular forces."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.35",
+        "EDEX 1.36",
+        "EDEX 1.37"
+      ],
+      "worked_example": {
+        "exemplar_id": "51d19efd-e5aa-4b29-a655-0129580b92ee",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q8(c)",
+        "question": "Diamond and graphite are two forms of carbon. Diamond is one of the hardest known substances on Earth and is used in cutting tools. Graphite is soft and flaky. Diamond is a poor electrical conductor, but graphite is a good electrical conductor. Explain, in terms of structure and bonding, these properties of diamond and graphite.",
+        "marks": 6,
+        "answer_points": [
+          "Diamond does not conduct: all four outer electrons of each carbon form covalent bonds, each carbon is joined to four others, so there are no free electrons.",
+          "Graphite conducts: three outer electrons form bonds, each carbon is joined to three others, and one electron per atom is delocalised and moves to carry current.",
+          "Diamond is hard: strong covalent bonds between all the carbon atoms in a giant 3D lattice need a very high amount of energy to overcome.",
+          "Graphite is soft: strong covalent bonds within each layer, but weak forces between the layers, so the layers can slide."
+        ],
+        "tip": "A six-mark question is marked by level. Explain all three properties fully using structure and bonding for both substances."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C2.3a",
+        "OCR C2.3c",
+        "OCR C2.3f"
+      ],
+      "worked_example": {
+        "exemplar_id": "09c2e088-7404-48df-b824-dab48f5492d8",
+        "source": "OCR nov 2021, Paper 3, Q16(b)(ii)",
+        "question": "Graphite can be used as a lubricant because it is slippery. Explain why graphite is slippery. Use ideas about structure and bonding in graphite in your answer.",
+        "marks": 2,
+        "answer_points": [
+          "Graphite forms layers of covalently bonded carbon atoms.",
+          "There are weak forces between the layers.",
+          "The layers can slide or slip over each other."
+        ],
+        "tip": "Any two score one mark each. A reference to ionic bonds scores zero for the whole question."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.6.1",
+        "CAIE 2.6.2",
+        "CAIE 2.6.3S",
+        "CAIE 2.6.4S"
+      ],
+      "worked_example": {
+        "exemplar_id": "eada2815-4f8a-423c-a8fb-ef99789ba9d3",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q3(a)(iv)",
+        "question": "Graphite has a melting point of 3652 °C. Carbon monoxide has a melting point of –199 °C. Explain in terms of structure and bonding why graphite has a much higher melting point than carbon monoxide.",
+        "marks": 3,
+        "answer_points": [
+          "Graphite has a giant covalent structure.",
+          "There is attraction between the molecules in carbon monoxide.",
+          "The attraction between particles in carbon monoxide is weaker."
+        ],
+        "tip": "Carbon monoxide is simple molecular, so only the weak attraction between its molecules is overcome when it melts."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Silicon(IV) oxide and diamond have similar properties because they have the same type of structure."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Silicon dioxide is a giant covalent lattice, like diamond.",
+                "Each silicon atom is bonded to four oxygen atoms and each oxygen atom to two silicon atoms.",
+                "Like diamond, it is very hard and has a very high melting point.",
+                "Like diamond, it does not conduct electricity, because all the outer electrons are used in bonding and none are free to move."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.49",
+        "IGCSE 1.50"
+      ],
+      "worked_example": {
+        "exemplar_id": "f2b63806-5b57-41e2-ae20-3dbb236fdb83",
+        "source": "EDEXCEL jun 2024, Paper 1 (CR), Q11(c)(ii)",
+        "question": "Diamond and graphite are both forms of the element carbon. Diamond and graphite both have covalent bonds and giant covalent structures. Explain why diamond is hard but graphite is soft.",
+        "marks": 4,
+        "answer_points": [
+          "Diamond has a rigid three-dimensional lattice, with every carbon atom bonded to four others.",
+          "The covalent bonds in diamond need a lot of energy to break.",
+          "Graphite has layers.",
+          "The layers can slide over one another."
+        ],
+        "tip": "Do not write about intermolecular forces in diamond."
+      },
+      "extra": [
+        {
+          "heading": "Fullerenes: C₆₀",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Fullerenes are a third form of carbon. The C₆₀ fullerene is a molecule of 60 carbon atoms."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The atoms are joined in rings of five and six carbon atoms, making a hollow sphere.",
+                "Each carbon atom forms three covalent bonds with other carbon atoms in the same molecule.",
+                "C₆₀ is made of separate molecules, so there are only weak intermolecular forces between them.",
+                "Little energy is needed to overcome these forces, so C₆₀ is soft and has a much lower melting point than diamond or graphite.",
+                "C₆₀ does not conduct electricity well, because the electrons cannot pass from one molecule to the next."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "4e62200c-ba34-4919-9573-0f2eb4c625f7",
+      "5784660f-31a3-410c-806c-5f2d2cc46e00",
+      "5eb6d190-849d-4325-a21d-e0870cb561b7",
+      "a6fa7840-39a2-4d07-ac74-44dd53e890bb",
+      "178f7142-baa6-4e2d-bfb3-c63bb06111cf",
+      "a9d66b95-8b17-44a9-a0ed-5346bd8557ed",
+      "ace8ad0a-e801-4995-94b7-92fdd56a79dc",
+      "3ad0ac26-2ac9-4410-9f2e-53fedab3e61e",
+      "afcae6ec-56c8-4a7f-b8ea-88da3d7a41eb",
+      "4906d4e2-45b9-411e-9ae0-f0280b2b05fb",
+      "73fe3209-43af-4f19-a34b-ce411227df0a",
+      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8",
+      "fee30db4-e54b-4334-9fa4-a91a72385f0d",
+      "2926a944-04a7-4943-853b-1e258f903bd9",
+      "aa08121a-9f58-4e18-a8e7-81f341a06776",
+      "b836fc74-1edb-4e2a-a802-ae57f45e944c",
+      "6673857e-2ed8-4caf-85ed-5cd0d0ac3c39",
+      "8ddd1e85-414f-4366-ad22-06b68b492f86"
+    ],
+    "exemplar_ids": [
+      "2d70ad0c-6db2-4528-a1b6-ef7bd85c9c2f",
+      "51d19efd-e5aa-4b29-a655-0129580b92ee",
+      "09c2e088-7404-48df-b824-dab48f5492d8",
+      "eada2815-4f8a-423c-a8fb-ef99789ba9d3",
+      "f2b63806-5b57-41e2-ae20-3dbb236fdb83"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

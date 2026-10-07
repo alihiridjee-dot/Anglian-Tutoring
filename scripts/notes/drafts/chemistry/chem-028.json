@@ -1,0 +1,266 @@
+{
+  "format": 1,
+  "concept_id": "chem-028",
+  "subject": "chemistry",
+  "title": "Conservation of mass",
+  "key_idea": "No atoms are made or destroyed in a chemical reaction, so the total mass of the products equals the total mass of the reactants. A change in mass is only apparent: a gas has been taken in or has escaped, and its mass was not measured.",
+  "sections": [
+    {
+      "heading": "The law of conservation of mass",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In a reaction, atoms are rearranged into new substances. This section covers what stays the same and how to show it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Law of conservation of mass",
+              "meaning": "The total mass of the products equals the total mass of the reactants. No atoms are lost or made."
+            },
+            {
+              "term": "Closed system",
+              "meaning": "A reaction where nothing can enter or leave, such as a sealed flask."
+            },
+            {
+              "term": "Non-enclosed (open) system",
+              "meaning": "A reaction where a gas can enter or escape, such as an open flask or crucible."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The atoms in the products are the same atoms that were in the reactants.",
+            "That is why an equation must balance: each element has the same number of atoms on both sides.",
+            "In a **closed system** the total mass stays the same, even if a precipitate forms."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Mass is conserved",
+          "formula": "total mass of reactants = total mass of products",
+          "where": ["Use the same unit on both sides, usually grams."]
+        },
+        {
+          "type": "paragraph",
+          "text": "You can show the law with relative formula masses. The balanced equation WO₃ + 3H₂ → W + 3H₂O has Mr values WO₃ = 232, H₂ = 2, W = 184, H₂O = 18."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Left side.",
+              "text": "232 + (3 × 2) = 238"
+            },
+            {
+              "lead": "Right side.",
+              "text": "184 + (3 × 18) = 238"
+            },
+            {
+              "lead": "Compare.",
+              "text": "Both sides are 238, so mass is conserved."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "No atoms are lost or made in a reaction.",
+            "Mass of reactants = mass of products.",
+            "In a sealed flask the total mass does not change."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "When mass seems to change",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In an open container the mass can go up or down. This section covers why, in terms of the particles."
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Increases",
+              "A gas from the air is a reactant and joins the solid. Its atoms are now part of the product.",
+              "Magnesium burns in air to make magnesium oxide."
+            ],
+            [
+              "Decreases",
+              "A gas is a product and escapes. Its mass is no longer measured.",
+              "Zinc carbonate reacts with an acid and carbon dioxide leaves the flask."
+            ],
+            [
+              "Stays the same",
+              "Nothing can enter or leave.",
+              "A precipitate forms in a sealed flask."
+            ]
+          ],
+          "columns": ["What the mass does", "Why", "Example"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gas particles are far apart and move freely, so they escape from an open container.",
+            "The atoms still exist. They are in the gas, which is not weighed.",
+            "In thermal decomposition of a metal carbonate, carbon dioxide escapes and the metal oxide is the only solid left."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Mass of gas lost",
+          "where": ["Both masses are of the flask and its contents, in grams."],
+          "formula": "mass of gas lost = mass before − mass after"
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Practise calculating the mass of gas lost from the masses before and after a reaction.",
+            "kind": "practice",
+            "answer": {
+              "unit": "g",
+              "formula": "B - A",
+              "decimals": 1
+            },
+            "working": [
+              "Mass of gas lost = mass before − mass after",
+              "Mass of gas lost = {B} − {A} = **{answer} g**"
+            ],
+            "question": "A flask and its contents have a mass of **{B} g** at the start of a reaction. After 8 minutes the mass is **{A} g**. A gas has escaped. Calculate the mass of gas lost.",
+            "variables": [
+              {
+                "id": "B",
+                "max": 160,
+                "min": 150,
+                "step": 0.1
+              },
+              {
+                "id": "A",
+                "max": 149,
+                "min": 140,
+                "step": 0.1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mass goes up if a gas joins the solid. It goes down if a gas escapes.",
+            "The atoms are not lost. The gas is simply not weighed.",
+            "Mass of gas lost = mass before − mass after."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Explaining a mass change in an exam",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mark schemes reward two ideas for a decrease in mass. Write both of them."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Name the gas that is produced, or say \"a gas is produced\".",
+            "Say that the gas **escapes** from the flask.",
+            "For an increase in mass, say that oxygen from the air has joined the solid."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Decrease: a gas is produced and it escapes.",
+            "Increase: a gas has been added to the solid.",
+            "Do not say atoms are lost or destroyed."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the law of conservation of mass.",
+      "a": "No atoms are lost or made in a chemical reaction, so the mass of the products equals the mass of the reactants.",
+      "marks": 1
+    },
+    {
+      "q": "A student heats copper carbonate in an open test tube. The mass of the tube and contents goes down. Explain why.",
+      "a": "Carbon dioxide gas is produced. It escapes from the test tube, so its mass is no longer measured.",
+      "marks": 2
+    },
+    {
+      "q": "Magnesium burns in air. The mass of the solid goes up. Explain why.",
+      "a": "Oxygen from the air joins the magnesium to make magnesium oxide, so the solid gains the mass of the oxygen.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.1.1", "AQA T 5.3.1.1", "AQA 4.3.1.3", "AQA T 5.3.1.3"],
+      "worked_example": {
+        "exemplar_id": "0f5ea6b2-24c5-4f1b-9839-ba70759892a7",
+        "source": "AQA jun 2020, Paper 2 (H), Q7.3",
+        "question": "A student adds a solution of ethanoic acid to zinc carbonate in an open flask on a balance.\n\nExplain what happens to the mass of the flask and its contents during the reaction.",
+        "marks": 3,
+        "answer_points": [
+          "The mass of the flask and contents decreases.",
+          "This is because carbon dioxide is produced.",
+          "The carbon dioxide escapes from the flask."
+        ],
+        "tip": "One mark for the decrease, one for naming carbon dioxide and one for the gas escaping."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.47"],
+      "worked_example": {
+        "exemplar_id": "05eb4acd-ecb0-49ec-8b12-0e78f63b6ffc",
+        "source": "EDEXCEL jun 2019, Paper 2 (F), Q6(b)",
+        "question": "The word equation for the reaction between magnesium and dilute hydrochloric acid is\n\nmagnesium + hydrochloric acid → magnesium chloride + hydrogen\n\nA strip of magnesium ribbon was placed in the conical flask. 100 cm³ of dilute hydrochloric acid was added to the conical flask. The mass of the flask and contents was measured at regular intervals. The loss in mass was calculated.\n\nExplain why there is a loss in mass of the flask and contents.",
+        "marks": 2,
+        "answer_points": ["Hydrogen (a gas) is formed.", "The hydrogen escapes from the flask."],
+        "tip": "One mark for the gas formed and one for it escaping."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C3.1i", "OCR C3.1j"],
+      "worked_example": {
+        "exemplar_id": "6923153d-dfa5-4266-94cf-1b7f747586aa",
+        "source": "OCR nov 2021, Paper 1, Q16(c)(i)",
+        "question": "A student investigates the reaction between acids and metals.\n\nZn(s) + 2HNO₃(aq) → Zn(NO₃)₂(aq) + H₂(g)\n\nThe student investigates the reaction between zinc metal and nitric acid.\n\nThe student uses the balance to record the change in mass during the reaction.\n\nThe mass decreases. Explain why.",
+        "marks": 2,
+        "answer_points": [
+          "Hydrogen is a gas, so a gas is produced.",
+          "The gas can escape from the beaker."
+        ],
+        "tip": "One mark for the gas and one mark for the idea that it escapes."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "6d9966c1-8e06-4eed-826c-4061da842ad1",
+      "84e4ba2e-36a4-40f2-bea8-e8e62439b683",
+      "eedf06ce-3b8b-4ca1-8849-3b5841c3b583",
+      "87053ee4-08f1-4f57-ae48-bc82440c37d6",
+      "cb73850c-5950-4fdc-99e6-d8f6a883b171",
+      "f3e3f0b6-51c3-47d2-b7a1-44260eec5784",
+      "1e6159b8-5832-428c-94b4-3896cf199adf"
+    ],
+    "exemplar_ids": [
+      "0f5ea6b2-24c5-4f1b-9839-ba70759892a7",
+      "05eb4acd-ecb0-49ec-8b12-0e78f63b6ffc",
+      "6923153d-dfa5-4266-94cf-1b7f747586aa"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

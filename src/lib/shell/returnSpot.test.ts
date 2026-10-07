@@ -19,6 +19,9 @@ describe("pageAbove", () => {
     expect(pageAbove(at("/demo/student/mcq/demo-set-1"), "/demo/student/dashboard")).toBe(
       "/demo/student/mcqs",
     );
+    expect(pageAbove(at("/demo/student/notes/bio-012"), "/demo/student/dashboard")).toBe(
+      "/demo/student/curriculum",
+    );
     expect(pageAbove(at("/demo/student/planner"), "/demo/student/dashboard")).toBe(
       "/demo/student/dashboard",
     );

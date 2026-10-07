@@ -80,8 +80,7 @@ function Tutor() {
             Welcome, {tutorName}
           </h2>
           <p className="text-sm md:text-base text-primary-foreground/75 max-w-2xl mt-1">
-            Mark student submissions and manage teaching resources — set tasks, add videos, and
-            schedule live sessions.
+            Mark student submissions and manage teaching resources — set tasks and add videos.
           </p>
         </div>
       </div>

@@ -39,6 +39,19 @@ export interface PointActivity {
   hasQuiz: boolean;
 }
 
+/**
+ * Every task and quiz on the point is done this week. A point with neither has
+ * nothing to complete, so it never counts. One rule for the progress card and
+ * the weekly task list, so the two never disagree about the same point.
+ */
+export function practiceComplete(
+  a: PointActivity | undefined,
+  c: PointCoverage | undefined,
+): boolean {
+  if (!a || (!a.hasHomework && !a.hasQuiz)) return false;
+  return (!a.hasHomework || !!c?.homeworkDone) && (!a.hasQuiz || !!c?.quizDone);
+}
+
 /** One thing a student can actually open: a video, a homework, a quiz. */
 export interface PointWorkItem {
   /** Resource id — or, for a quiz, the MCQ set id the player route takes. */

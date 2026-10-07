@@ -1,0 +1,401 @@
+{
+  "format": 1,
+  "concept_id": "chem-050",
+  "subject": "chemistry",
+  "title": "Solubility rules and making insoluble salts",
+  "key_idea": "The solubility rules tell you whether a salt dissolves in water. When two solutions are mixed and an insoluble salt could form, it appears as a precipitate. You separate it by filtering, washing with distilled water and drying.",
+  "sections": [
+    {
+      "heading": "The solubility rules",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "These general rules describe which common compounds dissolve in water. You need to recall them."
+        },
+        {
+          "type": "table",
+          "columns": ["Type of compound", "In water", "Exceptions"],
+          "rows": [
+            ["Sodium, potassium and ammonium salts", "All soluble", "None"],
+            ["Nitrates", "All soluble", "None"],
+            ["Chlorides", "Soluble", "Silver chloride and lead chloride are insoluble"],
+            ["Sulfates", "Soluble", "Lead, barium and calcium sulfates are insoluble"],
+            [
+              "Carbonates and hydroxides",
+              "Insoluble",
+              "Sodium, potassium and ammonium ones are soluble"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "All sodium, potassium and ammonium salts and all nitrates are soluble.",
+            "Chlorides and sulfates are soluble, with the exceptions in the table.",
+            "Carbonates and hydroxides are insoluble, except sodium, potassium and ammonium."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Predicting a precipitate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When two solutions are mixed, the two compounds swap partners. If one of the new compounds is insoluble, it forms a precipitate."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Precipitate",
+              "meaning": "An insoluble solid formed when two solutions are mixed."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Swap partners.",
+              "text": "Barium chloride + sodium sulfate gives barium sulfate and sodium chloride."
+            },
+            {
+              "lead": "Check each new compound against the rules.",
+              "text": "Sodium chloride is soluble. Barium sulfate is an exception, so it is insoluble."
+            },
+            {
+              "lead": "Name the precipitate.",
+              "text": "Barium sulfate is the precipitate. If both new compounds are soluble, there is no precipitate."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "You will see a solid form, or the mixture go cloudy. You will not see fizzing or bubbles."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick two solutions to mix and see whether a precipitate forms and what it is called.",
+            "prompt": "Pick two solutions to mix",
+            "result_labels": ["New compounds formed", "Precipitate?", "What you see"],
+            "options": [
+              {
+                "label": "Barium chloride + sodium sulfate",
+                "results": [
+                  "Barium sulfate and sodium chloride",
+                  "**Yes: barium sulfate**",
+                  "A white solid forms"
+                ],
+                "explanation": "Barium sulfate is an insoluble sulfate. Sodium chloride is soluble.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Mixed",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Copper sulfate + sodium hydroxide",
+                "results": [
+                  "Copper hydroxide and sodium sulfate",
+                  "**Yes: copper hydroxide**",
+                  "A solid forms"
+                ],
+                "explanation": "Hydroxides are insoluble, except sodium, potassium and ammonium.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Mixed",
+                      "colour": "colourless",
+                      "precipitate": "blue"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Potassium carbonate + calcium nitrate",
+                "results": [
+                  "Calcium carbonate and potassium nitrate",
+                  "**Yes: calcium carbonate**",
+                  "A white solid forms"
+                ],
+                "explanation": "Carbonates are insoluble, except sodium, potassium and ammonium. Potassium nitrate is soluble.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Mixed",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Iron(II) sulfate + sodium hydroxide",
+                "results": [
+                  "Iron(II) hydroxide and sodium sulfate",
+                  "**Yes: iron(II) hydroxide**",
+                  "A green solid forms"
+                ],
+                "explanation": "Iron(II) hydroxide is an insoluble hydroxide.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Mixed",
+                      "colour": "colourless",
+                      "precipitate": "green"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Silver nitrate + sodium chloride",
+                "results": [
+                  "Silver chloride and sodium nitrate",
+                  "**Yes: silver chloride**",
+                  "A white solid forms"
+                ],
+                "explanation": "Silver chloride is an exception to the rule that chlorides are soluble.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Mixed",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Lead nitrate + sodium sulfate",
+                "results": [
+                  "Lead sulfate and sodium nitrate",
+                  "**Yes: lead sulfate**",
+                  "A white solid forms"
+                ],
+                "explanation": "Lead sulfate is an exception to the rule that sulfates are soluble.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Mixed",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Magnesium chloride + sodium hydroxide",
+                "results": [
+                  "Magnesium hydroxide and sodium chloride",
+                  "**Yes: magnesium hydroxide**",
+                  "A white solid forms"
+                ],
+                "explanation": "Magnesium hydroxide is an insoluble hydroxide.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Mixed",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Sodium chloride + potassium nitrate",
+                "results": [
+                  "Sodium nitrate and potassium chloride",
+                  "**No precipitate**",
+                  "The mixture stays clear"
+                ],
+                "explanation": "All sodium and potassium salts are soluble, so nothing is insoluble.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Mixed",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Swap partners, then check both new compounds against the solubility rules.",
+            "An insoluble compound forms a precipitate. Name it.",
+            "A precipitate looks like a solid forming, or the mixture going cloudy."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making a pure, dry insoluble salt",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An insoluble salt is made by mixing two solutions. It must then be separated from the solution, washed and dried."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps for obtaining a pure, dry insoluble salt in order.",
+            "prompt": "Put the steps for a pure, dry sample of a precipitate in order",
+            "steps": [
+              "Mix the two solutions so the precipitate forms",
+              "Filter the mixture through filter paper in a funnel",
+              "Wash the solid on the filter paper with distilled water",
+              "Leave the solid to dry in a warm place"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Filtering separates the solid precipitate from the solution.",
+            "Washing with distilled water removes traces of the other solution, so the salt is pure.",
+            "Drying can be done by leaving the solid in a warm place or on a windowsill, or by patting it dry with filter paper. Do not crystallise the precipitate.",
+            "The other salt stays dissolved in the filtrate. Pour the filtrate into an evaporating basin and heat to evaporate the water to get it as a solid."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Filter, wash with distilled water, then dry.",
+            "Do not heat or evaporate the mixture before filtering."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the white precipitate formed when barium chloride solution reacts with dilute sulfuric acid.",
+      "a": "Barium sulfate.",
+      "marks": 1
+    },
+    {
+      "q": "Silver nitrate solution is mixed with sodium chloride solution. Name the precipitate that forms and explain how you know.",
+      "a": "Silver chloride. Chlorides are soluble except those of silver and lead, so silver chloride is insoluble. Sodium nitrate is soluble.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how to obtain a pure, dry sample of a precipitate from the reaction mixture.",
+      "a": "Filter the mixture, wash the solid with distilled water, then dry it (for example in a warm place).",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": ["EDEX 3.19", "EDEX 3.20", "EDEX 3.21"],
+      "worked_example": {
+        "exemplar_id": "d7646dc6-9e49-41ed-8c73-b2488a8dfdf5",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q6(c)",
+        "question": "When barium hydroxide solution is neutralised by dilute sulfuric acid, a white precipitate of barium sulfate is formed in the conical flask.\nDescribe an experiment to obtain a sample of pure, dry barium sulfate from the contents of the conical flask.",
+        "marks": 3,
+        "answer_points": [
+          "Filter the contents of the flask to collect the barium sulfate.",
+          "Wash the barium sulfate on the filter paper (with distilled water).",
+          "Leave it to dry in a warm place."
+        ],
+        "tip": "The washing and drying marks depend on filtering. Crystallisation is rejected, and washing must come before drying."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 7.3.2", "CAIE 7.3.4S"],
+      "worked_example": {
+        "exemplar_id": "592ea391-fd96-4973-8ee7-c260596a1740",
+        "source": "CAMBRIDGE jun 2025, Paper 63, Q4",
+        "question": "Lead(II) chloride, PbCl₂, is an insoluble salt. Solid lead(II) chloride can be made by reacting aqueous sodium chloride with aqueous lead(II) nitrate.\n2NaCl(aq) + Pb(NO₃)₂(aq) → 2NaNO₃(aq) + PbCl₂(s)\nDescribe how to make a pure, dry sample of solid lead(II) chloride. You are provided with solid sodium chloride, solid lead(II) nitrate, distilled water and common laboratory apparatus.",
+        "marks": 6,
+        "answer_points": [
+          "Add the sodium chloride and the lead(II) nitrate to water, in separate containers.",
+          "Stir or shake each one to dissolve the solid.",
+          "Mix the two solutions together in a suitable container.",
+          "Filter the mixture to collect lead(II) chloride as the residue.",
+          "Pour distilled water over the residue in the funnel to wash it.",
+          "Dry the solid, for example in a warm place or with filter paper."
+        ],
+        "tip": "Any six of these points score the six marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            { "type": "paragraph", "text": "Calcium hydroxide is **slightly soluble** in water. Treat it as an exception to the rule that hydroxides are insoluble." }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.34", "IGCSE 2.41C", "IGCSE 2.43C"],
+      "worked_example": {
+        "exemplar_id": "49cea649-c9c5-4bf4-8fb3-e36fc606100c",
+        "source": "EDEXCEL jun 2023, Paper 2 (CR), Q5(a)",
+        "question": "Lead(II) bromide is an insoluble salt. It can be made by a precipitation reaction.\nPb(NO₃)₂(aq) + 2KBr(aq) → PbBr₂(s) + 2KNO₃(aq)\nDescribe how solutions of lead nitrate and potassium bromide can be used to make a pure, dry sample of lead(II) bromide.",
+        "marks": 4,
+        "answer_points": [
+          "Mix the two solutions together.",
+          "Filter the mixture to collect the solid lead(II) bromide.",
+          "Wash the solid with deionised water.",
+          "Dry the solid, for example by leaving it in a warm place or in an oven, or with filter paper."
+        ],
+        "tip": "One mark for each stage: mix, filter, wash, dry."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            { "type": "paragraph", "text": "Calcium hydroxide is **slightly soluble** in water. Treat it as an exception to the rule that hydroxides are insoluble." }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "832483eb-0aff-4234-bb84-013fb02ecb58",
+      "69e99340-c1a2-43c6-b300-43c818763c53",
+      "5a8432c5-eeff-4ccb-82f4-3d5b6db7db49",
+      "df496cfc-600b-47f9-a113-071f317ebeaa",
+      "4a5cb05f-acba-4b0d-b5dc-8393e484fa3b",
+      "40b0fbd0-2b34-4a31-aae3-45d5fea81773",
+      "c194aa0b-eb36-4a9f-bdcf-09317f22b222",
+      "c1f5d8e5-e58c-4c4e-8a92-4dea98a1c48c"
+    ],
+    "exemplar_ids": [
+      "d7646dc6-9e49-41ed-8c73-b2488a8dfdf5",
+      "91819a65-6f34-488b-86cb-7d90f6474677",
+      "22a510a2-1f75-4abc-8216-4eaf3e102f8e",
+      "d82cb923-814f-4795-b100-13adf86f409a",
+      "e10f4b98-6d80-4736-9869-ccf8c81ae820",
+      "7716f560-fc9c-4f38-9099-3fef070c7d38",
+      "fb8a5052-6ad0-4a39-b096-844f438914cc",
+      "592ea391-fd96-4973-8ee7-c260596a1740",
+      "49cea649-c9c5-4bf4-8fb3-e36fc606100c"
+    ]
+  }
+}

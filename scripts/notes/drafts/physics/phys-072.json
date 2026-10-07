@@ -1,0 +1,398 @@
+{
+  "format": 1,
+  "concept_id": "phys-072",
+  "subject": "physics",
+  "title": "Ultrasound, infrasound and seismic waves",
+  "key_idea": "Ultrasound is above 20 kHz and infrasound below 20 Hz. Echoes from ultrasound give the distance to a boundary, using the time for the echo and half the distance travelled. Seismic P-waves and S-waves show the structure of the Earth.",
+  "sections": [
+    {
+      "heading": "Ultrasound and echoes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Ultrasound is sound with a frequency too high for humans to hear. It is used to find the distance to a hidden boundary by timing its echo."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ultrasound",
+              "meaning": "Sound with a frequency above 20 000 Hz (20 kHz)."
+            },
+            {
+              "term": "Infrasound",
+              "meaning": "Sound with a frequency below 20 Hz."
+            },
+            {
+              "term": "Echo",
+              "meaning": "A reflected wave returning to its source."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ultrasound is partially reflected whenever it meets a boundary between two different materials.",
+            "A detector measures the time for the reflection to arrive back.",
+            "Some of the pulse carries on through the boundary, so there can be more than one echo."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Distance from an echo",
+          "formula": "distance to boundary = speed × time ÷ 2",
+          "where": [
+            "distance to the boundary, in metres (m)",
+            "speed of the wave in the material, in metres per second (m/s)",
+            "time between sending the pulse and receiving the echo, in seconds (s)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The pulse travels to the boundary and back, so halve the time, or halve the distance, before the last step."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Pulse time.",
+              "text": "An echo returns after 0.040 s. The pulse travelled there and back."
+            },
+            {
+              "lead": "Halve.",
+              "text": "Time to the boundary = 0.040 ÷ 2 = 0.020 s."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "Sound travels at 1500 m/s in sea water. Depth = 1500 × 0.020 = 30 m."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Change the echo time and see the depth, and the distance the pulse travels."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Set the time for an echo to return and see the distance the pulse travelled and the depth of the boundary.",
+            "inputs": [
+              {
+                "id": "t",
+                "label": "Time for the echo to return",
+                "unit": "s",
+                "min": 0.02,
+                "max": 0.8,
+                "step": 0.02,
+                "value": 0.2
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Distance travelled by the pulse (there and back)",
+                "unit": "m",
+                "formula": "1500 * t",
+                "decimals": 0
+              },
+              {
+                "label": "Depth of the boundary",
+                "unit": "m",
+                "formula": "1500 * t / 2",
+                "decimals": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Now try a calculation with new numbers each time."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the depth of the sea from an echo time using sonar.",
+            "question": "A ship sends an ultrasound pulse to the sea floor. The echo returns after {t} s. Ultrasound travels at 1500 m/s in sea water. Calculate the depth of the sea.",
+            "variables": [
+              {
+                "id": "t",
+                "min": 0.02,
+                "max": 0.8,
+                "step": 0.02
+              }
+            ],
+            "answer": {
+              "formula": "1500 * t / 2",
+              "unit": "m",
+              "decimals": 0
+            },
+            "working": [
+              "The pulse travels to the sea floor and back, so use half the time.",
+              "time to the sea floor = {t} ÷ 2",
+              "depth = 1500 × ({t} ÷ 2) = {answer} m"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ultrasound has a frequency above 20 kHz. Infrasound is below 20 Hz.",
+            "An echo is a reflection at a boundary between two materials.",
+            "Use half the echo time (or double distance) to find the distance to the boundary."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Uses of ultrasound",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Different materials reflect ultrasound at their boundaries. This lets us look at things we cannot see directly."
+        },
+        {
+          "type": "table",
+          "columns": ["Use", "How it works"],
+          "rows": [
+            [
+              "Medical imaging, such as a foetal scan",
+              "Pulses reflect from boundaries between layers of tissue. Each layer returns an echo at a different time. A computer uses the times to build an image."
+            ],
+            [
+              "Sonar and echo sounding",
+              "A ship sends pulses to the sea bed. The time for the echo gives the depth. Objects in deep water also reflect pulses."
+            ],
+            [
+              "Industrial imaging",
+              "Echoes show the position of boundaries inside a solid that cannot be seen from outside."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Three layers of tissue give three echoes from each pulse.",
+            "The longer the time between echoes, the thicker the layer.",
+            "The speed of ultrasound in the tissue must be known, so the depth can be calculated from speed × time."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ultrasound reflects from boundaries between tissues, so it can be used for imaging.",
+            "The time for each echo gives the depth of that boundary.",
+            "Sonar works in the same way to find the depth of water or detect objects."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Seismic waves and the Earth",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Earthquakes produce seismic waves. They travel through the Earth and give evidence about parts of the Earth we cannot see."
+        },
+        {
+          "type": "table",
+          "columns": ["Feature", "P-waves", "S-waves"],
+          "rows": [
+            ["Type of wave", "Longitudinal", "Transverse"],
+            ["Speed", "Faster", "Slower than P-waves"],
+            ["Through solids", "Yes", "Yes"],
+            ["Through liquids", "Yes, at a different speed", "No"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A seismometer detects the waves from an earthquake.",
+            "The P-wave arrives first, then the S-wave. The time between them is directly proportional to the distance from the earthquake.",
+            "S-waves do not travel through the outer core.",
+            "So the outer core must be a liquid.",
+            "The region where S-waves are not detected shows the size of the liquid outer core.",
+            "Waves change speed and direction at boundaries between layers, which shows that the Earth has layers.",
+            "The speeds of P-waves and S-waves generally increase with depth, as the material gets denser."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "P-waves are longitudinal. S-waves are transverse and cannot travel through a liquid.",
+            "S-waves do not reach the other side of the Earth, so the outer core is liquid.",
+            "Seismic waves gave new evidence about parts of the Earth that cannot be seen."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the difference between infrasound and ultrasound.",
+      "a": "Infrasound has a frequency below 20 Hz. Ultrasound has a frequency above 20 000 Hz.",
+      "marks": 2
+    },
+    {
+      "q": "An ultrasound pulse takes 0.60 s to go to the sea bed and back. The speed of ultrasound in sea water is 1500 m/s. Calculate the depth of the sea.",
+      "a": "Time to the sea bed = 0.60 ÷ 2 = 0.30 s. Depth = 1500 × 0.30 = 450 m.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why seismic waves are evidence that the Earth's outer core is a liquid.",
+      "a": "S-waves cannot travel through a liquid. S-waves do not travel through the outer core, so the outer core must be a liquid.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.6.1.5"],
+      "extra": [
+        {
+          "heading": "Course level",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Higher tier) This topic is Higher tier content in this course."
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "a379ad40-2f74-4dba-9c6f-04a9af64cfaa",
+        "source": "AQA jun 2018, Paper 2 (H), Q03.5",
+        "question": "P-waves and S-waves are two types of seismic wave caused by earthquakes.\n\nExplain why the study of seismic waves provides evidence for the structure of the Earth's core.",
+        "marks": 2,
+        "answer_points": [
+          "S-waves cannot travel through a liquid.",
+          "S-waves do not travel through the (outer) core."
+        ],
+        "tip": "Each point is one mark. Say S-waves, not just seismic waves."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 4.8P", "EDEX 4.13P", "EDEX 4.14P", "EDEX 4.15P"],
+      "extra": [
+        {
+          "heading": "Infrasound and exploring the Earth",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Uses of ultrasound and infrasound include sonar, foetal scanning and the exploration of the Earth's core. The seismic wave evidence is in the section above."
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8c405010-0536-4d6a-940e-2c49d77a5003",
+        "source": "EDEXCEL nov 2020, Paper 1 (H), Q10(c)",
+        "question": "A transducer on the bottom of a ship can transmit and detect ultrasonic waves.\n\nThe waves reflect off the sea floor and are received back at the transducer.\n\nThe waves travel at 1500 m/s.\n\nThe time between transmission and reception is 48 milliseconds.\n\nCalculate the depth of the water, D.",
+        "marks": 2,
+        "answer_points": ["D = ½ × v × t = ½ × 1500 × 0.048", "D = 36 m"],
+        "tip": "Change 48 ms to 0.048 s first. The answer 72 m, from ignoring the half, scores 1 mark."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P5.2i", "OCR P8.3i"],
+      "worked_example": {
+        "exemplar_id": "ba6ec042-5cdd-4cdd-b5c3-af54d6e292a6",
+        "source": "OCR jun 2025, Paper 4, Q22(a)",
+        "question": "Ultrasound waves are used to produce images of the inside of the human body.\n\nThe ultrasound waves reflect from the boundary between two different materials inside the human body.\n\nA computer records a time of 2.8 × 10⁻⁷ s between emitting one ultrasound wave and receiving the reflection of this wave from the boundary between the fat tissue and the muscle tissue.\n\nThe speed of ultrasound waves in fat tissue is 1500 m/s.\n\nCalculate the thickness of the fat tissue.",
+        "marks": 3,
+        "answer_points": [
+          "Select the equation: distance = speed × time.",
+          "Substitute: distance = 1500 × (2.8 × 10⁻⁷ ÷ 2).",
+          "Evaluate: distance = 2.1 × 10⁻⁴ m."
+        ],
+        "tip": "The time is divided by 2 because the wave travels to the boundary and back."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.4.9", "CAIE 3.4.12S", "CAIE 3.3.9S"],
+      "worked_example": {
+        "exemplar_id": "866af461-72cc-4f73-97c6-a5735be8907c",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q8(b)",
+        "question": "A fisherman uses high frequency sound waves to locate fish in the sea.\n\nSound waves travel from the boat through the sea water. The speed of sound in water is 1500 m/s. The seabed is 22 m below the boat.\n\nCalculate the time taken for the boat to receive the reflected wave from the seabed after the sound is emitted.",
+        "marks": 3,
+        "answer_points": [
+          "The pulse travels down and back: distance = 22 × 2 = 44 m.",
+          "Use speed = distance ÷ time, so time = 44 ÷ 1500.",
+          "Time = 0.029 s."
+        ],
+        "tip": "The pulse travels to the seabed and back, so the distance is doubled."
+      },
+      "extra": [
+        {
+          "heading": "Non-destructive testing",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Ultrasound can test a material without damaging it."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Pulses are sent into a metal or other solid.",
+                "A crack or flaw inside reflects the pulse back earlier than the far side does.",
+                "The echo time shows where the flaw is, so the part does not need to be cut open."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Analogue and digital signals",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A sound can be sent as an analogue signal or as a digital signal."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Analogue signal",
+                  "meaning": "A signal whose value varies continuously, so it can take any value within a range."
+                },
+                {
+                  "term": "Digital signal",
+                  "meaning": "A signal that has only two values, on and off, which are written as 1 and 0."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Interference adds noise to both kinds of signal.",
+                "A digital signal can be cleaned and regenerated, so the sound arrives with better quality."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "7182bc4a-a3cf-4c0e-8c68-9c3899ff1989",
+      "c197fcfd-d0b0-49af-977c-0ab4305c73f3",
+      "de9b1314-4418-4f52-88b6-8ae4dc496541",
+      "435460bf-9968-4429-9ddb-4aa7a4cbaa2e",
+      "375a6a82-37ab-4f74-8b54-238076f84918",
+      "0f2f6839-c075-4535-a158-c38579d47b9a",
+      "a6129881-120a-4aed-8413-0f41be6df421",
+      "990f12aa-f1b8-4f5d-9a29-6744c62bcd0f",
+      "044b4514-868b-40de-aa66-d331cd970c95"
+    ],
+    "exemplar_ids": [
+      "a379ad40-2f74-4dba-9c6f-04a9af64cfaa",
+      "8c405010-0536-4d6a-940e-2c49d77a5003",
+      "ba6ec042-5cdd-4cdd-b5c3-af54d6e292a6",
+      "866af461-72cc-4f73-97c6-a5735be8907c"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

@@ -8,17 +8,35 @@
     {
       "heading": "Atoms, elements and compounds",
       "blocks": [
-        { "type": "paragraph", "text": "Everything is built from atoms. This section covers how atoms make up elements and compounds." },
+        {
+          "type": "paragraph",
+          "text": "Everything is built from atoms. This section covers how atoms make up elements and compounds."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Atom", "meaning": "The smallest part of an element that can exist." },
-            { "term": "Element", "meaning": "A substance made of only one type of atom. There are about 100 different elements." },
-            { "term": "Compound", "meaning": "A substance of two or more elements chemically combined in fixed proportions." },
-            { "term": "Chemical reaction", "meaning": "A change that forms one or more new substances, often with a detectable energy change." }
+            {
+              "term": "Atom",
+              "meaning": "The smallest part of an element that can exist."
+            },
+            {
+              "term": "Element",
+              "meaning": "A substance made of only one type of atom. There are about 100 different elements."
+            },
+            {
+              "term": "Compound",
+              "meaning": "A substance of two or more elements chemically combined in fixed proportions."
+            },
+            {
+              "term": "Chemical reaction",
+              "meaning": "A change that forms one or more new substances, often with a detectable energy change."
+            }
           ]
         },
-        { "type": "subheading", "text": "Elements and compounds compared" },
+        {
+          "type": "subheading",
+          "text": "Elements and compounds compared"
+        },
         {
           "type": "list",
           "items": [
@@ -34,16 +52,43 @@
             "kind": "sort",
             "alt": "Sort each substance into element or compound.",
             "prompt": "Element or compound?",
-            "groups": ["Element", "Compound"],
+            "groups": [
+              "Element",
+              "Compound"
+            ],
             "items": [
-              { "text": "Oxygen, O₂", "group": 0 },
-              { "text": "Water, H₂O", "group": 1 },
-              { "text": "Iron, Fe", "group": 0 },
-              { "text": "Carbon dioxide, CO₂", "group": 1 },
-              { "text": "Sodium chloride, NaCl", "group": 1 },
-              { "text": "Chlorine, Cl₂", "group": 0 },
-              { "text": "Magnesium oxide, MgO", "group": 1 },
-              { "text": "Sodium, Na", "group": 0 }
+              {
+                "text": "Oxygen, O₂",
+                "group": 0
+              },
+              {
+                "text": "Water, H₂O",
+                "group": 1
+              },
+              {
+                "text": "Iron, Fe",
+                "group": 0
+              },
+              {
+                "text": "Carbon dioxide, CO₂",
+                "group": 1
+              },
+              {
+                "text": "Sodium chloride, NaCl",
+                "group": 1
+              },
+              {
+                "text": "Chlorine, Cl₂",
+                "group": 0
+              },
+              {
+                "text": "Magnesium oxide, MgO",
+                "group": 1
+              },
+              {
+                "text": "Sodium, Na",
+                "group": 0
+              }
             ]
           }
         },
@@ -60,26 +105,93 @@
     {
       "heading": "Symbols and formulae",
       "blocks": [
-        { "type": "paragraph", "text": "Each element has a chemical symbol of one or two letters. The first letter is always a capital and the second is always lower case." },
-        { "type": "subheading", "text": "The first 20 elements" },
+        {
+          "type": "paragraph",
+          "text": "Each element has a chemical symbol of one or two letters. The first letter is always a capital and the second is always lower case."
+        },
+        {
+          "type": "subheading",
+          "text": "The first 20 elements"
+        },
         {
           "type": "table",
-          "columns": ["Element", "Symbol", "Element", "Symbol"],
+          "columns": [
+            "Element",
+            "Symbol",
+            "Element",
+            "Symbol"
+          ],
           "rows": [
-            ["Hydrogen", "H", "Sodium", "Na"],
-            ["Helium", "He", "Magnesium", "Mg"],
-            ["Lithium", "Li", "Aluminium", "Al"],
-            ["Beryllium", "Be", "Silicon", "Si"],
-            ["Boron", "B", "Phosphorus", "P"],
-            ["Carbon", "C", "Sulfur", "S"],
-            ["Nitrogen", "N", "Chlorine", "Cl"],
-            ["Oxygen", "O", "Argon", "Ar"],
-            ["Fluorine", "F", "Potassium", "K"],
-            ["Neon", "Ne", "Calcium", "Ca"]
+            [
+              "Hydrogen",
+              "H",
+              "Sodium",
+              "Na"
+            ],
+            [
+              "Helium",
+              "He",
+              "Magnesium",
+              "Mg"
+            ],
+            [
+              "Lithium",
+              "Li",
+              "Aluminium",
+              "Al"
+            ],
+            [
+              "Beryllium",
+              "Be",
+              "Silicon",
+              "Si"
+            ],
+            [
+              "Boron",
+              "B",
+              "Phosphorus",
+              "P"
+            ],
+            [
+              "Carbon",
+              "C",
+              "Sulfur",
+              "S"
+            ],
+            [
+              "Nitrogen",
+              "N",
+              "Chlorine",
+              "Cl"
+            ],
+            [
+              "Oxygen",
+              "O",
+              "Argon",
+              "Ar"
+            ],
+            [
+              "Fluorine",
+              "F",
+              "Potassium",
+              "K"
+            ],
+            [
+              "Neon",
+              "Ne",
+              "Calcium",
+              "Ca"
+            ]
           ]
         },
-        { "type": "paragraph", "text": "The Group 1 and Group 7 elements are on the periodic table you are given in the exam, so use it to check symbols." },
-        { "type": "subheading", "text": "Reading a formula" },
+        {
+          "type": "paragraph",
+          "text": "The Group 1 and Group 7 elements are on the periodic table you are given in the exam, so use it to check symbols."
+        },
+        {
+          "type": "subheading",
+          "text": "Reading a formula"
+        },
         {
           "type": "list",
           "items": [
@@ -91,17 +203,48 @@
         },
         {
           "type": "table",
-          "columns": ["Formula", "Name", "Atoms in one unit"],
+          "columns": [
+            "Formula",
+            "Name",
+            "Atoms in one unit"
+          ],
           "rows": [
-            ["H₂O", "water", "2 H, 1 O"],
-            ["CO₂", "carbon dioxide", "1 C, 2 O"],
-            ["NH₃", "ammonia", "1 N, 3 H"],
-            ["HCl", "hydrochloric acid", "1 H, 1 Cl"],
-            ["HNO₃", "nitric acid", "1 H, 1 N, 3 O"],
-            ["Ca(NO₃)₂", "calcium nitrate", "1 Ca, 2 N, 6 O"]
+            [
+              "H₂O",
+              "water",
+              "2 H, 1 O"
+            ],
+            [
+              "CO₂",
+              "carbon dioxide",
+              "1 C, 2 O"
+            ],
+            [
+              "NH₃",
+              "ammonia",
+              "1 N, 3 H"
+            ],
+            [
+              "HCl",
+              "hydrochloric acid",
+              "1 H, 1 Cl"
+            ],
+            [
+              "HNO₃",
+              "nitric acid",
+              "1 H, 1 N, 3 O"
+            ],
+            [
+              "Ca(NO₃)₂",
+              "calcium nitrate",
+              "1 Ca, 2 N, 6 O"
+            ]
           ]
         },
-        { "type": "subheading", "text": "Naming a compound from its formula" },
+        {
+          "type": "subheading",
+          "text": "Naming a compound from its formula"
+        },
         {
           "type": "list",
           "items": [
@@ -123,28 +266,49 @@
     {
       "heading": "Showing reactions",
       "blocks": [
-        { "type": "paragraph", "text": "Chemical reactions are written as word equations or as equations using symbols and formulae." },
+        {
+          "type": "paragraph",
+          "text": "Chemical reactions are written as word equations or as equations using symbols and formulae."
+        },
         {
           "type": "equation",
           "label": "A word equation",
           "formula": "iron + chlorine → iron chloride",
-          "where": ["Reactants are on the left.", "Products are on the right."]
+          "where": [
+            "Reactants are on the left.",
+            "Products are on the right."
+          ]
         },
         {
           "type": "equation",
           "label": "A symbol equation for the same reaction",
           "formula": "2Fe + 3Cl₂ → 2FeCl₃",
-          "where": ["The big numbers in front balance the number of atoms on each side.", "Never change the small numbers inside a formula."]
+          "where": [
+            "The big numbers in front balance the number of atoms on each side.",
+            "Never change the small numbers inside a formula."
+          ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Word equation.", "text": "Write the names of the reactants and products." },
-            { "lead": "Formulae.", "text": "Replace each name with its correct formula." },
-            { "lead": "Balance.", "text": "Put numbers in front of formulae until each element has the same number of atoms on both sides." }
+            {
+              "lead": "Word equation.",
+              "text": "Write the names of the reactants and products."
+            },
+            {
+              "lead": "Formulae.",
+              "text": "Replace each name with its correct formula."
+            },
+            {
+              "lead": "Balance.",
+              "text": "Put numbers in front of formulae until each element has the same number of atoms on both sides."
+            }
           ]
         },
-        { "type": "subheading", "text": "State symbols" },
+        {
+          "type": "subheading",
+          "text": "State symbols"
+        },
         {
           "type": "list",
           "items": [
@@ -153,7 +317,10 @@
             "(aq) means aqueous: dissolved in water."
           ]
         },
-        { "type": "paragraph", "text": "(Higher tier) You also write half equations and ionic equations. Those are covered in later topics." },
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) You also write half equations and ionic equations. Those are covered in later topics."
+        },
         {
           "type": "key-points",
           "items": [
@@ -183,28 +350,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.1.1.1", "AQA T 5.1.1.1"],
-      "exam_phrases": [
-        "compound",
-        "mixture",
-        "(non-metallic) element",
-        "nitrogen 2, oxygen 1 (in N₂O)",
-        "water vapour / steam / gaseous water",
-        "allow multiples (balancing)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The products are carbon oxide and hydrogen oxide.",
-          "right": "These names are not accepted. Name the products as carbon dioxide and water."
-        },
-        {
-          "wrong": "H₂O(g) means water.",
-          "right": "The state symbol (g) means gas. H₂O(g) is water vapour, also accepted as steam or gaseous water."
-        },
-        {
-          "wrong": "Bauxite is a mixture because it contains more than one element.",
-          "right": "A compound also contains more than one element. Say that the percentage of aluminium in bauxite varies, but a compound has a fixed proportion."
-        }
+      "spec_codes": [
+        "AQA 4.1.1.1",
+        "AQA T 5.1.1.1"
       ],
       "worked_example": {
         "exemplar_id": "1df81e3f-4e63-4b21-baad-00202e75aeb5",
@@ -220,22 +368,8 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 0.1"],
-      "exam_phrases": [
-        "potassium (K), nitrogen (N), phosphorus (P)",
-        "one nitrogen (atom) and three hydrogen (atoms)",
-        "NH₃ (H₃N allowed)",
-        "silver nitrate (AgNO₃)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The formula of ammonia is nh3.",
-          "right": "Write the symbols with capital letters and the 3 as a subscript: NH₃. H₃N is also allowed."
-        },
-        {
-          "wrong": "NH₃ shows one nitrogen and three hydrogen molecules.",
-          "right": "A formula counts atoms, not molecules. Each molecule has one nitrogen atom and three hydrogen atoms combined."
-        }
+      "spec_codes": [
+        "EDEX 0.1"
       ],
       "worked_example": {
         "exemplar_id": "7e567291-9c8d-4444-8f0d-dc65879f3e9b",
@@ -251,22 +385,8 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C3.1a"],
-      "exam_phrases": [
-        "Mg (magnesium)",
-        "HCl (hydrochloric acid)",
-        "HNO₃ (nitric acid)",
-        "Zn (zinc)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The symbol for magnesium is MG.",
-          "right": "Use a capital letter then a lower-case letter: Mg."
-        },
-        {
-          "wrong": "The formula of hydrochloric acid is hcl.",
-          "right": "Each symbol starts with a capital letter. Write HCl, with a capital H and a capital C."
-        }
+      "spec_codes": [
+        "OCR C3.1a"
       ],
       "worked_example": {
         "exemplar_id": "24a7c2d1-db8b-4005-b003-6ecde11808be",
@@ -279,24 +399,111 @@
         ],
         "tip": "One mark for each correct formula."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.1.1",
+        "CAIE 3.1.1",
+        "CAIE 3.1.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "0871b0c6-80e0-4f4d-9198-043c498acb6b",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q5(c)(i)",
+        "question": "Sulfur is a Group VI element.\nAn acid containing sulfur reacts with sodium hydroxide, NaOH, to form a salt and water. The salt has the formula Na₂SO₃.\nDeduce the formula of this acid.",
+        "marks": 1,
+        "answer_points": [
+          "H₂SO₃"
+        ],
+        "tip": "The two sodium ions in the salt replaced two hydrogen ions in the acid."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Deduce a formula from a diagram or model: count the atoms of each element in one unit, then write the symbols with those numbers.",
+                "A **mixture** contains two or more substances that are not chemically combined. Its parts keep their own properties and can be in any proportions.",
+                "A compound has different properties from the elements in it. A mixture keeps the properties of its parts.",
+                "Know the formulae of the compounds named in the course, for example HCl, H₂SO₄, NaOH, NH₃, CaCO₃, Na₂CO₃, Zn(NO₃)₂ and (NH₄)₂SO₄.",
+                "A Roman numeral in a name gives the charge on the metal ion. Iron(III) oxide is Fe₂O₃ and manganese(II) oxide is MnO."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.8",
+        "IGCSE 1.14"
+      ],
+      "worked_example": {
+        "exemplar_id": "0f4ab28a-e9f0-4a14-9731-08bf484aed07",
+        "source": "EDEXCEL jun 2024, Paper 1 (CR), Q3(b)",
+        "question": "This question is about elements, mixtures and compounds.\nExplain why silicon dioxide is a compound.",
+        "marks": 2,
+        "answer_points": [
+          "It contains two different types of atom (silicon and oxygen)",
+          "The atoms are joined (bonded) together"
+        ],
+        "tip": "One mark for two different elements and one for them being chemically joined."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Molecule",
+                  "meaning": "Two or more atoms joined together by chemical bonds, such as H₂, O₂ or H₂O."
+                },
+                {
+                  "term": "Mixture",
+                  "meaning": "Two or more substances that are not chemically combined. Each keeps its own properties."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "To classify a substance, ask how many types of atom it has and whether they are chemically joined.",
+                "One type of atom only: an element.",
+                "Different atoms chemically joined in a fixed ratio: a compound.",
+                "Different substances not chemically joined: a mixture."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "efd2b452-8762-488c-b898-c995f2193a6d",
       "d3a3235b-5b08-49c0-bc09-2b020eb9c8c6",
       "4f49a154-64be-4c5c-8cb0-9d6ee8807546",
-      "e52bd1ee-69ea-420a-a4dd-3aea6bedd84e"
+      "e52bd1ee-69ea-420a-a4dd-3aea6bedd84e",
+      "9b56691c-aa34-432f-8377-58e2a3773246",
+      "9908f649-4896-49af-a988-8c41aa4da3c2",
+      "f41089b3-41a3-415a-9366-cd3ac204088d",
+      "54301dca-2aee-4ff3-95c4-11faa7864c63",
+      "3c378c51-dda0-4427-a046-af32422d347d"
     ],
     "exemplar_ids": [
       "1df81e3f-4e63-4b21-baad-00202e75aeb5",
       "7e567291-9c8d-4444-8f0d-dc65879f3e9b",
-      "24a7c2d1-db8b-4005-b003-6ecde11808be"
+      "24a7c2d1-db8b-4005-b003-6ecde11808be",
+      "0871b0c6-80e0-4f4d-9198-043c498acb6b",
+      "0f4ab28a-e9f0-4a14-9731-08bf484aed07"
     ]
   }
 }

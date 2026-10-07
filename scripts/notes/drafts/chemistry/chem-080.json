@@ -1,0 +1,574 @@
+{
+  "format": 1,
+  "concept_id": "chem-080",
+  "subject": "chemistry",
+  "title": "Alcohols",
+  "key_idea": "(Separate science) Alcohols contain the –OH functional group. Methanol, ethanol, propanol and butanol are the first four. They burn, react with sodium, dissolve in water and can be oxidised to carboxylic acids. Ethanol is made from sugar solution by fermentation using yeast.",
+  "sections": [
+    {
+      "heading": "Alcohols and their structures",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Alcohols are a homologous series of organic compounds. They all contain the same functional group, so they react in similar ways."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Functional group",
+              "meaning": "The atom or group of atoms that decides how a compound reacts."
+            },
+            {
+              "term": "Alcohol",
+              "meaning": "A compound containing the functional group –OH."
+            },
+            {
+              "term": "Homologous series",
+              "meaning": "A family of compounds with the same functional group and the same general formula, each differing from the next by CH₂."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Name",
+            "Formula",
+            "Carbon atoms"
+          ],
+          "rows": [
+            [
+              "Methanol",
+              "CH₃OH",
+              "1"
+            ],
+            [
+              "Ethanol",
+              "CH₃CH₂OH (or C₂H₅OH)",
+              "2"
+            ],
+            [
+              "Propanol",
+              "CH₃CH₂CH₂OH (or C₃H₇OH)",
+              "3"
+            ],
+            [
+              "Butanol",
+              "CH₃CH₂CH₂CH₂OH (or C₄H₉OH)",
+              "4"
+            ]
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "General formula of an alcohol",
+          "formula": "CₙH₂ₙ₊₁OH",
+          "where": [
+            "n is the number of carbon atoms, with no unit."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a displayed formula, draw every bond, including the O–H bond.",
+            "Alcohols share the same functional group and similar chemical reactions.",
+            "Their formulae differ by CH₂ each time.",
+            "Their physical properties change in a trend, such as a rising boiling point."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The functional group in an alcohol is –OH.",
+            "The first four alcohols are methanol, ethanol, propanol and butanol.",
+            "Members of a homologous series have the same general formula and similar reactions."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reactions of alcohols",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Ethanol shows the typical reactions of the first four alcohols. Pick a reaction to see what happens."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a reaction of ethanol to see what you observe and what is made.",
+            "prompt": "Pick a reaction of ethanol",
+            "result_labels": [
+              "What happens",
+              "Products"
+            ],
+            "options": [
+              {
+                "label": "Burn in air",
+                "results": [
+                  "It burns and transfers energy as heat.",
+                  "Carbon dioxide and water (complete combustion)."
+                ]
+              },
+              {
+                "label": "Add sodium",
+                "results": [
+                  "Bubbles of gas are given off.",
+                  "Hydrogen gas and a sodium alkoxide (sodium ethoxide)."
+                ]
+              },
+              {
+                "label": "Add to water",
+                "results": [
+                  "It dissolves to make a neutral solution.",
+                  "No new substance is made."
+                ]
+              },
+              {
+                "label": "Warm with an oxidising agent",
+                "results": [
+                  "The alcohol is oxidised.",
+                  "A carboxylic acid with the same number of carbon atoms: ethanol gives ethanoic acid, and water."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Combustion"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Alcohols burn in air to make carbon dioxide and water.",
+            "The balanced equation for ethanol is below.",
+            "Ethanol is a fuel, so burning releases energy."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Complete combustion of ethanol",
+          "formula": "C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O"
+        },
+        {
+          "type": "subheading",
+          "text": "Oxidation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Oxidising an alcohol makes a carboxylic acid. The same change happens slowly when ethanol is left exposed to air."
+        },
+        {
+          "type": "equation",
+          "label": "Oxidation of propanol in air",
+          "formula": "propanol + oxygen → propanoic acid + water"
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Alcohols burn completely to make carbon dioxide and water.",
+            "Alcohols react with sodium to give off hydrogen.",
+            "Oxidising an alcohol makes a carboxylic acid."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making ethanol by fermentation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Aqueous ethanol is made when a sugar solution is fermented using yeast. The yeast provides enzymes that catalyse the reaction."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Fermentation",
+              "meaning": "The breakdown of sugar by yeast to make ethanol and carbon dioxide."
+            },
+            {
+              "term": "Anaerobic",
+              "meaning": "Without oxygen."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Fermentation of glucose",
+          "formula": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂",
+          "where": [
+            "C₆H₁₂O₆ is glucose, a sugar.",
+            "The reaction is catalysed by enzymes in yeast."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Dissolve.",
+              "text": "Make a solution of the sugar in water."
+            },
+            {
+              "lead": "Add yeast.",
+              "text": "Yeast provides the enzymes."
+            },
+            {
+              "lead": "Keep it warm.",
+              "text": "Use a warm room or water bath, about 25 to 40 °C."
+            },
+            {
+              "lead": "Keep air out.",
+              "text": "Fit an air lock so the conditions are anaerobic."
+            },
+            {
+              "lead": "Finish.",
+              "text": "The reaction is over when the bubbles stop. Filter or decant the ethanol solution from the yeast."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "If the mixture is too hot, the enzymes are denatured and stop working. That is why the reaction is not carried out at 80 °C."
+        },
+        {
+          "type": "subheading",
+          "text": "Uses of alcohols"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fuels, such as ethanol and butanol for cars.",
+            "Solvents.",
+            "Ethanol is the alcohol in alcoholic drinks."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fermentation needs sugar solution, yeast, warmth and no oxygen.",
+            "Yeast provides enzymes, which are denatured if it is too hot.",
+            "Fermentation makes a dilute solution of ethanol."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the functional group in alcohols and name the first four alcohols.",
+      "a": "The functional group is –OH. The first four alcohols are methanol, ethanol, propanol and butanol.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how ethanol is made from sugar solution. Name the process.",
+      "a": "Fermentation. Add yeast to the sugar solution and keep it warm and without oxygen (anaerobic).",
+      "marks": 3
+    },
+    {
+      "q": "Write the balanced equation for the complete combustion of ethanol.",
+      "a": "C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.7.2.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "fc99d8cb-9348-4566-8421-d7ab4838339e",
+        "source": "AQA jun 2018, Paper 2 (H), Q02.5",
+        "question": "Methylated spirit contains ethanol.\n\nDescribe how ethanol is produced from sugar solution.\n\nGive the name of this process.",
+        "marks": 3,
+        "answer_points": [
+          "The process is fermentation.",
+          "Add yeast.",
+          "Anaerobic conditions (in the absence of oxygen) or warm (a temperature in the range 5–45 °C; room temperature is allowed)."
+        ],
+        "tip": "One mark each: the name of the process, adding yeast, and one condition."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 9.26C",
+        "EDEX 9.27C",
+        "EDEX 9.31C",
+        "EDEX 9.33C",
+        "EDEX 9.34C"
+      ],
+      "worked_example": {
+        "exemplar_id": "4280f93c-688d-4194-b88f-6c2a021b9ac1",
+        "source": "EDEXCEL jun 2018, Paper 2 (F), Q10(b)",
+        "question": "Propanol and butanol are both members of the same homologous series as ethanol.\n\nGive three reasons why ethanol, propanol and butanol are members of the same homologous series.",
+        "marks": 3,
+        "answer_points": [
+          "Any three of the following.",
+          "They all have the –OH group (hydroxyl group), the same functional group.",
+          "They have the same general formula, CₙH₂ₙ₊₁OH.",
+          "Their formulae differ by CH₂ units.",
+          "They react similarly with oxygen, all burning to form carbon dioxide and water.",
+          "A trend in a physical property, such as an increasing boiling point, also scores."
+        ],
+        "tip": "Any three points score one mark each. Saying only that they are all alcohols is ignored, and hydroxide is not allowed."
+      },
+      "extra": [
+        {
+          "heading": "Edexcel only: dehydration and concentrating ethanol",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Alcohols can be dehydrated to make alkenes. Propanol and butanol are the unbranched forms, propan-1-ol and butan-1-ol."
+            },
+            {
+              "type": "equation",
+              "label": "Dehydration of ethanol",
+              "formula": "C₂H₅OH → C₂H₄ + H₂O"
+            },
+            {
+              "type": "paragraph",
+              "text": "Fermentation makes a dilute ethanol solution. Fractional distillation makes it more concentrated."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Put the dilute ethanol in a round bottom flask with a fractionating column and a thermometer on top."
+                },
+                {
+                  "lead": "Add a condenser.",
+                  "text": "Fit it to the top of the column and run water in at the bottom."
+                },
+                {
+                  "lead": "Heat.",
+                  "text": "Heat above the boiling point of ethanol but below the boiling point of water."
+                },
+                {
+                  "lead": "Collect.",
+                  "text": "Concentrated ethanol comes out of the end of the condenser."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.2b",
+        "OCR C6.2c"
+      ],
+      "extra": [
+        {
+          "heading": "OCR only: oxidation by potassium manganate(VII)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "OCR asks you to predict the product when an alcohol is oxidised using potassium manganate(VII)."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The product is a carboxylic acid.",
+                "The acid has the same number of carbon atoms as the alcohol.",
+                "Propanol gives propanoic acid."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 11.6.1",
+        "CAIE 11.6.2",
+        "CAIE 11.6.3",
+        "CAIE 11.6.4S",
+        "CAIE 11.7.2S",
+        "CAIE 11.2.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "95726600-764c-4ba4-a639-eac26be70a07",
+        "source": "CAMBRIDGE nov 2023, Paper 41, Q6(d)",
+        "question": "Ethanol is manufactured by two methods.\n\nmethod 1: fermentation of aqueous glucose\nmethod 2: catalytic addition of steam to an alkene\n\nGive one advantage of each method of production of ethanol.\n\nmethod 1\nmethod 2",
+        "marks": 2,
+        "answer_points": [
+          "Method 1: uses renewable resources.",
+          "Method 2: high rate of reaction."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Conditions for making ethanol",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Fermentation: aqueous glucose, yeast, 25 to 35 °C and no oxygen.",
+                "Ethene and steam: 300 °C, 6000 kPa (60 atm) and an acid catalyst."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Fermentation and ethene compared (Supplement)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Each method of making ethanol has advantages and disadvantages."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Feature",
+                "Fermentation",
+                "Ethene and steam"
+              ],
+              "rows": [
+                [
+                  "Raw material",
+                  "Renewable (sugar)",
+                  "Finite (from crude oil)"
+                ],
+                [
+                  "Rate",
+                  "Slow",
+                  "Fast"
+                ],
+                [
+                  "Type of process",
+                  "Batch",
+                  "Continuous"
+                ],
+                [
+                  "Purity of ethanol",
+                  "Impure",
+                  "Pure"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Making ethanoic acid from ethanol (Supplement)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Ethanol is oxidised to ethanoic acid in two ways."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Heat with acidified aqueous potassium manganate(VII).",
+                "Bacterial oxidation in air, as in vinegar production."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.29C",
+        "IGCSE 4.30C",
+        "IGCSE 4.31C",
+        "IGCSE 4.32C",
+        "IGCSE 4.33C"
+      ],
+      "worked_example": {
+        "exemplar_id": "b006389b-fcb2-4564-91e4-89bbaa3df343",
+        "source": "EDEXCEL nov 2020, Paper 2 (C), Q4(b)(ii)",
+        "question": "Alcohols contain the functional group –OH.\n\nEthanol (C₂H₅OH) is an alcohol that can be obtained from glucose (C₆H₁₂O₆).\n\nExplain why this process is carried out in the absence of air and at a temperature below 40 °C.",
+        "marks": 4,
+        "answer_points": [
+          "Fermentation needs to be anaerobic.",
+          "In air, ethanol is not produced; the ethanol would be oxidised to ethanoic acid (vinegar), or carbon dioxide and water form.",
+          "Above about 40 °C the enzymes in yeast are denatured (lose their shape).",
+          "So the reaction slows down or stops."
+        ],
+        "tip": "Any four of these points score the four marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Ethanol can be made in two ways, and it can be oxidised to ethanoic acid in two ways."
+            },
+            {
+              "type": "subheading",
+              "text": "Manufacture"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Ethene and steam with a phosphoric acid catalyst, at about 300 °C and 60 to 70 atm.",
+                "Fermentation of glucose with the enzymes in yeast, in the absence of air, at about 30 °C."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Why fermentation uses no air and about 30 °C"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Without air, ethanol is not oxidised to ethanoic acid.",
+                "At about 30 °C the enzymes work best.",
+                "If it is too hot, the enzymes are denatured and fermentation stops."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Oxidation of ethanol"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Microbial oxidation: ethanol reacts with oxygen in the air to form ethanoic acid.",
+                "Heating with potassium dichromate(VI) in dilute sulfuric acid also forms ethanoic acid."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "9afb99fe-b75d-43fc-a7b1-9e879d359e6a",
+      "12951df6-da00-4d90-b193-b4187cab9e0f",
+      "71f51599-6985-403a-a709-fedb209d58db",
+      "8ce96d5d-902c-428c-9f40-0a4d2d5a03c7",
+      "9dcd1913-456d-4bc9-9c92-c22a3823bf2f",
+      "102cdea3-4429-48a0-8d36-c0d40e0460f2",
+      "a73a758c-0020-4740-8bfc-4e66440366c4",
+      "15bac1b0-1201-4af2-8a95-bf41e2543c51",
+      "ed8381f4-3718-4630-925a-d934ef455a34",
+      "bd3647a5-f093-4899-a53c-7147f26ec9e1",
+      "8852f813-b237-48a2-85ea-e49c79f4a47a",
+      "1c70e017-598d-460f-af42-aaacfb8227cf",
+      "e0c6e578-1a08-4597-a80a-f222044675c7",
+      "1f1a65a0-ddc8-41d1-aea5-1b5c2b1e656f",
+      "665a555d-a5c9-49ad-9256-fd8d55134736",
+      "3954d78d-ad62-4a2f-8577-e9aec0ae6362",
+      "2b4deaa1-dab2-4360-8524-fb77791b8b7e",
+      "2d2b5955-7388-4ba3-a21c-4750b37a5e10"
+    ],
+    "exemplar_ids": [
+      "fc99d8cb-9348-4566-8421-d7ab4838339e",
+      "4280f93c-688d-4194-b88f-6c2a021b9ac1",
+      "95726600-764c-4ba4-a639-eac26be70a07",
+      "b006389b-fcb2-4564-91e4-89bbaa3df343"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

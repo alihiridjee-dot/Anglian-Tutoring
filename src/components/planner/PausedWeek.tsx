@@ -1,4 +1,5 @@
 import { PauseCircle } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 import { PLANNER_TIME_ZONE } from "@/lib/planner/week";
 import type { PauseReason, SubjectPause } from "@/lib/planner/subjectPauses";
@@ -19,7 +20,16 @@ const WHY: Record<PauseReason, string> = {
  * it is, so there is nothing else to show: no empty lanes, and no sentence
  * explaining them. Just what stopped and since when.
  */
-export function PausedWeek({ subject, pause }: { subject: string; pause: SubjectPause }) {
+export function PausedWeek({
+  subject,
+  pause,
+  canManage = false,
+}: {
+  subject: string;
+  pause: SubjectPause;
+  /** The student's own view: every reason here is settled on their billing page. */
+  canManage?: boolean;
+}) {
   const since = new Date(pause.startedAt).toLocaleDateString("en-GB", {
     day: "numeric",
     month: "short",
@@ -35,6 +45,14 @@ export function PausedWeek({ subject, pause }: { subject: string; pause: Subject
         <span className="chip">{WHY[pause.reason]}</span>
         <span className="chip">Since {since}</span>
       </div>
+      {canManage && (
+        <Link
+          to="/billing"
+          className="btn-soft mt-2 inline-flex min-h-11 items-center rounded-xl px-5 py-2.5 text-sm sm:pointer-fine:min-h-0"
+        >
+          Manage my plan
+        </Link>
+      )}
     </div>
   );
 }

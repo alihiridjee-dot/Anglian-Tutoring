@@ -1,0 +1,329 @@
+{
+  "format": 1,
+  "concept_id": "chem-078",
+  "subject": "chemistry",
+  "title": "Cracking",
+  "key_idea": "Cracking breaks large, less useful hydrocarbon molecules into smaller, more useful ones. It uses high temperature with a catalyst or steam. The products are smaller alkanes and alkenes, which are in high demand as fuels and for making polymers.",
+  "sections": [
+    {
+      "heading": "What cracking does",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cracking turns large hydrocarbons from the fractions of crude oil into smaller ones."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Cracking",
+              "meaning": "Breaking down large hydrocarbon molecules into smaller, more useful molecules."
+            },
+            {
+              "term": "Alkene",
+              "meaning": "A hydrocarbon with a C=C double bond. It is unsaturated."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The large molecules are saturated alkanes.",
+            "The products include smaller alkanes and alkenes.",
+            "The total number of each type of atom stays the same, so the equation must balance."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "An example of cracking",
+          "formula": "C₁₀H₂₂ → C₈H₁₈ + C₂H₄",
+          "where": [
+            "C₁₀H₂₂ is decane, a large alkane",
+            "C₈H₁₈ is octane, a smaller alkane",
+            "C₂H₄ is ethene, an alkene"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "A large alkane is heated with a catalyst or steam and becomes a smaller alkane and an alkene.",
+            "steps": [
+              "Large alkane molecule",
+              "High temperature with a catalyst or steam",
+              "Smaller alkane and an alkene"
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise working out the hydrogen atoms in the alkane made when decane is cracked.",
+            "question": "Decane, C₁₀H₂₂, is cracked into one alkene molecule with **{k}** carbon atoms and one alkane molecule. Alkenes have the formula CₙH₂ₙ. How many hydrogen atoms are in the alkane molecule?",
+            "variables": [
+              {
+                "id": "k",
+                "min": 2,
+                "max": 6,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "22 - 2 * k",
+              "decimals": 0
+            },
+            "working": [
+              "The alkene has {k} carbon atoms, so it has 2 × {k} hydrogen atoms.",
+              "Hydrogen atoms in the alkane = 22 − 2 × {k} = **{answer}**."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cracking breaks large alkanes into smaller alkanes and alkenes.",
+            "Equations for cracking must have the same atoms on both sides."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How cracking is done",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cracking needs a high temperature. There are two main methods."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Catalytic cracking:** uses a catalyst at a high temperature.",
+            "**Steam cracking:** uses steam at a high temperature."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cracking uses a high temperature with a catalyst or steam.",
+            "The two methods are catalytic cracking and steam cracking."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why cracking is needed",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Crude oil does not contain the fractions in the amounts that people need."
+        },
+        {
+          "type": "list",
+          "items": [
+            "There is a high demand for fuels with small molecules, such as petrol.",
+            "Crude oil does not supply enough small molecules, and there is a surplus of large molecules.",
+            "Small molecules are more flammable, so they are better fuels.",
+            "Alkenes are more reactive than alkanes. They are used to make polymers and as starting materials for many other chemicals."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Product of cracking",
+            "Why it is useful"
+          ],
+          "rows": [
+            [
+              "Smaller alkanes",
+              "In high demand as fuels, because small molecules are more flammable"
+            ],
+            [
+              "Alkenes",
+              "Used to produce polymers and as starting materials for other chemicals"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cracking makes more of the small molecules that are in high demand.",
+            "Smaller alkanes are used as fuels. Alkenes are used to make polymers and other chemicals."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two conditions used for cracking.",
+      "a": "Any two from: high temperature; catalyst; steam.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why large hydrocarbon molecules in the diesel oil fraction are cracked.",
+      "a": "There is a greater demand for smaller molecules. Smaller molecules are more useful, for example better fuels, or are used to make alkenes or polymers.",
+      "marks": 2
+    },
+    {
+      "q": "C₁₀H₂₂ → C₆H₁₄ + ____. Complete the equation.",
+      "a": "C₄H₈. The atoms on the right must add up to C₁₀H₂₂.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.7.1.4",
+        "AQA T 5.7.1.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "cec234ee-5d5d-46a3-8cef-5861fa858664",
+        "source": "AQA jun 2022, Paper 2 (H), Q4.6",
+        "question": "The heavy fuel oil fraction can be processed to produce smaller hydrocarbon molecules.\n\nName the process which produces smaller hydrocarbon molecules from heavy fuel oil.\n\nGive the conditions used in this process.",
+        "marks": 3,
+        "answer_points": [
+          "Cracking.",
+          "High temperature (a stated temperature in the range 300 to 900 °C is allowed).",
+          "Steam or a catalyst."
+        ],
+        "tip": "One mark each for the name, the temperature and the steam or catalyst."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 8.16",
+        "EDEX 8.17"
+      ],
+      "worked_example": {
+        "exemplar_id": "3b26ec81-fd4d-4d9d-be63-bf78ccf8a4e9",
+        "source": "EDEXCEL jun 2023, Paper 2 (H), Q9(b)",
+        "question": "Crude oil is a mixture of hydrocarbons.\nCrude oil can be separated into useful fractions by the process of fractional distillation in a fractionating column.\n\nHydrocarbon X was cracked to form one molecule of hexane, C₆H₁₄, and one molecule of alkene Y.\nX → C₆H₁₄ + Y\nThe relative formula mass of Y is 56.\nThe empirical formula of Y is CH₂.\nDeduce the molecular formula of hydrocarbon X.\nShow your working.\n(relative atomic masses: H = 1.0, C = 12)",
+        "marks": 4,
+        "answer_points": [
+          "Mr of CH₂ = 12 + (2 × 1) = 14.",
+          "56 ÷ 14 = 4.",
+          "Formula of Y = 4 × CH₂ = C₄H₈.",
+          "Formula of X = C₆H₁₄ + C₄H₈ = C₁₀H₂₂."
+        ],
+        "tip": "One mark for each step. Marks can follow through from an earlier error if the working is shown."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.2o"
+      ],
+      "worked_example": {
+        "exemplar_id": "0a803438-44c3-4f13-9ecd-d54a2761a3f0",
+        "source": "OCR nov 2021, Paper 4, Q20(b)(i)",
+        "question": "After crude oil is separated into fractions, some fractions are then cracked.\n\nExplain why some fractions are cracked.",
+        "marks": 3,
+        "answer_points": [
+          "Any three from: high demand for smaller molecules; smaller molecules are used for fuels and alkenes are used for polymers; not enough supply of smaller molecules; a surplus of larger molecules; cracking changes larger molecules into smaller molecules or alkenes."
+        ],
+        "tip": "Named examples are allowed, such as bitumen as the larger molecule and LPG or petrol as the smaller."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 11.5.2",
+        "CAIE 11.5.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "69d9c54c-9754-49f8-bd59-3720c8a480a7",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q5(c)(i)",
+        "question": "When one molecule of dodecane, C₁₂H₂₆, is cracked, three molecules of but-1-ene, C₄H₈, and one other product are formed.\n\nUse molecular formulae to complete the symbol equation for this reaction.\n\nC₁₂H₂₆ → ______ + ______",
+        "marks": 2,
+        "answer_points": [
+          "C₁₂H₂₆ → 3C₄H₈ + H₂",
+          "The other product is hydrogen, H₂."
+        ],
+        "tip": "Count the carbon and hydrogen atoms on each side to find the missing product."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Cracking uses a high temperature and a catalyst. It makes alkenes and also hydrogen."
+            },
+            {
+              "type": "equation",
+              "label": "Cracking that makes hydrogen",
+              "formula": "C₁₂H₂₆ → 3C₄H₈ + H₂",
+              "where": [
+                "C₁₂H₂₆ is dodecane, a large alkane",
+                "C₄H₈ is but-1-ene, an alkene",
+                "H₂ is hydrogen"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.17",
+        "IGCSE 4.18"
+      ],
+      "worked_example": {
+        "exemplar_id": "cca39f99-6192-4f3f-b3f1-54bc09ac62fa",
+        "source": "EDEXCEL jun 2024, Paper 1 (CR), Q8(b)",
+        "question": "Some of the products of fractional distillation are then cracked.\n\nThis equation represents a reaction that occurs during cracking.\n\nC₁₅H₃₂ → C₈H₁₈ + C₃H₆ + 2C₂H₄\n\nExplain why cracking is an important process in the oil industry.",
+        "marks": 4,
+        "answer_points": [
+          "Fractional distillation of crude oil produces more long-chain hydrocarbons than can be used directly (there is less demand for them).",
+          "Cracking produces shorter-chain alkanes.",
+          "These are more flammable and more useful as fuels, such as petrol.",
+          "Cracking produces alkenes.",
+          "Alkenes are used to make polymers (plastics)."
+        ],
+        "tip": "Any four of these points score the four marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Catalytic cracking has set conditions."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The catalyst is silica or alumina.",
+                "The temperature is 600 to 700 °C."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "5b293b36-7e41-4ea1-9b1c-bca44d39d578",
+      "2665b448-2a57-4167-b40b-12e71191a704",
+      "22e3c387-f5ff-4a6e-ac18-63ded8dd3599",
+      "83d98a1a-1e62-4653-a84c-f3d991ab2c42",
+      "2e2fa421-7544-4174-93cd-cf19b4234838",
+      "dc6c93e3-2737-45a2-951a-d917b99a366a",
+      "8d50a15f-698c-4e05-9aa0-3a47cb0064c8",
+      "cdfa690c-71f3-4710-99c1-1b991ecd35ac",
+      "e604802f-7af8-4f2c-a16d-1379bcc66f85"
+    ],
+    "exemplar_ids": [
+      "cec234ee-5d5d-46a3-8cef-5861fa858664",
+      "3b26ec81-fd4d-4d9d-be63-bf78ccf8a4e9",
+      "0a803438-44c3-4f13-9ecd-d54a2761a3f0",
+      "69d9c54c-9754-49f8-bd59-3720c8a480a7",
+      "cca39f99-6192-4f3f-b3f1-54bc09ac62fa"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

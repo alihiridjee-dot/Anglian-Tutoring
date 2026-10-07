@@ -1,0 +1,304 @@
+{
+  "format": 1,
+  "concept_id": "ichem-001",
+  "subject": "chemistry",
+  "title": "Diffusion and gas behaviour",
+  "key_idea": "Gas particles move fast and randomly, and they hit the walls of their container to cause pressure. Heating a gas or lowering its pressure makes its volume bigger. **Diffusion** is the spreading of particles from high to low concentration, and gases with a lower relative molecular mass diffuse faster.",
+  "sections": [
+    {
+      "heading": "Temperature, pressure and the volume of a gas",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A gas has no fixed shape or volume, so its volume changes with conditions. This section covers temperature and pressure, then explains them with particles."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Gas pressure",
+              "meaning": "The force of the particles hitting the walls of the container, for each unit of area."
+            },
+            {
+              "term": "Kinetic energy",
+              "meaning": "The energy a particle has because it is moving."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "What happens to the volume"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Raise the temperature at constant pressure: the volume **increases**.",
+            "Lower the temperature at constant pressure: the volume **decreases**.",
+            "Raise the pressure at constant temperature: the volume **decreases**.",
+            "Lower the pressure at constant temperature: the volume **increases**."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "(Supplement) The particle explanation"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The particles of a gas are far apart and move randomly at high speed.",
+            "Pressure is caused by the particles colliding with the walls.",
+            "Heating gives the particles more kinetic energy, so they move faster.",
+            "Faster particles hit the walls more often and with more force.",
+            "If the gas can expand, it does, until the collisions are back to the same pressure. The volume increases.",
+            "Squeezing a gas into a smaller volume makes the particles hit the walls more often. The pressure increases.",
+            "Lowering the pressure gives the particles more room, so they are further apart."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Six changes to a gas are sorted into those that make its volume increase and those that make it decrease.",
+            "prompt": "Sort each change into the effect it has on the volume of the gas.",
+            "groups": [
+              "Volume increases",
+              "Volume decreases"
+            ],
+            "items": [
+              {
+                "text": "Heat the gas at constant pressure",
+                "group": 0
+              },
+              {
+                "text": "Cool the gas at constant pressure",
+                "group": 1
+              },
+              {
+                "text": "Increase the pressure at constant temperature",
+                "group": 1
+              },
+              {
+                "text": "Decrease the pressure at constant temperature",
+                "group": 0
+              },
+              {
+                "text": "Push in the plunger of a sealed syringe of gas",
+                "group": 1
+              },
+              {
+                "text": "Warm a sealed balloon",
+                "group": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Higher temperature makes a gas expand. Higher pressure makes it shrink.",
+            "Gas pressure is caused by particles hitting the walls.",
+            "Hotter particles move faster, so they collide harder and more often."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Diffusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Diffusion happens in gases and liquids. This section covers what it is and why it happens."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Diffusion",
+              "meaning": "The net movement of particles from a region of higher concentration to a region of lower concentration, until they are evenly spread."
+            },
+            {
+              "term": "Relative molecular mass (Mr)",
+              "meaning": "The sum of the relative atomic masses of all the atoms in a molecule."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Particles in gases and liquids move randomly all the time.",
+            "They spread out in all directions, so they move away from where they are crowded.",
+            "More particles move from the high concentration than back to it, so there is a net movement down the concentration gradient.",
+            "Diffusion stops when the particles are evenly spread. They keep moving.",
+            "Diffusion needs no energy from outside and no stirring.",
+            "It cannot happen in solids, because the particles only vibrate in fixed positions."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Experiments that show diffusion"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A coloured crystal in water slowly spreads its colour through the water. The particles spread out, so the colour becomes paler as the solution is diluted.",
+            "The smell of cooking spreads through a room.",
+            "Ammonia and hydrogen chloride gases are released at opposite ends of a long tube. A white ring of ammonium chloride forms nearer the hydrogen chloride end. Ammonia has the lower Mr, so it diffuses faster and travels further."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Diffusion is the net movement of particles from high to low concentration.",
+            "It is caused by the random movement of particles.",
+            "It happens in gases and liquids, not in solids."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "(Supplement) Mass and the rate of diffusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Not all gases diffuse at the same rate. This section covers how the relative molecular mass affects it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "At the same temperature, particles of a gas with a **lower** relative molecular mass move faster.",
+            "So a gas with a lower Mr diffuses **faster**.",
+            "A gas with a higher Mr diffuses more slowly."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Gas",
+            "Formula",
+            "Relative molecular mass",
+            "Rate of diffusion"
+          ],
+          "rows": [
+            [
+              "Hydrogen",
+              "H₂",
+              "2",
+              "Fastest"
+            ],
+            [
+              "Methane",
+              "CH₄",
+              "16",
+              "Fast"
+            ],
+            [
+              "Nitrogen",
+              "N₂",
+              "28",
+              "Medium"
+            ],
+            [
+              "Carbon dioxide",
+              "CO₂",
+              "44",
+              "Slow"
+            ],
+            [
+              "Chlorine",
+              "Cl₂",
+              "71",
+              "Slowest"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To compare two gases, work out the Mr of each from the Ar values you are given.",
+            "The gas with the lower Mr diffuses faster."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Lower Mr means faster diffusion.",
+            "Higher Mr means slower diffusion.",
+            "Compare gases by working out their Mr."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what happens to the volume of a gas when its temperature is increased at constant pressure.",
+      "a": "The volume increases.",
+      "marks": 1
+    },
+    {
+      "q": "Describe how diffusion happens in a liquid.",
+      "a": "Particles move randomly. There is a net movement from a region of higher concentration to a region of lower concentration until they are evenly spread.",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) Ammonia (Mr 17) and hydrogen chloride (Mr 36.5) are released at the same time. Which diffuses faster? Explain.",
+      "a": "Ammonia. It has the lower relative molecular mass, so its particles move faster.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.1.4",
+        "CAIE 1.1.6S",
+        "CAIE 1.2.1",
+        "CAIE 1.2.2S"
+      ],
+      "worked_example": {
+        "exemplar_id": "a4bd00cc-bf65-40d9-8579-4833409749a1",
+        "source": "CAMBRIDGE mar 2024, Paper 42, Q5(a)",
+        "question": "Butane and but-1-ene are colourless gases at room temperature and pressure. Suggest why but-1-ene diffuses quicker than butane.",
+        "marks": 1,
+        "answer_points": [
+          "But-1-ene has a lower relative molecular mass."
+        ],
+        "tip": "Say 'lower relative molecular mass'. Do not say 'lighter' alone."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "4cb54b95-9348-4a63-bce7-0d7f1e0e5fb1",
+        "source": "EDEXCEL nov 2021, Paper 2 (C), Q3(b)(ii)",
+        "question": "Sulfur dioxide (SO₂) and hydrogen sulfide (H₂S) are both gases. Deduce a relationship between the relative formula mass (Mr) of a gas and the speed at which a gas diffuses. Use the Ar values to help you. [Ar values: H = 1, S = 32, O = 16]",
+        "marks": 3,
+        "answer_points": [
+          "Mr of H₂S = 1 + 1 + 32 = 34.",
+          "Mr of SO₂ = 32 + 16 + 16 = 64.",
+          "The higher the Mr, the slower the gas diffuses."
+        ],
+        "tip": "Work out both values, then state the relationship. The reverse argument is also accepted."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "30b3a9ce-d4d1-4910-8593-008d821132b7",
+      "4a8c247c-59cb-41ed-9d79-f8271533962b",
+      "39500d3d-33a7-46fd-97a9-3432373b5fbf",
+      "332707f2-c89a-4172-8ac8-9cad864338c5",
+      "d02ef296-0d75-47b3-b778-334822dbc934"
+    ],
+    "exemplar_ids": [
+      "a4bd00cc-bf65-40d9-8579-4833409749a1",
+      "4cb54b95-9348-4a63-bce7-0d7f1e0e5fb1"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "format": 1,
+  "concept_id": "phys-056",
+  "subject": "physics",
+  "title": "Newton's first law",
+  "key_idea": "If the resultant force on an object is zero, a stationary object stays at rest and a moving object keeps the same velocity. The velocity only changes when a resultant force acts. That changes the speed, the direction, or both.",
+  "sections": [
+    {
+      "heading": "When the resultant force is zero",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Newton's first law says what happens to an object when the forces on it are balanced. This section covers objects at rest and objects moving steadily."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Resultant force",
+              "meaning": "The single force that has the same effect as all the forces on an object added together."
+            },
+            {
+              "term": "Velocity",
+              "meaning": "Speed in a given direction."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "If the resultant force on a stationary object is zero, it **stays stationary**.",
+            "If the resultant force on a moving object is zero, it keeps moving at the **same speed and in the same direction**.",
+            "So a moving object with no resultant force keeps the same velocity."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "This means no resultant force is needed to keep an object moving at a steady velocity. When a vehicle travels at a steady speed, the resistive forces balance the driving force."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Zero resultant force means no change in velocity.",
+            "A stationary object stays at rest. A moving object keeps the same speed and direction.",
+            "At a steady speed, driving force equals resistive force."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "When the resultant force is not zero",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Newton's first law also tells you when motion changes. The velocity of an object only changes if a resultant force acts on it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A resultant force can change the **speed**, the **direction**, or both.",
+            "A resultant force in the direction of motion speeds the object up.",
+            "A resultant force against the direction of motion slows it down.",
+            "A resultant force at an angle to the motion changes its direction."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a situation to see the resultant force and what happens to the motion.",
+            "prompt": "Pick a situation",
+            "result_labels": ["Resultant force", "Motion"],
+            "options": [
+              {
+                "label": "Car at a steady speed on a straight road",
+                "results": [
+                  "Zero: the driving force equals the resistive forces",
+                  "Continues at the same velocity"
+                ],
+                "explanation": "The forces are balanced, so the velocity does not change."
+              },
+              {
+                "label": "Parked car",
+                "results": ["Zero: the forces are balanced", "Stays at rest"],
+                "explanation": "A stationary object stays stationary when the resultant force is zero."
+              },
+              {
+                "label": "Cyclist pedals harder: driving force bigger than resistive force",
+                "results": [
+                  "Forwards, in the direction of travel",
+                  "Accelerates: the speed increases"
+                ],
+                "explanation": "The forces are unbalanced, so the speed changes."
+              },
+              {
+                "label": "Bowling ball rolling along a lane",
+                "results": [
+                  "Backwards: the resistive force acts opposite to the velocity",
+                  "Decelerates: the speed decreases"
+                ],
+                "explanation": "Friction and air resistance are the only horizontal forces on the ball."
+              },
+              {
+                "label": "Glider on a frictionless air-track after the push ends",
+                "results": ["Zero: no horizontal forces act", "Continues at a constant velocity"],
+                "explanation": "With no resultant force, the glider keeps its velocity."
+              },
+              {
+                "label": "Car going round a bend at a steady speed",
+                "results": [
+                  "Not zero: it acts sideways, at an angle to the motion",
+                  "The direction changes, so the velocity changes"
+                ],
+                "explanation": "A resultant force can change direction as well as speed."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A resultant force changes the velocity: the speed, the direction, or both.",
+            "Slowing down needs a resultant force too. Friction or air resistance does this.",
+            "Explain by comparing the forces: balanced means constant velocity, unbalanced means a change."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A car moves at a constant 20 m/s on a straight road. What is the resultant force, and how do the driving force and resistive force compare?",
+      "a": "The resultant force is zero. The driving force equals the resistive force.",
+      "marks": 2
+    },
+    {
+      "q": "A glider is pushed along a horizontal air-track with no friction and then let go. Describe its motion.",
+      "a": "It moves at a constant velocity, because there is no resultant force on it.",
+      "marks": 2
+    },
+    {
+      "q": "A swimmer has a forward force of 50 N and a resistive force of 50 N. The forward force increases. What happens?",
+      "a": "The swimmer accelerates because the forces are unbalanced (forward force greater than resistive force).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.5.6.2", "AQA T 6.5.4.2"],
+      "worked_example": {
+        "exemplar_id": "40821b73-ff94-4b15-8960-21ecef57908e",
+        "source": "AQA jun 2023, Paper 2 (H), Q06.3",
+        "question": "The stone has just entered the water. As the stone moves through the water, it slows to a constant velocity.\n\nExplain why the stone slows to a constant velocity as it moves through the water.",
+        "marks": 4,
+        "answer_points": [
+          "Drag is greater than weight",
+          "So there is a resultant force acting in the opposite direction to the velocity, causing deceleration",
+          "As the velocity decreases, the drag decreases",
+          "Until drag is equal to weight, so the velocity is constant"
+        ],
+        "tip": "Four marks, one for each step of the explanation. Drag can be called a resistive or frictional force. Ignore upthrust."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 2.14"],
+      "worked_example": {
+        "exemplar_id": "66373386-6554-4fb7-9f8a-cf1bd45f909c",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q2(b)(iv)",
+        "question": "A cupcake case is falling at a constant velocity.\n\nState the value of the acceleration of the cupcake case when it is falling at a constant velocity.",
+        "marks": 1,
+        "answer_points": ["Zero (0), it has no acceleration"],
+        "tip": "Ignore the word 'constant' and ignore units."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P2.2d"],
+      "worked_example": {
+        "exemplar_id": "8ab45c3e-daaa-4783-9b1a-ca0ba665f333",
+        "source": "OCR jun 2018, Paper 1, Q20(c)",
+        "question": "A teacher uses an air-track for motion experiments. Using the air-track means that there is no friction between the glider and the air-track.\n\nThe teacher places the glider on the horizontal air-track and gives it a small push to start it moving.\n\nExplain the motion of the glider.",
+        "marks": 2,
+        "answer_points": [
+          "The glider accelerates during the push",
+          "Then it moves at a constant (steady, uniform) speed or velocity",
+          "Because there are no other horizontal (unbalanced) forces acting on it",
+          "Or: there is a slight deceleration due to air resistance"
+        ],
+        "tip": "Any two of the four points score the 2 marks."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.5.1.4", "CAIE 1.5.1.5"],
+      "worked_example": {
+        "exemplar_id": "1e108ebd-b25e-440c-9004-24c7111a4390",
+        "source": "CAMBRIDGE jun 2023, Paper 41, Q1(b)",
+        "question": "A swimmer is crossing a river. His actions produce a constant forward force on his body.\n\nExplain why he moves at a constant speed.",
+        "marks": 2,
+        "answer_points": [
+          "The water exerts a friction (resistance) force backwards on the swimmer.",
+          "This force balances the forward force, so there is no resultant force."
+        ]
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "1a367b8a-416e-42e9-8999-193a27293341",
+      "ba92461c-c575-4b46-870c-fadcbbf15366",
+      "40726ac6-dfbe-42d8-bb44-bc5bf3ec2ac1",
+      "ca9bc15b-b33f-4396-93a9-7b967490ee16"
+    ],
+    "exemplar_ids": [
+      "40821b73-ff94-4b15-8960-21ecef57908e",
+      "66373386-6554-4fb7-9f8a-cf1bd45f909c",
+      "8ab45c3e-daaa-4783-9b1a-ca0ba665f333",
+      "1e108ebd-b25e-440c-9004-24c7111a4390"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

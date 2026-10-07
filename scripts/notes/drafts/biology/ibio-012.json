@@ -1,0 +1,259 @@
+{
+  "format": 1,
+  "concept_id": "ibio-012",
+  "subject": "biology",
+  "title": "Fertilisation, the embryo and the placenta",
+  "key_idea": "Fertilisation is the fusion of the nuclei of a sperm and an egg cell. The zygote divides into a ball of cells, the embryo, which implants in the uterus lining. The placenta and umbilical cord exchange substances with the fetus, and amniotic fluid protects it.",
+  "sections": [
+    {
+      "heading": "Fertilisation and the early embryo",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A new human life starts when a sperm and an egg cell join. This section covers fertilisation and the first stages of development."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Fertilisation",
+              "meaning": "The fusion of the nucleus of a male gamete (sperm) with the nucleus of a female gamete (egg cell)."
+            },
+            {
+              "term": "Zygote",
+              "meaning": "The single cell formed by fertilisation."
+            },
+            {
+              "term": "Embryo",
+              "meaning": "A ball of cells formed when the zygote divides."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A sperm enters the egg cell in the oviduct and the two nuclei fuse to form a zygote.",
+            "The zygote divides by mitosis, again and again, to form an embryo.",
+            "The embryo is a **ball of cells**. It travels to the uterus.",
+            "The embryo **implants** into the lining of the uterus, where it can be supported as it grows."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fertilisation is the fusion of a sperm nucleus and an egg cell nucleus.",
+            "The zygote forms a ball of cells, the embryo, which implants in the uterus lining."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The placenta, umbilical cord and amniotic sac",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The fetus is fed and protected by three structures. Each has its own job."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Structure",
+            "Function"
+          ],
+          "rows": [
+            [
+              "Placenta",
+              "Where substances are exchanged between the mother's blood and the fetus's blood. The two bloods stay separate."
+            ],
+            [
+              "Umbilical cord",
+              "Joins the fetus to the placenta. It contains the blood vessels that carry blood to and from the fetus."
+            ],
+            [
+              "Amniotic sac",
+              "A bag that surrounds the fetus and contains the amniotic fluid."
+            ],
+            [
+              "Amniotic fluid",
+              "Protects the fetus from bumps and shocks, helps keep its temperature steady and lets it move."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "What the placenta and cord exchange"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **umbilical vein** carries blood from the placenta to the fetus. It brings oxygen and dissolved nutrients such as glucose and amino acids.",
+            "The **umbilical artery** carries blood from the fetus to the placenta. It takes carbon dioxide and urea (excretory products) away.",
+            "Substances move across the placenta by diffusion.",
+            "The placenta also passes **antibodies** to the fetus and makes the hormones progesterone and oestrogen."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The placenta exchanges oxygen, nutrients and waste between mother and fetus. The two bloods do not mix.",
+            "The umbilical cord carries blood to and from the placenta.",
+            "Amniotic fluid protects the fetus."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Substances that cross the placenta",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) The placenta is not a perfect barrier. Harmful things can cross as well as useful ones."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Substances are sorted into those that pass from mother to fetus, those that pass from fetus to mother, and those that can cross and harm the fetus.",
+            "prompt": "Sort each substance by how it crosses the placenta.",
+            "groups": [
+              "Mother to fetus",
+              "Fetus to mother",
+              "Can cross and harm the fetus"
+            ],
+            "items": [
+              {
+                "text": "Oxygen",
+                "group": 0
+              },
+              {
+                "text": "Glucose",
+                "group": 0
+              },
+              {
+                "text": "Amino acids",
+                "group": 0
+              },
+              {
+                "text": "Carbon dioxide",
+                "group": 1
+              },
+              {
+                "text": "Urea",
+                "group": 1
+              },
+              {
+                "text": "Some pathogens, such as HIV",
+                "group": 2
+              },
+              {
+                "text": "Some toxins",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Dissolved nutrients and oxygen pass from the mother's blood to the fetus's blood.",
+            "Carbon dioxide and urea pass from the fetus's blood to the mother's blood.",
+            "Some **pathogens** and **toxins** can pass across the placenta and affect the fetus.",
+            "Syphilis and HIV are two infections that can pass from a mother to her fetus."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Useful substances and waste are exchanged across the placenta.",
+            "Some pathogens and toxins can also cross and harm the fetus."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what happens at fertilisation.",
+      "a": "The nucleus of a sperm fuses with the nucleus of an egg cell to form a zygote.",
+      "marks": 2
+    },
+    {
+      "q": "State two functions of the amniotic fluid.",
+      "a": "Any two from: protects the fetus from bumps and shocks, keeps the temperature steady, allows the fetus to move.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how the placenta helps the fetus to grow.",
+      "a": "Oxygen and dissolved nutrients diffuse from the mother's blood to the fetus. Carbon dioxide and urea diffuse the other way. The two blood supplies stay separate.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 16.4.3",
+        "CAIE 16.4.7",
+        "CAIE 16.4.8",
+        "CAIE 16.4.9S",
+        "CAIE 16.4.10S"
+      ],
+      "worked_example": {
+        "exemplar_id": "ef4d5367-d479-4b9c-81a7-5f03d5a5f586",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q5(d)(i)",
+        "question": "Pregnant human females have a placenta.\n\nDescribe the function of the placenta in humans.",
+        "marks": 4,
+        "answer_points": [
+          "Oxygen passes to the fetus and carbon dioxide passes to the mother (gas exchange).",
+          "Dissolved nutrients pass from the mother's circulation to the fetus.",
+          "Excretory products pass from the fetus to the mother's circulation.",
+          "Substances move by diffusion.",
+          "It makes a named hormone, such as progesterone.",
+          "Antibodies pass to the fetus, giving passive immunity.",
+          "It separates the fetal and maternal blood supplies."
+        ],
+        "tip": "Any four score one mark each. Name the substances that are exchanged."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.2",
+        "IGCSE 3.11",
+        "IGCSE 3.12"
+      ],
+      "worked_example": {
+        "exemplar_id": "c25c5844-e474-4494-af87-90a4bdca757c",
+        "source": "EDEXCEL jun 2024, Paper 2 (B), Q4(b)",
+        "question": "A fetus develops in the uterus.\n\nExplain how the amniotic fluid and placenta enable the safe growth of the fetus.",
+        "marks": 3,
+        "answer_points": [
+          "The amniotic fluid prevents physical damage, because it absorbs bumps and shocks.",
+          "The placenta allows diffusion of useful substances such as oxygen, glucose and amino acids to the fetus.",
+          "It removes waste such as urea and carbon dioxide from the fetus.",
+          "It makes sure that the mother's and baby's blood do not mix."
+        ],
+        "tip": "One mark for the amniotic fluid and any two for the placenta."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "e88c37cb-c138-40c1-95fb-39e11479026a",
+      "8657ffb2-8488-49fc-9d3e-f1b20b8e2169",
+      "55d49c19-a600-4c7b-aa76-8e9e8a7ad0b8",
+      "53714f24-7ecf-4c00-9a3d-6a35f90e81d9",
+      "6ce5ead8-1c2e-42b1-9383-0692e888131f",
+      "64b09050-dc6c-46e9-b653-7c8ccdf51cca",
+      "bcde6a48-a216-42ad-893c-d9d4aa48d53a",
+      "3655cf5a-0607-4c61-9339-06660aafd477"
+    ],
+    "exemplar_ids": [
+      "ef4d5367-d479-4b9c-81a7-5f03d5a5f586",
+      "c25c5844-e474-4494-af87-90a4bdca757c"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { paywallExempt, roleHomePath } from "./routeGuards";
+import { guardNotStaff, paywallExempt, roleHomePath } from "./routeGuards";
 import type { GuardState } from "./guardState";
 import { UserRole } from "@/types/user";
 
@@ -28,6 +28,25 @@ describe("roleHomePath — where /dashboard sends each role", () => {
       "/student-dashboard",
     );
     expect(roleHomePath({ context: {} })).toBe("/student-dashboard");
+  });
+});
+
+describe("guardNotStaff — Billing is for those who pay", () => {
+  test("tutors and admins are sent to the Studio", () => {
+    for (const role of [UserRole.TUTOR, UserRole.ADMIN]) {
+      let thrown: unknown;
+      try {
+        guardNotStaff({ context: { viewer: viewer(role) } });
+      } catch (err) {
+        thrown = err;
+      }
+      expect(thrown).toMatchObject({ options: { to: "/tutor" } });
+    }
+  });
+
+  test("students and parents stay", () => {
+    expect(() => guardNotStaff({ context: { viewer: viewer(UserRole.STUDENT) } })).not.toThrow();
+    expect(() => guardNotStaff({ context: { viewer: viewer(UserRole.PARENT) } })).not.toThrow();
   });
 });
 

@@ -8,6 +8,7 @@ import { SUBJECTS, BOARDS, LEVELS } from "@/lib/curriculum/taxonomy";
 import { isDemoStudent, DEMO_VIDEOS } from "@/lib/demo/studentDemo";
 import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import { VideoThumbnail, VideoModal } from "@/components/VideoPlayer";
+import { useRoles } from "@/hooks/useRole";
 
 function tagLabel(kind: "subject" | "board" | "level", v: string) {
   const src = kind === "subject" ? SUBJECTS : kind === "board" ? BOARDS : LEVELS;
@@ -17,6 +18,7 @@ function tagLabel(kind: "subject" | "board" | "level", v: string) {
 type PlayingVideo = { title: string; description: string | null; url: string | null };
 
 export function Videos() {
+  const { isTutor } = useRoles();
   const [filters, setFilters] = useState<Filters>({});
   const [playing, setPlaying] = useState<PlayingVideo | null>(null);
   const { data, isLoading } = useQuery({
@@ -56,7 +58,11 @@ export function Videos() {
           mascot="rocket"
           mood="sleepy"
           title="No videos for this selection"
-          body="Nothing has been published for this subject, board and level yet. Try widening the filters above, or come back once your tutor has recorded the next topic."
+          body={
+            isTutor
+              ? "Nothing has been published for this subject, board and level yet. Try widening the filters above."
+              : "Nothing has been published for this subject, board and level yet. Try widening the filters above, or come back once your tutor has recorded the next topic."
+          }
         />
       ) : (
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

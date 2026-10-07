@@ -1,0 +1,264 @@
+{
+  "concept_id": "chem-102",
+  "title": "Biological methods of metal extraction",
+  "key_idea": "Copper ores are becoming scarce, so low-grade ores are worked using living things. Phytomining uses plants to absorb metal compounds, and bioleaching uses bacteria to make solutions of metal compounds. The metal is then obtained from the compounds.",
+  "sections": [
+    {
+      "heading": "Why biological methods are used",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) The Earth's metal ores are limited. This section covers why new extraction methods are needed."
+        },
+        {
+          "type": "list",
+          "items": [
+            "High-grade copper ores are becoming scarce.",
+            "Low-grade ores contain only a little metal compound.",
+            "Traditional mining means digging, moving and disposing of large amounts of rock.",
+            "Phytomining and bioleaching avoid traditional mining."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Low-grade ore",
+              "meaning": "An ore that contains only a small amount of the metal compound."
+            },
+            {
+              "term": "Phytomining",
+              "meaning": "Using plants to absorb metal compounds from the ground."
+            },
+            {
+              "term": "Bioleaching",
+              "meaning": "Using bacteria to produce leachate solutions that contain metal compounds."
+            },
+            {
+              "term": "Leachate",
+              "meaning": "The solution that drains from the ore and contains the metal compounds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Phytomining",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Phytomining uses plants to take metal compounds out of low-grade ore. The metal is then recovered from the plants."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of phytomining in order.",
+            "prompt": "Put the stages of phytomining in order.",
+            "steps": [
+              "Grow plants on land containing low-grade ore",
+              "The plants absorb metal compounds",
+              "Harvest and burn the plants to make ash",
+              "Dissolve the ash in acid to make a solution of a metal compound",
+              "Obtain the metal by displacement or electrolysis"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The ash contains the metal compounds.",
+            "Copper can be obtained from the solution by displacement using scrap iron.",
+            "Copper can also be obtained from the solution by electrolysis.",
+            "Phytomining can also decontaminate land that contains metal compounds."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Displacement of copper by scrap iron",
+          "formula": "Fe(s) + CuSO₄(aq) → FeSO₄(aq) + Cu(s)",
+          "where": [
+            "Fe is scrap iron, which is more reactive than copper so it displaces copper from the solution.",
+            "CuSO₄(aq) is the solution of a copper compound.",
+            "(s) means solid and (aq) means in solution."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Plants absorb the metal compounds. The plants are harvested and burned to make ash.",
+            "The ash is dissolved in acid, and the metal is obtained by displacement or electrolysis."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Bioleaching and evaluating the methods",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Bioleaching uses bacteria. The bacteria produce a leachate solution that contains metal compounds, and the metal is obtained from this solution in the same way as for phytomining."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Phytomining compared with bioleaching.",
+            "items": [
+              "Phytomining",
+              "Bioleaching"
+            ],
+            "rows": [
+              {
+                "feature": "What does the work",
+                "values": [
+                  "Plants absorb metal compounds",
+                  "Bacteria make a leachate containing metal compounds"
+                ]
+              },
+              {
+                "feature": "Advantages",
+                "values": [
+                  "Uses low-grade ore and avoids traditional mining",
+                  "Uses low-grade ore, uses less energy and does not need mining"
+                ]
+              },
+              {
+                "feature": "Disadvantages",
+                "values": [
+                  "Slow, needs a large area of land and the yield may be too low",
+                  "Very slow, low yield, and the leachate needs further processing"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Why phytomining is not widely used"
+        },
+        {
+          "type": "list",
+          "items": [
+            "High-grade ores are still available.",
+            "Land may not be available for growing plants.",
+            "Phytomining takes a long time.",
+            "The technology is new.",
+            "Bioleaching may produce sulfuric acid, which can escape into water supplies or soil."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Biological methods let us extract metal from low-grade ores.",
+            "Phytomining is slow and may give a low yield, so it is not widely used.",
+            "The metal is obtained from the solution by displacement or electrolysis."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how copper is extracted from low-grade ores by phytomining.",
+      "a": "Plants are grown on the ore and burned to make ash. The ash is dissolved in acid to make a solution of a copper compound. Copper is obtained by electrolysis or by displacement with scrap iron.",
+      "marks": 4
+    },
+    {
+      "q": "Describe what is meant by bioleaching.",
+      "a": "The use of bacteria to produce leachate solutions that contain metal or copper compounds.",
+      "marks": 2
+    },
+    {
+      "q": "Give two methods that can be used to extract copper from a leachate solution.",
+      "a": "Displacement using scrap iron, and electrolysis.",
+      "marks": 2
+    },
+    {
+      "q": "Give two disadvantages of phytomining compared with traditional mining.",
+      "a": "Any two from: it is slower, it needs a large area of land, the yield is insufficient to meet demand.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.10.1.4",
+        "AQA T 5.10.1.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "30a43362-9c70-4f89-bf7e-9255cba3271e",
+        "source": "AQA jun 2021, Paper 2 (H), Q08.4",
+        "question": "Copper is extracted from low-grade ores by phytomining.\n\nDescribe how copper is extracted from low-grade ores by phytomining.",
+        "marks": 4,
+        "answer_points": [
+          "Grow plants on land containing copper ores.",
+          "The plants are burnt to produce ash.",
+          "The ash is dissolved in acid to produce a solution of a copper compound.",
+          "Copper is obtained by electrolysis of the solution, or by displacement using scrap iron."
+        ],
+        "tip": "One mark for each stage, in order. A named plant is allowed."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 4.8"
+      ],
+      "worked_example": {
+        "exemplar_id": "4579e9ab-098d-4eb3-9b90-bab036703309",
+        "source": "EDEXCEL jun 2018, Paper 1 (H), Q3(d)",
+        "question": "In recent years, researchers have been investigating alternative methods of extracting metals from soils.\n\nResearchers have found that growing certain plants in appropriate areas can result in the phytoextraction of copper.\n\nDescribe how growing plants can result in the phytoextraction of copper.",
+        "marks": 2,
+        "answer_points": [
+          "Plants absorb copper or metal ions from the soil or ores, and concentrate the copper ions.",
+          "The plants are harvested and burned, leaving copper or metal compounds."
+        ],
+        "tip": "The two marks are awarded independently."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.1c"
+      ],
+      "worked_example": {
+        "exemplar_id": "5047f0a6-d23e-4f76-8a18-81254b079392",
+        "source": "OCR nov 2020, Paper 4, Q22(d)(i)",
+        "question": "Bioleaching is one method used to extract copper from ores.\n\nReactions involving bacteria slowly convert copper sulfide to a mixture of copper sulfate solution and sulfuric acid.\n\nDescribe two advantages of extracting copper using bioleaching instead of traditional mining.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from: cheaper or uses less energy than traditional mining.",
+          "It allows copper to be extracted from low-grade ores.",
+          "The bacteria occur naturally and need no special treatment.",
+          "It does not release harmful sulfur dioxide into the atmosphere.",
+          "It does not destroy the landscape as mining does."
+        ],
+        "tip": "One mark for each advantage, up to two."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.24C"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "66759f9a-3e1e-4887-abf7-6417c2f80f05",
+      "8b60922b-1b5f-40d7-b245-3eb5bfc7f243",
+      "aab48e93-fafd-4f66-a85a-f171035e6332",
+      "8bcd0e42-2746-4ac2-b564-6e7e6b0a52c7"
+    ],
+    "exemplar_ids": [
+      "30a43362-9c70-4f89-bf7e-9255cba3271e",
+      "4579e9ab-098d-4eb3-9b90-bab036703309",
+      "5047f0a6-d23e-4f76-8a18-81254b079392"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  },
+  "format": 1,
+  "subject": "chemistry"
+}

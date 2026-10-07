@@ -1,7 +1,7 @@
 import { describe, expect, test, spyOn } from "bun:test";
 import { handPicked, ProgramDAL } from "./programDal";
 import { focusInputs, type RoadmapResult } from "./roadmap";
-import { WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal";
+import { MAX_WEEK_POINTS, WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal";
 import { WeeklyActivityDAL } from "./weeklyActivityDal";
 import { type RejectionReason } from "./admissibility";
 import type { ProgressPoint, TopicProgress } from "./scheduleDal";
@@ -252,6 +252,46 @@ describe("saved-week catch-up", () => {
           roadmap,
         }),
       ).toBe(false);
+    } finally {
+      add.mockRestore();
+    }
+  });
+
+  test("tops a nearly full week up only to the cap, and leaves a full one alone", async () => {
+    // `addPoints` throws past the cap, and the week loader runs this on every
+    // visit: one refusal here put an error on the week for the rest of it.
+    const owed = (id: string) => ({
+      specPointId: id,
+      topicId: "old-topic",
+      topicTitle: "Old topic",
+      code: id,
+      title: id,
+      weight: 1,
+      plannedWeek: "2026-07-13",
+    });
+    const roadmap = {
+      catchUpSchedule: {
+        weeks: { "2026-09-07": [owed("old1"), owed("old2")] },
+        assignedIds: [],
+        held: [],
+      },
+    } as unknown as RoadmapResult;
+    const held = (n: number) =>
+      Array.from(
+        { length: n },
+        (_, i) => ({ spec_point_id: `p${i}`, origin: "core" }) as PlanPoint,
+      );
+    const week = { planId: "saved", weekStart: "2026-09-07", roadmap };
+    const add = spyOn(WeeklyPlanDAL, "addPoints").mockResolvedValue(1);
+    try {
+      expect(await ProgramDAL.ensureCatchUp({ ...week, points: held(MAX_WEEK_POINTS - 1) })).toBe(
+        true,
+      );
+      expect(add).toHaveBeenCalledWith("saved", ["old1"], "core");
+      expect(await ProgramDAL.ensureCatchUp({ ...week, points: held(MAX_WEEK_POINTS) })).toBe(
+        false,
+      );
+      expect(add).toHaveBeenCalledTimes(1);
     } finally {
       add.mockRestore();
     }

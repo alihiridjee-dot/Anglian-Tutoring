@@ -1,0 +1,319 @@
+{
+  "format": 1,
+  "concept_id": "chem-022",
+  "subject": "chemistry",
+  "title": "Polymer structure",
+  "key_idea": "Polymers are made of very large molecules: long chains of atoms joined by strong covalent bonds. The intermolecular forces between the chains are relatively strong, so polymers are solids at room temperature. Cross-links between chains make a polymer more rigid.",
+  "sections": [
+    {
+      "heading": "Long chains",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A polymer is built from many small units joined in a chain. This section covers what a polymer is made of and how it is written."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Polymer",
+              "meaning": "A substance with very large molecules, made of many small repeating units."
+            },
+            {
+              "term": "Repeating unit",
+              "meaning": "The small group of atoms that repeats along the chain."
+            },
+            {
+              "term": "Monomer",
+              "meaning": "A small molecule that joins with many others to make a polymer."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A polymer molecule is a long chain, such as a chain of carbon atoms in poly(ethene).",
+            "The atoms in the chain are joined to other atoms by strong **covalent bonds**.",
+            "A polymer has a high average relative molecular mass.",
+            "Many molecules of the small compound combine to make one substance."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Poly(ethene)",
+          "where": [
+            "CH₂–CH₂: the repeating unit",
+            "n: a very large number of repeating units"
+          ],
+          "formula": "–(CH₂–CH₂)ₙ–"
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A polymer is a very large molecule made of a repeating unit.",
+            "The atoms in each chain are joined by strong covalent bonds.",
+            "The repeating unit is written in brackets with n outside."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why polymers are solids",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Polymers differ from small molecules because their chains are so long. This section covers the forces within and between the chains."
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "What holds it",
+              "Covalent bonds between atoms",
+              "Intermolecular forces"
+            ],
+            [
+              "Strength",
+              "Strong",
+              "Weaker than covalent bonds, but relatively strong compared with small molecules"
+            ]
+          ],
+          "columns": [
+            "Feature",
+            "Within a chain",
+            "Between chains"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The intermolecular forces grow with the size of the molecules.",
+            "Polymer molecules are very large, so the forces between them are relatively strong.",
+            "So polymers are solids at room temperature."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "A table comparing methane, a polymer without cross-links and a polymer with cross-links.",
+            "kind": "compare",
+            "rows": [
+              {
+                "values": [
+                  "Small",
+                  "Very large",
+                  "Very large"
+                ],
+                "feature": "Size of molecule"
+              },
+              {
+                "values": [
+                  "Covalent",
+                  "Covalent",
+                  "Covalent"
+                ],
+                "feature": "Bonds in the molecule"
+              },
+              {
+                "values": [
+                  "Very weak intermolecular forces",
+                  "Relatively strong intermolecular forces",
+                  "Covalent cross-links as well"
+                ],
+                "feature": "Between molecules or chains"
+              },
+              {
+                "values": [
+                  "Gas",
+                  "Flexible solid that melts when heated",
+                  "Rigid solid that may not melt"
+                ],
+                "feature": "At room temperature"
+              }
+            ],
+            "items": [
+              "Methane",
+              "Polymer without cross-links",
+              "Polymer with cross-links"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Between chains: intermolecular forces. Within chains: strong covalent bonds.",
+            "Long chains mean stronger intermolecular forces than in small molecules, so polymers are solid."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cross-links and flexibility",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some polymers have covalent bonds between their chains, called cross-links. This section covers what that does to the properties."
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Chains can slide over each other",
+              "Chains are held in place"
+            ],
+            [
+              "Flexible and can stretch",
+              "Rigid and hard"
+            ],
+            [
+              "Lower melting point",
+              "Higher melting point; may not melt at all"
+            ],
+            [
+              "Held by weak intermolecular forces",
+              "Held by strong covalent bonds"
+            ]
+          ],
+          "columns": [
+            "Without cross-links",
+            "With cross-links"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A polymer with cross-links, such as melamine, does not melt when heated. Too much energy is needed to overcome the cross-links."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A plastic bag polymer stretches because it has weak intermolecular forces.",
+            "A plastic bottle polymer is more rigid, stronger and has a higher melting point.",
+            "Polymers are poor conductors of electricity, so they are used to coat wires."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cross-links are covalent bonds between chains.",
+            "More cross-links make a polymer more rigid, with a higher melting point."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What type of bond joins the atoms in a polymer chain?",
+      "a": "Covalent bonds.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why poly(ethene) is a solid at room temperature but methane is a gas.",
+      "a": "Poly(ethene) has much larger molecules, so stronger intermolecular forces. More energy is needed to overcome them, so its melting point is higher.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why polymers without cross-links can stretch more than polymers with cross-links.",
+      "a": "The chains can slide over each other, because the intermolecular forces holding them are weaker than cross-links.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.2.2.5",
+        "AQA T 5.2.2.5"
+      ],
+      "worked_example": {
+        "exemplar_id": "15641ba3-29ff-481b-8a89-4f72a24f0af2",
+        "source": "AQA jun 2023, Paper 1 (H), Q04.5",
+        "question": "Methane is a gas at room temperature but poly(ethene) is a solid at room temperature. Explain why methane and poly(ethene) exist in different states at room temperature.",
+        "marks": 4,
+        "answer_points": [
+          "Methane has much smaller molecules, so it has weaker intermolecular forces.",
+          "The intermolecular forces need less energy to overcome.",
+          "So the boiling and melting point is lower and methane is a gas.",
+          "Or: poly(ethene) has much larger molecules, so stronger intermolecular forces that need more energy to break, so its melting and boiling point is higher and it is a solid."
+        ],
+        "tip": "Write about either methane or poly(ethene), in four linked steps. Do not refer to weaker covalent bonds or to breaking covalent bonds."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.39",
+        "EDEX 9.17C"
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C2.2d",
+        "OCR C2.3f"
+      ],
+      "worked_example": {
+        "exemplar_id": "5c7b1662-1c3f-4014-8628-6aa470c6706b",
+        "source": "OCR jun 2023, Paper 3, Q21(a)",
+        "question": "Four different substances are described. Substance 1: melting point 1085 °C, shiny solid, conducts electricity. Substance 2: melting point 770 °C, white crystals, conducts electricity when dissolved in water. Substance 3: melting point 120 °C, flexible solid, does not conduct electricity. Substance 4: melting point 78 °C, white crystals, does not conduct electricity. Which of the substances is a polymer? Explain your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Substance 3.",
+          "Polymers have low melting points, and substance 3 has a low melting point.",
+          "Polymers do not conduct electricity, and substance 3 does not conduct electricity.",
+          "Polymers can be flexible, and substance 3 is flexible."
+        ],
+        "tip": "One mark for substance 3, then any two reasons. Choosing substance 1 or 2 scores zero, and substance 4 earns at most one mark."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 11.8.1",
+        "CAIE 11.8.4"
+      ],
+      "extra": [
+        {
+          "heading": "Disposing of plastics",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The properties of plastics cause problems when they are thrown away."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Most plastics are not biodegradable. The strong covalent bonds in the chains are not broken down by bacteria, so plastic waste in landfill lasts for a very long time.",
+                "Plastic waste in rivers and oceans pollutes the water and harms wildlife.",
+                "Burning plastics makes carbon dioxide, which adds to global warming, and can make toxic gases such as carbon monoxide.",
+                "Plastics that contain chlorine, such as PVC, make toxic hydrogen chloride gas when they burn."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Plastics are not biodegradable, so they build up as waste.",
+                "Burning plastics releases carbon dioxide and toxic gases."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "c8db2b2e-2e0e-4bc6-ba80-6c9f692d2f66",
+      "e4d22474-ae8e-47eb-b1ab-cb51a8a435fe",
+      "a2be8596-f96e-480d-96a6-a0b13b6cb1a3",
+      "3299dbb5-56d7-4fe9-8f6b-2e7754f93c91",
+      "29692a5d-d366-4fc3-a655-3736e23b93d9",
+      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8"
+    ],
+    "exemplar_ids": [
+      "15641ba3-29ff-481b-8a89-4f72a24f0af2",
+      "5c7b1662-1c3f-4014-8628-6aa470c6706b"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

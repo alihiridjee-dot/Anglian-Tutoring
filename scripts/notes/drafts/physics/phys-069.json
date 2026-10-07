@@ -1,0 +1,495 @@
+{
+  "format": 1,
+  "concept_id": "phys-069",
+  "subject": "physics",
+  "title": "Refraction",
+  "key_idea": "Refraction is the change in direction of a wave when its speed changes at a boundary. A wave bends towards the normal when it slows down and away when it speeds up. Different wavelengths change speed by different amounts, so they refract differently.",
+  "sections": [
+    {
+      "heading": "Why waves refract",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Refraction is a change of direction when a wave crosses a boundary. It happens because the wave changes speed in the new material."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Refraction",
+              "meaning": "The change in direction of a wave as it crosses a boundary between two materials, caused by a change in speed."
+            },
+            {
+              "term": "Normal",
+              "meaning": "A line at 90° to the boundary."
+            },
+            {
+              "term": "Optically dense",
+              "meaning": "A material in which light travels more slowly. Glass is more optically dense than air."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light travels more slowly in glass than in air, so it slows down when it enters glass.",
+            "Entering a slower material, the wave bends towards the normal.",
+            "Entering a faster material, the wave bends away from the normal.",
+            "A wave hitting the boundary along the normal (at 90°) changes speed but does not change direction.",
+            "The frequency stays the same, so a wave that slows down has a shorter wavelength."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Pick a boundary to see what happens to the wave."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Choose a boundary a wave crosses and see the change in speed, direction and wavelength.",
+            "prompt": "Pick a boundary the wave crosses",
+            "result_labels": ["Speed", "Direction", "Wavelength"],
+            "options": [
+              {
+                "label": "Light: air into glass",
+                "results": ["Decreases", "Bends towards the normal", "Decreases"]
+              },
+              {
+                "label": "Light: glass into air",
+                "results": ["Increases", "Bends away from the normal", "Increases"]
+              },
+              {
+                "label": "Light: air into glass, along the normal",
+                "results": ["Decreases", "No change in direction", "Decreases"]
+              },
+              {
+                "label": "Water wave: deep water into shallow water",
+                "results": ["Decreases", "Bends towards the normal", "Decreases"]
+              },
+              {
+                "label": "Water wave: shallow water into deep water",
+                "results": ["Increases", "Bends away from the normal", "Increases"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Refraction is caused by a change in wave speed at a boundary.",
+            "Slower material: bends towards the normal. Faster material: bends away.",
+            "Along the normal there is no change of direction."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Explaining refraction with wavefronts",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A wavefront is a line joining the crests of a wave. Wavefront diagrams show why a change of speed turns the wave."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Approach.",
+              "text": "The wavefronts reach the boundary at an angle, so one end of each wavefront arrives first."
+            },
+            {
+              "lead": "Slow down.",
+              "text": "The end that enters the glass first slows down."
+            },
+            {
+              "lead": "Keep going.",
+              "text": "The other end is still in the air and carries on at the higher speed."
+            },
+            {
+              "lead": "Turn.",
+              "text": "The wavefront changes direction. The wave has been refracted."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "No change of direction"
+        },
+        {
+          "type": "list",
+          "items": [
+            "If the wavefronts are parallel to the boundary, every point enters the new material at the same time.",
+            "Every point slows down at the same time, so the wave does not turn.",
+            "It still travels more slowly and has a shorter wavelength."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Put the steps of the explanation in order."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps that explain refraction at a boundary in order.",
+            "prompt": "Put these steps in the order that explains why light refracts when it enters glass.",
+            "steps": [
+              "The wavefront reaches the glass at an angle.",
+              "One end of the wavefront enters the glass first.",
+              "That end slows down.",
+              "The other end is still in the air and travels faster.",
+              "The wavefront turns, so the wave changes direction."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "One end of the wavefront slows before the other, so the wavefront turns.",
+            "Wavefronts parallel to the boundary are not refracted.",
+            "Always say that the speed changes, not just that the wave bends."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Refraction and wavelength",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Materials do not treat every wavelength the same. A material may absorb, transmit, reflect or refract waves differently depending on their wavelength."
+        },
+        {
+          "type": "table",
+          "columns": ["Waves", "What can happen"],
+          "rows": [
+            ["Visible light", "Transmitted by glass, which also refracts it."],
+            [
+              "Ultraviolet",
+              "Absorbed by some sunglasses lenses, while some visible light passes through."
+            ],
+            [
+              "Infrared",
+              "Absorbed or blocked by objects such as an armchair. It needs a clear line of sight."
+            ],
+            ["Radio waves", "Pass through objects such as an armchair."]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "White light splitting into colours"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each colour has a different wavelength.",
+            "Different colours travel at different speeds in glass.",
+            "Red slows down the least, so it refracts the least. Colours that slow down more refract more.",
+            "So white light spreads into a spectrum of colours."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Absorption, transmission and refraction depend on wavelength.",
+            "Different colours travel at different speeds in glass, so they refract by different amounts.",
+            "Red light refracts the least."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why light bends towards the normal when it enters glass from air.",
+      "a": "The light travels more slowly in glass. The edge of the wavefront entering the glass slows down first, while the part in the air continues at the higher speed, so the wavefront changes direction.",
+      "marks": 3
+    },
+    {
+      "q": "A ray of light travels along the normal into a glass block. What happens to its speed and direction?",
+      "a": "The speed decreases. The direction does not change, because every point on the wavefront slows down at the same time.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why white light splits into colours when it passes into glass.",
+      "a": "Different colours have different wavelengths, so they travel at different speeds in glass and are refracted by different amounts.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.6.2.2", "AQA T 6.6.2.2"],
+      "worked_example": {
+        "exemplar_id": "fe15ffe9-4d6d-4cb4-85fd-07a62dd392bb",
+        "source": "AQA jun 2019, Paper 2 (H), Q07.1",
+        "question": "Wave front diagrams are used to explain why light refracts when it passes from air into glass.\n\nExplain why the light refracts as it passes from air into glass.",
+        "marks": 3,
+        "answer_points": [
+          "The speed (velocity) in the glass is lower.",
+          "The edge of the wavefront entering the glass slows down.",
+          "The part of the wavefront in the air continues at the higher speed, causing a change in direction."
+        ],
+        "tip": "One mark for each step. Saying only that the speed changes is not enough."
+      },
+      "extra": [
+        {
+          "heading": "Course level",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Explaining refraction with wavefront diagrams, and how absorption, transmission and refraction vary with wavelength, are Higher tier content in this course."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 4.10", "EDEX 4.11", "EDEX 5.13", "EDEX 5.14"],
+      "worked_example": {
+        "exemplar_id": "12a6430c-cf01-40b7-830f-90e55bcb5699",
+        "source": "EDEXCEL jun 2018, Paper 1 (H), Q5(c)",
+        "question": "When white light crosses the boundary between air and glass, it can split up into the colours of the spectrum.\n\nExplain, in terms of speed, why the light behaves like this.",
+        "marks": 3,
+        "answer_points": [
+          "The colours have different wavelengths.",
+          "Different wavelengths (colours) travel at different speeds.",
+          "So they refract by different amounts."
+        ],
+        "tip": "Frequencies is allowed for wavelengths, and bend or change direction is allowed for refract."
+      },
+      "extra": [
+        {
+          "heading": "Refraction in a rectangular glass block",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A ray passes through a glass block with parallel sides. It is refracted where it enters and again where it leaves."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Entering the glass, the ray slows down and bends towards the normal.",
+                "Leaving the glass, the ray speeds up and bends away from the normal.",
+                "The ray that leaves is parallel to the ray that entered, but shifted sideways.",
+                "Measure every angle from the normal, not from the surface of the block."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR P5.3a", "OCR P5.3b"],
+      "worked_example": {
+        "exemplar_id": "1d8efa40-bf6a-48ed-a9ba-11b2d1b4a130",
+        "source": "OCR jun 2024, Paper 4, Q22(b)",
+        "question": "A ray of red light from a laser enters a rectangular glass block from the air. The light refracts.\n\nExplain why red light refracts as it enters the glass block.",
+        "marks": 2,
+        "answer_points": [
+          "Glass is more (optically) dense than air.",
+          "The speed of light is lower in glass."
+        ],
+        "tip": "Saying that the light slows down is also allowed. Ideas about wavelength and frequency are ignored."
+      },
+      "extra": [
+        {
+          "heading": "Drawing a refraction ray diagram",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Boundary.",
+                  "text": "Draw the boundary between the two materials with a ruler."
+                },
+                {
+                  "lead": "Normal.",
+                  "text": "Draw the normal at 90° to the boundary, where the ray hits."
+                },
+                {
+                  "lead": "Incident ray.",
+                  "text": "Draw the ray arriving at the boundary, with an arrow."
+                },
+                {
+                  "lead": "Refracted ray.",
+                  "text": "Going into glass, bend it towards the normal. Going out of glass, bend it away from the normal."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 3.2.2.1",
+        "CAIE 3.2.2.3",
+        "CAIE 3.2.4.1",
+        "CAIE 3.1.7",
+        "CAIE 3.2.2.5",
+        "CAIE 3.2.2.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "ec77e21a-d541-404c-8d57-6e556b29c4d7",
+        "source": "CAMBRIDGE nov 2024, Paper 43, Q4(a)(i)",
+        "question": "A ray of light passes from air into a plastic block.\n\nState how the speed, wavelength and frequency of the wave in the plastic compare with their values in the air.",
+        "marks": 2,
+        "answer_points": [
+          "Speed: decreases (slower).",
+          "Wavelength: decreases (shorter).",
+          "Frequency: unchanged (stays the same)."
+        ],
+        "tip": "Any two correct earns one mark. All three correct earn two marks."
+      },
+      "extra": [
+        {
+          "heading": "Light passing through a transparent material",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Angle of incidence",
+                  "meaning": "The angle between the incoming ray and the normal."
+                },
+                {
+                  "term": "Angle of refraction",
+                  "meaning": "The angle between the refracted ray and the normal."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Going into glass (or water), light slows down and bends towards the normal.",
+                "Going out of glass into air, light speeds up and bends away from the normal.",
+                "Its frequency does not change. Its speed and wavelength both decrease in the glass.",
+                "Only the boundary changes the ray. Inside the glass, the light travels in a straight line."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Refractive index",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Refractive index compares the speed of light in two materials."
+            },
+            {
+              "type": "equation",
+              "label": "Refractive index",
+              "formula": "n = speed of light in air ÷ speed of light in the material",
+              "where": ["n = refractive index (no unit)", "speeds in m/s"]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Refractive index is a ratio of two speeds, so it has no unit.",
+                "A bigger refractive index means the light slows down more and bends more."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Dispersion",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A glass prism splits white light into a spectrum."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Dispersion",
+                  "meaning": "The splitting of white light into its colours as it is refracted."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Each colour is refracted by a different amount.",
+                "Violet is refracted the most and red the least."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.9", "IGCSE 3.14", "IGCSE 3.16", "IGCSE 3.18", "IGCSE 3.23"],
+      "extra": [
+        {
+          "heading": "Refractive index",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Angle of incidence",
+                  "meaning": "The angle between the incoming ray and the normal."
+                },
+                {
+                  "term": "Angle of refraction",
+                  "meaning": "The angle between the refracted ray and the normal."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The refractive index links the angle of incidence to the angle of refraction."
+            },
+            {
+              "type": "equation",
+              "label": "Refractive index",
+              "formula": "n = sin i ÷ sin r",
+              "where": [
+                "n = refractive index (no unit)",
+                "i = angle of incidence (°)",
+                "r = angle of refraction (°)"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Light going from air into a material has n greater than 1.",
+                "A bigger refractive index means the ray bends more towards the normal.",
+                "In a ray diagram, draw the normal, the incident ray and the refracted ray, and mark i and r. The ray bends towards the normal in the denser material.",
+                "Sound waves are refracted too, because their speed changes when they pass from one material into another."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a9782248-363f-4ad0-a421-705352fa9921",
+      "6fd2f45b-4d6f-4c6d-bd21-a396968852fc",
+      "f023e359-6139-4df7-bc8d-9de6fee87fc5",
+      "300bab9e-1802-42e1-a1ee-7e6610bb7686",
+      "c42aa054-c47c-458f-966e-ee210b455276",
+      "ec30fe8e-933f-46f5-b6dc-3e73bf0acb7f",
+      "71c88bc4-c8ee-4654-bcb7-853f45c9ba0b",
+      "c6fcca5c-ddf9-49ec-8eb8-d07b77f3a16a",
+      "cb1de564-4f20-440b-8e61-18b90a3aab62",
+      "dd023f4e-3c1b-46f3-9812-4973866694f2",
+      "c85377ac-37de-4fae-9e06-14331448adcd"
+    ],
+    "exemplar_ids": [
+      "fe15ffe9-4d6d-4cb4-85fd-07a62dd392bb",
+      "12a6430c-cf01-40b7-830f-90e55bcb5699",
+      "1d8efa40-bf6a-48ed-a9ba-11b2d1b4a130",
+      "ec77e21a-d541-404c-8d57-6e556b29c4d7"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

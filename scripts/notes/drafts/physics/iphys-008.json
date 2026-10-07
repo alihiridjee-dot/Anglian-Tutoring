@@ -1,0 +1,213 @@
+{
+  "format": 1,
+  "concept_id": "iphys-008",
+  "subject": "physics",
+  "title": "Diffraction of waves",
+  "key_idea": "Diffraction is the spreading of waves as they pass through a gap or round the edge of an obstacle. (Supplement) It is greatest when the gap is about the same size as the wavelength, and for longer wavelengths.",
+  "sections": [
+    {
+      "heading": "What diffraction is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Waves can reflect, refract and diffract. This section covers diffraction, which happens when a wave meets a gap or an edge."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Diffraction",
+              "meaning": "The spreading out of a wave as it passes through a gap or past the edge of an obstacle."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A wave that passes through a narrow gap spreads out into the space beyond.",
+            "A wave that passes an edge bends round the edge into the space behind the obstacle.",
+            "The wavelength and the frequency do not change.",
+            "All waves can diffract, including water, sound and light."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "This is why you can hear someone talking round a corner, even though you cannot see them."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Diffraction is waves spreading at a gap or edge.",
+            "Sound is diffracted round doorways and corners."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Showing diffraction in a ripple tank",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A ripple tank is a shallow tray of water in which a vibrating bar makes straight water waves. Barriers placed in the tank show what happens to the waves."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Reflection:** waves bounce off a straight barrier (a plane surface).",
+            "**Refraction:** the waves change speed, and so change direction, when they pass over a shallower region.",
+            "**Diffraction at a gap:** the waves spread out after passing through a gap between two barriers.",
+            "**Diffraction at an edge:** the waves bend round the end of a single barrier."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Make the gap wider or narrower by moving the barriers.",
+            "Make the vibrating bar slower or faster to change the wavelength.",
+            "A lamp above the tank shows the wave crests as bright lines on a screen beneath."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A ripple tank shows reflection, refraction and diffraction using water waves.",
+            "Barriers show diffraction at gaps and at edges."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What changes the amount of diffraction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) The amount of spreading depends on the size of the gap compared with the wavelength."
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) A **narrower gap** gives more diffraction.",
+            "(Supplement) A gap about the same size as the wavelength gives a lot of diffraction.",
+            "(Supplement) A gap much wider than the wavelength gives very little. The waves mostly carry straight on.",
+            "(Supplement) A **longer wavelength** gives more diffraction through the same gap."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "(Supplement) At an edge"
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) A longer wavelength bends more round an edge.",
+            "(Supplement) A shorter wavelength bends less, so a clearer shadow forms behind the edge.",
+            "(Supplement) This is why low-pitched sounds, with long wavelengths, are heard round corners better than high-pitched ones."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Gap and wavelength combinations are sorted into those that give a lot of diffraction and those that give little.",
+            "prompt": "(Supplement) Sort each situation by how much the waves diffract.",
+            "groups": [
+              "A lot of diffraction",
+              "Very little diffraction"
+            ],
+            "items": [
+              {
+                "text": "Gap about the same size as the wavelength",
+                "group": 0
+              },
+              {
+                "text": "Gap narrower than the wavelength",
+                "group": 0
+              },
+              {
+                "text": "A long wavelength through a narrow gap",
+                "group": 0
+              },
+              {
+                "text": "Bending of a long wavelength round an edge",
+                "group": 0
+              },
+              {
+                "text": "Gap much wider than the wavelength",
+                "group": 1
+              },
+              {
+                "text": "A very short wavelength through a wide gap",
+                "group": 1
+              },
+              {
+                "text": "Bending of a very short wavelength round an edge",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Most diffraction happens when the gap is about the same size as the wavelength.",
+            "A longer wavelength diffracts more, both at a gap and at an edge."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what is meant by diffraction.",
+      "a": "The spreading out of a wave as it passes through a gap or round the edge of an obstacle.",
+      "marks": 1
+    },
+    {
+      "q": "Describe how a ripple tank shows diffraction at a gap.",
+      "a": "Straight water waves pass through a gap between two barriers and spread out into the region beyond the gap.",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) How can the diffraction of water waves through a gap be made greater?",
+      "a": "Make the gap narrower, or make the wavelength longer.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 3.1.7",
+        "CAIE 3.1.8",
+        "CAIE 3.1.9S",
+        "CAIE 3.1.10S"
+      ],
+      "worked_example": {
+        "exemplar_id": "7ef974a1-3e3d-474b-a492-3d306cd23c92",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q6(a)(iii)",
+        "question": "A student plays a violin near the doorway to a large room. A young teacher stands where he can hear the sound but cannot see the student. The violin produces sounds in the frequency range 200 Hz to 3800 Hz. The width of the open doorway is 0.75 m. Explain why the young teacher hears a low-frequency sound clearly but finds a frequency of 3500 Hz much harder to hear.",
+        "marks": 2,
+        "answer_points": [
+          "There is a large amount of diffraction when the gap (doorway) is similar in size to the wavelength.",
+          "A frequency of 3500 Hz has a much shorter wavelength, so there is less diffraction."
+        ],
+        "tip": "Compare the wavelength with the size of the gap, then link a shorter wavelength to less diffraction."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "9084551c-6144-485d-b057-f248f214dc40",
+      "172889b1-0ea6-4aff-9431-11d5457499a5",
+      "7473841f-df57-4c6b-83c2-f47c1310f457",
+      "9de678bb-6d37-4306-acee-c79f081e0319"
+    ],
+    "exemplar_ids": [
+      "7ef974a1-3e3d-474b-a492-3d306cd23c92"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

@@ -1,0 +1,338 @@
+{
+  "format": 1,
+  "concept_id": "chem-044",
+  "subject": "chemistry",
+  "title": "Redox in terms of electrons",
+  "key_idea": "(AQA: Higher tier) Oxidation is the loss of electrons and reduction is the gain of electrons. Displacement reactions are redox reactions, and ionic equations show only the particles that change.",
+  "sections": [
+    {
+      "heading": "Oxidation and reduction as electron transfer",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) This section covers oxidation and reduction in terms of electrons and half equations."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Oxidation",
+              "meaning": "The loss of electrons."
+            },
+            {
+              "term": "Reduction",
+              "meaning": "The gain of electrons."
+            },
+            {
+              "term": "Half equation",
+              "meaning": "An equation showing one particle losing or gaining electrons."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A metal atom is oxidised when it loses electrons to form a positive ion.",
+            "A positive ion is reduced when it gains electrons to form an atom.",
+            "A non-metal atom is reduced when it gains electrons to form a negative ion.",
+            "Oxidation and reduction always happen together, so the reaction is a **redox reaction**."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Half equations",
+          "formula": "Na → Na⁺ + e⁻\nFe³⁺ + 3e⁻ → Fe\nCl₂ + 2e⁻ → 2Cl⁻\n2Br⁻ → Br₂ + 2e⁻",
+          "where": [
+            "Na → Na⁺ + e⁻: sodium is oxidised",
+            "Fe³⁺ + 3e⁻ → Fe: iron(III) ions are reduced",
+            "Cl₂ + 2e⁻ → 2Cl⁻: chlorine is reduced",
+            "2Br⁻ → Br₂ + 2e⁻: bromide ions are oxidised"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Electrons are on the right in oxidation and on the left in reduction."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each half equation into oxidation or reduction.",
+            "prompt": "Is each half equation oxidation or reduction?",
+            "groups": ["Oxidation (loses electrons)", "Reduction (gains electrons)"],
+            "items": [
+              {
+                "text": "Mg → Mg²⁺ + 2e⁻",
+                "group": 0
+              },
+              {
+                "text": "Fe³⁺ + 3e⁻ → Fe",
+                "group": 1
+              },
+              {
+                "text": "Na → Na⁺ + e⁻",
+                "group": 0
+              },
+              {
+                "text": "2H⁺ + 2e⁻ → H₂",
+                "group": 1
+              },
+              {
+                "text": "2Cl⁻ → Cl₂ + 2e⁻",
+                "group": 0
+              },
+              {
+                "text": "Cu²⁺ + 2e⁻ → Cu",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Oxidation is loss of electrons. Reduction is gain of electrons.",
+            "Name the particle: an atom or an ion, not the whole compound."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Displacement reactions and ionic equations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) In a displacement reaction a more reactive metal transfers electrons to the ions of a less reactive metal."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ionic equation",
+              "meaning": "An equation that shows only the particles that change in a reaction."
+            },
+            {
+              "term": "Spectator ion",
+              "meaning": "An ion that is present but does not change, so it is left out of the ionic equation."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the full equation.",
+              "text": "Zn + CuSO₄ → ZnSO₄ + Cu"
+            },
+            {
+              "lead": "Split the aqueous compounds into ions.",
+              "text": "Zn + Cu²⁺ + SO₄²⁻ → Zn²⁺ + SO₄²⁻ + Cu"
+            },
+            {
+              "lead": "Cross out the spectator ions.",
+              "text": "Sulfate ions, SO₄²⁻, are on both sides and do not change."
+            },
+            {
+              "lead": "Write what is left.",
+              "text": "Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s)"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Zinc atoms lose two electrons: Zn → Zn²⁺ + 2e⁻. Zinc is **oxidised**.",
+            "Copper ions gain two electrons: Cu²⁺ + 2e⁻ → Cu. Copper ions are **reduced**.",
+            "The same pattern applies to magnesium displacing zinc: Mg(s) + Zn²⁺(aq) → Mg²⁺(aq) + Zn(s).",
+            "A displacement reaction is a redox reaction because one particle loses electrons and another gains them."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "In a displacement reaction the more reactive metal is oxidised and the ions of the less reactive metal are reduced.",
+            "Leave spectator ions out of an ionic equation."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Other redox reactions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) The same ideas apply to metals reacting with acids and to halogen displacement."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Acids react with some metals, such as magnesium, zinc and iron, to produce a salt and hydrogen.",
+            "In Mg + 2HCl → MgCl₂ + H₂ the magnesium atoms lose two electrons, so they are oxidised.",
+            "The hydrogen ions gain electrons, so they are reduced: 2H⁺ + 2e⁻ → H₂.",
+            "In Cl₂ + 2Br⁻ → 2Cl⁻ + Br₂ chlorine gains electrons and is reduced. Bromide ions lose electrons and are oxidised.",
+            "A reaction in which no particle gains or loses electrons is not redox. When CuO reacts with sulfuric acid to form CuSO₄, copper is Cu²⁺ both times, so it is neither oxidised nor reduced."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Check whether any particle gains or loses electrons. If so, it is a redox reaction.",
+            "Hydrogen ions are reduced when a metal reacts with an acid."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Magnesium displaces zinc from zinc sulfate solution. Write the ionic equation with state symbols.",
+      "a": "Mg(s) + Zn²⁺(aq) → Mg²⁺(aq) + Zn(s)",
+      "marks": 2
+    },
+    {
+      "q": "In the equation in the previous question, which particles are oxidised and which are reduced? Give a reason for each.",
+      "a": "Magnesium atoms are oxidised because they lose electrons. Zinc ions are reduced because they gain electrons.",
+      "marks": 2
+    },
+    {
+      "q": "Write a half equation to show that sodium is oxidised.",
+      "a": "Na → Na⁺ + e⁻",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.1.4", "AQA T 5.4.1.4", "AQA 4.4.2.1", "AQA T 5.4.2.1"],
+      "worked_example": {
+        "exemplar_id": "f676baa6-af41-4b77-844a-81189445d9a9",
+        "source": "AQA jun 2018, Paper 1 (H), Q08.4",
+        "question": "Magnesium reacts with iron chloride solution.\n\n3 Mg + 2 FeCl₃ → 2 Fe + 3 MgCl₂\n\nExplain which species is reduced in the reaction between magnesium and iron chloride.\n\nYour answer should include the half equation for the reduction.",
+        "marks": 3,
+        "answer_points": [
+          "Fe³⁺ is reduced.",
+          "Because reduction is gain of electrons (or a change in oxidation state from +3 to 0).",
+          "Fe³⁺ + 3e⁻ → Fe"
+        ],
+        "tip": "One mark each. Name the ion, state the definition, then write the half equation."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.28", "EDEX 4.2", "EDEX 6.12"],
+      "worked_example": {
+        "exemplar_id": "e11f64da-a35d-4404-a19a-9af47af882dc",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q5(b)(i)",
+        "question": "Small amounts of some metals are extracted using displacement reactions.\n\nIn one process, zinc dust is used to precipitate cadmium metal from a solution containing cadmium ions.\n\nCd²⁺(aq) + Zn(s) → Cd(s) + Zn²⁺(aq)\n\nExplain why this displacement reaction can be described as a redox reaction.",
+        "marks": 3,
+        "answer_points": [
+          "Reduction and oxidation occur.",
+          "Zinc (atoms) lose electrons and are oxidised.",
+          "Cadmium ions (Cd²⁺) gain electrons and are reduced."
+        ],
+        "tip": "The first mark is given even if the species are wrong. Do not say zinc ions or cadmium atoms."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C3.3b"],
+      "worked_example": {
+        "exemplar_id": "894caed8-91c1-4255-9101-c88028886603",
+        "source": "OCR jun 2024, Paper 3, Q19(b)(i)",
+        "question": "Atoms are either oxidised or reduced to form ions.\n\nComplete the sentences about how atoms form ions. Choose from: oxidised, reduced, lose, gain.\n\nAtoms are ______ to form positive ions. Atoms ______ electrons to form positive ions.\n\nAtoms are ______ to form negative ions. Atoms ______ electrons to form negative ions.",
+        "marks": 2,
+        "answer_points": [
+          "Atoms are oxidised to form positive ions. Atoms lose electrons to form positive ions.",
+          "Atoms are reduced to form negative ions. Atoms gain electrons to form negative ions."
+        ],
+        "tip": "Oxidised and reduced together score 1 mark. Lose and gain together score 1 mark. They are marked independently."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 6.4.6S",
+        "CAIE 6.4.7S",
+        "CAIE 6.4.8S",
+        "CAIE 6.4.2",
+        "CAIE 6.4.5",
+        "CAIE 6.4.13S",
+        "CAIE 9.4.4S"
+      ],
+      "worked_example": {
+        "exemplar_id": "217fa301-6a42-47e9-9857-9134c41b440d",
+        "source": "CAMBRIDGE mar 2025, Paper 42, Q3(g)(ii)",
+        "question": "Aqueous chlorine, Cl₂, reacts with aqueous potassium iodide, KI. One of the products formed is iodine, I₂. Explain why this reaction is defined as a redox reaction. Give your answer in terms of electron transfer.",
+        "marks": 2,
+        "answer_points": ["Iodide ions, I⁻, lose electrons", "Chlorine, Cl₂, gains electrons"],
+        "tip": "One mark for the particle that loses electrons and one for the particle that gains them."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Oxidation and reduction can also be defined using oxidation numbers."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Oxidation number",
+                  "meaning": "A number showing the charge an atom has, or seems to have, in a substance."
+                },
+                {
+                  "term": "Oxidation (oxidation number)",
+                  "meaning": "An increase in oxidation number."
+                },
+                {
+                  "term": "Reduction (oxidation number)",
+                  "meaning": "A decrease in oxidation number."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "An uncombined element has an oxidation number of 0.",
+                "A simple ion has an oxidation number equal to its charge, for example +2 for Zn²⁺.",
+                "In Mg + Zn²⁺ → Mg²⁺ + Zn, magnesium goes from 0 to +2. It is oxidised.",
+                "Zinc goes from +2 to 0. It is reduced."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "An oxidising agent gains electrons, so it is reduced.",
+                "A reducing agent loses electrons, so it is oxidised."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.20"]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "spec_point_ids": [
+      "6f9a5c6d-bb04-4e01-bb11-683b2401b162",
+      "6f5476cc-5fd6-4242-8fe5-6f8fe26ab842",
+      "93fe4676-e108-4fb0-ab6a-602be0f5abb5",
+      "f11f72d1-cdc3-4868-a78d-89a1e8114087",
+      "6717bba8-3918-4aff-81c8-a9c3caef83af",
+      "5d19b284-2137-4f35-96a4-33e64f1249ab",
+      "10edf4e6-7301-4642-888a-7a5e25d9dd71",
+      "386e8f1c-0d3e-434e-b825-6d86785d7031"
+    ],
+    "exemplar_ids": [
+      "f676baa6-af41-4b77-844a-81189445d9a9",
+      "e11f64da-a35d-4404-a19a-9af47af882dc",
+      "894caed8-91c1-4255-9101-c88028886603",
+      "217fa301-6a42-47e9-9857-9134c41b440d"
+    ]
+  }
+}

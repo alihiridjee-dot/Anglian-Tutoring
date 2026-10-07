@@ -1,0 +1,452 @@
+{
+  "format": 1,
+  "concept_id": "phys-045",
+  "subject": "physics",
+  "title": "Weight, mass and gravitational field strength",
+  "key_idea": "Weight is the force of gravity on an object. It depends on the mass of the object and the gravitational field strength where it is. Mass stays the same everywhere. Weight changes with the field strength.",
+  "sections": [
+    {
+      "heading": "What weight is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Weight and mass are different quantities. This section covers what each one is and how weight is measured."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Mass",
+              "meaning": "The amount of matter in an object, measured in kilograms (kg). It is a scalar."
+            },
+            {
+              "term": "Weight",
+              "meaning": "The force acting on an object due to gravity, measured in newtons (N). It is a vector."
+            },
+            {
+              "term": "Gravitational field strength (g)",
+              "meaning": "The force of gravity on each kilogram of mass at a point, in newtons per kilogram (N/kg)."
+            },
+            {
+              "term": "Centre of mass",
+              "meaning": "The single point at which the weight of an object may be considered to act."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "All matter has a gravitational field that attracts other matter.",
+            "The field strength is much greater for massive objects, such as a planet.",
+            "The force of gravity close to the Earth is due to the gravitational field around the Earth.",
+            "The weight of an object depends on the field strength at the point where the object is.",
+            "The weight of an object and its mass are directly proportional (W ∝ m)."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Measuring weight"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Weight is measured with a calibrated spring-balance, called a newtonmeter.",
+            "The object hangs from the spring.",
+            "The spring stretches, and the scale shows the weight in newtons.",
+            "A mass is measured in kilograms, never in newtons."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Weight is a force in newtons. Mass is an amount of matter in kilograms.",
+            "Weight is directly proportional to mass.",
+            "Weight is measured with a newtonmeter."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating weight",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The equation links weight, mass and gravitational field strength. The value of g is given in a calculation."
+        },
+        {
+          "type": "equation",
+          "label": "Weight",
+          "formula": "W = m × g",
+          "where": [
+            "W is weight in newtons (N).",
+            "m is mass in kilograms (kg).",
+            "g is gravitational field strength in newtons per kilogram (N/kg). It is about 9.8 N/kg on Earth. Some questions use 10 N/kg."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the equation",
+              "text": "W = m × g"
+            },
+            {
+              "lead": "Substitute",
+              "text": "A 75 kg swimmer with g = 10 N/kg: W = 75 × 10"
+            },
+            {
+              "lead": "Calculate",
+              "text": "W = 750 N"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "To find the mass, rearrange the equation."
+        },
+        {
+          "type": "equation",
+          "label": "Mass",
+          "formula": "m = W ÷ g",
+          "where": [
+            "m is mass in kilograms (kg).",
+            "W is weight in newtons (N).",
+            "g is gravitational field strength in newtons per kilogram (N/kg)."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Substitute",
+              "text": "An engineer of weight 710 N with g = 9.8 N/kg: m = 710 ÷ 9.8"
+            },
+            {
+              "lead": "Calculate",
+              "text": "m = 72.4… kg"
+            },
+            {
+              "lead": "Round",
+              "text": "To 2 significant figures, m = 72 kg"
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the weight of a person from their mass, with g = 9.8 N/kg. New numbers each time.",
+            "question": "A person has a mass of {m} kg. The gravitational field strength is 9.8 N/kg. Calculate the weight of the person.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 40,
+                "max": 90,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "m * 9.8",
+              "unit": "N",
+              "decimals": 0
+            },
+            "working": ["W = m × g", "W = {m} × 9.8", "W = {answer} N"]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "W = m × g. Always give the unit, N for weight.",
+            "To find mass or g, rearrange the equation first.",
+            "Use the value of g that the question gives."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Weight on different planets",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gravitational field strength is different on different bodies in space. Mass does not change, so weight does."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A body with a larger field strength gives a larger weight for the same mass.",
+            "The Moon has a field strength of about 1.6 N/kg, so objects weigh less there than on Earth.",
+            "Mars is about 3.7 N/kg.",
+            "An astronaut has the greatest weight where g is largest, because W = m × g and the mass is fixed."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Choose a mass and a body in space and see the weight.",
+            "inputs": [
+              {
+                "id": "m",
+                "label": "Mass",
+                "unit": "kg",
+                "min": 10,
+                "max": 100,
+                "step": 10,
+                "value": 60
+              },
+              {
+                "id": "g",
+                "label": "Where",
+                "choices": [
+                  {
+                    "label": "Moon (1.6 N/kg)",
+                    "value": 1.6
+                  },
+                  {
+                    "label": "Mars (3.7 N/kg)",
+                    "value": 3.7
+                  },
+                  {
+                    "label": "Venus (8.8 N/kg)",
+                    "value": 8.8
+                  },
+                  {
+                    "label": "Earth (9.8 N/kg)",
+                    "value": 9.8
+                  },
+                  {
+                    "label": "Jupiter (24.8 N/kg)",
+                    "value": 24.8
+                  }
+                ]
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Mass",
+                "unit": "kg",
+                "formula": "m",
+                "decimals": 0
+              },
+              {
+                "label": "Weight",
+                "unit": "N",
+                "formula": "m * g",
+                "decimals": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Close to the Earth, an object falling freely has an acceleration of about 9.8 m/s². Some questions use 10 m/s², so it gains about 10 m/s of speed each second."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mass is the same everywhere. Weight depends on g.",
+            "Weight is smaller on the Moon and larger on bodies with a bigger g.",
+            "Free fall near the Earth has an acceleration of about 9.8 m/s²."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Calculate the weight of a swimmer of mass 75 kg. Use g = 10 N/kg.",
+      "a": "W = m × g = 75 × 10 = 750 N.",
+      "marks": 3
+    },
+    {
+      "q": "A student has a weight of 400 N. Calculate the mass of the student. Use g = 10 N/kg.",
+      "a": "m = W ÷ g = 400 ÷ 10 = 40 kg.",
+      "marks": 3
+    },
+    {
+      "q": "A rock has a mass of 6.0 kg on the Moon, where g = 1.6 N/kg. Calculate its weight and state the unit.",
+      "a": "W = 6.0 × 1.6 = 9.6 N (newtons).",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.5.1.3", "AQA T 6.5.1.3"],
+      "worked_example": {
+        "exemplar_id": "d137546d-d311-4062-926b-2dda9b1d84db",
+        "source": "AQA jun 2023, Paper 2 (F), Q05.6",
+        "question": "The engineer has a weight of 710 N. gravitational field strength = 9.8 N/kg. Calculate the mass of the engineer. Give your answer to 2 significant figures.",
+        "marks": 4,
+        "answer_points": ["710 = m × 9.8", "m = 710 / 9.8", "m = 72.4…", "m = 72 kg"],
+        "tip": "One mark each for the substitution, the rearrangement, the unrounded value and the answer to 2 significant figures."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 2.16", "EDEX 2.17", "EDEX 2.18", "EDEX 7.1P", "EDEX 2.13"],
+      "worked_example": {
+        "exemplar_id": "30788382-ddae-4cb5-b664-61256af1439e",
+        "source": "EDEXCEL jun 2022, Paper 1 (F), Q7(a)(ii)",
+        "question": "A rock on the surface of the Earth has a mass of 12 kg. The weight of the same rock on the surface of the Moon is 20 N. Calculate the gravitational field strength on the surface of the Moon.",
+        "marks": 3,
+        "answer_points": ["Rearrange: g = W / m.", "Substitute: g = 20 / 12.", "g = 1.7 N/kg."],
+        "tip": "Rearrangement and substitution can come in either order. Answers that round to 1.7, such as 1.67, are accepted."
+      },
+      "extra": [
+        {
+          "heading": "Why g differs from body to body",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The field strength on the Moon is different from the Earth. The mark scheme looks for reasons linked to the two bodies."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The **mass** of the body is different.",
+                "The **radius** of the body is different.",
+                "The **density** of the body is different."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR P2.3g", "OCR P2.3h", "OCR P2.3i", "OCR P2.3j"],
+      "worked_example": {
+        "exemplar_id": "4010c7ce-644d-41ad-886f-47619f6b6970",
+        "source": "OCR sample, Paper 2, Q18(c)",
+        "question": "The Mars Rover has a mass of 185 kg. The gravitational field strength (g) on Mars is 3.75 N/kg. Calculate the weight of the Rover vehicle on Mars. Show your working and give your answer to 3 significant figures. State the unit for weight.",
+        "marks": 5,
+        "answer_points": [
+          "Recall: weight = mass × gravitational field strength.",
+          "Substitute: 185 × 3.75.",
+          "Weight = 693.75, which is 694 to 3 significant figures (2 marks).",
+          "Unit: N."
+        ],
+        "tip": "Two of the five marks are for rounding correctly to 3 significant figures, and one is for the unit."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.3.1",
+        "CAIE 1.3.2",
+        "CAIE 1.3.3",
+        "CAIE 1.3.4",
+        "CAIE 1.3.5S",
+        "CAIE 1.2.8",
+        "CAIE 1.5.3.1",
+        "CAIE 6.1.2.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "2bedfa3a-ffc6-44e8-b5d2-ce73a1cea49c",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q10(b)(i)",
+        "question": "The gravitational field strength at the surface of the Earth is approximately 9.8 N/kg. The gravitational field strength at the surface of Jupiter is approximately 23 N/kg. Define gravitational field strength.",
+        "marks": 2,
+        "answer_points": [
+          "Gravitational field strength is the gravitational force per unit mass.",
+          "Or: weight ÷ mass."
+        ],
+        "tip": "A force on a mass, or W = m × g, earns one mark. Force per unit mass earns both."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Weights and masses can be compared with a balance, not only measured with a newtonmeter."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A balance compares the weight of an object with the weight of known masses.",
+                "If the two weights balance, the masses are equal, because g is the same for both.",
+                "A lever balance or an electronic balance can be used for this comparison."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Field strength"
+            },
+            {
+              "type": "list",
+              "items": [
+                "g in N/kg is equal to the acceleration of free fall in m/s², about 9.8 near the Earth's surface.",
+                "g is approximately constant for objects close to the surface of a planet.",
+                "At the surface, g is greater for a planet of greater mass.",
+                "Around a planet, g decreases as the distance from the planet increases."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.18", "IGCSE 1.31P", "IGCSE 8.3"],
+      "worked_example": {
+        "exemplar_id": "d1e12dcb-a8bb-4f34-892d-8da8f10a1d4e",
+        "source": "EDEXCEL nov 2021, Paper 1 (P), Q8(c)(ii)",
+        "question": "Callisto has a gravitational field strength of 1.2 N/kg at its surface. The Earth's moon has a gravitational field strength of 1.6 N/kg at its surface. An object has a weight of 59 N on the surface of the Earth's moon. Calculate the weight of the same object if it were on the surface of Callisto.",
+        "marks": 3,
+        "answer_points": [
+          "Use W = m × g.",
+          "Mass of the object = 59 ÷ 1.6 = 37 kg.",
+          "Weight on Callisto = 37 × 1.2 = 44 N."
+        ],
+        "tip": "The mass does not change from place to place. Find it first, then use the new g."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The field strength g is not the same everywhere."
+            },
+            {
+              "type": "list",
+              "items": [
+                "g is different on the Moon and on other planets from its value on the Earth.",
+                "At the surface, g depends on the mass and the size of the planet.",
+                "Around a planet, g decreases as the distance from the planet increases."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "c8da79d4-a811-44b0-93ce-60bbbbd8b782",
+      "c09badb3-00c9-4284-88a4-077eb8a7da7a",
+      "3f145c5a-f226-4993-b883-13c825236981",
+      "790e087e-cc14-41fb-aa7f-f7e475d9fcb2",
+      "cdb67350-4437-4700-baa7-6bd29fb0ebff",
+      "1faa5c45-ca25-4f1a-a332-866205e2ca5c",
+      "7b3f8e92-1f9a-4782-b74d-988e2c643cf9",
+      "1fe25125-da8d-43a7-aaa5-b74cbc5fe73e",
+      "0bf2edfa-499b-48c0-98d9-0ff7ac7ab50e",
+      "add197db-ba4b-48ef-bfe7-d79421f259d8",
+      "99704bab-4a7d-4d20-b9ea-7d12db86b71e",
+      "5168c238-c5e2-4b6a-81da-2496e2fbecff",
+      "16a42dde-cc5f-4fb0-a5bd-b9c3aff031c0",
+      "7b6ed053-02a1-4fa3-9186-3cf359459262",
+      "b8f97c05-537d-4fd9-aa28-f06d4defbdac",
+      "cfd8a7cd-0ac3-456c-b320-2079da8ecb3d"
+    ],
+    "exemplar_ids": [
+      "d137546d-d311-4062-926b-2dda9b1d84db",
+      "30788382-ddae-4cb5-b664-61256af1439e",
+      "4010c7ce-644d-41ad-886f-47619f6b6970",
+      "2bedfa3a-ffc6-44e8-b5d2-ce73a1cea49c",
+      "d1e12dcb-a8bb-4f34-892d-8da8f10a1d4e"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

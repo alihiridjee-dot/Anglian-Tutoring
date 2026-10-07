@@ -1,0 +1,246 @@
+{
+  "format": 1,
+  "concept_id": "bio-046",
+  "subject": "biology",
+  "title": "Non-specific human defences",
+  "key_idea": "The body stops most pathogens getting in. The skin is a physical barrier. Mucus traps pathogens and cilia move it away. Tears and secretions contain enzymes (lysozymes) that kill bacteria. Stomach acid kills pathogens in food.",
+  "sections": [
+    {
+      "heading": "Keeping pathogens out",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "These defences work against any pathogen, so they are non-specific. This section covers the physical barriers."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Non-specific defence",
+              "meaning": "A defence that works against all pathogens, not one particular type."
+            },
+            {
+              "term": "Mucus",
+              "meaning": "A sticky substance that traps pathogens."
+            },
+            {
+              "term": "Cilia",
+              "meaning": "Tiny hair-like structures on the lining cells of the airways. They move mucus along."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Skin:** a tough, dry, dead outer layer that acts as a barrier. It is waterproof, so pathogens cannot get through.",
+            "**Skin oil (sebum):** oil on the skin surface repels pathogens.",
+            "**Scabs:** platelets help to form blood clots and scabs over cuts. These stop pathogens entering.",
+            "**Nose, trachea and bronchi:** goblet cells in the lining release sticky mucus, which traps pathogens. Cilia move the mucus away from the lungs, towards the throat."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The skin is a barrier. Scabs cover cuts.",
+            "Mucus traps pathogens. Cilia move the mucus out of the airways.",
+            "Non-specific means it works against all pathogens."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Chemical defences",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some defences use chemicals to kill pathogens. They are found in the stomach, the eyes and the skin."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Hydrochloric acid** in the stomach has a low pH. It kills bacteria in food or in swallowed mucus.",
+            "**Lysozymes** are enzymes that kill some bacteria. They are found in tears, saliva and mucus.",
+            "Tears are antiseptic because they contain these enzymes. The skin also has glands that secrete lysozymes."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap a part of the body to learn how it defends against pathogens.",
+            "prompt": "Tap a part of the body to see how it defends against pathogens.",
+            "parts": [
+              {
+                "name": "Skin",
+                "detail": "A tough, dry, dead outer layer acts as a barrier. Oil repels pathogens and glands secrete lysozymes."
+              },
+              {
+                "name": "Nose",
+                "detail": "Produces sticky mucus that traps pathogens."
+              },
+              {
+                "name": "Trachea and bronchi",
+                "detail": "Mucus traps pathogens. Cilia move the mucus away from the lungs."
+              },
+              {
+                "name": "Stomach",
+                "detail": "Hydrochloric acid kills pathogens in food and in swallowed mucus."
+              },
+              {
+                "name": "Eyes",
+                "detail": "Tears wash pathogens away and contain lysozymes that kill bacteria."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stomach acid kills pathogens in food.",
+            "Lysozymes in tears, saliva and mucus kill some bacteria.",
+            "If a pathogen gets in, the immune system takes over."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two ways that the body prevents pathogens entering.",
+      "a": "Any two from: skin acts as a barrier, mucus in the trachea and bronchi or nose, cilia in the airways, hydrochloric acid in the stomach.",
+      "marks": 2
+    },
+    {
+      "q": "State the function of ciliated epithelial cells in the airways.",
+      "a": "To move (waft) mucus (which contains trapped pathogens and dust).",
+      "marks": 1
+    },
+    {
+      "q": "Describe how tears and stomach secretions stop pathogens infecting the body.",
+      "a": "Tears contain enzymes (lysozymes) that kill bacteria. Stomach acid (hydrochloric acid) breaks down or kills microbes.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA T 4.3.1.6",
+        "AQA 3.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "a915096f-4270-4304-bcfc-e5d1749ac5f3",
+        "source": "AQA jun 2019, Paper 1 (F), Q08.6",
+        "question": "Mosquitoes carry a pathogen that causes malaria. Describe how the human body: prevents pathogens from entering, and defends itself against pathogens inside the body.",
+        "marks": 6,
+        "answer_points": [
+          "Skin: a tough, dry, dead outer layer that acts as a barrier. Sebum / oil repels pathogens. Scabs form over cuts.",
+          "Stomach: contains (hydrochloric) acid, which kills bacteria in food or in swallowed mucus.",
+          "Eyes: produce tears, which contain enzymes to kill bacteria.",
+          "Breathing system: trachea, bronchi and nose produce sticky mucus that traps bacteria. It is carried away by cilia.",
+          "Inside the body: white blood cells engulf pathogens, and produce antibodies and antitoxins.",
+          "Memory cells are formed, which give a more rapid response if the pathogen re-enters."
+        ],
+        "tip": "A level 2 answer (4 to 6 marks) refers to both body defences and the immune system, with relevant detail."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 5.12"
+      ],
+      "worked_example": {
+        "exemplar_id": "d6d1be55-d658-4fa7-b322-66a186b343d8",
+        "source": "EDEXCEL nov 2021, Paper 1 (F), Q9(c)",
+        "question": "Describe how the physical barriers and chemical defences of the human body provide protection from diseases.",
+        "marks": 6,
+        "answer_points": [
+          "Physical: mucus is produced by cells that line some surfaces, and traps pathogens.",
+          "Physical: cilia on lining cells of the respiratory system move mucus across the surface and move pathogens out of the body or into the throat.",
+          "Physical: skin is a thick, waterproof covering with dead cells on its surface, so pathogens cannot enter.",
+          "Physical: tears wash pathogens away. Blood clots or scabs cover wounds.",
+          "Chemical: skin glands secrete lysozymes. Lysozymes are enzymes in tears, saliva and mucus, and kill some bacteria.",
+          "Chemical: hydrochloric acid in the stomach has a low pH, which kills many pathogens."
+        ],
+        "tip": "For the top level, give more than one physical barrier and more than one chemical defence, and describe what most of them do."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 6.3k"
+      ],
+      "worked_example": {
+        "exemplar_id": "f9439e60-e00f-488e-ad56-570011c37435",
+        "source": "OCR (series and year not recorded)",
+        "question": "Different parts of the body have natural defence mechanisms to stop pathogens infecting the body. These defences include: skin, tears, and secretions from the stomach. Describe how each defence stops pathogens infecting the body.",
+        "marks": 4,
+        "answer_points": [
+          "Skin forms a barrier.",
+          "Enzymes in tears.",
+          "Acid in the stomach.",
+          "Acid and enzymes break down microbes."
+        ],
+        "tip": "Name each defence and say what it does: a barrier, enzymes, acid."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 10.1.4",
+        "CAIE 11.1.11S",
+        "CAIE 7.4.5",
+        "CAIE 9.4.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "f7bb0db9-0eaa-4806-90e6-04b5e38089ce",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q6(b)",
+        "question": "Blood clotting helps to prevent some infections.\nOutline how a blood clot is formed and how it can prevent infections.",
+        "marks": 3,
+        "answer_points": [
+          "A blood clot or scab is a barrier that prevents pathogens entering, and traps pathogens in its mesh.",
+          "Soluble fibrinogen is converted to insoluble fibrin, a fibrous protein.",
+          "The fibrin forms a network (mesh) of fibres.",
+          "Platelets are involved in forming the clot, and a scab forms."
+        ],
+        "tip": "One mark for the clot preventing entry of pathogens, and up to two for how the clot forms."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course also asks for the following defences."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Hairs in the nose** trap particles and pathogens before they reach the lungs.",
+                "(Supplement) **Goblet cells** make mucus, which traps pathogens and particles. **Ciliated cells** have cilia that move the mucus away from the lungs.",
+                "**Blood clotting** stops blood loss and the entry of pathogens. Soluble fibrinogen is converted to insoluble **fibrin**, which forms a mesh of fibres. Platelets help to form the clot.",
+                "**Hydrochloric acid** in gastric juice kills harmful microorganisms in food. It also gives the acidic pH that stomach enzymes need to work best."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "e98602bf-c0f9-4ff6-87e0-e7e4e8b0a6b5",
+      "18b3fbda-0f46-4171-bc88-7f79cfd7280b",
+      "291355c2-1ce8-4efa-bedc-2aa01c875b93",
+      "4385d666-783f-4bdf-9707-e3260d29fa36",
+      "f0ea1f53-0534-43ee-ad81-d04f2b6d8915"
+    ],
+    "exemplar_ids": [
+      "a915096f-4270-4304-bcfc-e5d1749ac5f3",
+      "d6d1be55-d658-4fa7-b322-66a186b343d8",
+      "f9439e60-e00f-488e-ad56-570011c37435",
+      "f7bb0db9-0eaa-4806-90e6-04b5e38089ce"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

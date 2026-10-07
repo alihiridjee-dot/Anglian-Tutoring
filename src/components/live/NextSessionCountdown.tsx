@@ -4,10 +4,12 @@ import { useNow } from "@/hooks/useNow";
 import {
   DAY_MS,
   MINUTE_MS as MINUTE,
+  demoJoinClick,
   nextSession,
   sessionStartMs,
   sessionTiming,
 } from "@/lib/live/liveSessions";
+import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { SessionIdentity, WhatsCovered } from "@/components/live/SessionMeta";
 import { useMyLiveSessions } from "@/components/live/useMyLiveSessions";
 
@@ -52,7 +54,11 @@ export function NextSessionCountdown({
   if (!next || start === null) return null;
 
   // Join button only appears 10 min before or while live, avoiding empty waiting rooms.
-  const { untilStart: diff, isLive, withinDay, joinable } = sessionTiming(start, now);
+  // The showcase's lessons are days away, and the tour promises a join button,
+  // so there it shows from the start — and only says what it would open.
+  const timing = sessionTiming(start, now);
+  const { untilStart: diff, isLive, withinDay } = timing;
+  const joinable = timing.joinable || isDemoStudent();
 
   const days = Math.max(0, Math.floor(diff / DAY_MS));
   const hours = Math.max(0, Math.floor((diff % DAY_MS) / (60 * MINUTE)));
@@ -110,6 +116,7 @@ export function NextSessionCountdown({
               href={next.join_url}
               target="_blank"
               rel="noreferrer"
+              onClick={demoJoinClick()}
               className={`min-h-11 sm:pointer-fine:min-h-0 px-4 py-2.5 rounded-lg text-sm font-semibold inline-flex items-center gap-2 text-white transition-colors ${
                 isLive ? "bg-emerald-600 hover:bg-emerald-700" : "bg-[#2D8CFF] hover:bg-[#2681F2]"
               }`}

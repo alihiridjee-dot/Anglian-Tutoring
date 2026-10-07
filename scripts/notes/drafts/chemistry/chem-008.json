@@ -8,12 +8,21 @@
     {
       "heading": "Early periodic tables",
       "blocks": [
-        { "type": "paragraph", "text": "Before protons, neutrons and electrons were discovered, scientists tried to classify the elements by their atomic weights." },
+        {
+          "type": "paragraph",
+          "text": "Before protons, neutrons and electrons were discovered, scientists tried to classify the elements by their atomic weights."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Atomic weight", "meaning": "The old name for relative atomic mass." },
-            { "term": "Prediction", "meaning": "A statement of what should be found if an idea is correct. Testing it can support or refute the idea." }
+            {
+              "term": "Atomic weight",
+              "meaning": "The old name for relative atomic mass."
+            },
+            {
+              "term": "Prediction",
+              "meaning": "A statement of what should be found if an idea is correct. Testing it can support or refute the idea."
+            }
           ]
         },
         {
@@ -36,16 +45,31 @@
     {
       "heading": "Mendeleev's periodic table",
       "blocks": [
-        { "type": "paragraph", "text": "Mendeleev overcame some of the problems with the early tables in three ways." },
+        {
+          "type": "paragraph",
+          "text": "Mendeleev overcame some of the problems with the early tables in three ways."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Groups by properties.", "text": "He put elements with similar properties, and similar compounds, in the same column." },
-            { "lead": "Changed the order.", "text": "In some places he swapped elements so they fitted their group. Iodine was placed after tellurium, with Group 7 elements that it resembles." },
-            { "lead": "Left gaps.", "text": "He left gaps for elements that he thought had not yet been discovered." }
+            {
+              "lead": "Groups by properties.",
+              "text": "He put elements with similar properties, and similar compounds, in the same column."
+            },
+            {
+              "lead": "Changed the order.",
+              "text": "In some places he swapped elements so they fitted their group. Iodine was placed after tellurium, with Group 7 elements that it resembles."
+            },
+            {
+              "lead": "Left gaps.",
+              "text": "He left gaps for elements that he thought had not yet been discovered."
+            }
           ]
         },
-        { "type": "subheading", "text": "Predictions" },
+        {
+          "type": "subheading",
+          "text": "Predictions"
+        },
         {
           "type": "list",
           "items": [
@@ -69,7 +93,10 @@
     {
       "heading": "From atomic weight to atomic number",
       "blocks": [
-        { "type": "paragraph", "text": "Knowledge of atomic structure and isotopes explained why Mendeleev's changes to the order were needed." },
+        {
+          "type": "paragraph",
+          "text": "Knowledge of atomic structure and isotopes explained why Mendeleev's changes to the order were needed."
+        },
         {
           "type": "list",
           "items": [
@@ -87,12 +114,30 @@
             "prompt": "Which periodic table?",
             "groups": ["Mendeleev's table", "Modern table", "Both"],
             "items": [
-              { "text": "Mostly in order of atomic weight", "group": 0 },
-              { "text": "In order of atomic number", "group": 1 },
-              { "text": "Gaps left for undiscovered elements", "group": 0 },
-              { "text": "Includes Group 0, the noble gases", "group": 1 },
-              { "text": "Elements with similar properties in the same group", "group": 2 },
-              { "text": "Some pairs of elements swapped to match their group", "group": 0 }
+              {
+                "text": "Mostly in order of atomic weight",
+                "group": 0
+              },
+              {
+                "text": "In order of atomic number",
+                "group": 1
+              },
+              {
+                "text": "Gaps left for undiscovered elements",
+                "group": 0
+              },
+              {
+                "text": "Includes Group 0, the noble gases",
+                "group": 1
+              },
+              {
+                "text": "Elements with similar properties in the same group",
+                "group": 2
+              },
+              {
+                "text": "Some pairs of elements swapped to match their group",
+                "group": 0
+              }
             ]
           }
         },
@@ -127,29 +172,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.1.2.2", "AQA T 5.1.2.2"],
-      "exam_phrases": [
-        "arranged in order of atomic weight",
-        "left gaps / spaces",
-        "changed the order so properties matched the rest of the group",
-        "Mendeleev had predicted properties of missing elements",
-        "elements were discovered that filled the gaps",
-        "the properties matched Mendeleev's predictions",
-        "so their properties matched the rest of the group"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Early tables were arranged by atomic mass or Ar.",
-          "right": "For early tables the answer is atomic weight. Atomic mass or Ar is not accepted for this answer."
-        },
-        {
-          "wrong": "Mendeleev left gaps for undiscovered elements, so gaps are 'undiscovered elements'.",
-          "right": "Complete the sentence with gaps (spaces or blanks). The words undiscovered elements are not accepted."
-        },
-        {
-          "wrong": "Mendeleev reversed some pairs of elements because of their atomic numbers.",
-          "right": "References to atomic structure are ignored. He reversed pairs so their properties matched the rest of the group."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "52f9f8c3-690b-434e-b74c-43f266ed08a1",
         "source": "AQA jun 2019, Paper 1 (H), Q01.2",
@@ -165,24 +187,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 1.13", "EDEX 1.14", "EDEX 1.15"],
-      "exam_phrases": [
-        "left gaps / incomplete",
-        "fewer elements / not all elements discovered",
-        "elements ordered by atomic mass",
-        "no group 0 / noble gases not discovered",
-        "no atomic numbers",
-        "compared with the elements in the same group or period, using the trend"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Mendeleev could not include the noble gases because they were not reactive.",
-          "right": "Say that the noble gases had yet to be discovered, so he did not know about them."
-        },
-        {
-          "wrong": "Mendeleev guessed the properties of gallium.",
-          "right": "He compared it with the elements in the same group or period and used the trend down the group or across the period."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "d584e7fa-1ac6-4f9b-a320-1701838b992d",
         "source": "EDEXCEL jun 2024, Paper 1 (F), Q5(d)",
@@ -200,23 +204,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR C2.2i"],
-      "exam_phrases": [
-        "in order of (increasing) atomic mass / weight",
-        "in groups showing similar chemical properties",
-        "left gaps for elements that had not been discovered",
-        "in order of (increasing) atomic number / proton number",
-        "chemical properties are based on atomic number / number of protons"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Mendeleev put the elements in order of mass.",
-          "right": "Just in order of mass is ignored. Say increasing atomic mass (or weight)."
-        },
-        {
-          "wrong": "The modern table is arranged by atomic mass.",
-          "right": "This is not allowed. The modern table is in order of atomic number (proton number). Mentioning electrons is ignored."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "fbda4060-be64-44e8-8f49-e64714bb924c",
         "source": "OCR nov 2020, Paper 1, Q23(a)",

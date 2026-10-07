@@ -5,6 +5,7 @@ import { useNow } from "@/hooks/useNow";
 import {
   DAY_MS,
   MINUTE_MS as MINUTE,
+  demoJoinClick,
   nextSession,
   sessionStartMs,
   sessionTiming,
@@ -55,6 +56,7 @@ export function HeaderLiveButton({ liveHref }: { liveHref: "/live" | "/demo/stud
         href={next.join_url}
         target="_blank"
         rel="noreferrer"
+        onClick={demoJoinClick()}
         title={`${next.title}${isLive ? " — live now" : " — starting soon"}`}
         className={`tap-target inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-bold text-white shadow-sm transition ${
           isLive ? "bg-emerald-600 hover:bg-emerald-700" : "bg-[#2D8CFF] hover:bg-[#2681F2]"

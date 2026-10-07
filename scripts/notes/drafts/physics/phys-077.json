@@ -1,0 +1,300 @@
+{
+  "format": 1,
+  "concept_id": "phys-077",
+  "subject": "physics",
+  "title": "Visible light and colour",
+  "key_idea": "(Separate science) Each colour of visible light has its own wavelength and frequency. An object's colour depends on which wavelengths it reflects, absorbs or transmits. A filter transmits some wavelengths and absorbs the rest.",
+  "sections": [
+    {
+      "heading": "Colours of visible light",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers what colour means for light."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each colour of visible light has its own narrow band of wavelength and frequency.",
+            "The colours run from red (longest wavelength) to violet (shortest wavelength).",
+            "White light is a mixture of all the colours.",
+            "Our eyes can only detect a limited range of the electromagnetic spectrum.",
+            "Other animals detect different ranges. A bee detects ultraviolet but cannot detect red."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Separate science) Each colour has its own band of wavelength and frequency.",
+            "Red has the longest wavelength and violet the shortest.",
+            "Our eyes detect only visible light."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why objects have colour",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers what happens to light when it meets an object."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Specular reflection",
+              "meaning": "Reflection from a smooth surface in a single direction."
+            },
+            {
+              "term": "Diffuse reflection",
+              "meaning": "Reflection from a rough surface, which scatters the light in many directions."
+            },
+            {
+              "term": "Transparent",
+              "meaning": "A material that transmits light so you can see clearly through it."
+            },
+            {
+              "term": "Translucent",
+              "meaning": "A material that transmits some light but through which you cannot see clearly."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The colour of an opaque object is decided by which wavelengths are more strongly reflected.",
+            "The wavelengths that are not reflected are absorbed.",
+            "A white object reflects all wavelengths equally.",
+            "A black object absorbs all wavelengths.",
+            "A red object reflects red light and absorbs the other colours."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Separate science) An opaque object takes the colour of the wavelengths it reflects most.",
+            "Other wavelengths are absorbed.",
+            "White reflects all wavelengths equally. Black absorbs them all."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Filters and coloured light",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers colour filters and objects seen in coloured light. Pick a case to see the result."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A colour filter absorbs certain wavelengths and transmits others.",
+            "A green filter transmits green light and absorbs all the other colours.",
+            "An object in coloured light can only reflect the colours that are in that light."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick an object or filter and a colour of light to see what colour you see.",
+            "prompt": "Pick an object or filter and the light that shines on it",
+            "result_labels": ["Light reflected or transmitted", "Light absorbed", "Colour seen"],
+            "options": [
+              {
+                "label": "Red object in white light",
+                "results": ["Red light is reflected.", "All the other colours are absorbed.", "Red"]
+              },
+              {
+                "label": "Red object in blue light",
+                "results": ["No light is reflected.", "The blue light is absorbed.", "Black"]
+              },
+              {
+                "label": "Blue object in red light",
+                "results": ["No light is reflected.", "The red light is absorbed.", "Black"]
+              },
+              {
+                "label": "White object in green light",
+                "results": ["All the green light is reflected.", "Nothing is absorbed.", "Green"]
+              },
+              {
+                "label": "Black object in white light",
+                "results": ["No light is reflected.", "All wavelengths are absorbed.", "Black"]
+              },
+              {
+                "label": "White light through a green filter",
+                "results": [
+                  "Green light is transmitted.",
+                  "All the other colours are absorbed.",
+                  "Green"
+                ]
+              },
+              {
+                "label": "Blue object seen through a green filter",
+                "results": [
+                  "The green filter only transmits green. The object reflects only blue, so no light is transmitted to the eye.",
+                  "The blue light is absorbed by the filter.",
+                  "Black"
+                ]
+              },
+              {
+                "label": "Red light through a blue filter",
+                "results": ["No light is transmitted.", "The red light is absorbed.", "Black"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "To explain a colour, say what is reflected, transmitted or absorbed for each wavelength."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Separate science) A filter transmits some wavelengths and absorbs the rest.",
+            "A coloured object looks black if the light shining on it has none of the wavelengths it reflects.",
+            "Always name the colour that is reflected, transmitted or absorbed."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what happens to white light shining on a blue filter.",
+      "a": "Only blue light is transmitted. All the other colours (wavelengths) are absorbed.",
+      "marks": 2
+    },
+    {
+      "q": "A red flower is lit by green light. What colour does it appear? Explain.",
+      "a": "Black. The flower reflects only red light and absorbs the green light, so no light is reflected.",
+      "marks": 2
+    },
+    {
+      "q": "What colour is an object that reflects all wavelengths equally?",
+      "a": "White.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.6.2.6"],
+      "worked_example": {
+        "exemplar_id": "a09d84fd-cb64-4d8e-959d-1e22c6aa083c",
+        "source": "AQA jun 2025, Paper 2 (F), Q05.7",
+        "question": "Some reading glasses contain lenses made from blue glass. The blue glass acts as a filter.\n\nDescribe what happens to white light incident on colourless glass and white light incident on blue glass.",
+        "marks": 3,
+        "answer_points": [
+          "Colourless glass: the white light is transmitted.",
+          "Blue glass: only blue light is transmitted.",
+          "All the other colours (wavelengths, frequencies) of light are absorbed."
+        ],
+        "tip": "Say what happens to each colour. A statement that blue glass absorbs green and red light is also accepted."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.3P"],
+      "worked_example": {
+        "exemplar_id": "508ee286-45b9-429c-95ba-9ce9bbccc083",
+        "source": "EDEXCEL nov 2021, Paper 1 (F), Q7(a)",
+        "question": "White light includes all the colours in the visible spectrum.\n\nA beam of white light is the only light that shines on a book. The book appears green.\n\nA red filter is placed between the source of white light and the book.\n\nWhat colour does the book appear now?",
+        "marks": 1,
+        "answer_points": [
+          "Black.",
+          "The red filter transmits only red light, so no green light shines on the book.",
+          "The book reflects only green light, so no light is reflected."
+        ],
+        "tip": "Only the colour black scores the mark. The reasons are not marked here but are what you would write if asked to explain."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P5.3e"],
+      "worked_example": {
+        "exemplar_id": "900da5d6-dce3-48df-baf6-b227f32cb92b",
+        "source": "OCR nov 2021, Paper 4, Q16(c)",
+        "question": "This question is about visible light.\n\nThe fish appears red under white light.\n\nExplain why the fish appears black under green light.",
+        "marks": 2,
+        "answer_points": [
+          "The fish absorbs the green light (it does not reflect green light). It reflects red light only.",
+          "There is no red light in the green light to reflect, so no light is reflected."
+        ],
+        "tip": "One mark for what the fish does with the green light and one mark for why no red light is reflected."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.2.4.2", "CAIE 3.2.4.3S", "CAIE 3.2.4.1"],
+      "worked_example": {
+        "exemplar_id": "779d3e02-3182-4d38-9f80-6869e32beda9",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q5(c)(i)",
+        "question": "A ray of light is monochromatic red light with a wavelength of 680 nm in air.\n\nDefine monochromatic.",
+        "marks": 1,
+        "answer_points": ["Light of a single frequency."],
+        "tip": "Single colour is not enough on its own. Say that the light has one frequency."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The seven colours in order, from the longest wavelength and lowest frequency to the shortest wavelength and highest frequency, are red, orange, yellow, green, blue, indigo and violet."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Monochromatic light",
+                  "meaning": "(Supplement) Visible light of a single frequency, so a single colour."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.11"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The colours of the visible spectrum in order, from the longest wavelength and lowest frequency to the shortest wavelength and highest frequency:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Red, orange, yellow, green, blue, indigo, violet.",
+                "Red has the longest wavelength and the lowest frequency.",
+                "Violet has the shortest wavelength and the highest frequency."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "3d99cf74-6dce-4d77-af98-fa2374064793",
+      "4f752dc0-31e3-474f-962d-697804704adf",
+      "2834f26a-22a5-4f95-9a38-f04ef4ed4585",
+      "e8e471fd-7a7b-4483-9b35-5b9c5985a360",
+      "755c2f5e-f8ff-4410-9269-30c66f45c54b"
+    ],
+    "exemplar_ids": [
+      "a09d84fd-cb64-4d8e-959d-1e22c6aa083c",
+      "900da5d6-dce3-48df-baf6-b227f32cb92b",
+      "508ee286-45b9-429c-95ba-9ce9bbccc083",
+      "779d3e02-3182-4d38-9f80-6869e32beda9"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

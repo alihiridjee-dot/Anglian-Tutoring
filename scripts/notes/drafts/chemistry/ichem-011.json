@@ -1,0 +1,253 @@
+{
+  "format": 1,
+  "concept_id": "ichem-011",
+  "subject": "chemistry",
+  "title": "Oxygen in air and combustion of elements",
+  "key_idea": "About 21% of air by volume is oxygen. It can be found by removing the oxygen with a reactive metal and measuring the volume lost. Magnesium, hydrogen and sulfur burn in oxygen to make oxides. Many metal carbonates give carbon dioxide when heated.",
+  "sections": [
+    {
+      "heading": "The percentage of oxygen in air",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The percentage of oxygen in air is found by using up the oxygen in a fixed volume of air and measuring how much gas is lost."
+        },
+        {
+          "type": "subheading",
+          "text": "Using iron"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Wet iron powder is put in a conical flask joined to a gas syringe holding a known volume of air.",
+            "The iron reacts with oxygen and water, so it rusts. Rust is brown hydrated iron(III) oxide.",
+            "Leave the apparatus until the volume of gas in the syringe stops changing."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Using copper"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Air is passed back and forth over heated copper powder between two syringes.",
+            "The copper reacts with oxygen to form black copper(II) oxide: 2Cu + O₂ → 2CuO.",
+            "Powder is used because it has a large surface area, so it reacts faster.",
+            "Let the gas cool before reading its volume, because a gas expands when it is hot."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A non-metal such as phosphorus can be used in the same way. The idea is the same: a substance reacts with the oxygen and the volume falls."
+        },
+        {
+          "type": "equation",
+          "formula": "% oxygen = (volume of oxygen used ÷ starting volume of air) × 100",
+          "label": "Percentage of oxygen in air",
+          "where": [
+            "volume of oxygen used = start volume − end volume of gas in the syringe",
+            "starting volume of air = syringe volume + volume of flask and tube, all in cm³"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the percentage of oxygen in air from gas syringe readings.",
+            "question": "A student uses iron to find the percentage of oxygen in air. The volume of air in the flask and tube is **{f} cm³**. The syringe reads **{s} cm³** at the start and **{e} cm³** at the end. Calculate the percentage of oxygen in the air.",
+            "variables": [
+              {
+                "id": "f",
+                "min": 250,
+                "max": 300,
+                "step": 10
+              },
+              {
+                "id": "s",
+                "min": 100,
+                "max": 100,
+                "step": 1
+              },
+              {
+                "id": "e",
+                "min": 20,
+                "max": 30,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "(s - e) / (f + s) * 100",
+              "unit": "%",
+              "decimals": 1
+            },
+            "working": [
+              "Oxygen used = {s} − {e} cm³",
+              "Starting volume of air = {f} + {s} cm³",
+              "% oxygen = ((oxygen used) ÷ (starting volume)) × 100 = **{answer}**%"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Air is about 21% oxygen by volume.",
+            "A reactive solid removes the oxygen and the gas volume falls.",
+            "Include the air in the flask and tube in the starting volume."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Burning elements in oxygen",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Magnesium, hydrogen and sulfur all burn in oxygen. Burning an element in oxygen is oxidation and makes an oxide."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Element",
+            "What you see",
+            "Product",
+            "Equation"
+          ],
+          "rows": [
+            [
+              "Magnesium",
+              "Bright white flame, white powder",
+              "Magnesium oxide",
+              "2Mg + O₂ → 2MgO"
+            ],
+            [
+              "Hydrogen",
+              "Burns with a pale flame",
+              "Water",
+              "2H₂ + O₂ → 2H₂O"
+            ],
+            [
+              "Sulfur",
+              "Blue flame, pungent choking gas",
+              "Sulfur dioxide",
+              "S + O₂ → SO₂"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Magnesium oxide is an ionic solid.",
+            "Hydrogen burns to make water, a liquid.",
+            "Sulfur dioxide is a gas with a choking smell."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Magnesium burns with a bright white flame to make white magnesium oxide.",
+            "Sulfur burns with a blue flame to make sulfur dioxide.",
+            "Hydrogen burns to make water."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Carbon dioxide from metal carbonates",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Many metal carbonates break down when heated and give off carbon dioxide."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Thermal decomposition",
+              "meaning": "A compound breaks down into simpler substances when it is heated."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Copper(II) carbonate changes from green to black.",
+            "It makes black copper(II) oxide and carbon dioxide: CuCO₃ → CuO + CO₂.",
+            "A Group 2 carbonate decomposes in the same way: XCO₃ → XO + CO₂.",
+            "Carbon dioxide turns limewater milky."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The solid loses mass because the carbon dioxide escapes.",
+            "Heat to constant mass to be sure that the reaction is complete.",
+            "A lid on the crucible stops solid spitting out, but it also stops the gas escaping easily."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Many metal carbonates decompose when heated to give a metal oxide and carbon dioxide.",
+            "Copper(II) carbonate turns from green to black."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the approximate percentage of oxygen in air.",
+      "a": "About 21% (one fifth) by volume.",
+      "marks": 1
+    },
+    {
+      "q": "Write the equation for magnesium burning in oxygen.",
+      "a": "2Mg + O₂ → 2MgO",
+      "marks": 2
+    },
+    {
+      "q": "Describe what you see when copper(II) carbonate is heated and name the gas made.",
+      "a": "It turns from green to black. Carbon dioxide is made.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.10",
+        "IGCSE 2.11",
+        "IGCSE 2.12",
+        "IGCSE 2.14"
+      ],
+      "worked_example": {
+        "exemplar_id": "6826460b-394d-4b19-9b02-88fb5dc0c0db",
+        "source": "EDEXCEL jun 2022, Paper 1 (C), Q4(c)",
+        "question": "A student uses the reaction between iron and oxygen to find the percentage of oxygen in air. The volume of air in the conical flask and glass tube is 260 cm³. The syringe reading at the start is 90 cm³ and at the end is 22 cm³. Calculate the percentage by volume of oxygen in the air.",
+        "marks": 3,
+        "answer_points": [
+          "Volume of oxygen = 90 − 22 = 68 cm³.",
+          "Total volume at the start = 260 + 90 = 350 cm³.",
+          "68 × 100 ÷ 350 = 19.4%."
+        ],
+        "tip": "Do not forget to add the volume in the flask and tube to the syringe volume."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "8655751b-03cb-4660-bdaa-2a46a1311f64",
+      "7cda1c0f-81e5-42ae-964b-73a255ab3d87",
+      "b4b4b62c-d2d1-423c-8ff3-6ef79b476cdc",
+      "bf9adb60-d1fe-4603-8cc6-2c95eda63287"
+    ],
+    "exemplar_ids": [
+      "6826460b-394d-4b19-9b02-88fb5dc0c0db"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

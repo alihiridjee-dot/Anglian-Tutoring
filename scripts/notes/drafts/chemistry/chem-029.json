@@ -1,0 +1,288 @@
+{
+  "format": 1,
+  "concept_id": "chem-029",
+  "subject": "chemistry",
+  "title": "Relative formula mass and percentage by mass",
+  "key_idea": "The relative formula mass (Mr) of a compound is the sum of the relative atomic masses (Ar) of all the atoms in its formula. The percentage by mass of an element is its share of the Mr, written as a percentage.",
+  "sections": [
+    {
+      "heading": "Relative atomic mass and relative formula mass",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Atoms are too small to weigh in grams, so chemists compare them using relative masses. This section covers how to work out Mr from a formula."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Relative atomic mass (Ar)",
+              "meaning": "The average mass of an atom of an element compared with one twelfth of the mass of a carbon-12 atom. It is given in the periodic table."
+            },
+            {
+              "term": "Relative formula mass (Mr)",
+              "meaning": "The sum of the Ar values of all the atoms in the formula of a compound. For a molecule it is also called the relative molecular mass."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Relative formula mass",
+          "where": [
+            "Ar and Mr have no units.",
+            "Use the small numbers in the formula to count atoms."
+          ],
+          "formula": "Mr = sum of the Ar of every atom in the formula"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Count the atoms.",
+              "text": "Mg(OH)₂ has 1 Mg, 2 O and 2 H. The 2 outside the bracket multiplies everything inside."
+            },
+            {
+              "lead": "Multiply by Ar.",
+              "text": "Ar: Mg = 24, O = 16, H = 1. So 24 + (2 × 16) + (2 × 1)."
+            },
+            {
+              "lead": "Add.",
+              "text": "24 + 32 + 2 = 58, so Mr = 58."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A bracket with a number after it multiplies every atom inside the bracket.",
+            "In a balanced equation, the Mr values of the reactants add up to the same total as the Mr values of the products.",
+            "If you know the Mr and all the other Ar values, you can find an unknown Ar by subtraction."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find an unknown Ar.",
+              "text": "A Group 2 carbonate XCO₃ has Mr = 84. Ar: C = 12, O = 16."
+            },
+            {
+              "lead": "Mr of the carbonate part.",
+              "text": "12 + (3 × 16) = 60."
+            },
+            {
+              "lead": "Subtract.",
+              "text": "Ar of X = 84 − 60 = 24. X is magnesium."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mr is the sum of the Ar of all the atoms in the formula.",
+            "A number outside a bracket multiplies everything inside it.",
+            "Mr has no units."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Percentage by mass",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The percentage by mass tells you how much of a compound's mass is one element. This section covers the calculation and what you can do with it."
+        },
+        {
+          "type": "equation",
+          "label": "Percentage by mass of an element",
+          "formula": "percentage by mass = (Ar × number of atoms of the element ÷ Mr of the compound) × 100",
+          "where": ["Ar of the element, from the periodic table.", "Mr of the whole compound."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Mass of the element.",
+              "text": "Lithium sulfate, Li₂SO₄, has 4 oxygen atoms. 4 × 16 = 64."
+            },
+            {
+              "lead": "Divide by Mr.",
+              "text": "The Mr of Li₂SO₄ is 110. 64 ÷ 110 = 0.5818."
+            },
+            {
+              "lead": "Multiply by 100.",
+              "text": "0.5818 × 100 = 58.18, which is 58% to 2 significant figures."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use the number of atoms of the element, not just one atom. The answer must be less than 100%.",
+            "Check your answer to the number of significant figures the question asks for."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Mass of an element in a sample"
+        },
+        {
+          "type": "paragraph",
+          "text": "Use the same fraction to find the mass of an element in a given mass of compound. Butane, C₄H₁₀, has Mr = 58. Ar: C = 12."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Practise calculating the mass of carbon in a sample of butane.",
+            "kind": "practice",
+            "answer": {
+              "unit": "g",
+              "formula": "4 * 12 / 58 * m",
+              "decimals": 1
+            },
+            "working": [
+              "Mass of carbon in one Mr = 4 × 12 = 48",
+              "Fraction that is carbon = 48 ÷ 58",
+              "Mass of carbon = 48 ÷ 58 × {m} = **{answer} g**"
+            ],
+            "question": "Butane has the formula C₄H₁₀. Its relative formula mass is 58. Calculate the mass of carbon in **{m} g** of butane. (Ar: C = 12)",
+            "variables": [
+              {
+                "id": "m",
+                "max": 200,
+                "min": 50,
+                "step": 10
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Percentage by mass = (Ar × number of atoms ÷ Mr) × 100.",
+            "Multiply the Ar by the number of atoms of that element.",
+            "The same fraction gives the mass of an element in a sample."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Calculate the relative formula mass of calcium hydroxide, Ca(OH)₂. (Ar: Ca = 40, O = 16, H = 1)",
+      "a": "40 + (2 × 16) + (2 × 1) = 74.",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the percentage by mass of oxygen in magnesium oxide, MgO. (Ar: Mg = 24, O = 16)",
+      "a": "Mr = 24 + 16 = 40. 16 ÷ 40 × 100 = 40%.",
+      "marks": 2
+    },
+    {
+      "q": "Magnesium hydroxide, Mg(OH)₂, has Mr = 58. Calculate the percentage by mass of hydrogen in it. (Ar: H = 1)",
+      "a": "There are 2 hydrogen atoms, so 2 × 1 = 2. 2 ÷ 58 × 100 = 3.4%.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.1.2", "AQA T 5.3.1.2"],
+      "worked_example": {
+        "exemplar_id": "ba378f38-db96-4c5c-94ca-439611bb44b5",
+        "source": "AQA jun 2023, Paper 1 (H), Q02.3",
+        "question": "Calculate the percentage by mass of oxygen in lithium sulfate (Li₂SO₄).\n\nRelative atomic mass (Ar): O = 16\n\nRelative formula mass (Mr): Li₂SO₄ = 110\n\nGive your answer to 2 significant figures.",
+        "marks": 4,
+        "answer_points": [
+          "Ar of O × 4 = 4 × 16 = 64 (1)",
+          "Percentage of oxygen = 64 ÷ 110 × 100 (1)",
+          "= 58.18 (1)",
+          "= 58 (%) (1)"
+        ],
+        "tip": "Marks are given for the mass of oxygen, the fraction, the unrounded value and the rounded answer."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.43"],
+      "worked_example": {
+        "exemplar_id": "7e437f33-ec11-4789-95a3-78640946e73c",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q3(b)",
+        "question": "Sodium carbonate has the formula Na₂CO₃.\n\nCalculate the percentage by mass of sodium in sodium carbonate, Na₂CO₃.\n\npercentage by mass of element = (total relative atomic mass of element ÷ relative formula mass of compound) × 100\n\n(relative atomic masses: C = 12, O = 16, Na = 23)",
+        "marks": 3,
+        "answer_points": [
+          "Mr = 2 × 23 + 12 + 3 × 16 = 106 (1)",
+          "46 ÷ 106 = 0.4339622642 (1)",
+          "0.4339622642 × 100 = 43.4 (1)"
+        ],
+        "tip": "The correct answer, 43.4, scores all three marks even without working."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C2.1c"],
+      "worked_example": {
+        "exemplar_id": "a6118302-5fbf-4332-b9fa-218a79f068f3",
+        "source": "OCR jun 2024, Paper 1, Q23(d)",
+        "question": "Calculate the relative formula mass of a (C₂H₅)₂O molecule.\n\nRelative atomic mass (Ar): C = 12.0, H = 1.0, O = 16.0",
+        "marks": 3,
+        "answer_points": [
+          "4 × 12.0 = 48.0 (or 2 × 12.0 = 24.0) (1)",
+          "10 × 1.0 = 10.0 (or 5 × 1.0 = 5.0) (1)",
+          "48.0 + 10.0 + 16.0 = 74.0 (1)"
+        ],
+        "tip": "Count each type of atom first, then add."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.2.2", "CAIE 3.2.3", "CAIE 3.3.8S"],
+      "worked_example": {
+        "exemplar_id": "1be7d164-8da8-413d-a806-d3ccc10e0406",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q3(c)(iii)",
+        "question": "Ammonia reacts with an acid to form ammonium sulfate, (NH₄)₂SO₄.\n\nCalculate the percentage composition by mass of nitrogen in (NH₄)₂SO₄.",
+        "marks": 2,
+        "answer_points": [
+          "Mr of (NH₄)₂SO₄ = 132",
+          "Mass of nitrogen in one formula unit = 2 × 14 = 28",
+          "Percentage of nitrogen = 100 × 28 ÷ 132 = 21.2%"
+        ],
+        "tip": "One mark for the Mr and one mark for the percentage."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.26", "IGCSE 1.28"],
+      "worked_example": {
+        "exemplar_id": "040a58da-c60b-4dce-bcbb-d5b7e3bfc177",
+        "source": "EDEXCEL nov 2020, Paper 1 (C), Q4(c)(iii)",
+        "question": "Ammonium sulfate, (NH₄)₂SO₄, is used by gardeners as a fertiliser because it contains nitrogen.\n\nCalculate the mass, in grams, of nitrogen in 1.0 kg of ammonium sulfate.\n\n[Mr of (NH₄)₂SO₄ = 132; Ar of N = 14]",
+        "marks": 3,
+        "answer_points": [
+          "132 g of ammonium sulfate contains 28 g of nitrogen",
+          "1000 g of ammonium sulfate contains 1000 × (28 ÷ 132) g of nitrogen",
+          "= 212 g"
+        ],
+        "tip": "One mark for each step of the working. Using 14 instead of 28 loses marks, because there are 2 nitrogen atoms in the formula."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "9e257fbc-d158-4b11-8bf1-8be56a4d0b0b",
+      "d1e872d6-63e0-4ff3-8f90-8d3396927619",
+      "d6c2e220-83a2-4dd8-bbcd-d3d310642986",
+      "45fa3927-17d8-481c-892d-2eb8d6f1f143",
+      "3e9ad5f7-101f-424c-a41b-677950cbda15",
+      "2f4759fc-b6a6-4e05-b665-d84cc4f009b5"
+    ],
+    "exemplar_ids": [
+      "ba378f38-db96-4c5c-94ca-439611bb44b5",
+      "7e437f33-ec11-4789-95a3-78640946e73c",
+      "a6118302-5fbf-4332-b9fa-218a79f068f3",
+      "1be7d164-8da8-413d-a806-d3ccc10e0406",
+      "040a58da-c60b-4dce-bcbb-d5b7e3bfc177"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

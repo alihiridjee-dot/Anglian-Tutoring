@@ -1,0 +1,5353 @@
+{
+  "subject": "biology",
+  "level": "igcse",
+  "boards": [
+    "cambridge_igcse",
+    "edexcel_igcse"
+  ],
+  "note": "IGCSE-only concepts (new notes) and the IGCSE spec points that join existing GCSE concepts. Merged with gcse-biology.json by conceptMap.ts. Each IGCSE spec point is primary in exactly one concept.",
+  "joins": [
+    {
+      "concept_id": "bio-001",
+      "spec_points": [
+        {
+          "id": "fdab6459-b260-4ffb-882b-21ed46f83912",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.2",
+          "primary": true
+        },
+        {
+          "id": "b2ff0e79-98ee-4a51-84c4-ab10fec913c6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.3",
+          "primary": false
+        },
+        {
+          "id": "d61b712b-6df3-437a-b8f0-1c1e5633fe4d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.4",
+          "primary": false
+        },
+        {
+          "id": "00fb56a6-9c07-4f3b-8cbe-4e6e59283fc6",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.4",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-002",
+      "spec_points": [
+        {
+          "id": "7491bf26-3aba-4e01-ba29-4451d7da5211",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.1",
+          "primary": true
+        },
+        {
+          "id": "b2ff0e79-98ee-4a51-84c4-ab10fec913c6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.3",
+          "primary": true
+        },
+        {
+          "id": "d61b712b-6df3-437a-b8f0-1c1e5633fe4d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.4",
+          "primary": true
+        },
+        {
+          "id": "99e72a00-c26b-424f-b2e7-40db2826aaac",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.1",
+          "primary": false
+        },
+        {
+          "id": "c5ee7692-31fe-4997-86c9-8d7771225a9f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.2",
+          "primary": true
+        },
+        {
+          "id": "947b8955-0398-491e-be3c-50a5165d72d8",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.3",
+          "primary": true
+        },
+        {
+          "id": "00fb56a6-9c07-4f3b-8cbe-4e6e59283fc6",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.4",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-003",
+      "spec_points": [
+        {
+          "id": "fc3b8b73-99b7-4358-8fd0-d3f2f49f4aec",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.6",
+          "primary": true
+        },
+        {
+          "id": "6e264cea-98dd-4e09-83c1-b444030b00e1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.4.4",
+          "primary": true
+        },
+        {
+          "id": "72d9e61f-6f75-49fc-b8db-88ac55cabbea",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.4.5",
+          "primary": true
+        },
+        {
+          "id": "819ba762-616a-4ca5-a209-8a2fea3cdcdd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.4.6",
+          "primary": false
+        },
+        {
+          "id": "6e98697d-15ce-4416-a482-6a462ae29735",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.9S",
+          "primary": false
+        },
+        {
+          "id": "325a74df-abb6-4e96-a2a0-ea0b31c38103",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.5B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-006",
+      "spec_points": [
+        {
+          "id": "14451cb8-a207-4872-862e-3ffe74a811ff",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.1",
+          "primary": true
+        },
+        {
+          "id": "8712e1a8-c756-400c-beda-44fe02f17301",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.2",
+          "primary": true
+        },
+        {
+          "id": "d2775477-0a43-4ae2-b081-64467748c39d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.3S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-008",
+      "spec_points": [
+        {
+          "id": "fabdd6f7-ae13-426b-b1d6-269a832d9b36",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.5",
+          "primary": true
+        },
+        {
+          "id": "9bf76423-4e2e-4942-a90f-82ed4a97b603",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.1",
+          "primary": false
+        },
+        {
+          "id": "05dfa679-4868-4d9a-acbc-ce779014cf5f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.11S",
+          "primary": false
+        },
+        {
+          "id": "d8526ae3-6edb-4e6b-83a6-8c66bbda1eba",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.12S",
+          "primary": true
+        },
+        {
+          "id": "2f4e30f6-19d1-43d0-89e5-75d59ab943c5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.2.1S",
+          "primary": true
+        },
+        {
+          "id": "a90453dc-00b1-4cf2-9ec3-09bf3b498903",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.2.2S",
+          "primary": true
+        },
+        {
+          "id": "d821d4f7-1077-4e90-b6da-310d9fd76bcf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.2.3S",
+          "primary": true
+        },
+        {
+          "id": "dc9a5c61-75d4-4f8b-b2f7-67921e0b4488",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.2.4S",
+          "primary": true
+        },
+        {
+          "id": "dea93d4f-5037-4621-9e36-a899aaaa76d2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.15",
+          "primary": false
+        },
+        {
+          "id": "250b363f-3bcd-4eac-8dcc-160dea8a6d82",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.28",
+          "primary": true
+        },
+        {
+          "id": "4607fcc9-ec2d-4a5c-af2d-ce9d76acb37b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.29",
+          "primary": true
+        },
+        {
+          "id": "be61e0e8-dd91-4ac0-8f13-1bb858daf3ec",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.32",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-009",
+      "spec_points": [
+        {
+          "id": "90e7a4fe-2318-4ddf-9269-67e4a3627c12",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.2.5S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-010",
+      "spec_points": [
+        {
+          "id": "dd0ade84-9968-4a29-8a5e-4a23a28fb3e2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.6B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-011",
+      "spec_points": [
+        {
+          "id": "42645fc9-10df-47c0-9d0a-ce6d6bc6e196",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.1",
+          "primary": true
+        },
+        {
+          "id": "4fd73336-8db9-4563-9dc6-dcea27c06386",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.2",
+          "primary": true
+        },
+        {
+          "id": "8b1281c8-6506-43e0-a91e-1c57c1cc59c3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.3",
+          "primary": true
+        },
+        {
+          "id": "254200d5-ccd0-4ac7-ae5e-fd703b0c3df1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.4",
+          "primary": true
+        },
+        {
+          "id": "fe74da6f-91d2-4fac-b7cb-45da9c7c485f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.5",
+          "primary": true
+        },
+        {
+          "id": "53714f24-7ecf-4c00-9a3d-6a35f90e81d9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.4.9S",
+          "primary": false
+        },
+        {
+          "id": "9e3845a5-504c-43f9-8552-02579289d93a",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.15",
+          "primary": true
+        },
+        {
+          "id": "31af353f-5eb6-4dc6-94cc-57b2315aa496",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.16",
+          "primary": true
+        },
+        {
+          "id": "eb08fecd-0ec0-4fc7-98ff-6698cb3cfe46",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.17",
+          "primary": false
+        },
+        {
+          "id": "1aaeef23-f6d4-4850-b292-7de6017b004f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.40B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-012",
+      "spec_points": [
+        {
+          "id": "34a3e376-88e8-49bf-820d-ce7599977edf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2",
+          "primary": true
+        },
+        {
+          "id": "4c57d655-48fd-47b2-bff3-32bd985101c5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.3",
+          "primary": true
+        },
+        {
+          "id": "b59d5068-737a-43cb-979e-78c2091f9bdb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.4",
+          "primary": true
+        },
+        {
+          "id": "92b981e6-e26e-4676-bc84-7d6da2c4e154",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.6",
+          "primary": true
+        },
+        {
+          "id": "7a45e1e0-04e2-4643-858c-f001b70bdd4f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.7S",
+          "primary": true
+        },
+        {
+          "id": "b7f5f53b-5c22-47e6-b799-01b6febbe802",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.8S",
+          "primary": true
+        },
+        {
+          "id": "4edaeece-0d05-4f7f-954f-9ccf1e0cf6b9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.9S",
+          "primary": true
+        },
+        {
+          "id": "fd96fb0f-5af2-4a34-89a0-f552d12e3633",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.3.7S",
+          "primary": false
+        },
+        {
+          "id": "2f98e23f-1bfe-4a61-98e3-c07945f373e5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.17S",
+          "primary": false
+        },
+        {
+          "id": "9e3845a5-504c-43f9-8552-02579289d93a",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.15",
+          "primary": false
+        },
+        {
+          "id": "eb08fecd-0ec0-4fc7-98ff-6698cb3cfe46",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.17",
+          "primary": false
+        },
+        {
+          "id": "d0756caf-d1b9-4cf7-b85d-d122331e8e4b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.55B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-013",
+      "spec_points": [
+        {
+          "id": "d0b246f9-d101-42ab-a350-89ce0e9e4548",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.5",
+          "primary": true
+        },
+        {
+          "id": "eb08fecd-0ec0-4fc7-98ff-6698cb3cfe46",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.17",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-014",
+      "spec_points": [
+        {
+          "id": "4edaeece-0d05-4f7f-954f-9ccf1e0cf6b9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.9S",
+          "primary": false
+        },
+        {
+          "id": "c3db9686-49a6-45de-b34c-7fb66fba8666",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.1",
+          "primary": true
+        },
+        {
+          "id": "38662156-c42c-4ba6-9095-52f62bba0885",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.2S",
+          "primary": true
+        },
+        {
+          "id": "c1456dbf-1677-4420-b400-2d88b19d6534",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.3S",
+          "primary": true
+        },
+        {
+          "id": "9e3845a5-504c-43f9-8552-02579289d93a",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.15",
+          "primary": false
+        },
+        {
+          "id": "d0756caf-d1b9-4cf7-b85d-d122331e8e4b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.55B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-015",
+      "spec_points": [
+        {
+          "id": "254200d5-ccd0-4ac7-ae5e-fd703b0c3df1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.4",
+          "primary": false
+        },
+        {
+          "id": "e6c4ff17-4565-4616-9687-5ace21a0df02",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.5.3S",
+          "primary": false
+        },
+        {
+          "id": "31af353f-5eb6-4dc6-94cc-57b2315aa496",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.16",
+          "primary": false
+        },
+        {
+          "id": "419cf44c-8041-480e-8ec5-8b7857090a5c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.51",
+          "primary": true
+        },
+        {
+          "id": "54a09bd1-f7f8-44ce-b883-e010dbe57b89",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.52",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-016",
+      "spec_points": [
+        {
+          "id": "4f2aef59-d567-4539-a909-a9c1332a53d0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.1.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-018",
+      "spec_points": [
+        {
+          "id": "3c757058-d3b5-422f-8b04-cee2dd300ffc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.7",
+          "primary": true
+        },
+        {
+          "id": "99e72a00-c26b-424f-b2e7-40db2826aaac",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.1",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-019",
+      "spec_points": [
+        {
+          "id": "26cd01d7-6212-4435-909f-4e82e6bb777f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.1",
+          "primary": false
+        },
+        {
+          "id": "853ca112-6d30-4971-b580-c46a659ed3de",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.2.1",
+          "primary": true
+        },
+        {
+          "id": "bf149536-9689-44b9-9439-14d2a08fcf29",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.2.2",
+          "primary": true
+        },
+        {
+          "id": "67157bd6-d5c2-429e-a250-843367a9be77",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.3.6",
+          "primary": false
+        },
+        {
+          "id": "9b692268-cd4f-42a1-a9ac-8351720975de",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.4.4",
+          "primary": false
+        },
+        {
+          "id": "d31f3ecf-0099-4817-b443-04841bffb5af",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.4.5",
+          "primary": true
+        },
+        {
+          "id": "a00940db-660a-45c5-b8a9-7ef428549289",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.4.8S",
+          "primary": false
+        },
+        {
+          "id": "e00c0cda-5fca-4e3d-b102-14147c1d9307",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.5.1",
+          "primary": false
+        },
+        {
+          "id": "5fbeedca-673b-45d8-9cbb-1f015a4f3e6e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.27",
+          "primary": true
+        },
+        {
+          "id": "48307987-b92d-4961-beda-a457569024ce",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.28",
+          "primary": true
+        },
+        {
+          "id": "fd0ef4ce-ac76-400d-bebe-296a4940ee5b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.30",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-020",
+      "spec_points": [
+        {
+          "id": "4acdaf85-bab3-454a-8b46-b15291799359",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.1",
+          "primary": true
+        },
+        {
+          "id": "1dbcece3-06d5-4d32-af16-3fd8a0a83cda",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.2",
+          "primary": true
+        },
+        {
+          "id": "dc54e1ad-f9db-40ac-80dd-c2aa8fab1dce",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.3",
+          "primary": true
+        },
+        {
+          "id": "c1eeed88-e65d-430b-94ce-46738d451084",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.4",
+          "primary": true
+        },
+        {
+          "id": "b0024866-4ce6-4cff-af3a-e1087a3fe71f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.6S",
+          "primary": true
+        },
+        {
+          "id": "e4b43303-b6b6-406a-bf58-86287c3bb82d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.7S",
+          "primary": true
+        },
+        {
+          "id": "b36b33de-9e6e-4b17-9fda-42cb8b2e08fc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.2.3",
+          "primary": false
+        },
+        {
+          "id": "51f0695b-33f5-4299-bd1f-bbf8c97fcce0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.2.5S",
+          "primary": false
+        },
+        {
+          "id": "efc8658f-0bc9-456f-962a-9d60504f8bb6",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.10",
+          "primary": true
+        },
+        {
+          "id": "861dcae3-1994-4260-be97-8696e83188a8",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.11",
+          "primary": false
+        },
+        {
+          "id": "1953462b-6ebd-483d-b104-efcfe4d679f0",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.13",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-021",
+      "spec_points": [
+        {
+          "id": "47840082-4b9e-4eef-990d-51f36b171756",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.5",
+          "primary": true
+        },
+        {
+          "id": "b6e07200-9bc3-46fc-b834-46c9568eb62c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.8S",
+          "primary": true
+        },
+        {
+          "id": "8a84b906-9fcf-4bd7-a1eb-f73670da0874",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.9S",
+          "primary": true
+        },
+        {
+          "id": "861dcae3-1994-4260-be97-8696e83188a8",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.11",
+          "primary": true
+        },
+        {
+          "id": "63375305-4f02-4e47-b9b6-508485a1c8f1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.12",
+          "primary": true
+        },
+        {
+          "id": "1953462b-6ebd-483d-b104-efcfe4d679f0",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.13",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-022",
+      "spec_points": [
+        {
+          "id": "47840082-4b9e-4eef-990d-51f36b171756",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.5",
+          "primary": false
+        },
+        {
+          "id": "3e373d25-5662-4e3e-a329-148a65ba22f5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.14B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-023",
+      "spec_points": [
+        {
+          "id": "83071772-9a2c-4845-a317-eeaffa9636cd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.3.2",
+          "primary": false
+        },
+        {
+          "id": "b87e0c6d-28f3-49e5-b7bd-9d4f6054f802",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.3.7S",
+          "primary": true
+        },
+        {
+          "id": "c5a629c1-b857-4e4b-b0a0-9fea91a5533c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.4.1",
+          "primary": true
+        },
+        {
+          "id": "5228a70f-a97a-4375-992e-8c4920814580",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.4.2",
+          "primary": true
+        },
+        {
+          "id": "f06cb9ae-f3d9-40c2-8489-39e85ebb597f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.4.3",
+          "primary": true
+        },
+        {
+          "id": "9b692268-cd4f-42a1-a9ac-8351720975de",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.4.4",
+          "primary": true
+        },
+        {
+          "id": "785762b3-79d7-4021-95b0-a1fc58d94388",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.4.6S",
+          "primary": true
+        },
+        {
+          "id": "b0af6cc9-5455-4790-a2f9-3dd38a3dda03",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.4.7S",
+          "primary": true
+        },
+        {
+          "id": "a00940db-660a-45c5-b8a9-7ef428549289",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.4.8S",
+          "primary": true
+        },
+        {
+          "id": "e7a828e6-6159-407d-8361-c8d34bce08b0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.2.4",
+          "primary": false
+        },
+        {
+          "id": "9412b745-1e29-4005-bacb-d6c53efd00fb",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.8",
+          "primary": false
+        },
+        {
+          "id": "8041ada9-68f1-40c2-b4dd-ce7717ec2482",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.29",
+          "primary": true
+        },
+        {
+          "id": "fd0ef4ce-ac76-400d-bebe-296a4940ee5b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.30",
+          "primary": true
+        },
+        {
+          "id": "11c64b19-151a-47ff-8304-083dd0e3646b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.31",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-024",
+      "spec_points": [
+        {
+          "id": "e153f085-95bc-49a1-99cb-3761b351ae34",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.3",
+          "primary": true
+        },
+        {
+          "id": "36ba5859-45f4-456c-a361-14124e724428",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.9",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-025",
+      "spec_points": [
+        {
+          "id": "91477ec7-26f9-486e-8980-9c62e45d2b66",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.33B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-026",
+      "spec_points": [
+        {
+          "id": "da3f7d6c-3fc7-4cec-97ef-312667ca2024",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.3.3",
+          "primary": false
+        },
+        {
+          "id": "ac447b36-2d76-405e-9581-c373112f6cb6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.1",
+          "primary": true
+        },
+        {
+          "id": "1d889f7a-cc9a-4c31-a5d9-03289fa25383",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.2",
+          "primary": false
+        },
+        {
+          "id": "6949570d-5b9e-4b56-ab46-09661eaea6ff",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.8S",
+          "primary": false
+        },
+        {
+          "id": "f0ea1f53-0534-43ee-ad81-d04f2b6d8915",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.11S",
+          "primary": false
+        },
+        {
+          "id": "62c18f33-0ea7-4a14-80ac-b76f45181dad",
+          "board": "cambridge_igcse",
+          "code": "CAIE 13.1.1",
+          "primary": true
+        },
+        {
+          "id": "1aaeef23-f6d4-4850-b292-7de6017b004f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.40B",
+          "primary": false
+        },
+        {
+          "id": "5cd57295-2978-4695-94c5-939330ea013f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.48",
+          "primary": true
+        },
+        {
+          "id": "bdad5444-fd49-4b81-a4bf-3232bcf8d57c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.71",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-027",
+      "spec_points": [
+        {
+          "id": "3ea65861-e85c-4a38-a3fd-a1c4c244d79f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.1.1",
+          "primary": true
+        },
+        {
+          "id": "61017ba8-2dfe-4ba1-808c-b75a287e5641",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.1.2S",
+          "primary": true
+        },
+        {
+          "id": "40e30b04-3d9b-4b21-8eca-28a42e95652f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.1.3S",
+          "primary": true
+        },
+        {
+          "id": "a9be07bd-bd22-489d-b079-827fce2667ae",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.1.4S",
+          "primary": true
+        },
+        {
+          "id": "f555463f-82e1-4a14-a951-8f5905ae7fea",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.1",
+          "primary": true
+        },
+        {
+          "id": "50175e7f-b702-412b-9108-9f90a5bf2fd7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.2",
+          "primary": true
+        },
+        {
+          "id": "e2a2bffc-7efb-483c-bfce-cbb6ab4fb792",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.7S",
+          "primary": true
+        },
+        {
+          "id": "794347b7-4a85-47d0-9db2-8ab33fa12fe6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.8S",
+          "primary": true
+        },
+        {
+          "id": "c4be16d8-8d2c-44e0-a427-d7d1928c8c54",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.9S",
+          "primary": true
+        },
+        {
+          "id": "c9984029-e708-4a5c-bbc1-bb1c58d8961d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.10S",
+          "primary": true
+        },
+        {
+          "id": "da3f7d6c-3fc7-4cec-97ef-312667ca2024",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.3.3",
+          "primary": true
+        },
+        {
+          "id": "a0013b37-9f8a-4fc8-b13c-d19ad9c0aa87",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.65",
+          "primary": true
+        },
+        {
+          "id": "6654e932-e397-4bc4-995b-3ec85d626e36",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.69",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-028",
+      "spec_points": [
+        {
+          "id": "3e82fa45-4986-4d95-ad2f-3252ca095d48",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.3",
+          "primary": true
+        },
+        {
+          "id": "c6634217-ba68-4d55-9c03-03492b72a7af",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.11S",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-029",
+      "spec_points": [
+        {
+          "id": "24e32c1f-8429-4d04-8403-35ab19bcf3a2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.5.5S",
+          "primary": false
+        },
+        {
+          "id": "3ea65861-e85c-4a38-a3fd-a1c4c244d79f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.1.1",
+          "primary": false
+        },
+        {
+          "id": "50175e7f-b702-412b-9108-9f90a5bf2fd7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.2",
+          "primary": false
+        },
+        {
+          "id": "0ad4476e-a888-451b-9ed6-48b66f5df0b7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.3.1",
+          "primary": true
+        },
+        {
+          "id": "be36859f-8792-447e-812d-8e770c369418",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.3.2",
+          "primary": true
+        },
+        {
+          "id": "40cb21ae-dede-42ba-919c-ed3abfa88e45",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.3.4S",
+          "primary": true
+        },
+        {
+          "id": "be3e57a4-a27f-4d83-8e96-fda7f7b2441a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.3.5S",
+          "primary": true
+        },
+        {
+          "id": "9ab947ea-ef08-4548-9d52-108ee349f5b1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.3.6S",
+          "primary": true
+        },
+        {
+          "id": "fcd546d5-c49c-489a-8a44-db2136e4be02",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.68",
+          "primary": true
+        },
+        {
+          "id": "6654e932-e397-4bc4-995b-3ec85d626e36",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.69",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-030",
+      "spec_points": [
+        {
+          "id": "fc3b8b73-99b7-4358-8fd0-d3f2f49f4aec",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.6",
+          "primary": false
+        },
+        {
+          "id": "26cd01d7-6212-4435-909f-4e82e6bb777f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.1",
+          "primary": false
+        },
+        {
+          "id": "e1e59d0d-3dde-450a-9e32-e7db4dff34ca",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.1",
+          "primary": true
+        },
+        {
+          "id": "65fe5e5e-8b55-49fc-9ebf-46c1461d7347",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.2",
+          "primary": true
+        },
+        {
+          "id": "8a32ccf7-45c7-44f3-8b36-ff6bc9c902ea",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.3",
+          "primary": true
+        },
+        {
+          "id": "e9940a71-0f1b-45a5-b85f-1666ce688f6f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.4",
+          "primary": true
+        },
+        {
+          "id": "f2688c1c-790b-4b41-aafa-59c5c6de0134",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.5S",
+          "primary": false
+        },
+        {
+          "id": "6193be49-9654-421f-9ae1-e32e165c0f16",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.7S",
+          "primary": true
+        },
+        {
+          "id": "74293cdc-378a-454a-9705-b5222512bdfd",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.59",
+          "primary": true
+        },
+        {
+          "id": "88c9c695-76c2-40b6-97be-5b99eecec574",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.60",
+          "primary": true
+        },
+        {
+          "id": "4677e5e6-092f-49de-8d6b-470662ecca09",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.61",
+          "primary": true
+        },
+        {
+          "id": "025226f4-4178-4058-875a-77e8463cb895",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.64B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-031",
+      "spec_points": [
+        {
+          "id": "b0ef3928-27e3-4f3b-a873-21755220827f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.5",
+          "primary": true
+        },
+        {
+          "id": "5dad10e0-294e-4f62-bcc8-207ac8a3c34f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.6",
+          "primary": true
+        },
+        {
+          "id": "99023a0d-6bab-4bd3-8bfb-04ab3f87d451",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.49",
+          "primary": false
+        },
+        {
+          "id": "eb181f5c-a4fc-48dd-ae81-4d83f5601933",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.67",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-032",
+      "spec_points": [
+        {
+          "id": "6ac122ee-ffbb-4642-9255-8539d0806fdf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-033",
+      "spec_points": [
+        {
+          "id": "b0ef3928-27e3-4f3b-a873-21755220827f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.5",
+          "primary": false
+        },
+        {
+          "id": "5dad10e0-294e-4f62-bcc8-207ac8a3c34f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.6",
+          "primary": false
+        },
+        {
+          "id": "99023a0d-6bab-4bd3-8bfb-04ab3f87d451",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.49",
+          "primary": true
+        },
+        {
+          "id": "eb181f5c-a4fc-48dd-ae81-4d83f5601933",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.67",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-034",
+      "spec_points": [
+        {
+          "id": "99023a0d-6bab-4bd3-8bfb-04ab3f87d451",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.49",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-035",
+      "spec_points": [
+        {
+          "id": "15789128-a782-48d2-aa80-44b1f8a73c5b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.1",
+          "primary": true
+        },
+        {
+          "id": "e580b7c0-277f-4564-a07b-20d5d21ad2bf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.2",
+          "primary": true
+        },
+        {
+          "id": "979b8117-fe91-4b16-8b6b-0998b74e9a08",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3",
+          "primary": true
+        },
+        {
+          "id": "623a83fe-895f-407e-8c88-e737e6cd7d00",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.1.2",
+          "primary": false
+        },
+        {
+          "id": "b68a406f-394d-4cb8-8a5b-df415bde2386",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.3.2",
+          "primary": false
+        },
+        {
+          "id": "4d815279-fccd-484b-9ef8-71f5dcef70ed",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.3.4S",
+          "primary": false
+        },
+        {
+          "id": "837c33bb-5f98-4758-94a0-ff848518a817",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.21",
+          "primary": true
+        },
+        {
+          "id": "1aaeef23-f6d4-4850-b292-7de6017b004f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.40B",
+          "primary": false
+        },
+        {
+          "id": "475f74fb-08b7-46d6-bcef-36d1dd1c8fd4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.41B",
+          "primary": false
+        },
+        {
+          "id": "b39ea7f7-c668-4cb0-8633-463d28535f85",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.42B",
+          "primary": true
+        },
+        {
+          "id": "518684db-dfaa-4f75-a318-6f9ffb6856b1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.43B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-036",
+      "spec_points": [
+        {
+          "id": "92b981e6-e26e-4676-bc84-7d6da2c4e154",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.6",
+          "primary": false
+        },
+        {
+          "id": "38662156-c42c-4ba6-9095-52f62bba0885",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.2S",
+          "primary": false
+        },
+        {
+          "id": "54c511a1-ccdd-4f95-8ea1-10772377b776",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.1.1",
+          "primary": true
+        },
+        {
+          "id": "623a83fe-895f-407e-8c88-e737e6cd7d00",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.1.2",
+          "primary": true
+        },
+        {
+          "id": "00a288a2-5f0a-40dc-a1c2-2178d149c08e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.1.3S",
+          "primary": true
+        },
+        {
+          "id": "b07fe29d-4093-4ccd-bfb3-b658339d2fcc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.2.1",
+          "primary": true
+        },
+        {
+          "id": "f82a6315-2e00-43c9-87f2-1de7e9fbfbc2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.2.2",
+          "primary": true
+        },
+        {
+          "id": "dea170f3-a779-4457-8d4d-9ec5dcf5efbe",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.2.3",
+          "primary": false
+        },
+        {
+          "id": "f4cc4c5d-6e7b-45c9-b546-438810ba95f4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.53",
+          "primary": true
+        },
+        {
+          "id": "fc9bb5d6-e866-4d24-9e88-79b6129f1d35",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.54",
+          "primary": true
+        },
+        {
+          "id": "d0756caf-d1b9-4cf7-b85d-d122331e8e4b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.55B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-037",
+      "spec_points": [
+        {
+          "id": "dea170f3-a779-4457-8d4d-9ec5dcf5efbe",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.2.3",
+          "primary": false
+        },
+        {
+          "id": "24aa496d-5060-4b67-bbcd-ca21b75f5d4e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.3.1",
+          "primary": true
+        },
+        {
+          "id": "b68a406f-394d-4cb8-8a5b-df415bde2386",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.3.2",
+          "primary": true
+        },
+        {
+          "id": "518684db-dfaa-4f75-a318-6f9ffb6856b1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.43B",
+          "primary": true
+        },
+        {
+          "id": "87d7c75c-85cb-4a22-beba-43ae6cad115d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.56B",
+          "primary": true
+        },
+        {
+          "id": "2141b195-bdad-4cdb-aa07-700e739f74a2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.70",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-038",
+      "spec_points": [
+        {
+          "id": "79fbf2f4-53f6-47f1-87fe-7f92dba630e4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.3.3",
+          "primary": true
+        },
+        {
+          "id": "1b7d6cee-44ed-4f44-81c6-79e513631385",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.3.6S",
+          "primary": true
+        },
+        {
+          "id": "48688ac6-3da8-4ba4-b015-4332b6c046d9",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.57B",
+          "primary": true
+        },
+        {
+          "id": "89c2053d-6e7a-42fb-a3e9-456b9066ab49",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.58B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-039",
+      "spec_points": [
+        {
+          "id": "db477ee0-477c-458c-9598-2b256fdc2f9e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.4.1S",
+          "primary": true
+        },
+        {
+          "id": "dc781a86-0f5c-48b2-ab12-5b32533c4cfd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.4.2S",
+          "primary": true
+        },
+        {
+          "id": "08c9722e-45e8-45f4-af79-ffab32fd4569",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.4.3S",
+          "primary": true
+        },
+        {
+          "id": "f4cc4c5d-6e7b-45c9-b546-438810ba95f4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.53",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-040",
+      "spec_points": [
+        {
+          "id": "517d9c34-b2c5-4113-9009-e8962074fd7a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.1",
+          "primary": true
+        },
+        {
+          "id": "6ac122ee-ffbb-4642-9255-8539d0806fdf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.2",
+          "primary": true
+        },
+        {
+          "id": "2728bd30-6fe0-479e-9d3e-cdd6d0fad9e8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.3",
+          "primary": true
+        },
+        {
+          "id": "7ab5687a-59f9-41df-8d0f-0f8c23ceb055",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.5",
+          "primary": false
+        },
+        {
+          "id": "8eb44476-472e-4037-8527-cb6f0cae3701",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.4",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-041",
+      "spec_points": [
+        {
+          "id": "bd640f84-e4d1-4ef7-9a4c-12b558f70e2d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.3.7S",
+          "primary": false
+        },
+        {
+          "id": "a7391d46-3bd9-43d1-bca0-b4ba0c1fe139",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.6.2",
+          "primary": false
+        },
+        {
+          "id": "99141219-b95a-424d-9f71-f37bdee1d244",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.6.3",
+          "primary": true
+        },
+        {
+          "id": "7ff0763f-e310-468f-973b-a2569e4812de",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.6.4",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-042",
+      "spec_points": [
+        {
+          "id": "243f3cfe-dbb5-480b-a4fa-35624e58f89e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.16S",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-044",
+      "spec_points": [
+        {
+          "id": "aeb5180a-d551-4432-ac68-856edf2bf0e7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.6.1",
+          "primary": true
+        },
+        {
+          "id": "a7391d46-3bd9-43d1-bca0-b4ba0c1fe139",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.6.2",
+          "primary": true
+        },
+        {
+          "id": "99141219-b95a-424d-9f71-f37bdee1d244",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.6.3",
+          "primary": false
+        },
+        {
+          "id": "7ff0763f-e310-468f-973b-a2569e4812de",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.6.4",
+          "primary": true
+        },
+        {
+          "id": "04547d5e-4f3f-424f-9821-2f9dc66e9378",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.6.5",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-046",
+      "spec_points": [
+        {
+          "id": "d31f3ecf-0099-4817-b443-04841bffb5af",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.4.5",
+          "primary": false
+        },
+        {
+          "id": "e9940a71-0f1b-45a5-b85f-1666ce688f6f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.4",
+          "primary": false
+        },
+        {
+          "id": "4385d666-783f-4bdf-9707-e3260d29fa36",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.4",
+          "primary": true
+        },
+        {
+          "id": "f0ea1f53-0534-43ee-ad81-d04f2b6d8915",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.11S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-047",
+      "spec_points": [
+        {
+          "id": "f2688c1c-790b-4b41-aafa-59c5c6de0134",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.5S",
+          "primary": true
+        },
+        {
+          "id": "5b3c86bb-a584-48b7-9406-449cf0f074d8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.6S",
+          "primary": true
+        },
+        {
+          "id": "4385d666-783f-4bdf-9707-e3260d29fa36",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.4",
+          "primary": false
+        },
+        {
+          "id": "4e1a21bd-0018-4554-bc7c-68e421bb55fc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.6S",
+          "primary": true
+        },
+        {
+          "id": "2c402a07-fb61-4a80-b882-d556c8a6458f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.7S",
+          "primary": true
+        },
+        {
+          "id": "b258aec5-a2cc-4511-b830-d58eb0c4f117",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.8S",
+          "primary": true
+        },
+        {
+          "id": "d17f5bb8-d7c5-48b5-9c49-5d377030e46c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.9S",
+          "primary": true
+        },
+        {
+          "id": "fdb6ea2c-3afc-4e39-97a0-f4b186f67fd0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.10S",
+          "primary": false
+        },
+        {
+          "id": "9c598a97-5462-426b-86b8-d1671f99a9d8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.13S",
+          "primary": false
+        },
+        {
+          "id": "55d1ec41-8dbf-49b4-ada1-6f7c5eb8bf57",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.15S",
+          "primary": false
+        },
+        {
+          "id": "f97729d0-a029-4bf0-b35a-fb30db99b6bd",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.62",
+          "primary": true
+        },
+        {
+          "id": "4d23feca-85e1-438e-96c9-dd59a5c30261",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.63B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-048",
+      "spec_points": [
+        {
+          "id": "fdb6ea2c-3afc-4e39-97a0-f4b186f67fd0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.10S",
+          "primary": true
+        },
+        {
+          "id": "fcb4e2d2-eb43-42cb-a450-7c5eef017a31",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.11S",
+          "primary": true
+        },
+        {
+          "id": "7416abff-b5b5-4443-9e4c-43ebcf2822f2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.12S",
+          "primary": true
+        },
+        {
+          "id": "4d23feca-85e1-438e-96c9-dd59a5c30261",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.63B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-049",
+      "spec_points": [
+        {
+          "id": "69635788-7e61-4001-90f2-389988155fc0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 15.1.1",
+          "primary": true
+        },
+        {
+          "id": "0587458b-7ffa-4b4f-bcb2-075224bfc1c8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 15.1.2",
+          "primary": true
+        },
+        {
+          "id": "ade9d90f-5ecb-4c55-96df-62abd347c111",
+          "board": "cambridge_igcse",
+          "code": "CAIE 15.1.3",
+          "primary": false
+        },
+        {
+          "id": "cf6038a7-0950-4d6b-a970-34d8ecea27b4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 15.1.4",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-050",
+      "spec_points": [
+        {
+          "id": "69635788-7e61-4001-90f2-389988155fc0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 15.1.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-053",
+      "spec_points": [
+        {
+          "id": "4c9c29f5-e57b-4c35-82f4-f25175f8f5ec",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.6",
+          "primary": false
+        },
+        {
+          "id": "303c3e51-c7c8-420a-bf5e-b5527524e394",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.22",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-055",
+      "spec_points": [
+        {
+          "id": "5d30dd45-ec12-48fd-8ee7-678b26e5cac1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.1",
+          "primary": true
+        },
+        {
+          "id": "641e07da-bd08-41cb-8d06-84f9a7c5470b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.2",
+          "primary": true
+        },
+        {
+          "id": "8394a23c-8f96-4068-8bc7-cac41f2e0533",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.3",
+          "primary": true
+        },
+        {
+          "id": "05a5c72b-a0e8-4c35-a2ad-d8a52fdc1f29",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.4",
+          "primary": true
+        },
+        {
+          "id": "1822b73e-ed1d-4f64-9991-d8f359aed3f6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.7",
+          "primary": false
+        },
+        {
+          "id": "c925b219-40da-4ae5-b2c6-6591b45d99b3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.10S",
+          "primary": true
+        },
+        {
+          "id": "1fbe7211-e49b-4a50-8db0-150468fa8659",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.4",
+          "primary": false
+        },
+        {
+          "id": "16ff1e3b-b76b-4afb-9e74-8211174d83d9",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.18",
+          "primary": true
+        },
+        {
+          "id": "35a1c3a0-58c2-40d1-b6aa-337b154df0c4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.19",
+          "primary": true
+        },
+        {
+          "id": "475f74fb-08b7-46d6-bcef-36d1dd1c8fd4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.41B",
+          "primary": true
+        },
+        {
+          "id": "dbf6c914-0611-4944-b851-51da14647713",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.44B",
+          "primary": true
+        },
+        {
+          "id": "2141b195-bdad-4cdb-aa07-700e739f74a2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.70",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-056",
+      "spec_points": [
+        {
+          "id": "29d48196-b63e-482f-822d-ae3109b3a96c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.8",
+          "primary": true
+        },
+        {
+          "id": "3638fb81-a343-45ec-9893-f0d909fd1eb4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.11S",
+          "primary": true
+        },
+        {
+          "id": "5286671c-0af6-4a05-abb4-b11830c84443",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.20",
+          "primary": true
+        },
+        {
+          "id": "303c3e51-c7c8-420a-bf5e-b5527524e394",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.22",
+          "primary": true
+        },
+        {
+          "id": "12b2a3f0-c936-4925-9a5b-f16fcc5160bd",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.1",
+          "primary": false
+        },
+        {
+          "id": "fc6e4db7-4c6e-4a20-921d-79fed2b7c3ce",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-057",
+      "spec_points": [
+        {
+          "id": "12b2a3f0-c936-4925-9a5b-f16fcc5160bd",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.1",
+          "primary": true
+        },
+        {
+          "id": "fc6e4db7-4c6e-4a20-921d-79fed2b7c3ce",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.2",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-058",
+      "spec_points": [
+        {
+          "id": "1822b73e-ed1d-4f64-9991-d8f359aed3f6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.7",
+          "primary": true
+        },
+        {
+          "id": "29d48196-b63e-482f-822d-ae3109b3a96c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.8",
+          "primary": false
+        },
+        {
+          "id": "b28c8519-b3f3-40a5-a7c3-291e54f309d7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.9",
+          "primary": true
+        },
+        {
+          "id": "87d7cdf4-aedf-48ab-8fc6-860f8f6f5dc3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.23",
+          "primary": true
+        },
+        {
+          "id": "3042aaca-e60b-45e9-9f65-a30d451dea39",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.45B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-059",
+      "spec_points": [
+        {
+          "id": "1055e205-c06f-4646-bc87-91acb3a70dc2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.5",
+          "primary": true
+        },
+        {
+          "id": "4c9c29f5-e57b-4c35-82f4-f25175f8f5ec",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.6",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-060",
+      "spec_points": [
+        {
+          "id": "318fa62c-bcb1-4132-a703-2828c49f8c76",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.9S",
+          "primary": false
+        },
+        {
+          "id": "dc9f313c-c543-4a26-865c-ff3effda2595",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.1.1",
+          "primary": true
+        },
+        {
+          "id": "03ac513f-ee0f-483b-9795-fc7609d4385d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.2.1",
+          "primary": true
+        },
+        {
+          "id": "21a03b0f-0291-40df-8e15-b75aa54f1a0a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.2.2",
+          "primary": true
+        },
+        {
+          "id": "5f56e034-979a-46e3-9d67-d26e1e476e61",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.2.3S",
+          "primary": true
+        },
+        {
+          "id": "e7114ff2-92b4-4438-a354-44032ac7eb7c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.34",
+          "primary": true
+        },
+        {
+          "id": "0522a543-8785-445d-8c14-8efe9c9f96eb",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.35",
+          "primary": true
+        },
+        {
+          "id": "62fe3856-d791-47ee-b02a-b715079b30af",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.36",
+          "primary": false
+        },
+        {
+          "id": "de35d7e0-1523-40f2-b2dd-fc3e51a16983",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.37",
+          "primary": true
+        },
+        {
+          "id": "475f74fb-08b7-46d6-bcef-36d1dd1c8fd4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.41B",
+          "primary": false
+        },
+        {
+          "id": "dbf6c914-0611-4944-b851-51da14647713",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.44B",
+          "primary": false
+        },
+        {
+          "id": "2141b195-bdad-4cdb-aa07-700e739f74a2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.70",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-061",
+      "spec_points": [
+        {
+          "id": "60f8512c-4f9e-42b4-9ec1-dc4691f3e27c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.1.2",
+          "primary": false
+        },
+        {
+          "id": "2a547128-fc83-4201-a5d8-d2be4c7508f1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.3.1",
+          "primary": true
+        },
+        {
+          "id": "8c4644b8-8b81-4b63-b559-acd6860db916",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.3.2",
+          "primary": true
+        },
+        {
+          "id": "29b90d5b-f3ec-4ae6-a54c-f08b7651ecb5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.3.3",
+          "primary": true
+        },
+        {
+          "id": "91d120cb-bfef-4dd1-ade6-2492efb99ba0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.3.4",
+          "primary": true
+        },
+        {
+          "id": "0eba4ce5-bf6e-41b6-84f0-7ae69dc385b1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.3.5S",
+          "primary": true
+        },
+        {
+          "id": "73991198-2c82-439e-bf4f-602cf174c8ec",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.2.1",
+          "primary": true
+        },
+        {
+          "id": "ea5834b9-986b-4f87-964f-bad74b747db8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.2.2",
+          "primary": true
+        },
+        {
+          "id": "62fe3856-d791-47ee-b02a-b715079b30af",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.36",
+          "primary": true
+        },
+        {
+          "id": "3282e95a-633a-4b5a-8c86-790cdab0f4ce",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.38",
+          "primary": true
+        },
+        {
+          "id": "d3d95dfb-4455-45f9-9bd3-f50ab2323207",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.5",
+          "primary": false
+        },
+        {
+          "id": "2379049f-86f3-4689-b161-8d9695165b5b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.6",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-062",
+      "spec_points": [
+        {
+          "id": "60f8512c-4f9e-42b4-9ec1-dc4691f3e27c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.1.2",
+          "primary": true
+        },
+        {
+          "id": "8c6d570e-a297-45f0-a043-9cbbaad5e1d5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.39",
+          "primary": true
+        },
+        {
+          "id": "3042aaca-e60b-45e9-9f65-a30d451dea39",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.45B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-063",
+      "spec_points": [
+        {
+          "id": "56f4fbae-f25b-4313-aa2e-9a531cf74b86",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.4",
+          "primary": true
+        },
+        {
+          "id": "c6634217-ba68-4d55-9c03-03492b72a7af",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.11S",
+          "primary": true
+        },
+        {
+          "id": "7f6b1a72-4c2c-45e5-9e59-52f2a220b961",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.5",
+          "primary": true
+        },
+        {
+          "id": "1dbadd58-c3ae-41a0-ae2c-99c4aa7b69de",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.10S",
+          "primary": true
+        },
+        {
+          "id": "f056d1e1-f132-4b8c-9eb3-b0b0b230e1b4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.3.6S",
+          "primary": true
+        },
+        {
+          "id": "ad21e018-d8c4-4565-a6a9-5194d6199203",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.3.7S",
+          "primary": true
+        },
+        {
+          "id": "4079e6a9-15f3-4898-89ca-0d3968fabc4f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.50",
+          "primary": true
+        },
+        {
+          "id": "a3415618-7903-4218-9a10-cdf6803691a6",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.66",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-064",
+      "spec_points": [
+        {
+          "id": "99a7388c-b3ea-41c7-b1e7-1229aa1af61b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.1",
+          "primary": true
+        },
+        {
+          "id": "3268e01d-9766-4341-96ee-173e41341219",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.2",
+          "primary": true
+        },
+        {
+          "id": "1dbcece3-06d5-4d32-af16-3fd8a0a83cda",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.2",
+          "primary": false
+        },
+        {
+          "id": "4451f1c6-9d29-47fd-a12a-170abba0e0a7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.7",
+          "primary": true
+        },
+        {
+          "id": "9412b745-1e29-4005-bacb-d6c53efd00fb",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.8",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-065",
+      "spec_points": [
+        {
+          "id": "339ffa59-f233-4fcc-a655-7b30fffc3ae5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.1.3",
+          "primary": false
+        },
+        {
+          "id": "501714b1-fa08-44de-a44d-528453367851",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.4.1",
+          "primary": true
+        },
+        {
+          "id": "45467b8f-dacd-42ae-98d4-a213f9474c10",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.4.3S",
+          "primary": true
+        },
+        {
+          "id": "2124498a-392d-4938-9c32-b6ba1c6b95a2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.80",
+          "primary": true
+        },
+        {
+          "id": "a9d70a1e-4a6f-41d8-b916-e818a3f976a1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.81",
+          "primary": true
+        },
+        {
+          "id": "b9e5cf45-7199-4970-b73d-f927dedcdeb7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.82",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-066",
+      "spec_points": [
+        {
+          "id": "fc3b8b73-99b7-4358-8fd0-d3f2f49f4aec",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.6",
+          "primary": false
+        },
+        {
+          "id": "047c7383-3ae5-4930-9fb8-778bc94d89dc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.1.1",
+          "primary": true
+        },
+        {
+          "id": "a37906b7-0813-48fb-885c-e5371edfba05",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.1.2",
+          "primary": true
+        },
+        {
+          "id": "339ffa59-f233-4fcc-a655-7b30fffc3ae5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.1.3",
+          "primary": true
+        },
+        {
+          "id": "857317dc-7331-464a-9150-363727d7fb83",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.1.4",
+          "primary": true
+        },
+        {
+          "id": "5d9b35e1-212f-4324-a9ab-43ecc1a3a889",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.1.7",
+          "primary": true
+        },
+        {
+          "id": "5f06721a-141f-46e1-90f8-2b9deb521538",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.1.8S",
+          "primary": true
+        },
+        {
+          "id": "30ea6d90-94ff-4920-9256-09465b5db8a8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.1.9S",
+          "primary": true
+        },
+        {
+          "id": "e5a32284-8060-4790-8ba5-5df7a138ec84",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.1.10S",
+          "primary": true
+        },
+        {
+          "id": "e5cd17da-2208-40f2-83a2-26c87e7e46a2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.2.1",
+          "primary": false
+        },
+        {
+          "id": "2124498a-392d-4938-9c32-b6ba1c6b95a2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.80",
+          "primary": false
+        },
+        {
+          "id": "b9e5cf45-7199-4970-b73d-f927dedcdeb7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.82",
+          "primary": false
+        },
+        {
+          "id": "9819ac16-87a3-46aa-ac2c-99c94f032d32",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.86",
+          "primary": false
+        },
+        {
+          "id": "8fda8bc8-1e74-453b-be62-ec72395dac79",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.87",
+          "primary": true
+        },
+        {
+          "id": "6383e4fa-91c6-4f33-b15c-0b398f54a109",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.88",
+          "primary": true
+        },
+        {
+          "id": "09686e8d-a9ce-40b3-b773-cd98cd951a0b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.89",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-067",
+      "spec_points": [
+        {
+          "id": "bedd5d2a-967f-4e8e-94f0-3e1b53d2e019",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.1.5",
+          "primary": true
+        },
+        {
+          "id": "c78fe909-3b53-40f9-b5e9-84641a6384d9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.1.6",
+          "primary": true
+        },
+        {
+          "id": "5d9b35e1-212f-4324-a9ab-43ecc1a3a889",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.1.7",
+          "primary": false
+        },
+        {
+          "id": "30ea6d90-94ff-4920-9256-09465b5db8a8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.1.9S",
+          "primary": false
+        },
+        {
+          "id": "5c0fda84-2e9e-4d92-9ffd-3e7e6ee6d17f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.2.4",
+          "primary": false
+        },
+        {
+          "id": "1f92472a-77e5-48fd-819e-f89ad47eb740",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.90",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-070",
+      "spec_points": [
+        {
+          "id": "e5cd17da-2208-40f2-83a2-26c87e7e46a2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.2.1",
+          "primary": true
+        },
+        {
+          "id": "bd7b58f5-eee0-49a3-b81f-0663ded449e6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.2.2",
+          "primary": true
+        },
+        {
+          "id": "4c3c91d8-133a-41f3-bfb6-958bb4b1b979",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.2.3",
+          "primary": true
+        },
+        {
+          "id": "5c0fda84-2e9e-4d92-9ffd-3e7e6ee6d17f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.2.4",
+          "primary": true
+        },
+        {
+          "id": "740949d5-1b48-401b-b55d-2334bdd7b085",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.2.5S",
+          "primary": true
+        },
+        {
+          "id": "f9fca01a-6aa5-4494-a71c-6a7909306e0a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.2.6S",
+          "primary": true
+        },
+        {
+          "id": "52244cb5-664d-4d2e-998e-ae27d4d7675f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.2.7S",
+          "primary": true
+        },
+        {
+          "id": "be3fa34d-69b2-4dc1-b77e-397e7724cccc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.2.8S",
+          "primary": true
+        },
+        {
+          "id": "fb9b6d95-d081-4382-8f5c-7c853a89cc65",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.2.9S",
+          "primary": true
+        },
+        {
+          "id": "f5149d10-6604-4650-9d31-e1d3e735cd35",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.91",
+          "primary": true
+        },
+        {
+          "id": "71f9d6b8-72c7-42e9-af7b-2aeade72c1b9",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.92",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-072",
+      "spec_points": [
+        {
+          "id": "91134678-67dd-4952-8648-bb0cb86c4fc7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.4.6S",
+          "primary": true
+        },
+        {
+          "id": "4902d795-15e5-4a17-9259-dac7599356c4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.4.7S",
+          "primary": true
+        },
+        {
+          "id": "bc503055-3ab2-4504-94a7-7fb4cff38462",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.4.8S",
+          "primary": true
+        },
+        {
+          "id": "8a2d4778-ac5c-4548-a6dc-7ef493c1679b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.93",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-073",
+      "spec_points": [
+        {
+          "id": "cdb218e2-2db4-4580-9acb-a25c8fcf14e9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.3.1",
+          "primary": true
+        },
+        {
+          "id": "3656d878-1ba9-4014-9e08-f5340e25dbd4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.3.2",
+          "primary": true
+        },
+        {
+          "id": "0bed2cdb-1e36-4294-81a7-3a864d491c41",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.3.4",
+          "primary": true
+        },
+        {
+          "id": "9819ac16-87a3-46aa-ac2c-99c94f032d32",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.86",
+          "primary": true
+        },
+        {
+          "id": "9f7bdc8a-dfee-48d3-9f2e-48032947ecd3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.94",
+          "primary": true
+        },
+        {
+          "id": "7ce628d5-c44d-4d40-8fb8-c5136ddd5279",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.95B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-074",
+      "spec_points": [
+        {
+          "id": "24ebf6b8-66e6-42a4-a38b-90cfe5ced465",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.3.5S",
+          "primary": true
+        },
+        {
+          "id": "e9cf14f7-542c-4348-88ba-5d8b269096a9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.3.6S",
+          "primary": false
+        },
+        {
+          "id": "7682c3c5-a1e3-4692-bfbc-3d8b35ccd63e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.4.2",
+          "primary": true
+        },
+        {
+          "id": "45467b8f-dacd-42ae-98d4-a213f9474c10",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.4.3S",
+          "primary": false
+        },
+        {
+          "id": "fc01105f-23d8-478f-9797-98bededbacf8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.4.4S",
+          "primary": true
+        },
+        {
+          "id": "9f7bdc8a-dfee-48d3-9f2e-48032947ecd3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.94",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-075",
+      "spec_points": [
+        {
+          "id": "685953fd-4f6a-4a55-aebe-16d79ca6e827",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.4.5S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-076",
+      "spec_points": [
+        {
+          "id": "26cd01d7-6212-4435-909f-4e82e6bb777f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.1",
+          "primary": true
+        },
+        {
+          "id": "62c18f33-0ea7-4a14-80ac-b76f45181dad",
+          "board": "cambridge_igcse",
+          "code": "CAIE 13.1.1",
+          "primary": false
+        },
+        {
+          "id": "e5ca6048-c7a1-4787-acd4-2ae9e5dc9d6e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 13.1.2",
+          "primary": true
+        },
+        {
+          "id": "5ebd91b5-96c6-466f-9d34-3ecec6b02a79",
+          "board": "cambridge_igcse",
+          "code": "CAIE 13.1.6S",
+          "primary": true
+        },
+        {
+          "id": "4db49148-be05-4c80-bb56-9793edbddd51",
+          "board": "cambridge_igcse",
+          "code": "CAIE 13.1.7S",
+          "primary": true
+        },
+        {
+          "id": "20c03095-13ed-4dca-989d-964f52b92ed9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 13.1.8S",
+          "primary": true
+        },
+        {
+          "id": "99f2b19a-0369-4c1e-b246-3596fd09c696",
+          "board": "cambridge_igcse",
+          "code": "CAIE 13.1.9S",
+          "primary": true
+        },
+        {
+          "id": "bdad5444-fd49-4b81-a4bf-3232bcf8d57c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.71",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-077",
+      "spec_points": [
+        {
+          "id": "da3f7d6c-3fc7-4cec-97ef-312667ca2024",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.3.3",
+          "primary": false
+        },
+        {
+          "id": "e5ca6048-c7a1-4787-acd4-2ae9e5dc9d6e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 13.1.2",
+          "primary": false
+        },
+        {
+          "id": "11ed4cbf-e6b7-4b17-851a-f17702fa99ac",
+          "board": "cambridge_igcse",
+          "code": "CAIE 13.1.3",
+          "primary": true
+        },
+        {
+          "id": "fd430423-b673-4b5e-aace-56c80ddb0f96",
+          "board": "cambridge_igcse",
+          "code": "CAIE 13.1.4S",
+          "primary": true
+        },
+        {
+          "id": "fc5dce6d-e30d-45fa-a8df-7476891aa602",
+          "board": "cambridge_igcse",
+          "code": "CAIE 13.1.5S",
+          "primary": true
+        },
+        {
+          "id": "bdad5444-fd49-4b81-a4bf-3232bcf8d57c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.71",
+          "primary": false
+        },
+        {
+          "id": "b39706db-6902-4fbe-82c4-a3a21760c738",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.72B",
+          "primary": true
+        },
+        {
+          "id": "898dbad6-e07a-4b97-a3d5-a7e9d8649973",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.73B",
+          "primary": true
+        },
+        {
+          "id": "303f4f5d-016e-47d9-8162-bb0fbba84848",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.74B",
+          "primary": true
+        },
+        {
+          "id": "8aaee9ed-451e-44e9-aae1-d81a3caf7a7c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.75B",
+          "primary": true
+        },
+        {
+          "id": "55b938ff-28cc-4a6d-acc9-010f85add4ef",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.76B",
+          "primary": false
+        },
+        {
+          "id": "ee7ed7d1-de75-42d9-8b11-3f8c49099205",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.77B",
+          "primary": true
+        },
+        {
+          "id": "9d829104-88c9-4fdf-a792-c1a6e0862e4f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.79B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-078",
+      "spec_points": [
+        {
+          "id": "b39706db-6902-4fbe-82c4-a3a21760c738",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.72B",
+          "primary": false
+        },
+        {
+          "id": "55b938ff-28cc-4a6d-acc9-010f85add4ef",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.76B",
+          "primary": true
+        },
+        {
+          "id": "e1eb3a60-b062-4b1e-ab6b-dbb5b564623c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.78B",
+          "primary": true
+        },
+        {
+          "id": "7ce628d5-c44d-4d40-8fb8-c5136ddd5279",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.95B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-080",
+      "spec_points": [
+        {
+          "id": "9b4b6c65-cad9-4033-a3c9-b228b60f90e0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.5.1",
+          "primary": true
+        },
+        {
+          "id": "5c95508c-885e-43c0-9523-82b0839628d4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.5.2",
+          "primary": true
+        },
+        {
+          "id": "1abc043e-5294-4fc9-b164-4fbd1591901a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.5.3S",
+          "primary": true
+        },
+        {
+          "id": "af4e0d85-c680-4c72-88a2-047815d1efd3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.5.4S",
+          "primary": false
+        },
+        {
+          "id": "9f7bdc8a-dfee-48d3-9f2e-48032947ecd3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.94",
+          "primary": false
+        },
+        {
+          "id": "7ce628d5-c44d-4d40-8fb8-c5136ddd5279",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.95B",
+          "primary": false
+        },
+        {
+          "id": "067a3df6-7224-4b2b-90ae-382ad36bea04",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.9",
+          "primary": true
+        },
+        {
+          "id": "9281d75f-d2ef-4f90-b6d0-0210f4078ca5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.10B",
+          "primary": true
+        },
+        {
+          "id": "d4f70d7b-513b-45e9-acbd-d60b8203bf18",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.13",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-081",
+      "spec_points": [
+        {
+          "id": "5c95508c-885e-43c0-9523-82b0839628d4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.5.2",
+          "primary": false
+        },
+        {
+          "id": "af4e0d85-c680-4c72-88a2-047815d1efd3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.5.4S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-083",
+      "spec_points": [
+        {
+          "id": "d0ae6209-915e-44af-a493-d4a8190fea9f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.8S",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-084",
+      "spec_points": [
+        {
+          "id": "7c404ce5-2b8e-452e-ad7e-85d130f14b48",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.3.3",
+          "primary": true
+        },
+        {
+          "id": "e9cf14f7-542c-4348-88ba-5d8b269096a9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.3.6S",
+          "primary": true
+        },
+        {
+          "id": "a3415618-7903-4218-9a10-cdf6803691a6",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.66",
+          "primary": false
+        },
+        {
+          "id": "9f7bdc8a-dfee-48d3-9f2e-48032947ecd3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.94",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-085",
+      "spec_points": [
+        {
+          "id": "88f33b83-f6c2-4db7-8068-79cae08394d0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.5.1",
+          "primary": true
+        },
+        {
+          "id": "3e0150bd-5c7f-40c5-9ac6-eff1150170d9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.5.2",
+          "primary": true
+        },
+        {
+          "id": "87d7884a-faed-4ce2-a7d4-8598fa7e1329",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.5.3",
+          "primary": true
+        },
+        {
+          "id": "4f21c49a-63fe-47ee-9aaa-1bad15ff35f0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.5.4S",
+          "primary": true
+        },
+        {
+          "id": "850ee35b-4196-41d1-8f3b-1e909b0d187c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 14.5.5S",
+          "primary": true
+        },
+        {
+          "id": "3682493e-3080-4d00-8515-496b82c38285",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.83",
+          "primary": true
+        },
+        {
+          "id": "310dd7f3-e0ef-4303-ac2a-e18c7b445d68",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.84",
+          "primary": true
+        },
+        {
+          "id": "7c043e2a-f47e-46fa-bf2a-3937224005de",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.85",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-087",
+      "spec_points": [
+        {
+          "id": "c2a8ca7a-c06d-40e6-9e34-b2020255ce58",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.1.1",
+          "primary": true
+        },
+        {
+          "id": "2d73a132-ef23-4142-927a-cc7091e8e20d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.1.2",
+          "primary": true
+        },
+        {
+          "id": "ebd32e09-8dc9-4554-bd93-69486d1946a7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.2.1",
+          "primary": true
+        },
+        {
+          "id": "4fa71f10-5a3d-4c09-99f2-edbb5e35fa24",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.2.2",
+          "primary": true
+        },
+        {
+          "id": "c5cde660-db34-4061-ab3d-7df68b47ca01",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.1.10S",
+          "primary": false
+        },
+        {
+          "id": "2f76f142-3b54-43f0-83ae-7f4b9104aa56",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.1",
+          "primary": true
+        },
+        {
+          "id": "0164b796-c546-4ec9-88a5-20362f07eeb4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.7",
+          "primary": false
+        },
+        {
+          "id": "4607fcc9-ec2d-4a5c-af2d-ce9d76acb37b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.29",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-088",
+      "spec_points": [
+        {
+          "id": "2d73a132-ef23-4142-927a-cc7091e8e20d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.1.2",
+          "primary": false
+        },
+        {
+          "id": "77d081a3-ae86-4700-90e6-442237e6036f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.1.3S",
+          "primary": true
+        },
+        {
+          "id": "c148615f-de6d-4898-930a-7c6f98cef613",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.2.4S",
+          "primary": true
+        },
+        {
+          "id": "d6e4dc02-1119-4a43-9161-9742e179a51b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.3.11S",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-089",
+      "spec_points": [
+        {
+          "id": "4fa71f10-5a3d-4c09-99f2-edbb5e35fa24",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.2.2",
+          "primary": false
+        },
+        {
+          "id": "2d2812f4-de49-413b-8882-dd5241c87edd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.2.3S",
+          "primary": true
+        },
+        {
+          "id": "ca7592da-88bf-407c-9cdd-6e58b94a56bd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.3.6",
+          "primary": false
+        },
+        {
+          "id": "e88c37cb-c138-40c1-95fb-39e11479026a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.4.3",
+          "primary": false
+        },
+        {
+          "id": "ec7c214f-a497-41b6-a2b1-73e368c0cd4b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.10S",
+          "primary": true
+        },
+        {
+          "id": "05dfa679-4868-4d9a-acbc-ce779014cf5f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.11S",
+          "primary": true
+        },
+        {
+          "id": "d8526ae3-6edb-4e6b-83a6-8c66bbda1eba",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.12S",
+          "primary": false
+        },
+        {
+          "id": "7a87ff1f-2ec0-4b65-8eb4-ab598792940f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.3.1S",
+          "primary": true
+        },
+        {
+          "id": "654e7a92-03f1-4ad0-8511-cbef2ce5f939",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.3.2S",
+          "primary": true
+        },
+        {
+          "id": "c5cde660-db34-4061-ab3d-7df68b47ca01",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.1.10S",
+          "primary": false
+        },
+        {
+          "id": "64b09050-dc6c-46e9-b653-7c8ccdf51cca",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.2",
+          "primary": false
+        },
+        {
+          "id": "1206b11d-646a-4a0c-8b00-a6d96fe0b696",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.30",
+          "primary": true
+        },
+        {
+          "id": "af6b8029-0cf3-45c3-8fd3-feeb1778bfb5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.31",
+          "primary": true
+        },
+        {
+          "id": "be61e0e8-dd91-4ac0-8f13-1bb858daf3ec",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.32",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-090",
+      "spec_points": [
+        {
+          "id": "2e08c217-b623-4bf5-900f-1e7c60c52990",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.4S",
+          "primary": true
+        },
+        {
+          "id": "9bf76423-4e2e-4942-a90f-82ed4a97b603",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.1",
+          "primary": true
+        },
+        {
+          "id": "57adc142-63c3-4fd4-b8f5-bde35f5ce26e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.2",
+          "primary": false
+        },
+        {
+          "id": "42a8451d-ef0d-4892-8842-a7e7d9201d89",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.5S",
+          "primary": false
+        },
+        {
+          "id": "a30bb3a6-4442-40c6-a41f-964e11c1b47b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.14",
+          "primary": true
+        },
+        {
+          "id": "dea93d4f-5037-4621-9e36-a899aaaa76d2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.15",
+          "primary": true
+        },
+        {
+          "id": "71d69210-bfd0-4088-a5cf-aca48aaf9231",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.16B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-091",
+      "spec_points": [
+        {
+          "id": "2e08c217-b623-4bf5-900f-1e7c60c52990",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.4S",
+          "primary": false
+        },
+        {
+          "id": "42a8451d-ef0d-4892-8842-a7e7d9201d89",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.5S",
+          "primary": true
+        },
+        {
+          "id": "9a2d4f8a-e5e9-4048-a5ae-59a78bcf40c9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.6S",
+          "primary": true
+        },
+        {
+          "id": "d31be715-0c29-43ee-b528-c10b62d010ec",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.7S",
+          "primary": false
+        },
+        {
+          "id": "71d69210-bfd0-4088-a5cf-aca48aaf9231",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.16B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-092",
+      "spec_points": [
+        {
+          "id": "9a2d4f8a-e5e9-4048-a5ae-59a78bcf40c9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.6S",
+          "primary": false
+        },
+        {
+          "id": "d31be715-0c29-43ee-b528-c10b62d010ec",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.7S",
+          "primary": true
+        },
+        {
+          "id": "bef89259-3e19-4533-bb8b-40fc9e514353",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.8S",
+          "primary": true
+        },
+        {
+          "id": "6e98697d-15ce-4416-a482-6a462ae29735",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.9S",
+          "primary": true
+        },
+        {
+          "id": "f54a021f-dcde-4c78-b991-dab4ed65a4fe",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.17B",
+          "primary": true
+        },
+        {
+          "id": "1aaf8b01-13f7-411b-b939-0bef99205538",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.18B",
+          "primary": true
+        },
+        {
+          "id": "bbe18783-8eba-48a0-bfa0-0ab868533e0d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.35B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-093",
+      "spec_points": [
+        {
+          "id": "7629496a-2c3f-4621-a491-785a2ea0c710",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.1.6",
+          "primary": true
+        },
+        {
+          "id": "a42e8ad5-9675-4484-ba59-f42f6fdaa845",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.1.7",
+          "primary": true
+        },
+        {
+          "id": "053292cd-ed47-4b6e-9140-36a3cd4abc7d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.1.8",
+          "primary": true
+        },
+        {
+          "id": "748cdbb5-c68a-4490-ab76-2021dc02583a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.1.9S",
+          "primary": true
+        },
+        {
+          "id": "3a30114c-3db5-450b-a483-b4a79617c15f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.34",
+          "primary": true
+        },
+        {
+          "id": "bbe18783-8eba-48a0-bfa0-0ab868533e0d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.35B",
+          "primary": true
+        },
+        {
+          "id": "346511a2-8afd-4d25-a9e0-9f98d4f46e0e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.36B",
+          "primary": true
+        },
+        {
+          "id": "ef6b701f-7bc1-46ad-84ac-cdf4fa81e2b8",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.37B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-095",
+      "spec_points": [
+        {
+          "id": "57adc142-63c3-4fd4-b8f5-bde35f5ce26e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.2",
+          "primary": true
+        },
+        {
+          "id": "3c939643-935c-412b-a727-7022879c44d5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.3",
+          "primary": true
+        },
+        {
+          "id": "37120078-f254-4558-938f-2ff7689a378e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.1",
+          "primary": true
+        },
+        {
+          "id": "969b7dd6-33eb-4922-b4d1-21c96ffb304b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.2",
+          "primary": true
+        },
+        {
+          "id": "b86733ed-1457-4903-bcc0-666d140ed9e6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.3",
+          "primary": true
+        },
+        {
+          "id": "ea18eab8-3166-4b01-87bc-c7cd28e65238",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.4",
+          "primary": true
+        },
+        {
+          "id": "ab7b6794-a3ba-44c0-b45c-f419b182f8f9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.5",
+          "primary": true
+        },
+        {
+          "id": "65ecc6d7-791e-4037-bc98-ca3c86549fb5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.6",
+          "primary": true
+        },
+        {
+          "id": "c6d3c58d-587a-472e-aa04-cc5148e74689",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.7",
+          "primary": true
+        },
+        {
+          "id": "867f8f95-584e-4038-8af5-d5b034ad5227",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.8",
+          "primary": true
+        },
+        {
+          "id": "50084bca-64c8-498f-a0a3-578c5b5742fd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.9",
+          "primary": true
+        },
+        {
+          "id": "be3a9fac-6f6d-4dc1-bafd-ec9ce4b59c54",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.19",
+          "primary": true
+        },
+        {
+          "id": "f4d1b559-a108-4cfd-995d-58a524a05a3d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.20",
+          "primary": true
+        },
+        {
+          "id": "7a72fa39-0aa7-47f5-aa15-6f3ed4a5f42b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.22",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-096",
+      "spec_points": [
+        {
+          "id": "37120078-f254-4558-938f-2ff7689a378e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.1",
+          "primary": false
+        },
+        {
+          "id": "4421022c-d297-4da6-84fe-6e77eb765b4b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.10",
+          "primary": true
+        },
+        {
+          "id": "8ca4e832-f0e5-499c-b6e9-7de4855cdb6f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.11",
+          "primary": true
+        },
+        {
+          "id": "5b10e145-ff64-4bf0-8c6f-58895c6f7c1f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.12",
+          "primary": true
+        },
+        {
+          "id": "7765ba7c-6636-4db6-a7e2-e58f21639694",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.13S",
+          "primary": true
+        },
+        {
+          "id": "92ae4670-18ce-40b2-83bc-810e1efe568e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.23",
+          "primary": true
+        },
+        {
+          "id": "9a90e223-ed33-4edb-9afa-c287ad3ba044",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.24",
+          "primary": true
+        },
+        {
+          "id": "6a61f410-094c-45ef-8b8b-1c139be37084",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.25",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-098",
+      "spec_points": [
+        {
+          "id": "dfe26c0c-6e2c-4b69-87d7-7bbc1bafbf1b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.1.4",
+          "primary": true
+        },
+        {
+          "id": "d1f80646-b761-4ec8-8a76-5a5bcfdbeb2b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.26",
+          "primary": true
+        },
+        {
+          "id": "57fd55c0-adb5-4338-8d0e-64d3da38d02f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.27",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-099",
+      "spec_points": [
+        {
+          "id": "041be7f5-67a9-42d9-89f4-5b1de1844dae",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.14S",
+          "primary": true
+        },
+        {
+          "id": "b7b53e4a-1206-4790-baf1-2b3c5d893c47",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.15S",
+          "primary": true
+        },
+        {
+          "id": "eecca672-e041-4512-a576-92a222ea7a09",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.18S",
+          "primary": true
+        },
+        {
+          "id": "e803625a-3e91-4c22-9843-6139f959ecad",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.21B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-100",
+      "spec_points": [
+        {
+          "id": "fbdc0a1d-6ae5-4695-ab19-449dbd50e109",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.16S",
+          "primary": true
+        },
+        {
+          "id": "74e98c8d-b56c-4729-8e3a-95645ad74594",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.17S",
+          "primary": true
+        },
+        {
+          "id": "eecca672-e041-4512-a576-92a222ea7a09",
+          "board": "cambridge_igcse",
+          "code": "CAIE 17.4.18S",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-103",
+      "spec_points": [
+        {
+          "id": "b5111229-bcc1-4f02-bc36-8a0cfa82542a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.1.1",
+          "primary": true
+        },
+        {
+          "id": "16e9f29e-a915-40e7-beff-8c2cc5b1d280",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.1.2",
+          "primary": true
+        },
+        {
+          "id": "0456fcf7-c4df-492f-a8f0-947db5ba7d88",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.1.3",
+          "primary": true
+        },
+        {
+          "id": "6eaadfdc-c27b-46b5-95ca-0d6f48115963",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.1.4",
+          "primary": true
+        },
+        {
+          "id": "4f1d851a-8c61-4425-b079-67fb2a5d3a64",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.1.5",
+          "primary": true
+        },
+        {
+          "id": "7629496a-2c3f-4621-a491-785a2ea0c710",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.1.6",
+          "primary": false
+        },
+        {
+          "id": "a42e8ad5-9675-4484-ba59-f42f6fdaa845",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.1.7",
+          "primary": false
+        },
+        {
+          "id": "053292cd-ed47-4b6e-9140-36a3cd4abc7d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.1.8",
+          "primary": false
+        },
+        {
+          "id": "c5cde660-db34-4061-ab3d-7df68b47ca01",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.1.10S",
+          "primary": true
+        },
+        {
+          "id": "af6b8029-0cf3-45c3-8fd3-feeb1778bfb5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.31",
+          "primary": false
+        },
+        {
+          "id": "7daeaaa9-1dac-407a-a973-9e9017486e93",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.33",
+          "primary": true
+        },
+        {
+          "id": "3a30114c-3db5-450b-a483-b4a79617c15f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.34",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-104",
+      "spec_points": [
+        {
+          "id": "cac7193f-bee4-4eaf-8126-44f7a02821a0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.3.1",
+          "primary": true
+        },
+        {
+          "id": "71f9dadb-3833-42e6-b769-4909faf92343",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.3.4S",
+          "primary": true
+        },
+        {
+          "id": "a9a03b9b-bb78-4b4b-aa47-a5991852d1f9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.3.6S",
+          "primary": false
+        },
+        {
+          "id": "7ac19c23-bee8-46cf-bc05-796bfaa94488",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.38",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-105",
+      "spec_points": [
+        {
+          "id": "ff64ec54-3d8f-42a7-ba7f-2320507cded1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.4",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-106",
+      "spec_points": [
+        {
+          "id": "17730d1e-3d8c-49f5-848c-5f5caf3c2753",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-108",
+      "spec_points": [
+        {
+          "id": "ade9d90f-5ecb-4c55-96df-62abd347c111",
+          "board": "cambridge_igcse",
+          "code": "CAIE 15.1.3",
+          "primary": true
+        },
+        {
+          "id": "b780ec86-fac7-4a5c-ab8f-db78bda10cf6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 15.1.5S",
+          "primary": true
+        },
+        {
+          "id": "565a9589-aacc-4e9f-af49-37e12fca260f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.3.5S",
+          "primary": true
+        },
+        {
+          "id": "16ee145b-bbff-4c95-a332-f517e4ac915c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.39",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-109",
+      "spec_points": [
+        {
+          "id": "df1bec8c-ea22-493e-b3a7-e96922a1a53e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.1",
+          "primary": true
+        },
+        {
+          "id": "4dc4ea91-58e1-40b3-8770-8f7b24043e5b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.2",
+          "primary": true
+        },
+        {
+          "id": "8c4cbda8-68fb-4205-b598-6d9b835798ac",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.3",
+          "primary": true
+        },
+        {
+          "id": "d4babcfc-b7cd-4e60-bf8b-c5ff5bec8a13",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.5S",
+          "primary": true
+        },
+        {
+          "id": "2c22d960-7800-4b6c-8ff5-91e8effa70af",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.6S",
+          "primary": true
+        },
+        {
+          "id": "cfc296ed-a24a-4fc7-bf13-468ba0b475c8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.7S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-110",
+      "spec_points": [
+        {
+          "id": "f025df51-549d-4579-b041-ccad38ba4646",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.3.2",
+          "primary": true
+        },
+        {
+          "id": "5bf3e9fa-7998-4858-b628-670f3dc73f49",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.3.3",
+          "primary": true
+        },
+        {
+          "id": "a9a03b9b-bb78-4b4b-aa47-a5991852d1f9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.3.6S",
+          "primary": true
+        },
+        {
+          "id": "e5ba443f-3851-4f74-a962-403f5cb9a95a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.1.1",
+          "primary": false
+        },
+        {
+          "id": "6cdf2fa7-a2f3-4de7-994b-97eb0ef3632e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.10",
+          "primary": true
+        },
+        {
+          "id": "8a40974d-9c02-4f5c-988e-5a3a641f1bc9",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.11",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-111",
+      "spec_points": [
+        {
+          "id": "4f2aef59-d567-4539-a909-a9c1332a53d0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.1.1",
+          "primary": true
+        },
+        {
+          "id": "8f445717-ec3a-4990-8b25-095792693097",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.1.2S",
+          "primary": true
+        },
+        {
+          "id": "78be7070-3279-4a8f-b5da-49b48f829e23",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.2.6S",
+          "primary": false
+        },
+        {
+          "id": "ea13bf57-3c83-42f3-be62-67a71bdf3016",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.3.1",
+          "primary": true
+        },
+        {
+          "id": "aae2062b-f2c8-4780-bc9f-c8596c0cdd46",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.3.2",
+          "primary": true
+        },
+        {
+          "id": "05ace682-47da-4c19-814a-30fa6fc312b3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.3.3S",
+          "primary": true
+        },
+        {
+          "id": "a2366649-c019-4274-92ca-c82c15effb8e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.12",
+          "primary": true
+        },
+        {
+          "id": "65ad7ce1-f004-4fd1-bef1-e21ae99138a4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.13",
+          "primary": true
+        },
+        {
+          "id": "ccb34952-e5ec-4a0c-8f66-432532edceec",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.14",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-112",
+      "spec_points": [
+        {
+          "id": "aae2062b-f2c8-4780-bc9f-c8596c0cdd46",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.3.2",
+          "primary": false
+        },
+        {
+          "id": "566dec49-f382-4ed2-91e5-1b2e6a4c3476",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.3.4S",
+          "primary": true
+        },
+        {
+          "id": "ccb34952-e5ec-4a0c-8f66-432532edceec",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.14",
+          "primary": false
+        },
+        {
+          "id": "1bf637cb-2932-4c2d-a5f0-80230ed6187e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.15",
+          "primary": true
+        },
+        {
+          "id": "c66146a3-0f6c-4994-9800-441d9b867e81",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.16",
+          "primary": true
+        },
+        {
+          "id": "681d64a5-eeb0-4237-9268-862bdaed3d5b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.20B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-113",
+      "spec_points": [
+        {
+          "id": "0164b796-c546-4ec9-88a5-20362f07eeb4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.7",
+          "primary": true
+        },
+        {
+          "id": "5d7a0098-ce33-4b3a-9e1a-6159dc794b9e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.17B",
+          "primary": true
+        },
+        {
+          "id": "4b446359-0485-462d-b628-18b2a81424fa",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.18B",
+          "primary": true
+        },
+        {
+          "id": "60920055-a67c-4930-b37e-9c67430424a2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.19B",
+          "primary": true
+        },
+        {
+          "id": "681d64a5-eeb0-4237-9268-862bdaed3d5b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.20B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-114",
+      "spec_points": [
+        {
+          "id": "60e26f03-895a-4324-9271-0237c4403fc6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.4.1",
+          "primary": true
+        },
+        {
+          "id": "4bbf7eeb-dfce-494b-b96a-272ecdeb9f5f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.4.2",
+          "primary": true
+        },
+        {
+          "id": "997a25cd-c70f-454d-b75b-54e53cfceaec",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.4.3",
+          "primary": true
+        },
+        {
+          "id": "36c3a31a-8a95-4eba-9b66-25359fa8d1f8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.4.4",
+          "primary": false
+        },
+        {
+          "id": "14d6ba7b-b12e-4e1f-bd5e-9ffa719af145",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.1",
+          "primary": true
+        },
+        {
+          "id": "8d78b8da-ce17-4bc3-a9ae-d9eff3ced487",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.3B",
+          "primary": false
+        },
+        {
+          "id": "b03d0c3a-8fcd-4e09-a1f8-60d2f4a0df35",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.5",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-115",
+      "spec_points": [
+        {
+          "id": "72cdee8e-620a-428a-a3a0-9eebdb785660",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.4.7S",
+          "primary": false
+        },
+        {
+          "id": "b03d0c3a-8fcd-4e09-a1f8-60d2f4a0df35",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.5",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-116",
+      "spec_points": [
+        {
+          "id": "b926c092-ae40-473b-95b2-778ad435fe07",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.2.1",
+          "primary": true
+        },
+        {
+          "id": "17c88e0e-4fdb-4b70-acff-0f2032426782",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.2.2",
+          "primary": true
+        },
+        {
+          "id": "b66c67c7-0669-4e99-80e2-2842eb0747d3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 18.2.3S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-117",
+      "spec_points": [
+        {
+          "id": "a8d07d91-dff6-4a0e-b385-244fca623ebf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.1",
+          "primary": true
+        },
+        {
+          "id": "3e3553d9-aaa1-4b46-ac25-4f666f1ea7b6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.2",
+          "primary": true
+        },
+        {
+          "id": "02b418ca-885d-480c-ad6f-1404626e7329",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.3",
+          "primary": false
+        },
+        {
+          "id": "1fbe7211-e49b-4a50-8db0-150468fa8659",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.4",
+          "primary": true
+        },
+        {
+          "id": "5f7b2b45-f300-49ce-b589-de349f54c096",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.5",
+          "primary": true
+        },
+        {
+          "id": "3a6d98c2-e259-4306-90ea-fff536ff13e0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.6",
+          "primary": true
+        },
+        {
+          "id": "a34e0e46-8857-41c7-8652-3ba7e455f2fc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.7",
+          "primary": false
+        },
+        {
+          "id": "70e1cb22-b360-4263-9e31-5a7b9565848b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.8",
+          "primary": false
+        },
+        {
+          "id": "7336ed1c-590a-4adb-a3c5-459fa5f5ead0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.13",
+          "primary": false
+        },
+        {
+          "id": "36c3a31a-8a95-4eba-9b66-25359fa8d1f8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.4.4",
+          "primary": false
+        },
+        {
+          "id": "a4475070-3ab2-4cd0-851b-474ece73ad95",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.2.3",
+          "primary": false
+        },
+        {
+          "id": "b3b63f0a-d0e5-4d89-bda8-c1284124514c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.6",
+          "primary": false
+        },
+        {
+          "id": "43b645a9-0ee3-47b2-880e-072acee88283",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.7",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-118",
+      "spec_points": [
+        {
+          "id": "4b315937-82c7-4397-8f5a-388d0b42df1b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.2",
+          "primary": true
+        },
+        {
+          "id": "63396b34-889e-4a0a-93c6-0163f4c3927d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.4B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-119",
+      "spec_points": [
+        {
+          "id": "69d06735-5a7a-479e-b37a-36418f5c9e77",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.9",
+          "primary": false
+        },
+        {
+          "id": "1cb5481b-4ebc-47ae-9c50-4e3bb966b520",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.3.1",
+          "primary": true
+        },
+        {
+          "id": "1dbe940a-35d6-49ef-a91d-35b50dd54569",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.10",
+          "primary": true
+        },
+        {
+          "id": "d94d8eab-363c-4250-af41-fd9a3fb22f26",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.18B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-120",
+      "spec_points": [
+        {
+          "id": "7ab5687a-59f9-41df-8d0f-0f8c23ceb055",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.5",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-121",
+      "spec_points": [
+        {
+          "id": "26711736-aedd-4fc3-88ea-7fe969d8714f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.3.2S",
+          "primary": true
+        },
+        {
+          "id": "6eed743a-cbe4-472a-b962-9a10cc954cc7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.3.3S",
+          "primary": true
+        },
+        {
+          "id": "5d1a5d93-f33e-4d39-99ab-91ea033a7a08",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.11B",
+          "primary": true
+        },
+        {
+          "id": "55dd3217-9c81-4a71-8dd6-9f16f8975960",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.17",
+          "primary": false
+        },
+        {
+          "id": "2cb41b4b-16ea-4cb6-8dd9-ce301b2c71a7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-125",
+      "spec_points": [
+        {
+          "id": "4ae40cf3-71d5-4a19-bafb-32881f160adb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.10",
+          "primary": false
+        },
+        {
+          "id": "04ff504f-3fa3-46aa-8ec1-8704b351fbd2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.2.1",
+          "primary": true
+        },
+        {
+          "id": "b1498b24-ab7e-458e-be23-919d6cc76c37",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.2.2",
+          "primary": false
+        },
+        {
+          "id": "a4475070-3ab2-4cd0-851b-474ece73ad95",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.2.3",
+          "primary": true
+        },
+        {
+          "id": "17edc187-7156-468e-be72-7e2e0eac0185",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.3.1",
+          "primary": true
+        },
+        {
+          "id": "5234fe99-4d49-468b-a212-4f92097c84fd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.3.2",
+          "primary": true
+        },
+        {
+          "id": "be343961-08e9-497b-a40e-4111dc4d707c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.3.4S",
+          "primary": true
+        },
+        {
+          "id": "17730d1e-3d8c-49f5-848c-5f5caf3c2753",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.3",
+          "primary": false
+        },
+        {
+          "id": "8d78b8da-ce17-4bc3-a9ae-d9eff3ced487",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.3B",
+          "primary": true
+        },
+        {
+          "id": "63396b34-889e-4a0a-93c6-0163f4c3927d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.4B",
+          "primary": false
+        },
+        {
+          "id": "8e2e77a2-8c98-4c3a-aee7-414390db79bf",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.12",
+          "primary": true
+        },
+        {
+          "id": "4e9973df-fa54-4290-95b2-0c2a14a4a30c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.16",
+          "primary": true
+        },
+        {
+          "id": "55dd3217-9c81-4a71-8dd6-9f16f8975960",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.17",
+          "primary": true
+        },
+        {
+          "id": "de5626c5-7d75-4dcc-ba5e-c1ec71b28453",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.9B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-126",
+      "spec_points": [
+        {
+          "id": "56929851-d7c0-4b71-a8d6-1f1418d83e54",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.1.2",
+          "primary": false
+        },
+        {
+          "id": "b1498b24-ab7e-458e-be23-919d6cc76c37",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.2.2",
+          "primary": true
+        },
+        {
+          "id": "ba56d2d2-0472-429b-af39-d640fa2fbbab",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.2.4",
+          "primary": true
+        },
+        {
+          "id": "ea7797ed-5d03-410a-9c24-b6062dc16210",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.5S",
+          "primary": false
+        },
+        {
+          "id": "d94d8eab-363c-4250-af41-fd9a3fb22f26",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.18B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-127",
+      "spec_points": [
+        {
+          "id": "ba56d2d2-0472-429b-af39-d640fa2fbbab",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.2.4",
+          "primary": false
+        },
+        {
+          "id": "603ff045-ac09-43d2-8b1d-b89e6c3ef699",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.3.3",
+          "primary": true
+        },
+        {
+          "id": "6d233ca1-01a6-468f-a7f0-792fe1e37aa3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.13",
+          "primary": true
+        },
+        {
+          "id": "4bda84b7-31e1-4862-88ce-6f5b77d4b5fa",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.14",
+          "primary": true
+        },
+        {
+          "id": "f31237bb-c5c6-40b4-9f3d-9a322e9df06f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.15",
+          "primary": true
+        },
+        {
+          "id": "d94d8eab-363c-4250-af41-fd9a3fb22f26",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.18B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-128",
+      "spec_points": [
+        {
+          "id": "03a895af-a450-4ed8-b51f-648cbc40eda6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.1",
+          "primary": false
+        },
+        {
+          "id": "e1b53c84-ae7b-471e-a509-9215dd5e8915",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.2",
+          "primary": false
+        },
+        {
+          "id": "17730d1e-3d8c-49f5-848c-5f5caf3c2753",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.3",
+          "primary": true
+        },
+        {
+          "id": "ff64ec54-3d8f-42a7-ba7f-2320507cded1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.4",
+          "primary": true
+        },
+        {
+          "id": "ea7797ed-5d03-410a-9c24-b6062dc16210",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.5S",
+          "primary": true
+        },
+        {
+          "id": "4ae5fcce-109c-4d12-9c88-fb4673a1fb20",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.7S",
+          "primary": true
+        },
+        {
+          "id": "d0ae6209-915e-44af-a493-d4a8190fea9f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.8S",
+          "primary": true
+        },
+        {
+          "id": "2d4091eb-2fc0-4f7e-9050-52535974f6b6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.9S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-129",
+      "spec_points": [
+        {
+          "id": "1f96be20-6921-42b8-b7c7-262fccb1ace0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.11",
+          "primary": true
+        },
+        {
+          "id": "1827815e-cbad-4865-880b-fae9fc9ae6e0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.12",
+          "primary": false
+        },
+        {
+          "id": "7336ed1c-590a-4adb-a3c5-459fa5f5ead0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.13",
+          "primary": true
+        },
+        {
+          "id": "3a76c683-342f-4ece-91a1-750be15eeec6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.14",
+          "primary": true
+        },
+        {
+          "id": "1c3445fa-6c45-471c-bbe5-8adfa95bd6ae",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.15S",
+          "primary": false
+        },
+        {
+          "id": "b3b63f0a-d0e5-4d89-bda8-c1284124514c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.6",
+          "primary": true
+        },
+        {
+          "id": "43b645a9-0ee3-47b2-880e-072acee88283",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.7",
+          "primary": false
+        },
+        {
+          "id": "148c70f9-73db-478e-9f0f-2edb795a0e16",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.8",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-130",
+      "spec_points": [
+        {
+          "id": "1c73ff24-6b25-4889-984e-b700480ad3ea",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.1.2",
+          "primary": false
+        },
+        {
+          "id": "501d0969-4c87-44c8-85ec-8673ab2d29cf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.17S",
+          "primary": true
+        },
+        {
+          "id": "50839f1f-c542-4b8b-8c72-80beef6e9c90",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.18S",
+          "primary": true
+        },
+        {
+          "id": "f7a98f94-67e6-4a93-8106-c1ef337331d2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.19S",
+          "primary": true
+        },
+        {
+          "id": "148c70f9-73db-478e-9f0f-2edb795a0e16",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.8",
+          "primary": false
+        },
+        {
+          "id": "036e379a-08a1-4cd2-8135-53d7659439aa",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.9",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-132",
+      "spec_points": [
+        {
+          "id": "f7a98f94-67e6-4a93-8106-c1ef337331d2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.19S",
+          "primary": false
+        },
+        {
+          "id": "e5ba443f-3851-4f74-a962-403f5cb9a95a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.1.1",
+          "primary": true
+        },
+        {
+          "id": "56929851-d7c0-4b71-a8d6-1f1418d83e54",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.1.2",
+          "primary": true
+        },
+        {
+          "id": "bc480c4b-1719-4e81-810f-27c37121b019",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.1.3",
+          "primary": true
+        },
+        {
+          "id": "03a895af-a450-4ed8-b51f-648cbc40eda6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.1",
+          "primary": true
+        },
+        {
+          "id": "e1b53c84-ae7b-471e-a509-9215dd5e8915",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.2",
+          "primary": true
+        },
+        {
+          "id": "6f656afe-8833-46a4-80d1-ce5b594ff904",
+          "board": "cambridge_igcse",
+          "code": "CAIE 20.4.6S",
+          "primary": true
+        },
+        {
+          "id": "2cb41b4b-16ea-4cb6-8dd9-ce301b2c71a7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.3",
+          "primary": true
+        },
+        {
+          "id": "f166139b-640e-445d-8ccc-c8da3b512504",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.4",
+          "primary": true
+        },
+        {
+          "id": "de5626c5-7d75-4dcc-ba5e-c1ec71b28453",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.9B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "bio-133",
+      "spec_points": [
+        {
+          "id": "78be7070-3279-4a8f-b5da-49b48f829e23",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.2.6S",
+          "primary": true
+        },
+        {
+          "id": "31740266-0031-470d-9622-68076170d799",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.2.7S",
+          "primary": true
+        },
+        {
+          "id": "5942fa50-79b9-4b68-8484-89c9b06e6ca4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.8",
+          "primary": true
+        }
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "id": "ibio-001",
+      "group": "IGCSE Classification",
+      "title": "Characteristics and kingdoms of living organisms",
+      "scope": "The characteristics of living things, dichotomous keys, and the features that place organisms in the animal, plant, fungus, prokaryote, protoctist and virus groups.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "afe47fb8-4ea6-476c-90fd-aafb1657c7dd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.1",
+          "primary": true
+        },
+        {
+          "id": "795b218c-eab1-4fde-834e-f29330e0965f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.4",
+          "primary": true
+        },
+        {
+          "id": "f25fd56a-7b03-44e4-94ca-a3b98f5b66c6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.3.1",
+          "primary": true
+        },
+        {
+          "id": "42f02599-e58e-4a67-a7a5-4b411f9ef4b0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.3.2",
+          "primary": true
+        },
+        {
+          "id": "1f1c1960-83ac-430c-a909-40342bed06d5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.3.3",
+          "primary": true
+        },
+        {
+          "id": "4aed2cfe-15ca-481e-abda-bb3f2404503f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.3.4S",
+          "primary": true
+        },
+        {
+          "id": "81f1f578-a45e-4137-9813-890a41e0a5e7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.3.5S",
+          "primary": true
+        },
+        {
+          "id": "396b85ec-a236-4c94-a6e7-6e90df12b2a2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.3.6S",
+          "primary": true
+        },
+        {
+          "id": "bd640f84-e4d1-4ef7-9a4c-12b558f70e2d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.3.7S",
+          "primary": true
+        },
+        {
+          "id": "a27a3bd1-a010-42a2-a357-422c167ecb21",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.1",
+          "primary": true
+        },
+        {
+          "id": "9afc78c6-c5bd-448d-9d6b-f572ef1968e3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.2",
+          "primary": true
+        },
+        {
+          "id": "26cce97d-0013-4c41-85c8-0d2516074252",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.3",
+          "primary": true
+        },
+        {
+          "id": "8eb44476-472e-4037-8527-cb6f0cae3701",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.4",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ibio-002",
+      "group": "IGCSE Organisation",
+      "title": "Balanced diet and nutrients",
+      "scope": "What a balanced diet is, the sources and uses of each nutrient group, fibre, water, vitamins C and D, calcium and iron, and the deficiency diseases scurvy and rickets.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "f9a955b8-87d5-47e1-8803-4eb70f400a52",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.1",
+          "primary": true
+        },
+        {
+          "id": "97da4e91-2982-4d0d-b8bb-c7af4e1c7d01",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.2",
+          "primary": true
+        },
+        {
+          "id": "e7c59387-7914-4620-a55f-ec14ac922745",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.3",
+          "primary": true
+        },
+        {
+          "id": "039c5eb1-c217-4378-909d-b5238ee5f386",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.24",
+          "primary": true
+        },
+        {
+          "id": "6533bf6c-c16f-4fcf-9642-816958d6bcc8",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.25",
+          "primary": true
+        },
+        {
+          "id": "d89af0f5-77d6-4b9f-8aeb-8028f6f1e754",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.26",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ibio-003",
+      "group": "IGCSE Organisation",
+      "title": "Teeth and physical digestion",
+      "scope": "Types and structure of human teeth, their jobs in physical digestion, and the stomach churning food to increase surface area for enzymes.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "5a4f22ca-983a-4eb2-b949-71eeaab7a8b6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.3.1",
+          "primary": true
+        },
+        {
+          "id": "83071772-9a2c-4845-a317-eeaffa9636cd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.3.2",
+          "primary": true
+        },
+        {
+          "id": "d2bf284d-baf5-4b33-8c4c-02474c1169b3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.3.3",
+          "primary": true
+        },
+        {
+          "id": "0e4e74e6-ba35-4601-b633-cbe9ebabe91f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.3.4",
+          "primary": true
+        },
+        {
+          "id": "1c80b71c-8b9a-44e9-a813-00762f140d0f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.3.5",
+          "primary": true
+        },
+        {
+          "id": "67157bd6-d5c2-429e-a250-843367a9be77",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.3.6",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ibio-004",
+      "group": "IGCSE Organisation",
+      "title": "Absorption in the small intestine",
+      "scope": "How nutrients and water are absorbed in the small intestine and colon, and how villi and microvilli, capillaries and lacteals are adapted for absorption.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e00c0cda-5fca-4e3d-b102-14147c1d9307",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.5.1",
+          "primary": true
+        },
+        {
+          "id": "84932dd3-09a7-41cc-be24-63f5d0f31ae7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.5.2",
+          "primary": true
+        },
+        {
+          "id": "e6c4ff17-4565-4616-9687-5ace21a0df02",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.5.3S",
+          "primary": true
+        },
+        {
+          "id": "4de7a0b2-6107-42c8-81cb-83e9c5484c88",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.5.4S",
+          "primary": true
+        },
+        {
+          "id": "24e32c1f-8429-4d04-8403-35ab19bcf3a2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.5.5S",
+          "primary": true
+        },
+        {
+          "id": "54245e1c-d226-4e1d-8329-a631681b6f9f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.32",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ibio-005",
+      "group": "IGCSE Organisation",
+      "title": "Water movement through the plant",
+      "scope": "The route of water from root hair to leaf, tracing it with a stain, evaporation and loss through stomata, transpiration pull and cohesion, and why plants wilt.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "dea170f3-a779-4457-8d4d-9ec5dcf5efbe",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.2.3",
+          "primary": true
+        },
+        {
+          "id": "dc1d4148-c3d3-4a38-89d5-dbda7a9415f9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.2.4",
+          "primary": true
+        },
+        {
+          "id": "4d815279-fccd-484b-9ef8-71f5dcef70ed",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.3.4S",
+          "primary": true
+        },
+        {
+          "id": "d23e3fe9-1cd4-48e4-83e5-e77ec891ee2f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.3.5S",
+          "primary": true
+        },
+        {
+          "id": "fd96fb0f-5af2-4a34-89a0-f552d12e3633",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.3.7S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ibio-006",
+      "group": "IGCSE Infection and response",
+      "title": "Cholera and controlling the spread of disease",
+      "scope": "How clean water, hygienic food, personal hygiene, waste disposal and sewage treatment control disease, with cholera as the case study including how its toxin causes diarrhoea.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "7ab5687a-59f9-41df-8d0f-0f8c23ceb055",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.5",
+          "primary": true
+        },
+        {
+          "id": "243f3cfe-dbb5-480b-a4fa-35624e58f89e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.16S",
+          "primary": true
+        },
+        {
+          "id": "2f98e23f-1bfe-4a61-98e3-c07945f373e5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.17S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ibio-007",
+      "group": "IGCSE Infection and response",
+      "title": "Passive immunity",
+      "scope": "Short-term immunity from antibodies passed from another person, across the placenta and in breast milk, why it gives no memory cells, and why breast-feeding matters.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "9c598a97-5462-426b-86b8-d1671f99a9d8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.13S",
+          "primary": true
+        },
+        {
+          "id": "c6f160b5-6b7c-4480-bab0-d358bd4b95b9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.14S",
+          "primary": true
+        },
+        {
+          "id": "55d1ec41-8dbf-49b4-ada1-6f7c5eb8bf57",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.15S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ibio-008",
+      "group": "IGCSE Organisation",
+      "title": "Ventilation of the lungs and breathed air",
+      "scope": "The parts of the breathing system, how ribs, intercostal muscles and diaphragm change thorax volume and pressure, cartilage in the trachea, and the composition of inspired and expired air.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "1d889f7a-cc9a-4c31-a5d9-03289fa25383",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.2",
+          "primary": true
+        },
+        {
+          "id": "0a06d33e-cd32-4f0b-8cbd-a311106ccecf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.3",
+          "primary": true
+        },
+        {
+          "id": "d8ad28c5-4dd1-4dee-b13d-7a87d8a81456",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.4",
+          "primary": true
+        },
+        {
+          "id": "29eddb34-3685-426e-bde6-d68eb2df832d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.6S",
+          "primary": true
+        },
+        {
+          "id": "7b4c12d4-595f-492b-b2ea-da4bed400e18",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.7S",
+          "primary": true
+        },
+        {
+          "id": "6949570d-5b9e-4b56-ab46-09661eaea6ff",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.8S",
+          "primary": true
+        },
+        {
+          "id": "318fa62c-bcb1-4132-a703-2828c49f8c76",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.9S",
+          "primary": true
+        },
+        {
+          "id": "6a2c44f8-a6ea-47c2-9851-123b3a6c2823",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.46",
+          "primary": true
+        },
+        {
+          "id": "96fb4ba9-df64-4135-8473-a49c74d256e1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.47",
+          "primary": true
+        },
+        {
+          "id": "4079e6a9-15f3-4898-89ca-0d3968fabc4f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.50",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "ibio-009",
+      "group": "IGCSE Reproduction",
+      "title": "Parts of the flower and pollination",
+      "scope": "The parts of an insect-pollinated flower and their functions, the anthers and stigmas of a wind-pollinated flower, pollen grains, and pollination with adaptations of each type.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e8708b31-6cb3-4ca0-9e87-bb0bf26a15a8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.3.1",
+          "primary": true
+        },
+        {
+          "id": "9de31462-57cf-4960-8309-553abe389a7b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.3.2",
+          "primary": true
+        },
+        {
+          "id": "0d0d9a3c-f975-4802-971d-302199c1ba0b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.3.3",
+          "primary": true
+        },
+        {
+          "id": "6462b808-2edf-4ed9-8a88-c16d4983a94c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.3.4",
+          "primary": true
+        },
+        {
+          "id": "230ab8f0-d902-4f28-a77d-6a6433eb1075",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.3.5",
+          "primary": true
+        },
+        {
+          "id": "fdbc172c-ea35-45ff-9fe1-342371d3d535",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.3.7",
+          "primary": true
+        },
+        {
+          "id": "a368a5a4-b431-4fe6-955c-d581969de0b8",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.3",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ibio-010",
+      "group": "IGCSE Reproduction",
+      "title": "Fertilisation in flowering plants and germination",
+      "scope": "Self- and cross-pollination and their effects on a population, pollen tube growth and fertilisation, and the conditions seeds need to germinate.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "ca7592da-88bf-407c-9cdd-6e58b94a56bd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.3.6",
+          "primary": true
+        },
+        {
+          "id": "e84c7adc-54ca-46d6-ac58-82174f271410",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.3.8",
+          "primary": true
+        },
+        {
+          "id": "48f47949-50f0-4cda-86d2-349e19d7ce76",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.3.9S",
+          "primary": true
+        },
+        {
+          "id": "d034f102-c662-4657-8a6d-8ee4042efffa",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.3.10S",
+          "primary": true
+        },
+        {
+          "id": "d6e4dc02-1119-4a43-9161-9742e179a51b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.3.11S",
+          "primary": true
+        },
+        {
+          "id": "d6633767-4d43-4b69-9197-b7592b72b817",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.3.12S",
+          "primary": true
+        },
+        {
+          "id": "fb8d96d6-a958-49a7-9c5a-5c61bc96a239",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.4",
+          "primary": true
+        },
+        {
+          "id": "e7bb91cf-159f-464b-a91e-c2b576393d54",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.5",
+          "primary": true
+        },
+        {
+          "id": "52a1ce64-bc32-4526-9f44-a826bc8e6e6d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.6",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ibio-011",
+      "group": "IGCSE Reproduction",
+      "title": "Human reproductive systems",
+      "scope": "The parts of the male and female reproductive systems and their functions, and a comparison of male and female gametes.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "ed295dd8-33fe-4738-87fd-dfab51743ac6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.4.1",
+          "primary": true
+        },
+        {
+          "id": "8c5514f5-b3e6-4b75-9a97-1ca7db848229",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.4.2",
+          "primary": true
+        },
+        {
+          "id": "6e264cea-98dd-4e09-83c1-b444030b00e1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.4.4",
+          "primary": false
+        },
+        {
+          "id": "72d9e61f-6f75-49fc-b8db-88ac55cabbea",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.4.5",
+          "primary": false
+        },
+        {
+          "id": "819ba762-616a-4ca5-a209-8a2fea3cdcdd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.4.6",
+          "primary": true
+        },
+        {
+          "id": "08b16c0c-a191-44b8-bc08-1e1062bc96e2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.8",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ibio-012",
+      "group": "IGCSE Reproduction",
+      "title": "Fertilisation, the embryo and the placenta",
+      "scope": "Fertilisation of the egg, implantation of the embryo, and how the placenta, umbilical cord and amniotic sac support the fetus, including what can cross the placenta.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e88c37cb-c138-40c1-95fb-39e11479026a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.4.3",
+          "primary": true
+        },
+        {
+          "id": "8657ffb2-8488-49fc-9d3e-f1b20b8e2169",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.4.7",
+          "primary": true
+        },
+        {
+          "id": "55d49c19-a600-4c7b-aa76-8e9e8a7ad0b8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.4.8",
+          "primary": true
+        },
+        {
+          "id": "53714f24-7ecf-4c00-9a3d-6a35f90e81d9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.4.9S",
+          "primary": true
+        },
+        {
+          "id": "6ce5ead8-1c2e-42b1-9383-0692e888131f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 16.4.10S",
+          "primary": true
+        },
+        {
+          "id": "64b09050-dc6c-46e9-b653-7c8ccdf51cca",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.2",
+          "primary": true
+        },
+        {
+          "id": "bcde6a48-a216-42ad-893c-d9d4aa48d53a",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.11",
+          "primary": true
+        },
+        {
+          "id": "3655cf5a-0607-4c61-9339-06660aafd477",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.12",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ibio-013",
+      "group": "IGCSE Ecology",
+      "title": "Food webs and feeding roles",
+      "scope": "Food webs as networks of food chains, the terms herbivore, carnivore and decomposer, and using webs to predict the effect of overharvesting and introduced species.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "02b418ca-885d-480c-ad6f-1404626e7329",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.3",
+          "primary": true
+        },
+        {
+          "id": "a34e0e46-8857-41c7-8652-3ba7e455f2fc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.7",
+          "primary": true
+        },
+        {
+          "id": "70e1cb22-b360-4263-9e31-5a7b9565848b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.8",
+          "primary": true
+        },
+        {
+          "id": "69d06735-5a7a-479e-b37a-36418f5c9e77",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.9",
+          "primary": true
+        },
+        {
+          "id": "4ae40cf3-71d5-4a19-bafb-32881f160adb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.10",
+          "primary": true
+        },
+        {
+          "id": "43b645a9-0ee3-47b2-880e-072acee88283",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.7",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ibio-014",
+      "group": "IGCSE Ecology",
+      "title": "Energy flow and pyramids of energy",
+      "scope": "The Sun as the energy source, the flow of energy through organisms to the environment, and why pyramids of biomass and energy are better than pyramids of numbers.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3aa9b8b6-d47c-450f-9639-e31e1736ae52",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.1.1",
+          "primary": true
+        },
+        {
+          "id": "1c73ff24-6b25-4889-984e-b700480ad3ea",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.1.2",
+          "primary": true
+        },
+        {
+          "id": "1827815e-cbad-4865-880b-fae9fc9ae6e0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.12",
+          "primary": true
+        },
+        {
+          "id": "1c3445fa-6c45-471c-bbe5-8adfa95bd6ae",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.15S",
+          "primary": true
+        },
+        {
+          "id": "c4f9bba3-c650-46aa-a8d6-4ee39890062c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.2.16S",
+          "primary": true
+        },
+        {
+          "id": "43b645a9-0ee3-47b2-880e-072acee88283",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.7",
+          "primary": false
+        },
+        {
+          "id": "148c70f9-73db-478e-9f0f-2edb795a0e16",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.8",
+          "primary": true
+        },
+        {
+          "id": "036e379a-08a1-4cd2-8135-53d7659439aa",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.9",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "ibio-015",
+      "group": "IGCSE Ecology",
+      "title": "Population growth",
+      "scope": "Factors affecting population growth and the lag, exponential, stationary and death phases of the sigmoid growth curve, with the limiting factors behind each.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "36c3a31a-8a95-4eba-9b66-25359fa8d1f8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.4.4",
+          "primary": true
+        },
+        {
+          "id": "2af3aa67-7f44-4719-98fe-89fe7638306a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.4.5",
+          "primary": true
+        },
+        {
+          "id": "19cf22df-e2cc-4dca-becd-95d8c499f571",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.4.6",
+          "primary": true
+        },
+        {
+          "id": "72cdee8e-620a-428a-a3a0-9eebdb785660",
+          "board": "cambridge_igcse",
+          "code": "CAIE 19.4.7S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ibio-016",
+      "group": "IGCSE Biotechnology",
+      "title": "Enzymes in food and household products",
+      "scope": "How pectinase, lactase and biological washing powders use enzymes, and how to investigate them.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "b36b33de-9e6e-4b17-9fda-42cb8b2e08fc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.2.3",
+          "primary": true
+        },
+        {
+          "id": "e7a828e6-6159-407d-8361-c8d34bce08b0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.2.4",
+          "primary": true
+        },
+        {
+          "id": "51f0695b-33f5-4299-bd1f-bbf8c97fcce0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 21.2.5S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ibio-017",
+      "group": "IGCSE Biotechnology",
+      "title": "Yeast and bacteria in food production",
+      "scope": "How yeast makes bread rise by anaerobic respiration, how Lactobacillus turns milk into yoghurt, and how to investigate yeast in different conditions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "d3d95dfb-4455-45f9-9bd3-f50ab2323207",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.5",
+          "primary": true
+        },
+        {
+          "id": "2379049f-86f3-4689-b161-8d9695165b5b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.6",
+          "primary": true
+        },
+        {
+          "id": "9d65ffac-a6ca-4b75-b570-6f94b252ec0d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.7",
+          "primary": true
+        },
+        {
+          "id": "5942fa50-79b9-4b68-8484-89c9b06e6ca4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 5.8",
+          "primary": false
+        }
+      ]
+    }
+  ]
+}

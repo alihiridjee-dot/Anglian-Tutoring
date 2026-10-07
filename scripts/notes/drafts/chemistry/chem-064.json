@@ -1,0 +1,185 @@
+{
+  "format": 1,
+  "concept_id": "chem-064",
+  "subject": "chemistry",
+  "title": "Hydrogen as a fuel for cars",
+  "key_idea": "Hydrogen reacts with oxygen to give only water, so it is cleaner than petrol at the point of use. But hydrogen is a gas that is hard to store, is flammable and is often made from fossil fuels. Evaluating means weighing both sides and reaching a conclusion.",
+  "sections": [
+    {
+      "heading": "Hydrogen and petrol compared",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the main differences between hydrogen and petrol as fuels for cars."
+        },
+        {
+          "type": "equation",
+          "label": "Hydrogen reacting with oxygen",
+          "formula": "hydrogen + oxygen → water",
+          "where": ["water is the only product", "in symbols: 2H₂ + O₂ → 2H₂O"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Petrol and hydrogen compared as car fuels.",
+            "items": ["Petrol", "Hydrogen"],
+            "rows": [
+              {
+                "feature": "Product when used",
+                "values": ["Carbon dioxide and water", "Water only"]
+              },
+              {
+                "feature": "State at room temperature",
+                "values": ["Liquid", "Gas"]
+              },
+              {
+                "feature": "Storage",
+                "values": ["Easy to store in a tank", "Large volume, so difficult to store"]
+              },
+              {
+                "feature": "Source",
+                "values": [
+                  "Crude oil, which is not renewable",
+                  "Often made from fossil fuels; renewable if made using renewable energy"
+                ]
+              },
+              {
+                "feature": "Filling stations",
+                "values": ["Widely available", "Not many"]
+              },
+              {
+                "feature": "Hazard",
+                "values": ["Flammable", "Flammable and explosive"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hydrogen gives water as the only product when it reacts with oxygen.",
+            "Hydrogen is a gas, so it is harder to store and refuel than petrol."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Advantages and disadvantages",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An evaluation gives advantages and disadvantages, then a conclusion with a reason."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort statements into advantages and disadvantages of hydrogen as a car fuel.",
+            "prompt": "Sort each statement into an advantage or a disadvantage of using hydrogen rather than petrol.",
+            "groups": ["Advantage of hydrogen", "Disadvantage of hydrogen"],
+            "items": [
+              {
+                "text": "The only product is water",
+                "group": 0
+              },
+              {
+                "text": "It can be renewable if made by electrolysis using renewable energy",
+                "group": 0
+              },
+              {
+                "text": "It is a gas, so a large volume is needed and it is difficult to store",
+                "group": 1
+              },
+              {
+                "text": "It is flammable and can be explosive",
+                "group": 1
+              },
+              {
+                "text": "It is often made from fossil fuels, which are not renewable",
+                "group": 1
+              },
+              {
+                "text": "There are not many hydrogen filling stations",
+                "group": 1
+              },
+              {
+                "text": "Fuel cells are expensive to manufacture",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The volume of hydrogen can be reduced by storing it under high pressure, by cooling it so it condenses, or by absorbing it in a solid.",
+            "Hydrogen can be used in a fuel cell or burned in an engine. A fuel cell uses the reaction to produce electricity.",
+            "Give a conclusion. Either fuel can be chosen as better, but you must give suitable reasons."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Advantages: water is the only product, and hydrogen can be renewable.",
+            "Disadvantages: storage, flammability, fossil fuel source, few filling stations and cost.",
+            "End with a conclusion that is backed by reasons."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give one advantage of using hydrogen rather than petrol as a car fuel.",
+      "a": "Water is the only product. Or hydrogen can be renewable if made using renewable energy.",
+      "marks": 1
+    },
+    {
+      "q": "Give two disadvantages of using hydrogen as a car fuel.",
+      "a": "Any two from: storage is difficult because it is a gas; it is flammable or explosive; it is often made from fossil fuels; there are not many hydrogen filling stations; fuel cells are expensive to manufacture.",
+      "marks": 2
+    },
+    {
+      "q": "Suggest one way to reduce the volume of hydrogen that a car must carry.",
+      "a": "Store it under pressure, cool it so it condenses, or absorb it in a solid.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": ["EDEX 8.14"]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.2.2S"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A hydrogen–oxygen fuel cell is compared with a petrol engine."
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) A fuel cell makes electricity to turn an electric motor. It gives out water only, with no carbon dioxide.",
+                "(Supplement) It converts a larger share of the fuel's energy into useful energy than a petrol engine does.",
+                "(Supplement) Fuel cells are expensive to make, and hydrogen is hard to store and refill."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": ["30313bfc-b728-438f-97f4-80e6ba0644af"],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

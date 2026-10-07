@@ -1,0 +1,288 @@
+{
+  "format": 1,
+  "concept_id": "chem-053",
+  "subject": "chemistry",
+  "title": "The process of electrolysis",
+  "key_idea": "An electrolyte is an ionic compound that is molten or dissolved in water, so its ions are free to move. In electrolysis, a direct current makes positive ions move to the negative electrode and negative ions move to the positive electrode, where they are discharged as elements.",
+  "sections": [
+    {
+      "heading": "Electrolytes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers which substances can be electrolysed and why."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Electrolyte",
+              "meaning": "An ionic compound, molten or dissolved in water, that conducts electricity because its ions can move."
+            },
+            {
+              "term": "Electrolysis",
+              "meaning": "Using electrical energy from a direct current supply to break down an electrolyte."
+            },
+            {
+              "term": "Electrode",
+              "meaning": "A rod that carries the current into or out of the electrolyte."
+            },
+            {
+              "term": "Cathode",
+              "meaning": "The negative electrode."
+            },
+            {
+              "term": "Anode",
+              "meaning": "The positive electrode."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "State of the ionic compound",
+            "Are the ions free to move?",
+            "Conducts electricity?"
+          ],
+          "rows": [
+            ["Solid", "No. The ions are in fixed positions in the lattice.", "No"],
+            ["Molten (liquid)", "Yes", "Yes"],
+            ["Dissolved in water", "Yes", "Yes"],
+            [
+              "Mixed with water but insoluble",
+              "No. It does not dissolve, so the ions stay fixed.",
+              "No"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Ions**, not electrons, carry the charge through an electrolyte.",
+            "A covalent compound such as glucose has no ions, so its solution does not conduct. A lamp in the circuit stays unlit.",
+            "To test a solution, put two electrodes in it and connect them to a supply. A lamp that lights, or an ammeter reading, shows that it conducts."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An electrolyte is an ionic compound that is molten or dissolved in water.",
+            "A solid ionic compound does not conduct because its ions cannot move."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What happens during electrolysis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how ions move and what happens to them at the electrodes."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **direct current** is passed through the electrolyte.",
+            "Positive ions (cations) move to the negative electrode, the cathode.",
+            "Negative ions (anions) move to the positive electrode, the anode.",
+            "Opposite charges attract, so each ion moves towards the electrode with the opposite charge.",
+            "At the electrode the ions are **discharged**. They gain or lose electrons and form elements."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In a coloured solution you can see this. A coloured ion moves towards the electrode with the opposite charge, and the colour appears there."
+        },
+        {
+          "type": "table",
+          "columns": ["Ion in sodium chloride solution", "Charge", "Moves to"],
+          "rows": [
+            ["Na⁺", "Positive", "Cathode (negative electrode)"],
+            ["H⁺ (from water)", "Positive", "Cathode (negative electrode)"],
+            ["Cl⁻", "Negative", "Anode (positive electrode)"],
+            ["OH⁻ (from water)", "Negative", "Anode (positive electrode)"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Which ion is discharged at each electrode is covered in the notes on molten compounds and aqueous solutions. Half equations are covered in a separate note."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort ions by the electrode they move to during electrolysis.",
+            "prompt": "Which electrode does each ion move to?",
+            "groups": ["Cathode (negative electrode)", "Anode (positive electrode)"],
+            "items": [
+              {
+                "text": "Cu²⁺",
+                "group": 0
+              },
+              {
+                "text": "K⁺",
+                "group": 0
+              },
+              {
+                "text": "H⁺",
+                "group": 0
+              },
+              {
+                "text": "Pb²⁺",
+                "group": 0
+              },
+              {
+                "text": "Br⁻",
+                "group": 1
+              },
+              {
+                "text": "OH⁻",
+                "group": 1
+              },
+              {
+                "text": "I⁻",
+                "group": 1
+              },
+              {
+                "text": "SO₄²⁻",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Positive ions move to the cathode. Negative ions move to the anode.",
+            "Opposite charges attract.",
+            "At the electrodes ions are discharged to form elements."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why solid sodium chloride does not conduct electricity but molten sodium chloride does.",
+      "a": "In the solid the ions are in fixed positions and cannot move. When molten, the ions are free to move and carry the charge.",
+      "marks": 2
+    },
+    {
+      "q": "Which electrode do positive ions move to, and why?",
+      "a": "The negative electrode (cathode), because opposite charges attract.",
+      "marks": 2
+    },
+    {
+      "q": "State what is meant by electrolysis.",
+      "a": "Electrical energy (from a direct current supply) breaks down (decomposes) an electrolyte, which is an ionic compound.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.3.1", "AQA T 5.4.3.1"],
+      "worked_example": {
+        "exemplar_id": "e2895ea3-0aca-4fda-85ee-8403ac7d2bc1",
+        "source": "AQA jun 2023, Paper 1 (F), Q04.4",
+        "question": "Explain why copper ions (Cu²⁺) move to the negative electrode.",
+        "marks": 2,
+        "answer_points": [
+          "Copper ions are positively charged.",
+          "So they are attracted to the negative electrode."
+        ],
+        "tip": "One mark for the charge on the ion and one for the attraction. 'Opposite charges attract' is also accepted."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.22", "EDEX 3.23", "EDEX 3.24"],
+      "worked_example": {
+        "exemplar_id": "0a765b85-4b2b-4fd2-a5a0-68eecccb712d",
+        "source": "EDEXCEL nov 2021, Paper 2 (F), Q8(c)",
+        "question": "A student investigated whether electricity can pass through solid ammonium chloride and through ammonium chloride solution. If an electrical current flows in the circuit, the lamp will light up.\n\nResults:\nsolid ammonium chloride: the lamp did not light up\nammonium chloride solution: the lamp lit up brightly\n\nExplain the results of the investigation.",
+        "marks": 3,
+        "answer_points": [
+          "Ammonium chloride solution conducts electricity and solid ammonium chloride does not.",
+          "Ammonium chloride contains ions.",
+          "In solution the ions can move. In the solid the ions cannot move."
+        ],
+        "tip": "Refer to both the solid and the solution to score full marks."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C3.4d"],
+      "worked_example": {
+        "exemplar_id": "48433b63-5502-4730-a5bc-166163d34d20",
+        "source": "OCR sample null, Paper 1, Q17(c)",
+        "question": "Javier is electrolysing a solution of sodium chloride, NaCl, in water, H₂O.\n\nComplete the list of ions present in sodium chloride solution.\n\nPositive ions (cations): Na⁺ and ______\nNegative ions (anions): ______ and OH⁻",
+        "marks": 2,
+        "answer_points": ["Negative ions (anions): Cl⁻.", "Positive ions (cations): H⁺."],
+        "tip": "The H⁺ and OH⁻ ions come from the water."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.1.1", "CAIE 4.1.2", "CAIE 4.1.4", "CAIE 4.1.8S"],
+      "worked_example": {
+        "exemplar_id": "95d67873-e1dc-48a0-939f-804f1250c7e1",
+        "source": "CAMBRIDGE jun 2025, Paper 42, Q3(a)",
+        "question": "This question is about electrolysis.\nComplete the definition of electrolysis by filling in the missing words.\nThe decomposition of ______ compounds when ______ or ______ by the passage of an electric current.",
+        "marks": 3,
+        "answer_points": ["ionic", "molten", "in aqueous solution"]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Metals or hydrogen are formed at the cathode.",
+                "Non-metals other than hydrogen are formed at the anode."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Charge moves in two different ways during electrolysis."
+            },
+            {
+              "type": "list",
+              "items": [
+                "In the external circuit, electrons flow through the wires from the anode to the cathode.",
+                "At the cathode, ions gain electrons.",
+                "At the anode, ions lose electrons.",
+                "In the electrolyte, ions move: positive ions to the cathode and negative ions to the anode."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.58C"]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "spec_point_ids": [
+      "6de4b9d3-6ff0-41f1-b634-a27928006794",
+      "0ebb22c3-eee1-4aaf-aabd-dce2bc58e204",
+      "ba810be2-6e29-4012-980d-c5852586e4f6",
+      "1ff5be13-69cd-422d-80f2-fd983244b17b",
+      "3ee0e18b-cfff-44e1-8029-fbe3787ce502",
+      "7f268fc8-9749-418d-8b87-5d4ca6afa75a",
+      "67c1ff6a-9c78-4c3c-98f2-e21981c7abb7",
+      "77d20e11-f95d-4d56-b4fd-e1ba89d759e7",
+      "1a70a706-3682-4c2a-aafe-b982d9af077f",
+      "ca0c1ea8-f2fc-4498-9069-2f13337f27bc"
+    ],
+    "exemplar_ids": [
+      "e2895ea3-0aca-4fda-85ee-8403ac7d2bc1",
+      "0a765b85-4b2b-4fd2-a5a0-68eecccb712d",
+      "48433b63-5502-4730-a5bc-166163d34d20",
+      "95d67873-e1dc-48a0-939f-804f1250c7e1"
+    ]
+  }
+}

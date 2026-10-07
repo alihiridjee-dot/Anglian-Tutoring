@@ -8,13 +8,25 @@
     {
       "heading": "Chromosomes and genes",
       "blocks": [
-        { "type": "paragraph", "text": "Genetic information is stored in the nucleus. This section covers how it is organised." },
+        {
+          "type": "paragraph",
+          "text": "Genetic information is stored in the nucleus. This section covers how it is organised."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Chromosome", "meaning": "A long molecule of DNA in the nucleus. It carries many genes." },
-            { "term": "Gene", "meaning": "A short section of DNA that codes for a specific protein, so it controls a characteristic." },
-            { "term": "Diploid", "meaning": "A cell with two of each chromosome, in pairs." }
+            {
+              "term": "Chromosome",
+              "meaning": "A long molecule of DNA in the nucleus. It carries many genes."
+            },
+            {
+              "term": "Gene",
+              "meaning": "A short section of DNA that codes for a specific protein, so it controls a characteristic."
+            },
+            {
+              "term": "Diploid",
+              "meaning": "A cell with two of each chromosome, in pairs."
+            }
           ]
         },
         {
@@ -38,7 +50,10 @@
     {
       "heading": "The cell cycle",
       "blocks": [
-        { "type": "paragraph", "text": "Cells divide in a repeating series of stages called the **cell cycle**. The DNA is doubled, then shared between two identical cells. There are three stages." },
+        {
+          "type": "paragraph",
+          "text": "Cells divide in a repeating series of stages called the **cell cycle**. The DNA is doubled, then shared between two identical cells. There are three stages."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -55,9 +70,18 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Stage 1: prepare.", "text": "The cell grows and makes more sub-cellular structures, such as ribosomes and mitochondria. The DNA replicates (is copied), giving two copies of each chromosome." },
-            { "lead": "Stage 2: mitosis.", "text": "One set of chromosomes is pulled to each end of the cell. The nucleus divides." },
-            { "lead": "Stage 3: divide.", "text": "The cytoplasm and cell membrane divide. Two new, genetically identical cells form." }
+            {
+              "lead": "Stage 1: prepare.",
+              "text": "The cell grows and makes more sub-cellular structures, such as ribosomes and mitochondria. The DNA replicates (is copied), giving two copies of each chromosome."
+            },
+            {
+              "lead": "Stage 2: mitosis.",
+              "text": "One set of chromosomes is pulled to each end of the cell. The nucleus divides."
+            },
+            {
+              "lead": "Stage 3: divide.",
+              "text": "The cytoplasm and cell membrane divide. Two new, genetically identical cells form."
+            }
           ]
         },
         {
@@ -73,8 +97,14 @@
     {
       "heading": "What mitosis produces and why it matters",
       "blocks": [
-        { "type": "paragraph", "text": "Mitosis makes two new cells from one. This section covers what they are like and what the body uses them for." },
-        { "type": "subheading", "text": "The new cells" },
+        {
+          "type": "paragraph",
+          "text": "Mitosis makes two new cells from one. This section covers what they are like and what the body uses them for."
+        },
+        {
+          "type": "subheading",
+          "text": "The new cells"
+        },
         {
           "type": "list",
           "items": [
@@ -83,7 +113,10 @@
             "A human body cell with 46 chromosomes makes two cells with 46 each."
           ]
         },
-        { "type": "subheading", "text": "What mitosis is used for" },
+        {
+          "type": "subheading",
+          "text": "What mitosis is used for"
+        },
         {
           "type": "list",
           "items": [
@@ -92,8 +125,14 @@
             "**Asexual reproduction**: one parent makes genetically identical offspring."
           ]
         },
-        { "type": "subheading", "text": "Counting cells" },
-        { "type": "paragraph", "text": "Each division doubles the number of cells. Find the number of divisions first, then the number of cells." },
+        {
+          "type": "subheading",
+          "text": "Counting cells"
+        },
+        {
+          "type": "paragraph",
+          "text": "Each division doubles the number of cells. Find the number of divisions first, then the number of cells."
+        },
         {
           "type": "equation",
           "label": "Number of divisions",
@@ -109,12 +148,24 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Same units.", "text": "A cell divides every 90 minutes. 24 hours = 24 × 60 = 1440 minutes." },
-            { "lead": "Divisions.", "text": "1440 ÷ 90 = 16 divisions." },
-            { "lead": "Cells.", "text": "After 4 divisions there are 2⁴ = 16 cells. After 16 divisions there are 2¹⁶ = 65 536 cells." }
+            {
+              "lead": "Same units.",
+              "text": "A cell divides every 90 minutes. 24 hours = 24 × 60 = 1440 minutes."
+            },
+            {
+              "lead": "Divisions.",
+              "text": "1440 ÷ 90 = 16 divisions."
+            },
+            {
+              "lead": "Cells.",
+              "text": "After 4 divisions there are 2⁴ = 16 cells. After 16 divisions there are 2¹⁶ = 65 536 cells."
+            }
           ]
         },
-        { "type": "paragraph", "text": "Meiosis is a different division that makes gametes. It is covered separately." },
+        {
+          "type": "paragraph",
+          "text": "Meiosis is a different division that makes gametes. It is covered separately."
+        },
         {
           "type": "key-points",
           "items": [
@@ -146,33 +197,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 1.6", "AQA 1.7", "AQA T 4.1.2.1", "AQA T 4.1.2.2"],
-      "exam_phrases": [
-        "DNA replicates / two copies of each chromosome form",
-        "cell grows / increase in number of sub-cellular structures",
-        "one set of chromosomes is pulled to each end of the cell",
-        "the nucleus divides",
-        "cytoplasm and cell membrane divide to form two cells",
-        "genetically identical cells",
-        "mitosis is for growth and repair"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Before the cell divides, the DNA reproduces.",
-          "right": "Write that the DNA replicates, or is copied or duplicated. \"DNA reproduces\" is not accepted."
-        },
-        {
-          "wrong": "Before a cell divides, the nucleus grows and increases in number.",
-          "right": "The nucleus is not accepted here. Write that the cell grows and that the number of sub-cellular structures such as mitochondria and ribosomes increases."
-        },
-        {
-          "wrong": "Half the chromosomes move to each end of the cell.",
-          "right": "This is ignored. Write that one set of chromosomes, or one of each chromosome, is pulled to each end of the cell."
-        },
-        {
-          "wrong": "Describing the three stages without saying which stage is which, or in the wrong order.",
-          "right": "Give the stages in order, labelled stage 1, 2 and 3. Without the stage numbers the maximum is 4 of 5 marks, and out of order the maximum is 3 of 4."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "7f71d009-81eb-463d-a33c-a9086f84e983",
         "source": "AQA jun 2022, Paper 1 (H), Q04.4",
@@ -189,29 +213,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 2.1", "EDEX 2.2", "EDEX 2.3"],
-      "exam_phrases": [
-        "DNA is replicated in interphase",
-        "chromosomes condense / chromatids are joined",
-        "nuclear membrane breaks down",
-        "mitosis produces two genetically identical diploid cells",
-        "same number of chromosomes as the parent cell",
-        "cytokinesis",
-        "growth, repair and asexual reproduction"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The root tip is used because it is where the plant takes in water.",
-          "right": "The root tip is used because it contains meristem (dividing) cells, which are growing. Do not write meiosis."
-        },
-        {
-          "wrong": "Mitosis makes four cells with 23 chromosomes.",
-          "right": "That is meiosis. Mitosis makes two cells with 46 chromosomes, or 23 pairs. A bare \"23\" is not enough, so write \"23 pairs\"."
-        },
-        {
-          "wrong": "Take care when heating the hydrochloric acid.",
-          "right": "This is too vague to score. Give a precaution that scores: wear goggles, avoid contact with the acid or wear gloves, use a water bath, or do not boil the acid."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "bd288192-e30c-4cdd-b96f-7f7ec79ed505",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q7(b)",
@@ -229,21 +230,39 @@
         {
           "heading": "The stages of mitosis",
           "blocks": [
-            { "type": "paragraph", "text": "Edexcel names each phase. Interphase comes first, then four phases of mitosis, then cytokinesis." },
+            {
+              "type": "paragraph",
+              "text": "Edexcel names each phase. Interphase comes first, then four phases of mitosis, then cytokinesis."
+            },
             {
               "type": "definitions",
               "items": [
-                { "term": "Interphase", "meaning": "The long period before mitosis, when the cell grows and its DNA is replicated." },
-                { "term": "Chromatid", "meaning": "One of the two identical copies that make up a replicated chromosome." },
-                { "term": "Cytokinesis", "meaning": "The division of the cytoplasm and cell membrane." }
+                {
+                  "term": "Interphase",
+                  "meaning": "The long period before mitosis, when the cell grows and its DNA is replicated."
+                },
+                {
+                  "term": "Chromatid",
+                  "meaning": "One of the two identical copies that make up a replicated chromosome."
+                },
+                {
+                  "term": "Cytokinesis",
+                  "meaning": "The division of the cytoplasm and cell membrane."
+                }
               ]
             },
             {
               "type": "table",
               "columns": ["Phase", "What happens"],
               "rows": [
-                ["Interphase", "The cell grows and makes new proteins and sub-cellular structures. The DNA is replicated."],
-                ["Prophase", "The chromosomes condense and become visible. Each is two identical chromatids joined together. The nuclear membrane breaks down and spindle fibres form."],
+                [
+                  "Interphase",
+                  "The cell grows and makes new proteins and sub-cellular structures. The DNA is replicated."
+                ],
+                [
+                  "Prophase",
+                  "The chromosomes condense and become visible. Each is two identical chromatids joined together. The nuclear membrane breaks down and spindle fibres form."
+                ],
                 ["Metaphase", "The chromosomes line up across the middle (equator) of the cell."],
                 ["Anaphase", "The chromatids are pulled apart to opposite ends of the cell."],
                 ["Telophase", "A nuclear membrane forms around each set of chromosomes."],
@@ -255,14 +274,29 @@
         {
           "heading": "Seeing mitosis in a root tip",
           "blocks": [
-            { "type": "paragraph", "text": "Mitosis can be seen in a growing root tip, because the tip contains dividing meristem cells." },
+            {
+              "type": "paragraph",
+              "text": "Mitosis can be seen in a growing root tip, because the tip contains dividing meristem cells."
+            },
             {
               "type": "steps",
               "items": [
-                { "lead": "Cut.", "text": "Cut off the tip of a root." },
-                { "lead": "Soften.", "text": "Warm the tip in acid." },
-                { "lead": "Crush.", "text": "Crush it flat on a slide." },
-                { "lead": "Stain.", "text": "Add a stain and a drop of water, then a cover slip." }
+                {
+                  "lead": "Cut.",
+                  "text": "Cut off the tip of a root."
+                },
+                {
+                  "lead": "Soften.",
+                  "text": "Warm the tip in acid."
+                },
+                {
+                  "lead": "Crush.",
+                  "text": "Crush it flat on a slide."
+                },
+                {
+                  "lead": "Stain.",
+                  "text": "Add a stain and a drop of water, then a cover slip."
+                }
               ]
             },
             {
@@ -274,8 +308,14 @@
             {
               "type": "steps",
               "items": [
-                { "lead": "Count.", "text": "45 of 89 cells are in mitosis." },
-                { "lead": "Calculate.", "text": "45 ÷ 89 × 100 = 50.6." }
+                {
+                  "lead": "Count.",
+                  "text": "45 of 89 cells are in mitosis."
+                },
+                {
+                  "lead": "Calculate.",
+                  "text": "45 ÷ 89 × 100 = 50.6."
+                }
               ]
             }
           ]
@@ -284,28 +324,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 2.1b"],
-      "exam_phrases": [
-        "DNA replicates / DNA synthesis",
-        "chromosomes separate",
-        "cells divide into two new cells",
-        "movement of chromosomes / mitosis",
-        "meristem cells divide by mitosis",
-        "cells grow"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Stems grow because the cells divide by meiosis.",
-          "right": "Stems grow because meristem cells divide by mitosis. Meiosis is not accepted."
-        },
-        {
-          "wrong": "Slowing the cell cycle stops cells dividing uncontrollably.",
-          "right": "This is ignored. Write that it slows cell division, so cells are less likely to divide uncontrollably and tumours are prevented."
-        },
-        {
-          "wrong": "The DNA is synthesised in the M phase.",
-          "right": "DNA replication happens in the S phase. The M phase is the movement of chromosomes, which is mitosis."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "b14a9a16-7d66-4a52-9fc3-f9e6ea78f8d0",
         "source": "OCR jun 2019, Paper 1, Q19(d)",
@@ -324,7 +342,10 @@
         {
           "heading": "The cell cycle in OCR terms",
           "blocks": [
-            { "type": "paragraph", "text": "OCR labels the cell cycle with four letters." },
+            {
+              "type": "paragraph",
+              "text": "OCR labels the cell cycle with four letters."
+            },
             {
               "type": "table",
               "columns": ["Stage", "What happens"],
@@ -345,12 +366,85 @@
           ]
         }
       ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.1.5",
+        "CAIE 17.1.12S",
+        "CAIE 17.2.1S",
+        "CAIE 17.2.2S",
+        "CAIE 17.2.3S",
+        "CAIE 17.2.4S",
+        "CAIE 17.1.1",
+        "CAIE 17.1.11S"
+      ],
+      "worked_example": {
+        "exemplar_id": "f1e4be00-3214-474d-8bb2-3f091d4ebeb8",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q3(d)",
+        "question": "Describe mitosis and its roles in organisms.",
+        "marks": 4,
+        "answer_points": [
+          "Mitosis is nuclear division.",
+          "It produces genetically identical cells.",
+          "The copies of the replicated chromosomes separate.",
+          "The chromosome number is maintained in each daughter cell.",
+          "Roles (two named): growth, repair of damaged tissues, replacement of cells, asexual reproduction."
+        ],
+        "tip": "Four marks come from any four of these points, and the roles need to be named."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) A **diploid** nucleus contains two sets of chromosomes, one set from each parent.",
+                "(Supplement) Mitosis also replaces cells, for example cells lost from the skin."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.28", "IGCSE 3.29", "IGCSE 3.15", "IGCSE 3.32"],
+      "worked_example": {
+        "exemplar_id": "5a52a683-60ac-4c70-9650-c78e4425fee2",
+        "source": "EDEXCEL nov 2020, Paper 1 (B), Q8(b)",
+        "question": "The table lists features comparing the processes of meiosis and mitosis in human cells.\nComplete the table by giving the missing information.\nFeature | Meiosis | Mitosis\nnumber of chromosomes in each original cell | 46 | ______\nnumber of daughter cells produced from each original cell | ______ | 2\nnumber of chromosomes in each daughter cell | ______ | ______\nploidy level of daughter cells produced | ______ | diploid\ngenetic differences in daughter cells | present | ______\ntype of cell produced | ______ | body cell",
+        "marks": 6,
+        "answer_points": [
+          "Mitosis, original cell: 46 chromosomes.",
+          "Meiosis, daughter cells produced: 4.",
+          "Chromosomes in each daughter cell: meiosis 23, mitosis 46.",
+          "Ploidy level of meiosis daughter cells: haploid.",
+          "Genetic differences in mitosis daughter cells: none (identical).",
+          "Type of cell produced by meiosis: gamete (sperm or egg cell)."
+        ],
+        "tip": "One mark for each row of the table."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The **haploid** number of chromosomes in a human cell is 23. The diploid number is 46.",
+                "Mitosis is also used for cloning, because it makes genetically identical cells.",
+                "Meiosis is different. One cell with 46 chromosomes makes four haploid cells, each with 23 chromosomes. They are genetically different gametes (sex cells)."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -361,12 +455,22 @@
       "a0d1dcdf-1ee2-4ffc-864d-5142b408d2fa",
       "3abb7067-bb34-414c-96a3-986fcee62d91",
       "876e9400-2083-4d5a-8625-3e8f4839b608",
-      "34aebdc3-ae72-41bc-a415-7f4ffedd65e3"
+      "34aebdc3-ae72-41bc-a415-7f4ffedd65e3",
+      "fabdd6f7-ae13-426b-b1d6-269a832d9b36",
+      "d8526ae3-6edb-4e6b-83a6-8c66bbda1eba",
+      "2f4e30f6-19d1-43d0-89e5-75d59ab943c5",
+      "a90453dc-00b1-4cf2-9ec3-09bf3b498903",
+      "d821d4f7-1077-4e90-b6da-310d9fd76bcf",
+      "dc9a5c61-75d4-4f8b-b2f7-67921e0b4488",
+      "250b363f-3bcd-4eac-8dcc-160dea8a6d82",
+      "4607fcc9-ec2d-4a5c-af2d-ce9d76acb37b"
     ],
     "exemplar_ids": [
       "7f71d009-81eb-463d-a33c-a9086f84e983",
       "bd288192-e30c-4cdd-b96f-7f7ec79ed505",
-      "b14a9a16-7d66-4a52-9fc3-f9e6ea78f8d0"
+      "b14a9a16-7d66-4a52-9fc3-f9e6ea78f8d0",
+      "f1e4be00-3214-474d-8bb2-3f091d4ebeb8",
+      "5a52a683-60ac-4c70-9650-c78e4425fee2"
     ]
   }
 }

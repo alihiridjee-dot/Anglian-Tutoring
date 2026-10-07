@@ -1,0 +1,476 @@
+{
+  "format": 1,
+  "concept_id": "phys-053",
+  "subject": "physics",
+  "title": "Speed, velocity and distance–time graphs",
+  "key_idea": "Speed is how fast something moves and has no direction. Velocity is speed in a given direction. Average speed is distance divided by time. The gradient of a distance–time graph is the speed.",
+  "sections": [
+    {
+      "heading": "Distance, displacement, speed and velocity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers four quantities that describe motion and which of them have a direction."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Distance",
+              "meaning": "How far an object moves. It has no direction, so it is a scalar."
+            },
+            {
+              "term": "Displacement",
+              "meaning": "The distance in a straight line from the start to the finish, with its direction. It is a vector."
+            },
+            {
+              "term": "Speed",
+              "meaning": "How fast an object moves. It has no direction, so it is a scalar."
+            },
+            {
+              "term": "Velocity",
+              "meaning": "The speed of an object in a given direction. It is a vector."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Two cars can have the same speed but different velocities if they move in different directions.",
+            "If the road bends, the direction changes, so the velocity changes.",
+            "The speed of a moving object is rarely constant, so we often use the average speed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Distance and speed are scalars. Displacement and velocity are vectors.",
+            "Velocity is speed in a given direction."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating speed",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the equation linking speed, distance and time."
+        },
+        {
+          "type": "equation",
+          "label": "Speed",
+          "formula": "v = s ÷ t",
+          "where": [
+            "v is the (average) speed in metres per second (m/s).",
+            "s is the distance travelled in metres (m).",
+            "t is the time taken in seconds (s)."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "For an object moving at constant speed, rearrange to find the distance travelled in a given time."
+        },
+        {
+          "type": "equation",
+          "label": "Distance travelled",
+          "formula": "s = v × t",
+          "where": [
+            "s is the distance travelled in metres (m).",
+            "v is the speed in metres per second (m/s).",
+            "t is the time in seconds (s)."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "For motion that is not uniform, the average speed is the total distance divided by the total time.",
+            "Convert all quantities to metres and seconds before you substitute.",
+            "To find a time, rearrange the equation as shown below."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Time taken",
+          "formula": "t = s ÷ v",
+          "where": [
+            "t is the time taken in seconds (s).",
+            "s is the distance travelled in metres (m).",
+            "v is the speed in metres per second (m/s)."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the equation.",
+              "text": "v = s ÷ t"
+            },
+            {
+              "lead": "Substitute.",
+              "text": "A cyclist travels 1200 m in 80 s: v = 1200 ÷ 80"
+            },
+            {
+              "lead": "Evaluate.",
+              "text": "v = 15 m/s"
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the average speed from a distance and a time.",
+            "question": "A cyclist travels {d} m in {t} s. Calculate the average speed of the cyclist.",
+            "variables": [
+              {
+                "id": "d",
+                "min": 300,
+                "max": 800,
+                "step": 100
+              },
+              {
+                "id": "t",
+                "min": 60,
+                "max": 120,
+                "step": 10
+              }
+            ],
+            "answer": {
+              "formula": "d / t",
+              "unit": "m/s",
+              "decimals": 2
+            },
+            "working": ["v = s ÷ t", "v = {d} ÷ {t}", "v = {answer} m/s"]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the speed and the time to see the distance travelled at constant speed.",
+            "inputs": [
+              {
+                "id": "v",
+                "label": "Type of movement",
+                "choices": [
+                  {
+                    "label": "Walking (about 1.5 m/s)",
+                    "value": 1.5
+                  },
+                  {
+                    "label": "Running (about 3 m/s)",
+                    "value": 3
+                  },
+                  {
+                    "label": "Cycling (about 6 m/s)",
+                    "value": 6
+                  }
+                ]
+              },
+              {
+                "id": "t",
+                "label": "Time",
+                "unit": "s",
+                "min": 20,
+                "max": 600,
+                "step": 20,
+                "value": 60
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Distance travelled",
+                "unit": "m",
+                "formula": "v * t",
+                "decimals": 0,
+                "bar": true
+              },
+              {
+                "label": "Distance travelled",
+                "unit": "km",
+                "formula": "v * t / 1000",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Speed is distance divided by time, and distance is speed multiplied by time.",
+            "Average speed is total distance divided by total time."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring speed in the laboratory",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how to measure the speed of an object such as a trolley, a toy car or a ripple."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Measure a distance.",
+              "text": "Use a metre rule or marks a set distance apart."
+            },
+            {
+              "lead": "Measure a time.",
+              "text": "Start a stopwatch at the first mark and stop it at the second. Or use a light gate to record the time."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "Divide the distance by the time."
+            },
+            {
+              "lead": "Improve the result.",
+              "text": "Repeat the measurement and calculate an average."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A light gate uses a beam of light and records the time it is interrupted.",
+            "To find the speed at the bottom of a slope, measure over a short distance at the bottom.",
+            "Timing the whole slope gives the average speed down the slope, not the speed at the bottom.",
+            "Record readings to a consistent number of decimal places."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure a distance and a time, then divide the distance by the time.",
+            "Repeat and average to improve the result."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Distance–time graphs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how to read speed from a distance–time graph."
+        },
+        {
+          "type": "table",
+          "columns": ["What the line does", "What it shows"],
+          "rows": [
+            ["Horizontal line", "The distance does not change, so the object is stationary."],
+            ["Straight sloping line", "A constant speed."],
+            ["Steeper straight line", "A higher speed."],
+            ["Curved line, getting steeper", "The speed is increasing."],
+            ["Curved line, getting less steep", "The speed is decreasing."]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The speed of an object is the gradient of its distance–time graph.",
+            "To find the gradient, divide the change in distance by the change in time.",
+            "Read the distance and time from the axes and keep the units in metres and seconds.",
+            "(AQA: Higher tier) For a curve, the speed at a time is the gradient of a tangent drawn at that time."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Speed is the gradient of a distance–time graph.",
+            "A horizontal line means stationary. A steeper line means a faster speed."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "The winner of a marathon runs 42 000 m in 5600 s. Calculate the average speed.",
+      "a": "v = 42 000 ÷ 5600 = 7.5 m/s.",
+      "marks": 3
+    },
+    {
+      "q": "State the difference between speed and velocity.",
+      "a": "Speed has magnitude only and is a scalar. Velocity is speed in a given direction and is a vector.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how you could find the average speed of a ball bearing falling through a liquid.",
+      "a": "Measure a distance with a ruler and the time to fall that distance with a stop clock. Use speed = distance ÷ time. Repeat and average.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.5.6.1", "AQA T 6.5.4.1"],
+      "worked_example": {
+        "exemplar_id": "a0bb04a4-c228-4094-ac54-e15be9995c4f",
+        "source": "AQA jun 2021, Paper 2 (F), Q07.7",
+        "question": "A conveyor belt moves a can at a speed of 1.7 m/s. Calculate the time taken to move the can 3.3 m at this speed. Give your answer to 2 significant figures.",
+        "marks": 4,
+        "answer_points": ["3.3 = 1.7 × t", "t = 3.3 ÷ 1.7", "t = 1.941 s", "t = 1.9 s"],
+        "tip": "The last mark is for rounding to 2 significant figures. A correctly rounded answer from a wrongly used value of the data can still score it."
+      },
+      "extra": [
+        {
+          "heading": "Typical speeds and circular motion",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Typical values are walking about 1.5 m/s, running about 3 m/s and cycling about 6 m/s.",
+                "A typical value for the speed of sound in air is 330 m/s.",
+                "The speed a person can walk, run or cycle depends on age, terrain, fitness and distance travelled.",
+                "(AQA: Higher tier) Motion in a circle has constant speed but changing velocity, because the direction keeps changing."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 2.6", "EDEX 2.7", "EDEX 2.11"],
+      "worked_example": {
+        "exemplar_id": "2e9c8e5c-5026-4b3e-9bc9-2ff5836efdeb",
+        "source": "EDEXCEL jun 2018, Paper 1 (F), Q4(c)",
+        "question": "A skier goes down a hill. Describe how her speed at the bottom of the slope could be determined.",
+        "marks": 3,
+        "answer_points": [
+          "Measure a distance at the bottom, or use markers a certain distance apart.",
+          "Start a timer at the first marker.",
+          "Stop the timer at the second marker.",
+          "Use speed = distance ÷ time."
+        ],
+        "tip": "Any three points score. Using a light gate, not over the whole slope, is also accepted."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P2.1a", "OCR P2.1b", "OCR P2.1g"],
+      "worked_example": {
+        "exemplar_id": "d5e394a6-b6dc-4a80-b581-26756a1418fd",
+        "source": "OCR jun 2025, Paper 2, Q22(b)(ii)",
+        "question": "A student drops a rock into a pond from a height of 1.5 m. The rock makes ripples. Describe how the student uses a metre ruler and a stop clock to determine the speed of the ripples.",
+        "marks": 3,
+        "answer_points": [
+          "Use the metre ruler to measure a set distance the ripple travels.",
+          "Use the stop clock to measure the time for a ripple to travel the set distance.",
+          "Speed = distance travelled ÷ time taken."
+        ],
+        "tip": "Measuring the distance a ripple travels in a set time, or the time it takes to travel a set distance, scores 2 marks. There is a second method using wavelength × frequency."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.2.1",
+        "CAIE 1.2.2",
+        "CAIE 1.2.3",
+        "CAIE 1.2.4",
+        "CAIE 1.2.5",
+        "CAIE 1.2.6",
+        "CAIE 1.1.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "f97cac24-3749-4a86-8c88-d498ad23c6a5",
+        "source": "CAMBRIDGE jun 2023, Paper 41, Q1(a)(ii)",
+        "question": "A river flows at a speed of 0.54 m/s. A swimmer starts at point P and swims at a constant speed of 0.72 m/s relative to the water and at right angles to the current. After 1.5 minutes, the swimmer reaches point Q.\n\nCalculate the distance between P and Q.",
+        "marks": 3,
+        "answer_points": [
+          "The time is 1.5 × 60 = 90 s.",
+          "The two speeds are at right angles, so the speed over the ground is √(0.54² + 0.72²) = 0.90 m/s.",
+          "distance = speed × time = 0.90 × 90",
+          "distance = 81 m"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Measuring small distances and short times",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A single small distance or a short time is hard to measure accurately, so measure many of them together."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Time 20 swings of a pendulum and divide by 20 to find the period of one swing.",
+                "Measure the thickness of a stack of identical sheets and divide by the number of sheets.",
+                "Dividing by the number of repeats shares the timing error across all of them."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Speed–time graphs",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A horizontal line on a speed–time graph is a constant speed.",
+                "A line sloping up means the object is accelerating. A line sloping down means it is decelerating.",
+                "A line along the time axis, at zero speed, means the object is at rest."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.3", "IGCSE 1.4", "IGCSE 1.5"],
+      "worked_example": {
+        "exemplar_id": "a3ad4156-ba58-4e45-9bab-83a08bc170a1",
+        "source": "EDEXCEL jun 2022, Paper 1 (P), Q3(b)(iii)",
+        "question": "An ultrasonic device sends a pulse of sound to a wall and receives the reflection. The sound travels at 345 m/s. The distance from the device to the wall is 2.35 m.\n\nCalculate the time between the sound wave being emitted and received by the device.",
+        "marks": 4,
+        "answer_points": [
+          "speed = distance ÷ time",
+          "The sound travels to the wall and back, so the distance is doubled: 2 × 2.35 = 4.70 m",
+          "345 = 4.70 ÷ time",
+          "time = 0.0136 s"
+        ]
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "e168775c-87b7-4c03-a4be-2430ba23030b",
+      "d4a9de4a-a77e-4ee9-b0b9-999936a1910a",
+      "956e8bff-8b3d-46a5-9d56-babf9c904f99",
+      "5906de17-3400-453d-a2fe-75268853d3cd",
+      "eafa057d-510b-486a-86cc-784dcb5c56a2",
+      "39e0ce82-0bc0-4e5e-b221-407813efc22d",
+      "5c1ce0c3-2614-440a-ad55-9572a424dbf2",
+      "1ede54e7-a92b-42c3-bad6-b8ae95b58ae6",
+      "6e7d7fe1-42d2-4cff-aed8-b3266d42e52b",
+      "63bfa699-70f7-4d06-9bc9-7c87231b59c9",
+      "20f94103-e97f-4307-9c0c-3ed8a5bb6732",
+      "b213d72b-3083-4f87-bc3e-ff162346a3c7",
+      "5209a828-de2d-4a61-bd3a-7e15c12e380d",
+      "ecc594bb-3dc0-4a4d-8def-77a276492ce4",
+      "d2d90b28-6a57-468e-93f9-539b50552ba6",
+      "cdab1694-96d2-4028-8a83-25ba82ef55f1",
+      "a8c20bb7-d49b-458c-a76a-4bfc1cf7ae11"
+    ],
+    "exemplar_ids": [
+      "aee38b70-88e7-4d7f-8325-547e3a632a31",
+      "c5d45cb4-eca3-45c8-8c9d-c0807ff2434e",
+      "a0bb04a4-c228-4094-ac54-e15be9995c4f",
+      "2e9c8e5c-5026-4b3e-9bc9-2ff5836efdeb",
+      "3fc87c9b-1ec3-49cb-925a-354f4c826982",
+      "262a8b01-428c-43b8-97c5-269c404f834c",
+      "13413b6a-45c1-4efc-8979-1893dab97618",
+      "d5e394a6-b6dc-4a80-b581-26756a1418fd",
+      "3d9aa9a8-534c-49c7-aa23-9e4d4959f9af",
+      "f97cac24-3749-4a86-8c88-d498ad23c6a5",
+      "a3ad4156-ba58-4e45-9bab-83a08bc170a1"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

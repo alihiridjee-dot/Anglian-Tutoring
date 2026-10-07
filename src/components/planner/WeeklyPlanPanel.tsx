@@ -1,9 +1,9 @@
 import { WeekBreakdown } from "./WeekBreakdown";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
-import { ErrorNote } from "@/components/Shared";
+import { ErrorNote, EmptyState as KitEmptyState } from "@/components/Shared";
 import { useMemo } from "react";
 import { toast } from "sonner";
-import { Sparkles, CalendarRange, ChevronLeft, ChevronRight, Undo2 } from "lucide-react";
+import { CalendarRange, ChevronLeft, ChevronRight, Undo2 } from "lucide-react";
 import { WeeklyPlanDAL, type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import { type Enrolment } from "@/lib/profile/enrolment";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
@@ -13,10 +13,10 @@ import { ThisWeekPanel } from "./ThisWeekPanel";
 import { DoNowPanel } from "./DoNowPanel";
 import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
-import { WeekReview } from "./WeekReview";
 import { PausedWeek } from "./PausedWeek";
 import { BreakWeek } from "./BreakWeek";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
+import { useNow } from "@/hooks/useNow";
 import { useEntryState } from "@/hooks/useEntryState";
 
 /**
@@ -51,8 +51,12 @@ export function WeeklyPlanPanel({
   // 0 = this week, -1 = last week, +1 = next week… Kept with the visit, so
   // Back from a task opened in another week comes back to that week.
   const [weekOffset, setWeekOffset] = useEntryState("dashboard.week", 0);
-  const weekStart = toDateKey(addWeeks(mondayOf(), weekOffset));
-  const weekLabel = weekRangeLabel(addWeeks(mondayOf(), weekOffset));
+  // Re-read each minute, so a tab left open over Sunday midnight moves on to
+  // the new week instead of ticking and planning into the one that has ended.
+  const now = useNow(60_000);
+  const monday = mondayOf(new Date(now));
+  const weekStart = toDateKey(addWeeks(monday, weekOffset));
+  const weekLabel = weekRangeLabel(addWeeks(monday, weekOffset));
   const isCurrent = weekOffset === 0;
   const isPast = weekOffset < 0;
   const isFuture = weekOffset > 0;
@@ -75,6 +79,13 @@ export function WeeklyPlanPanel({
   // A paused subject's week is frozen: shown as paused, with nothing to press.
   // So is a week the student is on a break for.
   const frozen = !!week.pause && !isPast;
+  // The arrows stop at the plan's edges: before the programme there is nothing
+  // to show, and nothing is ever planned at or after the exam date. Forty taps
+  // used to land a student in the July after their exams, told to wait for a
+  // review that could never come.
+  const nextStart = toDateKey(addWeeks(monday, weekOffset + 1));
+  const atExam = !!week.roadmap && nextStart >= week.roadmap.examDate;
+  const atStart = !!week.roadmap && weekStart <= week.roadmap.programStart;
   const resting = !frozen && !!week.onBreak && !isPast;
 
   // Pull a past-week point back into this week's plan, in the lane it was in —
@@ -86,9 +97,15 @@ export function WeeklyPlanPanel({
     try {
       const cur = await WeeklyPlanDAL.getPlan(studentId, active.subject as SubjectV, curStart);
       if (cur) {
-        await WeeklyPlanDAL.addPoints(cur.plan.id, [point.spec_point_id], origin, {
+        const added = await WeeklyPlanDAL.addPoints(cur.plan.id, [point.spec_point_id], origin, {
           carriedFrom: weekStart,
         });
+        // Zero means the planner's rules kept it out — a review with nothing
+        // assessed behind it, say. Saying "added" then would be a lie.
+        if (added === 0) {
+          toast.error(`“${point.code}” can't go back into this week right now.`);
+          return;
+        }
       } else {
         await WeeklyPlanDAL.savePlan({
           subject: active.subject as SubjectV,
@@ -151,7 +168,8 @@ export function WeeklyPlanPanel({
               <button
                 type="button"
                 onClick={() => setWeekOffset((w) => w - 1)}
-                className="size-11 sm:pointer-fine:size-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+                disabled={atStart}
+                className="size-11 sm:pointer-fine:size-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed"
                 aria-label="Previous week"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -159,7 +177,8 @@ export function WeeklyPlanPanel({
               <button
                 type="button"
                 onClick={() => setWeekOffset((w) => w + 1)}
-                className="size-11 sm:pointer-fine:size-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+                disabled={atExam}
+                className="size-11 sm:pointer-fine:size-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed"
                 aria-label="Next week"
               >
                 <ChevronRight className="w-4 h-4" />
@@ -169,7 +188,7 @@ export function WeeklyPlanPanel({
         </div>
 
         {frozen && week.pause ? (
-          <PausedWeek subject={active.subject} pause={week.pause} />
+          <PausedWeek subject={active.subject} pause={week.pause} canManage />
         ) : resting && week.onBreak ? (
           <BreakWeek brk={week.onBreak} />
         ) : !week.loading && week.points.length === 0 && !week.roadmap ? (
@@ -201,8 +220,8 @@ export function WeeklyPlanPanel({
         <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
       )}
 
-      {/* The week as a checklist, between the plan and the review: the panel above
-          says what this week is and why, this one says what to press. */}
+      {/* The week as a checklist, under the plan: the panel above says what this
+          week is and why, this one says what to press. */}
       {!frozen && !resting && (
         <DoNowPanel
           points={week.points}
@@ -215,47 +234,26 @@ export function WeeklyPlanPanel({
           }}
         />
       )}
-
-      {/* The student's own read on the week — its own box, not a footnote to the plan. */}
-      {showReview && week.plan && active && (
-        <div className="mb-6">
-          <WeekReview
-            studentId={studentId}
-            plan={week.plan}
-            points={week.points}
-            coverage={week.coverage}
-            activity={week.activity}
-            subject={active.subject as SubjectV}
-            board={active.board as BoardV}
-            level={level}
-            weekStart={weekStart}
-            onChanged={week.reload}
-          />
-        </div>
-      )}
     </>
   );
 }
 
 /**
  * Shown when the week has nothing and the programme has nothing to give it —
- * which means the student hasn't rated anything yet, so it points them at the
- * board. There is no button: the week is the course's to fill, not theirs.
+ * no curriculum came back for this course. The old copy told the student to
+ * "sort a few topics", a flow that no longer exists, so the one thing they
+ * can actually check — their subject and board — is what it points at now.
  */
 function EmptyState({ future }: { future: boolean }) {
   return (
-    <div className="rounded-xl border border-dashed border-border p-6 text-center">
-      <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-3">
-        <Sparkles className="w-5 h-5" />
-      </div>
-      <p className="text-sm font-medium mb-1">
-        {future ? "Nothing planned for this week yet" : "No plan for this week yet"}
-      </p>
-      <p className="text-xs text-muted-foreground max-w-sm mx-auto">
-        {future
-          ? "This week fills itself from your programme when it comes round."
-          : "Sort a few topics on your planner and your week builds itself from them — weakest first, spread out to the exam."}
-      </p>
-    </div>
+    <KitEmptyState
+      title={future ? "Nothing planned for this week yet" : "No plan for this week yet"}
+      body={
+        future
+          ? "This week fills itself from your course plan when it comes round."
+          : "Your week builds itself from your course plan. If nothing appears, check your subject and exam board are right."
+      }
+      action={future ? undefined : { to: "/billing", label: "Check my subjects" }}
+    />
   );
 }

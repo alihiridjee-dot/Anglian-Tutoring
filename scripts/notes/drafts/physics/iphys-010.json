@@ -1,0 +1,266 @@
+{
+  "format": 1,
+  "concept_id": "iphys-010",
+  "subject": "physics",
+  "title": "Sound: pitch, loudness and speed",
+  "key_idea": "Sound is made by vibrating sources and needs a medium to travel through. A higher frequency gives a higher pitch, and a larger amplitude gives a louder sound. (Supplement) Sound travels fastest in solids and slowest in gases.",
+  "sections": [
+    {
+      "heading": "Making and travelling",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every sound starts with something vibrating. This section covers how sound is made and what it needs in order to travel."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A vibrating object, such as a guitar string, a drum skin or a loudspeaker cone, makes the air next to it vibrate.",
+            "The vibrations travel through the air as a sound wave and reach your ear.",
+            "Sound is a longitudinal wave, made of compressions and rarefactions."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Medium",
+              "meaning": "The material a wave travels through, such as air, water or steel."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sound needs a **medium**, because its vibrations are passed on from particle to particle.",
+            "There is no medium in a vacuum, so sound cannot travel through it.",
+            "This is why we can see light from the Sun but cannot hear any sound from it."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sound is produced by vibrating sources.",
+            "Sound needs a medium, so it cannot travel through a vacuum."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Pitch and loudness",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two properties of the wave decide how a sound seems to the listener: its frequency and its amplitude."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Frequency",
+              "meaning": "The number of vibrations each second, measured in hertz (Hz)."
+            },
+            {
+              "term": "Amplitude",
+              "meaning": "The maximum displacement of the vibrating particles from their rest position."
+            },
+            {
+              "term": "Pitch",
+              "meaning": "How high or low a sound is. It depends on the frequency of the source."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A higher frequency of vibration gives a **higher pitch**.",
+            "A lower frequency gives a lower pitch.",
+            "A larger amplitude of vibration gives a **louder** sound.",
+            "A smaller amplitude gives a quieter sound."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing a wave. Changing the amplitude changes its height, which is the loudness. Changing the frequency changes how close together the waves are, which is the pitch.",
+            "inputs": [
+              {
+                "id": "amp",
+                "label": "Amplitude (loudness)",
+                "min": 1,
+                "max": 5,
+                "step": 0.5,
+                "value": 2
+              },
+              {
+                "id": "freq",
+                "label": "Frequency (pitch)",
+                "unit": "Hz",
+                "min": 100,
+                "max": 1000,
+                "step": 50,
+                "value": 400
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Time for one vibration",
+                "unit": "ms",
+                "formula": "1000 / freq",
+                "decimals": 1
+              }
+            ],
+            "scene": {
+              "kind": "wave",
+              "amplitude": "amp",
+              "frequency": "freq"
+            }
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Higher frequency means higher pitch.",
+            "Larger amplitude means louder sound.",
+            "Changing the loudness does not change the pitch."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The speed of sound",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Sound travels at different speeds in different materials. Its speed depends on how close together the particles are."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of how sound travels in a solid, a liquid and a gas.",
+            "items": [
+              "Solid",
+              "Liquid",
+              "Gas"
+            ],
+            "rows": [
+              {
+                "feature": "Particles",
+                "values": [
+                  "Very close together",
+                  "Close together",
+                  "Far apart"
+                ]
+              },
+              {
+                "feature": "Speed of sound",
+                "values": [
+                  "Fastest",
+                  "Slower than in a solid",
+                  "Slowest"
+                ]
+              },
+              {
+                "feature": "Example",
+                "values": [
+                  "Steel, about 5000 m/s",
+                  "Water, about 1500 m/s",
+                  "Air, about 330 m/s"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) In general, sound travels faster in solids than in liquids, and faster in liquids than in gases.",
+            "(Supplement) Vibrations pass between particles more quickly when the particles are closer together."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Supplement) Sound is fastest in solids, then liquids, then gases.",
+            "(Supplement) Sound travels faster where the particles are closer together."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State why sound cannot travel through a vacuum.",
+      "a": "Sound needs a medium to travel through. A vacuum has no particles to pass on the vibrations.",
+      "marks": 1
+    },
+    {
+      "q": "A sound becomes louder and lower in pitch. State what happens to its amplitude and its frequency.",
+      "a": "The amplitude increases and the frequency decreases.",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) Compare the speed of sound in steel with the speed in air.",
+      "a": "It is much faster in steel, because sound travels faster in solids than in gases.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 3.4.1",
+        "CAIE 3.4.4",
+        "CAIE 3.4.7",
+        "CAIE 3.4.11S"
+      ],
+      "worked_example": {
+        "exemplar_id": "da10d2a2-00e7-48ea-ae0b-c7cb0cb401f4",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q6(a)(iii)",
+        "question": "A sound wave travels through air. The sound becomes louder and of lower pitch. State what happens to the amplitude of the sound and to the frequency of the sound.",
+        "marks": 1,
+        "answer_points": [
+          "The amplitude increases.",
+          "The frequency decreases."
+        ],
+        "tip": "Both changes are needed for the mark."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.28P",
+        "IGCSE 3.29P"
+      ],
+      "worked_example": {
+        "exemplar_id": "799d46df-2751-49f6-81a9-e705f66494b6",
+        "source": "EDEXCEL jun 2024, Paper 2 (P), Q5(a)",
+        "question": "This question is about sound. State which wave property determines the pitch of a sound.",
+        "marks": 1,
+        "answer_points": [
+          "Frequency."
+        ],
+        "tip": "Give one property only."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "43843bfe-07d7-4747-a7d9-dcfdb442905b",
+      "7a1dc6d7-b242-4ed5-876d-86b281343146",
+      "a9779c45-75e1-478e-93da-e519718fa267",
+      "3d189f35-6e96-46fa-a205-d6a00a68f79e",
+      "3693df36-0302-4a49-b44c-f780adf5ac78",
+      "ec612ed2-a212-4fa0-a5e3-44f8b951fcb2"
+    ],
+    "exemplar_ids": [
+      "da10d2a2-00e7-48ea-ae0b-c7cb0cb401f4",
+      "799d46df-2751-49f6-81a9-e705f66494b6"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

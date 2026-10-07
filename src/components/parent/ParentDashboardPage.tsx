@@ -33,6 +33,8 @@ import {
   DEMO_HOMEWORK,
   DEMO_LEVEL,
   DEMO_LIVE,
+  DEMO_MCQ_ATTEMPTS,
+  DEMO_MCQ_SETS,
   DEMO_PARENT_NAME,
   DEMO_SUBMISSIONS,
 } from "@/lib/demo/studentDemo";
@@ -59,21 +61,35 @@ const TrendsChart = lazy(() =>
 // feedback all come from the student fixtures, so the two demos agree.
 const DEMO_ANALYTICS_ROWS = DEMO_ANALYTICS;
 
+// This week's quiz average per subject, from the quizzes the student showcase
+// shows as done this week.
+const thisWeekQuizAverage = (subject: string) => {
+  const pcts = DEMO_MCQ_SETS.filter(
+    (s) => s.thisWeek && s.subject === subject && DEMO_MCQ_ATTEMPTS[s.id],
+  ).map((s) => (DEMO_MCQ_ATTEMPTS[s.id].score * 100) / DEMO_MCQ_ATTEMPTS[s.id].total);
+  return Math.round(pcts.reduce((a, b) => a + b, 0) / Math.max(pcts.length, 1));
+};
+
+// The weeks before this one are illustrative; this week is Alex's real quizzes.
 const DEMO_TRENDS: WeeklyTrendPoint[] = [
   { biology: 78, chemistry: 70, physics: 58 },
   { biology: 82, chemistry: 72, physics: 64 },
   { biology: 80, chemistry: 76, physics: 60 },
-  { biology: 86, chemistry: 78, physics: 68 },
-  { biology: 88, chemistry: 81, physics: 71 },
-  { biology: 91, chemistry: 83, physics: 76 },
+  { biology: 86, chemistry: 74, physics: 68 },
+  { biology: 88, chemistry: 78, physics: 71 },
+  {
+    biology: thisWeekQuizAverage("biology"),
+    chemistry: thisWeekQuizAverage("chemistry"),
+    physics: thisWeekQuizAverage("physics"),
+  },
 ].map((averages, i) => ({
   weekStart: `demo-${i}`,
   label: `Wk ${i + 1}`,
   averages,
 }));
 
-// Four pieces of set homework in the student demo; three are handed in and the
-// fourth isn't due yet.
+// The set tasks in the student demo (those with a due date): all handed in but
+// the I–V task, which isn't due yet.
 const DEMO_ENGAGEMENT = {
   sessionsHeld: 16,
   sessionsAttended: 15,
@@ -99,14 +115,12 @@ const DEMO_FEEDBACK = DEMO_HOMEWORK.flatMap((h) => {
 
 // The showcase child's tutor has recorded a target and a current grade for
 // each subject, a little under the predictions above so the two read together.
+// The same fixture gives Alex's own Target ring, so the two pages agree.
 const DEMO_CHILD_ENROLMENTS: ChildEnrolment[] = DEMO_ENROLMENTS.map((e) => ({
   subject: e.subject,
   board: e.board,
-  ...{
-    biology: { target_grade: "9", current_grade: "8" },
-    chemistry: { target_grade: "8", current_grade: "7" },
-    physics: { target_grade: "8", current_grade: "6" },
-  }[e.subject],
+  target_grade: e.targetGrade,
+  current_grade: e.currentGrade,
 }));
 
 // The same week the student showcase plans, so the two demos agree.

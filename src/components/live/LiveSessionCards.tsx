@@ -1,4 +1,9 @@
-import { sessionStartMs, sessionTiming, type LiveSession } from "@/lib/live/liveSessions";
+import {
+  demoJoinClick,
+  sessionStartMs,
+  sessionTiming,
+  type LiveSession,
+} from "@/lib/live/liveSessions";
 import { SessionIdentity, WhatsCovered } from "@/components/live/SessionMeta";
 import { Video, CalendarClock, Smartphone, Loader2, Trash2 } from "lucide-react";
 
@@ -77,14 +82,16 @@ export function UpcomingSessionCard({
         <WhatsCovered points={s.specPoints} />
       </div>
       <div className="flex flex-wrap items-center gap-2 shrink-0">
-        {/* WhatsApp Reminder Button */}
-        <button
-          onClick={() => onRemind(s)}
-          className="min-h-11 sm:pointer-fine:min-h-0 border border-[#25D366]/40 hover:border-[#25D366] text-[#128C7E] hover:bg-[#25D366]/5 px-3.5 py-2 rounded-lg text-sm font-semibold inline-flex items-center gap-2 transition-colors cursor-pointer"
-        >
-          <Smartphone className="w-4 h-4 text-[#25D366]" />
-          Remind on WhatsApp
-        </button>
+        {/* WhatsApp Reminder Button — a student's reminder to attend. */}
+        {!isTutor && (
+          <button
+            onClick={() => onRemind(s)}
+            className="min-h-11 sm:pointer-fine:min-h-0 border border-[#25D366]/40 hover:border-[#25D366] text-[#128C7E] hover:bg-[#25D366]/5 px-3.5 py-2 rounded-lg text-sm font-semibold inline-flex items-center gap-2 transition-colors cursor-pointer"
+          >
+            <Smartphone className="w-4 h-4 text-[#25D366]" />
+            Remind on WhatsApp
+          </button>
+        )}
 
         {/* Conditional join buttons (Zoom vs General) */}
         {s.join_url ? (
@@ -93,6 +100,7 @@ export function UpcomingSessionCard({
               href={s.join_url}
               target="_blank"
               rel="noreferrer"
+              onClick={demoJoinClick()}
               className="min-h-11 sm:pointer-fine:min-h-0 bg-[#2D8CFF] hover:bg-[#2681F2] text-white px-4 py-2 rounded-lg text-sm font-semibold inline-flex items-center gap-2 transition-colors"
             >
               <Video className="w-4 h-4" />
@@ -103,6 +111,7 @@ export function UpcomingSessionCard({
               href={s.join_url}
               target="_blank"
               rel="noreferrer"
+              onClick={demoJoinClick()}
               className="btn-solid inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-2 rounded-xl px-4 py-2 text-sm"
             >
               <Video className="size-4" aria-hidden />

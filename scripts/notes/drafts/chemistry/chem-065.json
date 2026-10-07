@@ -1,0 +1,292 @@
+{
+  "format": 1,
+  "concept_id": "chem-065",
+  "subject": "chemistry",
+  "title": "Chemical cells and batteries",
+  "key_idea": "A chemical cell uses a chemical reaction to produce a voltage. The voltage depends on the electrodes and the electrolyte. A non-rechargeable cell stops working when one reactant is used up.",
+  "sections": [
+    {
+      "heading": "How a chemical cell works",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers what a cell contains and what decides its voltage."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Chemical cell",
+              "meaning": "A device in which chemicals react to produce electricity."
+            },
+            {
+              "term": "Electrode",
+              "meaning": "A piece of metal dipped in the electrolyte."
+            },
+            {
+              "term": "Electrolyte",
+              "meaning": "A solution that the electrodes are placed in."
+            },
+            {
+              "term": "Battery",
+              "meaning": "Two or more cells connected together in series."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A simple cell is made by connecting two **different metals** in contact with an electrolyte.",
+            "The voltage depends on the type of electrode and the type of electrolyte.",
+            "Other factors, such as the temperature or the concentration of the electrolyte, can also change the voltage.",
+            "The bigger the difference in reactivity between the two metals, the greater the voltage.",
+            "Two electrodes made of the same metal give a voltage of 0 V.",
+            "Against a fixed reference electrode, the higher the positive voltage, the more reactive the metal. A negative voltage means the metal is less reactive than the reference."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Electrolysis uses electricity to produce a chemical reaction.",
+            "A chemical cell uses a chemical reaction to produce electricity."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A simple cell needs two different metals and an electrolyte.",
+            "A greater difference in reactivity gives a greater voltage."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Batteries",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Cells in series add their voltages to give a battery with a greater voltage."
+        },
+        {
+          "type": "equation",
+          "label": "Voltage of a battery",
+          "formula": "battery voltage = number of cells × voltage of one cell",
+          "where": [
+            "battery voltage is in V",
+            "the cells are connected in series and have the same voltage",
+            "voltage of one cell is in V"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Divide.",
+              "text": "To make a 12 V battery from 1.5 V cells, number of cells = 12 ÷ 1.5."
+            },
+            {
+              "lead": "Answer.",
+              "text": "8 cells connected in series."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Work out the voltage of a battery made from cells in series.",
+            "question": "A battery has {n} cells connected in series. Each cell has a voltage of {v} V. Calculate the voltage of the battery.",
+            "variables": [
+              {
+                "id": "n",
+                "min": 2,
+                "max": 8,
+                "step": 1
+              },
+              {
+                "id": "v",
+                "min": 1.5,
+                "max": 3,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "n * v",
+              "unit": "V",
+              "decimals": 1
+            },
+            "working": [
+              "Battery voltage = number of cells × voltage of one cell",
+              "= {n} × {v} = {answer} V"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A battery is two or more cells connected in series.",
+            "Add the voltages of the cells to find the battery voltage."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Non-rechargeable and rechargeable cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) A chemical cell produces a voltage until one of its reactants is used up."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Voltage of a non-rechargeable cell over time: constant, then falling to zero as a reactant is used up.",
+            "x": {
+              "label": "Time in use",
+              "min": 0,
+              "max": 10,
+              "ticks": [0, 2, 4, 6, 8, 10],
+              "unit": "hours"
+            },
+            "y": {
+              "label": "Voltage"
+            },
+            "series": [
+              {
+                "name": "Non-rechargeable cell",
+                "points": [
+                  [0, 0.8],
+                  [5, 0.8],
+                  [7, 0.5],
+                  [9, 0.15],
+                  [10, 0]
+                ]
+              }
+            ],
+            "bands": [
+              {
+                "from": 0,
+                "to": 5,
+                "label": "Constant voltage"
+              },
+              {
+                "from": 5,
+                "to": 10,
+                "label": "Voltage falls to 0 V"
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a **non-rechargeable** cell the chemical reactions stop when one of the reactants has been used up. Alkaline batteries are non-rechargeable.",
+            "A torch or bulb powered by such a cell starts bright, becomes dimmer and then goes out.",
+            "A non-rechargeable cell cannot be recharged because the reaction is not reversible.",
+            "A **rechargeable** cell can be recharged. When an external electrical current is supplied, the chemical reactions are reversed."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Type of battery", "Rechargeable?", "An advantage"],
+          "rows": [
+            ["Zinc-carbon", "No", "Cheap"],
+            ["Alkaline", "No", "Long lasting"],
+            ["Nickel-metal hydride", "Yes", "Does not have to be thrown away"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reactions in a non-rechargeable cell stop when a reactant is used up, and the voltage falls to 0 V.",
+            "A rechargeable cell works again because an external current reverses the reactions."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "(Separate science) Why do alkaline batteries eventually stop working?",
+      "a": "One of the reactants is used up and the reaction stops.",
+      "marks": 1
+    },
+    {
+      "q": "(Separate science) How many 1.5 V cells in series are needed to make a 12 V battery?",
+      "a": "12 ÷ 1.5 = 8 cells.",
+      "marks": 2
+    },
+    {
+      "q": "(Separate science) Why does a cell with two copper electrodes in an electrolyte give a voltage of 0 V?",
+      "a": "Two different metals are needed to produce a voltage. Both electrodes are the same metal, so there is no difference in reactivity.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.5.2.1"],
+      "worked_example": {
+        "exemplar_id": "ff504168-e3a4-423e-bbb1-6b9f24b3d976",
+        "source": "AQA jun 2024, Paper 1 (H), Q06.1",
+        "question": "A student investigated the voltage produced by different pairs of metal electrodes in a chemical cell.\n\nThe student placed a nickel electrode and an electrode made from a different metal (electrode A) in 1.0 mol/dm³ sodium chloride solution and measured the voltage. This was repeated using different metals for electrode A.\n\nElectrode A and voltage in volts:\nCopper (Cu): −0.59\nMagnesium (Mg): 2.12\nNickel (Ni): 0.00\nSilver (Ag): −1.05\nZinc (Zn): 0.51\n\nWrite the symbols of the five metals in order of reactivity, most reactive first.\n\nJustify your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Order: Mg, Zn, Ni, Cu, Ag (most reactive to least reactive).",
+          "Justification: the higher the (positive) voltage, the more reactive the metal.",
+          "(The most reactive metal has the highest voltage and the least reactive the most negative voltage.)"
+        ],
+        "tip": "Two marks for the order and one for the justification. Naming the metals instead of the symbols is allowed."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.25C"],
+      "worked_example": {
+        "exemplar_id": "c0be2602-19a9-4515-aeca-f14dfb34a506",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q1(a)",
+        "question": "Chemical cells produce a voltage.\n\nA chemical cell can be made by placing the metals copper and iron in a beaker of sodium chloride solution. A voltmeter is connected to the metals.\n\nDescribe what will happen to the reading on the voltmeter over a long period of time.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from:",
+          "It shows a constant voltage.",
+          "It decreases.",
+          "To 0 V."
+        ],
+        "tip": "The marks are independent. Give the pattern in order: constant, then decrease, then zero."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C6.2p"],
+      "worked_example": {
+        "exemplar_id": "3f152c00-ad76-45fd-844a-5e75e793fe78",
+        "source": "OCR jun 2023, Paper 4, Q9",
+        "question": "Which statement about chemical cells is correct?\n\nA They produce a voltage indefinitely.\nB They produce a voltage once all of the reactants are used up.\nC They produce a voltage until one of the reactants is completely used up.\nD They produce a voltage until the reactants are partly used up.",
+        "marks": 1,
+        "answer_points": [
+          "C: they produce a voltage until one of the reactants is completely used up.",
+          "A is wrong because a cell cannot produce a voltage forever.",
+          "B is wrong because no voltage is produced once the reactants are used up.",
+          "D is wrong because the cell keeps working until a reactant is completely used up, not partly."
+        ],
+        "tip": "Pick the statement that says the voltage lasts until a reactant is completely used up."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "727650ae-083a-482f-9733-67e36d9d45a2",
+      "d3243dfc-87a1-4547-a759-8d5bcd0cf88d",
+      "5a3ee3fc-9bfa-44b1-aa8d-d455e057eeef"
+    ],
+    "exemplar_ids": [
+      "ff504168-e3a4-423e-bbb1-6b9f24b3d976",
+      "c0be2602-19a9-4515-aeca-f14dfb34a506",
+      "3f152c00-ad76-45fd-844a-5e75e793fe78"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

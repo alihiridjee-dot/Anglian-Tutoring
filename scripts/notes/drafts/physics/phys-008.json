@@ -1,0 +1,414 @@
+{
+  "format": 1,
+  "concept_id": "phys-008",
+  "subject": "physics",
+  "title": "Efficiency",
+  "key_idea": "**Efficiency** is the fraction of the total input energy that is transferred usefully. Divide the useful output energy by the total input energy. It is never more than 1, or 100%. Reducing wasted energy makes a device more efficient.",
+  "sections": [
+    {
+      "heading": "What efficiency means",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "No device is perfect. Some of the input energy is always dissipated, so the useful output is less than the input."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Efficiency",
+              "meaning": "The proportion of the total input energy that is transferred usefully."
+            },
+            {
+              "term": "Useful output",
+              "meaning": "The energy transferred to the store or form you want."
+            },
+            {
+              "term": "Wasted energy",
+              "meaning": "Total input energy minus useful output energy."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Efficiency is less than 1 (100%) because some energy is transferred to less useful forms.",
+            "A more efficient device wastes less energy.",
+            "A more efficient device needs a lower energy input for the same energy output."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Efficiency compares useful output with total input.",
+            "Efficiency is always less than 1 (100%).",
+            "Wasted energy is dissipated, not destroyed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating efficiency",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You can use energy or power. The answer is the same because both have the same time."
+        },
+        {
+          "type": "equation",
+          "label": "Efficiency from energy",
+          "formula": "efficiency = useful output energy transfer ÷ total input energy transfer",
+          "where": [
+            "Both energies are in joules (J).",
+            "The answer is a decimal from 0 to 1. Multiply by 100 for a percentage."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Efficiency from power",
+          "formula": "efficiency = useful power output ÷ total power input",
+          "where": ["Both powers are in watts (W)."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find the useful output.",
+              "text": "A cooker supplies 130 000 J, but only 96 000 J heats the milk."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "efficiency = 96 000 ÷ 130 000"
+            },
+            {
+              "lead": "Evaluate.",
+              "text": "efficiency = 0.74 (to 2 decimal places), or 74%."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Change the input energy and the useful output to see the efficiency and the wasted energy."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the total input energy and the useful output energy to see the efficiency and the wasted energy.",
+            "inputs": [
+              {
+                "id": "Ein",
+                "label": "Total input energy",
+                "unit": "J",
+                "min": 100,
+                "max": 500,
+                "step": 10,
+                "value": 250
+              },
+              {
+                "id": "Eout",
+                "label": "Useful output energy",
+                "unit": "J",
+                "min": 10,
+                "max": 90,
+                "step": 5,
+                "value": 60
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Efficiency (decimal)",
+                "formula": "Eout / Ein",
+                "decimals": 2
+              },
+              {
+                "label": "Efficiency",
+                "unit": "%",
+                "formula": "Eout / Ein * 100",
+                "decimals": 0
+              },
+              {
+                "label": "Wasted energy",
+                "unit": "J",
+                "formula": "Ein - Eout",
+                "decimals": 0,
+                "bar": true
+              }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate useful output energy from an efficiency percentage and an input energy.",
+            "question": "A device has an efficiency of {e}%. The total input energy is {Ein} J. Calculate the useful energy output.",
+            "variables": [
+              {
+                "id": "e",
+                "min": 10,
+                "max": 90,
+                "step": 10
+              },
+              {
+                "id": "Ein",
+                "min": 100,
+                "max": 1000,
+                "step": 50
+              }
+            ],
+            "answer": {
+              "formula": "e / 100 * Ein",
+              "unit": "J",
+              "decimals": 0
+            },
+            "working": [
+              "efficiency = useful output ÷ total input",
+              "useful output = {e} ÷ 100 × {Ein}",
+              "useful output = {answer} J"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Finding total input or wasted energy"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Total input = useful output ÷ efficiency. An 80% efficient heater that transfers 40 000 J usefully needs 40 000 ÷ 0.8 = 50 000 J.",
+            "Wasted energy = total input − useful output.",
+            "If energy is given in MJ, the efficiency is the same without converting to joules."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Efficiency = useful output ÷ total input, as a decimal or a percentage.",
+            "Rearrange to find the useful output or total input.",
+            "Wasted energy is the input minus the useful output."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Increasing efficiency",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To raise efficiency, reduce the energy that is wasted."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Lubricate moving parts to reduce friction.",
+            "Streamline vehicles to reduce drag.",
+            "Use thermal insulation to reduce unwanted heat loss.",
+            "Use thicker, low-resistance wires."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why efficiency matters"
+        },
+        {
+          "type": "list",
+          "items": [
+            "More efficient devices waste less energy.",
+            "They cost less to run and use less electricity for the same output.",
+            "Less electricity has to be generated, so there is less environmental impact, such as lower carbon dioxide emissions from fossil fuels."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reduce friction, drag and unwanted heating to increase efficiency.",
+            "An efficient device needs a lower energy input for the same output.",
+            "Efficient devices cost less to run and reduce demand for electricity."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A motor has an input energy of 1.5 MJ and its useful output is 0.6 MJ. Calculate its efficiency.",
+      "a": "0.6 ÷ 1.5 = 0.4, or 40%.",
+      "marks": 2
+    },
+    {
+      "q": "An LED has a total power input of 0.24 W and an efficiency of 0.75. Calculate the useful power output.",
+      "a": "useful power output = 0.75 × 0.24 = 0.18 W.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why the efficiency of an engine is less than 1 (100%).",
+      "a": "The useful output energy is less than the input energy, because some energy is transferred to less useful forms, such as thermal energy.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.2.2", "AQA T 6.1.2.2"],
+      "worked_example": {
+        "exemplar_id": "2ca9164a-7f64-4db4-98ac-84801249e1bc",
+        "source": "AQA jun 2020, Paper 1 (H), Q02.6",
+        "question": "The total power input to an LED was 0.24 W.\nThe efficiency of the LED was 0.75.\n\nCalculate the useful power output of the LED.",
+        "marks": 3,
+        "answer_points": [
+          "0.75 = useful power output / 0.24",
+          "Useful power output = 0.75 × 0.24",
+          "Useful power output = 0.18 (W)"
+        ],
+        "tip": "One mark for the substitution, one for the rearrangement and one for the answer."
+      },
+      "extra": [
+        {
+          "heading": "Tier note",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(AQA: Higher tier) Describing ways to increase the efficiency of an energy transfer is Higher tier content on this specification."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.11", "EDEX 3.12", "EDEX 8.15"],
+      "worked_example": {
+        "exemplar_id": "4bfd8596-c429-4780-bc97-936796d9d9b6",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q9(b)(ii)",
+        "question": "A microwave oven is 55% efficient and transfers 42 000 J of energy to some food when it is heated.\n\nCalculate the total amount of energy that must be supplied to the oven.",
+        "marks": 3,
+        "answer_points": [
+          "Selection and substitution: (0.)55 = 42 000 / total energy supplied (to device)",
+          "Rearrangement: (total energy supplied to device =) 42 000 / (0.)55",
+          "Evaluation: 76 000 (J)"
+        ],
+        "tip": "Substitution and rearrangement can be in either order. Any answer that rounds to 76 000 J scores the evaluation mark."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P7.2d", "OCR P7.2e"],
+      "worked_example": {
+        "exemplar_id": "25f934f7-0726-4fad-90d8-a2ce740bf63a",
+        "source": "OCR jun 2024, Paper 2, Q17(f)",
+        "question": "One LED lamp has an efficiency of 0.4.\nIn one second, the input energy transferred by the lamp is 10 J.\n\nCalculate the energy wasted by the lamp in one second.\nUse the equation: efficiency = useful output energy transfer / input energy transfer",
+        "marks": 3,
+        "answer_points": [
+          "(Useful energy =) efficiency × input energy, or 0.4 × 10",
+          "(Useful energy =) 4 (J)",
+          "(Wasted energy = 10 – 4 =) 6 (J)"
+        ],
+        "tip": "A correct answer of 6 J scores all 3 marks. Working out only the useful energy, 4 J, scores 2 marks."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.7.3.3",
+        "CAIE 1.7.3.7S",
+        "CAIE 1.7.1.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "3a95a1d7-1f93-43e4-aebf-21f3802e3ed6",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q3(b)(ii)",
+        "question": "A wind turbine is used to generate electricity.\nThe useful output from the turbine in 1.0 s is 6000 J. The kinetic energy of the wind hitting the turbine in 1.0 s is 11 000 J. The velocity of the wind hitting the turbine is 6.3 m/s.\n\nCalculate the efficiency of the turbine. You may assume that all the kinetic energy stored in the wind is transferred to the turbine.",
+        "marks": 2,
+        "answer_points": [
+          "efficiency = useful energy output ÷ total energy input × 100%",
+          "efficiency = 6000 ÷ 11 000 × 100 = 55%"
+        ],
+        "tip": "One mark for the equation or substitution and one mark for 55%. The wind speed is not needed."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Efficiency is usually given as a percentage. The equation is the same for energy and for power."
+            },
+            {
+              "type": "equation",
+              "label": "Percentage efficiency",
+              "formula": "efficiency (%) = useful energy output ÷ total energy input × 100%",
+              "where": [
+                "Both energies are in joules (J).",
+                "For power, use useful power output ÷ total power input × 100%, with both in watts (W)."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.4",
+        "IGCSE 4.5"
+      ],
+      "worked_example": {
+        "exemplar_id": "0d2ffd6f-d2a2-4cfc-b1f7-c8096c7ea00b",
+        "source": "EDEXCEL jun 2023, Paper 1 (PR), Q3(c)(i)",
+        "question": "A joulemeter measures the amount of energy transferred electrically to a model electric motor as the motor lifts a load.\nThe joulemeter displays a reading of 11.0 J when the load has gained 3.2 J of energy in its gravitational store.\n\nCalculate the efficiency of the motor.",
+        "marks": 3,
+        "answer_points": [
+          "efficiency = useful energy output ÷ total energy output",
+          "efficiency = 3.2 ÷ 11.0 (× 100%)",
+          "efficiency = 0.29 or 29%"
+        ],
+        "tip": "One mark each for the equation, the substitution and the evaluation."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course writes efficiency with the total energy output of the device. This is the same as the total energy input."
+            },
+            {
+              "type": "equation",
+              "label": "Percentage efficiency",
+              "formula": "efficiency (%) = useful energy output ÷ total energy output × 100%",
+              "where": [
+                "Both energies are in joules (J).",
+                "Total energy output = useful energy output + wasted energy."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "A Sankey diagram shows the useful energy and the wasted energy for a device, with arrow widths drawn to scale."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "9f864548-6e12-42e3-a09b-126d9842d5f1",
+      "5fd5ff94-db8c-4a64-a910-b5497e09dfaa",
+      "bcd19852-692f-4e4d-97d1-eb34b5cf2afa",
+      "dd7d358b-28c0-4079-9c28-0236034a95a2",
+      "22de61e6-2637-480b-bdaf-acbad68f6e35",
+      "a26e6870-2f77-42cc-97aa-95bae6204023",
+      "59d29726-e3ba-4bb3-a3c3-e87719ba7b85",
+      "692e0fb4-c173-4405-81db-c2df410513cf",
+      "3b1c1870-2cd9-41a8-a814-cb862793df2d",
+      "9c1147db-3224-4d60-91f9-fb79e39e47ed"
+    ],
+    "exemplar_ids": [
+      "2ca9164a-7f64-4db4-98ac-84801249e1bc",
+      "4bfd8596-c429-4780-bc97-936796d9d9b6",
+      "25f934f7-0726-4fad-90d8-a2ce740bf63a",
+      "3a95a1d7-1f93-43e4-aebf-21f3802e3ed6",
+      "0d2ffd6f-d2a2-4cfc-b1f7-c8096c7ea00b"
+    ]
+  }
+}

@@ -1,0 +1,444 @@
+{
+  "format": 1,
+  "concept_id": "phys-009",
+  "subject": "physics",
+  "title": "Energy resources",
+  "key_idea": "Energy resources are **renewable** if they are replenished as they are used, and **non-renewable** if they are finite. They are used for transport, electricity generation and heating. Each has different reliability and environmental effects, and their use changes over time.",
+  "sections": [
+    {
+      "heading": "The main energy resources",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the energy resources available on Earth and the difference between renewable and non-renewable."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Renewable resource",
+              "meaning": "One that is being, or can be, replenished as it is used."
+            },
+            {
+              "term": "Non-renewable resource",
+              "meaning": "One that is finite: it cannot be replaced as fast as it is used."
+            },
+            {
+              "term": "Fossil fuels",
+              "meaning": "Coal, oil and gas."
+            },
+            {
+              "term": "Bio-fuel",
+              "meaning": "Fuel made from plant or animal material."
+            },
+            {
+              "term": "Geothermal",
+              "meaning": "Energy from hot rocks underground."
+            },
+            {
+              "term": "Reliable",
+              "meaning": "A resource whose supply is predictable, so it can generate when needed."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each energy resource into renewable or non-renewable.",
+            "prompt": "Renewable or non-renewable?",
+            "groups": ["Renewable", "Non-renewable"],
+            "items": [
+              {
+                "text": "Wind",
+                "group": 0
+              },
+              {
+                "text": "Tides",
+                "group": 0
+              },
+              {
+                "text": "Water waves",
+                "group": 0
+              },
+              {
+                "text": "The Sun (solar)",
+                "group": 0
+              },
+              {
+                "text": "Hydroelectricity",
+                "group": 0
+              },
+              {
+                "text": "Geothermal",
+                "group": 0
+              },
+              {
+                "text": "Bio-fuel",
+                "group": 0
+              },
+              {
+                "text": "Coal",
+                "group": 1
+              },
+              {
+                "text": "Oil",
+                "group": 1
+              },
+              {
+                "text": "Natural gas",
+                "group": 1
+              },
+              {
+                "text": "Nuclear fuel (uranium)",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "What the resources are used for"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Transport:** petrol and diesel from oil, bio-fuels, and electricity for electric vehicles.",
+            "**Electricity generation:** fossil fuels, nuclear fuel, wind, hydroelectricity, tides, water waves, the Sun and others.",
+            "**Heating:** gas and other fuels burned directly, and electricity."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Renewable resources are replenished as they are used.",
+            "Non-renewable resources are finite: fossil fuels and nuclear fuel.",
+            "The uses are transport, electricity generation and heating."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reliability and environmental impact",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Resources differ in how reliably they supply energy and in the harm they cause."
+        },
+        {
+          "type": "subheading",
+          "text": "Reliability"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Wind turbines do not turn when the wind is too weak or too strong.",
+            "Solar cells depend on sunlight, and fixed cells are not always pointed at the Sun.",
+            "Solar cells need a large area to generate much electricity, and the UK has limited daylight.",
+            "Fossil fuel and nuclear power stations burn or use stored fuel, so they can generate when needed, apart from maintenance. Their fuel is finite."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Environmental impact"
+        },
+        {
+          "type": "table",
+          "columns": ["Resource", "Environmental impact"],
+          "rows": [
+            [
+              "Fossil fuels",
+              "Carbon dioxide increases global warming (the greenhouse effect). Sulfur dioxide and nitrogen oxides cause acid rain. Particulates can harm living organisms."
+            ],
+            [
+              "Nuclear fuel",
+              "No carbon dioxide produced. Radioactive waste is produced, stays dangerous for a long time and needs safe storage. There is a risk of accidents."
+            ],
+            ["Wind", "Visual pollution, noise pollution and danger to birds."],
+            ["Hydroelectricity", "Land is flooded behind the dam, causing loss of habitat."]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Wind and solar are less reliable than fossil fuel and nuclear power stations.",
+            "Burning fossil fuels releases carbon dioxide, which increases global warming.",
+            "Nuclear power produces no carbon dioxide but does produce radioactive waste."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Patterns and trends in use",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The mix of energy resources changes over time. Renewables now provide a growing fraction of electricity in many countries."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fossil fuels may run out, become costly or be in short supply.",
+            "Burning fossil fuels increases global warming and acid rain, so use of non-renewables is reduced.",
+            "Governments encourage solar panels with grants, and the technology is now cheaper and more efficient.",
+            "People install solar panels to reduce energy bills or sell electricity back to the National Grid."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Some governments close coal-fired power stations and plan nuclear ones. Nuclear power helps meet demand with less carbon dioxide."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use of renewables is increasing and use of non-renewables is decreasing in many countries.",
+            "Reasons include cost, grants, finite fossil fuels and environmental damage.",
+            "Give a named effect, such as global warming, not just 'pollution'."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the difference between renewable and non-renewable energy resources.",
+      "a": "A renewable resource is replenished as it is used. A non-renewable resource is finite.",
+      "marks": 2
+    },
+    {
+      "q": "Suggest two reasons why wind power could not meet the UK demand for electricity on one day.",
+      "a": "Wind is unreliable, or it was not windy. Wind turbines do not turn when the wind is too strong or too weak, or there are not enough turbines.",
+      "marks": 2
+    },
+    {
+      "q": "State one harmful waste product from burning oil and one from nuclear fuel.",
+      "a": "Burning oil: carbon dioxide. Nuclear fuel: radioactive substances (nuclear waste).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.3", "AQA T 6.1.3"],
+      "worked_example": {
+        "exemplar_id": "cd20cf5d-feec-44c3-8e28-504edd6ac784",
+        "source": "AQA jun 2022, Paper 1 (H), Q01.2",
+        "question": "On one day the demand for electricity in the UK was 34 000 MW.\n\nSuggest two reasons why wind power was not able to meet this demand.",
+        "marks": 2,
+        "answer_points": [
+          "Wind is unreliable (it was not windy on that day)",
+          "Wind turbines do not turn when the wind is too strong or too weak",
+          "There are not enough wind turbines in the UK"
+        ],
+        "tip": "Any two of these points score the 2 marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.13", "EDEX 3.14", "EDEX 6.36P"],
+      "worked_example": {
+        "exemplar_id": "bb32c6d5-6984-4c96-9168-3bfb3b035ca7",
+        "source": "EDEXCEL nov 2020, Paper 1 (F), Q7(c)",
+        "question": "Both using nuclear fuel and burning oil produce harmful waste products.\n\nState one harmful waste product from each process.",
+        "marks": 2,
+        "answer_points": [
+          "Using nuclear fuel: radioactive substances (nuclear waste)",
+          "Burning oil: carbon dioxide (or greenhouse gases, a named pollutant, or toxic gases)"
+        ],
+        "tip": "One mark for each process."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P8.2a", "OCR P8.2b"],
+      "worked_example": {
+        "exemplar_id": "c5104231-d1d3-4459-bdec-43567165c2f8",
+        "source": "OCR jun 2018, Paper 4, Q16(b)(i)",
+        "question": "Scientists are researching the World's energy use for the future.\nThe future demand for fossil fuels is expected to increase.\n\nGive two reasons why scientists are worried about this increase in demand.",
+        "marks": 2,
+        "answer_points": [
+          "Fossil fuel may run out / is non-renewable / may be in short supply / may become very costly",
+          "A named damage to the environment, for example greenhouse gases, global warming, carbon dioxide, climate change or acid rain"
+        ],
+        "tip": "One mark for the supply problem and one for a named environmental damage."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.7.3.1",
+        "CAIE 1.7.3.2",
+        "CAIE 1.7.3.4S"
+      ],
+      "worked_example": {
+        "exemplar_id": "71a16360-3be5-4856-839c-de0829a464ca",
+        "source": "CAMBRIDGE nov 2023, Paper 42, Q8(c)(i)",
+        "question": "Describe how thermal energy from nuclear reactions is used to generate electricity in a power station.",
+        "marks": 3,
+        "answer_points": [
+          "The thermal energy is used to heat water and make steam.",
+          "The steam is at high pressure and drives a turbine.",
+          "The turbine is connected to a generator and drives it, so a coil moves in a magnetic field."
+        ],
+        "tip": "Any three points score. Say what the steam does as well as how it is made."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Describe how each resource gives useful energy or electricity. Name the boiler, turbine and generator where they are used."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Resource",
+                "How it gives useful energy or electricity"
+              ],
+              "rows": [
+                [
+                  "Fossil fuels and biofuels",
+                  "The fuel is burned. Its chemical store heats water in a boiler to make steam. The steam turns a turbine, which turns a generator."
+                ],
+                [
+                  "Nuclear fuel",
+                  "Nuclear reactions heat water to make steam. The steam turns a turbine, which turns a generator."
+                ],
+                [
+                  "Geothermal",
+                  "Hot rocks heat water to make steam. The steam turns a turbine, which turns a generator."
+                ],
+                [
+                  "Wind",
+                  "Moving air turns the blades of a turbine, which turns a generator."
+                ],
+                [
+                  "Waves",
+                  "Moving waves drive a turbine connected to a generator."
+                ],
+                [
+                  "Tides",
+                  "Water flows in and out as the tide rises and falls, and turns a turbine connected to a generator."
+                ],
+                [
+                  "Hydroelectric dam",
+                  "Water stored behind a dam has gravitational potential energy. It flows down and turns a turbine, which turns a generator."
+                ],
+                [
+                  "Solar cells",
+                  "Light from the Sun is transferred directly to electrical energy. No turbine is used."
+                ],
+                [
+                  "Solar panels",
+                  "Infrared and other electromagnetic waves from the Sun heat water in the panel. No turbine is used."
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Radiation from the Sun is the main source of energy for all these resources except geothermal, nuclear and tidal."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Compare resources by renewability, availability, reliability, scale and environmental impact.",
+                "Availability and scale: hydroelectric and tidal schemes need a suitable site. Fossil fuel, nuclear and hydroelectric stations can supply electricity on a large scale. Solar cells can supply a single home."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.18P",
+        "IGCSE 4.19P"
+      ],
+      "worked_example": {
+        "exemplar_id": "0293a40f-81d6-4749-95ea-80990c98f026",
+        "source": "EDEXCEL jan 2022, Paper 2 (P), Q7(b)",
+        "question": "Describe the energy transfers that are involved in generating electricity in a hydroelectric power station.",
+        "marks": 3,
+        "answer_points": [
+          "The gravitational potential store of the water decreases.",
+          "The water does mechanical work on the turbine, so the kinetic store of the turbine increases.",
+          "The turbine does mechanical work on the generator, so the kinetic store of the generator increases.",
+          "Energy is transferred electrically to the grid."
+        ],
+        "tip": "Any three points score. Name the store each time and say how the energy is transferred."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Describe how each resource generates electricity and the energy transfers involved."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Resource",
+                "How it generates electricity"
+              ],
+              "rows": [
+                [
+                  "Fossil fuels",
+                  "The chemical store of the fuel is transferred by heating to the thermal store of water, which becomes steam. The steam turns a turbine, which turns a generator."
+                ],
+                [
+                  "Nuclear power",
+                  "The nuclear store of the fuel is transferred by heating to water, which becomes steam. The steam turns a turbine, which turns a generator."
+                ],
+                [
+                  "Geothermal",
+                  "Hot rocks transfer energy by heating to water, which becomes steam. The steam turns a turbine, which turns a generator."
+                ],
+                [
+                  "Wind",
+                  "The kinetic store of moving air turns a turbine, which turns a generator."
+                ],
+                [
+                  "Water",
+                  "Water in a dam, or the tides and waves, transfers its gravitational or kinetic energy to a turbine, which turns a generator."
+                ],
+                [
+                  "Solar cells",
+                  "Light is transferred by radiation to the cells, which transfer energy electrically. No turbine is used."
+                ],
+                [
+                  "Solar heating",
+                  "Radiation from the Sun heats water in a panel. No turbine is used."
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a8e6bb33-445e-477e-8e46-2fa0b75aeeee",
+      "0b389449-9047-4c4b-a6e7-6927800f4b38",
+      "05a699fd-733d-450c-90cb-10b67b2d72ae",
+      "ac11c711-ff80-41a2-9ee8-486ce6b099ef",
+      "0ff38e29-b320-4403-9dd3-9f733db4b374",
+      "d6f49ba1-3f91-4da3-87cf-fc29c8f6ae29",
+      "5a66c66f-01f3-4a33-bc87-e5c749aa1fc3",
+      "42a24f5d-2527-4b23-8b0a-d65dcee11669",
+      "295a7527-4664-4b9d-ab6d-7953b9f3cdbe",
+      "35d8ad63-cd15-43bf-a7e9-2bdbe76d4c30",
+      "136a23ab-f7bb-4892-84e6-12046c71347b"
+    ],
+    "exemplar_ids": [
+      "cd20cf5d-feec-44c3-8e28-504edd6ac784",
+      "bb32c6d5-6984-4c96-9168-3bfb3b035ca7",
+      "c5104231-d1d3-4459-bdec-43567165c2f8",
+      "71a16360-3be5-4856-839c-de0829a464ca",
+      "0293a40f-81d6-4749-95ea-80990c98f026"
+    ]
+  }
+}

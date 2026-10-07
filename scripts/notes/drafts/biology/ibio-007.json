@@ -1,0 +1,207 @@
+{
+  "format": 1,
+  "concept_id": "ibio-007",
+  "subject": "biology",
+  "title": "Passive immunity",
+  "key_idea": "(Supplement) Passive immunity is short-term protection from antibodies that come from another person. A baby gets them across the placenta and in breast milk. The baby makes no memory cells, so the protection fades and breast-feeding matters.",
+  "sections": [
+    {
+      "heading": "What passive immunity is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Immunity is protection against a pathogen. In passive immunity the antibodies are made by someone else and given to you."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Antibody",
+              "meaning": "A protein that sticks to a pathogen's antigen and helps the body destroy it."
+            },
+            {
+              "term": "Passive immunity",
+              "meaning": "Short-term defence against a pathogen by antibodies acquired from another individual."
+            },
+            {
+              "term": "Memory cell",
+              "meaning": "A white blood cell that stays in the body and responds quickly if the same pathogen returns."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The antibodies come from outside the person's own body.",
+            "The protection works straight away, because the antibodies are already made.",
+            "It is **short-term**. The antibodies are broken down and are not replaced by the person.",
+            "**No memory cells** are produced, so there is no lasting protection."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Passive immunity uses antibodies from another individual.",
+            "It is quick but short-term, and no memory cells are made."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How a baby gets passive immunity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) A baby has not yet made many antibodies of its own. Its mother passes hers on in two ways."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Before birth, antibodies pass from the mother's blood to the fetus **across the placenta**.",
+            "After birth, antibodies pass to the baby in **breast milk**.",
+            "The baby only gets antibodies to the pathogens that its mother has made antibodies against.",
+            "The mother must keep supplying antibodies, because the baby's supply is not renewed on its own."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why breast-feeding matters"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It supplies antibodies before the baby can make enough of its own.",
+            "It gives the baby protection against infection, so it is less likely to catch some diseases.",
+            "It also provides the nutrients a baby needs and forms a bond between mother and baby."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Antibodies reach a baby across the placenta and in breast milk.",
+            "Breast-feeding gives protection while the baby's own immune system is still developing."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Passive immunity compared with active immunity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Active immunity is gained when your own body makes antibodies, after an infection or a vaccination. The two types differ in several ways."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A table comparing active immunity with passive immunity. Active immunity makes its own antibodies, makes memory cells and lasts a long time. Passive immunity uses antibodies from another person, makes no memory cells and is short-term.",
+            "items": [
+              "Active immunity",
+              "Passive immunity"
+            ],
+            "rows": [
+              {
+                "feature": "Where the antibodies come from",
+                "values": [
+                  "Made by the person's own lymphocytes",
+                  "Acquired from another individual"
+                ]
+              },
+              {
+                "feature": "How it is gained",
+                "values": [
+                  "Infection or vaccination",
+                  "Across the placenta, in breast milk or by injection of antibodies"
+                ]
+              },
+              {
+                "feature": "Memory cells",
+                "values": [
+                  "Produced",
+                  "Not produced"
+                ]
+              },
+              {
+                "feature": "How long it lasts",
+                "values": [
+                  "Long-term",
+                  "Short-term"
+                ]
+              },
+              {
+                "feature": "Speed of response",
+                "values": [
+                  "Slower, as the body has to make antibodies",
+                  "Immediate, as the antibodies are already made"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Active immunity: own antibodies, memory cells, long-lasting.",
+            "Passive immunity: borrowed antibodies, no memory cells, short-lived."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "(Supplement) State two ways in which a baby can gain passive immunity from its mother.",
+      "a": "Antibodies cross the placenta before birth. Antibodies are passed in breast milk.",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) Explain why passive immunity is only short-term.",
+      "a": "No memory cells are produced, and the antibodies from another person are broken down and not replaced.",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) Give one difference between active immunity and passive immunity.",
+      "a": "Any one from: active immunity makes its own antibodies, but passive immunity uses antibodies from another person; active immunity produces memory cells, but passive immunity does not; active immunity is long-term, but passive immunity is short-term.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 10.1.13S",
+        "CAIE 10.1.14S",
+        "CAIE 10.1.15S"
+      ],
+      "worked_example": {
+        "exemplar_id": "0792324a-1769-4bdc-b298-1063a978dcc7",
+        "source": "CAMBRIDGE nov 2024, Paper 43, Q3(b)(iii)",
+        "question": "Describe how infants can gain passive immunity.",
+        "marks": 4,
+        "answer_points": [
+          "Passive immunity involves antibodies that are acquired from another individual, outside the body.",
+          "Antibodies pass from the mother to the infant when breast-feeding.",
+          "Antibodies pass from the mother to the fetus across the placenta.",
+          "Infants need regular antibodies from the mother to maintain passive immunity.",
+          "Infants only get passive immunity to the pathogens for which the mother has antibodies."
+        ],
+        "tip": "Any four score one mark each. Name both routes: the placenta and breast milk."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "9c598a97-5462-426b-86b8-d1671f99a9d8",
+      "c6f160b5-6b7c-4480-bab0-d358bd4b95b9",
+      "55d1ec41-8dbf-49b4-ada1-6f7c5eb8bf57"
+    ],
+    "exemplar_ids": [
+      "0792324a-1769-4bdc-b298-1063a978dcc7"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

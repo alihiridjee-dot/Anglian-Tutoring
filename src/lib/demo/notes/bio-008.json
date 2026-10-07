@@ -1,0 +1,349 @@
+{
+  "boards": {
+    "edexcel": {
+      "extra": [
+        {
+          "blocks": [
+            {
+              "text": "Edexcel names each phase. Interphase comes first, then four phases of mitosis, then cytokinesis.",
+              "type": "paragraph"
+            },
+            {
+              "items": [
+                {
+                  "meaning": "The long period before mitosis, when the cell grows and its DNA is replicated.",
+                  "term": "Interphase"
+                },
+                {
+                  "meaning": "One of the two identical copies that make up a replicated chromosome.",
+                  "term": "Chromatid"
+                },
+                {
+                  "meaning": "The division of the cytoplasm and cell membrane.",
+                  "term": "Cytokinesis"
+                }
+              ],
+              "type": "definitions"
+            },
+            {
+              "columns": [
+                "Phase",
+                "What happens"
+              ],
+              "rows": [
+                [
+                  "Interphase",
+                  "The cell grows and makes new proteins and sub-cellular structures. The DNA is replicated."
+                ],
+                [
+                  "Prophase",
+                  "The chromosomes condense and become visible. Each is two identical chromatids joined together. The nuclear membrane breaks down and spindle fibres form."
+                ],
+                [
+                  "Metaphase",
+                  "The chromosomes line up across the middle (equator) of the cell."
+                ],
+                [
+                  "Anaphase",
+                  "The chromatids are pulled apart to opposite ends of the cell."
+                ],
+                [
+                  "Telophase",
+                  "A nuclear membrane forms around each set of chromosomes."
+                ],
+                [
+                  "Cytokinesis",
+                  "The cytoplasm and cell membrane divide, making two cells."
+                ]
+              ],
+              "type": "table"
+            }
+          ],
+          "heading": "The stages of mitosis"
+        },
+        {
+          "blocks": [
+            {
+              "text": "Mitosis can be seen in a growing root tip, because the tip contains dividing meristem cells.",
+              "type": "paragraph"
+            },
+            {
+              "items": [
+                {
+                  "lead": "Cut.",
+                  "text": "Cut off the tip of a root."
+                },
+                {
+                  "lead": "Soften.",
+                  "text": "Warm the tip in acid."
+                },
+                {
+                  "lead": "Crush.",
+                  "text": "Crush it flat on a slide."
+                },
+                {
+                  "lead": "Stain.",
+                  "text": "Add a stain and a drop of water, then a cover slip."
+                }
+              ],
+              "type": "steps"
+            },
+            {
+              "formula": "mitotic index = (cells in mitosis ÷ total number of cells) × 100",
+              "label": "Mitotic index",
+              "type": "equation",
+              "where": [
+                "Count the cells in mitosis and all the cells in the field of view."
+              ]
+            },
+            {
+              "items": [
+                {
+                  "lead": "Count.",
+                  "text": "45 of 89 cells are in mitosis."
+                },
+                {
+                  "lead": "Calculate.",
+                  "text": "45 ÷ 89 × 100 = 50.6."
+                }
+              ],
+              "type": "steps"
+            }
+          ],
+          "heading": "Seeing mitosis in a root tip"
+        }
+      ],
+      "spec_codes": [
+        "EDEX 2.1"
+      ],
+      "worked_example": {
+        "answer_points": [
+          "Two cells are produced.",
+          "The cells are diploid. They have the same number of chromosomes as the parent cell, for example 46 or 23 pairs in a human.",
+          "The cells are genetically identical.",
+          "The cells are body cells, used for growth and repair."
+        ],
+        "exemplar_id": "bd288192-e30c-4cdd-b96f-7f7ec79ed505",
+        "marks": 3,
+        "question": "Describe what is produced when a single cell divides by mitosis.",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q7(b)",
+        "tip": "Any three of the four points score one mark each."
+      }
+    }
+  },
+  "checks": [
+    {
+      "a": "A section of DNA on a chromosome that codes for a specific protein and so controls a characteristic.",
+      "marks": 1,
+      "q": "What is a gene?"
+    },
+    {
+      "a": "Each new cell has 46 chromosomes (23 pairs). The two cells are genetically identical.",
+      "marks": 2,
+      "q": "A human skin cell has 46 chromosomes and divides by mitosis. How many chromosomes are in each new cell? Are the new cells the same as each other or different?"
+    },
+    {
+      "a": "24 × 60 = 1440 minutes. 1440 ÷ 90 = 16 divisions.",
+      "marks": 2,
+      "q": "A fungal cell divides once every 90 minutes. How many times does it divide in 24 hours?"
+    }
+  ],
+  "concept_id": "bio-008",
+  "format": 1,
+  "key_idea": "The nucleus contains chromosomes made of DNA, and each chromosome carries many genes. Cells divide by mitosis as part of the cell cycle. Mitosis makes two genetically identical cells, which the body uses for growth, repair and asexual reproduction.",
+  "meta": {
+    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "exemplar_ids": [
+      "7f71d009-81eb-463d-a33c-a9086f84e983",
+      "bd288192-e30c-4cdd-b96f-7f7ec79ed505",
+      "b14a9a16-7d66-4a52-9fc3-f9e6ea78f8d0"
+    ],
+    "spec_point_ids": [
+      "demo-sp-cell-division"
+    ],
+    "status": "approved",
+    "written_at": "2026-10-01",
+    "written_by": "writer-c"
+  },
+  "sections": [
+    {
+      "blocks": [
+        {
+          "text": "Genetic information is stored in the nucleus. This section covers how it is organised.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "A long molecule of DNA in the nucleus. It carries many genes.",
+              "term": "Chromosome"
+            },
+            {
+              "meaning": "A short section of DNA that codes for a specific protein, so it controls a characteristic.",
+              "term": "Gene"
+            },
+            {
+              "meaning": "A cell with two of each chromosome, in pairs.",
+              "term": "Diploid"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "items": [
+            "Size, smallest to largest: gene, chromosome, nucleus, cell.",
+            "In body cells the chromosomes are normally in **pairs**.",
+            "A human body cell has 23 pairs, which is 46 chromosomes."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "Chromosomes are made of DNA and carry genes.",
+            "A gene codes for one protein.",
+            "Human body cells are diploid: 46 chromosomes."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Chromosomes and genes"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Cells divide in a repeating series of stages called the **cell cycle**. The DNA is doubled, then shared between two identical cells. There are three stages.",
+          "type": "paragraph"
+        },
+        {
+          "diagram": {
+            "alt": "A loop of three stages. Stage 1: the cell grows, makes more sub-cellular structures and replicates its DNA. Stage 2, mitosis: one set of chromosomes is pulled to each end of the cell and the nucleus divides. Stage 3: the cytoplasm and cell membrane divide to form two identical cells. The arrow returns to stage 1.",
+            "kind": "flow",
+            "loop": true,
+            "steps": [
+              "Stage 1: cell grows, DNA replicates",
+              "Stage 2 (mitosis): chromosomes pulled to each end, nucleus divides",
+              "Stage 3: cytoplasm and cell membrane divide, two identical cells"
+            ]
+          },
+          "type": "diagram"
+        },
+        {
+          "items": [
+            {
+              "lead": "Stage 1: prepare.",
+              "text": "The cell grows and makes more sub-cellular structures, such as ribosomes and mitochondria. The DNA replicates (is copied), giving two copies of each chromosome."
+            },
+            {
+              "lead": "Stage 2: mitosis.",
+              "text": "One set of chromosomes is pulled to each end of the cell. The nucleus divides."
+            },
+            {
+              "lead": "Stage 3: divide.",
+              "text": "The cytoplasm and cell membrane divide. Two new, genetically identical cells form."
+            }
+          ],
+          "type": "steps"
+        },
+        {
+          "items": [
+            "Replicate first, divide second.",
+            "Mitosis is the stage where the nucleus divides.",
+            "The cell cycle ends with two identical cells."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "The cell cycle"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Mitosis makes two new cells from one. This section covers what they are like and what the body uses them for.",
+          "type": "paragraph"
+        },
+        {
+          "text": "The new cells",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "Two cells, **genetically identical** to each other and to the parent.",
+            "Diploid, with the same number of chromosomes as the parent.",
+            "A human body cell with 46 chromosomes makes two cells with 46 each."
+          ],
+          "type": "list"
+        },
+        {
+          "text": "What mitosis is used for",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "**Growth and development** of multicellular organisms.",
+            "**Repair**: replacing damaged cells.",
+            "**Asexual reproduction**: one parent makes genetically identical offspring."
+          ],
+          "type": "list"
+        },
+        {
+          "text": "Counting cells",
+          "type": "subheading"
+        },
+        {
+          "text": "Each division doubles the number of cells. Find the number of divisions first, then the number of cells.",
+          "type": "paragraph"
+        },
+        {
+          "formula": "number of divisions = total time ÷ time for one cell cycle",
+          "label": "Number of divisions",
+          "type": "equation",
+          "where": [
+            "Both times must be in the same unit."
+          ]
+        },
+        {
+          "formula": "number of cells = 2ⁿ",
+          "label": "Number of cells",
+          "type": "equation",
+          "where": [
+            "n = number of divisions",
+            "Start from one cell."
+          ]
+        },
+        {
+          "items": [
+            {
+              "lead": "Same units.",
+              "text": "A cell divides every 90 minutes. 24 hours = 24 × 60 = 1440 minutes."
+            },
+            {
+              "lead": "Divisions.",
+              "text": "1440 ÷ 90 = 16 divisions."
+            },
+            {
+              "lead": "Cells.",
+              "text": "After 4 divisions there are 2⁴ = 16 cells. After 16 divisions there are 2¹⁶ = 65 536 cells."
+            }
+          ],
+          "type": "steps"
+        },
+        {
+          "text": "Meiosis is a different division that makes gametes. It is covered separately.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            "Mitosis makes two identical diploid cells.",
+            "It is used for growth, repair and asexual reproduction.",
+            "After n divisions one cell becomes 2ⁿ cells."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "What mitosis produces and why it matters"
+    }
+  ],
+  "subject": "biology",
+  "title": "Chromosomes, mitosis and the cell cycle"
+}

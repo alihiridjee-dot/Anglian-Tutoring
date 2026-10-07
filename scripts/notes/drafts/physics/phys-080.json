@@ -1,0 +1,345 @@
+{
+  "format": 1,
+  "concept_id": "phys-080",
+  "subject": "physics",
+  "title": "Magnets and magnetic materials",
+  "key_idea": "Like poles repel and unlike poles attract. Iron, steel, cobalt and nickel are magnetic materials. A permanent magnet has its own magnetic field. An induced magnet is only magnetic while it is in a magnetic field.",
+  "sections": [
+    {
+      "heading": "Poles and the forces between magnets",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A magnet has two poles, where the magnetic forces are strongest. Two magnets exert forces on each other when they are close together."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Pole",
+              "meaning": "The place on a magnet where the magnetic forces are strongest."
+            },
+            {
+              "term": "Non-contact force",
+              "meaning": "A force that acts without the objects touching."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Two like poles repel each other.",
+            "Two unlike poles attract each other.",
+            "Attraction and repulsion between magnetic poles are non-contact forces.",
+            "To show both forces, bring two unlike poles together, then two like poles together."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A magnetic fastener, such as the magnets in a coat, needs unlike poles facing each other. Two like poles would repel and the coat would not fasten."
+        },
+        {
+          "type": "key-points",
+          "items": ["Like poles repel. Unlike poles attract.", "The forces act without contact."]
+        }
+      ]
+    },
+    {
+      "heading": "Magnetic materials",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Only a few materials are magnetic. A magnet attracts a magnetic material."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Iron, steel, cobalt and nickel are magnetic materials.",
+            "Aluminium, copper, gold and zinc are not magnetic.",
+            "A magnet separates steel cans from aluminium cans. Steel is magnetic and aluminium is not."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Some of these materials keep their magnetism and some do not. Permanent magnets keep it. A temporary magnet, such as the iron core of an electromagnet, can be switched on and off."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort materials into those a magnet attracts and those it does not.",
+            "prompt": "Is the material attracted to a magnet?",
+            "groups": ["Attracted", "Not attracted"],
+            "items": [
+              {
+                "text": "Iron",
+                "group": 0
+              },
+              {
+                "text": "Steel",
+                "group": 0
+              },
+              {
+                "text": "Cobalt",
+                "group": 0
+              },
+              {
+                "text": "Nickel",
+                "group": 0
+              },
+              {
+                "text": "Aluminium",
+                "group": 1
+              },
+              {
+                "text": "Copper",
+                "group": 1
+              },
+              {
+                "text": "Gold",
+                "group": 1
+              },
+              {
+                "text": "Zinc",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Iron, steel, cobalt and nickel are magnetic materials.",
+            "A magnet attracts them. It has no effect on non-magnetic metals such as aluminium."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Permanent and induced magnets",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "There are two kinds of magnet. They differ in whether the magnetism stays when a magnet is taken away."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Permanent magnet",
+              "meaning": "Produces its own magnetic field, all the time."
+            },
+            {
+              "term": "Induced magnet",
+              "meaning": "A material that becomes a magnet when placed in a magnetic field. It loses most or all of its magnetism quickly when removed."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Permanent magnets compared with induced magnets.",
+            "items": ["Permanent magnet", "Induced magnet"],
+            "rows": [
+              {
+                "feature": "Has its own magnetic field",
+                "values": ["Yes, always", "Only while in a magnetic field"]
+              },
+              {
+                "feature": "When a magnet is taken away",
+                "values": ["Keeps its magnetism", "Loses most or all of its magnetism quickly"]
+              },
+              {
+                "feature": "Force from another permanent magnet",
+                "values": ["Attraction or repulsion", "Always attraction"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Telling them apart"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Induced magnetism always causes a force of attraction.",
+            "Only a permanent magnet can be repelled by another permanent magnet.",
+            "To test an iron bar, bring one end near each pole of a permanent magnet. Any repulsion shows it is a permanent magnet.",
+            "To show induced magnetism, use a magnet to pick up a paper clip, then remove the magnet. The clip no longer attracts other clips."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A permanent magnet has its own field. An induced magnet only has one while in a field.",
+            "Only repulsion proves an object is a permanent magnet."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Which two of these are magnetic materials: cobalt, copper, gold, steel, zinc?",
+      "a": "Cobalt and steel.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how a permanent magnet could be used to test whether an iron bar is also a permanent magnet.",
+      "a": "Bring the same end of the iron bar close to each pole of the permanent magnet. Any repulsion shows the iron bar is a permanent magnet.",
+      "marks": 2
+    },
+    {
+      "q": "State what is meant by an induced magnet.",
+      "a": "A material that becomes a magnet when it is placed in a magnetic field. It loses most or all of its magnetism when removed from the field.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.7.1.1", "AQA T 6.7.1.1"],
+      "worked_example": {
+        "exemplar_id": "dc84c266-a9d8-451d-926d-b7a45b0a2613",
+        "source": "AQA jun 2018, Paper 2 (H), Q02.2",
+        "question": "A magnet produces a magnetic field. There are three metal blocks that are not labelled. One block is a permanent magnet, one is iron and one is aluminium.\n\nDescribe how another permanent magnet can be used to identify the blocks.",
+        "marks": 3,
+        "answer_points": [
+          "The permanent magnet has no effect on the aluminium.",
+          "Iron is attracted to the permanent magnet.",
+          "Only the (permanent) magnet can be repelled by the permanent magnet."
+        ],
+        "tip": "One mark for each block identified correctly."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 12.1", "EDEX 12.2", "EDEX 12.3"],
+      "worked_example": {
+        "exemplar_id": "281abdfa-cffa-4972-86c2-38d105a6d501",
+        "source": "EDEXCEL jun 2018, Paper 2 (H), Q5(a)",
+        "question": "A student has a bar magnet, a piece of iron the same size as the magnet, and some paper clips.\n\nDescribe how the student could use these items to demonstrate temporary induced magnetism.",
+        "marks": 3,
+        "answer_points": [
+          "Place the iron near or in contact with the magnet, so it becomes a temporary magnet (or use the magnet to pick up a paper clip).",
+          "Show that the iron has magnetic properties: paper clips are attracted to it (or the first paper clip picks up another).",
+          "Show the effect is temporary: remove the magnet and the paper clips are no longer attracted, or they fall off."
+        ],
+        "tip": "One mark each for producing the induced magnetism, showing its magnetic properties, and showing the effect is temporary."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P4.1a", "OCR P4.1b"],
+      "worked_example": {
+        "exemplar_id": "f11767b3-2ae4-4976-b3fc-04c47f13f3dc",
+        "source": "OCR jun 2019, Paper 1, Q20(b)",
+        "question": "Describe one difference between a permanent magnet and an induced magnet.",
+        "marks": 1,
+        "answer_points": [
+          "Induced magnets lose their magnetism when away from a magnetic field.",
+          "OR permanent magnets retain their magnetism when away from a magnetic field."
+        ],
+        "tip": "Any one of the two points scores the mark."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.1.1",
+        "CAIE 4.1.2",
+        "CAIE 4.1.3",
+        "CAIE 4.1.4",
+        "CAIE 4.1.9",
+        "CAIE 4.1.10S"
+      ],
+      "worked_example": {
+        "exemplar_id": "a1c2b69f-2378-4009-bcb3-f47b635813d4",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q7(a)",
+        "question": "A student is given three pieces of steel. Two of the pieces are magnetised and one piece is unmagnetised.\nDescribe and explain how the student determines which piece is unmagnetised using only the three pieces of steel.",
+        "marks": 4,
+        "answer_points": [
+          "Bring (the end of) one piece of steel close to (the end of) another piece.",
+          "Look to see whether there is repulsion or attraction, and test between different ends or poles.",
+          "Repeat a valid test between the other pieces.",
+          "Only magnets repel each other, so the pieces that repel are magnets.",
+          "A piece that only attracts, and does not repel at either end, is the unmagnetised one."
+        ],
+        "tip": "Repulsion is the only test that proves a piece is a magnet, because an unmagnetised piece of steel is attracted to either pole."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The core of an electromagnet and a permanent magnet are made from different magnetic materials."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Soft iron** magnetises and demagnetises easily. It is used for temporary magnets, such as the core of an electromagnet.",
+                "**Steel** keeps its magnetism. It is used for permanent magnets.",
+                "Permanent magnets are used in fridge door seals and compasses. Electromagnets are used in scrapyard cranes and in relays.",
+                "(Supplement) Magnetic forces are due to the interaction between the magnetic fields of the magnets."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 6.2", "IGCSE 6.3", "IGCSE 6.5", "IGCSE 6.7"],
+      "worked_example": {
+        "exemplar_id": "859ccc5b-0a8a-4786-89ed-03dea55310a5",
+        "source": "EDEXCEL jun 2024, Paper 1 (P), Q6(d)(ii)",
+        "question": "A small piece of iron is placed in the magnetic field of a bar magnet. The piece of iron becomes magnetised when placed in the magnetic field.\nA student suggests that the piece of iron is now a permanent magnet.\nExplain why the student is incorrect.",
+        "marks": 2,
+        "answer_points": [
+          "Iron is a (magnetically) soft magnetic material.",
+          "Iron loses its magnetism when it is removed from the magnetic field."
+        ],
+        "tip": "Say that the magnetism is lost when the field is taken away, not just that iron is a temporary magnet."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Magnetic materials are described as hard or soft, depending on how well they keep their magnetism."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Magnetically soft** materials, such as soft iron, magnetise and demagnetise easily. They are used for electromagnets.",
+                "**Magnetically hard** materials, such as steel, are difficult to magnetise and keep their magnetism. They are used for permanent magnets."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "290033dd-9d9a-4dc5-92f7-924e2ceed15b",
+      "2c83205c-7b2c-4113-a80b-4e60e34df25c",
+      "b0332ec0-bddf-492c-af71-53b0f0954168",
+      "5db8c90f-7486-43e5-85ac-2de913ac06ad",
+      "9ec71ec6-027e-4fe3-ac9c-c8c69a046a66",
+      "9f04fa53-8be6-4a2d-b7ee-84e4be0b2dcb",
+      "910a6fff-2749-4c55-b33b-b9d4f9d055d1"
+    ],
+    "exemplar_ids": [
+      "dc84c266-a9d8-451d-926d-b7a45b0a2613",
+      "281abdfa-cffa-4972-86c2-38d105a6d501",
+      "f11767b3-2ae4-4976-b3fc-04c47f13f3dc",
+      "a1c2b69f-2378-4009-bcb3-f47b635813d4",
+      "859ccc5b-0a8a-4786-89ed-03dea55310a5"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

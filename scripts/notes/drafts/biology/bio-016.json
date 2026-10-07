@@ -8,13 +8,25 @@
     {
       "heading": "How bacteria grow and how to count them",
       "blocks": [
-        { "type": "paragraph", "text": "Bacteria reproduce by simple cell division. This section covers the conditions they need and how to work out numbers." },
+        {
+          "type": "paragraph",
+          "text": "Bacteria reproduce by simple cell division. This section covers the conditions they need and how to work out numbers."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Binary fission", "meaning": "One bacterial cell dividing to make two." },
-            { "term": "Culture", "meaning": "A population of microorganisms grown in the laboratory." },
-            { "term": "Agar", "meaning": "A jelly containing nutrients that bacteria grow on in a Petri dish." }
+            {
+              "term": "Binary fission",
+              "meaning": "One bacterial cell dividing to make two."
+            },
+            {
+              "term": "Culture",
+              "meaning": "A population of microorganisms grown in the laboratory."
+            },
+            {
+              "term": "Agar",
+              "meaning": "A jelly containing nutrients that bacteria grow on in a Petri dish."
+            }
           ]
         },
         {
@@ -34,11 +46,20 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Divisions.", "text": "One bacterium divides every 20 minutes. In 2 hours (120 minutes): n = 120 ÷ 20 = 6." },
-            { "lead": "Calculate.", "text": "Number = 1 × 2⁶ = 64 bacteria." }
+            {
+              "lead": "Divisions.",
+              "text": "One bacterium divides every 20 minutes. In 2 hours (120 minutes): n = 120 ÷ 20 = 6."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "Number = 1 × 2⁶ = 64 bacteria."
+            }
           ]
         },
-        { "type": "subheading", "text": "Estimating numbers" },
+        {
+          "type": "subheading",
+          "text": "Estimating numbers"
+        },
         {
           "type": "list",
           "items": [
@@ -60,27 +81,60 @@
     {
       "heading": "Culturing bacteria safely",
       "blocks": [
-        { "type": "paragraph", "text": "Aseptic technique stops unwanted microorganisms getting into the culture and stops harmful bacteria escaping." },
+        {
+          "type": "paragraph",
+          "text": "Aseptic technique stops unwanted microorganisms getting into the culture and stops harmful bacteria escaping."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Aseptic technique", "meaning": "Methods that prevent contamination of a culture by unwanted microorganisms." },
-            { "term": "Sterilise", "meaning": "Kill all microorganisms on equipment or in agar, for example in an autoclave." },
-            { "term": "Inoculate", "meaning": "Put bacteria onto the agar, for example using an inoculating loop." }
+            {
+              "term": "Aseptic technique",
+              "meaning": "Methods that prevent contamination of a culture by unwanted microorganisms."
+            },
+            {
+              "term": "Sterilise",
+              "meaning": "Kill all microorganisms on equipment or in agar, for example in an autoclave."
+            },
+            {
+              "term": "Inoculate",
+              "meaning": "Put bacteria onto the agar, for example using an inoculating loop."
+            }
           ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Sterilise.", "text": "Sterilise the Petri dish and agar before use, for example in an autoclave. This kills unwanted microorganisms." },
-            { "lead": "Pour.", "text": "Melt the agar, pour it into the Petri dish, and let it cool and set." },
-            { "lead": "Flame the loop.", "text": "Pass the inoculating loop through a Bunsen flame to sterilise it, then let it cool so the bacteria are not killed." },
-            { "lead": "Inoculate.", "text": "Collect a sample of bacteria with the loop and spread it over the agar. Lift the lid only a little." },
-            { "lead": "Tape the lid.", "text": "Seal the lid with tape, but not all the way round. Some air must get in." },
-            { "lead": "Incubate.", "text": "Incubate the dish upside down, at 25 °C in school." }
+            {
+              "lead": "Sterilise.",
+              "text": "Sterilise the Petri dish and agar before use, for example in an autoclave. This kills unwanted microorganisms."
+            },
+            {
+              "lead": "Pour.",
+              "text": "Melt the agar, pour it into the Petri dish, and let it cool and set."
+            },
+            {
+              "lead": "Flame the loop.",
+              "text": "Pass the inoculating loop through a Bunsen flame to sterilise it, then let it cool so the bacteria are not killed."
+            },
+            {
+              "lead": "Inoculate.",
+              "text": "Collect a sample of bacteria with the loop and spread it over the agar. Lift the lid only a little."
+            },
+            {
+              "lead": "Tape the lid.",
+              "text": "Seal the lid with tape, but not all the way round. Some air must get in."
+            },
+            {
+              "lead": "Incubate.",
+              "text": "Incubate the dish upside down, at 25 °C in school."
+            }
           ]
         },
-        { "type": "subheading", "text": "Why these steps" },
+        {
+          "type": "subheading",
+          "text": "Why these steps"
+        },
         {
           "type": "list",
           "items": [
@@ -104,12 +158,21 @@
     {
       "heading": "Measuring zones of inhibition",
       "blocks": [
-        { "type": "paragraph", "text": "To test an antibiotic or antiseptic, a paper disc soaked in it is placed on a plate of bacteria. Where the bacteria are killed, a clear area forms." },
+        {
+          "type": "paragraph",
+          "text": "To test an antibiotic or antiseptic, a paper disc soaked in it is placed on a plate of bacteria. Where the bacteria are killed, a clear area forms."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Zone of inhibition", "meaning": "The clear area around a disc where no bacteria are growing." },
-            { "term": "Control disc", "meaning": "A disc soaked in water, with no antibiotic, to show the effect of no antibiotic." }
+            {
+              "term": "Zone of inhibition",
+              "meaning": "The clear area around a disc where no bacteria are growing."
+            },
+            {
+              "term": "Control disc",
+              "meaning": "A disc soaked in water, with no antibiotic, to show the effect of no antibiotic."
+            }
           ]
         },
         {
@@ -125,14 +188,27 @@
           "type": "equation",
           "label": "Area of a zone of inhibition",
           "formula": "area = π × r²",
-          "where": ["r is the radius of the clear zone, in mm", "area is in mm²", "use π = 3.14 unless told otherwise"]
+          "where": [
+            "r is the radius of the clear zone, in mm",
+            "area is in mm²",
+            "use π = 3.14 unless told otherwise"
+          ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Radius.", "text": "The zone has a diameter of 9 mm, so the radius is 9 ÷ 2 = 4.5 mm." },
-            { "lead": "Substitute.", "text": "Area = 3.14 × 4.5²." },
-            { "lead": "Answer.", "text": "Area = 63.6 mm² (to 1 decimal place)." }
+            {
+              "lead": "Radius.",
+              "text": "The zone has a diameter of 9 mm, so the radius is 9 ÷ 2 = 4.5 mm."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "Area = 3.14 × 4.5²."
+            },
+            {
+              "lead": "Answer.",
+              "text": "Area = 63.6 mm² (to 1 decimal place)."
+            }
           ]
         },
         {
@@ -141,8 +217,19 @@
             "kind": "practice",
             "alt": "Practise calculating the area of a clear zone of inhibition from its diameter. The numbers change each time.",
             "question": "The clear zone around an antibiotic disc has a diameter of **{D} mm**. Calculate the area of the zone. Use π = 3.14 and give your answer to 1 decimal place.",
-            "variables": [{ "id": "D", "min": 10, "max": 30, "step": 1 }],
-            "answer": { "formula": "3.14 * (D / 2) ^ 2", "unit": "mm²", "decimals": 1 },
+            "variables": [
+              {
+                "id": "D",
+                "min": 10,
+                "max": 30,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "3.14 * (D / 2) ^ 2",
+              "unit": "mm²",
+              "decimals": 1
+            },
             "working": [
               "Radius = diameter ÷ 2 = {D} ÷ 2",
               "Area = π × r²",
@@ -181,28 +268,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 1.5"],
-      "exam_phrases": [
-        "sterilise equipment / surfaces (before use)",
-        "sterilised agar",
-        "pass the inoculating loop through a flame",
-        "only lift the lid of the Petri dish a little",
-        "secure the lid of the Petri dish with adhesive tape",
-        "to prevent growth of pathogens (25 °C)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Clean the equipment and wash your hands.",
-          "right": "\"Clean\" on its own and \"wash hands\" are ignored. Say sterilise the equipment, use sterilised agar, or disinfect the work surface."
-        },
-        {
-          "wrong": "The paper disc with no antibiotic is a control variable.",
-          "right": "A control variable is not accepted. The disc acts as a control, to show the effect of no antibiotic or that the results are due to the antibiotic."
-        },
-        {
-          "wrong": "Repeat the experiment.",
-          "right": "\"Repeat\" on its own is ignored. Say repeat and look to see if the results are similar, or repeat and calculate a mean."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "23cf1df0-d171-4b01-914e-a8d915fabe7a",
         "source": "AQA jun 2025, Paper 1 (F), Q04.1",
@@ -219,28 +284,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.17B", "EDEX 5.19B", "EDEX 5.18B"],
-      "exam_phrases": [
-        "sterilise the Petri dish and agar before use",
-        "pass the inoculating loop through a flame, then allow it to cool",
-        "work close to a Bunsen burner",
-        "autoclave the agar",
-        "zone of inhibition",
-        "area = πr²"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The agar is autoclaved to prevent microorganisms getting in.",
-          "right": "\"Prevents microorganisms getting in\" is ignored. Say it sterilises the agar and destroys unwanted microorganisms, so there is no contamination."
-        },
-        {
-          "wrong": "A zone of inhibition has a diameter of 9 mm, so the area is 3.14 × 9².",
-          "right": "Use the radius. Half the diameter gives 4.5 mm, and 3.14 × 4.5² = 63.6 mm². Using the diameter loses marks."
-        },
-        {
-          "wrong": "The loop is used straight away after it is flamed.",
-          "right": "Allow the loop to cool first, so that the bacteria are not killed."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "4fc2ae85-62dd-429b-935d-d53230b665b5",
         "source": "EDEXCEL nov 2021, Paper 1 (H), Q4(b)(i)",
@@ -256,32 +299,6 @@
     },
     "ocr": {
       "spec_codes": ["OCR 6.3p"],
-      "exam_phrases": [
-        "aseptic technique",
-        "use sterile forceps to prevent contamination by other microbes",
-        "lift the lid of the Petri dish slightly",
-        "do not seal the lid all the way round: allows oxygen to enter and prevents anaerobic conditions",
-        "soak filter paper discs in the antibiotic and place them on the agar",
-        "look for a clear area (area of inhibition)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Put the antibiotic straight onto the bacteria in the Petri dish.",
-          "right": "This is ignored. Soak filter paper discs in the antibiotic and place the discs on the surface of the agar."
-        },
-        {
-          "wrong": "Look to see if the bacteria have been killed or affected.",
-          "right": "This is ignored. Say look to see if there is a clear area around the disc."
-        },
-        {
-          "wrong": "Forceps are sterile to prevent contamination by germs.",
-          "right": "\"Germs\" and \"bugs\" are not accepted. Say other microbes or microorganisms."
-        },
-        {
-          "wrong": "Seal the lid all the way round with tape so nothing gets in.",
-          "right": "Leave a gap. Sealing the dish stops oxygen entering, so harmful anaerobic bacteria could grow."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "890a0e90-8d44-41d9-95e5-36e4e23fbab5",
         "source": "OCR jun 2025, Paper 2, Q20(b)(i)",
@@ -295,12 +312,29 @@
         ],
         "tip": "Any three score one mark each. Putting antibiotic straight onto the bacteria or Petri dish is ignored."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 21.1.1"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Bacteria are useful in biotechnology and genetic modification because they reproduce rapidly.",
+                "They can also make complex molecules, such as human proteins."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

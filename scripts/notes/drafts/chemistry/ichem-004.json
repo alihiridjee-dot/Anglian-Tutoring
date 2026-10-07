@@ -1,0 +1,210 @@
+{
+  "format": 1,
+  "concept_id": "ichem-004",
+  "subject": "chemistry",
+  "title": "Acidic, basic and amphoteric oxides",
+  "key_idea": "Oxides of non-metals are mostly acidic. Oxides of metals are basic. Some oxides, such as aluminium oxide and zinc oxide, are amphoteric: they react with both acids and bases to make a salt and water.",
+  "sections": [
+    {
+      "heading": "Acidic and basic oxides",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The type of oxide depends on whether the element is a metal or a non-metal. This section covers each type."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Acidic oxide",
+              "meaning": "An oxide of a non-metal. It reacts with bases to form a salt and water."
+            },
+            {
+              "term": "Basic oxide",
+              "meaning": "An oxide of a metal. It reacts with acids to form a salt and water."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Type",
+            "Made from",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Acidic oxide",
+              "Non-metal",
+              "Sulfur dioxide, SO₂; carbon dioxide, CO₂; silicon(IV) oxide, SiO₂"
+            ],
+            [
+              "Basic oxide",
+              "Metal",
+              "Copper(II) oxide, CuO; calcium oxide, CaO"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A few non-metal oxides, such as carbon monoxide, are neutral.",
+            "Acidic oxides that dissolve in water give solutions with a pH less than 7.",
+            "Basic oxides react with acids and are neutralised by them.",
+            "A reaction between a basic oxide and an acidic oxide is an acid–base reaction.",
+            "Calcium oxide reacting with silicon(IV) oxide to make calcium silicate is an example.",
+            "Elements can be classified by their oxides. A metal forms a basic oxide and conducts electricity. A non-metal forms an acidic oxide and does not conduct electricity (graphite is an exception)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Non-metal oxides are acidic. Metal oxides are basic.",
+            "Acidic oxides have a pH below 7 when dissolved in water.",
+            "A basic oxide and an acidic oxide react in an acid–base reaction."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "(Supplement) Amphoteric oxides",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Some oxides are neither purely acidic nor purely basic. This section covers amphoteric oxides."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Amphoteric oxide",
+              "meaning": "An oxide that reacts with acids and with bases to produce a salt and water."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) Aluminium oxide, Al₂O₃, and zinc oxide, ZnO, are amphoteric.",
+            "(Supplement) With an acid, they act as a base.",
+            "(Supplement) With a base such as aqueous sodium hydroxide, they act as an acid.",
+            "(Supplement) Both reactions make a salt and water only."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Eight oxides are sorted into acidic, basic and amphoteric.",
+            "prompt": "Sort each oxide into its type.",
+            "groups": [
+              "Acidic",
+              "Basic",
+              "Amphoteric"
+            ],
+            "items": [
+              {
+                "text": "Carbon dioxide, CO₂",
+                "group": 0
+              },
+              {
+                "text": "Sulfur dioxide, SO₂",
+                "group": 0
+              },
+              {
+                "text": "Silicon(IV) oxide, SiO₂",
+                "group": 0
+              },
+              {
+                "text": "Calcium oxide, CaO",
+                "group": 1
+              },
+              {
+                "text": "Copper(II) oxide, CuO",
+                "group": 1
+              },
+              {
+                "text": "Magnesium oxide, MgO",
+                "group": 1
+              },
+              {
+                "text": "Aluminium oxide, Al₂O₃",
+                "group": 2
+              },
+              {
+                "text": "Zinc oxide, ZnO",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Supplement) An amphoteric oxide reacts with both acids and bases.",
+            "(Supplement) Al₂O₃ and ZnO are amphoteric.",
+            "(Supplement) The products are always a salt and water."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the type of oxide that copper(II) oxide is.",
+      "a": "Copper(II) oxide is a basic oxide.",
+      "marks": 1
+    },
+    {
+      "q": "(Supplement) State the meaning of the term amphoteric.",
+      "a": "It reacts with acids and with bases to produce a salt and water.",
+      "marks": 1
+    },
+    {
+      "q": "Name an acidic oxide.",
+      "a": "Sulfur dioxide, carbon dioxide or silicon(IV) oxide.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 7.2.1",
+        "CAIE 7.2.2S",
+        "CAIE 7.2.3S"
+      ],
+      "worked_example": {
+        "exemplar_id": "9604816f-cd27-47b8-890c-f051d00fa704",
+        "source": "CAMBRIDGE nov 2024, Paper 43, Q3(b)(ii)",
+        "question": "SnO₂ is an amphoteric oxide. SnO₂ reacts with aqueous sodium hydroxide, NaOH, to form a sodium salt and water only. The sodium salt contains a negative ion with the formula SnO₃²⁻. Write the symbol equation for the reaction between SnO₂ and NaOH.",
+        "marks": 2,
+        "answer_points": [
+          "The sodium salt is Na₂SnO₃.",
+          "SnO₂ + 2NaOH → Na₂SnO₃ + H₂O"
+        ],
+        "tip": "Balance the sodium: two Na⁺ ions balance one SnO₃²⁻ ion."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.20"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "8286aa99-1dd3-4311-a517-21b3df9454c2",
+      "ec637850-8dfa-4cb6-8d12-482125401f5f",
+      "6ec7c864-52e5-448b-b17d-995adec5e435",
+      "77a2ec9b-0af0-486c-8182-9b2bf333caf7"
+    ],
+    "exemplar_ids": [
+      "9604816f-cd27-47b8-890c-f051d00fa704"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

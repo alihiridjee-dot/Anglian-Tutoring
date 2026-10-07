@@ -1,0 +1,324 @@
+{
+  "format": 1,
+  "concept_id": "ichem-010",
+  "subject": "chemistry",
+  "title": "Solubility and solubility curves",
+  "key_idea": "Solubility is the mass of solute, in g, that dissolves in 100 g of solvent at a given temperature. A solubility curve shows solubility against temperature. You can find the solubility of a solid by finding when a known mass in a known mass of water just becomes saturated.",
+  "sections": [
+    {
+      "heading": "What solubility means",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Solubility tells you how much of a solid dissolves in a solvent. It is measured in g per 100 g of solvent."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Solubility",
+              "meaning": "The mass of a solute, in g, that dissolves in 100 g of solvent to make a saturated solution at a given temperature."
+            },
+            {
+              "term": "Saturated solution",
+              "meaning": "A solution with the maximum amount of solute dissolved at that temperature."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "formula": "solubility = (mass of solute ÷ mass of solvent) × 100",
+          "label": "Solubility",
+          "where": [
+            "solubility in g per 100 g of solvent",
+            "mass of solute in g",
+            "mass of solvent in g (1.0 cm³ of water has a mass of 1.0 g)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating solubility in g per 100 g of water from a mass of solid that just saturates a volume of water.",
+            "question": "A student finds that **{m} g** of a solid just saturates **{w} cm³** of water at a set temperature. Calculate the solubility in g per 100 g of water. (1.0 cm³ of water has a mass of 1.0 g.)",
+            "variables": [
+              {
+                "id": "m",
+                "min": 2,
+                "max": 9,
+                "step": 0.5
+              },
+              {
+                "id": "w",
+                "min": 10,
+                "max": 50,
+                "step": 10
+              }
+            ],
+            "answer": {
+              "formula": "m / w * 100",
+              "unit": "g per 100 g",
+              "decimals": 1
+            },
+            "working": [
+              "Mass of water = {w} g",
+              "Solubility = ({m} ÷ {w}) × 100",
+              "Solubility = **{answer}** g per 100 g of water"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Solubility is given in g per 100 g of solvent.",
+            "A saturated solution has dissolved the maximum amount at that temperature."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Solubility curves",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A solubility curve plots solubility on the y axis against temperature on the x axis."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Axes",
+              "text": "Temperature goes along the bottom. Solubility goes up the side."
+            },
+            {
+              "lead": "Plot",
+              "text": "Mark each point with a small cross."
+            },
+            {
+              "lead": "Join",
+              "text": "Draw a smooth curve of best fit through the points. Do not join point to point with a ruler."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A line graph of solubility against temperature for two solids. Both curves rise with temperature, one steeply and one slowly.",
+            "x": {
+              "label": "Temperature",
+              "min": 0,
+              "max": 100,
+              "ticks": [
+                0,
+                20,
+                40,
+                60,
+                80,
+                100
+              ],
+              "unit": "°C"
+            },
+            "y": {
+              "label": "Solubility (g per 100 g of water)"
+            },
+            "series": [
+              {
+                "name": "Solid A",
+                "points": [
+                  [
+                    0,
+                    0.08
+                  ],
+                  [
+                    20,
+                    0.15
+                  ],
+                  [
+                    40,
+                    0.28
+                  ],
+                  [
+                    60,
+                    0.45
+                  ],
+                  [
+                    80,
+                    0.68
+                  ],
+                  [
+                    100,
+                    0.95
+                  ]
+                ]
+              },
+              {
+                "name": "Solid B",
+                "points": [
+                  [
+                    0,
+                    0.2
+                  ],
+                  [
+                    20,
+                    0.22
+                  ],
+                  [
+                    40,
+                    0.25
+                  ],
+                  [
+                    60,
+                    0.28
+                  ],
+                  [
+                    80,
+                    0.32
+                  ],
+                  [
+                    100,
+                    0.36
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Every point on a curve is a saturated solution at that temperature.",
+            "For most solids, solubility increases as temperature increases.",
+            "To read a value, go up from the temperature to the curve, then across to the solubility.",
+            "When a hot saturated solution cools, crystals form. The mass that crystallises per 100 g of water is the solubility at the higher temperature minus the solubility at the lower temperature."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A solubility curve shows the saturated solution at each temperature.",
+            "Draw a smooth curve through the points.",
+            "Read values by going up to the curve and across to the axis."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Practical: solubility of a solid in water",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The solubility of a solid at a set temperature can be found by making a saturated solution."
+        },
+        {
+          "type": "subheading",
+          "text": "Finding when a solution is saturated"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Weigh",
+              "text": "Add a known mass of solid, such as 4.5 g, to a boiling tube."
+            },
+            {
+              "lead": "Measure",
+              "text": "Add exactly 10.0 cm³ of water, using a pipette or burette."
+            },
+            {
+              "lead": "Heat",
+              "text": "Warm the boiling tube in a beaker of hot water, stirring until all the solid dissolves."
+            },
+            {
+              "lead": "Cool",
+              "text": "Take the tube out and let it cool, stirring. Record the temperature when crystals first form."
+            },
+            {
+              "lead": "Calculate",
+              "text": "At that temperature the solution is saturated. Scale the mass of solid to 100 g of water to give the solubility."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A water bath is used because heating directly could heat the solution too fast or make it spit.",
+            "Repeat the experiment and find the mean temperature to make the result more reliable.",
+            "Repeat with different masses of solid to plot a solubility curve."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Another method at one set temperature"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Stir an excess of solid into a known mass of water held at the set temperature.",
+            "Filter off the undissolved solid.",
+            "Weigh a sample of the filtrate, evaporate the water and weigh the residue. The mass of water is the sample mass minus the residue mass. Then scale to 100 g of water."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A saturated solution just begins to crystallise when it cools.",
+            "Use a water bath, stir, and repeat the experiment."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the units used for solubility.",
+      "a": "g per 100 g of solvent (g per 100 g of water).",
+      "marks": 1
+    },
+    {
+      "q": "4.0 g of a solid just saturates 20 g of water. Calculate its solubility.",
+      "a": "4.0 ÷ 20 × 100 = 20 g per 100 g of water.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a hot saturated solution forms crystals as it cools.",
+      "a": "The solubility falls as the temperature falls, so some solute can no longer stay dissolved and crystallises.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.5C",
+        "IGCSE 1.6C",
+        "IGCSE 1.7C"
+      ],
+      "worked_example": {
+        "exemplar_id": "d1811408-0b4d-485a-9580-d76150a22e35",
+        "source": "EDEXCEL nov 2021, Paper 2 (C), Q2(b)(iv)",
+        "question": "A student adds 4.5 g of a solid to a boiling tube and measures exactly 10.0 cm³ of pure water into the boiling tube. She heats the boiling tube gently in a beaker of water, stirring until all the solid dissolves. She then removes the boiling tube and lets it cool, and records the temperature when crystals start to form. The recorded temperature shows when the solution becomes saturated. Crystals start to form at 26 °C. Calculate the solubility of the solid, in g per 100 g of water, at 26 °C. [1.0 cm³ of pure water has a mass of 1.0 g]",
+        "marks": 2,
+        "answer_points": [
+          "4.5 g of solid in 10 g of water.",
+          "Solubility = 4.5 × 10 = 45 g per 100 g of water."
+        ],
+        "tip": "Scale both the mass of solid and the mass of water up by the same factor, here 10."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "2fdcedff-2ce9-480f-ab88-c43bea79bd52",
+      "4dabcbfe-9c80-48e6-a85d-51af83ba5508",
+      "9e4829d1-d2ca-4475-9e24-e713ee80dd6d"
+    ],
+    "exemplar_ids": [
+      "d1811408-0b4d-485a-9580-d76150a22e35"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

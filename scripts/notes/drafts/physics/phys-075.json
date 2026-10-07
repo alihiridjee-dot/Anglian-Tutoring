@@ -1,0 +1,323 @@
+{
+  "format": 1,
+  "concept_id": "phys-075",
+  "subject": "physics",
+  "title": "Dangers of electromagnetic radiation",
+  "key_idea": "The danger of an electromagnetic wave increases with its frequency. Ultraviolet, X-rays and gamma rays can damage body tissue, and the risk depends on the type of radiation and the size of the dose.",
+  "sections": [
+    {
+      "heading": "Frequency and danger",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers why some electromagnetic waves are more dangerous than others."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ionising radiation",
+              "meaning": "Radiation that can damage cells and cause the mutation of genes. X-rays and gamma rays are ionising."
+            },
+            {
+              "term": "Mutation",
+              "meaning": "A change in a gene (in DNA) that can lead to cancer."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The danger of an electromagnetic wave increases with its frequency.",
+            "Ultraviolet, X-rays and gamma rays have the highest frequencies, so they are hazardous to human body tissue.",
+            "Radio waves are not ionising, so they are not harmful in the same way.",
+            "The Earth's atmosphere absorbs gamma rays (and some ultraviolet) from the Sun, so less reaches people."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Waves are generated or absorbed by changes in atoms and in the nuclei of atoms, over a wide range of frequencies."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gamma rays come from changes in the nucleus of an atom.",
+            "X-rays can be emitted when electrons in an atom change energy level."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The higher the frequency, the greater the danger.",
+            "Ultraviolet, X-rays and gamma rays are hazardous to body tissue.",
+            "Gamma rays originate from the nucleus of an atom."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Harmful effects on the body",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the harm caused by each type of wave. Pick one to see its effect."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a type of electromagnetic wave to see its harmful effect on the body.",
+            "prompt": "Pick a type of electromagnetic wave",
+            "result_labels": ["Harmful effect on the body", "Danger"],
+            "options": [
+              {
+                "label": "Microwaves",
+                "results": [
+                  "Internal heating of body cells.",
+                  "Lower frequency, so less dangerous than ultraviolet, X-rays and gamma rays."
+                ]
+              },
+              {
+                "label": "Infrared",
+                "results": [
+                  "Skin burns.",
+                  "Lower frequency, so less dangerous than ultraviolet, X-rays and gamma rays."
+                ]
+              },
+              {
+                "label": "Ultraviolet",
+                "results": [
+                  "Damage to surface cells and eyes. Skin ageing and skin cancer. Eye conditions.",
+                  "Hazardous. Higher frequency than visible light."
+                ]
+              },
+              {
+                "label": "X-rays",
+                "results": [
+                  "Mutation of genes and damage to cells. Increased risk of cancer.",
+                  "Ionising and very hazardous. Higher frequency than ultraviolet."
+                ]
+              },
+              {
+                "label": "Gamma rays",
+                "results": [
+                  "Mutation of genes and damage to cells. Increased risk of cancer.",
+                  "Ionising and very hazardous. The highest frequency in the spectrum."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ultraviolet can make skin age early and increases the risk of skin cancer.",
+            "Ultraviolet can also damage the eyes.",
+            "X-rays and gamma rays can cause mutation of genes and cancer."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Microwaves heat cells inside the body and infrared causes skin burns.",
+            "Ultraviolet causes skin damage, premature ageing, skin cancer and eye damage.",
+            "X-rays and gamma rays cause mutations and cancer."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Radiation dose",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers radiation dose and how the risk is kept low."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Radiation dose",
+              "meaning": "A measure of the risk of harm from exposing the body to radiation. It is measured in sieverts (Sv)."
+            },
+            {
+              "term": "Millisievert (mSv)",
+              "meaning": "One thousandth of a sievert. 1000 mSv = 1 Sv."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The effect of radiation depends on the type of radiation and the size of the dose.",
+            "A larger dose means a greater risk of harm, such as cancer.",
+            "Taking many X-rays gives a large total dose, so a radiographer stands behind a screen that absorbs some of the X-rays.",
+            "Gamma rays from an injected isotope can irradiate the whole body for longer than an X-ray, which only exposes part of the body briefly."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Changing millisieverts to sieverts",
+          "formula": "dose in sieverts = dose in millisieverts ÷ 1000",
+          "where": [
+            "dose in sieverts is in sieverts (Sv).",
+            "dose in millisieverts is in millisieverts (mSv)."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Change a radiation dose from millisieverts to sieverts.",
+            "question": "A person receives a radiation dose of {d} mSv. Give the dose in sieverts (Sv).",
+            "variables": [
+              {
+                "id": "d",
+                "min": 100,
+                "max": 5000,
+                "step": 100
+              }
+            ],
+            "answer": {
+              "formula": "d / 1000",
+              "unit": "Sv",
+              "decimals": 1
+            },
+            "working": ["1000 mSv = 1 Sv", "dose in Sv = {d} ÷ 1000", "dose = {answer} Sv"]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Radiation dose measures the risk of harm. The unit is the sievert (Sv).",
+            "1000 mSv = 1 Sv.",
+            "A larger dose carries a greater risk, so exposure is kept as low as possible."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State two risks of exposure to high levels of ultraviolet radiation.",
+      "a": "Any two from: ageing of the skin, skin cancer, eye damage.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why gamma rays can be harmful but radio waves are not.",
+      "a": "Gamma rays are ionising but radio waves are not. Gamma rays can cause mutations in genes (DNA) or increase the risk of cancer.",
+      "marks": 2
+    },
+    {
+      "q": "A person receives a dose of 2500 mSv. Give the dose in sieverts.",
+      "a": "2500 ÷ 1000 = 2.5 Sv.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.6.2.3", "AQA T 6.6.2.3"],
+      "worked_example": {
+        "exemplar_id": "057ba372-60c8-42b7-ad4c-4c7d2225437c",
+        "source": "AQA jun 2021, Paper 2 (H), Q05.3",
+        "question": "To use X-rays for medical imaging, a machine produces a very brief burst of X-rays.\n\nTo use gamma rays for medical imaging, a radioactive isotope is injected into the patient's blood. The isotope is circulated around the body in the blood. The isotope emits gamma rays.\n\nCompare the potential risks to a patient of using X-rays and gamma rays for medical imaging.",
+        "marks": 4,
+        "answer_points": [
+          "Both are ionising radiation, so there is some risk of cancer.",
+          "The whole body is irradiated by gamma rays.",
+          "When an X-ray is taken, only part of the body is exposed.",
+          "The exposure time for gamma rays is longer."
+        ],
+        "tip": "One mark for each point. Make each point a comparison between the two methods."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.20", "EDEX 5.21"],
+      "worked_example": {
+        "exemplar_id": "91eee9a7-3997-49d9-883d-bf4775e8145f",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q5(a)(i)",
+        "question": "Ultraviolet (UV) waves from the Sun travel towards the Earth.\n\nUltraviolet waves can be grouped by wavelength. The groups are UVA, UVB and UVC.\n\nUVA: wavelength range 400 nm to 315 nm; 5% of energy absorbed by the Earth's atmosphere.\nUVB: wavelength range 314 nm to 280 nm; 95% of energy absorbed by the Earth's atmosphere.\nUVC: wavelength range 279 nm to 100 nm; 100% of energy absorbed by the Earth's atmosphere.\n\nExplain why UVC is potentially the most dangerous ultraviolet radiation but does not cause harm to people.",
+        "marks": 2,
+        "answer_points": [
+          "UVC has the smallest wavelength (highest frequency, highest energy, most ionising), so it is potentially the most dangerous.",
+          "It does not harm people because 100% of it is absorbed by the Earth's atmosphere, so none reaches the surface."
+        ],
+        "tip": "The answer needs a link: why it is dangerous, then why it does no harm."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P5.2h"],
+      "worked_example": {
+        "exemplar_id": "3af036fe-c8c3-480b-9fae-5161897aa656",
+        "source": "OCR jun 2022, Paper 2, Q16(b)(ii)",
+        "question": "Which type of wave is the most dangerous: infra-red, microwaves or X-rays?\n\nIdentify two reasons for your answer.",
+        "marks": 2,
+        "answer_points": [
+          "X-rays are the most dangerous.",
+          "Any two from: X-rays have the highest frequency, highest energy and shortest wavelength; they are ionising; they can cause cancer, damage cells or kill cells."
+        ],
+        "tip": "The two marks are still given if the wave chosen is wrong, but you should name X-rays."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.3.4"]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.13"],
+      "worked_example": {
+        "exemplar_id": "bacac471-33c5-45a8-8612-3f2431fcf591",
+        "source": "EDEXCEL jan 2023, Paper 2 (PR), Q2(b)",
+        "question": "Explain a hazard of ultraviolet radiation to the human body.",
+        "marks": 2,
+        "answer_points": [
+          "Ultraviolet causes mutations or damage in cells.",
+          "This can lead to skin cancer or blindness."
+        ],
+        "tip": "Skin burns, sunburn and cells being killed are also accepted for the first mark."
+      },
+      "extra": [
+        {
+          "heading": "Simple protective measures",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The risk is lowered by cutting the dose a person receives."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Limit the time of exposure.",
+                "Keep further from the source.",
+                "Put a screen between the source and the person. Lead absorbs X-rays and gamma rays.",
+                "Cover the skin, use sunscreen and wear sunglasses to protect against ultraviolet.",
+                "Too much ultraviolet can damage the surface cells of the eyes and cause blindness."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "045ab699-1a56-4e46-a923-e8b4f95c0d79",
+      "2230d9ec-2cf6-4775-96d5-cceb444e2f38",
+      "30e5ceea-c924-4d82-9749-4493a32c4e14",
+      "caa832fe-4cdd-482d-918c-a16d45a9f44d",
+      "8dfef336-c595-4740-b832-9740577d33cd",
+      "1d637522-cdd4-4335-91f1-88c780abf2a4",
+      "d5734e51-dadd-4a08-9579-6dbc9ea300ce"
+    ],
+    "exemplar_ids": [
+      "057ba372-60c8-42b7-ad4c-4c7d2225437c",
+      "91eee9a7-3997-49d9-883d-bf4775e8145f",
+      "3af036fe-c8c3-480b-9fae-5161897aa656",
+      "bacac471-33c5-45a8-8612-3f2431fcf591"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

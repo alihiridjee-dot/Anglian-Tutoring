@@ -1,0 +1,4097 @@
+{
+  "subject": "chemistry",
+  "level": "igcse",
+  "boards": [
+    "cambridge_igcse",
+    "edexcel_igcse"
+  ],
+  "note": "IGCSE-only concepts (new notes) and the IGCSE spec points that join existing GCSE concepts. Merged with gcse-chemistry.json by conceptMap.ts. Each IGCSE spec point is primary in exactly one concept.",
+  "joins": [
+    {
+      "concept_id": "chem-001",
+      "spec_points": [
+        {
+          "id": "9b56691c-aa34-432f-8377-58e2a3773246",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.1",
+          "primary": true
+        },
+        {
+          "id": "9908f649-4896-49af-a988-8c41aa4da3c2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.1",
+          "primary": true
+        },
+        {
+          "id": "f41089b3-41a3-415a-9366-cd3ac204088d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.3",
+          "primary": true
+        },
+        {
+          "id": "54301dca-2aee-4ff3-95c4-11faa7864c63",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.8",
+          "primary": true
+        },
+        {
+          "id": "3c378c51-dda0-4427-a046-af32422d347d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.14",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-002",
+      "spec_points": [
+        {
+          "id": "9b56691c-aa34-432f-8377-58e2a3773246",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.1.1",
+          "primary": false
+        },
+        {
+          "id": "da3258ca-dab2-48be-8c80-15e8224dea21",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.1.3",
+          "primary": false
+        },
+        {
+          "id": "cbfed24f-72b2-4aa0-bdac-f7caf44d5055",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.4.1",
+          "primary": true
+        },
+        {
+          "id": "4790b6cc-50d6-4a9f-8598-5f5ce0f9d5a7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.4.2",
+          "primary": true
+        },
+        {
+          "id": "54301dca-2aee-4ff3-95c4-11faa7864c63",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.8",
+          "primary": false
+        },
+        {
+          "id": "4d32ec2f-82d3-4a04-94eb-58a744c76dde",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.10",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-004",
+      "spec_points": [
+        {
+          "id": "4018169e-ca4d-4ffe-905f-afecbc41ae2f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.1",
+          "primary": true
+        },
+        {
+          "id": "0dbf60f6-fd4e-4976-b38c-3956bceff247",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.2",
+          "primary": true
+        },
+        {
+          "id": "6c6b3f1f-73b8-480d-a53b-87a50169ed30",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.15",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-005",
+      "spec_points": [
+        {
+          "id": "86eda8b0-8f26-4f44-9c6d-6d5237358bd7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.3",
+          "primary": true
+        },
+        {
+          "id": "ca9e2585-0519-4301-82cc-f65c5694c109",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.4",
+          "primary": true
+        },
+        {
+          "id": "b4719964-1a33-459a-aaef-7203a3ced41e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.1",
+          "primary": true
+        },
+        {
+          "id": "fa5b0009-194c-4ce7-94fe-36ec6959f32e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.2",
+          "primary": true
+        },
+        {
+          "id": "c2486c29-6c08-4c5e-86bf-8b55202a33d1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.3S",
+          "primary": true
+        },
+        {
+          "id": "2e92d62b-569e-4e9f-81e9-c4e8f53b4d94",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.16",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-006",
+      "spec_points": [
+        {
+          "id": "476f4c6b-b58d-43dc-87a2-c20a65bd0821",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.3.4S",
+          "primary": true
+        },
+        {
+          "id": "19d2b050-ca61-412f-b4ec-71ddb1ffa70b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.1",
+          "primary": true
+        },
+        {
+          "id": "3e9ad5f7-101f-424c-a41b-677950cbda15",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2",
+          "primary": false
+        },
+        {
+          "id": "2e92d62b-569e-4e9f-81e9-c4e8f53b4d94",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.16",
+          "primary": false
+        },
+        {
+          "id": "dd4c8847-d899-422a-960b-eefa4789a83b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.17",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-007",
+      "spec_points": [
+        {
+          "id": "92dda1cd-81ad-4b33-82a6-bdd477e0b3bf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.5",
+          "primary": true
+        },
+        {
+          "id": "99208e58-8a91-4eff-87ef-e34e30a7b4b0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.6",
+          "primary": true
+        },
+        {
+          "id": "e8768d9f-0654-4cf2-84aa-28c88d0f1454",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.1.4",
+          "primary": false
+        },
+        {
+          "id": "473dc3ed-1422-4a3a-bf53-7a89f19cc07f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.19",
+          "primary": true
+        },
+        {
+          "id": "b383e086-5c97-466a-9ab7-f4ae39f251a9",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.22",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-009",
+      "spec_points": [
+        {
+          "id": "99208e58-8a91-4eff-87ef-e34e30a7b4b0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.6",
+          "primary": false
+        },
+        {
+          "id": "645a805c-a01e-4c3b-8dbb-cb2cd5d7629c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.1.1",
+          "primary": true
+        },
+        {
+          "id": "73f72562-1197-4c4a-beb2-08b66d4194ad",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.1.2",
+          "primary": false
+        },
+        {
+          "id": "f5ba3549-a7f3-4cf0-862f-0d73781f4b09",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.1.3",
+          "primary": false
+        },
+        {
+          "id": "e8768d9f-0654-4cf2-84aa-28c88d0f1454",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.1.4",
+          "primary": true
+        },
+        {
+          "id": "095cc902-482e-4c22-974c-c74ec4f5aa9d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.1.5",
+          "primary": true
+        },
+        {
+          "id": "f97049e6-a219-4127-8976-f8062324e4b0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.1.6S",
+          "primary": true
+        },
+        {
+          "id": "91b357e9-b973-4e18-a303-f3566a159476",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.18",
+          "primary": true
+        },
+        {
+          "id": "b383e086-5c97-466a-9ab7-f4ae39f251a9",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.22",
+          "primary": false
+        },
+        {
+          "id": "b41a588e-afd5-4fea-bd2b-65e943b91508",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.23",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-010",
+      "spec_points": [
+        {
+          "id": "8286aa99-1dd3-4311-a517-21b3df9454c2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.2.1",
+          "primary": false
+        },
+        {
+          "id": "73f72562-1197-4c4a-beb2-08b66d4194ad",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.1.2",
+          "primary": true
+        },
+        {
+          "id": "6d633b1e-c0ce-4af3-839b-836b6758b0dd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.1.1",
+          "primary": true
+        },
+        {
+          "id": "77a2ec9b-0af0-486c-8182-9b2bf333caf7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.20",
+          "primary": false
+        },
+        {
+          "id": "cdd66013-7b3c-4174-b6e3-8b3d209e6461",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.21",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-011",
+      "spec_points": [
+        {
+          "id": "f97049e6-a219-4127-8976-f8062324e4b0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.1.6S",
+          "primary": false
+        },
+        {
+          "id": "fa922b8f-6006-429d-a9c9-e4f7137c2bf0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.2.1",
+          "primary": true
+        },
+        {
+          "id": "73bae679-a2c0-462d-b01b-5793af53f22a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.2.2",
+          "primary": true
+        },
+        {
+          "id": "b8dabed5-7523-4c60-b4db-ea67c5fe8fad",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.1",
+          "primary": true
+        },
+        {
+          "id": "c1fdd7c3-2b92-41a2-84c7-35a598377679",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.2",
+          "primary": true
+        },
+        {
+          "id": "682f7e1b-f0b3-403f-8864-22561f14ceab",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.3",
+          "primary": true
+        },
+        {
+          "id": "3ebdd699-6020-4495-9882-d3e0762e181b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.4C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-012",
+      "spec_points": [
+        {
+          "id": "f97049e6-a219-4127-8976-f8062324e4b0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.1.6S",
+          "primary": false
+        },
+        {
+          "id": "a887237e-9e63-40fd-82c9-a4b615e4c3ba",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.3.1",
+          "primary": true
+        },
+        {
+          "id": "f7d20e94-5cb0-42b5-a7c9-b2879b6f43d8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.3.2",
+          "primary": true
+        },
+        {
+          "id": "79e58351-82f1-4a35-beb8-2695571d7e31",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.3.3",
+          "primary": true
+        },
+        {
+          "id": "4f6b1299-bd02-4cc6-972e-7942f1c6f6a4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.3.4",
+          "primary": true
+        },
+        {
+          "id": "bf2a16bb-c67e-489a-80bc-c13af74b5c3b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.5",
+          "primary": true
+        },
+        {
+          "id": "8a932af8-0491-46fd-9cb8-aee5da8845d5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.6",
+          "primary": true
+        },
+        {
+          "id": "5a570c55-e2a8-4f73-895b-a640ac0ffdce",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.7",
+          "primary": true
+        },
+        {
+          "id": "c522e024-cbc3-491e-9cc2-c82fa2e92c59",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.8C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-013",
+      "spec_points": [
+        {
+          "id": "99208e58-8a91-4eff-87ef-e34e30a7b4b0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.6",
+          "primary": false
+        },
+        {
+          "id": "e0e68e35-2dba-4ab3-8286-ca8cd8b6a5ec",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.5.1",
+          "primary": true
+        },
+        {
+          "id": "49f9ca57-1c55-47e6-bb4f-d93e551e178e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.24",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-014",
+      "spec_points": [
+        {
+          "id": "67edcfac-2a7d-45a9-9538-2e79463fc05e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.4.1",
+          "primary": true
+        },
+        {
+          "id": "b5383d1d-b73f-4624-98be-84d162ceb36a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.4.2S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-015",
+      "spec_points": [
+        {
+          "id": "dc9db5bf-5368-4faa-a9f4-d2a81469b30f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.1",
+          "primary": true
+        },
+        {
+          "id": "c67c9bfb-b82f-41cb-b9d4-bfac2d16c23b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.2",
+          "primary": true
+        },
+        {
+          "id": "75a42ff5-3a04-4244-b3ac-7da70a0554c0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.3",
+          "primary": true
+        },
+        {
+          "id": "a0a4ba4b-4fd7-402d-ab05-2d1bc0b749d1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.5S",
+          "primary": true
+        },
+        {
+          "id": "4a8c247c-59cb-41ed-9d79-f8271533962b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.6S",
+          "primary": false
+        },
+        {
+          "id": "39500d3d-33a7-46fd-97a9-3432373b5fbf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.1",
+          "primary": false
+        },
+        {
+          "id": "d0598ef0-6565-4846-8716-2ab6ed7fd310",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.1.1",
+          "primary": true
+        },
+        {
+          "id": "9695d57c-cfe1-4041-94ec-3f8fc0496312",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.1",
+          "primary": true
+        },
+        {
+          "id": "e2bacf29-4f68-4980-af3a-31fa6547a4ca",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.2",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-017",
+      "spec_points": [
+        {
+          "id": "92dda1cd-81ad-4b33-82a6-bdd477e0b3bf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.2.5",
+          "primary": false
+        },
+        {
+          "id": "cc5744bd-7fc0-464d-aaf4-41feca2e660c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.4.1",
+          "primary": true
+        },
+        {
+          "id": "f2c4102e-48a6-4b72-be63-2b008c637526",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.4.2",
+          "primary": true
+        },
+        {
+          "id": "27051f0d-fcfe-4400-86d5-1baf834978c9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.4.3",
+          "primary": true
+        },
+        {
+          "id": "7e3f5e52-a8f5-46ac-8f8d-c0cf40c53860",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.4.6S",
+          "primary": true
+        },
+        {
+          "id": "f5ba3549-a7f3-4cf0-862f-0d73781f4b09",
+          "board": "cambridge_igcse",
+          "code": "CAIE 8.1.3",
+          "primary": true
+        },
+        {
+          "id": "b18b6bba-4df1-4274-9b74-2f80c7779f76",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.37",
+          "primary": true
+        },
+        {
+          "id": "d6ca00a6-e0db-4905-8cbd-54877b87f8e1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.38",
+          "primary": false
+        },
+        {
+          "id": "574bef63-7aa0-496a-8d92-426f4ff8ec1b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.40",
+          "primary": true
+        },
+        {
+          "id": "232394b4-399e-40dc-8fef-601eadc9b3dc",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.41",
+          "primary": true
+        },
+        {
+          "id": "73599d12-d37d-4ae5-ac8a-5297d33afb8e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.57C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-018",
+      "spec_points": [
+        {
+          "id": "f2c4102e-48a6-4b72-be63-2b008c637526",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.4.2",
+          "primary": false
+        },
+        {
+          "id": "229e501e-7c92-4364-ae87-7311bb7b9685",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.4.5S",
+          "primary": true
+        },
+        {
+          "id": "9908f649-4896-49af-a988-8c41aa4da3c2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.1",
+          "primary": false
+        },
+        {
+          "id": "8b5735e0-aed7-46b4-816d-7ce030ea91a1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.6S",
+          "primary": true
+        },
+        {
+          "id": "d6ca00a6-e0db-4905-8cbd-54877b87f8e1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.38",
+          "primary": true
+        },
+        {
+          "id": "c823ee26-8a24-4e8d-9795-43a4eebcb44b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.39",
+          "primary": true
+        },
+        {
+          "id": "232394b4-399e-40dc-8fef-601eadc9b3dc",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.41",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-019",
+      "spec_points": [
+        {
+          "id": "15b75a74-6427-4191-ac60-1010bc7a03de",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.4.4",
+          "primary": true
+        },
+        {
+          "id": "665df801-f0c3-470f-840c-38973747528c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.4.7S",
+          "primary": true
+        },
+        {
+          "id": "d5c1d579-6014-46a9-bd33-9769f753ae6c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.42",
+          "primary": true
+        },
+        {
+          "id": "690bfff1-8b9c-4650-8fa4-5d83b04967ab",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.43",
+          "primary": true
+        },
+        {
+          "id": "24604573-78aa-4abf-a480-9ac9e4db6d9d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.56C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-020",
+      "spec_points": [
+        {
+          "id": "b93a2b95-e68b-40a9-8dde-9757688f7cad",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.5.1",
+          "primary": true
+        },
+        {
+          "id": "b766a3eb-6dbb-4b3b-a552-186cb8ebc21b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.5.2",
+          "primary": true
+        },
+        {
+          "id": "dd8b96c7-927d-429a-9420-eaa6eb7d2fea",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.5.4S",
+          "primary": true
+        },
+        {
+          "id": "3c378c51-dda0-4427-a046-af32422d347d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.14",
+          "primary": false
+        },
+        {
+          "id": "81bbd6d3-76f1-41c4-bb81-f3024b0894d2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.44",
+          "primary": true
+        },
+        {
+          "id": "c8c5eb9d-609d-4396-a121-d9088841f993",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.45",
+          "primary": true
+        },
+        {
+          "id": "10a9a84e-0006-495a-bf31-ab5b50851804",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.46",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-021",
+      "spec_points": [
+        {
+          "id": "a138cc31-d21e-40fa-9fcf-c87bfe6b0cd5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.5.3",
+          "primary": true
+        },
+        {
+          "id": "64adace0-c96a-46c7-b34e-c58d123d5924",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.5.5S",
+          "primary": true
+        },
+        {
+          "id": "781cecad-eec5-461e-936c-f6643b61311f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.47",
+          "primary": true
+        },
+        {
+          "id": "3f7d129a-ae42-421f-8f19-71d6a5d46336",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.48",
+          "primary": true
+        },
+        {
+          "id": "df58aa23-d938-4846-9c6f-f35f54433269",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.51",
+          "primary": true
+        },
+        {
+          "id": "7db617b8-e52c-471b-81f0-29d8b37d3bd5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.55C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-022",
+      "spec_points": [
+        {
+          "id": "b399c223-cf9c-437a-91d4-4842dd6ff571",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.1",
+          "primary": false
+        },
+        {
+          "id": "62caf1da-34ac-470d-a31c-86c1be8cc08e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.4",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-023",
+      "spec_points": [
+        {
+          "id": "fee30db4-e54b-4334-9fa4-a91a72385f0d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.6.1",
+          "primary": true
+        },
+        {
+          "id": "2926a944-04a7-4943-853b-1e258f903bd9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.6.2",
+          "primary": true
+        },
+        {
+          "id": "aa08121a-9f58-4e18-a8e7-81f341a06776",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.6.3S",
+          "primary": true
+        },
+        {
+          "id": "b836fc74-1edb-4e2a-a802-ae57f45e944c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.6.4S",
+          "primary": true
+        },
+        {
+          "id": "6673857e-2ed8-4caf-85ed-5cd0d0ac3c39",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.49",
+          "primary": true
+        },
+        {
+          "id": "8ddd1e85-414f-4366-ad22-06b68b492f86",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.50",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-024",
+      "spec_points": [
+        {
+          "id": "8ddd1e85-414f-4366-ad22-06b68b492f86",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.50",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-025",
+      "spec_points": [
+        {
+          "id": "a99cab40-d453-427e-b751-1fa1f24273e6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.7.1S",
+          "primary": true
+        },
+        {
+          "id": "d7486545-b198-4e8c-88b3-da918ba72273",
+          "board": "cambridge_igcse",
+          "code": "CAIE 2.7.2S",
+          "primary": true
+        },
+        {
+          "id": "6d633b1e-c0ce-4af3-839b-836b6758b0dd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.1.1",
+          "primary": false
+        },
+        {
+          "id": "2a822b60-48a4-467c-9bc7-7181f9e955f7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.1",
+          "primary": false
+        },
+        {
+          "id": "2599c63c-ebfe-49eb-b0a2-2d7440950fd7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.52C",
+          "primary": true
+        },
+        {
+          "id": "9b2c3344-cbf9-4459-a6a6-bd79ee84fa11",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.53C",
+          "primary": true
+        },
+        {
+          "id": "e2fc392d-00cd-42e5-9ddb-7c47756b28ed",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.54C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-027",
+      "spec_points": [
+        {
+          "id": "72a4999a-c2d2-409d-9108-961efa03033c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.4",
+          "primary": true
+        },
+        {
+          "id": "40e8744c-d362-4bc9-bf7d-2c71dd26ee4d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.7S",
+          "primary": true
+        },
+        {
+          "id": "4bb05601-8ed1-4ee7-bfda-6c818552651d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.8S",
+          "primary": true
+        },
+        {
+          "id": "37cc24ec-b38f-42d8-b86a-cb40276823b0",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.25",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-029",
+      "spec_points": [
+        {
+          "id": "3e9ad5f7-101f-424c-a41b-677950cbda15",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.2",
+          "primary": true
+        },
+        {
+          "id": "8e7b4178-708e-4dee-a410-2399c1d46e8d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.3",
+          "primary": false
+        },
+        {
+          "id": "e426e3d3-b2eb-48b5-a244-42554b8ad392",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.8S",
+          "primary": false
+        },
+        {
+          "id": "2f4759fc-b6a6-4e05-b665-d84cc4f009b5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.26",
+          "primary": true
+        },
+        {
+          "id": "4616d96e-9e50-44fe-b019-c4c99ee06659",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.28",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-030",
+      "spec_points": [
+        {
+          "id": "111d658e-fa00-4559-8b3d-cede5f6d38b5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.2",
+          "primary": true
+        },
+        {
+          "id": "f41089b3-41a3-415a-9366-cd3ac204088d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.3",
+          "primary": false
+        },
+        {
+          "id": "831cacea-5942-4cb6-abce-e1ab616ce58a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.1.5S",
+          "primary": true
+        },
+        {
+          "id": "8df76071-e793-430e-9716-fe47b309527a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.7S",
+          "primary": true
+        },
+        {
+          "id": "da4cf6ea-3768-4ef4-800d-44099a6ed0c0",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.31",
+          "primary": true
+        },
+        {
+          "id": "2eb4efb2-6719-4ab2-999e-b9e910330433",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.32",
+          "primary": true
+        },
+        {
+          "id": "ba230153-3470-4afa-89fe-af006971142e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.33",
+          "primary": true
+        },
+        {
+          "id": "59d317dd-998b-482a-b694-cc44f7084319",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.36",
+          "primary": true
+        },
+        {
+          "id": "6ae7cd8c-9870-4cbc-ab58-1286592a701e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-031",
+      "spec_points": [
+        {
+          "id": "081d5bd3-c6cf-450a-9959-c413e59eef5d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.2S",
+          "primary": true
+        },
+        {
+          "id": "a1b7482e-bcef-4edd-968b-f1c9f83ab0cb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.3S",
+          "primary": true
+        },
+        {
+          "id": "0a939941-350c-4e78-8a80-aa7bb4f2b019",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.27",
+          "primary": true
+        },
+        {
+          "id": "4616d96e-9e50-44fe-b019-c4c99ee06659",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.28",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-032",
+      "spec_points": [
+        {
+          "id": "8e7b4178-708e-4dee-a410-2399c1d46e8d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.2.3",
+          "primary": true
+        },
+        {
+          "id": "a9502971-f330-43da-9a49-ac0651f7fbf3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.5S",
+          "primary": true
+        },
+        {
+          "id": "4616d96e-9e50-44fe-b019-c4c99ee06659",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.28",
+          "primary": false
+        },
+        {
+          "id": "99fa5ae0-2d9a-489c-b62d-5f5f5c80ad8a",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.29",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-034",
+      "spec_points": [
+        {
+          "id": "a9502971-f330-43da-9a49-ac0651f7fbf3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.5S",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-035",
+      "spec_points": [
+        {
+          "id": "11a84ca5-9b37-4930-a18f-27f4f8b97be1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.1",
+          "primary": true
+        },
+        {
+          "id": "da3258ca-dab2-48be-8c80-15e8224dea21",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.1.3",
+          "primary": false
+        },
+        {
+          "id": "4fa0dd74-0af2-408b-b27a-068cfdcc9ee2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.34C",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-036",
+      "spec_points": [
+        {
+          "id": "11a84ca5-9b37-4930-a18f-27f4f8b97be1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.1",
+          "primary": false
+        },
+        {
+          "id": "a9502971-f330-43da-9a49-ac0651f7fbf3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.5S",
+          "primary": false
+        },
+        {
+          "id": "4fa0dd74-0af2-408b-b27a-068cfdcc9ee2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.34C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-037",
+      "spec_points": [
+        {
+          "id": "4f6c6ebd-deb4-4835-9057-9bb4deb12c9d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.6S",
+          "primary": true
+        },
+        {
+          "id": "4fa0dd74-0af2-408b-b27a-068cfdcc9ee2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.34C",
+          "primary": false
+        },
+        {
+          "id": "6b599758-f2a6-4fc1-bb10-ae9d1a99a43e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.33C",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-038",
+      "spec_points": [
+        {
+          "id": "e426e3d3-b2eb-48b5-a244-42554b8ad392",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.8S",
+          "primary": true
+        },
+        {
+          "id": "a0881b58-3fba-47a1-95e2-72195075cfa4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.30",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-040",
+      "spec_points": [
+        {
+          "id": "8184b26a-1f57-45a4-b5ac-0605e4321453",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.4S",
+          "primary": true
+        },
+        {
+          "id": "a9502971-f330-43da-9a49-ac0651f7fbf3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 3.3.5S",
+          "primary": false
+        },
+        {
+          "id": "5b953e14-3cf1-4483-b90a-eb92cf478b0b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.35C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-041",
+      "spec_points": [
+        {
+          "id": "3bdc88dd-1459-4533-bf8f-edbf06cd7b63",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.2",
+          "primary": true
+        },
+        {
+          "id": "36435648-1137-41df-b4f5-c9c4f4261c9c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.3",
+          "primary": true
+        },
+        {
+          "id": "71711d18-3abd-4438-91cd-44841fce51cf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.4",
+          "primary": true
+        },
+        {
+          "id": "afedc376-4652-4315-b148-bce46511f60b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.5",
+          "primary": true
+        },
+        {
+          "id": "f7651f5c-30c6-4cf6-897d-632eec643c98",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.11S",
+          "primary": true
+        },
+        {
+          "id": "0b325d2b-29a7-491f-87a0-92584eaf7c5d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.12S",
+          "primary": true
+        },
+        {
+          "id": "3877babf-0cd0-4b17-89b2-d332b2d4589f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.13S",
+          "primary": false
+        },
+        {
+          "id": "c838d82e-0022-455a-914e-d4090195bc37",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.1.2",
+          "primary": false
+        },
+        {
+          "id": "7cda1c0f-81e5-42ae-964b-73a255ab3d87",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.11",
+          "primary": false
+        },
+        {
+          "id": "e08ad7f0-c58a-4540-96ae-a5be0b34a323",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.20",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-042",
+      "spec_points": [
+        {
+          "id": "c838d82e-0022-455a-914e-d4090195bc37",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.1.2",
+          "primary": true
+        },
+        {
+          "id": "fb72575f-ace3-4480-84bb-c920abdad3cf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.1",
+          "primary": true
+        },
+        {
+          "id": "09af7691-fadf-4e06-9679-8045403b8759",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.2",
+          "primary": true
+        },
+        {
+          "id": "1fe1dbda-4a52-42b3-8b11-197fbe293b42",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.3",
+          "primary": true
+        },
+        {
+          "id": "51f1b00e-9321-4cc6-9c22-e23292fe73e8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.4S",
+          "primary": true
+        },
+        {
+          "id": "411c1d20-9254-49bf-a116-99ea6309a826",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.5S",
+          "primary": true
+        },
+        {
+          "id": "1ba28a19-a3ac-4ab2-b89b-3383250e167f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.5.5S",
+          "primary": false
+        },
+        {
+          "id": "1e92a31d-594d-4ccd-b6bb-534d68003352",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.6.1",
+          "primary": false
+        },
+        {
+          "id": "7d515b6b-0736-418b-a127-bd61edc5240e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.15",
+          "primary": true
+        },
+        {
+          "id": "e633eede-dfae-4d12-a951-11d7b272660e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.16",
+          "primary": true
+        },
+        {
+          "id": "52b545ac-ab40-44bd-b414-480265c0c88f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.17",
+          "primary": true
+        },
+        {
+          "id": "603d5a5b-2391-4627-ae96-edeaf3796f56",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.21",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-043",
+      "spec_points": [
+        {
+          "id": "1e92a31d-594d-4ccd-b6bb-534d68003352",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.6.1",
+          "primary": true
+        },
+        {
+          "id": "d5791b51-6c3b-4ccd-b6ef-cc4c93b35849",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.6.2",
+          "primary": false
+        },
+        {
+          "id": "86a13635-cb5e-4ddc-8154-29e5eb86e9f9",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.22C",
+          "primary": true
+        },
+        {
+          "id": "a0ee590a-d2a4-47e4-841d-c55e992f0337",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.23C",
+          "primary": true
+        },
+        {
+          "id": "a9306691-eadc-4018-8c3c-525c6736a290",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.24C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-044",
+      "spec_points": [
+        {
+          "id": "3bdc88dd-1459-4533-bf8f-edbf06cd7b63",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.2",
+          "primary": false
+        },
+        {
+          "id": "afedc376-4652-4315-b148-bce46511f60b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.5",
+          "primary": false
+        },
+        {
+          "id": "5d19b284-2137-4f35-96a4-33e64f1249ab",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.6S",
+          "primary": true
+        },
+        {
+          "id": "10edf4e6-7301-4642-888a-7a5e25d9dd71",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.7S",
+          "primary": true
+        },
+        {
+          "id": "386e8f1c-0d3e-434e-b825-6d86785d7031",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.8S",
+          "primary": true
+        },
+        {
+          "id": "3877babf-0cd0-4b17-89b2-d332b2d4589f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.13S",
+          "primary": false
+        },
+        {
+          "id": "51f1b00e-9321-4cc6-9c22-e23292fe73e8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.4S",
+          "primary": false
+        },
+        {
+          "id": "e08ad7f0-c58a-4540-96ae-a5be0b34a323",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.20",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-045",
+      "spec_points": [
+        {
+          "id": "e18d7b60-363c-47de-acfb-576d07154485",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.2",
+          "primary": true
+        },
+        {
+          "id": "c1c85016-93ad-4c4f-bb1d-95ba627f6db2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.5",
+          "primary": true
+        },
+        {
+          "id": "d82a64a3-91fe-4038-bd8d-8cba43353932",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.6",
+          "primary": true
+        },
+        {
+          "id": "76ca2788-c591-4cc7-8cd6-d4c4d1f0fec9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.7",
+          "primary": true
+        },
+        {
+          "id": "27cad640-8d51-415a-96d6-71aa3edfd408",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.8",
+          "primary": false
+        },
+        {
+          "id": "408d8ad8-17fe-4014-afce-38db3fac994c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.28",
+          "primary": true
+        },
+        {
+          "id": "191f44f8-3333-4df0-adfa-dafaa143a1c3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.29",
+          "primary": true
+        },
+        {
+          "id": "583596f6-f32d-4ffd-a968-465cb6ab9ba3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.30",
+          "primary": true
+        },
+        {
+          "id": "4f0bf2dc-a1e6-4987-9f40-d2656ebc1af5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.31",
+          "primary": true
+        },
+        {
+          "id": "cf2ef885-5bf5-42d5-b87c-f5df3afb1b36",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.32",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-046",
+      "spec_points": [
+        {
+          "id": "a7c735bb-9afc-4dac-91ef-25caaf555fbf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.10S",
+          "primary": true
+        },
+        {
+          "id": "c20e72fe-8986-4ad7-9bc6-197c90275b83",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.11S",
+          "primary": true
+        },
+        {
+          "id": "c8b8f0df-0abe-42fc-8e9f-7b2728417616",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.12S",
+          "primary": false
+        },
+        {
+          "id": "191f44f8-3333-4df0-adfa-dafaa143a1c3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.29",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-047",
+      "spec_points": [
+        {
+          "id": "d049e9ae-5478-4797-8891-1b6f47d0cb8d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.1",
+          "primary": false
+        },
+        {
+          "id": "48dd7490-3217-4e47-b5e7-505acff395bd",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.3",
+          "primary": true
+        },
+        {
+          "id": "7604a657-d8fa-45a7-b5e6-a33433b6d87a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.4",
+          "primary": true
+        },
+        {
+          "id": "27cad640-8d51-415a-96d6-71aa3edfd408",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.8",
+          "primary": true
+        },
+        {
+          "id": "b250bbe5-5987-4e91-99fd-d58ed6132c34",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.9S",
+          "primary": true
+        },
+        {
+          "id": "4f0bf2dc-a1e6-4987-9f40-d2656ebc1af5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.31",
+          "primary": false
+        },
+        {
+          "id": "cf2ef885-5bf5-42d5-b87c-f5df3afb1b36",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.32",
+          "primary": true
+        },
+        {
+          "id": "4a28917e-608e-4859-bcb5-54e89fe3a89f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.35",
+          "primary": true
+        },
+        {
+          "id": "cc2626bd-30f7-4271-8a9d-351366d42804",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.36",
+          "primary": true
+        },
+        {
+          "id": "42a552f2-69f3-4242-abac-15cd8876e170",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.37",
+          "primary": false
+        },
+        {
+          "id": "f3c6e5e3-7e4e-4801-9790-0932e3d7134f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.38",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-048",
+      "spec_points": [
+        {
+          "id": "d049e9ae-5478-4797-8891-1b6f47d0cb8d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.1",
+          "primary": true
+        },
+        {
+          "id": "603d5a5b-2391-4627-ae96-edeaf3796f56",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.21",
+          "primary": true
+        },
+        {
+          "id": "42a552f2-69f3-4242-abac-15cd8876e170",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.37",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-049",
+      "spec_points": [
+        {
+          "id": "b884ddf3-49dc-4655-a11d-1fa50786fb1d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.3.1",
+          "primary": true
+        },
+        {
+          "id": "975c5f31-4610-4c18-abe6-553683091304",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.39",
+          "primary": true
+        },
+        {
+          "id": "86a781f1-38eb-41ea-ba3a-e9c4832fc4d9",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.40C",
+          "primary": true
+        },
+        {
+          "id": "fb0bdb2b-ebf6-46b4-8cbb-e30c84483adb",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.42",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-050",
+      "spec_points": [
+        {
+          "id": "df496cfc-600b-47f9-a113-071f317ebeaa",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.3.2",
+          "primary": true
+        },
+        {
+          "id": "4a5cb05f-acba-4b0d-b5dc-8393e484fa3b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.3.4S",
+          "primary": true
+        },
+        {
+          "id": "40b0fbd0-2b34-4a31-aae3-45d5fea81773",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.34",
+          "primary": true
+        },
+        {
+          "id": "c194aa0b-eb36-4a9f-bdcf-09317f22b222",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.41C",
+          "primary": true
+        },
+        {
+          "id": "c1f5d8e5-e58c-4c4e-8a92-4dea98a1c48c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.43C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-051",
+      "spec_points": [
+        {
+          "id": "583596f6-f32d-4ffd-a968-465cb6ab9ba3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.30",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-052",
+      "spec_points": [
+        {
+          "id": "b884ddf3-49dc-4655-a11d-1fa50786fb1d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.3.1",
+          "primary": false
+        },
+        {
+          "id": "90497862-3e5a-4127-953c-f72c3a83243f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.2.1",
+          "primary": true
+        },
+        {
+          "id": "6ba26ccb-e6ca-463d-a9dd-9f96aa1df58d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.2.2",
+          "primary": true
+        },
+        {
+          "id": "6b599758-f2a6-4fc1-bb10-ae9d1a99a43e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.33C",
+          "primary": true
+        },
+        {
+          "id": "86a781f1-38eb-41ea-ba3a-e9c4832fc4d9",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.40C",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-053",
+      "spec_points": [
+        {
+          "id": "67c1ff6a-9c78-4c3c-98f2-e21981c7abb7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.1",
+          "primary": true
+        },
+        {
+          "id": "77d20e11-f95d-4d56-b4fd-e1ba89d759e7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.2",
+          "primary": true
+        },
+        {
+          "id": "1a70a706-3682-4c2a-aafe-b982d9af077f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.4",
+          "primary": true
+        },
+        {
+          "id": "ca0c1ea8-f2fc-4498-9069-2f13337f27bc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.8S",
+          "primary": true
+        },
+        {
+          "id": "c7ad4082-7c96-4a03-9788-e2c07b5e7f52",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.58C",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-054",
+      "spec_points": [
+        {
+          "id": "8a86be5d-14ee-44a3-a5ed-2c100cab9f56",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.3",
+          "primary": false
+        },
+        {
+          "id": "fc4a2f80-afa9-468f-9a3f-3ae0939fdea8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.5",
+          "primary": true
+        },
+        {
+          "id": "ec1b15cd-a5d8-47b8-a9e4-5af066456caf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.10S",
+          "primary": false
+        },
+        {
+          "id": "c7ad4082-7c96-4a03-9788-e2c07b5e7f52",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.58C",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-055",
+      "spec_points": [
+        {
+          "id": "8a86be5d-14ee-44a3-a5ed-2c100cab9f56",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.3",
+          "primary": true
+        },
+        {
+          "id": "1a70a706-3682-4c2a-aafe-b982d9af077f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.4",
+          "primary": false
+        },
+        {
+          "id": "ec1b15cd-a5d8-47b8-a9e4-5af066456caf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.10S",
+          "primary": true
+        },
+        {
+          "id": "c7ad4082-7c96-4a03-9788-e2c07b5e7f52",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.58C",
+          "primary": true
+        },
+        {
+          "id": "181b53c8-b087-4cf0-a022-f12b30089332",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.60C",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-056",
+      "spec_points": [
+        {
+          "id": "ca0c1ea8-f2fc-4498-9069-2f13337f27bc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.8S",
+          "primary": false
+        },
+        {
+          "id": "d08b0313-1088-4410-970b-01f4c51738ee",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.11S",
+          "primary": true
+        },
+        {
+          "id": "e1a607cb-2d9d-40f2-8941-ae152ebff87d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.59C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-057",
+      "spec_points": [
+        {
+          "id": "e9e54eb6-176e-4f5b-90f6-d3209d25a6ae",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.6.3",
+          "primary": true
+        },
+        {
+          "id": "3a6cdb67-c696-4f7c-96f2-d69cd0c28e12",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.6.5S",
+          "primary": true
+        },
+        {
+          "id": "a0ee590a-d2a4-47e4-841d-c55e992f0337",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.23C",
+          "primary": false
+        },
+        {
+          "id": "a9306691-eadc-4018-8c3c-525c6736a290",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.24C",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-058",
+      "spec_points": [
+        {
+          "id": "5c4dcdbb-a285-4219-a431-88351bb70267",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.6",
+          "primary": true
+        },
+        {
+          "id": "4c43c006-fac7-49da-8d20-e79942a090ec",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.7",
+          "primary": true
+        },
+        {
+          "id": "4b5cee21-08f4-49d2-9848-21de16d73fe0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.9S",
+          "primary": true
+        },
+        {
+          "id": "181b53c8-b087-4cf0-a022-f12b30089332",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.60C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-059",
+      "spec_points": [
+        {
+          "id": "c34e52c2-0427-4ddc-a806-23f8d8ef4ec9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.1",
+          "primary": true
+        },
+        {
+          "id": "37538694-08c0-4550-9018-f831a62a02ce",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.2",
+          "primary": true
+        },
+        {
+          "id": "72a5d3a6-2f3c-47df-99b3-06e447169e12",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.4S",
+          "primary": false
+        },
+        {
+          "id": "b4b4b62c-d2d1-423c-8ff3-6ef79b476cdc",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.12",
+          "primary": false
+        },
+        {
+          "id": "04500920-999d-41f7-a0d4-d88716cee066",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.1",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-060",
+      "spec_points": [
+        {
+          "id": "51c4c4f8-ff23-4f5a-8c75-67ff4b9483e7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.2",
+          "primary": true
+        },
+        {
+          "id": "74f5241b-76af-4dd9-9258-62ca40c122bf",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.3",
+          "primary": false
+        },
+        {
+          "id": "6ab00af2-7b98-4a39-b623-62376367e6ff",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.8",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-061",
+      "spec_points": [
+        {
+          "id": "22811e8f-dbc9-4893-8f8b-062b2f52a09e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.3",
+          "primary": true
+        },
+        {
+          "id": "72a5d3a6-2f3c-47df-99b3-06e447169e12",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.4S",
+          "primary": true
+        },
+        {
+          "id": "6814a41e-fd11-4360-88e8-25aaaf68abd8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.5S",
+          "primary": true
+        },
+        {
+          "id": "2c64e6c6-3852-4359-8f41-6c19b03df6bb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.6S",
+          "primary": true
+        },
+        {
+          "id": "4c1d3771-d4a5-4e07-ae81-9d15f30e9117",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.5C",
+          "primary": true
+        },
+        {
+          "id": "7b18ee79-8655-4bf3-9ef6-f84f314401ea",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.13",
+          "primary": false
+        },
+        {
+          "id": "8bd62bb0-5259-427f-a573-5132ad5dfd22",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.14C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-062",
+      "spec_points": [
+        {
+          "id": "32a8532c-ec4e-46eb-875e-79b8b8f4f482",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.7S",
+          "primary": true
+        },
+        {
+          "id": "c0a66dd9-053c-4eb3-a5e5-5bf932841b85",
+          "board": "cambridge_igcse",
+          "code": "CAIE 5.1.8S",
+          "primary": true
+        },
+        {
+          "id": "15322fc2-c7bc-4a13-ac54-3a040223e377",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.4",
+          "primary": false
+        },
+        {
+          "id": "93a8a097-47de-4265-8dba-59f7d851ca87",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.6C",
+          "primary": true
+        },
+        {
+          "id": "54c90551-d6ac-472c-a80e-875822935443",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.7C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-063",
+      "spec_points": [
+        {
+          "id": "51c4c4f8-ff23-4f5a-8c75-67ff4b9483e7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-064",
+      "spec_points": [
+        {
+          "id": "7e6ec4cb-a7ff-4491-868a-fb9337541201",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.2S",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-066",
+      "spec_points": [
+        {
+          "id": "d5c508bb-bdcb-449f-b841-9fe7eab9ca4c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.1",
+          "primary": true
+        },
+        {
+          "id": "7e6ec4cb-a7ff-4491-868a-fb9337541201",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.2.2S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-067",
+      "spec_points": [
+        {
+          "id": "14628bf9-5b96-4739-bb70-20f1e789185d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.4",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-068",
+      "spec_points": [
+        {
+          "id": "f541345f-4038-400a-b080-20e7c01b3e5e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.3",
+          "primary": true
+        },
+        {
+          "id": "e8103c58-15f0-41b6-9dc9-1eaab0b7b140",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.8S",
+          "primary": true
+        },
+        {
+          "id": "4e8ecf99-fc26-46e1-baeb-9ed8a18cd753",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.9",
+          "primary": true
+        },
+        {
+          "id": "2cbe4ba3-63f3-46b4-b233-c036950ced0b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.15",
+          "primary": true
+        },
+        {
+          "id": "db916aee-2366-4ae8-afbb-750aeaf3dd75",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.16",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-069",
+      "spec_points": [
+        {
+          "id": "2d755ec4-8a72-49d5-8da6-7ecbca2eed9e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.1",
+          "primary": true
+        },
+        {
+          "id": "14628bf9-5b96-4739-bb70-20f1e789185d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.4",
+          "primary": false
+        },
+        {
+          "id": "4e8ecf99-fc26-46e1-baeb-9ed8a18cd753",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.9",
+          "primary": false
+        },
+        {
+          "id": "956ba4f5-83d5-4cd9-b31a-da43a538eb93",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.10",
+          "primary": true
+        },
+        {
+          "id": "2cbe4ba3-63f3-46b4-b233-c036950ced0b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.15",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-070",
+      "spec_points": [
+        {
+          "id": "ab9ab80e-ecc7-4cc7-bc1a-4a2222ada4be",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.5S",
+          "primary": true
+        },
+        {
+          "id": "089cbc74-cadc-4929-a201-ee46187d1584",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.6S",
+          "primary": true
+        },
+        {
+          "id": "3f9ec431-23b1-4783-b534-6972c0e77636",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.11",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-071",
+      "spec_points": [
+        {
+          "id": "e0b04ee8-db68-4b87-b844-f8938a8ef277",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.2",
+          "primary": true
+        },
+        {
+          "id": "089cbc74-cadc-4929-a201-ee46187d1584",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.6S",
+          "primary": false
+        },
+        {
+          "id": "80600999-c8c8-4907-aed5-bddffdef046c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.2.7S",
+          "primary": true
+        },
+        {
+          "id": "c8a3b4b2-5687-45bd-967d-7d2558fba8d5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.8S",
+          "primary": false
+        },
+        {
+          "id": "92868ccd-35ea-4189-a1bd-d04de039fb48",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.12",
+          "primary": true
+        },
+        {
+          "id": "7b18ee79-8655-4bf3-9ef6-f84f314401ea",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.13",
+          "primary": true
+        },
+        {
+          "id": "8bd62bb0-5259-427f-a573-5132ad5dfd22",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.14C",
+          "primary": false
+        },
+        {
+          "id": "db916aee-2366-4ae8-afbb-750aeaf3dd75",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.16",
+          "primary": true
+        },
+        {
+          "id": "68935002-4d7b-4e9c-ace2-7eb7d322f7a5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.21C",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-072",
+      "spec_points": [
+        {
+          "id": "7f0a045c-f0a8-4037-b9b9-33aef694ad71",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.3.1",
+          "primary": true
+        },
+        {
+          "id": "2676f7be-ae66-4cd1-a2b4-41d7e843181f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.3.2",
+          "primary": true
+        },
+        {
+          "id": "1f4d17de-1877-4ece-919b-47b8afc03b43",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.3.3S",
+          "primary": true
+        },
+        {
+          "id": "85de2c65-c75d-4609-b8ca-decd1b53be59",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.3.3",
+          "primary": true
+        },
+        {
+          "id": "8b560dd3-2f26-4616-a720-8434e373842b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.3.5S",
+          "primary": true
+        },
+        {
+          "id": "2e53ae8f-5ff8-4a18-a423-7b61461db973",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.1",
+          "primary": true
+        },
+        {
+          "id": "da4cf6ea-3768-4ef4-800d-44099a6ed0c0",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.31",
+          "primary": false
+        },
+        {
+          "id": "35b0f9bd-391e-418a-a159-3e93968b0e74",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.49",
+          "primary": true
+        },
+        {
+          "id": "331f51d4-aaa0-4d88-b404-b79b4019773e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.17",
+          "primary": true
+        },
+        {
+          "id": "4958d611-52e5-4a20-8907-f9dd62fd91ec",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.18",
+          "primary": true
+        },
+        {
+          "id": "4f75ec2d-0b0a-44ba-a94d-073093c515c8",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.19C",
+          "primary": true
+        },
+        {
+          "id": "8124fc1d-c054-407d-8b2b-e57036c471bc",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.20C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-073",
+      "spec_points": [
+        {
+          "id": "46bffd5e-0a95-44c0-878e-8032f826a36d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.3.4S",
+          "primary": true
+        },
+        {
+          "id": "68935002-4d7b-4e9c-ace2-7eb7d322f7a5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.21C",
+          "primary": true
+        },
+        {
+          "id": "2f099572-fb76-4d7a-afa3-b4f648cc7c96",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.22C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-074",
+      "spec_points": [
+        {
+          "id": "5bd88a00-2588-43ce-b61d-8b5cac3f9ca9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.1",
+          "primary": true
+        },
+        {
+          "id": "94d56397-549e-403f-82c7-b4e3044b31fa",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.5",
+          "primary": true
+        },
+        {
+          "id": "99d8bef6-31e9-4606-b72c-e9bd10d18e19",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.3.1",
+          "primary": true
+        },
+        {
+          "id": "ccc37e89-4c40-4fb9-b281-1df9be02caf8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.3.2",
+          "primary": true
+        },
+        {
+          "id": "3832d1c5-ff92-4e0e-ab13-c865de8b815f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.3.3",
+          "primary": true
+        },
+        {
+          "id": "624d828e-7997-4c06-8b86-6df918e9734f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.3.4",
+          "primary": true
+        },
+        {
+          "id": "a762f92f-42bf-46de-a49f-512f67391c8b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.4.1",
+          "primary": true
+        },
+        {
+          "id": "cc214ca9-75fd-4946-bbdd-f1059fc11caf",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.1",
+          "primary": true
+        },
+        {
+          "id": "6d289ea6-e0a6-47d0-bac0-1252c18575b1",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.7",
+          "primary": true
+        },
+        {
+          "id": "5eca1e9c-b1b3-47aa-a8a8-0621c4f0b607",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.19",
+          "primary": true
+        },
+        {
+          "id": "523a0d1a-ef94-45c2-9da7-b3f2ed71fd19",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.20",
+          "primary": true
+        },
+        {
+          "id": "82a7d371-e05e-4127-8292-970c0a854f15",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.21",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-075",
+      "spec_points": [
+        {
+          "id": "5bd88a00-2588-43ce-b61d-8b5cac3f9ca9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.1",
+          "primary": false
+        },
+        {
+          "id": "92930965-e32d-499c-9e1e-204129a85b16",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.2",
+          "primary": true
+        },
+        {
+          "id": "9ed05b21-713f-4bfc-b72a-4e92bddf8c62",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.3",
+          "primary": true
+        },
+        {
+          "id": "b791df1d-4e9e-4827-915f-895bffff8fa8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.4",
+          "primary": true
+        },
+        {
+          "id": "c426b76b-36cb-49f4-8631-6fc28f519c59",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.9S",
+          "primary": true
+        },
+        {
+          "id": "85c1905f-2d6b-4804-b46e-6b2a499c8233",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.2.1",
+          "primary": true
+        },
+        {
+          "id": "cb8a4db7-8e20-4280-ac8e-67d86fa6a49e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.2.2",
+          "primary": true
+        },
+        {
+          "id": "00b848f2-f1da-4191-b3b9-2836365808d4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.2.3S",
+          "primary": false
+        },
+        {
+          "id": "6ae7cd8c-9870-4cbc-ab58-1286592a701e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.2",
+          "primary": false
+        },
+        {
+          "id": "d01845a1-bfe4-4d68-8f7e-072ba5287baa",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.3",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-076",
+      "spec_points": [
+        {
+          "id": "c997af4e-66a5-4154-9a71-12360c073799",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.3.5",
+          "primary": true
+        },
+        {
+          "id": "16656c56-e5da-4a43-8e6f-6349c575b419",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.3.6",
+          "primary": true
+        },
+        {
+          "id": "97bd0f82-fbf2-4c6b-acdf-4f5c5a426f10",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.3.7",
+          "primary": true
+        },
+        {
+          "id": "dfb6ee98-06bd-4aff-a9d7-7fbdfb37a2b7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.8",
+          "primary": true
+        },
+        {
+          "id": "15684ec4-4cb6-477b-99a4-b71553c0a2aa",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.9",
+          "primary": true
+        },
+        {
+          "id": "a8af77e8-4b00-4803-b08e-f3f82733b5f5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.10",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-077",
+      "spec_points": [
+        {
+          "id": "16656c56-e5da-4a43-8e6f-6349c575b419",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.3.6",
+          "primary": false
+        },
+        {
+          "id": "c91914cf-14a2-4500-848c-4522ec528e63",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.4.2",
+          "primary": false
+        },
+        {
+          "id": "187ac572-7494-4ca8-8c59-7acc427bfceb",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.6",
+          "primary": false
+        },
+        {
+          "id": "a8af77e8-4b00-4803-b08e-f3f82733b5f5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.10",
+          "primary": false
+        },
+        {
+          "id": "0bb4f2a0-5d13-4063-bb16-5b672c8f822f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.11",
+          "primary": true
+        },
+        {
+          "id": "5c0eeef6-6754-48c3-991e-239b8eb9fb13",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.12",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-078",
+      "spec_points": [
+        {
+          "id": "dc6c93e3-2737-45a2-951a-d917b99a366a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.5.2",
+          "primary": true
+        },
+        {
+          "id": "8d50a15f-698c-4e05-9aa0-3a47cb0064c8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.5.3",
+          "primary": true
+        },
+        {
+          "id": "cdfa690c-71f3-4710-99c1-1b991ecd35ac",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.17",
+          "primary": true
+        },
+        {
+          "id": "e604802f-7af8-4f2c-a16d-1379bcc66f85",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.18",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-079",
+      "spec_points": [
+        {
+          "id": "79c08025-3753-4898-9cc5-f583d742c6eb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.6",
+          "primary": true
+        },
+        {
+          "id": "85c1905f-2d6b-4804-b46e-6b2a499c8233",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.2.1",
+          "primary": false
+        },
+        {
+          "id": "d452e58b-7f1c-47f9-bad0-13f0b2c6f337",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.5.1",
+          "primary": true
+        },
+        {
+          "id": "87c1986d-2d0b-41cb-8cd8-7b6af01253bc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.5.4",
+          "primary": true
+        },
+        {
+          "id": "fd5d6974-4313-41a7-a160-5af3c4c4b791",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.5.5S",
+          "primary": true
+        },
+        {
+          "id": "3a95d652-5ef0-4e86-82bd-f4f8bdab3d38",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.5.6S",
+          "primary": true
+        },
+        {
+          "id": "ed8381f4-3718-4630-925a-d934ef455a34",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.6.1",
+          "primary": false
+        },
+        {
+          "id": "1c70e017-598d-460f-af42-aaacfb8227cf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.6.4S",
+          "primary": false
+        },
+        {
+          "id": "187ac572-7494-4ca8-8c59-7acc427bfceb",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.6",
+          "primary": false
+        },
+        {
+          "id": "8d692136-d090-451e-9652-fdde397cc74e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.23",
+          "primary": true
+        },
+        {
+          "id": "904d1119-7c56-43ce-9595-f21bb8e8523b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.24",
+          "primary": true
+        },
+        {
+          "id": "7d9cffd1-f126-4533-9b7e-4f8a4b5470f4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.25",
+          "primary": true
+        },
+        {
+          "id": "c43de2c0-35a5-49e0-868e-f5f8a11599c5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.26",
+          "primary": false
+        },
+        {
+          "id": "f7d2cd5e-81d8-4a9c-88cc-64b1ae52a35b",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.27",
+          "primary": true
+        },
+        {
+          "id": "aa4a918d-5bcd-43d4-a213-9d40cf309081",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.28",
+          "primary": true
+        },
+        {
+          "id": "2b4deaa1-dab2-4360-8524-fb77791b8b7e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.32C",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-080",
+      "spec_points": [
+        {
+          "id": "85c1905f-2d6b-4804-b46e-6b2a499c8233",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.2.1",
+          "primary": false
+        },
+        {
+          "id": "ed8381f4-3718-4630-925a-d934ef455a34",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.6.1",
+          "primary": true
+        },
+        {
+          "id": "bd3647a5-f093-4899-a53c-7147f26ec9e1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.6.2",
+          "primary": true
+        },
+        {
+          "id": "8852f813-b237-48a2-85ea-e49c79f4a47a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.6.3",
+          "primary": true
+        },
+        {
+          "id": "1c70e017-598d-460f-af42-aaacfb8227cf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.6.4S",
+          "primary": true
+        },
+        {
+          "id": "e0c6e578-1a08-4597-a80a-f222044675c7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.7.2S",
+          "primary": true
+        },
+        {
+          "id": "1f1a65a0-ddc8-41d1-aea5-1b5c2b1e656f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.29C",
+          "primary": true
+        },
+        {
+          "id": "665a555d-a5c9-49ad-9256-fd8d55134736",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.30C",
+          "primary": true
+        },
+        {
+          "id": "3954d78d-ad62-4a2f-8577-e9aec0ae6362",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.31C",
+          "primary": true
+        },
+        {
+          "id": "2b4deaa1-dab2-4360-8524-fb77791b8b7e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.32C",
+          "primary": true
+        },
+        {
+          "id": "2d2b5955-7388-4ba3-a21c-4750b37a5e10",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.33C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-081",
+      "spec_points": [
+        {
+          "id": "c8b8f0df-0abe-42fc-8e9f-7b2728417616",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.1.12S",
+          "primary": true
+        },
+        {
+          "id": "85c1905f-2d6b-4804-b46e-6b2a499c8233",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.2.1",
+          "primary": false
+        },
+        {
+          "id": "0288ac15-20b7-4970-b7a4-2dddf00304bf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.2.4S",
+          "primary": false
+        },
+        {
+          "id": "c486b261-6032-4ba6-b96f-176eaa5524eb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.7.1",
+          "primary": true
+        },
+        {
+          "id": "e0c6e578-1a08-4597-a80a-f222044675c7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.7.2S",
+          "primary": false
+        },
+        {
+          "id": "75fe7fed-4f79-41a3-af5c-805e87d9daa7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.7.3S",
+          "primary": true
+        },
+        {
+          "id": "3954d78d-ad62-4a2f-8577-e9aec0ae6362",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.31C",
+          "primary": false
+        },
+        {
+          "id": "12f29522-b9ed-4501-8d18-65f5053d2325",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.34C",
+          "primary": true
+        },
+        {
+          "id": "7245b68e-7624-436b-95c4-fb400083f872",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.35C",
+          "primary": true
+        },
+        {
+          "id": "d82db9a5-3837-4cf5-b762-fd480917912f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.36C",
+          "primary": true
+        },
+        {
+          "id": "95535782-f74c-4e63-b86a-9b71644ec3ee",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.37C",
+          "primary": true
+        },
+        {
+          "id": "351bfd81-100c-4780-88b1-8c7ce02aea22",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.38C",
+          "primary": true
+        },
+        {
+          "id": "eddecb13-a473-4be7-aa15-8037d1081d35",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.39C",
+          "primary": true
+        },
+        {
+          "id": "4e0e44cd-5340-477a-8898-4403a075a7cb",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.40C",
+          "primary": true
+        },
+        {
+          "id": "f2b1e3d9-9f1e-4d38-a498-23490625bf7d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.41C",
+          "primary": false
+        },
+        {
+          "id": "1553b429-8062-442d-aa64-c51a8667ef24",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.42C",
+          "primary": true
+        },
+        {
+          "id": "f6bdf055-f43e-4f2b-96e6-f5d04baba010",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.43C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-082",
+      "spec_points": [
+        {
+          "id": "b399c223-cf9c-437a-91d4-4842dd6ff571",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.1",
+          "primary": true
+        },
+        {
+          "id": "78f34076-f770-4a70-8137-fc1090a4a838",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.2",
+          "primary": true
+        },
+        {
+          "id": "e7ac16c7-dacc-48d0-a167-601253e92763",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.3",
+          "primary": true
+        },
+        {
+          "id": "3490f404-3f7a-4a79-b1a2-922b0afb5ea2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.6S",
+          "primary": true
+        },
+        {
+          "id": "8a7b0492-368a-463d-a8f2-ee7d3f2cf5ac",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.7S",
+          "primary": true
+        },
+        {
+          "id": "52744ed0-0803-464a-8183-a80126a86bd2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.9S",
+          "primary": false
+        },
+        {
+          "id": "eb57300a-4e59-4399-a3ec-fd4a4047946a",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.44",
+          "primary": true
+        },
+        {
+          "id": "31b89a66-7c12-4fb7-b55e-a72d572feca7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.45",
+          "primary": true
+        },
+        {
+          "id": "e80d694c-212a-4074-9ec6-6fe6d530daf4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.46",
+          "primary": true
+        },
+        {
+          "id": "c3075cc8-e844-47e8-bf79-16c0b3076198",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.47",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-083",
+      "spec_points": [
+        {
+          "id": "3490f404-3f7a-4a79-b1a2-922b0afb5ea2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.6S",
+          "primary": false
+        },
+        {
+          "id": "5dcbd202-9a24-425f-a25c-132eb35ccb45",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.8S",
+          "primary": true
+        },
+        {
+          "id": "52744ed0-0803-464a-8183-a80126a86bd2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.9S",
+          "primary": true
+        },
+        {
+          "id": "9bae334f-6bfd-4f20-bef5-43aba15c2eab",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.10S",
+          "primary": true
+        },
+        {
+          "id": "02412581-8632-4b91-9590-2c044dfa0519",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.11S",
+          "primary": false
+        },
+        {
+          "id": "277f3cfc-3e95-46d3-8b2a-88f175a7c42e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.48C",
+          "primary": true
+        },
+        {
+          "id": "a6474224-2b1f-4b00-b042-8193f8adfc27",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.49C",
+          "primary": true
+        },
+        {
+          "id": "25059789-c02e-4b10-bc15-5d92d98165b7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.50C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-084",
+      "spec_points": [
+        {
+          "id": "adaa7560-e3a9-4b0e-97ea-f4fd5eabe8a8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.12S",
+          "primary": true
+        },
+        {
+          "id": "b8d601b4-477d-4907-83e7-93b45df4fbb9",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.13S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-085",
+      "spec_points": [
+        {
+          "id": "a0a4ba4b-4fd7-402d-ab05-2d1bc0b749d1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.5S",
+          "primary": false
+        },
+        {
+          "id": "907be95a-d3de-4470-9586-106c202aef20",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.2",
+          "primary": true
+        },
+        {
+          "id": "2a104425-b7f9-4ecf-b5f4-e43232afeb7c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.3.2",
+          "primary": false
+        },
+        {
+          "id": "9a0b587c-984e-4d31-972a-d89a4f2129dc",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.4.3",
+          "primary": true
+        },
+        {
+          "id": "75e5d271-e4cf-4ab8-a901-7267f2cf8f96",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.9",
+          "primary": true
+        },
+        {
+          "id": "c82fa7ed-c31b-404c-bb0f-d8da0c1f7f56",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.50",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-087",
+      "spec_points": [
+        {
+          "id": "59dc1452-ee3a-41d2-bc3d-6562558b5313",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.3.1",
+          "primary": true
+        },
+        {
+          "id": "2a104425-b7f9-4ecf-b5f4-e43232afeb7c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.3.2",
+          "primary": true
+        },
+        {
+          "id": "1c4ce70f-0847-4aff-bce7-fd7ddbe4e951",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.3.3S",
+          "primary": true
+        },
+        {
+          "id": "29157ded-9215-4a8b-aea5-d42a6d9f14cb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.3.4S",
+          "primary": true
+        },
+        {
+          "id": "ea79f129-7e23-4351-9223-0e662701a554",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.11",
+          "primary": true
+        },
+        {
+          "id": "dec0f89b-6240-400b-aa83-9efcb09b1072",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.12",
+          "primary": true
+        },
+        {
+          "id": "e41a9edd-e452-490e-90c4-4280072ee2b2",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.13",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-088",
+      "spec_points": [
+        {
+          "id": "2521886e-f6b4-4a76-a604-0ef0ae3d521d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.5.3",
+          "primary": true
+        },
+        {
+          "id": "167194e0-69de-4514-bad9-6b9eb3f83e5f",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.44",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-089",
+      "spec_points": [
+        {
+          "id": "4feeb515-43a8-4646-8848-71ca967b27b8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.5.4",
+          "primary": true
+        },
+        {
+          "id": "a464d6c5-e8ad-4e2a-bb71-ed5a7da57147",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.45",
+          "primary": true
+        },
+        {
+          "id": "30370fd2-9c67-4bfd-95e6-c6b824d3af98",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.46",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-090",
+      "spec_points": [
+        {
+          "id": "85b6228c-12dc-45c2-b5fa-0bc7249a633f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.5.2",
+          "primary": true
+        },
+        {
+          "id": "551b866b-8f7d-45ef-86d7-cbf69149f57c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.47",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-091",
+      "spec_points": [
+        {
+          "id": "28bcd682-f9e2-45bd-a04e-7e16c7a53edb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.5.1",
+          "primary": true
+        },
+        {
+          "id": "8b7ebb16-c2d5-4796-a585-bc4468f62fe3",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.48",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-092",
+      "spec_points": [
+        {
+          "id": "85b6228c-12dc-45c2-b5fa-0bc7249a633f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.5.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-094",
+      "spec_points": [
+        {
+          "id": "cbc42697-c4d7-42a6-b802-8b429cb59f89",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.1",
+          "primary": true
+        },
+        {
+          "id": "97cc4fa1-d757-4489-94df-2b90998a2885",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.5",
+          "primary": true
+        },
+        {
+          "id": "d348db5f-4ee1-4ca4-bbcc-9f1186989882",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.6",
+          "primary": true
+        },
+        {
+          "id": "a9be8f86-fdab-4a66-917c-0b02b34033a3",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.9S",
+          "primary": true
+        },
+        {
+          "id": "b3a21bcb-89b4-443d-8004-7c80ce8e201c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.9",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-095",
+      "spec_points": [
+        {
+          "id": "333409ea-3092-4ae0-b3da-79295153188f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.7S",
+          "primary": true
+        },
+        {
+          "id": "1db7fcc4-bea5-468d-826e-cedfbafdeba5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.13",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-096",
+      "spec_points": [
+        {
+          "id": "33b2af49-718c-49e1-a6ca-20f1624c42c8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-097",
+      "spec_points": [
+        {
+          "id": "45dc76d2-77b7-433b-85f5-81909b8bda74",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.3",
+          "primary": true
+        },
+        {
+          "id": "7f083ab1-1167-415b-8799-580c7d1c1daf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.4",
+          "primary": true
+        },
+        {
+          "id": "1db7fcc4-bea5-468d-826e-cedfbafdeba5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.13",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-098",
+      "spec_points": [
+        {
+          "id": "33b2af49-718c-49e1-a6ca-20f1624c42c8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.2",
+          "primary": true
+        },
+        {
+          "id": "45dc76d2-77b7-433b-85f5-81909b8bda74",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.3",
+          "primary": false
+        },
+        {
+          "id": "5c0eeef6-6754-48c3-991e-239b8eb9fb13",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.12",
+          "primary": true
+        },
+        {
+          "id": "63a02840-0441-4fab-88de-a19ef82cad2d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.13",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-099",
+      "spec_points": [
+        {
+          "id": "33b2af49-718c-49e1-a6ca-20f1624c42c8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.2",
+          "primary": false
+        },
+        {
+          "id": "45dc76d2-77b7-433b-85f5-81909b8bda74",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.3",
+          "primary": false
+        },
+        {
+          "id": "7f083ab1-1167-415b-8799-580c7d1c1daf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.4",
+          "primary": false
+        },
+        {
+          "id": "c8a3b4b2-5687-45bd-967d-7d2558fba8d5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.8S",
+          "primary": true
+        },
+        {
+          "id": "ac6be116-a1bb-470f-b79a-eef5baa1b72c",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.14",
+          "primary": true
+        },
+        {
+          "id": "26295aef-7cbc-4052-932d-69baee51b42a",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.15",
+          "primary": true
+        },
+        {
+          "id": "4b9b6a25-5b29-4a59-a2d4-1ea759ffd3b8",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.16",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-100",
+      "spec_points": [
+        {
+          "id": "7f083ab1-1167-415b-8799-580c7d1c1daf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.3.4",
+          "primary": false
+        },
+        {
+          "id": "62caf1da-34ac-470d-a31c-86c1be8cc08e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.4",
+          "primary": true
+        },
+        {
+          "id": "312e2db5-5884-4801-a52d-86ddce97993b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.5",
+          "primary": true
+        },
+        {
+          "id": "02412581-8632-4b91-9590-2c044dfa0519",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.8.11S",
+          "primary": true
+        },
+        {
+          "id": "c3075cc8-e844-47e8-bf79-16c0b3076198",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.47",
+          "primary": false
+        },
+        {
+          "id": "25059789-c02e-4b10-bc15-5d92d98165b7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.50C",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-101",
+      "spec_points": [
+        {
+          "id": "abb79f95-5f15-4720-8ccc-9224cefe0483",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.3",
+          "primary": false
+        },
+        {
+          "id": "ccc39b9d-24ed-4c86-a1c5-edb394bfd9be",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.7",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-102",
+      "spec_points": [
+        {
+          "id": "a9306691-eadc-4018-8c3c-525c6736a290",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.24C",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-104",
+      "spec_points": [
+        {
+          "id": "5c4dcdbb-a285-4219-a431-88351bb70267",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.6",
+          "primary": false
+        },
+        {
+          "id": "4c43c006-fac7-49da-8d20-e79942a090ec",
+          "board": "cambridge_igcse",
+          "code": "CAIE 4.1.7",
+          "primary": false
+        },
+        {
+          "id": "411c1d20-9254-49bf-a116-99ea6309a826",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.4.5S",
+          "primary": false
+        },
+        {
+          "id": "93188319-6e82-4551-b1cf-29d23ca6168b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.5.1",
+          "primary": true
+        },
+        {
+          "id": "db067af8-80d3-4835-a7ea-ca0eb5ed8076",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.5.2",
+          "primary": true
+        },
+        {
+          "id": "392f7fa7-314d-432c-9e7b-45a3b8125d5e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.5.3",
+          "primary": true
+        },
+        {
+          "id": "e5af1047-c832-4202-96e9-d6ffd040272a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.5.4S",
+          "primary": true
+        },
+        {
+          "id": "1ba28a19-a3ac-4ab2-b89b-3383250e167f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.5.5S",
+          "primary": true
+        },
+        {
+          "id": "ee8d7b6c-ea9b-4d28-ab45-0931d22b4225",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.18",
+          "primary": true
+        },
+        {
+          "id": "e51be4a1-a020-40c3-ac4b-507c4b9e9cd0",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.19",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-105",
+      "spec_points": [
+        {
+          "id": "2a822b60-48a4-467c-9bc7-7181f9e955f7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.2.1",
+          "primary": true
+        },
+        {
+          "id": "623a8c9d-74b4-4a7c-b0c5-6bc39dc5feff",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.3.1",
+          "primary": true
+        },
+        {
+          "id": "15a7b84b-6b0c-4e14-9909-b9c8dabea5cb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.3.2",
+          "primary": true
+        },
+        {
+          "id": "a839a7a3-8a5e-4927-ac0c-df85acecf0b6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.3.3",
+          "primary": true
+        },
+        {
+          "id": "5713ed66-4e9f-4c80-8a3f-7f505d654bb6",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.3.4",
+          "primary": true
+        },
+        {
+          "id": "dbf03e16-0276-4b4a-b0d5-c7b3e111218f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.3.5S",
+          "primary": true
+        },
+        {
+          "id": "84821662-65bf-4774-ac0c-57aa72423207",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.25C",
+          "primary": true
+        },
+        {
+          "id": "c5dd39e6-4606-4681-afd8-8668017c6949",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.26C",
+          "primary": true
+        },
+        {
+          "id": "2ef5fcb9-a271-4b7b-9746-9457b90b8cc4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.27C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-107",
+      "spec_points": [
+        {
+          "id": "dca45cf8-fd0d-4bcf-92b5-700cf69ad13c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.3.5S",
+          "primary": true
+        },
+        {
+          "id": "ce3f8345-64c5-457e-864a-d7d704961a61",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.3.6S",
+          "primary": true
+        },
+        {
+          "id": "765a4982-e0e2-4147-9637-966803682cdb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.3.7S",
+          "primary": true
+        },
+        {
+          "id": "d5d7bad9-171e-4c71-8948-63938d289495",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.3.11S",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-108",
+      "spec_points": [
+        {
+          "id": "d5d7bad9-171e-4c71-8948-63938d289495",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.3.11S",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-109",
+      "spec_points": [
+        {
+          "id": "6711f770-d6da-4a9c-bae9-587ea04a789c",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.2.1",
+          "primary": true
+        },
+        {
+          "id": "44dc99ec-394d-4a9e-a85d-d3e2127d298a",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.2.2",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "concept_id": "chem-111",
+      "spec_points": [
+        {
+          "id": "e26055eb-9f2b-4538-b6a0-dc17545d279e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.1.2",
+          "primary": false
+        }
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "id": "ichem-001",
+      "group": "IGCSE Bonding, structure and properties",
+      "title": "Diffusion and gas behaviour",
+      "scope": "How temperature and pressure change the volume of a gas, and how diffusion and relative molecular mass are explained by particle motion.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "30b3a9ce-d4d1-4910-8593-008d821132b7",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.4",
+          "primary": true
+        },
+        {
+          "id": "4a8c247c-59cb-41ed-9d79-f8271533962b",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.1.6S",
+          "primary": true
+        },
+        {
+          "id": "39500d3d-33a7-46fd-97a9-3432373b5fbf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.1",
+          "primary": true
+        },
+        {
+          "id": "332707f2-c89a-4172-8ac8-9cad864338c5",
+          "board": "cambridge_igcse",
+          "code": "CAIE 1.2.2S",
+          "primary": true
+        },
+        {
+          "id": "d02ef296-0d75-47b3-b778-334822dbc934",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.3",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ichem-002",
+      "group": "IGCSE Chemical changes",
+      "title": "Oxidation numbers and redox agents",
+      "scope": "Using oxidation numbers (Roman numerals and rules) to spot oxidation and reduction and the agents involved, and redox colour changes with manganate(VII) and iodide.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "df81f710-980f-49cb-94d7-0104ca3ebfda",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.1",
+          "primary": true
+        },
+        {
+          "id": "5d19b284-2137-4f35-96a4-33e64f1249ab",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.6S",
+          "primary": false
+        },
+        {
+          "id": "10edf4e6-7301-4642-888a-7a5e25d9dd71",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.7S",
+          "primary": false
+        },
+        {
+          "id": "0ba9e5bc-af26-4acf-af79-5cdbde1cc680",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.9S",
+          "primary": true
+        },
+        {
+          "id": "6077e3ee-8949-4746-a880-2a115cb5000e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.10S",
+          "primary": true
+        },
+        {
+          "id": "f7651f5c-30c6-4cf6-897d-632eec643c98",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.11S",
+          "primary": false
+        },
+        {
+          "id": "0b325d2b-29a7-491f-87a0-92584eaf7c5d",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.12S",
+          "primary": false
+        },
+        {
+          "id": "3877babf-0cd0-4b17-89b2-d332b2d4589f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.4.13S",
+          "primary": true
+        },
+        {
+          "id": "e08ad7f0-c58a-4540-96ae-a5be0b34a323",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.20",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ichem-003",
+      "group": "IGCSE Using resources",
+      "title": "The Contact process",
+      "scope": "Making sulfur trioxide for sulfuric acid: sources of sulfur dioxide and oxygen, the equilibrium equation and the typical conditions and catalyst.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e70fd349-6b1c-489e-b7d2-ca54dc1bb174",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.3.8S",
+          "primary": true
+        },
+        {
+          "id": "bf2fec3c-3c62-4de8-8452-cb09eddffaef",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.3.9S",
+          "primary": true
+        },
+        {
+          "id": "db06fc39-08fb-48ae-a0ab-e7a111032065",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.3.10S",
+          "primary": true
+        },
+        {
+          "id": "d5d7bad9-171e-4c71-8948-63938d289495",
+          "board": "cambridge_igcse",
+          "code": "CAIE 6.3.11S",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "ichem-004",
+      "group": "IGCSE Chemical changes",
+      "title": "Acidic, basic and amphoteric oxides",
+      "scope": "Classifying oxides as acidic, basic or amphoteric from metallic and non-metallic character, with their reactions with acids and bases.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "8286aa99-1dd3-4311-a517-21b3df9454c2",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.2.1",
+          "primary": true
+        },
+        {
+          "id": "ec637850-8dfa-4cb6-8d12-482125401f5f",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.2.2S",
+          "primary": true
+        },
+        {
+          "id": "6ec7c864-52e5-448b-b17d-995adec5e435",
+          "board": "cambridge_igcse",
+          "code": "CAIE 7.2.3S",
+          "primary": true
+        },
+        {
+          "id": "77a2ec9b-0af0-486c-8182-9b2bf333caf7",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.20",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ichem-005",
+      "group": "IGCSE Chemical changes",
+      "title": "Extraction of iron: the blast furnace",
+      "scope": "How iron is extracted from hematite in the blast furnace: coke, carbon monoxide, limestone and slag, with the equations.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "d5791b51-6c3b-4ccd-b6ef-cc4c93b35849",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.6.2",
+          "primary": true
+        },
+        {
+          "id": "fd5ab5be-965f-4d18-a2b5-cbf99cafb946",
+          "board": "cambridge_igcse",
+          "code": "CAIE 9.6.4S",
+          "primary": true
+        },
+        {
+          "id": "a0ee590a-d2a4-47e4-841d-c55e992f0337",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.23C",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "ichem-006",
+      "group": "IGCSE Using resources",
+      "title": "Substances in natural water",
+      "scope": "Why distilled water is used in experiments, and the beneficial and harmful substances found in water from natural sources.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "abb79f95-5f15-4720-8ccc-9224cefe0483",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.3",
+          "primary": true
+        },
+        {
+          "id": "279e506a-4b4e-4db4-91cd-edaec4d6db74",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.4",
+          "primary": true
+        },
+        {
+          "id": "a7ac5b9b-2de9-4a5a-bb43-98f795679aa4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.5",
+          "primary": true
+        },
+        {
+          "id": "bdca9795-2486-45f8-a47c-502a30e1e9c1",
+          "board": "cambridge_igcse",
+          "code": "CAIE 10.1.6",
+          "primary": true
+        },
+        {
+          "id": "c82fa7ed-c31b-404c-bb0f-d8da0c1f7f56",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.50",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "ichem-007",
+      "group": "IGCSE Organic chemistry",
+      "title": "Structural formulae, isomers and naming",
+      "scope": "Writing structural formulae, structural isomers (butane, butene, propanol) and naming and drawing unbranched alkanes, alkenes, alcohols, carboxylic acids and esters.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "45dface7-42ad-4f30-af57-73e60a265df8",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.7S",
+          "primary": true
+        },
+        {
+          "id": "fe0b5716-dd09-4a95-bf60-345ce3e535bb",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.1.8S",
+          "primary": true
+        },
+        {
+          "id": "00b848f2-f1da-4191-b3b9-2836365808d4",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.2.3S",
+          "primary": true
+        },
+        {
+          "id": "0288ac15-20b7-4970-b7a4-2dddf00304bf",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.2.4S",
+          "primary": true
+        },
+        {
+          "id": "6ae7cd8c-9870-4cbc-ab58-1286592a701e",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.2",
+          "primary": true
+        },
+        {
+          "id": "d01845a1-bfe4-4d68-8f7e-072ba5287baa",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.3",
+          "primary": false
+        },
+        {
+          "id": "03448729-5567-420d-9295-4de444cca19a",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.4",
+          "primary": true
+        },
+        {
+          "id": "ab1f64ad-80b5-408f-a3cd-7d47600c6cc4",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.5",
+          "primary": true
+        },
+        {
+          "id": "82a7d371-e05e-4127-8292-970c0a854f15",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.21",
+          "primary": true
+        },
+        {
+          "id": "c43de2c0-35a5-49e0-868e-f5f8a11599c5",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.26",
+          "primary": true
+        },
+        {
+          "id": "7245b68e-7624-436b-95c4-fb400083f872",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.35C",
+          "primary": false
+        },
+        {
+          "id": "4e0e44cd-5340-477a-8898-4403a075a7cb",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.40C",
+          "primary": false
+        },
+        {
+          "id": "f2b1e3d9-9f1e-4d38-a498-23490625bf7d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.41C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ichem-008",
+      "group": "IGCSE Organic chemistry",
+      "title": "Alkanes: substitution with chlorine",
+      "scope": "Why alkanes are generally unreactive, and the photochemical substitution reaction of an alkane with chlorine and its products.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c91914cf-14a2-4500-848c-4522ec528e63",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.4.2",
+          "primary": true
+        },
+        {
+          "id": "8939d052-11f3-408e-b200-d209cb054de0",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.4.3S",
+          "primary": true
+        },
+        {
+          "id": "254b80e1-42c9-4de4-8ec9-6e9faef18f83",
+          "board": "cambridge_igcse",
+          "code": "CAIE 11.4.4S",
+          "primary": true
+        },
+        {
+          "id": "187ac572-7494-4ca8-8c59-7acc427bfceb",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.6",
+          "primary": true
+        },
+        {
+          "id": "828bafd5-a52f-4de7-b26f-ba88f0777343",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 4.22",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ichem-009",
+      "group": "IGCSE Working scientifically",
+      "title": "Laboratory apparatus and key terms",
+      "scope": "Choosing apparatus to measure time, temperature, mass and volume, judging methods, and the terms solvent, solute, solution, saturated solution, residue and filtrate.",
+      "kind": "skills",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "7b0d0ab4-d6b0-4d51-9e4d-959340f349ad",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.1.1",
+          "primary": true
+        },
+        {
+          "id": "e26055eb-9f2b-4538-b6a0-dc17545d279e",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.1.2",
+          "primary": true
+        },
+        {
+          "id": "da3258ca-dab2-48be-8c80-15e8224dea21",
+          "board": "cambridge_igcse",
+          "code": "CAIE 12.1.3",
+          "primary": true
+        },
+        {
+          "id": "94e248b9-fc9c-427f-87bf-cd4f35ff5371",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.4",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ichem-010",
+      "group": "IGCSE Bonding, structure and properties",
+      "title": "Solubility and solubility curves",
+      "scope": "What solubility means in g per 100 g of solvent, how to plot and read solubility curves, and how to measure the solubility of a solid at a set temperature.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "2fdcedff-2ce9-480f-ab88-c43bea79bd52",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.5C",
+          "primary": true
+        },
+        {
+          "id": "4dabcbfe-9c80-48e6-a85d-51af83ba5508",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.6C",
+          "primary": true
+        },
+        {
+          "id": "9e4829d1-d2ca-4475-9e24-e713ee80dd6d",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 1.7C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ichem-011",
+      "group": "IGCSE The atmosphere",
+      "title": "Oxygen in air and combustion of elements",
+      "scope": "How the percentage of oxygen in air is found by experiment, how magnesium, hydrogen and sulfur burn in oxygen, and carbon dioxide from heating metal carbonates.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "8655751b-03cb-4660-bdaa-2a46a1311f64",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.10",
+          "primary": true
+        },
+        {
+          "id": "7cda1c0f-81e5-42ae-964b-73a255ab3d87",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.11",
+          "primary": true
+        },
+        {
+          "id": "b4b4b62c-d2d1-423c-8ff3-6ef79b476cdc",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.12",
+          "primary": true
+        },
+        {
+          "id": "bf9adb60-d1fe-4603-8cc6-2c95eda63287",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 2.14",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "ichem-012",
+      "group": "IGCSE Energy changes",
+      "title": "Heat energy change and molar enthalpy",
+      "scope": "Calculating heat energy change from temperature change using Q = mcΔT, and converting it to a molar enthalpy change in kJ/mol.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "74f5241b-76af-4dd9-9258-62ca40c122bf",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.3",
+          "primary": true
+        },
+        {
+          "id": "15322fc2-c7bc-4a13-ac54-3a040223e377",
+          "board": "edexcel_igcse",
+          "code": "IGCSE 3.4",
+          "primary": true
+        }
+      ]
+    }
+  ]
+}

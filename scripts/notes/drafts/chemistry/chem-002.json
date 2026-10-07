@@ -8,12 +8,21 @@
     {
       "heading": "What a mixture is",
       "blocks": [
-        { "type": "paragraph", "text": "A mixture can contain elements, compounds or both. This section covers how a mixture differs from a compound." },
+        {
+          "type": "paragraph",
+          "text": "A mixture can contain elements, compounds or both. This section covers how a mixture differs from a compound."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Mixture", "meaning": "Two or more elements or compounds not chemically combined together." },
-            { "term": "Physical process", "meaning": "A method that separates substances without a chemical reaction. No new substances are made." }
+            {
+              "term": "Mixture",
+              "meaning": "Two or more elements or compounds not chemically combined together."
+            },
+            {
+              "term": "Physical process",
+              "meaning": "A method that separates substances without a chemical reaction. No new substances are made."
+            }
           ]
         },
         {
@@ -38,19 +47,49 @@
     {
       "heading": "Separation techniques",
       "blocks": [
-        { "type": "paragraph", "text": "Each technique uses a different property of the substances. Pick the method from the property that differs." },
+        {
+          "type": "paragraph",
+          "text": "Each technique uses a different property of the substances. Pick the method from the property that differs."
+        },
         {
           "type": "table",
-          "columns": ["Technique", "Separates", "It works because"],
+          "columns": [
+            "Technique",
+            "Separates",
+            "It works because"
+          ],
           "rows": [
-            ["Filtration", "An insoluble solid from a liquid", "The solid is too big to pass through the filter paper. The liquid passes through."],
-            ["Crystallisation", "A soluble solid from its solution", "Water is evaporated, and the solid forms crystals as the solution cools."],
-            ["Simple distillation", "A liquid from a solution with dissolved solid", "The liquid evaporates and is condensed again. The solid stays behind."],
-            ["Fractional distillation", "A mixture of liquids that mix together", "The liquids have different boiling points."],
-            ["Chromatography", "Coloured substances, such as the dyes in ink", "The substances move different distances up the paper."]
+            [
+              "Filtration",
+              "An insoluble solid from a liquid",
+              "The solid is too big to pass through the filter paper. The liquid passes through."
+            ],
+            [
+              "Crystallisation",
+              "A soluble solid from its solution",
+              "Water is evaporated, and the solid forms crystals as the solution cools."
+            ],
+            [
+              "Simple distillation",
+              "A liquid from a solution with dissolved solid",
+              "The liquid evaporates and is condensed again. The solid stays behind."
+            ],
+            [
+              "Fractional distillation",
+              "A mixture of liquids that mix together",
+              "The liquids have different boiling points."
+            ],
+            [
+              "Chromatography",
+              "Coloured substances, such as the dyes in ink",
+              "The substances move different distances up the paper."
+            ]
           ]
         },
-        { "type": "subheading", "text": "Filtration and crystallisation" },
+        {
+          "type": "subheading",
+          "text": "Filtration and crystallisation"
+        },
         {
           "type": "list",
           "items": [
@@ -59,13 +98,25 @@
             "Then leave the solution to cool and crystallise. Filter off the crystals and dry them."
           ]
         },
-        { "type": "subheading", "text": "Simple distillation" },
+        {
+          "type": "subheading",
+          "text": "Simple distillation"
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Heat.", "text": "The solution is heated and the water evaporates." },
-            { "lead": "Condense.", "text": "The vapour cools in the condenser and turns to a liquid." },
-            { "lead": "Collect.", "text": "Pure water collects in the beaker. The salt is left in the flask." }
+            {
+              "lead": "Heat.",
+              "text": "The solution is heated and the water evaporates."
+            },
+            {
+              "lead": "Condense.",
+              "text": "The vapour cools in the condenser and turns to a liquid."
+            },
+            {
+              "lead": "Collect.",
+              "text": "Pure water collects in the beaker. The salt is left in the flask."
+            }
           ]
         },
         {
@@ -75,7 +126,10 @@
             "The thermometer shows 100 °C while pure water distils."
           ]
         },
-        { "type": "subheading", "text": "Fractional distillation" },
+        {
+          "type": "subheading",
+          "text": "Fractional distillation"
+        },
         {
           "type": "list",
           "items": [
@@ -85,7 +139,10 @@
             "Crude oil is separated into fractions in the same way."
           ]
         },
-        { "type": "subheading", "text": "Paper chromatography" },
+        {
+          "type": "subheading",
+          "text": "Paper chromatography"
+        },
         {
           "type": "list",
           "items": [
@@ -101,14 +158,36 @@
             "kind": "sort",
             "alt": "Sort each separation into filtration, crystallisation or distillation.",
             "prompt": "Which technique separates it?",
-            "groups": ["Filtration", "Crystallisation", "Distillation"],
+            "groups": [
+              "Filtration",
+              "Crystallisation",
+              "Distillation"
+            ],
             "items": [
-              { "text": "Sand from a mixture of sand and water", "group": 0 },
-              { "text": "Copper sulfate crystals from copper sulfate solution", "group": 1 },
-              { "text": "Pure water from salt solution", "group": 2 },
-              { "text": "Ethanol from a mixture of ethanol and water", "group": 2 },
-              { "text": "Unreacted magnesium from magnesium chloride solution", "group": 0 },
-              { "text": "Solid sodium chloride from sodium chloride solution", "group": 1 }
+              {
+                "text": "Sand from a mixture of sand and water",
+                "group": 0
+              },
+              {
+                "text": "Copper sulfate crystals from copper sulfate solution",
+                "group": 1
+              },
+              {
+                "text": "Pure water from salt solution",
+                "group": 2
+              },
+              {
+                "text": "Ethanol from a mixture of ethanol and water",
+                "group": 2
+              },
+              {
+                "text": "Unreacted magnesium from magnesium chloride solution",
+                "group": 0
+              },
+              {
+                "text": "Solid sodium chloride from sodium chloride solution",
+                "group": 1
+              }
             ]
           }
         },
@@ -126,18 +205,39 @@
     {
       "heading": "Choosing a method",
       "blocks": [
-        { "type": "paragraph", "text": "To plan a separation, look at which substances are soluble in water, which are liquids and what their boiling points are." },
-        { "type": "subheading", "text": "Example: salt and sand" },
+        {
+          "type": "paragraph",
+          "text": "To plan a separation, look at which substances are soluble in water, which are liquids and what their boiling points are."
+        },
+        {
+          "type": "subheading",
+          "text": "Example: salt and sand"
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Dissolve.", "text": "Add water to the mixture and stir. The salt dissolves. The sand does not." },
-            { "lead": "Filter.", "text": "The sand stays on the filter paper. The salt solution passes through. Wash and dry the sand." },
-            { "lead": "Crystallise.", "text": "Heat the salt solution to concentrate it, then leave it to cool so crystals form." },
-            { "lead": "Dry.", "text": "Filter off the crystals and dry them." }
+            {
+              "lead": "Dissolve.",
+              "text": "Add water to the mixture and stir. The salt dissolves. The sand does not."
+            },
+            {
+              "lead": "Filter.",
+              "text": "The sand stays on the filter paper. The salt solution passes through. Wash and dry the sand."
+            },
+            {
+              "lead": "Crystallise.",
+              "text": "Heat the salt solution to concentrate it, then leave it to cool so crystals form."
+            },
+            {
+              "lead": "Dry.",
+              "text": "Filter off the crystals and dry them."
+            }
           ]
         },
-        { "type": "subheading", "text": "Using the properties" },
+        {
+          "type": "subheading",
+          "text": "Using the properties"
+        },
         {
           "type": "list",
           "items": [
@@ -176,30 +276,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.1.1.2", "AQA T 5.1.1.2"],
-      "exam_phrases": [
-        "solution is heated",
-        "water evaporates",
-        "the vapour cools in the condenser",
-        "the vapour condenses / turns to a liquid",
-        "(pure) water collects in the beaker",
-        "heat until crystallisation point is reached",
-        "leave to cool / crystallise",
-        "the ions pass through the filter (they are in solution)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The change of state at the surface of sea water is boiling.",
-          "right": "Boiling is not accepted. The change at the surface is evaporating."
-        },
-        {
-          "wrong": "Distilled water has less salt than sea water.",
-          "right": "Less salt is not accepted. Distilled water is pure, with no salt in it."
-        },
-        {
-          "wrong": "To get crystals, heat the solution until all the water has gone.",
-          "right": "Heating to dryness scores at most one mark. Heat until crystals start to form, then leave to cool and crystallise."
-        }
+      "spec_codes": [
+        "AQA 4.1.1.2",
+        "AQA T 5.1.1.2"
       ],
       "worked_example": {
         "exemplar_id": "e4ac9d60-0348-4b6a-8f1d-694e348c035b",
@@ -217,30 +296,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 2.7", "EDEX 2.8"],
-      "exam_phrases": [
-        "heat solution (to concentrate)",
-        "leave to crystallise / cool",
-        "water boils / evaporates leaving salt behind",
-        "steam / water vapour condenses to form pure water",
-        "to cool so the vapour turns to liquid",
-        "(fractional) distillation",
-        "chromatography",
-        "filter off the titanium (insoluble solid)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The sea water evaporates and condenses.",
-          "right": "This scores one mark overall. Say the water boils or evaporates, leaving the salt behind, and the steam then condenses to pure water."
-        },
-        {
-          "wrong": "The method is crystallisation.",
-          "right": "Naming crystallisation alone scores at most 1 mark. Describe it: heat the solution to concentrate it, leave it to cool, then filter off the crystals and dry them."
-        },
-        {
-          "wrong": "The condenser cools the ink.",
-          "right": "The condenser cools the water vapour so that it turns to a liquid. Cooling the ink scores at most one mark."
-        }
+      "spec_codes": [
+        "EDEX 2.7",
+        "EDEX 2.8"
       ],
       "worked_example": {
         "exemplar_id": "de41311a-924c-4f19-800e-7348a2337bea",
@@ -257,28 +315,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C2.1f", "OCR C2.1j"],
-      "exam_phrases": [
-        "filter to remove the sand",
-        "sand is insoluble in water / sodium chloride is soluble",
-        "distil the filtered mixture",
-        "(solid) sodium chloride stays in the flask and pure water condenses",
-        "fractional distillation, as liquids have different boiling points",
-        "fractionating column: large surface area"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Distil the mixture first and then filter out the sand.",
-          "right": "The order matters. Filter first to remove the insoluble sand. A method in the wrong order scores at most 3 of 4 marks."
-        },
-        {
-          "wrong": "Use evaporation or crystallisation to collect the pure water.",
-          "right": "These are not accepted when pure water is wanted. Use distillation, so that the water condenses and is collected."
-        },
-        {
-          "wrong": "Filter the salt solution to get pure water.",
-          "right": "Salt dissolves in water, so it passes through the filter paper. Use distillation: the water evaporates and then condenses."
-        }
+      "spec_codes": [
+        "OCR C2.1f",
+        "OCR C2.1j"
       ],
       "worked_example": {
         "exemplar_id": "d65a65ae-4ea7-459a-b87c-2fd8ada5ab73",
@@ -293,12 +332,99 @@
         ],
         "tip": "Keep to the order: filter, then distil. The wrong order scores at most 3 marks, and each method needs its reason."
       }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 12.4.1",
+        "CAIE 12.4.2",
+        "CAIE 2.1.1",
+        "CAIE 12.1.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "7d6105b4-f3e5-48b1-bfb1-62e871df0e1b",
+        "source": "CAMBRIDGE jun 2024, Paper 61, Q4",
+        "question": "A mixture contains three compounds: liquid ethanol, solid sodium chloride and solid zinc carbonate.\nEthanol is soluble in water. Sodium chloride is soluble in water but insoluble in ethanol. Zinc carbonate is insoluble in both water and ethanol.\nDescribe how to obtain a pure sample of each of the three compounds from the mixture. You are provided with common laboratory apparatus.",
+        "marks": 6,
+        "answer_points": [
+          "Filter the initial mixture: the ethanol is the filtrate",
+          "Add water to the residue and stir (or warm)",
+          "Filter again to leave zinc carbonate as the residue",
+          "Wash the residue with water",
+          "Dry the solid zinc carbonate",
+          "Heat the filtrate from the second filtration to remove the water and leave solid sodium chloride"
+        ],
+        "tip": "One mark for each point, up to 6. Getting the ethanol as the first filtrate is worth a mark of its own."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Solute",
+                  "meaning": "A substance that is dissolved in a solvent."
+                },
+                {
+                  "term": "Solvent",
+                  "meaning": "A substance that dissolves a solute."
+                },
+                {
+                  "term": "Solution",
+                  "meaning": "A mixture of one or more solutes dissolved in a solvent."
+                },
+                {
+                  "term": "Saturated solution",
+                  "meaning": "A solution holding the maximum amount of solute at a given temperature."
+                },
+                {
+                  "term": "Residue",
+                  "meaning": "The substance left behind after filtering, evaporating or distilling."
+                },
+                {
+                  "term": "Filtrate",
+                  "meaning": "The liquid or solution that has passed through the filter."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use a suitable solvent to separate a mixture: pick a liquid that dissolves one component but not the other.",
+                "Filter. The insoluble solid is the residue and the solution is the filtrate.",
+                "Recover the dissolved solid from the filtrate by crystallisation."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.10",
+        "IGCSE 1.8"
+      ],
+      "worked_example": {
+        "exemplar_id": "04652eb5-06cb-493b-94df-ccd53a7faf5e",
+        "source": "EDEXCEL jun 2022, Paper 1 (C), Q2(b)(iii)",
+        "question": "A student plans to obtain salt crystals from a mixture of salt and sand.\nThe student adds pure water to the mixture to dissolve the salt.\nDescribe how the student can obtain pure dry crystals of salt from the salt solution.",
+        "marks": 4,
+        "answer_points": [
+          "Heat or boil the solution",
+          "Evaporate some of the water",
+          "Leave the solution to cool so that crystals form",
+          "Pour off the liquid or filter to obtain the crystals",
+          "Dry the crystals, for example in an oven or between filter paper"
+        ],
+        "tip": "Any four of these points score 4 marks."
+      }
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-06",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -307,12 +433,17 @@
       "0b74e84d-4c94-4413-aaea-45b7ec778176",
       "f50245d8-f874-4251-b23a-7aa03bddba6a",
       "2856952d-00f1-4464-afe5-d0c16099850d",
-      "d3e92dbf-2bb4-4948-9ed1-573bda1b9502"
+      "d3e92dbf-2bb4-4948-9ed1-573bda1b9502",
+      "cbfed24f-72b2-4aa0-bdac-f7caf44d5055",
+      "4790b6cc-50d6-4a9f-8598-5f5ce0f9d5a7",
+      "4d32ec2f-82d3-4a04-94eb-58a744c76dde"
     ],
     "exemplar_ids": [
       "e4ac9d60-0348-4b6a-8f1d-694e348c035b",
       "de41311a-924c-4f19-800e-7348a2337bea",
-      "d65a65ae-4ea7-459a-b87c-2fd8ada5ab73"
+      "d65a65ae-4ea7-459a-b87c-2fd8ada5ab73",
+      "7d6105b4-f3e5-48b1-bfb1-62e871df0e1b",
+      "04652eb5-06cb-493b-94df-ccd53a7faf5e"
     ]
   }
 }

@@ -1,0 +1,305 @@
+{
+  "format": 1,
+  "concept_id": "ibio-002",
+  "subject": "biology",
+  "title": "Balanced diet and nutrients",
+  "key_idea": "A balanced diet contains all the nutrient groups in the right proportions, with the right amount of energy for the person's lifestyle. Each nutrient has its own sources and its own job. Too little vitamin C causes scurvy. Too little vitamin D or calcium causes rickets.",
+  "sections": [
+    {
+      "heading": "What a balanced diet is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A diet is the food a person usually eats. This section covers what makes it balanced."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Balanced diet",
+              "meaning": "A diet that contains all the nutrients, in the correct proportions, and gives the right amount of energy for the person's activity and lifestyle."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "It must include carbohydrate, fat, protein, vitamins, minerals, fibre and water.",
+            "The proportions matter: too much or too little of one nutrient is not balanced.",
+            "Energy needs differ between people, so a balanced diet differs too."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A balanced diet has all the nutrient groups.",
+            "They must be in the correct proportions and give the right amount of energy."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Nutrients, sources and uses",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each nutrient group has main food sources and a main job in the body. The table gives both."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Nutrient",
+            "Main sources",
+            "Importance"
+          ],
+          "rows": [
+            [
+              "Carbohydrate",
+              "Bread, rice, pasta, potatoes, sugar",
+              "Source of energy"
+            ],
+            [
+              "Fats and oils",
+              "Butter, cooking oil, nuts, oily fish",
+              "Source and store of energy. Insulation under the skin"
+            ],
+            [
+              "Protein",
+              "Meat, fish, eggs, beans, milk",
+              "Growth and repair of cells and tissues"
+            ],
+            [
+              "Vitamin C",
+              "Citrus fruits, fresh vegetables",
+              "Keeps skin and the lining of blood vessels healthy. Wounds heal"
+            ],
+            [
+              "Vitamin D",
+              "Oily fish, eggs, margarine. Also made in the skin in sunlight",
+              "Helps the body absorb calcium for bones and teeth"
+            ],
+            [
+              "Calcium",
+              "Milk, cheese, fish eaten with the bones",
+              "Makes bones and teeth hard. Also needed for blood clotting"
+            ],
+            [
+              "Iron",
+              "Red meat, liver, spinach",
+              "Makes haemoglobin in red blood cells, which carries oxygen"
+            ],
+            [
+              "Fibre (roughage)",
+              "Wholemeal bread, fruit, vegetables",
+              "Gives bulk so the muscles of the gut can push food along, which prevents constipation"
+            ],
+            [
+              "Water",
+              "Drinks and most foods",
+              "A solvent. Used in transport and in chemical reactions. Helps control temperature"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Nine nutrients. Tap each one to see its main sources and what it does in the body.",
+            "prompt": "Tap a nutrient to see where it comes from and why the body needs it.",
+            "parts": [
+              {
+                "name": "Carbohydrate",
+                "detail": "From bread, rice, pasta and potatoes. It is the main source of energy."
+              },
+              {
+                "name": "Fats and oils",
+                "detail": "From butter, oils and nuts. A store of energy, and insulation under the skin."
+              },
+              {
+                "name": "Protein",
+                "detail": "From meat, fish, eggs and beans. Needed for growth and repair of tissues."
+              },
+              {
+                "name": "Vitamin C",
+                "detail": "From citrus fruits and fresh vegetables. Keeps skin healthy. Lack of it causes scurvy."
+              },
+              {
+                "name": "Vitamin D",
+                "detail": "From oily fish and eggs, and made in the skin in sunlight. Helps absorb calcium. Lack of it causes rickets."
+              },
+              {
+                "name": "Calcium",
+                "detail": "From milk and cheese. Builds strong bones and teeth."
+              },
+              {
+                "name": "Iron",
+                "detail": "From red meat and spinach. Needed to make haemoglobin in red blood cells."
+              },
+              {
+                "name": "Fibre",
+                "detail": "From wholemeal bread, fruit and vegetables. Gives bulk so food is moved along the gut."
+              },
+              {
+                "name": "Water",
+                "detail": "From drinks and food. A solvent, and needed for transport and chemical reactions."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carbohydrate and fat give energy. Protein is for growth and repair.",
+            "Calcium and vitamin D make bones and teeth. Iron makes haemoglobin.",
+            "Fibre moves food along the gut. Water is a solvent."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Deficiency diseases",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A deficiency disease happens when the diet lacks a nutrient for a long time. Two are worth knowing."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Disease",
+            "Cause",
+            "Effect"
+          ],
+          "rows": [
+            [
+              "Scurvy",
+              "Not enough vitamin C",
+              "Bleeding gums. Wounds heal slowly. Weak blood vessels"
+            ],
+            [
+              "Rickets",
+              "Not enough vitamin D or calcium",
+              "Soft, weak bones that bend in children"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Without vitamin D the body cannot absorb enough calcium, so bones stay soft.",
+            "Milk with added vitamin D gives children both vitamin D and calcium.",
+            "Lack of iron causes anaemia, because less haemoglobin is made."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Scurvy is caused by a lack of vitamin C.",
+            "Rickets is caused by a lack of vitamin D or calcium."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what is meant by a balanced diet.",
+      "a": "A diet with all the nutrients, in the correct proportions, giving the right amount of energy for the person's activity.",
+      "marks": 2
+    },
+    {
+      "q": "Name the nutrient whose lack causes scurvy and give one food that contains it.",
+      "a": "Vitamin C, found in citrus fruits or fresh vegetables.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why children are advised to eat foods that contain calcium and vitamin D.",
+      "a": "Calcium makes bones and teeth hard. Vitamin D helps the body absorb calcium. Together they prevent rickets.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 7.1.1",
+        "CAIE 7.1.2",
+        "CAIE 7.1.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "a3ccadb4-cecb-4c59-b679-59dc8fe030fa",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q4(b)(i)",
+        "question": "As part of a balanced diet, some governments recommend that children drink milk that has vitamin D added to it. Suggest the dietary reasons for this advice.",
+        "marks": 2,
+        "answer_points": [
+          "Milk contains calcium.",
+          "Calcium and vitamin D are needed for healthy, strong bones and teeth.",
+          "Calcium and vitamin D prevent rickets, or any of its symptoms.",
+          "Vitamin D stimulates absorption of calcium."
+        ],
+        "tip": "Any two score one mark each. Link each nutrient to what it does."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.24",
+        "IGCSE 2.25",
+        "IGCSE 2.26"
+      ],
+      "worked_example": {
+        "exemplar_id": "a3088125-14c4-460b-9076-4f019df8c22d",
+        "source": "EDEXCEL jun 2019, Paper 1 (BR), Q10(a)",
+        "question": "A balanced diet should include the correct proportions of each component. Two of these components are vitamins and minerals. Describe the functions of the other components of a balanced diet.",
+        "marks": 5,
+        "answer_points": [
+          "Carbohydrate is for energy, through respiration.",
+          "Lipid (fat) is for energy, storage, insulation or protecting organs.",
+          "Protein is for growth and repair, or to make enzymes, hormones and antibodies.",
+          "Water is a solvent and is used for transport and chemical reactions.",
+          "Fibre moves food along the gut (peristalsis) and prevents constipation."
+        ],
+        "tip": "One mark for each component with a correct function. Name the component and its job."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course adds vitamin A, and asks how energy needs change."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Vitamin A** is needed for good vision. It comes from liver, carrots and dairy foods.",
+                "Energy requirements are higher with more activity, such as sport or a physical job.",
+                "Older adults need less energy than teenagers and young adults because they are usually less active.",
+                "Teenagers need more energy than adults because they are growing.",
+                "A pregnant woman needs more energy, protein and minerals such as calcium and iron for the growing foetus.",
+                "A person who eats less energy than they need uses stored fat, so body mass falls."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "f9a955b8-87d5-47e1-8803-4eb70f400a52",
+      "97da4e91-2982-4d0d-b8bb-c7af4e1c7d01",
+      "e7c59387-7914-4620-a55f-ec14ac922745",
+      "039c5eb1-c217-4378-909d-b5238ee5f386",
+      "6533bf6c-c16f-4fcf-9642-816958d6bcc8",
+      "d89af0f5-77d6-4b9f-8aeb-8028f6f1e754"
+    ],
+    "exemplar_ids": [
+      "a3ccadb4-cecb-4c59-b679-59dc8fe030fa",
+      "a3088125-14c4-460b-9076-4f019df8c22d"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

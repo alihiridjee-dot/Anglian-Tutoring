@@ -13,6 +13,8 @@ import {
 import type { HomeworkAnswer, HomeworkQuestion } from "@/hooks/data/useHomeworkQuestions";
 import type { Homework, HomeworkOrigin, SubmissionRow } from "@/lib/homework/types";
 import type { LevelV } from "@/lib/curriculum/taxonomy";
+import { courseParts, type LibraryFilter } from "@/lib/curriculum/libraryFilter";
+import { ilikePattern } from "@/lib/search/match";
 
 /** How often an open sheet checks whether its mark has been released. */
 const AWAITING_MARK_POLL_MS = 30_000;
@@ -26,7 +28,7 @@ const HOMEWORK_KEY = ["homework"] as const;
  *
  * Level is filtered here because a different level is a different
  * qualification. Board is left to the page, which knows what has been handed
- * in. RLS scopes `resources` by subject alone, and the planner writes a sheet
+ * in. RLS scopes `resources` by subject alone, and the practice queue writes a sheet
  * for every spec point any student reaches on any board. Without both filters,
  * an AQA GCSE student's practice list filled with Edexcel and A-Level sheets.
  *
@@ -72,63 +74,104 @@ export function useHomework({
 const LIBRARY_PAGE = 50;
 
 /**
- * The tutor's homework library, a page at a time, filtered by who wrote it.
+ * The tutor's homework library, a page at a time, filtered by who wrote it and
+ * by the library's filters.
  *
- * Asked of the server rather than filtered here: the planner writes a sheet for
+ * Asked of the server rather than filtered here: the practice queue writes a sheet for
  * every spec point, and a single read of every brief stopped at PostgREST's
  * 1,000-row cap (S-17b), so past that the newest sheets never reached the list.
  * `id` breaks ties so a page never repeats or skips a row with the same date.
  */
 export function useHomeworkLibrary({
   origin,
+  filter,
   enabled = true,
 }: {
   origin: "all" | HomeworkOrigin;
+  filter: LibraryFilter;
   enabled?: boolean;
 }) {
   return useInfiniteQuery({
-    queryKey: [...HOMEWORK_KEY, "library", origin],
+    queryKey: [...HOMEWORK_KEY, "library", origin, filter],
     initialPageParam: 0,
     queryFn: async ({ pageParam }): Promise<Homework[]> => {
-      let q = supabase
-        .from("resources")
-        .select("id, title, instructions, subject, board, level, due_at, created_at, origin")
-        .eq("kind", "homework")
+      const { data, error } = await libraryRead(LIBRARY_COLUMNS, origin, filter)
         .order("due_at", { ascending: true })
-        .order("id", { ascending: true });
-      if (origin !== "all") q = q.eq("origin", origin);
-      const { data, error } = await q.range(pageParam, pageParam + LIBRARY_PAGE - 1);
+        .order("id", { ascending: true })
+        .range(pageParam, pageParam + LIBRARY_PAGE - 1);
       if (error) throw error;
-      return (data ?? []) as Homework[];
+      return (data ?? []) as unknown as Homework[];
     },
     getNextPageParam: (last, pages) =>
       last.length < LIBRARY_PAGE ? undefined : pages.length * LIBRARY_PAGE,
+    // The list stays on screen while the next filter's rows land.
+    placeholderData: (prev) => prev,
     enabled,
   });
 }
 
-/** How many briefs the library holds, by who wrote them, counted on the server. */
-export function useHomeworkLibraryCounts({ enabled = true }: { enabled?: boolean } = {}) {
+const LIBRARY_COLUMNS =
+  "id, title, instructions, subject, board, level, due_at, created_at, origin";
+
+/**
+ * The library's briefs, narrowed by the tutor's filters. A topic is reached
+ * through the brief's spec point, so only that filter joins; a brief with no
+ * spec point (one a tutor wrote from scratch) still answers to the others. The
+ * join names its key: `resource_spec_points` links the two tables as well.
+ */
+function libraryRead(
+  columns: string,
+  origin: "all" | HomeworkOrigin,
+  filter: LibraryFilter,
+  head = false,
+) {
+  let q = supabase
+    .from("resources")
+    .select(
+      filter.topicId
+        ? `${columns}, spec_points!resources_spec_point_id_fkey!inner(topic_id)`
+        : columns,
+      {
+        count: head ? "exact" : undefined,
+        head,
+      },
+    )
+    .eq("kind", "homework");
+  if (origin !== "all") q = q.eq("origin", origin);
+  if (filter.subject) q = q.eq("subject", filter.subject);
+  const course = courseParts(filter.course);
+  if (course) q = q.eq("board", course.board).eq("level", course.level);
+  if (filter.topicId) q = q.eq("spec_points.topic_id", filter.topicId);
+  const pattern = ilikePattern(filter.q);
+  if (pattern) q = q.ilike("title", pattern);
+  return q;
+}
+
+/** How many briefs match the filters, by who wrote them, counted on the server. */
+export function useHomeworkLibraryCounts({
+  filter,
+  enabled = true,
+}: {
+  filter: LibraryFilter;
+  enabled?: boolean;
+}) {
   return useQuery({
-    queryKey: [...HOMEWORK_KEY, "library-counts"],
+    queryKey: [...HOMEWORK_KEY, "library-counts", filter],
     queryFn: async (): Promise<Record<"all" | HomeworkOrigin, number>> => {
-      const count = async (origin?: HomeworkOrigin) => {
-        let q = supabase
-          .from("resources")
-          .select("id", { count: "exact", head: true })
-          .eq("kind", "homework");
-        if (origin) q = q.eq("origin", origin);
-        const { count, error } = await q;
+      const count = async (origin: "all" | HomeworkOrigin) => {
+        const { count, error } = await libraryRead("id", origin, filter, true);
         if (error) throw error;
         return count ?? 0;
       };
       const [all, tutor, generated] = await Promise.all([
-        count(),
+        count("all"),
         count("tutor"),
         count("generated"),
       ]);
       return { all, tutor, generated };
     },
+    // The chips keep their numbers while the next filter's land.
+    placeholderData: (prev) => prev,
     enabled,
   });
 }

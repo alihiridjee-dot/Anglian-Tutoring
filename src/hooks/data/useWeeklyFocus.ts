@@ -21,6 +21,11 @@ export interface WeeklyFocusPlan {
   board: BoardV;
   level: LevelV;
   points: WeeklyFocusPoint[];
+  /**
+   * A word from the tutor on this subject, shown as "Ali's take". Only the
+   * showcase sets it; the live query below leaves it unset.
+   */
+  note?: string | null;
 }
 
 // Shape returned by the select below: one row per pinned point.
@@ -83,7 +88,9 @@ function shape(rows: RawRow[]): WeeklyFocusPlan[] {
 }
 
 // A representative plan so the public showcase dashboard isn't empty. The
-// showcase has no session, so a real read would return nothing.
+// showcase has no session, so a real read would return nothing. One pinned
+// point per subject, using the demo curriculum's own ids, each with a note that
+// refers to Alex's real fixture marks and dates.
 const DEMO_PLANS: WeeklyFocusPlan[] = [
   {
     id: "demo-focus-bio",
@@ -92,20 +99,43 @@ const DEMO_PLANS: WeeklyFocusPlan[] = [
     level: "gcse",
     points: [
       {
-        id: "d1",
-        code: "4.1.3",
-        title: "Diffusion, osmosis and active transport",
-        topicLabel: "B1 · Cell Biology",
+        id: "demo-sp-photosynthesis",
+        code: "EDEX 6.3",
+        title: "Rate Limiting Factors on Photosynthesis",
+        topicLabel: "Topic 6 · Plant structures and their functions",
       },
-      { id: "d2", code: "4.4.1", title: "Photosynthesis", topicLabel: "B4 · Bioenergetics" },
     ],
+    note: "Great work getting a grade 8 on photosynthesis. You asked how to word the plateau, so here it is: once light stops being the limiting factor, the rate is limited by whichever factor is in shortest supply, such as CO₂ or temperature. Watch the video, read the note, then write that sentence from memory, because it is what stands between you and a 9.",
   },
   {
     id: "demo-focus-chem",
     subject: "chemistry",
     board: "aqa",
     level: "gcse",
-    points: [{ id: "d3", code: "5.2.1", title: "Ionic bonding", topicLabel: "C2 · Bonding" }],
+    points: [
+      {
+        id: "demo-sp-ionic",
+        code: "AQA 4.2.1.2",
+        title: "Ionic bonding",
+        topicLabel: "Topic 2 · Bonding, structure, and the properties of matter",
+      },
+    ],
+    note: "Bonding starts this week, so watch the ionic bonding video and read the note. For any melting-point question, the phrase that scores is 'strong electrostatic forces of attraction between oppositely charged ions', and never call an ionic compound a molecule. Your bonding task is with me now, and I'll answer your question about what carries the charge when it comes back.",
+  },
+  {
+    id: "demo-focus-phys",
+    subject: "physics",
+    board: "ocr",
+    level: "gcse",
+    points: [
+      {
+        id: "demo-sp-series",
+        code: "OCR P3.2i",
+        title: "Resistance in series and parallel",
+        topicLabel: "Topic 3 · Electricity",
+      },
+    ],
+    note: "Alongside your I–V task, due in four days, let's lock in series and parallel, because that is where Electricity marks usually leak. In series the current is the same everywhere and the potential difference is shared; in parallel each branch has the same potential difference and the current splits between them. Watch the lamps practical and read the note, then retake the Energy quiz, where you scored 3/5.",
   },
 ];
 
@@ -158,14 +188,13 @@ export interface RelatedVideo {
   matchedPointIds: string[];
 }
 
-// Demo related-videos: the showcase videos carry no real spec-point links, so
-// fake the association by subject against the demo plans, keyed on demo point ids.
+// Demo related-videos: matched by spec point, as the live `resource_spec_points`
+// link is, so each pinned point shows the one video that teaches it — not every
+// video in its subject.
 function demoRelatedVideos(pointIds: string[]): RelatedVideo[] {
   const wanted = new Set(pointIds);
   return DEMO_VIDEOS.map((v) => {
-    const matched = DEMO_PLANS.filter((p) => p.subject === v.subject)
-      .flatMap((p) => p.points.map((pt) => pt.id))
-      .filter((id) => wanted.has(id));
+    const matched = v.spec_point_id && wanted.has(v.spec_point_id) ? [v.spec_point_id] : [];
     return {
       id: v.id,
       title: v.title,

@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { NoteView } from "@/components/notes/NoteView";
 import { findDraft } from "@/lib/notes/draftNotes";
-import { NOTE_BOARDS, type NoteBoard } from "@/lib/notes/noteFormat";
+import { NOTE_BOARDS, NOTE_COURSE, type NoteBoard } from "@/lib/notes/noteFormat";
 
 // DEV ONLY — one drafted note, shown as a student on the chosen board would see it.
 export const Route = createFileRoute("/notes-preview/$conceptId")({
@@ -24,7 +24,9 @@ export const Route = createFileRoute("/notes-preview/$conceptId")({
   component: DraftNote,
 });
 
-const LABEL: Record<NoteBoard, string> = { aqa: "AQA", edexcel: "Edexcel", ocr: "OCR" };
+const LABEL = Object.fromEntries(
+  NOTE_BOARDS.map((b) => [b, `${NOTE_COURSE[b].board} ${NOTE_COURSE[b].level}`]),
+) as Record<NoteBoard, string>;
 
 function DraftNote() {
   const note = Route.useLoaderData();

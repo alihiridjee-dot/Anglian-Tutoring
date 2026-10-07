@@ -1,0 +1,309 @@
+{
+  "format": 1,
+  "concept_id": "bio-025",
+  "subject": "biology",
+  "title": "Measuring energy in food (calorimetry)",
+  "key_idea": "The energy in food can be measured by burning a sample under a container of water. The energy released heats the water. The temperature rise and the mass of water give the energy in joules.",
+  "sections": [
+    {
+      "heading": "How a calorimeter works",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A calorimeter transfers the energy released when food burns to a known mass of water. This section covers the apparatus and what each part does."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Part",
+            "What it does"
+          ],
+          "rows": [
+            [
+              "Burning food",
+              "Releases heat energy, which heats the water"
+            ],
+            [
+              "Water",
+              "Absorbs the energy. The mass of water is known."
+            ],
+            [
+              "Thermometer",
+              "Measures the start and end temperature of the water"
+            ],
+            [
+              "Stirrer",
+              "Spreads the heat evenly, so all the water is at the same temperature"
+            ],
+            [
+              "Lid",
+              "Acts as an insulator. It reduces heat loss and stops water evaporating."
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A bomb calorimeter works in the same way. The food sample is burnt and the temperature rise of the water is measured."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Energy from the burning food heats the water.",
+            "A lid reduces heat loss. A stirrer makes the temperature even.",
+            "A bigger temperature rise means more energy was released."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The method",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Follow the steps in order. The same steps are used for every food so that the foods can be compared."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of the calorimetry investigation in order.",
+            "prompt": "Put the calorimetry method in order",
+            "steps": [
+              "Measure the mass of the food sample",
+              "Measure a known mass of water into the calorimeter and record its start temperature",
+              "Burn the food so that it heats the water, stirring the water",
+              "Record the final temperature of the water",
+              "Subtract the start temperature from the final temperature",
+              "Calculate the energy released"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "To compare foods fairly"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use the same mass or volume of water each time.",
+            "Use the same mass of food.",
+            "Keep the burning food the same distance from the calorimeter.",
+            "Use the same starting temperature of water.",
+            "Make sure the food is burnt completely.",
+            "Repeat with each food."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure the temperature before and after. The temperature change is the final temperature minus the start temperature.",
+            "Control the mass of water, the mass of food and the distance from the flame.",
+            "Burn the food completely."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating the energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Use the temperature change and the mass of water to find the energy in joules."
+        },
+        {
+          "type": "equation",
+          "label": "Energy transferred to the water",
+          "formula": "energy = mass of water × 4.2 × temperature change",
+          "where": [
+            "energy, in J",
+            "mass of water, in g",
+            "4.2 is the energy needed to heat 1 g of water by 1 °C, in J",
+            "temperature change, in °C"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Temperature change.",
+              "text": "A piece of cheese heats 25 g of water from 21 °C to 85 °C. The change is 85 − 21 = 64 °C."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "25 × 4.2 × 64 = 6720."
+            },
+            {
+              "lead": "Unit.",
+              "text": "The energy is 6720 J."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the energy in food from the mass of water and the temperature change.",
+            "question": "A food sample heats **{m} g** of water by **{t} °C**. Calculate the energy transferred to the water in joules, using energy = mass of water × 4.2 × temperature change.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 20,
+                "max": 50,
+                "step": 5
+              },
+              {
+                "id": "t",
+                "min": 10,
+                "max": 60,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "m * 4.2 * t",
+              "unit": "J",
+              "decimals": 0
+            },
+            "working": [
+              "Energy = mass of water × 4.2 × temperature change",
+              "Energy = {m} × 4.2 × {t} = **{answer}** J"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Energy per gram"
+        },
+        {
+          "type": "equation",
+          "label": "Energy per gram of food",
+          "formula": "energy per gram = energy transferred ÷ mass of food",
+          "where": [
+            "energy transferred, in J",
+            "mass of food burnt, in g",
+            "energy per gram, in J/g"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Energy.",
+              "text": "Burning 0.5 g of cheese transfers 6720 J to the water."
+            },
+            {
+              "lead": "Divide.",
+              "text": "6720 ÷ 0.5 = 13440."
+            },
+            {
+              "lead": "Unit.",
+              "text": "The energy per gram is 13 440 J/g."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use the temperature change, not the final temperature.",
+            "Energy = mass of water × 4.2 × temperature change.",
+            "Divide by the mass of food burnt to compare foods."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Explaining differences in results",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Exam questions ask why two foods or two results are different."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Foods with more fat have more energy. Avocado has more energy than apple because it contains more fat.",
+            "A smaller temperature rise means less energy was transferred to the water.",
+            "Reasons for less energy transferred: the food contained less energy or fat, a smaller mass of food burned, or the food was held further away from the container.",
+            "Heat lost to the surroundings means the measured energy is lower than the real energy in the food."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use comparative words such as more, less, higher and lower.",
+            "Link a smaller temperature change to less energy transferred."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give one function of the lid on a calorimeter.",
+      "a": "It stops heat loss or evaporation of water.",
+      "marks": 1
+    },
+    {
+      "q": "Why is the water in the calorimeter stirred?",
+      "a": "To make sure the heat is distributed evenly, so that all the water is at the same temperature.",
+      "marks": 1
+    },
+    {
+      "q": "A food heats 50 g of water by 30 °C. Calculate the energy content of the food.",
+      "a": "50 × 4.2 × 30 = 6300 J.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.14B"
+      ],
+      "worked_example": {
+        "exemplar_id": "f7a7f09c-9e5f-43d4-adba-aea2e28d4c2b",
+        "source": "EDEXCEL nov 2021, Paper 1 (F), Q4(a)(ii)",
+        "question": "A calorimeter was used to measure the energy content of a piece of cheese.\n\nThe mass of water was 25 g. The starting temperature of the water was 21 °C and the final temperature of the water was 85 °C.\n\nCalculate the energy content of this piece of cheese.\n\nUse the equation\n\nenergy in joules (J) = mass of water × 4.2 × temperature change",
+        "marks": 2,
+        "answer_points": [
+          "Interpretation: temperature change = 85 − 21 = 64 °C.",
+          "Calculation: 25 × 4.2 × 64 = 6720 J."
+        ],
+        "tip": "Full marks for the correct answer without working. One mark for a correct calculation from an incorrect temperature change."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.33B"
+      ],
+      "worked_example": {
+        "exemplar_id": "bdbc67fd-5492-47c9-bf8d-9749e168117f",
+        "source": "EDEXCEL jun 2023, Paper 2 (BR), Q3(c)(i)",
+        "question": "A teacher tells some students to carry out an experiment to compare the energy values of biscuit A and biscuit B.\nDescribe a suitable method the students could use for their experiment.",
+        "marks": 4,
+        "answer_points": [
+          "Measure out the same volume (or mass) of water.",
+          "Use samples of biscuit of the same, known mass.",
+          "Hold the burning biscuit under a boiling tube of water.",
+          "Relight the biscuit if it goes out, and continue until it has completely burnt.",
+          "Measure the initial and final temperature of the water.",
+          "The biscuit with the highest temperature rise has the most energy."
+        ],
+        "tip": "Any four of these points score the marks."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "b10e319c-0883-46bf-b0fc-823af115eae6",
+      "91477ec7-26f9-486e-8980-9c62e45d2b66"
+    ],
+    "exemplar_ids": [
+      "f7a7f09c-9e5f-43d4-adba-aea2e28d4c2b",
+      "bdbc67fd-5492-47c9-bf8d-9749e168117f"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

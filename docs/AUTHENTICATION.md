@@ -244,8 +244,9 @@ holds for the app, edge functions, scripts and hand-written SQL alike:
   student's history.
 
 The app matches it. A tutor who opens a quiz gets a preview with no Submit, and
-the planner's fill-in generators (`ensureMcqForPoints`,
-`ensureHomeworkForPoints`) refuse staff callers.
+opening a page never generates practice: the practice queue writes a point's quiz
+and task once the point is in a student's week, and a staff account has no week of
+its own. A tutor can still ask for a point's quiz from the curriculum page.
 
 **To make a student a tutor**, run:
 

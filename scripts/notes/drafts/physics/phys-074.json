@@ -1,0 +1,357 @@
+{
+  "format": 1,
+  "concept_id": "phys-074",
+  "subject": "physics",
+  "title": "Uses of electromagnetic waves",
+  "key_idea": "Each part of the electromagnetic spectrum has practical uses, chosen because of its properties. Radio waves are produced by oscillations in electrical circuits, and when absorbed they induce oscillations of the same frequency in a circuit.",
+  "sections": [
+    {
+      "heading": "Uses of the spectrum",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers what each type of electromagnetic wave is used for."
+        },
+        {
+          "type": "paragraph",
+          "text": "Pick each wave below to see its uses. The second row is Higher tier explanation."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a type of electromagnetic wave to see its uses and why it suits the job.",
+            "prompt": "Pick a type of electromagnetic wave",
+            "result_labels": ["Uses", "Why it suits the job (AQA: Higher tier)"],
+            "options": [
+              {
+                "label": "Radio waves",
+                "results": [
+                  "Television and radio broadcasting, communications, satellite transmissions.",
+                  "They carry information through the air. They are produced by, and absorbed to make, oscillations in electrical circuits."
+                ]
+              },
+              {
+                "label": "Microwaves",
+                "results": [
+                  "Cooking food, communications (mobile phones, WiFi), satellite communications.",
+                  "They carry data (signals) between devices, and their energy is absorbed to cook food."
+                ]
+              },
+              {
+                "label": "Infrared",
+                "results": [
+                  "Electric heaters, cooking food, thermal imaging cameras, short-range communication, optical fibres, television remote controls, security systems.",
+                  "Warm objects emit infrared. Hotter objects emit a greater intensity, so a camera shows different temperatures as different shades or colours."
+                ]
+              },
+              {
+                "label": "Visible light",
+                "results": [
+                  "Vision, photography, illumination, fibre optic communications.",
+                  "Light can carry information along optical fibres, and it is the part of the spectrum our eyes detect."
+                ]
+              },
+              {
+                "label": "Ultraviolet",
+                "results": [
+                  "Security marking, fluorescent and energy efficient lamps, detecting forged bank notes, disinfecting water, sun tanning.",
+                  "It makes fluorescent materials glow, so it is used in lamps, security marking and checking bank notes."
+                ]
+              },
+              {
+                "label": "X-rays",
+                "results": [
+                  "Medical imaging of bones, airport security scanners for bags, observing the internal structure of objects.",
+                  "They pass through soft tissue (and bags) but are absorbed by bone (and by objects of greater density), so an image forms."
+                ]
+              },
+              {
+                "label": "Gamma rays",
+                "results": [
+                  "Sterilising food and medical equipment, medical imaging and tracers, detecting and treating cancer (radiotherapy), checking metals.",
+                  "They are very penetrating and can damage or kill cells and microorganisms."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Radio waves and microwaves are used for communications.",
+            "Infrared is used for heating, cooking and thermal imaging.",
+            "Visible light is used for vision, photography and fibre optic communications.",
+            "X-rays and gamma rays are used for medical imaging and treatment."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Each part of the spectrum has its own uses.",
+            "Radio, microwaves and visible light carry information.",
+            "X-rays and gamma rays are used in medicine."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why a wave suits its use (AQA: Higher tier)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) This section covers giving a brief reason why a type of wave suits its job."
+        },
+        {
+          "type": "list",
+          "items": [
+            "X-rays are absorbed by bone but pass through soft tissue (flesh), so bones show on the image.",
+            "X-rays pass through the bags at an airport to show the contents, including objects of greater density.",
+            "Objects at different temperatures emit different intensities of infrared, so an infrared camera shows temperature differences as different shades or colours.",
+            "Gamma rays are used to kill cancer cells, and to sterilise food and instruments by killing microorganisms."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) Always link the property of the wave to the job it does."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(AQA: Higher tier) Explain a use by naming the property that makes the wave suitable.",
+            "X-rays are absorbed by bone but pass through soft tissue.",
+            "Hotter objects emit more infrared."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Radio waves and electrical circuits",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how radio waves are made and detected. This is Higher tier content on some specifications."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Oscillation",
+              "meaning": "A repeated back and forth movement, such as electrons moving to and fro in a circuit."
+            },
+            {
+              "term": "Alternating current (a.c.)",
+              "meaning": "A current that continually changes direction."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Radio waves are produced by oscillations in electrical circuits.",
+            "An alternating current in a transmitter aerial produces radio waves.",
+            "The radio waves have the same frequency as the oscillations.",
+            "When radio waves are absorbed, they induce oscillations in a circuit, an alternating current with the same frequency as the wave."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of radio transmission and reception in order.",
+            "prompt": "Put these steps in order, from the transmitter to the receiver.",
+            "steps": [
+              "Electrons oscillate in the transmitter circuit and aerial, as an alternating current.",
+              "Radio waves of the same frequency are produced.",
+              "The radio waves travel through the air to the receiving aerial.",
+              "The receiving aerial absorbs the radio waves.",
+              "Electrons in the receiver circuit oscillate, giving an alternating current of the same frequency."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Radio waves are produced by oscillations in electrical circuits.",
+            "Absorbed radio waves induce an alternating current in a circuit.",
+            "The frequency of the waves matches the frequency of the oscillations."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how a radio signal in a transmitter produces a signal in a receiver.",
+      "a": "An alternating current (oscillations) in the transmitter produces radio waves. The waves are absorbed by the receiver and induce an alternating current (oscillations) in the receiver at the same frequency.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why X-rays are used to produce images of bones.",
+      "a": "X-rays are absorbed by bone but pass through soft tissue (flesh).",
+      "marks": 2
+    },
+    {
+      "q": "Name one use of infrared waves and one use of ultraviolet waves.",
+      "a": "Infrared: for example cooking, thermal imaging or a television remote control. Ultraviolet: for example security marking, detecting forged bank notes or disinfecting water.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.6.2.4", "AQA T 6.6.2.4"],
+      "worked_example": {
+        "exemplar_id": "46d01f25-f796-4987-8d35-92d3c81e7004",
+        "source": "AQA jun 2020, Paper 2 (H), Q5.1",
+        "question": "X-rays form part of the electromagnetic spectrum. Radiographers use X-rays to produce images of bones inside the body.\n\nExplain why X-rays can be used to produce images of the bones inside the body.",
+        "marks": 2,
+        "answer_points": [
+          "X-rays are absorbed by bone.",
+          "X-rays can pass through flesh (soft tissue)."
+        ],
+        "tip": "Both halves are needed. 'Pass through tissue' on its own is not enough, and 'reflected by bone' is not accepted."
+      },
+      "extra": [
+        {
+          "heading": "Higher tier content",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(AQA: Higher tier) Radio waves can be produced by oscillations in electrical circuits and can induce oscillations when absorbed. Brief explanations of why each wave suits its use are also Higher tier."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.22", "EDEX 5.23"],
+      "worked_example": {
+        "exemplar_id": "7a4b34b7-cca9-4263-b31d-3eda0f53c328",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q9(c)",
+        "question": "X-rays and radio waves are part of the electromagnetic spectrum and have different uses.\n\nThese radiations are produced in different ways.\n\nX-rays are emitted when electrons within an atom go through energy changes.\n\nRadio waves are produced by electrons in circuits.\n\nCompare X-rays with radio waves.\n\nYour answer should refer to\n• the uses of both types of radiation\n• the different ways that electrons are involved in producing X-rays and radio waves.",
+        "marks": 6,
+        "answer_points": [
+          "X-rays have a high frequency, short wavelength and high energy. Radio waves have a low frequency and long wavelength.",
+          "X-rays are used for medical diagnosis (broken bones), radiotherapy and airport security.",
+          "Radio waves are used for broadcasting radio and television, communications and satellite transmissions.",
+          "X-rays: electrons absorb energy and move to a higher energy level. When they fall back to a lower level they lose a large amount of energy as X-ray radiation.",
+          "Radio waves: electrons oscillate in electrical circuits, a current that continually changes direction, up and down in a transmitting aerial.",
+          "The frequency of the radio waves matches the frequency of the oscillations."
+        ],
+        "tip": "This is a levels question marked on 'Level 1 to Level 3'. Detail on a use of each wave plus one clear production process reaches the top level. No credit is given for repeating the wording in the question."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P5.2g", "OCR P5.2j"],
+      "worked_example": {
+        "exemplar_id": "b6dae34e-7b75-4997-874d-d0b589ebdba3",
+        "source": "OCR jun 2019, Paper 4, Q20(a)",
+        "question": "Energy is transferred at high voltages in the national grid.\n\nThis house is near to a transmission line.\n\nExplain why radio waves may be produced by the transmission line.",
+        "marks": 2,
+        "answer_points": [
+          "The transmission line carries an alternating current, so electrons oscillate.",
+          "Alternating currents (oscillations) produce radio waves (electromagnetic radiation)."
+        ],
+        "tip": "One mark for naming the alternating current or oscillations and one mark for saying that these produce radio waves."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.3.3", "CAIE 3.2.2.9S", "CAIE 3.3.5", "CAIE 3.3.7S"],
+      "worked_example": {
+        "exemplar_id": "22090d42-1956-4582-84f0-d52a6c089fa7",
+        "source": "CAMBRIDGE mar 2024, Paper 42, Q5(a)(i)",
+        "question": "The table shows applications of regions of the electromagnetic spectrum.\n\ncancer treatment: gamma rays\nBluetooth data connection: ______\noptical fibres: ______\nsecurity marking: ______\nsterilising food: ______\nwireless internet: ______\n\nComplete the table with the region of the electromagnetic spectrum used for each application. Choose from: gamma rays, infrared, microwaves, radio waves, ultraviolet. Each region may be used once, more than once or not at all.",
+        "marks": 3,
+        "answer_points": [
+          "Bluetooth data connection: radio waves",
+          "optical fibres: infrared",
+          "security marking: ultraviolet",
+          "sterilising food: gamma rays",
+          "wireless internet: microwaves"
+        ],
+        "tip": "Three marks for all five correct, two marks for four correct and one mark for three correct."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Radio waves are also used in astronomy and in radio frequency identification (RFID).",
+                "Infrared is also used in electric grills and intruder alarms.",
+                "Communication with artificial satellites is mainly by microwaves.",
+                "Some satellite phones use low orbit satellites.",
+                "Some satellite phones and satellite television use geostationary satellites."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "(Supplement) Why each wave suits its communication system"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Mobile phones and wireless internet use **microwaves**. They penetrate some walls and need only a short aerial.",
+                "Bluetooth uses **radio waves**. They pass through walls, but the signal is weakened.",
+                "Optical fibres carry visible light or short wavelength infrared. Glass is transparent to both, and both carry high rates of data."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 3.12", "IGCSE 3.20"],
+      "worked_example": {
+        "exemplar_id": "4b649497-f3a8-4982-be77-50de66fb60ef",
+        "source": "EDEXCEL jan 2022, Paper 1 (PR), Q2(b)",
+        "question": "X-rays and gamma rays are examples of ionising radiation.\n\nGive one use of X-rays and one use of gamma rays.",
+        "marks": 2,
+        "answer_points": [
+          "X-rays: taking images of bones or of the internal structure of objects",
+          "gamma rays: sterilising medical equipment, radiotherapy to treat cancer, or irradiating food to preserve it"
+        ],
+        "tip": "One mark for a correct use of each."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Night vision equipment uses infrared. Warm objects emit infrared, so they can be seen in the dark.",
+                "Ultraviolet makes fluorescent lamps work: the ultraviolet inside the tube makes the coating glow with visible light."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "e2dd1fd5-b83c-4e80-8992-6121cdcc68bc",
+      "96461c29-d3f0-4363-9927-44786efe67e8",
+      "873dc208-829e-48f6-9517-06e88743bf67",
+      "bd2add22-a660-497c-a965-86d7472b158d",
+      "57f85d6b-5873-441f-bcad-1dd0893a52bd",
+      "0bd3ca9a-2345-4706-b512-c3e4c0729353",
+      "02c0106a-b70a-4e0c-b2b0-40607d8a2a7c",
+      "ed2b2874-f2b9-4b76-b4cc-694c868edc44"
+    ],
+    "exemplar_ids": [
+      "46d01f25-f796-4987-8d35-92d3c81e7004",
+      "7a4b34b7-cca9-4263-b31d-3eda0f53c328",
+      "b6dae34e-7b75-4997-874d-d0b589ebdba3",
+      "22090d42-1956-4582-84f0-d52a6c089fa7",
+      "4b649497-f3a8-4982-be77-50de66fb60ef"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

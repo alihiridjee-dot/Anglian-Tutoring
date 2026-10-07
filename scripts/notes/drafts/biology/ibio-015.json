@@ -1,0 +1,269 @@
+{
+  "format": 1,
+  "concept_id": "ibio-015",
+  "subject": "biology",
+  "title": "Population growth",
+  "key_idea": "A population grows when births and immigration exceed deaths and emigration. In limited conditions, growth follows a sigmoid curve with four phases: lag, exponential, stationary and death. Limiting factors decide when each phase starts and ends.",
+  "sections": [
+    {
+      "heading": "What affects population growth",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The size of a population changes with the number born and the number that die. This section covers the factors involved."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Population",
+              "meaning": "All the organisms of one species living in a habitat."
+            },
+            {
+              "term": "Limiting factor",
+              "meaning": "A factor that stops a population growing any larger."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Food supply**: more food means more survive and reproduce.",
+            "**Competition**: organisms compete for food, space and mates, so fewer survive.",
+            "**Predation**: more predators means more prey are eaten and the prey population falls.",
+            "**Disease**: pathogens spread through a crowded population and cause deaths."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Food supply, competition, predation and disease affect the growth of a population.",
+            "A limiting factor stops a population growing any larger."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The sigmoid growth curve",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A population growing with limited resources follows an S-shaped, or sigmoid, curve. This section covers its four phases."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A sigmoid population growth curve against time. The line starts low and flat in the lag phase, rises steeply in the exponential phase, levels off in the stationary phase, then falls in the death phase.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 10,
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10
+              ]
+            },
+            "y": {
+              "label": "Population size"
+            },
+            "series": [
+              {
+                "name": "Population",
+                "points": [
+                  [
+                    0,
+                    0.05
+                  ],
+                  [
+                    1,
+                    0.07
+                  ],
+                  [
+                    2,
+                    0.12
+                  ],
+                  [
+                    3,
+                    0.28
+                  ],
+                  [
+                    4,
+                    0.55
+                  ],
+                  [
+                    5,
+                    0.78
+                  ],
+                  [
+                    6,
+                    0.88
+                  ],
+                  [
+                    7,
+                    0.9
+                  ],
+                  [
+                    8,
+                    0.88
+                  ],
+                  [
+                    9,
+                    0.6
+                  ],
+                  [
+                    10,
+                    0.3
+                  ]
+                ]
+              }
+            ],
+            "bands": [
+              {
+                "from": 0,
+                "to": 2,
+                "label": "Lag"
+              },
+              {
+                "from": 2,
+                "to": 5.5,
+                "label": "Exponential"
+              },
+              {
+                "from": 5.5,
+                "to": 8,
+                "label": "Stationary"
+              },
+              {
+                "from": 8,
+                "to": 10,
+                "label": "Death"
+              }
+            ]
+          }
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Lag phase",
+              "meaning": "The population grows slowly at the start."
+            },
+            {
+              "term": "Exponential phase",
+              "meaning": "The population grows rapidly, doubling at regular intervals."
+            },
+            {
+              "term": "Stationary phase",
+              "meaning": "The population size stays about level."
+            },
+            {
+              "term": "Death phase",
+              "meaning": "The population size falls."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The sigmoid curve has lag, exponential, stationary and death phases.",
+            "The steepest part of the graph is the exponential phase."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "(Supplement) Why each phase happens",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Each phase has a cause, and limiting factors explain the later ones."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Lag**: there are few organisms, and they need time to adapt and begin to reproduce.",
+            "**Exponential**: there is plenty of food and space, so births are far higher than deaths.",
+            "**Stationary**: a limiting factor such as food or space runs short, so births equal deaths.",
+            "**Death**: resources run out and waste or toxins build up, so deaths exceed births."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To interpret a graph, look at the gradient. A steep upward line means rapid growth.",
+            "A flat line means the population is steady. A downward line means it is falling."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Supplement) Lag is slow as few organisms reproduce.",
+            "(Supplement) Limiting factors stop growth in the stationary phase and cause the death phase."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the name of the shape of a population growth curve in limited conditions.",
+      "a": "Sigmoid.",
+      "marks": 1
+    },
+    {
+      "q": "Name the phase in which the population size stays level.",
+      "a": "The stationary phase.",
+      "marks": 1
+    },
+    {
+      "q": "(Supplement) Explain why the population stops growing in the stationary phase.",
+      "a": "A limiting factor such as food or space runs short, so the number of births equals the number of deaths.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 19.4.4",
+        "CAIE 19.4.5",
+        "CAIE 19.4.6",
+        "CAIE 19.4.7S"
+      ],
+      "worked_example": {
+        "exemplar_id": "1154f4e7-e5b2-4346-bb56-341510d7a192",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q7(b)(iii)",
+        "question": "A scientist grew a sample of bacteria in a flask. The resources available for bacterial growth in the flask became limiting. The size of the bacterial population was estimated during the investigation and plotted on a graph.\n\nState one factor, other than a lack of resources, that would cause bacteria to die during the death phase.",
+        "marks": 1,
+        "answer_points": [
+          "Build-up of a named toxin, waste product or carbon dioxide.",
+          "A change in pH.",
+          "High temperature.",
+          "Overcrowding.",
+          "Disease or virus attack."
+        ],
+        "tip": "Any one scores the mark. Name a factor that is not a lack of food."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "36c3a31a-8a95-4eba-9b66-25359fa8d1f8",
+      "2af3aa67-7f44-4719-98fe-89fe7638306a",
+      "19cf22df-e2cc-4dca-becd-95d8c499f571",
+      "72cdee8e-620a-428a-a3a0-9eebdb785660"
+    ],
+    "exemplar_ids": [
+      "1154f4e7-e5b2-4346-bb56-341510d7a192"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

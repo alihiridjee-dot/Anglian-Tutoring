@@ -1,0 +1,452 @@
+{
+  "format": 1,
+  "concept_id": "bio-096",
+  "subject": "biology",
+  "title": "Genetic crosses and Punnett squares",
+  "key_idea": "A **Punnett square** shows the possible offspring of a cross. Write the parents' alleles, then their gametes, then fill in the offspring genotypes. Read off the phenotypes, and give the result as a ratio, a probability or a percentage.",
+  "sections": [
+    {
+      "heading": "Drawing a genetic cross",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A genetic cross predicts the offspring of two parents for one gene. This section covers the method, using cystic fibrosis."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the parents' genotypes.",
+              "text": "Two parents without cystic fibrosis have a child with it. Each must carry the recessive allele, so both are Tt (T is dominant, t is recessive)."
+            },
+            {
+              "lead": "Write the gametes.",
+              "text": "Each gamete has only one allele. Each parent makes gametes T and t."
+            },
+            {
+              "lead": "Fill in the square.",
+              "text": "Put one parent's gametes across the top and the other's down the side. Each box is the genotype of one possible child."
+            },
+            {
+              "lead": "Read the phenotypes.",
+              "text": "TT and Tt do not have the disorder. tt has cystic fibrosis."
+            },
+            {
+              "lead": "Give the result.",
+              "text": "One box in four is tt: probability 1 in 4, 25% or 0.25."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "T",
+              "TT",
+              "Tt"
+            ],
+            [
+              "t",
+              "Tt",
+              "tt"
+            ]
+          ],
+          "columns": [
+            "Gametes",
+            "T",
+            "t"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Offspring genotypes: 1 TT : 2 Tt : 1 tt.",
+            "The two **carriers** (Tt) are heterozygous and do not have the disorder.",
+            "Phenotypes: 3 without the disorder to 1 with it, a ratio of 3 : 1."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gametes have one allele each. The parents' genotypes are not written in the boxes.",
+            "Two unaffected parents with an affected child must both be heterozygous.",
+            "Heterozygous parents give a 25% chance of a recessive child."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Predicting outcomes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Try different parents and watch the offspring. Then learn the common crosses and how to give the answer."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "punnett",
+            "alt": "Choose the genotypes of two pea plants to see a Punnett square of their possible offspring, tall or short.",
+            "alleles": {
+              "dominant": "T",
+              "recessive": "t"
+            },
+            "phenotypes": {
+              "dominant": "Tall plant",
+              "recessive": "Short plant"
+            },
+            "parent_labels": [
+              "Parent 1",
+              "Parent 2"
+            ],
+            "parent_options": [
+              [
+                "TT",
+                "Tt",
+                "tt"
+              ],
+              [
+                "TT",
+                "Tt",
+                "tt"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Hh × Hh",
+              "1 HH : 2 Hh : 1 hh",
+              "3 dominant : 1 recessive (25% recessive)"
+            ],
+            [
+              "Hh × hh",
+              "1 Hh : 1 hh",
+              "1 dominant : 1 recessive (50% recessive)"
+            ],
+            [
+              "HH × hh",
+              "All Hh",
+              "All dominant (100%)"
+            ],
+            [
+              "HH × Hh",
+              "1 HH : 1 Hh",
+              "All dominant (0% recessive)"
+            ]
+          ],
+          "columns": [
+            "Cross",
+            "Offspring genotypes",
+            "Offspring phenotypes"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Giving the answer"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **probability** can be a fraction, a decimal or a percentage: 1 in 4, 0.25 or 25%.",
+            "A **ratio** compares the numbers: 3 : 1.",
+            "Each child is a separate chance. A 25% chance does not mean exactly one child in four."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Expected number of offspring",
+          "where": [
+            "total number of offspring",
+            "probability of the characteristic, as a fraction or decimal"
+          ],
+          "formula": "expected number = total number of offspring × probability"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "A 3 : 1 cross gives 160 plants.",
+              "text": "Three quarters are dominant, so the probability is 3 ÷ 4 = 0.75."
+            },
+            {
+              "lead": "Multiply.",
+              "text": "160 × 0.75 = 120 plants with the dominant phenotype."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Real results come out close to the ratio.",
+              "text": "A cross gave 133 purple and 46 white plants."
+            },
+            {
+              "lead": "Divide.",
+              "text": "133 ÷ 46 = 2.89. To the nearest whole number the ratio is 3 : 1."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Learn the four common crosses and their results.",
+            "Probability is a fraction, decimal or percentage. A ratio is not a probability.",
+            "Expected number = total × probability."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Working backwards and family trees",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sometimes the offspring are known and you must work out the parents. A family tree shows a characteristic over several generations."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Two parents without a disorder have a child with it. The allele is **recessive** and both parents are heterozygous carriers.",
+            "A person with the recessive phenotype must be homozygous recessive, such as hh.",
+            "If a very large number of offspring of an Hh parent all show the dominant phenotype, the other parent is HH.",
+            "A parent with genotype hh can only pass on h. The other parent decides whether the child can be hh.",
+            "If one parent is FF, every child inherits an F, so no child can have a recessive disorder. The probability is 0."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Combining probabilities"
+        },
+        {
+          "type": "list",
+          "items": [
+            "To have cystic fibrosis, a person must inherit two CF alleles.",
+            "If one allele in every 50 is the CF allele, the chance of inheriting one is 1/50.",
+            "The chance of two is 1/50 × 1/50 = 1/2500, so about one person in 2500 has the disorder."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Unaffected parents with an affected child are both carriers.",
+            "A homozygous dominant parent means a probability of 0 for the recessive disorder.",
+            "Multiply probabilities to find the chance of two events together."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Two heterozygous parents (Bb) have a child. What is the probability that the child is bb?",
+      "a": "1 in 4 (25%, 0.25).",
+      "marks": 2
+    },
+    {
+      "q": "A pea plant Rr is crossed with a plant rr. R is dominant and gives round seeds. What percentage of the offspring will have round seeds?",
+      "a": "50%. The offspring are 1 Rr : 1 rr.",
+      "marks": 2
+    },
+    {
+      "q": "Two parents without cystic fibrosis have a child with it. What are the genotypes of the parents?",
+      "a": "Both are heterozygous (for example Tt): each carries one recessive allele.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 6.7",
+        "AQA T 4.6.1.4",
+        "AQA T 4.6.1.5"
+      ],
+      "worked_example": {
+        "exemplar_id": "0770f1e0-7384-4709-a346-30def20d4202",
+        "source": "AQA jun 2020, Paper 2 (H), Q05.3",
+        "question": "Cystic fibrosis (CF) is an inherited disorder.\n\nA man and a woman do not have CF.\n\nThe man and the woman have a child who has CF.\n\nDraw a Punnett square diagram to find the probability that their next child will have CF.\n\nUse the symbols:\nT = dominant allele\nt = recessive allele\n\nDraw a ring around the genotype of any children with CF.\n\nProbability = ___",
+        "marks": 4,
+        "answer_points": [
+          "Both parents are shown as heterozygous (Tt).",
+          "The gametes are T, t for the woman and T, t for the man, and the offspring are TT, Tt, Tt, tt (1 unaffected, 2 carriers, 1 affected).",
+          "tt is identified (ringed) as the child with CF.",
+          "The probability is 1 in 4 (25%, 0.25 or 1:3)."
+        ],
+        "tip": "One mark for each point. A correct derivation from incorrect gametes can still score."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 3.14",
+        "EDEX 3.16"
+      ],
+      "worked_example": {
+        "exemplar_id": "0222d622-b899-4ebc-a3bc-3a603b865292",
+        "source": "EDEXCEL jun 2023, Paper 1 (F), Q6(c)(ii)",
+        "question": "The allele for purple flowers is dominant to the allele for white flowers.\n\nThe scientist crossed two purple flowering pea plants.\n\nThe offspring were:\n- 133 plants with purple flowers\n- 46 plants with white flowers\n\nExplain why it was possible for this cross to produce some offspring with white flowers.",
+        "marks": 2,
+        "answer_points": [
+          "Both parents are heterozygous (Pp): each has an allele for white flowers.",
+          "So some offspring have two recessive alleles (pp) and are homozygous recessive."
+        ],
+        "tip": "One mark for the parents' genotypes and one for the offspring that inherit two recessive alleles."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 5.1j"
+      ],
+      "worked_example": {
+        "exemplar_id": "84b6f287-b656-47f3-aa13-e65a881de69d",
+        "source": "OCR jun 2018, Paper 4, Q18(b)(i)",
+        "question": "Retinitis pigmentosa is a genetic condition that affects the eyes.\n\nIt is caused by a mutation to a gene. This mutation produces a recessive allele.\n\nThe condition causes rod cells in the retina to break down.\n\nTwo people who are heterozygous for retinitis pigmentosa are expecting a baby.\n\nDraw a genetic diagram to calculate the probability that the baby will have the condition.\n\nUse R for the normal allele and r for the allele for retinitis pigmentosa.",
+        "marks": 3,
+        "answer_points": [
+          "The correct gametes: R, r and R, r.",
+          "The correct genotypes of the offspring: RR, Rr, Rr, rr.",
+          "The probability is 0.25 (1/4, 25%, 1 in 4 or 1:3)."
+        ],
+        "tip": "Any form of diagram is allowed, not only a Punnett square. Marks for the offspring follow from your gametes."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 17.4.10",
+        "CAIE 17.4.11",
+        "CAIE 17.4.12",
+        "CAIE 17.4.13S",
+        "CAIE 17.4.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "b8f01430-c108-4f29-9fc4-ff47998c8cda",
+        "source": "CAMBRIDGE jun 2025, Paper 42, Q1(c)",
+        "question": "Cystic fibrosis is an inherited condition in humans caused by a recessive allele of a gene.\n\nThere are two alleles for this gene:\n• the allele for no cystic fibrosis is represented by the letter F\n• the allele for cystic fibrosis is represented by the letter f.\n\nTwo heterozygous parents wanted to have a child.\n\nComplete the genetic diagram to predict the probability of these parents having a child with cystic fibrosis.\n\nparental phenotypes: no cystic fibrosis × no cystic fibrosis\nparental genotypes: ______ × ______\ngametes: ______ , ______ × ______ , ______\noffspring genotypes: ______ ______ ______ ______\noffspring phenotypes: ______ ______ ______ ______\nprobability of having a child with cystic fibrosis: ______",
+        "marks": 5,
+        "answer_points": [
+          "Parental genotypes: Ff × Ff.",
+          "Gametes: F, f and F, f.",
+          "Offspring genotypes: FF, Ff, Ff, ff.",
+          "Offspring phenotypes: no cystic fibrosis, no cystic fibrosis, no cystic fibrosis, cystic fibrosis.",
+          "Probability of a child with cystic fibrosis: 0.25 (25% or 1 in 4)."
+        ],
+        "tip": "One mark for each row. The phenotypes must be in the same order as the genotypes."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A test cross finds out an unknown genotype. An organism with the dominant phenotype can be homozygous dominant or heterozygous."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Cross it with a homozygous recessive.",
+                  "text": "Cross the unknown organism with an organism that has two recessive alleles."
+                },
+                {
+                  "lead": "Look at the offspring.",
+                  "text": "If all the offspring show the dominant phenotype, the unknown organism is homozygous dominant."
+                },
+                {
+                  "lead": "Read the result.",
+                  "text": "If about half the offspring show the recessive phenotype, the unknown organism is heterozygous."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Reading a pedigree diagram",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A pedigree diagram is a family tree. It shows who has a characteristic and how it passes down the generations."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Squares are males and circles are females. Shaded shapes have the characteristic.",
+                "Two parents without it who have a child with it: the allele is **recessive**, and both parents are heterozygous.",
+                "Two parents with it who have a child without it: the allele is **dominant**, and both parents are heterozygous.",
+                "Give the genotype of each person from their phenotype, then check it against their parents and children."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.23",
+        "IGCSE 3.24",
+        "IGCSE 3.25"
+      ],
+      "worked_example": {
+        "exemplar_id": "d75fac89-e26b-4d8d-ac57-6367ec9496b5",
+        "source": "EDEXCEL nov 2020, Paper 1 (BR), Q9(b)(i)",
+        "question": "Cleft chin is a phenotype believed to be controlled by a single gene that has two alleles.\nThe dominant allele, N, codes for cleft chin and the recessive, n, allele codes for the absence of the cleft chin.\nA woman with a cleft chin has a child with a man who also has a cleft chin.\nThe child does not have a cleft chin.\n\nUse a genetic diagram to show the genotypes of the parents, the gametes they can produce and all the possible genotypes and phenotypes of their children.",
+        "marks": 4,
+        "answer_points": [
+          "Both parents are Nn.",
+          "The gametes from each parent are N or n.",
+          "The offspring genotypes are NN, Nn, Nn and nn.",
+          "The offspring phenotypes are 3 with a cleft chin to 1 without a cleft chin."
+        ],
+        "tip": "A correct Punnett square scores full marks."
+      },
+      "extra": [
+        {
+          "heading": "Reading a pedigree diagram",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A pedigree diagram is a family tree. It shows who has a characteristic and how it passes down the generations."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Squares are males and circles are females. Shaded shapes have the characteristic.",
+                "Two parents without it who have a child with it: the allele is **recessive**, and both parents are heterozygous.",
+                "Two parents with it who have a child without it: the allele is **dominant**, and both parents are heterozygous.",
+                "Give the genotype of each person from their phenotype, then check it against their parents and children."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "b05dce89-aa59-4cbf-9e38-1dcb89efe429",
+      "e97c4ffc-896d-4789-ba5b-46a1ee1761f9",
+      "ad3afedb-82ce-41ea-885b-54048ef31151",
+      "00ee68c9-62b7-436f-92c1-b79f7ae60d91",
+      "4421022c-d297-4da6-84fe-6e77eb765b4b",
+      "8ca4e832-f0e5-499c-b6e9-7de4855cdb6f",
+      "5b10e145-ff64-4bf0-8c6f-58895c6f7c1f",
+      "7765ba7c-6636-4db6-a7e2-e58f21639694",
+      "92ae4670-18ce-40b2-83bc-810e1efe568e",
+      "9a90e223-ed33-4edb-9afa-c287ad3ba044",
+      "6a61f410-094c-45ef-8b8b-1c139be37084"
+    ],
+    "exemplar_ids": [
+      "0770f1e0-7384-4709-a346-30def20d4202",
+      "0222d622-b899-4ebc-a3bc-3a603b865292",
+      "84b6f287-b656-47f3-aa13-e65a881de69d",
+      "b8f01430-c108-4f29-9fc4-ff47998c8cda",
+      "d75fac89-e26b-4d8d-ac57-6367ec9496b5"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}
