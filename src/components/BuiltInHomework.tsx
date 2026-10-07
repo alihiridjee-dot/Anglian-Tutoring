@@ -15,7 +15,7 @@ import {
 import { isAlreadySubmitted, startMarking } from "@/lib/homework/startMarking";
 import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
-import { SciText } from "@/components/Shared";
+import { SciBlock, SciText } from "@/components/Shared";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import { MarkScheme } from "@/components/homework/MarkScheme";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
@@ -100,9 +100,10 @@ export function AnsweredView({
             <li key={q.id} className="premium-card p-4">
               <div className="flex items-start gap-2">
                 <span className="numeral text-muted-foreground shrink-0 text-xs">Q{i + 1}</span>
-                <p className="min-w-0 flex-1 text-sm font-medium break-words whitespace-pre-wrap">
-                  <SciText text={q.prompt} />
-                </p>
+                <SciBlock
+                  text={q.prompt}
+                  className="min-w-0 flex-1 text-sm font-medium break-words"
+                />
                 <span className="numeral text-muted-foreground shrink-0 text-xs">
                   {a?.awarded_marks != null
                     ? `${Number(a.awarded_marks)}/${q.marks}`
@@ -494,9 +495,7 @@ function QuestionHeader({ q, index }: { q: HomeworkQuestion; index: number }) {
   return (
     <div className="flex items-start gap-2">
       <span className="numeral text-muted-foreground shrink-0 text-xs">Q{index + 1}</span>
-      <p className="min-w-0 flex-1 text-sm font-medium break-words whitespace-pre-wrap">
-        <SciText text={q.prompt} />
-      </p>
+      <SciBlock text={q.prompt} className="min-w-0 flex-1 text-sm font-medium break-words" />
       <span className="numeral text-muted-foreground shrink-0 text-xs">[{q.marks}]</span>
     </div>
   );

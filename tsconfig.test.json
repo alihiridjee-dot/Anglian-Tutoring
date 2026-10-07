@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/**/*.test.ts"],
+  "include": ["src/**/*.test.ts", "src/**/*.test.tsx"],
   "exclude": [],
   "compilerOptions": {
     "types": ["bun"]

@@ -2,7 +2,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { EmptyState, ErrorNote, SciText, Spinner } from "@/components/Shared";
+import { EmptyState, ErrorNote, SciBlock, SciText, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ } from "@/lib/demo/studentDemo";
 import { describeError } from "@/lib/platform/errors";
+import { rowOptions } from "@/lib/platform/textBlocks";
 import {
   attemptIdFor,
   clearMcqAnswers,
@@ -418,20 +419,47 @@ export function TakeMcq() {
             const chosen = answers[q.id];
             // Read together, so a wrong option is written like the right one.
             const notation = [q.question, ...q.options].join("\n");
+            // "Which row…?": each option is a row of the table the question
+            // heads, so the options line up under its headings, as on a paper.
+            const table = rowOptions(q.question, q.options);
+            const columns = table && {
+              gridTemplateColumns: `1.5rem repeat(${table.columns.length}, minmax(0, 1fr)) 1rem`,
+            };
             return (
               <li key={q.id} className="rounded-2xl premium-card p-4 sm:p-5">
                 <p className="text-xs uppercase tracking-widest text-primary font-semibold">
                   Question {idx + 1}
                 </p>
-                <p className="font-display text-lg mt-1">
-                  <SciText text={q.question} context={notation} />
-                </p>
-                <div className="mt-3 space-y-2">
+                <SciBlock
+                  text={table ? table.question : q.question}
+                  context={notation}
+                  className="font-display text-lg mt-1 break-words"
+                />
+                {table && (
+                  <div
+                    className="font-display mt-3 grid gap-x-3 border border-transparent px-4 text-sm font-extrabold break-words"
+                    style={columns!}
+                  >
+                    <span />
+                    {table.columns.map((c, j) => (
+                      <span key={j}>
+                        <SciText text={c} context={notation} />
+                      </span>
+                    ))}
+                    <span />
+                  </div>
+                )}
+                <div className={`${table ? "mt-1.5" : "mt-3"} space-y-2`}>
                   {q.options.map((opt, i) => {
                     const mark = marked?.byQuestion[q.id];
                     const isChosen = chosen === i;
                     const isCorrect = !!mark && i === mark.correctIndex;
                     const isWrong = !!mark && isChosen && i !== mark.correctIndex;
+                    const letter = (
+                      <span className="font-mono text-xs mr-2 text-muted-foreground">
+                        {String.fromCharCode(65 + i)}.
+                      </span>
+                    );
                     return (
                       <button
                         key={i}
@@ -447,12 +475,31 @@ export function TakeMcq() {
                                 : "bg-secondary/40 border-border hover:border-primary/40"
                         }`}
                       >
-                        <span className="font-mono text-xs mr-2 text-muted-foreground">
-                          {String.fromCharCode(65 + i)}.
-                        </span>
-                        <SciText text={opt} context={notation} />
-                        {isCorrect && <CheckCircle2 className="w-4 h-4 text-primary inline ml-2" />}
-                        {isWrong && <XCircle className="w-4 h-4 text-destructive inline ml-2" />}
+                        {table ? (
+                          <span className="grid items-baseline gap-x-3" style={columns!}>
+                            {letter}
+                            {table.rows[i].map((c, j) => (
+                              <span key={j}>
+                                <SciText text={c} context={notation} />
+                              </span>
+                            ))}
+                            <span className="self-center">
+                              {isCorrect && <CheckCircle2 className="w-4 h-4 text-primary" />}
+                              {isWrong && <XCircle className="w-4 h-4 text-destructive" />}
+                            </span>
+                          </span>
+                        ) : (
+                          <>
+                            {letter}
+                            <SciText text={opt} context={notation} />
+                            {isCorrect && (
+                              <CheckCircle2 className="w-4 h-4 text-primary inline ml-2" />
+                            )}
+                            {isWrong && (
+                              <XCircle className="w-4 h-4 text-destructive inline ml-2" />
+                            )}
+                          </>
+                        )}
                       </button>
                     );
                   })}
