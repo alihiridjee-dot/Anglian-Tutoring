@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { type QueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { dbError } from "@/lib/platform/errors";
 import { deleteZoomMeeting } from "@/lib/live/zoom.functions";
 import { type LiveSession } from "@/lib/live/liveSessions";
 import { toast } from "sonner";
@@ -39,7 +40,7 @@ export function useDeleteLiveSession(qc: QueryClient) {
         }
       }
       const { error } = await supabase.from("resources").delete().eq("id", session.id);
-      if (error) throw error;
+      if (error) throw dbError(error);
       toast.success("Session deleted");
       qc.invalidateQueries({ queryKey: ["live"] });
     } catch (err) {

@@ -34,3 +34,23 @@ export function describeError(error: unknown, fallback = "Something went wrong."
   const message = rawMessage(error)?.trim();
   return message ? message : fallback;
 }
+
+/**
+ * What a data-access function throws when a Supabase call fails.
+ *
+ * The failure is that plain object, whatever supabase-js's types say, so the
+ * usual `toast.error(e instanceof Error ? e.message : "Couldn't … — try
+ * again.")` dropped the database's own reason: a student refused on a rule
+ * ("This is a break week, so nothing new can be planned for it.") was told to
+ * try again, which never helps. When the database answered, the object has a
+ * `code` (23514, 42501, PGRST116…), and it becomes an `Error` in the
+ * database's words that keeps `code`, `details` and `hint` for any caller that
+ * branches on them. A request that got no answer has no code ("TypeError:
+ * Failed to fetch" when the connection dropped), so it is thrown as it was and
+ * the caller's own "try again" still shows.
+ */
+export function dbError<E extends { message: string; code?: string | null }>(
+  error: E,
+): E | (Error & E) {
+  return error.code ? Object.assign(new Error(error.message), error) : error;
+}

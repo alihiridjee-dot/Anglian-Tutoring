@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { dbError } from "@/lib/platform/errors";
 import type { Json } from "@/integrations/supabase/types";
 import {
   SUBJECTS,
@@ -163,7 +164,7 @@ function SubjectsStep() {
           board: boards[s.value],
         })) as unknown as Json,
       });
-      if (error) throw error;
+      if (error) throw dbError(error);
 
       queryClient.invalidateQueries({ queryKey: ["user-enrolments-and-profile"] });
       navigate({ to: "/onboarding/learning" });

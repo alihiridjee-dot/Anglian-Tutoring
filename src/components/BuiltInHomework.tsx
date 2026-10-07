@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { Check, Clock3, Loader2, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
+import { dbError } from "@/lib/platform/errors";
 import {
   clearDraft,
   loadDraft,
@@ -323,7 +324,7 @@ export function AnswerForm({
       // "Already submitted" means an earlier try got through and only its
       // reply was lost: the work is in, which is what the student wanted. The
       // sheet reloads with the submission and starts its marking from there.
-      if (error && !isAlreadySubmitted(error)) throw error;
+      if (error && !isAlreadySubmitted(error)) throw dbError(error);
 
       // Start the marking, but never wait on it or surface its failure. The
       // work is safely handed in either way; a submission that goes unmarked
