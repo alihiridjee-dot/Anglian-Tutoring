@@ -1,4 +1,4 @@
--- Rollback for 20261007120000_chat_questions_to_the_team: only the thread's
+-- Rollback for 20261007100338_chat_questions_to_the_team: only the thread's
 -- named tutor is told again, and a question to the team reaches no one. Put
 -- the tutor picker back in the student's "Ask your tutor" box first.
 -- Body as written by 20261003100000_chat_retention_gaps.

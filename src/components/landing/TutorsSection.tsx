@@ -10,7 +10,7 @@ const TUTORS = [
   {
     id: "nadia",
     name: "Dr Nadia",
-    role: "Head of Biology & Chemistry",
+    role: "Head of Curriculum & Assessment",
     degrees: [
       "BSc (Hons) Neuroscience, Queen Mary University of London",
       "MBChB, Anglia Ruskin University",
@@ -36,7 +36,7 @@ const TUTORS = [
   {
     id: "ali",
     name: "Ali",
-    role: "Head of Physics & Maths",
+    role: "Head of Teaching & Learning",
     degrees: [
       "BSc Synthetic Organic Chemistry & Biomedical Sciences, UCL",
       "MBChB, Anglia Ruskin University",

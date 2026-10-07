@@ -1,4 +1,4 @@
--- Rollback for 20261007121000_question_ideas_quota: the quota list as
+-- Rollback for 20261007100351_question_ideas_quota: the quota list as
 -- 20261005150000_help_ask_quota left it. Suggested questions then fail their
 -- claim and the box offers none.
 create or replace function public.claim_ai_request(_endpoint text, _limit integer, _window interval)
