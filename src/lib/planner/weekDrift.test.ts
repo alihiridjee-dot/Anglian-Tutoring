@@ -194,6 +194,12 @@ describe("weekDrift", () => {
     // Without this week's teaching, the drift names only that.
     const short = { points: week.points.slice(0, 2), withheld: [] };
     expect(weekDrift(short, roadmap, THIS_WEEK)).toEqual({ missing: ["b1", "b2"], stale: [] });
+    // Catch-up the week hasn't been topped up with yet is the top-up's job
+    // (ensureCatchUp), not a reason to re-cut the week.
+    const owed = selectWeek(roadmap, THIS_WEEK).specPointIds.filter((id) => id.startsWith("a"));
+    expect(owed.length).toBeGreaterThan(0);
+    const teachingOnly = { points: [planPoint("b1"), planPoint("b2")], withheld: [] };
+    expect(weekDrift(teachingOnly, roadmap, THIS_WEEK)).toBeNull();
   });
 
   test("a point the tutor took out of this week or skipped is not missing", () => {
