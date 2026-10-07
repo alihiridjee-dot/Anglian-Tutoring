@@ -70,7 +70,7 @@ await db.exec(
 await db.exec(
   await readFile(
     new URL(
-      "../supabase/migrations/20261007130000_reorder_skips_other_course.sql",
+      "../supabase/migrations/20261007103000_reorder_skips_other_course.sql",
       import.meta.url,
     ),
     "utf8",

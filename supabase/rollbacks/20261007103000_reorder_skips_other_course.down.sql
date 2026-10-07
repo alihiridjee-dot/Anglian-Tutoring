@@ -1,4 +1,4 @@
--- Rollback for 20261007130000_reorder_skips_other_course: the reorder sends every
+-- Rollback for 20261007103000_reorder_skips_other_course: the reorder sends every
 -- protected row back in again, whatever its course (the 20260922104641 body).
 create or replace function public.reorder_student_topics(
   _subject public.subject, _board public.board, _level public.level,

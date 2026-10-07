@@ -20,7 +20,7 @@
 -- Same signature, grants and body as 20260922104641, apart from the one
 -- `where exists` on the select that builds each week's points. Idempotent.
 --
--- Rollback: supabase/rollbacks/20261007130000_reorder_skips_other_course.down.sql
+-- Rollback: supabase/rollbacks/20261007103000_reorder_skips_other_course.down.sql
 
 create or replace function public.reorder_student_topics(
   _subject public.subject, _board public.board, _level public.level,

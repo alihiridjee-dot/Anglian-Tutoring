@@ -1,5 +1,5 @@
 /** Isolated PostgreSQL regression checks: a topic reorder after a board or level
- * change (20261007130000). No production data is read or written.
+ * change (20261007103000). No production data is read or written.
  *
  *   PGLITE_MODULE=/path/to/@electric-sql/pglite/dist/index.js bun scripts/test-reorder-after-board-change-db.ts
  *
@@ -129,7 +129,7 @@ create trigger plan_matches_enrolment before insert or update of student_id, sub
   on student_weekly_plans for each row execute function enforce_plan_matches_enrolment();
 `);
   if (withFix) {
-    const fix = await migration("20261007130000_reorder_skips_other_course.sql");
+    const fix = await migration("20261007103000_reorder_skips_other_course.sql");
     await db.exec(fix);
     await db.exec(fix); // idempotent
   }

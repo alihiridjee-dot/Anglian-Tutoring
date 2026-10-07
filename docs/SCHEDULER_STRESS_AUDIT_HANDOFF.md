@@ -88,7 +88,7 @@ Not fixed — product decisions for Ali:
 - Paused-subject history reads "No plan was set" for past weeks; a board change
   does the same. Both need a design.
 - ~~`reorder_student_topics` may refuse a reorder when old-course rows are
-  protected.~~ **Confirmed and fixed 7 Oct** (20261007130000): after a board or
+  protected.~~ **Confirmed and fixed 7 Oct** (20261007103000): after a board or
   level change, every reorder that week failed with "spec point … is on a
   different course". The reorder now re-sends only the current course's points;
   old-course rows with the student's work stay under "Kept aside from this
