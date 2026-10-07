@@ -34,6 +34,7 @@ import { Route as AuthenticatedStudentDashboardRouteImport } from './routes/_aut
 import { Route as AuthenticatedStudentsRouteImport } from './routes/_authenticated/students'
 import { Route as AuthenticatedTutorRouteImport } from './routes/_authenticated/tutor'
 import { Route as AuthenticatedVideosRouteImport } from './routes/_authenticated/videos'
+import { Route as ApiPlanHealRouteImport } from './routes/api/plan-heal'
 import { Route as ApiPracticeWorkerRouteImport } from './routes/api/practice-worker'
 import { Route as DemoIndexRouteImport } from './routes/demo/index'
 import { Route as DemoParentRouteRouteImport } from './routes/demo/parent/route'
@@ -191,6 +192,11 @@ const AuthenticatedVideosRoute = AuthenticatedVideosRouteImport.update({
   id: '/videos',
   path: '/videos',
   getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const ApiPlanHealRoute = ApiPlanHealRouteImport.update({
+  id: '/api/plan-heal',
+  path: '/api/plan-heal',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPracticeWorkerRoute = ApiPracticeWorkerRouteImport.update({
   id: '/api/practice-worker',
@@ -376,6 +382,7 @@ export interface FileRoutesByFullPath {
   '/students': typeof AuthenticatedStudentsRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/videos': typeof AuthenticatedVideosRoute
+  '/api/plan-heal': typeof ApiPlanHealRoute
   '/api/practice-worker': typeof ApiPracticeWorkerRoute
   '/notes-preview/$conceptId': typeof NotesPreviewConceptIdRoute
   '/onboarding/board': typeof OnboardingBoardRoute
@@ -431,6 +438,7 @@ export interface FileRoutesByTo {
   '/students': typeof AuthenticatedStudentsRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/videos': typeof AuthenticatedVideosRoute
+  '/api/plan-heal': typeof ApiPlanHealRoute
   '/api/practice-worker': typeof ApiPracticeWorkerRoute
   '/notes-preview/$conceptId': typeof NotesPreviewConceptIdRoute
   '/onboarding/board': typeof OnboardingBoardRoute
@@ -489,6 +497,7 @@ export interface FileRoutesById {
   '/_authenticated/students': typeof AuthenticatedStudentsRoute
   '/_authenticated/tutor': typeof AuthenticatedTutorRoute
   '/_authenticated/videos': typeof AuthenticatedVideosRoute
+  '/api/plan-heal': typeof ApiPlanHealRoute
   '/api/practice-worker': typeof ApiPracticeWorkerRoute
   '/notes-preview/$conceptId': typeof NotesPreviewConceptIdRoute
   '/onboarding/board': typeof OnboardingBoardRoute
@@ -547,6 +556,7 @@ export interface FileRouteTypes {
     | '/students'
     | '/tutor'
     | '/videos'
+    | '/api/plan-heal'
     | '/api/practice-worker'
     | '/notes-preview/$conceptId'
     | '/onboarding/board'
@@ -602,6 +612,7 @@ export interface FileRouteTypes {
     | '/students'
     | '/tutor'
     | '/videos'
+    | '/api/plan-heal'
     | '/api/practice-worker'
     | '/notes-preview/$conceptId'
     | '/onboarding/board'
@@ -659,6 +670,7 @@ export interface FileRouteTypes {
     | '/_authenticated/students'
     | '/_authenticated/tutor'
     | '/_authenticated/videos'
+    | '/api/plan-heal'
     | '/api/practice-worker'
     | '/notes-preview/$conceptId'
     | '/onboarding/board'
@@ -700,6 +712,7 @@ export interface RootRouteChildren {
   ResetPasswordRoute: typeof ResetPasswordRoute
   DemoParentRouteRoute: typeof DemoParentRouteRouteWithChildren
   DemoStudentRouteRoute: typeof DemoStudentRouteRouteWithChildren
+  ApiPlanHealRoute: typeof ApiPlanHealRoute
   ApiPracticeWorkerRoute: typeof ApiPracticeWorkerRoute
   NotesPreviewConceptIdRoute: typeof NotesPreviewConceptIdRoute
   DemoIndexRoute: typeof DemoIndexRoute
@@ -883,6 +896,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/videos'
       preLoaderRoute: typeof AuthenticatedVideosRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/api/plan-heal': {
+      id: '/api/plan-heal'
+      path: '/api/plan-heal'
+      fullPath: '/api/plan-heal'
+      preLoaderRoute: typeof ApiPlanHealRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/api/practice-worker': {
       id: '/api/practice-worker'
@@ -1226,6 +1246,7 @@ const rootRouteChildren: RootRouteChildren = {
   ResetPasswordRoute: ResetPasswordRoute,
   DemoParentRouteRoute: DemoParentRouteRouteWithChildren,
   DemoStudentRouteRoute: DemoStudentRouteRouteWithChildren,
+  ApiPlanHealRoute: ApiPlanHealRoute,
   ApiPracticeWorkerRoute: ApiPracticeWorkerRoute,
   NotesPreviewConceptIdRoute: NotesPreviewConceptIdRoute,
   DemoIndexRoute: DemoIndexRoute,

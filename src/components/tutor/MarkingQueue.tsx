@@ -2,6 +2,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { dbError } from "@/lib/platform/errors";
 import { useRoles } from "@/hooks/useRole";
 import { FilterBar, type Filters } from "@/components/FilterBar";
 import { toast } from "sonner";
@@ -113,7 +114,7 @@ async function fetchSegment(status: SubmissionStatus, filters: Filters, offset: 
   if (filters.board) q = q.eq("resources.board", filters.board);
   if (filters.level) q = q.eq("resources.level", filters.level);
   const { data, error, count } = await q.range(offset, offset + PAGE - 1);
-  if (error) throw error;
+  if (error) throw dbError(error);
   const rows = (
     (data ?? []) as unknown as (Omit<Submission, "resource"> & {
       resources: Submission["resource"];

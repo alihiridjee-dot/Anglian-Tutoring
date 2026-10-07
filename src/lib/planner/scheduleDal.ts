@@ -36,6 +36,7 @@ import {
   type TopicAssessment,
 } from "./assessability";
 import { selectIn, selectInSafe, selectInHistory } from "../platform/db/chunked";
+import { dbError } from "../platform/errors";
 
 /** One spec point's standing for the programme's expandable topic breakdown. */
 export interface ProgressPoint {
@@ -297,7 +298,7 @@ export class ScheduleDAL {
           .eq("subject", params.subject)
           .eq("board", params.board)
           .eq("level", params.level);
-    if (topicsError) throw topicsError;
+    if (topicsError) throw dbError(topicsError);
     if (!topics || topics.length === 0) return [];
 
     const pts =

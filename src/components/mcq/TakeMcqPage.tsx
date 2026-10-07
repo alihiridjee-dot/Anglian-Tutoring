@@ -2,13 +2,14 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { EmptyState, ErrorNote, SciBlock, SciText, Spinner } from "@/components/Shared";
+import { Chip, EmptyState, ErrorNote, SciBlock, SciText, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
+import { QuestionFlipCard } from "@/components/mcq/QuestionFlipCard";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
 import { usePinSubject } from "@/hooks/useActiveSubject";
 import { toast } from "sonner";
-import { CheckCircle2, XCircle } from "lucide-react";
+import { CheckCircle2, Lightbulb, XCircle } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ } from "@/lib/demo/studentDemo";
 import { describeError } from "@/lib/platform/errors";
 import { rowOptions } from "@/lib/platform/textBlocks";
@@ -419,98 +420,132 @@ export function TakeMcq() {
             const chosen = answers[q.id];
             // Read together, so a wrong option is written like the right one.
             const notation = [q.question, ...q.options].join("\n");
+            const mark = marked?.byQuestion[q.id];
+            const letter = (i: number) => String.fromCharCode(65 + i);
             // "Which row…?": each option is a row of the table the question
             // heads, so the options line up under its headings, as on a paper.
             const table = rowOptions(q.question, q.options);
             const columns = table && {
               gridTemplateColumns: `1.5rem repeat(${table.columns.length}, minmax(0, 1fr)) 1rem`,
             };
-            return (
-              <li key={q.id} className="rounded-2xl premium-card p-4 sm:p-5">
-                <p className="text-xs uppercase tracking-widest text-primary font-semibold">
-                  Question {idx + 1}
-                </p>
-                <SciBlock
-                  text={table ? table.question : q.question}
-                  context={notation}
-                  className="font-display text-lg mt-1 break-words"
-                />
-                {table && (
-                  <div
-                    className="font-display mt-3 grid gap-x-3 border border-transparent px-4 text-sm font-extrabold break-words"
-                    style={columns!}
-                  >
-                    <span />
-                    {table.columns.map((c, j) => (
-                      <span key={j}>
-                        <SciText text={c} context={notation} />
-                      </span>
-                    ))}
-                    <span />
+            const headings = table && (
+              <div
+                className="font-display grid gap-x-3 border border-transparent px-4 text-sm font-extrabold break-words"
+                style={columns!}
+              >
+                <span />
+                {table.columns.map((c, j) => (
+                  <span key={j}>
+                    <SciText text={c} context={notation} />
+                  </span>
+                ))}
+                <span />
+              </div>
+            );
+            // An option as the card draws it, front and back alike: a row under
+            // the headings, or its letter and text.
+            const option = (i: number, text: string, result?: "right" | "wrong") => {
+              const place = table ? "" : "inline ml-2";
+              const icon =
+                result === "right" ? (
+                  <CheckCircle2 className={`w-4 h-4 text-primary ${place}`} />
+                ) : result === "wrong" ? (
+                  <XCircle className={`w-4 h-4 text-destructive ${place}`} />
+                ) : null;
+              return table ? (
+                <span className="grid items-baseline gap-x-3" style={columns!}>
+                  <span className="font-mono text-xs text-muted-foreground">{letter(i)}.</span>
+                  {table.rows[i].map((c, j) => (
+                    <span key={j}>
+                      <SciText text={c} context={notation} />
+                    </span>
+                  ))}
+                  <span className="self-center">{icon}</span>
+                </span>
+              ) : (
+                <>
+                  <span className="font-mono text-xs mr-2 text-muted-foreground">{letter(i)}.</span>
+                  <SciText text={text} context={notation} />
+                  {icon}
+                </>
+              );
+            };
+            // The back of the card: the right answer as the front draws it, and
+            // the explanation large enough to read on a phone.
+            const back = mark?.explanation ? (
+              <>
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="icon-tile size-10 shrink-0" aria-hidden>
+                    <Lightbulb className="size-5" />
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <p className="eyebrow">Question {idx + 1}</p>
+                    <h3 className="text-2xl">Why it's {letter(mark.correctIndex)}</h3>
                   </div>
-                )}
-                <div className={`${table ? "mt-1.5" : "mt-3"} space-y-2`}>
-                  {q.options.map((opt, i) => {
-                    const mark = marked?.byQuestion[q.id];
-                    const isChosen = chosen === i;
-                    const isCorrect = !!mark && i === mark.correctIndex;
-                    const isWrong = !!mark && isChosen && i !== mark.correctIndex;
-                    const letter = (
-                      <span className="font-mono text-xs mr-2 text-muted-foreground">
-                        {String.fromCharCode(65 + i)}.
-                      </span>
-                    );
-                    return (
-                      <button
-                        key={i}
-                        disabled={submitted}
-                        onClick={() => choose(q.id, i)}
-                        className={`w-full min-h-11 text-left px-4 py-2.5 rounded-lg border text-sm break-words transition sm:pointer-fine:min-h-0 ${
-                          isCorrect
-                            ? "bg-primary/15 border-primary text-foreground"
-                            : isWrong
-                              ? "bg-destructive/10 border-destructive/50"
-                              : isChosen
-                                ? "bg-secondary border-primary/50"
-                                : "bg-secondary/40 border-border hover:border-primary/40"
-                        }`}
-                      >
-                        {table ? (
-                          <span className="grid items-baseline gap-x-3" style={columns!}>
-                            {letter}
-                            {table.rows[i].map((c, j) => (
-                              <span key={j}>
-                                <SciText text={c} context={notation} />
-                              </span>
-                            ))}
-                            <span className="self-center">
-                              {isCorrect && <CheckCircle2 className="w-4 h-4 text-primary" />}
-                              {isWrong && <XCircle className="w-4 h-4 text-destructive" />}
-                            </span>
-                          </span>
-                        ) : (
-                          <>
-                            {letter}
-                            <SciText text={opt} context={notation} />
-                            {isCorrect && (
-                              <CheckCircle2 className="w-4 h-4 text-primary inline ml-2" />
-                            )}
-                            {isWrong && (
-                              <XCircle className="w-4 h-4 text-destructive inline ml-2" />
-                            )}
-                          </>
-                        )}
-                      </button>
-                    );
-                  })}
+                  {chosen === mark.correctIndex ? (
+                    <Chip icon={CheckCircle2} tint="tint-primary">
+                      You got it
+                    </Chip>
+                  ) : chosen !== undefined ? (
+                    <Chip icon={XCircle} tint="tint-rose">
+                      You picked {letter(chosen)}
+                    </Chip>
+                  ) : null}
                 </div>
-                {marked?.byQuestion[q.id]?.explanation && (
-                  <p className="mt-3 text-xs text-muted-foreground border-t border-border pt-3">
-                    <span className="font-semibold text-foreground">Explanation:</span>{" "}
-                    <SciText text={marked.byQuestion[q.id]!.explanation} context={notation} />
-                  </p>
-                )}
-              </li>
+                {headings && <div className="mt-4">{headings}</div>}
+                <div
+                  className={`${headings ? "mt-1.5" : "mt-4"} rounded-lg border border-primary bg-primary/15 px-4 py-2.5 text-sm break-words`}
+                >
+                  {option(mark.correctIndex, q.options[mark.correctIndex] ?? "", "right")}
+                </div>
+                <p className="mt-4 text-lg leading-relaxed text-foreground sm:text-xl">
+                  <SciText text={mark.explanation} context={notation} />
+                </p>
+              </>
+            ) : null;
+            return (
+              <QuestionFlipCard
+                key={q.id}
+                back={back}
+                front={
+                  <>
+                    <p className="text-xs uppercase tracking-widest text-primary font-semibold">
+                      Question {idx + 1}
+                    </p>
+                    <SciBlock
+                      text={table ? table.question : q.question}
+                      context={notation}
+                      className="font-display text-lg mt-1 break-words"
+                    />
+                    {headings && <div className="mt-3">{headings}</div>}
+                    <div className={`${headings ? "mt-1.5" : "mt-3"} space-y-2`}>
+                      {q.options.map((opt, i) => {
+                        const isChosen = chosen === i;
+                        const isCorrect = !!mark && i === mark.correctIndex;
+                        const isWrong = !!mark && isChosen && i !== mark.correctIndex;
+                        return (
+                          <button
+                            key={i}
+                            disabled={submitted}
+                            onClick={() => choose(q.id, i)}
+                            className={`w-full min-h-11 text-left px-4 py-2.5 rounded-lg border text-sm break-words transition sm:pointer-fine:min-h-0 ${
+                              isCorrect
+                                ? "bg-primary/15 border-primary text-foreground"
+                                : isWrong
+                                  ? "bg-destructive/10 border-destructive/50"
+                                  : isChosen
+                                    ? "bg-secondary border-primary/50"
+                                    : "bg-secondary/40 border-border hover:border-primary/40"
+                            }`}
+                          >
+                            {option(i, opt, isCorrect ? "right" : isWrong ? "wrong" : undefined)}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </>
+                }
+              />
             );
           })}
         </ol>

@@ -30,11 +30,24 @@ const band: PacingBand = {
 };
 let tables: Record<string, unknown[]>;
 let denied: string | null;
+/** A table or function whose writes the database refuses, as the break-week trigger does. */
+let refused: string | null;
+/** A table or function whose writes never get an answer: the connection dropped. */
+let offline: string | null;
 let version: number;
 let writes: { name: string; body: Record<string, unknown> }[];
 let network: ReturnType<typeof spyOn<typeof globalThis, "fetch">>;
 let viewer: ReturnType<typeof spyOn<typeof session, "getSessionUserId">>;
 let evidence: ReturnType<typeof spyOn<typeof ScheduleDAL, "getTopicProgress">>;
+const breakWeek = {
+  code: "23514",
+  details: null,
+  hint: null,
+  message: "This is a break week, so nothing new can be planned for it.",
+};
+/** What a planner toast shows: `e instanceof Error ? e.message : "Couldn't … — try again."`. */
+const toastFor = (e: unknown) =>
+  e instanceof Error ? e.message : "Couldn't add those — try again.";
 const pointRow = (id: string, origin: string, done_at: string | null = null) => ({
   origin,
   done_at,
@@ -51,6 +64,8 @@ const pointRow = (id: string, origin: string, done_at: string | null = null) => 
 });
 beforeEach(() => {
   denied = null;
+  refused = null;
+  offline = null;
   version = 4;
   writes = [];
   viewer = spyOn(session, "getSessionUserId").mockResolvedValue("student");
@@ -78,6 +93,9 @@ beforeEach(() => {
       return new Response(JSON.stringify({ message: "permission denied", code: "42501" }), {
         status: 403,
       });
+    if (init?.method !== "GET" && name === refused)
+      return new Response(JSON.stringify(breakWeek), { status: 400 });
+    if (init?.method !== "GET" && name === offline) throw new TypeError("Failed to fetch");
     if (url.pathname.includes("/rpc/")) {
       writes.push({ name, body: JSON.parse(String(init?.body ?? "{}")) });
       return new Response(
@@ -252,4 +270,34 @@ test("addPoints does not count a point the week already holds against the cap", 
   ];
   await expect(WeeklyPlanDAL.addPoints("plan", ["manual"], "tutor")).resolves.toBe(1);
   expect(writes.some((w) => w.name === "student_weekly_plan_points")).toBe(true);
+});
+
+// 7 Oct 2026: the database refused a break week (23514) with a reason a student
+// can act on, and every planner toast said "try again", because supabase-js
+// hands the failure back as a plain object rather than an Error.
+test("a write the database refuses shows its reason, not 'try again'", async () => {
+  refused = "student_weekly_plan_points";
+  const added = await WeeklyPlanDAL.addPoints("plan", ["manual"], "tutor").catch((e) => e);
+  expect(toastFor(added)).toBe(breakWeek.message);
+  // Kept for a caller that branches on the code.
+  expect(added).toMatchObject({ code: "23514" });
+  const ticked = await WeeklyPlanDAL.setPointDone("plan", "manual", true).catch((e) => e);
+  expect(toastFor(ticked)).toBe(breakWeek.message);
+
+  refused = "save_weekly_plan";
+  const saved = await WeeklyPlanDAL.savePlan({
+    studentId: "student",
+    ...course,
+    weekStart: plan.week_start,
+    specPointIds: ["manual"],
+    origin: "tutor",
+    source: "tutor",
+  }).catch((e) => e);
+  expect(toastFor(saved)).toBe(breakWeek.message);
+});
+
+test("a write that gets no answer still reads as 'try again'", async () => {
+  offline = "student_weekly_plan_points";
+  const added = await WeeklyPlanDAL.addPoints("plan", ["manual"], "tutor").catch((e) => e);
+  expect(toastFor(added)).toBe("Couldn't add those — try again.");
 });

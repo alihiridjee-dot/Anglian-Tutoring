@@ -1,6 +1,7 @@
 import { supabase } from "@/integrations/supabase/client";
 import { type Json } from "@/integrations/supabase/types";
 import { getSessionUserId } from "@/lib/auth/session";
+import { dbError } from "@/lib/platform/errors";
 
 /** A stored end-of-week check-in row. */
 export interface WeeklyCheckin {
@@ -62,7 +63,7 @@ export class WeeklyNotesDAL {
       },
       { onConflict: "plan_id" },
     );
-    if (error) throw error;
+    if (error) throw dbError(error);
   }
 
   /**
@@ -104,6 +105,6 @@ export class WeeklyNotesDAL {
       },
       { onConflict: "plan_id" },
     );
-    if (error) throw error;
+    if (error) throw dbError(error);
   }
 }

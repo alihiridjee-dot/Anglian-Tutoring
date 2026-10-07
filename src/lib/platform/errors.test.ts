@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { describeError, isNetworkError } from "./errors";
+import { dbError, describeError, isNetworkError } from "./errors";
 import { reconcileAnswers } from "../mcq/mcqAnswers";
 
 describe("describeError", () => {
@@ -33,6 +33,28 @@ describe("describeError", () => {
     expect(describeError(null)).toBe("Something went wrong.");
     expect(describeError({ message: "   " }, "Couldn't submit")).toBe("Couldn't submit");
     expect(describeError({ code: 500 })).toBe("Something went wrong.");
+  });
+});
+
+describe("dbError", () => {
+  test("a refusal from the database becomes an Error in its words, keeping its code", () => {
+    const refusal = {
+      code: "23514",
+      details: null,
+      hint: null,
+      message: "This is a break week, so nothing new can be planned for it.",
+    };
+    const thrown = dbError(refusal);
+    expect(thrown).toBeInstanceOf(Error);
+    expect(thrown).toMatchObject(refusal);
+  });
+
+  test("a request that got no answer is passed on as it was, so the caller's fallback shows", () => {
+    const dropped = { code: "", details: "", hint: "", message: "TypeError: Failed to fetch" };
+    expect(dbError(dropped)).toBe(dropped);
+    // A gateway page instead of the database's JSON: no code, and no words for a student.
+    const gateway = { message: "<html><body>502 Bad Gateway</body></html>" };
+    expect(dbError(gateway)).toBe(gateway);
   });
 });
 

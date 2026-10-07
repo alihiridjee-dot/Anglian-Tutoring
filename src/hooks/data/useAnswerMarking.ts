@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { dbError } from "@/lib/platform/errors";
 import { QUESTION_COLUMNS, withMarkSchemes } from "@/lib/homework/markSchemes";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import { toSciNotation } from "@/lib/platform/sciNotation";
@@ -186,7 +187,7 @@ export function useAnswerMarking(
         _score_pct: scorePct,
         _feedback: feedback,
       });
-      if (rpcError) throw rpcError;
+      if (rpcError) throw dbError(rpcError);
     },
     [error, questions, answers, marks, submissionId],
   );

@@ -21,6 +21,9 @@ import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 
 export type Activity = Map<string, PointActivity & PointWork>;
 
+/** Week re-cuts already tried this session, each keyed by the drift that set it off. */
+const healTried = new Set<string>();
+
 export interface WeekPlanState {
   plan: WeeklyPlan | null;
   points: PlanPoint[];
@@ -142,6 +145,40 @@ export function useWeekPlan(params: {
         if (await ProgramDAL.refreshWeek({ ...params, roadmap })) {
           saved = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
           await client.invalidateQueries({ queryKey: [...courseKey(params), "roadmap"] });
+        }
+      }
+      /**
+       * A week cut from an older full plan is re-cut to the plan as it is now.
+       *
+       * The full plan can move under a saved week (a new exam date, new topic
+       * weights, a pause picked up), and the week kept its old points until
+       * Monday. The check costs nothing while the two agree: it reads the
+       * roadmap the catch-up top-up below fetches anyway. The re-cut is the
+       * usual merge, so anything ticked, started, carried or added by hand
+       * stays. Marks moving is no reason to re-cut; that stays "Check for a
+       * better week". A re-cut is tried once per drift this session, and a
+       * failed one leaves the week as it was rather than taking it down. The
+       * nightly check does the same for students who don't log in
+       * (planHeal.server).
+       */
+      if (saved && isCurrent && (await getSessionUserId()) === studentId) {
+        try {
+          const roadmap = await client.fetchQuery(roadmapQuery(client, params));
+          signal.throwIfAborted();
+          const drift = await ProgramDAL.weekBehindPlan({ studentId, weekStart, saved, roadmap });
+          const key = drift && JSON.stringify([studentId, subject, weekStart, drift]);
+          if (key && !healTried.has(key)) {
+            healTried.add(key);
+            const projected = await client.fetchQuery(roadmapQuery(client, params, true));
+            signal.throwIfAborted();
+            if (await ProgramDAL.refreshWeek({ ...params, roadmap: projected })) {
+              saved = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
+              await client.invalidateQueries({ queryKey: [...courseKey(params), "roadmap"] });
+            }
+          }
+        } catch (e) {
+          if (signal.aborted) throw e;
+          console.warn("[planner] couldn't re-cut this week to the full plan", e);
         }
       }
       if (saved && isCurrent && (await getSessionUserId()) === studentId) {

@@ -498,6 +498,45 @@ a.when-link:hover .when-link-arrow {
   box-shadow: var(--lift-1);
 }
 
+/* A card with a back (QuestionFlipCard): a marked quiz question turns over to
+   its explanation. Both faces share one grid cell, so the card is as tall as
+   the taller face and nothing below it jumps when it turns. Under reduced
+   motion the faces cross-fade instead of spinning. */
+.flip-card {
+  perspective: 1800px;
+}
+.flip-card-inner {
+  display: grid;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.flip-card-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  grid-area: 1 / 1;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .flip-card-inner,
+  .flip-card-inner.is-flipped,
+  .flip-back {
+    transform: none;
+    transition: none;
+  }
+  .flip-face {
+    transition: opacity 0.2s ease;
+  }
+  .flip-card-inner:not(.is-flipped) .flip-back,
+  .flip-card-inner.is-flipped .flip-front {
+    opacity: 0;
+  }
+}
+
 /* The colour band across the top of a subject card — the spine of the book. */
 .pop-card-banded {
   overflow: hidden;
