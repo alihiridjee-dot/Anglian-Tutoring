@@ -42,10 +42,15 @@ const FIX = new URL(
   "../supabase/migrations/20261006110000_practice_queue_safeupdate.sql",
   import.meta.url,
 );
+// Only this week's plan queues (7 Oct), as in production.
+const THIS_WEEK_ONLY = new URL(
+  "../supabase/migrations/20261007111000_practice_queue_this_week_only.sql",
+  import.meta.url,
+);
 const WORKER = new URL("../src/lib/practice/practiceQueue.server.ts", import.meta.url);
 const GENERATION = new URL("../src/lib/homework/examGeneration.ts", import.meta.url);
 const absent: string[] = [];
-for (const file of [MIGRATION, FIX, WORKER])
+for (const file of [MIGRATION, FIX, THIS_WEEK_ONLY, WORKER])
   await access(file).catch(() => absent.push(fileURLToPath(file)));
 if (absent.length) {
   console.error(`practice queue e2e: harness ready, waiting for ${absent.join(" and ")}`);
@@ -553,6 +558,7 @@ create trigger test_refuse_save before insert on public.mcq_sets
 try {
   await db.exec(await readFile(MIGRATION, "utf8"));
   await db.exec(await readFile(FIX, "utf8"));
+  await db.exec(await readFile(THIS_WEEK_ONLY, "utf8"));
 } catch (error) {
   throw new Error(`the migration did not load on the fixture: ${(error as Error).message}`, {
     cause: error,
