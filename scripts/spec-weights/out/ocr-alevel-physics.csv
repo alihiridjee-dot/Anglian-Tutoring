@@ -1,0 +1,387 @@
+code,title,weight,topic
+OCR 1.1.1a,Experimental design for practical problems,1.78,Development of practical skills in physics
+OCR 1.1.1b,Identifying variables to control,1.4,Development of practical skills in physics
+OCR 1.1.1c,Evaluating whether a method meets the expected outcomes,1.4,Development of practical skills in physics
+OCR 1.1.2a,Using practical apparatus and techniques correctly,1.47,Development of practical skills in physics
+OCR 1.1.2b,Appropriate units for measurements,1.4,Development of practical skills in physics
+OCR 1.1.2c,Presenting observations and data,1.4,Development of practical skills in physics
+OCR 1.1.3a,Processing and interpreting experimental results,1.4,Development of practical skills in physics
+OCR 1.1.3b,Mathematical skills for analysing quantitative data,1.66,Development of practical skills in physics
+OCR 1.1.3c,Using significant figures,1.4,Development of practical skills in physics
+OCR 1.1.3d,"Plotting and interpreting graphs, including gradients and intercepts",1.88,Development of practical skills in physics
+OCR 1.1.4a,Evaluating results and drawing conclusions,1.42,Development of practical skills in physics
+OCR 1.1.4b,Identifying anomalies in measurements,1.4,Development of practical skills in physics
+OCR 1.1.4c,Limitations in experimental procedures,1.4,Development of practical skills in physics
+OCR 1.1.4d,"Precision, accuracy, percentage errors and uncertainties",1.4,Development of practical skills in physics
+OCR 1.1.4e,Refining experimental design with improvements,1.4,Development of practical skills in physics
+OCR 1.2.1a,Applying investigative approaches to practical work,1.7,Development of practical skills in physics
+OCR 1.2.1b,Using practical equipment and materials safely,1.47,Development of practical skills in physics
+OCR 1.2.1c,Following written instructions,1.4,Development of practical skills in physics
+OCR 1.2.1d,Making and recording observations and measurements,1.4,Development of practical skills in physics
+OCR 1.2.1e,Keeping records of experimental activities,1.4,Development of practical skills in physics
+OCR 1.2.1f,Presenting information and data scientifically,1.4,Development of practical skills in physics
+OCR 1.2.1g,Using software and tools to process data and report findings,1.5,Development of practical skills in physics
+OCR 1.2.1h,Online and offline research skills,1.5,Development of practical skills in physics
+OCR 1.2.1i,Citing sources of information correctly,1.4,Development of practical skills in physics
+OCR 1.2.1j,"Using a wide range of instruments, equipment and techniques",1.5,Development of practical skills in physics
+OCR 1.2.2a,Analogue apparatus and interpolating between scale markings,1.52,Development of practical skills in physics
+OCR 1.2.2b,Digital instruments and multimeters,1.5,Development of practical skills in physics
+OCR 1.2.2c,Methods to increase accuracy of measurements,1.5,Development of practical skills in physics
+OCR 1.2.2d,Stopwatch or light gates for timing,1.5,Development of practical skills in physics
+OCR 1.2.2e,Calipers and micrometers for small distances,1.5,Development of practical skills in physics
+OCR 1.2.2f,Constructing circuits from circuit diagrams,1.4,Development of practical skills in physics
+OCR 1.2.2g,"Designing, constructing and checking circuits",1.4,Development of practical skills in physics
+OCR 1.2.2h,"Signal generator and oscilloscope, including volts/division and time-base",1.5,Development of practical skills in physics
+OCR 1.2.2i,Generating and measuring waves,1.4,Development of practical skills in physics
+OCR 1.2.2j,Using a laser or light source to investigate light,3.5,Development of practical skills in physics
+OCR 1.2.2k,"ICT: computer modelling, data loggers and data-processing software",1.5,Development of practical skills in physics
+OCR 1.2.2l,Using ionising radiation and detectors,1.5,Development of practical skills in physics
+OCR 2.1.1a,Physical quantities have a numerical value and a unit,1.4,Foundations of physics
+OCR 2.1.1b,Estimating physical quantities,1.4,Foundations of physics
+OCR 2.1.2a,S.I. base quantities and their units,1.4,Foundations of physics
+OCR 2.1.2b,Derived units of S.I. base units,1.4,Foundations of physics
+OCR 2.1.2c,Units listed in this specification,1.4,Foundations of physics
+OCR 2.1.2d,Checking homogeneity of equations using base units,1.4,Foundations of physics
+OCR 2.1.2e,"Prefixes and their symbols for units, pico to tera",1.98,Foundations of physics
+OCR 2.1.2f,Conventions for labelling graph axes and table columns,1.4,Foundations of physics
+OCR 2.2.1a,Systematic and random errors,1.4,Foundations of physics
+OCR 2.2.1b,Precision and accuracy,1.4,Foundations of physics
+OCR 2.2.1c,Combining absolute and percentage uncertainties,1.78,Foundations of physics
+OCR 2.2.1d,Graphical treatment of errors; best-fit and worst lines,1.49,Foundations of physics
+OCR 2.3.1a,Scalar and vector quantities,1.4,Foundations of physics
+OCR 2.3.1b,Vector addition and subtraction,1.4,Foundations of physics
+OCR 2.3.1c,Vector triangle for the resultant of two coplanar vectors,1.4,Foundations of physics
+OCR 2.3.1d,Resolving a vector into perpendicular components,1.4,Foundations of physics
+OCR 3.1.1a,"Displacement, speed, velocity and acceleration",1.4,Motion
+OCR 3.1.1b,"Graphs of displacement, speed, velocity and acceleration",1.4,Motion
+OCR 3.1.1c,Displacement–time graphs,1.4,Motion
+OCR 3.1.1d,Velocity–time graphs,1.4,Motion
+OCR 3.1.2a,Equations of motion for constant acceleration; motion investigations,2.88,Motion
+OCR 3.1.2b,Acceleration g of free fall and how to determine it,2.08,Motion
+OCR 3.1.2c,"Thinking, braking and stopping distances",1.4,Motion
+OCR 3.1.3a,Independence of vertical and horizontal motion,1.4,Motion
+OCR 3.1.3b,Two-dimensional projectile motion,1.4,Motion
+OCR 3.2.1a,Net force = mass × acceleration (F = ma),1.4,Forces in action
+OCR 3.2.1b,The newton as the unit of force,1.4,Forces in action
+OCR 3.2.1c,Weight of an object (W = mg),1.4,Forces in action
+OCR 3.2.1d,"Tension, normal contact force, upthrust and friction",1.4,Forces in action
+OCR 3.2.1e,Free-body diagrams,1.4,Forces in action
+OCR 3.2.1f,One- and two-dimensional motion under constant force,1.4,Forces in action
+OCR 3.2.2a,Drag as the frictional force in a fluid,1.4,Forces in action
+OCR 3.2.2b,Factors affecting drag in air,1.4,Forces in action
+OCR 3.2.2c,Falling objects in the presence of drag,1.4,Forces in action
+OCR 3.2.2d,Terminal velocity and how to determine it,1.93,Forces in action
+OCR 3.2.3a,Moment of a force,1.4,Forces in action
+OCR 3.2.3b,Couple and torque of a couple,1.4,Forces in action
+OCR 3.2.3c,The principle of moments,1.4,Forces in action
+OCR 3.2.3d,Centre of mass and centre of gravity,1.4,Forces in action
+OCR 3.2.3e,Equilibrium under forces and torques,1.4,Forces in action
+OCR 3.2.3f,Equilibrium of three coplanar forces; triangle of forces,1.4,Forces in action
+OCR 3.2.4a,Density (ρ = m/V),1.4,Forces in action
+OCR 3.2.4b,"Pressure (p = F/A) in solids, liquids and gases",1.4,Forces in action
+OCR 3.2.4c,"Pressure in a fluid, upthrust and Archimedes’ principle",1.4,Forces in action
+OCR 3.3.1a,Work done by a force; the joule,1.4,"Work, energy and power"
+OCR 3.3.1b,Work done by a force (W = Fx cos θ),1.4,"Work, energy and power"
+OCR 3.3.1c,The principle of conservation of energy,1.4,"Work, energy and power"
+OCR 3.3.1d,Energy in different forms; transfer and conservation,1.4,"Work, energy and power"
+OCR 3.3.1e,Energy transfer equals work done,1.4,"Work, energy and power"
+OCR 3.3.2a,Kinetic energy (Ek = ½mv²),1.4,"Work, energy and power"
+OCR 3.3.2b,Gravitational potential energy (Ep = mgh),1.49,"Work, energy and power"
+OCR 3.3.2c,Exchange between gravitational potential and kinetic energy,1.4,"Work, energy and power"
+OCR 3.3.3a,Power and the watt (P = W/t),1.4,"Work, energy and power"
+OCR 3.3.3b,Power and velocity (P = Fv),1.4,"Work, energy and power"
+OCR 3.3.3c,Efficiency of a mechanical system,1.4,"Work, energy and power"
+OCR 3.4.1a,Tensile and compressive deformation,1.4,Materials
+OCR 3.4.1b,Hooke’s law,1.4,Materials
+OCR 3.4.1c,Force constant k (F = kx),1.4,Materials
+OCR 3.4.1d,"Force–extension graphs and investigating springs, rubber bands and strips",1.91,Materials
+OCR 3.4.2a,Work done as area under a force–extension graph,1.4,Materials
+OCR 3.4.2b,Elastic potential energy,1.4,Materials
+OCR 3.4.2c,"Stress, strain and ultimate tensile strength",1.4,Materials
+OCR 3.4.2d,Young modulus and how to determine it for a metal,1.84,Materials
+OCR 3.4.2e,"Stress–strain graphs for ductile, brittle and polymeric materials",1.4,Materials
+OCR 3.4.2f,Elastic and plastic deformations,1.4,Materials
+OCR 3.5.1a,Newton’s three laws of motion,1.4,Newton’s laws of motion and momentum
+OCR 3.5.1b,Linear momentum (p = mv),1.4,Newton’s laws of motion and momentum
+OCR 3.5.1c,Net force as rate of change of momentum,1.44,Newton’s laws of motion and momentum
+OCR 3.5.1d,Impulse of a force,1.4,Newton’s laws of motion and momentum
+OCR 3.5.1e,Impulse as area under a force–time graph,1.53,Newton’s laws of motion and momentum
+OCR 3.5.2a,Conservation of momentum,1.4,Newton’s laws of motion and momentum
+OCR 3.5.2b,Collisions in one and two dimensions,1.4,Newton’s laws of motion and momentum
+OCR 3.5.2c,Perfectly elastic and inelastic collisions,1.4,Newton’s laws of motion and momentum
+OCR 4.1.1a,Electric current as rate of flow of charge,1.4,Charge and current
+OCR 4.1.1b,The coulomb as the unit of charge,1.4,Charge and current
+OCR 4.1.1c,The elementary charge e,1.44,Charge and current
+OCR 4.1.1d,"Net charge is quantised, a multiple of e",1.4,Charge and current
+OCR 4.1.1e,Current as movement of electrons in metals and ions in electrolytes,1.4,Charge and current
+OCR 4.1.1f,Conventional current and electron flow,1.4,Charge and current
+OCR 4.1.1g,Kirchhoff’s first law and conservation of charge,1.4,Charge and current
+OCR 4.1.2a,Mean drift velocity of charge carriers,1.4,Charge and current
+OCR 4.1.2b,I = Anev and number density of charge carriers,1.4,Charge and current
+OCR 4.1.2c,"Conductors, semiconductors and insulators in terms of n",1.4,Charge and current
+OCR 4.2.1a,Circuit symbols,1.4,"Energy, power and resistance"
+OCR 4.2.1b,Circuit diagrams using these symbols,1.4,"Energy, power and resistance"
+OCR 4.2.2a,Potential difference (p.d.) and the volt,1.4,"Energy, power and resistance"
+OCR 4.2.2b,Electromotive force (e.m.f.) of a source,1.47,"Energy, power and resistance"
+OCR 4.2.2c,Distinction between e.m.f. and p.d. in terms of energy transfer,1.58,"Energy, power and resistance"
+OCR 4.2.2d,Energy transfer W = VQ and W = EQ,1.4,"Energy, power and resistance"
+OCR 4.2.2e,Energy transfer eV = ½mv² for charged particles,1.4,"Energy, power and resistance"
+OCR 4.2.3a,Resistance R = V/I and the ohm,1.4,"Energy, power and resistance"
+OCR 4.2.3b,Ohm’s law,1.4,"Energy, power and resistance"
+OCR 4.2.3c,I–V characteristics of ohmic and non-ohmic components,2.13,"Energy, power and resistance"
+OCR 4.2.3d,Light-dependent resistor (LDR) and light intensity,1.4,"Energy, power and resistance"
+OCR 4.2.4a,"Resistivity of a material, R = ρL/A",1.84,"Energy, power and resistance"
+OCR 4.2.4b,Variation of resistivity of metals and semiconductors with temperature,1.4,"Energy, power and resistance"
+OCR 4.2.4c,NTC thermistor and variation of resistance with temperature,1.4,"Energy, power and resistance"
+OCR 4.2.5a,"Power equations P = VI, P = I²R and P = V²/R",1.4,"Energy, power and resistance"
+OCR 4.2.5b,Energy transfer W = VIt,1.4,"Energy, power and resistance"
+OCR 4.2.5c,The kilowatt-hour and the cost of energy,1.4,"Energy, power and resistance"
+OCR 4.3.1a,Kirchhoff’s second law and conservation of energy,1.4,Electrical circuits
+OCR 4.3.1b,Kirchhoff’s first and second laws applied to circuits,1.4,Electrical circuits
+OCR 4.3.1c,Total resistance of resistors in series,1.4,Electrical circuits
+OCR 4.3.1d,Total resistance of resistors in parallel,1.4,Electrical circuits
+OCR 4.3.1e,Analysis of circuits with series and parallel components,1.4,Electrical circuits
+OCR 4.3.1f,Analysis of circuits with more than one e.m.f. source,1.4,Electrical circuits
+OCR 4.3.2a,Source of e.m.f. and internal resistance,1.4,Electrical circuits
+OCR 4.3.2b,Terminal p.d. and ‘lost volts’,1.4,Electrical circuits
+OCR 4.3.2c,"E = I(R + r), E = V + Ir and measuring internal resistance",2.2,Electrical circuits
+OCR 4.3.3a,Potential divider circuit with components,1.4,Electrical circuits
+OCR 4.3.3b,"Potential dividers with variable components (LDR, thermistor)",1.4,Electrical circuits
+OCR 4.3.3c,Potential divider equations and investigating sensor circuits,2.26,Electrical circuits
+OCR 4.4.1a,"Progressive, longitudinal and transverse waves",1.4,Waves
+OCR 4.4.1b,Wave terms and using an oscilloscope to find frequency,1.84,Waves
+OCR 4.4.1c,The equation f = 1/T,1.4,Waves
+OCR 4.4.1d,The wave equation v = fλ,1.4,Waves
+OCR 4.4.1e,Graphs of transverse and longitudinal waves,1.4,Waves
+OCR 4.4.1f,"Reflection, refraction, polarisation and diffraction of waves",2.73,Waves
+OCR 4.4.1g,"Intensity of a progressive wave, I = P/A",1.4,Waves
+OCR 4.4.2a,The electromagnetic spectrum and its properties,1.4,Waves
+OCR 4.4.2b,Wavelengths of radiations from radio waves to gamma rays,1.4,Waves
+OCR 4.4.2c,Plane polarised waves and polarisation of electromagnetic waves,1.42,Waves
+OCR 4.4.2d,Refraction of light and refractive index,2.71,Waves
+OCR 4.4.2e,Critical angle and total internal reflection,1.4,Waves
+OCR 4.4.3a,Principle of superposition of waves,1.84,Waves
+OCR 4.4.3b,Graphical methods for superposition,1.4,Waves
+OCR 4.4.3c,"Interference, coherence, path difference and phase difference",1.4,Waves
+OCR 4.4.3d,Constructive and destructive interference,1.4,Waves
+OCR 4.4.3e,Two-source interference with sound and microwaves,1.4,Waves
+OCR 4.4.3f,Young double-slit experiment with visible light,1.62,Waves
+OCR 4.4.3g,λ = ax/D and measuring the wavelength of light,2.31,Waves
+OCR 4.4.4a,"Stationary waves with microwaves, strings and air columns",1.4,Waves
+OCR 4.4.4b,Graphical representations of a stationary wave,1.4,Waves
+OCR 4.4.4c,Stationary and progressive waves compared,1.4,Waves
+OCR 4.4.4d,Nodes and antinodes,1.4,Waves
+OCR 4.4.4e,Stationary wave patterns and the speed of sound in air,2.13,Waves
+OCR 4.4.4f,Separation of adjacent nodes or antinodes is λ/2,1.4,Waves
+OCR 4.4.4g,Fundamental mode of vibration and harmonics,1.4,Waves
+OCR 4.5.1a,Photon model of electromagnetic radiation,1.4,Quantum physics
+OCR 4.5.1b,Photon as a quantum of energy,1.4,Quantum physics
+OCR 4.5.1c,Photon energy E = hf and E = hc/λ,1.4,Quantum physics
+OCR 4.5.1d,The electronvolt as a unit of energy,1.4,Quantum physics
+OCR 4.5.1e,Estimating the Planck constant using LEDs,2.02,Quantum physics
+OCR 4.5.2a,The photoelectric effect and its demonstration,2.33,Quantum physics
+OCR 4.5.2b,One-to-one interaction of a photon with a surface electron,1.4,Quantum physics
+OCR 4.5.2c,Einstein’s photoelectric equation hf = φ + KEmax,1.4,Quantum physics
+OCR 4.5.2d,Work function and threshold frequency,1.4,Quantum physics
+OCR 4.5.2e,Maximum kinetic energy independent of intensity,1.4,Quantum physics
+OCR 4.5.2f,Rate of photoelectron emission proportional to intensity,1.4,Quantum physics
+OCR 4.5.3a,Electron diffraction and its experimental evidence,1.4,Quantum physics
+OCR 4.5.3b,Electron diffraction through polycrystalline graphite,1.4,Quantum physics
+OCR 4.5.3c,The de Broglie equation λ = h/p,1.4,Quantum physics
+OCR 5.1.1a,Thermal equilibrium,1.4,Thermal physics
+OCR 5.1.1b,Absolute (thermodynamic) scale of temperature,1.4,Thermal physics
+OCR 5.1.1c,Temperature in degrees Celsius and in kelvin,1.4,Thermal physics
+OCR 5.1.1d,"Converting between kelvin and degrees Celsius, T ≈ θ + 273",1.4,Thermal physics
+OCR 5.1.2a,"Spacing, ordering and motion of particles in solids, liquids and gases",1.4,Thermal physics
+OCR 5.1.2b,"Simple kinetic model for solids, liquids and gases",1.4,Thermal physics
+OCR 5.1.2c,Brownian motion and the kinetic model of matter,1.4,Thermal physics
+OCR 5.1.2d,Internal energy as random kinetic and potential energies,1.4,Thermal physics
+OCR 5.1.2e,Absolute zero as the lowest limit for temperature,1.4,Thermal physics
+OCR 5.1.2f,Internal energy rises as temperature rises,1.4,Thermal physics
+OCR 5.1.2g,Internal energy and constant temperature during change of phase,1.4,Thermal physics
+OCR 5.1.3a,"Specific heat capacity, E = mcΔθ",1.4,Thermal physics
+OCR 5.1.3b,Electrical experiment for specific heat capacity,2.13,Thermal physics
+OCR 5.1.3c,"Specific latent heat of fusion and vaporisation, E = ml",1.4,Thermal physics
+OCR 5.1.3d,Electrical experiment for specific latent heat,2.06,Thermal physics
+OCR 5.1.4a,Moles and the Avogadro constant,1.4,Thermal physics
+OCR 5.1.4b,Kinetic theory model of gases,2.11,Thermal physics
+OCR 5.1.4c,Pressure in terms of the kinetic model,1.4,Thermal physics
+OCR 5.1.4d,Equation of state pV = nRT and investigating gas laws,2.57,Thermal physics
+OCR 5.1.4e,PV = ⅓Nm⟨c²⟩ and the mean square speed,1.49,Thermal physics
+OCR 5.1.4f,Root mean square speed and mean square speed,1.4,Thermal physics
+OCR 5.1.4g,The Boltzmann constant k = R/NA,1.4,Thermal physics
+OCR 5.1.4h,PV = NkT and ½m⟨c²⟩ = (3/2)kT,1.49,Thermal physics
+OCR 5.1.4i,Internal energy of an ideal gas,1.4,Thermal physics
+OCR 5.2.1a,The radian as a measure of angle,1.4,Circular motion
+OCR 5.2.1b,Period and frequency in circular motion,1.4,Circular motion
+OCR 5.2.1c,Angular velocity ω = 2π/T and ω = 2πf,1.4,Circular motion
+OCR 5.2.2a,Net force perpendicular to velocity gives circular motion,1.4,Circular motion
+OCR 5.2.2b,"Constant speed in a circle, v = ωr",1.4,Circular motion
+OCR 5.2.2c,Centripetal acceleration a = v²/r and a = ω²r,1.4,Circular motion
+OCR 5.2.2d,Centripetal force F = mv²/r and F = mω²r,1.84,Circular motion
+OCR 5.3.1a,Oscillation terms including angular frequency and phase difference,1.4,Oscillations
+OCR 5.3.1b,Angular frequency ω = 2π/T and ω = 2πf,1.4,Oscillations
+OCR 5.3.1c,Simple harmonic motion and a = −ω²x,1.91,Oscillations
+OCR 5.3.1d,Solutions x = A cos ωt or x = A sin ωt,1.4,Oscillations
+OCR 5.3.1e,Velocity v = ±ω√(A² − x²) and vmax = ωA,1.4,Oscillations
+OCR 5.3.1f,Period independent of amplitude (isochronous oscillator),1.4,Oscillations
+OCR 5.3.1g,"Graphs of displacement, velocity and acceleration in SHM",1.4,Oscillations
+OCR 5.3.2a,Interchange of kinetic and potential energy in SHM,1.4,Oscillations
+OCR 5.3.2b,Energy–displacement graphs for a simple harmonic oscillator,1.4,Oscillations
+OCR 5.3.3a,Free and forced oscillations,1.4,Oscillations
+OCR 5.3.3b,Effects of damping on an oscillatory system,1.84,Oscillations
+OCR 5.3.3c,Resonance and natural frequency,1.4,Oscillations
+OCR 5.3.3d,Amplitude–driving frequency graphs for forced oscillators,1.4,Oscillations
+OCR 5.3.3e,Practical examples of forced oscillations and resonance,3.4,Oscillations
+OCR 5.4.1a,Gravitational fields are due to objects having mass,1.4,Gravitational fields
+OCR 5.4.1b,Modelling a spherical mass as a point mass at its centre,1.4,Gravitational fields
+OCR 5.4.1c,Gravitational field lines,1.4,Gravitational fields
+OCR 5.4.1d,Gravitational field strength g = F/m,1.4,Gravitational fields
+OCR 5.4.1e,Gravitational fields as one of several forms of field,1.51,Gravitational fields
+OCR 5.4.2a,Newton’s law of gravitation F = −GMm/r²,1.4,Gravitational fields
+OCR 5.4.2b,Field strength of a point mass g = −GM/r²,1.4,Gravitational fields
+OCR 5.4.2c,Uniform field near Earth’s surface and acceleration of free fall,1.4,Gravitational fields
+OCR 5.4.3a,Kepler’s three laws of planetary motion,1.4,Gravitational fields
+OCR 5.4.3b,Gravitational force provides the centripetal force on a planet,1.4,Gravitational fields
+OCR 5.4.3c,The equation T² = (4π²/GM)r³,1.4,Gravitational fields
+OCR 5.4.3d,Kepler’s third law T² ∝ r³ for other systems,1.4,Gravitational fields
+OCR 5.4.3e,Geostationary orbit and uses of geostationary satellites,1.4,Gravitational fields
+OCR 5.4.4a,Gravitational potential as work done from infinity,1.4,Gravitational fields
+OCR 5.4.4b,Gravitational potential Vg = −GM/r,1.4,Gravitational fields
+OCR 5.4.4c,Force–distance graph: work done is area under graph,1.4,Gravitational fields
+OCR 5.4.4d,Gravitational potential energy E = mVg = −GMm/r,1.4,Gravitational fields
+OCR 5.4.4e,Escape velocity,1.4,Gravitational fields
+OCR 5.5.1a,"Planets, satellites, comets, solar systems, galaxies and the universe",1.4,Astrophysics and cosmology
+OCR 5.5.1b,Formation of a star from interstellar dust and gas,1.4,Astrophysics and cosmology
+OCR 5.5.1c,Evolution of a low-mass star into a red giant and white dwarf,1.4,Astrophysics and cosmology
+OCR 5.5.1d,"White dwarf, electron degeneracy pressure and Chandrasekhar limit",1.4,Astrophysics and cosmology
+OCR 5.5.1e,Evolution of a massive star into a neutron star or black hole,1.4,Astrophysics and cosmology
+OCR 5.5.1f,Characteristics of a neutron star and a black hole,1.4,Astrophysics and cosmology
+OCR 5.5.1g,Hertzsprung–Russell (HR) diagram,1.4,Astrophysics and cosmology
+OCR 5.5.2a,Energy levels of electrons in isolated gas atoms,1.4,Astrophysics and cosmology
+OCR 5.5.2b,Energy levels have negative values,1.4,Astrophysics and cosmology
+OCR 5.5.2c,Emission spectral lines from hot gases,1.4,Astrophysics and cosmology
+OCR 5.5.2d,The equations hf = ΔE and hc/λ = ΔE,1.4,Astrophysics and cosmology
+OCR 5.5.2e,Spectral lines identify elements within stars,1.4,Astrophysics and cosmology
+OCR 5.5.2f,"Continuous, emission line and absorption line spectra",1.4,Astrophysics and cosmology
+OCR 5.5.2g,Transmission diffraction grating to find wavelength of light,1.4,Astrophysics and cosmology
+OCR 5.5.2h,The condition for maxima d sin θ = nλ,1.4,Astrophysics and cosmology
+OCR 5.5.2i,Wien’s displacement law and peak surface temperature,1.5,Astrophysics and cosmology
+OCR 5.5.2j,Luminosity and Stefan’s law L = 4πr²σT⁴,1.4,Astrophysics and cosmology
+OCR 5.5.2k,Wien’s and Stefan’s laws to estimate the radius of a star,1.5,Astrophysics and cosmology
+OCR 5.5.3a,"Astronomical unit, light-year and parsec",1.4,Astrophysics and cosmology
+OCR 5.5.3b,Stellar parallax,1.4,Astrophysics and cosmology
+OCR 5.5.3c,Parallax equation p = 1/d,1.4,Astrophysics and cosmology
+OCR 5.5.3d,The Cosmological principle,1.4,Astrophysics and cosmology
+OCR 5.5.3e,Doppler effect and Doppler shift of electromagnetic radiation,1.4,Astrophysics and cosmology
+OCR 5.5.3f,Doppler equation Δλ/λ ≈ Δf/f ≈ v/c,1.4,Astrophysics and cosmology
+OCR 5.5.3g,Hubble’s law v ≈ H₀d,1.4,Astrophysics and cosmology
+OCR 5.5.3h,Expanding universe supported by galactic red shift,1.4,Astrophysics and cosmology
+OCR 5.5.3i,Hubble constant in km s⁻¹ Mpc⁻¹ and s⁻¹ units,1.4,Astrophysics and cosmology
+OCR 5.5.3j,The Big Bang theory,1.4,Astrophysics and cosmology
+OCR 5.5.3k,Microwave background radiation as evidence for the Big Bang,1.49,Astrophysics and cosmology
+OCR 5.5.3l,The Big Bang and the expansion of space-time,1.4,Astrophysics and cosmology
+OCR 5.5.3m,"Age of the universe, t ≈ H₀⁻¹",1.4,Astrophysics and cosmology
+OCR 5.5.3n,Evolution of the universe after the Big Bang,1.4,Astrophysics and cosmology
+OCR 5.5.3o,"Dark energy, dark matter and ordinary matter",1.4,Astrophysics and cosmology
+OCR 6.1.1a,Capacitance C = Q/V and the farad,1.4,Capacitors
+OCR 6.1.1b,Charging and discharging a capacitor and the flow of electrons,1.4,Capacitors
+OCR 6.1.1c,Total capacitance of capacitors in series,1.4,Capacitors
+OCR 6.1.1d,Total capacitance of capacitors in parallel,1.4,Capacitors
+OCR 6.1.1e,Analysis of circuits containing capacitors and resistors,1.86,Capacitors
+OCR 6.1.2a,Capacitor p.d.–charge graph and energy stored,1.4,Capacitors
+OCR 6.1.2b,"Energy stored by a capacitor, W = ½QV",1.4,Capacitors
+OCR 6.1.2c,Uses of capacitors as storage of energy,1.4,Capacitors
+OCR 6.1.3a,Charging and discharging a capacitor through a resistor,2.11,Capacitors
+OCR 6.1.3b,Time constant τ = CR,1.4,Capacitors
+OCR 6.1.3c,Exponential equations for capacitor–resistor circuits,1.56,Capacitors
+OCR 6.1.3d,Graphical and spreadsheet modelling of ΔQ/Δt = −Q/(CR),1.4,Capacitors
+OCR 6.1.3e,Exponential decay graph and constant-ratio property,1.4,Capacitors
+OCR 6.2.1a,Electric fields are due to charges,1.4,Electric fields
+OCR 6.2.1b,Modelling a charged sphere as a point charge,1.4,Electric fields
+OCR 6.2.1c,Electric field lines,1.4,Electric fields
+OCR 6.2.1d,Electric field strength E = F/q,1.4,Electric fields
+OCR 6.2.2a,Coulomb’s law F = Qq/(4πε₀r²),1.4,Electric fields
+OCR 6.2.2b,Field strength of a point charge E = Q/(4πε₀r²),1.4,Electric fields
+OCR 6.2.2c,Gravitational field of a point mass and electric field of a point charge,1.42,Electric fields
+OCR 6.2.2d,Electric fields as one of several forms of field,1.49,Electric fields
+OCR 6.2.3a,Uniform electric field strength E = V/d,1.4,Electric fields
+OCR 6.2.3b,Parallel plate capacitor and permittivity,1.44,Electric fields
+OCR 6.2.3c,Charged particles moving in a uniform electric field,1.4,Electric fields
+OCR 6.2.4a,Electric potential as work done from infinity,1.4,Electric fields
+OCR 6.2.4b,Electric potential V = Q/(4πε₀r),1.4,Electric fields
+OCR 6.2.4c,Capacitance of an isolated sphere C = 4πε₀R,1.4,Electric fields
+OCR 6.2.4d,Force–distance graph: work done is area under graph,1.4,Electric fields
+OCR 6.2.4e,Electric potential energy Vq = Qq/(4πε₀r),1.4,Electric fields
+OCR 6.3.1a,Magnetic fields due to moving charges or permanent magnets,1.4,Electromagnetism
+OCR 6.3.1b,Magnetic field lines,1.4,Electromagnetism
+OCR 6.3.1c,"Field patterns of a straight wire, flat coil and solenoid",1.4,Electromagnetism
+OCR 6.3.1d,Fleming’s left-hand rule,1.4,Electromagnetism
+OCR 6.3.1e,"Force on a current-carrying conductor, F = BIL sin θ",2.08,Electromagnetism
+OCR 6.3.1f,Magnetic flux density and the tesla,1.4,Electromagnetism
+OCR 6.3.2a,"Force on a charged particle in a magnetic field, F = BQv",1.4,Electromagnetism
+OCR 6.3.2b,Circular orbits of charged particles in a magnetic field,1.47,Electromagnetism
+OCR 6.3.2c,Velocity selector with electric and magnetic fields,1.4,Electromagnetism
+OCR 6.3.3a,Magnetic flux φ = BA cos θ and the weber,1.4,Electromagnetism
+OCR 6.3.3b,Magnetic flux linkage,1.4,Electromagnetism
+OCR 6.3.3c,Faraday’s law and Lenz’s law,1.4,Electromagnetism
+OCR 6.3.3d,E = −Δ(Nφ)/Δt and investigating flux with search coils,1.86,Electromagnetism
+OCR 6.3.3e,Simple a.c. generator,1.4,Electromagnetism
+OCR 6.3.3f,Simple laminated iron-cored transformer,1.84,Electromagnetism
+OCR 6.4.1a,Alpha-particle scattering experiment,1.4,Nuclear and particle physics
+OCR 6.4.1b,Simple nuclear model of the atom,1.4,Nuclear and particle physics
+OCR 6.4.1c,Relative sizes of atom and nucleus,1.4,Nuclear and particle physics
+OCR 6.4.1d,"Proton number, nucleon number, isotopes and notation",1.4,Nuclear and particle physics
+OCR 6.4.1e,Strong nuclear force and its short range,1.4,Nuclear and particle physics
+OCR 6.4.1f,Radius of nuclei R = r₀A^(1/3),1.4,Nuclear and particle physics
+OCR 6.4.1g,Mean densities of atoms and nuclei,1.4,Nuclear and particle physics
+OCR 6.4.2a,Particles and antiparticles,1.4,Nuclear and particle physics
+OCR 6.4.2b,"Particles and antiparticles: same mass, opposite charge",1.4,Nuclear and particle physics
+OCR 6.4.2c,Classification of hadrons,1.4,Nuclear and particle physics
+OCR 6.4.2d,Classification of leptons,1.4,Nuclear and particle physics
+OCR 6.4.2e,Simple quark model of hadrons,1.62,Nuclear and particle physics
+OCR 6.4.2f,Quark model of the proton (uud) and neutron (udd),1.4,Nuclear and particle physics
+OCR 6.4.2g,Charges of quarks and anti-quarks as fractions of e,1.4,Nuclear and particle physics
+OCR 6.4.2h,Beta-minus and beta-plus decay,1.4,Nuclear and particle physics
+OCR 6.4.2i,β⁻ decay in terms of a quark model,1.4,Nuclear and particle physics
+OCR 6.4.2j,β⁺ decay in terms of a quark model,1.4,Nuclear and particle physics
+OCR 6.4.2k,Balancing quark transformation equations in terms of charge,1.4,Nuclear and particle physics
+OCR 6.4.2l,Decay of particles in terms of the quark model,1.4,Nuclear and particle physics
+OCR 6.4.3a,Radioactive decay is spontaneous and random,1.4,Nuclear and particle physics
+OCR 6.4.3b,"Alpha, beta and gamma radiation and their absorption",1.93,Nuclear and particle physics
+OCR 6.4.3c,"Nuclear decay equations for alpha, beta-minus and beta-plus decay",1.4,Nuclear and particle physics
+OCR 6.4.3d,"Activity of a source and decay constant, A = λN",1.4,Nuclear and particle physics
+OCR 6.4.3e,"Half-life of an isotope, λt½ = ln(2)",1.84,Nuclear and particle physics
+OCR 6.4.3f,Exponential decay equations A = A₀e^(−λt) and N = N₀e^(−λt),1.95,Nuclear and particle physics
+OCR 6.4.3g,Graphical and spreadsheet modelling of ΔN/Δt = −λN,1.4,Nuclear and particle physics
+OCR 6.4.3h,"Radioactive dating, e.g. carbon-dating",1.4,Nuclear and particle physics
+OCR 6.4.4a,Einstein’s mass–energy equation ΔE = Δmc²,1.4,Nuclear and particle physics
+OCR 6.4.4b,Energy released or absorbed in simple nuclear reactions,1.4,Nuclear and particle physics
+OCR 6.4.4c,Creation and annihilation of particle–antiparticle pairs,1.4,Nuclear and particle physics
+OCR 6.4.4d,"Mass defect, binding energy and binding energy per nucleon",1.4,Nuclear and particle physics
+OCR 6.4.4e,Binding energy per nucleon against nucleon number curve,1.4,Nuclear and particle physics
+OCR 6.4.4f,Binding energy of nuclei using ΔE = Δmc²,1.4,Nuclear and particle physics
+OCR 6.4.4g,Induced nuclear fission and chain reaction,1.4,Nuclear and particle physics
+OCR 6.4.4h,Basic structure of a fission reactor,1.4,Nuclear and particle physics
+OCR 6.4.4i,Environmental impact of nuclear waste,1.4,Nuclear and particle physics
+OCR 6.4.4j,"Nuclear fusion, fusion reactions and temperature",1.4,Nuclear and particle physics
+OCR 6.4.4k,Balancing nuclear transformation equations,1.4,Nuclear and particle physics
+OCR 6.5.1a,Basic structure of an X-ray tube,1.4,Medical imaging
+OCR 6.5.1b,Production of X-ray photons from an X-ray tube,1.4,Medical imaging
+OCR 6.5.1c,X-ray attenuation mechanisms,1.4,Medical imaging
+OCR 6.5.1d,"Attenuation of X-rays, I = I₀e^(−μx)",1.4,Medical imaging
+OCR 6.5.1e,X-ray imaging with contrast media,1.4,Medical imaging
+OCR 6.5.1f,Computerised axial tomography (CAT) scanning,1.4,Medical imaging
+OCR 6.5.1g,Advantages of a CAT scan over an X-ray image,1.4,Medical imaging
+OCR 6.5.2a,Medical tracers technetium–99m and fluorine–18,1.4,Medical imaging
+OCR 6.5.2b,Gamma camera components and image formation,1.4,Medical imaging
+OCR 6.5.2c,Diagnosis using a gamma camera,1.4,Medical imaging
+OCR 6.5.2d,Positron emission tomography (PET) scanner,1.4,Medical imaging
+OCR 6.5.2e,Diagnosis using PET scanning,1.4,Medical imaging
+OCR 6.5.3a,Ultrasound as a longitudinal wave above 20 kHz,1.4,Medical imaging
+OCR 6.5.3b,Piezoelectric effect and the ultrasound transducer,1.4,Medical imaging
+OCR 6.5.3c,Ultrasound A-scan and B-scan,1.4,Medical imaging
+OCR 6.5.3d,"Acoustic impedance of a medium, Z = ρc",1.4,Medical imaging
+OCR 6.5.3e,Reflection of ultrasound at a boundary,1.4,Medical imaging
+OCR 6.5.3f,Impedance (acoustic) matching and ultrasound gel,1.4,Medical imaging
+OCR 6.5.3g,Doppler effect in ultrasound and speed of blood,1.4,Medical imaging

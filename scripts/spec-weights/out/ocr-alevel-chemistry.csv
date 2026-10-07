@@ -1,0 +1,292 @@
+code,title,weight,topic
+OCR 1.1.1a,Experimental design to solve practical problems,1.78,Development of practical skills in chemistry
+OCR 1.1.1b,Identifying variables that must be controlled,1.4,Development of practical skills in chemistry
+OCR 1.1.1c,Evaluating whether a method meets the expected outcomes,1.4,Development of practical skills in chemistry
+OCR 1.1.2a,Using a wide range of apparatus and techniques correctly,1.47,Development of practical skills in chemistry
+OCR 1.1.2b,Appropriate units for measurements,1.4,Development of practical skills in chemistry
+OCR 1.1.2c,Presenting observations and data in an appropriate format,1.4,Development of practical skills in chemistry
+OCR 1.1.3a,"Processing, analysing and interpreting experimental results",1.4,Development of practical skills in chemistry
+OCR 1.1.3b,Mathematical skills for analysing quantitative data,1.66,Development of practical skills in chemistry
+OCR 1.1.3c,Appropriate use of significant figures,1.4,Development of practical skills in chemistry
+OCR 1.1.3d,"Plotting and interpreting graphs, gradients and intercepts",1.88,Development of practical skills in chemistry
+OCR 1.1.4a,Evaluating results and drawing conclusions,1.4,Development of practical skills in chemistry
+OCR 1.1.4b,Identifying anomalies in experimental measurements,1.4,Development of practical skills in chemistry
+OCR 1.1.4c,Limitations in experimental procedures,1.4,Development of practical skills in chemistry
+OCR 1.1.4d,"Precision, accuracy, percentage errors and uncertainties",1.4,Development of practical skills in chemistry
+OCR 1.1.4e,Refining experimental design by suggesting improvements,1.4,Development of practical skills in chemistry
+OCR 1.2.1a,Investigative approaches and methods in practical work,1.7,Development of practical skills in chemistry
+OCR 1.2.1b,Safe and correct use of practical equipment and materials,1.47,Development of practical skills in chemistry
+OCR 1.2.1c,Following written instructions,1.4,Development of practical skills in chemistry
+OCR 1.2.1d,Making and recording observations and measurements,1.4,Development of practical skills in chemistry
+OCR 1.2.1e,Keeping appropriate records of experimental activities,1.4,Development of practical skills in chemistry
+OCR 1.2.1f,Presenting information and data in a scientific way,1.4,Development of practical skills in chemistry
+OCR 1.2.1g,Using software and tools to process data and report findings,1.5,Development of practical skills in chemistry
+OCR 1.2.1h,Online and offline research skills,1.5,Development of practical skills in chemistry
+OCR 1.2.1i,Correctly citing sources of information,1.4,Development of practical skills in chemistry
+OCR 1.2.1j,"Using a wide range of instruments, equipment and techniques",1.5,Development of practical skills in chemistry
+OCR 1.2.2a,"Apparatus to record mass, time, volume and temperature",1.5,Development of practical skills in chemistry
+OCR 1.2.2b,"Heating with a water bath, electric heater or sand bath",1.5,Development of practical skills in chemistry
+OCR 1.2.2c,"Measuring pH with charts, a pH meter or a data logger probe",1.4,Development of practical skills in chemistry
+OCR 1.2.2d,"Titration, distillation, reflux, qualitative tests and filtration",3.02,Development of practical skills in chemistry
+OCR 1.2.2e,Using a volumetric flask to make a standard solution,1.5,Development of practical skills in chemistry
+OCR 1.2.2f,Acid–base indicators in titrations of weak and strong acids and alkalis,1.5,Development of practical skills in chemistry
+OCR 1.2.2g,Purification by recrystallisation and use of a separating funnel,1.84,Development of practical skills in chemistry
+OCR 1.2.2h,Using melting point apparatus,1.5,Development of practical skills in chemistry
+OCR 1.2.2i,Thin layer and paper chromatography,1.5,Development of practical skills in chemistry
+OCR 1.2.2j,Setting up electrochemical cells and measuring voltages,1.4,Development of practical skills in chemistry
+OCR 1.2.2k,"Safely handling corrosive, irritant, flammable and toxic substances",1.4,Development of practical skills in chemistry
+OCR 1.2.2l,Measuring rates of reaction by at least two different methods,1.91,Development of practical skills in chemistry
+OCR 2.1.1a,Isotopes as atoms with different numbers of neutrons,1.4,Atoms and reactions
+OCR 2.1.1b,"Protons, neutrons and electrons in atoms and ions",2.27,Atoms and reactions
+OCR 2.1.1c,Relative isotopic mass and relative atomic mass,1.78,Atoms and reactions
+OCR 2.1.1d,Mass spectrometry for isotopic masses and relative atomic mass,2.45,Atoms and reactions
+OCR 2.1.1e,"Relative molecular mass, Mr, and relative formula mass",2.19,Atoms and reactions
+OCR 2.1.2a,Formulae of ionic compounds and common ions,3.28,Atoms and reactions
+OCR 2.1.2b,"Balanced equations, including ionic equations and state symbols",1.4,Atoms and reactions
+OCR 2.1.3a,"Amount of substance, mole, Avogadro constant, molar mass and volume",4.1,Atoms and reactions
+OCR 2.1.3b,Empirical formula and molecular formula,2.25,Atoms and reactions
+OCR 2.1.3c,Calculating empirical and molecular formulae,1.56,Atoms and reactions
+OCR 2.1.3d,Hydrated salts and water of crystallisation,1.47,Atoms and reactions
+OCR 2.1.3e,"Calculations with mass, gas volume and solution concentration",2.19,Atoms and reactions
+OCR 2.1.3f,"The ideal gas equation, pV = nRT",1.44,Atoms and reactions
+OCR 2.1.3g,Stoichiometric relationships in calculations,1.5,Atoms and reactions
+OCR 2.1.3h,Percentage yield and atom economy calculations,1.84,Atoms and reactions
+OCR 2.1.3i,"Techniques for measuring mass, solution volumes and gas volumes",1.44,Atoms and reactions
+OCR 2.1.3j,Sustainability benefits of a high atom economy,1.42,Atoms and reactions
+OCR 2.1.4a,Common acids and alkalis and the ions they release,1.67,Atoms and reactions
+OCR 2.1.4b,Strong and weak acids and relative dissociation,1.4,Atoms and reactions
+OCR 2.1.4c,Neutralisation reactions and the formation of salts,1.95,Atoms and reactions
+OCR 2.1.4d,Preparing standard solutions and carrying out titrations,1.44,Atoms and reactions
+OCR 2.1.4e,Titration calculations from experimental results,1.4,Atoms and reactions
+OCR 2.1.5a,Rules for assigning and calculating oxidation numbers,1.53,Atoms and reactions
+OCR 2.1.5b,Writing formulae using oxidation numbers,1.4,Atoms and reactions
+OCR 2.1.5c,Roman numerals for the magnitude of oxidation numbers,2.54,Atoms and reactions
+OCR 2.1.5d,Oxidation and reduction as electron transfer and oxidation number change,1.84,Atoms and reactions
+OCR 2.1.5e,Redox reactions of metals with acids to form salts,2.27,Atoms and reactions
+OCR 2.1.5f,Interpreting redox equations and predicting reactions,1.4,Atoms and reactions
+OCR 2.2.1a,Number of electrons that can fill the first four shells,1.4,"Electrons, bonding and structure"
+OCR 2.2.1b,"Atomic orbitals, their shapes and the s-, p- and d-sub-shells",2.77,"Electrons, bonding and structure"
+OCR 2.2.1c,Filling of orbitals in order of increasing energy,2.4,"Electrons, bonding and structure"
+OCR 2.2.1d,Electron configurations of atoms and ions up to Z = 36,2.28,"Electrons, bonding and structure"
+OCR 2.2.2a,Ionic bonding and dot-and-cross diagrams,1.4,"Electrons, bonding and structure"
+OCR 2.2.2b,Solid structures of giant ionic lattices,1.4,"Electrons, bonding and structure"
+OCR 2.2.2c,Effect of structure and bonding on properties of ionic compounds,1.73,"Electrons, bonding and structure"
+OCR 2.2.2d,Covalent bond as a shared pair of electrons,1.4,"Electrons, bonding and structure"
+OCR 2.2.2e,Dot-and-cross diagrams of molecules and ions,2.35,"Electrons, bonding and structure"
+OCR 2.2.2f,Average bond enthalpy as a measure of covalent bond strength,2.06,"Electrons, bonding and structure"
+OCR 2.2.2g,Shapes and bond angles with up to six electron pairs,2.31,"Electrons, bonding and structure"
+OCR 2.2.2h,Electron pair repulsion and linear to octahedral shapes,1.98,"Electrons, bonding and structure"
+OCR 2.2.2i,Electronegativity and Pauling electronegativity values,1.8,"Electrons, bonding and structure"
+OCR 2.2.2j,"Polar bonds, permanent dipoles and polar molecules",2.68,"Electrons, bonding and structure"
+OCR 2.2.2k,Permanent and induced dipole–dipole interactions,1.91,"Electrons, bonding and structure"
+OCR 2.2.2l,"Hydrogen bonding between N, O or F and H",1.44,"Electrons, bonding and structure"
+OCR 2.2.2m,Anomalous properties of H₂O from hydrogen bonding,2.11,"Electrons, bonding and structure"
+OCR 2.2.2n,Solid structures of simple molecular lattices,1.4,"Electrons, bonding and structure"
+OCR 2.2.2o,Properties of covalent compounds with simple molecular lattices,1.49,"Electrons, bonding and structure"
+OCR 3.1.1a,"The periodic table, periodicity and groups",2.79,The periodic table
+OCR 3.1.1b,"Periodic trend in electron configurations and s-, p- and d-blocks",1.84,The periodic table
+OCR 3.1.1c,First and successive ionisation energies and their trends,3.44,The periodic table
+OCR 3.1.1d,Metallic bonding and giant metallic lattices,2.02,The periodic table
+OCR 3.1.1e,Giant covalent lattices of carbon and silicon,1.82,The periodic table
+OCR 3.1.1f,Physical properties of giant metallic and giant covalent lattices,2.29,The periodic table
+OCR 3.1.1g,Variation in melting points across Periods 2 and 3,1.62,The periodic table
+OCR 3.1.2a,Group 2 outer shell s² configuration and 2+ ions,1.4,The periodic table
+OCR 3.1.2b,"Reactivity of Mg to Ba with oxygen, water and dilute acids",2.33,The periodic table
+OCR 3.1.2c,Reactivity trend and ionisation energies down Group 2,1.84,The periodic table
+OCR 3.1.2d,Action of water on Group 2 oxides and the pH of the solutions,1.4,The periodic table
+OCR 3.1.2e,Uses of Group 2 compounds as bases,2.02,The periodic table
+OCR 3.1.3a,Halogens as diatomic molecules and the boiling point trend,1.56,The periodic table
+OCR 3.1.3b,Halogen outer shell s²p⁵ configuration and forming 1– ions,1.84,The periodic table
+OCR 3.1.3c,"Reactivity trend of Cl₂, Br₂ and I₂ with halide ions",1.42,The periodic table
+OCR 3.1.3d,Explaining the trend in halogen reactivity,1.42,The periodic table
+OCR 3.1.3e,Disproportionation of chlorine with water and with sodium hydroxide,2.9,The periodic table
+OCR 3.1.3f,Benefits and risks of chlorine in water treatment,2.16,The periodic table
+OCR 3.1.3g,Halide ions with silver ions and ammonia as a test,1.8,The periodic table
+OCR 3.1.4a,Qualitative analysis of anions and cations on a test-tube scale,3.81,The periodic table
+OCR 3.2.1a,"Exothermic and endothermic reactions, ΔH negative or positive",1.4,Physical chemistry
+OCR 3.2.1b,Enthalpy profile diagrams for reactants and products,1.4,Physical chemistry
+OCR 3.2.1c,Activation energy and enthalpy profile diagrams,1.47,Physical chemistry
+OCR 3.2.1d,Standard conditions and types of enthalpy change,4.1,Physical chemistry
+OCR 3.2.1e,"Enthalpy changes from experimental results, q = mcΔT",1.4,Physical chemistry
+OCR 3.2.1f,Average bond enthalpies and bond breaking and making,3.3,Physical chemistry
+OCR 3.2.1g,"Hess’ law, enthalpy cycles and indirect calculations",2.95,Physical chemistry
+OCR 3.2.1h,Techniques for determining enthalpy changes directly and indirectly,1.49,Physical chemistry
+OCR 3.2.2a,Effect of concentration and gas pressure on reaction rate,1.4,Physical chemistry
+OCR 3.2.2b,Reaction rate from the gradients of graphs,1.49,Physical chemistry
+OCR 3.2.2c,Role of a catalyst and a lower activation energy route,2.33,Physical chemistry
+OCR 3.2.2d,Homogeneous and heterogeneous catalysts and sustainability,2.46,Physical chemistry
+OCR 3.2.2e,Techniques for investigating reaction rates,3.44,Physical chemistry
+OCR 3.2.2f,Boltzmann distribution and activation energy,1.4,Physical chemistry
+OCR 3.2.2g,Boltzmann distributions for temperature changes and catalysts,2.26,Physical chemistry
+OCR 3.2.3a,Dynamic equilibrium in a closed system,1.64,Physical chemistry
+OCR 3.2.3b,Le Chatelier’s principle and the position of equilibrium,1.93,Physical chemistry
+OCR 3.2.3c,Effect of a catalyst on the position of equilibrium,1.44,Physical chemistry
+OCR 3.2.3d,Investigating changes to the position of equilibrium,3.51,Physical chemistry
+OCR 3.2.3e,Compromise between equilibrium and rate in the chemical industry,1.78,Physical chemistry
+OCR 3.2.3f,Equilibrium constant Kc expressions and calculations,1.51,Physical chemistry
+OCR 3.2.3g,Estimating the position of equilibrium from the size of Kc,1.4,Physical chemistry
+OCR 4.1.1a,IUPAC rules for systematically naming organic compounds,2,Basic concepts and hydrocarbons
+OCR 4.1.1b,"General, structural, displayed and skeletal formulae",3.88,Basic concepts and hydrocarbons
+OCR 4.1.1c,"Homologous series, functional group, alkyl, aliphatic, alicyclic, aromatic",4.54,Basic concepts and hydrocarbons
+OCR 4.1.1d,Using a general formula to predict the formula of any member of a series,1.5,Basic concepts and hydrocarbons
+OCR 4.1.1e,Structural isomers and possible structural formulae from a molecular formula,1.51,Basic concepts and hydrocarbons
+OCR 4.1.1f,Homolytic and heterolytic covalent bond fission,2.22,Basic concepts and hydrocarbons
+OCR 4.1.1g,Radicals and the use of dots in mechanisms,2.84,Basic concepts and hydrocarbons
+OCR 4.1.1h,Curly arrow as the movement of an electron pair,1.51,Basic concepts and hydrocarbons
+OCR 4.1.1i,Drawing reaction mechanisms with curly arrows and dipoles,1.76,Basic concepts and hydrocarbons
+OCR 4.1.2a,Alkanes as saturated hydrocarbons with σ-bonds; free rotation,1.47,Basic concepts and hydrocarbons
+OCR 4.1.2b,Tetrahedral shape and bond angle in alkanes,1.56,Basic concepts and hydrocarbons
+OCR 4.1.2c,"Boiling points of alkanes: chain length, branching and London forces",1.44,Basic concepts and hydrocarbons
+OCR 4.1.2d,Low reactivity of alkanes: high bond enthalpy and low polarity,1.44,Basic concepts and hydrocarbons
+OCR 4.1.2e,Complete and incomplete combustion of alkanes; dangers of CO,1.47,Basic concepts and hydrocarbons
+OCR 4.1.2f,Radical substitution of alkanes with Cl₂ and Br₂ and its mechanism,2.46,Basic concepts and hydrocarbons
+OCR 4.1.2g,Limitations of radical substitution in synthesis,1.51,Basic concepts and hydrocarbons
+OCR 4.1.3a,Alkenes: C=C as a π-bond and a σ-bond; restricted rotation,1.89,Basic concepts and hydrocarbons
+OCR 4.1.3b,Trigonal planar shape and bond angle around C=C in alkenes,1.49,Basic concepts and hydrocarbons
+OCR 4.1.3c,E/Z and cis–trans isomerism; CIP priority rules,3.44,Basic concepts and hydrocarbons
+OCR 4.1.3d,Determining E/Z or cis–trans stereoisomers from a structural formula,1.4,Basic concepts and hydrocarbons
+OCR 4.1.3e,Reactivity of alkenes: low bond enthalpy of the π-bond,1.4,Basic concepts and hydrocarbons
+OCR 4.1.3f,"Addition reactions of alkenes with H₂, halogens, hydrogen halides and steam",3.21,Basic concepts and hydrocarbons
+OCR 4.1.3g,Electrophile: an electron pair acceptor,1.4,Basic concepts and hydrocarbons
+OCR 4.1.3h,Mechanism of electrophilic addition in alkenes,1.49,Basic concepts and hydrocarbons
+OCR 4.1.3i,Markownikoff’s rule and carbocation stability,2.12,Basic concepts and hydrocarbons
+OCR 4.1.3j,Addition polymerisation: repeat units and identifying monomers,2.08,Basic concepts and hydrocarbons
+OCR 4.1.3k,Sustainability benefits of processing waste polymers,2.59,Basic concepts and hydrocarbons
+OCR 4.1.3l,Environmental benefits of biodegradable and photodegradable polymers,1.4,Basic concepts and hydrocarbons
+OCR 4.2.1a,"Polarity, hydrogen bonding and classification of alcohols",2.26,"Alcohols, haloalkanes and analysis"
+OCR 4.2.1b,Combustion of alcohols,1.4,"Alcohols, haloalkanes and analysis"
+OCR 4.2.1c,"Oxidation of primary, secondary and tertiary alcohols",2.84,"Alcohols, haloalkanes and analysis"
+OCR 4.2.1d,Elimination of H₂O from alcohols to form alkenes,1.4,"Alcohols, haloalkanes and analysis"
+OCR 4.2.1e,Substitution of alcohols with halide ions to form haloalkanes,1.4,"Alcohols, haloalkanes and analysis"
+OCR 4.2.2a,Hydrolysis of haloalkanes by aqueous alkali and by water with AgNO₃,2,"Alcohols, haloalkanes and analysis"
+OCR 4.2.2b,Nucleophile: an electron pair donor,1.4,"Alcohols, haloalkanes and analysis"
+OCR 4.2.2c,Nucleophilic substitution mechanism in hydrolysis of primary haloalkanes,1.4,"Alcohols, haloalkanes and analysis"
+OCR 4.2.2d,Rates of hydrolysis of haloalkanes and carbon–halogen bond enthalpies,1.42,"Alcohols, haloalkanes and analysis"
+OCR 4.2.2e,"CFCs, halogen radicals and the catalysed breakdown of ozone",5.07,"Alcohols, haloalkanes and analysis"
+OCR 4.2.3a,Quickfit apparatus; preparing and purifying an organic liquid,2.37,"Alcohols, haloalkanes and analysis"
+OCR 4.2.3b,Functional groups and predicted reactions of a molecule (Module 4),2.02,"Alcohols, haloalkanes and analysis"
+OCR 4.2.3c,Two-stage synthetic routes for organic compounds,1.96,"Alcohols, haloalkanes and analysis"
+OCR 4.2.4a,IR radiation makes covalent bonds vibrate more and absorb energy,1.4,"Alcohols, haloalkanes and analysis"
+OCR 4.2.4b,IR absorption by atmospheric gases and global warming,1.51,"Alcohols, haloalkanes and analysis"
+OCR 4.2.4c,"Using IR spectra to identify alcohols, aldehydes, ketones and carboxylic acids",3.58,"Alcohols, haloalkanes and analysis"
+OCR 4.2.4d,Interpreting and predicting IR spectra using supplied data,1.44,"Alcohols, haloalkanes and analysis"
+OCR 4.2.4e,IR spectroscopy for air pollution monitoring and breathalysers,1.54,"Alcohols, haloalkanes and analysis"
+OCR 4.2.4f,Molecular ion peak in a mass spectrum and molecular mass,2.52,"Alcohols, haloalkanes and analysis"
+OCR 4.2.4g,Analysing fragmentation peaks in mass spectra,1.4,"Alcohols, haloalkanes and analysis"
+OCR 4.2.4h,"Deducing structures from elemental analysis, mass spectra and IR spectra",2.5,"Alcohols, haloalkanes and analysis"
+OCR 5.1.1a,"Rate of reaction, order, rate constant, half-life, rate-determining step",1.4,"Rates, equilibrium and pH"
+OCR 5.1.1b,Deducing orders and rate equations from experimental data,2.42,"Rates, equilibrium and pH"
+OCR 5.1.1c,Calculating the rate constant k and its units from a rate equation,1.4,"Rates, equilibrium and pH"
+OCR 5.1.1d,Concentration–time graphs: order (0 or 1) and rates from gradients,2.48,"Rates, equilibrium and pH"
+OCR 5.1.1e,Constant half-life t½ from a first order concentration–time graph,1.47,"Rates, equilibrium and pH"
+OCR 5.1.1f,First order rate constant from half-life: k = ln 2/t½,1.8,"Rates, equilibrium and pH"
+OCR 5.1.1g,"Rate–concentration graphs: order (0, 1 or 2) and first order rate constant",3.04,"Rates, equilibrium and pH"
+OCR 5.1.1h,"Investigating rates: initial rates, continuous monitoring and colorimetry",3.42,"Rates, equilibrium and pH"
+OCR 5.1.1i,Rate equation and mechanism steps for a multi-step reaction,2.08,"Rates, equilibrium and pH"
+OCR 5.1.1j,Effect of temperature on reaction rate and rate constant,1.4,"Rates, equilibrium and pH"
+OCR 5.1.1k,The Arrhenius equation; finding Eₐ and A graphically,2.88,"Rates, equilibrium and pH"
+OCR 5.1.2a,Mole fraction and partial pressure,1.5,"Rates, equilibrium and pH"
+OCR 5.1.2b,Calculating quantities present at equilibrium,1.4,"Rates, equilibrium and pH"
+OCR 5.1.2c,Techniques for determining quantities present at equilibrium,1.4,"Rates, equilibrium and pH"
+OCR 5.1.2d,Expressions for Kc and Kp: homogeneous and heterogeneous equilibria,1.51,"Rates, equilibrium and pH"
+OCR 5.1.2e,"Calculations of Kc and Kp, including units",1.4,"Rates, equilibrium and pH"
+OCR 5.1.2f,"Temperature, concentration, pressure, catalyst and equilibrium constants",2.02,"Rates, equilibrium and pH"
+OCR 5.1.2g,How an equilibrium constant controls the position of equilibrium,1.4,"Rates, equilibrium and pH"
+OCR 5.1.2h,Applying Kc and Kp principles to other equilibrium constants,1.4,"Rates, equilibrium and pH"
+OCR 5.1.3a,"Brønsted–Lowry acids and bases, conjugate pairs, mono-, di- and tribasic acids",2.68,"Rates, equilibrium and pH"
+OCR 5.1.3b,Role of H⁺ in reactions of acids with metals and bases,1.47,"Rates, equilibrium and pH"
+OCR 5.1.3c,Acid dissociation constant Kₐ and pKₐ,1.84,"Rates, equilibrium and pH"
+OCR 5.1.3d,pH = −log[H⁺] and [H⁺] = 10^(−pH),1.5,"Rates, equilibrium and pH"
+OCR 5.1.3e,"Ionic product of water, Kw",1.5,"Rates, equilibrium and pH"
+OCR 5.1.3f,pH calculations for strong monobasic acids and strong bases,1.84,"Rates, equilibrium and pH"
+OCR 5.1.3g,"pH, Kₐ and related calculations for a weak monobasic acid",1.8,"Rates, equilibrium and pH"
+OCR 5.1.3h,Limitations of Kₐ approximations for ‘stronger’ weak acids,1.4,"Rates, equilibrium and pH"
+OCR 5.1.3i,Buffer solution as a system that minimises pH changes,1.4,"Rates, equilibrium and pH"
+OCR 5.1.3j,"Forming a buffer from a weak acid and its salt, or excess weak acid and alkali",2,"Rates, equilibrium and pH"
+OCR 5.1.3k,Role of the conjugate acid–base pair in controlling pH of an acid buffer,1.4,"Rates, equilibrium and pH"
+OCR 5.1.3l,Calculating the pH of a buffer solution from Kₐ and concentrations,1.49,"Rates, equilibrium and pH"
+OCR 5.1.3m,Control of blood pH by the carbonic acid–hydrogencarbonate buffer,1.47,"Rates, equilibrium and pH"
+OCR 5.1.3n,"pH titration curves, choice of indicators and indicator colour changes",3.24,"Rates, equilibrium and pH"
+OCR 5.1.3o,Techniques for measuring pH with a pH meter,1.4,"Rates, equilibrium and pH"
+OCR 5.2.1a,Lattice enthalpy as a measure of ionic bond strength,1.71,Energy
+OCR 5.2.1b,Born–Haber cycles and related calculations using lattice enthalpy,2.78,Energy
+OCR 5.2.1c,Enthalpy change of solution and enthalpy change of hydration,2.2,Energy
+OCR 5.2.1d,Enthalpy cycles and calculations using enthalpy change of solution,2.18,Energy
+OCR 5.2.1e,Effect of ionic charge and radius on lattice and hydration enthalpies,1.4,Energy
+OCR 5.2.2a,Entropy as a measure of the dispersal of energy,1.4,Energy
+OCR 5.2.2b,"Magnitude of entropy: solids, liquids, gases and change in gaseous molecules",2.04,Energy
+OCR 5.2.2c,Calculating the entropy change ΔS for a reaction,1.4,Energy
+OCR 5.2.2d,Feasibility depends on entropy change and temperature (TΔS) and on ΔH,1.42,Energy
+OCR 5.2.2e,Free energy change ΔG = ΔH − TΔS and feasibility,1.53,Energy
+OCR 5.2.2f,Limitations of ΔG predictions of feasibility: kinetics,1.4,Energy
+OCR 5.2.3a,Oxidising agent and reducing agent,1.4,Energy
+OCR 5.2.3b,Redox equations from half-equations and oxidation numbers,1.4,Energy
+OCR 5.2.3c,Interpreting and predicting reactions involving electron transfer,1.4,Energy
+OCR 5.2.3d,Techniques for redox titrations: Fe²⁺/MnO₄⁻ and I₂/S₂O₃²⁻,1.4,Energy
+OCR 5.2.3e,Structured and non-structured redox titration calculations,2.17,Energy
+OCR 5.2.3f,Standard electrode potential Eᶿ and the hydrogen electrode,1.5,Energy
+OCR 5.2.3g,"Measuring cell potentials: metals, non-metals and ions in different states",2.64,Energy
+OCR 5.2.3h,Calculating a standard cell potential from two electrode potentials,1.4,Energy
+OCR 5.2.3i,Feasibility from standard cell potentials and its limitations,1.4,Energy
+OCR 5.2.3j,Electrode potentials applied to modern storage cells,1.49,Energy
+OCR 5.2.3k,Fuel cells: reaction of a fuel with oxygen to create a voltage,1.91,Energy
+OCR 5.3.1a,Electron configurations of Period 4 d-block atoms and ions (Sc–Zn),1.6,Transition elements
+OCR 5.3.1b,Ti–Cu as transition elements: ion with an incomplete d-sub-shell,1.4,Transition elements
+OCR 5.3.1c,"Oxidation states, coloured ions and catalytic behaviour of transition elements",3.55,Transition elements
+OCR 5.3.1d,"Ligands and coordinate bonding, including bidentate ligands",1.76,Transition elements
+OCR 5.3.1e,"Complex ions, coordination number; octahedral, tetrahedral, square planar shapes",2.78,Transition elements
+OCR 5.3.1f,Cis–trans and optical isomerism in complexes,2.24,Transition elements
+OCR 5.3.1g,Cis-platin as an anti-cancer drug,1.5,Transition elements
+OCR 5.3.1h,Ligand substitution reactions and colour changes,2.06,Transition elements
+OCR 5.3.1i,Iron in haemoglobin: ligand substitution with O₂ and CO,1.4,Transition elements
+OCR 5.3.1j,Precipitation and complex formation with aqueous NaOH and NH₃,3.08,Transition elements
+OCR 5.3.1k,"Redox reactions and colour changes of Fe, Cr and Cu ions",3.59,Transition elements
+OCR 5.3.1l,"Unfamiliar reactions: ligand substitution, precipitation and redox",1.4,Transition elements
+OCR 5.3.2a,Test-tube qualitative analysis of anions and cations,2.26,Transition elements
+OCR 6.1.1a,Kekulé and delocalised models of benzene,1.93,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.1b,Experimental evidence for the delocalised model of benzene,1.49,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.1c,IUPAC naming of substituted aromatic compounds,1.5,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.1d,"Electrophilic substitution of arenes: nitration, halogenation, Friedel–Crafts",3.08,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.1e,Mechanism of electrophilic substitution in arenes: nitration and halogenation,1.89,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.1f,Resistance of benzene to bromination compared with alkenes,1.78,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.1g,Interpreting unfamiliar electrophilic substitution reactions of arenes,1.4,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.1h,Weak acidity of phenols: reaction with NaOH but not carbonates,1.4,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.1i,Electrophilic substitution of phenol with bromine and dilute nitric acid,2.24,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.1j,Greater ease of electrophilic substitution in phenol than benzene,2.13,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.1k,"2-, 4- and 3-directing effects of substituents on aromatic rings",1.82,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.1l,Predicting substitution products of arenes from directing effects,1.4,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.2a,Oxidation of aldehydes to carboxylic acids,1.4,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.2b,Nucleophilic addition of NaBH₄ and HCN to carbonyl compounds,1.84,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.2c,Mechanism of nucleophilic addition to aldehydes and ketones,2.07,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.2d,"2,4-dinitrophenylhydrazine test for carbonyl compounds",2.3,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.2e,Tollens’ reagent to detect aldehydes and distinguish them from ketones,2.45,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.3a,Water solubility of carboxylic acids and hydrogen bonding,1.4,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.3b,Reactions of carboxylic acids with metals and bases,1.42,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.3c,Esterification of carboxylic acids and acid anhydrides with alcohols,1.84,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.3d,Hydrolysis of esters in hot aqueous acid and alkali,1.84,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.3e,Formation of acyl chlorides from carboxylic acids using SOCl₂,1.4,"Aromatic compounds, carbonyls and acids"
+OCR 6.1.3f,"Acyl chlorides in synthesis of esters, carboxylic acids and amides",1.59,"Aromatic compounds, carbonyls and acids"
+OCR 6.2.1a,Basicity of amines and reactions with dilute acids,1.71,"Nitrogen compounds, polymers and synthesis"
+OCR 6.2.1b,Preparing aliphatic amines and aromatic amines,2.37,"Nitrogen compounds, polymers and synthesis"
+OCR 6.2.2a,"α-amino acids: general formula and reactions with alkalis, esters and acids",2.24,"Nitrogen compounds, polymers and synthesis"
+OCR 6.2.2b,Structures of primary and secondary amides,1.4,"Nitrogen compounds, polymers and synthesis"
+OCR 6.2.2c,Optical isomerism: non-superimposable mirror images about a chiral centre,1.53,"Nitrogen compounds, polymers and synthesis"
+OCR 6.2.2d,Identifying chiral centres in organic molecules,1.4,"Nitrogen compounds, polymers and synthesis"
+OCR 6.2.3a,Condensation polymerisation to form polyesters and polyamides,2.15,"Nitrogen compounds, polymers and synthesis"
+OCR 6.2.3b,Acid and base hydrolysis of polyesters and polyamides,1.84,"Nitrogen compounds, polymers and synthesis"
+OCR 6.2.3c,"Predicting repeat units, monomers and type of polymerisation",2.3,"Nitrogen compounds, polymers and synthesis"
+OCR 6.2.4a,C–C bond formation to lengthen a carbon chain,1.4,"Nitrogen compounds, polymers and synthesis"
+OCR 6.2.4b,Forming C–C≡N from haloalkanes with CN⁻ and carbonyl compounds with HCN,2.02,"Nitrogen compounds, polymers and synthesis"
+OCR 6.2.4c,Reduction and acid hydrolysis of nitriles,1.84,"Nitrogen compounds, polymers and synthesis"
+OCR 6.2.4d,Friedel–Crafts alkylation and acylation of aromatic rings,1.51,"Nitrogen compounds, polymers and synthesis"
+OCR 6.2.5a,Preparing and purifying organic solids,2.44,"Nitrogen compounds, polymers and synthesis"
+OCR 6.2.5b,Functional groups and predicted reactions of a molecule (Module 6),2.08,"Nitrogen compounds, polymers and synthesis"
+OCR 6.2.5c,Multi-stage synthetic routes for organic compounds,1.87,"Nitrogen compounds, polymers and synthesis"
+OCR 6.3.1a,Interpreting one-way TLC chromatograms using Rf values,1.4,Analysis
+OCR 6.3.1b,Interpreting gas chromatograms: retention times and component amounts,2.2,Analysis
+OCR 6.3.1c,"Test-tube tests for alkenes, haloalkanes, phenols, carbonyls, alcohols and acids",4.54,Analysis
+OCR 6.3.2a,Analysing carbon-13 NMR spectra: carbon environments and structures,3.17,Analysis
+OCR 6.3.2b,"Analysing proton NMR: environments, peak areas, n + 1 splitting, structures",4.1,Analysis
+OCR 6.3.2c,Predicting a carbon-13 or proton NMR spectrum for a molecule,1.4,Analysis
+OCR 6.3.2d,"TMS standard, deuterated solvents and D₂O exchange in NMR",2.37,Analysis
+OCR 6.3.2e,"Deducing structures from elemental analysis, mass, IR and NMR spectra",3.26,Analysis

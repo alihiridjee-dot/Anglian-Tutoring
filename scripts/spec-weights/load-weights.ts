@@ -11,13 +11,19 @@
  * spec_points is tutor-write behind RLS and this runs headless).
  */
 
-const TREES: Record<string, { board: string; level: string }> = {
-  "aqa-gcse-biology": { board: "aqa", level: "gcse" },
-  "edexcel-gcse-biology": { board: "edexcel", level: "gcse" },
-  "edexcel-igcse-biology": { board: "edexcel", level: "igcse" },
-  "ocr-gcse-biology": { board: "ocr", level: "gcse" },
-};
-const SUBJECT = "biology";
+/**
+ * Every `<board>-<level>-<subject>.csv` in ./out is a tree: the Biology trees
+ * from the PDF scorers, and every other course from score_db.ts.
+ */
+const TREES = Object.fromEntries(
+  (await Array.fromAsync(new Bun.Glob("*.csv").scan(`${import.meta.dir}/out`)))
+    .map((f) => f.replace(/\.csv$/, ""))
+    .sort()
+    .map((name) => {
+      const [board, level, subject] = name.split("-");
+      return [name, { board, level, subject }] as const;
+    }),
+);
 
 const url = process.env.SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -72,14 +78,14 @@ function parseCsv(text: string): Record<string, string>[] {
 }
 
 let totalWritten = 0;
-for (const [file, { board, level }] of Object.entries(TREES)) {
+for (const [file, { board, level, subject }] of Object.entries(TREES)) {
   const csv = parseCsv(await Bun.file(`${import.meta.dir}/out/${file}.csv`).text());
   const wanted = new Map(
     csv.filter((r) => r.weight).map((r) => [r.code, Number(r.weight)] as const),
   );
 
   const topics: { id: string }[] = await api(
-    `topics?select=id&subject=eq.${SUBJECT}&board=eq.${board}&level=eq.${level}`,
+    `topics?select=id&subject=eq.${subject}&board=eq.${board}&level=eq.${level}`,
   );
   const topicIds = topics.map((t) => t.id);
   const points: { id: string; code: string; weight: string }[] = await api(
