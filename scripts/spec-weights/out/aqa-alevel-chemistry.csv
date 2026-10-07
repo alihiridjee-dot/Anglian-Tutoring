@@ -1,0 +1,92 @@
+code,title,weight,topic
+AQA 3.1.1.1,Fundamental particles,1.3,Physical chemistry
+AQA 3.1.1.2,Mass number and isotopes,2.95,Physical chemistry
+AQA 3.1.1.3,Electron configuration,2.16,Physical chemistry
+AQA 3.1.2.1,Relative atomic mass and relative molecular mass,1.94,Physical chemistry
+AQA 3.1.2.2,The mole and the Avogadro constant,2.16,Physical chemistry
+AQA 3.1.2.3,The ideal gas equation,1.72,Physical chemistry
+AQA 3.1.2.4,Empirical and molecular formula,2.24,Physical chemistry
+AQA 3.1.2.5,Balanced equations and associated calculations,5.41,Physical chemistry
+AQA 3.1.3.1,Ionic bonding,2.34,Physical chemistry
+AQA 3.1.3.2,Nature of covalent and dative covalent bonds,1.94,Physical chemistry
+AQA 3.1.3.3,Metallic bonding,1.3,Physical chemistry
+AQA 3.1.3.4,Bonding and physical properties,4.36,Physical chemistry
+AQA 3.1.3.5,Shapes of simple molecules and ions,1.92,Physical chemistry
+AQA 3.1.3.6,Bond polarity,1.94,Physical chemistry
+AQA 3.1.3.7,Forces between molecules,2.8,Physical chemistry
+AQA 3.1.4.1,Enthalpy change,1.94,Physical chemistry
+AQA 3.1.4.2,Calorimetry,3.94,Physical chemistry
+AQA 3.1.4.3,Applications of Hess’s law,1.72,Physical chemistry
+AQA 3.1.4.4,Bond enthalpies,2.16,Physical chemistry
+AQA 3.1.5.1,Collision theory,1.94,Physical chemistry
+AQA 3.1.5.2,Maxwell–Boltzmann distribution,1.72,Physical chemistry
+AQA 3.1.5.3,Effect of temperature on reaction rate,3.72,Physical chemistry
+AQA 3.1.5.4,Effect of concentration and pressure,1.92,Physical chemistry
+AQA 3.1.5.5,Catalysts,1.72,Physical chemistry
+AQA 3.1.6.1,Chemical equilibria and Le Chatelier's principle,2.4,Physical chemistry
+AQA 3.1.6.2,Equilibrium constant Kc for homogeneous systems,2.38,Physical chemistry
+AQA 3.1.7,"Oxidation, reduction and redox equations",2.16,Physical chemistry
+AQA 3.2.1.1,Classification,1.3,Inorganic chemistry
+AQA 3.2.1.2,Physical properties of Period 3 elements,2.14,Inorganic chemistry
+AQA 3.2.2,"Group 2, the alkaline earth metals",3.08,Inorganic chemistry
+AQA 3.2.3.1,Trends in properties,3.32,Inorganic chemistry
+AQA 3.2.3.2,Uses of chlorine and chlorate(I),3.74,Inorganic chemistry
+AQA 3.3.1.1,Nomenclature,3.49,Organic chemistry
+AQA 3.3.1.2,Reaction mechanisms,3.25,Organic chemistry
+AQA 3.3.1.3,Isomerism,2.6,Organic chemistry
+AQA 3.3.2.1,Fractional distillation of crude oil,1.3,Organic chemistry
+AQA 3.3.2.2,Modification of alkanes by cracking,1.92,Organic chemistry
+AQA 3.3.2.3,Combustion of alkanes,1.92,Organic chemistry
+AQA 3.3.2.4,Chlorination of alkanes,1.92,Organic chemistry
+AQA 3.3.3.1,Nucleophilic substitution,1.94,Organic chemistry
+AQA 3.3.3.2,Elimination,2.14,Organic chemistry
+AQA 3.3.3.3,Ozone depletion,2.66,Organic chemistry
+AQA 3.3.4.1,"Structure, bonding and reactivity",1.3,Organic chemistry
+AQA 3.3.4.2,Addition reactions of alkenes,1.94,Organic chemistry
+AQA 3.3.4.3,Addition polymers,2.65,Organic chemistry
+AQA 3.3.5.1,Alcohol production,3.02,Organic chemistry
+AQA 3.3.5.2,Oxidation of alcohols,2.16,Organic chemistry
+AQA 3.3.5.3,Elimination,3.72,Organic chemistry
+AQA 3.3.6.1,Identification of functional groups by test-tube reactions,3.42,Organic chemistry
+AQA 3.3.6.2,Mass spectrometry,1.72,Organic chemistry
+AQA 3.3.6.3,Infrared spectroscopy,1.72,Organic chemistry
+AQA 3.1.8.1,Born–Haber cycles (A-level only),4.58,Physical chemistry (A-level only)
+AQA 3.1.8.2,"Gibbs free-energy change, ΔG, and entropy change, ΔS (A-level only)",2.52,Physical chemistry (A-level only)
+AQA 3.1.9.1,Rate equations (A-level only),3.25,Physical chemistry (A-level only)
+AQA 3.1.9.2,Determination of rate equation (A-level only),5.18,Physical chemistry (A-level only)
+AQA 3.1.10,Equilibrium constant Kₚ for homogeneous systems (A-level only),2.9,Physical chemistry (A-level only)
+AQA 3.1.11.1,Electrode potentials and cells (A-level only),4.2,Physical chemistry (A-level only)
+AQA 3.1.11.2,Commercial applications of electrochemical cells (A-level only),2.26,Physical chemistry (A-level only)
+AQA 3.1.12.1,Brønsted–Lowry acid–base equilibria in aqueous solution (A-level only),1.3,Physical chemistry (A-level only)
+AQA 3.1.12.2,Definition and determination of pH (A-level only),1.94,Physical chemistry (A-level only)
+AQA 3.1.12.3,"The ionic product of water, Kw (A-level only)",1.72,Physical chemistry (A-level only)
+AQA 3.1.12.4,Weak acids and bases: Kₐ for weak acids (A-level only),2.16,Physical chemistry (A-level only)
+AQA 3.1.12.5,"pH curves, titrations and indicators (A-level only)",4.51,Physical chemistry (A-level only)
+AQA 3.1.12.6,Buffer action (A-level only),2.14,Physical chemistry (A-level only)
+AQA 3.2.4,Properties of Period 3 elements and their oxides (A-level only),2.8,Inorganic chemistry (A-level only)
+AQA 3.2.5.1,General properties of transition metals (A-level only),2.18,Inorganic chemistry (A-level only)
+AQA 3.2.5.2,Substitution reactions (A-level only),2.39,Inorganic chemistry (A-level only)
+AQA 3.2.5.3,Shapes of complex ions (A-level only),1.3,Inorganic chemistry (A-level only)
+AQA 3.2.5.4,Formation of coloured ions (A-level only),1.31,Inorganic chemistry (A-level only)
+AQA 3.2.5.5,Variable oxidation states (A-level only),1.72,Inorganic chemistry (A-level only)
+AQA 3.2.5.6,Catalysts (A-level only),3.18,Inorganic chemistry (A-level only)
+AQA 3.2.6,Reactions of ions in aqueous solution (A-level only),4.31,Inorganic chemistry (A-level only)
+AQA 3.3.7,Optical isomerism (A-level only),1.94,Organic chemistry (A-level only)
+AQA 3.3.8,Aldehydes and ketones (A-level only),3.01,Organic chemistry (A-level only)
+AQA 3.3.9.1,Carboxylic acids and esters (A-level only),1.84,Organic chemistry (A-level only)
+AQA 3.3.9.2,Acylation (A-level only),4.6,Organic chemistry (A-level only)
+AQA 3.3.10.1,Bonding (A-level only),1.94,Organic chemistry (A-level only)
+AQA 3.3.10.2,Electrophilic substitution (A-level only),1.94,Organic chemistry (A-level only)
+AQA 3.3.11.1,Preparation (A-level only),1.3,Organic chemistry (A-level only)
+AQA 3.3.11.2,Base properties (A-level only),1.92,Organic chemistry (A-level only)
+AQA 3.3.11.3,Nucleophilic properties (A-level only),1.94,Organic chemistry (A-level only)
+AQA 3.3.12.1,Condensation polymers (A-level only),3.04,Organic chemistry (A-level only)
+AQA 3.3.12.2,Biodegradability and disposal of polymers (A-level only),1.92,Organic chemistry (A-level only)
+AQA 3.3.13.1,Amino acids (A-level only),1.94,Organic chemistry (A-level only)
+AQA 3.3.13.2,Proteins (A-level only),2.81,Organic chemistry (A-level only)
+AQA 3.3.13.3,Enzymes (A-level only),1.92,Organic chemistry (A-level only)
+AQA 3.3.13.4,DNA (A-level only),2.1,Organic chemistry (A-level only)
+AQA 3.3.13.5,Action of anticancer drugs (A-level only),2.14,Organic chemistry (A-level only)
+AQA 3.3.14,Organic synthesis (A-level only),2.36,Organic chemistry (A-level only)
+AQA 3.3.15,Nuclear magnetic resonance spectroscopy (A-level only),3.15,Organic chemistry (A-level only)
+AQA 3.3.16,Chromatography (A-level only),5.3,Organic chemistry (A-level only)

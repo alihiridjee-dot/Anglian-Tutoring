@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { dbError } from "@/lib/platform/errors";
 import { invalidateGuardState } from "@/lib/auth/guardState";
 import { gradeOptions, completeOnboarding, NoSubjectsError } from "@/lib/auth/onboarding";
 import { SUBJECTS, type LevelV, type SubjectV } from "@/lib/curriculum/taxonomy";
@@ -77,7 +78,7 @@ function SchoolStep() {
           .from("profiles")
           .update({ school: school.trim() || null })
           .eq("id", uid);
-        if (profErr) throw profErr;
+        if (profErr) throw dbError(profErr);
 
         // One update per subject rather than an upsert: these rows already
         // exist from step 2, and an upsert would need the board again to
@@ -94,7 +95,7 @@ function SchoolStep() {
             })
             .eq("student_id", uid)
             .eq("subject", subject);
-          if (error) throw error;
+          if (error) throw dbError(error);
         }
       }
 

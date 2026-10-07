@@ -15,11 +15,20 @@ import { type PointCoverage, type PointActivity, type PointWork } from "@/lib/pl
 import { getSessionUserId } from "@/lib/auth/session";
 import { courseKey, invalidatePlanner, roadmapQuery } from "@/lib/planner/queries";
 import { weekIsForAnotherCourse } from "@/lib/planner/weekCut";
-import { subjectPauseQuery, type SubjectPause } from "@/lib/planner/subjectPauses";
+import {
+  subjectPauseHistoryQuery,
+  subjectPauseQuery,
+  type SubjectPause,
+} from "@/lib/planner/subjectPauses";
 import { breakCovering, type StudentBreak } from "@/lib/planner/breaks";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
+import { pastWeekGap, type PastWeekGap } from "@/lib/planner/pastWeek";
+import { currentWeekKey } from "@/lib/planner/week";
 
 export type Activity = Map<string, PointActivity & PointWork>;
+
+/** Week re-cuts already tried this session, each keyed by the drift that set it off. */
+const healTried = new Set<string>();
 
 export interface WeekPlanState {
   plan: WeeklyPlan | null;
@@ -32,6 +41,8 @@ export interface WeekPlanState {
   pause: SubjectPause | null;
   /** The week falls in a break the student is taking: nothing is planned for it. */
   onBreak: StudentBreak | null;
+  /** A week gone by with nothing in it, and why: a break, a pause or another course. */
+  pastGap: PastWeekGap | null;
   loading: boolean;
   error: Error | null;
   reload: () => Promise<void>;
@@ -144,6 +155,40 @@ export function useWeekPlan(params: {
           await client.invalidateQueries({ queryKey: [...courseKey(params), "roadmap"] });
         }
       }
+      /**
+       * A week cut from an older full plan is re-cut to the plan as it is now.
+       *
+       * The full plan can move under a saved week (a new exam date, new topic
+       * weights, a pause picked up), and the week kept its old points until
+       * Monday. The check costs nothing while the two agree: it reads the
+       * roadmap the catch-up top-up below fetches anyway. The re-cut is the
+       * usual merge, so anything ticked, started, carried or added by hand
+       * stays. Marks moving is no reason to re-cut; that stays "Check for a
+       * better week". A re-cut is tried once per drift this session, and a
+       * failed one leaves the week as it was rather than taking it down. The
+       * nightly check does the same for students who don't log in
+       * (planHeal.server).
+       */
+      if (saved && isCurrent && (await getSessionUserId()) === studentId) {
+        try {
+          const roadmap = await client.fetchQuery(roadmapQuery(client, params));
+          signal.throwIfAborted();
+          const drift = await ProgramDAL.weekBehindPlan({ studentId, weekStart, saved, roadmap });
+          const key = drift && JSON.stringify([studentId, subject, weekStart, drift]);
+          if (key && !healTried.has(key)) {
+            healTried.add(key);
+            const projected = await client.fetchQuery(roadmapQuery(client, params, true));
+            signal.throwIfAborted();
+            if (await ProgramDAL.refreshWeek({ ...params, roadmap: projected })) {
+              saved = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
+              await client.invalidateQueries({ queryKey: [...courseKey(params), "roadmap"] });
+            }
+          }
+        } catch (e) {
+          if (signal.aborted) throw e;
+          console.warn("[planner] couldn't re-cut this week to the full plan", e);
+        }
+      }
       if (saved && isCurrent && (await getSessionUserId()) === studentId) {
         const roadmap = await client.fetchQuery(roadmapQuery(client, params));
         signal.throwIfAborted();
@@ -198,6 +243,13 @@ export function useWeekPlan(params: {
     enabled: !!studentId && params.enabled !== false,
   });
   const onBreak = breakCovering(breaks.data ?? [], weekStart);
+  // Only a week gone by needs its stops: it is the one that would otherwise
+  // read "No plan was set" through a pause.
+  const past = weekStart < currentWeekKey();
+  const pauses = useQuery({
+    ...subjectPauseHistoryQuery(studentId, subject),
+    enabled: !!studentId && params.enabled !== false && past,
+  });
   const road = useQuery({
     ...roadmapQuery(client, params),
     // `enabled` binds the roadmap too: without it, a panel with no course to
@@ -252,13 +304,26 @@ export function useWeekPlan(params: {
     roadmap: params.roadmap !== undefined ? params.roadmap : (road.data ?? null),
     pause: pause.data ?? null,
     onBreak,
+    pastGap:
+      past && week.data !== undefined
+        ? pastWeekGap({
+            weekStart,
+            plan: week.data?.plan ?? null,
+            points,
+            withheld,
+            course: { board, level },
+            onBreak,
+            pauses: pauses.data ?? [],
+          })
+        : null,
     loading:
       week.isLoading ||
       activity.isLoading ||
       coverage.isLoading ||
       road.isLoading ||
       pause.isLoading ||
-      breaks.isLoading,
+      breaks.isLoading ||
+      pauses.isLoading,
     error: week.error ?? activity.error ?? coverage.error ?? road.error,
     reload,
     setPointDone: async (id, value) => {

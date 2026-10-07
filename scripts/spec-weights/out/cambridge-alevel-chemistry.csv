@@ -1,0 +1,355 @@
+code,title,weight,topic
+CAIE 1.1.1,"Atoms as mostly empty space around a small, dense nucleus",1.51,Physical chemistry
+CAIE 1.1.2,"Relative charges and masses of protons, neutrons and electrons",1.2,Physical chemistry
+CAIE 1.1.3,Atomic (proton) number and mass (nucleon) number,1.4,Physical chemistry
+CAIE 1.1.4,Distribution of mass and charge within an atom,1.3,Physical chemistry
+CAIE 1.1.5,"Beams of protons, neutrons and electrons in an electric field",1.3,Physical chemistry
+CAIE 1.1.6,"Numbers of protons, neutrons and electrons in atoms and ions",1.4,Physical chemistry
+CAIE 1.1.7,Trends in atomic and ionic radius across a period and down a group,1,Physical chemistry
+CAIE 1.2.1,Definition of an isotope,1.4,Physical chemistry
+CAIE 1.2.2,Isotope notation using mass number and proton number,1.4,Physical chemistry
+CAIE 1.2.3,Why isotopes have the same chemical properties,1,Physical chemistry
+CAIE 1.2.4,Why isotopes have different physical properties (mass and density),1,Physical chemistry
+CAIE 1.3.1,"Shells, sub-shells, orbitals, principal quantum number and ground state",2.06,Physical chemistry
+CAIE 1.3.2,"Orbitals and electron capacity of s, p and d sub-shells",1.3,Physical chemistry
+CAIE 1.3.3,"Energy order of sub-shells in the first three shells, 4s and 4p",1.3,Physical chemistry
+CAIE 1.3.4,"Electronic configurations by shell, sub-shell and orbital",1.3,Physical chemistry
+CAIE 1.3.5,Explaining electronic configurations: energy and inter-electron repulsion,1.7,Physical chemistry
+CAIE 1.3.6,Electronic configuration of atoms and ions (full and shorthand),1.62,Physical chemistry
+CAIE 1.3.7,Electrons in boxes notation,1.4,Physical chemistry
+CAIE 1.3.8,Shapes of s and p orbitals,1.3,Physical chemistry
+CAIE 1.3.9,Free radical as a species with unpaired electrons,1.3,Physical chemistry
+CAIE 1.4.1,First ionisation energy,1.4,Physical chemistry
+CAIE 1.4.2,"Equations for first, second and subsequent ionisation energies",1.4,Physical chemistry
+CAIE 1.4.3,Trends in ionisation energy across a period and down a group,1.2,Physical chemistry
+CAIE 1.4.4,Variation in successive ionisation energies of an element,1.2,Physical chemistry
+CAIE 1.4.5,Ionisation energy as attraction between nucleus and outer electron,1.4,Physical chemistry
+CAIE 1.4.6,"Factors influencing ionisation energy, including spin-pair repulsion",1.7,Physical chemistry
+CAIE 1.4.7,Electronic configuration from successive ionisation energy data,1.4,Physical chemistry
+CAIE 1.4.8,Position in the Periodic Table from successive ionisation energy data,1.4,Physical chemistry
+CAIE 2.1.1,Unified atomic mass unit,1.4,Physical chemistry
+CAIE 2.1.2,"Relative atomic, isotopic, molecular and formula mass",1.47,Physical chemistry
+CAIE 2.2.1,The mole and the Avogadro constant,1.4,Physical chemistry
+CAIE 2.3.1,Formulas of ionic compounds and common ions,2.46,Physical chemistry
+CAIE 2.3.2,"Balanced equations, ionic equations and state symbols",1.84,Physical chemistry
+CAIE 2.3.3,Empirical and molecular formulas,1.4,Physical chemistry
+CAIE 2.3.4,"Anhydrous, hydrated and water of crystallisation",1.4,Physical chemistry
+CAIE 2.3.5,Calculating empirical and molecular formulas,1.8,Physical chemistry
+CAIE 2.4.1,"Mole calculations: masses, gas volumes, solutions, limiting reagent",4.1,Physical chemistry
+CAIE 3.1.1,Definition of electronegativity,1.4,Physical chemistry
+CAIE 3.1.2,Factors influencing electronegativity,1.7,Physical chemistry
+CAIE 3.1.3,Trends in electronegativity across a period and down a group,1,Physical chemistry
+CAIE 3.1.4,Predicting ionic or covalent bonding from Pauling electronegativity,1.77,Physical chemistry
+CAIE 3.2.1,Definition of ionic bonding,1.4,Physical chemistry
+CAIE 3.2.2,"Ionic bonding in sodium chloride, magnesium oxide and calcium fluoride",1.3,Physical chemistry
+CAIE 3.3.1,Definition of metallic bonding,1.4,Physical chemistry
+CAIE 3.4.1,"Covalent bonding, expanded octets and coordinate (dative covalent) bonding",5.86,Physical chemistry
+CAIE 3.4.2,"Orbital overlap giving σ and π bonds, and sp, sp² and sp³ hybridisation",3.58,Physical chemistry
+CAIE 3.4.3,"Bond energy and bond length, and the reactivity of covalent molecules",2.92,Physical chemistry
+CAIE 3.5.1,Shapes and bond angles of molecules using VSEPR theory,3.12,Physical chemistry
+CAIE 3.5.2,Predicting shapes and bond angles of analogous molecules and ions,1.9,Physical chemistry
+CAIE 3.6.1,Hydrogen bonding and the anomalous properties of water and ice,3.18,Physical chemistry
+CAIE 3.6.2,Bond polarity and dipole moments from electronegativity,1.5,Physical chemistry
+CAIE 3.6.3,"Van der Waals’ forces: id-id and pd-pd, including hydrogen bonding",3.96,Physical chemistry
+CAIE 3.6.4,Bond strength compared with intermolecular forces,1,Physical chemistry
+CAIE 3.7.1,"Dot-and-cross diagrams for ionic, covalent and coordinate bonding",1.86,Physical chemistry
+CAIE 4.1.1,Origin of gas pressure from molecular collisions,1.7,Physical chemistry
+CAIE 4.1.2,"Ideal gas assumptions: zero particle volume, no intermolecular forces",1.4,Physical chemistry
+CAIE 4.1.3,Ideal gas equation pV = nRT and the determination of Mr,1,Physical chemistry
+CAIE 4.2.1,"Giant ionic, simple molecular, giant molecular and giant metallic lattices",2.62,Physical chemistry
+CAIE 4.2.2,Effect of structure and bonding on physical properties,1.37,Physical chemistry
+CAIE 4.2.3,Deducing structure and bonding type from given information,1.4,Physical chemistry
+CAIE 5.1.1,Exothermic and endothermic enthalpy changes,1.4,Physical chemistry
+CAIE 5.1.2,Reaction pathway diagrams: enthalpy change and activation energy,1.4,Physical chemistry
+CAIE 5.1.3,"Standard conditions and enthalpy changes ΔHr, ΔHf, ΔHc and ΔHneut",2.11,Physical chemistry
+CAIE 5.1.4,Energy transfers from bond breaking and bond making,1.4,Physical chemistry
+CAIE 5.1.5,Calculating ΔHr from bond energies,1.5,Physical chemistry
+CAIE 5.1.6,Exact and average bond energies,1.4,Physical chemistry
+CAIE 5.1.7,Enthalpy changes from experiments: q = mcΔT and ΔH = –mcΔT/n,1.8,Physical chemistry
+CAIE 5.2.1,Hess’s law and simple energy cycles,1.7,Physical chemistry
+CAIE 5.2.2,"Energy cycle calculations, including bond energy data",1.88,Physical chemistry
+CAIE 6.1.1,Calculating oxidation numbers,1.8,Physical chemistry
+CAIE 6.1.2,Balancing equations using changes in oxidation number,1.5,Physical chemistry
+CAIE 6.1.3,"Redox, oxidation, reduction and disproportionation",1.7,Physical chemistry
+CAIE 6.1.4,Oxidising agents and reducing agents,1.7,Physical chemistry
+CAIE 6.1.5,Roman numerals for oxidation numbers,1.5,Physical chemistry
+CAIE 7.1.1,"Reversible reactions, dynamic equilibrium and closed systems",2.66,Physical chemistry
+CAIE 7.1.2,Le Chatelier’s principle,1.4,Physical chemistry
+CAIE 7.1.3,Applying Le Chatelier’s principle to changes at equilibrium,1.57,Physical chemistry
+CAIE 7.1.4,"Equilibrium constant expressions in terms of concentration, Kc",1.4,Physical chemistry
+CAIE 7.1.5,Mole fraction and partial pressure,1.5,Physical chemistry
+CAIE 7.1.6,"Equilibrium constant expressions in terms of partial pressure, Kp",1.4,Physical chemistry
+CAIE 7.1.7,Kc and Kp calculations,1.5,Physical chemistry
+CAIE 7.1.8,Calculating quantities present at equilibrium,1.8,Physical chemistry
+CAIE 7.1.9,Which changes affect the value of the equilibrium constant,1,Physical chemistry
+CAIE 7.1.10,Haber and Contact process conditions and Le Chatelier’s principle,1.54,Physical chemistry
+CAIE 7.2.1,Names and formulas of common acids,1,Physical chemistry
+CAIE 7.2.2,Names and formulas of common alkalis,1,Physical chemistry
+CAIE 7.2.3,Brønsted–Lowry theory of acids and bases,1.3,Physical chemistry
+CAIE 7.2.4,Strong and weak acids and bases: full and partial dissociation,1.3,Physical chemistry
+CAIE 7.2.5,"The pH of water, acidic solutions and alkaline solutions",1.4,Physical chemistry
+CAIE 7.2.6,"Behaviour of strong and weak acids: reactivity, pH and conductivity",1.88,Physical chemistry
+CAIE 7.2.7,Neutralisation: H⁺(aq) and OH⁻(aq) forming H₂O(l),1.4,Physical chemistry
+CAIE 7.2.8,Salt formation in neutralisation reactions,1.4,Physical chemistry
+CAIE 7.2.9,Sketching pH titration curves for strong and weak acids and alkalis,1.4,Physical chemistry
+CAIE 7.2.10,Selecting indicators for acid-alkali titrations,1.4,Physical chemistry
+CAIE 8.1.1,"Rate of reaction, frequency of collisions and effective collisions",1.7,Physical chemistry
+CAIE 8.1.2,Effect of concentration and pressure on rate of reaction,1.7,Physical chemistry
+CAIE 8.1.3,Calculating rate of reaction from experimental data,1.5,Physical chemistry
+CAIE 8.2.1,"Definition of activation energy, EA",1.4,Physical chemistry
+CAIE 8.2.2,Boltzmann distribution and the significance of activation energy,1.4,Physical chemistry
+CAIE 8.2.3,Effect of temperature on rate: Boltzmann distribution and collisions,1.72,Physical chemistry
+CAIE 8.3.1,"Catalysts: lower activation energy, Boltzmann distribution, pathway diagrams",3.2,Physical chemistry
+CAIE 9.1.1,"Period 3 trends in atomic radius, ionic radius, melting point, conductivity",1.3,Inorganic chemistry
+CAIE 9.1.2,Period 3 melting point and conductivity explained by structure and bonding,1.7,Inorganic chemistry
+CAIE 9.2.1,"Reactions of Period 3 elements with oxygen, chlorine and water",1.48,Inorganic chemistry
+CAIE 9.2.2,Oxidation numbers of Period 3 oxides and chlorides and valence electrons,1.24,Inorganic chemistry
+CAIE 9.2.3,Reactions of Period 3 oxides with water and the pH of the solutions,1.41,Inorganic chemistry
+CAIE 9.2.4,Acid/base and amphoteric behaviour of Period 3 oxides and hydroxides,1.63,Inorganic chemistry
+CAIE 9.2.5,Reactions of Period 3 chlorides with water and the pH of the solutions,1.32,Inorganic chemistry
+CAIE 9.2.6,Explaining oxide and chloride trends by bonding and electronegativity,1.7,Inorganic chemistry
+CAIE 9.2.7,Bonding type in chlorides and oxides from their properties,1.4,Inorganic chemistry
+CAIE 9.3.1,Predicting properties of an element in a group from periodicity,1.9,Inorganic chemistry
+CAIE 9.3.2,Deducing the identity and position of unknown elements,1.4,Inorganic chemistry
+CAIE 10.1.1,"Reactions of Group 2 elements with oxygen, water and dilute acids",1.3,Inorganic chemistry
+CAIE 10.1.2,"Reactions of Group 2 oxides, hydroxides and carbonates with water and acids",1.3,Inorganic chemistry
+CAIE 10.1.3,Thermal decomposition of Group 2 nitrates and carbonates,1.3,Inorganic chemistry
+CAIE 10.1.4,Predicting from trends in Group 2 elements and compounds,1.41,Inorganic chemistry
+CAIE 10.1.5,Solubility trends of Group 2 hydroxides and sulfates,1,Inorganic chemistry
+CAIE 11.1.1,"Colours and volatility trend of chlorine, bromine and iodine",1.3,Inorganic chemistry
+CAIE 11.1.2,Trend in bond strength of the halogen molecules,1.3,Inorganic chemistry
+CAIE 11.1.3,Halogen volatility and instantaneous dipole–induced dipole forces,1.6,Inorganic chemistry
+CAIE 11.2.1,Relative reactivity of the halogens as oxidising agents,1.3,Inorganic chemistry
+CAIE 11.2.2,Reactions of the halogens with hydrogen and their relative reactivity,1.3,Inorganic chemistry
+CAIE 11.2.3,Thermal stability of the hydrogen halides and bond strength,1.3,Inorganic chemistry
+CAIE 11.3.1,Relative reactivity of halide ions as reducing agents,1.3,Inorganic chemistry
+CAIE 11.3.2,"Halide ions with silver ions then ammonia, and with concentrated H₂SO₄",2.01,Inorganic chemistry
+CAIE 11.4.1,Chlorine with cold and hot aqueous sodium hydroxide: disproportionation,1.37,Inorganic chemistry
+CAIE 11.4.2,Chlorine in water purification: the active species HOCl and ClO⁻,1.77,Inorganic chemistry
+CAIE 12.1.1,Lack of reactivity of nitrogen,1.7,Inorganic chemistry
+CAIE 12.1.2,"Ammonia as a base, the ammonium ion, and displacing ammonia from its salts",2.25,Inorganic chemistry
+CAIE 12.1.3,Oxides of nitrogen: occurrence and catalytic removal from exhaust gases,1,Inorganic chemistry
+CAIE 12.1.4,"Oxides of nitrogen, PAN and photochemical smog",1.42,Inorganic chemistry
+CAIE 12.1.5,Role of NO and NO₂ in the formation of acid rain,1.34,Inorganic chemistry
+CAIE 13.1.1,Definition of a hydrocarbon,1.4,Organic chemistry
+CAIE 13.1.2,Alkanes as simple hydrocarbons with no functional group,1.4,Organic chemistry
+CAIE 13.1.3,Functional groups dictate physical and chemical properties,1.4,Organic chemistry
+CAIE 13.1.4,"General, structural, displayed and skeletal formulas",1.6,Organic chemistry
+CAIE 13.1.5,Systematic nomenclature of simple aliphatic organic molecules,1.71,Organic chemistry
+CAIE 13.1.6,Deducing molecular and empirical formulas from structural formulas,1.4,Organic chemistry
+CAIE 13.2.1,Terminology for types of organic compounds and reactions,4.43,Organic chemistry
+CAIE 13.2.2,Terminology for types of organic mechanisms,2.92,Organic chemistry
+CAIE 13.3.1,"Straight-chained, branched and cyclic organic molecules",1.3,Organic chemistry
+CAIE 13.3.2,"Shape and bond angles around sp, sp² and sp³ hybridised atoms",1.3,Organic chemistry
+CAIE 13.3.3,"Arrangement of σ and π bonds around sp, sp² and sp³ hybridised atoms",1.3,Organic chemistry
+CAIE 13.3.4,"The term planar, for example in ethene",1.4,Organic chemistry
+CAIE 13.4.1,"Structural isomerism: chain, positional and functional group",1.3,Organic chemistry
+CAIE 13.4.2,Stereoisomerism: geometrical (cis/trans) and optical isomerism,1.3,Organic chemistry
+CAIE 13.4.3,Cis/trans isomerism in alkenes and restricted rotation about π bonds,1.3,Organic chemistry
+CAIE 13.4.4,Chiral centres and optical isomers (enantiomers),2.14,Organic chemistry
+CAIE 13.4.5,Identifying chiral centres and cis/trans isomerism in given molecules,1.2,Organic chemistry
+CAIE 13.4.6,Deducing possible isomers from a molecular formula,1.4,Organic chemistry
+CAIE 14.1.1,Producing alkanes: hydrogenation of alkenes and cracking,2.07,Organic chemistry
+CAIE 14.1.2,Combustion of alkanes and free-radical substitution by Cl₂ or Br₂,1.9,Organic chemistry
+CAIE 14.1.3,"Free-radical substitution mechanism: initiation, propagation, termination",1.3,Organic chemistry
+CAIE 14.1.4,Cracking heavier crude oil fractions into more useful alkanes and alkenes,1.4,Organic chemistry
+CAIE 14.1.5,General unreactivity of alkanes: C–H bond strength and lack of polarity,1.4,Organic chemistry
+CAIE 14.1.6,"Environmental effects of CO, oxides of nitrogen and unburnt hydrocarbons",1.19,Organic chemistry
+CAIE 14.2.1,"Producing alkenes: elimination, dehydration of alcohols and cracking",2.34,Organic chemistry
+CAIE 14.2.2,"Reactions of alkenes: addition, oxidation by KMnO₄ and polymerisation",5.1,Organic chemistry
+CAIE 14.2.3,Aqueous bromine test for a C=C bond,1.3,Organic chemistry
+CAIE 14.2.4,Electrophilic addition mechanism: bromine/ethene and hydrogen bromide/propene,1.3,Organic chemistry
+CAIE 14.2.5,"Inductive effects, carbocation stability and Markovnikov addition",1.41,Organic chemistry
+CAIE 15.1.1,"Producing halogenoalkanes from alkanes, alkenes and alcohols",3.03,Organic chemistry
+CAIE 15.1.2,"Classifying halogenoalkanes as primary, secondary or tertiary",1.4,Organic chemistry
+CAIE 15.1.3,"Nucleophilic substitution of halogenoalkanes: NaOH, KCN, NH₃, silver nitrate",3.07,Organic chemistry
+CAIE 15.1.4,Elimination from halogenoalkanes with NaOH in ethanol,1.3,Organic chemistry
+CAIE 15.1.5,SN1 and SN2 mechanisms of nucleophilic substitution,1.3,Organic chemistry
+CAIE 15.1.6,"Which halogenoalkanes react by SN1, SN2 or a mixture of the two",1.19,Organic chemistry
+CAIE 15.1.7,Different reactivities of halogenoalkanes and C–X bond strength,1.41,Organic chemistry
+CAIE 16.1.1,"Producing alcohols: hydration, reduction, substitution and ester hydrolysis",3.86,Organic chemistry
+CAIE 16.1.2,"Reactions of alcohols: combustion, substitution, oxidation, dehydration, esters",4.66,Organic chemistry
+CAIE 16.1.3,Classifying alcohols and distinguishing reactions,2.06,Organic chemistry
+CAIE 16.1.4,Tri-iodomethane test for a CH₃CH(OH)– group in an alcohol,1.47,Organic chemistry
+CAIE 16.1.5,Acidity of alcohols compared with water,1.7,Organic chemistry
+CAIE 17.1.1,Producing aldehydes and ketones by oxidising alcohols,2.05,Organic chemistry
+CAIE 17.1.2,Reducing aldehydes and ketones to alcohols; HCN to form hydroxynitriles,2.03,Organic chemistry
+CAIE 17.1.3,Nucleophilic addition mechanism of HCN with aldehydes and ketones,1.3,Organic chemistry
+CAIE 17.1.4,"Using 2,4-DNPH reagent to detect carbonyl compounds",1.3,Organic chemistry
+CAIE 17.1.5,Distinguishing aldehydes from ketones with Fehling’s and Tollens’ reagents,1.4,Organic chemistry
+CAIE 17.1.6,Tri-iodomethane test for a CH₃CO– group in an aldehyde or ketone,1.51,Organic chemistry
+CAIE 18.1.1,"Producing carboxylic acids: oxidation, nitrile hydrolysis and ester hydrolysis",2.38,Organic chemistry
+CAIE 18.1.2,"Carboxylic acid reactions: metals, alkalis, carbonates, esterification, LiAlH₄",3.57,Organic chemistry
+CAIE 18.2.1,Producing esters by condensation of an alcohol and a carboxylic acid,1.39,Organic chemistry
+CAIE 18.2.2,Hydrolysis of esters by dilute acid and dilute alkali,1.3,Organic chemistry
+CAIE 19.1.1,Producing amines from halogenoalkanes and ammonia,1.45,Organic chemistry
+CAIE 19.2.1,Producing nitriles from halogenoalkanes and KCN,1.32,Organic chemistry
+CAIE 19.2.2,Producing hydroxynitriles from aldehydes and ketones,1.32,Organic chemistry
+CAIE 19.2.3,Hydrolysis of nitriles to carboxylic acids,1.3,Organic chemistry
+CAIE 20.1.1,"Addition polymerisation: poly(ethene) and poly(chloroethene), PVC",1.3,Organic chemistry
+CAIE 20.1.2,Repeat unit of an addition polymer from its monomer,1.4,Organic chemistry
+CAIE 20.1.3,Identifying monomers from a section of an addition polymer,1.2,Organic chemistry
+CAIE 20.1.4,Disposal of poly(alkene)s: non-biodegradability and harmful combustion products,1.1,Organic chemistry
+CAIE 21.1.1,Identifying functional groups and predicting reactions in a molecule,1.84,Organic chemistry
+CAIE 21.1.2,Devising multi-step synthetic routes,1.4,Organic chemistry
+CAIE 21.1.3,"Analysing a synthetic route: reaction types, reagents and by-products",2,Organic chemistry
+CAIE 22.1.1,Identifying functional groups from an infrared spectrum,2,Analysis
+CAIE 22.2.1,Analysing mass spectra: m/e values and isotopic abundances,2,Analysis
+CAIE 22.2.2,Relative atomic mass from isotopic abundances or a mass spectrum,1.8,Analysis
+CAIE 22.2.3,Molecular mass from the molecular ion peak,1.4,Analysis
+CAIE 22.2.4,Identifying molecules formed by simple fragmentation,1.4,Analysis
+CAIE 22.2.5,Number of carbon atoms from the [M + 1]⁺ peak,1.64,Analysis
+CAIE 22.2.6,Bromine and chlorine atoms from the [M + 2]⁺ peak,1.4,Analysis
+CAIE 23.1.1,Enthalpy change of atomisation and lattice energy,1.84,Physical chemistry (A Level)
+CAIE 23.1.2,First electron affinity: factors and Group 16 and 17 trends,2.35,Physical chemistry (A Level)
+CAIE 23.1.3,Born–Haber cycles for ionic solids,1.4,Physical chemistry (A Level)
+CAIE 23.1.4,Calculations involving Born–Haber cycles,1.4,Physical chemistry (A Level)
+CAIE 23.1.5,Effect of ionic charge and radius on lattice energy,1.7,Physical chemistry (A Level)
+CAIE 23.2.1,Enthalpy change of hydration and of solution,1.4,Physical chemistry (A Level)
+CAIE 23.2.2,"Energy cycle linking solution, lattice energy and hydration",1.4,Physical chemistry (A Level)
+CAIE 23.2.3,Calculations using the solution and hydration energy cycles,1.4,Physical chemistry (A Level)
+CAIE 23.2.4,Effect of ionic charge and radius on enthalpy of hydration,1.7,Physical chemistry (A Level)
+CAIE 23.3.1,Entropy as the number of possible arrangements,1.4,Physical chemistry (A Level)
+CAIE 23.3.2,Predicting the sign of entropy changes,3.03,Physical chemistry (A Level)
+CAIE 23.3.3,Entropy change for a reaction from standard entropies,1.98,Physical chemistry (A Level)
+CAIE 23.4.1,The Gibbs equation,1,Physical chemistry (A Level)
+CAIE 23.4.2,Calculations using the Gibbs equation,1.4,Physical chemistry (A Level)
+CAIE 23.4.3,Feasibility from the sign of ΔG,1,Physical chemistry (A Level)
+CAIE 23.4.4,Effect of temperature on feasibility,1.9,Physical chemistry (A Level)
+CAIE 24.1.1,Predicting substances liberated during electrolysis,1.9,Physical chemistry (A Level)
+CAIE 24.1.2,"Faraday constant, Avogadro constant and F = Le",1,Physical chemistry (A Level)
+CAIE 24.1.3,Charge passed and mass or volume liberated in electrolysis,2.24,Physical chemistry (A Level)
+CAIE 24.1.4,Determining the Avogadro constant by electrolysis,1.3,Physical chemistry (A Level)
+CAIE 24.2.1,Standard electrode potential and standard cell potential,1.84,Physical chemistry (A Level)
+CAIE 24.2.2,The standard hydrogen electrode,1.3,Physical chemistry (A Level)
+CAIE 24.2.3,Measuring standard electrode potentials,1.9,Physical chemistry (A Level)
+CAIE 24.2.4,Calculating a standard cell potential,1.8,Physical chemistry (A Level)
+CAIE 24.2.5,"Using cell potentials: polarity, electron flow and feasibility",2.16,Physical chemistry (A Level)
+CAIE 24.2.6,Relative oxidising and reducing power from Eᶿ values,1.4,Physical chemistry (A Level)
+CAIE 24.2.7,Redox equations from half-equations,1.4,Physical chemistry (A Level)
+CAIE 24.2.8,How electrode potential varies with ion concentration,1.9,Physical chemistry (A Level)
+CAIE 24.2.9,Using the Nernst equation,1.92,Physical chemistry (A Level)
+CAIE 24.2.10,The equation ΔGᶿ = –nEᶿcell F,1.4,Physical chemistry (A Level)
+CAIE 25.1.1,Conjugate acid and conjugate base,1.4,Physical chemistry (A Level)
+CAIE 25.1.2,Conjugate acid–base pairs,1.4,Physical chemistry (A Level)
+CAIE 25.1.3,"Defining pH, Ka, pKa and Kw",1.44,Physical chemistry (A Level)
+CAIE 25.1.4,"Calculating [H⁺(aq)] and pH of strong acids, alkalis and weak acids",2.46,Physical chemistry (A Level)
+CAIE 25.1.5,"Buffer solutions: definition, making, action and uses",2.75,Physical chemistry (A Level)
+CAIE 25.1.6,Calculating concentrations and pH of buffer solutions,1.8,Physical chemistry (A Level)
+CAIE 25.1.7,"Solubility product, Ksp",1.4,Physical chemistry (A Level)
+CAIE 25.1.8,Writing an expression for Ksp,1.4,Physical chemistry (A Level)
+CAIE 25.1.9,Calculating Ksp from concentrations and vice versa,1.8,Physical chemistry (A Level)
+CAIE 25.1.10,Common ion effect and Ksp calculations,2.06,Physical chemistry (A Level)
+CAIE 25.2.1,"Partition coefficient, Kpc",1,Physical chemistry (A Level)
+CAIE 25.2.2,Calculating and using a partition coefficient,1.8,Physical chemistry (A Level)
+CAIE 25.2.3,Factors affecting the partition coefficient,1.4,Physical chemistry (A Level)
+CAIE 26.1.1,"Rate equation, order, rate constant, half-life and intermediate",1.7,Physical chemistry (A Level)
+CAIE 26.1.2,Rate equations and orders from experimental data,3.52,Physical chemistry (A Level)
+CAIE 26.1.3,Half-life of a first-order reaction,1.84,Physical chemistry (A Level)
+CAIE 26.1.4,Calculating a rate constant,2.37,Physical chemistry (A Level)
+CAIE 26.1.5,"Multi-step reactions: mechanism, rate equation and rate-determining step",3.74,Physical chemistry (A Level)
+CAIE 26.1.6,Effect of temperature on the rate constant,1.3,Physical chemistry (A Level)
+CAIE 26.2.1,Homogeneous and heterogeneous catalysts,1.7,Physical chemistry (A Level)
+CAIE 26.2.2,Mode of action of heterogeneous catalysts,2.25,Physical chemistry (A Level)
+CAIE 26.2.3,Mode of action of homogeneous catalysts,2.14,Physical chemistry (A Level)
+CAIE 27.1.1,Thermal stability of Group 2 nitrates and carbonates,1.37,Inorganic chemistry (A Level)
+CAIE 27.1.2,Solubility and enthalpy of solution of hydroxides and sulfates,1.52,Inorganic chemistry (A Level)
+CAIE 28.1.1,Definition of a transition element,1.4,Inorganic chemistry (A Level)
+CAIE 28.1.2,Shapes of 3dxy and 3dz² orbitals,1.4,Inorganic chemistry (A Level)
+CAIE 28.1.3,Properties of transition elements,2.37,Inorganic chemistry (A Level)
+CAIE 28.1.4,Variable oxidation states: 3d and 4s sub-shells,1.7,Inorganic chemistry (A Level)
+CAIE 28.1.5,Why transition elements behave as catalysts,1.86,Inorganic chemistry (A Level)
+CAIE 28.1.6,Why transition elements form complex ions,1.7,Inorganic chemistry (A Level)
+CAIE 28.2.1,Reactions of transition elements with ligands to form complexes,1.43,Inorganic chemistry (A Level)
+CAIE 28.2.2,Definition of a ligand,1.4,Inorganic chemistry (A Level)
+CAIE 28.2.3,"Monodentate, bidentate and polydentate ligands",2.35,Inorganic chemistry (A Level)
+CAIE 28.2.4,Definition of a complex,1.4,Inorganic chemistry (A Level)
+CAIE 28.2.5,Geometry of complexes: shapes and bond angles,1.3,Inorganic chemistry (A Level)
+CAIE 28.2.6,Coordination number and the formula of a complex ion,1.66,Inorganic chemistry (A Level)
+CAIE 28.2.7,Ligand exchange in copper(II) and cobalt(II) complexes,1.72,Inorganic chemistry (A Level)
+CAIE 28.2.8,Redox feasibility for transition elements from Eᶿ values,1.9,Inorganic chemistry (A Level)
+CAIE 28.2.9,"Reactions and calculations: MnO₄⁻/C₂O₄²⁻, MnO₄⁻/Fe²⁺ and Cu²⁺/I⁻",2.05,Inorganic chemistry (A Level)
+CAIE 28.2.10,Calculations for other redox systems,1.4,Inorganic chemistry (A Level)
+CAIE 28.3.1,Degenerate and non-degenerate d orbitals,1.4,Inorganic chemistry (A Level)
+CAIE 28.3.2,Splitting of d orbitals in octahedral and tetrahedral complexes,2.12,Inorganic chemistry (A Level)
+CAIE 28.3.3,Why transition element compounds are coloured,1.7,Inorganic chemistry (A Level)
+CAIE 28.3.4,"Effect of ligands on ΔE, light absorbed and colour observed",1.3,Inorganic chemistry (A Level)
+CAIE 28.3.5,Ligand exchange affecting colour: copper(II) and cobalt(II),1.57,Inorganic chemistry (A Level)
+CAIE 28.4.1,Geometrical and optical isomerism in complexes,2.03,Inorganic chemistry (A Level)
+CAIE 28.4.2,Overall polarity of complexes,1.62,Inorganic chemistry (A Level)
+CAIE 28.5.1,"Stability constant, Kstab",1.47,Inorganic chemistry (A Level)
+CAIE 28.5.2,Writing a Kstab expression,1.4,Inorganic chemistry (A Level)
+CAIE 28.5.3,Calculations using Kstab expressions,1.5,Inorganic chemistry (A Level)
+CAIE 28.5.4,Ligand exchange and Kstab values,1.32,Inorganic chemistry (A Level)
+CAIE 29.1.1,Functional groups dictate physical and chemical properties,1.4,Organic chemistry (A Level)
+CAIE 29.1.2,"General, structural, displayed and skeletal formulas",1.6,Organic chemistry (A Level)
+CAIE 29.1.3,Systematic naming of simple aliphatic compounds,2,Organic chemistry (A Level)
+CAIE 29.1.4,Systematic naming of simple aromatic compounds,1.4,Organic chemistry (A Level)
+CAIE 29.2.1,Electrophilic substitution and addition–elimination,1.84,Organic chemistry (A Level)
+CAIE 29.3.1,"Shape of benzene: sp² hybridisation, σ bonds and delocalised π system",1.3,Organic chemistry (A Level)
+CAIE 29.4.1,Properties and biological activity of enantiomers,1.4,Organic chemistry (A Level)
+CAIE 29.4.2,Optically active and racemic mixture,1.4,Organic chemistry (A Level)
+CAIE 29.4.3,Effect of optical isomers on plane polarised light,1.3,Organic chemistry (A Level)
+CAIE 29.4.4,Chirality and the synthesis of drug molecules,3.43,Organic chemistry (A Level)
+CAIE 30.1.1,Reactions of benzene and methylbenzene,4.22,Organic chemistry (A Level)
+CAIE 30.1.2,Mechanism of electrophilic substitution in arenes,2.07,Organic chemistry (A Level)
+CAIE 30.1.3,Halogenation in the side-chain or the aromatic ring,1.9,Organic chemistry (A Level)
+CAIE 30.1.4,Directing effects of substituents in arenes,1.37,Organic chemistry (A Level)
+CAIE 31.1.1,Producing halogenoarenes from arenes,1.5,Organic chemistry (A Level)
+CAIE 31.1.2,Reactivity of halogenoalkanes compared with halogenoarenes,1.7,Organic chemistry (A Level)
+CAIE 32.1.1,Reaction of alcohols with acyl chlorides to form esters,1.3,Organic chemistry (A Level)
+CAIE 32.2.1,Producing phenol from phenylamine,1.7,Organic chemistry (A Level)
+CAIE 32.2.2,"Reactions of phenol: bases, Na, diazonium salts, nitration, bromination",3.44,Organic chemistry (A Level)
+CAIE 32.2.3,Acidity of phenol,1.7,Organic chemistry (A Level)
+CAIE 32.2.4,"Relative acidities of water, phenol and ethanol",1.3,Organic chemistry (A Level)
+CAIE 32.2.5,Nitration and bromination: phenol compared with benzene,1.7,Organic chemistry (A Level)
+CAIE 32.2.6,Directing effect of the hydroxyl group of a phenol,1.1,Organic chemistry (A Level)
+CAIE 32.2.7,Reactions of other phenolic compounds,1.7,Organic chemistry (A Level)
+CAIE 33.1.1,Producing benzoic acid from an alkylbenzene,1.34,Organic chemistry (A Level)
+CAIE 33.1.2,Carboxylic acids reacting to form acyl chlorides,1.3,Organic chemistry (A Level)
+CAIE 33.1.3,Further oxidation of methanoic and ethanedioic acids,2.07,Organic chemistry (A Level)
+CAIE 33.1.4,"Relative acidities of carboxylic acids, phenols and alcohols",1.3,Organic chemistry (A Level)
+CAIE 33.1.5,Acidities of chlorine-substituted carboxylic acids,1.3,Organic chemistry (A Level)
+CAIE 33.2.1,Producing esters from alcohols and acyl chlorides,1.36,Organic chemistry (A Level)
+CAIE 33.3.1,Producing acyl chlorides from carboxylic acids,1.32,Organic chemistry (A Level)
+CAIE 33.3.2,"Reactions of acyl chlorides with water, alcohols, phenol, ammonia and amines",3.62,Organic chemistry (A Level)
+CAIE 33.3.3,Addition–elimination mechanism of acyl chlorides,1.3,Organic chemistry (A Level)
+CAIE 33.3.4,"Ease of hydrolysis of acyl, alkyl and aryl chlorides",1.7,Organic chemistry (A Level)
+CAIE 34.1.1,Producing primary and secondary amines,2.67,Organic chemistry (A Level)
+CAIE 34.1.2,Ammonia or an amine reacting with an acyl chloride,1.3,Organic chemistry (A Level)
+CAIE 34.1.3,Basicity of aqueous solutions of amines,1.3,Organic chemistry (A Level)
+CAIE 34.2.1,Preparing phenylamine from benzene,1.3,Organic chemistry (A Level)
+CAIE 34.2.2,Phenylamine with Br₂(aq) and the diazonium salt route to phenol,2.12,Organic chemistry (A Level)
+CAIE 34.2.3,"Relative basicities of ammonia, ethylamine and phenylamine",1.3,Organic chemistry (A Level)
+CAIE 34.2.4,"Azo compounds, coupling and dyes",2.51,Organic chemistry (A Level)
+CAIE 34.3.1,Producing amides from acyl chlorides,1.81,Organic chemistry (A Level)
+CAIE 34.3.2,Hydrolysis and reduction of amides,1.81,Organic chemistry (A Level)
+CAIE 34.3.3,Why amides are much weaker bases than amines,1,Organic chemistry (A Level)
+CAIE 34.4.1,Acid/base properties of amino acids and zwitterions,1.3,Organic chemistry (A Level)
+CAIE 34.4.2,"Peptide bonds, dipeptides and tripeptides",1.3,Organic chemistry (A Level)
+CAIE 34.4.3,Electrophoresis of amino acids and dipeptides,1.62,Organic chemistry (A Level)
+CAIE 35.1.1,Formation of polyesters,1.74,Organic chemistry (A Level)
+CAIE 35.1.2,Formation of polyamides,2.09,Organic chemistry (A Level)
+CAIE 35.1.3,Repeat unit of a condensation polymer,1.4,Organic chemistry (A Level)
+CAIE 35.1.4,Identifying monomers in a condensation polymer,1.2,Organic chemistry (A Level)
+CAIE 35.2.1,Predicting the type of polymerisation from monomers,1.9,Organic chemistry (A Level)
+CAIE 35.2.2,Deducing the type of polymerisation from a polymer section,1.4,Organic chemistry (A Level)
+CAIE 35.3.1,Poly(alkenes) are chemically inert,1.1,Organic chemistry (A Level)
+CAIE 35.3.2,Polymers degraded by light,1.1,Organic chemistry (A Level)
+CAIE 35.3.3,Polyesters and polyamides: biodegradable by hydrolysis,1.1,Organic chemistry (A Level)
+CAIE 36.1.1,Functional groups in a molecule: identifying and predicting reactions,1.84,Organic chemistry (A Level)
+CAIE 36.1.2,Devising multi-step synthetic routes,1.4,Organic chemistry (A Level)
+CAIE 36.1.3,"Analysing a synthetic route: reaction types, reagents and by-products",2,Organic chemistry (A Level)
+CAIE 37.1.1,"Stationary phase, mobile phase, Rf value, solvent front and baseline",2.34,Analysis (A Level)
+CAIE 37.1.2,Interpreting Rf values,1.6,Analysis (A Level)
+CAIE 37.1.3,Explaining differences in Rf values,1.7,Analysis (A Level)
+CAIE 37.2.1,"Stationary phase, mobile phase and retention time",2,Analysis (A Level)
+CAIE 37.2.2,Interpreting gas/liquid chromatograms: percentage composition,1.6,Analysis (A Level)
+CAIE 37.2.3,Explaining retention times,1.7,Analysis (A Level)
+CAIE 37.3.1,Analysing a carbon-13 NMR spectrum,2.53,Analysis (A Level)
+CAIE 37.3.2,Number of peaks in a carbon-13 NMR spectrum,1.9,Analysis (A Level)
+CAIE 37.4.1,Analysing a proton (¹H) NMR spectrum,4.21,Analysis (A Level)
+CAIE 37.4.2,Predicting chemical shifts and splitting patterns,1.9,Analysis (A Level)
+CAIE 37.4.3,Tetramethylsilane (TMS) as the chemical shift standard,1.3,Analysis (A Level)
+CAIE 37.4.4,Deuterated solvents in proton NMR,1,Analysis (A Level)
+CAIE 37.4.5,Identifying O–H and N–H protons with D₂O,1.3,Analysis (A Level)

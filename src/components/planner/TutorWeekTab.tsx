@@ -12,6 +12,7 @@ import { type TutorPlannerState } from "./useTutorPlanner";
 import { WeekSwitcher } from "./WeekSwitcher";
 import { PausedWeek } from "./PausedWeek";
 import { BreakWeek } from "./BreakWeek";
+import { PastWeek } from "./PastWeek";
 
 const COUNTED: PointStatus[] = ["strong", "practised", "weak", "not_done"];
 
@@ -157,7 +158,11 @@ export function TutorWeekTab({ state }: { state: TutorPlannerState }) {
 
       <StatsStrip state={state} />
 
-      {rows.length === 0 ? (
+      {rows.length === 0 && !editable && state.week.pastGap ? (
+        // A week gone by that was empty on purpose: a break, a pause, or the
+        // course before a board or level change.
+        <PastWeek gap={state.week.pastGap} subject={active.subject} />
+      ) : rows.length === 0 ? (
         <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
           {editable
             ? `Nothing set or planned for ${weekLabel}.`
@@ -195,7 +200,9 @@ export function TutorWeekTab({ state }: { state: TutorPlannerState }) {
 
       <OverridesPanel state={state} />
 
-      <WithheldPlanPoints points={state.week.withheld} coverage={state.week.coverage} />
+      {state.week.pastGap?.kind !== "old-course" && (
+        <WithheldPlanPoints points={state.week.withheld} coverage={state.week.coverage} />
+      )}
 
       {editable && <AddPointsBox state={state} />}
 

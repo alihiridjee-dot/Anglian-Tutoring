@@ -2,6 +2,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { isBoard, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { examMondayFor } from "@/lib/planner/pacing";
 import { toDateKey } from "@/lib/planner/week";
+import { dbError } from "@/lib/platform/errors";
 
 /**
  * Profile setup — the steps between verifying an email and reaching payment.
@@ -161,12 +162,12 @@ export async function completeOnboarding(
     .from("student_enrolments")
     .select("subject", { count: "exact", head: true })
     .eq("student_id", userId);
-  if (countError) throw countError;
+  if (countError) throw dbError(countError);
   if (!count) throw new NoSubjectsError();
 
   const { error } = await db
     .from("profiles")
     .update({ onboarding_completed_at: new Date().toISOString() })
     .eq("id", userId);
-  if (error) throw error;
+  if (error) throw dbError(error);
 }
