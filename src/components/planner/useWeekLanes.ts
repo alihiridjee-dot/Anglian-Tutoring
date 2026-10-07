@@ -3,7 +3,7 @@ import { currentWeekKey } from "@/lib/planner/week";
 import { type PlanPoint, type WeeklyPlan } from "@/lib/planner/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { isTeachBand, type PacingBand } from "@/lib/planner/pacing";
-import { type PointCoverage, laneOf } from "@/lib/planner/coverage";
+import { type PointCoverage, laneOf, practiceComplete } from "@/lib/planner/coverage";
 import { type Activity } from "./useWeekPlan";
 
 /** Is this point core curriculum? See {@link laneOf} for what `ai` means. */
@@ -17,7 +17,7 @@ export type TopicGroup = { topicId: string; title: string; points: PlanPoint[] }
 /**
  * Sorts a saved week into the lanes "This week" shows: new learning, missed
  * work returning, revision, and anything the student added. Also works out how
- * much of the assigned practice is done and what to do next.
+ * much of the assigned practice is done.
  *
  * Derivation only: nothing here reads or writes.
  */
@@ -116,16 +116,9 @@ export function useWeekLanes({
     const a = activity.get(p.spec_point_id);
     return a?.hasHomework || a?.hasQuiz;
   });
-  const completed = assigned.filter((p) => {
-    const a = activity.get(p.spec_point_id);
-    const c = coverage.get(p.spec_point_id);
-    return (!a?.hasHomework || c?.homeworkDone) && (!a?.hasQuiz || c?.quizDone);
-  }).length;
-  const next = assigned.find((p) => {
-    const a = activity.get(p.spec_point_id);
-    const c = coverage.get(p.spec_point_id);
-    return (a?.hasHomework && !c?.homeworkDone) || (a?.hasQuiz && !c?.quizDone);
-  });
+  const completed = assigned.filter((p) =>
+    practiceComplete(activity.get(p.spec_point_id), coverage.get(p.spec_point_id)),
+  ).length;
 
   return {
     band,
@@ -140,6 +133,5 @@ export function useWeekLanes({
     upcomingCatchUp,
     assigned,
     completed,
-    next,
   };
 }

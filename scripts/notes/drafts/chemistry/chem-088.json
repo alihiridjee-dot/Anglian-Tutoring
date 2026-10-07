@@ -1,0 +1,322 @@
+{
+  "format": 1,
+  "concept_id": "chem-088",
+  "subject": "chemistry",
+  "title": "Tests for gases",
+  "key_idea": "Each common gas has its own test. Hydrogen burns with a squeaky pop. Oxygen relights a glowing splint. Carbon dioxide turns limewater milky. Chlorine bleaches damp litmus paper.",
+  "sections": [
+    {
+      "heading": "Tests for hydrogen and oxygen",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the two splint tests. They use different splints, so do not mix them up."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Burning (lit) splint",
+              "meaning": "A wooden splint with a flame on it."
+            },
+            {
+              "term": "Glowing splint",
+              "meaning": "A wooden splint that has been lit and blown out, so the end glows red."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Hydrogen**: hold a burning splint at the open end of a test tube of the gas.",
+            "Hydrogen burns rapidly with a squeaky **pop** sound.",
+            "**Oxygen**: put a glowing splint into a test tube of the gas.",
+            "The splint **relights** in oxygen."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": ["Hydrogen: burning splint, squeaky pop.", "Oxygen: glowing splint, relights."]
+        }
+      ]
+    },
+    {
+      "heading": "Tests for carbon dioxide and chlorine",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the two tests that use a solution or paper."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Limewater",
+              "meaning": "An aqueous solution of calcium hydroxide."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Carbon dioxide**: shake the gas with limewater, or bubble it through limewater.",
+            "The limewater turns **milky (cloudy)**.",
+            "**Chlorine**: put damp litmus paper into the gas.",
+            "The litmus paper is **bleached** and turns white."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carbon dioxide: limewater turns milky.",
+            "Chlorine: damp litmus paper is bleached white."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Choosing the right test",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section lets you check each gas against its test."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a gas to see the test and the positive result.",
+            "prompt": "Pick a gas",
+            "result_labels": ["Test", "Positive result"],
+            "options": [
+              {
+                "label": "Hydrogen, H₂",
+                "results": [
+                  "Burning splint at the open end of a test tube of the gas",
+                  "Burns rapidly with a **squeaky pop**"
+                ]
+              },
+              {
+                "label": "Oxygen, O₂",
+                "results": [
+                  "Glowing splint put into a test tube of the gas",
+                  "The splint **relights**"
+                ]
+              },
+              {
+                "label": "Carbon dioxide, CO₂",
+                "results": [
+                  "Bubble the gas through limewater",
+                  "Limewater turns **milky (cloudy)**"
+                ]
+              },
+              {
+                "label": "Chlorine, Cl₂",
+                "results": [
+                  "Put damp litmus paper into the gas",
+                  "Litmus paper is **bleached** and turns white"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Match the splint to the gas: burning for hydrogen, glowing for oxygen.",
+            "Always give the result with the test."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the test for hydrogen and give the result.",
+      "a": "Hold a burning (lit) splint at the open end of a test tube of the gas. The gas burns with a (squeaky) pop.",
+      "marks": 2
+    },
+    {
+      "q": "A gas turns limewater milky. Name the gas.",
+      "a": "Carbon dioxide. (Limewater turns milky or cloudy.)",
+      "marks": 1
+    },
+    {
+      "q": "Describe the test for chlorine and give the result.",
+      "a": "Put damp litmus paper into the gas. The litmus paper is bleached (turns white).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.8.2.1",
+        "AQA T 5.8.2.1",
+        "AQA 4.8.2.2",
+        "AQA T 5.8.2.2",
+        "AQA 4.8.2.3",
+        "AQA T 5.8.2.3",
+        "AQA 4.8.2.4",
+        "AQA T 5.8.2.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "36cc95e7-1b89-4083-9602-39878ac9cde0",
+        "source": "AQA jun 2021, Paper 2 (H), Q06.1",
+        "question": "Ammonia is produced when a mixture of nitrogen and hydrogen reacts.\n\nThe mixture of nitrogen and hydrogen must not contain carbon dioxide and oxygen.\n\nExplain how a sample can be tested to show that carbon dioxide is not present in the mixture.",
+        "marks": 2,
+        "answer_points": [
+          "Use limewater (or calcium hydroxide solution).",
+          "The limewater does not turn milky or cloudy (it stays colourless)."
+        ],
+        "tip": "For a gas that is absent, the result is that nothing changes: limewater stays clear."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.12", "EDEX 6.8", "EDEX 8.23", "EDEX 9.4C"],
+      "worked_example": {
+        "exemplar_id": "cbba62a7-92b2-4a48-a98c-7ea2a21b634f",
+        "source": "EDEXCEL jun 2024, Paper 1 (F), Q9(c)",
+        "question": "A student has three solids, A, B and C. The solids are sodium carbonate, powdered zinc and copper oxide, but the student does not know which solid is which.\n\nThe student reacted each solid with dilute sulfuric acid. The table shows the student's observations and the results of tests on any gases produced.\n\nSolid | Reaction with dilute sulfuric acid | Gas bubbled through limewater | Gas tested with a lit splint\nA | bubbles seen; colourless solution formed | no change | squeaky pop\nB | blue solution formed; some black solid remains at bottom of test tube | no gas produced | no gas produced\nC | bubbles seen; colourless solution formed | limewater turned cloudy | puts out lit splint\n\nUse the observations and results in the table to identify which solid is which.\n\nYour answer should include\n• how each test result helps you to identify the solid\n• word equations to support your answer.",
+        "marks": 6,
+        "answer_points": [
+          "Solid A is powdered zinc: bubbles show a gas, limewater does not change so it is not carbon dioxide, and the squeaky pop shows hydrogen.",
+          "zinc + sulfuric acid → zinc sulfate + hydrogen (metal + acid → salt + hydrogen).",
+          "Solid B is copper oxide: no gas is produced, the solid is black, and it forms blue copper sulfate solution.",
+          "copper oxide + sulfuric acid → copper sulfate + water.",
+          "Solid C is sodium carbonate: bubbles show a gas, and limewater turned cloudy so the gas is carbon dioxide.",
+          "sodium carbonate + sulfuric acid → sodium sulfate + carbon dioxide + water."
+        ],
+        "tip": "A levelled answer: identify all three solids and link each to its test result for the top level."
+      },
+      "extra": [
+        {
+          "heading": "Test for ammonia",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Ammonia is a pungent gas. It is alkaline, so it changes the colour of damp litmus paper."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Put damp red litmus paper into the gas.",
+                "The litmus paper turns **blue**.",
+                "A compound containing ammonium ions gives off ammonia when sodium hydroxide solution is added and the mixture is heated.",
+                "Name the gas as ammonia, not ammonium."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Chlorine and blue litmus paper",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "With damp blue litmus paper, chlorine first turns the paper red and then bleaches it white."
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 12.5.3"],
+      "worked_example": {
+        "exemplar_id": "af4a6725-762a-4b22-b262-00baa49472bd",
+        "source": "CAMBRIDGE nov 2023, Paper 42, Q4(b)(iii)",
+        "question": "A student carries out an electrolysis experiment on molten lead(II) chloride, PbCl₂. Chlorine gas forms at the anode and escapes from the apparatus.\n\nState the test for chlorine gas.\n\ntest ______\nobservations ______",
+        "marks": 2,
+        "answer_points": [
+          "Test: damp litmus paper (M1)",
+          "Observations: the litmus paper is bleached (goes white) (M2)"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Two more gases have tests that you need."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Ammonia**: hold damp red litmus paper in the gas. It turns blue.",
+                "**Sulfur dioxide**: add acidified aqueous potassium manganate(VII). The purple solution turns colourless."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.44"],
+      "worked_example": {
+        "exemplar_id": "4b786a09-66dd-49d7-b94a-b0db0d7762e5",
+        "source": "EDEXCEL jun 2022, Paper 2 (C), Q1(c)",
+        "question": "Describe a test for carbon dioxide.",
+        "marks": 2,
+        "answer_points": [
+          "Bubble (pass) the gas into limewater (M1)",
+          "The limewater turns cloudy (milky) (M2)"
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Ammonia is the fifth gas to know."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Ammonia is a pungent, alkaline gas.",
+                "Hold damp red litmus paper in the gas.",
+                "The litmus paper turns blue."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "e4a8f26d-16d3-40b2-920f-10b385e5fbe2",
+      "b505b333-c057-4724-b302-b4c1168aa1fa",
+      "92321f88-bb11-4c4b-bbb2-69107e5ad82b",
+      "85d31a57-b6ca-48a1-a489-29dabdbc3b76",
+      "6e7f7927-42d3-407e-8735-da85e5ad4283",
+      "3f57e932-15d4-4e2c-91fb-8b35d7f42c9d",
+      "6a5fd0ed-7ece-4ea0-bdca-85a50ec82641",
+      "377eb86a-a2d1-4a8b-b7f1-a1d53dc249aa",
+      "bc816181-5a63-4592-ac86-96be0f8998c0",
+      "f5f52557-92e1-4050-86b6-2fa7d0c26bff",
+      "ea5b7b7c-1ce6-4116-ab13-a6153aa3f117",
+      "000353ea-a33b-404f-861f-14798005284a",
+      "2521886e-f6b4-4a76-a604-0ef0ae3d521d",
+      "167194e0-69de-4514-bad9-6b9eb3f83e5f"
+    ],
+    "exemplar_ids": [
+      "36cc95e7-1b89-4083-9602-39878ac9cde0",
+      "0f354161-0d68-40db-88a4-cc0355123dcb",
+      "4b0ce97c-18ba-4429-9962-ea0ef9deaaeb",
+      "f808602f-4f1b-441a-9d90-4fd4fbc4083c",
+      "cbba62a7-92b2-4a48-a98c-7ea2a21b634f",
+      "a9fb8994-4e8f-4dba-aee0-fa1c2506c69e",
+      "78d30893-e5c6-418b-b917-5c2ac61a538e",
+      "98abe865-2556-4e07-b191-21de7b2a7e74",
+      "4957de6c-61d8-41d8-9580-2527bece04f6",
+      "b913c4c1-00f8-48f8-8399-f0f9a1468de0",
+      "af4a6725-762a-4b22-b262-00baa49472bd",
+      "4b786a09-66dd-49d7-b94a-b0db0d7762e5"
+    ],
+    "checked_by": "sonnet-science-check, opus-5-5-diagram-audit",
+    "checked_at": "2026-10-06"
+  }
+}

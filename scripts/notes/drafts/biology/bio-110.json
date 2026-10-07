@@ -1,0 +1,329 @@
+{
+  "format": 1,
+  "concept_id": "bio-110",
+  "subject": "biology",
+  "title": "Selective breeding",
+  "key_idea": "In selective breeding, humans choose parents with a wanted characteristic and breed them together. The best offspring are bred together over many generations until all show the characteristic. It gives useful crops and animals, but it reduces variation in a population.",
+  "sections": [
+    {
+      "heading": "What selective breeding is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Humans have used selective breeding for thousands of years. This section covers what it is and what it is used for."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Selective breeding",
+              "meaning": "Humans breed plants and animals for particular genetic characteristics. Also called artificial selection."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "It was first used to breed food crops from wild plants and to domesticate animals.",
+            "A characteristic can be chosen for **usefulness** or for appearance.",
+            "Examples: disease resistance in food crops, animals that give more meat, milk or eggs, a gentle nature in dogs, and large or unusual flowers.",
+            "Rice with short stems and large grains, and sorghum with less of a bitter chemical, were produced this way.",
+            "Disease resistance can improve food security. For example, choosing the banana plants most resistant to a fungal disease."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Humans choose the parents, not the environment.",
+            "It is used for useful characteristics such as yield and disease resistance."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The process",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The same steps are used every time. Put them in order to test yourself."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Put the steps of selective breeding in order.",
+            "kind": "sequence",
+            "steps": [
+              "Decide which features are wanted",
+              "Choose the individuals that have the features wanted",
+              "Allow the individuals to mate (breed them together)",
+              "Choose the offspring that have the features wanted",
+              "Repeat over many generations until all the offspring show the feature"
+            ],
+            "prompt": "Put selective breeding in order"
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Choosing the parents"
+        },
+        {
+          "type": "list",
+          "items": [
+            "To combine two features, choose one parent with each feature. For example, breed one chicken variety that grows fast with another that lays many eggs.",
+            "Then select offspring that have **both** features and breed those together.",
+            "Do not keep breeding the same original parents. Breed the best offspring."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Choose parents, breed them, choose the best offspring, repeat.",
+            "It takes many generations.",
+            "Offspring are chosen for the features wanted, not just the best overall."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Benefits and risks",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Selective breeding has benefits but also a cost to the population. This section covers both."
+        },
+        {
+          "type": "subheading",
+          "text": "Benefits"
+        },
+        {
+          "type": "list",
+          "items": [
+            "More food from each plant or animal, so fewer animals are needed for the same amount of meat.",
+            "Crops and animals with useful features, such as disease resistance."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Risks"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The individuals become genetically similar, so there is **less variation** and useful genes may be lost from the gene pool.",
+            "They may all have the same inherited disorder or defect, or be prone to the same disease.",
+            "There is a lack of variation to survive future environmental change.",
+            "Some features can cause health problems, such as those linked to larger bodies."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Benefit: more food or other useful features.",
+            "Risk: less variation, so the population is more vulnerable.",
+            "Selective breeding does not make clones. The individuals are genetically similar, not identical."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how a farmer can use selective breeding to produce chickens that lay more eggs.",
+      "a": "Select birds with the highest egg production and breed them. Select the best offspring and breed those. Repeat over many generations.",
+      "marks": 3
+    },
+    {
+      "q": "Explain one disadvantage of selectively breeding a farm animal.",
+      "a": "The animals become genetically similar, so there is less variation. They may all have the same inherited disorder, be prone to the same disease, or be unable to survive a change in the environment.",
+      "marks": 2
+    },
+    {
+      "q": "Which is selective breeding: choosing parents to breed, or adding a gene from another species?",
+      "a": "Choosing parents to breed. Adding a gene from another species is genetic engineering.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 6.11",
+        "AQA T 4.6.2.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "619c2575-0d21-4389-b236-a0267406366f",
+        "source": "AQA jun 2023, Paper 2 (F), Q09.9",
+        "question": "A farmer wants to produce a new variety of chicken that is good for both meat production and egg production. Some varieties of chicken grow more quickly and are more suitable for meat production; other varieties produce more eggs. The farmer keeps two varieties, A and B.\n\nDescribe how selective breeding of chicken varieties A and B can produce the new variety of chicken.",
+        "marks": 4,
+        "answer_points": [
+          "Breed the best of A and B together.",
+          "Select the offspring with the highest egg numbers and the heaviest or fastest growing.",
+          "Breed these offspring together.",
+          "Repeat over many generations."
+        ],
+        "tip": "One mark for each step. Repeated breeding of the original parents is not accepted."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 4.8"
+      ],
+      "worked_example": {
+        "exemplar_id": "8c089cff-ac5e-4e89-8dae-c69e4cd5f674",
+        "source": "EDEXCEL nov 2021, Paper 1 (H), Q7(b)",
+        "question": "Describe how racehorses alive today have been selectively bred to run faster.",
+        "marks": 3,
+        "answer_points": [
+          "Breed two animals that can run fast.",
+          "Select the offspring that can run fast.",
+          "Repeat the process over many generations."
+        ],
+        "tip": "One mark for each step."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 6.2c"
+      ],
+      "worked_example": {
+        "exemplar_id": "c968868a-5dc9-4a9a-9aab-bcba7f08a113",
+        "source": "OCR sample, Paper 4, Q20(a)(ii)",
+        "question": "In many countries people rely on bananas for food.\nBlack sigatoka is a disease of banana plants. It is caused by a fungus.\n\nExplain how the food security or growth of bananas could be improved by using selective breeding.",
+        "marks": 3,
+        "answer_points": [
+          "Choose the most resistant individual banana plant.",
+          "Allow it to reproduce.",
+          "Repeat this process over many generations."
+        ],
+        "tip": "One mark for each step."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 18.3.2",
+        "CAIE 18.3.3",
+        "CAIE 18.3.6S",
+        "CAIE 20.1.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "f6e2fd4a-210a-4743-ab73-a1d15f0e8d85",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q4(b)(i)",
+        "question": "Wheat is a crop plant. A farmer wants to produce a type of wheat that flowers when there are fewer hours of daylight.\nDescribe how the farmer could selectively breed this type of wheat.",
+        "marks": 3,
+        "answer_points": [
+          "Select individual plants that flower in fewer hours of daylight.",
+          "Cross these individuals to produce the next generation.",
+          "Select the offspring that show the desirable feature.",
+          "Repeat for many generations."
+        ],
+        "tip": "Any three points score."
+      },
+      "extra": [
+        {
+          "heading": "Natural and artificial selection",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Selective breeding is artificial selection. It differs from natural selection in who chooses."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Feature",
+                "Natural selection",
+                "Artificial selection"
+              ],
+              "rows": [
+                [
+                  "What chooses",
+                  "The environment, through selection pressure",
+                  "Humans, who choose the features they want"
+                ],
+                [
+                  "Which individuals reproduce",
+                  "The better adapted ones survive and reproduce",
+                  "The individuals that humans choose"
+                ],
+                [
+                  "Features produced",
+                  "Many characteristics, all suited to the environment",
+                  "Specific features, for economic or aesthetic reasons"
+                ],
+                [
+                  "Speed",
+                  "Slower",
+                  "Faster"
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Artificial selection decreases genetic variation and the size of the gene pool."
+            }
+          ]
+        },
+        {
+          "heading": "Other ways humans increase food production",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Selective breeding is one of five ways humans have increased food production."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Agricultural machinery** lets farmers use larger areas of land and work more efficiently.",
+                "**Chemical fertilisers** improve yields.",
+                "**Insecticides** improve the quality and yield of crops.",
+                "**Herbicides** reduce competition from weeds.",
+                "**Selective breeding** improves production by crop plants and livestock."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 5.10",
+        "IGCSE 5.11"
+      ],
+      "worked_example": {
+        "exemplar_id": "ea7054a8-12ad-4d65-b00e-6ba2b05d07e2",
+        "source": "EDEXCEL jun 2022, Paper 1 (B), Q9(a)",
+        "question": "Selective breeding has been used to develop modern varieties of wheat.\nDescribe how scientists could use selective breeding to increase wheat yield.",
+        "marks": 3,
+        "answer_points": [
+          "Cross the parent plants that have the highest grain mass or yield.",
+          "Select the offspring that have the highest grain mass or yield.",
+          "Repeat for many generations."
+        ],
+        "tip": "Each of the three steps scores one mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "3868e1ad-67e9-488c-897b-7d04b5b0990b",
+      "aec8f10a-c479-498a-bfe5-040e61d3200f",
+      "fcdd86c3-5d39-4408-b0f6-9866fbeb95e5",
+      "db5733f2-62f3-4022-b156-af2559927d0c",
+      "f025df51-549d-4579-b041-ccad38ba4646",
+      "5bf3e9fa-7998-4858-b628-670f3dc73f49",
+      "a9a03b9b-bb78-4b4b-aa47-a5991852d1f9",
+      "6cdf2fa7-a2f3-4de7-994b-97eb0ef3632e",
+      "8a40974d-9c02-4f5c-988e-5a3a641f1bc9"
+    ],
+    "exemplar_ids": [
+      "619c2575-0d21-4389-b236-a0267406366f",
+      "8c089cff-ac5e-4e89-8dae-c69e4cd5f674",
+      "c968868a-5dc9-4a9a-9aab-bcba7f08a113",
+      "f6e2fd4a-210a-4743-ab73-a1d15f0e8d85",
+      "ea7054a8-12ad-4d65-b00e-6ba2b05d07e2"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

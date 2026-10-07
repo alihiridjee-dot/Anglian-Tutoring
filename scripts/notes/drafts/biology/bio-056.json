@@ -1,0 +1,417 @@
+{
+  "format": 1,
+  "concept_id": "bio-056",
+  "subject": "biology",
+  "title": "Limiting factors of photosynthesis",
+  "key_idea": "The rate of photosynthesis is limited by whichever factor is in shortest supply. Light intensity, carbon dioxide concentration, temperature and the amount of chlorophyll can each be the limiting factor. On a graph, a flat line shows that something else is now limiting.",
+  "sections": [
+    {
+      "heading": "What a limiting factor is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Photosynthesis only goes as fast as its scarcest need allows. This section names the factors that can hold it back."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Limiting factor",
+              "meaning": "The factor in shortest supply, which sets the maximum rate of photosynthesis."
+            },
+            {
+              "term": "Rate",
+              "meaning": "How much happens in a set time, for example bubbles of oxygen per second."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Light intensity**: how bright the light is.",
+            "**Carbon dioxide concentration**: how much carbon dioxide is available.",
+            "**Temperature**.",
+            "The amount of **chlorophyll** in the leaves."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A limiting factor is the one in shortest supply.",
+            "Four factors to know: light intensity, carbon dioxide, temperature and chlorophyll."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Light intensity and carbon dioxide",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Light provides the energy and carbon dioxide is a reactant. If either is low, photosynthesis is slow."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A line graph of rate of photosynthesis against light intensity. The rate rises steeply at low light intensity, then flattens. The rising part is labelled light is limiting. The flat part is labelled another factor is limiting.",
+            "x": {
+              "label": "Light intensity",
+              "min": 0,
+              "max": 10,
+              "ticks": [0, 2, 4, 6, 8, 10],
+              "unit": "arbitrary units"
+            },
+            "y": {
+              "label": "Rate of photosynthesis"
+            },
+            "series": [
+              {
+                "name": "Rate of photosynthesis",
+                "points": [
+                  [0, 0.02],
+                  [1, 0.22],
+                  [2, 0.42],
+                  [3, 0.6],
+                  [4, 0.72],
+                  [5, 0.78],
+                  [6, 0.79],
+                  [8, 0.79],
+                  [10, 0.79]
+                ]
+              }
+            ],
+            "bands": [
+              {
+                "from": 0,
+                "to": 5,
+                "label": "Light is limiting"
+              },
+              {
+                "from": 5,
+                "to": 10,
+                "label": "Another factor is limiting"
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Light intensity"
+        },
+        {
+          "type": "list",
+          "items": [
+            "At low light intensity, light is the limiting factor. More light gives a faster rate.",
+            "The line then levels off. Extra light makes no difference, because another factor is now limiting."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Carbon dioxide concentration"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Carbon dioxide is a reactant. A low concentration limits the rate.",
+            "More carbon dioxide gives a faster rate, until another factor becomes limiting and the line levels off."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The rising part of a graph shows the factor on the x axis is limiting.",
+            "The flat part shows another factor is limiting."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Temperature and chlorophyll",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Temperature affects the enzymes that control photosynthesis. Chlorophyll decides how much light the plant can absorb."
+        },
+        {
+          "type": "subheading",
+          "text": "Temperature"
+        },
+        {
+          "type": "list",
+          "items": [
+            "At low temperatures the reactants and enzymes have less kinetic energy, so they collide less often and the rate is low.",
+            "As temperature rises, the particles have more kinetic energy and collide more often, so the rate increases.",
+            "At a very high temperature the enzymes are denatured and photosynthesis stops, or the rate falls."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Chlorophyll"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Chlorophyll absorbs the light for photosynthesis.",
+            "A plant with less chlorophyll absorbs less light, so photosynthesis is slower.",
+            "Yellow leaves can show a shortage of magnesium ions, which are needed to make chlorophyll.",
+            "A shortage of nitrate or iron ions can have the same effect."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Warmer means faster, until enzymes are denatured.",
+            "Less chlorophyll means less light absorbed and a slower rate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring and calculating the rate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You can measure the rate by counting bubbles of oxygen from pondweed in a set time. To change light intensity, move the lamp closer to or further from the pondweed."
+        },
+        {
+          "type": "equation",
+          "label": "Rate of photosynthesis",
+          "formula": "rate = amount ÷ time",
+          "where": [
+            "amount, for example the number of bubbles or the volume of oxygen in cm³",
+            "time, for example in s or min"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Data.",
+              "text": "Pondweed releases 10 bubbles in 43 seconds."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "Rate = 10 ÷ 43 = 0.23255..."
+            },
+            {
+              "lead": "Round and add the unit.",
+              "text": "To 3 significant figures the rate is 0.233 bubbles per second."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating a rate of photosynthesis from the time taken to release 10 bubbles.",
+            "question": "Pondweed releases 10 bubbles of oxygen in **{t} seconds**. Calculate the rate of photosynthesis in bubbles per second. Give your answer to 3 significant figures.",
+            "variables": [
+              {
+                "id": "t",
+                "min": 20,
+                "max": 90,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "10 / t",
+              "unit": "bubbles per second",
+              "decimals": 3
+            },
+            "working": ["Rate = amount ÷ time", "Rate = 10 ÷ {t} = **{answer}** bubbles per second"]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rate = amount ÷ time. A shorter time for the same amount means a faster rate.",
+            "Always give the unit with the rate."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "On a graph of rate of photosynthesis against light intensity, the line becomes flat. What does this tell you?",
+      "a": "Light intensity is no longer the limiting factor. Another factor, such as carbon dioxide concentration or temperature, is now limiting the rate.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the rate of photosynthesis is slow at a low temperature.",
+      "a": "The reactants and enzymes have less kinetic energy, so there are fewer collisions and photosynthesis is slower.",
+      "marks": 2
+    },
+    {
+      "q": "Pondweed releases 10 bubbles in 25 seconds. Calculate the rate of photosynthesis in bubbles per second.",
+      "a": "10 ÷ 25 = 0.4 bubbles per second.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2", "AQA T 4.4.1.2"],
+      "worked_example": {
+        "exemplar_id": "8088cbbf-af5e-46cf-9a58-5ffc32c6e04f",
+        "source": "AQA jun 2025, Paper 1 (H), Q04.3",
+        "question": "A student measured the time taken for pondweed to release 10 bubbles at different temperatures. The pondweed took 84 seconds at 10 °C and 25 seconds at 40 °C.\n\nExplain the difference in the rate of photosynthesis at 40 °C compared with the rate of photosynthesis at 10 °C.",
+        "marks": 3,
+        "answer_points": [
+          "The rate of photosynthesis is faster / higher at 40 °C.",
+          "The reactants / particles / molecules / enzymes have greater (kinetic) energy, or they move faster.",
+          "So they collide more frequently (more collisions in a given time)."
+        ],
+        "tip": "One mark for the comparison, one for more kinetic energy and one for more frequent collisions."
+      },
+      "extra": [
+        {
+          "heading": "Interacting factors and greenhouses (AQA: Higher tier)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(AQA: Higher tier) Any one factor may be the limiting factor, and which one it is can change. This section covers graphs with more than one factor, light distance and greenhouses."
+            },
+            {
+              "type": "list",
+              "items": [
+                "On a graph with two or three factors, the factor that is lowest sets the rate.",
+                "Raising a factor that is not limiting has no effect on the rate.",
+                "Light intensity gets weaker as the lamp moves away: this is an inverse square relationship."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Light intensity and distance (AQA: Higher tier)",
+              "formula": "light intensity ∝ 1 ÷ distance²",
+              "where": [
+                "distance is from the lamp to the plant",
+                "doubling the distance divides the light intensity by 4"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Growers can add heat, light or carbon dioxide in a greenhouse to raise the rate.",
+                "Each one has a cost, for heating, lighting or carbon dioxide.",
+                "The extra costs might be more than the extra money from selling the crop, so the best conditions are not always the maximum ones."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.3"],
+      "worked_example": {
+        "exemplar_id": "553289e5-36a5-4513-8f0b-5e3d24f11de1",
+        "source": "EDEXCEL jun 2023, Paper 2 (H), Q5(c)",
+        "question": "A student investigated the effect of light intensity on the photosynthesis of pondweed. A light source was placed at different distances from the pondweed. The bubbles produced were counted for 2 minutes.\n\nDevise a plan to show that temperature is a limiting factor in photosynthesis. Use the same apparatus.",
+        "marks": 3,
+        "answer_points": [
+          "Keep the light at the same distance from the pondweed (the same light intensity is accepted).",
+          "Count the number of bubbles, or measure the oxygen (gas) produced.",
+          "Repeat at different temperatures.",
+          "Control the carbon dioxide concentration or the mass (type) of pondweed.",
+          "Any three of these four points score."
+        ],
+        "tip": "Change only the temperature, measure the rate each time, and keep another factor constant."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 1.4e"],
+      "worked_example": {
+        "exemplar_id": "0f15263a-9e23-467a-94a9-6915389180e7",
+        "source": "OCR jun 2025, Paper 4, Q20(c)",
+        "question": "Carp feed at the bottom of lakes and this stirs up mud into the water.\n\nThe mud contains minerals but makes the water cloudy.\n\nExplain two different effects that this could have on the microscopic plants living in the lake.",
+        "marks": 4,
+        "answer_points": [
+          "Effect 1: there is less or no light for photosynthesis (the cloudy water reduces the light).",
+          "So there is less or no growth, or less food or glucose is produced.",
+          "Effect 2: the plants have more minerals available.",
+          "Minerals are used for photosynthesis, respiration, cell division, chlorophyll production, enzyme action, or to make amino acids and proteins, so there is more growth."
+        ],
+        "tip": "Give one effect of the cloudiness and one effect of the minerals, each with its consequence."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 6.1.8", "CAIE 6.1.11S"],
+      "worked_example": {
+        "exemplar_id": "20784196-a050-44c4-8d87-8371482a82e7",
+        "source": "CAMBRIDGE nov 2023, Paper 43, Q2(b)",
+        "question": "In an experiment, thale cress plants were grown in normal atmospheric and high carbon dioxide concentrations. The transpiration rate, the mean number of chloroplasts per cell and the concentrations of starch and magnesium ions were measured.\n\nfactor measured | normal carbon dioxide | high carbon dioxide\ntranspiration rate / AU | 8.1 | 5.6\nmean number of chloroplasts per cell | 8 | 11\nconcentration of starch / µg per mg of leaf | 38 | 67\nconcentration of magnesium ions / mg per g of leaf | 2.7 | 2.3\n\nComplete the sentences about the data.\n\nIncreasing the carbon dioxide concentration caused more starch to be produced in the leaves. This shows that, at a normal carbon dioxide concentration, carbon dioxide is a ______ for photosynthesis.\n\nDuring photosynthesis, ______ molecules of carbon dioxide are required to make one molecule of glucose.\n\nThe greater number of chloroplasts per cell in the leaves grown in the higher carbon dioxide concentration means that more energy can be absorbed from ______ and transferred to ______ energy.\n\nThe transpiration rate is lower when the carbon dioxide concentration is higher. This means reduced loss of ______ from the leaves.\n\nMagnesium ion concentration is lower in these leaves because they have used the magnesium ions to make ______.",
+        "marks": 6,
+        "answer_points": [
+          "limiting factor (1 mark).",
+          "6 / six (1 mark).",
+          "(sun)light (1 mark).",
+          "chemical (1 mark).",
+          "water vapour (1 mark).",
+          "chlorophyll (1 mark)."
+        ],
+        "tip": "One mark for each blank. Starch increased when carbon dioxide increased, so carbon dioxide was limiting."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.20", "IGCSE 2.22", "IGCSE 5.1", "IGCSE 5.2"],
+      "worked_example": {
+        "exemplar_id": "d549fd98-b688-4dbf-866b-9ee31bb278ba",
+        "source": "EDEXCEL jun 2022, Paper 1 (BR), Q8(b)(ii)",
+        "question": "A student investigates the effect of fertiliser on the growth of plant seedlings. Two trays have equal masses of compost and 100 seeds each. Both are under the same lamp and given the same volume of water every day. One tray has fertiliser added every day. Every four days the student dries five seedlings from each tray in an oven and finds their mass.\n\nDry mass of seedlings in g:\nDay 4: 3.5 without fertiliser, 3.8 with fertiliser\nDay 8: 4.9 without, 5.8 with\nDay 12: 5.8 without, 6.7 with\nDay 16: 6.3 without, 7.8 with\nDay 20: 6.8 without, 8.5 with\n\nThe fertiliser contains magnesium ions and nitrate ions.\n\nExplain the effect of these two ions on the growth of the seedlings.",
+        "marks": 4,
+        "answer_points": [
+          "Magnesium ions are needed to make chlorophyll / chloroplasts (1 mark).",
+          "So there is more photosynthesis (1 mark).",
+          "Which produces carbohydrates / glucose / starch / cellulose (1 mark).",
+          "Nitrate ions are needed to make amino acids (1 mark).",
+          "Amino acids are used to make protein for growth (1 mark)."
+        ],
+        "tip": "Any four of the five points earn the four marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section covers what nitrate ions do, because the shared note mentions them only as a shortage."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Plants take in **nitrate ions** from the soil.",
+                "Nitrate ions are needed to make amino acids.",
+                "Amino acids are joined to make proteins, which plants need to grow.",
+                "A shortage of nitrate ions slows growth."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a18696a1-44c5-4707-a2c3-04ee3b01f42f",
+      "fb1e6c8e-7c2a-4558-8c8e-2f2fc8a216db",
+      "5b9066b9-8936-4b90-929e-4b24da061f39",
+      "4949f289-1471-4c22-bdeb-555a6aea3bdc",
+      "29d48196-b63e-482f-822d-ae3109b3a96c",
+      "3638fb81-a343-45ec-9893-f0d909fd1eb4",
+      "5286671c-0af6-4a05-abb4-b11830c84443",
+      "303c3e51-c7c8-420a-bf5e-b5527524e394"
+    ],
+    "exemplar_ids": [
+      "8088cbbf-af5e-46cf-9a58-5ffc32c6e04f",
+      "553289e5-36a5-4513-8f0b-5e3d24f11de1",
+      "0f15263a-9e23-467a-94a9-6915389180e7",
+      "20784196-a050-44c4-8d87-8371482a82e7",
+      "d549fd98-b688-4dbf-866b-9ee31bb278ba"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

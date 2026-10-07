@@ -1,0 +1,246 @@
+{
+  "format": 1,
+  "concept_id": "ichem-008",
+  "subject": "chemistry",
+  "title": "Alkanes: substitution with chlorine",
+  "key_idea": "Alkanes are generally unreactive. They burn, and they react with chlorine in ultraviolet light. In this substitution reaction one hydrogen atom is replaced by one chlorine atom, so a chloroalkane and hydrogen chloride form.",
+  "sections": [
+    {
+      "heading": "Why alkanes are unreactive",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Alkanes contain only C–C and C–H single bonds. This section covers what that means for their reactions."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Alkanes are saturated: every carbon atom has four single bonds.",
+            "They are generally unreactive and do not react with most common reagents.",
+            "Their two main reactions are **combustion** and **substitution** with chlorine."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Complete combustion of an alkane makes carbon dioxide and water.",
+            "Example: CH₄ + 2O₂ → CO₂ + 2H₂O"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Alkanes are generally unreactive.",
+            "They only react by combustion and by substitution with halogens such as chlorine."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Types of organic reaction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Organic reactions can be classified as substitution, addition or combustion. This section covers all three types."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Substitution",
+              "meaning": "One atom or group of atoms is replaced by another atom or group of atoms."
+            },
+            {
+              "term": "Addition",
+              "meaning": "Two molecules join to make one molecule, e.g. an alkene with bromine."
+            },
+            {
+              "term": "Combustion",
+              "meaning": "A substance burns in oxygen. An alkane makes carbon dioxide and water."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Organic reactions are sorted into substitution, addition and combustion.",
+            "prompt": "Sort each reaction into its type.",
+            "groups": [
+              "Substitution",
+              "Addition",
+              "Combustion"
+            ],
+            "items": [
+              {
+                "text": "CH₄ + Cl₂ → CH₃Cl + HCl",
+                "group": 0
+              },
+              {
+                "text": "C₂H₆ + Cl₂ → C₂H₅Cl + HCl",
+                "group": 0
+              },
+              {
+                "text": "C₂H₄ + Br₂ → C₂H₄Br₂",
+                "group": 1
+              },
+              {
+                "text": "C₂H₄ + H₂O → C₂H₅OH",
+                "group": 1
+              },
+              {
+                "text": "CH₄ + 2O₂ → CO₂ + 2H₂O",
+                "group": 2
+              },
+              {
+                "text": "C₃H₈ + 5O₂ → 3CO₂ + 4H₂O",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Substitution swaps one atom for another. Addition joins molecules. Combustion is burning.",
+            "Substitution replaces an atom. Addition joins two molecules into one product."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Alkanes reacting with chlorine",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An alkane and chlorine react in ultraviolet (UV) light. One hydrogen atom is replaced by one chlorine atom."
+        },
+        {
+          "type": "equation",
+          "formula": "alkane + chlorine → chloroalkane + hydrogen chloride",
+          "label": "General reaction"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The reaction is **photochemical**: it needs ultraviolet light.",
+            "(Supplement) The UV light provides the activation energy, Eₐ, to start the reaction.",
+            "The reaction happens at room temperature when UV light is present.",
+            "Bromine reacts in the same way: CH₄ + Br₂ → CH₃Br + HBr."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Photochemical reaction",
+              "meaning": "A reaction that needs ultraviolet light."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Equations and products"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Methane: CH₄ + Cl₂ → CH₃Cl + HCl. The products are chloromethane and hydrogen chloride.",
+            "Ethane: C₂H₆ + Cl₂ → C₂H₅Cl + HCl.",
+            "Propane: C₃H₈ + Cl₂ → C₃H₇Cl + HCl.",
+            "In each case one H atom in the alkane is replaced by one Cl atom, and the H atom joins the other Cl atom to make HCl."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) Draw the product with the Cl atom in place of one H atom, keeping every other bond.",
+            "(Supplement) Propane can give two products: CH₃CH₂CH₂Cl and CH₃CHClCH₃.",
+            "(Supplement) Butane also gives two structural isomers of C₄H₉Cl.",
+            "You only need the products where one H atom is replaced. With more chlorine, further H atoms can be replaced."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An alkane and chlorine react in UV light to make a chloroalkane and hydrogen chloride.",
+            "UV light is the condition needed for the reaction.",
+            "The equation always follows: CₙH₂ₙ₊₂ + Cl₂ → CₙH₂ₙ₊₁Cl + HCl."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the condition needed for methane to react with chlorine.",
+      "a": "Ultraviolet light.",
+      "marks": 1
+    },
+    {
+      "q": "Write the equation for the reaction of ethane with chlorine to make one product containing chlorine.",
+      "a": "C₂H₆ + Cl₂ → C₂H₅Cl + HCl",
+      "marks": 2
+    },
+    {
+      "q": "State what is meant by a substitution reaction.",
+      "a": "One atom or group of atoms is replaced by another atom or group of atoms.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 11.4.2",
+        "CAIE 11.4.3S",
+        "CAIE 11.4.4S"
+      ],
+      "worked_example": {
+        "exemplar_id": "fe892868-fa1c-4818-b842-56c493d377f2",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q5(a)(iv)",
+        "question": "Propane and propene both react with chlorine. When a molecule of propane, C₃H₈, reacts with chlorine in the presence of ultraviolet light, one atom of hydrogen is replaced by one atom of chlorine. Write the symbol equation for the reaction between propane and chlorine.",
+        "marks": 2,
+        "answer_points": [
+          "C₃H₈ + Cl₂ → C₃H₇Cl + HCl",
+          "One mark for HCl as a product and one mark for a correct equation."
+        ],
+        "tip": "One H atom leaves with one Cl atom as HCl. The other Cl atom goes into the organic product."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.6",
+        "IGCSE 4.22"
+      ],
+      "worked_example": {
+        "exemplar_id": "8bc02c2f-d8b7-4df1-be3c-1dd20b3a60e5",
+        "source": "EDEXCEL nov 2020, Paper 1 (C), Q5(b)(ii)",
+        "question": "Chlorine reacts with methane to form CH₃Cl and HCl. Give the equation for this reaction.",
+        "marks": 1,
+        "answer_points": [
+          "Cl₂ + CH₄ → CH₃Cl + HCl",
+          "Multiples are allowed."
+        ],
+        "tip": "Write the formula of each substance first, then check there are the same atoms on both sides."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "c91914cf-14a2-4500-848c-4522ec528e63",
+      "8939d052-11f3-408e-b200-d209cb054de0",
+      "254b80e1-42c9-4de4-8ec9-6e9faef18f83",
+      "187ac572-7494-4ca8-8c59-7acc427bfceb",
+      "828bafd5-a52f-4de7-b26f-ba88f0777343"
+    ],
+    "exemplar_ids": [
+      "fe892868-fa1c-4818-b842-56c493d377f2",
+      "8bc02c2f-d8b7-4df1-be3c-1dd20b3a60e5"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

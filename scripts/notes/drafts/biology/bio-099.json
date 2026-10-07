@@ -1,0 +1,324 @@
+{
+  "format": 1,
+  "concept_id": "bio-099",
+  "subject": "biology",
+  "title": "Codominance and multiple alleles: ABO blood groups",
+  "key_idea": "The ABO blood group is controlled by one gene with three alleles: IA, IB and IO. IA and IB are **codominant**, so a person with both has blood group AB. This gene has **multiple alleles**, but each person inherits only two.",
+  "sections": [
+    {
+      "heading": "Multiple alleles and codominance",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Most examples so far have had two alleles, one dominant and one recessive. Blood groups are different. This section covers the two new ideas."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Multiple alleles",
+              "meaning": "A gene that has more than two alleles in a population. Each person still inherits only two."
+            },
+            {
+              "term": "Codominant",
+              "meaning": "Two alleles that are both expressed when they are present together. Neither is recessive."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A person's blood group is determined by their genotype.",
+            "One gene controls the ABO blood group. It has three alleles: **IA**, **IB** and **IO**.",
+            "Each person has two of these alleles, one from each parent.",
+            "IA and IB are codominant. IO is recessive to both of them."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Blood group is controlled by one gene with three alleles.",
+            "Each person has only two alleles, one from each parent.",
+            "IA and IB are codominant: both are expressed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "From genotype to blood group",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The genotype tells you the blood group. This section covers which genotypes give which group."
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "A",
+              "IA IA or IA IO",
+              "IA is expressed. IO is recessive."
+            ],
+            [
+              "B",
+              "IB IB or IB IO",
+              "IB is expressed. IO is recessive."
+            ],
+            [
+              "AB",
+              "IA IB",
+              "IA and IB are codominant, so both are expressed."
+            ],
+            [
+              "O",
+              "IO IO",
+              "No IA or IB is present, so the recessive allele shows."
+            ]
+          ],
+          "columns": [
+            "Blood group",
+            "Genotypes",
+            "Why"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To have blood group AB, a person inherits **IA** from one parent and **IB** from the other.",
+            "A person with blood group O must have inherited IO from both parents.",
+            "A person with blood group A or B can be homozygous or heterozygous."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "AB is the only blood group where both alleles show.",
+            "Group O needs two copies of the recessive allele IO.",
+            "Groups A and B each have two possible genotypes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Predicting the blood groups of children",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Work out the children's blood groups the same way as any other cross. Pick the parents and see what is possible."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the parents' genotypes.",
+              "text": "One parent is IA IO (group A) and the other is IB IO (group B)."
+            },
+            {
+              "lead": "Write the gametes.",
+              "text": "The first parent makes IA or IO. The second makes IB or IO."
+            },
+            {
+              "lead": "Fill in the square.",
+              "text": "The children are IA IB, IA IO, IB IO and IO IO."
+            },
+            {
+              "lead": "Read the blood groups.",
+              "text": "They are AB, A, B and O. Each has a 1 in 4 chance, so all four groups are possible."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Pick two parents' genotypes and see the possible blood groups of their children.",
+            "kind": "predictor",
+            "prompt": "Pick the parents' genotypes",
+            "options": [
+              {
+                "label": "IA IO × IB IO",
+                "results": [
+                  "IA IB, IA IO, IB IO, IO IO",
+                  "AB, A, B, O",
+                  "25% each"
+                ],
+                "explanation": "Each parent passes on one of two alleles, so all four combinations are equally likely."
+              },
+              {
+                "label": "IA IA × IB IB",
+                "results": [
+                  "IA IB (all children)",
+                  "AB",
+                  "AB 100%"
+                ],
+                "explanation": "Every child inherits IA from one parent and IB from the other, so both alleles show."
+              },
+              {
+                "label": "IA IB × IO IO",
+                "results": [
+                  "IA IO, IB IO",
+                  "A, B",
+                  "A 50%, B 50%"
+                ],
+                "explanation": "The IO parent can only pass on IO. The children get either IA or IB from the other parent."
+              },
+              {
+                "label": "IA IB × IA IB",
+                "results": [
+                  "IA IA, IA IB, IA IB, IB IB",
+                  "A, AB, B",
+                  "A 25%, AB 50%, B 25%"
+                ],
+                "explanation": "Two of the four boxes are IA IB, so AB is twice as likely as A or B."
+              },
+              {
+                "label": "IA IO × IA IO",
+                "results": [
+                  "IA IA, IA IO, IA IO, IO IO",
+                  "A, O",
+                  "A 75%, O 25%"
+                ],
+                "explanation": "IA is expressed whenever it is present, so three boxes in four are group A. Only IO IO is group O."
+              },
+              {
+                "label": "IA IB × IA IO",
+                "results": [
+                  "IA IA, IA IO, IA IB, IB IO",
+                  "A, AB, B",
+                  "A 50%, AB 25%, B 25%"
+                ],
+                "explanation": "IA IA and IA IO are both group A, so A is the most likely."
+              },
+              {
+                "label": "IA IA × IO IO",
+                "results": [
+                  "IA IO (all children)",
+                  "A",
+                  "A 100%"
+                ],
+                "explanation": "Every child inherits IA and IO. IA is expressed and IO is recessive."
+              },
+              {
+                "label": "IO IO × IO IO",
+                "results": [
+                  "IO IO (all children)",
+                  "O",
+                  "O 100%"
+                ],
+                "explanation": "Neither parent has IA or IB, so no child can have group A, B or AB."
+              }
+            ],
+            "result_labels": [
+              "Possible genotypes of the children",
+              "Possible blood groups",
+              "Chance of each blood group"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use gametes and a Punnett square, as in any cross.",
+            "Two heterozygous parents with groups A and B can have children of all four groups.",
+            "Two group O parents can only have group O children."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how a person inherits the blood group AB.",
+      "a": "They inherit IA from one parent and IB from the other parent. The two alleles are codominant, so both are expressed.",
+      "marks": 2
+    },
+    {
+      "q": "A person has the genotype IA IO. What is their blood group? Explain.",
+      "a": "Group A. IA is expressed and IO is recessive.",
+      "marks": 2
+    },
+    {
+      "q": "What is meant by multiple alleles?",
+      "a": "A gene with more than two alleles in a population (such as IA, IB and IO), although each person inherits only two.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 3.17B"
+      ],
+      "worked_example": {
+        "exemplar_id": "4137ed83-80fe-4f88-bbb1-913fb8a035c0",
+        "source": "EDEXCEL jun 2019, Paper 1 (F), Q1(c)",
+        "question": "The blood group of a person is determined by their genotype.\n\nDescribe how a person inherits the blood group AB.",
+        "marks": 2,
+        "answer_points": [
+          "They inherit A (IA) from one parent.",
+          "They inherit B (IB) from the other parent.",
+          "IA and IB are codominant."
+        ],
+        "tip": "Any two of the three points score. It does not matter which parent gives which allele."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 17.4.14S",
+        "CAIE 17.4.15S",
+        "CAIE 17.4.18S"
+      ],
+      "worked_example": {
+        "exemplar_id": "83c3f4de-1452-4972-8e7f-d399b6f27ac1",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q5(d)",
+        "question": "Explain why the inheritance of blood group is an example of codominance.",
+        "marks": 2,
+        "answer_points": [
+          "The alleles IA and IB are both present.",
+          "Both alleles contribute to the phenotype, as in blood group AB."
+        ],
+        "tip": "One mark for each point."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Blood groups are not the only example of codominance. Cattle show it in hair colour."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A red parent and a white parent can have roan offspring, with a mixture of red and white hairs.",
+                "Two roan parents give red, roan and white offspring in the ratio 1 : 2 : 1.",
+                "Both alleles contribute to the phenotype of a heterozygous animal."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.21B"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "c18a85fa-e583-4939-838f-c305f62b00d1",
+      "041be7f5-67a9-42d9-89f4-5b1de1844dae",
+      "b7b53e4a-1206-4790-baf1-2b3c5d893c47",
+      "eecca672-e041-4512-a576-92a222ea7a09",
+      "e803625a-3e91-4c22-9843-6139f959ecad"
+    ],
+    "exemplar_ids": [
+      "4137ed83-80fe-4f88-bbb1-913fb8a035c0",
+      "83c3f4de-1452-4972-8e7f-d399b6f27ac1"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

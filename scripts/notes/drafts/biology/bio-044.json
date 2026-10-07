@@ -1,0 +1,295 @@
+{
+  "format": 1,
+  "concept_id": "bio-044",
+  "subject": "biology",
+  "title": "Sexually transmitted infections",
+  "key_idea": "A sexually transmitted infection (STI) is passed on by sexual contact. Chlamydia and gonorrhoea are caused by bacteria and HIV by a virus. Spread is reduced by avoiding sexual contact, using a condom, not sharing needles, screening and treatment.",
+  "sections": [
+    {
+      "heading": "Common STIs and how they spread",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "STIs are communicable diseases passed on by sexual contact. This section compares chlamydia, gonorrhoea and HIV."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "STI",
+            "Pathogen",
+            "How it spreads",
+            "Other facts"
+          ],
+          "rows": [
+            [
+              "Chlamydia",
+              "Bacterium",
+              "Sexual intercourse",
+              "Treated with antibiotics."
+            ],
+            [
+              "Gonorrhoea",
+              "Bacterium",
+              "Sexual contact",
+              "Thick yellow or green discharge and pain on urinating. Many strains are resistant to penicillin."
+            ],
+            [
+              "HIV",
+              "Virus",
+              "Sexual contact, or exchange of body fluids",
+              "Destroys white blood cells. Can lead to AIDS."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "HIV and body fluids"
+        },
+        {
+          "type": "list",
+          "items": [
+            "HIV first causes a flu-like illness. It attacks the immune cells, and late-stage HIV infection is called AIDS.",
+            "In AIDS the immune system is so badly damaged that it cannot deal with other infections or cancers.",
+            "Drug users who share needles can pass on HIV in blood.",
+            "HIV can also pass in blood transfusions, and from a mother to the foetus in the uterus.",
+            "HIV is diagnosed by blood tests. Blood samples must be handled safely: wear gloves or goggles, cover cuts, clean up spills, store samples in sealed containers and dispose of them safely."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Chlamydia and gonorrhoea are caused by bacteria. HIV is caused by a virus.",
+            "All three spread by sexual contact. HIV also spreads in body fluids such as blood.",
+            "An STI is communicable because it is passed from person to person."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reducing the spread of STIs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prevention works by stopping the pathogen passing between people, or by treating infected people."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Avoid sexual contact.",
+            "Use a barrier method of contraception, such as a condom.",
+            "Do not share needles.",
+            "Screen people for an infection, and screen blood used for transfusions.",
+            "Treat bacterial STIs with antibiotics, and HIV with antiretroviral drugs.",
+            "Better education about how to prevent the spread of HIV can reduce new cases."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Condoms and avoiding sexual contact stop the pathogen passing on.",
+            "Antibiotics treat bacterial STIs. Antiretroviral drugs control HIV.",
+            "Not sharing needles and screening blood stop HIV spreading in blood."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using STI data",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Exam questions give the number of people diagnosed per 1000 of the population. Multiply by the population, then divide by 1000."
+        },
+        {
+          "type": "equation",
+          "label": "Number of people diagnosed",
+          "formula": "number diagnosed = (rate per 1000 ÷ 1000) × population",
+          "where": [
+            "rate per 1000, in people per 1000",
+            "population, in people"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation practice: find the number of people diagnosed with an infection from a rate per 1000 and a population.",
+            "question": "In one year, {rate} people per 1000 of the population were diagnosed with chlamydia. The population was {pop} people. Calculate the number of people diagnosed.",
+            "variables": [
+              {
+                "id": "rate",
+                "min": 0.5,
+                "max": 4,
+                "step": 0.5
+              },
+              {
+                "id": "pop",
+                "min": 10000,
+                "max": 200000,
+                "step": 10000
+              }
+            ],
+            "answer": {
+              "formula": "rate * pop / 1000",
+              "unit": "people",
+              "decimals": 0
+            },
+            "working": [
+              "{pop} ÷ 1000 gives the population in thousands",
+              "Multiply by {rate}",
+              "Number diagnosed = {answer} people"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A rate per 1000 lets countries or years of different size be compared.",
+            "Divide the population by 1000, then multiply by the rate."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two ways to prevent the spread of HIV.",
+      "a": "Any two from: avoid sexual intercourse, use a condom, do not share needles, use antiretroviral drugs, screen blood used for transfusions.",
+      "marks": 2
+    },
+    {
+      "q": "State why chlamydia can be described as a communicable disease.",
+      "a": "It is passed (spread) from person to person, or it is caused by bacteria (a pathogen).",
+      "marks": 1
+    },
+    {
+      "q": "Give one other way, apart from antibiotics, to control the spread of gonorrhoea.",
+      "a": "Use a condom (a barrier method of contraception), or avoid sexual intercourse.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 3.2",
+        "AQA T 4.3.1.2",
+        "AQA T 4.3.1.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "14665365-e25c-468c-85a5-e2d673bf4a93",
+        "source": "AQA jun 2020, Paper 1 (F), Q04.5",
+        "question": "Give two ways to prevent the spread of HIV.",
+        "marks": 2,
+        "answer_points": [
+          "Avoid sexual intercourse.",
+          "Use a condom.",
+          "Do not share needles.",
+          "Use antiretroviral drugs.",
+          "Screen blood used for transfusions."
+        ],
+        "tip": "Any two score one mark each. If no other marks are awarded, \"do not exchange body fluids\" gets one mark."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 5.8"
+      ],
+      "worked_example": {
+        "exemplar_id": "76ce9779-e2b0-4163-bd9f-c43a762b7ca3",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q3(a)(iv)",
+        "question": "Chlamydia is a sexually transmitted infection (STI). Give one way the transmission of chlamydia can be prevented.",
+        "marks": 1,
+        "answer_points": [
+          "Avoid sexual contact.",
+          "Use a condom or femidom (a barrier form of contraception is accepted).",
+          "Screen people for an infection.",
+          "Treat the infection or give antibiotics."
+        ],
+        "tip": "Any one of these scores the mark. Protection and contraception unqualified are ignored."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 6.3f"
+      ],
+      "worked_example": {
+        "exemplar_id": "54125ddf-70ea-49fc-9f83-499c5742ff37",
+        "source": "OCR jun 2022, Paper 4, Q10",
+        "question": "Which statement is correct about HIV/AIDS? A: AIDS is a virus that weakens the immune system. B: HIV and AIDS are alternative names for the same disease. C: HIV is a pathogen and AIDS is a set of infections. D: HIV is a virus that produces toxins which kill an infected person.",
+        "marks": 1,
+        "answer_points": [
+          "C: HIV is a pathogen and AIDS is a set of infections."
+        ],
+        "tip": "HIV is the virus. AIDS is the set of infections that follows when the immune system is badly damaged."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 16.6.1",
+        "CAIE 16.6.2",
+        "CAIE 16.6.4",
+        "CAIE 16.6.5",
+        "CAIE 16.6.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "50d4facd-718e-4f2d-ad19-d2a401e81a42",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q2(a)(ii)",
+        "question": "Describe how the spread of STIs, such as chlamydia, can be controlled.",
+        "marks": 4,
+        "answer_points": [
+          "Abstain from sexual contact.",
+          "Use condoms or femidoms.",
+          "Testing or screening.",
+          "Contact tracing.",
+          "Education about the risks, how STIs are transmitted and how to prevent them.",
+          "Use of antibiotics.",
+          "Do not share needles.",
+          "Use screened blood for transfusions.",
+          "Vaccination."
+        ],
+        "tip": "Any four score one mark each."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "More detail on HIV and STIs."
+            },
+            {
+              "type": "list",
+              "items": [
+                "HIV can pass from a mother to her infant during pregnancy or in breast milk.",
+                "The risk is reduced if the mother takes HIV medication, the baby is delivered by caesarean section and the mother does not breastfeed.",
+                "Contact tracing finds the sexual partners of an infected person, so they can be tested and treated.",
+                "Vaccination is available against some STIs."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "0868beb0-22bd-4bba-991c-8d308f420c51",
+      "bde5f09a-6319-4d45-83b3-228dca9ff695",
+      "aeb5180a-d551-4432-ac68-856edf2bf0e7",
+      "a7391d46-3bd9-43d1-bca0-b4ba0c1fe139",
+      "7ff0763f-e310-468f-973b-a2569e4812de",
+      "04547d5e-4f3f-424f-9821-2f9dc66e9378"
+    ],
+    "exemplar_ids": [
+      "14665365-e25c-468c-85a5-e2d673bf4a93",
+      "76ce9779-e2b0-4163-bd9f-c43a762b7ca3",
+      "54125ddf-70ea-49fc-9f83-499c5742ff37",
+      "50d4facd-718e-4f2d-ad19-d2a401e81a42"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

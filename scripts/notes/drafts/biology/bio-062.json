@@ -1,0 +1,342 @@
+{
+  "format": 1,
+  "concept_id": "bio-062",
+  "subject": "biology",
+  "title": "Required practical: rate of respiration",
+  "key_idea": "A respirometer measures the rate of respiration of small organisms. The organisms use up oxygen and the carbon dioxide they make is absorbed by soda lime. The gas volume falls, and a coloured liquid moves to show how fast they respire.",
+  "sections": [
+    {
+      "heading": "The respirometer",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A simple respirometer holds small living organisms in a sealed tube. It measures how fast they use oxygen."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Respirometer",
+              "meaning": "Apparatus that measures the rate of respiration of small organisms."
+            },
+            {
+              "term": "Soda lime",
+              "meaning": "A chemical that absorbs the carbon dioxide made by the organisms."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The organisms use oxygen in aerobic respiration and make carbon dioxide.",
+            "The soda lime absorbs the carbon dioxide, so the carbon dioxide does not replace the oxygen used.",
+            "The volume of gas in the tube falls, so a drop of coloured liquid in a capillary tube moves towards the organisms.",
+            "The faster the organisms respire, the further the liquid moves in a set time."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Small living organisms, such as germinating seeds or woodlice, are sealed in the tube.",
+            "Soda lime removes the carbon dioxide, so the movement of liquid shows oxygen being used.",
+            "A greater distance moved in the same time means a faster rate of respiration."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The method",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Follow the same steps every time, so that results from different organisms or temperatures can be compared."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of the respirometer method in the correct order.",
+            "prompt": "Put the respirometer method in order",
+            "steps": [
+              "Put soda lime in the bottom of the tube, with a known mass of organisms held above it on gauze",
+              "Seal the tube with a bung and connect it to the capillary tube with a drop of coloured liquid",
+              "Leave the apparatus at a constant temperature, for example in a water bath",
+              "Record the starting position of the liquid",
+              "Record the position of the liquid again after a set time",
+              "Calculate the distance moved and the rate, and repeat to find a mean"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The organisms are held on gauze so they do not touch the soda lime.",
+            "Keep the temperature constant, because temperature changes the rate of respiration.",
+            "Repeat the investigation and calculate a mean."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating the rate and controlling variables",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The rate is how far the liquid moves in each minute."
+        },
+        {
+          "type": "equation",
+          "label": "Rate of oxygen uptake",
+          "formula": "rate = distance moved ÷ time",
+          "where": [
+            "rate, in mm per minute",
+            "distance moved by the liquid, in mm",
+            "time, in minutes"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the rate of oxygen uptake from the distance the liquid moves.",
+            "question": "In a respirometer the coloured liquid moved **{d} mm** in **{t} minutes**. Calculate the rate of oxygen uptake in mm per minute. Give your answer to 1 decimal place.",
+            "variables": [
+              {
+                "id": "d",
+                "min": 10,
+                "max": 80,
+                "step": 1
+              },
+              {
+                "id": "t",
+                "min": 5,
+                "max": 10,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "d / t",
+              "unit": "mm per minute",
+              "decimals": 1
+            },
+            "working": [
+              "Rate = distance moved ÷ time",
+              "Rate = {d} ÷ {t} = **{answer}** mm per minute"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Variables to control and a control tube"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use the same mass of each organism, so the results are comparable.",
+            "Use the same volume and concentration of indicator, if one is used.",
+            "Keep the temperature the same, and use the same size of tube.",
+            "Repeat the experiment.",
+            "A control uses the same apparatus with no living organisms, or with an inert mass such as glass beads."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rate = distance moved ÷ time.",
+            "Control the mass of organisms, the temperature and the size of tube.",
+            "A control has the same apparatus but no living organisms."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Other ways to follow respiration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Respiration can also be followed by the carbon dioxide that organisms make."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hydrogencarbonate indicator in a sealed tube with organisms. Carbon dioxide from respiration changes its colour, for example germinating peas respire much faster than dried peas.",
+            "Fermentation in yeast. Collect the volume of carbon dioxide released in a set time, such as 10 minutes, at different temperatures.",
+            "Keep the flask at a constant temperature in a water bath. An electric heater, incubator or electric water bath is an alternative to a Bunsen burner.",
+            "If a Bunsen burner is used, wear goggles, tie back long hair and secure loose clothing."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carbon dioxide production is another measure of the rate of respiration.",
+            "Keep the temperature constant and take sensible safety precautions."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is the job of the soda lime in a respirometer?",
+      "a": "It absorbs the carbon dioxide made by the organisms, so the change in gas volume is due to oxygen being used.",
+      "marks": 2
+    },
+    {
+      "q": "State two variables you should control to compare the respiration of different organisms in a respirometer.",
+      "a": "Any two from: the mass of the organisms; the temperature; the size or volume of the tube; the volume or concentration of indicator.",
+      "marks": 2
+    },
+    {
+      "q": "Describe a suitable control for a respiration investigation using organisms in a sealed tube.",
+      "a": "The same tube, gauze and bung with indicator, but with no living organisms, or with an inert mass such as glass beads.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": ["EDEX 8.11"],
+      "worked_example": {
+        "exemplar_id": "39a96123-4f41-4554-b707-676a7b9ee1ea",
+        "source": "EDEXCEL jun 2019, Paper 2 (F), Q9(a)(i)",
+        "question": "A student investigated respiration in three different organisms.\n\nRed hydrogencarbonate indicator was placed in each of three test tubes. Gauze was placed in each test tube to hold the organisms.\n\nIn test tube 1 the student placed four germinating peas. In test tube 2 the student placed four dried peas. In test tube 3 the student placed four mealworms.\n\nBungs were added to each of the test tubes. The three test tubes were left for one hour.\n\nState two ways this method could be improved to make the results for these three organisms more comparable.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from: same concentration of indicator; same mass of organisms; same volume of indicator; same temperature; same volume or size of test tube; repeat the experiment; use a control.",
+          "Weight is accepted for mass.",
+          "Do not give the time, because it is already in the question."
+        ],
+        "tip": "One mark for each improvement, up to two. Make each one a variable to keep the same, or a repeat or control."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 7.8"],
+      "worked_example": {
+        "exemplar_id": "94ae723f-c3e0-42a7-b16e-45ea024765e8",
+        "source": "OCR nov 2020, Paper 1, Q17(a)(ii)",
+        "question": "Fermentation involves enzymes breaking down sugar and releasing carbon dioxide gas. The volume of carbon dioxide released can be used to measure how fast these enzymes are working.\n\nA student investigates if fermentation works faster at 25 °C or 30 °C. She measures the volume of carbon dioxide released in 10 minutes.\n\nShe chooses to use a Bunsen burner and water bath to keep the flask at a constant temperature.\n\nGive one safety precaution she should take.",
+        "marks": 1,
+        "answer_points": [
+          "Wear goggles, or tie (long) hair back, or secure loose clothing.",
+          "Also allowed: wear gloves, use gauze under the flask, or use a heatproof mat."
+        ],
+        "tip": "One precaution is enough for the mark. \"Face mask\" and \"do not touch hot equipment\" are ignored."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 12.1.2"],
+      "worked_example": {
+        "exemplar_id": "417442eb-9d20-4e7c-b33f-6f14aa30c270",
+        "source": "CAMBRIDGE jun 2023, Paper 61, Q1(a)(v)",
+        "question": "A student investigated the effect of temperature on the rate of respiration in yeast cells.\n\nWhen yeast cells respire they release carbon dioxide gas.\n\nThe student used this method:\n\nStep 1 Fill a syringe with 15 cm³ of yeast suspension.\nStep 2 Gently lower the syringe into the measuring cylinder.\nStep 3 Fill the measuring cylinder with hot water. Ensure that the water level in the measuring cylinder is above the syringe nozzle.\nStep 4 Measure the temperature of the water in the measuring cylinder.\nStep 5 Start the stop-clock and wait for two minutes.\nStep 6 After two minutes, reset the stop-clock to zero.\nStep 7 Start the stop-clock again and count the number of bubbles produced by the yeast suspension in three minutes.\nStep 8 Pour the hot water in the measuring cylinder into the waste container. The syringe containing the yeast suspension should remain in the measuring cylinder.\nStep 9 Fill the measuring cylinder with cold water. Ensure that the water level in the measuring cylinder is above the syringe nozzle.\nStep 10 Repeat steps 4 to 7.\n\nState two variables that were kept constant in this investigation.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from: the volume of yeast suspension; the concentration of yeast; the type of yeast.",
+          "Or: the time for counting bubbles; the time the yeast was left to equilibrate; the total time the yeast was in the water."
+        ],
+        "tip": "One mark for each variable."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section covers an investigation into the effect of temperature on respiration in yeast."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Put the same volume of yeast suspension, with glucose, in a syringe or tube in a water bath."
+                },
+                {
+                  "lead": "Change the temperature.",
+                  "text": "Use water baths at different temperatures, such as 25 °C and 35 °C. Measure each temperature."
+                },
+                {
+                  "lead": "Wait.",
+                  "text": "Leave the yeast for two minutes to reach the temperature of the water."
+                },
+                {
+                  "lead": "Measure.",
+                  "text": "Count the bubbles of carbon dioxide in a set time, or measure the volume of gas collected."
+                },
+                {
+                  "lead": "Repeat.",
+                  "text": "Repeat each temperature and calculate a mean."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The **independent variable** is the temperature.",
+                "The **dependent variable** is the number of bubbles, or the volume of carbon dioxide, in a set time.",
+                "Control the volume and concentration of the yeast suspension and the time.",
+                "Counting bubbles is not very accurate, because bubbles differ in size. A gas syringe or measuring cylinder gives a more accurate volume."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.39", "IGCSE 2.45B"],
+      "worked_example": {
+        "exemplar_id": "e1cb783b-db07-4b94-96a1-bc2570fd666e",
+        "source": "EDEXCEL nov 2020, Paper 1 (B), Q6(b)(ii)",
+        "question": "A student compares the aerobic respiration of male and female locusts. He uses three male locusts and three female locusts, in a respirometer containing potassium hydroxide solution on filter paper. He uses locusts of the same age and the same species.\n\nExplain three other variables that the student needs to control.",
+        "marks": 6,
+        "answer_points": [
+          "The size or mass of the locusts, because larger locusts have more cells and so respire more.",
+          "The size of the flask, because more room for movement means more respiration.",
+          "The volume or concentration of potassium hydroxide solution, or the size of filter paper, because this affects how much carbon dioxide is absorbed.",
+          "The temperature, because it affects the enzymes and the kinetic energy of the particles.",
+          "The time, because a longer time means more time to respire and more oxygen absorbed."
+        ],
+        "tip": "Three variables are marked, with two marks each: the variable and the reason it matters."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section covers showing that respiring seeds give out carbon dioxide and heat, and how light changes the net gas exchange of a leaf."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Put **germinating** seeds in one flask and **boiled** (dead) seeds in a second flask. The boiled seeds are the control.",
+                "Carbon dioxide turns limewater cloudy. Hydrogencarbonate indicator turns yellow.",
+                "Put a thermometer in each flask, held in cotton wool. Heat from respiration raises the temperature in the flask with germinating seeds.",
+                "The flask with boiled seeds shows little or no change in temperature or carbon dioxide.",
+                "A leaf in a tube of hydrogencarbonate indicator in the light takes in net carbon dioxide, so the indicator goes purple. In the dark it gives out carbon dioxide, so the indicator goes yellow."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "0dc1f36d-aa7f-4a05-976a-13aff1cb2c08",
+      "7c9edb35-2540-4227-8841-f0cd89518a7b",
+      "60f8512c-4f9e-42b4-9ec1-dc4691f3e27c",
+      "8c6d570e-a297-45f0-a043-9cbbaad5e1d5"
+    ],
+    "exemplar_ids": [
+      "39a96123-4f41-4554-b707-676a7b9ee1ea",
+      "94ae723f-c3e0-42a7-b16e-45ea024765e8",
+      "417442eb-9d20-4e7c-b33f-6f14aa30c270",
+      "e1cb783b-db07-4b94-96a1-bc2570fd666e"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

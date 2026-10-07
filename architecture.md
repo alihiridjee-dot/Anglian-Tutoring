@@ -92,8 +92,9 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │   │   └── …              # coverage, URL params, subject theme, video embeds, spec-point suggestions
     │   ├── homework/          # Row types, list buckets, drafts, question builder, exam generation, server fns
     │   ├── mcq/
-    │   │   ├── mcq.functions.ts # Server fn: AI MCQ generation (tutor-only)
+    │   │   ├── mcq.functions.ts # Server fns (tutor-only): run a point's quiz job now, replace its questions
     │   │   └── mcqAnswers.ts  # A half-finished quiz's answers, kept across a reload
+    │   ├── practice/          # The practice queue: the only writer of each spec point's quiz and task
     │   ├── planner/           # Pure FSRS/pacing/coverage/admissibility, RPC adapters, query keys
     │   │   ├── programDal.ts  # Fixed teaching + eligible reviews; programme persistence
     │   │   ├── scheduleDal.ts # Graded-source reconstruction; no client-written memory

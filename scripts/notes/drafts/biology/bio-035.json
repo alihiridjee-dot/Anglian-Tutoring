@@ -1,0 +1,272 @@
+{
+  "format": 1,
+  "concept_id": "bio-035",
+  "subject": "biology",
+  "title": "Plant tissues and leaf structure",
+  "key_idea": "A leaf is a plant organ made of several tissues. Each tissue is adapted to its job. Together they let the leaf absorb light and carbon dioxide for photosynthesis, take in water, and control water loss.",
+  "sections": [
+    {
+      "heading": "Plant tissues",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plants are made of cells, tissues and organs. A leaf is an organ because it is made of different tissues working together."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Tissue",
+              "meaning": "A group of similar cells that work together to do one job."
+            },
+            {
+              "term": "Organ",
+              "meaning": "A group of different tissues that work together, such as a leaf."
+            },
+            {
+              "term": "Meristem",
+              "meaning": "Tissue at the growing tips of shoots and roots. Its cells can differentiate throughout the life of the plant."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Epidermis**: the layer of cells lining the upper and lower surface of the leaf.",
+            "**Palisade mesophyll**: contains the most chloroplasts. Most photosynthesis happens here.",
+            "**Spongy mesophyll**: contains many air spaces, so gases can move through the leaf.",
+            "**Xylem**: transports water and mineral ions to the leaf.",
+            "**Phloem**: transports dissolved sugars away from the leaf.",
+            "**Guard cells**: surround the stomata and control their opening and closing."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap a leaf tissue to learn its job, then test yourself.",
+            "prompt": "Tissues of a leaf",
+            "parts": [
+              {
+                "name": "Epidermis",
+                "detail": "Lines the upper and lower surface of the leaf. The lower epidermis contains the stomata."
+              },
+              {
+                "name": "Palisade mesophyll",
+                "detail": "Contains the most chloroplasts, so most photosynthesis happens here."
+              },
+              {
+                "name": "Spongy mesophyll",
+                "detail": "Contains many air spaces, so carbon dioxide and other gases can move through the leaf."
+              },
+              {
+                "name": "Xylem",
+                "detail": "Hollow tubes that carry water and mineral ions to the leaf."
+              },
+              {
+                "name": "Phloem",
+                "detail": "Carries dissolved sugars from the leaf to the rest of the plant."
+              },
+              {
+                "name": "Guard cells",
+                "detail": "A pair of cells around each stoma. They open and close the stoma."
+              },
+              {
+                "name": "Meristem",
+                "detail": "Found at the growing tips of shoots and roots. Its cells can differentiate throughout the life of the plant."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A leaf is an organ. It is made of several tissues.",
+            "Palisade mesophyll has the most chloroplasts. Spongy mesophyll has many air spaces.",
+            "Meristem is the tissue that can differentiate throughout the life of the plant."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How the leaf is adapted",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each feature of a leaf helps photosynthesis or gas exchange. In an answer, name the adaptation and then say what it does."
+        },
+        {
+          "type": "table",
+          "columns": ["Adaptation", "Why it helps"],
+          "rows": [
+            [
+              "Leaves are flat with a large surface area",
+              "More light is absorbed for photosynthesis."
+            ],
+            ["Leaves are thin", "Carbon dioxide diffuses to the chloroplasts quickly."],
+            [
+              "Many chloroplasts, mainly in the palisade cells at the top",
+              "More light is absorbed, because the sun shines on the top of the leaf."
+            ],
+            ["Air spaces in the spongy mesophyll", "Gases move through the leaf."],
+            ["Many stomata", "Carbon dioxide is absorbed. Water vapour and oxygen can leave."],
+            [
+              "Veins containing xylem",
+              "Water, needed for photosynthesis, is supplied. The veins also hold the leaf up so it faces the sun."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Leaves are arranged so they do not overlap too much. More leaves are in direct light.",
+            "Light supplies the energy used in photosynthesis.",
+            "Carbon dioxide and water are the reactants of photosynthesis."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Flat, thin leaves with many chloroplasts absorb light and let carbon dioxide reach the cells quickly.",
+            "Stomata let carbon dioxide in. Air spaces let it move through the leaf.",
+            "Always link an adaptation to its effect on photosynthesis."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Which leaf tissue contains the most chloroplasts, and which contains many air spaces?",
+      "a": "Palisade mesophyll contains the most chloroplasts. Spongy mesophyll contains many air spaces.",
+      "marks": 2
+    },
+    {
+      "q": "Name the tissue that can differentiate throughout the life of a plant.",
+      "a": "Meristem.",
+      "marks": 1
+    },
+    {
+      "q": "Leaves in the shade are wider than leaves in full sun. Explain why.",
+      "a": "Wider leaves have a larger surface area, to absorb more light.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 2.11", "AQA T 4.2.3.1"],
+      "worked_example": {
+        "exemplar_id": "68fd6983-a04c-4d2a-976a-0557151e1f95",
+        "source": "AQA jun 2024, Paper 1 (H), Q04.1",
+        "question": "Plants contain many different tissues. Complete the sentences. The leaf tissue that contains the most chloroplasts is the ______. The leaf tissue that contains many air spaces is the ______. The plant tissue that can differentiate throughout the life of the plant is the ______.",
+        "marks": 3,
+        "answer_points": [
+          "Palisade (mesophyll, layer or cells)",
+          "Spongy mesophyll (or layer)",
+          "Meristem"
+        ],
+        "tip": "The answers must be in this order. A reference to a single palisade cell is not accepted."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.11B"],
+      "worked_example": {
+        "exemplar_id": "990dec55-5c1f-4b18-b593-d7faeaed8013",
+        "source": "EDEXCEL jun 2024, Paper 2 (H), Q7(b)(iii)",
+        "question": "Sunflower leaves are large. Explain why large leaves are an advantage to the plant.",
+        "marks": 3,
+        "answer_points": [
+          "Large leaves have a large surface area.",
+          "So more light is absorbed.",
+          "To produce glucose by the process of photosynthesis."
+        ],
+        "tip": "Each mark is a link in a chain: large surface area, more light, more photosynthesis."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 6.2.1",
+        "CAIE 6.2.2",
+        "CAIE 6.2.3",
+        "CAIE 8.1.2",
+        "CAIE 8.3.2",
+        "CAIE 8.3.4S"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "These leaf structures also adapt the leaf for photosynthesis."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The **cuticle** is a waxy layer on the upper surface. It is transparent, so light passes through, and it cuts water loss.",
+                "The upper and lower epidermis are thin and the upper epidermis is transparent, so light reaches the palisade cells.",
+                "The **vascular bundles** contain xylem, which brings water to the leaf, and phloem, which carries sugars away.",
+                "Spongy mesophyll cells are loosely packed with interconnecting air spaces, which give a large surface area for gases to move in and out."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.21", "IGCSE 2.42B", "IGCSE 2.40B", "IGCSE 2.41B", "IGCSE 2.43B"],
+      "worked_example": {
+        "exemplar_id": "dbdf26fd-fd38-4435-8d90-df6722d0e2eb",
+        "source": "EDEXCEL nov 2021, Paper 1 (B), Q10(d)",
+        "question": "Describe how the structure of the leaf is adapted for photosynthesis.",
+        "marks": 5,
+        "answer_points": [
+          "The leaf is flat and wide, so it has a large surface area for light absorption and gas exchange.",
+          "The leaf is thin, so no cells are far from the surface and the diffusion distance is short.",
+          "The upper epidermis is transparent, to let light through.",
+          "Palisade cells contain many chloroplasts near the surface, to absorb light.",
+          "Spongy mesophyll cells have air spaces, for gas exchange.",
+          "The lower surface has stomata, to take in carbon dioxide.",
+          "Xylem in the vascular bundle brings water for photosynthesis."
+        ],
+        "tip": "Any five points score. Each needs the structure and how it is adapted."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The upper epidermis is transparent, so light passes through to the palisade cells.",
+                "Xylem in the vascular bundle brings water to the leaf for photosynthesis."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "f51dc2ce-6e74-4fb1-963d-3ea9e188789d",
+      "a0967e45-1e5e-4ba3-9b36-81325cac2933",
+      "6078adea-249a-4553-bb0a-5b0f42d4d6df",
+      "15789128-a782-48d2-aa80-44b1f8a73c5b",
+      "e580b7c0-277f-4564-a07b-20d5d21ad2bf",
+      "979b8117-fe91-4b16-8b6b-0998b74e9a08",
+      "837c33bb-5f98-4758-94a0-ff848518a817",
+      "b39ea7f7-c668-4cb0-8633-463d28535f85"
+    ],
+    "exemplar_ids": [
+      "68fd6983-a04c-4d2a-976a-0557151e1f95",
+      "990dec55-5c1f-4b18-b593-d7faeaed8013",
+      "dbdf26fd-fd38-4435-8d90-df6722d0e2eb"
+    ]
+  }
+}

@@ -2,6 +2,7 @@ import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQ
 import type { QuestionMark } from "@/hooks/data/useAnswerMarking";
 import { SciText } from "@/components/Shared";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
+import { MarkScheme } from "@/components/homework/MarkScheme";
 
 /**
  * Marking a built-in homework question by question.
@@ -58,9 +59,11 @@ export function AnswerMarkingList({
             {q.mark_scheme && (
               <details className="text-xs">
                 <summary className="cursor-pointer text-muted-foreground">Mark scheme</summary>
-                <p className="mt-1 whitespace-pre-wrap text-muted-foreground">
-                  <SciText text={q.mark_scheme} context={notation} />
-                </p>
+                <MarkScheme
+                  scheme={q.mark_scheme}
+                  context={notation}
+                  className="mt-1 text-muted-foreground"
+                />
               </details>
             )}
 

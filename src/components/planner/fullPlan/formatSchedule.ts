@@ -2,7 +2,7 @@ import { isTeachBand, type PacingBand, type PacingChange } from "@/lib/planner/p
 import { byTopic, type BacklogPoint } from "@/lib/planner/backlog";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { type ProgressPoint } from "@/lib/planner/scheduleDal";
-import { plannerDateLabel, weekKeyToDate } from "@/lib/planner/week";
+import { mondayOf, plannerDateLabel, toDateKey, weekKeyToDate } from "@/lib/planner/week";
 import { weekKeysBetween } from "../roadmapWeeks";
 
 /**
@@ -293,6 +293,8 @@ export function formatSchedule(
 
   const weekKeys = weekKeysBetween(opts.showHistory ? data.programStart : now, data.examDate);
   const months: PlanMonth[] = [];
+  // The exam falls on a day; its week is keyed by that week's Monday.
+  const examWeek = toDateKey(mondayOf(weekKeyToDate(data.examDate)));
   for (const wk of weekKeys) {
     const date = weekKeyToDate(wk);
     const teach = teachLine(wk);
@@ -303,7 +305,7 @@ export function formatSchedule(
       label: `Week of ${plannerDateLabel(date, { day: "numeric", month: "long", year: "numeric" })}`,
       isNow: wk === now,
       isPast: wk < now,
-      isExam: wk >= data.examDate,
+      isExam: wk >= examWeek,
       lines: [...(teach ? [teach] : []), ...catchUpLines(wk), ...revisitLines(wk)],
     };
     const monthKey = wk.slice(0, 7);

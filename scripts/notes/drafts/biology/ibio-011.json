@@ -1,0 +1,301 @@
+{
+  "format": 1,
+  "concept_id": "ibio-011",
+  "subject": "biology",
+  "title": "Human reproductive systems",
+  "key_idea": "The male system makes sperm and delivers them into the female. The female system makes egg cells and provides a place for the embryo to develop. Sperm and egg cells are gametes, each adapted for its job.",
+  "sections": [
+    {
+      "heading": "The male reproductive system",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The male system produces sperm and passes them into the female body. Each part has a job in doing this."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Part",
+            "Function"
+          ],
+          "rows": [
+            [
+              "Testes",
+              "Make sperm (and the hormone testosterone)."
+            ],
+            [
+              "Scrotum",
+              "A bag of skin that holds the testes outside the body, where it is cooler than inside."
+            ],
+            [
+              "Sperm ducts",
+              "Tubes that carry sperm from the testes to the urethra."
+            ],
+            [
+              "Prostate gland",
+              "Adds fluid to the sperm to make semen."
+            ],
+            [
+              "Urethra",
+              "Carries semen out through the penis. It also carries urine, but never at the same time."
+            ],
+            [
+              "Penis",
+              "Passes semen into the vagina during sexual intercourse."
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sperm are made in the testes and travel along the sperm ducts and the urethra.",
+            "The prostate gland adds fluid to make semen, and the penis delivers it into the vagina."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The female reproductive system",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The female system makes egg cells and provides a place for a fertilised egg to develop."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Part",
+            "Function"
+          ],
+          "rows": [
+            [
+              "Ovaries",
+              "Make egg cells and release one about every month (and make the hormones oestrogen and progesterone)."
+            ],
+            [
+              "Oviducts",
+              "Tubes that carry the egg cell from an ovary to the uterus. Fertilisation takes place here."
+            ],
+            [
+              "Uterus",
+              "A muscular organ where an embryo implants and the fetus develops."
+            ],
+            [
+              "Cervix",
+              "A ring of muscle at the lower end of the uterus. It keeps the fetus in during pregnancy."
+            ],
+            [
+              "Vagina",
+              "Receives the penis and the sperm during intercourse. It is also the birth canal."
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "An activity naming the parts of the male and female reproductive systems: testis, scrotum, sperm duct, prostate gland, urethra, penis, ovary, oviduct, uterus, cervix and vagina. Each part can be tapped to show its function.",
+            "prompt": "Tap each part of the reproductive systems to learn its job, then test yourself.",
+            "parts": [
+              {
+                "name": "Testis",
+                "detail": "Makes sperm."
+              },
+              {
+                "name": "Scrotum",
+                "detail": "Holds the testes outside the body, where it is cooler."
+              },
+              {
+                "name": "Sperm duct",
+                "detail": "Carries sperm from the testis to the urethra."
+              },
+              {
+                "name": "Prostate gland",
+                "detail": "Adds fluid to sperm to make semen."
+              },
+              {
+                "name": "Urethra",
+                "detail": "Carries semen (or urine) out through the penis."
+              },
+              {
+                "name": "Penis",
+                "detail": "Places semen in the vagina during intercourse."
+              },
+              {
+                "name": "Ovary",
+                "detail": "Makes egg cells and releases them."
+              },
+              {
+                "name": "Oviduct",
+                "detail": "Carries the egg to the uterus. Fertilisation happens here."
+              },
+              {
+                "name": "Uterus",
+                "detail": "Where the embryo implants and the fetus develops."
+              },
+              {
+                "name": "Cervix",
+                "detail": "A ring of muscle at the base of the uterus."
+              },
+              {
+                "name": "Vagina",
+                "detail": "Receives sperm and is the birth canal."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Egg cells are made in the ovaries and travel along the oviducts.",
+            "The uterus is where the fetus develops. The cervix and vagina lead out of it."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Sperm and egg cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Male and female gametes are very different. Each is adapted to its role in fertilisation."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Sperm",
+            "Egg cell"
+          ],
+          "rows": [
+            [
+              "Size",
+              "Very small",
+              "Much larger"
+            ],
+            [
+              "Structure",
+              "Head with a nucleus and an acrosome, a middle piece full of mitochondria, and a tail (flagellum)",
+              "A nucleus in a large cytoplasm that contains energy stores, with a jelly coat around the outside"
+            ],
+            [
+              "Motility",
+              "Swims, using its flagellum",
+              "Cannot move by itself. It is moved along the oviduct."
+            ],
+            [
+              "Numbers",
+              "Millions made",
+              "Usually one released at a time"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Adaptations of a sperm"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **flagellum** (tail) lets the sperm swim to the egg.",
+            "Many **mitochondria** release the energy needed for swimming.",
+            "The **acrosome** contains enzymes that digest the jelly coat of the egg cell, so the sperm can get in."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Adaptations of an egg cell"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Energy stores** in the cytoplasm feed the embryo in its first days.",
+            "The **jelly coat** changes at fertilisation so that other sperm cannot enter.",
+            "Both gametes have a haploid nucleus, with half the usual number of chromosomes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A sperm is small, motile and made in large numbers. An egg cell is large, cannot swim and is released singly.",
+            "A sperm has a flagellum, mitochondria and enzymes in the acrosome. An egg has energy stores and a jelly coat."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the function of the prostate gland.",
+      "a": "It adds fluid to the sperm to make semen.",
+      "marks": 1
+    },
+    {
+      "q": "State three adaptive features of a sperm cell.",
+      "a": "A flagellum (tail), many mitochondria and enzymes in the acrosome.",
+      "marks": 3
+    },
+    {
+      "q": "Give two differences between sperm and egg cells.",
+      "a": "Any two from: sperm are much smaller than egg cells; sperm can swim but egg cells cannot; sperm are made in far greater numbers than egg cells.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 16.4.1",
+        "CAIE 16.4.2",
+        "CAIE 16.4.6",
+        "CAIE 16.4.4",
+        "CAIE 16.4.5"
+      ],
+      "worked_example": {
+        "exemplar_id": "cd5693a3-f99d-4085-b0a6-86e3192ada68",
+        "source": "CAMBRIDGE nov 2023, Paper 41, Q1(c)",
+        "question": "Once an egg cell has been released from a follicle it can be fertilised by a sperm cell.\n\nState three adaptive features of a sperm cell.",
+        "marks": 3,
+        "answer_points": [
+          "A flagellum (tail).",
+          "Many mitochondria.",
+          "An acrosome containing enzymes.",
+          "A haploid nucleus."
+        ],
+        "tip": "Any three score one mark each. Name the feature. The question asks you to state, so no explanation is needed."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.8"
+      ],
+      "worked_example": {
+        "exemplar_id": "150ce476-e927-486b-adeb-d307ca273652",
+        "source": "EDEXCEL nov 2021, Paper 1 (B), Q8(c)(iii)",
+        "question": "The male reproductive system in humans produces sperm in a liquid called semen. A scientist investigates how age affects the mean number of sperm released in one ejaculation. The table shows some of the results.\n\nAge in years: 37–39 | 48–72\nmean number of sperm released in millions: 202 | 142\n\nCalculate the percentage decrease in mean number of sperm between men aged 37–39 and men aged 48–72.",
+        "marks": 2,
+        "answer_points": [
+          "Change = 202 − 142 = 60 million.",
+          "Percentage decrease = (60 ÷ 202) × 100 = 29.7%."
+        ],
+        "tip": "One mark for the change and one for dividing by the starting value and multiplying by 100."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "ed295dd8-33fe-4738-87fd-dfab51743ac6",
+      "8c5514f5-b3e6-4b75-9a97-1ca7db848229",
+      "819ba762-616a-4ca5-a209-8a2fea3cdcdd",
+      "08b16c0c-a191-44b8-bc08-1e1062bc96e2"
+    ],
+    "exemplar_ids": [
+      "cd5693a3-f99d-4085-b0a6-86e3192ada68",
+      "150ce476-e927-486b-adeb-d307ca273652"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

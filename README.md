@@ -117,13 +117,24 @@ stored question, mark scheme, exemplar and note without losing a character.
 ## Exam question generation
 
 The framework lives in `src/lib/homework/examGeneration.ts`; its database and Claude calls
-live in `src/lib/homework/examGeneration.server.ts`. Both the written-homework generators
-(including automatic planner homework) and all three MCQ generators use it.
+live in `src/lib/homework/examGeneration.server.ts`. The practice queue, the tutor's MCQ
+generate and Replace questions buttons, and the tutor's written-task drafts all use it.
 There is one model call per generated set for a specification point. Existing
 publishing paths and the reuse of already-generated homework are retained.
 
-The server loads the specification point using the signed-in user's database
-access, then retrieves reference context using its service credential. Claude
+Each spec point's shared quiz and task are library content, and only the practice queue
+(`src/lib/practice/practiceQueue.server.ts`) writes them. Saving a student's week
+queues its points' missing quiz and task (a database trigger), and a worker, called each
+minute while work is waiting, writes them. The database hands out one job per point, so
+nothing is paid for twice; a daily call cap and an outage pause bound the spend.
+Opening a page never generates; a tutor's MCQ generate button runs that point's queue
+job straight away. By hand, run it only through `bun scripts/practice-queue.ts`
+(a dry run without `--yes`).
+
+For Replace questions and the tutor's written-task drafts, the server loads the
+specification point using the tutor's own database access; the queue, including the
+generate button, has no signed-in user and uses the service credential. Reference
+context is always retrieved with the service credential. Claude
 receives the assembled context in the API request; it does not browse the repo,
 read the local `papers/` directory, or connect to Postgres itself.
 
@@ -133,9 +144,13 @@ Apply these migrations, in order, before deploying the generation changes:
 
 - `20260910120000_exam_exemplar_library.sql`
 - `20260910150000_exam_generation_framework.sql`
+- `20261005220000_practice_queue.sql`
 
 The app server needs `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`,
-`SUPABASE_SERVICE_ROLE_KEY` and `ANTHROPIC_API_KEY`. The service credential and
+`SUPABASE_SERVICE_ROLE_KEY`, `ANTHROPIC_API_KEY` and `PRACTICE_WORKER_SECRET`. The
+queue's minute job reads the worker's address and the same secret from Supabase
+Vault (`practice_worker_url`, `practice_worker_secret`); until both exist it calls
+nothing. The service credential and
 reference records stay server-side; the retrieval RPC is not executable by
 anonymous or authenticated browser clients. Missing credentials/migrations are
 configuration errors, not an empty-library fallback.
@@ -185,8 +200,10 @@ checks structure, not scientific correctness, and introduces no second AI review
 or new publishing gate. Questions retain their generated mark schemes for marking.
 Keep curriculum descriptions complete; a title alone provides much less guidance.
 
-`exam_generation_runs` records the model, framework version, selected exemplar
-IDs, fallback level, response (including assessment tags) and API usage. These
+`exam_generation_runs` has one row per model call, passed or failed: the model that
+answered, framework version, selected exemplar IDs, fallback level, response
+(including assessment tags), API usage, the outcome (passed, saved, discarded or
+failed), and for a failed call its error and raw answer. These
 records are tutor-readable only. Logging failure is reported server-side without
 discarding an otherwise valid set. System-prompt caching is requested; actual cache
 hits depend on the provider's minimum prompt length and cache lifetime.

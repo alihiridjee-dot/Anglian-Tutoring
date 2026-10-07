@@ -1,0 +1,373 @@
+{
+  "format": 1,
+  "concept_id": "bio-063",
+  "subject": "biology",
+  "title": "Response to exercise",
+  "key_idea": "During exercise, heart rate, breathing rate and breath volume increase to supply the muscles with more oxygenated blood. If oxygen is still insufficient, muscles respire anaerobically. Lactic acid builds up and creates an oxygen debt, which is repaid after exercise.",
+  "sections": [
+    {
+      "heading": "What changes during exercise",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Exercise increases the body's demand for energy. The body responds so that the muscles get more of what they need."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Heart rate",
+              "meaning": "The number of times the heart beats in a minute."
+            },
+            {
+              "term": "Breathing rate",
+              "meaning": "The number of breaths taken in a minute."
+            },
+            {
+              "term": "Breath volume",
+              "meaning": "How much air is taken in with each breath, so deeper breathing means a larger breath volume."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heart rate, breathing rate and breath volume all increase.",
+            "More oxygenated blood reaches the muscles, so oxygen and glucose are delivered to the respiring cells faster.",
+            "More carbon dioxide, made in respiration, is removed faster.",
+            "Muscles convert stored glycogen to glucose.",
+            "Body temperature rises and the body sweats."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "More energy is needed, so more aerobic respiration takes place in the muscles.",
+            "Faster heart and breathing rates supply more oxygen and glucose and remove more carbon dioxide.",
+            "Energy is transferred or released by respiration. It is not produced."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "When there is not enough oxygen",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "During long periods of vigorous exercise the blood cannot supply oxygen fast enough. Muscles then respire anaerobically as well."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Lactic acid",
+              "meaning": "Made by anaerobic respiration in muscles because the glucose is only partly broken down."
+            },
+            {
+              "term": "Oxygen debt",
+              "meaning": "The extra oxygen the body needs after exercise to react with the lactic acid and remove it from the cells."
+            },
+            {
+              "term": "Muscle fatigue",
+              "meaning": "Muscles become tired and stop contracting efficiently."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the events of prolonged vigorous exercise in order.",
+            "prompt": "Put the events of vigorous exercise in order",
+            "steps": [
+              "The muscles need more energy, so breathing rate and heart rate increase",
+              "Oxygen cannot be supplied fast enough for all the energy needed",
+              "The muscles also respire anaerobically",
+              "Lactic acid builds up and an oxygen debt is created",
+              "The muscles become fatigued and stop contracting efficiently",
+              "After exercise, heavy breathing continues to repay the oxygen debt"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Not enough oxygen means anaerobic respiration, which makes lactic acid.",
+            "Lactic acid build-up causes muscle fatigue and creates an oxygen debt.",
+            "Anything that reduces oxygen reaching muscles, such as fewer red blood cells, can cause fatigue sooner."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "After exercise",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The body keeps working after the exercise stops, because the lactic acid has to be removed."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heart rate stays high, then slowly falls back to its resting rate.",
+            "Breathing stays fast and deep, then slowly returns to normal.",
+            "The extra oxygen breathed in pays back the oxygen debt, by reacting with the lactic acid and removing it from the cells.",
+            "(AQA: Higher tier) Blood flowing through the muscles carries lactic acid to the liver, where some is converted back into glucose. The oxygen debt itself is the oxygen needed to remove the lactic acid."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Recovery time"
+        },
+        {
+          "type": "paragraph",
+          "text": "A fitter person usually has a lower resting rate and returns to it sooner. You may be asked to calculate the recovery time."
+        },
+        {
+          "type": "equation",
+          "label": "Time to recover",
+          "formula": "time = (heart rate after exercise − resting heart rate) ÷ rate of decrease",
+          "where": [
+            "heart rates, in beats per minute",
+            "rate of decrease, in beats per minute each minute",
+            "time, in minutes"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating how long a heart rate takes to return to its resting rate.",
+            "question": "After exercise a person's heart rate was **{h} beats per minute**. Their resting heart rate is **{r} beats per minute**. When they rest, their heart rate decreases steadily by **{k} beats every minute**. Calculate how long it takes to return to the resting rate, in minutes. Give your answer to 1 decimal place.",
+            "variables": [
+              {
+                "id": "h",
+                "min": 100,
+                "max": 130,
+                "step": 5
+              },
+              {
+                "id": "r",
+                "min": 60,
+                "max": 80,
+                "step": 10
+              },
+              {
+                "id": "k",
+                "min": 10,
+                "max": 15,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "(h - r) / k",
+              "unit": "minutes",
+              "decimals": 1
+            },
+            "working": [
+              "Beats to lose = {h} − {r}",
+              "Time = (beats to lose) ÷ {k} = **{answer}** minutes"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "After exercise, heart rate and breathing rate stay high to repay the oxygen debt.",
+            "A shorter recovery time and a lower resting rate suggest greater fitness.",
+            "(AQA: Higher tier) Lactic acid is taken to the liver and converted back to glucose."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating the effect of exercise",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You may need to plan an investigation into how exercise changes the heart rate or breathing rate."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use a group of people, with at least 5 in each group you compare, or have each person do every type of exercise.",
+            "Record each person's heart rate before and after exercise, and calculate the increase for each person.",
+            "Calculate the mean increase for each type or intensity of exercise, then compare them.",
+            "Control the variables: age, sex, level of activity, time spent exercising, type of exercise, caffeine or drug intake, and health.",
+            "Let each person return to their resting heart rate before the next exercise."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure before and after exercise, and calculate the increase.",
+            "Use several people and a mean, and control age, sex, fitness and exercise time."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why breathing rate increases during exercise.",
+      "a": "To supply more oxygen faster for (aerobic) respiration, so that more energy is released. Or to remove more of the carbon dioxide produced in respiration.",
+      "marks": 3
+    },
+    {
+      "q": "Muscles respire anaerobically if they do not have enough ______. Anaerobic respiration of glucose produces ______.",
+      "a": "oxygen; lactic acid.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the use of oxygen stays high after exercise stops.",
+      "a": "The athlete has an oxygen debt, so extra oxygen is needed to react with or break down the lactic acid.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.7", "AQA T 4.4.2.2"],
+      "worked_example": {
+        "exemplar_id": "2ce023bd-f852-455a-8ea6-cc58f6f2eeb5",
+        "source": "AQA jun 2020, Paper 1 (H), Q03.5",
+        "question": "During long periods of vigorous exercise the body respires anaerobically.\n\nExplain the changes that happen in the body during and after vigorous exercise.",
+        "marks": 6,
+        "answer_points": [
+          "During exercise, breathing rate and breath volume increase, to take in more oxygen for (aerobic) respiration and to exhale more carbon dioxide.",
+          "Heart rate increases, so blood flow to the muscles increases and oxygen and glucose reach respiring cells faster, and carbon dioxide is removed faster.",
+          "Insufficient oxygen is supplied during prolonged vigorous exercise, so lactic acid is formed by anaerobic respiration and an oxygen debt is created.",
+          "Lactic acid causes the muscles to become fatigued, so they stop contracting efficiently.",
+          "After exercise, heart rate and breathing rate stay high and fall slowly, to pay back the oxygen debt.",
+          "The oxygen debt is the oxygen needed to break down the lactic acid. (AQA: Higher tier) Some lactic acid is transported to the liver and converted back into glucose."
+        ],
+        "tip": "A six-mark answer links changes during exercise and after it, and must include lactic acid and its removal."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 9.2.4",
+        "CAIE 9.2.11S",
+        "CAIE 11.1.5",
+        "CAIE 11.1.10S",
+        "CAIE 12.3.6S",
+        "CAIE 12.3.7S"
+      ],
+      "worked_example": {
+        "exemplar_id": "e7861cdd-ac6b-48b1-a9ba-f3979df2b9f1",
+        "source": "CAMBRIDGE jun 2025, Paper 43, Q2(c)(ii)",
+        "question": "During physical activity breathing changes.\n\nExplain the mechanism that links the increase in physical activity to the changes in breathing.",
+        "marks": 3,
+        "answer_points": [
+          "Carbon dioxide in the blood increases.",
+          "The high carbon dioxide concentration is detected by the brain.",
+          "The brain sends more impulses to the muscles used in breathing, such as the diaphragm and intercostal muscles.",
+          "These muscles contract more, to increase the rate and depth of breathing."
+        ],
+        "tip": "Any three of the points earn the three marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) This section covers how exercise changes breathing, and how the oxygen debt is removed."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "More carbon dioxide.",
+                  "text": "Muscles respire faster, so the carbon dioxide concentration in the blood rises."
+                },
+                {
+                  "lead": "Detected.",
+                  "text": "The brain detects the higher carbon dioxide concentration."
+                },
+                {
+                  "lead": "Impulses.",
+                  "text": "The brain sends more impulses to the muscles used in breathing."
+                },
+                {
+                  "lead": "Faster and deeper.",
+                  "text": "The breathing rate and depth increase, which removes the extra carbon dioxide."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) Lactic acid builds up in the muscles and the blood during vigorous exercise. This causes an **oxygen debt**.",
+                "(Supplement) After exercise the heart rate stays fast, to carry lactic acid in the blood from the muscles to the liver.",
+                "(Supplement) Breathing stays deeper and faster, to supply oxygen for the aerobic respiration of lactic acid.",
+                "(Supplement) The liver breaks down the lactic acid by aerobic respiration."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.50", "IGCSE 2.66"],
+      "worked_example": {
+        "exemplar_id": "7149c34e-73aa-4040-b8a1-50cc9be42313",
+        "source": "EDEXCEL jun 2024, Paper 1 (BR), Q3(b)(iv)",
+        "question": "Describe a simple laboratory experiment to investigate the effect of exercise on the rate of carbon dioxide release from a human.",
+        "marks": 3,
+        "answer_points": [
+          "Use limewater or hydrogencarbonate indicator.",
+          "Breathe out through it, and measure the time taken for the limewater to go cloudy or the indicator to change colour.",
+          "Measure before and after exercise, or with and without exercise.",
+          "Keep the volume of limewater or indicator, the room temperature and the person the same.",
+          "Repeat and calculate a mean."
+        ],
+        "tip": "Any three of the points earn the three marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section covers a simple experiment on carbon dioxide release, and the effect of adrenaline on the heart."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Breathe out through a straw into limewater, or into hydrogencarbonate indicator.",
+                "Limewater goes cloudy and the indicator goes yellow when carbon dioxide is present.",
+                "Time how long this takes, before exercise and after exercise. After exercise the change is faster, because more carbon dioxide is released.",
+                "Count the breaths and the pulse for a set time before and after exercise.",
+                "**Adrenaline** is a hormone that is released during exercise and in times of danger. It makes the heart beat faster, so more blood carrying oxygen and glucose reaches the muscles."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "3d7fca5c-6022-4474-893f-ef17ae6dfc34",
+      "80d915f3-2bae-416c-9a93-128f504cb295",
+      "56f4fbae-f25b-4313-aa2e-9a531cf74b86",
+      "c6634217-ba68-4d55-9c03-03492b72a7af",
+      "7f6b1a72-4c2c-45e5-9e59-52f2a220b961",
+      "1dbadd58-c3ae-41a0-ae2c-99c4aa7b69de",
+      "f056d1e1-f132-4b8c-9eb3-b0b0b230e1b4",
+      "ad21e018-d8c4-4565-a6a9-5194d6199203",
+      "4079e6a9-15f3-4898-89ca-0d3968fabc4f",
+      "a3415618-7903-4218-9a10-cdf6803691a6"
+    ],
+    "exemplar_ids": [
+      "2ce023bd-f852-455a-8ea6-cc58f6f2eeb5",
+      "e7861cdd-ac6b-48b1-a9ba-f3979df2b9f1",
+      "7149c34e-73aa-4040-b8a1-50cc9be42313"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

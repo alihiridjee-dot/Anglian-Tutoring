@@ -35,7 +35,7 @@ export function PageHeader({
   icon: Icon,
   children,
 }: {
-  eyebrow?: string;
+  eyebrow?: ReactNode;
   title: string;
   lede?: string;
   icon?: LucideIcon;
@@ -128,7 +128,8 @@ export function EmptyState({
   compact = false,
 }: {
   title: string;
-  body: string;
+  /** Optional: a title that says it all needs no grey line under it. */
+  body?: string;
   action?: { to: string; label: string };
   mascot?: MascotName;
   mood?: Mood;
@@ -138,7 +139,7 @@ export function EmptyState({
     return (
       <div className="space-y-2 text-sm">
         <h3 className="text-sm font-bold">{title}</h3>
-        <p className="text-muted-foreground">{body}</p>
+        {body && <p className="text-muted-foreground">{body}</p>}
         {action && (
           <Link to={action.to as never} className="btn-premium inline-flex px-3 py-2">
             {action.label}
@@ -150,7 +151,11 @@ export function EmptyState({
     <div className="pop-card flex flex-col items-center px-6 py-10 text-center">
       <Mascot name={mascot} mood={mood} size={104} className="mb-4" />
       <h3 className="font-display text-xl font-extrabold">{title}</h3>
-      <p className="text-muted-foreground mx-auto mt-2 max-w-md text-sm leading-relaxed">{body}</p>
+      {body && (
+        <p className="text-muted-foreground mx-auto mt-2 max-w-md text-sm leading-relaxed">
+          {body}
+        </p>
+      )}
       {action ? (
         <Link
           to={action.to as never}
@@ -232,11 +237,17 @@ export function Meter({
   className,
   label,
   size = "md",
+  fillIn = false,
 }: {
   value: number;
   className?: string;
   label?: boolean;
   size?: "sm" | "md" | "lg";
+  /**
+   * Fill up from empty on arrival, loader stripes running, and settle on the
+   * value. Plays on mount, so key the meter by its value to replay it.
+   */
+  fillIn?: boolean;
 }) {
   const pct = Math.max(0, Math.min(100, value));
   const h = size === "sm" ? "h-2" : size === "lg" ? "h-4" : "h-3";
@@ -253,7 +264,10 @@ export function Meter({
       aria-valuemax={100}
     >
       <div
-        className="h-full rounded-full bg-[color:var(--tint)] transition-[width] duration-700 ease-out"
+        className={cn(
+          "h-full rounded-full bg-[color:var(--tint)]",
+          fillIn ? "meter-fill" : "transition-[width] duration-700 ease-out",
+        )}
         style={{ width: `${pct}%` }}
       />
     </div>
@@ -499,12 +513,7 @@ export function SegmentedToggle({
             {active && (
               <motion.span
                 layoutId={layoutId}
-                className="bg-card absolute inset-0 rounded-full"
-                style={{
-                  border: "1.5px solid color-mix(in oklab, var(--tint) 30%, transparent)",
-                  boxShadow:
-                    "0 1px 0 0 color-mix(in oklab, var(--tint) 30%, transparent), 0 4px 10px -6px color-mix(in oklab, var(--tint) 70%, transparent)",
-                }}
+                className="tab-pill absolute inset-0"
                 transition={
                   reduceMotion ? { duration: 0 } : { type: "spring", stiffness: 420, damping: 36 }
                 }

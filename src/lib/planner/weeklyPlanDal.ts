@@ -14,6 +14,10 @@ import { type PacingBand } from "./pacing";
 import { selectIn } from "../platform/db/chunked";
 import { getSessionUserId } from "@/lib/auth/session";
 
+import { MAX_WEEK_POINTS } from "./weekCut";
+
+export { MAX_WEEK_POINTS };
+
 export type PlanSource = Database["public"]["Enums"]["plan_source"];
 export type PlanPointOrigin = Database["public"]["Enums"]["plan_point_origin"];
 
@@ -320,6 +324,24 @@ export class WeeklyPlanDAL {
       .maybeSingle();
     if (planError) throw planError;
     if (!plan) throw new Error("That weekly plan no longer exists.");
+
+    // The database caps a week at MAX_WEEK_POINTS, but only in `save_weekly_plan`.
+    // This upsert sailed past it, and the next re-cut of an overfull week was then
+    // refused for ever, taking the whole planner down with an error. So the cap
+    // is applied here too, before anything is written, with a reason a student
+    // can act on. Only points not already in the week count towards it. A
+    // ticked-off point still counts: only taking points out makes room.
+    const { data: held, error: heldError } = await supabase
+      .from("student_weekly_plan_points")
+      .select("spec_point_id")
+      .eq("plan_id", planId);
+    if (heldError) throw heldError;
+    const present = new Set((held ?? []).map((r) => r.spec_point_id));
+    const incoming = new Set(specPointIds.filter((id) => !present.has(id)));
+    if (present.size + incoming.size > MAX_WEEK_POINTS)
+      throw new Error(
+        `This week already holds as much as it can (${MAX_WEEK_POINTS} points). To make room, a tutor needs to remove or move some of it.`,
+      );
 
     const points = await this.screen(
       plan.student_id,

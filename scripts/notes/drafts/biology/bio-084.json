@@ -1,0 +1,349 @@
+{
+  "format": 1,
+  "concept_id": "bio-084",
+  "subject": "biology",
+  "title": "Adrenaline, thyroxine and negative feedback",
+  "key_idea": "(AQA: Higher tier) Adrenaline prepares the body for fight or flight. Thyroxine stimulates the basal metabolic rate. Thyroxine level is kept steady by negative feedback: a change causes a response that reverses it.",
+  "sections": [
+    {
+      "heading": "Adrenaline",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) Adrenaline is produced by the adrenal glands in times of fear or stress. It prepares the body for \"fight or flight\"."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Adrenal glands",
+              "meaning": "The endocrine glands that release adrenaline into the blood."
+            },
+            {
+              "term": "Fight or flight",
+              "meaning": "The body's response to danger, getting ready to fight or run away."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Adrenaline travels dissolved in the blood plasma to its target organs.",
+            "It increases heart rate and blood pressure, so more blood flows to the muscles.",
+            "This boosts the delivery of oxygen and glucose to the brain and muscles.",
+            "Adrenaline makes liver cells convert glycogen into glucose, which is released into the blood.",
+            "More glucose and oxygen means a faster rate of respiration, releasing more energy for muscle contraction.",
+            "It also widens the air passages and increases breathing rate.",
+            "It reduces blood flow to the skin (vasoconstriction), so less blood is lost from a cut."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Adrenal glands release adrenaline in fear or stress.",
+            "It increases heart rate and the delivery of oxygen and glucose to muscles.",
+            "More respiration releases more energy for muscles."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Thyroxine and metabolic rate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) Thyroxine is released by the thyroid gland. It stimulates the basal metabolic rate."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The basal metabolic rate is the rate of the chemical reactions in the body at rest.",
+            "A higher metabolic rate generates more heat.",
+            "Thyroxine plays an important role in growth and development.",
+            "Someone with an underactive thyroid (hypothyroidism) makes less thyroxine and generates less heat, so they tolerate cold less well."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort statements into adrenaline and thyroxine.",
+            "prompt": "Which hormone does each statement describe?",
+            "groups": [
+              "Adrenaline",
+              "Thyroxine"
+            ],
+            "items": [
+              {
+                "text": "Made by the adrenal glands",
+                "group": 0
+              },
+              {
+                "text": "Released in times of fear or stress",
+                "group": 0
+              },
+              {
+                "text": "Increases heart rate",
+                "group": 0
+              },
+              {
+                "text": "Boosts delivery of oxygen and glucose to the muscles",
+                "group": 0
+              },
+              {
+                "text": "Made by the thyroid gland",
+                "group": 1
+              },
+              {
+                "text": "Stimulates the basal metabolic rate",
+                "group": 1
+              },
+              {
+                "text": "Important in growth and development",
+                "group": 1
+              },
+              {
+                "text": "Underproduction lowers tolerance of cold",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Thyroxine comes from the thyroid gland.",
+            "It stimulates the basal metabolic rate, which generates heat."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Negative feedback",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) Thyroxine is controlled by negative feedback. A change is detected, and the response reverses it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Negative feedback",
+              "meaning": "A change causes a response that reverses the change and returns the level to normal."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Example: a fall in body temperature"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Detect.",
+              "text": "A decrease in body temperature causes the thyroid gland to release thyroxine."
+            },
+            {
+              "lead": "Respond.",
+              "text": "Thyroxine increases the basal metabolic rate."
+            },
+            {
+              "lead": "Reverse.",
+              "text": "Body temperature rises, so less thyroxine is released."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The pituitary link (extra detail: some courses ask for it)"
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "A loop. Low thyroxine causes the hypothalamus to release TRH. TRH makes the pituitary release TSH. TSH makes the thyroid release thyroxine. Rising thyroxine inhibits TRH and TSH.",
+            "steps": [
+              "Low thyroxine level",
+              "Hypothalamus releases TRH",
+              "Pituitary releases TSH",
+              "Thyroid gland releases thyroxine",
+              "Thyroxine rises and inhibits TRH and TSH"
+            ],
+            "loop": true
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Negative feedback reverses a change and returns the level to normal.",
+            "Falling temperature leads to more thyroxine. Rising temperature leads to less.",
+            "Where TSH is taught: TRH, then TSH, then thyroxine. High thyroxine inhibits TRH and TSH."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the gland that releases adrenaline and give two effects of adrenaline on the body.",
+      "a": "The adrenal gland. It increases heart rate and increases the delivery of oxygen and glucose to the muscles.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how the thyroid gland controls the response to a decrease in body temperature by negative feedback.",
+      "a": "The thyroid gland releases thyroxine, which increases the basal metabolic rate. Body temperature rises, which decreases the release of thyroxine.",
+      "marks": 3
+    },
+    {
+      "q": "Why do people with an underactive thyroid tolerate cold less well?",
+      "a": "They make less thyroxine, so their metabolic rate is lower and less heat is generated.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 5.14",
+        "AQA T 4.5.3.6"
+      ],
+      "worked_example": {
+        "exemplar_id": "2dc04d1b-4983-4b9e-bdea-53acb6785130",
+        "source": "AQA jun 2023, Paper 2 (H), Q6.7",
+        "question": "Explain how the thyroid gland controls the response to a decrease in body temperature by negative feedback.",
+        "marks": 3,
+        "answer_points": [
+          "The decrease in body temperature causes the thyroid gland to release thyroxine (1).",
+          "Thyroxine increases or stimulates the basal metabolic rate (1).",
+          "So body temperature increases, which decreases the release of thyroxine (1)."
+        ],
+        "tip": "Show the whole loop: change, response, then the reversal that switches the response off."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 7.2",
+        "EDEX 7.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "02745c41-fca9-4885-b4b2-4ead668dfd39",
+        "source": "EDEXCEL nov 2020, Paper 2 (H), Q9(b)",
+        "question": "Explain how negative feedback, involving the thyroid gland, controls metabolic rate.",
+        "marks": 4,
+        "answer_points": [
+          "Low levels of thyroxine cause TRH to be produced in the hypothalamus (1).",
+          "This causes TSH to be released from the pituitary (1).",
+          "TSH causes the thyroid gland to produce thyroxine (1).",
+          "As thyroxine levels increase it inhibits the release of TRH or the production of TSH (1)."
+        ],
+        "tip": "Four of these six points score. Name each hormone and the gland it comes from."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 3.2b"
+      ],
+      "worked_example": {
+        "exemplar_id": "706b6a58-0be8-4451-910a-535b3d75d8ca",
+        "source": "OCR jun 2022, Paper 3, Q20(a)",
+        "question": "Hypothyroidism occurs when the body has an underactive thyroid gland. Explain why people with hypothyroidism can have less tolerance to cold conditions.",
+        "marks": 2,
+        "answer_points": [
+          "The thyroid releases thyroxine, which regulates the body's metabolic rate (1).",
+          "This affects the amount of heat that will be generated or produced (1)."
+        ],
+        "tip": "Link thyroxine to metabolic rate, and metabolic rate to heat."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 14.3.3",
+        "CAIE 14.3.6S"
+      ],
+      "worked_example": {
+        "exemplar_id": "098302f2-7f4a-49f2-8ba8-a9286b58446d",
+        "source": "CAMBRIDGE jun 2025, Paper 43, Q3(d)",
+        "question": "Adrenaline also affects blood glucose concentration.\n\nSuggest how this is an advantage for the \"fight or flight\" response.",
+        "marks": 3,
+        "answer_points": [
+          "Adrenaline causes glycogen to be broken down into glucose.",
+          "This increases the blood glucose concentration.",
+          "The glucose is used in respiration, which releases energy.",
+          "The energy is used for muscle contraction."
+        ],
+        "tip": "Three of these points score. Link glucose to respiration, then to the muscles."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Adrenaline also increases pupil diameter, so the pupils widen."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.66",
+        "IGCSE 2.94"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Heart rate rises during exercise and under the influence of adrenaline."
+            },
+            {
+              "type": "list",
+              "items": [
+                "During exercise, muscles respire faster and make more carbon dioxide.",
+                "The brain detects the higher carbon dioxide concentration in the blood and sends signals to the heart.",
+                "The heart beats faster, so more blood carries oxygen and glucose to the muscles and removes carbon dioxide.",
+                "Adrenaline from the adrenal glands also makes the heart beat faster.",
+                "Heart rate falls back to normal after exercise."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "8bf1c8fa-3e11-431f-a2e7-7d8e06924912",
+      "a4f9af00-299a-44bf-9f66-14b89f4597b7",
+      "212f927a-2cf1-4c48-811b-a4c27cc0fb20",
+      "3212b8a2-6e11-4f84-8676-f93f9c56fcaf",
+      "821e62e3-61d2-40d2-a8bc-a98fd0752486",
+      "7c404ce5-2b8e-452e-ad7e-85d130f14b48",
+      "e9cf14f7-542c-4348-88ba-5d8b269096a9"
+    ],
+    "exemplar_ids": [
+      "2dc04d1b-4983-4b9e-bdea-53acb6785130",
+      "02745c41-fca9-4885-b4b2-4ead668dfd39",
+      "706b6a58-0be8-4451-910a-535b3d75d8ca",
+      "b56ed42f-d4fb-40a3-9528-ae05d744c10a",
+      "112e5751-1e81-4812-bb93-54ac0b624c8b",
+      "93413f87-9daf-41fd-b268-7f519e0dfe53",
+      "e9d0c107-d44f-48a2-9535-83f7256d73c0",
+      "627e3c03-e58e-48a8-9e28-ec09dfd67ef9",
+      "6bdfe658-bb25-4159-9470-52ae19c911db",
+      "770ac808-92ac-4e40-8c01-085c5c71df85",
+      "f81889ba-b237-4b9a-b4f7-f37180f5801b",
+      "9a87385b-5b8d-4f3e-9931-150f093d74b9",
+      "96714cb5-c9d8-4dd4-9def-39feee3ae2b8",
+      "098302f2-7f4a-49f2-8ba8-a9286b58446d"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

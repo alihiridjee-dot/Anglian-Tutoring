@@ -1,0 +1,230 @@
+{
+  "format": 1,
+  "concept_id": "ibio-016",
+  "subject": "biology",
+  "title": "Enzymes in food and household products",
+  "key_idea": "Enzymes are used in industry because they work on a specific substrate at low temperatures. Pectinase increases the yield of fruit juice, lactase makes lactose-free milk and the enzymes in biological washing powders remove stains.",
+  "sections": [
+    {
+      "heading": "Pectinase in fruit juice",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Pectinase is used to get more juice from fruit."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Plant cell walls contain **pectin**, which holds cells together.",
+            "**Pectinase** breaks down the pectin in the cell walls.",
+            "The fruit breaks down more easily, so more juice is released.",
+            "The juice is also clearer, because it contains less cloudy material."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Pectinase breaks down cell walls in fruit.",
+            "This increases the volume of juice extracted."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "(Supplement) Lactase and lactose-free milk",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Lactase is used to make milk that people who cannot digest lactose can drink."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Lactose",
+              "meaning": "The sugar in milk."
+            },
+            {
+              "term": "Lactase",
+              "meaning": "The enzyme that breaks lactose down into glucose and galactose."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Lactase is added to milk, or the milk is passed over lactase held on beads.",
+            "The lactose is broken down into **glucose** and **galactose**.",
+            "The milk is now lactose-free and is safe for people who are lactose intolerant.",
+            "Glucose and galactose taste sweeter, so less sugar is needed in milk products."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Lactase is specific: it only works on lactose.",
+            "A glucose test shows this. Milk gives a positive glucose test after lactase. Sucrose solution does not."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Supplement) Lactase breaks lactose into glucose and galactose.",
+            "Lactase is specific and does not break down sucrose."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Biological washing powders",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Biological washing powders contain enzymes that remove stains from clothes."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Protease** breaks down protein stains such as blood and egg.",
+            "**Lipase** breaks down fat and grease stains.",
+            "**Amylase** breaks down starch stains such as food spills.",
+            "The enzymes work at lower temperatures than normal washing, which saves energy.",
+            "Very high temperatures denature the enzymes, so they stop working."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Statements are sorted into pectinase, lactase and biological washing powder.",
+            "prompt": "Sort each statement into the product it describes.",
+            "groups": [
+              "Pectinase in juice",
+              "Lactase in milk",
+              "Biological washing powder"
+            ],
+            "items": [
+              {
+                "text": "Breaks down cell walls",
+                "group": 0
+              },
+              {
+                "text": "Increases the volume of juice",
+                "group": 0
+              },
+              {
+                "text": "Breaks lactose into glucose and galactose",
+                "group": 1
+              },
+              {
+                "text": "Makes milk safe for lactose-intolerant people",
+                "group": 1
+              },
+              {
+                "text": "Removes protein and fat stains",
+                "group": 2
+              },
+              {
+                "text": "Allows washing at low temperatures",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Investigating washing powder"
+        },
+        {
+          "type": "paragraph",
+          "text": "To find the best temperature, change one variable and keep the rest the same."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps for investigating the optimum temperature of a biological washing powder in order.",
+            "prompt": "Put the steps of the investigation in order.",
+            "steps": [
+              "Set the beakers of water to at least three different temperatures",
+              "Put the same stained cloth in each beaker",
+              "Add the same volume and concentration of washing powder",
+              "Leave for the same time",
+              "Measure the stain remaining or the time to remove it",
+              "Repeat at each temperature and find the mean"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The independent variable is the temperature. The dependent variable is the amount of stain left, or the time for the stain to go.",
+            "Keep the same type of powder, volume, cloth, stain and time.",
+            "Wear goggles and gloves, as enzymes can irritate skin and eyes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Biological washing powders contain enzymes such as protease and lipase.",
+            "Change only the temperature, and measure the stain left or the time taken."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the job of pectinase in fruit juice production.",
+      "a": "It breaks down the pectin in cell walls, so more juice is released.",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) Name the two sugars produced when lactase acts on lactose.",
+      "a": "Glucose and galactose.",
+      "marks": 2
+    },
+    {
+      "q": "State one variable to keep constant when investigating a biological washing powder.",
+      "a": "Any one from: volume or concentration of powder, type of powder, type or size of cloth, type of stain, time.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 21.2.3",
+        "CAIE 21.2.4",
+        "CAIE 21.2.5S"
+      ],
+      "worked_example": {
+        "exemplar_id": "3099fdc2-d445-418c-b474-96240476e780",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q4(a)(i)",
+        "question": "A student investigated the effect of lactase on three different liquids: milk, lactose-free milk and sucrose solution.\n\nThe student used an indicator to test for the presence of glucose. A sample of each liquid was tested before and after treatment with lactase.\n\nThe indicator turned brown in the presence of glucose and stayed blue in its absence.\n\nResults:\n- milk: blue before, brown after\n- lactose-free milk: brown before, brown after\n- sucrose solution: blue before, blue after\n\nExplain the results for the three liquids.",
+        "marks": 3,
+        "answer_points": [
+          "Milk: lactase breaks down lactose into glucose, so the indicator turns brown.",
+          "Lactose-free milk: it has already been treated with lactase, so glucose is already present.",
+          "Sucrose solution: it is not broken down, as it does not contain lactose.",
+          "Lactase is specific: lactose only fits into the active site of lactase."
+        ],
+        "tip": "Any three score one mark each. Link each result to whether glucose is made."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "b36b33de-9e6e-4b17-9fda-42cb8b2e08fc",
+      "e7a828e6-6159-407d-8361-c8d34bce08b0",
+      "51f0695b-33f5-4299-bd1f-bbf8c97fcce0"
+    ],
+    "exemplar_ids": [
+      "3099fdc2-d445-418c-b474-96240476e780"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

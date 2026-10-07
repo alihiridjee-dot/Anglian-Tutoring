@@ -1,0 +1,423 @@
+{
+  "format": 1,
+  "concept_id": "phys-050",
+  "subject": "physics",
+  "title": "Pressure and pressure in liquids",
+  "key_idea": "(Separate science) Pressure is force per unit area, **p = F ÷ A**. A fluid pushes at right angles on any surface it touches. (AQA: Higher tier) In a liquid, pressure increases with depth and with density, **p = h × ρ × g**.",
+  "sections": [
+    {
+      "heading": "Pressure, force and area",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers what pressure is and how to calculate it from a force and an area."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Fluid",
+              "meaning": "A liquid or a gas."
+            },
+            {
+              "term": "Pressure",
+              "meaning": "The force acting normally (at right angles) on each unit of area of a surface."
+            },
+            {
+              "term": "Pascal (Pa)",
+              "meaning": "The unit of pressure. One pascal is one newton per square metre (N/m²)."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Pressure",
+          "formula": "p = F ÷ A",
+          "where": [
+            "p is pressure in pascals (Pa).",
+            "F is the force normal (at right angles) to the surface in newtons (N).",
+            "A is the area of the surface in square metres (m²)."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Force from pressure (rearranged)",
+          "formula": "F = p × A",
+          "where": [
+            "F is the force in newtons (N).",
+            "p is pressure in pascals (Pa).",
+            "A is the area in square metres (m²)."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The same force on a smaller area gives a larger pressure.",
+            "A drawing pin has a pointed tip with a very small area, so the pressure on the wood is large.",
+            "The flat head has a large area, so the pressure on the thumb is much less.",
+            "The pressure in a fluid causes a force at right angles to any surface."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the equation.",
+              "text": "p = F ÷ A"
+            },
+            {
+              "lead": "Substitute.",
+              "text": "A tank bottom of area 0.80 m² has a force of 2400 N on it: p = 2400 ÷ 0.80"
+            },
+            {
+              "lead": "Evaluate.",
+              "text": "p = 3000 Pa"
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the pressure that a force exerts on an area.",
+            "question": "A force of {F} N acts at right angles on an area of {A} m². Calculate the pressure.",
+            "variables": [
+              {
+                "id": "F",
+                "min": 100,
+                "max": 2000,
+                "step": 100
+              },
+              {
+                "id": "A",
+                "min": 0.5,
+                "max": 5,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "F / A",
+              "unit": "Pa",
+              "decimals": 1
+            },
+            "working": ["p = F ÷ A", "p = {F} ÷ {A}", "p = {answer} Pa"]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Pressure is the force at right angles to a surface divided by the area of the surface.",
+            "The same force on a smaller area gives a bigger pressure.",
+            "Pressure is measured in pascals (Pa), or N/m²."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Pressure in a liquid",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers how the pressure in a liquid depends on depth and density."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pressure in a liquid increases with depth.",
+            "Pressure at the same depth is greater in a denser liquid.",
+            "The weight of the column of liquid above a point pushes down on it.",
+            "A deeper point has a taller column above it, so the pressure is greater."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Pressure due to a column of liquid",
+          "formula": "p = h × ρ × g",
+          "where": [
+            "p is pressure in pascals (Pa).",
+            "h is the height of the column, or depth, in metres (m).",
+            "ρ is the density of the liquid in kilograms per metre cubed (kg/m³).",
+            "g is the gravitational field strength in newtons per kilogram (N/kg). The value is given in the question."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the equation.",
+              "text": "p = h × ρ × g"
+            },
+            {
+              "lead": "Substitute.",
+              "text": "A column 0.5 m tall of liquid of density 1100 kg/m³, with g = 10 N/kg: p = 0.5 × 1100 × 10"
+            },
+            {
+              "lead": "Evaluate.",
+              "text": "p = 5500 Pa"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "To find the increase in pressure between two depths, use the difference in depth for h."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the depth and the liquid and see the pressure due to the liquid.",
+            "inputs": [
+              {
+                "id": "h",
+                "label": "Depth",
+                "unit": "m",
+                "min": 1,
+                "max": 50,
+                "step": 1,
+                "value": 10
+              },
+              {
+                "id": "rho",
+                "label": "Liquid",
+                "choices": [
+                  {
+                    "label": "Fresh water (1000 kg/m³)",
+                    "value": 1000
+                  },
+                  {
+                    "label": "Sea water (1030 kg/m³)",
+                    "value": 1030
+                  }
+                ]
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Pressure due to the liquid (g = 10 N/kg)",
+                "unit": "Pa",
+                "formula": "h * rho * 10",
+                "decimals": 0,
+                "bar": true
+              },
+              {
+                "label": "Same pressure in kilopascals",
+                "unit": "kPa",
+                "formula": "h * rho * 10 / 1000",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Pressure in a liquid increases with depth and with density.",
+            "p = h × ρ × g gives the pressure due to a column of liquid.",
+            "For a change in pressure, use the change in depth."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A force of 27 N acts on the bottom of a container of area 0.009 m². Calculate the pressure and give the unit.",
+      "a": "p = 27 ÷ 0.009 = 3000 Pa.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why the tip of a drawing pin goes into wood but the head does not go into a thumb.",
+      "a": "The force is the same at the tip and the head. The tip has a very small area so the pressure is large. The head has a large area so the pressure is much less.",
+      "marks": 3
+    },
+    {
+      "q": "The top of a block is 6.6 m below the surface of water of density 1000 kg/m³. g = 10 N/kg. Calculate the pressure on the top of the block.",
+      "a": "p = h × ρ × g = 6.6 × 1000 × 10 = 66 000 Pa.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.5.5.1"],
+      "worked_example": {
+        "exemplar_id": "0e948eb6-951d-48fc-9b55-2f58c76fade9",
+        "source": "AQA jun 2018, Paper 2 (H), Q04.3",
+        "question": "A person swims from a depth of 0.50 m to a depth of 1.70 m below the surface of the sea. Density of the sea water = 1030 kg/m³. Gravitational field strength = 9.8 N/kg. Calculate the increase in pressure on the swimmer. Give the unit.",
+        "marks": 4,
+        "answer_points": [
+          "Increase in depth = 1.2 m",
+          "Δp = 1.2 × 1030 × 9.8",
+          "Δp = 12 112.8",
+          "Unit: pascals (Pa)"
+        ],
+        "tip": "One mark each for the depth change, the substitution, the answer and the unit. An answer without the unit scores 3 marks."
+      },
+      "extra": [
+        {
+          "heading": "Higher tier content",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(AQA: Higher tier) For this course, the pressure due to a column of liquid, p = h × ρ × g, and how it changes with depth and density are Higher tier only. Pressure from force and area is for all students."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 15.8P",
+        "EDEX 15.9P",
+        "EDEX 15.10P",
+        "EDEX 15.11P",
+        "EDEX 15.12P",
+        "EDEX 15.13P",
+        "EDEX 15.14P"
+      ],
+      "worked_example": {
+        "exemplar_id": "fce8b390-a3f7-4069-ba4e-dffe6501c9f1",
+        "source": "EDEXCEL nov 2021, Paper 2 (F), Q10(a)(i)",
+        "question": "The bottom of a water tank has an area of 0.80 m². The force on the bottom of the tank, due to the water, is 2400 N. Calculate the pressure, due to the water, on the bottom of the tank.",
+        "marks": 3,
+        "answer_points": ["p = F ÷ A", "p = 2400 ÷ 0.8", "p = 3000 Pa"],
+        "tip": "One mark each for recalling the equation, substituting and evaluating. The correct answer without working earns all three marks."
+      },
+      "extra": [
+        {
+          "heading": "Pressure in a fluid",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The pressure in a fluid is due to the fluid and atmospheric pressure.",
+                "10 m of sea water exerts the same pressure as the atmosphere. At a depth of 50 m, the sea water pressure is 5 times atmospheric pressure, so the total is 6 times atmospheric pressure."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR P2.3n", "OCR P2.3o", "OCR P1.3j"],
+      "worked_example": {
+        "exemplar_id": "57699e5a-0305-4626-bde3-5f90f46e5be2",
+        "source": "OCR jun 2019, Paper 3, Q22(c)",
+        "question": "Calculate the pressure at the bottom of a 0.5 m tall measuring cylinder filled with a liquid. Density of the liquid = 1100 kg/m³.",
+        "marks": 3,
+        "answer_points": [
+          "Pressure due to a column of liquid = height × density × g, with g = 10 N/kg",
+          "p = 0.5 × 1100 × 10",
+          "p = 5500 Pa"
+        ],
+        "tip": "A correct answer of 5500 Pa scores all 3 marks. Using g = 9.8 N/kg and getting 5390 Pa also scores 3 marks. Here g is not given, so recall that it is 10 N/kg."
+      },
+      "extra": [
+        {
+          "heading": "Hydraulic systems",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In a simple hydraulic system, a force on one piston creates a pressure in the liquid.",
+                "The liquid cannot be compressed, so the same pressure acts at right angles on the other piston.",
+                "The force on the second piston is pressure × its area, using F = p × A.",
+                "A larger area at the second piston gives a larger force, so the system is a force multiplier."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.8.1", "CAIE 1.8.2", "CAIE 1.8.3", "CAIE 1.8.4S"],
+      "worked_example": {
+        "exemplar_id": "9f51c0d0-a801-416e-99fe-8aeaec011e73",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q3(b)",
+        "question": "A layer of ice floats freely on the water of a pond. The surface area of the pond is 5.0 m². The mass of the ice is 690 kg. The density of water is 1000 kg/m³. Point X is 0.45 m below the ice. Calculate the pressure at point X due to the ice and the water.",
+        "marks": 4,
+        "answer_points": [
+          "Pressure due to the water: p = ρgh = 1000 × 9.8 × 0.45 = 4410 Pa.",
+          "Weight of the ice: W = mg = 690 × 9.8 = 6762 N, so the pressure due to the ice is 6762 ÷ 5.0 = 1352 Pa.",
+          "Total pressure = 4410 + 1352.",
+          "Total pressure = 5.8 × 10³ Pa."
+        ],
+        "tip": "Add the two pressures: the one from the ice and the one from the water."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 5.5", "IGCSE 5.6", "IGCSE 5.7"],
+      "worked_example": {
+        "exemplar_id": "28adc57e-7373-471a-8a1e-d3c59c8a11f9",
+        "source": "EDEXCEL jun 2019, Paper 2 (P), Q9(a)(i)",
+        "question": "The mass of an ice cube is 3.7 g and its area of contact with the ground is 2.6 × 10⁻⁴ m². Calculate the pressure the ice cube exerts on the ground.",
+        "marks": 4,
+        "answer_points": [
+          "Select p = F ÷ A.",
+          "Convert the mass to kilograms: 3.7 g = 0.0037 kg.",
+          "Weight = 0.0037 × 10 = 0.037 N.",
+          "Pressure = 0.037 ÷ (2.6 × 10⁻⁴) = 142 Pa, which is about 140 Pa."
+        ],
+        "tip": "Convert grams to kilograms before finding the weight. Using g = 9.8 N/kg gives 139 Pa, which is also accepted."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Pressure in a liquid or gas at rest acts equally in all directions."
+            },
+            {
+              "type": "list",
+              "items": [
+                "At a point in a fluid at rest, the pressure is the same in every direction.",
+                "So the same pressure pushes on every surface at that depth, whichever way it faces."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "39ed39c8-27c1-43ec-9a67-5db2025b5c5b",
+      "0898e510-4f0d-407b-9c28-969ce9eebd8f",
+      "8c559ef2-a16d-443f-9a2f-86adff37f87d",
+      "72858cc4-8cd7-4c40-9a31-fd6ad43a167c",
+      "299abf75-d827-4309-b48e-e83662632c6e",
+      "a8aba3f2-0949-4ea2-84f8-40765b284b1d",
+      "13f2ff05-a45e-452b-819b-d0604446f389",
+      "524274e2-1cdb-444c-9ef5-6b4e55932793",
+      "aecc6962-0f20-4170-9a1a-1066cd2ece3e",
+      "0d3e6785-2c7d-470e-bd99-b2681d8990a4",
+      "d1746be2-b55e-4658-aa5d-07413df5acfd",
+      "170d1ee3-5c81-4cc3-847b-74ffb1d2f52b",
+      "a4d84cde-365f-4fae-9296-87af2491d952",
+      "e02dc2a0-fc81-460a-8abb-fdca46a1f99e",
+      "c278d14b-67a2-400b-8253-5ceed73ebf09",
+      "b1d5ffb1-c00f-45d5-b87a-25fb57f0456a",
+      "20bc30d3-8d75-45e5-8cba-a399c66e1d4b",
+      "0364bf3c-0973-4d42-93e1-f73bc2ad5661"
+    ],
+    "exemplar_ids": [
+      "0e948eb6-951d-48fc-9b55-2f58c76fade9",
+      "27b0e678-3d14-43bc-b410-3b333c0161cb",
+      "fce8b390-a3f7-4069-ba4e-dffe6501c9f1",
+      "67a69a6c-a921-4b68-8c27-957186a21263",
+      "df52e916-87da-4192-a0c7-efc5cf20581d",
+      "e7a78bb8-e226-428f-a9d1-f79786e5f69a",
+      "5ed42503-9522-4c70-8364-2159ee06c6ef",
+      "393bdd5d-43ef-4869-b54e-9fe2830a1bad",
+      "57699e5a-0305-4626-bde3-5f90f46e5be2",
+      "384bf61c-536b-4411-97b2-e50c2c83292f",
+      "9f51c0d0-a801-416e-99fe-8aeaec011e73",
+      "28adc57e-7373-471a-8a1e-d3c59c8a11f9"
+    ]
+  }
+}

@@ -1,0 +1,461 @@
+{
+  "format": 1,
+  "concept_id": "bio-024",
+  "subject": "biology",
+  "title": "Required practical: food tests",
+  "key_idea": "Chemical reagents identify the main nutrients in food. Iodine tests for starch, Benedict's for sugars, Biuret for protein and the ethanol emulsion test for lipids. Each gives a colour change that you must be able to describe.",
+  "sections": [
+    {
+      "heading": "The four food tests",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each test uses one reagent and gives a colour change for a positive result. Learn the table, then use the predictor to check it."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Nutrient",
+            "Reagent",
+            "Positive result",
+            "Negative result"
+          ],
+          "rows": [
+            [
+              "Starch",
+              "Iodine solution",
+              "Orange-brown to blue-black",
+              "Stays orange or brown"
+            ],
+            [
+              "Sugar (glucose, a reducing sugar)",
+              "Benedict's solution, heated",
+              "Blue to green, yellow, orange or brick red",
+              "Stays blue"
+            ],
+            [
+              "Protein",
+              "Biuret solution",
+              "Blue to purple or lilac",
+              "Stays blue"
+            ],
+            [
+              "Lipid (fat)",
+              "Ethanol, then water",
+              "A white cloudy emulsion forms",
+              "Stays clear"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a nutrient to see the reagent used and the colours seen before and after the test.",
+            "prompt": "Pick a nutrient in the food",
+            "result_labels": [
+              "Reagent",
+              "How to do the test",
+              "Positive result"
+            ],
+            "options": [
+              {
+                "label": "Starch",
+                "results": [
+                  "Iodine solution",
+                  "Add iodine solution to the food",
+                  "Orange-brown to blue-black"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Before",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "Starch present",
+                      "colour": "blue-black"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Sugar (glucose)",
+                "results": [
+                  "Benedict's solution",
+                  "Add Benedict's solution and heat in a water bath",
+                  "Blue to green, yellow, orange or brick red"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Before",
+                      "colour": "blue"
+                    },
+                    {
+                      "label": "A little sugar",
+                      "colour": "green"
+                    },
+                    {
+                      "label": "A lot of sugar",
+                      "colour": "brick-red"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Protein",
+                "results": [
+                  "Biuret solution",
+                  "Add Biuret solution to the food. Do not heat",
+                  "Blue to purple or lilac"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Before",
+                      "colour": "blue"
+                    },
+                    {
+                      "label": "Protein present",
+                      "colour": "purple"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Lipid (fat)",
+                "results": [
+                  "Ethanol",
+                  "Mix the food in ethanol, then pour the liquid into water",
+                  "A white cloudy emulsion forms"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Before",
+                      "colour": "colourless"
+                    },
+                    {
+                      "label": "Lipid present",
+                      "colour": "white"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "None of these",
+                "results": [
+                  "Any of the reagents",
+                  "Carry out each test",
+                  "No colour change"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Iodine",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "Benedict's",
+                      "colour": "blue"
+                    },
+                    {
+                      "label": "Biuret",
+                      "colour": "blue"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Starch: iodine, blue-black. Sugar: Benedict's and heat, green to brick red.",
+            "Protein: Biuret, purple. Lipid: ethanol then water, white emulsion.",
+            "Say the starting colour as well as the colour of a positive result."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Carrying out the tests",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prepare a sample of the food first. Then test a separate portion for each nutrient."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Prepare.",
+              "text": "Grind up the food and mix it with water. Put some of the mixture in a test tube."
+            },
+            {
+              "lead": "Starch.",
+              "text": "Add a few drops of iodine solution. Black, blue-black or dark blue means starch is present."
+            },
+            {
+              "lead": "Sugar.",
+              "text": "Add Benedict's solution. Heat in a water bath at 60 °C or above. Look for a colour change from blue."
+            },
+            {
+              "lead": "Protein.",
+              "text": "Add Biuret solution, or copper sulfate and sodium hydroxide solutions. Purple or lilac means protein is present."
+            },
+            {
+              "lead": "Lipid.",
+              "text": "Mix the food with ethanol. Pour the liquid into water. A white emulsion means lipid is present."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Benedict's needs heating. Iodine and Biuret do not.",
+            "Use a water bath to heat, not a direct flame.",
+            "Always give the colour of the positive result and the negative result."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Safety and interpreting results",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Exam questions ask about risks and about what the colours show."
+        },
+        {
+          "type": "subheading",
+          "text": "Safety"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Wear eye protection. Benedict's solution can spit when heated, so point the tube away from faces.",
+            "Benedict's solution is an irritant to skin, and Biuret solution contains sodium hydroxide, which can burn. Wear gloves and wash spills immediately.",
+            "Use a water bath and tongs, and wait for equipment to cool, to avoid burns and scalds."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Interpreting results"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A food can contain more than one nutrient, so one food can give several positive tests.",
+            "Benedict's solution gives a measure of how much sugar there is. Green is a small amount and brick red is a large amount.",
+            "To compare concentrations, use a colour chart or a colorimeter."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Name the hazard and the precaution together, such as spitting and eye protection.",
+            "A food can contain more than one nutrient.",
+            "The Benedict's colour shows roughly how much sugar there is."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the chemical test for starch.",
+      "a": "Add iodine solution. It changes from brown or orange to blue-black if starch is present.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how to test a food for glucose.",
+      "a": "Add Benedict's solution and heat it (in a water bath). It turns from blue to green, yellow, orange or brick red if glucose is present.",
+      "marks": 3
+    },
+    {
+      "q": "A food turns purple with Biuret solution. What does it contain?",
+      "a": "Protein.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 2.2",
+        "AQA T 4.2.2.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "731a0901-151b-4b3e-8cb9-5ab3c43aed0a",
+        "source": "AQA jun 2024, Paper 1 (F), Q04.1",
+        "question": "Starch and sugar are two types of carbohydrate.\n\nDescribe the chemical tests that a student could use to show if bread contains:\n- starch\n- sugar.\n\nYou should include the results of a positive test and a negative test for each type of carbohydrate.",
+        "marks": 4,
+        "answer_points": [
+          "Starch: iodine (solution) tests for starch.",
+          "Iodine turns blue-black, black or dark blue if starch is present. It remains unchanged, yellow, orange or brown if there is no starch.",
+          "Sugar: Benedict's (reagent) tests for sugar. Boil or heat to at least 60 °C.",
+          "Benedict's turns green, yellow, orange, brown or (brick) red if sugar is present. It remains blue if there is no sugar."
+        ],
+        "tip": "A levelled answer. For the top level in this question, give details of both tests, with a positive and a negative result for each."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.13B"
+      ],
+      "worked_example": {
+        "exemplar_id": "edd9c9b9-621f-4bf5-9d4d-17491498c280",
+        "source": "EDEXCEL nov 2021, Paper 2 (H), Q4(d)",
+        "question": "Describe how to test for glucose in the dialysis fluid.",
+        "marks": 3,
+        "answer_points": [
+          "Add Benedict's solution (to some dialysis fluid).",
+          "Heat, boil or put in a water bath.",
+          "See if it turns green, yellow, orange or red (brown is accepted)."
+        ],
+        "tip": "One mark for each step: the reagent, the heating and the colour change."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 7.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "a09c53e2-d393-4a81-8cfd-f62e87028c24",
+        "source": "OCR jun 2023, Paper 1, Q21(c)",
+        "question": "A class is discussing how to test food to see if it contains carbohydrates.\n\nA student says 'You need to do two different named tests to see if carbohydrates are present'.\n\nExplain why this student is correct.",
+        "marks": 2,
+        "answer_points": [
+          "Starch and sugar are both carbohydrates.",
+          "To test for starch, you need to use the iodine test.",
+          "To test for sugar, you need to use the Benedict's test."
+        ],
+        "tip": "Any two points score one mark each. If no other marks are awarded, naming the starch test and the sugar test, iodine and Benedict's, gets one mark."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.1.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "f56a17ea-40e4-4deb-8ace-e586fdbacbd3",
+        "source": "CAMBRIDGE jun 2024, Paper 62, Q2(b)",
+        "question": "When a seed germinates it grows into a seedling.\nAs seedlings grow, they change starch into reducing sugars.\nDescribe the methods you would use to test a sample of seedlings for starch and reducing sugars.",
+        "marks": 3,
+        "answer_points": [
+          "Starch: use iodine solution.",
+          "Reducing sugar: use Benedict's solution.",
+          "Heat the Benedict's solution mixture."
+        ],
+        "tip": "One mark for each point."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Vitamin C has its own test. It uses DCPIP, a blue dye that vitamin C turns colourless."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Put a measured volume of blue DCPIP solution in a test tube."
+                },
+                {
+                  "lead": "Add the sample.",
+                  "text": "Add the food or juice one drop at a time, shaking after each drop."
+                },
+                {
+                  "lead": "Look.",
+                  "text": "Positive: the blue colour disappears and the mixture goes colourless."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The more vitamin C a sample has, the fewer drops are needed to turn the DCPIP colourless.",
+                "A sample with no vitamin C leaves the DCPIP blue."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.9"
+      ],
+      "worked_example": {
+        "exemplar_id": "2ee86c49-ae8a-4222-b3c4-273690ade87b",
+        "source": "EDEXCEL jun 2019, Paper 2 (B), Q2(a)",
+        "question": "The leaves of plants make starch.\nDescribe how you would test a leaf to show that it contains starch.",
+        "marks": 3,
+        "answer_points": [
+          "Use warm or hot ethanol (in a water bath).",
+          "Use iodine solution.",
+          "The leaf turns blue-black."
+        ],
+        "tip": "One mark for each point."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A leaf can be tested for starch, but its green colour hides the result. The leaf is treated first."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Soften.",
+                  "text": "Dip the leaf in boiling water to kill it and soften it."
+                },
+                {
+                  "lead": "Remove the colour.",
+                  "text": "Warm the leaf in hot ethanol in a water bath. The ethanol removes the chlorophyll."
+                },
+                {
+                  "lead": "Test.",
+                  "text": "Rinse the leaf, then add iodine solution. Blue-black means starch is present."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "0fd10bd0-40f0-46b1-a99e-db67016da703",
+      "ad90945e-a5b4-4dfc-bf6e-135f086e2387",
+      "e153f085-95bc-49a1-99cb-3761b351ae34",
+      "36ba5859-45f4-456c-a361-14124e724428"
+    ],
+    "exemplar_ids": [
+      "731a0901-151b-4b3e-8cb9-5ab3c43aed0a",
+      "edd9c9b9-621f-4bf5-9d4d-17491498c280",
+      "a09c53e2-d393-4a81-8cfd-f62e87028c24",
+      "f56a17ea-40e4-4deb-8ace-e586fdbacbd3",
+      "2ee86c49-ae8a-4222-b3c4-273690ade87b"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

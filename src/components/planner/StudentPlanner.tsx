@@ -1,8 +1,8 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouter } from "@tanstack/react-router";
 import { WeekBreakdown } from "./WeekBreakdown";
 import { FullPlanTimeline } from "./FullPlanTimeline";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
-import { ErrorNote, Meter } from "@/components/Shared";
+import { EmptyState, ErrorNote, Meter } from "@/components/Shared";
 import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
 import { ScheduleComparison } from "./ScheduleComparison";
 import { Spinner } from "@/components/Shared";
@@ -46,6 +46,9 @@ import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
+import { useNow } from "@/hooks/useNow";
+import { DoNowPanel } from "./DoNowPanel";
+import { useEntryState } from "@/hooks/useEntryState";
 import { compareFocus, type SeenFocus } from "./focusSlots";
 
 type TabKey = "week" | "plan" | "topics";
@@ -92,7 +95,23 @@ export function StudentPlanner({
   // the enrolments query hands back a fresh object for the same course.
   const activeCourseSubject = active?.subject;
   const activeBoard = active?.board;
-  const [tab, setTab] = useState<TabKey>(initialTab ?? "week");
+  // Kept with the visit, so Back from a note or a task reopens this tab.
+  const [tab, setTab] = useEntryState<TabKey>("planner.tab", initialTab ?? "week");
+  // A link into a tab (`?tab=plan` from the week's "Set my exam date") lands on
+  // it even when the planner is already open. Only a link: Back and Forward
+  // reopen the tab that was left there, whatever the address says.
+  const router = useRouter();
+  const lastMove = useRef<string | null>(null);
+  useEffect(
+    () =>
+      router.history.subscribe(({ action }) => {
+        lastMove.current = action.type;
+      }),
+    [router],
+  );
+  useEffect(() => {
+    if (initialTab && lastMove.current === "PUSH") setTab(initialTab);
+  }, [initialTab, setTab]);
 
   // Bumped after an explicit schedule update.
   const [boardRev, setBoardRev] = useState(0);
@@ -141,8 +160,12 @@ export function StudentPlanner({
       level,
     })
       .then(() => setBoardRev((r) => r + 1))
-      // Stays pending and is tried again on the next visit.
-      .catch(() => {});
+      // Stays pending and is tried again on the next visit — said out loud,
+      // because the topic-order page waits on it and would otherwise send the
+      // student back here for ever.
+      .catch(() =>
+        toast.error("Your plan couldn't update just now. Reload the page to try again."),
+      );
   }, [data, studentId, activeCourseSubject, activeBoard, level]);
   const loading = roadQuery.isLoading || currentWeek.loading;
   useEffect(() => {
@@ -156,11 +179,11 @@ export function StudentPlanner({
 
   if (!active) {
     return (
-      <div className="rounded-2xl premium-card p-5 shadow-sm">
-        <p className="text-sm text-muted-foreground">
-          You're not enrolled in any subjects yet — contact your tutor to get set up.
-        </p>
-      </div>
+      <EmptyState
+        title="No subjects yet"
+        body="Pick your subjects and exam board, and your plan builds itself from them."
+        action={{ to: "/billing", label: "Choose my subjects" }}
+      />
     );
   }
 
@@ -192,25 +215,30 @@ export function StudentPlanner({
       </div>
 
       <div className="p-4 sm:p-5">
-        {currentWeek.error ? (
-          <ErrorNote error={currentWeek.error} onRetry={() => void currentWeek.reload()} />
-        ) : tab === "topics" ? (
+        {tab === "topics" ? (
+          // Practice history reads its own query, so a week that failed to
+          // build must not take this tab down with it.
           <TopicsTab
             studentId={studentId}
             enrolments={enrolments}
             level={level}
             subject={active.subject}
           />
+        ) : tab === "week" && currentWeek.error ? (
+          <ErrorNote error={currentWeek.error} onRetry={() => void currentWeek.reload()} />
         ) : roadQuery.error ? (
           <ErrorNote error={roadQuery.error} onRetry={() => void roadQuery.refetch()} />
         ) : loading ? (
           <Spinner className="py-12" />
         ) : !data ? (
-          <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
-            No curriculum found for this course yet.
-          </p>
+          <EmptyState
+            title="No course content yet"
+            body="Nothing is loaded for this subject and exam board yet. Check they’re right, or message your tutor."
+            action={{ to: "/billing", label: "Check my subjects" }}
+          />
         ) : tab === "week" ? (
           <ThisWeekTab
+            key={active.subject}
             data={data}
             studentId={studentId}
             subject={active.subject as SubjectV}
@@ -218,9 +246,12 @@ export function StudentPlanner({
             level={level}
             refreshKey={weekRev}
             onScheduleApplied={() => setBoardRev((r) => r + 1)}
+            onSetExamDate={() => setTab("plan")}
           />
         ) : (
           <FullPlanTab
+            key={active.subject}
+            paused={!!currentWeek.pause}
             data={data}
             studentId={studentId}
             subject={active.subject as SubjectV}
@@ -240,9 +271,9 @@ export function StudentPlanner({
 /* Shared derivations                                                  */
 /* ------------------------------------------------------------------ */
 
-function useRoadmapView(data: RoadmapResult) {
+function useRoadmapView(data: RoadmapResult, now: number) {
   return useMemo(() => {
-    const nowKey = currentWeekKey();
+    const nowKey = currentWeekKey(new Date(now));
     const covered = new Set(data.coveredTopicIds);
     const spine = data.bands.filter(isTeachBand);
     const nowBand =
@@ -263,7 +294,7 @@ function useRoadmapView(data: RoadmapResult) {
       focusNow,
       progressByTopic,
     };
-  }, [data]);
+  }, [data, now]);
 }
 
 /* ------------------------------------------------------------------ */
@@ -278,6 +309,7 @@ function ThisWeekTab({
   level,
   refreshKey,
   onScheduleApplied,
+  onSetExamDate,
 }: {
   data: RoadmapResult;
   studentId: string;
@@ -287,6 +319,8 @@ function ThisWeekTab({
   /** Reload after an explicit schedule update. */
   refreshKey: number;
   onScheduleApplied: () => void;
+  /** Open the Full plan tab, where the exam date is set. */
+  onSetExamDate: () => void;
 }) {
   /**
    * 0 = this week, -1 = last week, +1 = next.
@@ -297,8 +331,11 @@ function ThisWeekTab({
    * has had these arrows all along; this is the same gesture, on the screen
    * where it is actually looked for.
    */
-  const [weekOffset, setWeekOffset] = useState(0);
-  const weekStart = toDateKey(addWeeks(weekKeyToDate(currentWeekKey()), weekOffset));
+  const [weekOffset, setWeekOffset] = useEntryState("planner.week", 0);
+  // Re-read each minute, so a tab left open over Sunday midnight moves on to
+  // the new week instead of ticking and planning into the one that has ended.
+  const now = useNow(60_000);
+  const weekStart = toDateKey(addWeeks(weekKeyToDate(currentWeekKey(new Date(now))), weekOffset));
   const isCurrent = weekOffset === 0;
   const isPast = weekOffset < 0;
   // History is read-only, and — more importantly — never generated: cutting a
@@ -306,6 +343,12 @@ function ThisWeekTab({
   // was never set. `useWeekPlan` only materialises a week when `isCurrent`.
   const editable = !isPast;
   const showReview = weekOffset <= 0;
+  // The arrows stop at the plan's edges: before the programme there is nothing
+  // to show, and nothing is ever planned at or after the exam date. Forty taps
+  // used to land a student in the July after their exams, told to wait for a
+  // review that could never come.
+  const atStart = weekStart <= data.programStart;
+  const atExam = toDateKey(addWeeks(weekKeyToDate(weekStart), 1)) >= data.examDate;
   // The same week the dashboard shows, from the same hook — the roadmap this
   // screen has already loaded is handed over so it isn't fetched twice.
   const week = useWeekPlan({
@@ -361,7 +404,8 @@ function ThisWeekTab({
             <button
               type="button"
               onClick={() => setWeekOffset((w) => w - 1)}
-              className="size-11 sm:pointer-fine:size-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+              disabled={atStart}
+              className="size-11 sm:pointer-fine:size-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed"
               aria-label="Previous week"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -369,7 +413,8 @@ function ThisWeekTab({
             <button
               type="button"
               onClick={() => setWeekOffset((w) => w + 1)}
-              className="size-11 sm:pointer-fine:size-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+              disabled={atExam}
+              className="size-11 sm:pointer-fine:size-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed"
               aria-label="Next week"
             >
               <ChevronRight className="w-4 h-4" />
@@ -378,7 +423,7 @@ function ThisWeekTab({
         </div>
 
         {frozen && week.pause ? (
-          <PausedWeek subject={subject} pause={week.pause} />
+          <PausedWeek subject={subject} pause={week.pause} canManage />
         ) : resting && week.onBreak ? (
           <BreakWeek brk={week.onBreak} />
         ) : !week.loading && week.points.length === 0 && isPast ? (
@@ -400,12 +445,28 @@ function ThisWeekTab({
             isPast={isPast}
             showCoverage={showReview}
             reviewMore={reviewMore}
+            onSetExamDate={onSetExamDate}
           />
         )}
       </section>
 
       {!frozen && !resting && (
         <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
+      )}
+
+      {/* The week as a checklist — the same one the dashboard shows, so a point
+          can be ticked off from either screen. */}
+      {!frozen && !resting && (
+        <DoNowPanel
+          points={week.points}
+          activity={week.activity}
+          coverage={week.coverage}
+          subject={subject}
+          editable={editable}
+          onToggle={(id, done) => {
+            void week.setPointDone(id, done);
+          }}
+        />
       )}
 
       {/* Re-cutting a week is a statement about the week ahead. Offering it on a
@@ -424,7 +485,7 @@ function ThisWeekTab({
         />
       )}
       {/* Optional reflection and tutor feedback. */}
-      {week.plan && showReview && (
+      {week.plan && showReview && !frozen && !resting && (
         <details className="premium-card rounded-xl p-3">
           <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:pointer-fine:py-0 sm:pointer-fine:my-0">
             Weekly check-in and tutor feedback
@@ -439,6 +500,7 @@ function ThisWeekTab({
             board={board}
             level={level}
             weekStart={weekStart}
+            examDate={data.examDate}
             onChanged={week.reload}
           />
         </details>
@@ -473,6 +535,7 @@ function FullPlanTab({
   newFocusKeys,
   focusWeek,
   onChanged,
+  paused,
 }: {
   data: RoadmapResult;
   studentId: string;
@@ -484,8 +547,11 @@ function FullPlanTab({
   focusWeek?: string;
   /** Jump to My topics — the one place an overloaded plan can be fixed. */
   onChanged: () => void;
+  /** The subject is stopped: nothing may be added to a week until it restarts. */
+  paused: boolean;
 }) {
-  const { nowKey, covered, spine } = useRoadmapView(data);
+  const now = useNow(60_000);
+  const { nowKey, covered, spine } = useRoadmapView(data, now);
   const [savingDate, setSavingDate] = useState(false);
   const [catchUpOpen, setCatchUpOpen] = useState(false);
 
@@ -497,11 +563,19 @@ function FullPlanTab({
   // Typing into a date box fires a change per keystroke, and the first digit of
   // the year is already a complete date ("0002-06-01"). So wait for a pause (or
   // for the box to lose focus) and only ever save a date in range.
-  const queueExamDate = (value: string, now = false) => {
+  const queueExamDate = (value: string, now = false): boolean => {
     clearTimeout(pendingDate.current);
-    if (!value || value < minExamDate || value > maxExamDate) return;
+    // The date the plan already uses is no change. Once the exams had passed,
+    // just clicking into the box and out again called it out of range.
+    if (value === lastSavedDate.current) return true;
+    if (!value || value < minExamDate || value > maxExamDate) {
+      // A date the box can't take used to vanish without a word.
+      if (now && value) toast.error("Choose an exam date between today and four years from now.");
+      return false;
+    }
     if (now) void saveExamDate(value);
     else pendingDate.current = setTimeout(() => void saveExamDate(value), 800);
+    return true;
   };
 
   const saveExamDate = async (value: string) => {
@@ -510,6 +584,13 @@ function FullPlanTab({
     setSavingDate(true);
     try {
       await ProgramDAL.setExamDate({ studentId, subject, examDate: value });
+    } catch (e) {
+      lastSavedDate.current = data.examDate;
+      setSavingDate(false);
+      toast.error(e instanceof Error ? e.message : "Couldn't update the exam date — try again.");
+      return;
+    }
+    try {
       // The new date is the decision; the re-flowed weeks follow from it.
       const applied = await ProgramDAL.applyPending({ studentId, subject, board, level });
       const lastTeaching = applied?.bands
@@ -522,10 +603,20 @@ function FullPlanTab({
             ).toLocaleDateString("en-GB", { day: "numeric", month: "long" })}.`
           : "Exam date updated.",
       );
+      // An earlier date can leave topics with no week to go in. The plan said
+      // nothing about it; the student only found out from a thinner timeline.
+      const dropped = applied?.unscheduledTopicTitles.length ?? 0;
+      if (dropped > 0)
+        toast.warning(
+          `${dropped} ${dropped === 1 ? "topic doesn't" : "topics don't"} fit before that date. Choose a later date to fit ${dropped === 1 ? "it" : "them"} in.`,
+        );
       onChanged();
-    } catch (e) {
-      lastSavedDate.current = data.examDate;
-      toast.error(e instanceof Error ? e.message : "Couldn't update the exam date — try again.");
+    } catch {
+      // The date is saved; only the re-flow failed, and it is retried on the
+      // next visit. Reporting that as "couldn't update" sent students back to
+      // type the same date again.
+      toast.success("Exam date saved. Your plan updates next time you open the planner.");
+      onChanged();
     } finally {
       setSavingDate(false);
     }
@@ -553,6 +644,12 @@ function FullPlanTab({
             {weeksToGo}{" "}
             <span className="text-base">{weeksToGo === 1 ? "week" : "weeks"} to go</span>
           </p>
+          {data.examDate <= nowKey && (
+            <span className="chip tint-rose text-xs self-start" role="status">
+              <AlertTriangle className="size-3.5" aria-hidden /> Exams have passed — pick your next
+              date
+            </span>
+          )}
           <label className="mt-auto">
             <span className="sr-only">Exam date</span>
             <input
@@ -562,7 +659,11 @@ function FullPlanTab({
               max={maxExamDate}
               disabled={savingDate}
               onChange={(e) => queueExamDate(e.target.value)}
-              onBlur={(e) => queueExamDate(e.target.value, true)}
+              onBlur={(e) => {
+                // A refused date is put back, so the box never shows a date the
+                // plan is not using.
+                if (!queueExamDate(e.target.value, true)) e.target.value = lastSavedDate.current;
+              }}
               className="btn-soft h-11 sm:pointer-fine:h-9 w-full rounded-xl px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--tint)] disabled:opacity-50"
             />
           </label>
@@ -593,7 +694,11 @@ function FullPlanTab({
               <AlertTriangle className="size-3.5" aria-hidden /> {held} won’t fit before exams
             </span>
           )}
-          {owed > 0 ? (
+          {paused ? (
+            <span className="chip tint-amber text-xs self-start mt-auto">
+              Paused — catch-up waits for your plan
+            </span>
+          ) : owed > 0 ? (
             <button
               type="button"
               aria-expanded={catchUpOpen}
@@ -614,7 +719,7 @@ function FullPlanTab({
         </div>
       </div>
 
-      {catchUpOpen && owed > 0 && (
+      {catchUpOpen && owed > 0 && !paused && (
         <div className="premium-card tint-amber rounded-2xl p-4 mb-4">
           <CatchUpPanel
             studentId={studentId}
@@ -654,9 +759,12 @@ function FullPlanTab({
           <p className="flex-1 min-w-[240px] text-[12px] leading-relaxed">
             <span className="font-semibold">This plan is asking a lot each week.</span>{" "}
             <span>
-              {data.reviewBacklog.length} reviews cannot fit before the exam;{" "}
-              {data.unscheduledTopicTitles.length} topics need teaching time. Ask your tutor to
-              review the workload; completing your assigned work will not automatically add more.
+              {data.reviewBacklog.length} reviews and {data.unscheduledTopicTitles.length} topics
+              won’t fit before your exam date. Pick a later date above, or{" "}
+              <Link to="/messages" className="font-semibold underline">
+                message your tutor
+              </Link>
+              .
             </span>
           </p>
         </div>

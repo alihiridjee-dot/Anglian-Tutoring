@@ -1,0 +1,398 @@
+{
+  "format": 1,
+  "concept_id": "phys-018",
+  "subject": "physics",
+  "title": "Electrical power and the heating effect of current",
+  "key_idea": "**Power** is the energy transferred each second. Electrical power is P = IV or P = I²R. A current heats a resistor because electrons collide with the ions in the lattice and make them vibrate more.",
+  "sections": [
+    {
+      "heading": "Electrical power",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Power links the energy changes in a circuit device to the potential difference across it and the current in it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Power",
+              "meaning": "The energy transferred per second. It is measured in watts, W."
+            },
+            {
+              "term": "Watt",
+              "meaning": "The unit of power. One watt is one joule per second."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Power from potential difference and current",
+          "formula": "power = potential difference × current    (P = V I)",
+          "where": [
+            "power, P, in watts, W",
+            "potential difference, V, in volts, V",
+            "current, I, in amperes, A (amp is acceptable)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Power from current and resistance",
+          "formula": "power = current² × resistance    (P = I²R)",
+          "where": [
+            "power, P, in watts, W",
+            "current, I, in amperes, A",
+            "resistance, R, in ohms, Ω"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Power from energy and time",
+          "formula": "power = energy transferred ÷ time    (P = E / t)",
+          "where": [
+            "power, P, in watts, W",
+            "energy transferred, E, in joules, J",
+            "time, t, in seconds, s"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Use P = I²R when you are given the current and the resistance but not the potential difference. Square the current before you multiply."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the current and the resistance of a device and see the power for P = I x V and P = I squared x R.",
+            "inputs": [
+              {
+                "id": "I",
+                "label": "Current",
+                "unit": "A",
+                "min": 0.5,
+                "max": 10,
+                "step": 0.5,
+                "value": 2
+              },
+              {
+                "id": "R",
+                "label": "Resistance",
+                "unit": "Ω",
+                "min": 1,
+                "max": 25,
+                "step": 1,
+                "value": 15
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Potential difference, V = I × R",
+                "unit": "V",
+                "formula": "I * R",
+                "decimals": 1
+              },
+              {
+                "label": "Power, P = I × V",
+                "unit": "W",
+                "formula": "I * (I * R)",
+                "decimals": 1
+              },
+              {
+                "label": "Power, P = I² × R",
+                "unit": "W",
+                "formula": "I^2 * R",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "For the same resistance, double the current and the power goes up four times, because the current is squared."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the current in a kettle from its power and the mains potential difference.",
+            "question": "A kettle has a power of {P} W. It works from the 230 V mains supply. Calculate the current in the kettle.",
+            "variables": [
+              {
+                "id": "P",
+                "min": 1000,
+                "max": 3000,
+                "step": 100
+              }
+            ],
+            "answer": {
+              "formula": "P / 230",
+              "unit": "A",
+              "decimals": 1
+            },
+            "working": ["Use P = V I, so I = P ÷ V.", "I = {P} ÷ 230", "I = {answer} A"]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Working out an answer"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Convert units.",
+              "text": "Change mW to W and kW to W before you start. 340 mW = 0.34 W."
+            },
+            {
+              "lead": "Choose the equation.",
+              "text": "Current and resistance given: P = I²R. Potential difference and current given: P = V I."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "A current of 4 A and a resistance of 25 Ω gives P = 4² × 25."
+            },
+            {
+              "lead": "Calculate and add the unit.",
+              "text": "P = 16 × 25 = 400 W."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Power is energy transferred per second, in watts.",
+            "P = V I and P = I²R. Square the current in the second one.",
+            "Convert mW and kW to W before you calculate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The heating effect of a current",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When there is a current in a resistor, there is an energy transfer that heats the resistor. This section explains why."
+        },
+        {
+          "type": "subheading",
+          "text": "Why a current heats a wire"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A current is a flow of electrons through the metal.",
+            "The electrons collide with the ions in the lattice.",
+            "The collisions make the ions vibrate more, so the lattice becomes hotter.",
+            "Thermal energy is dissipated to the surroundings."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "This is work done against electrical resistance. A higher resistance means more collisions, so more energy is transferred as heat."
+        },
+        {
+          "type": "subheading",
+          "text": "A filament lamp"
+        },
+        {
+          "type": "list",
+          "items": [
+            "As the potential difference increases, the current increases and the filament heats up.",
+            "The ions vibrate more, so there are more collisions with electrons.",
+            "The resistance of the filament increases."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Useful and unwanted heating"
+        },
+        {
+          "type": "table",
+          "columns": ["Advantage", "Disadvantage"],
+          "rows": [
+            [
+              "Kettles, toasters and heaters work by the heating effect.",
+              "Energy is wasted as heat in wires and appliances."
+            ],
+            [
+              "Filament lamps give out light because the filament is hot.",
+              "Wires can overheat and damage the wiring."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Reducing unwanted energy transfer"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use wires with a low resistance, such as thicker wires.",
+            "Less thermal energy is transferred in the wires.",
+            "There is also less potential difference across the wires, so the circuit is more efficient."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Electrons collide with ions in the lattice. The ions vibrate more and the wire heats up.",
+            "Higher resistance means more collisions and more heating.",
+            "Low resistance wires reduce unwanted energy transfer."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A device has a current of 3.0 A and a potential difference of 12 V. Calculate its power.",
+      "a": "P = V I = 12 × 3.0 = 36 W.",
+      "marks": 2
+    },
+    {
+      "q": "A resistor of 20 Ω has a current of 0.50 A in it. Calculate the power.",
+      "a": "P = I²R = 0.50² × 20 = 5.0 W.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a wire gets hot when there is a current in it.",
+      "a": "The electrons collide with the ions in the lattice. The collisions make the ions vibrate more, so the wire gets hotter and thermal energy is dissipated to the surroundings.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2.4.1", "AQA T 6.2.4.1"],
+      "worked_example": {
+        "exemplar_id": "02bfab1a-4b1f-4164-ae75-6a9c87186e6b",
+        "source": "AQA jun 2024, Paper 1 (H), Q5.2",
+        "question": "The vending machine identifies the value of the coin by measuring the resistance of the coin. The power dissipated by the coin is 340 mW when the current in the coin is 0.75 A. Calculate the resistance of the coin.",
+        "marks": 4,
+        "answer_points": ["340 mW = 0.34 W", "0.34 = 0.75² × R", "R = 0.34 / 0.75²", "R = 0.60 Ω"],
+        "tip": "One mark each for the conversion, the substitution, the rearrangement and the answer."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 10.22",
+        "EDEX 10.23",
+        "EDEX 10.24",
+        "EDEX 10.25",
+        "EDEX 10.26",
+        "EDEX 10.28",
+        "EDEX 10.29",
+        "EDEX 10.30",
+        "EDEX 10.31"
+      ],
+      "worked_example": {
+        "exemplar_id": "c2b27ca1-380a-4415-a41e-dd62ddd30116",
+        "source": "EDEXCEL nov 2021, Paper 2 (F), Q8(c)(iv)",
+        "question": "Explain why the resistance of the filament lamp changes as the voltage across it increases.",
+        "marks": 3,
+        "answer_points": [
+          "The resistance increases.",
+          "The filament heats up (its temperature increases).",
+          "There are more collisions of electrons with ions, atoms or other electrons."
+        ],
+        "tip": "Link any three of the four points: resistance increasing, heating, more collisions, collisions of electrons."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P3.2l"],
+      "worked_example": {
+        "exemplar_id": "2984fe7e-dcbc-44a2-bb9d-946078209f61",
+        "source": "OCR jun 2018, Paper 3, Q16(c)(ii)",
+        "question": "Component X has a resistance of 16 Ω when a current of 0.25 A flows. Calculate the power of component X when a current of 0.25 A flows.",
+        "marks": 3,
+        "answer_points": ["P = I²R", "P = 0.25² × 16", "P = 1 W"],
+        "tip": "Full marks for the correct answer of 1 W. You are given the current and the resistance, so use P = I²R."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.2.5.2"],
+      "worked_example": {
+        "exemplar_id": "bb3b87c2-7765-4861-bf77-a3cfcfc2456b",
+        "source": "CAMBRIDGE jun 2023, Paper 41, Q8(b)(ii)",
+        "question": "A transformer steps the supply voltage down from 220 000 V to 33 000 V. The electrical power transferred to the transformer by the high-voltage cable is 77 MW. Calculate the current in the primary coil.",
+        "marks": 3,
+        "answer_points": ["P = IV, so I = P / V", "I = 7.7 × 10⁷ / 220 000", "I = 350 A"],
+        "tip": "One mark for the equation, one for the substitution with the power in watts, and one for the answer."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.3", "IGCSE 2.4", "IGCSE 2.2"],
+      "worked_example": {
+        "exemplar_id": "20ce3a07-e175-4a21-b088-7df7de5ce4d9",
+        "source": "EDEXCEL jun 2024, Paper 1 (PR), Q2(b)(ii)",
+        "question": "The voltage of the mains electricity supply is 230 V. The normal operating current of a heater is 11 A. Calculate the input power to the heater for this current. Give your answer in kW.",
+        "marks": 3,
+        "answer_points": [
+          "power = 11 × 230",
+          "power = 2530 W (about 2500 W)",
+          "power = 2.53 kW (about 2.5 kW)"
+        ],
+        "tip": "One mark each for the substitution, the answer in watts and the answer in kilowatts."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A fuse protects a device. Use P = IV to find the normal current, then choose a fuse that is rated just above it."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find the current.",
+                  "text": "I = P / V. A 1200 W heater on 230 V has a current of about 5.2 A."
+                },
+                {
+                  "lead": "Choose the fuse.",
+                  "text": "Pick the nearest standard rating above the current, such as 3 A, 5 A or 13 A. Here that is 13 A."
+                },
+                {
+                  "lead": "Why it works.",
+                  "text": "If a fault makes the current too large, the fuse wire heats up and melts. The circuit breaks and the device is protected."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "92921793-b4ce-482a-9d00-8ee92f090730",
+      "15501e5e-b43a-4c9b-b199-dfd22847fa96",
+      "e3cd6796-80df-426f-8096-29cb5e192311",
+      "f91e074a-c12d-441b-9993-42ff3e5ea78f",
+      "d04ffe08-f48b-4b34-8f93-911136a50daa",
+      "a2e010a0-cf8a-4709-9edf-e96375d049e8",
+      "fccb4693-d7bb-4f53-9452-e05bf55d9b0d",
+      "c08787e8-b871-48ba-811c-0d32226a2fc3",
+      "c87c4fc2-d838-4723-8309-9202dff8afae",
+      "70ce42aa-c7c5-40c7-b4e8-6e60f8bab4c7",
+      "15ee130f-7b5f-4413-a4f8-e85e6b1d6774",
+      "b70b348d-1d94-45f6-bd19-c8581aeaa335",
+      "1c4fce21-eaaf-4691-90a0-335aeaa65f34",
+      "42d00cb5-a4cf-4783-86a0-26c32aaf207f",
+      "7b84a914-9620-42dc-b2c3-f578a9bc4628"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "exemplar_ids": [
+      "02bfab1a-4b1f-4164-ae75-6a9c87186e6b",
+      "c2b27ca1-380a-4415-a41e-dd62ddd30116",
+      "2984fe7e-dcbc-44a2-bb9d-946078209f61",
+      "bb3b87c2-7765-4861-bf77-a3cfcfc2456b",
+      "20ce3a07-e175-4a21-b088-7df7de5ce4d9"
+    ]
+  }
+}

@@ -355,8 +355,16 @@ export function TakeMcq() {
           <EmptyState
             mascot="books"
             title="This quiz has no questions yet"
-            body="Your tutor is still putting it together."
-            action={{ to: backTo, label: "Back to dashboard" }}
+            body={
+              isTutor
+                ? "Nothing has been written for it so far."
+                : "Your tutor is still putting it together."
+            }
+            action={
+              isTutor
+                ? { to: "/mcqs", label: "Back to quizzes" }
+                : { to: backTo, label: "Back to dashboard" }
+            }
           />
         </div>
       </AppLayout>

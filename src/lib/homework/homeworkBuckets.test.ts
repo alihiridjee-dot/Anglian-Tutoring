@@ -3,6 +3,7 @@ import {
   bucketOf,
   groupHomework,
   isOverdue,
+  splitDue,
   type HomeworkItem,
 } from "@/lib/homework/homeworkBuckets";
 import type { Homework } from "@/lib/homework/types";
@@ -37,13 +38,13 @@ describe("a brief due while the student was on a break", () => {
   ];
   const joined = "2026-09-01T10:00:00Z";
 
-  test("is practice, not Overdue", () => {
+  test("isn't due, and isn't Overdue", () => {
     const item: HomeworkItem = {
       hw: brief({ due_at: "2026-10-16T17:00:00Z" }),
       enrolledAt: joined,
       breaks,
     };
-    expect(bucketOf(item)).toBe("practice");
+    expect(bucketOf(item)).toBeNull();
     expect(isOverdue(item, NOW)).toBe(false);
   });
 
@@ -54,7 +55,7 @@ describe("a brief due while the student was on a break", () => {
       enrolledAt: joined,
       breaks,
     };
-    expect(bucketOf(item)).toBe("practice");
+    expect(bucketOf(item)).toBeNull();
   });
 
   test("is still Overdue when it was due the day they were back", () => {
@@ -73,9 +74,9 @@ describe("a brief set before the student joined", () => {
   // student who joins in November also sees October's brief.
   const october = brief({ due_at: "2026-10-15T17:00:00Z" });
 
-  test("is practice, not Overdue", () => {
+  test("isn't due, and isn't Overdue", () => {
     const item: HomeworkItem = { hw: october, enrolledAt: "2026-11-01T10:00:00Z" };
-    expect(bucketOf(item)).toBe("practice");
+    expect(bucketOf(item)).toBeNull();
     expect(isOverdue(item, NOW)).toBe(false);
   });
 
@@ -100,15 +101,70 @@ describe("a brief set before the student joined", () => {
   });
 });
 
-describe("practice order", () => {
+describe("a practice-queue sheet", () => {
+  const sheet = (over: Partial<Homework> = {}) => brief({ origin: "generated", ...over });
+
+  test("is due while its spec point is on this week's plan", () => {
+    expect(bucketOf({ hw: sheet(), slot: { lane: "returning", order: 0 } })).toBe("due");
+  });
+
+  test("isn't shown when it is off this week's plan", () => {
+    expect(bucketOf({ hw: sheet() })).toBeNull();
+  });
+
+  test("leaves Due once it is handed in, whatever its lane", () => {
+    const submission = {
+      id: "s1",
+      resource_id: "hw-1",
+      student_id: "u1",
+      notes: null,
+      submitted_at: "2026-11-19T10:00:00Z",
+      score_pct: null,
+      feedback: null,
+      graded_at: null,
+      acknowledged_at: null,
+      release_at: null,
+    };
+    const item = { hw: sheet(), submission, slot: { lane: "new" as const, order: 0 } };
+    expect(bucketOf(item)).toBe("submitted");
+  });
+});
+
+describe("the Due tab", () => {
+  test("follows the week's order, then a tutor's briefs by deadline, undated last", () => {
+    const items: HomeworkItem[] = [
+      { hw: brief({ id: "undated", title: "Undated brief" }) },
+      { hw: brief({ id: "late", title: "Later brief", due_at: "2026-11-27T17:00:00Z" }) },
+      { hw: brief({ id: "soon", title: "Sooner brief", due_at: "2026-11-21T17:00:00Z" }) },
+      { hw: brief({ id: "rev", origin: "generated" }), slot: { lane: "revision", order: 2 } },
+      { hw: brief({ id: "new", origin: "generated" }), slot: { lane: "new", order: 0 } },
+      { hw: brief({ id: "back", origin: "generated" }), slot: { lane: "returning", order: 1 } },
+    ];
+    const [due] = groupHomework(items);
+    expect(due.items.map((i) => i.hw.id)).toEqual([
+      "new",
+      "back",
+      "rev",
+      "soon",
+      "late",
+      "undated",
+    ]);
+    expect(splitDue(due.items).map((s) => [s.lane, s.items.map((i) => i.hw.id)])).toEqual([
+      ["new", ["new"]],
+      ["returning", ["back"]],
+      ["revision", ["rev"]],
+      ["tutor", ["soon", "late", "undated"]],
+    ]);
+  });
+
   test("spec point codes sort by number, so 4.1.1.2 comes before 4.1.1.10", () => {
     const items: HomeworkItem[] = [
       "4.1.1.10 Osmosis",
       "4.1.1.2 Animal cells",
       "4.1.1.9 Diffusion",
     ].map((title, i) => ({ hw: brief({ id: `hw-${i}`, title }) }));
-    const [practice] = groupHomework(items);
-    expect(practice.items.map((i) => i.hw.title)).toEqual([
+    const [due] = groupHomework(items);
+    expect(due.items.map((i) => i.hw.title)).toEqual([
       "4.1.1.2 Animal cells",
       "4.1.1.9 Diffusion",
       "4.1.1.10 Osmosis",

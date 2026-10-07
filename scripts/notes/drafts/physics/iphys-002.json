@@ -1,0 +1,215 @@
+{
+  "format": 1,
+  "concept_id": "iphys-002",
+  "subject": "physics",
+  "title": "Drag and terminal velocity",
+  "key_idea": "Drag is a friction force that acts against anything moving through a liquid or gas, and it grows as speed grows. A falling object speeds up until drag equals its weight. The forces are then balanced and it falls at a constant terminal velocity.",
+  "sections": [
+    {
+      "heading": "Drag on moving objects",
+      "blocks": [
+        { "type": "paragraph", "text": "Anything moving through a liquid or a gas has a force acting against it. This section covers what drag is and what changes it." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Drag", "meaning": "The friction force on an object moving through a liquid or a gas, which acts against its motion." },
+            { "term": "Air resistance", "meaning": "Drag when the object moves through air." },
+            { "term": "Weight", "meaning": "The gravitational force on an object, which pulls it downwards." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Drag acts on objects moving through **liquids** (water resistance) and **gases** (air resistance).",
+            "It always acts in the **opposite direction** to the motion.",
+            "It is **zero** when the object is not moving.",
+            "It increases as the speed of the object increases.",
+            "It is bigger for a larger area facing the flow, which is why a parachute slows a skydiver."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Drag acts against motion through any liquid or gas.",
+            "Drag gets bigger as speed increases."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Falling objects and terminal velocity",
+      "blocks": [
+        { "type": "paragraph", "text": "A falling object has two vertical forces on it: weight downwards and drag upwards. The size of drag changes as the object speeds up." },
+        { "type": "subheading", "text": "Falling with no air resistance" },
+        {
+          "type": "list",
+          "items": [
+            "In a uniform gravitational field, the only force is weight.",
+            "The object accelerates at a constant 9.8 m/s² (about 10 m/s²).",
+            "Its speed keeps increasing and never levels off."
+          ]
+        },
+        { "type": "subheading", "text": "Falling with air or liquid resistance" },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Start", "text": "At the moment of release the object is at rest, so there is no drag. The resultant force is its weight and it accelerates downwards." },
+            { "lead": "Speeding up", "text": "As its speed increases, drag increases." },
+            { "lead": "Less acceleration", "text": "The resultant force downwards decreases, so the acceleration decreases. The object is still speeding up." },
+            { "lead": "Terminal velocity", "text": "Drag becomes equal to weight. The resultant force is zero, the acceleration is zero and the object falls at a constant speed." }
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Terminal velocity", "meaning": "The constant speed reached when drag equals weight, so the resultant force is zero." }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Resultant force on a falling object",
+          "formula": "resultant force = weight − drag",
+          "where": ["resultant force is the downward force left over, in newtons (N)", "weight is in newtons (N)", "drag is in newtons (N)"]
+        },
+        {
+          "type": "equation",
+          "label": "Acceleration",
+          "formula": "resultant force = mass × acceleration",
+          "where": ["resultant force is in newtons (N)", "mass is in kilograms (kg)", "acceleration is in m/s²"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider for a falling object. Change the mass and the drag force to see the resultant force and the acceleration.",
+            "inputs": [
+              { "id": "m", "label": "Mass of the falling object", "unit": "kg", "min": 50, "max": 100, "step": 5, "value": 80 },
+              { "id": "d", "label": "Drag force", "unit": "N", "min": 0, "max": 1200, "step": 50, "value": 0 }
+            ],
+            "outputs": [
+              { "label": "Weight (using 10 N/kg)", "unit": "N", "formula": "m * 10", "decimals": 0 },
+              { "label": "Resultant force downwards (negative means upwards)", "unit": "N", "formula": "m * 10 - d", "decimals": 0 },
+              { "label": "Acceleration downwards (negative means upwards)", "unit": "m/s²", "formula": "(m * 10 - d) / m", "decimals": 1 }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Set the drag equal to the weight and the acceleration becomes zero. That is terminal velocity."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "With no air resistance an object accelerates at a constant rate.",
+            "With drag, acceleration falls to zero as drag grows to equal weight.",
+            "At terminal velocity the forces are balanced and the speed is constant."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "A parachutist",
+      "blocks": [
+        { "type": "paragraph", "text": "A parachutist reaches terminal velocity twice, once before and once after the parachute opens. The graph shows the shape of the speed." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A speed-time graph for a parachutist. Speed rises and levels off at a terminal velocity. When the parachute opens the speed falls steeply to a lower terminal velocity.",
+            "x": { "label": "Time", "unit": "s", "min": 0, "max": 60, "ticks": [0, 10, 20, 30, 40, 50, 60] },
+            "y": { "label": "Speed" },
+            "series": [
+              {
+                "name": "Parachutist",
+                "points": [[0, 0], [3, 0.35], [6, 0.6], [10, 0.78], [15, 0.88], [20, 0.9], [30, 0.9], [32, 0.4], [35, 0.22], [40, 0.15], [50, 0.15], [60, 0.15]]
+              }
+            ],
+            "markers": [{ "x": 30, "label": "Parachute opens" }],
+            "bands": [
+              { "from": 15, "to": 30, "label": "Terminal velocity" },
+              { "from": 40, "to": 60, "label": "New, lower terminal velocity" }
+            ]
+          }
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Parachute opens", "text": "The area increases, so drag suddenly becomes bigger than weight." },
+            { "lead": "Slowing down", "text": "The resultant force is upwards, so the parachutist decelerates." },
+            { "lead": "Drag falls", "text": "As the speed decreases, drag decreases." },
+            { "lead": "New terminal velocity", "text": "Drag becomes equal to weight again. The speed is constant, but lower than before." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Opening a parachute makes drag larger than weight, so the parachutist slows down.",
+            "The speed settles at a lower terminal velocity when drag equals weight again."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what happens to the drag on a falling object as its speed increases.",
+      "a": "The drag increases.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why a skydiver who has not opened a parachute reaches a terminal velocity.",
+      "a": "Weight makes the skydiver accelerate. Drag increases with speed, so the resultant force and acceleration decrease. When drag equals weight the resultant force is zero and the speed is constant.",
+      "marks": 3
+    },
+    {
+      "q": "A skydiver of weight 800 N has drag of 800 N. State the resultant force and describe the motion.",
+      "a": "The resultant force is 0 N. The skydiver moves at a constant speed (terminal velocity).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.2.13S", "CAIE 1.5.1.7", "CAIE 1.5.1.8"],
+      "worked_example": {
+        "exemplar_id": "0a334d09-0770-429b-81bc-40d7dfcbaed5",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q1(d)",
+        "question": "A ball is dropped from the top of a tall building. Describe and explain the motion of the ball as it falls. Consider the effect of air resistance in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "The ball accelerates.",
+          "It accelerates at 9.8 m/s² initially, due to the force of gravity.",
+          "Air resistance (a resistive force) increases with speed.",
+          "The resultant force downwards decreases.",
+          "The acceleration decreases.",
+          "Terminal velocity is reached when the acceleration (or the resultant force) is zero."
+        ],
+        "tip": "Any three score one mark each. Link each change in air resistance to its effect on the force."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.21"],
+      "worked_example": {
+        "exemplar_id": "720e2ef8-f1c1-455f-a0f0-957a67a84b2a",
+        "source": "EDEXCEL jun 2022, Paper 1 (PR), Q12(b)(i)",
+        "question": "A parachutist is falling. When they are much nearer to the ground, they open their parachute and slow down. Explain the change in speed of the parachutist. Use ideas about forces in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "There are two forces: weight and air resistance (drag).",
+          "Air resistance becomes larger than weight when the parachute opens.",
+          "The resultant force is upwards, so the acceleration is upwards (F = ma).",
+          "Air resistance decreases as the parachutist slows down."
+        ],
+        "tip": "Any three score one mark each. Compare drag with weight, then say what that does to the motion."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": ["98aef786-00fc-4d25-8e03-4bc86f23a1b6", "dc0d47a7-eb5b-4dd7-b50c-04507d9b4c06", "93c6d2f3-0e8e-484c-bad1-42076ec2fdc3", "c8d500d3-b2d1-4b86-b391-15d6bb0a768d"],
+    "exemplar_ids": ["0a334d09-0770-429b-81bc-40d7dfcbaed5", "720e2ef8-f1c1-455f-a0f0-957a67a84b2a"]
+  }
+}

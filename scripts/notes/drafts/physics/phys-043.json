@@ -1,0 +1,330 @@
+{
+  "format": 1,
+  "concept_id": "phys-043",
+  "subject": "physics",
+  "title": "Scalars and vectors",
+  "key_idea": "A scalar has size only. A vector has size and direction. Distance and speed are scalars. Displacement and velocity are vectors, and so are force, weight and acceleration. A vector is drawn as an arrow.",
+  "sections": [
+    {
+      "heading": "Scalar and vector quantities",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every physical quantity is either a scalar or a vector. This section covers the difference and the quantities you need to sort."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Magnitude",
+              "meaning": "The size of a quantity."
+            },
+            {
+              "term": "Scalar",
+              "meaning": "A quantity with magnitude only. It has no direction."
+            },
+            {
+              "term": "Vector",
+              "meaning": "A quantity with magnitude and a direction."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Scalar (size only)", "Vector (size and direction)"],
+          "rows": [
+            ["Distance", "Displacement"],
+            ["Speed", "Velocity"],
+            ["Mass", "Weight"],
+            ["Energy", "Force"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Acceleration and momentum are also vectors."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort ten quantities into scalars and vectors.",
+            "prompt": "Sort each quantity into scalar or vector.",
+            "groups": ["Scalar", "Vector"],
+            "items": [
+              {
+                "text": "Distance",
+                "group": 0
+              },
+              {
+                "text": "Speed",
+                "group": 0
+              },
+              {
+                "text": "Mass",
+                "group": 0
+              },
+              {
+                "text": "Energy",
+                "group": 0
+              },
+              {
+                "text": "Displacement",
+                "group": 1
+              },
+              {
+                "text": "Velocity",
+                "group": 1
+              },
+              {
+                "text": "Force",
+                "group": 1
+              },
+              {
+                "text": "Weight",
+                "group": 1
+              },
+              {
+                "text": "Acceleration",
+                "group": 1
+              },
+              {
+                "text": "Momentum",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Both scalars and vectors have a size.",
+            "Only a vector also has a direction.",
+            "Force, weight, acceleration and momentum are vectors."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Distance, displacement, speed and velocity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Motion gives two pairs of quantities. In each pair, one is a scalar and one is a vector."
+        },
+        {
+          "type": "table",
+          "columns": ["Quantity", "What it is", "Type"],
+          "rows": [
+            ["Distance", "How far an object moves, along its path", "Scalar"],
+            [
+              "Displacement",
+              "The straight-line distance from the start point to the finish point, with its direction",
+              "Vector"
+            ],
+            ["Speed", "How fast an object moves, with no direction", "Scalar"],
+            ["Velocity", "The speed of an object in a given direction", "Vector"]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Worked idea: a lap of a track"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A toy car goes once around a circular track and stops where it started.",
+            "Its **distance** is the length of the track.",
+            "Its **displacement** is zero, because the finish is the same as the start.",
+            "Its speed can stay the same, but its velocity changes because its direction keeps changing."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) Motion in a circle has constant speed but changing velocity. A force towards the centre changes the direction of motion but not the speed."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Distance and speed have no direction. Displacement and velocity do.",
+            "Displacement is measured in a straight line from start to finish.",
+            "Changing direction changes the velocity, even at constant speed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Drawing vectors as arrows",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A vector can be shown as an arrow. The arrow carries both parts of the vector."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **length** of the arrow shows the magnitude.",
+            "The **direction** the arrow points shows the direction of the vector.",
+            "A force of 20 N is drawn twice as long as a force of 10 N.",
+            "Weight is drawn as an arrow because it is a vector."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Arrow length shows magnitude.",
+            "Arrow direction shows the direction of the vector."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what is meant by a vector quantity and a scalar quantity.",
+      "a": "A vector quantity has magnitude and a direction. A scalar quantity has magnitude only.",
+      "marks": 2
+    },
+    {
+      "q": "A runner completes one full lap of a 400 m track. State the distance and the displacement.",
+      "a": "The distance is 400 m. The displacement is 0 m, because the runner finishes at the start point.",
+      "marks": 2
+    },
+    {
+      "q": "Which two of these are scalar quantities: displacement, distance, force, speed, velocity?",
+      "a": "Distance and speed.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.5.1.1", "AQA T 6.5.1.1", "AQA 4.5.6.1", "AQA T 6.5.4.1"],
+      "worked_example": {
+        "exemplar_id": "aee38b70-88e7-4d7f-8325-547e3a632a31",
+        "source": "AQA jun 2022, Paper 2 (H), Q03.5",
+        "question": "The speed cameras determine the average speed of cars on the road. The average speed of a car between the cameras and the average velocity of the car between the cameras are different. Explain why.",
+        "marks": 3,
+        "answer_points": [
+          "Velocity is a vector and speed is a scalar. Velocity includes direction and speed does not.",
+          "The road is not straight.",
+          "So the direction changes, which means the velocity changes."
+        ],
+        "tip": "One mark for the vector and scalar link, one for the road not being straight, one for direction changing the velocity."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 2.1", "EDEX 2.2", "EDEX 2.3", "EDEX 2.4", "EDEX 2.5", "EDEX 9.2"],
+      "worked_example": {
+        "exemplar_id": "8c8cbcbc-bb0b-47fc-a990-d081a00103cd",
+        "source": "EDEXCEL jun 2018, Paper 1 (F), Q1(d)",
+        "question": "Use words from the box to complete the sentences below. Words: direction, energy, mass, size. Vectors have size and ______. Scalars have only ______.",
+        "marks": 2,
+        "answer_points": ["Vectors have size and direction.", "Scalars have only size."],
+        "tip": "The answers are only accepted in the given order. Size can also be written as magnitude."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P2.1d"],
+      "worked_example": {
+        "exemplar_id": "97285c9f-5a3d-4435-9bc5-c7fc72d22764",
+        "source": "OCR nov 2020, Paper 1, Q19(a)",
+        "question": "A toy car travels around a race track. After one lap it is back at the start position. Explain why the velocity of the toy car is different from its speed as it travels around the track.",
+        "marks": 2,
+        "answer_points": [
+          "Speed is a scalar and velocity is a vector.",
+          "Velocity takes direction into account and speed does not.",
+          "Or: speed is calculated using distance, but velocity is calculated using displacement."
+        ],
+        "tip": "Any two of the marking points score. The answer must be about direction."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.1.4S", "CAIE 1.1.5S", "CAIE 1.1.6S", "CAIE 1.1.7S"],
+      "worked_example": {
+        "exemplar_id": "a5442491-7495-4716-ba3a-6b163b619af4",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q1(b)",
+        "question": "Speed is a scalar quantity and velocity is a vector quantity. State the names of one other scalar quantity and one other vector quantity.",
+        "marks": 2,
+        "answer_points": [
+          "A scalar: distance, time, mass, energy or temperature.",
+          "A vector: force, weight, acceleration, momentum, electric field strength or gravitational field strength."
+        ],
+        "tip": "One mark for each quantity, so name one scalar and one vector."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) More quantities to sort into scalars and vectors."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Scalars also include time and temperature, as well as distance, speed, mass and energy.",
+                "Vectors also include electric field strength and gravitational field strength, as well as force, weight, velocity, acceleration and momentum.",
+                "Two forces or two velocities at right angles can be combined into one resultant, by calculation or by a scale drawing."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.13", "IGCSE 1.14", "IGCSE 1.5"],
+      "worked_example": {
+        "exemplar_id": "0b3b7129-5b1d-4381-9a40-cdad7ec5ff93",
+        "source": "EDEXCEL jan 2022, Paper 1 (PR), Q4(b)",
+        "question": "This question is about scalar quantities and vector quantities. Draw a circle around each physical quantity in the box that is a scalar. The box: acceleration, charge, force, power, temperature, velocity, weight.",
+        "marks": 3,
+        "answer_points": ["Charge is a scalar.", "Power is a scalar.", "Temperature is a scalar."],
+        "tip": "Circle only the scalars. Circling extra quantities loses marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "More scalars to know."
+            },
+            {
+              "type": "list",
+              "items": ["Charge and power are scalars.", "Time and temperature are scalars too."]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "ab8d07a6-d0a9-4065-937f-08f668332dbb",
+      "c882c9fd-d41e-4082-8163-d314075073bd",
+      "93a1651f-56ed-44fb-937b-88e70015f617",
+      "02e7948d-1780-4969-9824-b1ff21a2e3cf",
+      "7a547449-c42b-46df-9c82-cb0eb0e3508c",
+      "4ef26eae-6868-4103-ac82-b0082de0a4d4",
+      "d32095b5-ab35-4092-85c5-2b55e456eeb7",
+      "4826d15e-76e4-4ef4-b12c-a1353a046884",
+      "1a153dd7-7ae3-4bca-a9d3-0ed838ea55fe",
+      "a41e4b21-27b5-4d30-b072-34a85ea04562",
+      "7a117592-ec52-4fe6-a0dc-d8190b59f570",
+      "6b09ac1c-861d-4f60-83e0-9a85f9f30b12",
+      "de7434f2-796e-48c4-a65d-e0114cd31fb6",
+      "eccc4b44-705f-4f61-9855-c21fcdd7f97b"
+    ],
+    "exemplar_ids": [
+      "aee38b70-88e7-4d7f-8325-547e3a632a31",
+      "8c8cbcbc-bb0b-47fc-a990-d081a00103cd",
+      "97285c9f-5a3d-4435-9bc5-c7fc72d22764",
+      "a5442491-7495-4716-ba3a-6b163b619af4",
+      "0b3b7129-5b1d-4381-9a40-cdad7ec5ff93"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

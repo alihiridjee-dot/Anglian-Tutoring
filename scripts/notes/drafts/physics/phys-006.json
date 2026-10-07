@@ -1,0 +1,342 @@
+{
+  "format": 1,
+  "concept_id": "phys-006",
+  "subject": "physics",
+  "title": "Energy dissipation",
+  "key_idea": "Energy can be transferred usefully, stored or **dissipated**, but never created or destroyed. In every system change, some energy is dissipated into less useful stores. This is usually the thermal store of the surroundings, and it is often called wasted energy.",
+  "sections": [
+    {
+      "heading": "Useful and wasted energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Not all the energy in a system change ends up where you want it. This section covers what happens to the rest."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Useful energy",
+              "meaning": "Energy transferred to the store or form you want, such as the kinetic store of a moving car."
+            },
+            {
+              "term": "Dissipated energy",
+              "meaning": "Energy stored in less useful ways, so it spreads out and cannot be used again. Often called 'wasted'."
+            },
+            {
+              "term": "Total energy",
+              "meaning": "In a closed system it is the same before and after. Dissipating energy does not destroy it."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A gas boiler: the chemical store of the fuel decreases. The thermal store of the water increases, and the thermal store of the air increases too.",
+            "A car engine: the chemical store of the fuel decreases. The kinetic store of the car increases and the thermal store of the engine and surroundings increases.",
+            "A bouncing ball: some energy goes to the thermal store of the ball, the floor and the air, and some to sound."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each energy transfer into useful or wasted.",
+            "prompt": "Is this transfer useful or wasted?",
+            "groups": ["Useful", "Wasted (dissipated)"],
+            "items": [
+              {
+                "text": "Thermal store of the water in a kettle",
+                "group": 0
+              },
+              {
+                "text": "Thermal store of the kettle's surroundings",
+                "group": 1
+              },
+              {
+                "text": "Kinetic store of a moving car",
+                "group": 0
+              },
+              {
+                "text": "Thermal store of a car's engine",
+                "group": 1
+              },
+              {
+                "text": "Light from a filament lamp",
+                "group": 0
+              },
+              {
+                "text": "Thermal energy from a filament lamp",
+                "group": 1
+              },
+              {
+                "text": "Gravitational potential store of a lifted load",
+                "group": 0
+              },
+              {
+                "text": "Thermal store of a crane's motor and cable",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Energy is transferred usefully, stored or dissipated. It is never created or destroyed.",
+            "Dissipated energy is stored in less useful ways, usually as thermal energy in the surroundings.",
+            "The total energy before and after is the same."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why energy is dissipated",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Most wasted energy comes from friction, air resistance and electrical resistance. Each makes the surroundings warmer."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Friction.** Work done against friction raises the temperature. Wheels rubbing on an axle make it warm.",
+            "**Air resistance.** A moving object does work against drag. A swinging pendulum loses height after each swing.",
+            "**Electrical resistance.** Resistance in wires and motor coils transfers energy to thermal energy."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Mechanical processes"
+        },
+        {
+          "type": "paragraph",
+          "text": "A mechanical process becomes wasteful when it causes a rise in temperature. The energy is dissipated by heating the surroundings."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Start.",
+              "text": "A car rolls down a hill with its engine off. It starts with energy in its gravitational potential store."
+            },
+            {
+              "lead": "Useful transfer.",
+              "text": "Some of that energy is transferred to the kinetic store."
+            },
+            {
+              "lead": "Wasted transfer.",
+              "text": "Work is done against friction and drag. Energy is transferred to the thermal energy store of the surroundings."
+            },
+            {
+              "lead": "Result.",
+              "text": "The kinetic energy at the bottom is less than the potential energy at the top."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Reducing wasted energy"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Lubrication reduces friction, so less energy is dissipated and more is usefully transferred.",
+            "Thermal insulation reduces unwanted energy transfers to the surroundings."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Friction, air resistance and electrical resistance all dissipate energy by heating.",
+            "A braking vehicle transfers kinetic energy to the thermal store of the brakes and surroundings.",
+            "Dissipated energy is no longer available to do anything useful."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Explaining energy loss in an exam",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A good answer names the stores and says where the energy goes."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Say that energy is dissipated, or transferred to the surroundings.",
+            "Name the store that increases, usually the thermal store.",
+            "Link to the cause: friction, air resistance or resistance in wires.",
+            "Saying only that energy is lost or wasted may not score. Say where it goes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Say what happens to the energy: it is dissipated to the surroundings as thermal energy.",
+            "Name the cause: friction, drag or resistance.",
+            "Energy is never used up or destroyed. It is stored in less useful ways."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A cyclist uses the brakes to stop. Explain what happens to the kinetic energy of the cyclist.",
+      "a": "The kinetic energy store decreases to zero. The energy is dissipated, transferred to the thermal energy store of the brakes and surroundings.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the axles of a cart become warm when the wheels turn.",
+      "a": "Friction between the wheel and the axle causes heating, so energy is transferred to the thermal store.",
+      "marks": 2
+    },
+    {
+      "q": "State what happens to the total energy when some energy is dissipated.",
+      "a": "The total energy stays the same. The energy is stored in less useful ways.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.2.1", "AQA T 6.1.2.1"],
+      "worked_example": {
+        "exemplar_id": "3d466d20-89ac-44f9-bec0-c10db45901d8",
+        "source": "AQA jun 2018, Paper 1 (H), Q05.3",
+        "question": "A gas boiler is used to heat a house.\n\nDescribe how different energy stores are changed by the boiler.",
+        "marks": 3,
+        "answer_points": [
+          "The chemical energy store of the fuel decreases",
+          "The thermal energy store of the water increases",
+          "The thermal energy store of the air / atmosphere increases"
+        ],
+        "tip": "A kinetic energy store of the water or air particles increasing is also allowed for the last two marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.7", "EDEX 3.8", "EDEX 8.10", "EDEX 8.11"],
+      "worked_example": {
+        "exemplar_id": "0208d8bb-90e4-43f0-8d84-aa0a5ae83512",
+        "source": "EDEXCEL nov 2021, Paper 1 (F), Q4(a)(iii)",
+        "question": "A cyclist has a mass of 64 kg.\nThe cyclist uses the brakes on the bicycle to stop.\n\nExplain what happens to the kinetic energy of the cyclist.",
+        "marks": 2,
+        "answer_points": [
+          "The kinetic energy (store) decreases (to zero)",
+          "The energy is dissipated, or transferred to the surroundings",
+          "The thermal energy (store) increases (for example the brake pads become hot)"
+        ],
+        "tip": "Any two of these linked ideas score the 2 marks."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P7.2a"],
+      "worked_example": {
+        "exemplar_id": "2552dca8-dbad-45c4-8861-dca6c9867d40",
+        "source": "OCR jun 2023, Paper 2, Q20(c)",
+        "question": "A car with a mass of 800 kg rolls down a hill with its engine switched off.\n\nThe kinetic energy at the bottom of the hill is less than the potential energy at the top of the hill.\n\nExplain why.\nWrite about energy stores.",
+        "marks": 2,
+        "answer_points": [
+          "Energy is transferred to the thermal energy (store)",
+          "And any one of: work is done against friction / drag / resistive forces, or energy is transferred in the surroundings / brakes"
+        ],
+        "tip": "Heat is allowed for thermal energy. Energy transferred to the surroundings by heating scores both marks."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.7.1.6S",
+        "CAIE 1.5.1.6",
+        "CAIE 1.7.3.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "1ab0bc0c-d866-4669-8eaa-111224d198e9",
+        "source": "CAMBRIDGE nov 2023, Paper 42, Q1(d)",
+        "question": "A car decelerates from 13.0 m/s to 0 m/s at a constant deceleration.\nOn another day, the car travels a longer distance while it decelerates from 13.0 m/s to 0 m/s. The deceleration is constant.\n\nSuggest and explain what causes the stopping distance to increase.",
+        "marks": 2,
+        "answer_points": [
+          "A sensible suggestion that increases the stopping distance, such as a wet or icy road.",
+          "An explanation that matches the suggestion, such as less friction between the tyres and the road, so the deceleration is smaller."
+        ],
+        "tip": "One mark for the suggestion and one for an explanation that fits it."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A Sankey diagram shows where the energy goes in a process with several stages."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The width of each arrow is drawn to scale to show the amount of energy.",
+                "The arrow into a stage shows the energy supplied. The arrows out show the useful energy and the wasted energy.",
+                "At each stage the widths of the arrows out add up to the width of the arrow in.",
+                "The useful output of one stage is the input to the next stage."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Solid friction is the force between two surfaces that may impede motion and produce heating.",
+                "Efficiency is how much of the input energy is transferred usefully. A more efficient device wastes less energy."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A Sankey diagram shows where the input energy of a device goes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The width of each arrow is drawn to scale to show the amount of energy.",
+                "The arrow in shows the input energy.",
+                "One arrow out shows the useful energy. A branch shows the wasted energy.",
+                "The widths of the arrows out add up to the width of the arrow in."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "840f4495-3f0d-4aed-a3a6-97234bbbc0de",
+      "49c59b9a-ff34-4c34-a20a-c3a566a42880",
+      "c29abc6d-f1e9-430c-a7b5-62d14c81bb20",
+      "a4cc48ad-887a-47b9-a8b9-b91a18f6e5d2",
+      "109da1ff-4c55-4bdd-8675-4736443c8345",
+      "c218a517-feae-4205-bcae-f9e238f6f51e",
+      "182696c2-b293-4cc2-848d-c337832a61f1",
+      "12835c26-ad6b-4e7a-802e-3e26edd76e8c",
+      "321a758d-d6a3-4caf-8599-e167ade8abac"
+    ],
+    "exemplar_ids": [
+      "3d466d20-89ac-44f9-bec0-c10db45901d8",
+      "0208d8bb-90e4-43f0-8d84-aa0a5ae83512",
+      "2552dca8-dbad-45c4-8861-dca6c9867d40",
+      "1ab0bc0c-d866-4669-8eaa-111224d198e9"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

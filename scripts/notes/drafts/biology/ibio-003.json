@@ -1,0 +1,248 @@
+{
+  "format": 1,
+  "concept_id": "ibio-003",
+  "subject": "biology",
+  "title": "Teeth and physical digestion",
+  "key_idea": "Physical digestion breaks food into smaller pieces without changing its molecules. Teeth cut, tear and grind food, and the stomach churns it. Smaller pieces have a larger surface area, so enzymes can work on them faster.",
+  "sections": [
+    {
+      "heading": "Physical digestion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Digestion breaks food down so that it can be absorbed. This section covers the physical part and why it helps."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Physical digestion",
+              "meaning": "The breakdown of food into smaller pieces without chemical change to the food molecules."
+            },
+            {
+              "term": "Chemical digestion",
+              "meaning": "The breakdown of large, insoluble molecules into small, soluble ones by enzymes."
+            },
+            {
+              "term": "Ingestion",
+              "meaning": "Taking food into the mouth."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Physical digestion happens in the mouth, where teeth chew the food.",
+            "It also happens in the stomach, where the muscular wall churns the food.",
+            "Smaller pieces have a larger **surface area** for the enzymes of chemical digestion to act on.",
+            "More surface area means chemical digestion is faster."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Physical digestion makes food pieces smaller. The molecules are not changed.",
+            "It increases the surface area for enzymes to act on."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Types of teeth and their jobs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Humans have four types of tooth. Each shape suits a different job in physical digestion."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Tooth",
+            "Shape",
+            "Job"
+          ],
+          "rows": [
+            [
+              "Incisors",
+              "Flat, with a sharp edge, at the front",
+              "Bite off pieces of food"
+            ],
+            [
+              "Canines",
+              "Pointed",
+              "Tear and grip food"
+            ],
+            [
+              "Premolars",
+              "Broad and flat, with ridges, towards the back",
+              "Crush and grind food"
+            ],
+            [
+              "Molars",
+              "Large, broad and flat, with ridges, at the back",
+              "Crush and grind food"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Chewing mixes the food with saliva and makes a ball that is easy to swallow.",
+            "The large flat surfaces of premolars and molars give the most grinding."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Incisors bite, canines tear, premolars and molars grind.",
+            "Chewing is physical digestion."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Structure of a tooth",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A tooth has layers, each with a job. The tooth is held firmly in the jaw."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "The parts of a human tooth: enamel, dentine, pulp, nerves, blood vessels and cement. Tap each part to see its job.",
+            "prompt": "Tap a part of the tooth to see what it does.",
+            "parts": [
+              {
+                "name": "Enamel",
+                "detail": "The hard outer covering of the crown. It protects the tooth from wear and decay."
+              },
+              {
+                "name": "Dentine",
+                "detail": "A layer under the enamel. It is softer than enamel and supports it."
+              },
+              {
+                "name": "Pulp",
+                "detail": "The soft centre of the tooth. It contains the nerves and blood vessels."
+              },
+              {
+                "name": "Nerves",
+                "detail": "In the pulp. They detect pain and temperature."
+              },
+              {
+                "name": "Blood vessels",
+                "detail": "In the pulp. They bring food and oxygen to the living cells of the tooth."
+              },
+              {
+                "name": "Cement",
+                "detail": "A hard layer around the root. It fixes the tooth into the jawbone."
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The visible part above the gum is the crown.",
+            "The root is embedded in the bone of the jaw and is surrounded by the **gums**.",
+            "The order from the outside is enamel, dentine, then pulp."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Enamel is the hard outer layer. Dentine lies beneath it.",
+            "The pulp holds the nerves and blood vessels.",
+            "Teeth are embedded in the jawbone and gums."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The stomach",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The stomach also carries out physical digestion. This section covers how."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The stomach wall is made of muscle.",
+            "The muscles contract and relax to **churn** the food.",
+            "Churning breaks the food into smaller pieces and mixes it with digestive juices.",
+            "This increases the surface area of the food for the enzymes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Muscles in the stomach wall churn the food.",
+            "Churning mixes the food with juices and increases its surface area."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe physical digestion.",
+      "a": "The breakdown of food into smaller pieces without any chemical change to the food molecules.",
+      "marks": 2
+    },
+    {
+      "q": "State why physical digestion makes chemical digestion faster.",
+      "a": "It increases the surface area of the food, so enzymes can act on more of it.",
+      "marks": 1
+    },
+    {
+      "q": "State the name of the hard outer layer of a tooth and the layer beneath it.",
+      "a": "Enamel is the hard outer layer. Dentine is beneath it.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 7.3.1",
+        "CAIE 7.3.2",
+        "CAIE 7.3.3",
+        "CAIE 7.3.4",
+        "CAIE 7.3.5",
+        "CAIE 7.3.6"
+      ],
+      "worked_example": {
+        "exemplar_id": "6070ee59-29af-4e63-9d63-bee3583a02de",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q6(a)",
+        "question": "Complete the sentences about human teeth. The process of taking food into the mouth is called ______. Flat sharp-edged teeth at the front of the mouth, called ______, are used for biting off pieces of food. The ______ and ______ are the large teeth towards the back of the mouth that are used for ______ the food.",
+        "marks": 4,
+        "answer_points": [
+          "Ingestion.",
+          "Incisors.",
+          "Molars and premolars, in either order.",
+          "Chewing, grinding, crushing or mashing."
+        ],
+        "tip": "One mark for each correct word. Molars and premolars share one mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "5a4f22ca-983a-4eb2-b949-71eeaab7a8b6",
+      "83071772-9a2c-4845-a317-eeaffa9636cd",
+      "d2bf284d-baf5-4b33-8c4c-02474c1169b3",
+      "0e4e74e6-ba35-4601-b633-cbe9ebabe91f",
+      "1c80b71c-8b9a-44e9-a813-00762f140d0f",
+      "67157bd6-d5c2-429e-a250-843367a9be77"
+    ],
+    "exemplar_ids": [
+      "6070ee59-29af-4e63-9d63-bee3583a02de"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

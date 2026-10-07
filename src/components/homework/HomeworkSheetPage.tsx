@@ -14,6 +14,7 @@ import { useRoles } from "@/hooks/useRole";
 import { acknowledgeSubmission } from "@/lib/homework/homework.functions";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
+import { plannerDateLabel } from "@/lib/planner/week";
 import { needsMarkingStart, startMarking } from "@/lib/homework/startMarking";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { usePinSubject } from "@/hooks/useActiveSubject";
@@ -110,19 +111,24 @@ export function HomeworkSheetPage() {
               <span>
                 {questions.length > 0 &&
                   `${questions.length} question${questions.length === 1 ? "" : "s"} · `}
-                {hw.origin === "tutor" ? "Set by your tutor" : "Practice"}
+                {hw.origin === "tutor"
+                  ? isTutor
+                    ? "Set by a tutor"
+                    : "Set by your tutor"
+                  : "Practice"}
                 {/* A deadline is only news while it can still be missed. Once
                     the work is in, "Due 3rd September" beside a mark reads as a
                     reproach for something the student already did. */}
                 {hw.due_at &&
                   !submission &&
-                  !overdue &&
-                  ` · Due ${new Date(hw.due_at).toLocaleDateString()}`}
+                  (!overdue || isTutor) &&
+                  ` · Due ${plannerDateLabel(new Date(hw.due_at))}`}
               </span>
-              {hw.due_at && !submission && overdue && (
+              {/* Overdue is the student's news; a tutor has nothing to hand in. */}
+              {hw.due_at && !submission && overdue && !isTutor && (
                 <span className="chip tint-rose inline-flex items-center gap-1">
                   <Clock className="size-3" aria-hidden />
-                  Overdue {new Date(hw.due_at).toLocaleDateString()}
+                  Overdue {plannerDateLabel(new Date(hw.due_at))}
                 </span>
               )}
             </div>
@@ -141,7 +147,7 @@ export function HomeworkSheetPage() {
           </p>
         )}
 
-        {isTutor && (
+        {isTutor && !demo && (
           <p className="premium-card text-muted-foreground mt-5 p-4 text-sm">
             This is the sheet as a student sees it, with the mark schemes shown. Marking happens in
             the queue on the{" "}
@@ -171,7 +177,11 @@ export function HomeworkSheetPage() {
             <EmptyState
               mascot="books"
               title="Nothing to answer here"
-              body="This task has no questions on it yet. Your tutor may still be putting it together — check back, or ask them about it."
+              body={
+                isTutor
+                  ? "This task has no questions on it yet. Add them with Edit in the task library."
+                  : "This task has no questions on it yet. Your tutor may still be putting it together — check back, or ask them about it."
+              }
             />
           ) : (
             <BuiltInHomework
@@ -181,7 +191,9 @@ export function HomeworkSheetPage() {
               submission={submission ?? undefined}
               answers={answers}
               onChanged={reload}
-              readonly={demo || isTutor}
+              // The showcase answers like a student (the form keeps it local);
+              // a tutor signed in to this browser doesn't make it a preview.
+              readonly={isTutor && !demo}
               showMarkScheme={isTutor}
             />
           )}
@@ -224,7 +236,7 @@ function MarkPanel({
         )}
         {submission.graded_at && (
           <span className="text-muted-foreground text-xs">
-            Marked {new Date(submission.graded_at).toLocaleDateString()}
+            Marked {plannerDateLabel(new Date(submission.graded_at))}
           </span>
         )}
       </div>
@@ -260,8 +272,7 @@ function AcknowledgeFeedback({
     return (
       <div className="border-border text-muted-foreground mt-4 flex items-center gap-2 border-t pt-3 text-xs">
         <CheckCircle2 className="size-3.5 shrink-0 text-[color:var(--tint)]" />
-        You acknowledged this feedback on{" "}
-        {new Date(submission.acknowledged_at).toLocaleDateString()}
+        You acknowledged this feedback on {plannerDateLabel(new Date(submission.acknowledged_at))}
       </div>
     );
   }

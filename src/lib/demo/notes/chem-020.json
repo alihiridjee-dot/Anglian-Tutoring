@@ -1,0 +1,271 @@
+{
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.2.1.4"
+      ],
+      "worked_example": {
+        "answer_points": [
+          "Water is made of small molecules, or simple molecules.",
+          "With weak forces between the molecules, the intermolecular forces.",
+          "So little energy is needed to overcome the intermolecular forces and separate the molecules."
+        ],
+        "exemplar_id": "6a524f1b-4198-4b8d-b4c9-a53fcb752f9a",
+        "marks": 3,
+        "question": "Explain why water (H₂O) has a low melting point.",
+        "source": "AQA jun 2023, Paper 1 (H), Q07.4",
+        "tip": "Do not write about breaking covalent bonds. The covalent bonds inside each molecule stay in place."
+      }
+    }
+  },
+  "checks": [
+    {
+      "a": "A shared pair of electrons between two atoms.",
+      "marks": 2,
+      "q": "What is a covalent bond?"
+    },
+    {
+      "a": "Two, which is a double bond.",
+      "marks": 1,
+      "q": "How many shared pairs of electrons are in a molecule of oxygen, O₂?"
+    },
+    {
+      "a": "It does not show the shape of the molecule, or it is only two-dimensional.",
+      "marks": 1,
+      "q": "Give one limitation of a dot and cross diagram of ammonia."
+    }
+  ],
+  "concept_id": "chem-020",
+  "format": 1,
+  "key_idea": "A covalent bond is a shared pair of electrons between two atoms. It forms between non-metal atoms and the bond is strong. Atoms joined by covalent bonds make molecules, and dot and cross diagrams show the shared electrons.",
+  "meta": {
+    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "exemplar_ids": [
+      "6a524f1b-4198-4b8d-b4c9-a53fcb752f9a",
+      "1f4e4343-c847-4b51-ae05-b378852ea240",
+      "79ec2392-aeb3-4ead-bc1a-464e566e2343"
+    ],
+    "spec_point_ids": [
+      "demo-sp-covalent"
+    ],
+    "status": "approved",
+    "written_at": "2026-10-01",
+    "written_by": "claude-sonnet-5-5"
+  },
+  "sections": [
+    {
+      "blocks": [
+        {
+          "text": "Non-metal atoms share electrons to fill their outer shells. This section covers what a covalent bond and a molecule are.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "A shared pair of electrons between two atoms.",
+              "term": "Covalent bond"
+            },
+            {
+              "meaning": "Two or more atoms joined together by covalent bonds.",
+              "term": "Molecule"
+            },
+            {
+              "meaning": "One, two or three shared pairs between the same two atoms.",
+              "term": "Single, double, triple bond"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "items": [
+            "Covalent bonding occurs in most non-metal elements and in compounds of non-metals.",
+            "The bonds between atoms are strong.",
+            "Covalent bonding is sharing. Ionic bonding is transfer.",
+            "Some covalent substances are small molecules. Others are polymers or giant structures."
+          ],
+          "type": "list"
+        },
+        {
+          "diagram": {
+            "alt": "Pick a molecule to see its bonds, the number of shared pairs of electrons and the pairs that are not shared.",
+            "kind": "predictor",
+            "options": [
+              {
+                "label": "Hydrogen, H₂",
+                "results": [
+                  "**1 single bond**: H–H",
+                  "1",
+                  "None"
+                ]
+              },
+              {
+                "label": "Chlorine, Cl₂",
+                "results": [
+                  "**1 single bond**: Cl–Cl",
+                  "1",
+                  "3 on each Cl"
+                ]
+              },
+              {
+                "label": "Oxygen, O₂",
+                "results": [
+                  "**1 double bond**: O=O",
+                  "2",
+                  "2 on each O"
+                ]
+              },
+              {
+                "label": "Nitrogen, N₂",
+                "results": [
+                  "**1 triple bond**: N≡N",
+                  "3",
+                  "1 on each N"
+                ]
+              },
+              {
+                "label": "Hydrogen chloride, HCl",
+                "results": [
+                  "**1 single bond**: H–Cl",
+                  "1",
+                  "3 on Cl"
+                ]
+              },
+              {
+                "label": "Water, H₂O",
+                "results": [
+                  "**2 single bonds**: H–O–H",
+                  "2",
+                  "2 on O"
+                ]
+              },
+              {
+                "label": "Ammonia, NH₃",
+                "results": [
+                  "**3 single bonds**: N bonded to 3 H",
+                  "3",
+                  "1 on N"
+                ]
+              },
+              {
+                "label": "Methane, CH₄",
+                "results": [
+                  "**4 single bonds**: C bonded to 4 H",
+                  "4",
+                  "None"
+                ]
+              },
+              {
+                "label": "Carbon dioxide, CO₂",
+                "results": [
+                  "**2 double bonds**: O=C=O",
+                  "4",
+                  "2 on each O"
+                ]
+              }
+            ],
+            "prompt": "Pick a molecule",
+            "result_labels": [
+              "Bonds",
+              "Shared pairs",
+              "Pairs not shared"
+            ]
+          },
+          "type": "diagram"
+        },
+        {
+          "items": [
+            "A covalent bond is a shared pair of electrons between non-metal atoms.",
+            "A molecule is two or more atoms joined by covalent bonds.",
+            "Double and triple bonds are two or three shared pairs."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Sharing electrons"
+    },
+    {
+      "blocks": [
+        {
+          "text": "A dot and cross diagram shows only the outer-shell electrons. The dots and crosses represent the electrons of the different atoms.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "lead": "Outer shells",
+              "text": "Draw the outer shell of each atom, overlapping where they join."
+            },
+            {
+              "lead": "Electrons",
+              "text": "Use dots for one atom's electrons and crosses for the other's."
+            },
+            {
+              "lead": "Shared pairs",
+              "text": "Put one dot and one cross in the overlap for each shared pair. Each pair is one covalent bond, so a double bond has two pairs."
+            },
+            {
+              "lead": "Complete the outer shells",
+              "text": "Add the other electrons until every atom has a full outer shell."
+            }
+          ],
+          "type": "steps"
+        },
+        {
+          "text": "Hydrogen needs two electrons to fill its shell. In water, each hydrogen shares one pair with oxygen, and oxygen has two shared pairs.",
+          "type": "paragraph"
+        },
+        {
+          "text": "Other ways to show a molecule",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "A line between symbols shows a single bond, as in H–Cl.",
+            "A molecular formula, such as NH₃, can be worked out by counting the atoms in a diagram or model.",
+            "A polymer is drawn as its repeating unit in brackets, with n outside to show that n is a large number.",
+            "A small molecule has a few atoms. A polymer has very long molecules. A giant structure continues in all directions.",
+            "Phosphorus is in the same group as nitrogen, so with hydrogen it makes PH₃, like NH₃."
+          ],
+          "type": "list"
+        },
+        {
+          "text": "Limitations of the models",
+          "type": "subheading"
+        },
+        {
+          "columns": [
+            "Model",
+            "Limitation"
+          ],
+          "rows": [
+            [
+              "Dot and cross diagram",
+              "Does not show the shape of the molecule, and is only two-dimensional"
+            ],
+            [
+              "Ball and stick model",
+              "Not to scale, so the size of atoms is wrong, and the atoms are shown separated"
+            ],
+            [
+              "Ball and stick model",
+              "Does not show the electrons or shells"
+            ]
+          ],
+          "type": "table"
+        },
+        {
+          "items": [
+            "Dots and crosses are electrons, drawn only for the outer shell.",
+            "The overlap of two shells holds the shared pairs between those two atoms.",
+            "Dot and cross diagrams do not show shape. Ball and stick models do not show electrons."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Dot and cross diagrams"
+    }
+  ],
+  "subject": "chemistry",
+  "title": "Covalent bonding and dot-and-cross diagrams"
+}

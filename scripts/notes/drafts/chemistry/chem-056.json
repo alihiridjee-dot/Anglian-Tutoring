@@ -1,0 +1,285 @@
+{
+  "format": 1,
+  "concept_id": "chem-056",
+  "subject": "chemistry",
+  "title": "Half equations at the electrodes",
+  "key_idea": "(AQA: Higher tier) A half equation shows what happens to one ion at one electrode. At the cathode, positive ions gain electrons, which is reduction. At the anode, negative ions lose electrons, which is oxidation. Both the atoms and the charges must balance.",
+  "sections": [
+    {
+      "heading": "Reduction and oxidation at the electrodes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) This section covers what happens to ions at each electrode."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Half equation",
+              "meaning": "An equation for the reaction of one ion at one electrode, showing the electrons gained or lost."
+            },
+            {
+              "term": "Reduction",
+              "meaning": "A reaction in which electrons are gained."
+            },
+            {
+              "term": "Oxidation",
+              "meaning": "A reaction in which electrons are lost."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "At the **cathode** (negative electrode), positive ions gain electrons. The reaction is **reduction**.",
+            "At the **anode** (positive electrode), negative ions lose electrons. The reaction is **oxidation**.",
+            "So reduction happens at the cathode and oxidation happens at the anode."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cathode: ions gain electrons, so reduction.",
+            "Anode: ions lose electrons, so oxidation."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Writing half equations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) This section covers how to write and balance a half equation."
+        },
+        {
+          "type": "equation",
+          "label": "A half equation at the cathode (reduction)",
+          "formula": "Cu²⁺ + 2e⁻ → Cu",
+          "where": [
+            "Cu²⁺ is the copper ion, with a 2+ charge",
+            "e⁻ is an electron, on the left because it is gained",
+            "Cu is a copper atom"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "A half equation at the anode (oxidation)",
+          "formula": "2Cl⁻ → Cl₂ + 2e⁻",
+          "where": [
+            "Cl⁻ is the chloride ion, with a 1− charge",
+            "Cl₂ is a chlorine molecule",
+            "e⁻ is an electron, on the right because it is lost"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The electrons go on the left for a gain and on the right for a loss. A loss can also be written as a subtraction on the left, for example 2Cl⁻ − 2e⁻ → Cl₂."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the species",
+              "text": "O²⁻ → O₂."
+            },
+            {
+              "lead": "Balance the atoms",
+              "text": "Two oxide ions are needed to make one O₂ molecule: 2O²⁻ → O₂."
+            },
+            {
+              "lead": "Balance the charge",
+              "text": "The left side has a charge of 4−. The right side has no charge. Add 4 electrons on the right."
+            },
+            {
+              "lead": "Write the answer",
+              "text": "2O²⁻ → O₂ + 4e⁻."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Electrode", "Half equation", "Type of reaction"],
+          "rows": [
+            ["Cathode", "2H⁺ + 2e⁻ → H₂", "Reduction"],
+            ["Cathode", "Cu²⁺ + 2e⁻ → Cu", "Reduction"],
+            ["Cathode", "Zn²⁺ + 2e⁻ → Zn", "Reduction"],
+            ["Cathode", "Al³⁺ + 3e⁻ → Al", "Reduction"],
+            ["Anode", "2Cl⁻ → Cl₂ + 2e⁻", "Oxidation"],
+            ["Anode", "2Br⁻ → Br₂ + 2e⁻", "Oxidation"],
+            ["Anode", "2O²⁻ → O₂ + 4e⁻", "Oxidation"],
+            ["Anode", "4OH⁻ → O₂ + 2H₂O + 4e⁻", "Oxidation"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The Zn²⁺, Al³⁺ and O²⁻ equations apply to molten compounds. In aqueous solution, H⁺ ions are discharged instead of ions of metals more reactive than hydrogen."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort half equations by the electrode where they happen.",
+            "prompt": "Which electrode does each half equation happen at?",
+            "groups": ["Cathode (reduction)", "Anode (oxidation)"],
+            "items": [
+              {
+                "text": "Cu²⁺ + 2e⁻ → Cu",
+                "group": 0
+              },
+              {
+                "text": "Al³⁺ + 3e⁻ → Al",
+                "group": 0
+              },
+              {
+                "text": "2H⁺ + 2e⁻ → H₂",
+                "group": 0
+              },
+              {
+                "text": "Zn²⁺ + 2e⁻ → Zn",
+                "group": 0
+              },
+              {
+                "text": "2Cl⁻ → Cl₂ + 2e⁻",
+                "group": 1
+              },
+              {
+                "text": "2Br⁻ → Br₂ + 2e⁻",
+                "group": 1
+              },
+              {
+                "text": "2O²⁻ → O₂ + 4e⁻",
+                "group": 1
+              },
+              {
+                "text": "4OH⁻ → O₂ + 2H₂O + 4e⁻",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metal ions and H⁺ gain electrons at the cathode, so the electrons are on the left.",
+            "Non-metal ions lose electrons at the anode, so the electrons are on the right.",
+            "Balance the atoms first, then balance the charge with electrons."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write the half equation for the reaction at the negative electrode when molten aluminium oxide is electrolysed.",
+      "a": "Al³⁺ + 3e⁻ → Al",
+      "marks": 2
+    },
+    {
+      "q": "Write the half equation for chloride ions forming chlorine at the positive electrode. State the type of reaction.",
+      "a": "2Cl⁻ → Cl₂ + 2e⁻. Oxidation, because the ions lose electrons.",
+      "marks": 3
+    },
+    {
+      "q": "What type of reaction happens at the negative electrode, and why?",
+      "a": "Reduction, because the positive ions gain electrons.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.3.5", "AQA T 5.4.3.5"],
+      "worked_example": {
+        "exemplar_id": "a4b58e04-e2ee-4814-b962-e70ca8fd7df4",
+        "source": "AQA jun 2019, Paper 1 (H), Q05.3",
+        "question": "Copper and chlorine are produced when molten copper chloride is electrolysed.\n\nComplete the half equation for the reaction at each electrode.\n\nHalf equation at negative electrode: Cu²⁺ → ...\nHalf equation at positive electrode: 2Cl⁻ → ...",
+        "marks": 2,
+        "answer_points": [
+          "Negative electrode: Cu²⁺ + 2e⁻ → Cu.",
+          "Positive electrode: 2Cl⁻ → Cl₂ + 2e⁻."
+        ],
+        "tip": "Multiples are allowed. 2Cl⁻ − 2e⁻ → Cl₂ is also accepted."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.27", "EDEX 3.29"],
+      "worked_example": {
+        "exemplar_id": "b5512029-de5c-457f-953f-ce621567ac28",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q3(d)",
+        "question": "When molten zinc chloride is electrolysed, zinc ions, Zn²⁺, form zinc atoms.\n\nWrite the half equation for this reaction.",
+        "marks": 2,
+        "answer_points": ["Zn²⁺ + 2e⁻ → Zn."],
+        "tip": "1 mark for the correct species in the correct place and 1 mark for balancing. State symbols are ignored."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C3.1b", "OCR C3.4d"],
+      "worked_example": {
+        "exemplar_id": "1d57cad7-5c50-4e5f-8bf3-b1ec4fd3c839",
+        "source": "OCR jun 2025, Paper 3, Q23(c)",
+        "question": "Chromium is used for electroplating.\n\nChromium atoms lose electrons at the anode.\n\nChromium ions, Cr³⁺, gain electrons at the cathode.\n\nWrite balanced half equations to show the reactions at each electrode.\n\nAnode ______\nCathode ______",
+        "marks": 4,
+        "answer_points": [
+          "Anode: Cr → Cr³⁺ + 3e⁻ (1 mark for the formulae, 1 mark for balancing).",
+          "Cathode: Cr³⁺ + 3e⁻ → Cr (1 mark for the formulae, 1 mark for balancing)."
+        ],
+        "tip": "Correct multiples are allowed. Cr − 3e⁻ → Cr³⁺ is also allowed."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.1.11S", "CAIE 4.1.8S"],
+      "worked_example": {
+        "exemplar_id": "e464fd87-53fb-4354-910a-64133a93b082",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q3(e)(v)",
+        "question": "Aqueous copper(II) sulfate undergoes electrolysis using graphite electrodes.\nWrite the ionic half-equation for the reaction at the anode.",
+        "marks": 3,
+        "answer_points": [
+          "4OH⁻ → 2H₂O + O₂ + 4e⁻",
+          "O₂ is written as a product.",
+          "OH⁻ and e⁻ are included.",
+          "The equation is balanced for atoms and charge."
+        ],
+        "tip": "One mark for oxygen as a product, one for OH⁻ and electrons, one for the correct balanced equation."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.59C"],
+      "worked_example": {
+        "exemplar_id": "f1c4609c-2e8e-4c62-ac4d-e84ca6bfe417",
+        "source": "EDEXCEL jun 2023, Paper 2 (C), Q5(b)",
+        "question": "When copper(II) sulfate solution is electrolysed, copper forms at the negative electrode.\nDescribe how copper metal forms at the negative electrode.",
+        "marks": 3,
+        "answer_points": [
+          "Copper ions, Cu²⁺, are positively charged.",
+          "They are attracted to the negative electrode.",
+          "There they accept electrons.",
+          "They become copper atoms."
+        ],
+        "tip": "Any three points score. A correct half equation, Cu²⁺ + 2e⁻ → Cu, earns the first and third points."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "spec_point_ids": [
+      "48195747-431e-47b6-9d06-662f75d41250",
+      "1579b7dc-49a3-4e72-bd60-0da6dec0467a",
+      "552ad8e2-1b5c-4ed7-92cf-1b905e6ee847",
+      "a1cc8e24-e9c7-4f2f-97a4-5d7fe82e3917",
+      "d08b0313-1088-4410-970b-01f4c51738ee",
+      "e1a607cb-2d9d-40f2-8941-ae152ebff87d"
+    ],
+    "exemplar_ids": [
+      "a4b58e04-e2ee-4814-b962-e70ca8fd7df4",
+      "b5512029-de5c-457f-953f-ce621567ac28",
+      "1d57cad7-5c50-4e5f-8bf3-b1ec4fd3c839",
+      "e464fd87-53fb-4354-910a-64133a93b082",
+      "f1c4609c-2e8e-4c62-ac4d-e84ca6bfe417"
+    ]
+  }
+}

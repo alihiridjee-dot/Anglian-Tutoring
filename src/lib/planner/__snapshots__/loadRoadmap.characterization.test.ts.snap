@@ -2954,24 +2954,6 @@ exports[`custom topic order is kept as stored 1`] = `
         "weeks": 1,
       },
       {
-        "endWeek": "2026-12-28",
-        "kind": "revisit",
-        "points": [
-          {
-            "code": "B1",
-            "dueAt": "2026-09-28T09:00:00Z",
-            "eligibleAt": "2026-09-28T09:00:00Z",
-            "specPointId": "b1",
-            "title": "Point b1",
-            "weight": 1,
-          },
-        ],
-        "startWeek": "2026-12-28",
-        "title": "Topic t2",
-        "topicId": "t2",
-        "weeks": 1,
-      },
-      {
         "endWeek": "2027-05-31",
         "fixedPoints": true,
         "pointsByWeek": {
@@ -2992,7 +2974,7 @@ exports[`custom topic order is kept as stored 1`] = `
             },
           ],
         },
-        "reviewStartWeek": "2026-12-28",
+        "reviewStartWeek": "2027-03-15",
         "schedule": {
           "examDate": "2027-06-07",
           "from": "2026-10-05",
@@ -3002,6 +2984,24 @@ exports[`custom topic order is kept as stored 1`] = `
         "title": "Topic t2",
         "topicId": "t2",
         "weeks": 12,
+      },
+      {
+        "endWeek": "2027-03-15",
+        "kind": "revisit",
+        "points": [
+          {
+            "code": "B1",
+            "dueAt": "2026-09-28T09:00:00Z",
+            "eligibleAt": "2026-09-28T09:00:00Z",
+            "specPointId": "b1",
+            "title": "Point b1",
+            "weight": 1,
+          },
+        ],
+        "startWeek": "2027-03-15",
+        "title": "Topic t2",
+        "topicId": "t2",
+        "weeks": 1,
       },
     ],
     "baselineBands": [
@@ -3097,7 +3097,7 @@ exports[`custom topic order is kept as stored 1`] = `
             },
           ],
         },
-        "reviewStartWeek": "2026-12-28",
+        "reviewStartWeek": "2027-03-15",
         "schedule": {
           "examDate": "2027-06-07",
           "from": "2026-10-05",
@@ -3408,7 +3408,7 @@ exports[`custom topic order is kept as stored 1`] = `
             },
           ],
         },
-        "reviewStartWeek": "2026-12-28",
+        "reviewStartWeek": "2027-03-15",
         "schedule": {
           "examDate": "2027-06-07",
           "from": "2026-10-05",
@@ -3592,24 +3592,6 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
         "weeks": 1,
       },
       {
-        "endWeek": "2026-12-28",
-        "kind": "revisit",
-        "points": [
-          {
-            "code": "B1",
-            "dueAt": "2026-09-28T09:00:00Z",
-            "eligibleAt": "2026-09-28T09:00:00Z",
-            "specPointId": "b1",
-            "title": "Point b1",
-            "weight": 1,
-          },
-        ],
-        "startWeek": "2026-12-28",
-        "title": "Topic t2",
-        "topicId": "t2",
-        "weeks": 1,
-      },
-      {
         "endWeek": "2027-05-03",
         "fixedPoints": true,
         "openedWeek": undefined,
@@ -3631,7 +3613,7 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
             },
           ],
         },
-        "reviewStartWeek": "2026-12-28",
+        "reviewStartWeek": "2027-03-01",
         "schedule": {
           "examDate": "2027-05-10",
           "from": "2026-10-05",
@@ -3641,6 +3623,24 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
         "title": "Topic t2",
         "topicId": "t2",
         "weeks": 10,
+      },
+      {
+        "endWeek": "2027-03-15",
+        "kind": "revisit",
+        "points": [
+          {
+            "code": "B1",
+            "dueAt": "2026-09-28T09:00:00Z",
+            "eligibleAt": "2026-09-28T09:00:00Z",
+            "specPointId": "b1",
+            "title": "Point b1",
+            "weight": 1,
+          },
+        ],
+        "startWeek": "2027-03-15",
+        "title": "Topic t2",
+        "topicId": "t2",
+        "weeks": 1,
       },
     ],
     "baselineBands": [
@@ -3736,7 +3736,7 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
             },
           ],
         },
-        "reviewStartWeek": "2026-12-28",
+        "reviewStartWeek": "2027-03-15",
         "schedule": {
           "examDate": "2027-06-07",
           "from": "2026-10-05",
@@ -4066,7 +4066,7 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
             },
           ],
         },
-        "reviewStartWeek": "2026-12-28",
+        "reviewStartWeek": "2027-03-15",
         "schedule": {
           "examDate": "2027-06-07",
           "from": "2026-10-05",

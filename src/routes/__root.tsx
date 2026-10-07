@@ -16,6 +16,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Mascot } from "@/components/Doodles";
 import { markHydrated } from "@/lib/auth/hydration";
 import { createAuthChangeHandler } from "@/lib/auth/authChange";
+import { installReturnSpots } from "@/lib/shell/returnSpot";
 
 function NotFoundComponent() {
   return (
@@ -134,6 +135,9 @@ function RootComponent() {
   useEffect(() => {
     if (!router.state.matches.some((match) => match.ssr === false)) markHydrated();
   }, [router]);
+
+  // Back, by any button, lands on the card that was clicked to leave.
+  useEffect(() => installReturnSpots(router), [router]);
 
   useEffect(() => {
     const onAuthChange = createAuthChangeHandler({ router, queryClient });

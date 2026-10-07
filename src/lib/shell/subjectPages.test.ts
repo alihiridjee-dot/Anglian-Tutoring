@@ -28,6 +28,7 @@ describe("followsSubject", () => {
   it("reads the showcase's pages as the pages they stand for", () => {
     expect(followsSubject("/demo/student/dashboard")).toBe(true);
     expect(followsSubject("/demo/student/homework/demo-hw-photosynthesis")).toBe(true);
+    expect(followsSubject("/demo/student/notes/bio-012")).toBe(true);
     expect(followsSubject("/demo/student/messages")).toBe(false);
     expect(followsSubject("/demo/parent/dashboard")).toBe(false);
   });

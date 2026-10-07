@@ -1,0 +1,303 @@
+{
+  "format": 1,
+  "concept_id": "chem-108",
+  "subject": "chemistry",
+  "title": "Choosing conditions for industrial processes",
+  "key_idea": "Industrial conditions are a compromise between rate, equilibrium yield and cost. In the Haber process a higher temperature speeds up the reaction but lowers the yield, a higher pressure raises both but costs more, and a catalyst speeds up the reaction without changing the yield. (Higher tier, Separate science)",
+  "sections": [
+    {
+      "heading": "Rate and yield (Higher tier, Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Haber reaction is exothermic and reversible. Each condition affects the rate and the equilibrium yield differently."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Rate of reaction",
+              "meaning": "How fast the reaction reaches equilibrium."
+            },
+            {
+              "term": "Equilibrium yield",
+              "meaning": "The amount of ammonia in the equilibrium mixture. A shift to the right gives more ammonia."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Change",
+            "Effect on rate",
+            "Effect on equilibrium yield of ammonia"
+          ],
+          "rows": [
+            [
+              "Higher temperature",
+              "Faster: more frequent collisions, and more particles have the activation energy",
+              "Lower: the equilibrium shifts left because the forward reaction is exothermic"
+            ],
+            [
+              "Higher pressure",
+              "Faster: more frequent collisions",
+              "Higher: the equilibrium shifts right because there are fewer molecules on the right-hand side"
+            ],
+            [
+              "Iron catalyst",
+              "Faster: the activation energy is lowered",
+              "No effect on the position of equilibrium"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a change to the Haber process conditions and see the effect on rate, yield and cost.",
+            "prompt": "Pick a change to the Haber process conditions",
+            "result_labels": [
+              "Rate of reaction",
+              "Equilibrium yield of ammonia",
+              "Cost"
+            ],
+            "options": [
+              {
+                "label": "Raise the temperature above 450 °C",
+                "results": [
+                  "Faster",
+                  "Lower",
+                  "More energy is used, so costs increase"
+                ]
+              },
+              {
+                "label": "Lower the temperature",
+                "results": [
+                  "Slower",
+                  "Higher",
+                  "Less energy is used to heat, but ammonia is made more slowly"
+                ]
+              },
+              {
+                "label": "Raise the pressure above 200 atmospheres",
+                "results": [
+                  "Faster",
+                  "Higher",
+                  "More energy and stronger reaction vessels, so costs increase"
+                ]
+              },
+              {
+                "label": "Lower the pressure below 200 atmospheres",
+                "results": [
+                  "Slower",
+                  "Lower",
+                  "Cheaper to run, but less ammonia and a slower reaction"
+                ]
+              },
+              {
+                "label": "Use an iron catalyst",
+                "results": [
+                  "Faster",
+                  "No change",
+                  "Reduces energy costs"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A higher temperature speeds up the reaction but lowers the yield of an exothermic reaction.",
+            "A higher pressure speeds up the reaction and raises the yield when there are fewer molecules of gas on the right.",
+            "A catalyst speeds up the reaction but does not change the position of equilibrium."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Choosing the conditions (Higher tier, Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An industrial process must make enough product, fast enough, at an acceptable cost. The conditions are a compromise."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Raw materials and energy supplies must be available and affordable.",
+            "A higher temperature uses more energy, so it increases costs.",
+            "A higher pressure uses more energy and needs stronger reaction vessels, so it increases costs.",
+            "A catalyst increases the rate and reduces energy costs.",
+            "Recycling unreacted gases makes use of all the raw materials.",
+            "On a graph of product against time, a steeper line means a faster rate. The line levels off when equilibrium is reached."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The compromise (AQA: Higher tier)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Temperature: a low temperature gives a better yield but a slow rate. A high temperature gives a fast rate but a low yield and a high cost. 450 °C is a compromise.",
+            "Pressure: a higher pressure gives a better yield and rate, but costs more. 200 atmospheres is a compromise between yield, rate and cost.",
+            "The aim is an acceptable yield in an acceptable time."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Conditions are chosen for an acceptable yield in an acceptable time at an acceptable cost.",
+            "Higher temperature and higher pressure both increase energy costs.",
+            "The temperature and pressure used are compromises."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the effect of increasing the temperature on the rate and on the equilibrium yield of ammonia.",
+      "a": "The rate increases. The equilibrium yield decreases, because the forward reaction is exothermic and the equilibrium shifts to the left.",
+      "marks": 2
+    },
+    {
+      "q": "State the effect of an iron catalyst on the position of equilibrium.",
+      "a": "None. It only increases the rate of reaction.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why a pressure much higher than 200 atmospheres is not used.",
+      "a": "It uses more energy and needs stronger, more expensive reaction vessels, so costs increase.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.10.4.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "2e0d3b68-5111-4e6e-8d49-9fbac85d1dc4",
+        "source": "AQA jun 2022, Paper 2 (H), Q7.6",
+        "question": "The equation for the production of ammonia in the Haber process is:\n\nN₂(g) + 3H₂(g) ⇌ 2NH₃(g)\n\nThe forward reaction is exothermic.\n\nThe conditions used are:\n- a temperature of 450 °C\n- a pressure of 200 atmospheres\n- the presence of an iron catalyst.\n\nExplain why these conditions are chosen for economical production of ammonia in the Haber process.\n\nYou should include references to the rate of reaction and the position of equilibrium.",
+        "marks": 6,
+        "answer_points": [
+          "Rate: a higher temperature gives a higher rate because of more frequent collisions and more particles with the activation energy.",
+          "Rate: a higher pressure gives a higher rate because of more frequent collisions. The catalyst gives a higher rate because it lowers the activation energy.",
+          "Equilibrium: a higher temperature shifts the position of equilibrium to the left because the reaction is exothermic.",
+          "Equilibrium: a higher pressure shifts it to the right because there are more molecules on the left-hand side. The catalyst has no effect on the position.",
+          "Cost: higher temperature or pressure uses more energy, and a higher pressure needs stronger vessels. A catalyst reduces energy costs.",
+          "Compromise: the temperature is a compromise between rate, equilibrium position and cost. The pressure is a compromise between yield, rate and cost."
+        ],
+        "tip": "Marked in levels. The top level needs the points to be detailed and logically linked in a clear account."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 5.20C",
+        "EDEX 5.21C"
+      ],
+      "worked_example": {
+        "exemplar_id": "baeab4b8-30ef-460a-950f-69aa41f77959",
+        "source": "EDEXCEL nov 2020, Paper 1 (H), Q10(a)(iii)",
+        "question": "Ammonia is manufactured by the Haber process.\nThe equation for the reaction is\nN₂(g) + 3H₂(g) ⇌ 2NH₃(g)\nThe reaction is reversible and can reach equilibrium.\n\nThe reaction is carried out at a pressure of 200 atmospheres.\nExplain what effect a pressure higher than 200 atmospheres would have on the rate of attainment of equilibrium and on the equilibrium yield of ammonia.",
+        "marks": 4,
+        "answer_points": [
+          "Equilibrium is attained in a shorter time, so the rate of attainment of equilibrium increases.",
+          "The equilibrium yield of ammonia increases.",
+          "The equilibrium shifts to the right, towards the products.",
+          "Because there is a decrease in the number of molecules (four molecules of gas become two)."
+        ],
+        "tip": "One mark each. Moving to fewer molecules is allowed in place of the last point."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.1d",
+        "OCR C6.1e",
+        "OCR C6.1f"
+      ],
+      "worked_example": {
+        "exemplar_id": "d65c0534-0f83-4c91-af4d-257be32e3066",
+        "source": "OCR nov 2021, Paper 4, Q22(b)",
+        "question": "A company makes hydrogen iodide, HI, gas by reacting hydrogen gas with iodine gas.\n\nH₂(g) + I₂(g) ⇌ 2HI(g)\n\nThe forward reaction is exothermic.\n\nThe yield of hydrogen iodide and the rate at which the reaction reaches equilibrium are affected by different conditions.\n\nThe table shows two possible reaction conditions, A and B.\n\n| | Temperature (°C) | Pressure (atmospheres) | Catalyst? |\n| A | 450 | 1 | Yes |\n| B | 700 | 3 | No |\n\nThe company decides to use reaction conditions A, instead of B.\n\nExplain why they make this choice.\n\nUse ideas about rate of reaction and position of equilibrium to help you.",
+        "marks": 4,
+        "answer_points": [
+          "The lower temperature in A moves the position of equilibrium to the right, giving a higher yield, because the forward reaction is exothermic.",
+          "The rate is faster in B because of the higher temperature. A uses a compromise temperature.",
+          "Higher pressure in B does not affect the position of equilibrium, because there are the same number of molecules on both sides.",
+          "The catalyst in A does not affect the position of equilibrium, but increases the rate of reaching equilibrium."
+        ],
+        "tip": "Any four. Unqualified answers are taken to refer to A."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 6.3.11S"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The Contact process makes sulfuric acid. Its conditions are chosen in the same way as the Haber process conditions."
+            },
+            {
+              "type": "equation",
+              "label": "Contact process, stage 2",
+              "formula": "2SO₂(g) + O₂(g) ⇌ 2SO₃(g)",
+              "where": [
+                "The forward reaction is exothermic.",
+                "The typical conditions are 450 °C, 2 atmospheres and a vanadium(V) oxide catalyst."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Temperature: a lower temperature than 450 °C makes the reaction too slow. A higher temperature gives less SO₃ at equilibrium, because the forward reaction is exothermic.",
+                "Pressure: there are fewer gas molecules on the right, so a higher pressure gives more SO₃. The yield is already high at 2 atmospheres, so a higher pressure is not worth the extra cost. A pressure lower than 2 atmospheres gives a lower yield.",
+                "Catalyst: vanadium(V) oxide speeds up the forward and backward reactions equally, so the reaction reaches equilibrium faster. It does not change the yield.",
+                "Safety and economics: higher pressures need stronger and more expensive equipment, use more energy and are more dangerous if a leak occurs. The same reasoning applies to the Haber process."
+              ]
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b7009332-1d1f-43b0-88d6-716e68cdd431",
+        "source": "CAMBRIDGE jun 2023, Paper 41, Q6(b)(i)",
+        "question": "In the Contact process, sulfur dioxide reacts with oxygen to form sulfur trioxide.\n\n2SO₂(g) + O₂(g) ⇌ 2SO₃(g)\n\nThe forward reaction is exothermic. The reaction is carried out at 450 °C and 2 atm.\n\nExplain why a temperature greater than 450 °C is not used. Do not give an answer about cost.",
+        "marks": 1,
+        "answer_points": [
+          "The yield of SO₃ is less.",
+          "The forward reaction is exothermic, so a higher temperature shifts the equilibrium to the left."
+        ],
+        "tip": "Give the effect on the yield, not on the rate."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "4ce6df3c-fa54-48b1-95da-31c5a13bd335",
+      "ecb5d54c-7845-4886-a524-1663e53dfc2e",
+      "2b2a586c-0a48-4f51-b44d-ecf16ffd55c2",
+      "d8469878-1705-47dc-952e-2af3684ad182",
+      "8626db24-5005-4e81-8331-4c241dc3f24f",
+      "d5d7bad9-171e-4c71-8948-63938d289495"
+    ],
+    "exemplar_ids": [
+      "2e0d3b68-5111-4e6e-8d49-9fbac85d1dc4",
+      "baeab4b8-30ef-460a-950f-69aa41f77959",
+      "d65c0534-0f83-4c91-af4d-257be32e3066",
+      "b7009332-1d1f-43b0-88d6-716e68cdd431"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

@@ -54,3 +54,6 @@ papers/*
 
 # Revision-note source packs carry exam board questions (see scripts/notes).
 scripts/notes/.sources/
+
+# Video pipeline output: YouTube search cache and run files (see scripts/videos).
+scripts/videos/out/

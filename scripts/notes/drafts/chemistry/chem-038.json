@@ -1,0 +1,318 @@
+{
+  "format": 1,
+  "concept_id": "chem-038",
+  "subject": "chemistry",
+  "title": "Percentage yield",
+  "key_idea": "(Separate chemistry) The yield is the mass of product actually made. The percentage yield compares it with the maximum theoretical mass. It is nearly always less than 100%, because reactions are incomplete, product is lost, or side reactions happen.",
+  "sections": [
+    {
+      "heading": "Why the yield is less than 100%",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate chemistry) No atoms are lost in a reaction, but you rarely collect all of the product you calculate. This section covers the reasons."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Actual yield",
+              "meaning": "The mass of product actually made in the experiment."
+            },
+            {
+              "term": "Theoretical yield",
+              "meaning": "The maximum mass of product that could be made, calculated from the balanced equation."
+            },
+            {
+              "term": "Percentage yield",
+              "meaning": "The actual yield as a percentage of the theoretical yield."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "There are three main reasons for a percentage yield below 100%."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Incomplete reaction.** The reaction may not go to completion, because it is reversible or has not been left long enough. Some reactant is left over.",
+            "**Losses.** Some product is lost when it is separated from the mixture, such as in filtering, transferring or purifying, or it escapes from the apparatus.",
+            "**Side reactions.** Some of the reactants react in ways different to the expected reaction."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Actual yield is what you make. Theoretical yield is the maximum possible.",
+            "Reasons for a low yield: incomplete reaction, losses, side reactions.",
+            "No atoms are lost. The yield is lower because product is not collected."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating percentage yield",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Divide the actual yield by the theoretical yield. Both must be in the same unit."
+        },
+        {
+          "type": "equation",
+          "label": "Percentage yield",
+          "formula": "percentage yield = (mass of product actually made ÷ maximum theoretical mass of product) × 100",
+          "where": ["Both masses in the same unit, such as g or tonnes."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Compare.",
+              "text": "60.0 kg of aluminium oxide gives a maximum of 31.8 kg of aluminium. Only 28.4 kg is made."
+            },
+            {
+              "lead": "Divide.",
+              "text": "28.4 ÷ 31.8 = 0.8931."
+            },
+            {
+              "lead": "Percentage.",
+              "text": "× 100 = 89.3%, to 3 significant figures."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating a percentage yield from an actual mass and a theoretical mass.",
+            "question": "The maximum theoretical mass of a salt is 12.5 g. A student makes **{a} g** of the salt. Calculate the percentage yield.",
+            "variables": [
+              {
+                "id": "a",
+                "min": 7,
+                "max": 12,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "a / 12.5 * 100",
+              "unit": "%",
+              "decimals": 1
+            },
+            "working": [
+              "Percentage yield = actual yield ÷ theoretical yield × 100",
+              "= {a} ÷ 12.5 × 100 = **{answer} %**"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Finding the theoretical yield (Higher tier for AQA)"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Moles of the reactant.",
+              "text": "Zn + I₂ → ZnI₂. 6.35 g of I₂ (Mr = 254): 6.35 ÷ 254 = 0.025 mol."
+            },
+            {
+              "lead": "Ratio.",
+              "text": "I₂ : ZnI₂ = 1 : 1, so 0.025 mol of ZnI₂."
+            },
+            {
+              "lead": "Theoretical mass.",
+              "text": "ZnI₂ has Mr = 319. 0.025 × 319 = 7.975 g."
+            },
+            {
+              "lead": "Percentage yield.",
+              "text": "The student makes 6.29 g. 6.29 ÷ 7.975 × 100 = 78.9%."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Rearranging the equation"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Actual yield = percentage yield ÷ 100 × theoretical yield. A factory predicts 60 tonnes at 78% yield: 78 ÷ 100 × 60 = 46.8 tonnes.",
+            "Theoretical yield = actual yield × 100 ÷ percentage yield. For 4.22 g made at 80%: 4.22 × 100 ÷ 80 = 5.275 g."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Percentage yield = actual ÷ theoretical × 100.",
+            "Find the theoretical mass from the equation using moles.",
+            "Rearrange to find the actual or theoretical yield."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State two reasons why the actual yield of a reaction is less than the theoretical yield.",
+      "a": "Any two from: some reactant is left unreacted (incomplete reaction); some product is lost during separation or purification; side reactions occur.",
+      "marks": 2
+    },
+    {
+      "q": "A student predicts 7.6 g of iron sulfate but makes 5.4 g. Calculate the percentage yield to 1 decimal place.",
+      "a": "5.4 ÷ 7.6 × 100 = 71.05, which is 71.1%.",
+      "marks": 2
+    },
+    {
+      "q": "The theoretical mass of a salt is 12.5 g and the percentage yield is 92.8%. Calculate the mass actually produced.",
+      "a": "92.8 ÷ 100 × 12.5 = 11.6 g.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.3.1"],
+      "worked_example": {
+        "exemplar_id": "f7d07c8d-2d3b-409e-9ed3-2617a6459bb3",
+        "source": "AQA jun 2025, Paper 1 (H), Q9.2",
+        "question": "A student used 6.35 g of iodine in the reaction. 6.29 g of zinc iodide was produced.\n\nThe equation for the reaction is:\n\nZn + I₂ → ZnI₂\n\nRelative formula masses (Mr): I₂ = 254, ZnI₂ = 319\n\nCalculate the percentage yield of zinc iodide.\n\nGive your answer to 3 significant figures.",
+        "marks": 5,
+        "answer_points": [
+          "Moles of I₂ = 6.35 ÷ 254 = 0.025 (1)",
+          "Theoretical mass of ZnI₂ = 0.025 × 319 = 7.975 g (1)",
+          "% yield = 6.29 ÷ 7.975 × 100 (1)",
+          "= 78.871 % (1)",
+          "= 78.9 % (1)"
+        ],
+        "tip": "One mark each for the moles, the theoretical mass, the expression, the value and the rounding."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.11C", "EDEX 5.12C"],
+      "worked_example": {
+        "exemplar_id": "6939ec65-a157-4153-bad3-23ca218864d6",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q4(a)(i)",
+        "question": "Titanium can be extracted from titanium oxide, TiO₂, by reaction with magnesium.\n\n100 tonnes of titanium oxide was heated with magnesium.\n\nThe titanium formed in the reaction was separated and purified.\n\nThe mass of titanium was then determined. The results were:\n\nmass of titanium oxide: 100.00 tonnes\nmass of titanium produced: 45.26 tonnes\ntheoretical mass of titanium formed: 60.00 tonnes\n\nCalculate the percentage yield of titanium in this process.\n\npercentage yield = (actual yield ÷ theoretical yield) × 100\n\nGive your answer to 1 decimal place.",
+        "marks": 3,
+        "answer_points": [
+          "45.26 ÷ 60.00 = 0.7543 (1)",
+          "0.7543 × 100 = 75.43 (1)",
+          "= 75.4 to 1 decimal place (1)"
+        ],
+        "tip": "Use the actual yield (45.26) and the theoretical yield (60.00). The mass of titanium oxide is not used."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C5.1g", "OCR C5.1h"],
+      "worked_example": {
+        "exemplar_id": "c1b25bf0-5985-4853-8797-525696feb6e0",
+        "source": "OCR jun 2022, Paper 4, Q19(a)",
+        "question": "A student neutralises dilute sulfuric acid, H₂SO₄, with ammonia, NH₃, to make ammonium sulfate, (NH₄)₂SO₄.\n\nThis is the equation for the reaction.\n\nH₂SO₄ + 2NH₃ → (NH₄)₂SO₄\n\nThe student makes 4.22 g of ammonium sulfate. The percentage yield is 80%.\n\nCalculate the mass of sulfuric acid the student used in the reaction.\n\nGive your answer to 3 significant figures.\n\nRelative atomic mass (Ar): H = 1.0, N = 14.0, O = 16.0, S = 32.1",
+        "marks": 5,
+        "answer_points": [
+          "Mr of H₂SO₄ = 98.1 and Mr of (NH₄)₂SO₄ = 132.1 (1)",
+          "Theoretical yield of (NH₄)₂SO₄ = 4.22 × 100 ÷ 80 = 5.275 g (1)",
+          "Mass of H₂SO₄ = 5.275 × 98.1 ÷ 132.1 (1)",
+          "= 3.917 g (1)",
+          "To 3 significant figures = 3.92 g (1)"
+        ],
+        "tip": "The ratio of H₂SO₄ to (NH₄)₂SO₄ is 1 : 1, so the Mr values scale the mass directly."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.3.8S"],
+      "worked_example": {
+        "exemplar_id": "06ed5c5c-4ca4-432c-90d5-1edd8178a3f4",
+        "source": "CAMBRIDGE mar 2024, Paper 42, Q1(b)(i)",
+        "question": "Iron(III) oxide, Fe₂O₃, in iron ore is converted to iron when it reacts with carbon monoxide in a blast furnace.\n\nCalculate the percentage by mass of iron in iron(III) oxide, Fe₂O₃.",
+        "marks": 2,
+        "answer_points": [
+          "Mr of Fe₂O₃ = 160",
+          "Mass of iron in one formula unit = 2 × 56 = 112",
+          "Percentage of iron = 112 ÷ 160 × 100 = 70.0%"
+        ],
+        "tip": "(Supplement) One mark for the Mr and one mark for the percentage."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Percentage purity compares the mass of the pure substance with the mass of the whole sample."
+            },
+            {
+              "type": "equation",
+              "label": "Percentage purity",
+              "formula": "percentage purity = (mass of pure substance ÷ mass of impure sample) × 100",
+              "where": ["Both masses in the same unit, such as g."]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find the mass of pure substance.",
+                  "text": "A 2.50 g sample of impure copper(II) sulfate contains 2.00 g of pure copper(II) sulfate."
+                },
+                {
+                  "lead": "Divide by the sample mass.",
+                  "text": "2.00 ÷ 2.50 = 0.80."
+                },
+                {
+                  "lead": "Multiply by 100.",
+                  "text": "Percentage purity = 80%."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A purity below 100% means impurities are present.",
+                "Rearrange to find the pure mass: pure mass = purity ÷ 100 × sample mass. A 10.0 g sample that is 80% pure contains 8.0 g of the substance."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.30"],
+      "worked_example": {
+        "exemplar_id": "ef34b2c3-2841-4902-ad0d-a3e6fba3f119",
+        "source": "EDEXCEL jun 2024, Paper 2 (CR), Q4(c)(ii)",
+        "question": "Ethanol is made by the fermentation of glucose.\n\nA mixture containing 500 mol of glucose is fermented. A mass of 5750 g of ethanol is obtained.\n\nCalculate the percentage yield.\n\n[for ethanol, Mr = 46]",
+        "marks": 3,
+        "answer_points": [
+          "Fermentation: C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂, so 500 mol of glucose gives 500 × 2 = 1000 mol of ethanol",
+          "Theoretical mass of ethanol = 1000 × 46 = 46 000 g",
+          "Percentage yield = 5750 ÷ 46 000 × 100 = 12.5%"
+        ],
+        "tip": "One mark for each step. The answer can also be found by comparing the moles: 125 ÷ 1000 × 100."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "01670f53-fa96-481a-b63a-aa7ae4be1b6a",
+      "9a059639-d749-40a6-88e1-00935f0a63ff",
+      "5018c837-a756-4c12-9848-811df7f3cf59",
+      "696104bb-a0a6-4e01-a473-abd24e71dbb5",
+      "58b930d9-0268-4269-ab2d-ca76dbf432ac",
+      "e426e3d3-b2eb-48b5-a244-42554b8ad392",
+      "a0881b58-3fba-47a1-95e2-72195075cfa4"
+    ],
+    "exemplar_ids": [
+      "f7d07c8d-2d3b-409e-9ed3-2617a6459bb3",
+      "6939ec65-a157-4153-bad3-23ca218864d6",
+      "c1b25bf0-5985-4853-8797-525696feb6e0",
+      "06ed5c5c-4ca4-432c-90d5-1edd8178a3f4",
+      "ef34b2c3-2841-4902-ad0d-a3e6fba3f119"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

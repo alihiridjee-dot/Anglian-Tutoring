@@ -39,6 +39,7 @@ import { resolveInitials } from "@/lib/profile/displayName";
 import { buildAuthedNav } from "@/lib/shell/nav";
 import { SIDEBAR_LABEL_CLASS as labelClass } from "@/components/sidebarLabel";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
+import { pageAbove } from "@/lib/shell/returnSpot";
 
 /**
  * The showcase sidebar. It must stay inside `/demo/*`, or a click lands on a
@@ -138,6 +139,17 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
     ? (demoRole === "parent" ? DEMO_PARENT_NAME : DEMO_STUDENT_NAME).slice(0, 2).toUpperCase()
     : resolveInitials(profileName, email);
 
+  // Back follows the tab's history, landing on what was clicked (returnSpot).
+  // When this is the first page in the tab there is nothing behind it, and the
+  // arrow goes up a level instead of off the site; home has nothing above.
+  const location = useRouterState({ select: (s) => s.location });
+  const firstInTab = location.state.__TSR_index === 0;
+  const above = firstInTab ? pageAbove(location, nav[0].to) : null;
+  const goBack = () => {
+    if (!firstInTab) router.history.back();
+    else if (above) navigate({ href: above });
+  };
+
   // The live "Join" pill in the ribbon is a student affordance — tutors run
   // sessions and parents don't attend, so it only shows in a student context.
   const isStudentContext = isDemo ? demoRole === "student" : !isTutor && userRole !== "parent";
@@ -234,13 +246,17 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             );
           })}
           <div className="mt-auto">
+            {/* The showcase has no session of its own, but a visitor may be
+                signed in to a real account in this browser: a sign-out here
+                would end that one. It leaves the demo instead, as the banner's
+                Exit Sandbox does, and never touches auth. */}
             <button
-              onClick={signOut}
-              title="Sign out"
+              onClick={isDemo ? handleExitDemo : signOut}
+              title={isDemo ? "Exit demo" : "Sign out"}
               className="w-full flex min-h-11 items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-sidebar-foreground/70 hover:text-destructive hover:bg-destructive/10"
             >
               <LogOut className="w-5 h-5 shrink-0" />
-              <span className={labelClass}>Sign out</span>
+              <span className={labelClass}>{isDemo ? "Exit demo" : "Sign out"}</span>
             </button>
           </div>
         </aside>
@@ -279,7 +295,8 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 <Compass className="size-3.5" aria-hidden /> Guided tour
               </button>
               <Link
-                to="/"
+                to="/auth"
+                search={{ mode: "signup" }}
                 className="bg-card text-primary hover:bg-card/90 shrink-0 rounded-lg border-[1.5px] border-white/40 px-3.5 py-1.5 text-xs font-extrabold shadow-[0_2px_0_0_rgba(0,0,0,0.18)] transition"
               >
                 Join Now
@@ -323,10 +340,11 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 web-app manifest), so that back is always there. */}
             <div className="hidden items-center gap-1 sm:flex sm:gap-1.5">
               <button
-                onClick={() => router.history.back()}
+                onClick={goBack}
+                disabled={firstInTab && !above}
                 title="Back"
                 aria-label="Back"
-                className="btn-soft size-11 sm:pointer-fine:size-9 rounded-xl flex items-center justify-center cursor-pointer"
+                className="btn-soft size-11 sm:pointer-fine:size-9 rounded-xl flex items-center justify-center cursor-pointer disabled:cursor-default"
               >
                 <ArrowLeft className="w-4 h-4" />
               </button>
@@ -347,7 +365,8 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             {/* Which spec this student is on, stated on every page — it decides
                 everything they're shown, and it used to appear nowhere after the
                 onboarding step that set it. */}
-            <CourseBadge followsSlider={showSubjectSlider} />
+            {/* A tutor teaches every course and is enrolled on none. */}
+            {!isTutor && <CourseBadge followsSlider={showSubjectSlider} />}
           </div>
           {/* The subject every student page is showing, beside the course chip
               when the header has room. Below `xl` it doesn't fit beside the
@@ -356,16 +375,20 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
               cuts the page title short. */}
           {showSubjectSlider && <HeaderSubjectToggle className="hidden xl:block" />}
           <div className="ml-auto flex flex-wrap items-center gap-2 sm:gap-3 short:shrink-0 short:flex-nowrap short:gap-2">
-            <StudentGuide
-              key={`${pathname}:${title}`}
-              pageTitle={title}
-              guideKey={pathname.includes("/mcq/") ? "MCQ" : title}
-              // On a home page the button replays the welcome tour, which starts
-              // there by itself the first time (see WelcomeTour).
-              welcome={
-                !isDemo && (pathname === "/student-dashboard" || pathname === "/parent-dashboard")
-              }
-            />
+            {/* Every guide is written for a student or a parent; a tutor's
+                pages are a different set of tools. */}
+            {!isTutor && (
+              <StudentGuide
+                key={`${pathname}:${title}`}
+                pageTitle={title}
+                guideKey={pathname.includes("/mcq/") ? "MCQ" : title}
+                // On a home page the button replays the welcome tour, which starts
+                // there by itself the first time (see WelcomeTour).
+                welcome={
+                  !isDemo && (pathname === "/student-dashboard" || pathname === "/parent-dashboard")
+                }
+              />
+            )}
             {isStudentContext && (
               <HeaderLiveButton liveHref={isDemo ? "/demo/student/live" : "/live"} />
             )}
@@ -387,6 +410,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
         </header>
         <div
           data-guide="page-content"
+          data-return-scope
           className="page-aurora flex-1 overflow-x-clip p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] sm:p-6 lg:p-10"
         >
           {/* The subject slider below `xl`: top of the page, full width on a

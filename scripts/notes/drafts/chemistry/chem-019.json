@@ -1,0 +1,279 @@
+{
+  "format": 1,
+  "concept_id": "chem-019",
+  "subject": "chemistry",
+  "title": "Properties of ionic compounds",
+  "key_idea": "Ionic compounds have high melting and boiling points because many strong electrostatic forces must be overcome. They conduct electricity when molten or dissolved, because the ions are then free to move. They do not conduct when solid.",
+  "sections": [
+    {
+      "heading": "High melting and boiling points",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ionic compounds are solids at room temperature with high melting points. This section covers why, in three parts that every answer needs."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Structure",
+              "text": "An ionic compound is a giant lattice of oppositely charged ions."
+            },
+            {
+              "lead": "Forces",
+              "text": "There are strong electrostatic forces of attraction between the oppositely charged ions, acting in all directions."
+            },
+            {
+              "lead": "Energy",
+              "text": "A large amount of energy is needed to overcome these forces, so the melting and boiling points are high."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Other properties"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ionic solids are hard but brittle.",
+            "Many dissolve in water, but not all of them do.",
+            "Metal chlorides are usually ionic, so they are usually solids at room temperature with high melting points."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Giant lattice, strong electrostatic forces in all directions, large amount of energy.",
+            "Ionic compounds have high melting and boiling points.",
+            "The forces overcome are between ions. No molecules are involved."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Conducting electricity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A substance conducts electricity when it has charged particles that are free to move. This section covers when an ionic compound does and does not."
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Solid",
+              "Fixed in the lattice, only vibrating",
+              "No"
+            ],
+            [
+              "Molten",
+              "Free to move",
+              "Yes"
+            ],
+            [
+              "Dissolved in water",
+              "Free to move",
+              "Yes"
+            ]
+          ],
+          "columns": [
+            "State",
+            "Ions",
+            "Conducts?"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Sort each state of an ionic compound into conducts electricity or does not conduct.",
+            "kind": "sort",
+            "items": [
+              {
+                "text": "Solid sodium chloride",
+                "group": 1
+              },
+              {
+                "text": "Molten sodium chloride",
+                "group": 0
+              },
+              {
+                "text": "Sodium chloride dissolved in water",
+                "group": 0
+              },
+              {
+                "text": "Solid magnesium oxide",
+                "group": 1
+              },
+              {
+                "text": "Molten lead bromide",
+                "group": 0
+              },
+              {
+                "text": "Solid lead bromide",
+                "group": 1
+              },
+              {
+                "text": "Potassium chloride solution",
+                "group": 0
+              }
+            ],
+            "groups": [
+              "Conducts electricity",
+              "Does not conduct"
+            ],
+            "prompt": "Does it conduct electricity? Sort each one."
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The charge is carried by the **ions**, not by electrons.",
+            "In a solid the ions cannot move, so no charge flows.",
+            "Metals conduct as solids because they have delocalised electrons. An ionic solid has none."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ionic compounds conduct when molten or dissolved, because the ions are free to move.",
+            "They do not conduct as solids, because the ions are held in fixed positions."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why sodium chloride has a high melting point.",
+      "a": "It is a giant ionic lattice with strong electrostatic forces between oppositely charged ions. A lot of energy is needed to overcome them.",
+      "marks": 3
+    },
+    {
+      "q": "Give two ways to make solid sodium chloride conduct electricity.",
+      "a": "Melt it, or dissolve it in water.",
+      "marks": 2
+    },
+    {
+      "q": "Gallium oxide has a very high melting point. It does not conduct as a solid but does when molten. Name the type of substance.",
+      "a": "Ionic.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.2.2.3",
+        "AQA T 5.2.2.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "1b0e460d-476c-49e0-a196-4abf17087afe",
+        "source": "AQA jun 2022, Paper 1 (F), Q4.6",
+        "question": "A substance conducts electricity when it has charged particles that are free to move. Explain why sodium chloride conducts electricity when molten but not when solid.",
+        "marks": 3,
+        "answer_points": [
+          "Because sodium chloride contains ions.",
+          "Which are free to move when molten.",
+          "But are fixed in the solid."
+        ],
+        "tip": "Charged particles is allowed for the second and third points, but name the ions for the first."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.33"
+      ],
+      "worked_example": {
+        "exemplar_id": "4cd8021b-2fba-4acd-86d2-7ffb9d9ee1d8",
+        "source": "EDEXCEL jun 2024, Paper 1 (F), Q9(a)(ii)",
+        "question": "Sodium carbonate has the formula Na₂CO₃. Sodium carbonate contains Na⁺ ions and CO₃²⁻ ions. Explain why solid sodium carbonate cannot conduct electricity but a solution of sodium carbonate can conduct electricity.",
+        "marks": 3,
+        "answer_points": [
+          "In the solid the ions are in an ionic lattice, held by strong electrostatic attractions.",
+          "So the ions cannot move, they are fixed or just vibrate.",
+          "In solution the ions can move, they are free."
+        ],
+        "tip": "Electrons and intermolecular forces are rejected. Say ions throughout."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C2.3f"
+      ],
+      "worked_example": {
+        "exemplar_id": "79ed422c-3bba-40e8-9487-26ffc3153030",
+        "source": "OCR jun 2022, Paper 1, Q18(a)(i)",
+        "question": "A scientist uses data about four substances to find out what type of bonding each one has. Substance A: melting point 550 °C, boiling point 1300 °C, soluble in water, does not conduct as a solid, conducts when molten or dissolved. Substance B: melting point -183 °C, boiling point -162 °C, not soluble, does not conduct in any state. Substance C: melting point 420 °C, boiling point 907 °C, not soluble, conducts as a solid and when molten or dissolved. Substance D: melting point 1670 °C, boiling point above 1670 °C, not soluble, does not conduct in any state. The scientist thinks substance A is an ionic compound. Explain why the scientist is correct.",
+        "marks": 2,
+        "answer_points": [
+          "Ionic compounds have high melting and boiling points, and A has a high melting point of 550 °C and boiling point of 1300 °C.",
+          "Ionic compounds conduct when molten or dissolved, but not as a solid, which is what A does."
+        ],
+        "tip": "Quote the data from the table and link it to the property of ionic compounds."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.4.4",
+        "CAIE 2.4.7S"
+      ],
+      "worked_example": {
+        "exemplar_id": "5c7c7f94-66ae-426f-bb37-7a475dbd45cd",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q3(b)(iv)",
+        "question": "This question is about the elements sodium and fluorine and the compound sodium fluoride. Explain in terms of structure and bonding why sodium fluoride has a much higher melting point than fluorine.",
+        "marks": 3,
+        "answer_points": [
+          "Sodium fluoride has ionic bonds.",
+          "Fluorine has attraction between molecules (intermolecular forces).",
+          "The attraction between particles in fluorine is weaker."
+        ],
+        "tip": "Compare both substances: the answer needs the bonding in each."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.42",
+        "IGCSE 1.43",
+        "IGCSE 1.56C"
+      ],
+      "worked_example": {
+        "exemplar_id": "d0b348de-11e5-4a6f-a997-fa0949810326",
+        "source": "EDEXCEL jun 2023, Paper 1 (CR), Q9(a)(ii)",
+        "question": "Explain why calcium nitrate has a high melting point. Refer to structure and bonding in your answer.",
+        "marks": 4,
+        "answer_points": [
+          "Calcium nitrate has a giant ionic structure (lattice).",
+          "There are strong electrostatic forces of attraction.",
+          "The forces are between oppositely charged ions.",
+          "A lot of energy is needed to overcome the forces."
+        ],
+        "tip": "Do not mention the sharing of electrons or intermolecular forces in an ionic compound."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "spec_point_ids": [
+      "7486d348-43df-40e3-ab6f-ca403b5d1c64",
+      "d369c8b1-14ab-4680-b3d2-83a6fbc0a636",
+      "57bf982a-99ec-4e01-a087-0edfe8a0de04",
+      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8",
+      "15b75a74-6427-4191-ac60-1010bc7a03de",
+      "665df801-f0c3-470f-840c-38973747528c",
+      "d5c1d579-6014-46a9-bd33-9769f753ae6c",
+      "690bfff1-8b9c-4650-8fa4-5d83b04967ab",
+      "24604573-78aa-4abf-a480-9ac9e4db6d9d"
+    ],
+    "exemplar_ids": [
+      "1b0e460d-476c-49e0-a196-4abf17087afe",
+      "4cd8021b-2fba-4acd-86d2-7ffb9d9ee1d8",
+      "79ed422c-3bba-40e8-9487-26ffc3153030",
+      "5c7c7f94-66ae-426f-bb37-7a475dbd45cd",
+      "d0b348de-11e5-4a6f-a997-fa0949810326"
+    ]
+  }
+}
