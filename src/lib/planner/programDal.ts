@@ -1,6 +1,7 @@
 import { customSchedule, reorderTopics, resumeAfterPause } from "./topicOrder";
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
+import { dbError } from "@/lib/platform/errors";
 import { type SubjectV, type BoardV, type LevelV } from "../curriculum/taxonomy";
 import { type Json } from "@/integrations/supabase/types";
 import { mondayOf, addWeeks, currentWeekKey, toDateKey, weekKeyToDate } from "./week";
@@ -105,7 +106,7 @@ export class ProgramDAL {
       .eq("subject", subject)
       .maybeSingle();
 
-    if (baselineError) throw baselineError;
+    if (baselineError) throw dbError(baselineError);
     // A stored date the calendar can't resolve (a half-typed "0002-06-01") must
     // not take the whole planner down, or the date box that would fix it never
     // renders. Plan against the default exam week instead; the next save
@@ -207,7 +208,7 @@ export class ProgramDAL {
           },
           { onConflict: "student_id,subject" },
         );
-        if (seedError) throw seedError;
+        if (seedError) throw dbError(seedError);
       }
     }
     return roadmap;
@@ -229,7 +230,7 @@ export class ProgramDAL {
       .select("exam_year")
       .eq("id", studentId)
       .maybeSingle();
-    if (error) throw error;
+    if (error) throw dbError(error);
     return examMondayIn(data?.exam_year);
   }
 
@@ -595,7 +596,7 @@ export class ProgramDAL {
       .eq("student_id", params.studentId)
       .eq("subject", params.subject)
       .maybeSingle();
-    if (readError) throw readError;
+    if (readError) throw dbError(readError);
     const stored = (saved?.pacing ?? []) as unknown as PacingBand[];
     const custom = customSchedule(stored);
     if (custom) {
@@ -617,7 +618,7 @@ export class ProgramDAL {
       .update({ exam_date: params.examDate, updated_at: new Date().toISOString() })
       .eq("student_id", params.studentId)
       .eq("subject", params.subject);
-    if (error) throw error;
+    if (error) throw dbError(error);
   }
 
   /**

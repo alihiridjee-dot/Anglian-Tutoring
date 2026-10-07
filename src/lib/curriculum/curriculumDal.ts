@@ -2,6 +2,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { type LevelV, type BoardV, type SubjectV } from "./taxonomy";
 import type { Topic, SpecPoint, Resource, McqSet, SpecPointMatch } from "./types";
 import { joinUrlsFor } from "@/lib/live/liveSessions";
+import { dbError } from "@/lib/platform/errors";
 import {
   isDemoStudent,
   DEMO_CURRICULUM_TOPICS,
@@ -47,7 +48,7 @@ export class CurriculumDAL {
 
     if (error) {
       console.error("Error fetching topics:", error);
-      throw error;
+      throw dbError(error);
     }
     return data ?? [];
   }
