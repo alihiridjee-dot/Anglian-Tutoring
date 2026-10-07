@@ -9,6 +9,9 @@ export default defineConfig({
       // side, each one model call of up to 200 s. Built as its own function with
       // Vercel's 300 s limit, so the rest of the site keeps its own.
       "/api/practice-worker": { maxDuration: 300 },
+      // The nightly plan check works through every saved week in one call,
+      // and stops starting new ones at 240 s.
+      "/api/plan-heal": { maxDuration: 300 },
     },
   },
 });
