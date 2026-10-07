@@ -1,0 +1,54 @@
+code,title,weight,topic
+AQA 3.1.1,Monomers and polymers,1.3,Biological molecules
+AQA 3.1.2,Carbohydrates,3.64,Biological molecules
+AQA 3.1.3,Lipids,1.54,Biological molecules
+AQA 3.1.4.1,General properties of proteins,2.35,Biological molecules
+AQA 3.1.4.2,Many proteins are enzymes,4.56,Biological molecules
+AQA 3.1.5.1,Structure of DNA and RNA,2.61,Biological molecules
+AQA 3.1.5.2,DNA replication,3.2,Biological molecules
+AQA 3.1.6,ATP,1.74,Biological molecules
+AQA 3.1.7,Water,2.4,Biological molecules
+AQA 3.1.8,Inorganic ions,1.1,Biological molecules
+AQA 3.2.1.1,Structure of eukaryotic cells,3.95,Cells
+AQA 3.2.1.2,Structure of prokaryotic cells and of viruses,2.84,Cells
+AQA 3.2.1.3,Methods of studying cells,1.5,Cells
+AQA 3.2.2,All cells arise from other cells,5.9,Cells
+AQA 3.2.3,Transport across cell membranes,6.42,Cells
+AQA 3.2.4,Cell recognition and the immune system,6.58,Cells
+AQA 3.3.1,Surface area to volume ratio,1.5,Organisms exchange substances with their environment
+AQA 3.3.2,Gas exchange,4.5,Organisms exchange substances with their environment
+AQA 3.3.3,Digestion and absorption,2.4,Organisms exchange substances with their environment
+AQA 3.3.4.1,Mass transport in animals,6.17,Organisms exchange substances with their environment
+AQA 3.3.4.2,Mass transport in plants,1.54,Organisms exchange substances with their environment
+AQA 3.4.1,"DNA, genes and chromosomes",2.31,"Genetic information, variation and relationships between organisms"
+AQA 3.4.2,DNA and protein synthesis,2.86,"Genetic information, variation and relationships between organisms"
+AQA 3.4.3,Genetic diversity can arise as a result of mutation or during meiosis,3.79,"Genetic information, variation and relationships between organisms"
+AQA 3.4.4,Genetic diversity and adaptation,5.76,"Genetic information, variation and relationships between organisms"
+AQA 3.4.5,Species and taxonomy,1.78,"Genetic information, variation and relationships between organisms"
+AQA 3.4.6,Biodiversity within a community,1.52,"Genetic information, variation and relationships between organisms"
+AQA 3.4.7,Investigating diversity,4.07,"Genetic information, variation and relationships between organisms"
+AQA 3.5.1,Photosynthesis (A-level only),6.68,Energy transfers in and between organisms (A-level only)
+AQA 3.5.2,Respiration (A-level only),6.42,Energy transfers in and between organisms (A-level only)
+AQA 3.5.3,Energy and ecosystems (A-level only),3.35,Energy transfers in and between organisms (A-level only)
+AQA 3.5.4,Nutrient cycles (A-level only),2.04,Energy transfers in and between organisms (A-level only)
+AQA 3.6.1.1,Survival and response (A-level only),3.46,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.1.2,Receptors (A-level only),1.74,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.1.3,Control of heart rate (A-level only),1.3,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.2.1,Nerve impulses (A-level only),1.3,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.2.2,Synaptic transmission (A-level only),2.16,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.3,Skeletal muscles are stimulated to contract by nerves and act as effectors (A-level only),1.3,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.1,Principles of homeostasis and negative feedback (A-level,1.6,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.2,Control of blood glucose concentration (A-level only),6.74,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.3,Control of blood water potential (A-level only),2.18,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.7.1,Inheritance (A-level only),1.74,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.2,Populations (A-level only),1.32,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.3,Evolution may lead to speciation (A-level only),3.78,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.4,Populations in ecosystems (A-level only),6.49,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.8.1,Alteration of the sequence of bases in DNA can alter the structure of proteins (A-level only),1.97,The control of gene expression (A-level only)
+AQA 3.8.2.1,Most of a cell’s DNA is not translated (A-level only),2.87,The control of gene expression (A-level only)
+AQA 3.8.2.2,Regulation of transcription and translation (A-level only),2.73,The control of gene expression (A-level only)
+AQA 3.8.2.3,Gene expression and cancer (A-level only),3.2,The control of gene expression (A-level only)
+AQA 3.8.3,Using genome projects (A-level only),1.3,The control of gene expression (A-level only)
+AQA 3.8.4.1,Recombinant DNA technology (A-level only),4.95,The control of gene expression (A-level only)
+AQA 3.8.4.2,Use of DNA probes in medical diagnosis and genetic screening (A-level only),2.1,The control of gene expression (A-level only)
+AQA 3.8.4.3,Genetic fingerprinting (A-level only),2.42,The control of gene expression (A-level only)

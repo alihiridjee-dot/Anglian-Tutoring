@@ -137,6 +137,15 @@ describe("verdictCopy", () => {
     ]);
     expect(verdictCopy(s.verdict, s).sub).toContain("1 point is");
   });
+
+  test("names no week to carry into, since a week further back carries into this one", () => {
+    const s = summarize([
+      { specPointId: "a", coverage: cov(), activity: act({ hasHomework: true }) },
+    ]);
+    const sub = verdictCopy(s.verdict, s).sub;
+    expect(sub).toContain("Carry them forward");
+    expect(sub).not.toContain("next week");
+  });
 });
 
 describe("laneOf", () => {

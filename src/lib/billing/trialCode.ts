@@ -11,6 +11,13 @@ import { supabase } from "@/integrations/supabase/client";
 /** Days a trial code gives. Mirrors TRIAL_DAYS in supabase/functions/_shared/trialCode.ts. */
 export const TRIAL_DAYS = 14;
 
+/** Until then a trial takes no card. Mirrors NO_CARD_TRIALS_UNTIL in the same file under supabase/. */
+export const NO_CARD_TRIALS_UNTIL = Date.parse("2026-10-12T00:00:00+01:00");
+
+export function trialNeedsCard(now = Date.now()): boolean {
+  return now >= NO_CARD_TRIALS_UNTIL;
+}
+
 const KEY = "trial-code";
 
 /** Keep a code from an emailed link so the plan page can offer it. */

@@ -1,0 +1,3482 @@
+[
+ {
+  "course": "aqa-alevel-biology",
+  "points": 53,
+  "topics": 8,
+  "min": 1.1,
+  "max": 6.74,
+  "mean": 3.11,
+  "before": "6.1x (15 empty)",
+  "after": "6.1x (15 empty)",
+  "spreadBefore": "4.7x",
+  "spreadAfter": "4.7x",
+  "heaviestWeek": "6.7 Organisms respond to changes in their internal and external environments (A-level only) [AQA 3.6.4.2]",
+  "lightestWeek": "1.1 Biological molecules [AQA 3.1.8]",
+  "afterOneYear": "5.1x",
+  "weeks": 68,
+  "heaviest": [
+   {
+    "code": "AQA 3.6.4.2",
+    "title": "Control of blood glucose concentration (A-level only)",
+    "weight": 6.74
+   },
+   {
+    "code": "AQA 3.5.1",
+    "title": "Photosynthesis (A-level only)",
+    "weight": 6.68
+   },
+   {
+    "code": "AQA 3.2.4",
+    "title": "Cell recognition and the immune system",
+    "weight": 6.58
+   },
+   {
+    "code": "AQA 3.7.4",
+    "title": "Populations in ecosystems (A-level only)",
+    "weight": 6.49
+   },
+   {
+    "code": "AQA 3.2.3",
+    "title": "Transport across cell membranes",
+    "weight": 6.42
+   },
+   {
+    "code": "AQA 3.5.2",
+    "title": "Respiration (A-level only)",
+    "weight": 6.42
+   },
+   {
+    "code": "AQA 3.3.4.1",
+    "title": "Mass transport in animals",
+    "weight": 6.17
+   },
+   {
+    "code": "AQA 3.2.2",
+    "title": "All cells arise from other cells",
+    "weight": 5.9
+   },
+   {
+    "code": "AQA 3.4.4",
+    "title": "Genetic diversity and adaptation",
+    "weight": 5.76
+   },
+   {
+    "code": "AQA 3.8.4.1",
+    "title": "Recombinant DNA technology (A-level only)",
+    "weight": 4.95
+   }
+  ],
+  "lightest": [
+   {
+    "code": "AQA 3.1.8",
+    "title": "Inorganic ions",
+    "weight": 1.1
+   },
+   {
+    "code": "AQA 3.8.3",
+    "title": "Using genome projects (A-level only)",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.6.3",
+    "title": "Skeletal muscles are stimulated to contract by nerves and act as effectors (A-level only)",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.6.2.1",
+    "title": "Nerve impulses (A-level only)",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.6.1.3",
+    "title": "Control of heart rate (A-level only)",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.1.1",
+    "title": "Monomers and polymers",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.7.2",
+    "title": "Populations (A-level only)",
+    "weight": 1.32
+   },
+   {
+    "code": "AQA 3.3.1",
+    "title": "Surface area to volume ratio",
+    "weight": 1.5
+   },
+   {
+    "code": "AQA 3.2.1.3",
+    "title": "Methods of studying cells",
+    "weight": 1.5
+   },
+   {
+    "code": "AQA 3.4.6",
+    "title": "Biodiversity within a community",
+    "weight": 1.52
+   }
+  ]
+ },
+ {
+  "course": "aqa-alevel-chemistry",
+  "points": 91,
+  "topics": 6,
+  "min": 1.3,
+  "max": 5.41,
+  "mean": 2.5,
+  "before": "6.5x",
+  "after": "3.1x",
+  "spreadBefore": "3.1x",
+  "spreadAfter": "2.1x",
+  "heaviestWeek": "5.4 Physical chemistry [AQA 3.1.2.5]",
+  "lightestWeek": "1.7 Physical chemistry (A-level only) [AQA 3.1.12.3]",
+  "afterOneYear": "1.8x",
+  "weeks": 68,
+  "heaviest": [
+   {
+    "code": "AQA 3.1.2.5",
+    "title": "Balanced equations and associated calculations",
+    "weight": 5.41
+   },
+   {
+    "code": "AQA 3.3.16",
+    "title": "Chromatography (A-level only)",
+    "weight": 5.3
+   },
+   {
+    "code": "AQA 3.1.9.2",
+    "title": "Determination of rate equation (A-level only)",
+    "weight": 5.18
+   },
+   {
+    "code": "AQA 3.3.9.2",
+    "title": "Acylation (A-level only)",
+    "weight": 4.6
+   },
+   {
+    "code": "AQA 3.1.8.1",
+    "title": "Born–Haber cycles (A-level only)",
+    "weight": 4.58
+   },
+   {
+    "code": "AQA 3.1.12.5",
+    "title": "pH curves, titrations and indicators (A-level only)",
+    "weight": 4.51
+   },
+   {
+    "code": "AQA 3.1.3.4",
+    "title": "Bonding and physical properties",
+    "weight": 4.36
+   },
+   {
+    "code": "AQA 3.2.6",
+    "title": "Reactions of ions in aqueous solution (A-level only)",
+    "weight": 4.31
+   },
+   {
+    "code": "AQA 3.1.11.1",
+    "title": "Electrode potentials and cells (A-level only)",
+    "weight": 4.2
+   },
+   {
+    "code": "AQA 3.1.4.2",
+    "title": "Calorimetry",
+    "weight": 3.94
+   }
+  ],
+  "lightest": [
+   {
+    "code": "AQA 3.3.11.1",
+    "title": "Preparation (A-level only)",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.2.5.3",
+    "title": "Shapes of complex ions (A-level only)",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.1.12.1",
+    "title": "Brønsted–Lowry acid–base equilibria in aqueous solution (A-level only)",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.3.4.1",
+    "title": "Structure, bonding and reactivity",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.3.2.1",
+    "title": "Fractional distillation of crude oil",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.2.1.1",
+    "title": "Classification",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.1.3.3",
+    "title": "Metallic bonding",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.1.1.1",
+    "title": "Fundamental particles",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.2.5.4",
+    "title": "Formation of coloured ions (A-level only)",
+    "weight": 1.31
+   },
+   {
+    "code": "AQA 3.2.5.5",
+    "title": "Variable oxidation states (A-level only)",
+    "weight": 1.72
+   }
+  ]
+ },
+ {
+  "course": "aqa-alevel-physics",
+  "points": 147,
+  "topics": 13,
+  "min": 1.3,
+  "max": 3.42,
+  "mean": 1.53,
+  "before": "2.6x",
+  "after": "3.5x",
+  "spreadBefore": "1.8x",
+  "spreadAfter": "1.5x",
+  "heaviestWeek": "4.6 Electricity [AQA 3.5.1.3 AQA 3.5.1.4]",
+  "lightestWeek": "1.3 Fields and their consequences (A-level only) [AQA 3.7.5.2]",
+  "afterOneYear": "4.6x",
+  "weeks": 68,
+  "heaviest": [
+   {
+    "code": "AQA 3.3.2.1",
+    "title": "Interference",
+    "weight": 3.42
+   },
+   {
+    "code": "AQA 3.3.1.3",
+    "title": "Principle of superposition of waves and formation of stationary waves",
+    "weight": 3.32
+   },
+   {
+    "code": "AQA 3.4.1.3",
+    "title": "Motion along a straight line",
+    "weight": 3.3
+   },
+   {
+    "code": "AQA 3.4.2.2",
+    "title": "The Young modulus",
+    "weight": 3.3
+   },
+   {
+    "code": "AQA 3.5.1.3",
+    "title": "Resistivity",
+    "weight": 3.3
+   },
+   {
+    "code": "AQA 3.5.1.6",
+    "title": "Electromotive force and internal resistance",
+    "weight": 3.3
+   },
+   {
+    "code": "AQA 3.6.1.3",
+    "title": "Simple harmonic systems (A-level only)",
+    "weight": 3.3
+   },
+   {
+    "code": "AQA 3.6.2.2",
+    "title": "Ideal gases (A-level only)",
+    "weight": 3.3
+   },
+   {
+    "code": "AQA 3.7.4.4",
+    "title": "Capacitor charge and discharge (A-level only)",
+    "weight": 3.3
+   },
+   {
+    "code": "AQA 3.7.5.1",
+    "title": "Magnetic flux density (A-level only)",
+    "weight": 3.3
+   }
+  ],
+  "lightest": [
+   {
+    "code": "AQA 3.13.6.4",
+    "title": "Amplitude (AM) and frequency modulation (FM) techniques",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.13.6.3",
+    "title": "Time-division multiplexing",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.13.6.2",
+    "title": "Transmission media",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.13.6.1",
+    "title": "Principles of communication systems",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.13.5.3",
+    "title": "Astables",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.13.5.1",
+    "title": "Combinational logic",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.13.4.4",
+    "title": "Real operational amplifiers",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.13.4.3",
+    "title": "Summing amplifier configuration",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.13.4.2",
+    "title": "Non-inverting amplifier configuration",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 3.13.4.1",
+    "title": "Inverting amplifier configuration",
+    "weight": 1.3
+   }
+  ]
+ },
+ {
+  "course": "aqa-gcse-chemistry",
+  "points": 124,
+  "topics": 10,
+  "min": 1,
+  "max": 5.66,
+  "mean": 2.17,
+  "before": "3.4x",
+  "after": "1.8x",
+  "spreadBefore": "1.9x",
+  "spreadAfter": "1.5x",
+  "heaviestWeek": "10.5 Chemistry of the atmosphere [AQA 4.9.2.2 AQA 4.9.2.3 AQA 4.9.2.4 AQA 4.9.3.1 AQA 4.9.3.2]",
+  "lightestWeek": "5.8 Organic chemistry [AQA 4.7.1.1 AQA 4.7.1.2 AQA 4.7.1.3]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "AQA 4.10.1.2",
+    "title": "Potable water",
+    "weight": 5.66
+   },
+   {
+    "code": "AQA 4.8.1.3",
+    "title": "Chromatography",
+    "weight": 5.17
+   },
+   {
+    "code": "AQA 4.5.1.1",
+    "title": "Energy transfer during exothermic and endothermic reactions",
+    "weight": 4.69
+   },
+   {
+    "code": "AQA 4.4.2.5",
+    "title": "Titrations (chemistry only)",
+    "weight": 4.09
+   },
+   {
+    "code": "AQA 4.2.2.1",
+    "title": "The three states of matter",
+    "weight": 4.06
+   },
+   {
+    "code": "AQA 4.4.3.4",
+    "title": "Electrolysis of aqueous solutions",
+    "weight": 3.96
+   },
+   {
+    "code": "AQA 4.9.2.2",
+    "title": "Human activities which increase greenhouse gases in the atmosphere",
+    "weight": 3.94
+   },
+   {
+    "code": "AQA 4.10.4.1",
+    "title": "The Haber process",
+    "weight": 3.76
+   },
+   {
+    "code": "AQA 4.6.1.1",
+    "title": "Calculating rates of reactions",
+    "weight": 3.75
+   },
+   {
+    "code": "AQA 4.10.3.3",
+    "title": "Ceramics, polymers and composites",
+    "weight": 3.71
+   }
+  ],
+  "lightest": [
+   {
+    "code": "AQA 4.8.3.6",
+    "title": "Instrumental methods",
+    "weight": 1
+   },
+   {
+    "code": "AQA 4.7.3.4",
+    "title": "DNA (deoxyribonucleic acid) and other naturally occurring polymers",
+    "weight": 1
+   },
+   {
+    "code": "AQA 4.2.2.6",
+    "title": "Giant covalent structures",
+    "weight": 1.1
+   },
+   {
+    "code": "AQA 4.2.2.5",
+    "title": "Polymers",
+    "weight": 1.1
+   },
+   {
+    "code": "AQA 4.8.1.2",
+    "title": "Formulations",
+    "weight": 1.2
+   },
+   {
+    "code": "AQA 4.9.3.2",
+    "title": "Properties and effects of atmospheric pollutants",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 4.9.2.1",
+    "title": "Greenhouse gases",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 4.9.1.3",
+    "title": "How oxygen increased",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 4.8.3.4",
+    "title": "Halides",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 4.8.3.3",
+    "title": "Carbonates",
+    "weight": 1.3
+   }
+  ]
+ },
+ {
+  "course": "aqa-gcse-physics",
+  "points": 81,
+  "topics": 8,
+  "min": 1.3,
+  "max": 8.3,
+  "mean": 2.81,
+  "before": "5.4x",
+  "after": "2.0x",
+  "spreadBefore": "2.6x",
+  "spreadAfter": "1.5x",
+  "heaviestWeek": "9.5 Electricity [AQA 4.2.3.2 AQA 4.2.4.1 AQA 4.2.4.2]",
+  "lightestWeek": "4.7 Space physics (physics only) [AQA 4.8.1.1 AQA 4.8.1.2]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "AQA 4.5.6.1",
+    "title": "Describing motion along a line",
+    "weight": 8.3
+   },
+   {
+    "code": "AQA 4.5.6.2",
+    "title": "Forces, accelerations and Newton's Laws of motion",
+    "weight": 7.53
+   },
+   {
+    "code": "AQA 4.5.3",
+    "title": "Forces and elasticity",
+    "weight": 7.35
+   },
+   {
+    "code": "AQA 4.5.6.3",
+    "title": "Forces and braking",
+    "weight": 6.19
+   },
+   {
+    "code": "AQA 4.2.1.4",
+    "title": "Resistors",
+    "weight": 6.02
+   },
+   {
+    "code": "AQA 4.6.1.2",
+    "title": "Properties of waves",
+    "weight": 5.92
+   },
+   {
+    "code": "AQA 4.1.2.1",
+    "title": "Energy transfers in a system",
+    "weight": 5.29
+   },
+   {
+    "code": "AQA 4.2.2",
+    "title": "Series and parallel circuits",
+    "weight": 5.12
+   },
+   {
+    "code": "AQA 4.3.1.1",
+    "title": "Density of materials",
+    "weight": 4.87
+   },
+   {
+    "code": "AQA 4.2.4.2",
+    "title": "Energy transfers in everyday appliances",
+    "weight": 4.67
+   }
+  ],
+  "lightest": [
+   {
+    "code": "AQA 4.6.3.1",
+    "title": "Emission and absorption of infrared radiation",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 4.5.7.1",
+    "title": "Momentum is a property of moving objects",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 4.5.1.1",
+    "title": "Scalar and vector quantities",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 4.4.4.2",
+    "title": "Nuclear fusion",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 4.3.2.1",
+    "title": "Internal energy",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 4.3.1.2",
+    "title": "Changes of state",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 4.2.1.2",
+    "title": "Electrical charge and current",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA 4.4.1.1",
+    "title": "The structure of an atom",
+    "weight": 1.32
+   },
+   {
+    "code": "AQA 4.2.1.1",
+    "title": "Standard circuit diagram symbols",
+    "weight": 1.5
+   },
+   {
+    "code": "AQA 4.6.2.1",
+    "title": "Types of electromagnetic waves",
+    "weight": 1.55
+   }
+  ]
+ },
+ {
+  "course": "aqa-gcse_trilogy-biology",
+  "points": 71,
+  "topics": 7,
+  "min": 1.1,
+  "max": 6.85,
+  "mean": 2.82,
+  "before": "3.4x",
+  "after": "6.1x",
+  "spreadBefore": "2.5x",
+  "spreadAfter": "1.6x",
+  "heaviestWeek": "7.9 Organisation [AQA T 4.2.3.1 AQA T 4.2.3.2]",
+  "lightestWeek": "1.3 Organisation [AQA T 4.2.1]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "AQA T 4.2.2.1",
+    "title": "The human digestive system",
+    "weight": 6.85
+   },
+   {
+    "code": "AQA T 4.6.1.4",
+    "title": "Genetic inheritance",
+    "weight": 6.64
+   },
+   {
+    "code": "AQA T 4.2.2.6",
+    "title": "The effect of lifestyle on some non-communicable diseases",
+    "weight": 6.11
+   },
+   {
+    "code": "AQA T 4.4.1.2",
+    "title": "Rate of photosynthesis",
+    "weight": 6.11
+   },
+   {
+    "code": "AQA T 4.1.3.1",
+    "title": "Diffusion",
+    "weight": 5.83
+   },
+   {
+    "code": "AQA T 4.1.1.2",
+    "title": "Animal and plant cells",
+    "weight": 5.82
+   },
+   {
+    "code": "AQA T 4.5.2",
+    "title": "The human nervous system",
+    "weight": 5.48
+   },
+   {
+    "code": "AQA T 4.7.2.1",
+    "title": "Levels of organisation",
+    "weight": 5.29
+   },
+   {
+    "code": "AQA T 4.2.3.2",
+    "title": "Plant organ system",
+    "weight": 5.07
+   },
+   {
+    "code": "AQA T 4.6.2.4",
+    "title": "Genetic engineering",
+    "weight": 4.65
+   }
+  ],
+  "lightest": [
+   {
+    "code": "AQA T 4.2.2.3",
+    "title": "Blood",
+    "weight": 1.1
+   },
+   {
+    "code": "AQA T 4.7.3.5",
+    "title": "Global warming",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 4.7.3.3",
+    "title": "Land use",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 4.7.3.1",
+    "title": "Biodiversity",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 4.6.3.3",
+    "title": "Extinction",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 4.6.3.1",
+    "title": "Evidence for evolution",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 4.4.1.1",
+    "title": "Photosynthetic reaction",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 4.3.1.5",
+    "title": "Protist diseases",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 4.3.1.4",
+    "title": "Fungal diseases",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 4.2.2.7",
+    "title": "Cancer",
+    "weight": 1.3
+   }
+  ]
+ },
+ {
+  "course": "aqa-gcse_trilogy-chemistry",
+  "points": 93,
+  "topics": 10,
+  "min": 1.1,
+  "max": 5.67,
+  "mean": 2.18,
+  "before": "4.3x",
+  "after": "2.6x",
+  "spreadBefore": "2.9x",
+  "spreadAfter": "1.5x",
+  "heaviestWeek": "8.1 Using resources [AQA T 5.10.1.2 AQA T 5.10.1.3]",
+  "lightestWeek": "3.0 Using resources [AQA T 5.10.1.1]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "AQA T 5.10.1.2",
+    "title": "Potable water",
+    "weight": 5.67
+   },
+   {
+    "code": "AQA T 5.8.1.3",
+    "title": "Chromatography",
+    "weight": 5.18
+   },
+   {
+    "code": "AQA T 5.5.1.1",
+    "title": "Energy transfer during exothermic and endothermic reactions",
+    "weight": 4.69
+   },
+   {
+    "code": "AQA T 5.2.2.1",
+    "title": "The three states of matter",
+    "weight": 4.06
+   },
+   {
+    "code": "AQA T 5.4.3.4",
+    "title": "Electrolysis of aqueous solutions",
+    "weight": 3.97
+   },
+   {
+    "code": "AQA T 5.9.2.2",
+    "title": "Human activities which increase greenhouse gases in the atmosphere",
+    "weight": 3.94
+   },
+   {
+    "code": "AQA T 5.6.1.1",
+    "title": "Calculating rates of reactions",
+    "weight": 3.75
+   },
+   {
+    "code": "AQA T 5.2.1.4",
+    "title": "Covalent bonding",
+    "weight": 3.54
+   },
+   {
+    "code": "AQA T 5.1.1.1",
+    "title": "Atoms, elements and compounds",
+    "weight": 3.35
+   },
+   {
+    "code": "AQA T 5.4.2.3",
+    "title": "Soluble salts",
+    "weight": 3.33
+   }
+  ],
+  "lightest": [
+   {
+    "code": "AQA T 5.2.2.6",
+    "title": "Giant covalent structures",
+    "weight": 1.1
+   },
+   {
+    "code": "AQA T 5.2.2.5",
+    "title": "Polymers",
+    "weight": 1.1
+   },
+   {
+    "code": "AQA T 5.8.1.2",
+    "title": "Formulations",
+    "weight": 1.2
+   },
+   {
+    "code": "AQA T 5.9.3.2",
+    "title": "Properties and effects of atmospheric pollutants",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 5.9.2.1",
+    "title": "Greenhouse gases",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 5.9.1.3",
+    "title": "How oxygen increased",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 5.8.2.4",
+    "title": "Test for chlorine",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 5.8.2.3",
+    "title": "Test for carbon dioxide",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 5.8.2.2",
+    "title": "Test for oxygen",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 5.8.2.1",
+    "title": "Test for hydrogen",
+    "weight": 1.3
+   }
+  ]
+ },
+ {
+  "course": "aqa-gcse_trilogy-physics",
+  "points": 52,
+  "topics": 7,
+  "min": 1.3,
+  "max": 7.53,
+  "mean": 2.9,
+  "before": "11.6x",
+  "after": "4.6x",
+  "spreadBefore": "4.0x",
+  "spreadAfter": "2.8x",
+  "heaviestWeek": "7.5 Forces [AQA T 6.5.4.2]",
+  "lightestWeek": "1.6 Waves [AQA T 6.6.1.1]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "AQA T 6.5.4.2",
+    "title": "Forces, accelerations and Newton's Laws of motion",
+    "weight": 7.53
+   },
+   {
+    "code": "AQA T 6.5.4.1",
+    "title": "Describing motion along a line",
+    "weight": 7.51
+   },
+   {
+    "code": "AQA T 6.5.3",
+    "title": "Forces and elasticity",
+    "weight": 7.35
+   },
+   {
+    "code": "AQA T 6.2.1.4",
+    "title": "Resistors",
+    "weight": 6.02
+   },
+   {
+    "code": "AQA T 6.5.4.3",
+    "title": "Forces and braking",
+    "weight": 5.84
+   },
+   {
+    "code": "AQA T 6.6.1.2",
+    "title": "Properties of waves",
+    "weight": 5.16
+   },
+   {
+    "code": "AQA T 6.2.2",
+    "title": "Series and parallel circuits",
+    "weight": 5.12
+   },
+   {
+    "code": "AQA T 6.3.1.1",
+    "title": "Density of materials",
+    "weight": 4.87
+   },
+   {
+    "code": "AQA T 6.1.1.1",
+    "title": "Energy stores and systems",
+    "weight": 4.37
+   },
+   {
+    "code": "AQA T 6.1.3",
+    "title": "National and global energy resources",
+    "weight": 4.34
+   }
+  ],
+  "lightest": [
+   {
+    "code": "AQA T 6.5.5.1",
+    "title": "Momentum is a property of moving objects",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 6.5.1.1",
+    "title": "Scalar and vector quantities",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 6.3.2.1",
+    "title": "Internal energy",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 6.3.1.2",
+    "title": "Changes of state",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 6.2.1.2",
+    "title": "Electrical charge and current",
+    "weight": 1.3
+   },
+   {
+    "code": "AQA T 6.4.1.1",
+    "title": "The structure of an atom",
+    "weight": 1.32
+   },
+   {
+    "code": "AQA T 6.3.2.2",
+    "title": "Temperature changes in a system and specific heat capacity",
+    "weight": 1.32
+   },
+   {
+    "code": "AQA T 6.5.5.2",
+    "title": "Conservation of momentum",
+    "weight": 1.5
+   },
+   {
+    "code": "AQA T 6.2.1.1",
+    "title": "Standard circuit diagram symbols",
+    "weight": 1.5
+   },
+   {
+    "code": "AQA T 6.1.1.4",
+    "title": "Power",
+    "weight": 1.54
+   }
+  ]
+ },
+ {
+  "course": "cambridge-alevel-biology",
+  "points": 259,
+  "topics": 19,
+  "min": 1,
+  "max": 5.43,
+  "mean": 1.7,
+  "before": "3.4x",
+  "after": "2.0x",
+  "spreadBefore": "1.8x",
+  "spreadAfter": "1.4x",
+  "heaviestWeek": "8.3 Immunity [CAIE 11.1.1 CAIE 11.1.2 CAIE 11.1.3 CAIE 11.1.4 CAIE 11.2.1]",
+  "lightestWeek": "4.1 Cell structure [CAIE 1.2.2 CAIE 1.2.3 CAIE 1.2.4]",
+  "afterOneYear": "4.3x",
+  "weeks": 68,
+  "heaviest": [
+   {
+    "code": "CAIE 3.2.1",
+    "title": "Factors affecting the rate of enzyme-catalysed reactions",
+    "weight": 5.43
+   },
+   {
+    "code": "CAIE 1.2.1",
+    "title": "Organelles and other structures in eukaryotic cells",
+    "weight": 4.68
+   },
+   {
+    "code": "CAIE 3.2.4",
+    "title": "Immobilised enzymes in alginate compared with free enzymes",
+    "weight": 4.22
+   },
+   {
+    "code": "CAIE 14.1.9",
+    "title": "Cell signalling: control of blood glucose by glucagon",
+    "weight": 4.22
+   },
+   {
+    "code": "CAIE 3.1.3",
+    "title": "Investigating progress of enzyme-catalysed reactions: catalase and amylase",
+    "weight": 4.2
+   },
+   {
+    "code": "CAIE 4.2.2",
+    "title": "Investigating diffusion and osmosis: plant tissue and Visking tubing",
+    "weight": 4.2
+   },
+   {
+    "code": "CAIE 4.2.4",
+    "title": "Surface area to volume ratio and diffusion in agar blocks",
+    "weight": 4.2
+   },
+   {
+    "code": "CAIE 4.2.5",
+    "title": "Estimating the water potential of plant tissues",
+    "weight": 4.2
+   },
+   {
+    "code": "CAIE 12.2.8",
+    "title": "Oxidative phosphorylation: electron transport and ATP synthase",
+    "weight": 4.09
+   },
+   {
+    "code": "CAIE 13.1.10",
+    "title": "Photophosphorylation: electron transport chain and ATP synthase",
+    "weight": 3.23
+   }
+  ],
+  "lightest": [
+   {
+    "code": "CAIE 14.1.3",
+    "title": "Urea production in the liver by deamination",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 13.2.1",
+    "title": "Limiting factors of photosynthesis",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 13.1.7",
+    "title": "Cyclic and non-cyclic photophosphorylation",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 10.1.1",
+    "title": "Infectious diseases: pathogens and transmissibility",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 8.1.7",
+    "title": "Functions and formation of tissue fluid",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 7.2.6",
+    "title": "Assimilates moving from sources to sinks in phloem",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 7.2.1",
+    "title": "Dissolved mineral ions and organic compounds transported in plants",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 6.2.6",
+    "title": "Gene mutation: a change in base-pair sequence",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 3.1.1",
+    "title": "Enzymes as globular proteins: intracellular and extracellular",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 2.3.4",
+    "title": "Globular and fibrous proteins: solubility and roles",
+    "weight": 1
+   }
+  ]
+ },
+ {
+  "course": "cambridge-alevel-chemistry",
+  "points": 354,
+  "topics": 8,
+  "min": 1,
+  "max": 5.86,
+  "mean": 1.7,
+  "before": "2.5x",
+  "after": "1.8x",
+  "spreadBefore": "1.6x",
+  "spreadAfter": "1.3x",
+  "heaviestWeek": "11.6 Analysis [CAIE 22.1.1 CAIE 22.2.1 CAIE 22.2.2 CAIE 22.2.3 CAIE 22.2.4 CAIE 22.2.5 CAIE 22.2.6]",
+  "lightestWeek": "6.6 Physical chemistry [CAIE 3.5.2 CAIE 3.6.1 CAIE 3.6.2]",
+  "afterOneYear": "4.3x",
+  "weeks": 68,
+  "heaviest": [
+   {
+    "code": "CAIE 3.4.1",
+    "title": "Covalent bonding, expanded octets and coordinate (dative covalent) bonding",
+    "weight": 5.86
+   },
+   {
+    "code": "CAIE 14.2.2",
+    "title": "Reactions of alkenes: addition, oxidation by KMnO₄ and polymerisation",
+    "weight": 5.1
+   },
+   {
+    "code": "CAIE 16.1.2",
+    "title": "Reactions of alcohols: combustion, substitution, oxidation, dehydration, esters",
+    "weight": 4.66
+   },
+   {
+    "code": "CAIE 13.2.1",
+    "title": "Terminology for types of organic compounds and reactions",
+    "weight": 4.43
+   },
+   {
+    "code": "CAIE 30.1.1",
+    "title": "Reactions of benzene and methylbenzene",
+    "weight": 4.22
+   },
+   {
+    "code": "CAIE 37.4.1",
+    "title": "Analysing a proton (¹H) NMR spectrum",
+    "weight": 4.21
+   },
+   {
+    "code": "CAIE 2.4.1",
+    "title": "Mole calculations: masses, gas volumes, solutions, limiting reagent",
+    "weight": 4.1
+   },
+   {
+    "code": "CAIE 3.6.3",
+    "title": "Van der Waals’ forces: id-id and pd-pd, including hydrogen bonding",
+    "weight": 3.96
+   },
+   {
+    "code": "CAIE 16.1.1",
+    "title": "Producing alcohols: hydration, reduction, substitution and ester hydrolysis",
+    "weight": 3.86
+   },
+   {
+    "code": "CAIE 26.1.5",
+    "title": "Multi-step reactions: mechanism, rate equation and rate-determining step",
+    "weight": 3.74
+   }
+  ],
+  "lightest": [
+   {
+    "code": "CAIE 37.4.4",
+    "title": "Deuterated solvents in proton NMR",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 34.3.3",
+    "title": "Why amides are much weaker bases than amines",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 25.2.1",
+    "title": "Partition coefficient, Kpc",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 24.1.2",
+    "title": "Faraday constant, Avogadro constant and F = Le",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 23.4.3",
+    "title": "Feasibility from the sign of ΔG",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 23.4.1",
+    "title": "The Gibbs equation",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 12.1.3",
+    "title": "Oxides of nitrogen: occurrence and catalytic removal from exhaust gases",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 10.1.5",
+    "title": "Solubility trends of Group 2 hydroxides and sulfates",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 7.2.2",
+    "title": "Names and formulas of common alkalis",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 7.2.1",
+    "title": "Names and formulas of common acids",
+    "weight": 1
+   }
+  ]
+ },
+ {
+  "course": "cambridge-alevel-physics",
+  "points": 300,
+  "topics": 25,
+  "min": 1,
+  "max": 2.53,
+  "mean": 1.39,
+  "before": "3.1x",
+  "after": "3.1x",
+  "spreadBefore": "1.5x",
+  "spreadAfter": "1.4x",
+  "heaviestWeek": "8.9 Motion in a circle (A Level) [CAIE 12.1.1 CAIE 12.1.2 CAIE 12.1.3 CAIE 12.2.1 CAIE 12.2.2 CAIE 12.2.3 CAIE 12.2.4]",
+  "lightestWeek": "2.8 Thermodynamics (A Level) [CAIE 16.2.1 CAIE 16.2.2]",
+  "afterOneYear": "5.0x",
+  "weeks": 68,
+  "heaviest": [
+   {
+    "code": "CAIE 20.5.4",
+    "title": "Experiments on induced e.m.f.: cause, direction and magnitude",
+    "weight": 2.53
+   },
+   {
+    "code": "CAIE 15.3.2",
+    "title": "Gas pressure from molecular movement, pV = ⅓Nm⟨c²⟩",
+    "weight": 2.12
+   },
+   {
+    "code": "CAIE 7.2.2",
+    "title": "Graphical representations of transverse and longitudinal waves",
+    "weight": 2
+   },
+   {
+    "code": "CAIE 13.2.3",
+    "title": "Circular orbits from gravitational force and centripetal acceleration",
+    "weight": 2
+   },
+   {
+    "code": "CAIE 17.1.5",
+    "title": "Graphs of displacement, velocity and acceleration for simple harmonic motion",
+    "weight": 2
+   },
+   {
+    "code": "CAIE 19.3.1",
+    "title": "Discharge graphs of potential difference, charge and current",
+    "weight": 2
+   },
+   {
+    "code": "CAIE 21.2.4",
+    "title": "Smoothing with a single capacitor: capacitance and load resistance",
+    "weight": 2
+   },
+   {
+    "code": "CAIE 24.2.4",
+    "title": "Computed tomography (CT) scanning and 3D images",
+    "weight": 1.96
+   },
+   {
+    "code": "CAIE 3.3.2",
+    "title": "Conservation of momentum in elastic and inelastic interactions",
+    "weight": 1.92
+   },
+   {
+    "code": "CAIE 24.3.4",
+    "title": "Positron annihilation producing gamma-ray photon pairs in PET scanning",
+    "weight": 1.86
+   }
+  ],
+  "lightest": [
+   {
+    "code": "CAIE 15.3.1",
+    "title": "Basic assumptions of the kinetic theory of gases",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 11.1.9",
+    "title": "Antineutrinos in β⁻ decay and neutrinos in β⁺ decay",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 9.3.5",
+    "title": "Ohm’s law",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 7.4.1",
+    "title": "Electromagnetic waves are transverse with the same speed c",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 4.2.1",
+    "title": "Principle of moments",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 3.3.1",
+    "title": "Principle of conservation of momentum",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 3.1.5",
+    "title": "Newton’s laws of motion",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 25.2.1",
+    "title": "Wien’s displacement law λₘₐₓ ∝ 1 / T",
+    "weight": 1.1
+   },
+   {
+    "code": "CAIE 24.3.2",
+    "title": "Tracers decaying by β⁺ decay in PET scanning",
+    "weight": 1.1
+   },
+   {
+    "code": "CAIE 24.2.3",
+    "title": "Attenuation of X-rays I = I₀e^(−μx)",
+    "weight": 1.1
+   }
+  ]
+ },
+ {
+  "course": "cambridge-igcse-biology",
+  "points": 389,
+  "topics": 21,
+  "min": 1,
+  "max": 4.44,
+  "mean": 1.6,
+  "before": "6.5x",
+  "after": "5.1x",
+  "spreadBefore": "4.2x",
+  "spreadAfter": "3.1x",
+  "heaviestWeek": "31.4 Transport in plants [CAIE 8.1.1 CAIE 8.1.2 CAIE 8.1.3S CAIE 8.2.1 CAIE 8.2.2 CAIE 8.2.3 CAIE 8.2.4 CAIE 8.3.1 CAIE 8.3.2 CAIE 8.3.3 CAIE 8.3.4S CAIE 8.3.5S CAIE 8.3.6S CAIE 8.3.7S CAIE 8.4.1S CAIE 8.4.2S CAIE 8.4.3S]",
+  "lightestWeek": "6.1 Organisation of the organism [CAIE 2.1.1 CAIE 2.1.2 CAIE 2.1.3 CAIE 2.1.4 CAIE 2.1.5]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "CAIE 1.1.1",
+    "title": "Describe the characteristics of living organisms",
+    "weight": 4.44
+   },
+   {
+    "code": "CAIE 17.1.8S",
+    "title": "Explain how a protein is made",
+    "weight": 4.35
+   },
+   {
+    "code": "CAIE 21.3.3S",
+    "title": "Outline genetic modification of bacteria to produce a human protein",
+    "weight": 4.32
+   },
+   {
+    "code": "CAIE 3.1.5",
+    "title": "Investigate the factors that influence diffusion",
+    "weight": 4.2
+   },
+   {
+    "code": "CAIE 3.2.4",
+    "title": "Investigate osmosis using materials such as dialysis tubing",
+    "weight": 4.2
+   },
+   {
+    "code": "CAIE 3.2.5",
+    "title": "Investigate and describe the effect of solution concentration on plant tissues",
+    "weight": 4.2
+   },
+   {
+    "code": "CAIE 5.1.5",
+    "title": "Investigate and describe the effect of temperature and pH on enzyme activity",
+    "weight": 4.2
+   },
+   {
+    "code": "CAIE 6.1.7",
+    "title": "Investigate the need for chlorophyll, light and carbon dioxide in photosynthesis",
+    "weight": 4.2
+   },
+   {
+    "code": "CAIE 6.1.8",
+    "title": "Investigate and describe how light, CO₂ and temperature affect photosynthesis",
+    "weight": 4.2
+   },
+   {
+    "code": "CAIE 6.1.9",
+    "title": "Investigate the effect of light and dark on gas exchange in an aquatic plant",
+    "weight": 4.2
+   }
+  ],
+  "lightest": [
+   {
+    "code": "CAIE 21.1.1",
+    "title": "State why bacteria are useful in biotechnology and genetic modification",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 20.4.2",
+    "title": "State that some resources can be conserved and managed sustainably",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 20.2.3",
+    "title": "State that humans can harm habitats by altering food webs and food chains",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 19.2.6",
+    "title": "State how consumers are classed as primary, secondary, tertiary or quaternary",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 19.1.1",
+    "title": "State that the Sun is the principal source of energy input to biological systems",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 18.1.10S",
+    "title": "State the sources of genetic variation, including mutation and meiosis",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 18.1.8",
+    "title": "State that ionising radiation and some chemicals increase the rate of mutation",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 18.1.7",
+    "title": "State that mutation is the way in which new alleles are formed",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 18.1.4",
+    "title": "State the causes of discontinuous and continuous variation",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 18.1.2",
+    "title": "State that continuous variation results in a range of phenotypes between two extremes",
+    "weight": 1
+   }
+  ]
+ },
+ {
+  "course": "cambridge-igcse-chemistry",
+  "points": 252,
+  "topics": 12,
+  "min": 1,
+  "max": 4.03,
+  "mean": 1.6,
+  "before": "2.3x",
+  "after": "3.3x",
+  "spreadBefore": "1.7x",
+  "spreadAfter": "2.4x",
+  "heaviestWeek": "16.1 Acids, bases and salts [CAIE 7.1.1 CAIE 7.1.2 CAIE 7.1.3 CAIE 7.1.4 CAIE 7.1.5 CAIE 7.1.6 CAIE 7.1.7 CAIE 7.1.8 CAIE 7.1.9S CAIE 7.1.10S CAIE 7.1.11S]",
+  "lightestWeek": "4.9 States of matter [CAIE 1.1.1 CAIE 1.1.2 CAIE 1.1.3 CAIE 1.1.4]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "CAIE 11.3.7",
+    "title": "Name the uses of the fractions obtained from petroleum",
+    "weight": 4.03
+   },
+   {
+    "code": "CAIE 12.1.3",
+    "title": "Describe the terms solvent, solute, solution, saturated solution, residue and filtrate",
+    "weight": 3.95
+   },
+   {
+    "code": "CAIE 12.5.1",
+    "title": "Describe tests to identify the anions",
+    "weight": 3.67
+   },
+   {
+    "code": "CAIE 10.3.3",
+    "title": "State the adverse effect of these air pollutants",
+    "weight": 3.41
+   },
+   {
+    "code": "CAIE 12.5.2",
+    "title": "Describe tests using aqueous sodium hydroxide and ammonia to identify cations",
+    "weight": 3.35
+   },
+   {
+    "code": "CAIE 9.6.2",
+    "title": "Describe the extraction of iron from hematite in the blast furnace",
+    "weight": 3.33
+   },
+   {
+    "code": "CAIE 7.3.2",
+    "title": "Describe the general solubility rules for salts",
+    "weight": 3.31
+   },
+   {
+    "code": "CAIE 3.3.3S",
+    "title": "Use amount of substance (mol) = mass (g) / molar mass (g/mol) in calculations",
+    "weight": 3.29
+   },
+   {
+    "code": "CAIE 12.5.3",
+    "title": "Describe tests to identify the gases",
+    "weight": 3.18
+   },
+   {
+    "code": "CAIE 9.2.1",
+    "title": "Describe the uses of metals in terms of their physical properties",
+    "weight": 3.09
+   }
+  ],
+  "lightest": [
+   {
+    "code": "CAIE 12.3.4S",
+    "title": "State and use the equation for Rf in chromatography",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 11.8.11S",
+    "title": "State that PET can be converted back into monomers and re-polymerised",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 11.8.3",
+    "title": "State that plastics are made from polymers",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 11.5.5S",
+    "title": "State that in an addition reaction only one product is formed",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 11.5.1",
+    "title": "State that alkenes have a carbon–carbon double bond and are unsaturated",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 11.4.3S",
+    "title": "State that in a substitution reaction one atom or group is replaced by another",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 11.4.1",
+    "title": "State that alkanes have single covalent bonds and are saturated hydrocarbons",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 11.3.4",
+    "title": "State that petroleum is a mixture of hydrocarbons",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 11.3.3",
+    "title": "State that hydrocarbons are compounds that contain hydrogen and carbon only",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 11.3.2",
+    "title": "Name methane as the main constituent of natural gas",
+    "weight": 1
+   }
+  ]
+ },
+ {
+  "course": "cambridge-igcse-physics",
+  "points": 324,
+  "topics": 6,
+  "min": 1,
+  "max": 4.66,
+  "mean": 1.4,
+  "before": "1.6x",
+  "after": "1.5x",
+  "spreadBefore": "1.4x",
+  "spreadAfter": "1.2x",
+  "heaviestWeek": "16.8 Space physics [CAIE 6.1.1.1 CAIE 6.1.1.2 CAIE 6.1.1.3 CAIE 6.1.1.4S CAIE 6.1.2.1 CAIE 6.1.2.2 CAIE 6.1.2.3 CAIE 6.1.2.4 CAIE 6.1.2.5 CAIE 6.1.2.6]",
+  "lightestWeek": "11.4 Nuclear physics [CAIE 5.2.4.1 CAIE 5.2.4.2S CAIE 5.2.4.3S CAIE 5.2.5.1 CAIE 5.2.5.2 CAIE 5.2.5.3S]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "CAIE 6.2.2.3S",
+    "title": "Describe the life cycle of a star",
+    "weight": 4.66
+   },
+   {
+    "code": "CAIE 1.7.3.1",
+    "title": "Describe how useful energy or electrical power is obtained from energy resources",
+    "weight": 4.31
+   },
+   {
+    "code": "CAIE 3.3.3",
+    "title": "Describe typical uses of the different regions of the electromagnetic spectrum",
+    "weight": 4.26
+   },
+   {
+    "code": "CAIE 5.2.4.3S",
+    "title": "Explain how radiation type and half-life determine which isotope is used",
+    "weight": 3.71
+   },
+   {
+    "code": "CAIE 3.3.7S",
+    "title": "Know that many important systems of communications rely on electromagnetic radiation",
+    "weight": 3.24
+   },
+   {
+    "code": "CAIE 6.1.2.1",
+    "title": "Describe the Solar System as the Sun, planets, minor planets, moons and comets",
+    "weight": 3.13
+   },
+   {
+    "code": "CAIE 1.7.3.6S",
+    "title": "Know that research is investigating nuclear fusion for large-scale electricity",
+    "weight": 3.07
+   },
+   {
+    "code": "CAIE 4.3.2.8S",
+    "title": "Recall and use current and p.d. rules for series and parallel circuits",
+    "weight": 3
+   },
+   {
+    "code": "CAIE 6.2.2.1",
+    "title": "State that galaxies hold billions of stars and that distances are in light-years",
+    "weight": 2.99
+   },
+   {
+    "code": "CAIE 6.1.2.2",
+    "title": "Know why inner planets are rocky and small and outer planets gaseous and large",
+    "weight": 2.91
+   }
+  ],
+  "lightest": [
+   {
+    "code": "CAIE 5.2.5.1",
+    "title": "State the effects of ionising nuclear radiations on living things",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 5.2.3.2",
+    "title": "State that during α-decay or β-decay, the nucleus changes to that of a different element",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 5.1.2.2",
+    "title": "State the relative charges of protons, neutrons and electrons as +1, 0 and –1 respectively",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 4.5.6.5",
+    "title": "State the advantages of high-voltage transmission",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 4.5.3.4S",
+    "title": "State how magnetic field strength varies around straight wires and solenoids",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 4.5.1.5S",
+    "title": "State and use the relative directions of force, field and induced current",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 4.5.1.3",
+    "title": "State the factors affecting the magnitude of an induced e.m.f",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 4.4.5",
+    "title": "State that a fuse protects the circuit and cabling of a double-insulated appliance",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 4.3.2.7",
+    "title": "State the advantages of connecting lamps in parallel in a lighting circuit",
+    "weight": 1
+   },
+   {
+    "code": "CAIE 4.3.2.6",
+    "title": "State that two resistors in parallel have less resistance than either alone",
+    "weight": 1
+   }
+  ]
+ },
+ {
+  "course": "edexcel-alevel-biology",
+  "points": 155,
+  "topics": 8,
+  "min": 1.05,
+  "max": 4.2,
+  "mean": 1.9,
+  "before": "3.9x",
+  "after": "4.1x",
+  "spreadBefore": "2.1x",
+  "spreadAfter": "1.6x",
+  "heaviestWeek": "5.7 Genes and health [EDEX 2.11 EDEX 2.12 EDEX 2.13]",
+  "lightestWeek": "1.4 Lifestyle, health and risk [EDEX 1.17]",
+  "afterOneYear": "1.7x",
+  "weeks": 68,
+  "heaviest": [
+   {
+    "code": "EDEX 1.CP1",
+    "title": "Core practical: effect of caffeine on Daphnia heart rate",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 1.CP2",
+    "title": "Core practical: vitamin C content of food and drink",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 2.CP3",
+    "title": "Core practical: effect of alcohol or temperature on membrane permeability",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 2.CP4",
+    "title": "Core practical: effect of enzyme and substrate concentration on initial rate",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 4.CP7",
+    "title": "Core practical: investigate plant mineral deficiencies",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 4.CP9",
+    "title": "Core practical: antimicrobial properties of plants and aseptic technique",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 5.CP11",
+    "title": "Core practical: photosynthesis in isolated chloroplasts (the Hill reaction)",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 5.CP12",
+    "title": "Core practical: temperature and enzyme-catalysed reaction rate, including Q₁₀",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 5.CP13",
+    "title": "Core practical: effects of temperature on the development of organisms",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 6.CP15",
+    "title": "Core practical: effect of different antibiotics on bacteria",
+    "weight": 4.2
+   }
+  ],
+  "lightest": [
+   {
+    "code": "EDEX 8.17",
+    "title": "Drugs produced using genetically modified organisms",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 8.8",
+    "title": "Location and functions of regions of the human brain",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 8.4",
+    "title": "Synapses and neurotransmitters, including acetylcholine",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 8.1",
+    "title": "Sensory, relay and motor neurones, Schwann cells and myelination",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 7.1",
+    "title": "How muscles, tendons, the skeleton and ligaments produce movement",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 6.4",
+    "title": "Amplifying DNA with the polymerase chain reaction (PCR)",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 6.3",
+    "title": "DNA profiling for identification and genetic relationships",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 6.2",
+    "title": "Micro-organisms in decomposition and the recycling of carbon",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 5.11",
+    "title": "Efficiency of biomass and energy transfers between trophic levels",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 4.1",
+    "title": "The extent of life’s variety and the threat from human activity",
+    "weight": 1.05
+   }
+  ]
+ },
+ {
+  "course": "edexcel-alevel-chemistry",
+  "points": 341,
+  "topics": 19,
+  "min": 1.05,
+  "max": 4.51,
+  "mean": 1.7,
+  "before": "5.9x",
+  "after": "3.5x",
+  "spreadBefore": "1.8x",
+  "spreadAfter": "1.4x",
+  "heaviestWeek": "11.3 Energetics I [EDEX 8.7 EDEX 8.8 EDEX 8.CP8 EDEX 8.9 EDEX 8.10 EDEX 8.11]",
+  "lightestWeek": "3.2 Equilibrium II [EDEX 11.1 EDEX 11.2]",
+  "afterOneYear": "3.9x",
+  "weeks": 68,
+  "heaviest": [
+   {
+    "code": "EDEX 16.4",
+    "title": "Initial-rate and continuous monitoring methods",
+    "weight": 4.51
+   },
+   {
+    "code": "EDEX 17B.8",
+    "title": "Reactions of carbonyl compounds",
+    "weight": 4.1
+   },
+   {
+    "code": "EDEX 7B.2",
+    "title": "Infrared absorptions of functional groups",
+    "weight": 4
+   },
+   {
+    "code": "EDEX 6D.32",
+    "title": "Reactions of halogenoalkanes with nucleophiles and bases",
+    "weight": 3.97
+   },
+   {
+    "code": "EDEX 6E.38",
+    "title": "Reactions of alcohols: combustion, halogenation, oxidation, elimination",
+    "weight": 3.81
+   },
+   {
+    "code": "EDEX 16.1",
+    "title": "Rate terms: rate equation, order, half-life, rate-determining step",
+    "weight": 3.76
+   },
+   {
+    "code": "EDEX 19B.5",
+    "title": "Using ¹H NMR data: shifts, peak areas and splitting",
+    "weight": 3.76
+   },
+   {
+    "code": "EDEX 6C.22",
+    "title": "Addition reactions of alkenes: hydrogen, halogens, steam, manganate(VII)",
+    "weight": 3.7
+   },
+   {
+    "code": "EDEX 4B.12",
+    "title": "Oxidation and disproportionation reactions of the halogens",
+    "weight": 3.5
+   },
+   {
+    "code": "EDEX 18C.22",
+    "title": "Techniques for preparing and purifying organic compounds",
+    "weight": 3.47
+   }
+  ],
+  "lightest": [
+   {
+    "code": "EDEX 19C.6",
+    "title": "Chromatography: mobile and stationary phases",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 18B.14",
+    "title": "Polyamides as condensation polymers",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 18B.12",
+    "title": "Reducing aromatic nitro-compounds to amines",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 17A.1",
+    "title": "Optical isomerism and chirality",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 15B.35",
+    "title": "Mn²⁺ autocatalysis of the MnO₄⁻ and C₂O₄²⁻ reaction",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 15B.33",
+    "title": "Homogeneous catalysts and intermediate species",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 15B.30",
+    "title": "Heterogeneous catalysts: different phase, reaction at the surface",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 15B.29",
+    "title": "Transition metals as heterogeneous and homogeneous catalysts",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 15B.23",
+    "title": "Dichromate(VI) and chromate(VI) equilibrium",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 15B.20",
+    "title": "Colours of vanadium oxidation states",
+    "weight": 1.05
+   }
+  ]
+ },
+ {
+  "course": "edexcel-alevel-physics",
+  "points": 191,
+  "topics": 13,
+  "min": 1.05,
+  "max": 3.47,
+  "mean": 1.64,
+  "before": "3.3x",
+  "after": "2.7x",
+  "spreadBefore": "2.2x",
+  "spreadAfter": "1.5x",
+  "heaviestWeek": "6.0 Space [EDEX 10.160 EDEX 10.161 EDEX 10.162 EDEX 10.163]",
+  "lightestWeek": "2.2 Materials [EDEX 4.58]",
+  "afterOneYear": "2.1x",
+  "weeks": 68,
+  "heaviest": [
+   {
+    "code": "EDEX 7.119",
+    "title": "Core practical 11: Charging and discharging a capacitor",
+    "weight": 3.47
+   },
+   {
+    "code": "EDEX 2.19",
+    "title": "Core practical 1: Acceleration of a freely-falling object",
+    "weight": 3.4
+   },
+   {
+    "code": "EDEX 3.40",
+    "title": "Core practical 2: Electrical resistivity of a material",
+    "weight": 3.4
+   },
+   {
+    "code": "EDEX 3.46",
+    "title": "Core practical 3: E.m.f. and internal resistance of an electrical cell",
+    "weight": 3.4
+   },
+   {
+    "code": "EDEX 4.52",
+    "title": "Core practical 4: Viscosity of a liquid using a falling ball",
+    "weight": 3.4
+   },
+   {
+    "code": "EDEX 4.57",
+    "title": "Core practical 5: Young modulus of a material",
+    "weight": 3.4
+   },
+   {
+    "code": "EDEX 5.64",
+    "title": "Core practical 6: Speed of sound in air",
+    "weight": 3.4
+   },
+   {
+    "code": "EDEX 5.69",
+    "title": "Core practical 7: Frequency of a vibrating string or wire",
+    "weight": 3.4
+   },
+   {
+    "code": "EDEX 5.85",
+    "title": "Core practical 8: Wavelength of light using a diffraction grating",
+    "weight": 3.4
+   },
+   {
+    "code": "EDEX 6.98",
+    "title": "Core practical 9: Force and change of momentum",
+    "weight": 3.4
+   }
+  ],
+  "lightest": [
+   {
+    "code": "EDEX 7.112",
+    "title": "Relation between electric field and electric potential",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 5.81",
+    "title": "Magnification",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 5.79",
+    "title": "Real and virtual images",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 5.67",
+    "title": "Standing (stationary) waves, nodes and antinodes",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 5.65",
+    "title": "Wavefront, coherence, path difference, superposition, interference, phase",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 2.28",
+    "title": "Conservation of energy",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 2.20",
+    "title": "Newton’s third law of motion and force pairs",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 1.1",
+    "title": "Base and derived quantities and their SI units",
+    "weight": 1.05
+   },
+   {
+    "code": "EDEX 3.45",
+    "title": "Electromotive force, internal resistance and terminal potential difference",
+    "weight": 1.07
+   },
+   {
+    "code": "EDEX 5.71",
+    "title": "Refractive index and refraction at an interface",
+    "weight": 1.09
+   }
+  ]
+ },
+ {
+  "course": "edexcel-gcse-chemistry",
+  "points": 243,
+  "topics": 10,
+  "min": 1.1,
+  "max": 5.17,
+  "mean": 1.78,
+  "before": "4.1x",
+  "after": "4.0x",
+  "spreadBefore": "1.7x",
+  "spreadAfter": "1.3x",
+  "heaviestWeek": "16.5 Chemical changes [EDEX 3.17 EDEX 3.18 EDEX 3.19 EDEX 3.20 EDEX 3.21 EDEX 3.22 EDEX 3.23 EDEX 3.24]",
+  "lightestWeek": "4.1 Formulae, equations and hazards [EDEX 0.1 EDEX 0.2 EDEX 0.3]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "EDEX 7.1",
+    "title": "Practical: Effects of changing the conditions of a reaction on the rates",
+    "weight": 5.17
+   },
+   {
+    "code": "EDEX 2.11",
+    "title": "Practical: Composition of inks using simple distillation and paper",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 3.6",
+    "title": "Practical: Change in pH on adding powdered calcium hydroxide or calcium",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 3.17",
+    "title": "Practical: Preparation of pure, dry hydrated copper sulfate crystals",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 3.31",
+    "title": "Practical: Electrolysis of copper sulfate solution with inert electrodes",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 9.28C",
+    "title": "Temperature rise in water from burning ethanol, propanol, butanol and pentanol",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 5.9C",
+    "title": "Practical: Carry out an accurate acid-alkali titration, using burette",
+    "weight": 3.4
+   },
+   {
+    "code": "EDEX 1.32",
+    "title": "Ionic, simple molecular, giant covalent and metallic structures and their properties",
+    "weight": 3.29
+   },
+   {
+    "code": "EDEX 8.4",
+    "title": "Names and uses of crude oil fractions, from gases to bitumen",
+    "weight": 3.29
+   },
+   {
+    "code": "EDEX 3.19",
+    "title": "General rules for the solubility of common substances in water",
+    "weight": 3.13
+   }
+  ],
+  "lightest": [
+   {
+    "code": "EDEX 9.31C",
+    "title": "Oxidation of ethanol to ethanoic acid and of other alcohols",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 9.30C",
+    "title": "Carboxylic acids: the –COOH functional group and typical acidic properties",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 9.27C",
+    "title": "Alcohols: the –OH functional group and dehydration to form alkenes",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 9.17C",
+    "title": "Polymers as substances of high relative molecular mass made of repeating units",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 9.14C",
+    "title": "Addition reaction of ethene and other alkenes with bromine",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 9.10C",
+    "title": "Formulae and structures of methane, ethane, propane and butane",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 8.18",
+    "title": "Volcanic gases forming the Earth’s early atmosphere",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 8.1",
+    "title": "Hydrocarbons as compounds containing only carbon and hydrogen",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 7.12",
+    "title": "Bond breaking as endothermic and bond making as exothermic",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 7.8",
+    "title": "Enzymes as biological catalysts used in producing alcoholic drinks",
+    "weight": 1.1
+   }
+  ]
+ },
+ {
+  "course": "edexcel-gcse-physics",
+  "points": 296,
+  "topics": 15,
+  "min": 1.1,
+  "max": 4.37,
+  "mean": 1.63,
+  "before": "4.2x",
+  "after": "4.2x",
+  "spreadBefore": "1.6x",
+  "spreadAfter": "1.4x",
+  "heaviestWeek": "21.4 Energy – forces doing work [EDEX 8.1 EDEX 8.2 EDEX 8.3 EDEX 8.4 EDEX 8.5 EDEX 8.6 EDEX 8.7 EDEX 8.8 EDEX 8.9 EDEX 8.10 EDEX 8.11 EDEX 8.12 EDEX 8.13 EDEX 8.14 EDEX 8.15]",
+  "lightestWeek": "5.1 Key concepts of physics [EDEX 1.1 EDEX 1.2 EDEX 1.3 EDEX 1.4]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "EDEX 5.22",
+    "title": "Uses of electromagnetic radiation, from radio waves to gamma rays",
+    "weight": 4.37
+   },
+   {
+    "code": "EDEX 2.19",
+    "title": "Practical: Relationship between force, mass and acceleration by varying",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 4.17",
+    "title": "Practical: Suitability of equipment to measure wave speed, frequency and wavelength",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 5.9",
+    "title": "Practical: Refraction in rectangular glass blocks",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 5.19P",
+    "title": "Practical: Effect of surface type on thermal energy radiated or absorbed",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 14.3",
+    "title": "Practical: Densities of solid and liquids",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 14.11",
+    "title": "Practical: Properties of water by determining the specific heat capacity",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 15.6",
+    "title": "Extension and work done when applying forces to a spring",
+    "weight": 4.2
+   },
+   {
+    "code": "EDEX 10.17",
+    "title": "Practical: Construct circuits to investigate potential difference, current and resistance",
+    "weight": 4.04
+   },
+   {
+    "code": "EDEX 3.5",
+    "title": "Analyse the changes in the way energy is stored when a system changes",
+    "weight": 3.77
+   }
+  ],
+  "lightest": [
+   {
+    "code": "EDEX 15.16P",
+    "title": "Upthrust equals the weight of fluid displaced",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 15.9P",
+    "title": "Pressure in fluids acts normal to any surface",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 14.2",
+    "title": "Equation linking density, mass and volume",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 13.6",
+    "title": "Transformers change the size of an alternating voltage",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 13.2",
+    "title": "Factors affecting the size and direction of an induced potential difference",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 12.10",
+    "title": "Equal and opposite forces on a current-carrying conductor and a magnet near it",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 12.8",
+    "title": "Dependence of field strength on current and distance from a long straight conductor",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 12.1",
+    "title": "Unlike magnetic poles attract, like poles repel",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 11.3P",
+    "title": "Like charges repel, unlike charges attract",
+    "weight": 1.1
+   },
+   {
+    "code": "EDEX 10.40",
+    "title": "Potential differences between the live, neutral and earth mains wires",
+    "weight": 1.1
+   }
+  ]
+ },
+ {
+  "course": "edexcel-igcse-chemistry",
+  "points": 182,
+  "topics": 4,
+  "min": 1.05,
+  "max": 4.36,
+  "mean": 1.54,
+  "before": "2.3x",
+  "after": "1.6x",
+  "spreadBefore": "1.7x",
+  "spreadAfter": "1.2x",
+  "heaviestWeek": "9.1 Physical chemistry [IGCSE 3.7C IGCSE 3.8 IGCSE 3.9]",
+  "lightestWeek": "5.6 Principles of chemistry [IGCSE 1.59C IGCSE 1.60C]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "IGCSE 3.15",
+    "title": "Practical: effect of marble chip surface area and acid concentration on reaction rate",
+    "weight": 4.36
+   },
+   {
+    "code": "IGCSE 1.7C",
+    "title": "Practical: Solubility of a solid in water at a specific temperature",
+    "weight": 4.2
+   },
+   {
+    "code": "IGCSE 1.13",
+    "title": "Practical: Paper chromatography using inks/food colourings",
+    "weight": 4.2
+   },
+   {
+    "code": "IGCSE 1.60C",
+    "title": "Practical: Electrolysis of aqueous solutions",
+    "weight": 4.2
+   },
+   {
+    "code": "IGCSE 2.21",
+    "title": "Practical: reactions of dilute hydrochloric and sulfuric acids with metals",
+    "weight": 4.2
+   },
+   {
+    "code": "IGCSE 3.8",
+    "title": "Practical: temperature changes in dissolving, neutralisation, displacement and combustion",
+    "weight": 4.2
+   },
+   {
+    "code": "IGCSE 3.16",
+    "title": "Practical: effect of different solids as catalysts on hydrogen peroxide decomposition",
+    "weight": 4.2
+   },
+   {
+    "code": "IGCSE 1.58C",
+    "title": "Electrolysis experiments with inert electrodes and predicting the products",
+    "weight": 3.43
+   },
+   {
+    "code": "IGCSE 3.9",
+    "title": "Experiments on how surface area, concentration, temperature and a catalyst affect rate",
+    "weight": 3.43
+   },
+   {
+    "code": "IGCSE 2.14",
+    "title": "Practical: Determine the approximate percentage by volume of oxygen in air",
+    "weight": 3.4
+   }
+  ],
+  "lightest": [
+   {
+    "code": "IGCSE 4.50C",
+    "title": "Biodegradable polyesters (biopolyesters)",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 4.48C",
+    "title": "Condensation polymerisation of a dicarboxylic acid and a diol to make a polyester",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 4.44",
+    "title": "Addition polymers formed by joining many small molecules called monomers",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 4.42C",
+    "title": "Properties and uses of esters in food flavourings and perfumes",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 4.39C",
+    "title": "Ethyl ethanoate as the ester made from ethanol and ethanoic acid",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 4.38C",
+    "title": "Esters contain the −COO− functional group",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 4.37C",
+    "title": "Vinegar as an aqueous solution of ethanoic acid",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 4.34C",
+    "title": "Carboxylic acids contain the −COOH functional group",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 4.29C",
+    "title": "Alcohols contain the −OH functional group",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 4.24",
+    "title": "General formula for alkenes",
+    "weight": 1.05
+   }
+  ]
+ },
+ {
+  "course": "edexcel-igcse-physics",
+  "points": 195,
+  "topics": 8,
+  "min": 1.05,
+  "max": 4.2,
+  "mean": 1.59,
+  "before": "2.0x",
+  "after": "1.9x",
+  "spreadBefore": "1.7x",
+  "spreadAfter": "1.3x",
+  "heaviestWeek": "10.7 Energy resources and energy transfers [IGCSE 4.13 IGCSE 4.14 IGCSE 4.15 IGCSE 4.16 IGCSE 4.17 IGCSE 4.18P IGCSE 4.19P]",
+  "lightestWeek": "5.6 Forces and motion [IGCSE 1.1 IGCSE 1.2P IGCSE 1.3 IGCSE 1.4]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "IGCSE 1.5",
+    "title": "Practical: investigate the motion of everyday objects",
+    "weight": 4.2
+   },
+   {
+    "code": "IGCSE 1.22",
+    "title": "Practical: investigate extension against force for springs, wires and rubber bands",
+    "weight": 4.2
+   },
+   {
+    "code": "IGCSE 2.23P",
+    "title": "Practical: investigate how insulating materials can be charged by friction",
+    "weight": 4.2
+   },
+   {
+    "code": "IGCSE 3.17",
+    "title": "Practical: investigate the refraction of light using blocks and prisms",
+    "weight": 4.2
+   },
+   {
+    "code": "IGCSE 3.19",
+    "title": "Practical: investigate the refractive index of glass, using a glass block",
+    "weight": 4.2
+   },
+   {
+    "code": "IGCSE 3.25P",
+    "title": "Practical: investigate the speed of sound in air",
+    "weight": 4.2
+   },
+   {
+    "code": "IGCSE 3.27P",
+    "title": "Practical: investigate the frequency of a sound wave using an oscilloscope",
+    "weight": 4.2
+   },
+   {
+    "code": "IGCSE 4.9",
+    "title": "Practical: investigate thermal energy transfer by conduction, convection and radiation",
+    "weight": 4.2
+   },
+   {
+    "code": "IGCSE 5.4",
+    "title": "Practical: investigate density using direct measurements of mass and volume",
+    "weight": 4.2
+   },
+   {
+    "code": "IGCSE 5.14P",
+    "title": "Practical: investigate the specific heat capacity of water and some solids",
+    "weight": 4.2
+   }
+  ],
+  "lightest": [
+   {
+    "code": "IGCSE 8.8",
+    "title": "Know that a star’s colour is related to its surface temperature",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 7.25",
+    "title": "Know that fusion is the energy source for stars",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 7.19",
+    "title": "Know that U-235 fission produces two radioactive daughter nuclei and a few neutrons",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 7.17",
+    "title": "Know that nuclear reactions can be a source of energy",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 7.12",
+    "title": "Know the definition of half-life and that it differs between isotopes",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 7.11",
+    "title": "Know that radioactive activity decreases over time and is measured in becquerels",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 7.9",
+    "title": "Know that photographic film or a Geiger−Müller detector can detect ionising radiations",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 7.4",
+    "title": "Know that α, β⁻ and γ radiations are ionising and emitted randomly by unstable nuclei",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 7.3",
+    "title": "Know the terms atomic (proton) number, mass (nucleon) number and isotope",
+    "weight": 1.05
+   },
+   {
+    "code": "IGCSE 6.20P",
+    "title": "Know and use the relationship between input power and output power",
+    "weight": 1.05
+   }
+  ]
+ },
+ {
+  "course": "ocr-alevel-biology",
+  "points": 244,
+  "topics": 10,
+  "min": 1.4,
+  "max": 3.8,
+  "mean": 1.7,
+  "before": "2.4x",
+  "after": "1.6x",
+  "spreadBefore": "1.7x",
+  "spreadAfter": "1.3x",
+  "heaviestWeek": "7.6 Communication and homeostasis [OCR 5.1.2a OCR 5.1.2b OCR 5.1.2c]",
+  "lightestWeek": "4.8 Energy for biological processes [OCR 5.2.1a OCR 5.2.1b OCR 5.2.1c]",
+  "afterOneYear": "1.9x",
+  "weeks": 68,
+  "heaviest": [
+   {
+    "code": "OCR 2.1.1a",
+    "title": "Microscopy to observe cells",
+    "weight": 3.8
+   },
+   {
+    "code": "OCR 5.2.2l",
+    "title": "Investigating factors affecting the rate of respiration",
+    "weight": 3.44
+   },
+   {
+    "code": "OCR 5.1.5e",
+    "title": "Practical investigations into the effect of plant hormones on growth",
+    "weight": 3.4
+   },
+   {
+    "code": "OCR 5.1.2c",
+    "title": "Structure, mechanisms of action and functions of the mammalian kidney",
+    "weight": 3.17
+   },
+   {
+    "code": "OCR 3.1.3b",
+    "title": "Vascular system of herbaceous dicotyledonous plants",
+    "weight": 3.04
+   },
+   {
+    "code": "OCR 4.2.2c",
+    "title": "Five kingdoms and the evidence for the three domains of life",
+    "weight": 3.04
+   },
+   {
+    "code": "OCR 6.1.3b",
+    "title": "Gene sequencing: genome comparisons, amino acid sequences, synthetic biology",
+    "weight": 3.02
+   },
+   {
+    "code": "OCR 6.2.1i",
+    "title": "Uses of immobilised enzymes in biotechnology and methods of immobilisation",
+    "weight": 3
+   },
+   {
+    "code": "OCR 5.1.2b",
+    "title": "Structure and functions of the mammalian liver",
+    "weight": 2.88
+   },
+   {
+    "code": "OCR 6.1.2h",
+    "title": "Artificial selection: principles, uses and ethical considerations",
+    "weight": 2.88
+   }
+  ],
+  "lightest": [
+   {
+    "code": "OCR 6.3.2d",
+    "title": "Managing an ecosystem to provide resources sustainably",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.3.2c",
+    "title": "Reasons for, and differences between, conservation and preservation",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.3.2b",
+    "title": "Interactions between populations",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.3.1d",
+    "title": "Primary succession in the development of an ecosystem",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.2.1f",
+    "title": "Advantages and disadvantages of using microorganisms to make food",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.2.1e",
+    "title": "Use of microorganisms in biotechnological processes",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.2.1c",
+    "title": "Natural clones in animal species",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.1.3h",
+    "title": "Principles and potential of gene therapy in medicine",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.1.3e",
+    "title": "Electrophoresis for separating nucleic acid fragments or proteins",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.1.3d",
+    "title": "Polymerase chain reaction (PCR) and its application in DNA analysis",
+    "weight": 1.4
+   }
+  ]
+ },
+ {
+  "course": "ocr-alevel-chemistry",
+  "points": 291,
+  "topics": 13,
+  "min": 1.4,
+  "max": 5.07,
+  "mean": 1.91,
+  "before": "2.4x",
+  "after": "1.8x",
+  "spreadBefore": "1.8x",
+  "spreadAfter": "1.4x",
+  "heaviestWeek": "10.3 Transition elements [OCR 5.3.1j OCR 5.3.1k OCR 5.3.1l OCR 5.3.2a]",
+  "lightestWeek": "5.9 Basic concepts and hydrocarbons [OCR 4.1.1a OCR 4.1.1b]",
+  "afterOneYear": "1.7x",
+  "weeks": 68,
+  "heaviest": [
+   {
+    "code": "OCR 4.2.2e",
+    "title": "CFCs, halogen radicals and the catalysed breakdown of ozone",
+    "weight": 5.07
+   },
+   {
+    "code": "OCR 4.1.1c",
+    "title": "Homologous series, functional group, alkyl, aliphatic, alicyclic, aromatic",
+    "weight": 4.54
+   },
+   {
+    "code": "OCR 6.3.1c",
+    "title": "Test-tube tests for alkenes, haloalkanes, phenols, carbonyls, alcohols and acids",
+    "weight": 4.54
+   },
+   {
+    "code": "OCR 2.1.3a",
+    "title": "Amount of substance, mole, Avogadro constant, molar mass and volume",
+    "weight": 4.1
+   },
+   {
+    "code": "OCR 3.2.1d",
+    "title": "Standard conditions and types of enthalpy change",
+    "weight": 4.1
+   },
+   {
+    "code": "OCR 6.3.2b",
+    "title": "Analysing proton NMR: environments, peak areas, n + 1 splitting, structures",
+    "weight": 4.1
+   },
+   {
+    "code": "OCR 4.1.1b",
+    "title": "General, structural, displayed and skeletal formulae",
+    "weight": 3.88
+   },
+   {
+    "code": "OCR 3.1.4a",
+    "title": "Qualitative analysis of anions and cations on a test-tube scale",
+    "weight": 3.81
+   },
+   {
+    "code": "OCR 5.3.1k",
+    "title": "Redox reactions and colour changes of Fe, Cr and Cu ions",
+    "weight": 3.59
+   },
+   {
+    "code": "OCR 4.2.4c",
+    "title": "Using IR spectra to identify alcohols, aldehydes, ketones and carboxylic acids",
+    "weight": 3.58
+   }
+  ],
+  "lightest": [
+   {
+    "code": "OCR 6.3.2c",
+    "title": "Predicting a carbon-13 or proton NMR spectrum for a molecule",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.3.1a",
+    "title": "Interpreting one-way TLC chromatograms using Rf values",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.2.4a",
+    "title": "C–C bond formation to lengthen a carbon chain",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.2.2d",
+    "title": "Identifying chiral centres in organic molecules",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.2.2b",
+    "title": "Structures of primary and secondary amides",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.1.3e",
+    "title": "Formation of acyl chlorides from carboxylic acids using SOCl₂",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.1.3a",
+    "title": "Water solubility of carboxylic acids and hydrogen bonding",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.1.2a",
+    "title": "Oxidation of aldehydes to carboxylic acids",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.1.1l",
+    "title": "Predicting substitution products of arenes from directing effects",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.1.1h",
+    "title": "Weak acidity of phenols: reaction with NaOH but not carbonates",
+    "weight": 1.4
+   }
+  ]
+ },
+ {
+  "course": "ocr-alevel-physics",
+  "points": 386,
+  "topics": 22,
+  "min": 1.4,
+  "max": 3.5,
+  "mean": 1.48,
+  "before": "1.9x",
+  "after": "1.8x",
+  "spreadBefore": "1.5x",
+  "spreadAfter": "1.4x",
+  "heaviestWeek": "11.4 Newton’s laws of motion and momentum [OCR 3.5.1a OCR 3.5.1b OCR 3.5.1c OCR 3.5.1d OCR 3.5.1e OCR 3.5.2a OCR 3.5.2b OCR 3.5.2c]",
+  "lightestWeek": "6.3 Motion [OCR 3.1.2b OCR 3.1.2c OCR 3.1.3a OCR 3.1.3b]",
+  "afterOneYear": "4.3x",
+  "weeks": 68,
+  "heaviest": [
+   {
+    "code": "OCR 1.2.2j",
+    "title": "Using a laser or light source to investigate light",
+    "weight": 3.5
+   },
+   {
+    "code": "OCR 5.3.3e",
+    "title": "Practical examples of forced oscillations and resonance",
+    "weight": 3.4
+   },
+   {
+    "code": "OCR 3.1.2a",
+    "title": "Equations of motion for constant acceleration; motion investigations",
+    "weight": 2.88
+   },
+   {
+    "code": "OCR 4.4.1f",
+    "title": "Reflection, refraction, polarisation and diffraction of waves",
+    "weight": 2.73
+   },
+   {
+    "code": "OCR 4.4.2d",
+    "title": "Refraction of light and refractive index",
+    "weight": 2.71
+   },
+   {
+    "code": "OCR 5.1.4d",
+    "title": "Equation of state pV = nRT and investigating gas laws",
+    "weight": 2.57
+   },
+   {
+    "code": "OCR 4.5.2a",
+    "title": "The photoelectric effect and its demonstration",
+    "weight": 2.33
+   },
+   {
+    "code": "OCR 4.4.3g",
+    "title": "λ = ax/D and measuring the wavelength of light",
+    "weight": 2.31
+   },
+   {
+    "code": "OCR 4.3.3c",
+    "title": "Potential divider equations and investigating sensor circuits",
+    "weight": 2.26
+   },
+   {
+    "code": "OCR 4.3.2c",
+    "title": "E = I(R + r), E = V + Ir and measuring internal resistance",
+    "weight": 2.2
+   }
+  ],
+  "lightest": [
+   {
+    "code": "OCR 6.5.3g",
+    "title": "Doppler effect in ultrasound and speed of blood",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.5.3f",
+    "title": "Impedance (acoustic) matching and ultrasound gel",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.5.3e",
+    "title": "Reflection of ultrasound at a boundary",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.5.3d",
+    "title": "Acoustic impedance of a medium, Z = ρc",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.5.3c",
+    "title": "Ultrasound A-scan and B-scan",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.5.3b",
+    "title": "Piezoelectric effect and the ultrasound transducer",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.5.3a",
+    "title": "Ultrasound as a longitudinal wave above 20 kHz",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.5.2e",
+    "title": "Diagnosis using PET scanning",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.5.2d",
+    "title": "Positron emission tomography (PET) scanner",
+    "weight": 1.4
+   },
+   {
+    "code": "OCR 6.5.2c",
+    "title": "Diagnosis using a gamma camera",
+    "weight": 1.4
+   }
+  ]
+ },
+ {
+  "course": "ocr-gcse-chemistry",
+  "points": 147,
+  "topics": 6,
+  "min": 1,
+  "max": 2.48,
+  "mean": 1.54,
+  "before": "1.9x",
+  "after": "1.3x",
+  "spreadBefore": "1.5x",
+  "spreadAfter": "1.2x",
+  "heaviestWeek": "7.6 Global challenges [OCR C6.1l OCR C6.1m OCR C6.1n OCR C6.1o OCR C6.1p]",
+  "lightestWeek": "5.9 Global challenges [OCR C6.1a OCR C6.1b OCR C6.1c]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "OCR C2.3f",
+    "title": "How the bulk properties of materials (ionic compounds",
+    "weight": 2.48
+   },
+   {
+    "code": "OCR C6.2c",
+    "title": "Predicting products of reactions of alkanes, alkenes and alcohols",
+    "weight": 2.39
+   },
+   {
+    "code": "OCR C6.3d",
+    "title": "Evidence for human causes of climate change, and its uncertainties",
+    "weight": 2.37
+   },
+   {
+    "code": "OCR C6.1k",
+    "title": "Basic principles of a life-cycle assessment of a material or product",
+    "weight": 2.32
+   },
+   {
+    "code": "OCR C6.2e",
+    "title": "Basic principles of condensation polymerisation, including polyesters and polyamides",
+    "weight": 2.3
+   },
+   {
+    "code": "OCR C1.1c",
+    "title": "Limitations of the particle model for changes of state",
+    "weight": 2.21
+   },
+   {
+    "code": "OCR C1.2e",
+    "title": "Numbers of protons, neutrons and electrons in atoms and ions",
+    "weight": 2.11
+   },
+   {
+    "code": "OCR C5.3c",
+    "title": "Effect of changing reaction conditions on equilibrium position",
+    "weight": 2.1
+   },
+   {
+    "code": "OCR C6.1c",
+    "title": "Biological methods of metal extraction by bacteria and phytoextraction",
+    "weight": 2.1
+   },
+   {
+    "code": "OCR C6.1n",
+    "title": "Factors that affect decisions on recycling",
+    "weight": 2.1
+   }
+  ],
+  "lightest": [
+   {
+    "code": "OCR C6.2b",
+    "title": "Name and draw the first four alkanes, alkenes, alcohols and carboxylic acids",
+    "weight": 1
+   },
+   {
+    "code": "OCR C6.2p",
+    "title": "Chemical cells producing potential difference until reactants are used up",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR C6.2m",
+    "title": "Crude oil as a main source of hydrocarbons and a petrochemical feedstock",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR C6.2i",
+    "title": "How reactions of functional groups determine the reactions of organic compounds",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR C6.2d",
+    "title": "Basic principles of addition polymerisation, monomers and repeating units",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR C6.2a",
+    "title": "Recognise functional groups and identify members of the same homologous series",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR C6.1i",
+    "title": "Importance of nitrogen, phosphorus and potassium compounds in agriculture",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR C5.3b",
+    "title": "Dynamic equilibrium in a closed system when forward and reverse rates are equal",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR C5.3a",
+    "title": "Reversing some reactions by altering the reaction conditions",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR C5.2i",
+    "title": "Enzymes as catalysts in biological systems",
+    "weight": 1.1
+   }
+  ]
+ },
+ {
+  "course": "ocr-gcse-physics",
+  "points": 182,
+  "topics": 8,
+  "min": 1.1,
+  "max": 2.46,
+  "mean": 1.54,
+  "before": "1.6x",
+  "after": "1.5x",
+  "spreadBefore": "1.3x",
+  "spreadAfter": "1.3x",
+  "heaviestWeek": "10.3 Energy [OCR P7.2a OCR P7.2b OCR P7.2c OCR P7.2d OCR P7.2e OCR P7.2f OCR P7.2g]",
+  "lightestWeek": "7.0 Global challenges [OCR P8.3b OCR P8.3c OCR P8.3d OCR P8.3e]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "OCR P5.2i",
+    "title": "Explain, in qualitative terms, how the differences in velocity",
+    "weight": 2.46
+   },
+   {
+    "code": "OCR P8.3h",
+    "title": "How a body’s temperature depends on the balance of radiation absorbed and emitted",
+    "weight": 2.39
+   },
+   {
+    "code": "OCR P8.3i",
+    "title": "Explain, in qualitative terms, how the differences in velocity",
+    "weight": 2.39
+   },
+   {
+    "code": "OCR P6.1h",
+    "title": "Electron energy levels, radiation absorption and emission, and ionisation",
+    "weight": 2.37
+   },
+   {
+    "code": "OCR P7.1d",
+    "title": "Make calculations of energy changes in mechanical, electrical and thermal systems",
+    "weight": 2.36
+   },
+   {
+    "code": "OCR P8.3d",
+    "title": "Radiation emitted by all bodies and how it depends on temperature",
+    "weight": 2.12
+   },
+   {
+    "code": "OCR P4.2j",
+    "title": "How microphones and loudspeakers convert between sound waves and current",
+    "weight": 2.1
+   },
+   {
+    "code": "OCR P2.2d",
+    "title": "Applying Newton’s first law to uniform and changing motion",
+    "weight": 2.06
+   },
+   {
+    "code": "OCR P8.2j",
+    "title": "Dangers of a live wire when a switch is open and of live-to-earth connections",
+    "weight": 2.06
+   },
+   {
+    "code": "OCR P4.2d",
+    "title": "How magnetic force on a current-carrying conductor turns electric motors",
+    "weight": 2.03
+   }
+  ],
+  "lightest": [
+   {
+    "code": "OCR P8.2i",
+    "title": "Functions and potential differences of the live, neutral and earth mains wires",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR P8.2g",
+    "title": "The UK domestic supply of a.c. at 50 Hz and about 230 V",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR P8.2d",
+    "title": "Use of step-up and step-down transformers to change potential difference",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR P8.1a",
+    "title": "Typical everyday speeds of wind, sound and moving people and vehicles",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR P6.2a",
+    "title": "Differences between contamination and irradiation, and their hazards",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR P6.1l",
+    "title": "Differences in the penetration properties of alpha particles",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR P6.1d",
+    "title": "Unstable nuclei and the radiation they emit",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR P6.1b",
+    "title": "Atoms of the same element with different numbers of neutrons",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR P6.1a",
+    "title": "Protons and neutrons in atomic nuclei",
+    "weight": 1.1
+   },
+   {
+    "code": "OCR P5.3a",
+    "title": "How substances absorb, transmit, refract or reflect electromagnetic waves",
+    "weight": 1.1
+   }
+  ]
+ },
+ {
+  "course": "oxford_aqa-igcse-biology",
+  "points": 173,
+  "topics": 6,
+  "min": 1.4,
+  "max": 4.98,
+  "mean": 2.01,
+  "before": "4.2x",
+  "after": "1.4x",
+  "spreadBefore": "1.5x",
+  "spreadAfter": "1.2x",
+  "heaviestWeek": "11.5 Bioenergetics [OXAQA 3.2.6b OXAQA 3.2.6c OXAQA 3.2.6d OXAQA 3.2.6e OXAQA 3.2.6f OXAQA 3.2.6g]",
+  "lightestWeek": "8.0 Organisation [OXAQA 3.1.2a OXAQA 3.1.2b OXAQA 3.1.2c OXAQA 3.1.2d OXAQA 3.1.3a]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "OXAQA 3.3.3e",
+    "title": "The constant cycling of carbon is called the carbon cycle",
+    "weight": 4.98
+   },
+   {
+    "code": "OXAQA 3.2.5b",
+    "title": "How the ribcage and diaphragm move to inhale and exhale",
+    "weight": 4.76
+   },
+   {
+    "code": "OXAQA 3.3.4bB",
+    "title": "Pollution of water, air and land by waste, including eutrophication",
+    "weight": 4.76
+   },
+   {
+    "code": "OXAQA 3.2.4cB",
+    "title": "Digestive enzymes",
+    "weight": 4.54
+   },
+   {
+    "code": "OXAQA 3.3.2f",
+    "title": "Structural, behavioural and functional adaptations of organisms",
+    "weight": 4.32
+   },
+   {
+    "code": "OXAQA 3.3.4dB",
+    "title": "Global warming from rising carbon dioxide and methane, and its effects",
+    "weight": 4.32
+   },
+   {
+    "code": "OXAQA 3.4.2c",
+    "title": "Receptors are found in many organs",
+    "weight": 4.32
+   },
+   {
+    "code": "OXAQA 3.2.4bB",
+    "title": "Enzymes help the breakdown of food in the digestive system",
+    "weight": 3.88
+   },
+   {
+    "code": "OXAQA 3.4.1d",
+    "title": "Pathway of a simple reflex action, such as the pain-withdrawal reflex",
+    "weight": 3.88
+   },
+   {
+    "code": "OXAQA 3.5.5a",
+    "title": "Modern cloning techniques, including tissue culture and adult cell cloning",
+    "weight": 3.88
+   }
+  ],
+  "lightest": [
+   {
+    "code": "OXAQA 3.5.5e",
+    "title": "GM crops generally show increased yields",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.5.4b",
+    "title": "Abnormal chromosome numbers, such as the extra chromosome in Down's Syndrome",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.5.4a",
+    "title": "Some disorders are inherited",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.5.3i",
+    "title": "Genes as sections of DNA coding for specific proteins",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.5.3h",
+    "title": "DNA in chromosomes as the code for inherited characteristics",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.5.3c",
+    "title": "Chromosomes in pairs, carrying genes in the cell nucleus",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.5.2oB",
+    "title": "Causes of tumours: chemical carcinogens and ionising radiation",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.5.2k",
+    "title": "Stem cells differentiating into many types of human cell",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.5.2g",
+    "title": "A cell divides to form gametes by meiosis",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.5.2f",
+    "title": "Cells in reproductive organs divide to form gametes",
+    "weight": 1.4
+   }
+  ]
+ },
+ {
+  "course": "oxford_aqa-igcse-chemistry",
+  "points": 173,
+  "topics": 10,
+  "min": 1.4,
+  "max": 4.32,
+  "mean": 1.9,
+  "before": "2.1x",
+  "after": "1.8x",
+  "spreadBefore": "1.5x",
+  "spreadAfter": "1.3x",
+  "heaviestWeek": "13.0 Quantitative chemistry [OXAQA 3.6.1a OXAQA 3.6.1b OXAQA 3.6.1c OXAQA 3.6.1d OXAQA 3.6.1e OXAQA 3.6.2a OXAQA 3.6.2b]",
+  "lightestWeek": "7.1 Chemical analysis [OXAQA 3.4.3b OXAQA 3.4.3c OXAQA 3.4.3d OXAQA 3.4.3e OXAQA 3.4.3f]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "OXAQA 3.8.3dC",
+    "title": "Production of sulfuric acid by the three-stage contact process",
+    "weight": 4.32
+   },
+   {
+    "code": "OXAQA 3.10.3.2b",
+    "title": "Reactions and properties of carboxylic acids",
+    "weight": 3.74
+   },
+   {
+    "code": "OXAQA 3.4.3a",
+    "title": "Flame tests to identify metal ions and their colours",
+    "weight": 3.63
+   },
+   {
+    "code": "OXAQA 3.10.1.2g",
+    "title": "Biofuels are produced from plant material and are alternatives to hydrocarbon fuels",
+    "weight": 3.57
+   },
+   {
+    "code": "OXAQA 3.7.1a",
+    "title": "Group 1 alkali metals: low density, +1 ions and reaction with water",
+    "weight": 3.5
+   },
+   {
+    "code": "OXAQA 3.5.2a",
+    "title": "Making soluble salts from acids with metals, bases and alkalis",
+    "weight": 3.46
+   },
+   {
+    "code": "OXAQA 3.9.3bC",
+    "title": "Hydrogen–oxygen fuel cells compared with burning hydrogen",
+    "weight": 3.44
+   },
+   {
+    "code": "OXAQA 3.6.1e",
+    "title": "Why the calculated amount of product is not always obtained",
+    "weight": 3.02
+   },
+   {
+    "code": "OXAQA 3.2.1c",
+    "title": "Formation of positive and negative ions by transferring electrons",
+    "weight": 3
+   },
+   {
+    "code": "OXAQA 3.2.1g",
+    "title": "Covalent bonding by sharing pairs of electrons, in simple and giant structures",
+    "weight": 3
+   }
+  ],
+  "lightest": [
+   {
+    "code": "OXAQA 3.10.3.3bC",
+    "title": "Properties and uses of esters in flavourings and perfumes",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.10.2f",
+    "title": "Biodegradable plastic bags made from polymers and cornstarch",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.10.1.3e",
+    "title": "Some of the products of cracking are useful as fuels",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.10.1.3d",
+    "title": "Alkenes react with bromine water, turning it from orange to colourless",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.10.1.2e",
+    "title": "Combustion of hydrocarbon fuels releases energy through oxidation",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.10.1.1b",
+    "title": "Hydrocarbons as the main compounds in crude oil",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.10.1.1a",
+    "title": "Crude oil is a mixture of a very large number of compounds",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.9.3aC",
+    "title": "A chemical cell produces a potential difference until the reactants are used up",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.9.2g",
+    "title": "Energy of bond making and breaking in endothermic reactions",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.8.4aC",
+    "title": "Oxidation and reduction as gain and loss of oxygen",
+    "weight": 1.4
+   }
+  ]
+ },
+ {
+  "course": "oxford_aqa-igcse-physics",
+  "points": 219,
+  "topics": 8,
+  "min": 1.4,
+  "max": 4.16,
+  "mean": 1.84,
+  "before": "1.9x",
+  "after": "1.6x",
+  "spreadBefore": "1.5x",
+  "spreadAfter": "1.2x",
+  "heaviestWeek": "15.0 Energy [OXAQA 3.2.1a OXAQA 3.2.1b OXAQA 3.2.1c OXAQA 3.2.1d OXAQA 3.2.1e OXAQA 3.2.1f OXAQA 3.2.2a OXAQA 3.2.2bP]",
+  "lightestWeek": "9.2 Waves [OXAQA 3.3.6iP OXAQA 3.3.6jP OXAQA 3.3.6kP OXAQA 3.3.6lP]",
+  "afterOneYear": null,
+  "weeks": 34,
+  "heaviest": [
+   {
+    "code": "OXAQA 3.3.6hP",
+    "title": "Structures of the eye and how the ciliary muscle changes lens shape",
+    "weight": 4.16
+   },
+   {
+    "code": "OXAQA 3.3.2h",
+    "title": "Electromagnetic waves have many practical applications",
+    "weight": 3.9
+   },
+   {
+    "code": "OXAQA 3.3.2i",
+    "title": "Hazards of excessive exposure to electromagnetic waves",
+    "weight": 3.77
+   },
+   {
+    "code": "OXAQA 3.6.1eP",
+    "title": "Factors affecting induced potential difference; alternators and dynamos",
+    "weight": 3.48
+   },
+   {
+    "code": "OXAQA 3.3.2d",
+    "title": "All objects emit and absorb infrared radiation",
+    "weight": 3.44
+   },
+   {
+    "code": "OXAQA 3.4.2c",
+    "title": "Factors affecting how quickly an object transfers energy by heating",
+    "weight": 3.37
+   },
+   {
+    "code": "OXAQA 3.8.3aP",
+    "title": "Doppler effect: change in observed wavelength and frequency of waves",
+    "weight": 3.22
+   },
+   {
+    "code": "OXAQA 3.3.6jP",
+    "title": "Correcting long and short sight with convex and concave lenses",
+    "weight": 3.13
+   },
+   {
+    "code": "OXAQA 3.2.1e",
+    "title": "Kinetic energy of a moving object (Eₖ = ½ × m × v²)",
+    "weight": 3
+   },
+   {
+    "code": "OXAQA 3.7.2h",
+    "title": "Radioactive decay as a random process, and the half-life of an isotope",
+    "weight": 3
+   }
+  ],
+  "lightest": [
+   {
+    "code": "OXAQA 3.8.2f",
+    "title": "Weaker centripetal force and lower orbital speeds at greater separation",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.8.2d",
+    "title": "Gravity as the centripetal force that keeps bodies in orbit",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.8.1e",
+    "title": "Stars change over time",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.8.1d",
+    "title": "Mass of a star, core temperature and the heaviest nuclei it can create",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.8.1c",
+    "title": "The core of a star as the site of greatest temperature and fusion",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.7.4dP",
+    "title": "Nuclear fusion is the process by which energy is released in stars",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.7.4bP",
+    "title": "In this process some of the mass of the smaller nuclei is converted into energy",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.7.4aP",
+    "title": "Nuclear fusion is the joining of two light nuclei to form a heavier nucleus",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.7.3a",
+    "title": "Nuclear fission is the splitting of a large and unstable nucleus and the release of energy",
+    "weight": 1.4
+   },
+   {
+    "code": "OXAQA 3.7.2g",
+    "title": "Ionising power, penetration and range in air of alpha, beta and gamma",
+    "weight": 1.4
+   }
+  ]
+ }
+]

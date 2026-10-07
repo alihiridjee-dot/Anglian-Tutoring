@@ -83,6 +83,32 @@ Scope markers are deliberately **not** scored: AQA's "(biology only)", Edexcel's
 `B` suffix and OCR's glyph all mean "separate science, not combined", which
 says nothing about how long the content takes.
 
+## Every other course (`score_db.ts`)
+
+The Biology trees above were scored from their PDFs. Every course's
+descriptions are now the board's own wording, so `score_db.ts` applies the same
+rules to the saved text instead, for all courses at once, and writes
+`out/<board>-<level>-<subject>.csv` for each course without weights:
+
+```bash
+bun run scripts/spec-weights/score_db.ts           # unweighted courses → out/*.csv
+bun run scripts/spec-weights/score_db.ts --check   # also re-score the weighted Biology trees
+```
+
+AQA courses (any level) are content sections and use the section rules; every
+other board is one statement per point and uses the statement rules. Three
+differences from the PDF scripts: "be able to" is skipped to find the command
+word, inline sub-items `(a)`, `(ii)` count like bullets, and maths/apparatus
+skill tags are not scored (the descriptions leave them out). `--check` re-scores
+the four Biology trees against their live weights (correlation 0.70–0.97) and
+reproduces their week balance in the table below exactly. A level is measured
+over 68 teaching weeks (two years).
+
+First loaded 6 Oct 2026 for 29 courses (5,822 points). Two things weights
+cannot fix: every topic gets at least one week, so a tiny topic is a light week;
+and AQA A level Biology's 53 whole-section points leave empty weeks in a
+two-year plan.
+
 ## Loading them
 
 ```bash
