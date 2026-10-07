@@ -419,9 +419,10 @@ function ExamYearCard() {
       ? onOffer(planYears[0])
       : null);
   const selected = picked ?? current;
+  // Only a tap changes anything. Before one, the tile shown may be a guess from
+  // the plans (nobody was asked before 7 Oct), and Save would only confirm it.
   const changes =
-    selected != null &&
-    (selected !== data?.examYear || planYears.some((year) => year !== selected));
+    picked != null && (picked !== data?.examYear || planYears.some((year) => year !== picked));
   // Earlier exams squeeze every subject's weeks, so that is asked first.
   const earlier = selected != null && planYears.some((year) => year > selected);
 
