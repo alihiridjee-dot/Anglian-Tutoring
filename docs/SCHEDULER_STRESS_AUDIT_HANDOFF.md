@@ -80,9 +80,11 @@ the exam, plain-English comparison and kept-aside panels).
 
 Not fixed — product decisions for Ali:
 - ~~**Exam year is never asked.**~~ Settled 7 Oct: Ali chose the onboarding step. It sits
-  on step 1 (level and exam board), which can't be skipped. Left for later, by choice:
-  a profile setting to change the year (the date box is the only way), the summer
-  holiday inside a two-year plan, and a Year 9 option.
+  on step 1 (level and exam board), which can't be skipped. Follow-ups settled 7 Oct:
+  the profile has an Exam year card that moves every subject at once (the level stays
+  with the tutor), and step 1 offers Year 9 for the GCSE levels. The summer holiday in
+  a two-year plan is left alone, by Ali's choice (a break is at most 4 weeks; the
+  summer is 5–6).
 - Hand-picked additions ("Practise now", "Retake this topic") cannot be undone by
   the student; the tutor's remove/skip is the only way out.
 - ~~Paused-subject history reads "No plan was set" for past weeks; a board change
