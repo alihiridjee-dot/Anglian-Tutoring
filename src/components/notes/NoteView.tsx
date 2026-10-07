@@ -63,12 +63,14 @@ export function Reveal({ q, a, marks }: { q: string; a: ReactNode; marks?: numbe
   const [open, setOpen] = useState(false);
   return (
     <div className="premium-card planner-point-row p-4">
-      <div className="flex items-start justify-between gap-3">
+      {/* On a phone the marks sit above the question, so a long one (a table,
+          a method's steps) keeps the card's full width. */}
+      <div className="flex flex-col-reverse items-start gap-2 sm:flex-row sm:justify-between sm:gap-3">
         {/* A past-paper question keeps its steps, data and tables. */}
         <SciBlock
           text={q}
           inline={(t) => <Inline text={t} />}
-          className="min-w-0 flex-1 font-bold"
+          className="min-w-0 flex-1 self-stretch font-bold"
         />
         {marks ? (
           <span className="chip shrink-0">

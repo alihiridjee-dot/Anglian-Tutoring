@@ -658,7 +658,8 @@ export function DataTable({
 }) {
   return (
     <>
-      <table className="hidden w-full border-collapse text-left text-base sm:table">
+      {/* Its own weights, inside bold question text too. */}
+      <table className="hidden w-full border-collapse text-left text-base font-normal sm:table">
         <thead>
           <tr className="border-b-2 border-[color-mix(in_oklab,var(--tint)_40%,transparent)]">
             {columns.map((c, i) => (
@@ -681,7 +682,7 @@ export function DataTable({
         </tbody>
       </table>
       {/* On a phone a table becomes stacked blocks, so nothing scrolls sideways. */}
-      <div className="divide-y divide-border sm:hidden">
+      <div className="divide-y divide-border font-normal sm:hidden">
         {rows.map((r, i) => (
           <div key={i} className="py-3">
             <p className="font-display text-lg font-extrabold">{cell(r[0])}</p>
