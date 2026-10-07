@@ -159,8 +159,9 @@ function PrivacyPage() {
           <h3>Your account</h3>
           <p>
             Your name, email address and password, whether you&apos;re a student, parent or tutor,
-            and, if you give them, your phone number, school, level, exam board and a profile photo.
-            Your password is held by our sign-in provider in a form nobody can read, including us.
+            and, if you give them, your phone number, school, level, exam board, exam year and a
+            profile photo. Your password is held by our sign-in provider in a form nobody can read,
+            including us.
           </p>
           <h3>If you sign in with Google or Microsoft</h3>
           <p>
