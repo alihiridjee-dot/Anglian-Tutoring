@@ -49,7 +49,7 @@ export function PausedWeek({
       <span className="icon-tile inline-flex w-11 h-11">
         <PauseCircle className="w-5 h-5" />
       </span>
-      <h3 className="text-base">
+      <h3 className="text-base font-bold">
         {subjectLabel(subject)} {past ? "was" : "is"} paused
       </h3>
       <div className="flex flex-wrap justify-center gap-1.5">

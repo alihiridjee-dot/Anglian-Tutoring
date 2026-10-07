@@ -43,7 +43,7 @@ function OldCourseWeek({
         <span className="icon-tile inline-flex size-9 shrink-0">
           <History className="size-5" aria-hidden />
         </span>
-        <h3 className="text-base">Planned for {own ? "your" : "their"} old course</h3>
+        <h3 className="text-base font-bold">Planned for {own ? "your" : "their"} old course</h3>
       </div>
       <div className="mt-3 flex flex-wrap gap-1.5">
         <span className="chip">
