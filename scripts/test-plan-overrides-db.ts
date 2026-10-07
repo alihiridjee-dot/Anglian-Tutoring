@@ -65,6 +65,17 @@ await db.exec(
     "utf8",
   ),
 );
+// The reorder as production runs it now: points from another course are not
+// re-sent (test-reorder-after-board-change-db.ts). Everything below must hold.
+await db.exec(
+  await readFile(
+    new URL(
+      "../supabase/migrations/20261007130000_reorder_skips_other_course.sql",
+      import.meta.url,
+    ),
+    "utf8",
+  ),
+);
 
 // ── Fixtures ──────────────────────────────────────────────────────────────
 for (const id of [student, other, tutor]) await db.query("insert into auth.users values($1)", [id]);
