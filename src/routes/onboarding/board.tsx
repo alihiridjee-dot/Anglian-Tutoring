@@ -3,6 +3,7 @@ import { useOnboardingUser } from "@/hooks/useOnboardingUser";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { dbError } from "@/lib/platform/errors";
 import { LEVELS, BOARDS, type LevelV, type BoardV } from "@/lib/curriculum/taxonomy";
 import { StepCard, ChoiceTile } from "@/components/onboarding/StepCard";
 import { ErrorNote, Spinner } from "@/components/Shared";
@@ -91,7 +92,7 @@ function BoardStep() {
         .from("profiles")
         .update({ level, exam_year: examYear })
         .eq("id", user.id);
-      if (error) throw error;
+      if (error) throw dbError(error);
 
       navigate({ to: "/onboarding/subjects", search: { board, level } as never });
     } catch (err) {
