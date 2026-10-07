@@ -6,7 +6,7 @@ function isNewSupabaseApiKey(value: string): boolean {
   return value.startsWith("sb_publishable_") || value.startsWith("sb_secret_");
 }
 
-function createSupabaseFetch(supabaseKey: string): typeof fetch {
+export function createSupabaseFetch(supabaseKey: string): typeof fetch {
   // Cast rather than inferred: under Bun's types `typeof fetch` also carries
   // `preconnect`, which a wrapper has no use for. The browser's does not.
   return ((input, init) => {
@@ -84,11 +84,24 @@ function createSupabaseClient() {
 
 let _supabase: ReturnType<typeof createSupabaseClient> | undefined;
 
+type ScopedClient = () => ReturnType<typeof createSupabaseClient> | undefined;
+let scoped: ScopedClient | undefined;
+
+/**
+ * Server only. A job that runs app code for people it isn't signed in as
+ * (the nightly plan check, planHeal.server) hands that code its own client for
+ * the length of each run, scoped to the run's async context. Nothing sets this
+ * in the browser, and outside a run the shared client below answers as usual.
+ */
+export function scopeSupabase(client: ScopedClient): void {
+  scoped = client;
+}
+
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 export const supabase = new Proxy({} as ReturnType<typeof createSupabaseClient>, {
   get(_, prop, receiver) {
-    if (!_supabase) _supabase = createSupabaseClient();
-    return Reflect.get(_supabase, prop, receiver);
+    const client = scoped?.() ?? (_supabase ??= createSupabaseClient());
+    return Reflect.get(client, prop, receiver);
   },
 });
