@@ -960,6 +960,7 @@ export type Database = {
           created_at: string;
           display_name: string | null;
           enrolled_courses: string[];
+          exam_year: number | null;
           id: string;
           level: Database["public"]["Enums"]["level"] | null;
           onboarding_completed_at: string | null;
@@ -974,6 +975,7 @@ export type Database = {
           created_at?: string;
           display_name?: string | null;
           enrolled_courses?: string[];
+          exam_year?: number | null;
           id: string;
           level?: Database["public"]["Enums"]["level"] | null;
           onboarding_completed_at?: string | null;
@@ -988,6 +990,7 @@ export type Database = {
           created_at?: string;
           display_name?: string | null;
           enrolled_courses?: string[];
+          exam_year?: number | null;
           id?: string;
           level?: Database["public"]["Enums"]["level"] | null;
           onboarding_completed_at?: string | null;

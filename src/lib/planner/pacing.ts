@@ -98,6 +98,12 @@ export function weeksBetween(a: Date, b: Date): number {
   return Math.round((mondayOf(b).getTime() - mondayOf(a).getTime()) / (7 * 86_400_000));
 }
 
+/** The first Monday on/after 1 June: where a summer exam series is anchored. */
+function firstMondayOfJune(year: number): Date {
+  const june1 = weekKeyToDate(`${year}-06-01`);
+  return mondayOf(june1) < june1 ? addWeeks(mondayOf(june1), 1) : mondayOf(june1);
+}
+
 /**
  * The exam anchor: the first Monday on/after 1 June of the exam year. UK summer
  * series sits in May–June, so once this year's exam Monday has come, we point
@@ -107,12 +113,27 @@ export function weeksBetween(a: Date, b: Date): number {
  */
 export function examMondayFor(today: Date = new Date()): Date {
   const calendarYear = Number(toDateKey(today).slice(0, 4));
-  const firstMondayOfJune = (year: number) => {
-    const june1 = weekKeyToDate(`${year}-06-01`);
-    return mondayOf(june1) < june1 ? addWeeks(mondayOf(june1), 1) : mondayOf(june1);
-  };
   const thisYear = firstMondayOfJune(calendarYear);
   return mondayOf(today) < thisYear ? thisYear : firstMondayOfJune(calendarYear + 1);
+}
+
+/**
+ * The exam anchor for a student who gave their exam year at sign-up. The guess
+ * above is only right in a course's final year: a Year 10 (or Year 12) who
+ * joined in September was planned to the June nine months away, so a two-year
+ * course was squeezed into one and they fell behind from their first week.
+ *
+ * A year whose series has already begun (a Year 11 who said 2027 and adds a
+ * subject after their exams) is no longer an answer. Nor is one more than two
+ * summers past the nearest: no course runs that long, and the limit keeps the
+ * date inside the four years the exam date box accepts. Either way the guess
+ * stands, as it does with no answer.
+ */
+export function examMondayIn(examYear: number | null | undefined, today: Date = new Date()): Date {
+  const guess = examMondayFor(today);
+  if (!examYear) return guess;
+  const nearest = Number(toDateKey(guess).slice(0, 4));
+  return examYear >= nearest && examYear <= nearest + 2 ? firstMondayOfJune(examYear) : guess;
 }
 
 /**

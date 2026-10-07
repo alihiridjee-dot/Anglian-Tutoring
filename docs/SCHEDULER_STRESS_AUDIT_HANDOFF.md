@@ -24,6 +24,8 @@ The behaviour changes are summarised at the end of `docs/ASSESSMENT_SCHEDULER.md
 2. **No one is ever asked their exam year.** `examMondayFor()` defaults to the nearest June, so a
    Year 10 enrolling in September gets an exam date nine months away and a compressed course.
    Only the date box on the Full plan tab can fix it, and nothing points there.
+   **Settled 7 Oct:** sign-up step 1 asks it (`profiles.exam_year`), and a subject's first
+   plan runs to that June (`examMondayIn`). Plans made before keep their dates.
 3. **Exam date passed = silent dead end**: "0 weeks to go", every week "Nothing assigned", and
    "Catch up now" fails with "this week is at or past the exam date". No pointer to the date box.
 4. `queueExamDate` in `StudentPlanner.tsx` silently ignores an out-of-range date (no message).
@@ -77,8 +79,10 @@ dead-end copy fixes (level, subjects, no curriculum, paused, topic editor past
 the exam, plain-English comparison and kept-aside panels).
 
 Not fixed — product decisions for Ali:
-- **Exam year is never asked.** `examMondayFor` seeds the nearest June. Options:
-  an onboarding step, or a first-visit prompt on the planner's Exams tile.
+- ~~**Exam year is never asked.**~~ Settled 7 Oct: Ali chose the onboarding step. It sits
+  on step 1 (level and exam board), which can't be skipped. Left for later, by choice:
+  a profile setting to change the year (the date box is the only way), the summer
+  holiday inside a two-year plan, and a Year 9 option.
 - Hand-picked additions ("Practise now", "Retake this topic") cannot be undone by
   the student; the tutor's remove/skip is the only way out.
 - Paused-subject history reads "No plan was set" for past weeks; a board change
