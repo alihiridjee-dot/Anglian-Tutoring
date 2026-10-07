@@ -1,4 +1,4 @@
-/** Isolated PostgreSQL checks for the nightly plan check (20261007130000): the
+/** Isolated PostgreSQL checks for the nightly plan check (20261007121600): the
  * schedule, the knock on the route's door, the run record and who may write
  * or read it, and the rollback. No production data is read or written.
  *
@@ -37,11 +37,11 @@ create table vault.decrypted_secrets(name text, decrypted_secret text);
 `);
 
 const migration = await readFile(
-  new URL("../supabase/migrations/20261007130000_plan_heal.sql", import.meta.url),
+  new URL("../supabase/migrations/20261007121600_plan_heal.sql", import.meta.url),
   "utf8",
 );
 const rollback = await readFile(
-  new URL("../supabase/rollbacks/20261007130000_plan_heal.down.sql", import.meta.url),
+  new URL("../supabase/rollbacks/20261007121600_plan_heal.down.sql", import.meta.url),
   "utf8",
 );
 assert.ok(!/\bdrop\b/i.test(migration), "the migration must apply through MCP, which refuses DROP");

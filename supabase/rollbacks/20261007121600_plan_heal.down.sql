@@ -1,4 +1,4 @@
--- Rollback for 20261007130000_plan_heal: no nightly plan check. Weeks are
+-- Rollback for 20261007121600_plan_heal: no nightly plan check. Weeks are
 -- still put right when their student looks (useWeekPlan). The record of past
 -- runs goes with the table.
 select cron.unschedule('plan-heal')

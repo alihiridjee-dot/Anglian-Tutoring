@@ -24,7 +24,7 @@
 -- report in net._http_response (the id it returns), or in
 -- private.plan_heal_runs once the call has finished.
 --
--- Idempotent. Rollback: supabase/rollbacks/20261007130000_plan_heal.down.sql
+-- Idempotent. Rollback: supabase/rollbacks/20261007121600_plan_heal.down.sql
 
 create table if not exists private.plan_heal_runs (
   id bigint generated always as identity primary key,
