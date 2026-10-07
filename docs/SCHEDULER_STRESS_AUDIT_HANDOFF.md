@@ -85,8 +85,13 @@ Not fixed — product decisions for Ali:
   with the tutor), and step 1 offers Year 9 for the GCSE levels. The summer holiday in
   a two-year plan is left alone, by Ali's choice (a break is at most 4 weeks; the
   summer is 5–6).
-- Hand-picked additions ("Practise now", "Retake this topic") cannot be undone by
-  the student; the tutor's remove/skip is the only way out.
+- ~~Hand-picked additions ("Practise now", "Retake this topic") cannot be undone by
+  the student.~~ Settled 7 Oct: Ali thought students couldn't add to their week at
+  all, and none ever had (0 student-added points live). Both buttons are gone for
+  students, so there is nothing to undo. Tutors still add ("Add to this week" on
+  their Full plan; "Retake this topic" on the course checklist). Left in place:
+  "Carry into next week", "Focus again" and "Review more now", which keep points in
+  their own lanes.
 - ~~Paused-subject history reads "No plan was set" for past weeks; a board change
   does the same.~~ Settled 7 Oct (Ali chose "say what happened"): a past break week
   shows the break card, a paused week the paused card with its dates, and an old-course

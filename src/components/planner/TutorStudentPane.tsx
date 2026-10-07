@@ -99,6 +99,7 @@ export function TutorStudentPane({ state }: { state: TutorPlannerState }) {
             enrolments={student.enrolments}
             level={student.level}
             subject={active.subject}
+            canRetake
           />
         )}
       </div>
