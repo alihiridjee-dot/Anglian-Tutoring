@@ -1,8 +1,15 @@
 import { describe, expect, test } from "bun:test";
-import { contentTerms, matchHelpIntent, parseHelpReply, scrubForModel, searchTerms } from "./help";
+import {
+  contentTerms,
+  matchHelpIntent,
+  parseHelpReply,
+  scrubForModel,
+  searchTerms,
+  type HelpIntentId,
+} from "./help";
 
 describe("matchHelpIntent", () => {
-  test.each([
+  test.each<[string, HelpIntentId]>([
     ["help me find my mcq for this week", "week_quizzes"],
     ["where's my quiz", "week_quizzes"],
     ["Multiple-choice test?", "week_quizzes"],
