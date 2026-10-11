@@ -146,7 +146,7 @@ export function StudentsRoster() {
                         </div>
                       </td>
                       <td className="text-muted-foreground hidden px-4 sm:px-5 py-3 text-xs lg:table-cell">
-                        {timeAgo(s.last_sign_in_at)}
+                        {timeAgo(s.last_active_at ?? s.last_sign_in_at)}
                       </td>
                       <td className="px-2 py-3">
                         <ChevronRight
