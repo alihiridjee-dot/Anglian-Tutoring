@@ -4,7 +4,7 @@ Dump the spec points that have no video to out/points.json.
 
     set -a && . ./.env && set +a && python3 scripts/videos/export_points.py
 
-Targets: Cambridge IGCSE Biology/Chemistry/Physics and Edexcel IGCSE Physics.
+Targets: --set igcse (default) or --set alevel; see TARGETS.
 A point that already has a video row (through resource_spec_points) is skipped,
 so a re-run only picks up what is still missing.
 """
@@ -16,12 +16,29 @@ import urllib.request
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
 
-TARGETS = [
-    ("igcse", "cambridge", "biology", "0610"),
-    ("igcse", "cambridge", "chemistry", "0620"),
-    ("igcse", "cambridge", "physics", "0625"),
-    ("igcse", "edexcel", "physics", "4PH1"),
-]
+TARGETS = {
+    "igcse": [
+        ("igcse", "cambridge", "biology", "0610"),
+        ("igcse", "cambridge", "chemistry", "0620"),
+        ("igcse", "cambridge", "physics", "0625"),
+        ("igcse", "edexcel", "physics", "4PH1"),
+    ],
+    # Added 11 Oct 2026: the A-level courses loaded on 6 Oct.
+    "alevel": [
+        ("alevel", "aqa", "biology", "7402"),
+        ("alevel", "aqa", "chemistry", "7405"),
+        ("alevel", "aqa", "physics", "7408"),
+        ("alevel", "ocr", "biology", "H420"),
+        ("alevel", "ocr", "chemistry", "H432"),
+        ("alevel", "ocr", "physics", "H556"),
+        ("alevel", "edexcel", "biology", "9BN0"),
+        ("alevel", "edexcel", "chemistry", "9CH0"),
+        ("alevel", "edexcel", "physics", "9PH0"),
+        ("alevel", "cambridge", "biology", "9700"),
+        ("alevel", "cambridge", "chemistry", "9701"),
+        ("alevel", "cambridge", "physics", "9702"),
+    ],
+}
 
 
 def get(url: str, key: str, path: str, params: dict) -> list:
@@ -41,10 +58,14 @@ def get(url: str, key: str, path: str, params: dict) -> list:
 
 
 def main() -> None:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--set", default="igcse", choices=sorted(TARGETS))
+    args = ap.parse_args()
     url = os.environ["SUPABASE_URL"].rstrip("/")
     key = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
     points = []
-    for level, board, subject, syllabus in TARGETS:
+    for level, board, subject, syllabus in TARGETS[args.set]:
         topics = get(url, key, "topics", {
             "select": "id,title,sort_order",
             "level": f"eq.{level}", "board": f"eq.{board}", "subject": f"eq.{subject}",

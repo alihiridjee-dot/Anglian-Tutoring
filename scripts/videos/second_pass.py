@@ -26,7 +26,8 @@ import ytsearch
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
-BOARD = {"cambridge": "Cambridge IGCSE", "edexcel": "Edexcel IGCSE"}
+BOARD = {"cambridge": "Cambridge", "edexcel": "Edexcel", "aqa": "AQA", "ocr": "OCR"}
+LEVEL = {"igcse": "IGCSE", "alevel": "A Level", "gcse": "GCSE"}
 
 
 def extra_queries(p: dict) -> list:
@@ -34,11 +35,13 @@ def extra_queries(p: dict) -> list:
     kw = Q.keywords(p["title"], 6)
     topic_kw = Q.keywords(p["topic"], 4)
     words = " ".join(kw[:5]) or " ".join(topic_kw)
+    course = f"{BOARD[p['board']]} {LEVEL[p['level']]}"
+    plain = "A Level" if p["level"] == "alevel" else "GCSE"
     return [
-        f"{BOARD[p['board']]} {subj} {words}",
-        f"GCSE {subj} {words}",
+        f"{course} {subj} {words}",
+        f"{plain} {subj} {words}",
         f"{subj} {words}",
-        f"{BOARD[p['board']]} {subj} {' '.join(topic_kw)} {' '.join(kw[:2])}".strip(),
+        f"{course} {subj} {' '.join(topic_kw)} {' '.join(kw[:2])}".strip(),
     ]
 
 
