@@ -443,7 +443,9 @@ export function TakeMcq() {
               </div>
             );
             // An option as the card draws it, front and back alike: a row under
-            // the headings, or its letter and text.
+            // the headings, or its letter and text. On a phone the columns are too
+            // narrow for words, so each cell sits under its column's name instead,
+            // as a table does there.
             const option = (i: number, text: string, result?: "right" | "wrong") => {
               const place = table ? "" : "inline ml-2";
               const icon =
@@ -453,15 +455,33 @@ export function TakeMcq() {
                   <XCircle className={`w-4 h-4 text-destructive ${place}`} />
                 ) : null;
               return table ? (
-                <span className="grid items-baseline gap-x-3" style={columns!}>
-                  <span className="font-mono text-xs text-muted-foreground">{letter(i)}.</span>
-                  {table.rows[i].map((c, j) => (
-                    <span key={j}>
-                      <SciText text={c} context={notation} />
+                <>
+                  <span className="hidden items-baseline gap-x-3 sm:grid" style={columns!}>
+                    <span className="font-mono text-xs text-muted-foreground">{letter(i)}.</span>
+                    {table.rows[i].map((c, j) => (
+                      <span key={j}>
+                        <SciText text={c} context={notation} />
+                      </span>
+                    ))}
+                    <span className="self-center">{icon}</span>
+                  </span>
+                  <span className="flex items-start gap-2 sm:hidden">
+                    <span className="font-mono text-xs text-muted-foreground pt-0.5">
+                      {letter(i)}.
                     </span>
-                  ))}
-                  <span className="self-center">{icon}</span>
-                </span>
+                    <span className="min-w-0 flex-1 space-y-0.5">
+                      {table.rows[i].map((c, j) => (
+                        <span key={j} className="block">
+                          <b>
+                            <SciText text={table.columns[j]} context={notation} />:
+                          </b>{" "}
+                          <SciText text={c} context={notation} />
+                        </span>
+                      ))}
+                    </span>
+                    {icon && <span className="self-center">{icon}</span>}
+                  </span>
+                </>
               ) : (
                 <>
                   <span className="font-mono text-xs mr-2 text-muted-foreground">{letter(i)}.</span>
@@ -492,9 +512,9 @@ export function TakeMcq() {
                     </Chip>
                   ) : null}
                 </div>
-                {headings && <div className="mt-4">{headings}</div>}
+                {headings && <div className="mt-4 hidden sm:block">{headings}</div>}
                 <div
-                  className={`${headings ? "mt-1.5" : "mt-4"} rounded-lg border border-primary bg-primary/15 px-4 py-2.5 text-sm break-words`}
+                  className={`${headings ? "mt-4 sm:mt-1.5" : "mt-4"} rounded-lg border border-primary bg-primary/15 px-4 py-2.5 text-sm break-words`}
                 >
                   {option(mark.correctIndex, q.options[mark.correctIndex] ?? "", "right")}
                 </div>
@@ -517,8 +537,8 @@ export function TakeMcq() {
                       context={notation}
                       className="font-display text-lg mt-1 break-words"
                     />
-                    {headings && <div className="mt-3">{headings}</div>}
-                    <div className={`${headings ? "mt-1.5" : "mt-3"} space-y-2`}>
+                    {headings && <div className="mt-3 hidden sm:block">{headings}</div>}
+                    <div className={`${headings ? "mt-3 sm:mt-1.5" : "mt-3"} space-y-2`}>
                       {q.options.map((opt, i) => {
                         const isChosen = chosen === i;
                         const isCorrect = !!mark && i === mark.correctIndex;
