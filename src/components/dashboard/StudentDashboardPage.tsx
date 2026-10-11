@@ -11,9 +11,7 @@ import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
 import { WeeklyPlanPanel } from "@/components/planner/WeeklyPlanPanel";
 import { useViewerId } from "@/hooks/useViewer";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
-import { boardLabel, levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
-import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
-import { CourseChip } from "@/components/CourseBadge";
+import { EnrolmentSummary } from "@/components/CourseBadge";
 
 /**
  * @param afterContent Rendered inside the layout, below the dashboard's own
@@ -114,39 +112,5 @@ export function StudentDashboard({
 
       {afterContent}
     </AppLayout>
-  );
-}
-
-/**
- * Compact enrolment readout for the welcome ribbon: a shared level chip plus one
- * pill per subject showing its exam board. Boards can differ per subject, so
- * they're always shown alongside the subject rather than collapsed.
- */
-export function EnrolmentSummary({
-  enrolments,
-  level,
-}: {
-  enrolments: { subject: string; board: string }[];
-  level: string | null;
-}) {
-  if (enrolments.length === 0) {
-    return (
-      <p className="text-xs sm:text-sm font-semibold text-primary-foreground">
-        You're not enrolled in any subjects yet — contact your tutor to get set up.
-      </p>
-    );
-  }
-
-  return (
-    <div className="flex flex-wrap items-center gap-1.5">
-      <CourseChip icon parts={[levelLabel(level)]} />
-      {enrolments.map((e) => (
-        <CourseChip
-          key={e.subject}
-          tint={SUBJECT_TINT[e.subject] ?? "tint-primary"}
-          parts={[subjectLabel(e.subject), boardLabel(e.board)]}
-        />
-      ))}
-    </div>
   );
 }

@@ -121,6 +121,78 @@ export function summariseAnalytics(
   });
 }
 
+/**
+ * One row of `student_scored_work`: a scored quiz attempt or a marked task.
+ * `pct` is null for a quiz with no questions; `title` is a task's, for the
+ * feedback list.
+ */
+export interface ScoredWorkRow {
+  kind: string;
+  item_id: string;
+  subject: string | null;
+  pct: number | null;
+  scored_at: string;
+  title: string | null;
+}
+
+/**
+ * The per-subject averages and predicted grade, from a student's scored work
+ * as `student_scored_work` returns it: the newest 200 of each kind.
+ */
+export function summariseScoredWork(
+  subjects: readonly string[],
+  rows: readonly ScoredWorkRow[],
+): SubjectAnalytics[] {
+  const newest = (kind: string) =>
+    rows
+      .filter((w) => w.kind === kind)
+      .sort((a, b) => b.scored_at.localeCompare(a.scored_at))
+      .slice(0, 200)
+      // A quiz with no questions has no percentage; it counted as 0 before.
+      .map((w) => ({ subject: w.subject, pct: w.pct === null ? 0 : Number(w.pct) }));
+  return summariseAnalytics(subjects, newest("quiz"), newest("homework"));
+}
+
+/** One week on the trends chart: each subject's quiz average that week. */
+export interface WeeklyTrendPoint {
+  /** ISO date of the Monday starting the week. */
+  weekStart: string;
+  /** Short label for the axis, e.g. "7 Jul". */
+  label: string;
+  /** subject → average % that week (absent if no attempts). */
+  averages: Record<string, number>;
+}
+
+/**
+ * Weekly quiz averages per subject over the `weeks` weeks ending with this
+ * one. A week with no attempts in a subject has no entry for it, and the chart
+ * connects across the gap. Every week is emitted, quiet or not, so the x-axis
+ * is stable; work from before the first week is simply not plotted.
+ */
+export function weeklyQuizAverages(
+  rows: readonly ScoredWorkRow[],
+  weeks: number,
+  now: Date = new Date(),
+): WeeklyTrendPoint[] {
+  // Bucketed by the UK week the quiz was taken in, like the axis (S-25).
+  const buckets: Record<string, Record<string, { sum: number; n: number }>> = {};
+  for (const a of rows) {
+    if (a.kind !== "quiz" || !a.subject || a.pct === null) continue;
+    const week = toDateKey(mondayOf(new Date(a.scored_at)));
+    buckets[week] = buckets[week] ?? {};
+    buckets[week][a.subject] = buckets[week][a.subject] ?? { sum: 0, n: 0 };
+    buckets[week][a.subject].sum += Number(a.pct);
+    buckets[week][a.subject].n += 1;
+  }
+  return trendWeeks(weeks, now).map(({ weekStart, label }) => {
+    const averages: Record<string, number> = {};
+    for (const [subject, { sum, n }] of Object.entries(buckets[weekStart] ?? {})) {
+      averages[subject] = Math.round(sum / n);
+    }
+    return { weekStart, label, averages };
+  });
+}
+
 /** One week on the trends chart's x-axis. */
 export interface TrendWeek {
   /** The Monday that starts the week, as a London calendar date. */

@@ -7,6 +7,3 @@ export const Route = createFileRoute("/_authenticated/parent-dashboard")({
   head: () => ({ meta: [{ title: "Parent Portal | Anglia Educate" }] }),
   component: ParentDashboard,
 });
-
-/* ---------- Demo fixtures: only the session-less /demo/* showcase sees these.
-   A real parent session below this block renders live data exclusively. ---- */

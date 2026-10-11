@@ -82,6 +82,25 @@ export class WeeklyNotesDAL {
   }
 
   /**
+   * The tutor's notes for several plans in one read, keyed by plan id. A plan
+   * with no note has no entry. Throws on a failed read, like `getTutorNote`.
+   */
+  static async getTutorNotes(planIds: string[]): Promise<Map<string, TutorNote>> {
+    if (planIds.length === 0) return new Map();
+    const { data, error } = await supabase
+      .from("student_weekly_tutor_notes")
+      .select("plan_id, note, next_points")
+      .in("plan_id", planIds);
+    if (error) throw error;
+    return new Map(
+      (data ?? []).map((r) => [
+        r.plan_id,
+        { plan_id: r.plan_id, note: r.note, next_points: r.next_points ?? [] },
+      ]),
+    );
+  }
+
+  /**
    * Save the tutor's take on a week (note + the spec points they line up for
    * next week). Tutor-only via RLS; `studentId` names whose week it is so the
    * student can read their own note back.

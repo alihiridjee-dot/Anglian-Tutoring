@@ -1,10 +1,9 @@
 import { useMemo } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { CreditCard } from "lucide-react";
 import { ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
 import { PaymentPending } from "@/components/billing/PaymentPending";
-import { supabase } from "@/integrations/supabase/client";
 import { useChildLinks } from "@/hooks/data/useParentLinks";
+import { useChildEnrolments } from "@/hooks/data/useChildProgress";
 import {
   usePaidSubscriptions,
   useRawPackages,
@@ -31,7 +30,7 @@ import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
 import { TakeABreakCard } from "@/components/billing/TakeABreakCard";
 import { resolveDisplayName } from "@/lib/profile/displayName";
 import { summariseCourse } from "@/lib/curriculum/courseSummary";
-import { type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { type LevelV } from "@/lib/curriculum/taxonomy";
 
 /** Formatted recurring price for a tier, or undefined if it isn't priced here. */
 function priceLabelFor(packages: PackageRow[], tier: string | null | undefined) {
@@ -69,18 +68,10 @@ function ChildPlan({
   level: string | null | undefined;
   isPayer: boolean;
 }) {
-  const { data: enrolments = [] } = useQuery({
-    queryKey: ["child-progress", "enrolments", studentId],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("student_enrolments")
-        .select("subject, board")
-        .eq("student_id", studentId)
-        .order("subject");
-      if (error) throw new Error(error.message);
-      return (data ?? []) as { subject: string; board: BoardV }[];
-    },
-  });
+  // The Portal's own read. This page had its own under the same cache key that
+  // fetched only subject and board, so a parent who came from here found the
+  // Portal's targets and current grades missing until it next refetched.
+  const { data: enrolments = [] } = useChildEnrolments(studentId);
 
   const anchorId = `subjects-${studentId}`;
   // Only a live plan that isn't cancelling can have subjects added or removed,
