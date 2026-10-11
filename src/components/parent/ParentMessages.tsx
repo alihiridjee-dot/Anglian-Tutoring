@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, MessageSquarePlus } from "lucide-react";
 import { ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
 import { useRoles } from "@/hooks/useRole";
@@ -16,8 +16,22 @@ const EMPTY_THREADS: ThreadSummary[] = [];
  * thread's member, as a student is on theirs — narrowed to the child being
  * viewed, so switching child switches conversation. A parent only ever sees
  * threads they opened: never their child's own questions.
+ *
+ * `openThreadId` opens one conversation and brings it into view: the Portal
+ * passes it once when a reply's notification is followed, and `onOpened` hands
+ * it back so a later remount doesn't jump again.
  */
-export function ParentMessages({ childId, childName }: { childId: string; childName: string }) {
+export function ParentMessages({
+  childId,
+  childName,
+  openThreadId = null,
+  onOpened,
+}: {
+  childId: string;
+  childName: string;
+  openThreadId?: string | null;
+  onOpened?: () => void;
+}) {
   const { userId } = useRoles();
   const { data: threads = EMPTY_THREADS, isPending, error, refetch } = useChatThreads();
   const [composing, setComposing] = useState(false);
@@ -35,8 +49,22 @@ export function ParentMessages({ childId, childName }: { childId: string; childN
   const [selectedId, setSelectedId] = usePinnedThread(aboutChild);
   const selected = aboutChild.find((t) => t.id === selectedId) ?? null;
 
+  const sectionRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (!openThreadId || !aboutChild.some((t) => t.id === openThreadId)) return;
+    setSelectedId(openThreadId);
+    setThreadOpen(true);
+    sectionRef.current?.scrollIntoView({ block: "start" });
+    onOpened?.();
+  }, [openThreadId, aboutChild, setSelectedId, onOpened]);
+
   return (
-    <section data-tour="parent-messages" className="premium-card p-4 sm:p-6">
+    <section
+      ref={sectionRef}
+      data-tour="parent-messages"
+      // Clear of the sticky header when a reply's notification scrolls here.
+      className="premium-card scroll-mt-24 p-4 sm:p-6"
+    >
       <SectionHeading title="Messages">
         <button
           type="button"

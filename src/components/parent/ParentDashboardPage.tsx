@@ -31,8 +31,10 @@ import { EnrolmentSummary } from "@/components/CourseBadge";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { resolveDisplayName } from "@/lib/profile/displayName";
 import type { SubjectAnalytics } from "@/lib/profile/analytics";
-import { Suspense, lazy, useMemo } from "react";
+import { useChatThreads } from "@/hooks/data/useChat";
+import { Suspense, lazy, useEffect, useMemo, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useRouterState, useSearch } from "@tanstack/react-router";
 import { EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/components/Shared";
 
 /**
@@ -91,6 +93,37 @@ export function ParentDashboard({ demo }: { demo?: PortalData } = {}) {
   const childName = selectedChild
     ? resolveDisplayName(selectedChild.display_name, selectedChild.email)
     : "your child";
+
+  // A tutor's reply in the bell links here with its conversation (?thread=):
+  // the Portal switches to the child it is about and opens it. Once per link
+  // followed, remembered with the history entry, so Back to this visit doesn't
+  // jump again, while a new notification (even for the same thread) does.
+  const { thread: linkedThreadId } = useSearch({ strict: false }) as { thread?: string };
+  const entryKey = useRouterState({ select: (s) => s.location.state.__TSR_key ?? null });
+  const [threadLinkEntry, setThreadLinkEntry] = useEntryState<string | null>(
+    "portal.threadLink",
+    null,
+  );
+  const [jumpToThread, setJumpToThread] = useState<string | null>(null);
+  const threadsQ = useChatThreads();
+  useEffect(() => {
+    if (demo || !linkedThreadId || !entryKey || threadLinkEntry === entryKey) return;
+    if (!threadsQ.data || !childrenQ.data) return;
+    const thread = threadsQ.data.find((t) => t.id === linkedThreadId);
+    const about = thread?.about_student_id;
+    if (about && childrenQ.data.some((c) => c.student_id === about)) setPickedChildId(about);
+    setThreadLinkEntry(entryKey);
+    if (thread) setJumpToThread(thread.id);
+  }, [
+    demo,
+    linkedThreadId,
+    entryKey,
+    threadLinkEntry,
+    threadsQ.data,
+    childrenQ.data,
+    setPickedChildId,
+    setThreadLinkEntry,
+  ]);
 
   // Real data, all keyed by the selected child. In the showcase there is no
   // child id, so every read stays off.
@@ -289,7 +322,12 @@ export function ParentDashboard({ demo }: { demo?: PortalData } = {}) {
           reached. */}
       {childId && !childrenQ.error && !loading && (
         <div className="mt-8">
-          <ParentMessages childId={childId} childName={childName} />
+          <ParentMessages
+            childId={childId}
+            childName={childName}
+            openThreadId={jumpToThread}
+            onOpened={() => setJumpToThread(null)}
+          />
         </div>
       )}
     </AppLayout>
