@@ -142,9 +142,12 @@ the same debt minus whatever the current week already carries — **read that on
 for display**, or a panel goes on offering "practise Topic 1" straight after the
 student has put all of Topic 1 into their week.
 
-`CatchUpPanel` is the on-demand path: one control puts a whole topic's
-outstanding points into the current week, hand-picked (`student` / `tutor`), so
-it survives a re-cut. Admissibility already permitted this — `admit()` tests
+The on-demand path is the tutor's: "Add to this week" on a missed topic in the
+tutor's Full plan (`useAddMissedToWeek`) puts the topic's outstanding points
+into the current week, hand-picked (`tutor`), so it survives a re-cut. Students
+had the same control ("Practise now", `CatchUpPanel`) until 7 Oct 2026, when Ali
+removed it with "Retake this topic": students don't add to their own week.
+Admissibility already permitted this — `admit()` tests
 whether a topic *has opened*, not whether it is open now — so nothing was
 relaxed to allow it.
 

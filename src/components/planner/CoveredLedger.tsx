@@ -38,12 +38,18 @@ export function CoveredLedger({
   enrolments,
   level,
   subject,
+  canRetake = false,
 }: {
   studentId: string;
   enrolments: Enrolment[];
   level: LevelV;
   /** When set, the subject is controlled by the parent and the tabs are hidden. */
   subject?: string;
+  /**
+   * Offer "Retake this topic" on a topic with work done. A tutor's view only:
+   * students don't add to their own week (Ali, 7 Oct).
+   */
+  canRetake?: boolean;
 }) {
   const ordered = useMemo(
     () => [
@@ -78,7 +84,7 @@ export function CoveredLedger({
   // Reviews come due with the clock, not only with new work.
   const now = new Date(useNow(60_000));
   // A retake goes into this week, and nothing new can be planned for a break week.
-  const breaks = useQuery({ ...studentBreaksQuery(studentId), enabled: !!active });
+  const breaks = useQuery({ ...studentBreaksQuery(studentId), enabled: canRetake && !!active });
   const thisWeekOnBreak = !!breakCovering(breaks.data ?? [], currentWeekKey(now));
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [retaking, setRetaking] = useState<string | null>(null);
@@ -258,7 +264,7 @@ export function CoveredLedger({
                         </td>
                       </tr>
                     ))}
-                  {isOpen && done > 0 && !thisWeekOnBreak && (
+                  {canRetake && isOpen && done > 0 && !thisWeekOnBreak && (
                     <tr className="bg-muted/20">
                       <td colSpan={3} className="pt-1 pr-4 pb-3 pl-9 sm:pl-11">
                         <button

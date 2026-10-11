@@ -5,7 +5,8 @@ import { MAX_WEEK_POINTS, WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal"
 import { WeeklyActivityDAL } from "./weeklyActivityDal";
 import { SubjectPauseDAL } from "./pausesDal";
 import { BreakDAL } from "./breaksDal";
-import { currentWeekKey } from "./week";
+import { currentWeekKey, toDateKey } from "./week";
+import { examMondayFor, examMondayIn } from "./pacing";
 import { type RejectionReason } from "./admissibility";
 import type { ProgressPoint, TopicProgress } from "./scheduleDal";
 
@@ -226,6 +227,109 @@ describe("applying a new exam date", () => {
       recut.mockRestore();
       pause.mockRestore();
       breaks.mockRestore();
+    }
+  });
+});
+describe("moving every subject to one exam year", () => {
+  // Relative to the real clock: the planner only plans to the next three summers.
+  const year = examMondayFor().getUTCFullYear() + 1;
+  const june = toDateKey(examMondayIn(year));
+  const course = (subject: string) => ({ subject, board: "aqa" }) as never;
+
+  /** The write and the read `setExamYear` makes itself; the rest is spied on. */
+  function fakeDb(plans: { subject: string; exam_date: string }[]) {
+    const updates: { table: string; values: unknown }[] = [];
+    const db = {
+      from: (table: string) => ({
+        update: (values: unknown) => ({
+          eq: async () => {
+            updates.push({ table, values });
+            return { error: null };
+          },
+        }),
+        select: () => ({ eq: async () => ({ data: plans, error: null }) }),
+      }),
+    } as never;
+    return { updates, db };
+  }
+
+  test("saves the year, then moves each planned subject to that June", async () => {
+    const { updates, db } = fakeDb([
+      { subject: "biology", exam_date: `${year - 1}-06-07` },
+      // Set by hand to a May paper in that year: kept.
+      { subject: "chemistry", exam_date: `${year}-05-14` },
+      { subject: "physics", exam_date: `${year + 1}-06-01` },
+    ]);
+    const setDate = spyOn(ProgramDAL, "setExamDate").mockImplementation(async ({ subject }) => {
+      if (subject === "physics")
+        throw new Error(
+          "That exam date leaves too few weeks for your remaining topics. Choose a later date.",
+        );
+    });
+    const apply = spyOn(ProgramDAL, "applyPending").mockResolvedValue(null);
+    try {
+      const result = await ProgramDAL.setExamYear(
+        {
+          studentId: "student",
+          year,
+          level: "gcse",
+          courses: ["biology", "chemistry", "physics", "combined"].map(course),
+        },
+        db,
+      );
+      // The profile first: a subject added later is planned to it.
+      expect(updates).toEqual([{ table: "profiles", values: { exam_year: year } }]);
+      expect(setDate.mock.calls.map(([p]) => [p.subject, p.examDate])).toEqual([
+        ["biology", june],
+        ["physics", june],
+      ]);
+      // Only a subject that moved is re-flowed, and this week with it.
+      expect(apply.mock.calls.map(([p]) => p.subject)).toEqual(["biology"]);
+      expect(result).toEqual({
+        // "combined" has no plan yet: its first one is cut to the new year.
+        moved: ["biology", "combined"],
+        kept: ["chemistry"],
+        refused: [
+          {
+            subject: "physics",
+            message:
+              "That exam date leaves too few weeks for your remaining topics. Choose a later date.",
+          },
+        ],
+      } as never);
+    } finally {
+      setDate.mockRestore();
+      apply.mockRestore();
+    }
+  });
+
+  test("a year the planner won't plan to is refused before anything is saved", async () => {
+    const { updates, db } = fakeDb([]);
+    await expect(
+      ProgramDAL.setExamYear(
+        { studentId: "student", year: year + 5, level: "gcse", courses: [] },
+        db,
+      ),
+    ).rejects.toThrow("Choose one of the exam years shown.");
+    expect(updates).toEqual([]);
+  });
+
+  test("a re-flow that fails still counts the subject as moved: its date is saved", async () => {
+    const { db } = fakeDb([{ subject: "biology", exam_date: `${year - 1}-06-07` }]);
+    const setDate = spyOn(ProgramDAL, "setExamDate").mockResolvedValue();
+    const apply = spyOn(ProgramDAL, "applyPending").mockRejectedValue(new Error("offline"));
+    const warn = spyOn(console, "warn").mockImplementation(() => {});
+    try {
+      const result = await ProgramDAL.setExamYear(
+        { studentId: "student", year, level: "gcse", courses: [course("biology")] },
+        db,
+      );
+      expect(result.moved).toEqual(["biology"] as never);
+      expect(warn).toHaveBeenCalledTimes(1);
+    } finally {
+      setDate.mockRestore();
+      apply.mockRestore();
+      warn.mockRestore();
     }
   });
 });

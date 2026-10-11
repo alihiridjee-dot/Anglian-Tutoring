@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { AppLayout } from "@/components/AppLayout";
-import { AwaitingMark, BuiltInHomework } from "@/components/BuiltInHomework";
+import { AwaitingMark, BuiltInHomework, MarksBox } from "@/components/BuiltInHomework";
 import { EmptyState, ErrorNote, SciText, SectionHeading, Spinner } from "@/components/Shared";
 import { useHomeworkSheet, useInvalidateHomework } from "@/hooks/data/useHomework";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -98,7 +98,9 @@ export function HomeworkSheetPage() {
 
   return (
     <AppLayout title={hw.title}>
-      <div className={SUBJECT_TINT[hw.subject] ?? "tint-primary"}>
+      {/* The quiz page's width, so the answer boxes don't run the width of a
+          wide screen. */}
+      <div className={`max-w-3xl ${SUBJECT_TINT[hw.subject] ?? "tint-primary"}`}>
         <BackLink />
 
         {/* Laid out like the front of an exam paper: the title, one plain line
@@ -133,12 +135,7 @@ export function HomeworkSheetPage() {
               )}
             </div>
           </div>
-          {questions.length > 0 && (
-            <div className="premium-card shrink-0 px-4 py-2.5 text-center">
-              <p className="numeral text-3xl text-[color:var(--tint)]">{totalMarks}</p>
-              <p className="mt-1 text-sm font-bold">mark{totalMarks === 1 ? "" : "s"}</p>
-            </div>
-          )}
+          {questions.length > 0 && <MarksBox marks={totalMarks} size="lg" />}
         </div>
 
         {hw.instructions && (
