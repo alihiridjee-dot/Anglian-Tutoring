@@ -1,0 +1,291 @@
+{
+  "format": 1,
+  "concept_id": "abio-010",
+  "subject": "biology",
+  "title": "Prokaryotic cells and viruses",
+  "key_idea": "Prokaryotic cells such as bacteria are much smaller than eukaryotic cells and have no nucleus or membrane-bound organelles. Their DNA is circular and free in the cytoplasm. Viruses are not cells: they are non-living particles of nucleic acid in a protein coat.",
+  "sections": [
+    {
+      "heading": "Structure of a prokaryotic cell",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A typical bacterium is a single cell, usually 1 to 5 µm across. It has the features of every cell, but much simpler organisation."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **cell wall** made of murein (peptidoglycan), a glycoprotein, which supports the cell.",
+            "A cell surface membrane inside the wall, and cytoplasm with no membrane-bound organelles.",
+            "No nucleus. A single **circular DNA** molecule lies free in the cytoplasm and is not bound to proteins.",
+            "Smaller **70S ribosomes**, which make proteins.",
+            "No organelles surrounded by a double membrane, such as mitochondria or chloroplasts."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Many prokaryotic cells have extra structures."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Plasmids**: small circular loops of DNA, which often carry genes such as antibiotic resistance.",
+            "A **capsule**: a slime layer outside the wall that protects the cell from drying out and from white blood cells.",
+            "One or more **flagella**, which rotate to move the cell.",
+            "**Pili**: short hair-like projections that attach the cell to surfaces and to other bacteria."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Prokaryotes: 1 to 5 µm, murein wall, circular DNA, 70S ribosomes, no organelles with a double membrane.",
+            "Plasmids, a capsule and flagella are found in many, but not all, bacteria."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Prokaryotes compared with eukaryotes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The two cell types differ in size, in genetic material and in organelles. Mitochondria and chloroplasts are like prokaryotes: they have 70S ribosomes and circular DNA."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A prokaryotic cell compared with an animal cell and a plant cell.",
+            "items": [
+              "Prokaryotic cell",
+              "Animal cell",
+              "Plant cell"
+            ],
+            "rows": [
+              {
+                "feature": "Diameter",
+                "values": [
+                  "1 to 5 µm",
+                  "10 to 30 µm",
+                  "10 to 100 µm"
+                ]
+              },
+              {
+                "feature": "Genetic material",
+                "values": [
+                  "Circular DNA free in cytoplasm, not bound to protein",
+                  "Linear DNA bound to protein, in a nucleus",
+                  "Linear DNA bound to protein, in a nucleus"
+                ]
+              },
+              {
+                "feature": "Ribosomes",
+                "values": [
+                  "70S, smaller",
+                  "80S in the cytoplasm",
+                  "80S in the cytoplasm"
+                ]
+              },
+              {
+                "feature": "Membrane-bound organelles",
+                "values": [
+                  "None",
+                  "Many",
+                  "Many"
+                ]
+              },
+              {
+                "feature": "Cell wall",
+                "values": [
+                  "Murein",
+                  "None",
+                  "Cellulose"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Prokaryotes are unicellular. Eukaryotes may be unicellular or multicellular.",
+            "Prokaryotes reproduce by binary fission, not mitosis.",
+            "Both types have a cell surface membrane, cytoplasm, ribosomes and DNA as genetic material."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Prokaryotes are smaller and have no nucleus, no organelles with a membrane and smaller ribosomes.",
+            "Their DNA is circular and not bound to protein."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Viruses",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Viruses are acellular and non-living. They have no cytoplasm, ribosomes or membrane, and they do not respire or grow."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Genetic material**: either DNA or RNA, which forms the core.",
+            "A **capsid**: a protein coat made of repeating units that protects the nucleic acid.",
+            "**Attachment proteins**: they stick out of the particle and bind to receptors on the surface of a host cell.",
+            "Viruses can only replicate inside a living host cell, so they cannot divide by themselves."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A virus gets its nucleic acid into a host cell. The host cell then makes new virus particles."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Bacterium",
+            "Virus"
+          ],
+          "rows": [
+            [
+              "Cells",
+              "A single cell",
+              "Not a cell (non-cellular)"
+            ],
+            [
+              "Size",
+              "1 to 5 µm",
+              "Much smaller, about 20 to 300 nm"
+            ],
+            [
+              "Genetic material",
+              "Circular DNA, free in the cytoplasm",
+              "DNA or RNA inside a capsid"
+            ],
+            [
+              "Ribosomes and cytoplasm",
+              "Present",
+              "Absent"
+            ],
+            [
+              "Cell wall or capsid",
+              "Murein cell wall",
+              "Protein capsid"
+            ],
+            [
+              "Reproduction",
+              "Binary fission, independently",
+              "Only inside host cells"
+            ],
+            [
+              "Living",
+              "Yes",
+              "No"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A virus has a nucleic acid core, a protein capsid and attachment proteins.",
+            "Viruses are non-living and can only be replicated by a host cell."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State three differences between a prokaryotic cell and a eukaryotic cell.",
+      "a": "Any three from: prokaryotic cells are smaller; have no nucleus (DNA free in the cytoplasm); have circular DNA not bound to protein; have smaller 70S ribosomes; have no membrane-bound organelles; have a murein cell wall.",
+      "marks": 3
+    },
+    {
+      "q": "Describe the structure of a virus.",
+      "a": "A core of genetic material (DNA or RNA), surrounded by a protein capsid, with attachment proteins on the outside.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why viruses are described as non-living.",
+      "a": "They have no cells, cytoplasm or ribosomes, do not carry out metabolism, and can only replicate inside a host cell.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.1.2"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 3.4",
+        "EDEX 6.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Mesosomes** are infoldings of the cell surface membrane seen in electron micrographs. They were thought to be sites of respiration.",
+                "Many scientists now think mesosomes are artefacts produced when cells are prepared for the microscope.",
+                "**Pili** are hollow, hair-like tubes. They attach to surfaces and can pass plasmids between bacteria.",
+                "The flagellum is a rotating tail made of protein, which drives the bacterium forwards."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 1.2.5",
+        "CAIE 1.2.6",
+        "CAIE 1.2.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Bacteria are unicellular and generally 1 to 5 µm in diameter.",
+                "Some viruses have an outer **envelope** made of phospholipids, taken from the host cell membrane.",
+                "Enveloped viruses carry attachment proteins in the envelope.",
+                "All viruses have a capsid and a nucleic acid core."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.1k"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "241ead09-5122-401c-afd3-f2ed085b4ba9",
+      "998284a2-ebf2-412a-9efc-ef47686c375d",
+      "a63adf56-b597-4077-9672-8bd3b0aab25d",
+      "6c12f4da-dbec-4391-8e07-f05fbe26fde9",
+      "7a7d5d54-4e01-443e-8094-2bdc4ace0679",
+      "b3b53cb2-962b-4251-8a66-439c60f5f5ce",
+      "d420f478-ee68-40f8-953c-e780a33be1b0"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

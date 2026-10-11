@@ -1,0 +1,299 @@
+{
+  "format": 1,
+  "concept_id": "abio-041",
+  "subject": "biology",
+  "title": "Epigenetics and cancer",
+  "key_idea": "Epigenetic changes alter gene expression without changing the DNA base sequence. DNA methylation and histone modification can switch genes off, and may be passed on at cell division. Mutated or abnormally silenced oncogenes and tumour suppressor genes can lead to cancer.",
+  "sections": [
+    {
+      "heading": "Genotype, environment and phenotype",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Phenotype depends on both genes and the environment."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The genotype sets what is possible. The environment affects which genes are expressed.",
+            "Identical twins have the same base sequence but can differ in phenotype as they age, because of different environments.",
+            "Diet, smoking, stress and exposure to chemicals can change gene expression."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Phenotype = interaction of genotype and environment.",
+            "The environment can change which genes are active."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Epigenetic control of gene expression",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Epigenetics is about heritable changes in gene function without changes to the DNA base sequence."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Epigenetics",
+              "meaning": "Heritable changes in gene function that do not involve a change to the DNA base sequence."
+            },
+            {
+              "term": "DNA methylation",
+              "meaning": "The addition of methyl groups to cytosine bases in DNA."
+            },
+            {
+              "term": "Histone modification",
+              "meaning": "A chemical change to histones, such as removal of acetyl groups (deacetylation), that changes how tightly DNA is wound."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Increased methylation** of DNA, especially of cytosine bases in the promoter region, stops transcription factors and RNA polymerase binding. The gene is switched off.",
+            "**Decreased acetylation** of histones makes them hold DNA more tightly. The DNA is wound up so transcription factors cannot reach the gene, which inhibits transcription.",
+            "Increased acetylation does the opposite: DNA is loosely wound and the genes can be transcribed.",
+            "Changes in the environment cause these changes. They do not alter the base sequence."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Epigenetic changes can be inherited"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The pattern of methylation can be copied when DNA replicates, so daughter cells after mitosis keep the same genes switched off.",
+            "Epigenetics is relevant to the development and treatment of disease, especially cancer."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "More methylation or less histone acetylation inhibits transcription.",
+            "No change to the base sequence, but the change can be inherited by daughter cells.",
+            "The environment can cause epigenetic changes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Tumours, oncogenes and tumour suppressor genes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cancer is uncontrolled cell division. A tumour is a mass of cells that divide when they should not."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Benign tumour",
+            "Malignant tumour"
+          ],
+          "rows": [
+            [
+              "Growth",
+              "Usually slow",
+              "Usually rapid"
+            ],
+            [
+              "Boundary",
+              "Often surrounded by a capsule",
+              "No capsule; cells invade neighbouring tissue"
+            ],
+            [
+              "Spread",
+              "Does not spread to other parts of the body",
+              "Cells break off and spread (metastasis) to form secondary tumours"
+            ],
+            [
+              "Cell appearance",
+              "Cells resemble normal cells",
+              "Cells are unspecialised and irregular"
+            ],
+            [
+              "Danger",
+              "Usually not life threatening",
+              "Often life threatening"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The two kinds of gene"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **proto-oncogene** normally stimulates cell division. A mutation or abnormal methylation makes it an **oncogene**, which is permanently active, so cells divide too often.",
+            "A **tumour suppressor gene** slows cell division, repairs DNA mistakes or causes cell death (apoptosis). If it is mutated or silenced by hypermethylation, it is switched off, so cells divide in an uncontrolled way."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Oncogenes compared with tumour suppressor genes.",
+            "items": [
+              "Oncogene",
+              "Tumour suppressor gene"
+            ],
+            "rows": [
+              {
+                "feature": "Normal job",
+                "values": [
+                  "Stimulates cell division (as a proto-oncogene)",
+                  "Slows cell division and causes apoptosis"
+                ]
+              },
+              {
+                "feature": "Fault",
+                "values": [
+                  "Gene becomes overactive",
+                  "Gene is inactivated"
+                ]
+              },
+              {
+                "feature": "Abnormal methylation",
+                "values": [
+                  "Hypomethylation (too little) switches the gene on permanently",
+                  "Hypermethylation (too much) switches the gene off"
+                ]
+              },
+              {
+                "feature": "Result",
+                "values": [
+                  "Too much cell division",
+                  "Cell division is not stopped"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Oestrogen and some breast cancers"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Oestrogen stimulates transcription of genes in cells that have its receptor, including genes that promote cell division.",
+            "Increased oestrogen concentrations can therefore stimulate division of some breast cells and contribute to some breast cancers."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Malignant tumours invade and spread; benign tumours do not.",
+            "An overactive oncogene drives division; an inactive tumour suppressor gene fails to stop it.",
+            "Abnormal methylation can switch either kind of gene the wrong way."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using this knowledge",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Understanding the genes involved helps in prevention, treatment and cure."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Genetic testing can find people with mutated tumour suppressor genes or oncogenes, so they can be screened early.",
+            "Drugs can target the abnormal methylation or restore silenced tumour suppressor genes.",
+            "Drugs can block the oestrogen receptor in oestrogen-dependent breast cancer.",
+            "Evidence shows correlations between genetic and environmental factors and cancer. A correlation alone does not prove cause, so evaluate sample size, controls and repeats."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Knowing which genes are faulty allows screening and targeted treatment.",
+            "Correlation between a factor and cancer does not prove the factor causes it."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how increased methylation of the DNA of a gene can prevent the gene being expressed.",
+      "a": "Methyl groups added to the DNA, especially in the promoter, stop transcription factors and RNA polymerase binding. The gene is not transcribed, so no mRNA or protein is made. The base sequence is unchanged.",
+      "marks": 3
+    },
+    {
+      "q": "Distinguish between a benign tumour and a malignant tumour.",
+      "a": "A benign tumour is usually slow growing, often has a capsule and does not spread. A malignant tumour grows rapidly, invades surrounding tissue and spreads to other parts of the body (metastasis).",
+      "marks": 3
+    },
+    {
+      "q": "Explain how a mutation in a tumour suppressor gene can lead to a tumour.",
+      "a": "The gene no longer makes a functional protein (or is switched off by methylation). Cell division is not slowed and damaged cells are not repaired or killed by apoptosis. Cells divide uncontrollably and form a tumour.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.8.2.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Epigenetic changes arise from changes in the environment that inhibit transcription by increased methylation of DNA or decreased acetylation of associated histones.",
+                "Abnormal methylation of tumour suppressor genes and oncogenes is involved in tumour development.",
+                "Be able to evaluate evidence for correlations between genetic and environmental factors and various forms of cancer.",
+                "Be able to interpret information on how understanding oncogenes and tumour suppressor genes could be used in the prevention, treatment and cure of cancer."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 3.14"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Phenotype is the result of an interaction between the genotype and the environment.",
+                "Epigenetic changes, including DNA methylation and histone modification, can modify the activation of certain genes.",
+                "Epigenetic changes can be passed on following cell division."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "79270739-d725-4279-b2de-c7737efc6512",
+      "44d63814-38a1-4e07-9a77-66e3cf057e3f"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

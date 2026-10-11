@@ -1,0 +1,660 @@
+{
+  "format": 1,
+  "concept_id": "aphys-076",
+  "subject": "physics",
+  "title": "Alternating current, transformers and rectification",
+  "key_idea": "An alternating current reverses direction regularly. Its r.m.s. value is the peak value divided by √2. Transformers use electromagnetic induction to step an alternating p.d. up or down, with Vₛ/Vₚ = Nₛ/Nₚ.",
+  "sections": [
+    {
+      "heading": "Describing alternating current",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An alternating current (or p.d.) repeatedly reverses direction. In a sinusoidal supply it follows a sine wave."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Period, T",
+              "meaning": "The time for one complete cycle."
+            },
+            {
+              "term": "Frequency, f",
+              "meaning": "The number of cycles per second, in hertz (Hz)."
+            },
+            {
+              "term": "Peak value, x₀",
+              "meaning": "The largest value of the current or voltage, measured from zero."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Frequency",
+          "formula": "f = 1 / T",
+          "where": [
+            "f = frequency (Hz)",
+            "T = period (s)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "A sinusoidal current or voltage",
+          "formula": "x = x₀ sin ωt",
+          "where": [
+            "x = current or p.d. at time t",
+            "x₀ = peak value",
+            "ω = angular frequency = 2πf (rad/s)",
+            "t = time (s)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A sinusoidal alternating voltage against time. One full cycle takes 20 ms. The highest point is the peak value.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 40,
+              "ticks": [
+                0,
+                10,
+                20,
+                30,
+                40
+              ],
+              "unit": "ms"
+            },
+            "y": {
+              "label": "Voltage",
+              "zero": 0.5
+            },
+            "series": [
+              {
+                "name": "Alternating voltage",
+                "points": [
+                  [
+                    0.0,
+                    0.5
+                  ],
+                  [
+                    2.5,
+                    0.854
+                  ],
+                  [
+                    5.0,
+                    1.0
+                  ],
+                  [
+                    7.5,
+                    0.854
+                  ],
+                  [
+                    10.0,
+                    0.5
+                  ],
+                  [
+                    12.5,
+                    0.146
+                  ],
+                  [
+                    15.0,
+                    0.0
+                  ],
+                  [
+                    17.5,
+                    0.146
+                  ],
+                  [
+                    20.0,
+                    0.5
+                  ],
+                  [
+                    22.5,
+                    0.854
+                  ],
+                  [
+                    25.0,
+                    1.0
+                  ],
+                  [
+                    27.5,
+                    0.854
+                  ],
+                  [
+                    30.0,
+                    0.5
+                  ],
+                  [
+                    32.5,
+                    0.146
+                  ],
+                  [
+                    35.0,
+                    0.0
+                  ],
+                  [
+                    37.5,
+                    0.146
+                  ],
+                  [
+                    40.0,
+                    0.5
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 5,
+                "label": "Peak value, V₀"
+              }
+            ],
+            "bands": [
+              {
+                "from": 0,
+                "to": 20,
+                "label": "One cycle: period T"
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Period is the time for one cycle, and f = 1/T.",
+            "A sinusoidal a.c. is x = x₀ sin ωt, with ω = 2πf."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Root-mean-square values",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The current averages to zero over a cycle, so the average is useless for power. The r.m.s. value is used instead."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Root-mean-square (r.m.s.) value",
+              "meaning": "The value of the steady direct current or voltage that would deliver the same mean power to a resistor."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "R.m.s. current",
+          "formula": "Iᵣₘₛ = I₀ / √2",
+          "where": [
+            "Iᵣₘₛ = r.m.s. current (A)",
+            "I₀ = peak current (A)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "R.m.s. p.d.",
+          "formula": "Vᵣₘₛ = V₀ / √2",
+          "where": [
+            "Vᵣₘₛ = r.m.s. p.d. (V)",
+            "V₀ = peak p.d. (V)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Power",
+              "text": "In a resistor, P = I²R. With I = I₀ sin ωt, P varies as sin² ωt."
+            },
+            {
+              "lead": "Average",
+              "text": "The mean value of sin² ωt is ½, so the mean power is ½ I₀² R, which is half the maximum power."
+            },
+            {
+              "lead": "Compare",
+              "text": "A direct current Iᵣₘₛ gives power Iᵣₘₛ² R. Setting it equal to ½ I₀² R gives Iᵣₘₛ = I₀/√2."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The mean power in a resistor is half the maximum power.",
+            "Mains 230 V is an r.m.s. value. The peak is 230 × √2 = 325 V."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The r.m.s. value is the peak value divided by √2.",
+            "Mean power in a resistor is half the peak power."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Transformers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A transformer changes the size of an alternating p.d. It works by electromagnetic induction between two coils on a shared core."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Primary current",
+              "text": "An alternating current in the primary coil produces an alternating flux in the iron core."
+            },
+            {
+              "lead": "Flux linkage",
+              "text": "The core guides almost all the flux through the secondary coil."
+            },
+            {
+              "lead": "Induced e.m.f.",
+              "text": "The changing flux linkage induces an alternating e.m.f. in the secondary coil."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Transformer equation",
+          "formula": "Vₛ / Vₚ = Nₛ / Nₚ",
+          "where": [
+            "Vₛ, Vₚ = p.d. across secondary and primary (V)",
+            "Nₛ, Nₚ = turns on secondary and primary"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "More turns on the secondary than the primary gives a step-up transformer.",
+            "Fewer turns on the secondary gives a step-down transformer.",
+            "For an ideal transformer there is no power loss: VₛIₛ = VₚIₚ, so Iₚ/Iₛ = Vₛ/Vₚ.",
+            "A transformer does not work with direct current, because a steady current gives a steady flux and no e.m.f.",
+            "The core is made of soft iron, which is easy to magnetise and demagnetise. It is laminated, meaning built from thin insulated sheets."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider activity for an ideal transformer. Change the primary p.d., the primary current and the numbers of turns and see the secondary p.d. and current.",
+            "inputs": [
+              {
+                "id": "vp",
+                "label": "Primary p.d.",
+                "unit": "V",
+                "min": 10,
+                "max": 400,
+                "step": 10,
+                "value": 230
+              },
+              {
+                "id": "ip",
+                "label": "Primary current",
+                "unit": "A",
+                "min": 0.1,
+                "max": 5,
+                "step": 0.1,
+                "value": 1
+              },
+              {
+                "id": "np",
+                "label": "Primary turns",
+                "min": 100,
+                "max": 2000,
+                "step": 100,
+                "value": 1000
+              },
+              {
+                "id": "ns",
+                "label": "Secondary turns",
+                "min": 100,
+                "max": 2000,
+                "step": 100,
+                "value": 100
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Secondary p.d.",
+                "unit": "V",
+                "formula": "vp*ns/np",
+                "decimals": 1
+              },
+              {
+                "label": "Secondary current (ideal)",
+                "unit": "A",
+                "formula": "ip*np/ns",
+                "decimals": 2
+              },
+              {
+                "label": "Power in and out (ideal)",
+                "unit": "W",
+                "formula": "vp*ip",
+                "decimals": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Vₛ/Vₚ = Nₛ/Nₚ.",
+            "A step-up transformer raises the p.d. and lowers the current.",
+            "It needs a changing flux, so a.c. is required."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A mains supply has an r.m.s. voltage of 230 V. Calculate its peak voltage.",
+      "a": "V₀ = √2 × Vᵣₘₛ = √2 × 230 = 325 V.",
+      "marks": 2
+    },
+    {
+      "q": "An ideal transformer has 500 turns on the primary and 50 on the secondary. The primary has 230 V a.c. and a current of 0.40 A. Calculate the secondary p.d. and current.",
+      "a": "Vₛ = 230 × 50/500 = 23 V. Iₛ = Iₚ × Nₚ/Nₛ = 0.40 × 10 = 4.0 A.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a transformer does not work with a direct current.",
+      "a": "A steady current in the primary produces a steady flux in the core. There is no changing flux linkage in the secondary, so no e.m.f. is induced.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.5.5",
+        "AQA 3.7.5.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Peak-to-peak and the oscilloscope"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Peak-to-peak value is twice the peak value, 2V₀.",
+                "Mains of 230 V r.m.s. has a peak of about 325 V and a peak-to-peak value of about 650 V."
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Y-gain",
+                  "text": "The Y-gain control sets volts per division. Peak voltage = vertical divisions × Y-gain."
+                },
+                {
+                  "lead": "Time base",
+                  "text": "The time base sets time per division. Period = horizontal divisions per cycle × time base."
+                },
+                {
+                  "lead": "Frequency",
+                  "text": "f = 1 / T."
+                },
+                {
+                  "lead": "Direct voltage",
+                  "text": "A d.c. input moves the trace up or down by a steady amount. Read the shift in divisions × Y-gain."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Efficiency and losses in a transformer"
+            },
+            {
+              "type": "equation",
+              "label": "Transformer efficiency",
+              "formula": "Efficiency = IₛVₛ / IₚVₚ",
+              "where": [
+                "Iₛ, Vₛ = secondary current and p.d.",
+                "Iₚ, Vₚ = primary current and p.d."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Eddy currents: the changing flux induces currents in the iron core itself, which heat it. A laminated core has a higher resistance in the direction of these currents, so they are smaller.",
+                "Resistance of the coils causes I²R heating. Thick copper wire reduces it.",
+                "Flux leakage: some flux from the primary does not pass through the secondary.",
+                "Hysteresis: energy is lost each time the core is magnetised and demagnetised. Soft iron keeps this small."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Power transmission"
+            },
+            {
+              "type": "paragraph",
+              "text": "Power is P = IV, so a high p.d. means a low current for the same power. Power loss in the cables is I²R."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Sending 50 kW through cables of 2.0 Ω",
+                "At 500 V",
+                "At 5000 V"
+              ],
+              "rows": [
+                [
+                  "Current",
+                  "100 A",
+                  "10 A"
+                ],
+                [
+                  "Power lost in the cables",
+                  "20 kW (40%)",
+                  "200 W (0.4%)"
+                ]
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Transmit at high p.d. so the current, and the I²R loss, is small.",
+                "Transformer losses come from eddy currents, coil resistance, flux leakage and hysteresis."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.128",
+        "EDEX 7.129"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 21.1.1",
+        "CAIE 21.1.2",
+        "CAIE 21.1.3",
+        "CAIE 21.1.4",
+        "CAIE 21.2.1",
+        "CAIE 21.2.2",
+        "CAIE 21.2.3",
+        "CAIE 21.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Half-wave and full-wave rectification"
+            },
+            {
+              "type": "paragraph",
+              "text": "Rectification changes an alternating current into a current that flows in one direction. A diode conducts in one direction only."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Half-wave: a single diode in series with the load lets through only the half-cycles in one direction. The output is zero for the other half of each cycle.",
+                "Full-wave: four diodes in a bridge direct both half-cycles through the load in the same direction. The output is always positive.",
+                "The full-wave output peaks twice as often as the half-wave output."
+              ]
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Type",
+                "Diodes",
+                "Output"
+              ],
+              "rows": [
+                [
+                  "Half-wave",
+                  "1",
+                  "One pulse per cycle, then zero"
+                ],
+                [
+                  "Full-wave (bridge)",
+                  "4",
+                  "Two pulses per cycle, no gaps"
+                ]
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Smoothing with a capacitor"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Charging",
+                  "text": "A capacitor in parallel with the load charges to the peak p.d. while the rectified p.d. rises."
+                },
+                {
+                  "lead": "Diode off",
+                  "text": "When the supply p.d. falls below the capacitor p.d., the diode stops conducting."
+                },
+                {
+                  "lead": "Discharging",
+                  "text": "The capacitor supplies the load. Its p.d. falls slowly, with time constant RC, until the next peak recharges it."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A larger capacitance gives a larger RC, so the p.d. falls less between peaks.",
+                "A larger load resistance also gives a larger RC and a smoother output.",
+                "A full-wave rectified supply is smoother than half-wave, because the capacitor is recharged twice as often."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "A bridge of four diodes gives full-wave rectification.",
+                "A large capacitor and a large load resistance give a smoother output."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.3.3e",
+        "OCR 6.3.3f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "A simple a.c. generator"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Rotating coil",
+                  "text": "A coil is turned in a uniform magnetic field, so its flux linkage changes continuously."
+                },
+                {
+                  "lead": "Slip rings",
+                  "text": "Slip rings and carbon brushes connect the rotating coil to the external circuit."
+                },
+                {
+                  "lead": "Output",
+                  "text": "The induced e.m.f. is sinusoidal. It is greatest when the plane of the coil is parallel to the field and zero when it is at right angles to it."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Turning faster gives a higher frequency and a larger peak e.m.f.",
+                "A stronger field, more turns or a larger area give a larger peak e.m.f."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Investigating a transformer"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use a laminated iron core with primary and secondary coils and an a.c. supply.",
+                "Use voltmeters to measure the p.d. across each coil, and ammeters for the currents.",
+                "Change the number of turns on one coil and compare Vₛ/Vₚ with Nₛ/Nₚ.",
+                "Compare VₛIₛ with VₚIₚ. They are not quite equal, because a real transformer has losses."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "A generator turns a coil in a field to produce an alternating e.m.f.",
+                "Measure p.d. and current on both coils to test a transformer."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "68a0bd2e-a524-4377-a1a7-2e3ed78e1f59",
+      "70301dff-9a5a-4c24-9760-47fb2280bbb3",
+      "0619c1c8-c7b0-4da4-8b7d-62361a500fd4",
+      "e7e948b6-d38c-4645-90bc-e1a76f64d3c0",
+      "626f1b5a-ac38-4e12-b278-440a2083b02a",
+      "1dc892a9-5e22-4034-af29-3433d5a668e8",
+      "67c2073a-5daa-4631-a524-1426b912c1e0",
+      "825b82d2-52e0-4c29-b435-32e345191958",
+      "7fd49f0d-8385-400d-a995-2e89e2045268",
+      "903d694c-9217-4f0b-8435-b710a9128f8f",
+      "2dcb2990-97f6-4451-b5d0-64b612c38c10",
+      "fb95e23e-46b2-4b8a-8404-e674d3f5285c",
+      "4bf0007f-6dcd-4494-8532-7c4d230a2ca6",
+      "7dfad840-2992-48a2-9e33-f3712049d336"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

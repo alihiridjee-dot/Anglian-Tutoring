@@ -1,0 +1,283 @@
+{
+  "format": 1,
+  "concept_id": "achem-005",
+  "subject": "chemistry",
+  "title": "Formulae, equations and the mole",
+  "key_idea": "Ionic formulae balance the charges of the ions. Equations must balance atoms and charge, with state symbols. The mole counts particles: one mole is 6.02 × 10²³ of them, and its mass in grams is the molar mass.",
+  "sections": [
+    {
+      "heading": "Formulae of ionic compounds",
+      "blocks": [
+        { "type": "paragraph", "text": "An ionic formula shows the simplest ratio of ions, with total positive charge equal to total negative charge. This section covers how to predict ion charges and combine them." },
+        { "type": "subheading", "text": "Predicting a charge from the Periodic Table" },
+        {
+          "type": "table",
+          "columns": ["Group", "Ion formed", "Example"],
+          "rows": [
+            ["1", "1+", "Na⁺"],
+            ["2", "2+", "Mg²⁺"],
+            ["13", "3+", "Al³⁺"],
+            ["15", "3−", "N³⁻"],
+            ["16", "2−", "O²⁻, S²⁻"],
+            ["17", "1−", "Cl⁻, Br⁻"]
+          ]
+        },
+        { "type": "subheading", "text": "Ions to recall" },
+        {
+          "type": "table",
+          "columns": ["Ion", "Formula"],
+          "rows": [
+            ["Nitrate", "NO₃⁻"],
+            ["Carbonate", "CO₃²⁻"],
+            ["Sulfate", "SO₄²⁻"],
+            ["Hydroxide", "OH⁻"],
+            ["Ammonium", "NH₄⁺"],
+            ["Zinc", "Zn²⁺"],
+            ["Silver", "Ag⁺"]
+          ]
+        },
+        { "type": "subheading", "text": "Building the formula" },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Write the ions.", "text": "Aluminium sulfate contains Al³⁺ and SO₄²⁻." },
+            { "lead": "Balance the charge.", "text": "Two Al³⁺ give +6. Three SO₄²⁻ give −6." },
+            { "lead": "Write the ratio.", "text": "Put a compound ion in brackets when you need more than one: Al₂(SO₄)₃." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The group predicts the charge on a simple ion.",
+            "Total positive charge equals total negative charge.",
+            "Use brackets around a compound ion when there is more than one."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Balanced equations and ionic equations",
+      "blocks": [
+        { "type": "paragraph", "text": "An equation must have the same atoms and the same total charge on each side. This section covers full equations, ionic equations and state symbols." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "State symbols", "meaning": "(s) solid, (l) liquid, (g) gas, (aq) dissolved in water." },
+            { "term": "Spectator ion", "meaning": "An ion that is in the mixture but does not change during the reaction." },
+            { "term": "Ionic equation", "meaning": "An equation showing only the particles that react." }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Full equation.", "text": "Pb(NO₃)₂(aq) + 2KI(aq) → PbI₂(s) + 2KNO₃(aq)" },
+            { "lead": "Split the aqueous ionic compounds into ions.", "text": "Pb²⁺ + 2NO₃⁻ + 2K⁺ + 2I⁻ → PbI₂(s) + 2K⁺ + 2NO₃⁻" },
+            { "lead": "Cancel the spectator ions.", "text": "K⁺ and NO₃⁻ appear unchanged on both sides." },
+            { "lead": "Ionic equation.", "text": "Pb²⁺(aq) + 2I⁻(aq) → PbI₂(s)" }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Only aqueous ionic compounds and strong acids are split into ions. Solids, liquids and gases stay whole.",
+            "Check two things: atoms balance, and total charge is the same on both sides.",
+            "For an unfamiliar reaction, use the reactants and products you are given, then balance.",
+            "Never change a formula to balance an equation. Change only the number in front."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Balance atoms and charge.",
+            "State symbols are part of the answer.",
+            "An ionic equation leaves out the spectator ions."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The mole, the Avogadro constant and molar mass",
+      "blocks": [
+        { "type": "paragraph", "text": "Atoms are too small to count one by one, so chemists count them in moles. This section covers the mole and how it links mass and numbers of particles." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Amount of substance", "meaning": "A quantity measured in moles, written n." },
+            { "term": "Mole (mol)", "meaning": "The unit of amount of substance. One mole contains 6.02 × 10²³ particles." },
+            { "term": "Avogadro constant", "meaning": "The number of particles per mole: 6.02 × 10²³ mol⁻¹." },
+            { "term": "Molar mass", "meaning": "The mass of one mole of a substance, in g mol⁻¹. It has the same number as the relative formula mass." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Always say which particle you mean: a mole of O atoms is not a mole of O₂ molecules.",
+            "The particles can be atoms, molecules, ions, electrons or formula units.",
+            "Amount is written with the formula: amount of NaCl, amount of O₂.",
+            "Molar mass of H₂O = 2 × 1.0 + 16.0 = 18.0 g mol⁻¹."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Amount from mass",
+          "formula": "n = m ÷ M",
+          "where": ["n = amount of substance (mol)", "m = mass (g)", "M = molar mass (g mol⁻¹)"]
+        },
+        {
+          "type": "equation",
+          "label": "Number of particles",
+          "formula": "N = n × L",
+          "where": ["N = number of particles", "n = amount of substance (mol)", "L = Avogadro constant (6.02 × 10²³ mol⁻¹)"]
+        },
+        {
+          "type": "equation",
+          "label": "Amount from a solution",
+          "formula": "n = c × V",
+          "where": ["n = amount of solute (mol)", "c = concentration (mol dm⁻³)", "V = volume (dm³)"]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Amount.", "text": "9.0 g of water: n = 9.0 ÷ 18.0 = 0.50 mol." },
+            { "lead": "Particles.", "text": "N = 0.50 × 6.02 × 10²³ = 3.01 × 10²³ molecules." },
+            { "lead": "Atoms.", "text": "Each H₂O has 3 atoms, so there are 9.03 × 10²³ atoms." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation of the number of water molecules in a given mass of water.",
+            "question": "How many molecules are in {m} g of water (molar mass 18.0 g mol⁻¹)? Give the answer as a multiple of 10²³.",
+            "variables": [{ "id": "m", "min": 4.5, "max": 54, "step": 4.5 }],
+            "answer": { "formula": "m / 18 * 6.02", "unit": "× 10²³ molecules", "decimals": 2, "tolerance_percent": 1 },
+            "working": ["n = {m} ÷ 18.0 mol", "N = n × 6.02 × 10²³", "N = {answer} × 10²³ molecules"]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "One mole is 6.02 × 10²³ particles.",
+            "n = m ÷ M links mass to amount.",
+            "Multiply moles by the Avogadro constant to count particles."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write the formula of aluminium nitrate and of ammonium carbonate.",
+      "a": "Aluminium nitrate: Al(NO₃)₃. Ammonium carbonate: (NH₄)₂CO₃.",
+      "marks": 2
+    },
+    {
+      "q": "Write the ionic equation, with state symbols, for silver nitrate solution reacting with sodium chloride solution to form a precipitate of silver chloride.",
+      "a": "Ag⁺(aq) + Cl⁻(aq) → AgCl(s). Na⁺ and NO₃⁻ are spectator ions.",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the number of oxygen atoms in 1.60 g of O₂. (Molar mass of O₂ = 32.0 g mol⁻¹; L = 6.02 × 10²³ mol⁻¹.)",
+      "a": "n(O₂) = 1.60 ÷ 32.0 = 0.0500 mol. Molecules = 0.0500 × 6.02 × 10²³ = 3.01 × 10²². Each molecule has 2 atoms, so 6.02 × 10²² atoms.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": ["OCR 2.1.2a", "OCR 2.1.2b", "OCR 2.1.3a"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Charges on ions other than the group-based ones and the recall list are given to you in the question.",
+                "'Nitrate' and 'sulfate' always mean NO₃⁻ and SO₄²⁻.",
+                "Either the carbon-12 definition or the Avogadro-constant definition of the mole is accepted.",
+                "The Avogadro constant may be written Nₐ, with the same value, 6.02 × 10²³ mol⁻¹.",
+                "Molar gas volume is the gas volume per mole, in dm³ mol⁻¹. Its value at room temperature and pressure is on the data sheet."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 5.1", "EDEX 5.2", "EDEX 5.3", "EDEX 5.6"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The Avogadro constant is written L, with the value 6.02 × 10²³ mol⁻¹, and is used in calculations.",
+                "Write balanced full equations and ionic equations for reactions, always with state symbols."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.1.2.2"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The mole applies to electrons, atoms, molecules, ions, formulae and equations.",
+                "Concentration of a solution is measured in mol dm⁻³. Calculate it from concentration, volume and amount: n = c × V.",
+                "Calculate with mass, relative molecular mass (Mᵣ) and amount in moles.",
+                "You do not need to recall the value of the Avogadro constant."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 2.2.1", "CAIE 2.3.1", "CAIE 2.3.2"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Oxidation numbers shown by a Roman numeral give the charge: iron(III) oxide contains Fe³⁺, so its formula is Fe₂O₃.",
+                "Also recall hydrogencarbonate, HCO₃⁻, and phosphate, PO₄³⁻.",
+                "An ionic equation must not include spectator ions.",
+                "Use state symbols appropriately in every equation."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "68c02683-cccb-4271-bcfd-dafa2776561c",
+      "319d8428-6540-4302-bada-7778c7318cda",
+      "e16043e5-d750-4acc-9b74-366723f14424",
+      "eb5fe7d2-5606-4aa7-8e87-b2c543d2fe6f",
+      "dcc63547-390e-4808-845c-797ddc883c30",
+      "970d165f-0590-4b01-b281-40969530c844",
+      "65361215-43f1-4e6c-b30b-cdfb0a955a68",
+      "1f1eb46f-f838-4196-9369-7a5c44d55ce4",
+      "74df550d-ab50-4848-bb97-9883c2bc74f3",
+      "39efa8ed-ab18-4485-96f9-deef5fa76479",
+      "af6b6ed2-be9a-4ad5-8e17-b81e9beb26ea"
+    ],
+    "exemplar_ids": []
+  }
+}

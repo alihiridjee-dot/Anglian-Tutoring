@@ -1,0 +1,312 @@
+{
+  "format": 1,
+  "concept_id": "aphys-085",
+  "subject": "physics",
+  "title": "ECG, endoscopy and MRI",
+  "key_idea": "An ECG records the tiny potential differences made by the beating heart. An endoscope uses total internal reflection in optical fibres to carry light and images. An MR scanner uses a strong magnetic field and radio pulses to make hydrogen nuclei emit signals that a computer turns into an image.",
+  "sections": [
+    {
+      "heading": "The ECG",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An electrocardiogram (ECG) is a record of the electrical activity of the heart. Heart muscle cells contract after a wave of electrical activity passes over them."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Electrodes",
+              "text": "Electrodes on the skin, with conducting gel, pick up p.d.s of about 1 mV caused by the heart."
+            },
+            {
+              "lead": "Amplifier",
+              "text": "A differential amplifier with high gain boosts the small signal. It cancels interference that reaches both electrodes equally."
+            },
+            {
+              "lead": "Filter",
+              "text": "Filters remove unwanted frequencies, such as mains hum and signals from muscle movement."
+            },
+            {
+              "lead": "Display",
+              "text": "The signal is shown as a trace of p.d. against time, on a screen or on paper."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The normal waveform"
+        },
+        {
+          "type": "paragraph",
+          "text": "Muscle cells become electrically active (depolarise) just before they contract, then reset (repolarise). The shape of the trace follows these events in order."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "An interactive ECG trace. Tap a feature to see what is happening in the heart.",
+            "prompt": "Tap a part of the ECG waveform to see what it shows.",
+            "parts": [
+              {
+                "name": "P wave",
+                "detail": "A small peak. The atria depolarise, so the atria contract."
+              },
+              {
+                "name": "PR segment",
+                "detail": "A flat part. The signal is delayed at the node between the atria and ventricles, so the atria finish contracting before the ventricles start."
+              },
+              {
+                "name": "QRS complex",
+                "detail": "A tall, narrow spike. The ventricles depolarise, so the ventricles contract. It is larger than the P wave because the ventricles have much more muscle."
+              },
+              {
+                "name": "ST segment",
+                "detail": "A flat part. The ventricles are fully depolarised and still contracting."
+              },
+              {
+                "name": "T wave",
+                "detail": "A broad, low peak. The ventricles repolarise and relax."
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The atria repolarise at the same time as the QRS complex, but this signal is small and hidden by it.",
+            "The time between peaks gives the heart rate.",
+            "An abnormal shape, or irregular timing, can show a fault such as an irregular rhythm."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An ECG records the small p.d. at the skin made by the heart's electrical activity.",
+            "P wave: atria depolarise. QRS: ventricles depolarise. T wave: ventricles repolarise.",
+            "The QRS complex is the largest because the ventricles contain much more muscle than the atria."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Optical fibres and endoscopy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An endoscope lets a doctor see inside the body through a small opening, using bundles of optical fibres. Each fibre carries light by total internal reflection."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Core",
+              "meaning": "The thin central strand of glass or plastic that carries the light."
+            },
+            {
+              "term": "Cladding",
+              "meaning": "The outer layer of glass with a lower refractive index than the core."
+            },
+            {
+              "term": "Total internal reflection",
+              "meaning": "All the light is reflected back into the denser medium when it hits the boundary at an angle larger than the critical angle."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light enters the core and hits the **core–cladding** boundary at an angle of incidence larger than the critical angle.",
+            "The core has a higher refractive index than the cladding, so total internal reflection happens and no light is lost.",
+            "The light zigzags along the fibre, even when the fibre is bent.",
+            "The cladding protects the core from scratches, which would let light escape, and stops light leaking between neighbouring fibres."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Critical angle",
+          "formula": "sin C = n₂ ÷ n₁",
+          "where": [
+            "C = critical angle (°)",
+            "n₁ = refractive index of the core",
+            "n₂ = refractive index of the cladding, which is smaller"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Flexible endoscope"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Bundle",
+            "How the fibres are arranged",
+            "Used for"
+          ],
+          "rows": [
+            [
+              "Coherent",
+              "Fibres are in the same relative positions at both ends",
+              "Carrying the image back to the eyepiece or camera"
+            ],
+            [
+              "Non-coherent",
+              "Fibres are randomly arranged",
+              "Carrying light down to the tissue, which only needs light, not an image"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light goes down the non-coherent bundle to light up the inside of the body.",
+            "An objective lens at the tip forms a real image of the tissue on the end of the coherent bundle.",
+            "Each fibre carries the brightness of one small part of the image, so the image arrives intact at the other end.",
+            "A lens at the viewing end, or a camera, shows the image to the doctor."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Endoscopes can be inserted through the mouth or a very small cut, so no major surgery is needed.",
+            "The doctor sees the tissue directly in real time, and can take a sample (biopsy) or carry out a small operation with tools passed down a channel.",
+            "Recovery is quicker and there is less risk of infection than with open surgery."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Light stays in the core by total internal reflection at the core–cladding boundary.",
+            "A coherent bundle carries the image. A non-coherent bundle carries illumination.",
+            "Endoscopy gives internal images with little damage to the patient."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The MR scanner",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A magnetic resonance (MR) scanner makes a cross-section image of the patient using magnetic fields and radio waves. It uses the hydrogen nuclei (protons) in water and fat."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Spin",
+              "meaning": "A property of protons which makes each one behave like a tiny magnet."
+            },
+            {
+              "term": "Precession",
+              "meaning": "The wobble of a spinning proton around the direction of a magnetic field."
+            },
+            {
+              "term": "Resonance",
+              "meaning": "Strong absorption of energy when the radio-wave frequency equals the precession frequency."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Strong field",
+              "text": "A superconducting magnet makes a strong, uniform field. Protons line up with their spins parallel to the field."
+            },
+            {
+              "lead": "Precession",
+              "text": "The protons precess about the field lines at a frequency which depends on the field strength."
+            },
+            {
+              "lead": "Gradient coils",
+              "text": "Gradient coils make the field slightly stronger along the body, so protons in each slice precess at their own frequency."
+            },
+            {
+              "lead": "RF pulse",
+              "text": "A short radio frequency (RF) pulse at the precession frequency of one region excites the protons there. They change their spin state."
+            },
+            {
+              "lead": "Emission",
+              "text": "As the protons de-excite, they emit RF signals."
+            },
+            {
+              "lead": "Detection",
+              "text": "The RF signals are detected and a computer processes them to build up an image of the cross-section."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity. Put the stages of an MR scan in the correct order.",
+            "prompt": "Put the stages of an MR scan in order.",
+            "steps": [
+              "Protons line up with their spins parallel to the strong magnetic field.",
+              "Gradient coils make the field vary so that each region has its own precession frequency.",
+              "A short RF pulse excites the protons in one small region.",
+              "The excited protons de-excite and emit RF signals.",
+              "A computer processes the detected signals to form an image."
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Only the region whose precession frequency matches the pulse is excited, so the scanner scans small regions one after another.",
+            "The strength of the signal from a region depends on how many hydrogen nuclei are there, so tissues with different water content show up differently.",
+            "MR scanning does not use ionising radiation."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A strong field aligns the protons, and gradient coils make each region resonate at a different frequency.",
+            "RF pulses excite the protons, and the signals they emit as they de-excite are detected.",
+            "A computer turns the signals into a cross-section image."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State why the QRS complex on an ECG is larger than the P wave.",
+      "a": "The QRS complex is the depolarisation of the ventricles, and the ventricles contain much more muscle than the atria, so the p.d. is larger.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how light travels along an optical fibre in an endoscope, and why the fibre has a cladding.",
+      "a": "Light hits the core–cladding boundary at an angle greater than the critical angle, so it is totally internally reflected, and it zigzags along the core. The cladding has a lower refractive index than the core to make total internal reflection possible. It also protects the core from scratches and stops light passing between fibres.",
+      "marks": 4
+    },
+    {
+      "q": "Describe the roles of the gradient coils and the RF pulses in an MR scanner.",
+      "a": "The gradient coils make the magnetic field vary across the patient, so protons in different small regions precess at different frequencies. A short RF pulse at one frequency excites only the protons in the matching region, and when they de-excite they emit RF signals that are detected.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.10.3.1",
+        "AQA 3.10.4.2",
+        "AQA 3.10.4.3"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "3fa88acb-e391-4c6b-86a0-36a518aa6e21",
+      "277a0c6c-638d-4d2b-b28e-b7cb2a1a97f6",
+      "b2c5c8c9-100e-439e-844f-4846f926c8dd"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

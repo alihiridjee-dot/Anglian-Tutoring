@@ -1,0 +1,327 @@
+{
+  "format": 1,
+  "concept_id": "aphys-005",
+  "subject": "physics",
+  "title": "Recording, graphing and evaluating data",
+  "key_idea": "Record results in tables with quantities and units, process them using the right significant figures and plot clear graphs. The gradient and intercept lead to a conclusion. Then judge the results: spot anomalies, state limitations, suggest improvements, keep records and cite your sources.",
+  "sections": [
+    {
+      "heading": "Recording and presenting data",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Record observations and measurements clearly as you collect them. A good table and clear records make later analysis possible."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Label each column with the quantity and unit, written as quantity / unit, such as speed / m s⁻¹.",
+            "Put the independent variable in the first column and the dependent variable next.",
+            "Write every value in a column to the same number of decimal places, matching the instrument's resolution.",
+            "Repeat readings in extra columns and show the mean.",
+            "Keep dated notes of what you did, including any changes to the plan."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Significant figures",
+              "meaning": "The digits in a number that carry meaning, counting from the first non-zero digit."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Give a calculated answer to the same number of significant figures as the least precise data used.",
+            "Do not round in the middle of a calculation; round only the final answer.",
+            "0.0450 has three significant figures; 450 has two or three, depending on the measurement."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Label columns and axes as quantity / unit.",
+            "Give final answers to a sensible number of significant figures."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Plotting graphs and finding gradients",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A graph shows the relationship between two variables. The gradient and intercept often give a quantity you want."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Choose axes",
+              "text": "Put the independent variable on the x axis and the dependent variable on the y axis."
+            },
+            {
+              "lead": "Choose scales",
+              "text": "Use a scale that makes the points fill more than half of each axis, with simple steps."
+            },
+            {
+              "lead": "Label",
+              "text": "Write the quantity and unit on each axis."
+            },
+            {
+              "lead": "Plot and draw",
+              "text": "Plot with small crosses, then draw a smooth line or a straight line of best fit through the points."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Gradient of a straight line",
+          "formula": "gradient = Δy ÷ Δx",
+          "where": [
+            "Δy is the change in y between two points on the line",
+            "Δx is the change in x between the same two points"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use a large triangle, with points taken from the line and not from the data.",
+            "Include the unit of the gradient: the unit of y divided by the unit of x.",
+            "The intercept is the value of y where the line crosses the y axis, at x = 0.",
+            "Compare y = mx + c with the equation: the gradient m and the intercept c may be quantities you want."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question. Find the gradient of a straight-line graph from two points.",
+            "question": "Two points on a best-fit line are ({x1}, {y1}) and ({x2}, {y2}). Calculate the gradient.",
+            "variables": [
+              {
+                "id": "x1",
+                "min": 1,
+                "max": 3,
+                "step": 1
+              },
+              {
+                "id": "y1",
+                "min": 2,
+                "max": 6,
+                "step": 1
+              },
+              {
+                "id": "x2",
+                "min": 7,
+                "max": 10,
+                "step": 1
+              },
+              {
+                "id": "y2",
+                "min": 14,
+                "max": 30,
+                "step": 2
+              }
+            ],
+            "answer": {
+              "formula": "(y2 - y1) / (x2 - x1)",
+              "decimals": 2
+            },
+            "working": [
+              "gradient = Δy ÷ Δx",
+              "gradient = ({y2} − {y1}) ÷ ({x2} − {x1})",
+              "gradient = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gradient = Δy ÷ Δx, using a large triangle on the line.",
+            "Compare y = mx + c with the equation to see what the gradient and intercept mean."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Analysing results and drawing conclusions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Process the data, then use it to say what the experiment shows. Judge how far the results can be trusted."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use mathematical skills such as averages, percentages, logarithms, powers and graphs to process the data.",
+            "A valid conclusion must follow from the results and answer the original question.",
+            "Describe the pattern with numbers: for example, y is proportional to x because the line is straight and passes through the origin.",
+            "Compare your result with an accepted value and give the percentage difference."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Anomalies"
+        },
+        {
+          "type": "list",
+          "items": [
+            "An **anomaly** is a result that does not fit the pattern of the others.",
+            "Spot it as a point far from the line or a repeat far from the mean.",
+            "Check it, repeat it if you can, and say whether you included it in the mean."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A conclusion must follow from the data and answer the question.",
+            "Identify anomalies and say how you dealt with them."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evaluating, researching and reporting",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Evaluate the method as well as the results. Then report your findings with research that is properly sourced."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Limitation",
+            "Possible improvement"
+          ],
+          "rows": [
+            [
+              "reaction time in timing",
+              "use light gates or time many oscillations"
+            ],
+            [
+              "few data values",
+              "take more values over a wider range"
+            ],
+            [
+              "large percentage uncertainty in a small measurement",
+              "measure a larger quantity or use a finer instrument"
+            ],
+            [
+              "a variable changed during the experiment",
+              "control it, or monitor it with a sensor"
+            ],
+            [
+              "manual recording is slow",
+              "use a data logger"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Say how each limitation affects the result, and which is most important.",
+            "Use software such as spreadsheets and graph-plotting tools to process data and report findings.",
+            "Research from websites, textbooks and printed sources, and judge how reliable each is.",
+            "Cite each source: author, title, date and where it can be found."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Scientists publish results so others can check them. Peer review and repeated experiments by others validate new knowledge and help keep science honest."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Suggest specific improvements linked to specific limitations.",
+            "Cite sources, and remember that other scientists must be able to check and repeat results."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A column heading in a table reads \"v\". Write a correct heading for a speed measured in metres per second.",
+      "a": "speed / m s⁻¹ (or v / m s⁻¹).",
+      "marks": 1
+    },
+    {
+      "q": "A graph of force (N) against extension (m) is a straight line through the points (0.02, 1.0) and (0.10, 5.0). Calculate the gradient and give its unit.",
+      "a": "Gradient = (5.0 − 1.0) ÷ (0.10 − 0.02) = 50 N m⁻¹.",
+      "marks": 3
+    },
+    {
+      "q": "A student's repeated times are 2.4 s, 2.5 s, 2.4 s and 3.6 s. Identify the anomaly and suggest what to do next.",
+      "a": "The 3.6 s reading is anomalous. Repeat that measurement; if it stays different, leave it out of the mean and say why.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 1.1.2c",
+        "OCR 1.1.3a",
+        "OCR 1.1.3b",
+        "OCR 1.1.3c",
+        "OCR 1.1.3d",
+        "OCR 1.1.4a",
+        "OCR 1.1.4b",
+        "OCR 1.1.4c",
+        "OCR 1.1.4e",
+        "OCR 1.2.1d",
+        "OCR 1.2.1e",
+        "OCR 1.2.1f",
+        "OCR 1.2.1g",
+        "OCR 1.2.1h",
+        "OCR 1.2.1i",
+        "OCR 2.1.2f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use the mathematical skills in the course for analysing quantitative data, and reach valid conclusions where you can.",
+                "Evaluate how the scientific community uses results to validate new knowledge and ensure integrity.",
+                "Use online and offline research skills, including websites, textbooks and printed scientific sources.",
+                "Cite sources correctly, following the guidance for citing information.",
+                "Present information and data in a scientific way, and keep appropriate records of experimental activities."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "d0dbb983-4abc-432c-b6c9-020d1bda3c70",
+      "16c7e740-2e1c-4f0f-95dc-2112c2e93a0f",
+      "b2c4e767-21d5-4016-9d02-23f08b72681a",
+      "4b539b23-2310-44ba-9bd1-04c258b19b51",
+      "87ba81cf-b2ae-48d8-a98a-dce4803d3cf7",
+      "6a990ab2-c0ed-49c1-bbe0-180554736c2e",
+      "d8be6705-28a2-4a50-83c7-fedf4d0fa03e",
+      "e182aae1-b63a-4d11-a325-e89e0690947b",
+      "d986d9ee-89fc-4388-a8c6-955262da203a",
+      "f06ed889-12a5-47f1-ab6f-389394a8e7b2",
+      "d22c8f16-230d-44f7-b48e-3f78a3188222",
+      "8fc3e8f0-4d82-4048-b637-0864d42a5bff",
+      "a3ee4361-b2e0-4455-be58-758d4ed9a4f2",
+      "244e4c72-3a33-4034-90d7-ebf27cbd0806",
+      "1e948aa1-f853-4bcb-8ddf-9e43c9d3caca",
+      "9333fb70-f597-4e58-96da-c0419e264601"
+    ],
+    "exemplar_ids": []
+  }
+}

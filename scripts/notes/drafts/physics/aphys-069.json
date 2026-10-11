@@ -1,0 +1,369 @@
+{
+  "format": 1,
+  "concept_id": "aphys-069",
+  "subject": "physics",
+  "title": "Electric potential and comparing fields",
+  "key_idea": "Electric potential at a point is the work done per unit positive charge in bringing a small test charge from infinity to the point. For a point charge V = Q/(4πε₀r). Field strength is minus the potential gradient, and electric and gravitational fields share many features.",
+  "sections": [
+    {
+      "heading": "Electric potential",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Electric potential describes the energy per unit charge at a point in a field, measured from a zero at infinity."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Electric potential, V",
+              "meaning": "The work done per unit positive charge in bringing a small test charge from infinity to the point."
+            },
+            {
+              "term": "Potential difference, ΔV",
+              "meaning": "The change in electric potential between two points."
+            },
+            {
+              "term": "Equipotential",
+              "meaning": "A surface on which every point is at the same potential."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Potential of a point charge",
+          "formula": "V = Q / (4π ε₀ r)",
+          "where": [
+            "V = electric potential (V)",
+            "Q = the point charge (C)",
+            "r = distance from the charge (m)",
+            "ε₀ = permittivity of free space (8.85 × 10⁻¹² F/m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Potential is **zero at infinity**.",
+            "V is positive near a positive charge and negative near a negative charge, so its sign matters.",
+            "V is a scalar and falls as 1/r, but the field E falls as 1/r².",
+            "The work done moving a charge Q through a potential difference ΔV is ΔW = QΔV.",
+            "No work is done moving a charge along an equipotential."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "V is work done per unit positive charge from infinity, and V = Q/(4πε₀r).",
+            "V is a scalar, zero at infinity; its sign follows the sign of Q.",
+            "ΔW = QΔV, and no work is done along an equipotential."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Fields, potential and graphs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Field strength and potential are linked: the field points in the direction in which the potential falls most steeply."
+        },
+        {
+          "type": "equation",
+          "label": "Field strength from the potential gradient",
+          "formula": "E = −ΔV / Δr",
+          "where": [
+            "E = electric field strength (V/m)",
+            "ΔV = change in potential (V)",
+            "Δr = change in distance (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "On a graph of V against r, the **gradient** at a point gives −E.",
+            "On a graph of E against r, the **area under the graph** between two distances is the change in potential ΔV.",
+            "On a graph of force against distance for a point or spherical charge, the area under the graph is the work done.",
+            "Between parallel plates the potential changes uniformly, so the gradient is constant and E = V/d."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Field lines and equipotentials"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Equipotentials are always at right angles to the field lines.",
+            "Around a point charge the equipotentials are **concentric spheres**, and they get further apart as r increases.",
+            "Between parallel plates the equipotentials are **equally spaced planes** parallel to the plates.",
+            "Field lines point from high to low potential."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Electric potential energy"
+        },
+        {
+          "type": "equation",
+          "label": "Electric potential energy",
+          "formula": "E_P = Q q / (4π ε₀ r) = q V",
+          "where": [
+            "E_P = electric potential energy (J)",
+            "Q = the point charge producing the field (C)",
+            "q = the charge placed in the field (C)",
+            "r = separation of the charges (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Like charges: E_P is positive and increases as they are pushed closer.",
+            "Unlike charges: E_P is negative and becomes more negative as they come closer.",
+            "E_P is zero when the charges are infinitely far apart."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation of the electric potential at a distance from a point charge, with new numbers each time.",
+            "question": "Calculate the electric potential {r} cm from a point charge of {Q} nC in air. (1/(4πε₀) = 8.99 × 10⁹ N m² C⁻²) Give your answer in volts.",
+            "variables": [
+              {
+                "id": "Q",
+                "min": 1,
+                "max": 10,
+                "step": 1
+              },
+              {
+                "id": "r",
+                "min": 2,
+                "max": 20,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "899 * Q / r",
+              "unit": "V",
+              "decimals": 0,
+              "tolerance_percent": 3
+            },
+            "working": [
+              "V = Q / (4πε₀r)",
+              "V = 8.99 × 10⁹ × ({Q} × 10⁻⁹) ÷ ({r} × 10⁻²)",
+              "V = {answer} V"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "E = −ΔV/Δr; ΔV is the area under an E–r graph.",
+            "Equipotentials cross field lines at right angles.",
+            "E_P = Qq/(4πε₀r) = qV."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Comparing electric and gravitational fields",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Electric and gravitational fields are two forms of field that give rise to a force. They have the same mathematical structure but differ in important ways."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of the gravitational field of a point mass and the electric field of a point charge.",
+            "items": [
+              "Gravitational field",
+              "Electric field"
+            ],
+            "rows": [
+              {
+                "feature": "Source",
+                "values": [
+                  "Mass",
+                  "Charge"
+                ]
+              },
+              {
+                "feature": "Force law",
+                "values": [
+                  "F = Gm₁m₂/r²",
+                  "F = Q₁Q₂/(4πε₀r²)"
+                ]
+              },
+              {
+                "feature": "Field strength of a point source",
+                "values": [
+                  "g = GM/r²",
+                  "E = Q/(4πε₀r²)"
+                ]
+              },
+              {
+                "feature": "Potential of a point source",
+                "values": [
+                  "V = −GM/r",
+                  "V = Q/(4πε₀r)"
+                ]
+              },
+              {
+                "feature": "Direction of force",
+                "values": [
+                  "Always attractive",
+                  "Attractive or repulsive"
+                ]
+              },
+              {
+                "feature": "Field strength defined as",
+                "values": [
+                  "Force per unit mass",
+                  "Force per unit positive charge"
+                ]
+              },
+              {
+                "feature": "Uniform field",
+                "values": [
+                  "Close to a planet's surface",
+                  "Between parallel plates"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Both have inverse-square force laws, so field strength and force fall as 1/r².",
+            "Both use field lines, potential and equipotential surfaces.",
+            "Both potentials are zero at infinity, and the potential falls as 1/r.",
+            "Gravity is always attractive, so gravitational potential is always negative; electric potential can be positive or negative.",
+            "Electric forces are far stronger than gravitational forces between particles."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Same form: inverse-square laws, field lines, potential and equipotentials.",
+            "Masses always attract; charges can attract or repel.",
+            "The constants are different: G for gravity, 1/(4πε₀) for electric fields."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define electric potential at a point.",
+      "a": "The work done per unit positive charge in bringing a small positive test charge from infinity to that point.",
+      "marks": 2
+    },
+    {
+      "q": "A graph shows electric field strength E against distance r from a point charge. State how to find the potential difference between two distances.",
+      "a": "Find the area under the graph between the two values of r. This area equals the potential difference.",
+      "marks": 2
+    },
+    {
+      "q": "State two similarities and two differences between the gravitational field of a point mass and the electric field of a point charge.",
+      "a": "Similarities: both obey an inverse-square law for force and field strength; both can be shown by field lines and equipotentials; both potentials fall as 1/r and are zero at infinity. Differences: gravity is always attractive but electric forces may attract or repel; gravitational field strength is force per unit mass but electric field strength is force per unit charge.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.3.3"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.112",
+        "EDEX 7.114",
+        "EDEX 7.115",
+        "EDEX 12.179"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 18.5.1",
+        "CAIE 18.5.2",
+        "CAIE 18.5.3",
+        "CAIE 18.5.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The electric field at a point equals the negative of the potential gradient at that point. Potential energy of two point charges follows from the potential."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use E = −dV/dr, the negative of the gradient of the V–r graph.",
+                "E_P = Qq/(4πε₀r) follows because the potential energy of a charge q at potential V is qV."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.2.2c",
+        "OCR 6.2.2d",
+        "OCR 6.2.4a",
+        "OCR 6.2.4b",
+        "OCR 6.2.4d",
+        "OCR 6.2.4e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Link electric fields with gravitational fields as two of several forms of field that give rise to a force."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Electric potential energy is Vq = Qq/(4πε₀r) at distance r from a point charge Q.",
+                "You may be asked to compare the field of a point mass with the field of a point charge."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "367ee607-da1f-4f43-bc09-df36c34f1cc7",
+      "83a91bc7-810d-4337-a47f-cff8b0cb82c1",
+      "96c42f6e-3920-4603-8b3f-87caeac033bb",
+      "ffc6e579-3f26-4e4a-bc63-67e8001faed7",
+      "838d6ea9-cf43-4e1b-b736-da41d5c1752b",
+      "0b26ea32-5ded-4e25-afd1-ce032c70a032",
+      "79ecf1ad-f4cd-4094-96e2-c2d01245efe5",
+      "02b99ffb-5f78-4ea3-a43c-831505505207",
+      "e3b670c2-4020-4507-b391-a37e2e183f7a",
+      "2b9c1073-30ed-4012-9b95-764f4b2192c2",
+      "d60219b9-4bda-43d8-9b8c-4f1fee77a058",
+      "40c0b896-fcd4-400f-add8-e491e42fbde1",
+      "3964df6c-9566-4018-9475-f6563c0428b8",
+      "61db4e5e-5eb5-42f4-9e0e-84aece354042",
+      "4a46e18a-6e77-482a-83f0-c69644ce5026"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

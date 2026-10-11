@@ -1,0 +1,335 @@
+{
+  "format": 1,
+  "concept_id": "achem-046",
+  "subject": "chemistry",
+  "title": "Electrode potentials and electrochemical cells",
+  "key_idea": "A half-cell has an electrode potential, measured against the standard hydrogen electrode under standard conditions. Two half-cells joined by a salt bridge make a cell. The cell potential is the more positive electrode potential minus the more negative one.",
+  "sections": [
+    {
+      "heading": "Standard electrode potentials",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A half-cell holds a species and its oxidised or reduced form. This section covers what Eᶿ means and the standard hydrogen electrode."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Standard electrode potential, Eᶿ",
+              "meaning": "The potential of a half-cell, measured against the standard hydrogen electrode, under standard conditions."
+            },
+            {
+              "term": "Standard conditions",
+              "meaning": "Temperature 298 K, gas pressure 100 kPa and 1.00 mol/dm³ for every ion in solution."
+            },
+            {
+              "term": "Standard cell potential, Eᶿcell",
+              "meaning": "The potential difference (emf) of a cell made from two half-cells under standard conditions."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Half-equations for electrodes are written as reductions: oxidised form + ne⁻ ⇌ reduced form. This is the IUPAC convention.",
+            "Example: Cu²⁺(aq) + 2e⁻ ⇌ Cu(s), Eᶿ = +0.34 V.",
+            "The more positive Eᶿ is, the more easily the species on the left is reduced.",
+            "The more negative Eᶿ is, the more easily the species on the right is oxidised."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The standard hydrogen electrode"
+        },
+        {
+          "type": "paragraph",
+          "text": "The potential of one half-cell cannot be measured alone. A reference electrode is needed, so every value is measured against the same one."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A platinum electrode, coated in platinum black, is dipped in 1.00 mol/dm³ H⁺(aq), usually hydrochloric acid.",
+            "Hydrogen gas at 100 kPa is bubbled over the electrode at 298 K.",
+            "2H⁺(aq) + 2e⁻ ⇌ H₂(g). Its Eᶿ is defined as 0.00 V.",
+            "Platinum is inert and gives a surface where H⁺ and H₂ can exchange electrons."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Eᶿ is measured against the standard hydrogen electrode under standard conditions.",
+            "Standard conditions are 298 K, 100 kPa and 1.00 mol/dm³.",
+            "Half-equations are written as reductions, with electrons on the left."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring electrode potentials",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Different half-cells need different set-ups. This section covers the three main types and the parts of a cell."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **metal in its ions**: the metal is the electrode and dips in 1.00 mol/dm³ of its ions, for example Zn in Zn²⁺(aq).",
+            "A **non-metal and its ions**: gas is bubbled over a platinum electrode in a solution of its ions, for example Cl₂ over Pt in Cl⁻(aq).",
+            "**Ions of the same element** in different oxidation states, for example Fe³⁺ and Fe²⁺: both ions are in the same beaker, with a platinum electrode. Their concentrations are equal, usually 1.00 mol/dm³.",
+            "The two half-cells are joined by a salt bridge, for example filter paper soaked in potassium nitrate solution. It completes the circuit with moving ions.",
+            "A high-resistance voltmeter connects the electrodes, so almost no current flows and the reading is the emf."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The conditions matter. If the temperature, pressure or concentrations change, the electrode potential, E, changes with them."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metals use their own ions. Non-metals and ions of one element use a platinum electrode.",
+            "The salt bridge completes the circuit. A high-resistance voltmeter reads the emf.",
+            "A change in conditions changes E, so use standard conditions to measure Eᶿ."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cell potentials and cell diagrams",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two half-cells make a cell. This section covers how to find the emf and write the diagram."
+        },
+        {
+          "type": "equation",
+          "label": "Standard cell potential",
+          "formula": "Eᶿcell = Eᶿ(positive electrode) − Eᶿ(negative electrode)",
+          "where": [
+            "The positive electrode has the more positive Eᶿ.",
+            "The negative electrode has the more negative Eᶿ.",
+            "Eᶿcell is in volts. Do not multiply Eᶿ by the number of electrons."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Oxidation happens at the negative electrode. Reduction happens at the positive electrode.",
+            "Electrons flow through the external wire from the negative electrode to the positive electrode.",
+            "Example: Eᶿcell for Zn and Cu = +0.34 − (−0.76) = +1.10 V."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Writing a cell diagram"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A single line | shows a phase boundary, for example between a solid and a solution.",
+            "A double line ‖ shows the salt bridge.",
+            "The negative electrode (oxidation) goes on the left. The positive electrode (reduction) goes on the right.",
+            "Zn(s) | Zn²⁺(aq) ‖ Cu²⁺(aq) | Cu(s)",
+            "With a platinum electrode: Pt(s) | Fe²⁺(aq), Fe³⁺(aq) ‖ Ag⁺(aq) | Ag(s).",
+            "With hydrogen: Pt(s) | H₂(g) | H⁺(aq) ‖ Cu²⁺(aq) | Cu(s)."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Choose a right-hand and a left-hand half-cell and see the cell potential.",
+            "inputs": [
+              {
+                "id": "right",
+                "label": "Right-hand half-cell (Eᶿ in V)",
+                "choices": [
+                  {
+                    "label": "Zn²⁺/Zn (−0.76)",
+                    "value": -0.76
+                  },
+                  {
+                    "label": "Fe²⁺/Fe (−0.44)",
+                    "value": -0.44
+                  },
+                  {
+                    "label": "Cu²⁺/Cu (+0.34)",
+                    "value": 0.34
+                  },
+                  {
+                    "label": "Ag⁺/Ag (+0.80)",
+                    "value": 0.8
+                  }
+                ]
+              },
+              {
+                "id": "left",
+                "label": "Left-hand half-cell (Eᶿ in V)",
+                "choices": [
+                  {
+                    "label": "Zn²⁺/Zn (−0.76)",
+                    "value": -0.76
+                  },
+                  {
+                    "label": "Fe²⁺/Fe (−0.44)",
+                    "value": -0.44
+                  },
+                  {
+                    "label": "Cu²⁺/Cu (+0.34)",
+                    "value": 0.34
+                  },
+                  {
+                    "label": "Ag⁺/Ag (+0.80)",
+                    "value": 0.8
+                  }
+                ]
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Eᶿcell = Eᶿ(right) − Eᶿ(left)",
+                "unit": "V",
+                "formula": "right - left",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "The electrochemical series"
+        },
+        {
+          "type": "paragraph",
+          "text": "List the half-equations in order of Eᶿ, from the most negative to the most positive. This is the electrochemical series."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The reduced forms (right-hand side) at the top, such as Li and Zn, are strong reducing agents.",
+            "The oxidised forms (left-hand side) at the bottom, such as F₂ and MnO₄⁻, are strong oxidising agents."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Eᶿcell = Eᶿ(positive) − Eᶿ(negative).",
+            "The negative electrode is on the left of a cell diagram. Electrons flow from it.",
+            "The electrochemical series ranks half-equations by Eᶿ."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the conditions that define a standard electrode potential.",
+      "a": "298 K, 100 kPa pressure for any gas, and 1.00 mol/dm³ concentration of ions.",
+      "marks": 3
+    },
+    {
+      "q": "Calculate Eᶿcell for a cell made from Fe³⁺/Fe²⁺ (+0.77 V) and Zn²⁺/Zn (−0.76 V), and write its cell diagram.",
+      "a": "Eᶿcell = +0.77 − (−0.76) = +1.53 V. Zn(s) | Zn²⁺(aq) ‖ Fe³⁺(aq), Fe²⁺(aq) | Pt(s)",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a platinum electrode is used in the Fe³⁺/Fe²⁺ half-cell.",
+      "a": "Both ions are in solution, so there is no metal electrode. Platinum is inert and conducts, so electrons can pass to or from the ions.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.3f",
+        "OCR 5.2.3g",
+        "OCR 5.2.3h"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 14.3",
+        "EDEX 14.4",
+        "EDEX 14.5",
+        "EDEX 14.6",
+        "EDEX 14.7",
+        "EDEX 14.8",
+        "EDEX 14.9",
+        "EDEX 14.13"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.11.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You measure the emf of a cell in the required practical. The Nernst equation is not required."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Make the half-cells.",
+                  "text": "Clean each metal. Place each in 1.00 mol/dm³ of its ions."
+                },
+                {
+                  "lead": "Join them.",
+                  "text": "Connect with a salt bridge and a voltmeter."
+                },
+                {
+                  "lead": "Read the emf.",
+                  "text": "Record the voltage. Repeat with other metals and a reference electrode where needed."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Use Eᶿ values to predict the direction of simple redox reactions, calculate cell emf and write the conventional cell representation."
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 24.2.1",
+        "CAIE 24.2.2",
+        "CAIE 24.2.3",
+        "CAIE 24.2.4"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "5aefa4a9-d62e-46e9-8030-4c3107d14d40",
+      "ea6f7cfb-f85a-4f3d-947a-f28e43c4fdb9",
+      "e51c728f-5139-4ada-ab19-eec4228b37a3",
+      "13306026-2039-455b-827d-a19961fa546a",
+      "6823e5e2-31bc-4cc5-8e76-1061fbb59043",
+      "f1ce4653-7dbf-4288-bb0b-c6d73be24582",
+      "a89d62ba-09fa-49a7-a383-b035761088d8",
+      "201d6949-6409-4e27-af87-1d8d73814cb1",
+      "0b63965c-fde4-4772-bb1a-7a7908f77f16",
+      "116b12e9-74af-46a7-8ffe-a33bde698079",
+      "9a5cc33f-08cf-4657-affd-866f40378a66",
+      "8dab2508-2c12-4348-927f-4132d666816b",
+      "79a6bc78-76b8-4308-946a-7fd2b878b25c",
+      "9406997f-6129-4312-9f12-77c31e11d1db",
+      "c84e2225-2898-47f7-a22e-d9cfa2b0a497",
+      "2f880b85-d683-4986-a4ca-01a5dcba50b0"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

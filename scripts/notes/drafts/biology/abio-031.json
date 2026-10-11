@@ -1,0 +1,498 @@
+{
+  "format": 1,
+  "concept_id": "abio-031",
+  "subject": "biology",
+  "title": "The specific immune response",
+  "key_idea": "Every cell carries surface molecules that identify it. Lymphocytes recognise foreign antigens and respond: T cells coordinate the response and kill infected cells, and B cells make antibodies. Memory cells remain afterwards, so a second infection is met faster and stronger.",
+  "sections": [
+    {
+      "heading": "Antigens: self and non-self",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The immune system works by telling the body's own cells from everything else. The signal is the molecules on cell surfaces."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Antigen",
+              "meaning": "A molecule, usually a protein, that triggers an immune response."
+            },
+            {
+              "term": "Self antigen",
+              "meaning": "An antigen on the body's own cells. It does not trigger an immune response."
+            },
+            {
+              "term": "Non-self antigen",
+              "meaning": "An antigen that is foreign to the body, for example on a pathogen. It does trigger a response."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Antigens let the immune system identify four kinds of target."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pathogens, such as bacteria and viruses.",
+            "Cells from another organism of the same species, such as transplanted tissue.",
+            "Abnormal body cells, such as cancer cells and virus-infected cells.",
+            "Toxins released by pathogens."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Antigen variability makes some diseases hard to control. A pathogen with changing antigens is no longer recognised by memory cells, so people can be infected again and a vaccine may not protect."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Self antigens are tolerated; non-self antigens trigger a response.",
+            "Antigens identify pathogens, foreign cells, abnormal cells and toxins.",
+            "Antigen variability lets pathogens escape immunity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The cellular response: T lymphocytes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "T cells respond to antigens shown on the surface of other cells. This is the cellular response."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Antigen presentation.",
+              "text": "A macrophage engulfs a pathogen and displays its antigens on its surface. It is now an antigen-presenting cell."
+            },
+            {
+              "lead": "Selection.",
+              "text": "A T helper cell with a receptor complementary to that antigen binds to it."
+            },
+            {
+              "lead": "Clonal expansion.",
+              "text": "The T helper cell divides by mitosis to make many identical cells. Some become memory cells."
+            },
+            {
+              "lead": "Cell signalling.",
+              "text": "T helper cells release interleukins (cytokines). These stimulate B cells, killer T cells and phagocytes."
+            },
+            {
+              "lead": "Killing.",
+              "text": "Killer T cells (cytotoxic T cells) bind to infected cells and release substances that make the cell die."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "T helper cells coordinate the response by releasing interleukins.",
+            "T killer cells destroy cells that show the antigen.",
+            "Each T cell has a receptor for only one antigen."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The humoral response: B lymphocytes and antibodies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "B cells respond to antigens by making antibodies. The antibodies are carried in blood and tissue fluid, which is why this is the humoral response."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Clonal selection.",
+              "text": "A B cell with a receptor complementary to the antigen binds to it. Only this B cell is selected."
+            },
+            {
+              "lead": "Activation.",
+              "text": "Interleukins from T helper cells stimulate the selected B cell."
+            },
+            {
+              "lead": "Clonal expansion.",
+              "text": "The B cell divides by mitosis. The clone becomes plasma cells and memory cells."
+            },
+            {
+              "lead": "Antibody production.",
+              "text": "Plasma cells make and release large numbers of one type of antibody."
+            }
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Antibody",
+              "meaning": "A protein made by plasma cells that binds to one specific antigen."
+            },
+            {
+              "term": "Plasma cell",
+              "meaning": "A B cell that has become an antibody factory. It has lots of rough endoplasmic reticulum."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Antibody structure"
+        },
+        {
+          "type": "list",
+          "items": [
+            "An antibody is a protein with four polypeptide chains: two long (heavy) and two short (light).",
+            "The chains are held together by disulfide bonds.",
+            "Each antibody has two **antigen-binding sites** at the ends of the arms. The shape of the binding site is complementary to one antigen.",
+            "The variable regions form the binding site, so they differ between antibodies. The constant region is the same in a class of antibodies.",
+            "A flexible hinge lets the arms move apart to bind two antigens."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "What antibodies do"
+        },
+        {
+          "type": "paragraph",
+          "text": "An antibody binds to an antigen to form an antigen-antibody complex."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Agglutination**: antibodies link pathogens together in clumps, which phagocytes can engulf more easily.",
+            "**Opsonisation**: antibodies or opsonins coat the pathogen so that phagocytes recognise and engulf it.",
+            "**Neutralising toxins**: anti-toxins bind to toxins and stop them acting.",
+            "Phagocytes then destroy the clumped or coated bacteria."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Plasma cells make antibodies that match one antigen.",
+            "Antibodies have two binding sites and variable regions that give specificity.",
+            "Antibodies agglutinate pathogens, coat them for phagocytosis and neutralise toxins."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Primary and secondary responses",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The first time a pathogen is met, the response is slow. Memory cells make later responses much faster."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Antibody concentration in the blood after a first infection and a second infection with the same antigen. The first response rises slowly to a low peak. The second response rises faster and much higher.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 10,
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "unit": "weeks"
+            },
+            "y": {
+              "label": "Antibody concentration"
+            },
+            "series": [
+              {
+                "name": "Antibody concentration",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0.02
+                  ],
+                  [
+                    2,
+                    0.1
+                  ],
+                  [
+                    3,
+                    0.3
+                  ],
+                  [
+                    4,
+                    0.35
+                  ],
+                  [
+                    5,
+                    0.25
+                  ],
+                  [
+                    6,
+                    0.1
+                  ],
+                  [
+                    6.3,
+                    0.1
+                  ],
+                  [
+                    6.8,
+                    0.5
+                  ],
+                  [
+                    7.3,
+                    0.95
+                  ],
+                  [
+                    8,
+                    0.8
+                  ],
+                  [
+                    9,
+                    0.55
+                  ],
+                  [
+                    10,
+                    0.4
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 0,
+                "label": "First infection"
+              },
+              {
+                "x": 6.3,
+                "label": "Second infection"
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Primary response**: few B and T cells have the right receptors, so it takes days to clone enough cells. The person may feel ill. Antibody levels peak low.",
+            "Some of the clones become **memory cells**, which stay in the body for years.",
+            "**Secondary response**: memory cells divide rapidly to form plasma cells and more memory cells. Antibodies are made faster, in greater numbers and for longer.",
+            "The pathogen is usually destroyed before symptoms develop."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Memory cells are long-lived and carry the right receptor.",
+            "The secondary response is faster, larger and longer-lasting than the primary."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Autoimmune disease",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sometimes the immune system fails to tell self from non-self."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In an **autoimmune disease**, the immune system attacks the body's own cells because it treats self antigens as foreign.",
+            "Example: in rheumatoid arthritis the immune system attacks the tissue lining of the joints. This causes inflammation, pain and damage to the joint.",
+            "Treatment aims to reduce the immune response, for example with drugs that suppress it."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort the immune cells by what they do.",
+            "prompt": "Which cell does each job?",
+            "groups": [
+              "T helper cell",
+              "T killer cell",
+              "Plasma cell"
+            ],
+            "items": [
+              {
+                "text": "Releases interleukins to stimulate B cells",
+                "group": 0
+              },
+              {
+                "text": "Binds to an infected body cell and kills it",
+                "group": 1
+              },
+              {
+                "text": "Secretes large amounts of one antibody",
+                "group": 2
+              },
+              {
+                "text": "Stimulates phagocytes and killer T cells",
+                "group": 0
+              },
+              {
+                "text": "Has a lot of rough endoplasmic reticulum",
+                "group": 2
+              },
+              {
+                "text": "Destroys virus-infected and cancer cells",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Autoimmune disease is an immune attack on self cells.",
+            "Rheumatoid arthritis is an example."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain what is meant by an antigen, and the difference between self and non-self antigens.",
+      "a": "An antigen is a molecule (usually a protein) on a cell surface that triggers an immune response. Self antigens are on the body's own cells and do not trigger a response. Non-self antigens are foreign, for example on pathogens, and do trigger a response.",
+      "marks": 3
+    },
+    {
+      "q": "Describe the roles of T helper cells and plasma cells in the immune response to a bacterium.",
+      "a": "T helper cells bind to antigens on antigen-presenting cells, divide, and release interleukins that stimulate B cells, killer T cells and phagocytes. B cells are stimulated, undergo clonal selection and clonal expansion, and become plasma cells. Plasma cells make and release large numbers of antibodies specific to the bacterial antigen.",
+      "marks": 5
+    },
+    {
+      "q": "Explain why the secondary immune response is faster than the primary response.",
+      "a": "Memory cells formed in the primary response remain in the body. When the same antigen is met again they divide rapidly to form plasma cells and more memory cells. Antibodies are produced faster, in larger amounts and the pathogen is destroyed before symptoms appear.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Phagocytosis of pathogens, then destruction of the ingested pathogens: lysosomes fuse with the phagosome and release lysozymes that break down the pathogen.",
+                "The role of other T cells is not required: learn T helper cells and T killer cells only.",
+                "Antigen-antibody complexes lead to destruction of the antigen, limited to agglutination and phagocytosis of bacterial cells.",
+                "Plasma cells and memory cells produce the primary and secondary responses."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 6.8",
+        "EDEX 6.9"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "B cells give B effector cells (plasma cells) and B memory cells.",
+                "T cells give T helper cells, T killer cells and T memory cells.",
+                "Macrophages and other antigen-presenting cells show antigens to T helper cells.",
+                "B effector cells make antibodies. T memory cells and B memory cells give a rapid response if the antigen returns."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 11.1.2",
+        "CAIE 11.1.3",
+        "CAIE 11.1.4",
+        "CAIE 11.2.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe the sequence of the primary response: macrophage, then T helper cell, then B cell and plasma cell, with T killer cells acting on infected cells.",
+                "Explain that memory cells give long-term immunity, because they persist and respond quickly if the same antigen is met again.",
+                "Relate antibody structure to function: the variable region gives specificity, the hinge gives flexibility, and the disulfide bonds hold the chains together."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.1.1f",
+        "OCR 4.1.1g",
+        "OCR 4.1.1h",
+        "OCR 4.1.1i",
+        "OCR 4.1.1k"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Cell signalling uses **interleukins**, which pass messages between cells of the immune system.",
+                "Clonal selection picks the lymphocyte with a complementary receptor. Clonal expansion makes many copies of it by mitosis.",
+                "**Opsonins** bind to pathogens and help phagocytes to engulf them. **Agglutinins** clump pathogens together. **Anti-toxins** bind to and neutralise toxins.",
+                "T memory cells and B memory cells give long-term immunity.",
+                "An antibody is a glycoprotein of four chains with a variable region that differs between antibodies and a constant region that does not."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "2931c469-7943-4668-84ca-d2807245d2ef",
+      "97e376e5-3269-49b7-b648-a13972cb811b",
+      "e4002289-5dc6-4144-bf4a-8502a2403080",
+      "b4e0c28b-7580-4a5d-8b6e-d48a3c0cabb2",
+      "855f1da8-2a3b-46f4-9478-dfdb31426cd6",
+      "05d8e113-ffb9-411d-b6d7-a79e92a90d53",
+      "eef163da-cc13-4406-8ba0-ec1e73dfa3ce",
+      "63f6659a-ef60-4f10-acfd-97b8e3d73d71",
+      "2238c832-a39e-4e1d-9d9c-ad5af58ae7eb",
+      "accfbe51-04dc-4665-83b8-54e88fa20f14",
+      "e4460354-4ec2-480d-af0e-7a15c5a20848",
+      "ce32e57f-3c75-4968-aef4-d4d17fd5b2fa"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

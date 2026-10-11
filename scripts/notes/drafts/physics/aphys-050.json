@@ -1,0 +1,468 @@
+{
+  "format": 1,
+  "concept_id": "aphys-050",
+  "subject": "physics",
+  "title": "Radioactive decay and half-life",
+  "key_idea": "Radioactive decay is spontaneous and random, so only the chance of decay is fixed. The number of undecayed nuclei, and the activity, fall exponentially. Each falls by half in every half-life.",
+  "sections": [
+    {
+      "heading": "Random and spontaneous decay",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "We cannot say when one nucleus will decay, only how likely it is. This section covers what random and spontaneous mean and the evidence for them."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Spontaneous",
+              "meaning": "Decay is not caused or changed by outside conditions such as temperature, pressure or chemical bonding."
+            },
+            {
+              "term": "Random",
+              "meaning": "It is impossible to predict when a given nucleus will decay. Each nucleus has the same constant chance per unit time."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Every nucleus of an isotope has the same probability of decaying in each second.",
+            "With a large number of nuclei, the average rate of decay is predictable.",
+            "Count rate readings fluctuate about an average, even with a constant source. This is evidence of randomness.",
+            "A nucleus that has survived for a long time is no more likely to decay next. It has no memory."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Decay is spontaneous: nothing outside the nucleus triggers it.",
+            "Decay is random: the exact time for one nucleus cannot be predicted.",
+            "Fluctuating count rates are evidence for randomness."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Activity and the decay constant",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Activity measures how fast a source decays. It depends on how many undecayed nuclei there are and on the decay constant."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Activity",
+              "meaning": "The number of nuclei that decay each second, measured in becquerel (Bq)."
+            },
+            {
+              "term": "Decay constant λ",
+              "meaning": "The probability that a given nucleus decays per unit time, in s⁻¹."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Activity",
+          "formula": "A = λN",
+          "where": [
+            "A = activity in Bq",
+            "λ = decay constant in s⁻¹",
+            "N = number of undecayed nuclei"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Rate of decay",
+          "formula": "ΔN / Δt = −λN",
+          "where": [
+            "ΔN/Δt = rate of change of N in s⁻¹",
+            "The minus sign shows N falls"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A larger λ means each nucleus is more likely to decay, so the source decays faster.",
+            "Activity falls as N falls, because there are fewer nuclei left to decay.",
+            "1 Bq is one decay per second."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Activity A = λN, and it is the rate of decay.",
+            "λ is the probability of decay per unit time for one nucleus.",
+            "Activity is proportional to the number of undecayed nuclei."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Half-life and exponential decay",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Because the chance of decay is constant, the number of nuclei falls by the same fraction in equal times. This is exponential decay."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Half-life",
+              "meaning": "The time taken for half of the undecayed nuclei of an isotope to decay. The activity also halves in this time."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Exponential decay",
+          "formula": "N = N₀e^(−λt)",
+          "where": [
+            "N = undecayed nuclei at time t",
+            "N₀ = undecayed nuclei at t = 0",
+            "λ = decay constant in s⁻¹",
+            "t = time in s"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Activity over time",
+          "formula": "A = A₀e^(−λt)",
+          "where": [
+            "A = activity at time t in Bq",
+            "A₀ = activity at t = 0 in Bq"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Half-life and decay constant",
+          "formula": "λt½ = ln 2 = 0.693",
+          "where": [
+            "t½ = half-life in s",
+            "λ = decay constant in s⁻¹"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The same law applies to the activity, the number of nuclei, and the corrected count rate.",
+            "After n half-lives the amount left is (½)ⁿ of the start.",
+            "A short half-life means a large λ and a source that decays quickly."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider for time in a source of technetium-99m, which has a half-life of 6 hours. Moving the slider shows the fraction of nuclei that have decayed.",
+            "inputs": [
+              {
+                "id": "t",
+                "label": "Time",
+                "unit": "hours",
+                "min": 0,
+                "max": 36,
+                "step": 2,
+                "value": 6
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Undecayed nuclei remaining",
+                "unit": "%",
+                "formula": "100 * 0.5 ^ (t / 6)",
+                "decimals": 1
+              },
+              {
+                "label": "Decayed",
+                "unit": "%",
+                "formula": "100 - 100 * 0.5 ^ (t / 6)",
+                "decimals": 1,
+                "bar": true
+              }
+            ],
+            "scene": {
+              "kind": "half-life",
+              "time": "t",
+              "half_life": 6
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation of the activity of a source after a given time, using its half-life.",
+            "question": "A source has an initial activity of {A0} kBq and a half-life of {T} hours. Calculate its activity after {t} hours.",
+            "variables": [
+              {
+                "id": "A0",
+                "min": 400,
+                "max": 2000,
+                "step": 200
+              },
+              {
+                "id": "T",
+                "min": 2,
+                "max": 8,
+                "step": 2
+              },
+              {
+                "id": "t",
+                "min": 2,
+                "max": 12,
+                "step": 2
+              }
+            ],
+            "answer": {
+              "formula": "A0 * 0.5 ^ (t / T)",
+              "unit": "kBq",
+              "decimals": 1,
+              "tolerance_percent": 2
+            },
+            "working": [
+              "Number of half-lives = {t} ÷ {T}.",
+              "A = {A0} × 0.5 ^ ({t} ÷ {T}) = {answer} kBq."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Decay is exponential: equal times give equal fractional falls.",
+            "N, A and count rate all follow x = x₀e^(−λt).",
+            "λt½ = ln 2 links the decay constant and half-life."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Finding half-life and using decay",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Half-life can be read from a decay curve and used to date old material. This section covers both."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Measure.",
+              "text": "Record the count rate at regular times and subtract the background count rate."
+            },
+            {
+              "lead": "Plot.",
+              "text": "Draw the corrected count rate against time as a smooth decay curve."
+            },
+            {
+              "lead": "Read off.",
+              "text": "Find the time for the count rate to halve. Repeat from different starting points and take the mean."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Radioactive dating compares the activity now with the activity the sample began with.",
+            "In carbon dating, living things take in carbon-14 from the air, keeping a constant fraction of it.",
+            "When the organism dies, no more is taken in and the carbon-14 decays, with a half-life of about 5700 years.",
+            "The lower activity per gram of carbon compared with living material gives the age.",
+            "Waste with a long half-life stays dangerous for a very long time, so it needs secure storage."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Half-life is read from the time for the corrected count rate to halve.",
+            "Dating uses the fall in activity since the organism died.",
+            "Long half-lives are a problem for waste storage."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain what is meant by saying that radioactive decay is random.",
+      "a": "It is impossible to predict when a particular nucleus will decay. Each nucleus has the same constant probability of decay per unit time.",
+      "marks": 2
+    },
+    {
+      "q": "A source contains 4.0 × 10¹⁰ undecayed nuclei with a decay constant of 2.5 × 10⁻⁶ s⁻¹. Calculate its activity.",
+      "a": "A = λN = 2.5 × 10⁻⁶ × 4.0 × 10¹⁰ = 1.0 × 10⁵ Bq.",
+      "marks": 2
+    },
+    {
+      "q": "An isotope has a half-life of 12 hours. Calculate its decay constant in s⁻¹.",
+      "a": "t½ = 12 × 3600 = 4.32 × 10⁴ s. λ = 0.693 ÷ 4.32 × 10⁴ = 1.6 × 10⁻⁵ s⁻¹.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.8.1.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Logarithmic graphs"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Taking natural logs of N = N₀e^(−λt) gives ln N = ln N₀ − λt.",
+                "A graph of ln N (or ln A) against t is a straight line with gradient −λ.",
+                "The half-life then follows from t½ = ln 2 ÷ λ."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Finding N from a mass"
+            },
+            {
+              "type": "list",
+              "items": [
+                "To find N, divide the mass of the sample by the molar mass, then multiply by the Avogadro constant, 6.02 × 10²³ mol⁻¹.",
+                "Use this N in A = λN to find the activity of a given mass.",
+                "Storage of radioactive waste is judged by the half-lives of the isotopes in it."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 11.172",
+        "EDEX 11.173"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Log equations"
+            },
+            {
+              "type": "list",
+              "items": [
+                "You must be able to derive and use the log form of each decay equation.",
+                "From N = N₀e^(−λt): ln N = ln N₀ − λt.",
+                "From A = A₀e^(−λt): ln A = ln A₀ − λt.",
+                "A graph of ln N or ln A against t is straight with a gradient of −λ.",
+                "Half-life is found graphically from the decay curve, or from λ using λ = ln 2 ÷ t½."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 23.2.1",
+        "CAIE 23.2.2",
+        "CAIE 23.2.3",
+        "CAIE 23.2.4",
+        "CAIE 23.2.5",
+        "CAIE 23.2.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Count rate and sketching"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The fluctuations in a count rate about its average are evidence for the random nature of decay.",
+                "The exponential law x = x₀e^(−λt) applies to activity, to undecayed nuclei and to the received count rate.",
+                "A sketch shows a curve starting at x₀ on the vertical axis, falling steeply, then flattening towards zero but never reaching it.",
+                "The curve halves every half-life, so mark the values x₀, ½x₀ and ¼x₀ at t½ and 2t½.",
+                "Use λ = 0.693 ÷ t½ to link the constant and the half-life."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.4.3a",
+        "OCR 6.4.3d",
+        "OCR 6.4.3e",
+        "OCR 6.4.3f",
+        "OCR 6.4.3g",
+        "OCR 6.4.3h"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Modelling decay"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Dice can simulate decay. Each die stands for a nucleus, and a six means it has decayed and is removed.",
+                "Repeating the throws gives a decay curve, which is only roughly smooth because decay is random.",
+                "A spreadsheet can model ΔN/Δt = −λN. Take a small time step Δt and repeat: ΔN = −λNΔt, then new N = old N + ΔN.",
+                "Smaller steps give a curve closer to N = N₀e^(−λt)."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Measuring a half-life"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A protactinium generator gives a short-lived isotope with a half-life of about 70 s, so the whole decay can be timed in class.",
+                "Record the count rate at equal intervals, subtract the background and plot the curve.",
+                "Read the time taken for the corrected count rate to halve."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "adf81d46-0793-4d58-a8fa-7bc77ad796d6",
+      "45580465-c266-4792-982d-2da1d8439075",
+      "2d667a47-3224-4ddc-88f0-489bbfb05b38",
+      "70c11845-3637-4947-a029-a67263b885ed",
+      "76f2aaa8-2191-4daf-b337-939f1b988541",
+      "8bf8fb54-270d-471d-8b0e-98367c3938d5",
+      "91b0cb1b-f129-482f-9beb-0da194b5fc25",
+      "55373f90-aade-41c1-b93c-84204f2aa48f",
+      "61f9e479-279d-4e9e-9938-1dcc44a4424f",
+      "c905375a-7af3-429c-b560-66922a7f0efa",
+      "9a3744bc-34fd-48e1-a962-dd707a9497a7",
+      "4689939d-990b-498b-9d95-6ce54d597418",
+      "c81b206f-28f9-4db4-b41b-2faf1c7c23d0",
+      "5353bc19-5999-4ecf-89fe-5bc8bf99de15",
+      "e1e1bd84-f856-4a2b-96e4-9360d78ca695"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

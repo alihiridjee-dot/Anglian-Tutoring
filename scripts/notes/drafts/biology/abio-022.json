@@ -1,0 +1,399 @@
+{
+  "format": 1,
+  "concept_id": "abio-022",
+  "subject": "biology",
+  "title": "The heart and the cardiac cycle",
+  "key_idea": "The heart is a double pump made of cardiac muscle. Its valves open and close because of pressure differences, so blood flows one way only. In each **cardiac cycle** the atria contract, then the ventricles contract, then the whole heart relaxes.",
+  "sections": [
+    {
+      "heading": "Structure of the mammalian heart",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The heart has two sides separated by a wall called the septum. Each side has an atrium that receives blood and a ventricle that pumps it out."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Part",
+            "Description and function"
+          ],
+          "rows": [
+            [
+              "Right atrium",
+              "Receives deoxygenated blood from the body through the vena cava."
+            ],
+            [
+              "Right ventricle",
+              "Pumps deoxygenated blood to the lungs through the pulmonary artery."
+            ],
+            [
+              "Left atrium",
+              "Receives oxygenated blood from the lungs through the pulmonary vein."
+            ],
+            [
+              "Left ventricle",
+              "Pumps oxygenated blood to the body through the aorta."
+            ],
+            [
+              "Septum",
+              "Muscular wall that keeps oxygenated and deoxygenated blood apart."
+            ],
+            [
+              "Coronary arteries",
+              "Run over the outside of the heart and supply the heart muscle with oxygenated blood."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Valves"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **atrioventricular (AV) valves** lie between each atrium and ventricle. The right one has three flaps and the left one has two.",
+            "Tough tendons (valve tendons) attach the flaps of the AV valves to the ventricle wall. They stop the valves turning inside out when the ventricle contracts.",
+            "The **semilunar valves** lie at the start of the aorta and pulmonary artery. They have a pocket shape and stop blood falling back into the ventricles."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Thickness of the walls"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Comparison",
+            "Wall thickness",
+            "Reason"
+          ],
+          "rows": [
+            [
+              "Atria and ventricles",
+              "Atria have thin walls. Ventricles have thick walls.",
+              "Atria only push blood a short distance into the ventricles. Ventricles must push blood out of the heart and round a whole circuit."
+            ],
+            [
+              "Left and right ventricle",
+              "The left ventricle wall is about three times thicker.",
+              "The left ventricle pumps blood to the whole body, which needs high pressure. The right ventricle pumps blood only to the nearby lungs. Higher pressure there would damage the delicate lung capillaries."
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "An activity: tap each part of the heart to learn its job.",
+            "prompt": "Tap a part of the heart to see what it does.",
+            "parts": [
+              {
+                "name": "Right atrium",
+                "detail": "Receives deoxygenated blood from the vena cava."
+              },
+              {
+                "name": "Right ventricle",
+                "detail": "Pumps deoxygenated blood to the lungs along the pulmonary artery."
+              },
+              {
+                "name": "Left atrium",
+                "detail": "Receives oxygenated blood from the lungs along the pulmonary vein."
+              },
+              {
+                "name": "Left ventricle",
+                "detail": "Has the thickest wall. Pumps oxygenated blood into the aorta at high pressure."
+              },
+              {
+                "name": "Atrioventricular valves",
+                "detail": "Stop blood flowing back from the ventricles into the atria. Held in place by tendons."
+              },
+              {
+                "name": "Semilunar valves",
+                "detail": "Stop blood flowing back from the aorta and pulmonary artery into the ventricles."
+              },
+              {
+                "name": "Septum",
+                "detail": "Separates the left and right sides so the blood does not mix."
+              },
+              {
+                "name": "Coronary arteries",
+                "detail": "Supply the heart muscle with oxygen and glucose."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The right side pumps deoxygenated blood to the lungs. The left side pumps oxygenated blood to the body.",
+            "Ventricle walls are thicker than atrium walls. The left ventricle wall is the thickest.",
+            "AV valves and semilunar valves keep blood flowing one way."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The cardiac cycle",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The cardiac cycle is one full heartbeat. Blood flows from high pressure to low pressure. Valves open and close because of the pressure differences, never by themselves."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Systole",
+              "meaning": "Contraction of the heart muscle. Pressure in the chamber rises."
+            },
+            {
+              "term": "Diastole",
+              "meaning": "Relaxation of the heart muscle. Pressure in the chamber falls and the chamber fills with blood."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Stage",
+            "What happens",
+            "Valves"
+          ],
+          "rows": [
+            [
+              "Atrial systole",
+              "The atria contract. Pressure in the atria rises above pressure in the ventricles. The last of the blood is pushed into the ventricles.",
+              "AV valves open. Semilunar valves closed."
+            ],
+            [
+              "Ventricular systole",
+              "The ventricles contract. Pressure in the ventricles rises above that in the atria, then above that in the aorta and pulmonary artery. Blood is forced out.",
+              "AV valves shut, making the first heart sound. Semilunar valves open."
+            ],
+            [
+              "Cardiac diastole",
+              "The atria and ventricles relax. Pressure in the ventricles falls below that in the arteries. Blood from the veins flows into the atria and down into the ventricles.",
+              "Semilunar valves shut, making the second heart sound. AV valves open as ventricular pressure falls below atrial pressure."
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "An activity: put the events of the cardiac cycle in order.",
+            "prompt": "Put these events of the cardiac cycle into the correct order, starting with the atria full of blood.",
+            "steps": [
+              "The AV valves are open and the atria contract, so pressure in the atria rises above that in the ventricles",
+              "The last of the blood is pushed into the ventricles",
+              "The ventricles contract and pressure in the ventricles rises above that in the atria",
+              "The AV valves shut",
+              "Pressure in the ventricles rises above that in the aorta, so the semilunar valves open and blood is pumped out",
+              "The ventricles relax and pressure falls below that in the aorta, so the semilunar valves shut"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Reading pressure and volume data"
+        },
+        {
+          "type": "list",
+          "items": [
+            "When ventricular pressure crosses above atrial pressure, the AV valves close.",
+            "When ventricular pressure crosses above aortic pressure, the semilunar valves open. Ventricular volume falls fast as blood leaves.",
+            "When ventricular pressure falls below aortic pressure, the semilunar valves close. A small dip in aortic pressure follows.",
+            "The pressure in the left ventricle rises much higher than in the right ventricle."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Valves open and close because of pressure differences, which keeps blood flowing one way.",
+            "Atrial systole fills the ventricles. Ventricular systole forces blood into the arteries.",
+            "During diastole the heart relaxes and fills with blood."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cardiac output",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cardiac output tells you how much blood the heart pumps each minute. It depends on how fast the heart beats and how much blood leaves with each beat."
+        },
+        {
+          "type": "equation",
+          "label": "Cardiac output",
+          "formula": "cardiac output = heart rate × stroke volume",
+          "where": [
+            "cardiac output, in cm³ per minute",
+            "heart rate, in beats per minute",
+            "stroke volume = volume of blood pumped out of the left ventricle in one beat, in cm³"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice calculation of cardiac output with new numbers each time.",
+            "question": "A person has a heart rate of {hr} beats per minute and a stroke volume of {sv} cm³. Calculate the cardiac output in cm³ per minute.",
+            "variables": [
+              {
+                "id": "hr",
+                "min": 50,
+                "max": 180,
+                "step": 5
+              },
+              {
+                "id": "sv",
+                "min": 60,
+                "max": 120,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "hr * sv",
+              "unit": "cm³ per minute",
+              "decimals": 0
+            },
+            "working": [
+              "Cardiac output = heart rate × stroke volume",
+              "Cardiac output = {hr} × {sv} = {answer} cm³ per minute"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cardiac output = heart rate × stroke volume.",
+            "Exercise raises both heart rate and stroke volume, so cardiac output rises."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why the wall of the left ventricle is thicker than the wall of the right ventricle.",
+      "a": "The left ventricle pumps blood to the whole body, so it must create high pressure to overcome resistance over a long distance. The right ventricle pumps blood only to the nearby lungs, where high pressure would damage the capillaries. A thicker muscle wall contracts with more force.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how the valves move during ventricular systole.",
+      "a": "The ventricles contract and pressure in them rises above atrial pressure, so the AV valves shut and stop backflow. When ventricular pressure rises above pressure in the aorta, the semilunar valves open and blood leaves the heart.",
+      "marks": 3
+    },
+    {
+      "q": "A person has a stroke volume of 70 cm³ and a heart rate of 72 beats per minute. Calculate the cardiac output.",
+      "a": "Cardiac output = heart rate × stroke volume = 72 × 70 = 5040 cm³ per minute.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.4.1"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.2e",
+        "OCR 3.1.2f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Dissecting and drawing the heart"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Look at the outside first. Find the atria, ventricles, coronary arteries and the vessels entering and leaving the heart.",
+                "Squeeze the ventricles to feel the thicker left wall.",
+                "Cut open the heart to see the septum, the AV valves and their tendons, and the semilunar valves.",
+                "Draw large outlines with a sharp pencil, no shading, and label each part with a ruled line."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Name the vessels by what they carry and where they join the heart. The aorta leaves the left ventricle and the pulmonary artery leaves the right ventricle."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 1.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Investigating heart structure and function"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Dissect a fresh heart to relate each feature to its job. Compare the wall thickness of the ventricles by cutting a section across both.",
+                "Measure wall thickness with a ruler and record the measurements for the left and right ventricle.",
+                "Sketch the valves and note that the AV valves have tendons and the semilunar valves do not.",
+                "Wear gloves and use a clean, sharp scalpel on a dissecting tray. Disinfect all equipment afterwards."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 8.3.1",
+        "CAIE 8.3.2",
+        "CAIE 8.3.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "External and internal structure"
+            },
+            {
+              "type": "list",
+              "items": [
+                "On the outside, find the two atria, the two ventricles, the coronary arteries, the aorta, the pulmonary artery, the vena cava and the pulmonary veins.",
+                "Inside, find the septum, the AV valves with their tendons, and the semilunar valves.",
+                "The right AV valve has three flaps. The left AV valve has two flaps."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "246ac9ee-ded7-44ae-bb40-a6935e6e69f7",
+      "a9a75e0d-b9ba-40af-8832-5d49488fc7e2",
+      "09d04fcb-21fc-44bf-acc0-404cc9a8431e",
+      "4bc45cff-340e-4b8f-bfe8-234fa74ae6cc",
+      "1a793a08-bcd9-4a18-9c2d-0bdd5d26c1c6",
+      "c38559ed-172a-4841-908d-805b20148905"
+    ],
+    "exemplar_ids": []
+  }
+}

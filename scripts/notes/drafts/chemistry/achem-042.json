@@ -1,0 +1,226 @@
+{
+  "format": 1,
+  "concept_id": "achem-042",
+  "subject": "chemistry",
+  "title": "Solubility product",
+  "key_idea": "The solubility product, Ksp, is the product of the ion concentrations, each raised to the power of its coefficient, in a saturated solution of a sparingly soluble salt. Adding a common ion lowers the solubility of the salt.",
+  "sections": [
+    {
+      "heading": "Writing Ksp expressions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A sparingly soluble salt in water sets up an equilibrium between the solid and its ions. Ksp is the equilibrium constant for this."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Solubility product, Ksp",
+              "meaning": "The product of the concentrations of the ions of a sparingly soluble salt in a saturated solution, each to the power of its coefficient in the equation."
+            },
+            {
+              "term": "Saturated solution",
+              "meaning": "A solution in which the dissolved ions are in equilibrium with the undissolved solid."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Silver chloride",
+          "formula": "AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq)",
+          "where": [
+            "Ksp = [Ag⁺][Cl⁻]",
+            "Units: mol²/dm⁶"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Silver chromate(VI)",
+          "formula": "Ag₂CrO₄(s) ⇌ 2Ag⁺(aq) + CrO₄²⁻(aq)",
+          "where": [
+            "Ksp = [Ag⁺]²[CrO₄²⁻]",
+            "Units: mol³/dm⁹"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The solid is left out, because its concentration is constant.",
+            "Each concentration is raised to the power of the number in front of the ion.",
+            "Work out the units by putting units into the expression.",
+            "Ksp is constant at a given temperature."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ksp has ion concentrations only, each to the power of its coefficient.",
+            "Write the equation first, then the expression and its units."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculations with Ksp",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Link the solubility, s in mol/dm³, to the ion concentrations. Then use the expression in either direction."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Salt",
+            "Ion concentrations",
+            "Ksp in terms of s"
+          ],
+          "rows": [
+            [
+              "AgCl",
+              "[Ag⁺] = s, [Cl⁻] = s",
+              "s²"
+            ],
+            [
+              "Mg(OH)₂",
+              "[Mg²⁺] = s, [OH⁻] = 2s",
+              "4s³"
+            ],
+            [
+              "Ag₂CrO₄",
+              "[Ag⁺] = 2s, [CrO₄²⁻] = s",
+              "4s³"
+            ]
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "From solubility to Ksp",
+              "text": "Find each ion concentration from s, then substitute into the Ksp expression."
+            },
+            {
+              "lead": "From Ksp to solubility",
+              "text": "Put each ion in terms of s, then solve for s."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "If the solubility of silver chromate(VI) is 6.5 × 10⁻⁵ mol/dm³, Ksp = 4 × (6.5 × 10⁻⁵)³ = 1.1 × 10⁻¹² mol³/dm⁹."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question finding Ksp for silver chromate from its solubility.",
+            "question": "The solubility of Ag₂CrO₄ is {x} × 10⁻⁴ mol/dm³. Calculate Ksp in units of 10⁻¹² mol³/dm⁹.",
+            "variables": [
+              {
+                "id": "x",
+                "min": 1,
+                "max": 5,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "4*x*x*x",
+              "unit": "× 10⁻¹² mol³/dm⁹",
+              "decimals": 1,
+              "tolerance_percent": 2
+            },
+            "working": [
+              "[Ag⁺] = 2s and [CrO₄²⁻] = s, so Ksp = (2s)² × s = 4s³.",
+              "Ksp = 4 × ({x} × 10⁻⁴)³ = {answer} × 10⁻¹² mol³/dm⁹."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Write the ions in terms of s.",
+            "Ksp = 4s³ for salts of the type AB₂ or A₂B."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The common ion effect",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A common ion is an ion that is already in the solution and is also in the salt. This section covers what it does to solubility."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Adding a common ion raises its concentration in the solution.",
+            "The Ksp expression must stay constant, so the equilibrium shifts towards the solid. Some of the salt precipitates.",
+            "The salt is therefore less soluble in a solution containing a common ion than in pure water.",
+            "A precipitate forms when the product of the ion concentrations, calculated for the mixture, is greater than Ksp."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In 0.100 mol/dm³ NaCl, [Cl⁻] = 0.100 mol/dm³. For AgCl with Ksp = 1.7 × 10⁻¹⁰, [Ag⁺] = 1.7 × 10⁻¹⁰ ÷ 0.100 = 1.7 × 10⁻⁹ mol/dm³."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ignore the chloride ions that come from AgCl. They are negligible next to the chloride ions from NaCl.",
+            "The solubility of AgCl in this solution is equal to [Ag⁺], 1.7 × 10⁻⁹ mol/dm³."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A common ion reduces solubility.",
+            "Use the common ion concentration in the Ksp expression to find the other ion."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write the Ksp expression for calcium fluoride, CaF₂, and state its units.",
+      "a": "Ksp = [Ca²⁺][F⁻]²; units mol³/dm⁹.",
+      "marks": 2
+    },
+    {
+      "q": "The solubility of lead(II) iodide, PbI₂, is 1.2 × 10⁻³ mol/dm³. Calculate Ksp.",
+      "a": "[Pb²⁺] = 1.2 × 10⁻³ and [I⁻] = 2.4 × 10⁻³ mol/dm³; Ksp = (1.2 × 10⁻³)(2.4 × 10⁻³)² = 6.9 × 10⁻⁹ mol³/dm⁹.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why silver chloride is less soluble in sodium chloride solution than in water.",
+      "a": "NaCl adds Cl⁻ ions, which are common to AgCl. [Ag⁺][Cl⁻] must stay equal to Ksp, so the equilibrium shifts to the solid and less AgCl dissolves.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 25.1.7",
+        "CAIE 25.1.8",
+        "CAIE 25.1.9",
+        "CAIE 25.1.10"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "902db364-0312-4a4a-ac25-9525cd55a87a",
+      "74edd670-564d-4e27-8f49-b649dbb083fe",
+      "10729459-04ee-48e8-8d44-6a8307dd6f11",
+      "45949ecf-5cde-4435-b92a-3a783498042a"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

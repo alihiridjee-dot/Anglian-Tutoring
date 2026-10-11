@@ -1,0 +1,278 @@
+{
+  "format": 1,
+  "concept_id": "abio-036",
+  "subject": "biology",
+  "title": "DNA replication",
+  "key_idea": "DNA replication is semi-conservative: each new DNA molecule has one original strand and one new strand. DNA helicase unwinds the helix and breaks hydrogen bonds. DNA polymerase joins new nucleotides to the template by condensation reactions.",
+  "sections": [
+    {
+      "heading": "Semi-conservative replication",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "DNA is copied before a cell divides. This section covers what is copied and why it matters."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Replication happens in the S phase of the cell cycle, before mitosis or meiosis.",
+            "The two original strands each act as a **template** for a new strand.",
+            "Each new DNA molecule has one old strand and one new strand. This is **semi-conservative replication**.",
+            "Complementary base pairing means the new strand has exactly the base sequence needed.",
+            "This keeps genetic information accurate and so ensures **genetic continuity** between generations of cells."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Each daughter DNA molecule keeps one original strand.",
+            "Base pairing makes the copy accurate, so cells inherit the same genes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The steps of replication",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two enzymes do the main work of replication: helicase and polymerase. Ligase joins fragments on one strand."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "DNA helicase",
+              "meaning": "An enzyme that unwinds the double helix and breaks the hydrogen bonds between complementary bases."
+            },
+            {
+              "term": "DNA polymerase",
+              "meaning": "An enzyme that catalyses the condensation reaction joining adjacent nucleotides on the new strand."
+            },
+            {
+              "term": "DNA ligase",
+              "meaning": "An enzyme that joins fragments of a new strand by forming phosphodiester bonds."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Unwinding.",
+              "text": "DNA helicase unwinds the double helix and breaks the hydrogen bonds between the base pairs. This exposes the bases on each strand."
+            },
+            {
+              "lead": "Template strands.",
+              "text": "Each separated strand acts as a template."
+            },
+            {
+              "lead": "Base pairing.",
+              "text": "Free DNA nucleotides are attracted to the exposed bases and pair by complementary base pairing: A with T, C with G."
+            },
+            {
+              "lead": "Joining.",
+              "text": "DNA polymerase joins the adjacent nucleotides in a condensation reaction, forming phosphodiester bonds in the new strand."
+            },
+            {
+              "lead": "Two molecules.",
+              "text": "Hydrogen bonds form between the bases on each template and its new strand. Two identical molecules result, each with one old and one new strand."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of DNA replication in order.",
+            "prompt": "Put the steps of semi-conservative DNA replication in order.",
+            "steps": [
+              "DNA helicase unwinds the helix and breaks hydrogen bonds",
+              "Each strand acts as a template",
+              "Free nucleotides pair with exposed complementary bases",
+              "DNA polymerase joins the nucleotides by condensation reactions",
+              "Two DNA molecules form, each with one original strand"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Helicase unwinds and breaks hydrogen bonds; polymerase joins nucleotides.",
+            "New nucleotides pair with the template by complementary base pairing.",
+            "The result is two molecules, each half old and half new."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evidence: Meselson and Stahl",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Scientists once proposed other models of replication. Meselson and Stahl's experiment supported the semi-conservative model."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bacteria were grown for many generations in a medium containing heavy nitrogen (¹⁵N), so all their DNA was heavy.",
+            "They were moved to a medium containing normal light nitrogen (¹⁴N) and allowed to divide.",
+            "DNA samples from each generation were spun in a centrifuge. Heavy DNA settles lower in the tube than light DNA.",
+            "After one generation all the DNA formed a single band between heavy and light, so it was a hybrid.",
+            "After two generations there were two bands: one hybrid and one light."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why this supports the semi-conservative model"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Model",
+            "Prediction after one generation",
+            "Fits the result?"
+          ],
+          "rows": [
+            [
+              "Conservative: the original molecule stays whole and a new all-new one forms",
+              "One heavy band and one light band",
+              "No: only one band was seen"
+            ],
+            [
+              "Dispersive: old and new DNA are mixed along each strand",
+              "One hybrid band",
+              "Yes after one generation. After two generations it predicts a single lighter band, but two separate bands were seen"
+            ],
+            [
+              "Semi-conservative: each molecule has one old and one new strand",
+              "One hybrid band; after two generations hybrid and light bands",
+              "Yes: fits both generations"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Heavy-to-light nitrogen labelling showed which DNA each generation contained.",
+            "One hybrid band, then hybrid and light bands, fits only semi-conservative replication."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the roles of DNA helicase and DNA polymerase in DNA replication.",
+      "a": "DNA helicase unwinds the double helix and breaks the hydrogen bonds between complementary bases. DNA polymerase joins adjacent nucleotides on the new strand by condensation reactions, forming phosphodiester bonds.",
+      "marks": 4
+    },
+    {
+      "q": "Explain why replication is described as semi-conservative.",
+      "a": "Each new DNA molecule is made of one original (template) strand and one newly synthesised strand, so half of the original molecule is conserved in each.",
+      "marks": 2
+    },
+    {
+      "q": "In the Meselson and Stahl experiment, all the DNA formed a single hybrid band after one generation in light nitrogen. Explain why this shows that conservative replication did not take place.",
+      "a": "Conservative replication would give one heavy molecule (the original) and one light molecule (all new), so two bands. A single band of intermediate density means every molecule contained both heavy (old) and light (new) DNA.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.5.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Be able to evaluate the work of scientists in validating the Watson–Crick model of replication, as in the Meselson and Stahl evidence above.",
+                "Use the wording: unwinding of the double helix, breaking of hydrogen bonds between complementary bases, attraction of new nucleotides to exposed bases, and the condensation reaction catalysed by DNA polymerase."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.11"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Understand how the new data from Meselson and Stahl supported the accepted theory and refuted the competing conservative and dispersive theories.",
+                "Be ready to interpret centrifuge tube diagrams for any generation, including the proportions of hybrid and light DNA."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 6.1.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "DNA polymerase can only add nucleotides to the 3′ end of a growing strand, so a new strand is always built 5′ to 3′.",
+                "The two template strands are antiparallel, so the two new strands are made differently.",
+                "The **leading strand** is made continuously, in the same direction as the helicase unwinds the helix.",
+                "The **lagging strand** is made in short fragments, each built 5′ to 3′ away from the unwinding fork, as more template is exposed.",
+                "DNA ligase joins the fragments of the lagging strand by forming phosphodiester bonds.",
+                "Replication takes place in the S phase of the cell cycle."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.3e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Replication conserves genetic information with accuracy, because each strand is copied by complementary base pairing.",
+                "Errors can still occur. Random, spontaneous mutations happen when a wrong base is paired during replication.",
+                "Mutations that arise this way are not caused by any outside agent, and are passed on if they are not corrected."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "8cbd76c9-645d-4f6a-9c7e-13fbe13490fd",
+      "7ed4199c-4000-461b-b3da-3865a5866f63",
+      "b8154843-4c8c-44ee-95be-812ea7784786",
+      "5e06829b-48eb-4511-835c-0243b470c03c"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

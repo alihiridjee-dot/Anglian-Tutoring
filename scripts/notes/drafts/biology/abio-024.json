@@ -1,0 +1,514 @@
+{
+  "format": 1,
+  "concept_id": "abio-024",
+  "subject": "biology",
+  "title": "Haemoglobin and gas transport",
+  "key_idea": "**Haemoglobin** in red blood cells binds oxygen where oxygen is plentiful and releases it where oxygen is scarce. Its binding changes with the partial pressure of oxygen and of carbon dioxide. Most carbon dioxide travels as hydrogencarbonate ions.",
+  "sections": [
+    {
+      "heading": "Haemoglobin and oxygen",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Oxygen is not very soluble in plasma, so red blood cells carry most of it. Each cell is packed with haemoglobin."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Haemoglobin",
+              "meaning": "A protein with four polypeptide chains. Each chain has a haem group containing one iron ion that can bind one oxygen molecule."
+            },
+            {
+              "term": "Oxyhaemoglobin",
+              "meaning": "Haemoglobin combined with oxygen. The binding is reversible."
+            },
+            {
+              "term": "Partial pressure of oxygen (pO₂)",
+              "meaning": "A measure of how much oxygen is present. It is measured in kPa."
+            },
+            {
+              "term": "Affinity",
+              "meaning": "How strongly haemoglobin binds oxygen."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "One haemoglobin molecule can carry up to four oxygen molecules, which is eight oxygen atoms.",
+            "**Loading** happens in the lungs, where pO₂ is high. Oxygen binds to haemoglobin to form oxyhaemoglobin.",
+            "**Unloading** happens in respiring tissues, where pO₂ is low. Oxyhaemoglobin releases its oxygen.",
+            "Haemoglobin is partly saturated in tissues, so it keeps some oxygen in reserve for when demand rises."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The oxygen dissociation curve"
+        },
+        {
+          "type": "paragraph",
+          "text": "The oxygen dissociation curve plots the percentage saturation of haemoglobin against pO₂. It is S-shaped because of **cooperative binding**."
+        },
+        {
+          "type": "list",
+          "items": [
+            "At low pO₂, the first oxygen binds slowly. The haemoglobin molecule is in a shape that is hard for oxygen to enter. The curve is shallow.",
+            "Once the first oxygen binds, the molecule changes shape. This makes it easier for the second and third oxygen molecules to bind. The curve rises steeply.",
+            "The fourth oxygen binds less easily, because few binding sites are left. The curve flattens as haemoglobin becomes nearly saturated."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In the lungs, pO₂ is high. The curve is flat here, so haemoglobin is almost fully saturated even if pO₂ falls a little.",
+            "In respiring tissues, pO₂ is low. The curve is steep here, so a small fall in pO₂ makes haemoglobin unload a lot of oxygen."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Haemoglobin loads oxygen at high pO₂ in the lungs and unloads it at low pO₂ in the tissues.",
+            "The S-shaped curve is due to cooperative binding: each oxygen that binds makes the next one easier to bind.",
+            "The steep part of the curve means a small drop in pO₂ releases a lot of oxygen."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Shifts in the curve",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The curve moves when conditions change. A shift to the right means lower affinity for oxygen. A shift to the left means higher affinity."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A graph of percentage saturation of haemoglobin with oxygen against partial pressure of oxygen. Three S-shaped curves are shown. The adult curve is in the middle. The curve at high carbon dioxide is to the right of it. The fetal haemoglobin curve is to the left of it.",
+            "x": {
+              "label": "Partial pressure of oxygen",
+              "min": 0,
+              "max": 14,
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14
+              ],
+              "unit": "kPa"
+            },
+            "y": {
+              "label": "Saturation of haemoglobin with oxygen"
+            },
+            "series": [
+              {
+                "name": "Adult haemoglobin",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0.07
+                  ],
+                  [
+                    2,
+                    0.2
+                  ],
+                  [
+                    3,
+                    0.4
+                  ],
+                  [
+                    4,
+                    0.62
+                  ],
+                  [
+                    5,
+                    0.75
+                  ],
+                  [
+                    6,
+                    0.85
+                  ],
+                  [
+                    8,
+                    0.93
+                  ],
+                  [
+                    10,
+                    0.96
+                  ],
+                  [
+                    12,
+                    0.98
+                  ],
+                  [
+                    14,
+                    0.99
+                  ]
+                ]
+              },
+              {
+                "name": "Adult, high carbon dioxide",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0.04
+                  ],
+                  [
+                    2,
+                    0.12
+                  ],
+                  [
+                    3,
+                    0.26
+                  ],
+                  [
+                    4,
+                    0.42
+                  ],
+                  [
+                    5,
+                    0.57
+                  ],
+                  [
+                    6,
+                    0.7
+                  ],
+                  [
+                    8,
+                    0.86
+                  ],
+                  [
+                    10,
+                    0.93
+                  ],
+                  [
+                    12,
+                    0.96
+                  ],
+                  [
+                    14,
+                    0.98
+                  ]
+                ]
+              },
+              {
+                "name": "Fetal haemoglobin",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0.15
+                  ],
+                  [
+                    2,
+                    0.4
+                  ],
+                  [
+                    3,
+                    0.62
+                  ],
+                  [
+                    4,
+                    0.78
+                  ],
+                  [
+                    5,
+                    0.88
+                  ],
+                  [
+                    6,
+                    0.93
+                  ],
+                  [
+                    8,
+                    0.97
+                  ],
+                  [
+                    10,
+                    0.99
+                  ],
+                  [
+                    12,
+                    0.995
+                  ],
+                  [
+                    14,
+                    1
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "The Bohr shift"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Respiring tissues make carbon dioxide. This lowers the pH of the blood, because carbon dioxide forms an acid.",
+            "Higher carbon dioxide concentration makes haemoglobin release oxygen more easily. The curve shifts to the **right**. This is the **Bohr shift**.",
+            "It is useful because active tissues respire more and need more oxygen. They make more carbon dioxide, so haemoglobin unloads more oxygen exactly where it is needed.",
+            "In the lungs, carbon dioxide leaves the blood. The curve shifts back to the left, so haemoglobin loads oxygen more easily."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Fetal haemoglobin"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fetal haemoglobin has a higher affinity for oxygen than adult haemoglobin. Its curve is to the **left**.",
+            "In the placenta, the fetal blood has a lower pO₂ than the mother's blood. Fetal haemoglobin takes up oxygen from maternal haemoglobin, which releases it.",
+            "Fetal haemoglobin stays saturated at a lower pO₂, so the fetus gets enough oxygen."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor: choose a situation and see how the oxygen dissociation curve shifts and what happens to oxygen.",
+            "prompt": "Pick a situation",
+            "result_labels": [
+              "Position of the curve",
+              "Affinity for oxygen",
+              "Effect on oxygen"
+            ],
+            "options": [
+              {
+                "label": "Lungs: low carbon dioxide, high pO₂",
+                "results": [
+                  "Left of the exercising-muscle curve",
+                  "Higher affinity",
+                  "Haemoglobin loads oxygen and becomes almost saturated"
+                ]
+              },
+              {
+                "label": "Resting tissue",
+                "results": [
+                  "Normal adult curve",
+                  "Medium affinity",
+                  "Some oxygen is unloaded and some is kept in reserve"
+                ]
+              },
+              {
+                "label": "Exercising muscle: high carbon dioxide",
+                "results": [
+                  "Shifted to the right (Bohr shift)",
+                  "Lower affinity",
+                  "More oxygen is unloaded at the same pO₂"
+                ]
+              },
+              {
+                "label": "Fetus in the placenta",
+                "results": [
+                  "Fetal curve, to the left of the adult curve",
+                  "Higher affinity",
+                  "Fetal haemoglobin takes oxygen from maternal blood"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "More carbon dioxide shifts the curve right (Bohr shift), so more oxygen is released to active tissues.",
+            "Fetal haemoglobin has a curve to the left, so it takes oxygen from the mother's blood in the placenta."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Carrying carbon dioxide",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Carbon dioxide made in tissues travels to the lungs in three ways. Most of it leaves the red blood cells as hydrogencarbonate ions."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Form",
+            "Share of the carbon dioxide",
+            "Where"
+          ],
+          "rows": [
+            [
+              "Hydrogencarbonate ions (HCO₃⁻)",
+              "Most of it",
+              "Made in red blood cells, then carried in the plasma"
+            ],
+            [
+              "Carbaminohaemoglobin",
+              "A smaller share",
+              "Carbon dioxide bound to the polypeptide chains of haemoglobin"
+            ],
+            [
+              "Dissolved in plasma",
+              "A small share",
+              "Carbon dioxide dissolved directly"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "In the tissues"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Carbon dioxide diffuses in.",
+              "text": "It moves from the respiring tissue into the red blood cell."
+            },
+            {
+              "lead": "Carbonic anhydrase.",
+              "text": "This enzyme speeds up CO₂ + H₂O ⇌ H₂CO₃. The carbonic acid then dissociates into H⁺ and HCO₃⁻."
+            },
+            {
+              "lead": "Hydrogencarbonate leaves.",
+              "text": "HCO₃⁻ diffuses out of the cell into the plasma."
+            },
+            {
+              "lead": "Chloride shift.",
+              "text": "Chloride ions move into the red blood cell to balance the charge lost when HCO₃⁻ left."
+            },
+            {
+              "lead": "Haemoglobinic acid.",
+              "text": "The H⁺ ions bind to haemoglobin, forming haemoglobinic acid. This makes haemoglobin a buffer, so the pH of the cell does not fall much. It also makes haemoglobin release oxygen."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Some CO₂ also binds directly to the amine groups of haemoglobin to form **carbaminohaemoglobin**.",
+            "In the lungs, the reactions go in reverse. HCO₃⁻ re-enters the red blood cell, combines with H⁺ and forms CO₂, which diffuses out into the alveoli."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Most CO₂ is carried as hydrogencarbonate ions, made in red blood cells using carbonic anhydrase.",
+            "The chloride shift keeps the charge balanced when HCO₃⁻ leaves the red blood cell.",
+            "Haemoglobin binds H⁺ and acts as a buffer."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why the oxygen dissociation curve is S-shaped.",
+      "a": "The first oxygen molecule binds with difficulty, so the curve starts shallow. Binding changes the shape of the haemoglobin, which makes it easier for further oxygen molecules to bind, so the curve becomes steep. As most sites fill, it is harder to find a free site, so the curve flattens.",
+      "marks": 3
+    },
+    {
+      "q": "Explain the advantage of the Bohr shift for a muscle during exercise.",
+      "a": "Active muscle respires more and makes more carbon dioxide. Higher carbon dioxide shifts the curve to the right, so haemoglobin has a lower affinity for oxygen. More oxygen is unloaded at the same pO₂, which supplies the muscle.",
+      "marks": 3
+    },
+    {
+      "q": "Describe the role of carbonic anhydrase and the chloride shift in transporting carbon dioxide.",
+      "a": "Carbonic anhydrase catalyses the reaction between carbon dioxide and water to make carbonic acid, which dissociates into H⁺ and hydrogencarbonate ions. Hydrogencarbonate ions leave the red blood cell. Chloride ions move in to keep the charge balanced.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.4.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Haemoglobin is a protein with a **quaternary structure**: four polypeptide chains held together in one molecule.",
+                "Different animals have haemoglobins with different oxygen transport properties that suit their environment.",
+                "Animals at high altitude or in low-oxygen habitats have haemoglobin with a higher affinity, so the curve is to the left.",
+                "Very active animals, with a high metabolic rate, may have haemoglobin with a lower affinity, so the curve is to the right and oxygen unloads more easily."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.2i",
+        "OCR 3.1.2j"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 8.2.1",
+        "CAIE 8.2.2",
+        "CAIE 8.2.3",
+        "CAIE 8.2.4",
+        "CAIE 8.2.5",
+        "CAIE 8.2.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Plasma and the importance of the shifts"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A small amount of carbon dioxide dissolves in plasma. Most of the hydrogencarbonate ions made in red blood cells are carried in the plasma.",
+                "The chloride shift matters because it lets hydrogencarbonate ions leave the red blood cell and keeps the cell electrically neutral. This lets more CO₂ be carried.",
+                "At the pO₂ in the lungs, the curve is flat. Haemoglobin is almost fully saturated, so the blood carries a lot of oxygen.",
+                "At the pO₂ in respiring tissues, the curve is steep. Haemoglobin unloads much of its oxygen."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "7c2799d6-82e6-4bec-9be3-7e92e509abe4",
+      "f462f748-fc3c-492d-8ebb-7f95fadaed74",
+      "7fd6c49e-2c54-4e1b-861d-58175aee3931",
+      "5730f648-bda3-4cc7-9d5c-e7dd689f094e",
+      "bfbd533b-59e9-473c-be12-273426b44565",
+      "ed40970e-3a1c-4937-8353-9720e3c272d3",
+      "7b8fa58e-c534-4faf-b038-d04340a120a2",
+      "a48cbe6a-e6b3-4d56-a126-6862f8fc2803"
+    ],
+    "exemplar_ids": []
+  }
+}

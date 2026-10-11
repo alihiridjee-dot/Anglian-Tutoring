@@ -1,0 +1,234 @@
+{
+  "format": 1,
+  "concept_id": "achem-012",
+  "subject": "chemistry",
+  "title": "Covalent and dative covalent bonding",
+  "key_idea": "A covalent bond is the strong electrostatic attraction between the nuclei of two atoms and the pair of electrons they share. In a dative covalent bond both electrons come from one atom. Multiple bonds are shorter and stronger than single bonds.",
+  "sections": [
+    {
+      "heading": "Covalent bonds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Atoms share electrons to complete their outer shells. This section covers single and multiple covalent bonds and how to draw them."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Covalent bond", "meaning": "The strong electrostatic attraction between two nuclei and the shared pair of electrons between them." },
+            { "term": "Lone pair", "meaning": "A pair of outer electrons that is not used in bonding." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A single bond contains one shared pair of electrons. A double bond contains two pairs and a triple bond contains three pairs.",
+            "In a diagram a covalent bond is drawn as a line.",
+            "Examples are H₂, O₂ (double bond), N₂ (triple bond), Cl₂, HCl, CO₂ (two double bonds), NH₃, CH₄, C₂H₆ and C₂H₄ (a C=C double bond)."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Dot-and-cross diagrams"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Show only the outer electrons, with dots for one atom and crosses for the other.",
+            "Overlap the circles where the atoms share a pair.",
+            "Show every lone pair, for example two lone pairs on the O atom in H₂O and one on the N atom in NH₃.",
+            "Check that each atom, apart from H, has the right number of outer electrons in total."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A covalent bond is the attraction between two nuclei and the shared pair between them.",
+            "Multiple bonds contain more than one shared pair.",
+            "Draw lone pairs as well as bonding pairs."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Dative covalent bonds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In a dative covalent bond (also called a coordinate bond) both electrons in the shared pair come from the same atom. This section covers when one forms."
+        },
+        {
+          "type": "list",
+          "items": [
+            "One atom needs a lone pair to give.",
+            "The other atom needs an empty orbital to accept it.",
+            "Once formed, a dative bond is identical to any other covalent bond.",
+            "It is drawn as an arrow pointing from the atom that gives the pair to the atom that receives it."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Examples"
+        },
+        {
+          "type": "list",
+          "items": [
+            "NH₃ + H⁺ → NH₄⁺. The N atom donates its lone pair to the H⁺ ion, which has an empty orbital.",
+            "NH₃ and HCl gases react to form solid NH₄Cl, which contains the NH₄⁺ ion.",
+            "In Al₂Cl₆, each Al atom in AlCl₃ has only six outer electrons. A lone pair on a Cl atom of the other molecule forms a dative bond to it, joining two AlCl₃ units together.",
+            "In H₃O⁺, an O atom donates a lone pair to H⁺."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "In a dative bond both electrons come from one atom.",
+            "The donor has a lone pair and the acceptor has an empty orbital.",
+            "NH₄⁺ and Al₂Cl₆ are the standard examples."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Expanded octets and up to six electron pairs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some atoms hold more than eight electrons in their outer shell. This section covers when this happens."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Elements in period 3 and below can expand their octet because they have empty d orbitals available.",
+            "In PCl₅ the P atom has five bonding pairs, which is ten electrons.",
+            "In SF₆ the S atom has six bonding pairs, which is twelve electrons.",
+            "In SO₂ the S atom has two double bonds, or one double bond and one dative bond, and a lone pair, so it has more than eight electrons.",
+            "Some compounds are odd-electron species. NO has one unpaired electron, so one atom cannot have a full octet."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Diagrams may show up to six electron pairs, bonding and lone, around a central atom."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Period 3 elements can have more than eight electrons round the central atom.",
+            "PCl₅ and SF₆ are expanded octets."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Bond length and bond strength",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Bond strength depends on how close the nuclei are and how many electrons are shared. This section covers how to compare bonds."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Bond length", "meaning": "The distance between the nuclei of two covalently bonded atoms." },
+            { "term": "Bond energy", "meaning": "The energy needed to break one mole of a particular covalent bond in the gaseous state." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of the carbon-carbon single, double and triple bonds by number of shared pairs, bond length and bond energy.",
+            "items": ["C–C", "C=C", "C≡C"],
+            "rows": [
+              { "feature": "Shared pairs", "values": ["1", "2", "3"] },
+              { "feature": "Bond length", "values": ["Longest", "Shorter", "Shortest"] },
+              { "feature": "Bond energy", "values": ["Lowest", "Higher", "Highest"] }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "More shared pairs pull the nuclei closer together, so the bond is shorter and stronger.",
+            "The larger the average bond enthalpy, the stronger the covalent bond.",
+            "A bond with a high bond energy is harder to break, so the molecule is less reactive. N₂ is unreactive because of its very strong triple bond.",
+            "A weaker bond, such as the long I–I bond, is easier to break, so molecules with weaker bonds are more reactive."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Between the same two atoms, a shorter bond is a stronger bond.",
+            "Bond energy is the energy to break one mole of a bond in the gaseous state.",
+            "Strong bonds make a molecule less reactive."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define a covalent bond.",
+      "a": "The strong electrostatic attraction between the nuclei of two atoms and the shared pair of electrons between them.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how a dative covalent bond forms when NH₃ reacts with H⁺.",
+      "a": "The N atom in NH₃ has a lone pair. It donates both electrons to the H⁺ ion, which has an empty orbital, forming a shared pair.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the N≡N bond is stronger and shorter than the N–N bond.",
+      "a": "The N≡N bond has three shared pairs and N–N has one. More shared electrons pull the nuclei closer together, giving a shorter bond that needs more energy to break.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": ["OCR 2.2.2d", "OCR 2.2.2e", "OCR 2.2.2f"]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 2A.7", "EDEX 2A.8", "EDEX 2A.9"]
+    },
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.1.3.2"]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 3.4.1", "CAIE 3.4.3"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use bond energy values together with bond length to compare the reactivity of covalent molecules.",
+                "Know the molecules by name and be able to describe the bonding in each: H₂, O₂, N₂, Cl₂, HCl, CO₂, NH₃, CH₄, C₂H₆ and C₂H₄.",
+                "Know that SO₂, PCl₅ and SF₆ have expanded octets, and that NH₃ and HCl form NH₄⁺ by coordinate bonding."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "8b674aaf-8f46-4b9e-a3d2-72cdaea1f8a6",
+      "b288ad75-2473-415b-b13a-46ded17115d4",
+      "3b4bac50-4ca6-4a8e-af88-1f6cbed50b3d",
+      "303e00ac-d1af-48a8-bac7-152433b660a6",
+      "c0aa6253-d7f4-4f3f-9b57-71ba7e0c4ded",
+      "2383a05d-2cd0-49cb-a0d4-8bc76ab637fe",
+      "7160b3dd-5b49-4fa2-b891-4761fa9dcfba",
+      "607e5346-03a8-4758-b6d5-145ee88cd794",
+      "bb24ad51-ef2a-406a-936b-7536bb1d8f8f"
+    ],
+    "exemplar_ids": []
+  }
+}

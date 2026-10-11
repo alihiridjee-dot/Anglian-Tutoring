@@ -1,0 +1,299 @@
+{
+  "format": 1,
+  "concept_id": "aphys-062",
+  "subject": "physics",
+  "title": "Damping, forced oscillations and resonance",
+  "key_idea": "Damping takes energy from an oscillator, so its amplitude falls. A system driven at its natural frequency absorbs energy most efficiently, and its amplitude becomes very large. This is resonance.",
+  "sections": [
+    {
+      "heading": "Free and forced oscillations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section separates an oscillator left alone from one that is pushed by an outside source."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Free oscillation", "meaning": "An oscillation at the natural frequency, with no repeating external force acting after the start." },
+            { "term": "Natural frequency", "meaning": "The frequency at which a system oscillates freely after being disturbed." },
+            { "term": "Forced oscillation", "meaning": "An oscillation caused by a periodic external force, called the driving force." },
+            { "term": "Driving frequency", "meaning": "The frequency of the external force acting on the system." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A free oscillator, once set going, oscillates at its natural frequency. Its energy stays constant if there is no damping.",
+            "A forced oscillator is made to oscillate at the **driving frequency**, not at its natural frequency.",
+            "At first the motion is irregular. After a short time it settles at the driving frequency.",
+            "The amplitude of a forced oscillation depends on how close the driving frequency is to the natural frequency."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Free: oscillates at its natural frequency.",
+            "Forced: oscillates at the driving frequency.",
+            "The amplitude depends on how close the two frequencies are."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Damping",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Damping happens when a resistive force acts on an oscillating system."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Air resistance, friction and viscous drag do work against the motion.",
+            "Energy is transferred from the oscillator to the surroundings, mostly as thermal energy.",
+            "The amplitude falls with each cycle. The period is almost unchanged for light damping.",
+            "The more damping, the faster the amplitude decays."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Degrees of damping"
+        },
+        {
+          "type": "table",
+          "columns": ["Damping", "What happens after a displacement and release"],
+          "rows": [
+            ["Light", "Oscillates with the amplitude decreasing gradually."],
+            ["Critical", "Returns to equilibrium in the shortest time, without oscillating."],
+            ["Heavy", "Returns to equilibrium very slowly, without oscillating."]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Car suspensions and door closers are designed with close to critical damping.",
+            "Plastic deformation of a ductile material takes energy out of an oscillation. The material permanently changes shape, and the work done does not return as elastic energy."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A resistive force removes energy and the amplitude falls.",
+            "Light damping oscillates, critical damping returns fastest, heavy damping returns slowly."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Resonance",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Resonance is the large-amplitude oscillation produced when the driving frequency matches the natural frequency."
+        },
+        {
+          "type": "list",
+          "items": [
+            "At resonance the driving force is in step with the motion (a quarter of a cycle ahead of the displacement).",
+            "The driver then does positive work on the system in every cycle, so energy transfers to it as efficiently as possible.",
+            "The amplitude rises until the energy lost to damping per cycle equals the energy supplied.",
+            "With no damping at all, the amplitude at resonance would grow without limit."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Amplitude against driving frequency for a lightly damped and a heavily damped system. The light damping curve has a tall, sharp peak at the natural frequency. The heavy damping curve has a low, broad peak, slightly below the natural frequency.",
+            "x": { "label": "Driving frequency as a multiple of the natural frequency", "min": 0, "max": 2, "ticks": [0, 0.5, 1, 1.5, 2] },
+            "y": { "label": "Amplitude (shape only)" },
+            "series": [
+              { "name": "Light damping", "points": [[0, 0.1], [0.5, 0.15], [0.8, 0.3], [0.9, 0.55], [1, 1], [1.1, 0.5], [1.2, 0.25], [1.5, 0.08], [2, 0.04]] },
+              { "name": "Heavy damping", "points": [[0, 0.1], [0.5, 0.15], [0.8, 0.25], [0.9, 0.3], [0.95, 0.32], [1.1, 0.28], [1.2, 0.2], [1.5, 0.08], [2, 0.04]] }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "At low driving frequency the amplitude is small, and the system moves with the driver.",
+            "The peak is at, or just below, the natural frequency.",
+            "More damping lowers the peak and makes it **less sharp**, so the curve is wider.",
+            "Well above the natural frequency the amplitude is small again."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Resonance: maximum amplitude when the driving frequency equals the natural frequency.",
+            "Damping reduces the peak amplitude and makes the peak less sharp."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Examples of resonance",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Resonance can be useful or harmful, depending on the situation."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Examples of resonance are sorted into those that are useful and those that are a problem.",
+            "prompt": "Sort each example by whether resonance is useful or a problem.",
+            "groups": ["Resonance is useful", "Resonance is a problem"],
+            "items": [
+              { "text": "Tuning a radio to a station", "group": 0 },
+                            { "text": "A musical instrument's air column or strings producing a loud note", "group": 0 },
+              { "text": "A magnetic resonance imaging (MRI) scanner", "group": 0 },
+              { "text": "A bridge shaken by wind or marching feet", "group": 1 },
+              { "text": "A building shaken by an earthquake", "group": 1 },
+              { "text": "A loose panel rattling on a car at a certain engine speed", "group": 1 },
+              { "text": "A glass shattering when a singer holds its note", "group": 1 }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a stationary wave, an air column or a string resonates when the driving frequency matches one of its natural frequencies.",
+            "Damping is added to reduce harmful resonance: shock absorbers, tuned mass dampers in tall buildings, and flexible foundations."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Resonance helps in tuning, instruments and scanners.",
+            "It harms bridges, buildings and machines unless damping is added."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what is meant by resonance.",
+      "a": "The amplitude of a forced oscillation is a maximum when the driving frequency is equal to the natural frequency of the system.",
+      "marks": 2
+    },
+    {
+      "q": "Explain the effect of increasing the damping on the resonance curve of a system.",
+      "a": "The peak amplitude is lower, the peak is broader (less sharp), and the peak frequency moves slightly below the natural frequency.",
+      "marks": 3
+    },
+    {
+      "q": "Describe, in terms of energy, why the amplitude of a freely oscillating pendulum falls with time.",
+      "a": "Air resistance (a resistive force) does work against the motion. Energy is transferred from the pendulum to the surroundings, so its total energy and amplitude decrease.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.6.1.4"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The treatment is qualitative: describe free and forced vibrations, and no calculations are needed.",
+                "Explain resonance and the effects of damping on the sharpness of resonance.",
+                "Use examples in mechanical systems and in stationary waves, such as a string or an air column."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 13.186", "EDEX 13.189", "EDEX 13.190", "EDEX 13.191"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe how the amplitude of a forced oscillation changes at and around the natural frequency: it increases as the driving frequency approaches it, peaks at resonance, then falls.",
+                "Say qualitatively how damping affects resonance: lower and broader peak.",
+                "Explain how plastic deformation of ductile materials reduces amplitude: as the material is stretched past its elastic limit, work is done permanently deforming it, so energy is dissipated each cycle.",
+                "Ductile materials, such as copper or mild steel, are used in structures to absorb energy from vibrations."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 17.3.1", "CAIE 17.3.2", "CAIE 17.3.3"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You must be able to sketch displacement–time graphs for the three types of damping."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Light:** a sine-like wave inside a decaying envelope. The peaks fall exponentially and the period stays almost constant.",
+                "**Critical:** the displacement falls to zero in the shortest time and does not pass through zero. There is no oscillation.",
+                "**Heavy:** the displacement falls to zero more slowly than for critical damping, with no oscillation.",
+                "Start each sketch from the same positive displacement at t = 0."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": ["OCR 5.3.3a", "OCR 5.3.3b", "OCR 5.3.3c", "OCR 5.3.3d", "OCR 5.3.3e"],
+      "extra": [
+        {
+          "heading": "Observing forced and damped oscillations",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A common setup is a mass on a spring driven by a vibration generator, or a Barton's pendulum.",
+                "Vary the driving frequency in steps, and measure the amplitude at each. Plot amplitude against driving frequency.",
+                "Wait until the amplitude settles at each frequency before measuring.",
+                "Add card to the mass to increase damping, and repeat. The peak is lower and broader.",
+                "Other systems to observe: a pendulum, a flexible ruler clamped at one end, and a metal sheet or glass with a loudspeaker."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "spec_point_ids": [
+      "ab75d49a-94d5-48cf-a665-34d73fdeeedb",
+      "169ebdea-dc39-4875-adce-0d0ae49d84e2",
+      "9a9d6023-b37e-4e1a-84aa-48712d6e78f0",
+      "3e8367d5-5864-42bc-86fc-69c07ce834ec",
+      "d165468b-8f86-433e-b461-dfd70964a885",
+      "687354d9-149b-4ccb-b31e-9e1933f6fd62",
+      "13312316-c180-4281-b881-a5e1d68b2673",
+      "4b2f6dc8-44d7-4d53-bcca-c04805deac0c",
+      "56cf15be-fcc1-40dd-94b4-5afb7a25a82b",
+      "70f762f4-3583-47b9-86f3-b0ae2a8b460c",
+      "2fcd46ae-d7f7-45dd-ba27-6c2d158ecc3d",
+      "47fa0474-d8f2-4b3b-9938-b973b3c6a445",
+      "ca758db3-c54e-41fb-9a54-b1fa3af34e11"
+    ],
+    "exemplar_ids": []
+  }
+}

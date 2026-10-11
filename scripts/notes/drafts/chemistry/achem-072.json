@@ -1,0 +1,358 @@
+{
+  "format": 1,
+  "concept_id": "achem-072",
+  "subject": "chemistry",
+  "title": "Addition polymers",
+  "key_idea": "**Addition polymers** are made when many alkene **monomers** join, opening the C=C bond. The **repeat unit** has the same atoms as the monomer, but with single bonds. Addition polymers are unreactive and not biodegradable, so waste polymers must be recycled, burned for energy or used as feedstock.",
+  "sections": [
+    {
+      "heading": "Making addition polymers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Alkenes and substituted alkenes can join in long chains. This section covers how a polymer forms and how to link a monomer to its repeat unit."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Monomer",
+              "meaning": "A small molecule that joins with many others to make a polymer."
+            },
+            {
+              "term": "Addition polymerisation",
+              "meaning": "Many unsaturated monomers add together, with no other product, to make a long saturated chain."
+            },
+            {
+              "term": "Repeat unit",
+              "meaning": "The group of atoms that repeats along the polymer chain."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The C=C bond in each monomer **opens**, and each carbon forms a new single bond to the next monomer.",
+            "The polymer has a carbon-only backbone with **no C=C**, so it is saturated.",
+            "The repeat unit has the **same atoms** as the monomer. Nothing is lost.",
+            "The repeat unit is drawn in brackets with a bond through each end, and with n outside the bracket."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Ethene to poly(ethene)",
+          "formula": "n CH₂=CH₂ → (–CH₂–CH₂–)ₙ"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Monomer",
+            "Repeat unit",
+            "Polymer"
+          ],
+          "rows": [
+            [
+              "Ethene, CH₂=CH₂",
+              "–CH₂–CH₂–",
+              "Poly(ethene)"
+            ],
+            [
+              "Propene, CH₂=CHCH₃",
+              "–CH₂–CH(CH₃)–",
+              "Poly(propene)"
+            ],
+            [
+              "Chloroethene, CH₂=CHCl",
+              "–CH₂–CHCl–",
+              "Poly(chloroethene), PVC"
+            ],
+            [
+              "Tetrafluoroethene, CF₂=CF₂",
+              "–CF₂–CF₂–",
+              "Poly(tetrafluoroethene), PTFE"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Working between monomer and polymer"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Monomer to repeat unit.",
+              "text": "Draw the two carbons of the C=C in the chain. Change the double bond to a single bond and keep the side groups where they are."
+            },
+            {
+              "lead": "Polymer to monomer.",
+              "text": "Find the repeat unit, which is two carbons of the backbone. Put a double bond between them and keep the side groups."
+            },
+            {
+              "lead": "Name it.",
+              "text": "Name the polymer from the monomer, with the monomer name in brackets, as in poly(propene)."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor: pick a monomer to see its repeat unit and polymer.",
+            "prompt": "Pick a monomer",
+            "result_labels": [
+              "Repeat unit",
+              "Polymer name"
+            ],
+            "options": [
+              {
+                "label": "Ethene",
+                "results": [
+                  "–CH₂–CH₂–",
+                  "Poly(ethene)"
+                ],
+                "explanation": "The C=C opens and each carbon bonds to the next unit."
+              },
+              {
+                "label": "Propene",
+                "results": [
+                  "–CH₂–CH(CH₃)–",
+                  "Poly(propene)"
+                ],
+                "explanation": "The CH₃ side group stays on the same carbon."
+              },
+              {
+                "label": "Chloroethene",
+                "results": [
+                  "–CH₂–CHCl–",
+                  "Poly(chloroethene) (PVC)"
+                ],
+                "explanation": "The chlorine atom stays on one carbon of the repeat unit."
+              },
+              {
+                "label": "Phenylethene (styrene)",
+                "results": [
+                  "–CH₂–CH(C₆H₅)–",
+                  "Poly(phenylethene)"
+                ],
+                "explanation": "The benzene ring is a side group on one carbon."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An addition polymer is made when the C=C bonds of many monomers open and join.",
+            "The repeat unit has the same atoms as the monomer, with a single C–C bond."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Properties of addition polymers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Addition polymers are long chains of saturated carbon atoms. Their structure explains their properties."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Addition polymers are **unreactive**. The chains contain only strong, non-polar C–C and C–H bonds.",
+            "Poly(alkene) chains are held together by **London forces**, since the molecules are non-polar.",
+            "Polymers with side groups that are polar, such as PVC, also have permanent dipole–dipole forces between chains.",
+            "A plasticiser added to PVC pushes the chains apart and weakens the forces between them, so the PVC becomes flexible.",
+            "PVC is used for pipes and window frames when rigid, and for electrical cable insulation when plasticised."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Addition polymers are unreactive, because their bonds are strong and non-polar.",
+            "Plasticisers make PVC flexible by weakening the forces between chains."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Waste polymers and sustainability",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Poly(alkene)s are not biodegradable, so dumping them causes lasting problems. Chemists look for better ways of using and disposing of them."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Method",
+            "What happens",
+            "Benefit or problem"
+          ],
+          "rows": [
+            [
+              "Recycling",
+              "Polymers are sorted by type, then melted and remade.",
+              "Saves resources and energy; the types must be separated."
+            ],
+            [
+              "Combustion",
+              "Waste is burned to release energy.",
+              "Gives heat for electricity; may produce toxic gases such as HCl from PVC."
+            ],
+            [
+              "Feedstock",
+              "Polymers are cracked into small molecules.",
+              "Makes new plastics and organic chemicals."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Toxic waste gases, such as HCl from burning PVC, are removed by scrubbing the gases with a base.",
+            "**Biodegradable polymers** are broken down by microorganisms. **Photodegradable polymers** are broken down by light.",
+            "Both cut the amount of waste going to landfill.",
+            "Chemists make polymers more sustainable by looking at the energy and resources used over the whole life cycle."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Waste polymers can be recycled, burned for energy or cracked for feedstock.",
+            "Biodegradable and photodegradable polymers reduce waste, and toxic gases are removed during incineration."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Draw the repeat unit of the polymer formed from propene, CH₂=CHCH₃.",
+      "a": "–CH₂–CH(CH₃)–, with a bond through each end, in brackets with n.",
+      "marks": 2
+    },
+    {
+      "q": "A section of an addition polymer is –CH₂–CHCl–CH₂–CHCl–. Name the monomer.",
+      "a": "Chloroethene, CH₂=CHCl.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why addition polymers do not biodegrade easily, and give two ways of dealing with waste polymer.",
+      "a": "They have strong, non-polar C–C and C–H bonds that microorganisms cannot break easily. Waste can be recycled, burned to release energy or used as a feedstock for cracking.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.1.3j",
+        "OCR 4.1.3k",
+        "OCR 4.1.3l"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The benefits of processing waste polymers are combustion for energy, use as organic feedstock, and removal of toxic waste products such as HCl from halogenated plastics.",
+                "The benefits to the environment of developing biodegradable and photodegradable polymers."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 6C.26",
+        "EDEX 6C.27",
+        "EDEX 6C.28",
+        "EDEX 6C.29"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Waste polymers can be separated into specific types for recycling, incineration to release energy, or use as a feedstock for cracking.",
+                "Chemists can contribute to more sustainable use of materials by looking at the energy and resources used over the life cycle of a polymer.",
+                "Chemists limit disposal problems by developing biodegradable polymers and by removing toxic gases from incineration."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.4.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use IUPAC rules to name addition polymers.",
+                "Appreciate that knowledge of the production and properties of polymers has developed over time.",
+                "Explain why addition polymers are unreactive.",
+                "Explain the intermolecular forces between molecules of polyalkenes."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 20.1.1",
+        "CAIE 20.1.2",
+        "CAIE 20.1.3",
+        "CAIE 20.1.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe addition polymerisation using poly(ethene) and poly(chloroethene), PVC, as examples.",
+                "Deduce the repeat unit from a monomer, and identify the monomer or monomers in a section of polymer.",
+                "Recognise the disposal difficulty of poly(alkene)s: they are not biodegradable, and burning them gives harmful combustion products."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "43aa57a4-a6af-4927-803f-54223a50f460",
+      "9fc51203-f11f-4a2e-9b6a-5118221261f0",
+      "a33f8fac-56b0-4d32-b095-94c41f75d87c",
+      "78783165-b58f-4ecf-8115-586e7740793c",
+      "6e20a819-1c4d-473e-88bf-ec89e52e8f3e",
+      "9435acf6-9538-4679-b003-a78744dec8ab",
+      "e35af914-d039-4721-9d94-455dab1dc79c",
+      "d924a3cd-4050-4fff-9868-742a722b99ad",
+      "0724a0c3-c771-4e2a-8673-3719d1d7f4d3",
+      "51ccb23c-56c7-46e3-8ae5-b0320e799a41",
+      "691ba957-fc02-4d6c-9dd2-027d1d6fb13d",
+      "c09e4e72-b11e-4c86-a0cc-86cbca879057"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

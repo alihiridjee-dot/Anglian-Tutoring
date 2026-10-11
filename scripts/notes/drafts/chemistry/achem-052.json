@@ -1,0 +1,386 @@
+{
+  "format": 1,
+  "concept_id": "achem-052",
+  "subject": "chemistry",
+  "title": "Group 2",
+  "key_idea": "Group 2 metals lose two outer electrons to form 2+ ions. Reactivity increases down the group as ionisation energy falls. Their oxides and hydroxides are bases that become more soluble and more alkaline down the group, while the sulfates become less soluble.",
+  "sections": [
+    {
+      "heading": "Trends down Group 2",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Group 2 elements have an outer s² configuration. This section covers the trends in radius, ionisation energy, melting point and reactivity."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The outer two electrons are lost in redox reactions, forming **2+ ions**.",
+            "Atomic radius **increases** down the group, because each element has an extra shell.",
+            "More shells mean more shielding, and the outer electrons are further from the nucleus.",
+            "First and second ionisation energies **decrease** down the group, because the outer electrons are easier to remove."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "First ionisation energy",
+          "formula": "M(g) → M⁺(g) + e⁻"
+        },
+        {
+          "type": "equation",
+          "label": "Second ionisation energy",
+          "formula": "M⁺(g) → M²⁺(g) + e⁻"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Reactivity **increases** down the group. The metals lose two electrons more easily, so the energy needed to form M²⁺ falls.",
+            "Melting points are low for metals and do not fall smoothly: Mg 650 °C, Ca 842 °C, Sr 777 °C, Ba 727 °C.",
+            "The giant metallic lattice holds ions in a sea of delocalised electrons. Larger ions mean weaker attraction and a lower melting point in general."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Radius rises and ionisation energy falls down the group.",
+            "Lower ionisation energy means higher reactivity.",
+            "Group 2 metals form 2+ ions by losing two outer electrons."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reactions of the elements",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Magnesium to barium react with oxygen, chlorine, water and dilute acids. Each reaction is a redox reaction in which the metal loses two electrons."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Reaction",
+            "Equation",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "With oxygen",
+              "2M + O₂ → 2MO",
+              "Mg burns with a bright white flame"
+            ],
+            [
+              "With chlorine",
+              "M + Cl₂ → MCl₂",
+              "White solid chloride forms"
+            ],
+            [
+              "With water",
+              "M + 2H₂O → M(OH)₂ + H₂",
+              "Mg is very slow. Ca, Sr and Ba fizz, faster down the group"
+            ],
+            [
+              "Mg with steam",
+              "Mg + H₂O → MgO + H₂",
+              "Burns with a white flame"
+            ],
+            [
+              "With dilute acid",
+              "M + 2HCl → MCl₂ + H₂",
+              "Faster down the group"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "With dilute sulfuric acid, Ca, Sr and Ba form a layer of insoluble or sparingly soluble sulfate. This slows the reaction. Mg + H₂SO₄ → MgSO₄ + H₂ goes steadily."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reactions with water and acid get faster down the group.",
+            "All the metals form M²⁺ ions and release hydrogen from water and acid."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Oxides, hydroxides and carbonates",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The compounds of Group 2 are bases. This section covers their reactions with water and acids, and the trend in alkalinity."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Oxides react with water to form hydroxides: MO + H₂O → M(OH)₂.",
+            "MgO is only slightly soluble, giving a solution of pH about 9 to 10. CaO gives limewater, pH about 12. BaO gives pH about 13 to 14.",
+            "Alkalinity **increases** down the group, because the hydroxides get more soluble and release more OH⁻."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Compound",
+            "Equation with dilute HCl"
+          ],
+          "rows": [
+            [
+              "Oxide",
+              "MO + 2HCl → MCl₂ + H₂O"
+            ],
+            [
+              "Hydroxide",
+              "M(OH)₂ + 2HCl → MCl₂ + 2H₂O"
+            ],
+            [
+              "Carbonate",
+              "MCO₃ + 2HCl → MCl₂ + H₂O + CO₂"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "With sulfuric acid, the carbonates of Ca, Sr and Ba stop reacting once an insoluble sulfate coats them. MgCO₃ + H₂SO₄ → MgSO₄ + H₂O + CO₂ goes to completion."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Oxides and hydroxides neutralise acids to give a salt and water.",
+            "Carbonates give a salt, water and carbon dioxide.",
+            "Solutions of the oxides become more alkaline down the group."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Solubility and uses of Group 2 compounds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The solubility of hydroxides and sulfates changes in opposite directions. This section covers the trends and the uses that follow."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hydroxides: solubility **increases** down the group. Mg(OH)₂ is sparingly soluble. Ba(OH)₂ is soluble.",
+            "Sulfates: solubility **decreases** down the group. MgSO₄ is soluble. BaSO₄ is insoluble."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Decide which properties increase and which decrease down Group 2.",
+            "prompt": "Does it increase or decrease down Group 2?",
+            "groups": [
+              "Increases down the group",
+              "Decreases down the group"
+            ],
+            "items": [
+              {
+                "text": "Atomic radius",
+                "group": 0
+              },
+              {
+                "text": "First ionisation energy",
+                "group": 1
+              },
+              {
+                "text": "Reactivity with water",
+                "group": 0
+              },
+              {
+                "text": "Solubility of the hydroxides",
+                "group": 0
+              },
+              {
+                "text": "Solubility of the sulfates",
+                "group": 1
+              },
+              {
+                "text": "Alkalinity of the oxide solutions",
+                "group": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Compound",
+            "Use",
+            "Equation"
+          ],
+          "rows": [
+            [
+              "Ca(OH)₂",
+              "Neutralises acidic soil",
+              "Ca(OH)₂ + 2H⁺ → Ca²⁺ + 2H₂O"
+            ],
+            [
+              "Mg(OH)₂",
+              "Antacid for indigestion",
+              "Mg(OH)₂ + 2HCl → MgCl₂ + 2H₂O"
+            ],
+            [
+              "CaCO₃",
+              "Antacid for indigestion",
+              "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂"
+            ],
+            [
+              "CaO or CaCO₃",
+              "Removes SO₂ from flue gases",
+              "CaO + SO₂ → CaSO₃"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hydroxide solubility rises down the group. Sulfate solubility falls.",
+            "Group 2 bases are used to neutralise acid in soil and in the stomach."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why calcium is more reactive than magnesium.",
+      "a": "Calcium has an extra shell, so its outer electrons are further from the nucleus and more shielded. They are lost more easily, so its ionisation energies are lower.",
+      "marks": 3
+    },
+    {
+      "q": "State and explain the trend in alkalinity of Group 2 oxide solutions.",
+      "a": "Alkalinity increases down the group. The hydroxides become more soluble, so more OH⁻ ions are released into solution.",
+      "marks": 2
+    },
+    {
+      "q": "Write the equation for the reaction of calcium carbonate with dilute hydrochloric acid.",
+      "a": "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.2a",
+        "OCR 3.1.2b",
+        "OCR 3.1.2c",
+        "OCR 3.1.2d",
+        "OCR 3.1.2e"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4A.1",
+        "EDEX 4A.2",
+        "EDEX 4A.3",
+        "EDEX 4A.4",
+        "EDEX 4A.5"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers three more uses of Group 2 compounds and metals."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Titanium extraction**: magnesium is used to reduce titanium(IV) chloride, in an inert atmosphere: TiCl₄ + 2Mg → Ti + 2MgCl₂.",
+                "**Barium meal**: BaSO₄ is insoluble, so it is not absorbed. It is opaque to X-rays and is used to show the gut. Soluble barium compounds are toxic.",
+                "**Test for sulfate ions**: add acidified barium chloride. A white precipitate of BaSO₄ shows sulfate: Ba²⁺ + SO₄²⁻ → BaSO₄."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Barium ions are used because BaSO₄ is insoluble.",
+                "The solution is acidified with hydrochloric acid to remove carbonate ions, which would give a white precipitate of BaCO₃ and a false positive.",
+                "Sulfuric acid is not used for acidifying, because it contains sulfate ions."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 10.1.1",
+        "CAIE 10.1.2",
+        "CAIE 10.1.4",
+        "CAIE 10.1.5",
+        "CAIE 27.1.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers why the solubilities change, in terms of enthalpy changes, and how to predict from the trends."
+            },
+            {
+              "type": "equation",
+              "label": "Enthalpy change of solution",
+              "formula": "ΔHsol = (energy to break the lattice) − (energy released by hydration)",
+              "where": [
+                "Energy to break the lattice: the size of the lattice energy, in kJ/mol",
+                "Energy released by hydration: the size of the hydration enthalpies of both ions, in kJ/mol"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A compound is more soluble when ΔHsol is less endothermic (or more exothermic).",
+                "The lattice energy and the hydration enthalpy both get smaller in size as the cation gets larger.",
+                "**Sulfates**: the sulfate ion is large, so the lattice energy hardly changes with cation size. Hydration enthalpy falls more. ΔHsol becomes less favourable, so solubility **decreases**.",
+                "**Hydroxides**: the hydroxide ion is small, so the lattice energy falls more steeply with cation size. ΔHsol becomes more favourable, so solubility **increases**."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Use the trends to predict. Radium, below barium, would be more reactive, have a more soluble and more alkaline hydroxide, and a less soluble sulfate."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "86037c37-5e30-4984-829d-11ce72625bbf",
+      "50ffa2a1-48f7-428f-8d0b-ec6e376fb13f",
+      "0bf7eafe-a327-4a87-b76a-690a7056756b",
+      "de1baa00-7e8f-428a-96c8-3a5f825dafda",
+      "a95d0215-6a0a-49aa-8d77-3e41d10a153d",
+      "370c95ea-e2b3-4b7b-8837-245a8bb45fcc",
+      "aaaede41-0d1a-4cea-aefb-938366b0d537",
+      "bcb8055a-8727-443e-bc9e-d920470454a2",
+      "9396c98e-72ba-438b-91ee-3e358eeb09d2",
+      "014300a8-309e-4934-8581-350315cf67c5",
+      "d91a9e8b-639e-4140-a3a3-01b6a97d54b7",
+      "7f57288a-4d5d-4987-9aac-353a8888f4ad",
+      "01302d2d-0628-4f70-b538-3cb15c821937",
+      "2c49f407-e9ec-4070-bafb-4afcff0a6339",
+      "1e79d450-fa13-4504-a662-1ece98f1ae0f",
+      "161e54dd-5e72-4183-8a53-66c802cfadce"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,541 @@
+{
+  "format": 1,
+  "concept_id": "achem-081",
+  "subject": "chemistry",
+  "title": "Benzene and electrophilic substitution",
+  "key_idea": "Benzene is a planar ring with a delocalised π system, which makes it unusually stable. It therefore keeps its ring and undergoes electrophilic substitution, not addition. Nitration, halogenation and Friedel–Crafts reactions all replace an H atom with an electrophile.",
+  "sections": [
+    {
+      "heading": "The structure of benzene",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Benzene has the formula C₆H₆. This section covers the Kekulé model and the delocalised model."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Kekulé model",
+              "meaning": "A ring of six carbons with alternating single and double bonds: cyclohexa-1,3,5-triene."
+            },
+            {
+              "term": "Delocalised model",
+              "meaning": "The p electrons are shared around the whole ring in a π system, above and below the plane of the ring."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The ring is **planar**, with bond angles of 120°.",
+            "Each carbon forms three σ bonds, to two carbons and one hydrogen.",
+            "Each carbon has one p orbital left over, pointing up and down from the ring.",
+            "The six p orbitals overlap sideways, forming a ring of delocalised π electrons above and below the plane.",
+            "All the carbon–carbon bonds are the same length, **between** a single and a double bond."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Benzene can be drawn as a hexagon with alternating double bonds, or as a hexagon with an inner circle for the delocalised electrons."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Benzene is a planar ring of six carbons with delocalised π electrons.",
+            "All the C–C bonds are equal in length.",
+            "The Kekulé structure is a simpler, older model."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evidence for the delocalised model",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Experiments show that benzene does not match the Kekulé structure. Three pieces of evidence support delocalisation."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Evidence",
+            "Kekulé prediction",
+            "What is found"
+          ],
+          "rows": [
+            [
+              "Bond lengths",
+              "Three long single bonds (0.153 nm) and three short double bonds (0.134 nm)",
+              "All six bonds are equal, about 0.140 nm"
+            ],
+            [
+              "Enthalpy of hydrogenation",
+              "3 × (−120) = −360 kJ/mol",
+              "−208 kJ/mol, so 152 kJ/mol less exothermic"
+            ],
+            [
+              "Reactions",
+              "Bromine water decolourised, addition reactions",
+              "No reaction with bromine water; substitution occurs"
+            ]
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Delocalisation energy",
+          "formula": "stabilisation energy = 3 × ΔH(cyclohexene) − ΔH(benzene)",
+          "where": [
+            "ΔH values are enthalpy changes of hydrogenation, in kJ/mol",
+            "Use the sizes of the values, without the negative signs"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the extra stability of benzene from enthalpies of hydrogenation.",
+            "question": "The enthalpy of hydrogenation of cyclohexene is **−{e} kJ/mol**. That of benzene is **−{b} kJ/mol**. Calculate how much more stable benzene is than cyclohexa-1,3,5-triene, in kJ/mol.",
+            "variables": [
+              {
+                "id": "e",
+                "min": 118,
+                "max": 124,
+                "step": 1
+              },
+              {
+                "id": "b",
+                "min": 204,
+                "max": 212,
+                "step": 2
+              }
+            ],
+            "answer": {
+              "formula": "3 * e - b",
+              "unit": "kJ/mol",
+              "decimals": 0
+            },
+            "working": [
+              "Cyclohexa-1,3,5-triene has three C=C bonds: 3 × {e}",
+              "Predicted value = **3 × {e}** kJ/mol",
+              "Stabilisation energy = (3 × {e}) − {b} = **{answer}** kJ/mol"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Benzene is **more stable** than the hypothetical cyclohexa-1,3,5-triene, because its π electrons are delocalised.",
+            "More energy would be needed to break the delocalised system, so benzene is less reactive than the Kekulé structure suggests."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Equal bond lengths show there are no separate single and double bonds.",
+            "Hydrogenation is about 150 kJ/mol less exothermic than predicted, so benzene is extra stable.",
+            "Benzene does not decolourise bromine water."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why benzene substitutes rather than adds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Benzene resists bromination, unlike alkenes. This section explains why, in terms of electron density."
+        },
+        {
+          "type": "list",
+          "items": [
+            "An alkene has a **localised** π bond between two carbons. The electron density is high.",
+            "This density polarises an approaching Br₂ molecule, so the alkene adds bromine without a catalyst.",
+            "Benzene's π electrons are spread over six carbons. The electron density between any two carbons is **lower**.",
+            "Benzene cannot polarise Br₂ enough to react.",
+            "Addition would destroy the stable delocalised ring. **Substitution** keeps the ring intact."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Alkene: localised π bond, high electron density, adds bromine.",
+            "Benzene: delocalised, lower density, no reaction without a catalyst.",
+            "Benzene substitutes so that it keeps its delocalised ring."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Naming substituted benzenes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Aromatic compounds are named with the benzene ring as the base. Number the ring to give the substituents the lowest locants."
+        },
+        {
+          "type": "list",
+          "items": [
+            "One substituent: no number needed, e.g. nitrobenzene, chlorobenzene, methylbenzene.",
+            "Two or more: number the positions, alphabetically if there is a choice, e.g. 1-chloro-2-nitrobenzene.",
+            "Use prefixes di, tri for repeats: 2,4,6-tribromophenol, 2,4-dinitromethylbenzene.",
+            "Where a group gives the ring a special name, that group is at position 1: 3-nitrobenzoic acid, 2-nitrophenol.",
+            "As a substituent, C₆H₅– is called **phenyl**."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use the lowest numbers for the substituents.",
+            "Acid and phenol groups sit at position 1 in their names."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Electrophilic substitution reactions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In each reaction an electrophile replaces a hydrogen atom on the ring. Pick a reaction to see the reagents, the electrophile and the product."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick an electrophilic substitution reaction of benzene to see its reagents, its electrophile and its product.",
+            "prompt": "Pick a reaction of benzene.",
+            "result_labels": [
+              "Reagents and conditions",
+              "Electrophile",
+              "Organic product"
+            ],
+            "options": [
+              {
+                "label": "Nitration",
+                "results": [
+                  "Concentrated HNO₃ and concentrated H₂SO₄, 25–60 °C",
+                  "NO₂⁺",
+                  "Nitrobenzene, C₆H₅NO₂"
+                ],
+                "explanation": "C₆H₆ + HNO₃ → C₆H₅NO₂ + H₂O"
+              },
+              {
+                "label": "Chlorination",
+                "results": [
+                  "Cl₂ with AlCl₃ (or Fe) as halogen carrier, room temperature",
+                  "Cl⁺ (from Cl₂ and AlCl₃)",
+                  "Chlorobenzene, C₆H₅Cl"
+                ],
+                "explanation": "C₆H₆ + Cl₂ → C₆H₅Cl + HCl"
+              },
+              {
+                "label": "Bromination",
+                "results": [
+                  "Br₂ with FeBr₃ (or AlBr₃) as halogen carrier, room temperature",
+                  "Br⁺ (from Br₂ and FeBr₃)",
+                  "Bromobenzene, C₆H₅Br"
+                ],
+                "explanation": "C₆H₆ + Br₂ → C₆H₅Br + HBr"
+              },
+              {
+                "label": "Friedel–Crafts alkylation",
+                "results": [
+                  "Haloalkane, e.g. CH₃Cl, with AlCl₃, heat",
+                  "CH₃⁺ (from CH₃Cl and AlCl₃)",
+                  "Methylbenzene, C₆H₅CH₃"
+                ],
+                "explanation": "C₆H₆ + CH₃Cl → C₆H₅CH₃ + HCl"
+              },
+              {
+                "label": "Friedel–Crafts acylation",
+                "results": [
+                  "Acyl chloride, e.g. CH₃COCl, with AlCl₃, heat",
+                  "CH₃CO⁺ (from CH₃COCl and AlCl₃)",
+                  "Phenylethanone, C₆H₅COCH₃"
+                ],
+                "explanation": "C₆H₆ + CH₃COCl → C₆H₅COCH₃ + HCl"
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Generating the electrophile"
+        },
+        {
+          "type": "equation",
+          "label": "Nitration",
+          "formula": "HNO₃ + 2H₂SO₄ → NO₂⁺ + H₃O⁺ + 2HSO₄⁻"
+        },
+        {
+          "type": "equation",
+          "label": "Bromination",
+          "formula": "Br₂ + FeBr₃ → Br⁺ + FeBr₄⁻"
+        },
+        {
+          "type": "equation",
+          "label": "Friedel–Crafts acylation",
+          "formula": "CH₃COCl + AlCl₃ → CH₃CO⁺ + AlCl₄⁻"
+        },
+        {
+          "type": "subheading",
+          "text": "The mechanism"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Attack.",
+              "text": "Two electrons from the delocalised π system form a bond to the electrophile, E⁺."
+            },
+            {
+              "lead": "Intermediate.",
+              "text": "A positively charged intermediate forms. The ring is no longer fully delocalised, and the carbon attacked has both H and E."
+            },
+            {
+              "lead": "Loss of H⁺.",
+              "text": "The C–H bond breaks. The electrons return to the ring and delocalisation is restored."
+            },
+            {
+              "lead": "Catalyst reformed.",
+              "text": "H⁺ reacts with the anion: H⁺ + AlCl₄⁻ → HCl + AlCl₃ (or H⁺ + HSO₄⁻ → H₂SO₄)."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The halogen carrier (AlCl₃, AlBr₃, FeBr₃, or iron) is a **catalyst**. It is regenerated.",
+            "Friedel–Crafts reactions are important in synthesis because they form a new **C–C bond** to the ring.",
+            "Nitration is important in synthesis: nitrobenzene is reduced to phenylamine (used for dyes and drugs), and nitration is used to make explosives.",
+            "Only one substituent is added in each reaction here (monosubstitution)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The electrophile is attacked by the π electrons, then H⁺ is lost.",
+            "The catalyst makes the electrophile and is regenerated.",
+            "Friedel–Crafts reactions build a C–C bond onto the ring."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "The enthalpy of hydrogenation of cyclohexene is −120 kJ/mol and of benzene is −208 kJ/mol. Explain what these values show about the structure of benzene.",
+      "a": "Three C=C bonds in the Kekulé structure would give 3 × −120 = −360 kJ/mol. The actual value is 152 kJ/mol less exothermic, so benzene is more stable than the Kekulé structure. This is because the π electrons are delocalised.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why benzene does not decolourise bromine water but cyclohexene does.",
+      "a": "Cyclohexene has a localised π bond with high electron density, which polarises Br₂ and allows addition. Benzene's π electrons are delocalised, so the electron density between carbons is lower. It cannot polarise Br₂ enough to react.",
+      "marks": 3
+    },
+    {
+      "q": "Write equations to show how the electrophile forms, and outline the mechanism, for the nitration of benzene.",
+      "a": "HNO₃ + 2H₂SO₄ → NO₂⁺ + H₃O⁺ + 2HSO₄⁻. The π electrons of the ring attack NO₂⁺, giving a positively charged intermediate. H⁺ is lost from the carbon with the NO₂, restoring the delocalised ring and forming nitrobenzene. The H⁺ reacts with HSO₄⁻ to reform H₂SO₄.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.1a",
+        "OCR 6.1.1b",
+        "OCR 6.1.1c",
+        "OCR 6.1.1d",
+        "OCR 6.1.1e",
+        "OCR 6.1.1f",
+        "OCR 6.1.1g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers unfamiliar reactions and the electrophile in halogenation."
+            },
+            {
+              "type": "list",
+              "items": [
+                "For halogenation, the electrophile can be assumed to be X⁺.",
+                "Halogen carriers include iron, iron halides and aluminium halides.",
+                "Unfamiliar electrophilic substitutions can appear with extra information. Use the same pattern: find the electrophile, show the attack, then the loss of H⁺.",
+                "The nitration mechanism must include the equations that form NO₂⁺."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 18A.1",
+        "EDEX 18A.2",
+        "EDEX 18A.3",
+        "EDEX 18A.4",
+        "EDEX 18A.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the reactions of benzene in the specification, including combustion."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Benzene burns in air with a **smoky flame**, because it has a high proportion of carbon, giving soot (carbon) from incomplete combustion.",
+                "Bromination uses bromine with a catalyst, such as FeBr₃ or AlBr₃.",
+                "Friedel–Crafts uses a halogenoalkane or an acyl chloride with aluminium chloride as catalyst.",
+                "Either the Kekulé or the delocalised structure may be used in equations and mechanisms."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.10.1",
+        "AQA 3.3.10.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the mechanisms to outline and the uses of the reactions."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Outline the mechanisms for nitration, including the nitronium ion NO₂⁺, and acylation using AlCl₃ as catalyst.",
+                "Substitution is limited to monosubstitution.",
+                "Use enthalpies of hydrogenation as thermochemical evidence for the extra stability.",
+                "Explain why substitution occurs in preference to addition: addition would destroy the delocalised π system.",
+                "Nitration is used to make explosives, and nitro compounds are reduced to amines."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 29.1.4",
+        "CAIE 29.2.1",
+        "CAIE 29.3.1",
+        "CAIE 30.1.1",
+        "CAIE 30.1.2",
+        "CAIE 30.1.3",
+        "CAIE 31.1.1",
+        "CAIE 31.1.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers hybridisation, methylbenzene reactions and side-chain halogenation."
+            },
+            {
+              "type": "subheading",
+              "text": "Shape of benzene"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Each carbon is **sp²** hybridised. The three sp² orbitals form σ bonds to two carbons and one hydrogen, in a plane at 120°.",
+                "The unhybridised p orbitals overlap sideways to give the delocalised π system above and below the ring.",
+                "Two mechanism types appear: electrophilic substitution (here) and addition–elimination (acyl chlorides)."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Reactions of methylbenzene and benzene"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Halogenation: Cl₂ or Br₂ with AlCl₃ or AlBr₃ gives halogenoarenes. Methylbenzene gives a mixture of 2- and 4-halogenomethylbenzene.",
+                "Nitration: concentrated HNO₃ and concentrated H₂SO₄, at 25–60 °C.",
+                "Friedel–Crafts alkylation: CH₃Cl and AlCl₃, heat. Acylation: CH₃COCl and AlCl₃, heat.",
+                "Side-chain oxidation: hot alkaline KMnO₄, then dilute acid, gives benzoic acid.",
+                "Hydrogenation of the ring: H₂ with Pt or Ni, heat, gives a cyclohexane ring."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Ring or side chain?"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Conditions",
+                "Where halogenation occurs",
+                "Type"
+              ],
+              "rows": [
+                [
+                  "Halogen carrier (AlCl₃ or AlBr₃), in the dark, room temperature",
+                  "In the ring",
+                  "Electrophilic substitution"
+                ],
+                [
+                  "UV light or boiling, no halogen carrier",
+                  "In the side chain (CH₃ group)",
+                  "Free radical substitution"
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Chlorobenzene is far less reactive than chloroethane in substitution reactions. A lone pair on chlorine is delocalised into the ring, so the C–Cl bond is stronger."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "3bee6c18-93f1-4d08-8a02-53674a262f7d",
+      "7d158c78-01df-4c61-86b0-f06e5f1b75e4",
+      "be584fef-48e2-4ba9-9950-d499391ec503",
+      "a1c30c7b-d721-4cf7-a245-5f9e1ef1bd75",
+      "1764ca30-5a46-4e88-8af6-f0de19a95612",
+      "caf6d4b6-8b4d-4676-931c-05acf70b7cd0",
+      "9553a5ae-0902-459a-983c-60fb48700950",
+      "fbde0014-5123-4103-b20b-befb0cd51706",
+      "dcb963e0-8b0a-4a5f-a328-e29027af1ed0",
+      "1be409f5-087b-4525-ba81-5f90ac53ee67",
+      "505fe960-a20d-4930-b35d-8222a0d7fd29",
+      "a60e090f-9786-45ef-8ade-111c8bef4538",
+      "7b8d4819-9859-4d97-bfea-e1f60db7793d",
+      "085a9c6e-35ba-4ec9-9655-5e6abf026624",
+      "acd30cf3-27d1-4235-a9be-01c0b6184f1b",
+      "5a6c1c9e-c6f2-4919-a844-bb357557a814",
+      "da3fad34-a4ce-469b-bd16-90085299c2eb",
+      "779aa34a-284d-43fa-860f-e7f834d7c8f3",
+      "e5121aa5-9d55-4c71-b7e0-33ee3648100a",
+      "7bccb5f1-8bed-44d6-92d9-2d7c72092fb4",
+      "a3125c17-65b2-4c8d-a1bf-1f2b59f8e2c3",
+      "a4b9ab42-19c3-4ff7-bb14-40aac06c1619"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

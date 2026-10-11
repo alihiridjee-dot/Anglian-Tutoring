@@ -1,0 +1,231 @@
+{
+  "format": 1,
+  "concept_id": "abio-019",
+  "subject": "biology",
+  "title": "Gas exchange in fish, insects and plants",
+  "key_idea": "Each type of organism has an exchange surface suited to its size and habitat. Fish use gills with countercurrent flow, insects use tracheae, and plants use stomata. Land organisms must also limit water loss.",
+  "sections": [
+    {
+      "heading": "Gas exchange in single-celled organisms",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers the simplest case, which the other systems are compared with." },
+        {
+          "type": "list",
+          "items": [
+            "A single-celled organism has a large surface area to volume ratio.",
+            "Oxygen diffuses across the cell surface membrane and into the cytoplasm. Carbon dioxide diffuses out.",
+            "The diffusion distance is short, so no special system is needed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Single-celled organisms exchange gases across their body surface.",
+            "A large SA:V ratio and a short distance make this enough."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Bony fish",
+      "blocks": [
+        { "type": "paragraph", "text": "Water contains much less oxygen than air, so fish need an efficient gill system." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Gill filament", "meaning": "A thin, flat structure that projects from the gill arch. There are many on each gill." },
+            { "term": "Gill lamella", "meaning": "A fold on a gill filament, which has a large surface area and a rich blood supply. Also called a gill plate." },
+            { "term": "Operculum", "meaning": "A bony flap that covers the gills." },
+            { "term": "Countercurrent flow", "meaning": "Blood and water flow in opposite directions across the lamellae." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "How a bony fish moves water over its gills",
+            "prompt": "Put the steps of water entering the gills in the right order.",
+            "steps": [
+              "The mouth opens and the operculum closes",
+              "The floor of the buccal cavity is lowered, so its volume increases",
+              "Pressure in the buccal cavity falls, so water flows in",
+              "The mouth closes and the floor of the buccal cavity is raised",
+              "Pressure rises, so water is forced over the gills and the operculum opens"
+            ]
+          }
+        },
+        { "type": "subheading", "text": "Why countercurrent flow is efficient" },
+        {
+          "type": "list",
+          "items": [
+            "Water flows over the lamellae in one direction, and blood flows through them in the opposite direction.",
+            "The blood always meets water with a higher oxygen concentration than itself.",
+            "A diffusion gradient is kept along the whole length of the lamella, so oxygen diffuses in all the way along.",
+            "With parallel flow, the two would reach equilibrium partway along and exchange would stop. Countercurrent flow keeps exchange going along the whole length, so far more oxygen is absorbed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gills have many filaments, each with many lamellae, giving a large surface area.",
+            "The buccal cavity and operculum pump water over the gills.",
+            "Countercurrent flow keeps a gradient along the whole lamella."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Insects",
+      "blocks": [
+        { "type": "paragraph", "text": "Insects have an exoskeleton, which is waterproof but also gas-tight. Air reaches the cells through a network of tubes." },
+        {
+          "type": "list",
+          "items": [
+            "**Spiracles** are small holes along the thorax and abdomen. They open and close, which controls gas exchange and water loss.",
+            "**Tracheae** are tubes strengthened with rings, which carry air into the body.",
+            "**Tracheoles** are very small branches that reach individual cells. Their ends contain tracheal fluid.",
+            "Oxygen diffuses down the tracheae and tracheoles, in the gas phase. This is fast, because diffusion is faster in air than in water."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "During activity, cells respire more, and the tracheal fluid is withdrawn into the cells by osmosis. More of the tracheoles are filled with air, and oxygen reaches cells faster.",
+            "Movements of the thorax and abdomen change body volume. This pumps air in and out of the tracheae.",
+            "Carbon dioxide leaves by the reverse route."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Air enters through spiracles and passes along tracheae to tracheoles.",
+            "Tracheoles supply cells directly, and gas exchange occurs across their wall and fluid.",
+            "Abdominal and thoracic movements ventilate the system."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Leaves of dicotyledonous plants",
+      "blocks": [
+        { "type": "paragraph", "text": "Plants take in carbon dioxide for photosynthesis and release oxygen. The leaf is the main exchange surface." },
+        {
+          "type": "list",
+          "items": [
+            "**Stomata** are pores, mostly on the underside of the leaf. Gases enter and leave through them.",
+            "**Guard cells** open and close each stoma.",
+            "The **mesophyll** is the tissue inside the leaf. Spongy mesophyll cells have air spaces between them.",
+            "Gases diffuse through the air spaces to reach the cell surfaces. The large surface area of the mesophyll cells makes exchange fast.",
+            "Cells in the leaf are close to the stomata, so the diffusion distance is short."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gases enter and leave through stomata and diffuse through air spaces in the mesophyll.",
+            "Mesophyll cells have a large surface area and are close to the air.",
+            "Guard cells control the size of the stomata."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Limiting water loss",
+      "blocks": [
+        { "type": "paragraph", "text": "An exchange surface that lets gases in also lets water out. Land organisms balance these two needs." },
+        {
+          "type": "table",
+          "columns": ["Organism", "How water loss is limited", "The compromise"],
+          "rows": [
+            ["Insect", "Waterproof waxy cuticle. Spiracles close. Hairs around the spiracles trap humid air.", "Spiracles must open for gas exchange, so some water is lost."],
+            ["Xerophytic plant", "Thick waxy cuticle. Sunken stomata, rolled leaves and hairs trap humid air. Reduced leaf surface area.", "Stomata must open for photosynthesis, so some water is lost."]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Trapped humid air reduces the water potential gradient between the leaf and the air, so less water evaporates.",
+            "A smaller surface area reduces water loss, but it also reduces the surface for gas exchange."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gas exchange and water loss are opposing needs.",
+            "Adaptations reduce water loss while keeping some exchange."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how countercurrent flow in a fish gill increases the uptake of oxygen.",
+      "a": "Blood flows through the lamellae in the opposite direction to the water. The blood always meets water with a higher concentration of oxygen than itself. A concentration gradient is maintained along the whole length of the lamella, so more oxygen diffuses into the blood."
+    },
+    {
+      "q": "Describe the pathway taken by oxygen from the air to the cells of an insect.",
+      "a": "Oxygen enters through a spiracle, passes along the trachea and then into the tracheoles. It diffuses across the tracheole wall, or through the tracheal fluid, into the cells."
+    },
+    {
+      "q": "Explain why a xerophytic plant has sunken stomata.",
+      "a": "The sunken stomata trap a layer of humid air next to the stomata. This reduces the water potential gradient between the leaf and the air, so less water vapour diffuses out."
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.3.2"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course also covers the gross structure and ventilation of the human system, which are in the previous note. Lung disease and its causes are covered here."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Interpret information on the effects of lung disease on gas exchange and ventilation. Thicker or scarred alveolar walls increase the diffusion distance. Loss of elasticity reduces the volume of air moved. Narrowed airways reduce the flow of air.",
+                "Interpret data on the effects of pollution and smoking on the incidence of lung disease.",
+                "Analyse and interpret data on risk factors and the incidence of disease. Recognise correlations and causal relationships. A correlation does not prove one factor causes the other.",
+                "Evaluate how experimental data led to statutory restrictions on risk factors."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": ["OCR 3.1.1f", "OCR 3.1.1g"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "For bony fish, know the changes in volume of the buccal cavity and the functions of the operculum, gill filaments and gill lamellae.",
+                "For insects, know the spiracles, trachea, thoracic and abdominal movements to change body volume, and exchange with tracheal fluid.",
+                "Dissect, examine and draw the gas exchange system of a bony fish and/or an insect trachea. Use a sharp scalpel, work on a dissecting board and draw what you see with labels."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "c6d2d9ab-36c8-4784-b4d6-1dd0e59b8184",
+      "8135e0a6-0548-4f35-a1a8-b8e05f53b192",
+      "1b83cbd0-54b9-40df-81cc-aa6daf8298df"
+    ],
+    "exemplar_ids": []
+  }
+}

@@ -1,0 +1,446 @@
+{
+  "format": 1,
+  "concept_id": "abio-012",
+  "subject": "biology",
+  "title": "Meiosis, gametes and fertilisation",
+  "key_idea": "Meiosis is a reduction division. Two nuclear divisions turn one diploid cell into four genetically different haploid cells. Crossing over and independent assortment create the differences. Random fertilisation then combines two gametes, restoring the diploid number and adding more variation.",
+  "sections": [
+    {
+      "heading": "Haploid and diploid cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chromosomes come in pairs in most body cells. Meiosis halves the number so that fertilisation can restore it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Diploid (2n)",
+              "meaning": "A cell with two complete sets of chromosomes, one from each parent."
+            },
+            {
+              "term": "Haploid (n)",
+              "meaning": "A cell with one complete set of chromosomes, for example a gamete."
+            },
+            {
+              "term": "Homologous pair",
+              "meaning": "Two chromosomes with the same genes at the same loci, one from each parent. They may carry different alleles."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Homologous chromosomes have the same length and the same centromere position.",
+            "A human body cell has 46 chromosomes (2n = 46), in 23 homologous pairs. A human gamete has 23 (n = 23).",
+            "Without a reduction division, the chromosome number would double at every fertilisation.",
+            "Meiosis produces gametes with half the chromosome number. Fertilisation restores the diploid number."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Diploid cells have pairs of homologous chromosomes; haploid cells have one of each pair.",
+            "The halving in meiosis keeps the chromosome number constant between generations."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The stages of meiosis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Meiosis has two divisions after one round of DNA replication. In meiosis I, homologous chromosomes separate. In meiosis II, sister chromatids separate."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "The stages of meiosis in order.",
+            "prompt": "Put the stages of meiosis in order.",
+            "steps": [
+              "Prophase I: homologous pairs form and cross over",
+              "Metaphase I: pairs line up at the equator",
+              "Anaphase I: homologous chromosomes pulled apart",
+              "Telophase I: two haploid cells form",
+              "Prophase II and metaphase II: chromosomes line up singly",
+              "Anaphase II: chromatids pulled apart",
+              "Telophase II: four haploid cells form"
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Stage",
+            "What happens"
+          ],
+          "rows": [
+            [
+              "Before meiosis",
+              "DNA replicates in interphase, so each chromosome has two sister chromatids"
+            ],
+            [
+              "Prophase I",
+              "Chromosomes condense. Homologous chromosomes pair up. Non-sister chromatids cross over and swap sections. The nuclear envelope breaks down and the spindle forms"
+            ],
+            [
+              "Metaphase I",
+              "Homologous pairs line up at the equator. Each pair faces the poles at random"
+            ],
+            [
+              "Anaphase I",
+              "Spindle fibres pull each homologous chromosome of a pair to opposite poles. The centromeres do not divide"
+            ],
+            [
+              "Telophase I",
+              "Two cells form, each haploid, with chromosomes made of two chromatids"
+            ],
+            [
+              "Prophase II and metaphase II",
+              "Spindle forms in each cell. Chromosomes line up singly on the equator"
+            ],
+            [
+              "Anaphase II",
+              "Centromeres divide. Sister chromatids are pulled to opposite poles"
+            ],
+            [
+              "Telophase II",
+              "Nuclear envelopes re-form. The cytoplasm divides, producing four haploid cells"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Meiosis I separates homologous chromosomes, which halves the chromosome number.",
+            "Meiosis II separates sister chromatids, giving four cells."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How meiosis produces variation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The four cells from meiosis are genetically different from each other and from the parent cell. Three events make the variation."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Crossing over**: in prophase I, non-sister chromatids of a homologous pair swap sections of DNA. This makes new combinations of alleles on a chromosome.",
+            "**Independent assortment**: homologous pairs line up at random in metaphase I, so each gamete gets a random mixture of maternal and paternal chromosomes.",
+            "**Random fertilisation**: any male gamete can fuse with any female gamete, producing genetically different individuals."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Combinations from independent assortment",
+          "formula": "number of combinations = 2ⁿ",
+          "where": [
+            "n: the haploid number of chromosomes, with no crossing over"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the number of chromosome combinations in gametes.",
+            "question": "An organism has a haploid number of {n}. How many different combinations of chromosomes can its gametes have, ignoring crossing over?",
+            "variables": [
+              {
+                "id": "n",
+                "min": 2,
+                "max": 12,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "2 ^ n",
+              "decimals": 0
+            },
+            "working": [
+              "Each homologous pair can line up in 2 ways.",
+              "Number of combinations = 2ⁿ, where n = {n}.",
+              "Number of combinations = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "A human has n = 23, so independent assortment alone gives 2²³, which is over 8 million combinations."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Crossing over mixes alleles within chromosomes; independent assortment mixes whole chromosomes.",
+            "Random fertilisation adds more variation."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Mitosis and meiosis compared",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Both divide the nucleus, but the outcome is different. Meiosis is used only to make gametes (or spores)."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Mitosis",
+            "Meiosis"
+          ],
+          "rows": [
+            [
+              "Number of divisions",
+              "One",
+              "Two"
+            ],
+            [
+              "Daughter cells",
+              "Two",
+              "Four"
+            ],
+            [
+              "Chromosome number",
+              "Stays the same (diploid)",
+              "Halved (haploid)"
+            ],
+            [
+              "Genetically",
+              "Identical to parent and to each other",
+              "Different from parent and from each other"
+            ],
+            [
+              "Homologous pairs",
+              "Do not pair up",
+              "Pair up in prophase I and crossing over occurs"
+            ],
+            [
+              "Used for",
+              "Growth, repair, asexual reproduction",
+              "Making gametes"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mitosis gives two identical diploid cells; meiosis gives four different haploid cells.",
+            "To find meiosis in a life cycle, look for where haploid cells are made from diploid ones."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why meiosis is needed in sexual reproduction.",
+      "a": "It halves the chromosome number to make haploid gametes. When two gametes fuse at fertilisation, the diploid number is restored, so the number does not double in each generation.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how meiosis produces genetically different cells.",
+      "a": "Crossing over between non-sister chromatids of homologous chromosomes in prophase I swaps alleles. Independent assortment of homologous pairs at metaphase I puts a random mixture of maternal and paternal chromosomes in each cell.",
+      "marks": 4
+    },
+    {
+      "q": "Describe what happens to the chromosomes in anaphase I and anaphase II.",
+      "a": "In anaphase I the homologous chromosomes of each pair are pulled to opposite poles, with the centromeres intact. In anaphase II the centromeres divide and the sister chromatids are pulled to opposite poles.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Chromosome content after each division"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Parent",
+                  "text": "A diploid cell with 4 chromosomes (2n = 4) replicates its DNA. Each chromosome has 2 chromatids."
+                },
+                {
+                  "lead": "After meiosis I",
+                  "text": "Two haploid cells, each with 2 chromosomes. Each still has 2 chromatids."
+                },
+                {
+                  "lead": "After meiosis II",
+                  "text": "Four haploid cells, each with 2 chromosomes. Each has a single chromatid."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Mutation"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Gene mutations are changes in the base sequence of DNA. They can arise spontaneously during DNA replication.",
+                "Types of mutation include base **deletion** and base **substitution**.",
+                "The genetic code is degenerate: several triplets code for the same amino acid, so some substitutions do not change the protein.",
+                "Mutagenic agents, such as ionising radiation, increase the rate of gene mutation.",
+                "**Non-disjunction** is when chromosomes fail to separate in meiosis. A gamete then has an extra chromosome or one fewer, which changes the chromosome number of the offspring."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 3.6",
+        "EDEX 3.7",
+        "EDEX 3.9"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Specialisation of gametes"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A **sperm** is small and has a tail for swimming. Its midpiece has many mitochondria for ATP. Its head has a haploid nucleus and an **acrosome**, a lysosome-like vesicle of digestive enzymes.",
+                "An **egg** is large with a food store in its cytoplasm. It has a haploid nucleus.",
+                "Around the egg is a jelly-like layer, the **zona pellucida**. Inside it, below the membrane, are **cortical granules**."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Fertilisation"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Acrosome reaction",
+                  "text": "The sperm head binds to the zona pellucida. The acrosome releases enzymes that digest a path through it."
+                },
+                {
+                  "lead": "Fusion",
+                  "text": "The sperm membrane fuses with the egg membrane and the sperm nucleus enters the egg."
+                },
+                {
+                  "lead": "Cortical reaction",
+                  "text": "Cortical granules release their contents, which makes the zona pellucida hard. No other sperm can enter."
+                },
+                {
+                  "lead": "Nuclei fuse",
+                  "text": "The haploid sperm nucleus fuses with the haploid egg nucleus, making a diploid zygote."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 16.1.1",
+        "CAIE 16.1.2",
+        "CAIE 16.1.3",
+        "CAIE 16.1.4",
+        "CAIE 16.1.5",
+        "CAIE 16.1.6",
+        "CAIE 16.1.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Random orientation of chromatids"
+            },
+            {
+              "type": "list",
+              "items": [
+                "In metaphase II the chromosomes in each cell also line up at random, so each chromatid goes to either pole independently.",
+                "Crossing over means the two chromatids of a chromosome are no longer identical, so this random orientation gives yet more different gametes."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Recognising stages in images"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Homologous pairs lined up together on the equator: metaphase I.",
+                "Single chromosomes (not paired) lined up on the equator: metaphase II.",
+                "Whole chromosomes moving apart, each with two chromatids: anaphase I. Separate chromatids moving apart: anaphase II.",
+                "Two cells present with a short or no interphase between them: after telophase I. Four cells: after telophase II."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.6f",
+        "OCR 2.1.6g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Meiosis is significant in life cycles because it makes haploid cells, so the diploid number is restored at fertilisation.",
+                "It also makes genetic variation by independent assortment and crossing over.",
+                "Learn the term **homologous chromosomes**: pairs of chromosomes carrying the same genes, one from each parent.",
+                "You do not need the names of the stages within prophase I."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "5fcd42cc-311d-4d6e-b2fa-e8c9a8f1c571",
+      "23931300-4874-44a4-aaa6-a7d959a8765d",
+      "29622d8a-c7bc-4fd7-a3bd-df347e2172d6",
+      "db6c8c86-24c1-4185-8c59-362f07231d36",
+      "6885b2ec-5a9e-497f-bc3e-264eb36e07c8",
+      "3337acca-3472-441d-a917-b663876fe0fa",
+      "a547ba22-00b0-413e-ac0a-969d0cf28788",
+      "678e568b-838b-492e-8fb9-39e24df80adc",
+      "1b1d50d7-e42d-4051-a70a-bddd13baa169",
+      "e6179e5d-fb64-4fbf-b55d-72d65f2ab955",
+      "52a9f076-39c7-454b-8eb1-2c7bd46eb4f8",
+      "9baa320f-57a2-468f-9ea8-425043cb07f6",
+      "aacc5cb2-7c5f-4c07-b6ce-ba32ec21b915"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

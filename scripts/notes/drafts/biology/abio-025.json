@@ -1,0 +1,368 @@
+{
+  "format": 1,
+  "concept_id": "abio-025",
+  "subject": "biology",
+  "title": "Cardiovascular disease and health risk",
+  "key_idea": "**Cardiovascular disease (CVD)** is damage to the heart or blood vessels. It often starts with **atherosclerosis**, where plaque builds up in an artery wall. Many risk factors raise the chance of CVD, and you must judge the data and studies behind them carefully.",
+  "sections": [
+    {
+      "heading": "Atherosclerosis and blood clotting",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Atherosclerosis narrows arteries and can lead to a clot. If a coronary artery is blocked, the heart muscle is starved of oxygen."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "An activity: put the stages of atherosclerosis in order.",
+            "prompt": "Put these stages of atherosclerosis into the correct order.",
+            "steps": [
+              "The endothelium of the artery is damaged, for example by high blood pressure or smoking",
+              "White blood cells move into the damaged area, causing an inflammatory response",
+              "Cholesterol builds up in the wall and forms a fatty plaque",
+              "The plaque hardens and the artery wall becomes thick and less elastic",
+              "The lumen narrows and blood pressure rises further"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Damage to the endothelium is called **endothelial dysfunction**.",
+            "The inflammatory response draws in white blood cells, which take up cholesterol and build up a fatty deposit called a **plaque**.",
+            "The artery wall loses its elasticity and the lumen narrows, so blood pressure rises.",
+            "A plaque can rupture. This triggers blood clotting at the damaged site."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Blood clotting"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Damage.",
+              "text": "Platelets and the damaged vessel wall release **thromboplastin**."
+            },
+            {
+              "lead": "Thrombin.",
+              "text": "Thromboplastin, with calcium ions, converts the soluble plasma protein prothrombin into the enzyme thrombin."
+            },
+            {
+              "lead": "Fibrin.",
+              "text": "Thrombin converts soluble fibrinogen into insoluble **fibrin**."
+            },
+            {
+              "lead": "Clot.",
+              "text": "Fibrin forms a mesh of fibres that traps red blood cells and platelets. This forms a clot."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A clot in a coronary artery can cause a **heart attack** (myocardial infarction), because the heart muscle is cut off from oxygen and dies.",
+            "A clot in an artery to the brain causes a **stroke**.",
+            "A clot in a narrow, plaque-roughened artery can block it completely."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Atherosclerosis begins with damage to the endothelium, followed by inflammation and a build-up of plaque.",
+            "Clotting converts prothrombin to thrombin, and thrombin converts fibrinogen to fibrin.",
+            "A clot in a coronary artery can cause a heart attack."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Risk factors for cardiovascular disease",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A risk factor is something that raises the chance of disease. It does not mean you will definitely get it."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Risk factor",
+            "How it increases the risk"
+          ],
+          "rows": [
+            [
+              "Genetics",
+              "Some people inherit genes that raise blood cholesterol or blood pressure."
+            ],
+            [
+              "Age",
+              "Arteries gradually lose elasticity and plaque accumulates over time."
+            ],
+            [
+              "Gender",
+              "Men have a higher risk at a younger age. Women's risk rises after the menopause."
+            ],
+            [
+              "High blood pressure",
+              "Damages the endothelium and starts atherosclerosis."
+            ],
+            [
+              "Smoking",
+              "Carbon monoxide reduces oxygen carried in the blood, and chemicals damage the artery lining. Nicotine raises blood pressure."
+            ],
+            [
+              "Inactivity",
+              "Raises blood pressure and increases weight and blood cholesterol."
+            ],
+            [
+              "Diet",
+              "Saturated fat and salt raise cholesterol and blood pressure."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Cholesterol, HDL and LDL"
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Low-density lipoprotein (LDL)",
+              "meaning": "Carries cholesterol from the liver to body tissues. High levels raise the risk of CVD because LDL cholesterol builds up in artery walls."
+            },
+            {
+              "term": "High-density lipoprotein (HDL)",
+              "meaning": "Carries cholesterol from tissues back to the liver. High levels lower the risk of CVD."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A high total blood cholesterol and a high LDL level are linked to a higher risk of CVD.",
+            "A causal link is supported by evidence that cholesterol is found in plaque. It is also supported by studies where lowering LDL cholesterol lowered the rate of CVD.",
+            "A high ratio of HDL to total cholesterol is better."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Energy balance and obesity"
+        },
+        {
+          "type": "list",
+          "items": [
+            "An **energy budget** compares the energy taken in from food with the energy used.",
+            "If energy in is more than energy used, the extra is stored as fat and body mass rises. If it is less, body mass falls.",
+            "Long-term energy imbalance causes weight gain and **obesity**, which raises blood pressure and the risk of CVD."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Body mass index (BMI)",
+          "formula": "BMI = body mass ÷ height²",
+          "where": [
+            "body mass, in kg",
+            "height, in m",
+            "BMI, in kg/m²"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice calculation of body mass index with new numbers each time.",
+            "question": "A person has a body mass of {mass} kg and a height of {height} m. Calculate their BMI to 1 decimal place.",
+            "variables": [
+              {
+                "id": "mass",
+                "min": 55,
+                "max": 95,
+                "step": 5
+              },
+              {
+                "id": "height",
+                "min": 1.55,
+                "max": 1.85,
+                "step": 0.05
+              }
+            ],
+            "answer": {
+              "formula": "mass / (height * height)",
+              "unit": "kg/m²",
+              "decimals": 1
+            },
+            "working": [
+              "BMI = mass ÷ height²",
+              "BMI = {mass} ÷ ({height} × {height}) = {answer} kg/m²"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "A BMI of 25 to 29.9 is classed as overweight. A BMI of 30 or over is classed as obese.",
+            "**Waist-to-hip ratio** = waist circumference ÷ hip circumference. A high ratio means fat is stored around the abdomen, which carries a higher risk of CVD.",
+            "BMI does not tell fat from muscle, so a very muscular person can have a high BMI but little fat."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Risk factors include genetics, age, gender, high blood pressure, smoking, inactivity and diet.",
+            "High LDL cholesterol raises risk. HDL cholesterol lowers it.",
+            "Energy intake greater than energy use leads to obesity, which raises the risk of CVD."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Treatments and judging the evidence",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "People can lower their risk by changing their lifestyle, and doctors can prescribe drugs. This section covers the drugs and how to judge data on health risks."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Treatment",
+            "How it works",
+            "Risk or drawback"
+          ],
+          "rows": [
+            [
+              "Antihypertensives",
+              "Lower blood pressure, for example by relaxing arteries or removing excess water.",
+              "Can cause dizziness, and low blood pressure that makes the person faint."
+            ],
+            [
+              "Statins",
+              "Reduce the production of LDL cholesterol in the liver.",
+              "Can cause muscle pain and liver problems."
+            ],
+            [
+              "Anticoagulants",
+              "Stop blood clotting, for example by blocking the formation of thrombin or fibrin.",
+              "Can cause excessive bleeding and bruising."
+            ],
+            [
+              "Platelet inhibitors",
+              "Stop platelets sticking together, so a clot is less likely to form.",
+              "Can cause bleeding, especially in the stomach."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To reduce risk, people eat less saturated fat and salt, take more exercise and stop smoking.",
+            "They can check their BMI and waist-to-hip ratio to see whether their weight is in a healthy range."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Interpreting health data"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **correlation** is a link between two variables. A **causal** relationship means one variable causes the change in the other.",
+            "A correlation does not prove causation. A third factor, such as age or income, may affect both.",
+            "To support causation, look for a plausible mechanism, a dose–response effect and evidence from controlled studies.",
+            "Evidence can conflict. Different studies may use different groups of people or measure different things."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Evaluating studies"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A large **sample size** gives more reliable results and reduces the effect of chance.",
+            "The sample should be chosen to represent the whole population: a mix of ages, genders and lifestyles.",
+            "Control or match other variables, such as age, to keep results valid.",
+            "Repeat the study with other groups to check that results are reliable."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Perceived and actual risk"
+        },
+        {
+          "type": "list",
+          "items": [
+            "People often **overestimate** rare, dramatic risks and **underestimate** common ones that build slowly, such as diet.",
+            "Media coverage, personal experience and the fact that the effect is delayed all change how risky something feels.",
+            "People may ignore advice because they think CVD will not happen to them, or because they find lifestyle change difficult."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Statins lower cholesterol, antihypertensives lower blood pressure, and anticoagulants and platelet inhibitors reduce clotting.",
+            "A correlation is not proof of cause. Look at sample size, controls and a possible mechanism.",
+            "People's perception of risk is often different from the actual risk."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how atherosclerosis develops.",
+      "a": "The endothelium is damaged, for example by high blood pressure. White blood cells move in, causing an inflammatory response, and cholesterol builds up to form a plaque. The artery wall thickens and hardens, and the lumen narrows.",
+      "marks": 4
+    },
+    {
+      "q": "Describe the blood clotting process.",
+      "a": "Thromboplastin is released from damaged tissue and platelets. It converts prothrombin to thrombin. Thrombin converts soluble fibrinogen into insoluble fibrin, which forms a mesh that traps blood cells and forms a clot.",
+      "marks": 3
+    },
+    {
+      "q": "A study finds that people who eat more red meat have more heart disease. Explain why this does not prove that red meat causes heart disease.",
+      "a": "It shows a correlation only. Another factor may affect both, such as smoking, inactivity, age or income. The study would need controls for these, a large and representative sample, and a plausible mechanism before cause could be concluded.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 1.5",
+        "EDEX 1.6",
+        "EDEX 1.7",
+        "EDEX 1.8",
+        "EDEX 1.9",
+        "EDEX 1.10",
+        "EDEX 1.11",
+        "EDEX 1.15",
+        "EDEX 1.16",
+        "EDEX 1.18"
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "9bad18e2-c132-4037-8f0f-7b9b0780367c",
+      "0eff5e61-5a2c-4821-adba-e0103bff3b61",
+      "33563363-3f85-4124-bfc6-cf8e0db3de7c",
+      "6b19ac41-0ba9-430a-b496-2f23717c22ad",
+      "0f5f4fa2-7406-4f8b-90e8-c3f45bc6cbcb",
+      "d4fe43aa-a2fa-4486-902a-0be1f32a3054",
+      "8687618a-7d96-4332-a1fe-95b9bd251028",
+      "8e16fbd3-6a7e-4554-994e-357954029b97",
+      "f6d8c725-2aa5-4546-9bbc-714e854a5e3e",
+      "728917c8-2bc5-4835-b254-66228c57ac67"
+    ],
+    "exemplar_ids": []
+  }
+}

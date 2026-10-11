@@ -1,0 +1,226 @@
+{
+  "format": 1,
+  "concept_id": "achem-094",
+  "subject": "chemistry",
+  "title": "Combined structure determination",
+  "key_idea": "To deduce a structure, combine the evidence: elemental data for the empirical formula, M⁺ for the molecular formula, IR for the groups and NMR for the arrangement. Check the final structure against all of it.",
+  "sections": [
+    {
+      "heading": "What each type of data tells you",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "No single technique gives a full structure. This section covers what each piece of evidence adds."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Evidence",
+            "What it tells you"
+          ],
+          "rows": [
+            [
+              "Percentage composition or combustion analysis",
+              "The empirical formula: the simplest ratio of atoms."
+            ],
+            [
+              "Mass spectrum, M⁺ peak",
+              "The relative molecular mass, so the molecular formula."
+            ],
+            [
+              "Mass spectrum, fragments",
+              "Pieces of the structure, from the masses lost or formed."
+            ],
+            [
+              "IR spectrum",
+              "The bonds present, so the functional groups."
+            ],
+            [
+              "¹³C NMR",
+              "The number of carbon environments, and their types from δ."
+            ],
+            [
+              "¹H NMR",
+              "The number of proton environments, how many protons in each, and their neighbours."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Empirical and molecular formulae"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Percentage composition**: divide each percentage by the element's relative atomic mass, then divide by the smallest answer to give the ratio.",
+            "**Combustion analysis**: burning a known mass of compound gives CO₂ and H₂O. The masses of these give the moles of carbon and hydrogen. Any mass missing is oxygen.",
+            "The **molecular formula** is a whole-number multiple of the empirical formula. The multiple is Mᵣ from the M⁺ peak ÷ the empirical formula mass."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Molecular formula",
+          "formula": "multiple = Mᵣ of the compound ÷ empirical formula mass",
+          "where": [
+            "Mᵣ: found from the molecular ion peak"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Elemental data give the empirical formula; M⁺ then gives the molecular formula.",
+            "IR gives groups; NMR gives the arrangement."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "A strategy for deducing a structure",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Work through the data in a set order, and check the final structure against all of it."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps for deducing a structure in order.",
+            "prompt": "Put these steps in the order you would work",
+            "steps": [
+              "Find the empirical formula from percentage composition or combustion data",
+              "Use the molecular ion peak to find the molecular formula",
+              "Use the IR spectrum to identify the functional groups",
+              "Use NMR to find how the atoms are arranged",
+              "Draw the structure and check it against every piece of data"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use the molecular formula to find the number of double bonds or rings. A saturated compound with no ring has 2n + 2 hydrogens for n carbons. Oxygen does not change this. Fewer hydrogens means a C=C, a C=O or a ring.",
+            "Each IR group you find must show up as the right peak or fragment in the other data.",
+            "If a structure does not fit one piece of data, it is wrong, even if it fits the others."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Take the data in order, from formula to groups to arrangement.",
+            "Check the answer against every piece of data."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "A worked deduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A compound contains 48.6% carbon, 8.1% hydrogen and 43.2% oxygen by mass. Its mass spectrum has M⁺ at m/z 74. Its IR spectrum has a strong peak at 1740 cm⁻¹ and no O–H absorption."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Empirical formula",
+              "text": "C: 48.6 ÷ 12 = 4.05; H: 8.1 ÷ 1 = 8.1; O: 43.2 ÷ 16 = 2.70. Divide by 2.70 to get 1.5 : 3 : 1, then double to get C₃H₆O₂."
+            },
+            {
+              "lead": "Molecular formula",
+              "text": "The empirical formula mass is 74, the same as M⁺, so the molecular formula is C₃H₆O₂."
+            },
+            {
+              "lead": "IR",
+              "text": "The 1740 cm⁻¹ peak is C=O. There is no O–H absorption, so it is not an acid. With two oxygens it is an ester."
+            },
+            {
+              "lead": "¹H NMR",
+              "text": "Two singlets in the ratio 3 : 3, at δ 2.0 (CH₃ next to C=O) and δ 3.7 (CH₃ next to O). No splitting means no neighbouring protons."
+            },
+            {
+              "lead": "Structure",
+              "text": "CH₃COOCH₃, methyl ethanoate. Its ¹³C NMR would have three peaks: CH₃, OCH₃ and C=O."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "State the evidence for each step.",
+            "Show the arithmetic for the formulae."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A compound contains 54.5% carbon, 9.1% hydrogen and 36.4% oxygen. Calculate its empirical formula.",
+      "a": "C: 54.5 ÷ 12 = 4.54; H: 9.1 ÷ 1 = 9.1; O: 36.4 ÷ 16 = 2.275. Divide by 2.275: 2 : 4 : 1, so C₂H₄O.",
+      "marks": 3
+    },
+    {
+      "q": "A compound has empirical formula CH₂O and its molecular ion peak is at m/z 60. Find its molecular formula.",
+      "a": "Empirical formula mass = 30. 60 ÷ 30 = 2, so the molecular formula is C₂H₄O₂.",
+      "marks": 2
+    },
+    {
+      "q": "An IR spectrum shows a very broad absorption at 2500–3300 cm⁻¹ and a peak at 1710 cm⁻¹. What can you deduce?",
+      "a": "A carboxylic acid is present: the very broad O–H and the C=O.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.4h",
+        "OCR 6.3.2e"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 18C.18"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You may also use the characteristic reactions of functional groups as evidence, as well as the spectra."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Bromine water decolourises: C=C is present.",
+                "Fizzing with sodium carbonate: a carboxylic acid is present.",
+                "Orange-yellow precipitate with 2,4-DNP: a carbonyl compound.",
+                "Silver mirror with Tollens' reagent: an aldehyde.",
+                "Orange to green with acidified dichromate on warming: a primary or secondary alcohol, or an aldehyde."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Use these results together with the formula and spectra to confirm the structure."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "fece1487-e52c-492a-a421-976fdb9417b0",
+      "090b77dc-e70f-486a-bbc4-bbeed5b0a996",
+      "381f80e8-1d73-47fb-84d7-bdd72fbc7142"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,489 @@
+{
+  "format": 1,
+  "concept_id": "aphys-075",
+  "subject": "physics",
+  "title": "Electromagnetic induction",
+  "key_idea": "A changing magnetic flux linkage induces an e.m.f. Faraday's law gives its size, ε = −Δ(NΦ)/Δt, and Lenz's law gives its direction: it opposes the change that causes it.",
+  "sections": [
+    {
+      "heading": "Magnetic flux and flux linkage",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Flux measures how much magnetic field passes through an area. Only the part of the field at right angles to the area counts."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Magnetic flux, Φ",
+              "meaning": "The product of the magnetic flux density and the area at right angles to it."
+            },
+            {
+              "term": "Weber (Wb)",
+              "meaning": "The unit of flux. 1 Wb = 1 T m²."
+            },
+            {
+              "term": "Flux linkage, NΦ",
+              "meaning": "The flux multiplied by the number of turns N of the coil that it passes through."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Magnetic flux",
+          "formula": "Φ = BA cos θ",
+          "where": [
+            "Φ = magnetic flux (Wb)",
+            "B = magnetic flux density (T)",
+            "A = area of the coil (m²)",
+            "θ = angle between the field and the normal (the line at right angles) to the coil"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Flux linkage",
+          "formula": "NΦ = BAN cos θ",
+          "where": [
+            "NΦ = flux linkage (Wb)",
+            "N = number of turns on the coil"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "When the field is at right angles to the coil's face, θ = 0 and the flux is BA, the greatest value.",
+            "When the field is parallel to the face of the coil, θ = 90° and the flux is zero.",
+            "So rotating a coil in a field makes the flux linkage change."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Φ = BA cos θ, measured in webers.",
+            "Flux linkage is NΦ, the flux times the number of turns."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Faraday's and Lenz's laws",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Changing the flux linkage induces an e.m.f. Two laws give its size and its direction."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Faraday's law",
+              "meaning": "The magnitude of the induced e.m.f. is equal to the rate of change of flux linkage."
+            },
+            {
+              "term": "Lenz's law",
+              "meaning": "The induced e.m.f. is in a direction that opposes the change that produces it."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Induced e.m.f.",
+          "formula": "ε = −Δ(NΦ) / Δt = −N ΔΦ / Δt",
+          "where": [
+            "ε = induced e.m.f. (V)",
+            "Δ(NΦ) = change in flux linkage (Wb)",
+            "Δt = time taken for the change (s)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The minus sign shows Lenz's law: the e.m.f. opposes the change.",
+            "In calculus form, ε = −d(NΦ)/dt. This is the gradient of a graph of flux linkage against time.",
+            "If the circuit is complete, the e.m.f. drives a current."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Lenz's law and energy"
+        },
+        {
+          "type": "list",
+          "items": [
+            "An induced current that helped the change would make the change bigger, which would make more current, and so on. Energy would be created from nothing.",
+            "Instead, work is done against the opposing force, such as pushing a magnet into a coil.",
+            "That work is transferred to electrical energy in the circuit."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A prediction activity. Choose what the magnet does and see which pole the coil makes at the end nearest the magnet, and the force on the magnet.",
+            "prompt": "A bar magnet moves near one end of a coil connected to a closed circuit. What does it do?",
+            "result_labels": [
+              "Pole induced at the end of the coil nearest the magnet",
+              "Force on the magnet",
+              "Why"
+            ],
+            "options": [
+              {
+                "label": "North pole moves towards the coil",
+                "results": [
+                  "North",
+                  "Repulsion, opposing the motion",
+                  "The flux linkage is increasing, so the coil makes a field to push the magnet back"
+                ]
+              },
+              {
+                "label": "North pole moves away from the coil",
+                "results": [
+                  "South",
+                  "Attraction, opposing the motion",
+                  "The flux linkage is decreasing, so the coil makes a field to hold the magnet back"
+                ]
+              },
+              {
+                "label": "South pole moves towards the coil",
+                "results": [
+                  "South",
+                  "Repulsion, opposing the motion",
+                  "The flux linkage is increasing, so the coil makes a field to push the magnet back"
+                ]
+              },
+              {
+                "label": "South pole moves away from the coil",
+                "results": [
+                  "North",
+                  "Attraction, opposing the motion",
+                  "The flux linkage is decreasing, so the coil makes a field to hold the magnet back"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Size of e.m.f. = rate of change of flux linkage.",
+            "Direction: the induced current opposes the change causing it. This is conservation of energy."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Experiments on induced e.m.f.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Moving a magnet into a coil connected to a sensitive voltmeter shows the effects."
+        },
+        {
+          "type": "list",
+          "items": [
+            "An e.m.f. is induced only while the magnet is moving, that is, while the flux linkage is changing. A stationary magnet gives none.",
+            "Pushing the magnet in or pulling it out gives e.m.f.s of opposite sign.",
+            "Reversing the magnet gives the opposite sign again."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "What makes the e.m.f. larger"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Moving the magnet faster, which makes the rate of change of flux larger.",
+            "A stronger magnet, which makes B larger.",
+            "More turns on the coil, which makes N larger.",
+            "A coil with a larger area."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider activity. A magnetic field through a coil is reduced to zero. Change the number of turns, the flux density, the area and the time taken and see the average induced e.m.f.",
+            "inputs": [
+              {
+                "id": "n",
+                "label": "Number of turns",
+                "min": 50,
+                "max": 1000,
+                "step": 50,
+                "value": 200
+              },
+              {
+                "id": "b",
+                "label": "Magnetic flux density removed",
+                "unit": "mT",
+                "min": 10,
+                "max": 500,
+                "step": 10,
+                "value": 100
+              },
+              {
+                "id": "a",
+                "label": "Area of the coil",
+                "unit": "cm²",
+                "min": 5,
+                "max": 50,
+                "step": 5,
+                "value": 10
+              },
+              {
+                "id": "dt",
+                "label": "Time taken to remove the field",
+                "unit": "ms",
+                "min": 5,
+                "max": 200,
+                "step": 5,
+                "value": 20
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Flux linkage removed",
+                "unit": "mWb",
+                "formula": "n*b*a*0.0001",
+                "decimals": 1
+              },
+              {
+                "label": "Average induced e.m.f.",
+                "unit": "V",
+                "formula": "n*b*a*0.0001/dt",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A changing flux linkage induces an e.m.f. A steady one does not.",
+            "The e.m.f. is larger for a faster change, a stronger field, more turns or a larger area."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating flux with a search coil",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A search coil is a small coil of many turns. It samples the flux in a region by the e.m.f. induced in it."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Alternating field",
+              "text": "Place the search coil in the changing field of a coil connected to an a.c. supply."
+            },
+            {
+              "lead": "Measure",
+              "text": "Connect the search coil to an oscilloscope. Read the peak value of the induced e.m.f."
+            },
+            {
+              "lead": "Rotate",
+              "text": "Turn the search coil in steps of about 10° and record the peak e.m.f. each time."
+            },
+            {
+              "lead": "Plot",
+              "text": "Graph the peak e.m.f. against the angle θ between the coil's axis and the field."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The peak e.m.f. is greatest when the axis of the search coil is along the field (θ = 0).",
+            "It is zero when the axis is at right angles to the field (θ = 90°).",
+            "The graph follows cos θ, because the flux linkage is BAN cos θ."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The e.m.f. in a search coil is proportional to the rate of change of flux linkage.",
+            "It varies as cos θ as the coil is rotated."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A coil of 200 turns and area 4.0 × 10⁻³ m² is at right angles to a field of flux density 0.30 T. Calculate the flux linkage.",
+      "a": "NΦ = BAN = 0.30 × 4.0 × 10⁻³ × 200 = 0.24 Wb.",
+      "marks": 2
+    },
+    {
+      "q": "The field in the previous coil falls uniformly to zero in 0.050 s. Calculate the average e.m.f. induced.",
+      "a": "ε = Δ(NΦ)/Δt = 0.24 ÷ 0.050 = 4.8 V.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how Lenz's law is an example of the conservation of energy.",
+      "a": "The induced current opposes the change that causes it, for example by exerting a force on a moving magnet. Work has to be done against this force and the work is transferred into electrical energy. If the current helped the motion, energy would be created from nothing.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.5.3",
+        "AQA 3.7.5.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "A straight conductor moving in a field"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Area swept",
+                  "text": "A conductor of length l moves at speed v at right angles to a field B. In time Δt it sweeps an area lvΔt."
+                },
+                {
+                  "lead": "Flux cut",
+                  "text": "The flux cut is ΔΦ = B l v Δt."
+                },
+                {
+                  "lead": "Faraday",
+                  "text": "ε = ΔΦ/Δt = Blv, for one conductor (N = 1)."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "A coil rotating in a field"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Angle",
+                  "text": "A coil rotating at constant angular speed ω has θ = ωt."
+                },
+                {
+                  "lead": "Flux linkage",
+                  "text": "NΦ = BAN cos ωt."
+                },
+                {
+                  "lead": "Rate of change",
+                  "text": "Differentiating, ε = −d(NΦ)/dt = BANω sin ωt."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The peak e.m.f. is BANω, when the plane of the coil is parallel to the field and the sides cut the field fastest.",
+                "The e.m.f. is zero when the plane of the coil is at right angles to the field.",
+                "The e.m.f. is sinusoidal, with frequency f = ω/2π."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Straight conductor: ε = Blv.",
+                "Rotating coil: ε = BANω sin ωt."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.121",
+        "EDEX 7.124",
+        "EDEX 7.125",
+        "EDEX 7.126",
+        "EDEX 7.127"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "A changing current in a linked coil"
+            },
+            {
+              "type": "paragraph",
+              "text": "A coil carrying a current makes a magnetic field. If its current changes, the flux through a second coil linked with it changes too."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The changing flux linkage in the second coil induces an e.m.f. in it.",
+                "A constant current in the first coil induces no e.m.f.",
+                "A faster change of current gives a larger e.m.f.",
+                "More turns on the second coil, or a coil that shares more of the flux (such as one wound on the same iron core), gives a larger e.m.f.",
+                "Lenz's law gives the direction: it opposes the change of flux."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "A changing current in one coil induces an e.m.f. in a linked coil.",
+                "The e.m.f. depends on how fast the current changes and how well the coils are linked."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 20.5.1",
+        "CAIE 20.5.2",
+        "CAIE 20.5.3",
+        "CAIE 20.5.4",
+        "CAIE 20.5.5"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.3.3a",
+        "OCR 6.3.3b",
+        "OCR 6.3.3c",
+        "OCR 6.3.3d"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "e95bf99c-54f3-47ad-bd07-ff2b4314f930",
+      "dc0972e7-fb7e-4fbe-9a78-d20eb661080b",
+      "68a1476a-839a-4f96-86a7-b64117eb31d9",
+      "871cccad-70fe-4eb2-a1f5-e38b544a7d1d",
+      "b51a8a6b-7436-4764-9f3d-c24fef778840",
+      "eff73302-7d2f-47e5-ba07-5da6f93c2ca3",
+      "fda341dc-0cc6-4b6d-a515-db3ea87ec2af",
+      "8bf078bd-3e3b-4720-9625-94740a949fb7",
+      "d2b7d4f6-17c4-4c7b-947a-d1ff325ac6fd",
+      "6ea0a46c-d874-47d3-aa5d-d23dab7d821f",
+      "d2282572-8253-49e1-93db-1bd59f966db4",
+      "618379d8-7c42-465e-b079-55f81aaad4c4",
+      "d913e8c8-53eb-44eb-9a40-bf3c9e080527",
+      "0ecb7885-fd51-4c12-a290-36c9be6cc812",
+      "58a4a4f3-ac97-4bdf-a67d-d1a302d66076",
+      "d39efdff-5206-4039-b6a8-10bc6b45f0a3"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

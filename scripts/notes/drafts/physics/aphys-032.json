@@ -1,0 +1,307 @@
+{
+  "format": 1,
+  "concept_id": "aphys-032",
+  "subject": "physics",
+  "title": "Refraction and total internal reflection",
+  "key_idea": "Light changes speed and direction when it crosses a boundary: n = c / v and n₁ sin θ₁ = n₂ sin θ₂. Beyond the critical angle, where sin C = n₂ / n₁, light inside the denser material is totally internally reflected.",
+  "sections": [
+    {
+      "heading": "Refractive index and Snell's law",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Light changes speed when it moves from one transparent material to another. At an angle, this makes it change direction. This is refraction."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Refractive index (n)",
+              "meaning": "The ratio of the speed of light in a vacuum to the speed of light in the material."
+            },
+            {
+              "term": "Normal",
+              "meaning": "A line at right angles to the boundary. All angles are measured from it."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Refractive index",
+          "formula": "n = c / v",
+          "where": [
+            "n = refractive index (no unit)",
+            "c = speed of light in a vacuum (m/s)",
+            "v = speed of light in the material (m/s)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The refractive index of air is about 1, so light in air is treated as travelling at c.",
+            "A larger n means light travels more slowly in the material.",
+            "Light entering a material with a higher n bends towards the normal; leaving one, it bends away."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Snell's law",
+          "formula": "n₁ sin θ₁ = n₂ sin θ₂",
+          "where": [
+            "n₁, n₂ = refractive indices of medium 1 and medium 2",
+            "θ₁, θ₂ = angles to the normal in each medium"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "For one boundary, n sin θ is the same on both sides.",
+            "If light goes straight into the material along the normal, θ = 0° and it is not deviated."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate a refractive index from the speed of light in a material.",
+            "question": "Light travels at {v} × 10⁸ m/s in a glass. Take c = 3.00 × 10⁸ m/s. Calculate the refractive index of the glass.",
+            "variables": [
+              {
+                "id": "v",
+                "min": 1.8,
+                "max": 2.5,
+                "step": 0.1
+              }
+            ],
+            "answer": {
+              "formula": "3 / v",
+              "decimals": 2
+            },
+            "working": [
+              "n = c / v",
+              "n = 3.00 × 10⁸ / ({v} × 10⁸)",
+              "n = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "n = c / v, and n₁ sin θ₁ = n₂ sin θ₂.",
+            "Angles are always measured from the normal."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Critical angle and total internal reflection",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When light goes from a material of higher refractive index to one of lower index, it bends away from the normal. At a large enough angle it cannot leave at all."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Critical angle (C)",
+              "meaning": "The angle of incidence in the denser material for which the refracted ray travels along the boundary, at 90° to the normal."
+            },
+            {
+              "term": "Total internal reflection",
+              "meaning": "All the light is reflected back into the denser material, with none refracted out."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Small angle",
+              "text": "Most light is refracted out, with a weak reflected ray."
+            },
+            {
+              "lead": "Critical angle",
+              "text": "The refracted ray runs along the boundary: angle of refraction 90°."
+            },
+            {
+              "lead": "Larger angle",
+              "text": "No refracted ray. All the light is reflected: total internal reflection."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Total internal reflection needs light in the material with the higher refractive index, meeting the boundary at an angle greater than C.",
+            "In Snell's law set θ₂ = 90° and sin 90° = 1."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Critical angle",
+          "formula": "sin C = n₂ / n₁",
+          "where": [
+            "C = critical angle",
+            "n₁ = refractive index of the denser material",
+            "n₂ = refractive index of the less dense material"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "For glass to air, n₂ = 1, so sin C = 1 / n.",
+            "To predict whether total internal reflection occurs, compare the angle of incidence with C. TIR occurs if the angle is greater than C and n₁ > n₂.",
+            "Example: for n = 1.50, sin C = 0.667 and C = 41.8°."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "sin C = 1 / n for a boundary with air.",
+            "Total internal reflection needs n₁ > n₂ and an angle of incidence greater than C."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Optical fibres and investigating refraction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Optical fibres use total internal reflection to carry light along a thin glass strand, even round bends."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The core has a high refractive index. The cladding around it has a lower one.",
+            "Light hits the core–cladding boundary at an angle greater than the critical angle and is totally internally reflected.",
+            "The cladding protects the core's surface from scratches, which would let light escape, and stops light crossing between neighbouring fibres."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Investigating with a ray box"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up",
+              "text": "Place a transparent block on paper and shine a narrow ray from a ray box at one face."
+            },
+            {
+              "lead": "Mark",
+              "text": "Mark the incident ray, the emerging ray and the outline of the block, then draw the normal."
+            },
+            {
+              "lead": "Measure",
+              "text": "Measure the angle of incidence and the angle of refraction."
+            },
+            {
+              "lead": "Repeat",
+              "text": "Repeat for several angles and plot sin (angle in air) against sin (angle in the block). The gradient gives n."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A semicircular block lets a ray enter along a radius without bending. Increase the angle until the emerging ray vanishes to find the critical angle."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An optical fibre has a high-index core inside a lower-index cladding.",
+            "A graph of sin (angle in air) against sin (angle in the block) has gradient n."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Light travels at 2.00 × 10⁸ m/s in a plastic. Calculate the refractive index of the plastic.",
+      "a": "n = c / v = 3.00 × 10⁸ / 2.00 × 10⁸ = 1.50.",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the critical angle for a glass of refractive index 1.60 surrounded by air.",
+      "a": "sin C = 1 / 1.60 = 0.625, so C = 38.7°.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why an optical fibre has a cladding of lower refractive index than the core.",
+      "a": "The core is optically denser, so light striking the boundary at an angle greater than the critical angle is totally internally reflected and stays in the core. The cladding also protects the core and stops light leaking between fibres.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.2.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Optical fibres are step-index: the core has one constant refractive index and the cladding another.",
+                "The function of the cladding is to give total internal reflection at the boundary, to protect the core and to prevent crosstalk between fibres.",
+                "**Pulse broadening** makes a short pulse spread out as it travels, so pulses can overlap and be misread.",
+                "Modal dispersion: rays at different angles take paths of different length, so they arrive at different times.",
+                "Material dispersion: different wavelengths travel at different speeds in the glass, so a pulse with a range of wavelengths spreads.",
+                "Absorption in the glass reduces the amplitude of the signal, so repeaters are needed along long cables.",
+                "A narrow core, or a single wavelength, reduces pulse broadening."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.71",
+        "EDEX 5.72",
+        "EDEX 5.73"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.4.2d",
+        "OCR 4.4.2e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Investigate refraction and total internal reflection with a ray box and rectangular and semi-circular blocks, as in the method above.",
+                "Refractive index can be found from n sin θ = constant, using the angle to the normal."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "42d9afff-8c3f-4ee5-a8b8-c6b795e676ae",
+      "c43ed756-c4ad-4254-b212-f55dd71f5d3e",
+      "b99979e4-2d41-46a6-b4ed-9e6c226c91a4",
+      "2aaf683e-8ab0-474b-9087-46e270aef300",
+      "9bf5ee0a-9332-4603-8612-91f325bd8730",
+      "aaf18a11-62d8-4259-b746-cfc968a6e64f"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

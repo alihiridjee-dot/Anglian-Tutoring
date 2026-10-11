@@ -1,0 +1,277 @@
+{
+  "format": 1,
+  "concept_id": "abio-076",
+  "subject": "biology",
+  "title": "The liver and excretion",
+  "key_idea": "Excretion removes the waste products of metabolism. The liver deaminates excess amino acids and converts the ammonia to urea, stores glycogen and detoxifies harmful substances. Kidney failure is treated by dialysis or transplant.",
+  "sections": [
+    {
+      "heading": "Excretion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Metabolism makes waste products that would harm the body if they built up. This section covers what excretion is and why it matters."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Excretion",
+              "meaning": "Removal of the waste products of metabolism from the body."
+            },
+            {
+              "term": "Nitrogenous waste",
+              "meaning": "Waste containing nitrogen, made when excess amino acids are broken down, such as ammonia and urea."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Carbon dioxide** is made by respiration. It is excreted by the lungs.",
+            "**Nitrogenous waste** is excreted as urea, mainly by the kidneys.",
+            "If carbon dioxide builds up, blood pH falls, which alters enzyme activity.",
+            "Urea and other wastes are toxic or alter the water potential of body fluids, so removal protects metabolism and homeostasis."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Excretion removes the waste products of metabolism.",
+            "Carbon dioxide and nitrogenous waste must both be removed to keep conditions steady."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The liver",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The liver is the largest internal organ and carries out many metabolic jobs. This section covers its structure and its roles in urea formation, storage and detoxification."
+        },
+        {
+          "type": "subheading",
+          "text": "Structure"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Blood arrives from two vessels: the **hepatic artery** (oxygenated) and the **hepatic portal vein** (from the gut, rich in absorbed nutrients).",
+            "Blood leaves in the **hepatic vein**. The **bile duct** carries bile away.",
+            "The liver is made of lobules. Blood flows through wide capillaries called **sinusoids** between rows of liver cells (hepatocytes).",
+            "Kupffer cells in the sinusoids remove old red blood cells and bacteria.",
+            "Blood from the sinusoids drains into a central vein at the middle of each lobule, which joins the hepatic vein."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Roles"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Role",
+            "What happens"
+          ],
+          "rows": [
+            [
+              "Storage of glycogen",
+              "Glucose is converted to glycogen when blood glucose is high and glycogen is broken down when it is low"
+            ],
+            [
+              "Detoxification",
+              "Harmful substances such as alcohol and drugs are broken down into less harmful ones"
+            ],
+            [
+              "Urea formation",
+              "Excess amino acids are deaminated and the ammonia is converted to urea"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Deamination and urea"
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "From excess amino acid to urea in urine.",
+            "steps": [
+              "Excess amino acid in liver cell",
+              "Deamination removes the amine group",
+              "Ammonia made (toxic)",
+              "Ammonia + carbon dioxide make urea",
+              "Urea carried in blood to kidneys",
+              "Urea excreted in urine"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Deamination** removes the amine group (NH₂) from an amino acid, leaving a carbohydrate-like part that can be used in respiration or stored.",
+            "The amine group becomes ammonia, which is very toxic.",
+            "Ammonia reacts with carbon dioxide to make **urea**, which is far less toxic. This happens in the ornithine cycle, whose detail is not needed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The liver is supplied with blood by the hepatic artery and hepatic portal vein.",
+            "It stores glycogen, detoxifies harmful substances and makes urea.",
+            "Urea is made from the ammonia produced by deamination of excess amino acids."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Kidney failure",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Kidneys remove urea and keep the balance of salts and water. This section covers what goes wrong in kidney failure and how it is treated."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **glomerular filtration rate (GFR)** falls, so less filtrate is formed.",
+            "Urea and other wastes build up in the blood.",
+            "Electrolytes such as sodium and potassium ions are not balanced. Too much potassium can disturb the heart.",
+            "Water is retained, which causes swelling (oedema) and raised blood pressure."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Treatments"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Haemodialysis",
+            "Kidney transplant"
+          ],
+          "rows": [
+            [
+              "How it works",
+              "Blood passes through a dialysis machine. Waste moves across a partially permeable membrane into dialysis fluid by diffusion",
+              "A healthy kidney from a donor is placed in the body"
+            ],
+            [
+              "Maintaining gradients",
+              "Dialysis fluid flows in the opposite direction to blood, and has no urea but normal glucose and salt concentrations",
+              "Not needed"
+            ],
+            [
+              "Drawbacks",
+              "Several hours, a few times a week; strict diet",
+              "Needs a matching donor; immunosuppressant drugs; risk of rejection"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Kidney failure lowers GFR and upsets electrolyte balance.",
+            "Haemodialysis removes waste by diffusion across a membrane.",
+            "A transplant restores kidney function but carries a risk of rejection."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using urine in diagnosis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Urine contains substances that show what is happening in the body. This section covers tests on urine samples."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Urine is easy to collect without surgery.",
+            "A **pregnancy test** detects the hormone hCG. Monoclonal antibodies on the test strip bind specifically to hCG, which causes a colour change.",
+            "Testing for **anabolic steroids** and other drugs uses antibodies or laboratory analysis that recognise the drug or its breakdown products in the urine.",
+            "A urine sample that contains glucose or protein can also point to a disease."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Urine tests use specific antibodies to detect hormones and drugs.",
+            "Monoclonal antibodies make the test specific."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why excess amino acids must be deaminated rather than stored.",
+      "a": "The body cannot store amino acids. Deamination removes the amine group, which becomes ammonia and then urea, and the remainder can be used in respiration.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how urea is formed in the liver.",
+      "a": "Excess amino acids are deaminated, producing ammonia. The ammonia reacts with carbon dioxide to form urea.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why dialysis fluid flows in the opposite direction to the blood.",
+      "a": "This maintains a concentration gradient along the whole membrane, so urea diffuses out of the blood all along its length.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 14.1.3"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.2a",
+        "OCR 5.1.2b",
+        "OCR 5.1.2e",
+        "OCR 5.1.2f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Liver histology"
+            },
+            {
+              "type": "list",
+              "items": [
+                "In a stained section, hepatocytes form radiating rows around a central vein.",
+                "Sinusoids appear as spaces between the rows.",
+                "The portal tract holds a branch of the hepatic artery, the portal vein and a bile duct.",
+                "Draw what you see: label sinusoids, hepatocytes and the central vein, and do not shade."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "a64c7df1-f818-4118-b449-e93f3bf04dd7",
+      "95b774df-f2fc-4fdb-8618-f1fe59f62a97",
+      "e17707f8-5f18-4bd2-93ff-21c099b9d522",
+      "0a4b4bb0-8455-435a-9b1a-81895c96dba0",
+      "6d882c1e-06ef-491f-9455-f1ea374c0492"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

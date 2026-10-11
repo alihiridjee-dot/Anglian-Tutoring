@@ -1,0 +1,397 @@
+{
+  "format": 1,
+  "concept_id": "achem-033",
+  "subject": "chemistry",
+  "title": "Dynamic equilibrium and Le Chatelier's principle",
+  "key_idea": "In a closed system a reversible reaction reaches dynamic equilibrium, where the forward and reverse rates are equal and concentrations stay constant. If a change is made, the position of equilibrium moves to minimise it. Industry chooses a compromise between yield and rate.",
+  "sections": [
+    {
+      "heading": "Reversible reactions and dynamic equilibrium",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Many reactions are reversible: products can turn back into reactants. In a closed system the reaction can reach a state of dynamic equilibrium."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Reversible reaction",
+              "meaning": "A reaction that can go in both directions, shown with the ⇌ sign."
+            },
+            {
+              "term": "Closed system",
+              "meaning": "A system where no reactants or products can enter or leave."
+            },
+            {
+              "term": "Dynamic equilibrium",
+              "meaning": "The state where the rate of the forward reaction equals the rate of the reverse reaction."
+            },
+            {
+              "term": "Position of equilibrium",
+              "meaning": "How far the reaction has gone: the relative amounts of reactants and products at equilibrium."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The forward and reverse reactions are both still happening, so the equilibrium is dynamic.",
+            "The forward and reverse rates are equal.",
+            "Because the rates are equal, the concentrations of reactants and products stay constant.",
+            "A closed system is needed. If a product escapes, the reverse reaction cannot keep pace and equilibrium is never reached."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "At equilibrium the forward and reverse rates are equal.",
+            "Concentrations are constant, but both reactions continue.",
+            "Equilibrium needs a closed system."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Le Chatelier's principle",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Le Chatelier's principle lets you predict how the position of equilibrium moves when a condition is changed."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Le Chatelier's principle",
+              "meaning": "If a change is made to a system at dynamic equilibrium, the position of equilibrium moves to minimise the change."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Change",
+            "Position of equilibrium moves",
+            "Why"
+          ],
+          "rows": [
+            [
+              "Increase the concentration of a reactant",
+              "To the right (products)",
+              "To use up some of the added reactant."
+            ],
+            [
+              "Remove a product",
+              "To the right (products)",
+              "To replace some of the product removed."
+            ],
+            [
+              "Increase the pressure (gases)",
+              "To the side with fewer moles of gas",
+              "This lowers the pressure again."
+            ],
+            [
+              "Increase the temperature",
+              "In the endothermic direction",
+              "The reaction absorbs heat and so opposes the rise."
+            ],
+            [
+              "Decrease the temperature",
+              "In the exothermic direction",
+              "The reaction releases heat and so opposes the fall."
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "If the number of moles of gas is the same on both sides, a change in pressure has no effect on the position."
+        },
+        {
+          "type": "subheading",
+          "text": "A catalyst"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A catalyst speeds up the forward and the reverse reactions by the same amount.",
+            "So the position of equilibrium does not change.",
+            "It only makes equilibrium get reached faster."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a change to the Haber process equilibrium and see which way the position moves, and what happens to the rate and the yield of ammonia.",
+            "prompt": "N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH = −92 kJ mol⁻¹. Pick a change.",
+            "result_labels": [
+              "Position of equilibrium",
+              "Yield of NH₃",
+              "Rate"
+            ],
+            "options": [
+              {
+                "label": "Increase the temperature",
+                "results": [
+                  "Moves left (endothermic direction)",
+                  "Decreases",
+                  "Increases"
+                ],
+                "explanation": "The forward reaction is exothermic, so heating favours the reverse reaction."
+              },
+              {
+                "label": "Increase the pressure",
+                "results": [
+                  "Moves right (4 mol gas to 2 mol gas)",
+                  "Increases",
+                  "Increases"
+                ],
+                "explanation": "The right-hand side has fewer moles of gas."
+              },
+              {
+                "label": "Remove NH₃ as it forms",
+                "results": [
+                  "Moves right",
+                  "Increases",
+                  "Decreases slightly as less product is present"
+                ],
+                "explanation": "The system replaces some of the ammonia removed."
+              },
+              {
+                "label": "Add extra N₂",
+                "results": [
+                  "Moves right",
+                  "Increases",
+                  "Increases"
+                ],
+                "explanation": "The system uses up some of the added nitrogen."
+              },
+              {
+                "label": "Add an iron catalyst",
+                "results": [
+                  "No change",
+                  "No change at equilibrium",
+                  "Increases"
+                ],
+                "explanation": "Both rates rise by the same amount, so equilibrium is reached sooner but sits in the same place."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The position moves to oppose any change made.",
+            "More pressure favours the side with fewer moles of gas.",
+            "More heat favours the endothermic direction.",
+            "A catalyst does not change the position."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Industrial compromise",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The best conditions for a high yield are often poor for a fast rate, and the other way round. Industry chooses a compromise."
+        },
+        {
+          "type": "subheading",
+          "text": "The Haber process"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Condition",
+            "Effect on yield",
+            "Effect on rate",
+            "Choice made"
+          ],
+          "rows": [
+            [
+              "Temperature",
+              "Low temperature gives a higher yield (exothermic forward reaction).",
+              "Low temperature is too slow.",
+              "About 450 °C: a reasonable yield at an acceptable rate."
+            ],
+            [
+              "Pressure",
+              "High pressure gives a higher yield (fewer moles of gas on the right).",
+              "High pressure is faster.",
+              "About 200 atm: very high pressure needs costly equipment and is a safety risk."
+            ],
+            [
+              "Catalyst",
+              "No effect on the yield.",
+              "Greatly increases the rate.",
+              "Iron, so a lower temperature can be used."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Unreacted nitrogen and hydrogen are recycled so little is wasted.",
+            "Ammonia is removed by cooling and liquefying it, so the position keeps moving right.",
+            "The conditions balance yield, rate, safety and cost."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Yield and rate pull in different directions, so a compromise is used.",
+            "Haber process: about 450 °C, about 200 atm, iron catalyst.",
+            "Cost and safety limit how high the pressure can go."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why a closed system is needed for a reaction to reach dynamic equilibrium.",
+      "a": "If reactants or products could escape, the forward and reverse rates could not become equal and the concentrations would not stay constant, so equilibrium could not be reached.",
+      "marks": 2
+    },
+    {
+      "q": "For 2SO₂(g) + O₂(g) ⇌ 2SO₃(g), ΔH is negative. State and explain the effect on the position of equilibrium of increasing the pressure.",
+      "a": "The position moves to the right. There are 3 mol of gas on the left and 2 mol on the right, so the system moves to the side with fewer moles of gas to reduce the pressure.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a catalyst does not change the equilibrium yield, yet is used in the Haber process.",
+      "a": "A catalyst speeds up the forward and reverse reactions equally, so the position is unchanged. It allows equilibrium to be reached faster, so a lower temperature can be used.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.2.3a",
+        "OCR 3.2.3b",
+        "OCR 3.2.3c",
+        "OCR 3.2.3d",
+        "OCR 3.2.3e"
+      ],
+      "extra": [
+        {
+          "heading": "Investigating changes to the position of equilibrium",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The effects of concentration and temperature are investigated qualitatively, by watching a colour change in a sealed or small-scale mixture."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Concentration: Fe³⁺(aq) + SCN⁻(aq) ⇌ [Fe(SCN)]²⁺(aq). Add more Fe³⁺ or SCN⁻ and the red colour deepens, so the position moves right.",
+                "Temperature: [Co(H₂O)₆]²⁺ (pink) + 4Cl⁻ ⇌ [CoCl₄]²⁻ (blue) + 6H₂O. Heat the tubes in a water bath and the blue colour deepens, so the forward reaction is endothermic.",
+                "Change one variable at a time, and compare each tube with an unchanged control."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 10.1",
+        "EDEX 10.2",
+        "EDEX 10.3"
+      ],
+      "extra": [
+        {
+          "heading": "Evaluating data on yield and rate",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You may be given a table of yield at different temperatures and pressures.",
+                "Pick out where the yield is high, then say what that costs in rate, energy, equipment or safety.",
+                "Justify the conditions chosen as the best overall compromise, using numbers from the data."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.6.1"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 7.1.1",
+        "CAIE 7.1.2",
+        "CAIE 7.1.3",
+        "CAIE 7.1.10"
+      ],
+      "extra": [
+        {
+          "heading": "The Contact process",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Contact process makes sulfur trioxide for sulfuric acid: 2SO₂(g) + O₂(g) ⇌ 2SO₃(g), ΔH = −196 kJ mol⁻¹."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Condition",
+                "Choice",
+                "Reason"
+              ],
+              "rows": [
+                [
+                  "Temperature",
+                  "About 450 °C",
+                  "Exothermic, so low temperature favours yield, but it would be too slow. 450 °C is a compromise."
+                ],
+                [
+                  "Pressure",
+                  "1 to 2 atm",
+                  "High pressure favours the right (3 mol to 2 mol), but the yield is already high and high pressure costs more."
+                ],
+                [
+                  "Catalyst",
+                  "Vanadium(V) oxide, V₂O₅",
+                  "Increases the rate without changing the position."
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Both processes show why understanding dynamic equilibrium matters: the conditions are chosen using Le Chatelier's principle."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "5e603f62-4409-421b-8da1-05c28a416501",
+      "9ae83e2a-6ff2-4c78-a138-1be8220d94ad",
+      "f8a97639-9ae1-4101-bb9d-25dec0ff7c47",
+      "0d9dfe9b-59c1-4c6b-b2ce-1c5b72f75631",
+      "1f02732c-bcc3-4829-a08d-177c1226d34d",
+      "94fc666d-61ac-4463-9506-9b348cb9a117",
+      "34d29f96-e8cc-48e0-8e62-850104d2e793",
+      "64f22619-8177-411e-b31c-85beeb877563",
+      "132a79c0-2dfa-4f6d-95c1-c5802e017958",
+      "7d230ddd-9c9a-4b4e-9e48-a0d658db6ea5",
+      "e8b3016a-27ea-4fdd-abab-46e18aa80383",
+      "e96d8be1-105f-4f8f-bb42-3c0b7552cfeb",
+      "1aa41bec-1fb2-477c-97d0-f91e7ae9a0d6"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

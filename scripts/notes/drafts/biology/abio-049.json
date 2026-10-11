@@ -1,0 +1,298 @@
+{
+  "format": 1,
+  "concept_id": "abio-049",
+  "subject": "biology",
+  "title": "Speciation",
+  "key_idea": "Speciation is the formation of a new species from an existing one. Isolation stops gene flow between populations, so their gene pools drift apart. When members can no longer interbreed to produce fertile offspring, they are separate species.",
+  "sections": [
+    {
+      "heading": "Variation, selection and evolution",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Evolution produces new species from pre-existing ones over time, as gene pools change from generation to generation."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Individuals in a population vary in phenotype because of genetic and environmental factors.",
+            "The primary source of genetic variation is mutation. Meiosis (crossing over and independent assortment) and random fertilisation add further variation.",
+            "Predation, disease and competition for the means of survival cause differential survival and reproduction. This is natural selection.",
+            "Organisms with advantageous phenotypes produce more offspring and pass on their favourable alleles, so allele frequencies change in the gene pool.",
+            "Stabilising, directional and disruptive selection each act on the range of phenotypes in a different way."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Evolution is a change in allele frequencies in a population.",
+            "Mutation creates variation; selection and drift change how common it is.",
+            "Drift matters only in small populations, where chance has a large effect."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Isolation and the formation of new species",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Isolation reduces gene flow between populations. Without gene flow, each population accumulates different alleles."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Isolation.",
+              "text": "Two populations of one species are separated, so they no longer interbreed."
+            },
+            {
+              "lead": "Different selection.",
+              "text": "Different mutations arise in each population, and different selection pressures act on them."
+            },
+            {
+              "lead": "Divergence.",
+              "text": "Allele frequencies and phenotypes in the two gene pools become more and more different."
+            },
+            {
+              "lead": "Reproductive isolation.",
+              "text": "The populations can no longer interbreed to produce fertile offspring. They are now separate species."
+            }
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Species",
+              "meaning": "A group of similar organisms that can interbreed to produce fertile offspring."
+            },
+            {
+              "term": "Gene flow",
+              "meaning": "The movement of alleles between populations when individuals interbreed."
+            },
+            {
+              "term": "Reproductive isolation",
+              "meaning": "The inability of members of different populations to interbreed and produce fertile offspring."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Isolation reduces or stops gene flow.",
+            "Isolated gene pools diverge by mutation, selection and drift.",
+            "A new species arises when members can no longer produce fertile offspring together."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Allopatric and sympatric speciation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The two types of speciation differ in how the populations are first separated."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Allopatric speciation",
+            "Sympatric speciation"
+          ],
+          "rows": [
+            [
+              "Separation",
+              "Geographical: a barrier such as a mountain range, river or sea.",
+              "No physical barrier. The populations live in the same area."
+            ],
+            [
+              "Isolating mechanism",
+              "Geographical isolation",
+              "Ecological or behavioural isolation, or reproductive mechanisms"
+            ],
+            [
+              "Result",
+              "Populations differ because each experiences a different environment.",
+              "Populations differ because they use different niches or do not mate with each other."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Allopatric example: a population is split when a river changes course. Each side has a different environment and gradually evolves differently.",
+            "Ecological isolation: two groups use different food or habitats in the same area and rarely meet to breed.",
+            "Behavioural isolation: groups have different courtship behaviour, calls or timing of breeding, so individuals do not recognise each other as mates.",
+            "Reproductive mechanisms in sympatric speciation include a change in chromosome number, so that offspring are infertile with the parent population."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Sort each statement into the right group."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity: put statements about speciation under allopatric or sympatric speciation.",
+            "prompt": "Sort each description under the type of speciation it describes",
+            "groups": [
+              "Allopatric speciation",
+              "Sympatric speciation"
+            ],
+            "items": [
+              {
+                "text": "A mountain range splits one population into two",
+                "group": 0
+              },
+              {
+                "text": "Two groups in the same lake eat different foods and rarely breed together",
+                "group": 1
+              },
+              {
+                "text": "A flood isolates a few animals on an island",
+                "group": 0
+              },
+              {
+                "text": "Two groups in one forest have different courtship songs",
+                "group": 1
+              },
+              {
+                "text": "The sea rises and separates two plant populations",
+                "group": 0
+              },
+              {
+                "text": "Plants flower at different times in the same field, so they do not cross-pollinate",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Allopatric speciation needs a geographical barrier.",
+            "Sympatric speciation happens in the same area through ecological, behavioural or reproductive separation.",
+            "In both, gene pools diverge until the populations cannot produce fertile offspring."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how a new species can arise when a population is split by a river that changes course.",
+      "a": "The two groups are geographically isolated, so there is no gene flow between them. Different mutations arise and different selection pressures act in each environment, so allele frequencies change in different ways. Eventually the two groups cannot interbreed to produce fertile offspring, so they are separate species.",
+      "marks": 4
+    },
+    {
+      "q": "State the difference between allopatric and sympatric speciation.",
+      "a": "Allopatric speciation involves geographical separation by a barrier. Sympatric speciation happens in the same area, through ecological or behavioural separation.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why genetic drift can contribute to speciation in a small isolated population.",
+      "a": "In a small population, chance changes allele frequency by a large amount. Because the population is isolated, the changes are not diluted by gene flow, so its gene pool diverges from the original population.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Be able to explain why individuals in a population show a wide range of phenotypes: genetic factors (mutation, meiosis, random fertilisation) and environmental factors.",
+                "Explain why genetic drift is important only in small populations.",
+                "Explain how natural selection and isolation can change the allele and phenotype frequency and lead to a new species.",
+                "Explain how evolutionary change over a long time has produced a great diversity of species."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.19"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Say how isolation reduces gene flow between populations: individuals cannot mate, so alleles are not exchanged.",
+                "Reduced gene flow lets the populations diverge, leading to allopatric or sympatric speciation."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 17.3.1",
+        "CAIE 17.3.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Outline the theory of evolution as the formation of new species from pre-existing species over time, as a result of changes to gene pools.",
+                "Genetic isolation by geographical separation is allopatric speciation.",
+                "Genetic isolation by ecological and behavioural separation is sympatric speciation."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.2g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Isolating mechanisms in the evolution of new species include geographical mechanisms (allopatric speciation) and reproductive mechanisms (sympatric speciation).",
+                "Reproductive mechanisms stop interbreeding without a physical barrier, for example by different breeding seasons or incompatible courtship."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "86fb2dde-1aee-42d6-a81d-c54bce3a87b3",
+      "f73f1881-8b36-4c8a-a32f-f66200c6ed0e",
+      "3d2c7773-9f94-4e4c-90bf-8c0d1682ebea",
+      "6aa46539-7c2f-4b89-a87e-e2a28e08c46f",
+      "8245dc2a-a255-43cc-8b48-f22f7e3d2895"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

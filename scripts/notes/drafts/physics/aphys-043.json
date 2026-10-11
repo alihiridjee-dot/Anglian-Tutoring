@@ -1,0 +1,540 @@
+{
+  "format": 1,
+  "concept_id": "aphys-043",
+  "subject": "physics",
+  "title": "The nuclear atom and nuclear size",
+  "key_idea": "Alpha scattering showed that an atom has a tiny, dense, positive nucleus with electrons around it. The nucleus holds protons and neutrons. Its radius grows as the cube root of the nucleon number, so every nucleus has about the same enormous density.",
+  "sections": [
+    {
+      "heading": "Evidence from alpha-particle scattering",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Alpha particles were fired at a thin gold foil in a vacuum and detected after passing through. The pattern of deflections gave the first evidence for a nuclear atom."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Observation",
+            "Conclusion"
+          ],
+          "rows": [
+            [
+              "Most alpha particles pass straight through",
+              "An atom is mostly empty space"
+            ],
+            [
+              "A few are deflected by small angles",
+              "The nucleus is positive, so it repels the positive alpha particles"
+            ],
+            [
+              "Very few (about 1 in 10⁴) are deflected by more than 90°",
+              "The positive charge and most of the mass are in a very small, dense nucleus"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The nucleus is **tiny**: only a head-on approach to a small target can send an alpha particle back.",
+            "The nucleus is **positively charged**: it repels the alpha particles.",
+            "The nucleus is **massive**: a light electron could never turn an alpha particle back."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "This replaced the earlier plum-pudding model, in which positive charge was spread through the whole atom. Models change when new evidence does not fit them."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Most alpha particles go straight through, so an atom is mostly empty space.",
+            "Rare large-angle deflections show a small, dense, positive nucleus.",
+            "The nuclear model replaced the plum-pudding model because of this evidence."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The nuclear model and nuclide notation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In the simple nuclear model, protons and neutrons sit in a tiny nucleus. Electrons orbit it."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Particle",
+            "Relative charge",
+            "Relative mass",
+            "Where"
+          ],
+          "rows": [
+            [
+              "Proton",
+              "+1",
+              "1",
+              "Nucleus"
+            ],
+            [
+              "Neutron",
+              "0",
+              "1",
+              "Nucleus"
+            ],
+            [
+              "Electron",
+              "−1",
+              "about 1/1840",
+              "Orbiting the nucleus"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Protons and neutrons are together called **nucleons**.",
+            "The atom is about 10⁻¹⁰ m across. The nucleus is about 10⁻¹⁵ m to 10⁻¹⁴ m across.",
+            "The atom is therefore about 10⁴ to 10⁵ times wider than its nucleus.",
+            "Almost all the mass of the atom is in the nucleus."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Proton number Z",
+              "meaning": "The number of protons in the nucleus. It decides which element the atom is."
+            },
+            {
+              "term": "Nucleon number A",
+              "meaning": "The total number of protons and neutrons in the nucleus."
+            },
+            {
+              "term": "Isotopes",
+              "meaning": "Atoms of the same element (same Z) with different numbers of neutrons, so different A."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Number of neutrons",
+          "formula": "N = A − Z",
+          "where": [
+            "N = number of neutrons",
+            "A = nucleon number",
+            "Z = proton number"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A nuclide is written with A above and Z below the symbol. For example, ²³⁸₉₂U has A = 238, Z = 92 and so 146 neutrons."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Isotopes have the same chemical properties, because they have the same number of electrons.",
+            "Isotopes differ in mass and in how stable the nucleus is.",
+            "A neutral atom has as many electrons as protons."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice calculation. Find the number of neutrons in a nuclide from its nucleon number and proton number.",
+            "question": "A nuclide has nucleon number {A} and proton number {Z}. How many neutrons does its nucleus contain?",
+            "variables": [
+              {
+                "id": "A",
+                "min": 40,
+                "max": 238,
+                "step": 2
+              },
+              {
+                "id": "Z",
+                "min": 18,
+                "max": 38,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "A - Z",
+              "decimals": 0
+            },
+            "working": [
+              "N = A − Z",
+              "N = {A} − {Z}",
+              "N = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The nucleus holds protons and neutrons. Electrons orbit it.",
+            "Z is the number of protons. A is the number of protons plus neutrons.",
+            "Isotopes have the same Z and different A."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The strong nuclear force",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Protons repel each other, so something must hold the nucleus together. That is the strong nuclear force, which acts between nucleons."
+        },
+        {
+          "type": "list",
+          "items": [
+            "It is **attractive** between nucleons separated by up to about 3 fm.",
+            "It is **repulsive** at separations below about 0.5 fm, which stops the nucleus collapsing.",
+            "It is **short range**: it has almost no effect beyond a few femtometres.",
+            "It is stronger than the electrostatic repulsion between protons at nuclear distances.",
+            "1 fm (femtometre) = 10⁻¹⁵ m."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A graph of the strong nuclear force against separation of two nucleons. The force is repulsive below 0.5 femtometres, becomes strongly attractive just above that, then falls to almost nothing by about 3 femtometres.",
+            "x": {
+              "label": "Separation of nucleons",
+              "min": 0,
+              "max": 4,
+              "ticks": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unit": "fm"
+            },
+            "y": {
+              "label": "Force (attractive above the zero line)",
+              "zero": 0.5
+            },
+            "series": [
+              {
+                "name": "Strong nuclear force",
+                "points": [
+                  [
+                    0.1,
+                    0.1
+                  ],
+                  [
+                    0.3,
+                    0.3
+                  ],
+                  [
+                    0.5,
+                    0.5
+                  ],
+                  [
+                    0.8,
+                    0.85
+                  ],
+                  [
+                    1.2,
+                    0.78
+                  ],
+                  [
+                    2,
+                    0.62
+                  ],
+                  [
+                    3,
+                    0.52
+                  ],
+                  [
+                    4,
+                    0.5
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 0.5,
+                "label": "0.5 fm"
+              },
+              {
+                "x": 3,
+                "label": "3 fm"
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The strong force is attractive up to about 3 fm and repulsive below about 0.5 fm.",
+            "It acts over a very short range and holds the nucleus together."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Nuclear radius and density",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Scattering experiments show that nuclear radius depends on the nucleon number in a simple way."
+        },
+        {
+          "type": "equation",
+          "label": "Nuclear radius",
+          "formula": "R = r₀A^⅓",
+          "where": [
+            "R = radius of the nucleus (m or fm)",
+            "r₀ = a constant, about 1.2 fm",
+            "A = nucleon number"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Nuclear volume is proportional to R³, so volume is proportional to A.",
+            "Mass is proportional to A as well, so the mass per unit volume is the same for every nucleus.",
+            "This is evidence that nuclear material has a **constant density**."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Density of a nucleus",
+          "formula": "ρ = m / V = (A × 1.66 × 10⁻²⁷) / (4⁄3 π R³)",
+          "where": [
+            "ρ = density (kg/m³)",
+            "m = mass of the nucleus, about A atomic mass units (kg)",
+            "V = volume of the nucleus (m³)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Nuclear density is about 2 × 10¹⁷ kg/m³.",
+            "Atomic density is about 10³ kg/m³, around 10¹⁴ times smaller.",
+            "An atom is mostly empty space, so its mean density is low. The nucleus is not."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice calculation. Find the radius of a nucleus from its nucleon number.",
+            "question": "Use R = r₀A^⅓ with r₀ = 1.2 fm to find the radius of a nucleus with nucleon number {A}. Give your answer in fm.",
+            "variables": [
+              {
+                "id": "A",
+                "min": 8,
+                "max": 238,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "1.2 * A^(1/3)",
+              "unit": "fm",
+              "decimals": 1
+            },
+            "working": [
+              "R = 1.2 × A^⅓",
+              "R = 1.2 × {A}^⅓",
+              "R = {answer} fm"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "R = r₀A^⅓, so volume is proportional to A.",
+            "Constant density: every nucleus has about 2 × 10¹⁷ kg/m³.",
+            "The nucleus is about 10⁴ to 10⁵ times narrower than the atom."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State two conclusions from the alpha-particle scattering experiment and the observation that supports each.",
+      "a": "Most alpha particles pass straight through, so an atom is mostly empty space. A few are deflected by more than 90°, so the positive charge and most of the mass are concentrated in a small, dense nucleus.",
+      "marks": 4
+    },
+    {
+      "q": "An isotope of uranium is written ²³⁵₉₂U. State its proton number, nucleon number and number of neutrons, and explain how it differs from ²³⁸₉₂U.",
+      "a": "Proton number 92, nucleon number 235, so 143 neutrons. It has the same number of protons but 3 fewer neutrons than ²³⁸₉₂U, so it is an isotope of the same element.",
+      "marks": 4
+    },
+    {
+      "q": "Show that the radius of a nucleus is proportional to the cube root of its nucleon number, and say what this tells you about its density.",
+      "a": "Volume is proportional to R³ and, with a fixed mass per nucleon, the mass is proportional to A, so R³ is proportional to A and R is proportional to A^⅓. Mass divided by volume is then constant, so all nuclei have the same density.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.1.1",
+        "AQA 3.2.1.2",
+        "AQA 3.8.1.1",
+        "AQA 3.8.1.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Charge and mass of the particles can be given in SI units as well as relative units."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Particle",
+                "Charge (C)",
+                "Mass (kg)"
+              ],
+              "rows": [
+                [
+                  "Proton",
+                  "+1.60 × 10⁻¹⁹",
+                  "1.67 × 10⁻²⁷"
+                ],
+                [
+                  "Neutron",
+                  "0",
+                  "1.67 × 10⁻²⁷"
+                ],
+                [
+                  "Electron",
+                  "−1.60 × 10⁻¹⁹",
+                  "9.11 × 10⁻³¹"
+                ]
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Specific charge",
+              "formula": "specific charge = Q / m",
+              "where": [
+                "Q = charge of the particle, nucleus or ion (C)",
+                "m = its mass (kg)"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Specific charge is charge per unit mass, in C/kg.",
+                "The proton has a specific charge of about 9.6 × 10⁷ C/kg. The electron's is about 1.76 × 10¹¹ C/kg.",
+                "For a nucleus or an ion, use its total charge and its total mass.",
+                "Isotopic data can be used, for example to find the mean relative mass of an element from the abundances of its isotopes."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Stability and decay"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Nuclei with too many nucleons or an unbalanced mix of protons and neutrons are unstable.",
+                "An unstable nucleus decays by alpha or beta emission.",
+                "In alpha decay the nucleus loses ⁴₂α, so A falls by 4 and Z by 2.",
+                "In β⁻ decay a neutron changes to a proton. An electron and an antineutrino are emitted.",
+                "The neutrino was suggested to explain how energy is conserved in beta decay."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Estimating nuclear radius"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Closest approach: an alpha particle fired straight at a nucleus stops where all its kinetic energy has become electric potential energy.",
+                "Equating the two gives the closest distance, which is an upper limit for the nuclear radius.",
+                "A 5 MeV alpha particle approaching gold gets to about 4.5 × 10⁻¹⁴ m.",
+                "Electron diffraction gives a better value: a beam of high-energy electrons diffracts from the nucleus and gives a graph of intensity against angle with a first minimum.",
+                "The first minimum is at a larger angle for a smaller nucleus, so its position gives the radius."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Closest approach",
+              "formula": "½mv² = Qq / (4πε₀r), so r = Qq / (4πε₀ × ½mv²)",
+              "where": [
+                "Q, q = charges of the nucleus and the alpha particle (C)",
+                "r = distance of closest approach (m)",
+                "½mv² = initial kinetic energy of the alpha particle (J)",
+                "ε₀ = permittivity of free space"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Electrons must have a de Broglie wavelength about as small as the nucleus for the diffraction to show its size."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.130",
+        "EDEX 8.131"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 11.1.1",
+        "CAIE 11.1.2",
+        "CAIE 11.1.3",
+        "CAIE 11.1.4",
+        "CAIE 11.1.5"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.4.1a",
+        "OCR 6.4.1b",
+        "OCR 6.4.1c",
+        "OCR 6.4.1d",
+        "OCR 6.4.1e",
+        "OCR 6.4.1f",
+        "OCR 6.4.1g"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "cbe7c68a-c38a-4d88-aab4-f27f37b24089",
+      "7fcb9281-3a6d-4136-8e77-40458c748e3b",
+      "4ef53192-8ee2-4c22-8383-4a6f1611b880",
+      "fff3b901-134a-4a85-8720-c8cc8b6dde2f",
+      "490216ed-64b3-41e5-b48a-95fda3cc93cb",
+      "853f796a-d52c-4975-83c8-355c661c7543",
+      "1792aca9-4657-4333-87e5-1021a7d28685",
+      "037f1a7d-54ab-43fe-bdaf-b199ec29333d",
+      "1f0fc0eb-5839-44a3-bc2e-3a27ebb1d535",
+      "e1f9c415-4242-4527-a862-801f00bf5bb8",
+      "ab8621d1-baa7-43cd-a962-f724675a69dc",
+      "94518cae-46d1-4117-90ef-ee72a1a8e85b",
+      "7c0e0754-6b0a-43ae-8482-07c61f24c08f",
+      "c35fc23a-027a-4309-807f-be9b989f415f",
+      "b22eb85b-04af-40ff-8781-38938cc92138",
+      "35ee7464-1f06-4cae-a789-8187216e1690",
+      "654edc29-c49c-40aa-8d26-6047bb872969",
+      "fb17eb84-d27c-416c-82f7-d8d778dea1e1"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

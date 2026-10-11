@@ -1,0 +1,375 @@
+{
+  "format": 1,
+  "concept_id": "achem-041",
+  "subject": "chemistry",
+  "title": "Buffer solutions",
+  "key_idea": "A buffer solution keeps its pH almost constant when small amounts of acid or alkali are added, or when it is diluted. An acidic buffer holds a weak acid and its conjugate base, and the pH is found from Ka and the ratio of the two.",
+  "sections": [
+    {
+      "heading": "What a buffer is and how to make one",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A buffer needs a reservoir of both a weak acid and its conjugate base. This section covers the definition and two ways to make one."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Buffer solution",
+              "meaning": "A solution that minimises changes in pH when small amounts of acid or base are added."
+            },
+            {
+              "term": "Acidic buffer",
+              "meaning": "A weak acid and its conjugate base, usually supplied as a salt."
+            },
+            {
+              "term": "Basic buffer",
+              "meaning": "A weak base and its conjugate acid, usually supplied as a salt."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "It also keeps its pH approximately constant when diluted.",
+            "It works only for small additions. A large amount of acid or alkali uses up one component and the pH then changes."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Method",
+            "Example",
+            "What is in the buffer"
+          ],
+          "rows": [
+            [
+              "Weak acid + a salt of that acid",
+              "CH₃COOH + CH₃COONa",
+              "CH₃COOH and CH₃COO⁻"
+            ],
+            [
+              "Excess weak acid + strong alkali",
+              "Excess CH₃COOH + NaOH",
+              "Unreacted CH₃COOH and the CH₃COO⁻ formed"
+            ],
+            [
+              "Weak base + a salt of that base",
+              "NH₃ + NH₄Cl",
+              "NH₃ and NH₄⁺"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "With excess weak acid and alkali, the alkali reacts with some of the acid to make its salt. What is left over is the weak acid.",
+            "The pH is set by the ratio [acid] : [conjugate base], and this is chosen by the amounts mixed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A buffer needs a weak acid and its conjugate base together.",
+            "It can be made from the acid and its salt, or from excess weak acid and alkali."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How a buffer works",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The two components are the weak acid and its conjugate base. Each removes one of the possible additions."
+        },
+        {
+          "type": "equation",
+          "label": "Acid buffer equilibrium",
+          "formula": "CH₃COOH(aq) ⇌ H⁺(aq) + CH₃COO⁻(aq)",
+          "where": [
+            "CH₃COOH = weak acid, present in large amount",
+            "CH₃COO⁻ = conjugate base, from the salt"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Acid added:** extra H⁺ reacts with the conjugate base. CH₃COO⁻ + H⁺ → CH₃COOH. The equilibrium shifts left, and [H⁺] hardly changes.",
+            "**Alkali added:** OH⁻ reacts with H⁺ to make water. The weak acid then dissociates to replace the H⁺ removed. The equilibrium shifts right, and [H⁺] hardly changes.",
+            "The ratio [CH₃COOH] : [CH₃COO⁻] changes only slightly, so the pH changes only slightly."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity. Put the steps of buffer action when acid is added into order.",
+            "prompt": "Put the steps in order when a little acid is added to an ethanoic acid buffer.",
+            "steps": [
+              "Acid is added, so [H⁺] rises",
+              "H⁺ reacts with CH₃COO⁻ to make CH₃COOH",
+              "The equilibrium CH₃COOH ⇌ H⁺ + CH₃COO⁻ shifts left",
+              "[H⁺] returns to almost its original value",
+              "The pH changes only very slightly"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **basic buffer** such as NH₃ / NH₄⁺ works in the same way: NH₄⁺ gives up H⁺ when alkali is added, and NH₃ takes up H⁺ when acid is added.",
+            "The pair NH₃ / NH₄⁺ is a weak base with its conjugate acid."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The conjugate base removes added H⁺. The weak acid replaces H⁺ removed by alkali.",
+            "The ratio of acid to base barely changes, so the pH barely changes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating the pH of an acidic buffer",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The pH comes from Ka and the ratio of weak acid to conjugate base. The approximations are the same as for weak acids."
+        },
+        {
+          "type": "equation",
+          "label": "Hydrogen ion concentration of a buffer",
+          "formula": "[H⁺] = Ka × [HA] ÷ [A⁻]",
+          "where": [
+            "Ka = acid dissociation constant (mol/dm³)",
+            "[HA] = concentration of weak acid (mol/dm³)",
+            "[A⁻] = concentration of conjugate base (mol/dm³)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Concentrations",
+              "text": "Find [HA] and [A⁻] in the mixture. Use moles divided by the total volume."
+            },
+            {
+              "lead": "[H⁺]",
+              "text": "Substitute into [H⁺] = Ka × [HA] ÷ [A⁻]."
+            },
+            {
+              "lead": "pH",
+              "text": "pH = −log₁₀[H⁺]."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A buffer with 0.100 mol/dm³ CH₃COOH and 0.200 mol/dm³ CH₃COO⁻ (Ka = 1.74 × 10⁻⁵): [H⁺] = 1.74 × 10⁻⁵ × 0.500 = 8.7 × 10⁻⁶ mol/dm³, pH = 5.06."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The [A⁻] is taken as the concentration of the salt, because the acid is only slightly dissociated.",
+            "To make a buffer of a chosen pH, find [H⁺] = 10^(−pH), then the ratio [A⁻] ÷ [HA] = Ka ÷ [H⁺].",
+            "When [HA] = [A⁻], [H⁺] = Ka and pH = pKa."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "[H⁺] = Ka × [HA] ÷ [A⁻].",
+            "pH = pKa when the acid and its conjugate base have equal concentrations."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Buffers in the body and in everyday life",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Buffers hold the pH steady where a change would do harm."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Blood plasma is kept at pH 7.35 to 7.45 by the carbonic acid-hydrogencarbonate buffer, H₂CO₃ / HCO₃⁻.",
+            "Excess H⁺ reacts with HCO₃⁻ to form H₂CO₃, which breaks down to CO₂ and water. The CO₂ is breathed out.",
+            "Excess OH⁻ reacts with H⁺, and H₂CO₃ dissociates to replace the H⁺.",
+            "Buffers are also used in foods, shampoos and medicines, to keep the pH constant."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Blood buffer",
+          "formula": "H₂CO₃(aq) ⇌ H⁺(aq) + HCO₃⁻(aq)",
+          "where": [
+            "H₂CO₃ = carbonic acid",
+            "HCO₃⁻ = hydrogencarbonate ion"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Blood is kept near pH 7.4 by H₂CO₃ / HCO₃⁻.",
+            "Buffers are used wherever pH must stay constant."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how a mixture of ethanoic acid and sodium ethanoate resists a change in pH when a small amount of hydrochloric acid is added.",
+      "a": "Ethanoate ions react with the added H⁺ to form ethanoic acid: CH₃COO⁻ + H⁺ → CH₃COOH. The equilibrium shifts left, so [H⁺] and pH hardly change.",
+      "marks": 3
+    },
+    {
+      "q": "Calculate the pH of a buffer containing 0.200 mol/dm³ CH₃COOH and 0.100 mol/dm³ CH₃COONa (Ka = 1.74 × 10⁻⁵ mol/dm³).",
+      "a": "[H⁺] = 1.74 × 10⁻⁵ × 0.200 ÷ 0.100 = 3.48 × 10⁻⁵ mol/dm³; pH = 4.46.",
+      "marks": 3
+    },
+    {
+      "q": "State how a buffer is made from a weak acid and a strong alkali, and why the alkali must not be in excess.",
+      "a": "Add alkali to an excess of the weak acid. Some acid forms its salt and the rest stays as acid. If the alkali were in excess, no weak acid would remain to give a buffer.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.3i",
+        "OCR 5.1.3j",
+        "OCR 5.1.3k",
+        "OCR 5.1.3l",
+        "OCR 5.1.3m"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The role of the conjugate pair in pH control must be explained, and the pH of a buffer must be calculated from Ka and the equilibrium concentrations of the conjugate pair."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The blood buffer keeps plasma between pH 7.35 and 7.45.",
+                "In the blood buffer, H₂CO₃ is the weak acid and HCO₃⁻ is its conjugate base."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 12.18",
+        "EDEX 12.19",
+        "EDEX 12.20",
+        "EDEX 12.21",
+        "EDEX 12.24"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Preparing a buffer of a given pH"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find [H⁺]",
+                  "text": "[H⁺] = 10^(−pH)."
+                },
+                {
+                  "lead": "Find the ratio",
+                  "text": "[A⁻] ÷ [HA] = Ka ÷ [H⁺]."
+                },
+                {
+                  "lead": "Choose amounts",
+                  "text": "Choose concentrations or volumes of acid and salt in this ratio."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "For pH 4.46 with Ka = 1.74 × 10⁻⁵, [H⁺] = 3.5 × 10⁻⁵, so [A⁻] ÷ [HA] = 0.50. Use twice as much acid as salt."
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.12.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Acidic buffers contain a weak acid and the salt of that weak acid.",
+                "Basic buffers contain a weak base and the salt of that weak base.",
+                "Calculation is required for acidic buffers; the action of basic buffers is explained qualitatively."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 25.1.5",
+        "CAIE 25.1.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Explanations of buffer action must use chemical equations.",
+                "Uses of buffers include the role of HCO₃⁻ in controlling the pH of blood."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "8281043c-1b2d-45f8-9142-d61f4856ca55",
+      "4eb998d4-7105-497d-9f12-a58f16dd882e",
+      "0b1d2e2f-d00c-4732-ae7d-48e6d9f4c143",
+      "505fc243-7af5-4721-b8e6-dc250f886737",
+      "b4ea3bbe-d4d9-48ce-8908-030abddc6d96",
+      "5cae2405-30d8-4dea-93c4-e0bc91cdcc12",
+      "d4f035d1-c09b-4408-a49f-42381de1c5b4",
+      "e3e93c61-7d45-465f-9c1a-b300030a8fbe",
+      "e0bb3705-ce39-40f2-992c-712503930ddc",
+      "ca66e1b4-b63e-4fd3-8f75-838faba81e46",
+      "54c4b67c-e3f8-48a5-b2c0-98ce26ae86b2",
+      "40dd51e8-864d-4fd3-91f5-4e3c3a337c9e",
+      "069d15a2-5314-4be4-ab95-116ad8c0e8df"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

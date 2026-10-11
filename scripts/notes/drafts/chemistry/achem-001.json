@@ -1,0 +1,480 @@
+{
+  "format": 1,
+  "concept_id": "achem-001",
+  "subject": "chemistry",
+  "title": "Atomic structure and isotopes",
+  "key_idea": "An atom has a small, dense **nucleus** of protons and neutrons, with electrons in shells around it. The **atomic number** is the number of protons, and it identifies the element. **Isotopes** are atoms of one element with different numbers of neutrons.",
+  "sections": [
+    {
+      "heading": "Inside the atom",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An atom is made of three sub-atomic particles. This section covers where they are, their relative masses and charges, and how mass and charge are spread out."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Nucleus",
+              "meaning": "The very small, dense centre of the atom. It contains the protons and neutrons."
+            },
+            {
+              "term": "Shell",
+              "meaning": "A region of space around the nucleus where electrons are found."
+            },
+            {
+              "term": "Relative mass",
+              "meaning": "The mass of a particle compared with the mass of a proton, which is taken as 1."
+            },
+            {
+              "term": "Relative charge",
+              "meaning": "The charge of a particle compared with the charge of a proton, which is taken as +1."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Particle",
+            "Relative mass",
+            "Relative charge",
+            "Where it is"
+          ],
+          "rows": [
+            [
+              "Proton",
+              "1",
+              "+1",
+              "In the nucleus"
+            ],
+            [
+              "Neutron",
+              "1",
+              "0",
+              "In the nucleus"
+            ],
+            [
+              "Electron",
+              "1/1836 (almost zero)",
+              "−1",
+              "In shells around the nucleus"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "How mass and charge are distributed"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The atom is **mostly empty space**. The nucleus is tiny compared with the whole atom.",
+            "Almost all the mass is in the nucleus, because protons and neutrons are about 1836 times heavier than an electron.",
+            "All the positive charge is in the nucleus, from the protons. The negative charge is spread through the space around it, from the electrons.",
+            "An atom is neutral overall: it has the same number of protons and electrons."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Protons and neutrons are in the nucleus. Electrons are in shells around it.",
+            "Proton: mass 1, charge +1. Neutron: mass 1, charge 0. Electron: mass 1/1836, charge −1.",
+            "Nearly all of the mass is in the nucleus, and nearly all of the volume is empty space."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How ideas about the atom changed",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The model of the atom has changed as new evidence appeared. A model is accepted while it explains the evidence, and replaced when it cannot."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Model",
+            "Picture of the atom",
+            "Evidence that changed it"
+          ],
+          "rows": [
+            [
+              "Solid sphere",
+              "A tiny, solid ball that cannot be split.",
+              "Electrons were discovered, so atoms have smaller parts."
+            ],
+            [
+              "Plum pudding",
+              "Negative electrons spread through a ball of positive charge.",
+              "Alpha particles fired at gold foil: a few were deflected by large angles, and some bounced back."
+            ],
+            [
+              "Nuclear model",
+              "A tiny positive nucleus, with electrons around it in mostly empty space.",
+              "Atoms give line spectra and ionisation energies, which need electrons at fixed energies."
+            ],
+            [
+              "Bohr model",
+              "Electrons in fixed shells, each with its own energy.",
+              "Quantum theory showed shells are made of sub-shells and orbitals."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Most alpha particles passed straight through the foil, so atoms are mostly empty space.",
+            "A few were deflected strongly, so the positive charge and mass are concentrated in a small nucleus.",
+            "The Bohr model explains periodic properties, such as the repeating pattern in ionisation energies, because shells fill in order."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Models are changed or rejected when new evidence does not fit them.",
+            "Scattering of alpha particles gave evidence for a small, dense, positive nucleus.",
+            "The Bohr model of electron shells explains periodic properties."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Counting particles in atoms and ions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two numbers identify an atom. From them, and the charge, you can work out how many of each particle there are."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Atomic number (proton number), Z",
+              "meaning": "The number of protons in the nucleus of an atom. It decides which element the atom is."
+            },
+            {
+              "term": "Mass number (nucleon number), A",
+              "meaning": "The total number of protons and neutrons in the nucleus of an atom."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Number of neutrons",
+          "formula": "number of neutrons = mass number − atomic number",
+          "where": [
+            "mass number, A",
+            "atomic number, Z"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Protons** = atomic number. This never changes for an element.",
+            "**Neutrons** = A − Z.",
+            "**Electrons** in an atom = Z. In an ion, electrons = Z − charge. A positive ion has lost electrons. A negative ion has gained them.",
+            "For a molecule or a molecular ion, add up the particles of each atom, then adjust the electrons for any charge."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Read the symbol.",
+              "text": "The Al³⁺ ion in ²⁷₁₃Al³⁺ has A = 27 and Z = 13, and a charge of +3."
+            },
+            {
+              "lead": "Protons.",
+              "text": "13, the atomic number."
+            },
+            {
+              "lead": "Neutrons.",
+              "text": "27 − 13 = 14."
+            },
+            {
+              "lead": "Electrons.",
+              "text": "13 − 3 = 10, because the 3+ ion has lost three electrons."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question: find the number of electrons in an ion from its atomic number, mass number and charge.",
+            "question": "A positive ion has mass number {A}, atomic number {Z} and a charge of {q}+. How many electrons does it have?",
+            "variables": [
+              {
+                "id": "A",
+                "min": 23,
+                "max": 56,
+                "step": 1
+              },
+              {
+                "id": "Z",
+                "min": 11,
+                "max": 22,
+                "step": 1
+              },
+              {
+                "id": "q",
+                "min": 1,
+                "max": 3,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "Z - q",
+              "decimals": 0
+            },
+            "working": [
+              "Electrons in the atom = atomic number = {Z}.",
+              "The ion has lost {q} electrons, so electrons = {Z} − {q} = {answer}.",
+              "Neutrons would be A − Z = {A} − {Z}."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Protons = Z. Neutrons = A − Z. Electrons = Z − charge.",
+            "The number of protons decides the element. The number of electrons decides the charge."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Isotopes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Atoms of one element are not all identical. This section covers what isotopes are, how they are written and how their properties compare."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Isotopes",
+              "meaning": "Atoms of the same element with the same number of protons but different numbers of neutrons, so they have different mass numbers."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "An isotope is written with its mass number at the top left and its atomic number at the bottom left, for example ¹²₆C and ¹⁴₆C. Both have 6 protons."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of two chlorine isotopes: chlorine-35 and chlorine-37 have the same protons and electrons, but 18 and 20 neutrons.",
+            "items": [
+              "³⁵₁₇Cl",
+              "³⁷₁₇Cl"
+            ],
+            "rows": [
+              {
+                "feature": "Protons",
+                "values": [
+                  "17",
+                  "17"
+                ]
+              },
+              {
+                "feature": "Neutrons",
+                "values": [
+                  "18",
+                  "20"
+                ]
+              },
+              {
+                "feature": "Electrons (atom)",
+                "values": [
+                  "17",
+                  "17"
+                ]
+              },
+              {
+                "feature": "Electron configuration",
+                "values": [
+                  "1s²2s²2p⁶3s²3p⁵",
+                  "1s²2s²2p⁶3s²3p⁵"
+                ]
+              },
+              {
+                "feature": "Relative mass",
+                "values": [
+                  "Lower",
+                  "Higher"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Chemical and physical properties"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Isotopes of an element have the **same chemical properties**. Chemical reactions depend on the electrons, and isotopes have the same number of electrons in the same arrangement.",
+            "Neutrons have no charge, so they do not change how the atom reacts.",
+            "Isotopes have **different physical properties**, such as mass and density, because more neutrons mean a greater mass.",
+            "Properties that depend on mass also differ, such as the rate of diffusion of a gas."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Isotopes: same number of protons, different number of neutrons.",
+            "Same electron arrangement, so the same chemical properties.",
+            "Different mass, so different physical properties such as density."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the relative mass and relative charge of a proton, a neutron and an electron.",
+      "a": "Proton: mass 1, charge +1. Neutron: mass 1, charge 0. Electron: mass 1/1836 (or negligible), charge −1.",
+      "marks": 3
+    },
+    {
+      "q": "A sulfide ion, ³²₁₆S²⁻, is formed. State the number of protons, neutrons and electrons in it.",
+      "a": "16 protons. 32 − 16 = 16 neutrons. 16 + 2 = 18 electrons.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why ³⁵Cl and ³⁷Cl have the same chemical properties but different densities.",
+      "a": "They have the same number of electrons, in the same arrangement, so they react in the same way. ³⁷Cl has two more neutrons, so its atoms have a greater mass and a greater density.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.1a",
+        "OCR 2.1.1b"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 1.1",
+        "EDEX 1.2",
+        "EDEX 1.3",
+        "EDEX 1.4",
+        "EDEX 1.5"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.1.1",
+        "AQA 3.1.1.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A mass spectrometer is the instrument that shows isotopes directly. The next note covers it in full; here is the outline."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A time of flight instrument has five stages: ionisation, acceleration to give all ions the same kinetic energy, ion drift, ion detection and data analysis.",
+                "It gives accurate relative isotopic masses and the relative abundance of each isotope.",
+                "A spectrum of an element has one peak per isotope, so it can identify the element. A molecule's heaviest peak gives its relative molecular mass."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Mass spectrometry measures isotope masses and abundances.",
+                "It can identify elements and find relative molecular mass."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 1.1.1",
+        "CAIE 1.1.2",
+        "CAIE 1.1.3",
+        "CAIE 1.1.4",
+        "CAIE 1.1.5",
+        "CAIE 1.1.6",
+        "CAIE 1.2.1",
+        "CAIE 1.2.2",
+        "CAIE 1.2.3",
+        "CAIE 1.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Protons, neutrons and electrons moving at the same velocity can be sent through an electric field between two charged plates. Their paths show their charge and mass."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Protons** are positive, so they bend towards the negative plate.",
+                "**Electrons** are negative, so they bend towards the positive plate.",
+                "**Neutrons** have no charge, so they go straight on and are not deflected.",
+                "The electron beam bends further than the proton beam. The charges are equal in size, but an electron is about 1836 times lighter, so it is deflected much more."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The notation ˣ_yA gives the mass number x at the top and the atomic number y at the bottom, as in ¹⁴₆C. Isotopes of one element share y but have different x."
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "In an electric field: protons towards negative, electrons towards positive, neutrons undeflected.",
+                "The electron is deflected more because it has far less mass for the same size of charge."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "4639743c-884b-4907-8825-811a62364421",
+      "4b768d7b-4438-4ae5-aa42-e8a85390cde8",
+      "3ed5f756-c4da-464e-b93b-bbed8d74121d",
+      "6fdd0e2f-b5fd-474d-9a52-e2f306c8587b",
+      "a59d31b4-54d7-46c3-aa6a-e02486267ee7",
+      "3a517982-1564-4c2c-add5-52b0533d340b",
+      "802e2f02-d0a7-4501-b615-afa2abb19367",
+      "9205baea-92b0-435e-9900-da872fd8fe5b",
+      "318395be-7bd9-4557-a103-d8e5515da198",
+      "6ae723c2-c84f-4c70-bfa2-a0b9e504ed52",
+      "4fc79260-d883-42c1-bf4f-004686808224",
+      "b2523944-11e0-43a0-b45e-f12e901603fe",
+      "5e56c88e-922d-4a10-93a1-16319b93a057",
+      "3646174c-5958-45fc-9ee0-403ae2bcb403",
+      "850d33a9-80fa-4964-8881-297cb06c35d2",
+      "22e3e614-03dc-4930-9e98-c4a30cd2a62b",
+      "6f182d7e-d568-4759-bd13-453e548f731f",
+      "94d068b6-653d-49b0-a20e-4a62ca061e5d",
+      "754b3057-b487-4596-8516-f7c14ad9471f"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

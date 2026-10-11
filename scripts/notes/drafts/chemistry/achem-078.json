@@ -1,0 +1,606 @@
+{
+  "format": 1,
+  "concept_id": "achem-078",
+  "subject": "chemistry",
+  "title": "Aldehydes and ketones",
+  "key_idea": "Aldehydes and ketones contain a polar C=O group. Aldehydes are easily oxidised, ketones are not, and both are reduced to alcohols. Their carbon atom is attacked by nucleophiles such as H⁻ and CN⁻, which is nucleophilic addition.",
+  "sections": [
+    {
+      "heading": "The carbonyl group and physical properties",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Both families contain the carbonyl group, C=O. This section covers how to tell them apart and how the group affects boiling point and solubility."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Aldehyde",
+              "meaning": "The C=O group is at the end of the chain, so the carbon has one H attached: R–CHO."
+            },
+            {
+              "term": "Ketone",
+              "meaning": "The C=O group is inside the chain, joined to two carbon atoms: R–CO–R'."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Oxygen is more electronegative than carbon, so C=O is **polar**: Cδ+ and Oδ−.",
+            "Aldehydes and ketones have no O–H or N–H bond, so they do **not** form hydrogen bonds with each other.",
+            "Their molecules attract each other by permanent dipole–dipole forces and London forces.",
+            "Boiling points are higher than alkanes of similar size, but lower than alcohols, which do hydrogen bond."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The lone pair on the oxygen can form a hydrogen bond with a δ+ hydrogen in water.",
+            "Short-chain aldehydes and ketones are therefore **soluble** in water.",
+            "Solubility falls as the hydrocarbon chain gets longer."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Aldehyde: R–CHO at the end of the chain. Ketone: R–CO–R' inside the chain.",
+            "No intermolecular hydrogen bonds, so boiling points are lower than alcohols.",
+            "They hydrogen bond with water, so small ones dissolve."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making and oxidising carbonyl compounds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Alcohols are oxidised to carbonyl compounds. Only aldehydes can be oxidised further. In equations the oxidising agent is written as [O]."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Starting material",
+            "Product",
+            "Conditions"
+          ],
+          "rows": [
+            [
+              "Primary alcohol",
+              "Aldehyde",
+              "Acidified dichromate(VI), heat and distil off the aldehyde as it forms"
+            ],
+            [
+              "Secondary alcohol",
+              "Ketone",
+              "Acidified dichromate(VI), heat and distil"
+            ],
+            [
+              "Aldehyde",
+              "Carboxylic acid",
+              "Acidified dichromate(VI), heat under reflux"
+            ],
+            [
+              "Ketone",
+              "No reaction",
+              "Not oxidised under these conditions"
+            ]
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Oxidation of an aldehyde",
+          "formula": "RCHO + [O] → RCOOH",
+          "where": [
+            "[O] = oxygen supplied by the oxidising agent"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Distilling the aldehyde out as it forms stops it being oxidised to the acid.",
+            "Refluxing with excess oxidant gives the carboxylic acid.",
+            "A ketone has no hydrogen on its carbonyl carbon, so it resists oxidation.",
+            "Acidified dichromate(VI) turns from **orange** to **green** (Cr³⁺) when it oxidises something."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Primary alcohol gives an aldehyde, then a carboxylic acid.",
+            "Secondary alcohol gives a ketone, which is not oxidised further.",
+            "Distil to stop at the aldehyde, reflux to reach the acid."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reduction and nucleophilic addition",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Carbonyl compounds are reduced to alcohols and react with cyanide. Both are nucleophilic addition, because the nucleophile attacks the δ+ carbon."
+        },
+        {
+          "type": "subheading",
+          "text": "Reduction to alcohols"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Reducing agents: NaBH₄ in aqueous solution, or LiAlH₄ in dry ether.",
+            "Aldehydes are reduced to **primary** alcohols.",
+            "Ketones are reduced to **secondary** alcohols.",
+            "In equations the reducing agent is written as [H]."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Reduction of a carbonyl compound",
+          "formula": "CH₃CHO + 2[H] → CH₃CH₂OH     CH₃COCH₃ + 2[H] → CH₃CH(OH)CH₃"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Attack.",
+              "text": "A hydride ion, H⁻, from the reducing agent uses its lone pair to attack the δ+ carbon."
+            },
+            {
+              "lead": "Bond breaks.",
+              "text": "The C=O π bond breaks. Both electrons move onto oxygen, giving a negative intermediate."
+            },
+            {
+              "lead": "Protonation.",
+              "text": "The O⁻ takes a hydrogen ion from water (or dilute acid) to form the alcohol."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Addition of hydrogen cyanide"
+        },
+        {
+          "type": "paragraph",
+          "text": "Aldehydes and ketones react with HCN, with KCN as a catalyst, to form hydroxynitriles. The attacking nucleophile is the cyanide ion, CN⁻."
+        },
+        {
+          "type": "equation",
+          "label": "Hydroxynitrile formation",
+          "formula": "CH₃CHO + HCN → CH₃CH(OH)CN     CH₃COCH₃ + HCN → (CH₃)₂C(OH)CN"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Attack.",
+              "text": "CN⁻ uses its lone pair on carbon to attack the δ+ carbon of C=O."
+            },
+            {
+              "lead": "Bond breaks.",
+              "text": "The C=O π bond breaks and its electrons move onto oxygen, giving an O⁻ intermediate."
+            },
+            {
+              "lead": "Protonation.",
+              "text": "The O⁻ takes H⁺ from water or HCN, forming the hydroxynitrile and regenerating CN⁻."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The C=O group is planar, so CN⁻ can attack from either side with equal chance.",
+            "Aldehydes and **unsymmetrical** ketones give a new chiral carbon, so two enantiomers form in equal amounts.",
+            "This racemic mixture does not rotate plane-polarised light, so it has no optical activity.",
+            "A symmetrical ketone such as propanone gives a product with no chiral carbon."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Aldehyde gives a primary alcohol, ketone a secondary alcohol.",
+            "Both reductions and the HCN reaction are nucleophilic addition.",
+            "Attack from either side of the planar C=O gives a racemic mixture."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Chemical tests for carbonyl compounds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Four tests identify carbonyl compounds. Pick a compound to see what each test gives."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick a carbonyl compound to see the result of Tollens' reagent, Fehling's solution, 2,4-DNPH and alkaline iodine.",
+            "prompt": "Pick a carbonyl compound.",
+            "result_labels": [
+              "Tollens' reagent (warm)",
+              "Fehling's solution (warm)",
+              "2,4-DNPH",
+              "Alkaline iodine"
+            ],
+            "options": [
+              {
+                "label": "Ethanal, CH₃CHO",
+                "results": [
+                  "Silver mirror",
+                  "Brick-red precipitate",
+                  "Orange precipitate",
+                  "Yellow precipitate"
+                ],
+                "explanation": "An aldehyde, so it is oxidised by Tollens' and Fehling's. It contains CH₃CO, so it gives the iodine test.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Tollens'",
+                      "colour": "colourless",
+                      "precipitate": "grey"
+                    },
+                    {
+                      "label": "Fehling's",
+                      "colour": "blue",
+                      "precipitate": "brick-red"
+                    },
+                    {
+                      "label": "2,4-DNPH",
+                      "colour": "orange",
+                      "precipitate": "orange"
+                    },
+                    {
+                      "label": "I₂/OH⁻",
+                      "colour": "pale-yellow",
+                      "precipitate": "yellow"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Propanal, CH₃CH₂CHO",
+                "results": [
+                  "Silver mirror",
+                  "Brick-red precipitate",
+                  "Orange precipitate",
+                  "No yellow precipitate"
+                ],
+                "explanation": "An aldehyde, so it is oxidised. It has no CH₃CO group, so the iodine test is negative.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Tollens'",
+                      "colour": "colourless",
+                      "precipitate": "grey"
+                    },
+                    {
+                      "label": "Fehling's",
+                      "colour": "blue",
+                      "precipitate": "brick-red"
+                    },
+                    {
+                      "label": "2,4-DNPH",
+                      "colour": "orange",
+                      "precipitate": "orange"
+                    },
+                    {
+                      "label": "I₂/OH⁻",
+                      "colour": "pale-yellow"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Propanone, CH₃COCH₃",
+                "results": [
+                  "No change",
+                  "No change (stays blue)",
+                  "Orange precipitate",
+                  "Yellow precipitate"
+                ],
+                "explanation": "A ketone, so it is not oxidised. It contains CH₃CO, so it gives the iodine test.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Tollens'",
+                      "colour": "colourless"
+                    },
+                    {
+                      "label": "Fehling's",
+                      "colour": "blue"
+                    },
+                    {
+                      "label": "2,4-DNPH",
+                      "colour": "orange",
+                      "precipitate": "orange"
+                    },
+                    {
+                      "label": "I₂/OH⁻",
+                      "colour": "pale-yellow",
+                      "precipitate": "yellow"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Pentan-3-one, CH₃CH₂COCH₂CH₃",
+                "results": [
+                  "No change",
+                  "No change (stays blue)",
+                  "Orange precipitate",
+                  "No yellow precipitate"
+                ],
+                "explanation": "A ketone, so it is not oxidised. It has no CH₃CO group, so the iodine test is negative.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Tollens'",
+                      "colour": "colourless"
+                    },
+                    {
+                      "label": "Fehling's",
+                      "colour": "blue"
+                    },
+                    {
+                      "label": "2,4-DNPH",
+                      "colour": "orange",
+                      "precipitate": "orange"
+                    },
+                    {
+                      "label": "I₂/OH⁻",
+                      "colour": "pale-yellow"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Test",
+            "Detects",
+            "Positive result"
+          ],
+          "rows": [
+            [
+              "2,4-dinitrophenylhydrazine (2,4-DNPH)",
+              "Any carbonyl group",
+              "Orange or yellow precipitate"
+            ],
+            [
+              "Tollens' reagent (ammoniacal silver nitrate)",
+              "Aldehyde only",
+              "Silver mirror"
+            ],
+            [
+              "Fehling's or Benedict's solution",
+              "Aldehyde only",
+              "Blue solution to brick-red precipitate"
+            ],
+            [
+              "Alkaline iodine",
+              "CH₃CO group",
+              "Pale yellow precipitate of CHI₃"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tollens' reagent: the aldehyde is oxidised to a carboxylic acid and Ag⁺ is reduced to silver: Ag⁺ + e⁻ → Ag.",
+            "Fehling's or Benedict's: the aldehyde is oxidised and blue Cu²⁺ is reduced to red Cu₂O.",
+            "Ketones give no change with Tollens' or Fehling's, because they are not easily oxidised.",
+            "2,4-DNPH gives a precipitate with aldehydes and ketones, so it does not tell them apart."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Precipitate.",
+              "text": "Add 2,4-DNPH. An orange or yellow solid shows a carbonyl group."
+            },
+            {
+              "lead": "Purify.",
+              "text": "Filter and recrystallise the solid, then dry it."
+            },
+            {
+              "lead": "Melt.",
+              "text": "Measure its melting point and compare it with a data table of derivatives to identify the carbonyl compound."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Alkaline iodine is I₂ with NaOH. A yellow precipitate of tri-iodomethane, CHI₃, shows a CH₃CO group in an aldehyde or ketone, CH₃CO–R.",
+            "Ethanal is the only aldehyde that gives it. Propanone and butanone are examples of ketones that do."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "2,4-DNPH detects C=O. Tollens' and Fehling's separate aldehydes from ketones.",
+            "Aldehydes reduce the reagent, so they are oxidised to carboxylic acids.",
+            "A yellow precipitate with alkaline iodine shows CH₃CO."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why propanone is soluble in water but does not form hydrogen bonds with other propanone molecules.",
+      "a": "The oxygen lone pair forms hydrogen bonds with the δ+ hydrogen of water, so it dissolves. Propanone has no O–H or N–H bond, so it has no δ+ hydrogen to hydrogen bond with another propanone molecule.",
+      "marks": 3
+    },
+    {
+      "q": "Describe a test that distinguishes pentanal from pentan-2-one, and give the observation with each.",
+      "a": "Warm with Tollens' reagent (or Fehling's solution). Pentanal gives a silver mirror (brick-red precipitate); pentan-2-one gives no change.",
+      "marks": 3
+    },
+    {
+      "q": "Outline the mechanism for the reaction of ethanal with HCN and KCN, and explain why the product is a racemic mixture.",
+      "a": "CN⁻ attacks the δ+ carbon of C=O with its lone pair. The C=O π bond breaks and the electrons move onto oxygen, giving an O⁻ intermediate, which is protonated by H₂O or HCN to give CH₃CH(OH)CN. C=O is planar, so CN⁻ attacks from either side equally, giving equal amounts of two enantiomers.",
+      "marks": 5
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.2a",
+        "OCR 6.1.2b",
+        "OCR 6.1.2c",
+        "OCR 6.1.2d",
+        "OCR 6.1.2e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the reagents in the form they are written in equations."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Oxidising agent: Cr₂O₇²⁻/H⁺, which is K₂Cr₂O₇ with H₂SO₄. Write [O] in equations.",
+                "NaBH₄ reduces the carbonyl to an alcohol. The nucleophile is the hydride ion, H⁻, and the intermediate is protonated by H₂O.",
+                "HCN is made from NaCN(aq)/H⁺(aq). The first attack is by CN⁻, then the intermediate is protonated by H₂O or H⁺.",
+                "For Tollens' reagent, [O] is acceptable in equations."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 17B.6",
+        "EDEX 17B.7",
+        "EDEX 17B.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers how to show the HCN mechanism and the reagents for each test."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Draw the mechanism with curly arrows, the lone pair on CN⁻ and the dipole on C=O.",
+                "Optical activity is the evidence: the product mixture does not rotate plane-polarised light, because the two enantiomers are equal in amount.",
+                "Lithium aluminium hydride (LiAlH₄) in dry ether reduces the carbonyl. It reacts with water, so the ether must be dry.",
+                "Benedict's solution can be used in place of Fehling's solution."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the hazards of KCN and how to write the overall equations."
+            },
+            {
+              "type": "list",
+              "items": [
+                "KCN is **highly toxic**. It releases poisonous HCN gas on contact with acid, so it must be handled in a fume cupboard with gloves.",
+                "Write overall reduction equations with [H], as shown above.",
+                "Write the HCN equations as carbonyl + HCN → hydroxynitrile.",
+                "In the hydride mechanism, show H⁻ as the nucleophile attacking the C=O carbon.",
+                "The hydroxynitrile is made with KCN followed by dilute acid. The cyanide ion attacks first, and the dilute acid then supplies the H⁺ that protonates the intermediate."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 17.1.1",
+        "CAIE 17.1.2",
+        "CAIE 17.1.3",
+        "CAIE 17.1.4",
+        "CAIE 17.1.5",
+        "CAIE 17.1.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the reagents and conditions, and the full iodine test equation."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Acidified KMnO₄ can be used instead of acidified K₂Cr₂O₇ to oxidise alcohols. Distil to obtain an aldehyde or a ketone.",
+                "NaBH₄ or LiAlH₄ reduce aldehydes and ketones to alcohols.",
+                "HCN needs a little KCN as catalyst, and heat. The examples are ethanal and propanone.",
+                "Ease of oxidation, together with Fehling's and Tollens' reagents, is used to deduce whether an unknown carbonyl compound is an aldehyde or a ketone."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Tri-iodomethane test",
+              "formula": "CH₃COR + 3I₂ + 4OH⁻ → CHI₃ + RCO₂⁻ + 3I⁻ + 3H₂O",
+              "where": [
+                "CHI₃ is the pale yellow precipitate",
+                "RCO₂⁻ stays in solution"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "a76206c6-0597-4dec-9fdd-422a28c88da4",
+      "510b279d-264d-4f6f-9abb-2945d0fb19d9",
+      "ae316994-1558-4f81-9c11-1ebaecafcd3e",
+      "a93fa2f7-10a0-4bdf-a24b-6273c78600eb",
+      "bdf3715d-9f5a-49bb-acd5-7ba1790f4fa8",
+      "5cdf992e-49c5-4a9c-a35d-233286e4da36",
+      "467bf103-08b6-4ccf-9540-65f21c539630",
+      "404f81c6-2fd7-4872-84f8-327f07b1e5b7",
+      "06ee9229-ff0b-482c-a88e-facc508f1590",
+      "f09c9461-7128-43a7-bbd9-4c8d850ad4ac",
+      "8fca82be-4245-47bb-8a8c-b9983a8d97b4",
+      "bb7bb389-f337-4e86-8db7-c95d0edd59c3",
+      "eb4b77c3-a5d0-4c83-8403-532716af9c8f",
+      "68f0f091-3dd7-4652-afd6-824857531e87",
+      "57cb69cb-4f16-40f9-a563-9050df7d37d0"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

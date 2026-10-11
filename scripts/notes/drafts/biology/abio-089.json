@@ -1,0 +1,294 @@
+{
+  "format": 1,
+  "concept_id": "abio-089",
+  "subject": "biology",
+  "title": "Core practicals: cells and physiology",
+  "key_idea": "These core practicals use living material to test biological ideas: caffeine and Daphnia heart rate, alcohol or temperature and membrane permeability, root tip squashes to see mitosis, respiration rate, spirometer traces and habituation. Each needs a control, careful variables and ethical handling of living things.",
+  "sections": [
+    {
+      "heading": "Caffeine and Daphnia heart rate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Daphnia are small water fleas with a transparent body, so the heart can be seen under a microscope. The effect of caffeine, a stimulant, on heart rate can be measured."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Prepare",
+              "text": "Make caffeine solutions of different concentrations by dilution, plus a control in pond water only."
+            },
+            {
+              "lead": "Place",
+              "text": "Put a Daphnia in a small amount of solution on a cavity slide, with cotton wool fibres to hold it still."
+            },
+            {
+              "lead": "Wait",
+              "text": "Leave it for a fixed time, for example 5 minutes, so the solution takes effect."
+            },
+            {
+              "lead": "Count",
+              "text": "Count heartbeats for a fixed time, such as 30 seconds, under a low-power microscope, and calculate beats per minute."
+            },
+            {
+              "lead": "Repeat",
+              "text": "Use a fresh Daphnia for each concentration, and rinse and rest between tests."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Control temperature, time in solution, size and age of Daphnia, and volume of solution.",
+            "Caffeine raises the heart rate in Daphnia. Higher concentrations may be harmful.",
+            "Daphnia are living animals. Use as few as possible, handle with care, return them to pond water afterwards, and keep them under the light for as short a time as you can.",
+            "Counting heartbeats is difficult, so repeats and a stopwatch help."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Count beats per minute with a control for comparison.",
+            "Handle Daphnia gently and use the fewest possible."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Membrane permeability and a root tip squash",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two core practicals use plant tissue. One tests how a membrane responds to alcohol or heat, the other shows chromosomes in dividing cells."
+        },
+        {
+          "type": "subheading",
+          "text": "Effect of alcohol or temperature on membrane permeability"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Beetroot cells hold a red pigment (betalain) in their vacuoles, kept in by the membranes.",
+            "Cut equal-sized pieces of beetroot, rinse them, and place one in each tube of a range of alcohol concentrations or at a range of temperatures, in a water bath.",
+            "Leave for the same time. Remove the beetroot.",
+            "Higher alcohol concentrations and higher temperatures damage the membranes (they dissolve phospholipids and denature proteins), so more pigment leaks out.",
+            "Measure the pigment with a colorimeter, using a blue-green filter. The higher the absorbance, the greater the permeability.",
+            "Control the size and surface area of the beetroot pieces, the volume of liquid and the time."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Root tip squash"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mitosis happens in the meristem near the tip of a root, so cells there are dividing.",
+            "Hydrochloric acid breaks down the middle lamella, which separates the cells.",
+            "A stain such as toluidine blue or acetic orcein colours the chromosomes.",
+            "Squashing spreads the cells into a single layer thin enough for light to pass through."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of a root tip squash in order.",
+            "prompt": "Put these steps of making a root tip squash in order.",
+            "steps": [
+              "Cut a few millimetres from the tip of a root",
+              "Warm the tip in hydrochloric acid",
+              "Place it on a slide and add stain",
+              "Add a coverslip and squash gently",
+              "View under the microscope"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The stages seen are prophase, metaphase, anaphase and telophase, plus interphase.",
+            "Count the cells in each stage in a field of view, and many fields.",
+            "The stage with the most cells is the one that lasts longest.",
+            "The **mitotic index** is the number of cells in mitosis ÷ the total number of cells."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "More pigment out of beetroot means more damaged membranes.",
+            "Acid and stain make a root tip squash show chromosomes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Respiration and breathing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two core practicals investigate the rate of respiration and the effect of exercise on breathing."
+        },
+        {
+          "type": "subheading",
+          "text": "The rate of respiration"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A respirometer measures the oxygen taken up by living organisms, such as germinating seeds, insects or yeast.",
+            "Carbon dioxide produced is absorbed by soda lime or potassium hydroxide, so any change in gas volume is the oxygen used.",
+            "The liquid in a capillary tube moves towards the organisms as oxygen is used. The distance it moves in a set time gives the rate.",
+            "Use a control tube with glass beads in place of the organisms, and keep it in a water bath to hold the temperature steady.",
+            "Compare rates at different temperatures or with different organisms.",
+            "Allow time for the temperature to settle before starting."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Spirometer traces"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A spirometer records the volume of air breathed in and out. The trace rises and falls as the person breathes.",
+            "**Tidal volume** is the volume of air in each normal breath.",
+            "**Breathing rate** is the number of breaths per minute.",
+            "**Minute ventilation** is the total volume of air breathed in one minute.",
+            "**Oxygen consumption** is found from the fall in the trace over time, as the carbon dioxide is absorbed. The gradient of the trace gives the rate.",
+            "Exercise increases tidal volume, breathing rate, minute ventilation and oxygen consumption, because muscles respire faster."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Minute ventilation",
+          "formula": "minute ventilation = tidal volume × breathing rate",
+          "where": [
+            "minute ventilation = in dm³ per minute",
+            "tidal volume = in dm³",
+            "breathing rate = in breaths per minute"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A minute ventilation calculation with new numbers each time.",
+            "question": "A student has a tidal volume of {tv} dm³ and a breathing rate of {br} breaths per minute. Calculate the minute ventilation in dm³ per minute.",
+            "variables": [
+              {
+                "id": "tv",
+                "min": 0.4,
+                "max": 2.0,
+                "step": 0.2
+              },
+              {
+                "id": "br",
+                "min": 10,
+                "max": 30,
+                "step": 2
+              }
+            ],
+            "answer": {
+              "formula": "tv * br",
+              "unit": "dm³ per minute",
+              "decimals": 1,
+              "tolerance_percent": 2
+            },
+            "working": [
+              "Minute ventilation = tidal volume × breathing rate.",
+              "Minute ventilation = {tv} × {br}.",
+              "Minute ventilation = {answer} dm³ per minute"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A respirometer follows oxygen uptake once the carbon dioxide is absorbed.",
+            "Minute ventilation = tidal volume × breathing rate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Habituation to a stimulus",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Habituation is a learned decrease in response to a repeated stimulus that is neither helpful nor harmful. It is investigated in animals such as woodlice, snails or earthworms, or in simple human responses."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Apply a stimulus, such as a gentle touch, a puff of air or a shadow, and record the response, for example whether a snail withdraws.",
+            "Repeat the stimulus at regular intervals and count how many times it takes before the response stops.",
+            "Compare with a different or stronger stimulus: the response returns, which shows the animal is not just tired.",
+            "Control the strength of the stimulus, the time between stimuli, the temperature, light and noise.",
+            "Use animals humanely: handle them gently, use the fewest, avoid stress and return them to their habitat."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Habituation stops an animal wasting energy on unimportant stimuli.",
+            "It lets the animal respond to new, more important stimuli, such as a predator."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Habituation is a reduced response to a stimulus that is repeated and harmless.",
+            "A new stimulus restores the response, showing it is not fatigue."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why a control group with no caffeine is needed when investigating the effect of caffeine on Daphnia heart rate.",
+      "a": "To show the heart rate under normal conditions; so any change in heart rate can be attributed to caffeine and not to other factors (such as temperature, handling or light).",
+      "marks": 2
+    },
+    {
+      "q": "Explain why more red pigment leaks from beetroot placed in a high concentration of ethanol.",
+      "a": "Ethanol dissolves the phospholipids in the cell membrane (and denatures membrane proteins); so the membranes become more permeable; so the pigment leaks out of the vacuole and the cell.",
+      "marks": 3
+    },
+    {
+      "q": "A person has a tidal volume of 0.5 dm³ at rest and a breathing rate of 14 breaths per minute. During exercise the breathing rate is 30 breaths per minute and the tidal volume is 2.0 dm³. Calculate the change in minute ventilation.",
+      "a": "Rest: 0.5 × 14 = 7.0 dm³ per minute; exercise: 2.0 × 30 = 60 dm³ per minute; increase = 53 dm³ per minute.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 1.CP1",
+        "EDEX 2.CP3",
+        "EDEX 3.CP5",
+        "EDEX 7.CP16",
+        "EDEX 7.CP17",
+        "EDEX 8.CP18"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "ddea7c7a-963e-4613-90fd-738201351036",
+      "cf65cc1f-53a0-4df9-8490-219730efba9b",
+      "a5eca6db-ac8b-4611-85f1-9c49206756de",
+      "ac32eb53-e83f-4270-8516-b0beb7ab1b88",
+      "d4ec5ca0-1efb-407f-9339-6a37913d46bf",
+      "ee89157d-0087-4927-8662-97d0f2f08d45"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

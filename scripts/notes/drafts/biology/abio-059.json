@@ -1,0 +1,235 @@
+{
+  "format": 1,
+  "concept_id": "abio-059",
+  "subject": "biology",
+  "title": "Oxidative phosphorylation",
+  "key_idea": "Oxidative phosphorylation makes most of the ATP in aerobic respiration. Reduced coenzymes give up hydrogen, and the electrons pass down the electron transport chain on the inner mitochondrial membrane. The energy released pumps protons, and protons flowing back through ATP synthase make ATP. Oxygen is the final electron acceptor.",
+  "sections": [
+    {
+      "heading": "The electron transport chain",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Oxidative phosphorylation happens on the inner mitochondrial membrane, at the cristae. It makes ATP using energy from the oxidation of reduced coenzymes."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Hydrogen is released.",
+              "text": "Reduced NAD and reduced FAD give up their hydrogen atoms, which split into protons (H⁺) and energetic electrons. NAD and FAD are regenerated."
+            },
+            {
+              "lead": "Electrons pass along the chain.",
+              "text": "The electrons move from one electron carrier to the next. Each carrier is at a slightly lower energy level, so energy is released in small steps."
+            },
+            {
+              "lead": "Protons are pumped.",
+              "text": "The released energy is used to pump protons from the matrix into the intermembrane space, across the inner membrane."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reduced coenzymes give hydrogen to the electron transport chain.",
+            "Electrons release energy as they pass along the chain.",
+            "That energy pumps protons into the intermembrane space."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Chemiosmosis and ATP synthase",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The proton gradient across the inner membrane stores energy. ATP synthase uses it to make ATP in a process called chemiosmosis."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Protons build up in the intermembrane space, so their concentration is higher there than in the matrix.",
+            "The inner membrane is impermeable to protons, so they can only cross through ATP synthase.",
+            "Protons flow down their electrochemical gradient through ATP synthase by facilitated diffusion, back into the matrix.",
+            "The energy from this flow is used by ATP synthase to join ADP and Pi into ATP.",
+            "This is the **chemiosmotic theory**."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity. Put the steps of oxidative phosphorylation in order.",
+            "prompt": "Put the steps of oxidative phosphorylation in order",
+            "steps": [
+              "Reduced NAD gives up hydrogen at the inner membrane",
+              "Hydrogen splits into protons and energetic electrons",
+              "Electrons pass along the electron transport chain",
+              "Energy released pumps protons into the intermembrane space",
+              "Protons flow back through ATP synthase into the matrix",
+              "ADP and Pi are joined to make ATP"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Proton gradient across the inner membrane = stored energy.",
+            "Protons flow through ATP synthase, which makes ATP.",
+            "The membrane must be impermeable to protons for a gradient to form."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The role of oxygen",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Oxygen is the final electron acceptor at the end of the chain. Without it the whole chain stops."
+        },
+        {
+          "type": "equation",
+          "label": "Formation of water",
+          "formula": "4H⁺ + 4e⁻ + O₂ → 2H₂O",
+          "where": [
+            "Protons and electrons are combined with oxygen at the end of the chain",
+            "Water is a product of aerobic respiration"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Oxygen removes electrons from the last carrier, so the carriers are free to accept more.",
+            "If oxygen is absent, electrons back up along the chain, the carriers stay reduced and the proton gradient is lost.",
+            "Reduced NAD and reduced FAD can no longer be oxidised, so the Krebs cycle and link reaction stop as well.",
+            "Only substrate-level phosphorylation in glycolysis can continue, so the cell must use anaerobic respiration."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Oxygen is the final electron acceptor and forms water.",
+            "Without oxygen, the chain and the Krebs cycle stop.",
+            "Oxidative phosphorylation makes the most ATP of any stage."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how the electron transport chain leads to the production of ATP in mitochondria.",
+      "a": "Reduced NAD and FAD give up hydrogen, which splits into protons and electrons. The electrons pass along carriers and release energy, which pumps protons into the intermembrane space. Protons flow back into the matrix through ATP synthase, and the energy makes ATP from ADP and Pi.",
+      "marks": 5
+    },
+    {
+      "q": "State the role of oxygen in aerobic respiration.",
+      "a": "Oxygen is the final electron acceptor. It combines with electrons and protons at the end of the chain to form water.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the Krebs cycle stops if oxygen is not available.",
+      "a": "Without oxygen the electron transport chain stops. Reduced NAD and reduced FAD cannot be oxidised, so NAD and FAD are not regenerated. The Krebs cycle needs NAD and FAD, so it cannot continue.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Explain how ATP is synthesised by oxidative phosphorylation, associated with the electron transport chain in mitochondria, including the role of chemiosmosis and ATP synthase.",
+                "Link the energy to the process: phosphorylation of ADP needs energy, which here comes from the oxidation of reduced coenzymes."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 12.2.8",
+        "CAIE 12.1.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "State that ATP is made in two ways: by transfer of phosphate in substrate-linked reactions, and by chemiosmosis in membranes of mitochondria and chloroplasts.",
+                "Details of the carriers and of ATP synthase are not expected.",
+                "Protons return to the mitochondrial matrix by facilitated diffusion through ATP synthase."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.2g",
+        "OCR 5.2.2h"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe the roles of electron carriers, oxygen and the mitochondrial cristae.",
+                "Explain the chemiosmotic theory for both oxidative phosphorylation and photophosphorylation: electron transport chain, proton gradient and ATP synthase.",
+                "Compare the two: in oxidative phosphorylation protons are pumped into the intermembrane space and return to the matrix; in photophosphorylation they are pumped into the thylakoid space and return to the stroma."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.5.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Synthesis of ATP by oxidative phosphorylation is associated with the transfer of electrons down the electron transfer chain and the passage of protons across the inner mitochondrial membrane.",
+                "It is catalysed by ATP synthase embedded in these membranes (chemiosmotic theory)."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "34615c28-3698-4fa4-a0b9-b85066628d18",
+      "db7859cc-147f-4299-a666-5c19a644112b",
+      "0d620dbc-4913-4cdf-b9ef-0d4eefb4278e",
+      "4d67e3e1-9008-4b90-be7a-a39758814d12",
+      "64e3419f-cfa4-4e1c-b9ad-c507b5e5a92d"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

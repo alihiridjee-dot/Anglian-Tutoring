@@ -1,0 +1,593 @@
+{
+  "format": 1,
+  "concept_id": "achem-051",
+  "subject": "chemistry",
+  "title": "Period 3 oxides and chlorides",
+  "key_idea": "Period 3 elements form oxides that change from basic to amphoteric to acidic. The change follows bonding: ionic oxides give alkaline solutions, covalent oxides give acidic ones. Chlorides follow the same pattern, with covalent ones hydrolysed by water.",
+  "sections": [
+    {
+      "heading": "Reactions of the Period 3 elements",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sodium to sulfur react with oxygen and chlorine, and sodium and magnesium react with water. This section covers each reaction and the products."
+        },
+        {
+          "type": "subheading",
+          "text": "With water"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sodium reacts vigorously with cold water. It melts, fizzes and moves on the surface.",
+            "Magnesium reacts very slowly with cold water but burns in steam.",
+            "The others do not react with water."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Reaction",
+            "Equation"
+          ],
+          "rows": [
+            [
+              "Na + cold water",
+              "2Na + 2H₂O → 2NaOH + H₂"
+            ],
+            [
+              "Mg + cold water (slow)",
+              "Mg + 2H₂O → Mg(OH)₂ + H₂"
+            ],
+            [
+              "Mg + steam",
+              "Mg + H₂O → MgO + H₂"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "With oxygen and chlorine"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Element",
+            "Equation with oxygen",
+            "Equation with chlorine"
+          ],
+          "rows": [
+            [
+              "Na",
+              "4Na + O₂ → 2Na₂O",
+              "2Na + Cl₂ → 2NaCl"
+            ],
+            [
+              "Mg",
+              "2Mg + O₂ → 2MgO",
+              "Mg + Cl₂ → MgCl₂"
+            ],
+            [
+              "Al",
+              "4Al + 3O₂ → 2Al₂O₃",
+              "2Al + 3Cl₂ → 2AlCl₃"
+            ],
+            [
+              "Si",
+              "Si + O₂ → SiO₂",
+              "Si + 2Cl₂ → SiCl₄"
+            ],
+            [
+              "P",
+              "P₄ + 5O₂ → P₄O₁₀",
+              "2P + 5Cl₂ → 2PCl₅"
+            ],
+            [
+              "S",
+              "S + O₂ → SO₂",
+              "–"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sodium burns with a yellow flame. Magnesium burns with a bright white flame. Sulfur burns with a blue flame.",
+            "Sulfur dioxide is oxidised to SO₃ only with a catalyst and heat: 2SO₂ + O₂ ⇌ 2SO₃.",
+            "Phosphorus forms PCl₅ in excess chlorine."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Na and Mg react with water to give hydroxides and hydrogen.",
+            "Each element burns in oxygen to form its oxide.",
+            "Each of Na, Mg, Al, Si and P forms a chloride with chlorine."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Oxides with water: pH and acid–base behaviour",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The oxides change from basic to acidic across the period. This section covers what each does with water, acids and bases."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Oxide",
+            "With water",
+            "Approximate pH",
+            "Behaviour"
+          ],
+          "rows": [
+            [
+              "Na₂O",
+              "Na₂O + H₂O → 2NaOH",
+              "13 to 14",
+              "Basic"
+            ],
+            [
+              "MgO",
+              "MgO + H₂O → Mg(OH)₂ (slightly soluble)",
+              "9 to 10",
+              "Basic"
+            ],
+            [
+              "Al₂O₃",
+              "Insoluble",
+              "7",
+              "Amphoteric"
+            ],
+            [
+              "SiO₂",
+              "Insoluble",
+              "7",
+              "Acidic"
+            ],
+            [
+              "P₄O₁₀",
+              "P₄O₁₀ + 6H₂O → 4H₃PO₄",
+              "0 to 2",
+              "Acidic"
+            ],
+            [
+              "SO₂",
+              "SO₂ + H₂O ⇌ H₂SO₃",
+              "2 to 3",
+              "Acidic"
+            ],
+            [
+              "SO₃",
+              "SO₃ + H₂O → H₂SO₄",
+              "0 to 1",
+              "Acidic"
+            ]
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Amphoteric",
+              "meaning": "Reacts with both acids and bases."
+            },
+            {
+              "term": "Basic oxide",
+              "meaning": "Reacts with acids to form a salt and water."
+            },
+            {
+              "term": "Acidic oxide",
+              "meaning": "Reacts with bases to form a salt and water."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Basic oxides react with acids. Acidic oxides react with bases. Aluminium oxide reacts with both."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Reaction",
+            "Equation"
+          ],
+          "rows": [
+            [
+              "Basic oxide with acid",
+              "MgO + 2HCl → MgCl₂ + H₂O"
+            ],
+            [
+              "Amphoteric: with acid",
+              "Al₂O₃ + 6HCl → 2AlCl₃ + 3H₂O"
+            ],
+            [
+              "Amphoteric: with alkali",
+              "Al₂O₃ + 2NaOH + 3H₂O → 2Na[Al(OH)₄]"
+            ],
+            [
+              "Acidic oxide with alkali",
+              "SiO₂ + 2NaOH → Na₂SiO₃ + H₂O"
+            ],
+            [
+              "Acidic oxide with alkali",
+              "SO₂ + 2NaOH → Na₂SO₃ + H₂O"
+            ],
+            [
+              "Acidic oxide with alkali",
+              "P₄O₁₀ + 12NaOH → 4Na₃PO₄ + 6H₂O"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Mg(OH)₂ is basic. Al(OH)₃ is amphoteric: it dissolves in acid and in excess sodium hydroxide. NaOH is a strong base."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick a Period 3 oxide to see its structure, what happens with water, the pH and its acid–base character.",
+            "prompt": "Pick an oxide.",
+            "result_labels": [
+              "Structure and bonding",
+              "With water",
+              "pH of the mixture",
+              "Acid–base character"
+            ],
+            "options": [
+              {
+                "label": "Na₂O",
+                "results": [
+                  "Giant ionic",
+                  "Reacts to form NaOH",
+                  "13 to 14",
+                  "Basic"
+                ]
+              },
+              {
+                "label": "MgO",
+                "results": [
+                  "Giant ionic",
+                  "Reacts slightly to form Mg(OH)₂",
+                  "9 to 10",
+                  "Basic"
+                ]
+              },
+              {
+                "label": "Al₂O₃",
+                "results": [
+                  "Giant ionic with some covalent character",
+                  "Does not dissolve",
+                  "7",
+                  "Amphoteric"
+                ]
+              },
+              {
+                "label": "SiO₂",
+                "results": [
+                  "Giant covalent",
+                  "Does not dissolve",
+                  "7",
+                  "Acidic"
+                ]
+              },
+              {
+                "label": "P₄O₁₀",
+                "results": [
+                  "Simple molecular, covalent",
+                  "Reacts to form H₃PO₄",
+                  "0 to 2",
+                  "Acidic"
+                ]
+              },
+              {
+                "label": "SO₂",
+                "results": [
+                  "Simple molecular, covalent",
+                  "Reacts to form H₂SO₃",
+                  "2 to 3",
+                  "Acidic"
+                ]
+              },
+              {
+                "label": "SO₃",
+                "results": [
+                  "Simple molecular, covalent",
+                  "Reacts to form H₂SO₄",
+                  "0 to 1",
+                  "Acidic"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Oxides go from basic (Na₂O, MgO) through amphoteric (Al₂O₃) to acidic (SiO₂ to SO₃).",
+            "Ionic oxides that dissolve give alkaline solutions. Covalent oxides that react give acidic solutions.",
+            "Al₂O₃ and Al(OH)₃ dissolve in both acid and alkali."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why the pattern changes: bonding and electronegativity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Bonding moves from ionic to covalent across the period. This section covers why, and how to work out the bonding from a property."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Oxygen and chlorine are very electronegative. Sodium and magnesium are not, so the electronegativity difference is large and the bonding is **ionic**.",
+            "The difference shrinks across the period. Al₂O₃ and AlCl₃ show covalent character, and SiO₂ and SiCl₄ are covalent.",
+            "Ionic oxides contain O²⁻ ions, which accept H⁺ from water to form OH⁻. So they are basic.",
+            "Covalent oxides of non-metals react with water to form acids, which release H⁺."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Property seen",
+            "Bonding it suggests"
+          ],
+          "rows": [
+            [
+              "High melting point, conducts when molten",
+              "Ionic"
+            ],
+            [
+              "Dissolves to a neutral or alkaline solution",
+              "Ionic"
+            ],
+            [
+              "Low melting point, does not conduct",
+              "Simple molecular covalent"
+            ],
+            [
+              "Fumes and gives an acidic solution with water",
+              "Covalent chloride or oxide"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The electronegativity difference with O or Cl decreases across the period.",
+            "Ionic compounds give basic or neutral solutions. Covalent compounds give acidic solutions.",
+            "Use melting point, conductivity and the pH of the solution to work out the bonding."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write the equation for the reaction of sodium with water and state the pH of the solution formed.",
+      "a": "2Na + 2H₂O → 2NaOH + H₂. The pH is about 13 to 14.",
+      "marks": 2
+    },
+    {
+      "q": "Aluminium oxide is amphoteric. Write an equation for its reaction with hydrochloric acid, and say what shows it is amphoteric.",
+      "a": "Al₂O₃ + 6HCl → 2AlCl₃ + 3H₂O. It is amphoteric because it also reacts with sodium hydroxide, so it reacts with both acid and base.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why phosphorus(V) oxide gives an acidic solution but sodium oxide gives an alkaline one.",
+      "a": "Na₂O is ionic and contains O²⁻ ions, which react with water to form OH⁻. P₄O₁₀ is a covalent non-metal oxide that reacts with water to form H₃PO₄, which releases H⁺.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the melting points of the highest oxides and the acids and anions formed from the acidic oxides."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Na₂O, MgO and Al₂O₃ have high melting points because the ionic lattice has strong attraction between ions. MgO is the highest of the three, as Mg²⁺ and O²⁻ are small and doubly charged.",
+                "SiO₂ has a very high melting point because it is a giant covalent lattice with strong bonds throughout.",
+                "P₄O₁₀, SO₂ and SO₃ have low melting points. They are simple molecules with weak London forces between them.",
+                "The trend: high for the giant oxides Na₂O to SiO₂, then a sharp fall to the molecular oxides."
+              ]
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Oxide",
+                "Acid formed",
+                "Anion formed"
+              ],
+              "rows": [
+                [
+                  "P₄O₁₀",
+                  "H₃PO₄ (phosphoric(V) acid)",
+                  "PO₄³⁻ (phosphate(V))"
+                ],
+                [
+                  "SO₂",
+                  "H₂SO₃ (sulfurous acid)",
+                  "SO₃²⁻ (sulfite)"
+                ],
+                [
+                  "SO₃",
+                  "H₂SO₄ (sulfuric acid)",
+                  "SO₄²⁻ (sulfate)"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "H₃PO₄: P bonded to one O by a double bond and to three OH groups.",
+                "H₂SO₄: S bonded to two O by double bonds and to two OH groups.",
+                "H₂SO₃: S bonded to one O by a double bond and to two OH groups, with a lone pair."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "In each acid the central atom is bonded to O atoms, and the OH groups lose H⁺. The anions are tetrahedral for PO₄³⁻ and SO₄²⁻, and pyramidal for SO₃²⁻."
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 9.2.1",
+        "CAIE 9.2.2",
+        "CAIE 9.2.3",
+        "CAIE 9.2.4",
+        "CAIE 9.2.5",
+        "CAIE 9.2.6",
+        "CAIE 9.2.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers oxidation numbers and the reactions of the chlorides with water."
+            },
+            {
+              "type": "subheading",
+              "text": "Oxidation numbers"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Oxide",
+                "Na₂O",
+                "MgO",
+                "Al₂O₃",
+                "P₄O₁₀",
+                "SO₂",
+                "SO₃"
+              ],
+              "rows": [
+                [
+                  "Oxidation number of the element",
+                  "+1",
+                  "+2",
+                  "+3",
+                  "+5",
+                  "+4",
+                  "+6"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Chloride",
+                "NaCl",
+                "MgCl₂",
+                "AlCl₃",
+                "SiCl₄",
+                "PCl₅"
+              ],
+              "rows": [
+                [
+                  "Oxidation number of the element",
+                  "+1",
+                  "+2",
+                  "+3",
+                  "+4",
+                  "+5"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The oxidation number rises as the number of outer-shell (valence) electrons used rises, from 1 for Na to 5 for P.",
+                "Sulfur has 6 valence electrons. It uses 4 in SO₂ and all 6 in SO₃.",
+                "Chlorine in a chloride stays at −1."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Chlorides with water"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Chloride",
+                "With water",
+                "Approximate pH"
+              ],
+              "rows": [
+                [
+                  "NaCl",
+                  "Dissolves, no reaction",
+                  "7"
+                ],
+                [
+                  "MgCl₂",
+                  "Dissolves, slight hydrolysis",
+                  "6 to 7"
+                ],
+                [
+                  "AlCl₃",
+                  "AlCl₃ + 3H₂O → Al(OH)₃ + 3HCl (hydrolysis)",
+                  "3"
+                ],
+                [
+                  "SiCl₄",
+                  "SiCl₄ + 4H₂O → Si(OH)₄ + 4HCl",
+                  "1 to 2"
+                ],
+                [
+                  "PCl₅",
+                  "PCl₅ + 4H₂O → H₃PO₄ + 5HCl",
+                  "0 to 1"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "NaCl and MgCl₂ are ionic and dissolve. The ions are hydrated but the chloride ions do not react.",
+                "AlCl₃, SiCl₄ and PCl₅ are covalent and hydrolysed. They give fumes of hydrogen chloride and an acidic solution.",
+                "Al³⁺ is a small, highly charged ion, so it polarises water and releases H⁺ in solution."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "7ac19ccd-bd4d-44bf-b4dc-d251d87ef504",
+      "bd896250-360a-4876-8fc0-71d6cb4508cf",
+      "217f7ecb-72ac-4be1-831f-b43f21a98218",
+      "dfd87398-d35a-413e-a79d-a79d1905b74c",
+      "d7e43ced-2204-4509-8236-8dc2096316aa",
+      "fd948885-d1d4-4760-a0f0-7742c339880b",
+      "1df3b7ed-1901-4e6f-aa8c-7331902978d3",
+      "8d8d29a0-92ea-4aca-aef7-6680c919c012"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

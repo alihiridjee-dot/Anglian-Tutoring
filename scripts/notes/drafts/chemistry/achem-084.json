@@ -1,0 +1,268 @@
+{
+  "format": 1,
+  "concept_id": "achem-084",
+  "subject": "chemistry",
+  "title": "Amides",
+  "key_idea": "An amide has the group –CONH–, a carbonyl joined directly to nitrogen. Amides are made from acyl chlorides with ammonia or an amine. They can be hydrolysed back to a carboxylic acid or reduced to an amine, and they are not basic because the nitrogen lone pair is delocalised.",
+  "sections": [
+    {
+      "heading": "Structure of amides",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An amide contains a carbonyl group bonded straight to a nitrogen atom. This section covers primary and secondary amides and how to name them."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Primary amide",
+              "meaning": "R–CONH₂: the nitrogen carries two hydrogen atoms, e.g. ethanamide, CH₃CONH₂."
+            },
+            {
+              "term": "Secondary amide",
+              "meaning": "R–CONHR′: the nitrogen carries one hydrocarbon group, e.g. N-methylethanamide, CH₃CONHCH₃."
+            },
+            {
+              "term": "N-substituted",
+              "meaning": "A prefix such as N-methyl shows that a group is attached to the nitrogen atom, not to the carbon chain."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The functional group is C=O joined to N: –CO–NH–.",
+            "The name ends in **-amide**. The carbon chain is counted including the C=O carbon.",
+            "The same –CONH– link forms the peptide bonds in proteins and the amide links in nylon."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Amides contain a C=O group bonded directly to N.",
+            "Primary amides are R–CONH₂; secondary amides are R–CONHR′.",
+            "The letter N in a name shows a group on the nitrogen."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making amides from acyl chlorides",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acyl chlorides react at room temperature with ammonia or a primary amine. This section covers the reactions and the reason they work."
+        },
+        {
+          "type": "equation",
+          "label": "Acyl chloride with ammonia",
+          "formula": "CH₃COCl + 2NH₃ → CH₃CONH₂ + NH₄Cl",
+          "where": [
+            "Product: ethanamide, a primary amide",
+            "The second NH₃ reacts with the HCl produced, forming NH₄Cl"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Acyl chloride with a primary amine",
+          "formula": "CH₃COCl + 2CH₃NH₂ → CH₃CONHCH₃ + CH₃NH₃⁺Cl⁻",
+          "where": [
+            "Product: N-methylethanamide, a secondary amide",
+            "The second amine molecule reacts with the HCl produced"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The reaction is a condensation: the molecule HCl is lost when the two molecules join.",
+            "The nitrogen lone pair attacks the δ+ carbon of C=O, then chloride leaves (nucleophilic addition–elimination).",
+            "It is fast at room temperature because acyl chlorides are very reactive."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a nitrogen compound to react with ethanoyl chloride and see the amide formed.",
+            "prompt": "Pick what reacts with ethanoyl chloride, CH₃COCl, at room temperature.",
+            "result_labels": [
+              "Amide formed",
+              "Type of amide"
+            ],
+            "options": [
+              {
+                "label": "Ammonia, NH₃",
+                "results": [
+                  "Ethanamide, CH₃CONH₂",
+                  "Primary amide"
+                ],
+                "explanation": "Two hydrogens remain on the nitrogen."
+              },
+              {
+                "label": "Methylamine, CH₃NH₂",
+                "results": [
+                  "N-methylethanamide, CH₃CONHCH₃",
+                  "Secondary amide"
+                ],
+                "explanation": "The methyl group from the amine sits on the nitrogen."
+              },
+              {
+                "label": "Ethylamine, CH₃CH₂NH₂",
+                "results": [
+                  "N-ethylethanamide, CH₃CONHCH₂CH₃",
+                  "Secondary amide"
+                ],
+                "explanation": "The ethyl group from the amine sits on the nitrogen."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Acyl chloride + ammonia gives a primary amide; + a primary amine gives an N-substituted amide.",
+            "Conditions: room temperature, with HCl lost as a by-product.",
+            "The N group in the name comes from the amine."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reactions of amides",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Amides can be hydrolysed back to their parent acid or reduced to an amine. This section covers each reaction."
+        },
+        {
+          "type": "subheading",
+          "text": "Hydrolysis"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**With aqueous acid** (heated): the amide gives a carboxylic acid and an ammonium salt.",
+            "**With aqueous alkali** (heated): the amide gives a carboxylate salt and ammonia (or an amine, if the amide is N-substituted).",
+            "The C–N bond of the amide group is the one that breaks."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Acid hydrolysis of ethanamide",
+          "formula": "CH₃CONH₂ + H₂O + HCl → CH₃COOH + NH₄Cl",
+          "where": [
+            "Heat with dilute aqueous acid"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Alkaline hydrolysis of ethanamide",
+          "formula": "CH₃CONH₂ + NaOH → CH₃COO⁻Na⁺ + NH₃",
+          "where": [
+            "Heat with aqueous alkali; ammonia gas is given off"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Reduction"
+        },
+        {
+          "type": "equation",
+          "label": "Reduction of an amide",
+          "formula": "CH₃CONH₂ + 4[H] → CH₃CH₂NH₂ + H₂O",
+          "where": [
+            "Reagent: LiAlH₄ in dry ether",
+            "The C=O group becomes CH₂ and the product is an amine"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hydrolysis with acid or alkali splits the amide into an acid (or its salt) and ammonia or an amine (or its salt).",
+            "LiAlH₄ reduces the C=O of an amide, giving an amine.",
+            "The same hydrolysis breaks peptide bonds and amide links in polymers."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why amides are not basic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Amines are weak bases, but amides are much weaker. This section explains the difference using the nitrogen lone pair."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The nitrogen lone pair overlaps with the π bond of the neighbouring C=O group and is **delocalised** over N, C and O.",
+            "The lone pair is therefore much less available to accept a proton.",
+            "Oxygen is electronegative and pulls electron density away from the nitrogen.",
+            "Amides give neutral solutions in water. Amines give alkaline solutions."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Amides are much weaker bases than amines.",
+            "The N lone pair is delocalised into the C=O group, so it is not available to accept H⁺."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write an equation for the formation of N-methylethanamide from ethanoyl chloride and methylamine, and state the conditions.",
+      "a": "CH₃COCl + 2CH₃NH₂ → CH₃CONHCH₃ + CH₃NH₃⁺Cl⁻ (or HCl produced). The reaction takes place at room temperature.",
+      "marks": 3
+    },
+    {
+      "q": "Name the products formed when ethanamide is heated with aqueous sodium hydroxide.",
+      "a": "Sodium ethanoate and ammonia.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why ethanamide is a much weaker base than ethylamine.",
+      "a": "In ethanamide the lone pair on nitrogen is delocalised into the C=O group, so it is not readily available to accept a proton. In ethylamine the lone pair is localised on N, and the ethyl group donates electron density, so it is available.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.2.2b"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 18B.13"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 34.1.2",
+        "CAIE 34.3.1",
+        "CAIE 34.3.2",
+        "CAIE 34.3.3"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "3f721007-ea24-46a3-a19b-f8d44c6ba779",
+      "9dbb2a86-7189-439c-a60c-640554310da6",
+      "6f58f691-c865-4181-908f-e63b0b229966",
+      "fb7f05a9-8c6b-416a-9cef-b70fe61410a1",
+      "1c37f47c-56ab-496e-9538-38836007a905",
+      "107619ee-333f-492b-bf7c-31a55e6353a3"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

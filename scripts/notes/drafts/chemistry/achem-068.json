@@ -1,0 +1,351 @@
+{
+  "format": 1,
+  "concept_id": "achem-068",
+  "subject": "chemistry",
+  "title": "Structural and E/Z isomerism",
+  "key_idea": "**Isomers** have the same molecular formula but different structures. **Structural isomers** differ in how the atoms are joined. **Stereoisomers** have the same structural formula but a different arrangement in space, as in E/Z isomerism around a C=C bond.",
+  "sections": [
+    {
+      "heading": "Structural isomerism",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Structural isomers share a molecular formula but have different structural formulae. There are three kinds."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Structural isomers",
+              "meaning": "Compounds with the same molecular formula but different structural formulae."
+            },
+            {
+              "term": "Chain isomers",
+              "meaning": "Different arrangements of the carbon skeleton, such as straight and branched chains."
+            },
+            {
+              "term": "Position isomers",
+              "meaning": "The same carbon skeleton and functional group, with the group on different carbons."
+            },
+            {
+              "term": "Functional group isomers",
+              "meaning": "The same atoms arranged as different functional groups."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Kind",
+            "Example pair",
+            "Molecular formula"
+          ],
+          "rows": [
+            [
+              "Chain",
+              "Butane and 2-methylpropane",
+              "C₄H₁₀"
+            ],
+            [
+              "Position",
+              "Propan-1-ol and propan-2-ol",
+              "C₃H₈O"
+            ],
+            [
+              "Functional group",
+              "Ethanol and methoxymethane",
+              "C₂H₆O"
+            ],
+            [
+              "Functional group",
+              "Propanal and propanone",
+              "C₃H₆O"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting task: decide which kind of structural isomerism links each pair.",
+            "prompt": "Sort each pair of isomers into the kind of structural isomerism.",
+            "groups": [
+              "Chain",
+              "Position",
+              "Functional group"
+            ],
+            "items": [
+              {
+                "text": "Pentane and 2-methylbutane",
+                "group": 0
+              },
+              {
+                "text": "Butane and 2-methylpropane",
+                "group": 0
+              },
+              {
+                "text": "1-chloropropane and 2-chloropropane",
+                "group": 1
+              },
+              {
+                "text": "But-1-ene and but-2-ene",
+                "group": 1
+              },
+              {
+                "text": "Ethanol and methoxymethane",
+                "group": 2
+              },
+              {
+                "text": "Propanal and propanone",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Finding all the isomers of a formula"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Start with the longest straight chain.",
+              "text": "For C₅H₁₂ this is pentane."
+            },
+            {
+              "lead": "Shorten the chain by one carbon",
+              "text": "and place that carbon as a methyl branch on each different position. This gives 2-methylbutane."
+            },
+            {
+              "lead": "Shorten again.",
+              "text": "Two methyl branches on a three-carbon chain gives 2,2-dimethylpropane."
+            },
+            {
+              "lead": "Check for repeats.",
+              "text": "A methyl group on an end carbon only makes a longer chain, so it is not a new isomer."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Structural isomers have the same molecular formula but different structural formulae.",
+            "The three kinds are chain, position and functional group.",
+            "Work through the isomers in order and watch for repeats."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "E/Z isomerism",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Stereoisomers have the same structural formula but a different arrangement of atoms in space. E/Z isomerism is one kind, found in alkenes."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Stereoisomers",
+              "meaning": "Compounds with the same structural formula but a different arrangement of atoms in space."
+            },
+            {
+              "term": "E/Z isomerism",
+              "meaning": "A type of stereoisomerism caused by restricted rotation about a C=C bond."
+            },
+            {
+              "term": "Cis–trans isomerism",
+              "meaning": "A special case of E/Z isomerism where two of the groups, one on each carbon of the C=C, are the same."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The C=C bond contains a **π bond**, so the two carbons cannot rotate about the bond.",
+            "The atoms attached to the C=C are fixed in one plane, so groups stay on the same side or on opposite sides.",
+            "E/Z isomerism needs **two different groups on each carbon** of the C=C.",
+            "But-2-ene has two forms. cis-but-2-ene has both CH₃ groups on the same side, and trans-but-2-ene has them on opposite sides."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Using CIP priority rules"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Look at one carbon of the C=C.",
+              "text": "Give the two atoms attached to it a priority. The atom with the higher atomic number has the higher priority."
+            },
+            {
+              "lead": "If the first atoms are the same,",
+              "text": "look at the atoms they are attached to, and compare them in the same way."
+            },
+            {
+              "lead": "Repeat for the other carbon.",
+              "text": "This gives a higher-priority group on each carbon."
+            },
+            {
+              "lead": "Compare the two sides.",
+              "text": "Higher-priority groups on the same side give the **Z** isomer. Higher-priority groups on opposite sides give the **E** isomer."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Z comes from the German zusammen, meaning together. E comes from entgegen, meaning opposite.",
+            "E can be treated as trans and Z as cis only when each carbon of the C=C has a hydrogen atom.",
+            "In 1-bromo-2-chloroethene, bromine beats hydrogen on carbon 1 and chlorine beats hydrogen on carbon 2, so those are the priority groups."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "E/Z isomerism comes from restricted rotation about a C=C bond.",
+            "Each carbon of the C=C must have two different groups.",
+            "Z: higher-priority groups on the same side. E: on opposite sides."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Draw and name two chain isomers with the molecular formula C₄H₁₀.",
+      "a": "Butane, CH₃CH₂CH₂CH₃, and 2-methylpropane, CH₃CH(CH₃)CH₃.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why but-2-ene shows E/Z isomerism but but-1-ene does not.",
+      "a": "The π bond in C=C stops rotation, and each carbon of the C=C in but-2-ene has two different groups (H and CH₃). In but-1-ene, one carbon of the C=C has two hydrogens, which are the same.",
+      "marks": 3
+    },
+    {
+      "q": "State what makes the Z isomer different from the E isomer.",
+      "a": "In the Z isomer the two higher-priority groups (by CIP rules) are on the same side of the C=C. In the E isomer they are on opposite sides.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.1.1e",
+        "OCR 4.1.3c",
+        "OCR 4.1.3d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Given a molecular formula, work out possible structural formulae.",
+                "Given a structural formula, work out the possible E/Z or cis–trans stereoisomers.",
+                "Assigning CIP priorities to double or triple bonds within the R groups is not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 6A.6",
+        "EDEX 6A.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Given a molecular formula, work out the possible structural, displayed and skeletal formulae.",
+                "Understand stereoisomerism using E/Z isomerism as the example, including cis–trans where two of the groups are the same."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.1.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Define the terms structural isomer and stereoisomer.",
+                "Draw the structures of chain, position and functional group isomers.",
+                "Draw structural formulae for the E and Z isomers.",
+                "Apply the CIP priority rules to decide which isomer is E and which is Z."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 13.4.1",
+        "CAIE 13.4.2",
+        "CAIE 13.4.3",
+        "CAIE 13.4.5",
+        "CAIE 13.4.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Stereoisomerism has two divisions: geometrical (cis/trans) and optical isomerism. E/Z naming may be used but is not required."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Explain the origin of cis/trans isomerism through restricted rotation due to the π bond.",
+                "Identify cis/trans isomerism in a molecule of given structural formula, including cyclic compounds.",
+                "Identify chiral centres in a molecule. A chiral centre is a carbon atom attached to four different groups.",
+                "Deduce the possible isomers of an organic molecule from its molecular formula.",
+                "Optical isomers are non-superimposable mirror images of each other, and they arise from a chiral centre.",
+                "In a ring, cis/trans isomerism arises because the ring stops rotation. Two carbons each carry two different groups, which sit on the same face or opposite faces of the ring."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "c723748e-1e16-4ecd-9a2a-c10466f75afb",
+      "d3e0dbb0-a053-435c-a0f2-bd9123ec51a2",
+      "2cd6ee27-a8fc-4dde-806a-5906d696f797",
+      "42989d35-b524-432c-b4d2-c2efc3f02cd7",
+      "4305dec5-6fcf-4fa9-8ef5-31343b2b2a7e",
+      "f80bf097-f39f-4af4-9cea-cfe873f4b06b",
+      "100a87df-e107-4987-9402-b2113ef2c87a",
+      "7edea37c-506e-4b22-9083-0329be0a52ac",
+      "9568a0c3-a491-412e-b2f8-70094e02dc7a",
+      "4ef1bcbb-98d1-4eb3-bd18-5858eded0b51",
+      "c1d2ce37-112d-4259-9552-c21cb53ea971"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

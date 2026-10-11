@@ -1,0 +1,398 @@
+{
+  "format": 1,
+  "concept_id": "aphys-098",
+  "subject": "physics",
+  "title": "Digital signals and logic",
+  "key_idea": "A digital signal has two voltage levels and carries information as bits. Logic gates combine digital signals, counters count clock pulses, and an astable supplies the clock. Together they are building blocks for digital systems.",
+  "sections": [
+    {
+      "heading": "Analogue and digital signals",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An analogue signal varies continuously. A digital signal uses only two voltage levels, a high and a low."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Bit",
+              "meaning": "One binary digit, 0 or 1."
+            },
+            {
+              "term": "Byte",
+              "meaning": "A group of 8 bits."
+            },
+            {
+              "term": "Sampling rate",
+              "meaning": "The number of samples taken per second."
+            },
+            {
+              "term": "Quantisation",
+              "meaning": "Rounding each sample to the nearest of a fixed set of levels."
+            },
+            {
+              "term": "Pulse code modulation",
+              "meaning": "Sending the sampled values as a stream of binary pulses."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Many sensors, such as a microphone or a thermistor, collect analogue data.",
+            "Binary numbers 1 to 10 are enough. Binary arithmetic is not required."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Analogue-to-digital conversion"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Sample",
+              "text": "Measure the analogue voltage at regular intervals, for example an audio signal."
+            },
+            {
+              "lead": "Quantise",
+              "text": "Round each sample to one of the available levels."
+            },
+            {
+              "lead": "Code",
+              "text": "Write each level as a binary number of a fixed number of bits."
+            },
+            {
+              "lead": "Transmit",
+              "text": "Send the bits as pulses using two voltage levels."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Quality of conversion"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **higher sampling rate** follows fast changes in the signal more closely.",
+            "**More bits per sample** gives more levels, so each sample is closer to the true value.",
+            "Both improve quality, but they produce more data to store and send."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Advantages, disadvantages and noise"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Noise adds random unwanted variations to a signal.",
+            "A noisy digital signal can be recovered by deciding whether each pulse is nearer the high or the low level, then regenerating a clean pulse.",
+            "An analogue signal cannot be cleaned in this way, because noise cannot be told apart from the signal. Noise builds up and the signal degrades.",
+            "Digital advantage: noise is removed and the data can be stored and processed easily.",
+            "Digital disadvantage: it needs a wider bandwidth, and sampling loses some detail of the original."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Digital signals use two voltage levels and carry data as bits.",
+            "Conversion is sampling, quantising and coding in binary.",
+            "A higher sampling rate and more bits per sample improve quality.",
+            "Digital signals can be recovered from noise."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Combinational logic",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Logic gates are building blocks. Their internal circuits are not required, only what each does to its inputs."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Gate",
+            "Boolean expression",
+            "Output is 1 when"
+          ],
+          "rows": [
+            [
+              "NOT",
+              "A̅",
+              "the input is 0"
+            ],
+            [
+              "AND",
+              "A ∙ B",
+              "both inputs are 1"
+            ],
+            [
+              "NAND",
+              "A ∙ B (inverted)",
+              "not both inputs are 1"
+            ],
+            [
+              "OR",
+              "A + B",
+              "at least one input is 1"
+            ],
+            [
+              "NOR",
+              "A + B (inverted)",
+              "both inputs are 0"
+            ],
+            [
+              "EOR",
+              "A ⊕ B",
+              "the inputs are different"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In Boolean algebra a bar over a term means NOT, a dot means AND and a plus means OR.",
+            "A **truth table** lists every combination of inputs and the output each gives.",
+            "Gates are combined in a logic circuit, with the output of one gate feeding the input of the next."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "An interactive truth table. Pick a gate to see its output for each pair of inputs.",
+            "prompt": "Pick a gate",
+            "result_labels": [
+              "A = 0, B = 0",
+              "A = 0, B = 1",
+              "A = 1, B = 0",
+              "A = 1, B = 1"
+            ],
+            "options": [
+              {
+                "label": "AND",
+                "results": [
+                  "0",
+                  "0",
+                  "0",
+                  "1"
+                ]
+              },
+              {
+                "label": "NAND",
+                "results": [
+                  "1",
+                  "1",
+                  "1",
+                  "0"
+                ]
+              },
+              {
+                "label": "OR",
+                "results": [
+                  "0",
+                  "1",
+                  "1",
+                  "1"
+                ]
+              },
+              {
+                "label": "NOR",
+                "results": [
+                  "1",
+                  "0",
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "label": "EOR",
+                "results": [
+                  "0",
+                  "1",
+                  "1",
+                  "0"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Building a circuit from a truth table"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find the 1s",
+              "text": "Look at each row of the truth table where the output is 1."
+            },
+            {
+              "lead": "Describe each row",
+              "text": "Write an AND term for that row, using NOT on any input that is 0."
+            },
+            {
+              "lead": "Combine",
+              "text": "Join the terms with OR."
+            },
+            {
+              "lead": "Simplify and draw",
+              "text": "Reduce the expression if possible, then draw it with gates."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "AND, NAND, OR, NOR, NOT and EOR gates are combined in logic circuits.",
+            "A truth table gives the output for every input combination, and a circuit can be built from it."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Sequential logic: counters",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A counter changes its output each time it receives a clock pulse. Its present output depends on the earlier pulses."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Inputs**: the clock, a reset that returns the count to zero, and in some counters an up/down control.",
+            "**Outputs**: the count, shown on several output lines.",
+            "A **binary counter** counts in binary: 0000, 0001, 0010 and so on.",
+            "A **BCD counter** counts 0 to 9 in binary, then returns to 0.",
+            "A **Johnson counter** passes a single moving pattern of 1s along its outputs, so only one output changes at each pulse."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Modulo-n counters"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A modulo-n counter counts from 0 to n − 1 and then returns to 0.",
+            "Make one from a basic counter by using logic gates to detect the count n.",
+            "The gates output 1 at count n, and this drives the reset pin, which sends the count straight back to 0."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A counter advances on each clock pulse and can be reset.",
+            "Binary, BCD and Johnson counters count in different patterns.",
+            "Logic on the reset pin makes a modulo-n counter."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Astables",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An astable is an oscillator. It switches between high and low by itself and supplies the clock pulses."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Period",
+              "meaning": "The time for one complete pulse cycle."
+            },
+            {
+              "term": "Frequency (clock rate)",
+              "meaning": "The number of pulses per second, f = 1 ÷ T."
+            },
+            {
+              "term": "Pulse width",
+              "meaning": "The time the output is high in each cycle."
+            },
+            {
+              "term": "Duty cycle",
+              "meaning": "The pulse width as a fraction (or percentage) of the period."
+            },
+            {
+              "term": "Mark-to-space ratio",
+              "meaning": "The time high compared with the time low in each cycle."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Frequency and period",
+          "formula": "f = 1 ÷ T",
+          "where": [
+            "f = frequency (Hz)",
+            "T = period (s)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The running frequency is set by an external RC network.",
+            "A larger resistance or capacitance makes the capacitor charge more slowly, so the frequency is lower.",
+            "A specific circuit or device is not required."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An astable is an oscillator that provides a clock pulse.",
+            "Frequency is 1 ÷ period, and an RC network varies it."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State two changes that improve the quality of an analogue-to-digital conversion.",
+      "a": "Increase the sampling rate. Increase the number of bits per sample.",
+      "marks": 2
+    },
+    {
+      "q": "Give the output of a NOR gate when A = 1 and B = 0, and explain what it means for a gate to be an EOR gate.",
+      "a": "The NOR output is 0. An EOR gate outputs 1 only when the two inputs are different.",
+      "marks": 2
+    },
+    {
+      "q": "An astable has a period of 0.020 s and is high for 0.005 s each cycle. Calculate its frequency and duty cycle.",
+      "a": "Frequency = 1 ÷ 0.020 = 50 Hz. Duty cycle = 0.005 ÷ 0.020 = 0.25, or 25%.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.13.2.1",
+        "AQA 3.13.5.1",
+        "AQA 3.13.5.2",
+        "AQA 3.13.5.3"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "eb21decd-116d-480f-9048-e576eb02009b",
+      "73078dcb-d219-455f-9b4d-ca1c9973c8de",
+      "138625db-7c2b-41aa-8401-ab3a439bf1e9",
+      "e1be0e99-1796-4fc5-9aa6-73a290e97059"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

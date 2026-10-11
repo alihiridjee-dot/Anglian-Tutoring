@@ -1,0 +1,281 @@
+{
+  "format": 1,
+  "concept_id": "achem-070",
+  "subject": "chemistry",
+  "title": "Free-radical substitution",
+  "key_idea": "In ultraviolet light, an alkane reacts with chlorine or bromine by **free-radical substitution**. A halogen atom replaces a hydrogen atom in a chain reaction of **initiation**, **propagation** and **termination**. The reaction gives a mixture of products, so it is of limited use in synthesis.",
+  "sections": [
+    {
+      "heading": "The reaction and its conditions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Alkanes are unreactive towards polar reagents. They do react with halogens, but only when radicals are made."
+        },
+        {
+          "type": "equation",
+          "label": "Methane with chlorine",
+          "formula": "CH₄ + Cl₂ → CH₃Cl + HCl"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The reaction needs **ultraviolet radiation**, which supplies the energy to break the Cl–Cl bond.",
+            "It is a **substitution**: one hydrogen atom is replaced by a halogen atom.",
+            "Bromine reacts in the same way as chlorine, as in the reaction of ethane with Br₂ to give bromoethane and HBr.",
+            "The mechanism involves radicals, formed by homolytic fission."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Alkane + Cl₂ or Br₂, in ultraviolet light, gives a halogenoalkane and a hydrogen halide.",
+            "The reaction is a substitution that goes through radicals."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The mechanism",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The mechanism has three stages. Each radical is shown with a dot, and the steps are written as equations."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Initiation",
+              "meaning": "The step that makes radicals from a molecule, by homolytic fission with ultraviolet light."
+            },
+            {
+              "term": "Propagation",
+              "meaning": "A step in which a radical reacts with a molecule and makes a new radical, so the chain continues."
+            },
+            {
+              "term": "Termination",
+              "meaning": "A step in which two radicals join to form a molecule, so the chain stops."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Stage",
+            "Equation",
+            "What happens"
+          ],
+          "rows": [
+            [
+              "Initiation",
+              "Cl₂ → 2Cl•",
+              "Ultraviolet light breaks the Cl–Cl bond homolytically."
+            ],
+            [
+              "Propagation 1",
+              "Cl• + CH₄ → HCl + •CH₃",
+              "A chlorine radical removes H from methane."
+            ],
+            [
+              "Propagation 2",
+              "•CH₃ + Cl₂ → CH₃Cl + Cl•",
+              "The methyl radical makes the product and a new chlorine radical."
+            ],
+            [
+              "Termination",
+              "Cl• + Cl• → Cl₂",
+              "Two radicals join."
+            ],
+            [
+              "Termination",
+              "•CH₃ + Cl• → CH₃Cl",
+              "Two radicals join to make the product."
+            ],
+            [
+              "Termination",
+              "•CH₃ + •CH₃ → C₂H₆",
+              "Two radicals join to make ethane, a by-product."
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing task: put the steps of free-radical substitution of methane in order.",
+            "prompt": "Put these steps of the chlorination of methane in order.",
+            "steps": [
+              "Cl₂ → 2Cl•",
+              "Cl• + CH₄ → HCl + •CH₃",
+              "•CH₃ + Cl₂ → CH₃Cl + Cl•",
+              "Cl• + •CH₃ → CH₃Cl"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Propagation is a **chain reaction**, because each step makes the radical needed for the next.",
+            "One chlorine radical from initiation can lead to thousands of propagation steps.",
+            "Every propagation step has one radical on each side. Every termination step has none on the product side.",
+            "Dots must go on every radical: Cl•, •CH₃ and •C₂H₅."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Initiation makes radicals, propagation passes them on, termination removes them.",
+            "Propagation keeps the chain going: a radical goes in and a radical comes out."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Limitations in synthesis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Radical substitution is hard to control. It gives a mixture of products rather than one."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Further substitution**: if there is excess chlorine, CH₃Cl reacts again to give CH₂Cl₂, then CHCl₃ and CCl₄.",
+            "**Substitution at different positions**: in a longer chain, the halogen can replace any hydrogen. Propane gives both 1-chloropropane and 2-chloropropane.",
+            "The products must be separated, so the yield of the wanted compound is low.",
+            "Using a large excess of the alkane makes further substitution less likely."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Further substitution",
+          "formula": "CH₃Cl + Cl₂ → CH₂Cl₂ + HCl"
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Radical substitution gives a mixture, from further substitution and from substitution at different carbons.",
+            "It is therefore a poor way of making one pure halogenoalkane."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write equations for the initiation and the two propagation steps in the chlorination of methane.",
+      "a": "Initiation: Cl₂ → 2Cl•. Propagation: Cl• + CH₄ → HCl + •CH₃, then •CH₃ + Cl₂ → CH₃Cl + Cl•.",
+      "marks": 3
+    },
+    {
+      "q": "Write an equation for a termination step that forms ethane, C₂H₆.",
+      "a": "•CH₃ + •CH₃ → C₂H₆.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why the chlorination of propane is not a good way to make 1-chloropropane.",
+      "a": "The chlorine radical can replace a hydrogen on any carbon, so 2-chloropropane is also formed. Further substitution can give dichloropropanes, so there is a mixture of products and a low yield of 1-chloropropane.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.1.2f",
+        "OCR 4.1.2g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Half curly arrows are not required in this mechanism.",
+                "Equations must use a single dot, •, for the unpaired electron on each radical."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 6B.16",
+        "EDEX 6B.17"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the reactions of alkanes with oxygen (combustion) and with halogens (radical substitution).",
+                "Half curly arrows are not expected in this mechanism."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The example to learn is methane with chlorine.",
+                "Explain the reaction as a free-radical substitution with initiation, propagation and termination steps."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 14.1.2",
+        "CAIE 14.1.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe the complete and incomplete combustion of alkanes.",
+                "Use ethane as the example for the free-radical substitution by Cl₂ or Br₂ in ultraviolet light.",
+                "Ethane reacts as CH₃CH₃ + Br₂ → CH₃CH₂Br + HBr, with the same initiation, propagation and termination steps."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "b2b67c28-44bb-48f5-982b-2cdb36edefd8",
+      "af401b07-3040-4ae5-a488-697a0373bdc2",
+      "263e2ddc-4e47-4bed-8dc6-005599fc789f",
+      "020fc01a-f483-43d2-a134-bbb8d8d6e228",
+      "0a9713b0-0f4d-4bbc-86e8-9f741be92131",
+      "a5fc8f1b-9d01-4d65-a3b6-2d964629551b",
+      "b1a018b9-868d-4fd0-a05d-e6f9d620b75b"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

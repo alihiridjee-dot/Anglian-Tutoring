@@ -1,0 +1,518 @@
+{
+  "format": 1,
+  "concept_id": "achem-079",
+  "subject": "chemistry",
+  "title": "Carboxylic acids and esters",
+  "key_idea": "Carboxylic acids contain the –COOH group. They hydrogen bond strongly, behave as weak acids, and react with alcohols to make esters. Esters are hydrolysed back to an acid and an alcohol by hot dilute acid or alkali.",
+  "sections": [
+    {
+      "heading": "The carboxylic acid group and its properties",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The functional group is –COOH, a carbonyl group joined to a hydroxyl group. This section covers how it affects boiling point and solubility."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Carboxylic acid",
+              "meaning": "A compound with the –COOH group, for example ethanoic acid, CH₃COOH."
+            },
+            {
+              "term": "Ester",
+              "meaning": "A compound with the –COO– group between two carbon chains, for example ethyl ethanoate, CH₃COOCH₂CH₃."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The O–H bond is very polar, and the C=O oxygen has lone pairs.",
+            "Carboxylic acids form **hydrogen bonds** with each other, so they have high boiling points.",
+            "Their boiling points are higher than alcohols of similar size, because there are more sites for hydrogen bonding.",
+            "Short-chain acids hydrogen bond with water and are **soluble**. Solubility falls as the carbon chain gets longer."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The functional group is –COOH.",
+            "Hydrogen bonding gives high boiling points and solubility in water.",
+            "Esters have –COO– and cannot hydrogen bond to each other."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making carboxylic acids",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Three routes make carboxylic acids. Oxidation is the most common."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Starting material",
+            "Reagents and conditions",
+            "Product"
+          ],
+          "rows": [
+            [
+              "Primary alcohol",
+              "Acidified K₂Cr₂O₇ (or acidified KMnO₄), heat under reflux",
+              "Carboxylic acid"
+            ],
+            [
+              "Aldehyde",
+              "Acidified K₂Cr₂O₇ (or acidified KMnO₄), heat under reflux",
+              "Carboxylic acid"
+            ],
+            [
+              "Nitrile, RCN",
+              "Heat with dilute acid, or with dilute alkali and then acidify",
+              "Carboxylic acid"
+            ],
+            [
+              "Ester",
+              "Heat with dilute acid, or with dilute alkali and then acidify",
+              "Carboxylic acid and alcohol"
+            ]
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Hydrolysis of a nitrile with dilute acid",
+          "formula": "CH₃CN + 2H₂O + H⁺ → CH₃COOH + NH₄⁺"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Reflux makes sure the alcohol or aldehyde is fully oxidised to the acid.",
+            "With alkali, the nitrile gives a carboxylate salt. Acidify to release the free acid.",
+            "Dichromate(VI) turns from orange to green during oxidation."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Oxidise primary alcohols or aldehydes under reflux.",
+            "Hydrolyse nitriles or esters with acid, or with alkali then acid."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reactions of carboxylic acids",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Carboxylic acids are weak acids, so they react like other acids. Pick a reagent to see what ethanoic acid does."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick a reagent to see how ethanoic acid reacts with it, the organic product and what you see.",
+            "prompt": "Pick a reagent to react with ethanoic acid.",
+            "result_labels": [
+              "Type of reaction",
+              "Organic product",
+              "What you see or other products"
+            ],
+            "options": [
+              {
+                "label": "Magnesium",
+                "results": [
+                  "Redox",
+                  "Magnesium ethanoate, (CH₃COO)₂Mg",
+                  "Fizzing: hydrogen gas"
+                ],
+                "explanation": "2CH₃COOH + Mg → (CH₃COO)₂Mg + H₂"
+              },
+              {
+                "label": "Sodium hydroxide",
+                "results": [
+                  "Neutralisation",
+                  "Sodium ethanoate, CH₃COONa",
+                  "Water. No visible change"
+                ],
+                "explanation": "CH₃COOH + NaOH → CH₃COONa + H₂O"
+              },
+              {
+                "label": "Sodium carbonate",
+                "results": [
+                  "Acid–base",
+                  "Sodium ethanoate, CH₃COONa",
+                  "Fizzing: carbon dioxide, and water"
+                ],
+                "explanation": "2CH₃COOH + Na₂CO₃ → 2CH₃COONa + H₂O + CO₂"
+              },
+              {
+                "label": "Ethanol with concentrated H₂SO₄",
+                "results": [
+                  "Esterification (condensation)",
+                  "Ethyl ethanoate, CH₃COOCH₂CH₃",
+                  "Water. Sweet, fruity smell"
+                ],
+                "explanation": "CH₃COOH + CH₃CH₂OH ⇌ CH₃COOCH₂CH₃ + H₂O"
+              },
+              {
+                "label": "LiAlH₄ in dry ether",
+                "results": [
+                  "Reduction",
+                  "Ethanol, CH₃CH₂OH",
+                  "Water"
+                ],
+                "explanation": "CH₃COOH + 4[H] → CH₃CH₂OH + H₂O"
+              },
+              {
+                "label": "Phosphorus(V) chloride, PCl₅",
+                "results": [
+                  "Substitution of –OH by –Cl",
+                  "Ethanoyl chloride, CH₃COCl",
+                  "Steamy fumes of HCl, and POCl₃"
+                ],
+                "explanation": "CH₃COOH + PCl₅ → CH₃COCl + POCl₃ + HCl"
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Carboxylic acids are **weak acids**: RCOOH ⇌ RCOO⁻ + H⁺, with only partial dissociation.",
+            "They liberate CO₂ from carbonates. This test separates them from phenols and alcohols.",
+            "With alkalis, metal oxides and carbonates they form a salt, and water or CO₂.",
+            "With reactive metals they form a salt and hydrogen."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Acid + metal gives salt + hydrogen. Acid + carbonate gives salt + water + CO₂.",
+            "Acid + alcohol with an acid catalyst gives an ester and water.",
+            "LiAlH₄ in dry ether reduces the acid to a primary alcohol."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making esters",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A carboxylic acid and an alcohol form an ester and water. It is a condensation reaction, because water is lost."
+        },
+        {
+          "type": "equation",
+          "label": "Esterification",
+          "formula": "CH₃COOH + CH₃CH₂OH ⇌ CH₃COOCH₂CH₃ + H₂O",
+          "where": [
+            "Concentrated H₂SO₄ is the catalyst.",
+            "Heat the mixture."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The reaction is **reversible**, so the yield is not 100%.",
+            "Name the ester from the alcohol first, then the acid: ethanol and ethanoic acid give **ethyl ethanoate**.",
+            "The –OH of the acid and the H of the alcohol are lost as water.",
+            "Esters have a sweet, fruity smell."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Acid + alcohol ⇌ ester + water, with concentrated H₂SO₄ and heat.",
+            "The alcohol gives the first part of the name, the acid gives the second."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Hydrolysis of esters",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Hydrolysis breaks an ester using water. It is the reverse of esterification and can be done with acid or with alkali."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Hot dilute acid",
+            "Hot dilute alkali"
+          ],
+          "rows": [
+            [
+              "Reagent",
+              "Dilute H₂SO₄ or HCl, heat",
+              "Dilute NaOH, heat"
+            ],
+            [
+              "Products",
+              "Carboxylic acid and alcohol",
+              "Carboxylate salt and alcohol"
+            ],
+            [
+              "Reversible?",
+              "Yes, an equilibrium",
+              "No, it goes to completion"
+            ]
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Acid hydrolysis",
+          "formula": "CH₃COOCH₂CH₃ + H₂O ⇌ CH₃COOH + CH₃CH₂OH"
+        },
+        {
+          "type": "equation",
+          "label": "Alkaline hydrolysis",
+          "formula": "CH₃COOCH₂CH₃ + NaOH → CH₃COONa + CH₃CH₂OH"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Alkali hydrolysis goes to completion because the carboxylate ion is formed and does not react back.",
+            "Acidify the carboxylate with a strong acid to obtain the free carboxylic acid."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Acid hydrolysis is reversible and gives an acid and an alcohol.",
+            "Alkaline hydrolysis is complete and gives a carboxylate salt and an alcohol."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why ethanoic acid has a higher boiling point than ethanol, even though ethanol also hydrogen bonds.",
+      "a": "Ethanoic acid has an O–H group and a C=O oxygen, so it forms more hydrogen bonds between molecules (and forms stronger intermolecular forces). More energy is needed to overcome them, so the boiling point is higher.",
+      "marks": 2
+    },
+    {
+      "q": "Name the ester made from propanoic acid and methanol, and write an equation for its hydrolysis by hot dilute sodium hydroxide.",
+      "a": "Methyl propanoate. CH₃CH₂COOCH₃ + NaOH → CH₃CH₂COONa + CH₃OH.",
+      "marks": 3
+    },
+    {
+      "q": "Describe a test that distinguishes a carboxylic acid from an alcohol, and give the observation.",
+      "a": "Add sodium carbonate (or sodium hydrogencarbonate). The carboxylic acid fizzes and gives CO₂, which turns limewater milky. The alcohol gives no reaction.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.3a",
+        "OCR 6.1.3b",
+        "OCR 6.1.3c",
+        "OCR 6.1.3d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers esters made from acid anhydrides."
+            },
+            {
+              "type": "list",
+              "items": [
+                "An acid anhydride reacts with an alcohol to form an ester and a carboxylic acid.",
+                "Reactions of carboxylic acids with metals and bases are in aqueous conditions.",
+                "Hydrolysis is carried out in hot aqueous acid or hot aqueous alkali."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Ester from an anhydride",
+              "formula": "(CH₃CO)₂O + CH₃CH₂OH → CH₃COOCH₂CH₃ + CH₃COOH"
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 17C.9",
+        "EDEX 17C.10",
+        "EDEX 17C.11",
+        "EDEX 17C.12",
+        "EDEX 17C.15"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the extra reagents this course asks for."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Phosphorus(V) chloride, PCl₅, converts –COOH into an acyl chloride, with steamy HCl fumes.",
+                "Lithium aluminium hydride in dry ether reduces the acid to a primary alcohol. It reacts violently with water.",
+                "Carboxylic acids are made by oxidising alcohols or aldehydes, or by hydrolysing nitriles."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.9.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers uses of esters, fats and oils, soap and biodiesel."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Common uses of esters: solvents, plasticisers, perfumes and food flavourings.",
+                "Vegetable oils and animal fats are esters of propane-1,2,3-triol (glycerol) and long-chain carboxylic acids.",
+                "Hot alkaline hydrolysis of a fat or oil gives **soap**, the salts of long-chain carboxylic acids, and glycerol.",
+                "**Biodiesel** is a mixture of methyl esters of long-chain carboxylic acids.",
+                "Biodiesel is made by reacting vegetable oil with methanol in the presence of a catalyst."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 18.1.1",
+        "CAIE 18.1.2",
+        "CAIE 18.2.1",
+        "CAIE 18.2.2",
+        "CAIE 33.1.1",
+        "CAIE 33.1.3",
+        "CAIE 33.1.4",
+        "CAIE 33.1.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers benzoic acid, two acids that are oxidised further, and relative acidities."
+            },
+            {
+              "type": "subheading",
+              "text": "Producing and oxidising acids"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Benzoic acid is made by heating an alkylbenzene such as methylbenzene with hot alkaline KMnO₄, then adding dilute acid.",
+                "Methanoic acid, HCOOH, can be oxidised to CO₂ and H₂O by Fehling's reagent, Tollens' reagent, acidified KMnO₄ or acidified K₂Cr₂O₇.",
+                "Ethanedioic acid, HOOCCOOH, is oxidised to CO₂ by warm acidified KMnO₄, which turns from purple to colourless."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Relative acidities"
+            },
+            {
+              "type": "paragraph",
+              "text": "Acid strength depends on how stable the anion is. The more the negative charge is spread out, the stronger the acid."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Compound",
+                "Anion",
+                "Why the anion is stable or not"
+              ],
+              "rows": [
+                [
+                  "Carboxylic acid",
+                  "RCOO⁻",
+                  "The charge is delocalised over two oxygen atoms. Most stable"
+                ],
+                [
+                  "Phenol",
+                  "C₆H₅O⁻",
+                  "The charge is partly delocalised into the ring. Less stable"
+                ],
+                [
+                  "Water",
+                  "OH⁻",
+                  "The charge is on one oxygen atom"
+                ],
+                [
+                  "Ethanol",
+                  "C₂H₅O⁻",
+                  "The alkyl group pushes electrons onto oxygen, making the charge worse. Least stable"
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Order of acid strength: carboxylic acids > phenol > water > ethanol."
+            },
+            {
+              "type": "subheading",
+              "text": "Chlorine-substituted acids"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Chlorine is electronegative, so it withdraws electrons and spreads the negative charge of the anion.",
+                "This stabilises the anion, so the acid is stronger.",
+                "The more chlorine atoms, the stronger the acid: CCl₃COOH > CHCl₂COOH > CH₂ClCOOH > CH₃COOH.",
+                "A chlorine atom closer to the –COOH group has a bigger effect.",
+                "Alkyl groups push electrons towards the anion and make the acid weaker."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "950b2155-588f-4e33-9f2b-50476c4187b9",
+      "fc1cc8ea-dad8-4ca3-a3b9-c03972dce47d",
+      "5ff22c27-dfc6-4eaa-a4cd-c3bcf43c31fe",
+      "c328d746-d980-4dac-afea-e0e6e02f8d6b",
+      "bf81ddc5-b646-4555-bd52-746c4c4b0a90",
+      "006c549a-cda4-44eb-bf34-681cbdf58c2d",
+      "59efb951-fa78-45ae-85cc-1dce2975e4b4",
+      "bd5e0618-7d0f-4dfa-acf2-f88f827a327b",
+      "57b11bb0-97a1-4b89-9351-1d724c55c7f9",
+      "a9900a81-6780-487a-9e5b-4f21eb80e23d",
+      "7f184cb5-2378-473c-93e8-72a05e46a754",
+      "debf41f5-eb09-4f86-b988-0a6d2a86123d",
+      "c8ceea9b-fa4b-426d-8926-57e159aec5ac",
+      "8caec69c-0c89-4935-82a0-80a7ebf7422a",
+      "5f5e6f6d-fff5-45d6-a4a0-316c8348f68a",
+      "83b36b98-7d19-452d-9c2e-75de950d5a22",
+      "0ea792f8-06af-4bad-8a86-d4473efc5767",
+      "e86439f1-191d-4f12-9cb3-9eeeb1333807"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

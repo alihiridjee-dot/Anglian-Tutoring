@@ -1,0 +1,466 @@
+{
+  "format": 1,
+  "concept_id": "aphys-019",
+  "subject": "physics",
+  "title": "Hooke's law and elastic strain energy",
+  "key_idea": "Within the limit of proportionality, the extension of a spring or wire is directly proportional to the force applied: F = kx. Past the elastic limit the deformation is plastic. The area under a force–extension graph is the work done, which is stored as elastic energy ½Fx.",
+  "sections": [
+    {
+      "heading": "Deformation and Hooke's law",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Forces can stretch or squash a material. This section covers how the extension depends on the force."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Tensile force",
+              "meaning": "A force that stretches an object."
+            },
+            {
+              "term": "Compressive force",
+              "meaning": "A force that squashes an object."
+            },
+            {
+              "term": "Extension",
+              "meaning": "The increase in length of an object under a tensile force."
+            },
+            {
+              "term": "Compression",
+              "meaning": "The decrease in length of an object under a compressive force."
+            },
+            {
+              "term": "Load",
+              "meaning": "The force applied to an object, such as the weight hung on a spring."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Hooke's law",
+          "formula": "F = kx",
+          "where": [
+            "F = force applied, in N",
+            "k = force constant (spring constant or stiffness), in N/m",
+            "x = extension or compression, in m"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Hooke's law**: the extension of a material is directly proportional to the force applied, up to the limit of proportionality.",
+            "The constant k is the force per unit extension: k = F / x.",
+            "A large k means a stiff spring. It needs a large force for each metre of extension.",
+            "The law works for compression as well as extension.",
+            "In this topic, forces and deformations are in one dimension."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hooke's law: F = kx, while the extension is proportional to the force.",
+            "k is the force constant, in N/m. A stiffer spring has a larger k."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Force–extension graphs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A force–extension graph shows how a material behaves as the load increases."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A force–extension graph for a metal wire. The line is straight up to the limit of proportionality, curves slightly up to the elastic limit, then flattens as the wire deforms plastically.",
+            "x": {
+              "label": "Extension",
+              "min": 0,
+              "max": 10,
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "unit": "mm"
+            },
+            "y": {
+              "label": "Force"
+            },
+            "series": [
+              {
+                "name": "Metal wire",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0.25
+                  ],
+                  [
+                    4,
+                    0.5
+                  ],
+                  [
+                    5,
+                    0.58
+                  ],
+                  [
+                    6,
+                    0.64
+                  ],
+                  [
+                    8,
+                    0.74
+                  ],
+                  [
+                    10,
+                    0.8
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 4,
+                "label": "Limit of proportionality"
+              },
+              {
+                "x": 5,
+                "label": "Elastic limit"
+              }
+            ],
+            "bands": [
+              {
+                "from": 5,
+                "to": 10,
+                "label": "Plastic deformation"
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **limit of proportionality** is the point beyond which the graph is no longer a straight line through the origin.",
+            "The **elastic limit** is the point beyond which the material does not return to its original length when the force is removed.",
+            "The **yield point** is where the material starts to stretch a lot for a small increase in force.",
+            "The gradient of the straight part is the force constant k."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Behaviour",
+            "What happens",
+            "When the force is removed"
+          ],
+          "rows": [
+            [
+              "Elastic deformation",
+              "The material stretches and the atoms move back to their places.",
+              "It returns to its original length."
+            ],
+            [
+              "Plastic deformation",
+              "Layers of atoms slide past each other.",
+              "It stays permanently stretched."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **brittle** material, such as glass, breaks without much plastic deformation.",
+            "Its force–extension graph is a straight line that stops suddenly at fracture."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The straight part of the graph obeys Hooke's law.",
+            "Beyond the elastic limit the deformation is plastic and permanent."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Elastic strain energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Stretching a material needs work. Within the elastic limit this work is stored as elastic potential energy."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **area under a force–extension graph** is the work done in stretching the material.",
+            "If the material is within its elastic limit, this work is stored as elastic strain energy.",
+            "For a straight line from the origin, the area is a triangle: ½ × base × height."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Elastic potential energy",
+          "formula": "E = ½Fx = ½kx²",
+          "where": [
+            "E = elastic potential energy, in J",
+            "F = force at maximum extension, in N",
+            "k = force constant, in N/m",
+            "x = extension, in m"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider for a spring obeying Hooke's law. It shows the force and the elastic energy stored for a chosen force constant and extension.",
+            "inputs": [
+              {
+                "id": "k",
+                "label": "Force constant",
+                "unit": "N/m",
+                "min": 10,
+                "max": 500,
+                "step": 10,
+                "value": 100
+              },
+              {
+                "id": "x",
+                "label": "Extension",
+                "unit": "m",
+                "min": 0.01,
+                "max": 0.2,
+                "step": 0.01,
+                "value": 0.05
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Force",
+                "unit": "N",
+                "formula": "k * x",
+                "decimals": 2
+              },
+              {
+                "label": "Elastic energy stored",
+                "unit": "J",
+                "formula": "0.5 * k * x * x",
+                "decimals": 3
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Doubling the extension doubles the force but makes the energy **four times** as large.",
+            "For a graph that is not a straight line, estimate the area, for example by counting squares.",
+            "When a stretched spring is released, the stored energy is transferred to kinetic energy and, if it rises, gravitational potential energy.",
+            "If the material is stretched beyond the elastic limit, some of the work done is not stored. It is transferred as thermal energy as the layers of atoms slide."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Energy stored = area under the force–extension graph = ½Fx = ½kx².",
+            "Energy stored is proportional to the extension squared."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A spring extends by 0.080 m when a 6.0 N load is hung from it. Calculate the force constant of the spring.",
+      "a": "k = F / x = 6.0 / 0.080 = 75 N/m.",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the energy stored in a spring of force constant 200 N/m when it is extended by 0.060 m, within its limit of proportionality.",
+      "a": "E = ½kx² = ½ × 200 × 0.060² = 0.36 J.",
+      "marks": 2
+    },
+    {
+      "q": "Explain the difference between the limit of proportionality and the elastic limit on a force–extension graph.",
+      "a": "Up to the limit of proportionality, force is directly proportional to extension (a straight line through the origin). The elastic limit is the point beyond which the material does not return to its original length when the force is removed.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.2.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The spring constant is also called the **stiffness**. Write Hooke's law as F = kΔL, where ΔL is the extension.",
+                "Know the density equation ρ = m / V as part of the bulk properties of solids. It is covered in the note on density, pressure and upthrust.",
+                "Link **fracture** and **brittle behaviour** to force–extension graphs. A brittle material breaks with almost no plastic deformation.",
+                "Use energy conservation with elastic strain energy. For a spring that launches an object, ½kx² = ½mv² + mgΔh when the spring energy is transferred to kinetic and gravitational potential energy.",
+                "Energy needed to deform a material is the energy transferred by the work done on it.",
+                "Discuss energy conservation in the context of ethical transport design. Energy absorbed by a deforming structure, such as a crumple zone, is not available to injure the passengers."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Stress, strain, breaking stress and stress–strain curves are covered in the note on the Young modulus."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4.53",
+        "EDEX 4.55",
+        "EDEX 4.58"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Write Hooke's law as ΔF = kΔx, where k is the **stiffness** of the object.",
+                "Be able to draw and interpret force–**compression** graphs as well as force–extension graphs.",
+                "Know the terms limit of proportionality, elastic limit, yield point, elastic deformation and plastic deformation, and apply them to graphs.",
+                "Estimate the energy for **non-linear** graphs by finding the area under the curve, for example by counting squares.",
+                "For a linear graph, ΔEₑₗ = ½FΔx."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 6.1.1",
+        "CAIE 6.1.2",
+        "CAIE 6.1.3",
+        "CAIE 6.1.4",
+        "CAIE 6.2.1",
+        "CAIE 6.2.2",
+        "CAIE 6.2.3",
+        "CAIE 6.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use the terms **load**, **extension**, **compression** and **limit of proportionality** correctly.",
+                "Write the spring constant as k = F / x.",
+                "The formula E = ½Fx = ½kx² applies to a material deformed **within its limit of proportionality**. Beyond it, find the energy from the area under the graph.",
+                "Deformation is caused by tensile or compressive forces, taken in one dimension only."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.4.1a",
+        "OCR 3.4.1b",
+        "OCR 3.4.1c",
+        "OCR 3.4.1d",
+        "OCR 3.4.2a",
+        "OCR 3.4.2b",
+        "OCR 3.4.2f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You should know how to investigate the force–extension behaviour of springs, rubber bands and polythene strips."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up",
+                  "text": "Clamp the spring, band or strip firmly. Measure its original length with a ruler."
+                },
+                {
+                  "lead": "Load",
+                  "text": "Add masses one at a time. Calculate the force from F = mg."
+                },
+                {
+                  "lead": "Measure",
+                  "text": "Measure the new length each time, with the ruler at eye level. The extension is the new length minus the original length."
+                },
+                {
+                  "lead": "Unload",
+                  "text": "Remove the masses one at a time and measure again."
+                },
+                {
+                  "lead": "Plot",
+                  "text": "Plot force against extension and look for a straight line, then the area under it."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A **spring** gives a straight line through the origin within its limit of proportionality.",
+                "A **rubber band** does not obey Hooke's law. Its graph is a curve, and the unloading curve lies below the loading curve.",
+                "A **polythene strip** extends elastically at first, then stretches plastically and stays longer when unloaded.",
+                "Compare materials by how far their graphs obey Hooke's law and whether they return to their original length."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "432f44e0-b3f0-4745-963e-e95e81fd7361",
+      "0b146b12-0021-4c07-a6d5-84a8b696d9b0",
+      "e0006758-2676-4e42-b747-a755d26fdeda",
+      "0945a8f5-6ba8-474c-88a0-927e77dc2b32",
+      "a851bd5a-2adb-4ef7-8818-506af14c02bb",
+      "1bf402c8-dc6b-4181-b87c-012e0ce8b03e",
+      "f11b20a1-ae56-46af-919a-c09c87b8022f",
+      "b9c3c1e0-2c2c-441a-ab46-f930d416d9eb",
+      "9e45b43d-c376-499e-a283-747dfa490811",
+      "e8be5f08-69c1-4894-bc9c-d175da7522e3",
+      "39e750d8-0a73-495b-8c7a-996dcbf338a7",
+      "530f5bb1-bb71-403b-a271-8e374f9510b4",
+      "563dda1c-1839-49e7-a36a-3f04a7ede954",
+      "24a33e8e-eb14-42b0-b982-79740a382ee1",
+      "f8682dbe-5379-4b25-80c2-7eb0865013af",
+      "ffa3e048-8780-4373-9606-56848dd9880b",
+      "3c93e677-0fff-4053-85da-e2326acc2626",
+      "e1a1ff0f-96f1-4557-8561-28106081899a",
+      "88b66291-88ec-454c-9394-5f660bbce571"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

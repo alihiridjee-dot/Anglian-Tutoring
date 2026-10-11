@@ -1,0 +1,394 @@
+{
+  "format": 1,
+  "concept_id": "achem-065",
+  "subject": "chemistry",
+  "title": "Transition metals as catalysts",
+  "key_idea": "Transition metals are good catalysts because they have several stable oxidation states and vacant d orbitals that bond to reactants. A heterogeneous catalyst is in a different phase and works on its surface. A homogeneous catalyst is in the same phase and works through an intermediate.",
+  "sections": [
+    {
+      "heading": "Why transition metals are good catalysts",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two features of transition metals explain their catalytic activity."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**More than one stable oxidation state:** the metal can gain and lose electrons, so it can be oxidised and reduced during the reaction and then return to its original state.",
+            "**Vacant, accessible d orbitals:** they form dative bonds with ligands, so reactant molecules can bind to the metal.",
+            "Bonding to the surface or metal ion holds reactants close together and weakens their bonds. This gives a reaction path with a lower activation energy."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Heterogeneous catalyst",
+              "meaning": "A catalyst in a different phase from the reactants. The reaction happens at active sites on its surface."
+            },
+            {
+              "term": "Homogeneous catalyst",
+              "meaning": "A catalyst in the same phase as the reactants. The reaction goes through an intermediate species."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Variable oxidation states let the catalyst be used up and reformed.",
+            "Vacant d orbitals let reactants bond to the catalyst.",
+            "Heterogeneous: different phase. Homogeneous: same phase."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Heterogeneous catalysts",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A solid catalyst works on gas or liquid reactants by four steps at its surface."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of heterogeneous catalysis in order.",
+            "prompt": "Put the stages of heterogeneous catalysis in order.",
+            "steps": [
+              "Reactant molecules are adsorbed onto active sites on the surface",
+              "Bonds in the reactants are weakened",
+              "The reactants react on the surface",
+              "Product molecules are desorbed from the surface"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Examples"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Process",
+            "Catalyst",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Haber process",
+              "Iron",
+              "N₂ + 3H₂ ⇌ 2NH₃"
+            ],
+            [
+              "Contact process",
+              "V₂O₅",
+              "2SO₂ + O₂ ⇌ 2SO₃"
+            ],
+            [
+              "Catalytic converter",
+              "Platinum, palladium or rhodium",
+              "2CO + 2NO → 2CO₂ + N₂"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a catalytic converter, CO and NO are adsorbed, the bonds weaken, and they react. CO₂ and N₂ are desorbed.",
+            "The catalyst is spread thinly on a **support medium**, such as a ceramic honeycomb. This maximises the surface area and uses less of the costly metal.",
+            "Catalysts can be **poisoned** by impurities that bind to the active sites and block them, for example sulfur compounds with iron. The catalyst works less well.",
+            "Poisoning has a cost: the feed must be purified, or the catalyst replaced or regenerated."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "V₂O₅ in the Contact process"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Oxidise SO₂.",
+              "text": "SO₂ + V₂O₅ → SO₃ + V₂O₄. Vanadium goes from +5 to +4."
+            },
+            {
+              "lead": "Regenerate.",
+              "text": "2V₂O₄ + O₂ → 2V₂O₅. Vanadium goes back from +4 to +5."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The catalyst is unchanged overall. Its change of oxidation state is what allows it to catalyse."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Adsorption, bond weakening, reaction, desorption.",
+            "A support increases surface area and cuts cost; poisons block active sites.",
+            "V₂O₅ is reduced to V₂O₄ and then reoxidised to V₂O₅."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Homogeneous catalysts and autocatalysis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A homogeneous catalyst is used in one step and reformed in a later step. The reaction has an intermediate."
+        },
+        {
+          "type": "subheading",
+          "text": "Fe²⁺ with iodide and peroxodisulfate"
+        },
+        {
+          "type": "equation",
+          "label": "Overall reaction",
+          "formula": "S₂O₈²⁻ + 2I⁻ → 2SO₄²⁻ + I₂",
+          "where": [
+            "Slow uncatalysed: two negative ions repel each other."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Fe²⁺ is oxidised.",
+              "text": "2Fe²⁺ + S₂O₈²⁻ → 2Fe³⁺ + 2SO₄²⁻"
+            },
+            {
+              "lead": "Fe³⁺ is reduced.",
+              "text": "2Fe³⁺ + 2I⁻ → 2Fe²⁺ + I₂"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Each step is between a positive and a negative ion, so there is no repulsion and the activation energy is lower. Fe³⁺ can start the cycle instead."
+        },
+        {
+          "type": "subheading",
+          "text": "Autocatalysis by Mn²⁺"
+        },
+        {
+          "type": "equation",
+          "label": "Overall reaction",
+          "formula": "2MnO₄⁻ + 16H⁺ + 5C₂O₄²⁻ → 2Mn²⁺ + 10CO₂ + 8H₂O",
+          "where": [
+            "Mn²⁺ is a product and also the catalyst. This is autocatalysis."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "The concentration of Mn²⁺ rises slowly at first, then quickly as the catalyst builds up, then levels off when the reactants are used up.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 10,
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "unit": "min"
+            },
+            "y": {
+              "label": "Concentration of Mn²⁺"
+            },
+            "series": [
+              {
+                "name": "Mn²⁺",
+                "points": [
+                  [
+                    0,
+                    0.02
+                  ],
+                  [
+                    2,
+                    0.05
+                  ],
+                  [
+                    4,
+                    0.15
+                  ],
+                  [
+                    5,
+                    0.4
+                  ],
+                  [
+                    6,
+                    0.75
+                  ],
+                  [
+                    7,
+                    0.9
+                  ],
+                  [
+                    8,
+                    0.96
+                  ],
+                  [
+                    10,
+                    1
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "At first the reaction is slow, because MnO₄⁻ and C₂O₄²⁻ are both negative ions and repel.",
+            "Mn²⁺ forms and reacts with MnO₄⁻ to give Mn³⁺, which then reacts with C₂O₄²⁻ and reforms Mn²⁺.",
+            "The rate increases as more catalyst forms, then falls as reactants run out."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Homogeneous catalysts work through an intermediate, using their variable oxidation state.",
+            "Fe²⁺ and Fe³⁺ alternate in the I⁻ and S₂O₈²⁻ reaction.",
+            "Mn²⁺ autocatalyses its own formation, so the reaction speeds up."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why transition metals are good catalysts.",
+      "a": "They have more than one stable oxidation state, so can be oxidised and reduced and then reformed. They have vacant d orbitals that can form dative bonds with reactants.",
+      "marks": 2
+    },
+    {
+      "q": "Explain, with equations, how V₂O₅ catalyses the oxidation of SO₂ in the Contact process.",
+      "a": "SO₂ + V₂O₅ → SO₃ + V₂O₄ (V is reduced from +5 to +4). 2V₂O₄ + O₂ → 2V₂O₅ (V is oxidised back from +4 to +5).",
+      "marks": 3
+    },
+    {
+      "q": "Explain why the reaction between MnO₄⁻ and C₂O₄²⁻ starts slowly and then speeds up.",
+      "a": "Both ions are negative and repel, so the uncatalysed reaction is slow. The Mn²⁺ ions formed act as a catalyst (autocatalysis), so the rate increases.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.3.1c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Practical examples of catalytic behaviour: Cu²⁺ in the reaction of zinc with acids, and MnO₂ in the decomposition of H₂O₂.",
+                "Transition metal catalysts matter in industry: iron for ammonia and V₂O₅ for sulfuric acid."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 15B.29",
+        "EDEX 15B.30",
+        "EDEX 15B.31",
+        "EDEX 15B.32",
+        "EDEX 15B.33",
+        "EDEX 15B.34",
+        "EDEX 15B.35"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A catalytic converter decreases CO and NO emissions from internal combustion engines by adsorption of CO and NO onto the catalyst surface, weakening of bonds and reaction, and desorption of CO₂ and N₂.",
+                "V₂O₅ acts as a catalyst in the Contact process, explained in terms of oxidation number.",
+                "Know the role of Fe²⁺ in catalysing the I⁻ and S₂O₈²⁻ reaction, and of Mn²⁺ in autocatalysing the MnO₄⁻ and C₂O₄²⁻ reaction."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.5.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use equations to explain the catalysis by V₂O₅, by Fe²⁺ (I⁻ and S₂O₈²⁻) and by Mn²⁺ (C₂O₄²⁻ and MnO₄⁻).",
+                "Explain the importance of variable oxidation states in catalysis.",
+                "Fe is the heterogeneous catalyst in the Haber process.",
+                "Poisoning of a heterogeneous catalyst reduces its efficiency and has a cost implication."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 28.1.5",
+        "CAIE 26.2.2",
+        "CAIE 26.2.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Heterogeneous mode of action: adsorption of reactants, bond weakening and desorption of products. Examples: iron in the Haber process; palladium, platinum and rhodium removing oxides of nitrogen from car exhausts.",
+                "Homogeneous catalysts are used in one step and reformed in a later step. Examples: atmospheric oxides of nitrogen in the oxidation of atmospheric SO₂, and Fe²⁺ or Fe³⁺ in the I⁻ and S₂O₈²⁻ reaction.",
+                "Nitrogen oxides example: 2NO + O₂ → 2NO₂, then NO₂ + SO₂ → NO + SO₃. NO is reformed."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "535cb83c-fce2-4001-b2db-b301219c0149",
+      "59e38cd3-09d0-4e1b-b3da-20d293e68ff1",
+      "24b184e5-a985-4e06-9988-90353807657c",
+      "3772626f-25b6-48f1-a2ed-bd6606b6eef7",
+      "3be1a573-c78e-4f2a-8c5a-ff591e276636",
+      "53a261e7-93ef-466e-8d54-56f7637eceab",
+      "7e51c087-b119-4868-9f8e-7bc0e7031475",
+      "b8c7f212-f9df-42bc-9561-6a4d57d369b7",
+      "98bf4910-c043-4519-82d8-031ff02bcdb4",
+      "f9bb3675-39b9-44bf-a8ab-c55627d8de47",
+      "81e5d204-d151-445f-a24a-16e267bb5d2a"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

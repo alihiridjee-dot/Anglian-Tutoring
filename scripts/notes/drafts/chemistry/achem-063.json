@@ -1,0 +1,437 @@
+{
+  "format": 1,
+  "concept_id": "achem-063",
+  "subject": "chemistry",
+  "title": "Variable oxidation states",
+  "key_idea": "Transition metals form ions in several oxidation states, each with its own colour. Whether one state can be turned into another is predicted from standard electrode potentials: a reaction is feasible when the overall cell potential is positive. Redox titrations with manganate(VII) use these changes to find concentrations.",
+  "sections": [
+    {
+      "heading": "Vanadium: four oxidation states",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Vanadium shows four oxidation states in solution, each with a different colour. Zinc in acid reduces them step by step."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick an oxidation state of vanadium to see its ion and colour.",
+            "prompt": "Pick an oxidation state of vanadium",
+            "result_labels": [
+              "Ion",
+              "Colour",
+              "Made by"
+            ],
+            "options": [
+              {
+                "label": "+5",
+                "results": [
+                  "VO₂⁺ (vanadate(V))",
+                  "Yellow",
+                  "Starting solution"
+                ]
+              },
+              {
+                "label": "+4",
+                "results": [
+                  "VO²⁺",
+                  "Blue",
+                  "Reducing +5 with zinc in acid"
+                ]
+              },
+              {
+                "label": "+3",
+                "results": [
+                  "V³⁺",
+                  "Green",
+                  "Reducing +4 with zinc in acid"
+                ]
+              },
+              {
+                "label": "+2",
+                "results": [
+                  "V²⁺",
+                  "Violet",
+                  "Reducing +3 with zinc in acid"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Half-equation",
+            "Eᶿ / V"
+          ],
+          "rows": [
+            [
+              "VO₂⁺ + 2H⁺ + e⁻ ⇌ VO²⁺ + H₂O",
+              "+1.00"
+            ],
+            [
+              "VO²⁺ + 2H⁺ + e⁻ ⇌ V³⁺ + H₂O",
+              "+0.34"
+            ],
+            [
+              "V³⁺ + e⁻ ⇌ V²⁺",
+              "−0.26"
+            ],
+            [
+              "Zn²⁺ + 2e⁻ ⇌ Zn",
+              "−0.76"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The Eᶿ of Zn²⁺/Zn (−0.76 V) is more negative than all three vanadium couples, so zinc can reduce vanadium all the way from +5 to +2.",
+            "Colour changes in order: yellow, blue, green, violet.",
+            "A weaker reducing agent stops earlier. Its Eᶿ must be more negative than the couple you want it to reduce."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Vanadium: +5 yellow, +4 blue, +3 green, +2 violet.",
+            "Zinc in acid reduces +5 to +2.",
+            "A reducing agent works on a couple only if its Eᶿ is more negative."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Predicting reactions with Eᶿ",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A reaction is feasible if its overall cell potential is positive. This uses the same rule for every redox pair."
+        },
+        {
+          "type": "equation",
+          "label": "Cell potential",
+          "formula": "Eᶿcell = Eᶿ(reduction) − Eᶿ(oxidation)",
+          "where": [
+            "Eᶿ(reduction) = the more positive couple, where reduction happens.",
+            "Eᶿ(oxidation) = the less positive couple, where oxidation happens.",
+            "Feasible if Eᶿcell is positive."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "List both couples.",
+              "text": "Can Fe³⁺ oxidise I⁻? Fe³⁺/Fe²⁺ is +0.77 V and I₂/I⁻ is +0.54 V."
+            },
+            {
+              "lead": "Choose the more positive as reduction.",
+              "text": "Fe³⁺ is reduced to Fe²⁺. I⁻ is oxidised to I₂."
+            },
+            {
+              "lead": "Subtract.",
+              "text": "Eᶿcell = +0.77 − (+0.54) = +0.23 V. Positive, so the reaction is feasible."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The redox potential for a metal ion going from a higher to a lower oxidation state depends on pH and on the ligand.",
+            "A ligand or pH that stabilises the higher state more makes Eᶿ more negative, so the higher state is a weaker oxidising agent. Feasibility can then change.",
+            "A positive Eᶿcell says the reaction is possible, not that it is fast."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Eᶿcell = Eᶿ(reduction) − Eᶿ(oxidation); positive means feasible.",
+            "Eᶿ values change with pH and ligand.",
+            "Feasible does not mean fast."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Chromium, iron and copper",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "These interconversions and colour changes are the ones you need to know."
+        },
+        {
+          "type": "subheading",
+          "text": "Chromium"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Change",
+            "Reagents",
+            "Colour change"
+          ],
+          "rows": [
+            [
+              "Cr₂O₇²⁻ to Cr³⁺ (reduction)",
+              "Zinc and acid",
+              "Orange to green"
+            ],
+            [
+              "Cr³⁺ to Cr²⁺ (further reduction)",
+              "Zinc and acid",
+              "Green to blue"
+            ],
+            [
+              "Cr³⁺ to CrO₄²⁻ (oxidation)",
+              "H₂O₂ in alkaline solution",
+              "Green to yellow"
+            ],
+            [
+              "CrO₄²⁻ to Cr₂O₇²⁻",
+              "Add acid",
+              "Yellow to orange"
+            ]
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Chromate(VI) and dichromate(VI) equilibrium",
+          "formula": "2CrO₄²⁻ + 2H⁺ ⇌ Cr₂O₇²⁻ + H₂O",
+          "where": [
+            "Chromium stays +6. This is an acid-base change, not redox."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Iron"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fe²⁺ (pale green) is oxidised to Fe³⁺ (yellow-brown) by H⁺/MnO₄⁻. Purple manganate(VII) turns colourless.",
+            "Fe³⁺ is reduced to Fe²⁺ by I⁻. The iodide is oxidised to iodine, which makes the solution brown."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Copper"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cu²⁺ is reduced to Cu⁺ by I⁻. A white precipitate of CuI forms in brown iodine solution.",
+            "In water Cu⁺ is unstable and disproportionates: 2Cu⁺ → Cu²⁺ + Cu.",
+            "Disproportionation is the oxidation and reduction of the same element in one reaction."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Dichromate(VI) is orange; Cr³⁺ is green; chromate(VI) is yellow.",
+            "Fe²⁺ is oxidised by MnO₄⁻/H⁺; Fe³⁺ is reduced by I⁻.",
+            "Cu⁺ disproportionates in water to Cu²⁺ and Cu."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Redox titrations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Manganate(VII) titrations find the amount of a reducing agent. It is its own indicator: the end point is the first permanent pink."
+        },
+        {
+          "type": "equation",
+          "label": "Manganate(VII) with iron(II)",
+          "formula": "MnO₄⁻ + 8H⁺ + 5Fe²⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O",
+          "where": [
+            "Ratio MnO₄⁻ : Fe²⁺ = 1 : 5."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Manganate(VII) with ethanedioate",
+          "formula": "2MnO₄⁻ + 16H⁺ + 5C₂O₄²⁻ → 2Mn²⁺ + 10CO₂ + 8H₂O",
+          "where": [
+            "Ratio MnO₄⁻ : C₂O₄²⁻ = 2 : 5."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use dilute sulfuric acid, which gives the H⁺. Do not use hydrochloric acid, because MnO₄⁻ oxidises Cl⁻.",
+            "Ethanedioate is warmed to about 60 °C, because the reaction is slow at first."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the concentration of iron(II) from a manganate(VII) titration.",
+            "question": "25.0 cm³ of Fe²⁺(aq) needs {v} cm³ of 0.0200 mol dm⁻³ potassium manganate(VII) for complete reaction. MnO₄⁻ + 8H⁺ + 5Fe²⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O. Calculate the concentration of Fe²⁺ in mol dm⁻³.",
+            "variables": [
+              {
+                "id": "v",
+                "min": 15,
+                "max": 30,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "5 * 0.02 * v / 25",
+              "unit": "mol dm⁻³",
+              "decimals": 4,
+              "tolerance_percent": 1
+            },
+            "working": [
+              "n(MnO₄⁻) = 0.0200 × {v} ÷ 1000 mol",
+              "n(Fe²⁺) = 5 × n(MnO₄⁻)",
+              "c = n ÷ 0.0250 dm³ = {answer} mol dm⁻³"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Tollens' reagent"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tollens' reagent contains [Ag(NH₃)₂]⁺. It is reduced to silver: [Ag(NH₃)₂]⁺ + e⁻ → Ag + 2NH₃.",
+            "Aldehydes reduce it and give a silver mirror. Ketones do not. This distinguishes the two."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "MnO₄⁻ : Fe²⁺ is 1 : 5. MnO₄⁻ : C₂O₄²⁻ is 2 : 5.",
+            "The end point is the first permanent pink.",
+            "Tollens' reagent gives a silver mirror with aldehydes only."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the colour changes seen when an acidified solution containing VO₂⁺ is reduced with excess zinc.",
+      "a": "Yellow, to blue (VO²⁺), to green (V³⁺), to violet (V²⁺).",
+      "marks": 2
+    },
+    {
+      "q": "Eᶿ(Cr₂O₇²⁻/Cr³⁺) = +1.33 V and Eᶿ(Fe³⁺/Fe²⁺) = +0.77 V. Is the oxidation of Fe²⁺ by dichromate(VI) in acid feasible? Explain.",
+      "a": "Eᶿcell = +1.33 − (+0.77) = +0.56 V. This is positive, so the reaction is feasible.",
+      "marks": 2
+    },
+    {
+      "q": "24.0 cm³ of 0.0200 mol dm⁻³ MnO₄⁻ reacts with 25.0 cm³ of Fe²⁺(aq). Calculate the concentration of Fe²⁺.",
+      "a": "n(MnO₄⁻) = 0.0200 × 0.0240 = 4.80 × 10⁻⁴ mol. n(Fe²⁺) = 5 × 4.80 × 10⁻⁴ = 2.40 × 10⁻³ mol. c = 2.40 × 10⁻³ ÷ 0.0250 = 0.0960 mol dm⁻³.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.3.1k"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Fe²⁺ is oxidised with H⁺/MnO₄⁻ and Fe³⁺ is reduced with I⁻.",
+                "Cr³⁺ is oxidised with H₂O₂/OH⁻ and Cr₂O₇²⁻ is reduced with Zn/H⁺.",
+                "Cu²⁺ is reduced with I⁻, and Cu⁺ readily disproportionates to Cu²⁺ and Cu in aqueous conditions.",
+                "The equations are built from half-equations and oxidation numbers, rather than learned."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 15B.20",
+        "EDEX 15B.21",
+        "EDEX 15B.22",
+        "EDEX 15B.23"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Dichromate(VI) is reduced to Cr³⁺ and Cr²⁺ by zinc in acidic conditions, as Eᶿ shows.",
+                "Cr₂O₇²⁻ is made by oxidising Cr³⁺ with hydrogen peroxide in alkaline conditions, then acidifying.",
+                "Use the equilibrium 2CrO₄²⁻ + 2H⁺ ⇌ Cr₂O₇²⁻ + H₂O to explain the conversion of chromate(VI) and dichromate(VI)."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.5.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Vanadium(IV), (III) and (II) are formed by reducing vanadate(V) ions with zinc in acidic solution.",
+                "Calculations on the titrations of Fe²⁺ and C₂O₄²⁻ with MnO₄⁻, and on similar redox reactions.",
+                "Tollens' reagent distinguishes aldehydes from ketones."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 28.2.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use Eᶿ values from a data booklet to predict whether a redox reaction of a transition element or its ions is feasible.",
+                "Eᶿcell = Eᶿ(reduction) − Eᶿ(oxidation), and a positive value means feasible."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "20fe769b-714a-4ae5-837b-4456bd40a20b",
+      "d6c9b503-106b-4693-b8f6-59da548b7a02",
+      "dd0ee77a-464b-4ded-a044-89b7b0d9a02e",
+      "7d545b4a-f3e0-411c-8c84-d17596ecccff",
+      "c30e3168-b1fd-4710-86fd-8b9c7c2abbae",
+      "ceee91de-7a3e-474b-a25e-6d7b617f3f57",
+      "995cf115-d6f9-4cb2-98db-56badc528091"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

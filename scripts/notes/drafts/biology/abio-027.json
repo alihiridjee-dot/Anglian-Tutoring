@@ -1,0 +1,437 @@
+{
+  "format": 1,
+  "concept_id": "abio-027",
+  "subject": "biology",
+  "title": "Water transport and transpiration",
+  "key_idea": "Water enters the root, crosses it by the **apoplast** and **symplast** pathways, and rises up the xylem. **Transpiration** pulls it up: water evaporates from leaves, and cohesion between water molecules draws a continuous column upwards under tension.",
+  "sections": [
+    {
+      "heading": "Water from the soil to the xylem",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Water enters root hair cells by osmosis, down a water potential gradient. It then crosses the root cortex to the xylem by two routes."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Apoplast pathway",
+              "meaning": "Water moves through the cell walls and the spaces between cells. It does not enter the cytoplasm."
+            },
+            {
+              "term": "Symplast pathway",
+              "meaning": "Water moves through the cytoplasm of cells, joined by plasmodesmata."
+            },
+            {
+              "term": "Endodermis",
+              "meaning": "A layer of cells around the vascular tissue in the root."
+            },
+            {
+              "term": "Casparian strip",
+              "meaning": "A band of waterproof suberin in the walls of endodermis cells. It blocks the apoplast pathway."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Pathway",
+            "Route",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Apoplast",
+              "Along the cellulose cell walls and the gaps between the fibres. Water is pulled along by the transpiration stream.",
+              "Fastest route and the main one. Cellulose walls are porous, so water passes freely. It is blocked at the endodermis by the Casparian strip."
+            ],
+            [
+              "Symplast",
+              "From cell to cell through cytoplasm and plasmodesmata. Water also moves by osmosis down a water potential gradient.",
+              "Slower. At the endodermis all water must enter the symplast."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "At the endodermis, the **Casparian strip**, which is made of waterproof **suberin**, blocks the apoplast route.",
+            "Water must therefore move into the cytoplasm of the endodermis cells and pass by the symplast pathway.",
+            "This lets the plant control which substances enter the xylem, because the cell surface membrane selects what passes through.",
+            "Mineral ions are actively pumped into the xylem, lowering its water potential. Water then follows by osmosis."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The apoplast route is through cell walls and the symplast route is through the cytoplasm.",
+            "The Casparian strip made of suberin blocks the apoplast route at the endodermis.",
+            "Water must cross a cell surface membrane, so the plant can control what enters the xylem."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Transpiration and the transpiration stream",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Transpiration is the loss of water vapour from the leaves. It is an unavoidable result of gas exchange, because the stomata that let carbon dioxide in also let water out."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Evaporation.",
+              "text": "Water evaporates from the wet surfaces of the mesophyll cell walls into the air spaces inside the leaf."
+            },
+            {
+              "lead": "Diffusion.",
+              "text": "Water vapour diffuses out through open stomata, down a water potential gradient, into the drier air outside."
+            },
+            {
+              "lead": "Pull.",
+              "text": "Water lost from mesophyll cells lowers their water potential. Water moves in from neighbouring cells and from the xylem, which pulls on the water in the xylem."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Cohesion-tension"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Water molecules are polar and form hydrogen bonds with each other. They stick together: this is **cohesion**.",
+            "Evaporation from the leaf creates a pull, or **tension**, called the transpiration pull. It draws a continuous column of water up the xylem.",
+            "Water molecules also form hydrogen bonds with the cellulose and lignin in the xylem wall. This is **adhesion**. It helps hold the column up.",
+            "Because the water is under tension, the xylem walls are pulled inwards. Lignin stops the vessels collapsing.",
+            "The movement of water from the roots to the leaves and out is called the **transpiration stream**."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Factors that affect the rate of transpiration"
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor: pick a change in conditions and see how it affects the rate of transpiration.",
+            "prompt": "Pick a change in conditions",
+            "result_labels": [
+              "Effect on transpiration rate",
+              "Reason"
+            ],
+            "options": [
+              {
+                "label": "Brighter light",
+                "results": [
+                  "Increases",
+                  "Stomata open wider, so more water vapour can diffuse out."
+                ]
+              },
+              {
+                "label": "Higher temperature",
+                "results": [
+                  "Increases",
+                  "Water evaporates faster, and water vapour molecules move faster. The air also holds more water vapour."
+                ]
+              },
+              {
+                "label": "Lower humidity",
+                "results": [
+                  "Increases",
+                  "The water potential gradient from the leaf to the air is steeper, so diffusion is faster."
+                ]
+              },
+              {
+                "label": "More wind",
+                "results": [
+                  "Increases",
+                  "Moving air removes water vapour from around the stomata, which keeps the gradient steep."
+                ]
+              },
+              {
+                "label": "Dry soil",
+                "results": [
+                  "Decreases",
+                  "Less water is available to be taken up. Stomata close to save water."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "equation",
+          "label": "Volume of water taken up in a potometer",
+          "formula": "volume = π × r² × distance moved by the air bubble",
+          "where": [
+            "r = radius of the capillary tube, in mm",
+            "distance, in mm",
+            "volume, in mm³"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice calculation of the rate of water uptake from a potometer.",
+            "question": "In a potometer, the capillary tube has a radius of {r} mm. The air bubble moves {d} mm in 10 minutes. Calculate the rate of water uptake in mm³ per minute, to 2 decimal places.",
+            "variables": [
+              {
+                "id": "r",
+                "min": 0.3,
+                "max": 0.8,
+                "step": 0.05
+              },
+              {
+                "id": "d",
+                "min": 20,
+                "max": 90,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "3.14159 * r * r * d / 10",
+              "unit": "mm³ per minute",
+              "decimals": 2
+            },
+            "working": [
+              "Volume = π × r² × distance = π × {r} × {r} × {d}",
+              "Rate = volume ÷ 10 minutes = {answer} mm³ per minute"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **potometer** measures water uptake as the movement of an air bubble in a capillary tube. It estimates transpiration, because most water taken up is lost.",
+            "Set up the shoot underwater and cut it at a slant. Make sure the apparatus is full of water, with no air bubbles, and the joints are airtight.",
+            "Take readings of how far the bubble moves in a set time. Reset the bubble each time and repeat to find a mean.",
+            "Change one factor at a time and keep the others constant."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Transpiration is evaporation from the leaf followed by diffusion of water vapour out through the stomata.",
+            "Cohesion and adhesion pull a continuous column of water up the xylem under tension.",
+            "Light, temperature, humidity and wind affect the rate. A potometer measures water uptake."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Plants and water availability",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plants in dry places lose water faster than they can replace it. **Xerophytes** have adaptations that reduce water loss by transpiration."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Adaptation",
+            "How it reduces water loss"
+          ],
+          "rows": [
+            [
+              "Thick waxy cuticle",
+              "Waterproof, so less water evaporates through the leaf surface."
+            ],
+            [
+              "Sunken stomata in pits",
+              "Trap a layer of humid air next to the stomata, which reduces the water potential gradient."
+            ],
+            [
+              "Hairs on the leaf surface",
+              "Trap moist air close to the leaf and reduce air movement."
+            ],
+            [
+              "Rolled leaves",
+              "Trap a humid layer of air inside the roll, as in marram grass. The stomata are inside the roll."
+            ],
+            [
+              "Reduced leaf area, such as spines",
+              "A smaller surface area means less evaporation, as in cacti."
+            ],
+            [
+              "Fewer stomata",
+              "Fewer places for water to escape."
+            ],
+            [
+              "Deep roots or widely spread roots",
+              "Reach water deep down or take up surface water quickly."
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Xerophytes reduce transpiration with a thick cuticle, sunken stomata, hairs, rolled leaves and fewer stomata.",
+            "All of these reduce the water potential gradient or the surface area."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the route taken by water from the root hair to the xylem.",
+      "a": "Water enters the root hair by osmosis. It then crosses the cortex by the apoplast pathway, through the cell walls, and by the symplast pathway, through the cytoplasm. At the endodermis the Casparian strip blocks the apoplast route, so water must enter the cytoplasm and pass into the xylem.",
+      "marks": 4
+    },
+    {
+      "q": "Explain how water moves up a tall tree in the xylem.",
+      "a": "Water evaporates from the leaves and the water vapour diffuses out through the stomata. This creates a tension that pulls water up the xylem. Hydrogen bonds between water molecules give cohesion, so the column of water does not break. Adhesion to the xylem walls also helps.",
+      "marks": 4
+    },
+    {
+      "q": "Explain how a rolled leaf reduces water loss in a plant such as marram grass.",
+      "a": "The rolled leaf traps a layer of humid air next to the stomata. This reduces the water potential gradient between the leaf and the air, so less water vapour diffuses out. It also reduces air movement across the stomata.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.4.2"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.3c",
+        "OCR 3.1.3d",
+        "OCR 3.1.3e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Hydrophytes"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A **hydrophyte** lives in or on water, such as a water lily.",
+                "Its stomata are on the upper surface of floating leaves, where they are in contact with air.",
+                "Large air spaces in the leaves and stems keep the plant floating and let oxygen reach the submerged parts.",
+                "Water lily leaves have a thin cuticle and no need to save water. The roots are small and the supporting tissue is poorly developed because water supports the plant."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Transpiration is a consequence of gas exchange. The stomata must open to let carbon dioxide in, and water vapour then leaves."
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 7.2.2",
+        "CAIE 7.2.3",
+        "CAIE 7.2.4",
+        "CAIE 7.2.5",
+        "CAIE 14.2.1",
+        "CAIE 14.2.2",
+        "CAIE 14.2.3",
+        "CAIE 14.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Cell walls and the apoplast pathway"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Cellulose cell walls are porous and freely permeable, so water flows through the gaps between the cellulose fibres in the apoplast pathway.",
+                "Lignin in the walls of xylem vessels is waterproof. Water cannot cross it, so it moves through the pits, which have no lignin.",
+                "Water molecules also stick to the cellulose in the walls by adhesion, which helps water to rise by capillary action."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Stomata and guard cells"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Stomata let carbon dioxide in for photosynthesis, but they also let water out. The plant balances the two by changing the aperture of the stomata.",
+                "Stomata open in the light, when photosynthesis needs carbon dioxide, and close in the dark.",
+                "Stomata follow a daily rhythm. They begin to open before dawn and close at dusk, even in constant conditions.",
+                "Guard cells have cell walls that are thicker on the inner side, next to the pore, than the outer side. They contain chloroplasts."
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Opening.",
+                  "text": "Proton pumps move H⁺ out of the guard cells. Potassium ions enter the cells, lowering their water potential. Water enters by osmosis."
+                },
+                {
+                  "lead": "Swelling.",
+                  "text": "The guard cells become turgid. Because the inner walls are thicker and less stretchy, the cells bend apart and the stoma opens."
+                },
+                {
+                  "lead": "Closing.",
+                  "text": "Potassium ions leave and water follows by osmosis. The guard cells become flaccid and the stoma closes."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "In water stress, leaf cells release **abscisic acid (ABA)**.",
+                "ABA binds to receptors on the guard cell surface membrane. This causes calcium ions to enter the cytoplasm, where they act as a **second messenger**.",
+                "The calcium ions cause potassium ions and anions to leave the guard cells. Water leaves by osmosis, the guard cells become flaccid and the stomata close."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Xerophytic leaves in section"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Annotated drawings of xerophyte leaf sections show features such as a thick cuticle, rolled leaves, sunken stomata, hairs and a thick epidermis.",
+                "Beside each feature, write how it reduces transpiration, for example by trapping humid air."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "7ca9c5a1-f365-43f2-b6cc-98085c0f684c",
+      "b79e4b70-fc0f-44d3-b94a-ad916ce91ad3",
+      "2d2fe71a-fa4b-417c-9aa8-f627904089e6",
+      "d7e0e8e6-1540-4464-968c-57e4a305b750",
+      "e27937b1-3164-499b-b66b-f14c2fd548e4",
+      "af5c21ca-2865-4076-91af-e1b6eb4dc570",
+      "61a5c86e-6b9f-4738-a2b4-248721127d75",
+      "e756ddde-71d1-48a4-9f70-a1470d8d8c86",
+      "ca575bc9-c6a9-4737-af12-d2cb267465e5",
+      "40102cff-0d1f-4d65-a845-bdae84331cbd",
+      "e875b769-495c-4e41-89dc-cc2bf952e4a3",
+      "163b2e6e-13e0-4df5-ab06-9bf9e80a06b4"
+    ],
+    "exemplar_ids": []
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "format": 1,
+  "concept_id": "achem-074",
+  "subject": "chemistry",
+  "title": "Elimination from halogenoalkanes",
+  "key_idea": "A halogenoalkane heated with hydroxide ions can give an alkene by elimination as well as an alcohol by substitution. Hot ethanolic hydroxide favours elimination. In elimination the hydroxide ion acts as a base, not a nucleophile.",
+  "sections": [
+    {
+      "heading": "Substitution or elimination",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Hydroxide ions can react with a halogenoalkane in two ways. This section covers both and the conditions that decide between them."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Elimination",
+              "meaning": "A reaction in which a small molecule, here HBr or HCl, is removed from a molecule to leave a double bond."
+            },
+            {
+              "term": "Base",
+              "meaning": "A proton acceptor."
+            },
+            {
+              "term": "Nucleophile",
+              "meaning": "An electron pair donor that attacks a δ+ carbon."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Substitution",
+            "Elimination"
+          ],
+          "rows": [
+            [
+              "Reagent",
+              "hydroxide ions in water (aqueous NaOH or KOH)",
+              "hydroxide ions in ethanol (ethanolic NaOH or KOH)"
+            ],
+            [
+              "Conditions",
+              "warm or heat",
+              "heat"
+            ],
+            [
+              "Role of OH⁻",
+              "nucleophile",
+              "base"
+            ],
+            [
+              "Organic product",
+              "alcohol",
+              "alkene"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Substitution: CH₃CH₂CH₂Br + OH⁻ → CH₃CH₂CH₂OH + Br⁻",
+            "Elimination: CH₃CH₂CH₂Br + OH⁻ → CH₃CH=CH₂ + H₂O + Br⁻",
+            "The two reactions happen at the same time. The conditions only change which one is the main reaction."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick the conditions for heating 2-bromopropane with hydroxide ions and see which reaction is favoured and what forms.",
+            "prompt": "Pick the conditions for 2-bromopropane with sodium hydroxide.",
+            "result_labels": [
+              "Role of hydroxide",
+              "Main organic product",
+              "Type of reaction"
+            ],
+            "options": [
+              {
+                "label": "Aqueous NaOH, warm",
+                "results": [
+                  "Nucleophile",
+                  "Propan-2-ol, CH₃CH(OH)CH₃",
+                  "Nucleophilic substitution"
+                ]
+              },
+              {
+                "label": "NaOH in ethanol, heat",
+                "results": [
+                  "Base",
+                  "Propene, CH₃CH=CH₂",
+                  "Elimination"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Aqueous hydroxide favours substitution. Hot ethanolic hydroxide favours elimination.",
+            "Hydroxide is a nucleophile in substitution and a base in elimination."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The elimination mechanism",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In elimination the hydroxide ion removes a hydrogen from the carbon next to the C–X carbon. This section covers the steps for 2-bromopropane."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Attack on H",
+              "text": "A lone pair on the hydroxide ion forms a bond to a hydrogen atom on a carbon next to the C–Br carbon."
+            },
+            {
+              "lead": "Double bond",
+              "text": "The electrons from the C–H bond move to form a C=C bond between the two carbons."
+            },
+            {
+              "lead": "Halide leaves",
+              "text": "The C–Br bond breaks. Both of its electrons go to the bromine, which leaves as Br⁻."
+            },
+            {
+              "lead": "Products",
+              "text": "Water, bromide ions and an alkene form."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Three curly arrows are drawn: from the OH⁻ lone pair to H, from the C–H bond to form C=C, and from the C–Br bond to Br.",
+            "Hydroxide ions in ethanol are a stronger base, and the higher temperature favours the alkene.",
+            "A hydrogen must be present on the carbon next to the C–X carbon."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Elimination removes H from one carbon and the halogen from the next, forming C=C.",
+            "Three curly arrows are needed to show it."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the reagent and conditions that give an alkene from 2-bromopropane.",
+      "a": "Sodium (or potassium) hydroxide dissolved in ethanol, heated.",
+      "marks": 2
+    },
+    {
+      "q": "Explain the role of the hydroxide ion in the formation of propene from 2-bromopropane.",
+      "a": "It acts as a base. It accepts a proton (removes H⁺) from a carbon next to the C–Br carbon.",
+      "marks": 2
+    },
+    {
+      "q": "Give one product of the reaction of 1-bromobutane with aqueous sodium hydroxide, and one product when it reacts with ethanolic sodium hydroxide.",
+      "a": "Aqueous: butan-1-ol. Ethanolic: but-1-ene.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.3.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Substitution and elimination happen concurrently with the same halogenoalkane and potassium hydroxide, for example 2-bromopropane.",
+                "Explain that the reagent hydroxide acts as both a nucleophile (substitution) and a base (elimination).",
+                "Outline the mechanism of each reaction with curly arrows."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 6D.32"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the reaction with ethanolic potassium hydroxide to produce an alkene, where the hydroxide ion acts as a base.",
+                "Contrast it with aqueous potassium hydroxide, where hydroxide acts as a nucleophile to produce an alcohol."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 15.1.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe the elimination of HBr from bromoethane using NaOH in ethanol and heat to give ethene.",
+                "The equation is CH₃CH₂Br + NaOH → CH₂=CH₂ + NaBr + H₂O."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "fff98044-5e1c-4ca0-a204-7eb24b6b5eb6",
+      "b3b945f2-e014-4d23-b2fb-4f5f49761497"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

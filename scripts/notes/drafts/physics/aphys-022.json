@@ -1,0 +1,465 @@
+{
+  "format": 1,
+  "concept_id": "aphys-022",
+  "subject": "physics",
+  "title": "Charge, current and drift velocity",
+  "key_idea": "Electric current is the rate of flow of charge, and charge always comes in whole multiples of the elementary charge e. In a conductor the carriers drift slowly, and the current is I = nAvq. The number density n explains why conductors, semiconductors and insulators behave so differently.",
+  "sections": [
+    {
+      "heading": "Charge and current",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A current is a flow of charge carriers. This section defines current and charge and the units that go with them."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Charge carrier",
+              "meaning": "A particle that carries charge through a material."
+            },
+            {
+              "term": "Electric current",
+              "meaning": "The rate of flow of charge past a point."
+            },
+            {
+              "term": "Coulomb (C)",
+              "meaning": "The unit of charge. One coulomb passes a point each second when the current is one ampere."
+            },
+            {
+              "term": "Elementary charge, e",
+              "meaning": "The size of the charge on a proton or an electron: e = 1.6 × 10⁻¹⁹ C."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Current",
+          "formula": "I = ΔQ / Δt",
+          "where": [
+            "I = current (A)",
+            "ΔQ = charge that flows (C)",
+            "Δt = time taken (s)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Charge flowed in a steady current",
+          "formula": "Q = I t",
+          "where": [
+            "Q = charge (C)",
+            "I = steady current (A)",
+            "t = time (s)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the charge that flows for a current in milliamperes over a time in minutes.",
+            "question": "A current of {I} mA flows in a wire for {t} minutes. Calculate the charge that flows past a point in the wire.",
+            "variables": [
+              {
+                "id": "I",
+                "min": 20,
+                "max": 500,
+                "step": 20
+              },
+              {
+                "id": "t",
+                "min": 1,
+                "max": 10,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "I / 1000 * t * 60",
+              "unit": "C",
+              "decimals": 1
+            },
+            "working": [
+              "I = {I} mA = {I} ÷ 1000 A",
+              "t = {t} × 60 s",
+              "Q = I t = {answer} C"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "What carries the current"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In **metals** the carriers are free electrons.",
+            "In **electrolytes** (solutions and molten ionic compounds) the carriers are positive and negative ions.",
+            "Electrons carry charge −e and protons carry charge +e."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Conventional current and electron flow"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Conventional current** is drawn from the positive terminal of a source round to the negative terminal.",
+            "**Electron flow** is the real movement of electrons in a metal. It is the opposite way, from negative to positive.",
+            "In an electrolyte, positive ions move with the conventional current and negative ions move against it."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "I = ΔQ / Δt, so one ampere is one coulomb per second.",
+            "Q = It for a steady current.",
+            "Conventional current runs from + to −, opposite to electron flow."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Quantised charge",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Charge is not continuous. The charge on any particle or object is a whole-number multiple of the elementary charge e."
+        },
+        {
+          "type": "equation",
+          "label": "Quantised charge",
+          "formula": "Q = N e",
+          "where": [
+            "Q = net charge on a particle or object (C)",
+            "N = a whole number, positive or negative",
+            "e = 1.6 × 10⁻¹⁹ C"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Particle",
+            "Charge"
+          ],
+          "rows": [
+            [
+              "Electron",
+              "−e = −1.6 × 10⁻¹⁹ C"
+            ],
+            [
+              "Proton",
+              "+e = +1.6 × 10⁻¹⁹ C"
+            ],
+            [
+              "Neutron",
+              "0"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A charge of 2.4 × 10⁻¹⁹ C is not possible, because it is 1.5 times e.",
+            "An object that has lost three electrons has a net charge of +3e."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Every charge is a whole-number multiple of e.",
+            "Electron: −e. Proton: +e."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Drift velocity and I = nAvq",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Free electrons in a metal move quickly and randomly. When a potential difference is applied, they also drift slowly along the wire."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Mean drift velocity, v",
+              "meaning": "The average velocity of the charge carriers along the conductor, caused by the electric field."
+            },
+            {
+              "term": "Number density, n",
+              "meaning": "The number of charge carriers per unit volume (m⁻³)."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Current in a conductor",
+          "formula": "I = n A v q",
+          "where": [
+            "I = current (A)",
+            "n = number density of charge carriers (m⁻³)",
+            "A = cross-sectional area (m²)",
+            "v = mean drift velocity (m/s)",
+            "q = charge on each carrier (C), which is e for electrons"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Volume",
+              "text": "In a time Δt the carriers move a distance vΔt, so a volume A v Δt of the wire passes a point."
+            },
+            {
+              "lead": "Carriers",
+              "text": "That volume holds n A v Δt carriers."
+            },
+            {
+              "lead": "Charge",
+              "text": "Each carries charge q, so ΔQ = n A v Δt q."
+            },
+            {
+              "lead": "Current",
+              "text": "Divide by Δt: I = ΔQ / Δt = n A v q."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the current, the cross-sectional area and the metal to see the electron drift velocity.",
+            "inputs": [
+              {
+                "id": "I",
+                "label": "Current",
+                "unit": "A",
+                "min": 0.5,
+                "max": 10,
+                "step": 0.5,
+                "value": 2
+              },
+              {
+                "id": "A",
+                "label": "Cross-sectional area",
+                "unit": "mm²",
+                "min": 0.5,
+                "max": 5,
+                "step": 0.5,
+                "value": 1
+              },
+              {
+                "id": "n",
+                "label": "Metal (n in units of 10²⁸ m⁻³)",
+                "choices": [
+                  {
+                    "label": "Silver: 5.9",
+                    "value": 5.9
+                  },
+                  {
+                    "label": "Copper: 8.5",
+                    "value": 8.5
+                  },
+                  {
+                    "label": "Aluminium: 18.1",
+                    "value": 18.1
+                  }
+                ]
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Mean drift velocity",
+                "unit": "mm/s",
+                "formula": "I / (n * A * 1.6)",
+                "decimals": 3
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Drift velocity is tiny, often a fraction of a millimetre per second, yet a lamp lights at once because every electron in the circuit starts to drift together.",
+            "For the same current, a thinner wire (smaller A) needs a larger drift velocity.",
+            "For the same current and area, a material with a smaller n needs a larger drift velocity."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "I = nAvq, with q = e for electrons.",
+            "Drift velocity is small; the random speed of the electrons is much greater.",
+            "Fewer carriers or a thinner wire means a larger drift velocity for the same current."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Conductors, semiconductors and insulators",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The three kinds of material differ mainly in n, the number density of charge carriers."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Material",
+            "Number density n",
+            "Conducts?"
+          ],
+          "rows": [
+            [
+              "Conductor (metal)",
+              "Very large, about 10²⁸ m⁻³ or more",
+              "Very well"
+            ],
+            [
+              "Semiconductor",
+              "Many orders of magnitude smaller than a metal",
+              "Poorly, but better as it warms"
+            ],
+            [
+              "Insulator",
+              "Almost none",
+              "Practically not at all"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a semiconductor, heating frees more carriers, so n rises and the material conducts better.",
+            "In an insulator nearly all the electrons are held in their atoms, so I = nAvq is almost zero even for a large potential difference."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A conductor has a very large n, a semiconductor a much smaller n, an insulator almost none.",
+            "A semiconductor's n increases with temperature."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A current of 0.80 A flows for 2.5 minutes. Calculate the charge that passes and the number of electrons this represents.",
+      "a": "Q = It = 0.80 × 150 = 120 C. Number = 120 ÷ 1.6 × 10⁻¹⁹ = 7.5 × 10²⁰ electrons.",
+      "marks": 3
+    },
+    {
+      "q": "Show that the equation I = nAvq follows from the definition of current.",
+      "a": "In time Δt carriers in a length vΔt pass a point. That volume is AvΔt and holds nAvΔt carriers. The charge is nAvΔtq, and I = ΔQ/Δt = nAvq.",
+      "marks": 3
+    },
+    {
+      "q": "A copper wire and a silicon rod of the same area carry the same current. Explain why the drift velocity is much larger in the silicon.",
+      "a": "From I = nAvq, v = I / nAq. Silicon has a far smaller number density of charge carriers n, so v must be far larger for the same current.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.5.1.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Three basic definitions sit alongside current. The next notes use them in full."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Current is the rate of flow of charge: I = ΔQ / Δt.",
+                "Potential difference is the work done per unit charge: V = W / Q.",
+                "Resistance is defined as R = V / I."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 3.31",
+        "EDEX 3.41"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Use I = nqvA to explain the huge range of resistivities between materials."
+            },
+            {
+              "type": "list",
+              "items": [
+                "In a metal, n is very large, so a small drift velocity gives a large current. The resistivity is low.",
+                "In a semiconductor, n is much smaller, so the same potential difference gives a much smaller current. The resistivity is much higher.",
+                "In an insulator, n is almost zero, so the current is tiny and the resistivity is enormous.",
+                "Resistivities run from about 10⁻⁸ Ω m for metals to more than 10¹⁰ Ω m for good insulators."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 9.1.1",
+        "CAIE 9.1.2",
+        "CAIE 9.1.3",
+        "CAIE 9.1.4"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.1.1a",
+        "OCR 4.1.1b",
+        "OCR 4.1.1c",
+        "OCR 4.1.1d",
+        "OCR 4.1.1e",
+        "OCR 4.1.1f",
+        "OCR 4.1.2a",
+        "OCR 4.1.2b",
+        "OCR 4.1.2c"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "180542c6-005d-4b60-9947-f51aa64000a2",
+      "3bbb5190-9b26-4e56-847b-4541d13489f1",
+      "86a7c4a5-9b4c-4a3b-aef9-6af6ff0bec7a",
+      "917e0898-8a85-4148-8337-174a134aa5c1",
+      "5b60cf45-a97e-436d-a440-388347cde7c4",
+      "f64eacdf-feab-4246-be65-27132312b7a4",
+      "5732c178-36d0-42bd-9623-ddd646e890d1",
+      "c6245636-51d0-4f8a-8880-9db5343bb24c",
+      "0800ebaa-8d2d-43e0-880c-5606e6790ba8",
+      "0bd50a82-4fdf-49a5-937b-0fd37c3d7e38",
+      "3fa8a73b-9942-4172-9787-8a3954ea769f",
+      "1073e28c-8d8e-450e-9932-1739b7ff7653",
+      "d35ee8ca-8b68-42c4-b06f-368bbe0d49d7",
+      "ffc3034b-b401-48aa-bca9-f34f38bff82a",
+      "5cd4b6df-59cd-4a43-8661-04087188c4bf",
+      "d744e4d3-4a9d-4d11-9234-56e8cab34564"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

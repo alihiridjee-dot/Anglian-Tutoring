@@ -1,0 +1,216 @@
+{
+  "format": 1,
+  "concept_id": "achem-009",
+  "subject": "chemistry",
+  "title": "Percentage yield and atom economy",
+  "key_idea": "Percentage yield compares the product you actually get with the most you could get. Atom economy compares the mass of the desired product with the mass of all the products. A high atom economy wastes less and is better for sustainability.",
+  "sections": [
+    {
+      "heading": "Percentage yield",
+      "blocks": [
+        { "type": "paragraph", "text": "No reaction gives all of the product it theoretically could. Percentage yield measures how close you got." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Theoretical yield", "meaning": "The maximum mass of product, calculated from the equation and the limiting reagent." },
+            { "term": "Actual yield", "meaning": "The mass of product actually obtained." }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Percentage yield",
+          "formula": "percentage yield = (actual yield ÷ theoretical yield) × 100",
+          "where": ["Both yields in the same unit, either grams or moles."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Moles of limiting reagent.", "text": "5.00 g of ethanol, C₂H₅OH (M = 46.0), makes ethanoic acid: n = 5.00 ÷ 46.0 = 0.109 mol." },
+            { "lead": "Ratio 1 : 1.", "text": "Theoretical n(CH₃COOH) = 0.109 mol. Mass = 0.109 × 60.0 = 6.52 g." },
+            { "lead": "Compare.", "text": "If 4.20 g is made: (4.20 ÷ 6.52) × 100 = 64.4%." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate a percentage yield from the actual and theoretical masses.",
+            "question": "The theoretical yield of a product is {t} g. {a} g is obtained. Calculate the percentage yield.",
+            "variables": [
+              { "id": "t", "min": 5, "max": 12, "step": 0.5 },
+              { "id": "a", "min": 2, "max": 4.5, "step": 0.5 }
+            ],
+            "answer": { "formula": "a / t * 100", "unit": "%", "decimals": 1, "tolerance_percent": 1 },
+            "working": ["percentage yield = (actual ÷ theoretical) × 100", "= ({a} ÷ {t}) × 100 = {answer}%"]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "A yield below 100% is normal. Reasons include an incomplete reaction, side reactions, and product lost in transfers, filtering and purification.",
+            "A yield over 100% means the product is impure, often still wet or contaminated with a reactant.",
+            "Do a yield calculation from a limiting reagent, not from an excess one."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Percentage yield = actual ÷ theoretical × 100.",
+            "Find the theoretical yield from the limiting reagent.",
+            "Yield cannot sensibly exceed 100%."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Atom economy",
+      "blocks": [
+        { "type": "paragraph", "text": "Atom economy measures how much of the reactant mass ends up in the product you want. It does not depend on how well the experiment is done." },
+        {
+          "type": "equation",
+          "label": "Percentage atom economy",
+          "formula": "atom economy = (molar mass of desired product ÷ sum of molar masses of all reactants) × 100",
+          "where": ["Use the coefficients from the balanced equation.", "Total reactant mass equals total product mass, so the sum of all products gives the same answer."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Equation.", "text": "CaCO₃ → CaO + CO₂. The desired product is CaO." },
+            { "lead": "Masses.", "text": "CaCO₃ = 100.1. CaO = 56.1." },
+            { "lead": "Calculate.", "text": "(56.1 ÷ 100.1) × 100 = 56.0%." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Comparison of percentage yield and atom economy.",
+            "items": ["Percentage yield", "Atom economy"],
+            "rows": [
+              { "feature": "Measures", "values": ["How much product you got compared with the maximum", "How much reactant mass becomes the desired product"] },
+              { "feature": "Depends on", "values": ["The experiment: losses and side reactions", "Only the balanced equation"] },
+              { "feature": "Data needed", "values": ["Actual and theoretical mass", "Molar masses and the equation"] }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Atom economy comes from the equation alone.",
+            "A reaction can have a high yield and a low atom economy.",
+            "Addition reactions have 100% atom economy."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why a high atom economy matters",
+      "blocks": [
+        { "type": "paragraph", "text": "A process with a high atom economy turns more of its reactants into useful product. This section covers the benefits for industry and society." },
+        {
+          "type": "list",
+          "items": [
+            "**Less waste** by-product, which saves the cost of disposal and cuts pollution.",
+            "**Less raw material** used per tonne of product, so finite resources last longer.",
+            "**Lower costs** for industry, because fewer reactants are bought and wasted.",
+            "Less energy is needed to separate the product from the by-products.",
+            "A by-product that has a use can be sold, which means less is thrown away.",
+            "Used widely in the chemical industry when choosing between routes to the same product, for example addition reactions and processes that recycle reagents."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "High atom economy means less waste and less raw material.",
+            "It saves cost and is better for the environment.",
+            "Industry compares routes by atom economy."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the difference between percentage yield and atom economy.",
+      "a": "Percentage yield compares the actual mass of product with the theoretical maximum. Atom economy compares the mass of the desired product with the total mass of reactants (from the equation).",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the atom economy for making hydrogen by Fe + 2HCl → FeCl₂ + H₂. (M: Fe 55.8, HCl 36.5, H₂ 2.0.)",
+      "a": "Reactants: 55.8 + 2 × 36.5 = 128.8. (2.0 ÷ 128.8) × 100 = 1.6%.",
+      "marks": 2
+    },
+    {
+      "q": "A student expects 8.40 g of product but obtains 6.72 g. Calculate the percentage yield and give one reason it is below 100%.",
+      "a": "(6.72 ÷ 8.40) × 100 = 80.0%. Reason: product lost during filtering or transfer, a side reaction, or an incomplete reaction.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": ["OCR 2.1.3h", "OCR 2.1.3j"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Calculate percentage yield or related quantities, such as the mass of reactant needed to make a given mass of product.",
+                "Link a high atom economy to sustainability in the chemical industry and other areas."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 5.14"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Calculate percentage yields and percentage atom economies using chemical equations and experimental results.",
+                "This course writes atom economy as (molar mass of the desired product ÷ sum of the molar masses of all products) × 100%. The sum of the products equals the sum of the reactants when the equation is balanced, so the result is the same."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.1.2.5"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the atom economy formula: (molecular mass of desired product ÷ sum of molecular masses of all reactants) × 100.",
+                "Describe the economic, ethical and environmental advantages for society and industry of processes with a high atom economy.",
+                "Economic: less waste to treat and lower raw material costs. Ethical and environmental: fewer harmful by-products and less use of finite resources."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "c9a90e89-d7a1-4e32-932b-7b80cd9c5161",
+      "39b27719-b54c-47d9-b6a0-4be0eb2a40f8",
+      "21833fb8-908d-48ce-b263-d763e6fbd2b4"
+    ],
+    "exemplar_ids": []
+  }
+}

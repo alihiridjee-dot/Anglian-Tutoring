@@ -1,0 +1,445 @@
+{
+  "format": 1,
+  "concept_id": "aphys-073",
+  "subject": "physics",
+  "title": "Magnetic fields and force on a current",
+  "key_idea": "Moving charges and magnets make magnetic fields, drawn as field lines. A current-carrying wire in a field feels a force F = BIL sin θ, with direction from Fleming's left-hand rule. B is the force per unit current per unit length.",
+  "sections": [
+    {
+      "heading": "Magnetic fields and field lines",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A magnetic field is a region where a magnet or a moving charge feels a force. We draw it with field lines."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Magnetic field",
+              "meaning": "A field of force produced by moving charges (currents) or by permanent magnets."
+            },
+            {
+              "term": "Field line",
+              "meaning": "A line whose tangent shows the direction of the field. It points the way a free north pole would move."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Outside a magnet, field lines run from the north pole to the south pole.",
+            "Where lines are closer together the field is stronger.",
+            "Field lines never cross.",
+            "A uniform field has parallel, equally spaced lines."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Moving charges and permanent magnets both produce magnetic fields.",
+            "Field lines show direction and, by their spacing, strength."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Field patterns of currents",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A current in a wire makes its own magnetic field. The shape depends on how the wire is arranged."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Source",
+            "Field pattern"
+          ],
+          "rows": [
+            [
+              "Long straight wire",
+              "Concentric circles around the wire, getting further apart away from it"
+            ],
+            [
+              "Flat circular coil",
+              "Circles around each part of the wire. Straight and strongest along the axis through the centre"
+            ],
+            [
+              "Long solenoid",
+              "Strong, uniform and parallel to the axis inside. Outside, like a bar magnet"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Right-hand grip for a straight wire: thumb along the current, curled fingers show the field direction.",
+            "For a coil or solenoid: curl the fingers of the right hand the way the current goes round. The thumb points to the north end.",
+            "A solenoid has a north pole at one end and a south pole at the other."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A straight wire gives circular field lines.",
+            "A solenoid has a uniform field inside and a bar-magnet field outside."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Force on a current-carrying wire",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A wire carrying a current in a magnetic field feels a force. The wire's own field interacts with the external field."
+        },
+        {
+          "type": "equation",
+          "label": "Force on a current-carrying wire",
+          "formula": "F = BIL sin θ",
+          "where": [
+            "F = force on the wire (N)",
+            "B = magnetic flux density (T)",
+            "I = current (A)",
+            "L = length of wire in the field (m)",
+            "θ = angle between the wire and the field"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The force is greatest, F = BIL, when the wire is at right angles to the field.",
+            "The force is zero when the wire is parallel to the field.",
+            "Reversing the current or the field reverses the force.",
+            "The force is at right angles to both the field and the wire."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "An explorer activity on Fleming's left-hand rule. Tap each part of the left hand to see what it represents.",
+            "prompt": "Hold your left hand with the thumb, first finger and second finger at right angles. Tap each part to see what it shows.",
+            "parts": [
+              {
+                "name": "Thumb",
+                "detail": "Points in the direction of the force (and so the motion) on the wire."
+              },
+              {
+                "name": "First finger",
+                "detail": "Points in the direction of the magnetic field, from north to south."
+              },
+              {
+                "name": "Second finger",
+                "detail": "Points in the direction of the conventional current, from positive to negative."
+              },
+              {
+                "name": "The three together",
+                "detail": "They must be at right angles. If the wire is not at right angles to the field, use only the component of the field at right angles to the wire."
+              }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider activity. Change the flux density, the current, the length of wire and the angle to the field and see the force on the wire.",
+            "inputs": [
+              {
+                "id": "b",
+                "label": "Magnetic flux density",
+                "unit": "mT",
+                "min": 10,
+                "max": 500,
+                "step": 10,
+                "value": 100
+              },
+              {
+                "id": "i",
+                "label": "Current",
+                "unit": "A",
+                "min": 0.5,
+                "max": 10,
+                "step": 0.5,
+                "value": 5
+              },
+              {
+                "id": "l",
+                "label": "Length of wire in the field",
+                "unit": "cm",
+                "min": 1,
+                "max": 20,
+                "step": 1,
+                "value": 10
+              },
+              {
+                "id": "s",
+                "label": "Angle between wire and field",
+                "choices": [
+                  {
+                    "label": "0°",
+                    "value": 0
+                  },
+                  {
+                    "label": "30°",
+                    "value": 0.5
+                  },
+                  {
+                    "label": "45°",
+                    "value": 0.707
+                  },
+                  {
+                    "label": "60°",
+                    "value": 0.866
+                  },
+                  {
+                    "label": "90°",
+                    "value": 1
+                  }
+                ]
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Force on the wire",
+                "unit": "mN",
+                "formula": "0.01*b*i*l*s",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "F = BIL sin θ.",
+            "Use Fleming's left-hand rule: thumb force, first finger field, second finger current."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Magnetic flux density and the tesla",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The strength of a magnetic field is its magnetic flux density B. It is defined from the force on a wire."
+        },
+        {
+          "type": "equation",
+          "label": "Magnetic flux density (wire at right angles to the field)",
+          "formula": "B = F / (IL)",
+          "where": [
+            "B = magnetic flux density (T)",
+            "F = force on the wire (N)",
+            "I = current (A)",
+            "L = length of wire (m)"
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Magnetic flux density",
+              "meaning": "The force acting per unit current per unit length on a wire placed at right angles to the field."
+            },
+            {
+              "term": "Tesla (T)",
+              "meaning": "The flux density when a 1 m wire carrying 1 A at right angles to the field feels a force of 1 N. 1 T = 1 N A⁻¹ m⁻¹."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "B is force per unit current per unit length, at right angles to the field.",
+            "The unit is the tesla, 1 T = 1 N A⁻¹ m⁻¹."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring the force on a wire",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A top-pan balance can measure a force on a wire, because the wire exerts an equal and opposite force on the magnets."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up",
+              "text": "Put a pair of magnets on a yoke on the balance. Hold a straight wire horizontally between the poles, not touching the magnets."
+            },
+            {
+              "lead": "Zero",
+              "text": "Zero the balance with no current."
+            },
+            {
+              "lead": "Current on",
+              "text": "Pass a current through the wire. The reading changes by a mass m, so the force is F = mg."
+            },
+            {
+              "lead": "Vary",
+              "text": "Change the current, or the length of wire in the field, or the number of magnets, one at a time."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A graph of F against I is a straight line through the origin. Its gradient is BL.",
+            "A graph of F against L is a straight line through the origin. Its gradient is BI.",
+            "From the gradient, B = gradient ÷ L (or ÷ I)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The force on the wire is found from the change in balance reading, F = mg.",
+            "Straight-line graphs through the origin confirm F = BIL."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A straight wire of length 0.15 m carries a current of 4.0 A at right angles to a uniform field of flux density 0.20 T. Calculate the force on the wire.",
+      "a": "F = BIL = 0.20 × 4.0 × 0.15 = 0.12 N.",
+      "marks": 2
+    },
+    {
+      "q": "A wire of length 0.20 m carries 6.0 A in a uniform field of 0.50 T. The wire makes an angle of 30° with the field. Calculate the force on the wire.",
+      "a": "F = BIL sin θ = 0.50 × 6.0 × 0.20 × sin 30° = 0.30 N.",
+      "marks": 2
+    },
+    {
+      "q": "Define the tesla.",
+      "a": "The tesla is the magnetic flux density at which a wire of length 1 m carrying a current of 1 A at right angles to the field experiences a force of 1 N.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.5.1"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.123"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 20.1.1",
+        "CAIE 20.1.2",
+        "CAIE 20.2.1",
+        "CAIE 20.2.2",
+        "CAIE 20.2.3",
+        "CAIE 20.4.1",
+        "CAIE 20.4.2",
+        "CAIE 20.4.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "A ferrous core"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A solenoid with a ferrous (iron) core has a much stronger field than the same solenoid with air inside.",
+                "The iron is magnetised by the current's field, and its own field adds to it."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Forces between current-carrying conductors"
+            },
+            {
+              "type": "paragraph",
+              "text": "Two long parallel wires each sit in the field of the other. That is the origin of the force between them."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Field of wire 1",
+                  "text": "Wire 1 makes a circular field. At wire 2 it is at right angles to the wire."
+                },
+                {
+                  "lead": "Force on wire 2",
+                  "text": "Wire 2 carries a current in that field, so it feels a force. Fleming's left-hand rule gives its direction."
+                },
+                {
+                  "lead": "Equal and opposite",
+                  "text": "Wire 2's field acts on wire 1 in the same way. The two forces are equal and opposite, by Newton's third law."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Currents in the same direction: the wires attract.",
+                "Currents in opposite directions: the wires repel.",
+                "The force gets smaller as the wires move further apart, because the field of a wire weakens with distance."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Each wire is in the other's field, so each feels a force.",
+                "Parallel currents attract. Opposite currents repel."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.3.1a",
+        "OCR 6.3.1b",
+        "OCR 6.3.1c",
+        "OCR 6.3.1d",
+        "OCR 6.3.1e",
+        "OCR 6.3.1f"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "54f333cd-0730-411d-95ef-ae7bac3a2b03",
+      "2f1011d3-e7ec-4782-93ef-76d3a9941939",
+      "eba69e8a-6dfc-4d84-9032-136b9fadab9a",
+      "6d14ae03-adfc-4cfb-aa2f-bfd1cd380f46",
+      "72aff48c-3ff2-4c7b-97e0-e050af7bb93f",
+      "e45d7000-33a2-4af6-91ae-c7a22d5dea4c",
+      "65f42171-9395-4148-9f3a-57fe9f28579e",
+      "97277d88-d850-4d96-98a1-eeacb568c282",
+      "ad39dc78-1589-4516-88de-d113ea809e78",
+      "3e361f94-ed0e-40af-982b-e3503d6722ff",
+      "0b93af2c-79e1-4b46-9809-43a3ddc4e192",
+      "2713fb80-da8f-45e5-96d1-e1f149f4b72b",
+      "cbe24238-65db-4447-a7c7-230937357262",
+      "8883067f-aa17-49b9-a977-04c073186ea9",
+      "3a1ec3e7-2c26-4b91-b265-55d011da37db",
+      "29ff62fe-0d87-4db9-b73e-edd0c7c52b09"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

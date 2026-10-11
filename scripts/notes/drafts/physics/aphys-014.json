@@ -1,0 +1,303 @@
+{
+  "format": 1,
+  "concept_id": "aphys-014",
+  "subject": "physics",
+  "title": "Momentum, impulse and force",
+  "key_idea": "Momentum is mass × velocity, and it has a direction. A resultant force changes momentum, and the force equals the rate of change of momentum. The change in momentum is the impulse, which is the area under a force–time graph.",
+  "sections": [
+    {
+      "heading": "Linear momentum",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section defines momentum and shows why its direction matters."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Linear momentum",
+              "meaning": "The product of an object's mass and its velocity."
+            },
+            {
+              "term": "Vector",
+              "meaning": "A quantity with both size and direction."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Linear momentum",
+          "formula": "p = mv",
+          "where": [
+            "p = momentum, in kg m/s (or N s)",
+            "m = mass, in kg",
+            "v = velocity, in m/s"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Momentum is a **vector**. It points in the same direction as the velocity.",
+            "In one dimension, choose one direction as positive. Momentum in the opposite direction is negative.",
+            "A heavy, slow object and a light, fast object can have the same momentum."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Momentum = mass × velocity, measured in kg m/s.",
+            "Momentum is a vector, so its sign shows its direction."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Force as rate of change of momentum",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A resultant force changes an object's momentum. The bigger the force, the faster the momentum changes."
+        },
+        {
+          "type": "equation",
+          "label": "Force as rate of change of momentum",
+          "formula": "F = Δp / Δt = Δ(mv) / Δt",
+          "where": [
+            "F = resultant force, in N",
+            "Δp = change in momentum, in kg m/s",
+            "Δt = time taken, in s"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "This is Newton's second law in its general form.",
+            "If the mass is constant, Δ(mv) = mΔv. Then F = mΔv / Δt = **ma**.",
+            "So F = ma is a special case of F = Δp / Δt, for a constant mass.",
+            "The force is in the same direction as the change in momentum."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Resultant force = rate of change of momentum.",
+            "F = ma is the special case where the mass stays constant."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Impulse and force–time graphs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Rearranging F = Δp / Δt gives the impulse of a force."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Impulse",
+              "meaning": "The force multiplied by the time it acts. It equals the change in momentum."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Impulse",
+          "formula": "impulse = FΔt = Δp",
+          "where": [
+            "F = constant force, in N",
+            "Δt = time the force acts, in s",
+            "Δp = change in momentum, in kg m/s (or N s)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "On a force–time graph, the **area under the line** is the impulse.",
+            "The area is therefore the change in momentum.",
+            "For a force that changes with time, split the area into rectangles and triangles, or count squares.",
+            "For a curved graph, estimate the area, for example by counting squares."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing a car stopping in a crash. Changing the contact time changes the average force while the change in momentum stays the same.",
+            "inputs": [
+              {
+                "id": "m",
+                "label": "Mass of car",
+                "unit": "kg",
+                "min": 800,
+                "max": 2000,
+                "step": 100,
+                "value": 1200
+              },
+              {
+                "id": "v",
+                "label": "Speed before impact",
+                "unit": "m/s",
+                "min": 5,
+                "max": 30,
+                "step": 1,
+                "value": 15
+              },
+              {
+                "id": "t",
+                "label": "Contact time",
+                "unit": "s",
+                "min": 0.05,
+                "max": 0.6,
+                "step": 0.05,
+                "value": 0.1
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Change in momentum",
+                "unit": "kg m/s",
+                "formula": "m * v",
+                "decimals": 0
+              },
+              {
+                "label": "Average force",
+                "unit": "N",
+                "formula": "m * v / t",
+                "decimals": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "For the same change in momentum, a **longer contact time** gives a smaller average force.",
+            "Crumple zones, air bags, padding and packaging all lengthen the contact time.",
+            "A kicked football is the opposite case: a short contact time means a large force."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Impulse = FΔt = change in momentum.",
+            "The area under a force–time graph is the impulse.",
+            "A longer contact time reduces the force for the same change in momentum."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A 0.15 kg ball is moving at 20 m/s. Calculate its momentum.",
+      "a": "p = mv = 0.15 × 20 = 3.0 kg m/s, in the direction of motion.",
+      "marks": 2
+    },
+    {
+      "q": "A force of 40 N acts on a trolley for 0.25 s. State the impulse and the change in momentum of the trolley.",
+      "a": "Impulse = FΔt = 40 × 0.25 = 10 N s. The change in momentum is equal to the impulse, 10 kg m/s.",
+      "marks": 2
+    },
+    {
+      "q": "Explain, using momentum, why an air bag reduces the force on a driver in a crash.",
+      "a": "The driver's momentum changes by the same amount to reach zero. The air bag increases the time over which this happens. Force = rate of change of momentum, so the average force is smaller.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.1.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Quantitative questions can use forces that **vary with time**. Find the impulse from the area under the force–time graph.",
+                "Impact forces depend on contact times. Examples are kicking a football, crumple zones and packaging.",
+                "Be ready to discuss momentum and ethical transport design. Lengthening the stopping time of a vehicle reduces the force on its passengers.",
+                "Elastic and inelastic collisions and explosions are covered in the note on conservation of momentum."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.21",
+        "EDEX 6.97"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 3.1.3",
+        "CAIE 3.1.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You must be able to **define** momentum: the product of mass and velocity.",
+                "You must be able to **define** force: the rate of change of momentum.",
+                "Use both definitions to solve problems, not only to state them."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.5.1b",
+        "OCR 3.5.1c",
+        "OCR 3.5.1d",
+        "OCR 3.5.1e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Be able to **estimate the area** under a non-linear force–time graph, for example by counting squares.",
+                "A spreadsheet can find the impulse from force–time data. Multiply each force by its time interval, then add the results.",
+                "Know that F = ma is a special case of net force = Δp / Δt."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "c09c795f-6693-4997-8490-0ea47d321168",
+      "f09bc19d-23e2-4dc2-b9f8-88b1e8b7ac35",
+      "21a9d5df-a9a4-45df-b28c-ae3eeff7d299",
+      "17940284-802f-4862-82d6-55495bc4b315",
+      "f518ee32-a64c-4b50-a535-6575fd59a208",
+      "8b7bca9c-4330-46f9-a769-d0346c409074",
+      "efa8ca00-8c3c-46bc-9e98-250e770b2c22",
+      "1a324e45-e1ab-48a9-ac14-579290895d3e",
+      "1ba28219-995d-44a3-881c-ac209520fe2d"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

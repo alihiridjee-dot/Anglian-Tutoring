@@ -1,0 +1,458 @@
+{
+  "format": 1,
+  "concept_id": "achem-080",
+  "subject": "chemistry",
+  "title": "Acyl chlorides and acylation",
+  "key_idea": "Acyl chlorides are very reactive derivatives of carboxylic acids. They are made with SOCl₂, PCl₅ or PCl₃. Water, alcohols, ammonia and amines attack the carbonyl carbon by nucleophilic addition–elimination, replacing the chlorine.",
+  "sections": [
+    {
+      "heading": "Acyl chlorides and how they are made",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An acyl chloride has a chlorine atom in place of the –OH of a carboxylic acid. This section covers the structures and how to make them."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Acyl chloride",
+              "meaning": "R–COCl. The carbonyl carbon is joined to Cl, for example ethanoyl chloride, CH₃COCl."
+            },
+            {
+              "term": "Acid anhydride",
+              "meaning": "(RCO)₂O. Two acyl groups joined through one oxygen, for example ethanoic anhydride."
+            },
+            {
+              "term": "Amide",
+              "meaning": "R–CONH₂, or with an alkyl group on the nitrogen, R–CONHR'. The carbonyl carbon is joined to N."
+            },
+            {
+              "term": "Ester",
+              "meaning": "R–COOR'. The carbonyl carbon is joined to an –OR' group."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Reagent",
+            "Conditions",
+            "Other products"
+          ],
+          "rows": [
+            [
+              "Thionyl chloride, SOCl₂",
+              "Warm",
+              "SO₂ and HCl, both gases"
+            ],
+            [
+              "Phosphorus(V) chloride, PCl₅",
+              "Room temperature",
+              "POCl₃ and HCl"
+            ],
+            [
+              "Phosphorus(III) chloride, PCl₃",
+              "Heat",
+              "H₃PO₃"
+            ]
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Making an acyl chloride",
+          "formula": "CH₃COOH + SOCl₂ → CH₃COCl + SO₂ + HCl"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Thionyl chloride is convenient because both by-products are gases, which leave the mixture.",
+            "The acyl chloride is separated from the other products by distillation (for PCl₅ and PCl₃).",
+            "Acyl chlorides react with water, so the reaction mixture must be kept dry."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Acyl chlorides are made from carboxylic acids with SOCl₂, PCl₅ or PCl₃.",
+            "SOCl₂ gives only gaseous by-products.",
+            "Amides contain C–N, esters contain C–O."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reactions of acyl chlorides",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acyl chlorides react with nucleophiles that contain an –OH or –NH group. Pick a reagent to see what ethanoyl chloride gives."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick a nucleophile to see what it forms with ethanoyl chloride at room temperature.",
+            "prompt": "Pick a nucleophile to react with ethanoyl chloride.",
+            "result_labels": [
+              "Organic product",
+              "Other product",
+              "What you see"
+            ],
+            "options": [
+              {
+                "label": "Water",
+                "results": [
+                  "Ethanoic acid, CH₃COOH",
+                  "HCl",
+                  "Vigorous reaction, steamy fumes of HCl"
+                ],
+                "explanation": "CH₃COCl + H₂O → CH₃COOH + HCl"
+              },
+              {
+                "label": "Ethanol",
+                "results": [
+                  "Ethyl ethanoate, CH₃COOCH₂CH₃",
+                  "HCl",
+                  "Vigorous reaction, steamy fumes, fruity smell"
+                ],
+                "explanation": "CH₃COCl + CH₃CH₂OH → CH₃COOCH₂CH₃ + HCl"
+              },
+              {
+                "label": "Phenol",
+                "results": [
+                  "Phenyl ethanoate, CH₃COOC₆H₅",
+                  "HCl",
+                  "Reaction at room temperature"
+                ],
+                "explanation": "CH₃COCl + C₆H₅OH → CH₃COOC₆H₅ + HCl. Phenol is not readily esterified by a carboxylic acid."
+              },
+              {
+                "label": "Concentrated ammonia",
+                "results": [
+                  "Ethanamide, CH₃CONH₂",
+                  "HCl, which forms NH₄Cl with excess NH₃",
+                  "Vigorous reaction, white smoke of NH₄Cl"
+                ],
+                "explanation": "CH₃COCl + NH₃ → CH₃CONH₂ + HCl, then NH₃ + HCl → NH₄Cl"
+              },
+              {
+                "label": "A primary amine, CH₃NH₂",
+                "results": [
+                  "N-methylethanamide, CH₃CONHCH₃",
+                  "HCl, which forms a salt with excess amine",
+                  "Vigorous reaction"
+                ],
+                "explanation": "CH₃COCl + CH₃NH₂ → CH₃CONHCH₃ + HCl"
+              }
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Nucleophile",
+            "Organic product",
+            "Other product"
+          ],
+          "rows": [
+            [
+              "Water, H₂O",
+              "Carboxylic acid",
+              "HCl"
+            ],
+            [
+              "Alcohol, ROH",
+              "Ester",
+              "HCl"
+            ],
+            [
+              "Phenol, C₆H₅OH",
+              "Ester",
+              "HCl"
+            ],
+            [
+              "Ammonia, NH₃",
+              "Amide",
+              "HCl"
+            ],
+            [
+              "Primary or secondary amine",
+              "N-substituted amide",
+              "HCl"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "All the reactions occur at room temperature.",
+            "Acyl chlorides esterify phenol. A carboxylic acid does not react readily with phenol.",
+            "Acyl chlorides give a better yield of ester than a carboxylic acid, because the reaction is not reversible.",
+            "Acylation means adding an acyl group, R–CO, to a molecule."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Acyl chloride + water, alcohol, phenol, ammonia or amine: the Cl is replaced.",
+            "HCl is always the other product.",
+            "Reactions are fast at room temperature."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The addition–elimination mechanism",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The carbonyl carbon is δ+ because it is bonded to both oxygen and chlorine. A nucleophile attacks it in two stages: addition, then elimination."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Addition.",
+              "text": "The nucleophile (H₂O, ROH, NH₃ or RNH₂) uses its lone pair to attack the δ+ carbon. The C=O π bond breaks and the electrons move onto oxygen. This gives an intermediate with O⁻ and a positive charge on the nucleophile atom."
+            },
+            {
+              "lead": "Elimination.",
+              "text": "The lone pair on O⁻ reforms the C=O double bond. The C–Cl bond breaks and Cl⁻ leaves."
+            },
+            {
+              "lead": "Loss of H⁺.",
+              "text": "The positively charged atom loses an H⁺. This combines with Cl⁻ to make HCl."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The reaction is called nucleophilic **addition–elimination**.",
+            "Addition: the nucleophile adds to the carbonyl carbon.",
+            "Elimination: chloride is lost, and the carbonyl group is reformed.",
+            "The mechanism is the same for water, alcohols, ammonia and amines. Only the nucleophile changes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Nucleophile attacks the δ+ carbon, then Cl⁻ is eliminated.",
+            "The tetrahedral intermediate has an O⁻ and the nucleophile attached.",
+            "HCl forms as the second product."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write an equation for the reaction of propanoyl chloride with ethanol, and name the organic product.",
+      "a": "CH₃CH₂COCl + CH₃CH₂OH → CH₃CH₂COOCH₂CH₃ + HCl. The product is ethyl propanoate.",
+      "marks": 2
+    },
+    {
+      "q": "Outline the mechanism for the reaction of ethanoyl chloride with ammonia.",
+      "a": "The lone pair on nitrogen attacks the δ+ carbon of C=O. The C=O π bond breaks, giving an intermediate with O⁻ and N⁺. The lone pair on O⁻ reforms C=O and Cl⁻ is lost. H⁺ is lost from nitrogen, giving ethanamide and HCl.",
+      "marks": 4
+    },
+    {
+      "q": "Suggest why thionyl chloride is a convenient reagent for making acyl chlorides.",
+      "a": "The other products, SO₂ and HCl, are both gases, so they leave the reaction mixture and the acyl chloride is easy to obtain.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.3e",
+        "OCR 6.1.3f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the products this course names for acyl chlorides."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Acyl chlorides are used in synthesis to make esters, carboxylic acids, and primary and secondary amides.",
+                "Primary amide: from ammonia, RCONH₂. Secondary amide: from a primary amine, RCONHR'.",
+                "Phenol is esterified by an acyl chloride because it is not readily esterified by a carboxylic acid."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 17C.13",
+        "EDEX 17C.14"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the four reactions in the specification."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Identify the acyl chloride group, –COCl, and the ester group, –COO–.",
+                "Water gives a carboxylic acid, an alcohol gives an ester, concentrated ammonia gives an amide, and an amine gives an N-substituted amide.",
+                "Use concentrated ammonia and excess amine, so that the HCl formed is neutralised."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.9.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers acid anhydrides, aspirin and the preparation of a pure organic solid and liquid."
+            },
+            {
+              "type": "subheading",
+              "text": "Acid anhydrides and aspirin"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Acid anhydrides react with water, alcohols, ammonia and primary amines like acyl chlorides. The second product is a carboxylic acid, not HCl.",
+                "Aspirin is made from 2-hydroxybenzoic acid. Ethanoic anhydride is preferred industrially to ethanoyl chloride.",
+                "Ethanoic anhydride is **cheaper**.",
+                "It is **less corrosive** and reacts **less vigorously** with water.",
+                "It does not produce HCl, which is corrosive and toxic."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Preparing a pure organic solid and a pure organic liquid"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Solid: react.",
+                  "text": "Warm the reagents, then cool to crystallise the crude product."
+                },
+                {
+                  "lead": "Solid: purify.",
+                  "text": "Filter under reduced pressure, then recrystallise from a minimum of hot solvent and dry."
+                },
+                {
+                  "lead": "Solid: test.",
+                  "text": "Measure the melting point. A pure solid melts sharply at the data-book value. An impure solid melts lower and over a range."
+                },
+                {
+                  "lead": "Liquid: separate.",
+                  "text": "Use a separating funnel to wash and separate the organic layer. Dry it with an anhydrous salt, then distil and collect the fraction at the known boiling point."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 32.1.1",
+        "CAIE 33.1.2",
+        "CAIE 33.2.1",
+        "CAIE 33.3.1",
+        "CAIE 33.3.2",
+        "CAIE 33.3.3",
+        "CAIE 33.3.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers named examples and why acyl chlorides hydrolyse more easily than other chlorides."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Esters from acyl chlorides: ethyl ethanoate from ethanoyl chloride and ethanol, and phenyl benzoate from benzoyl chloride and phenol.",
+                "Making acyl chlorides: PCl₃ with heat, PCl₅, or SOCl₂.",
+                "Amides form with ammonia, and with primary or secondary amines, at room temperature."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Ease of hydrolysis"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Chloride",
+                "Hydrolysis",
+                "Reason"
+              ],
+              "rows": [
+                [
+                  "Acyl chloride, RCOCl",
+                  "Very fast with cold water",
+                  "The carbonyl carbon is attached to two electronegative atoms, O and Cl. It is very δ+ and accepts a nucleophile easily."
+                ],
+                [
+                  "Alkyl chloride, RCl",
+                  "Slow, needs warming with aqueous alkali",
+                  "The carbon is only attached to one electronegative atom, so it is less δ+."
+                ],
+                [
+                  "Aryl chloride, C₆H₅Cl",
+                  "Practically none",
+                  "A lone pair on Cl overlaps with the ring π system. The C–Cl bond is stronger and has some double-bond character. The ring electrons repel the nucleophile."
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Order of ease of hydrolysis: acyl chloride > alkyl chloride > aryl chloride."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "6c6ecb58-75d0-408d-8b7a-f2e64a2517b7",
+      "8579b115-b00d-4fe5-8d77-102cb9bdf0f2",
+      "efb7969a-232f-49e5-b10b-7dae8affb2e6",
+      "b363515d-7ff4-430a-9f3c-19a5c90d71e7",
+      "32470214-d89f-4ac1-9086-f4bacd480c04",
+      "4c1b9741-0072-4d8d-a49b-3ce7f060fdbf",
+      "305e1aa9-0555-4bd3-a01b-f69317ea1448",
+      "0fc1fd27-a088-4159-9aa8-816140814841",
+      "ba73efc3-ea06-4593-b1ac-2ace7ccb7412",
+      "6ba26b73-8f19-4c66-8eac-efcb8998c4b9",
+      "5ee6e0d4-5df2-40a2-b29d-591f477529d5",
+      "83855a26-b228-40c3-a5ba-bf7c541331b7"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

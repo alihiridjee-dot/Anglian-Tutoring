@@ -1,0 +1,313 @@
+{
+  "format": 1,
+  "concept_id": "aphys-061",
+  "subject": "physics",
+  "title": "Mass-spring systems, pendulums and energy in SHM",
+  "key_idea": "A mass on a spring and a simple pendulum (for small angles) both oscillate with SHM, and their periods depend on only a few quantities. During SHM energy swaps between kinetic and potential, and the total stays constant if there is no damping.",
+  "sections": [
+    {
+      "heading": "Mass on a spring",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A mass on a spring is pulled down and released. The spring force is proportional to the extension, so the motion is SHM."
+        },
+        {
+          "type": "equation",
+          "label": "Period of a mass-spring system",
+          "formula": "T = 2π√(m / k)",
+          "where": ["T = period (s)", "m = mass (kg)", "k = spring constant (N/m)"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A larger mass gives a longer period, because it accelerates more slowly.",
+            "A stiffer spring (larger k) gives a shorter period.",
+            "The period does not depend on the amplitude.",
+            "The same period applies for a vertical or horizontal spring, as long as the spring stays in tension (or compression)."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "This comes from F = −kx and F = ma, which give a = −(k/m)x. Comparing with a = −ω²x gives ω² = k/m, and T = 2π/ω."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "T = 2π√(m / k) for a mass on a spring.",
+            "T increases with mass and decreases with stiffness.",
+            "T does not depend on amplitude."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The simple pendulum",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A simple pendulum is a small mass on a light string. For small angles (under about 10°) the motion is close to SHM."
+        },
+        {
+          "type": "equation",
+          "label": "Period of a simple pendulum",
+          "formula": "T = 2π√(l / g)",
+          "where": ["T = period (s)", "l = length from the pivot to the centre of the mass (m)", "g = gravitational field strength (N/kg)"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A longer pendulum has a longer period.",
+            "The period does not depend on the mass.",
+            "The period does not depend on the amplitude, for small angles.",
+            "T² is proportional to l, so a graph of T² against l is a straight line through the origin with gradient 4π² / g."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Other oscillators can also be SHM, such as liquid in a U-tube. The information you need is given in the question."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "T = 2π√(l / g) for small angles.",
+            "T depends on length and g, not on mass or amplitude.",
+            "A T² against l graph has gradient 4π² / g."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Energy in SHM",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "As an object oscillates, energy changes between kinetic and potential forms."
+        },
+        {
+          "type": "list",
+          "items": [
+            "At the ends of the motion the object is momentarily at rest. All the energy is potential.",
+            "At the equilibrium position the speed is greatest. All the energy is kinetic.",
+            "In between, energy is shared, and the total is constant when there is no damping.",
+            "The kinetic and potential energies each go through two cycles for every one cycle of the displacement."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Kinetic energy at displacement x",
+          "formula": "Eₖ = ½mω²(A² − x²)",
+          "where": ["Eₖ = kinetic energy (J)", "m = mass (kg)", "ω = angular frequency (rad/s)", "A = amplitude (m)", "x = displacement (m)"]
+        },
+        {
+          "type": "equation",
+          "label": "Potential energy at displacement x",
+          "formula": "Eₚ = ½mω²x²",
+          "where": ["Eₚ = potential energy (J)"]
+        },
+        {
+          "type": "equation",
+          "label": "Total energy",
+          "formula": "E = ½mω²A²",
+          "where": ["E = total energy (J)", "A = amplitude (m); this is x₀ in some courses"]
+        },
+        {
+          "type": "paragraph",
+          "text": "The total is the maximum kinetic energy, ½m(ωA)², which is ½mv² at the maximum speed. Doubling the amplitude quadruples the total energy."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Energy against displacement for SHM. Potential energy is a U-shaped curve, kinetic energy is an inverted U, and the total energy is a flat line equal to the peak of each.",
+            "x": { "label": "Displacement as a fraction of the amplitude", "min": -1, "max": 1, "ticks": [-1, -0.5, 0, 0.5, 1] },
+            "y": { "label": "Energy (shape only)" },
+            "series": [
+              { "name": "Potential energy", "points": [[-1, 1], [-0.75, 0.56], [-0.5, 0.25], [-0.25, 0.06], [0, 0], [0.25, 0.06], [0.5, 0.25], [0.75, 0.56], [1, 1]] },
+              { "name": "Kinetic energy", "points": [[-1, 0], [-0.75, 0.44], [-0.5, 0.75], [-0.25, 0.94], [0, 1], [0.25, 0.94], [0.5, 0.75], [0.75, 0.44], [1, 0]] },
+              { "name": "Total energy", "points": [[-1, 1], [1, 1]] }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing how kinetic, potential and total energy change with displacement for an oscillator.",
+            "inputs": [
+              { "id": "m", "label": "Mass", "unit": "kg", "min": 0.1, "max": 2, "step": 0.1, "value": 0.5 },
+              { "id": "w", "label": "Angular frequency", "unit": "rad/s", "min": 2, "max": 20, "step": 1, "value": 10 },
+              { "id": "A", "label": "Amplitude", "unit": "m", "min": 0.02, "max": 0.1, "step": 0.01, "value": 0.1 },
+              { "id": "x", "label": "Displacement", "unit": "m", "min": 0, "max": 0.1, "step": 0.01, "value": 0.05 }
+            ],
+            "outputs": [
+              { "label": "Kinetic energy", "unit": "J", "formula": "0.5 * m * w * w * max(A * A - x * x, 0)", "decimals": 3, "bar": true },
+              { "label": "Potential energy", "unit": "J", "formula": "0.5 * m * w * w * min(x, A) * min(x, A)", "decimals": 3, "bar": true },
+              { "label": "Total energy", "unit": "J", "formula": "0.5 * m * w * w * A * A", "decimals": 3 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Energy swaps between kinetic and potential; the total is ½mω²A² and constant.",
+            "Eₖ is greatest at the centre and zero at the ends; Eₚ is the opposite.",
+            "Eₚ ∝ x² and Eₖ ∝ (A² − x²)."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Energy with and without damping",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Real oscillators lose energy, so their amplitude falls. The topic of damping is covered in full in the next note."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Undamped: the total energy stays constant, so Eₖ + Eₚ = constant and the amplitude stays the same.",
+            "Damped: resistive forces do work against the motion. Energy is transferred to the surroundings as thermal energy.",
+            "With damping the total energy decreases with each cycle, so the amplitude decreases over time.",
+            "The energy lost in a cycle is the work done against the resistive force."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Without damping, energy is conserved and the amplitude stays constant.",
+            "With damping, energy is transferred to the surroundings and the amplitude falls."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A 0.25 kg mass hangs on a spring of spring constant 40 N/m. Calculate the period of its oscillations.",
+      "a": "T = 2π√(m/k) = 2π√(0.25/40) = 0.50 s.",
+      "marks": 2
+    },
+    {
+      "q": "Describe the energy changes in one complete oscillation of a pendulum, and state what happens to the total energy if there is no damping.",
+      "a": "At each end all the energy is gravitational potential energy; at the lowest point all is kinetic energy; energy swaps between the two as it moves. The total energy stays constant.",
+      "marks": 3
+    },
+    {
+      "q": "An oscillator has mass 0.40 kg, angular frequency 5.0 rad/s and amplitude 0.12 m. Calculate its total energy and its kinetic energy at a displacement of 0.060 m.",
+      "a": "E = ½mω²A² = ½ × 0.40 × 5.0² × 0.12² = 0.072 J. Eₖ = ½mω²(A² − x²) = ½ × 0.40 × 25 × (0.0144 − 0.0036) = 0.054 J.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.6.1.3"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know how Eₖ, Eₚ and total energy vary with both displacement and time.",
+                "Against time, Eₖ and Eₚ are both curves of frequency twice that of the oscillation, always positive, and they add to a flat total.",
+                "Questions may use other harmonic oscillators, such as liquid in a U-tube. The information you need is given."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Required practical: SHM with a mass-spring system and a pendulum"
+            },
+            {
+              "type": "steps",
+              "items": [
+                { "lead": "Spring", "text": "Hang different masses from a spring. Displace slightly and time 10 or more oscillations to find T for each mass." },
+                { "lead": "Spring analysis", "text": "Plot T² against m. The line is straight with gradient 4π² / k." },
+                { "lead": "Pendulum", "text": "Vary the length l from pivot to the centre of the bob. Time 10 or more oscillations for each, using a small angle." },
+                { "lead": "Pendulum analysis", "text": "Plot T² against l. The gradient is 4π² / g, which gives g." }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use a fiducial marker at the centre and time from there.",
+                "Timing many oscillations reduces the percentage uncertainty."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 13.188"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Apply conservation of energy to undamped systems: Eₖ + Eₚ stays constant.",
+                "For a vertical mass-spring system the potential energy includes both elastic and gravitational parts.",
+                "Apply it to damped systems: the total energy falls, and the energy lost equals the work done against the resistive force.",
+                "The use of T = 2π√(m/k) and T = 2π√(l/g) is covered with the equations of SHM."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 17.2.1", "CAIE 17.2.2"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The amplitude is written x₀, so the total energy is E = ½mω²x₀².",
+                "Describe the interchange of kinetic and potential energy in words, as well as calculating it."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": ["OCR 5.3.2a", "OCR 5.3.2b"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Sketch and interpret energy–displacement graphs: Eₚ is a parabola with its minimum at x = 0, Eₖ is an inverted parabola, and the total is a horizontal line.",
+                "The Eₖ and Eₚ curves cross where x = ±A/√2, where each is half the total energy.",
+                "The area under a force–displacement graph is the work done, which links to Eₚ."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "spec_point_ids": [
+      "dfa97c1b-7476-471e-908a-44666a0027cb",
+      "0842b60e-bae2-4026-bfe6-6d3dc5d56e9b",
+      "125c4f43-e603-4a19-b9a0-1253aa78c1a3",
+      "37a84d53-03ea-47ca-bce3-2dde9f9419c6",
+      "cddc5dd3-be01-4a39-8544-44180a1af540",
+      "87f84baf-32c8-40b9-8b24-539882a84342"
+    ],
+    "exemplar_ids": []
+  }
+}

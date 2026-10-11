@@ -1,0 +1,222 @@
+{
+  "format": 1,
+  "concept_id": "abio-083",
+  "subject": "biology",
+  "title": "Cloning",
+  "key_idea": "A clone is a group of genetically identical organisms. Plants clone naturally by vegetative propagation and can be cloned artificially from cuttings or tissue culture. Animals clone naturally by embryo splitting and artificially by embryo twinning or nuclear transfer.",
+  "sections": [
+    {
+      "heading": "Cloning in plants",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Many plants make clones naturally. Growers use the same ideas to produce many identical plants."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Clone",
+              "meaning": "Genetically identical individuals, produced from the same original cells or embryo."
+            },
+            {
+              "term": "Vegetative propagation",
+              "meaning": "Asexual reproduction in plants from parts such as stems, roots or leaves."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Natural clones: strawberry runners, potato tubers, bulbs, corms and rhizomes.",
+            "**Cuttings**: a piece of stem with a node is cut from the parent. It is placed in compost or water, and may be dipped in rooting hormone, so it grows roots.",
+            "Cuttings are quick, cheap and keep the desirable features of the parent."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Micropropagation and tissue culture"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Select",
+              "text": "Take small pieces of tissue, such as shoot tips, from a parent plant with the desired features."
+            },
+            {
+              "lead": "Sterilise",
+              "text": "Clean the tissue with disinfectant, and work with aseptic technique, to stop bacteria and fungi growing."
+            },
+            {
+              "lead": "Culture",
+              "text": "Place the tissue on sterile agar with nutrients and plant hormones. Cells divide to form a mass of undifferentiated cells (callus)."
+            },
+            {
+              "lead": "Grow",
+              "text": "Change the hormone balance so the callus forms shoots and then roots."
+            },
+            {
+              "lead": "Plant out",
+              "text": "Move the small plants to compost and grow them on."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "For artificial cloning of plants",
+            "Against"
+          ],
+          "rows": [
+            [
+              "Thousands of identical plants from a small piece of tissue",
+              "Expensive equipment and skilled workers"
+            ],
+            [
+              "Plants can be disease-free and grown all year",
+              "No genetic variation, so one disease could kill the whole crop"
+            ],
+            [
+              "Rare or endangered species can be conserved",
+              "Loss of genetic diversity"
+            ],
+            [
+              "Useful for plants that do not produce viable seeds",
+              "Cultures may be lost to infection"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cuttings and tissue culture produce genetically identical plants from a parent with desirable features.",
+            "Lack of variation is the main disadvantage."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cloning in animals",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Natural animal clones are rare. Artificial methods copy this or use a cell from an adult."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Natural clones**: identical twins form when an early embryo splits into two. They are genetically identical.",
+            "**Artificial embryo twinning**: an embryo is made by in vitro fertilisation, split into several cells at an early stage and each cell is placed in a surrogate mother.",
+            "These clones are identical to each other, but not to either parent."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "The steps in somatic cell nuclear transfer.",
+            "prompt": "Put the steps of cloning by nuclear transfer in order.",
+            "steps": [
+              "Remove the nucleus from an unfertilised egg cell (enucleation)",
+              "Take a diploid nucleus from a body cell of the animal to be cloned",
+              "Put the nucleus into the empty egg and stimulate it to divide with an electric pulse",
+              "Grow the cell into an early embryo",
+              "Implant the embryo into a surrogate mother",
+              "The offspring is a clone of the nucleus donor"
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "For artificial cloning of animals",
+            "Against"
+          ],
+          "rows": [
+            [
+              "Many copies of high-yield farm animals",
+              "Low success rate; many embryos fail"
+            ],
+            [
+              "Copies of animals that make human proteins for medicine",
+              "Cloned animals may have health problems or shorter lives"
+            ],
+            [
+              "Could help to save endangered species",
+              "Reduces genetic variation and so resilience to disease"
+            ],
+            [
+              "Can be used to make genetically identical animals for research",
+              "Ethical objections, especially about human cloning"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Animals are cloned by splitting early embryos or by transferring a body cell nucleus into an enucleated egg.",
+            "Cloning is useful but inefficient, and raises welfare and ethical questions."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how a plant breeder can use tissue culture to produce many identical plants.",
+      "a": "Small pieces of tissue from the parent are sterilised and placed on sterile agar with nutrients and growth hormones. The cells divide to form a callus. Altering the hormones makes it form shoots and roots, and the plantlets are planted out.",
+      "marks": 4
+    },
+    {
+      "q": "Explain why the clones made by embryo twinning are not identical to either parent.",
+      "a": "The embryo is formed from the fusion of a sperm and an egg, so it has a new combination of alleles from both parents. The clones are all identical to each other but different from both parents.",
+      "marks": 2
+    },
+    {
+      "q": "Evaluate the cloning of farm animals using nuclear transfer.",
+      "a": "For: many identical animals with the desired features, such as high milk yield. Against: low success rate, cloned animals may have health problems or reduced lifespan, and reduced genetic variation makes a herd more vulnerable to disease.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.2.1a",
+        "OCR 6.2.1b",
+        "OCR 6.2.1c",
+        "OCR 6.2.1d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Plant cuttings: you should be able to describe how to take a cutting, and may dissect plant material to produce cuttings.",
+                "Evaluate the uses of plant cloning in horticulture and agriculture.",
+                "Artificial cloning in animals: **enucleation and somatic cell nuclear transfer (SCNT)** and artificial embryo twinning.",
+                "Evaluate animal cloning in agriculture and medicine. Issues include the longevity of cloned animals, which may age faster."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "990628bf-d974-47bd-8fa7-f1cce5ab463c",
+      "8703dee0-a100-4c48-a91c-1c8b20940260",
+      "ff4c6ecb-07c6-426a-aeb1-8071f8527415",
+      "65ed8a92-0081-4ada-9d1b-c51e73be1ebe"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

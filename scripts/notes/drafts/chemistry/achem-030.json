@@ -1,0 +1,452 @@
+{
+  "format": 1,
+  "concept_id": "achem-030",
+  "subject": "chemistry",
+  "title": "Rate graphs and half-life",
+  "key_idea": "The order of a reaction can be read from the shape of a concentration–time graph or a rate–concentration graph. A first-order reaction has a constant half-life. Rates come from the gradients of graphs, and the data come from initial-rate or continuous-monitoring experiments.",
+  "sections": [
+    {
+      "heading": "Collecting rate data",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Rate data come from two kinds of experiment. This section covers each, and the techniques used."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Method",
+            "What is done",
+            "Data produced"
+          ],
+          "rows": [
+            [
+              "Initial rates",
+              "Run separate experiments with different starting concentrations of one reagent. Measure the rate at the start of each.",
+              "Initial rate against concentration"
+            ],
+            [
+              "Continuous monitoring",
+              "Follow one reaction as it proceeds, measuring a quantity at regular times.",
+              "Concentration–time or volume–time graph"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **clock reaction** is an acceptable approximation to the initial-rate method. The time for a fixed small change is measured, so the reaction has not gone far. Rate is proportional to 1 ÷ time.",
+            "**Titration**: take samples at intervals and stop (quench) the reaction, then titrate.",
+            "**Colorimetry**: use a coloured reactant or product. The absorbance is proportional to its concentration.",
+            "**Mass change** or **volume of gas** evolved: for reactions that release a gas.",
+            "Choose a technique that suits the reaction, and justify it."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Initial rates use separate experiments. Continuous monitoring uses one.",
+            "A clock reaction approximates an initial rate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Concentration–time graphs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A concentration–time graph shows how a reactant is used up. This section covers its shape for each order and how to use it."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Two concentration–time graphs for a reactant. The zero order graph is a straight line falling at a constant rate. The first order graph is a curve that falls steeply at first and then flattens, with each half-life of 10 seconds halving the concentration.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 50,
+              "ticks": [
+                0,
+                10,
+                20,
+                30,
+                40,
+                50
+              ],
+              "unit": "s"
+            },
+            "y": {
+              "label": "Concentration of reactant"
+            },
+            "series": [
+              {
+                "name": "Zero order",
+                "points": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    0.8
+                  ],
+                  [
+                    20,
+                    0.6
+                  ],
+                  [
+                    30,
+                    0.4
+                  ],
+                  [
+                    40,
+                    0.2
+                  ],
+                  [
+                    50,
+                    0
+                  ]
+                ]
+              },
+              {
+                "name": "First order",
+                "points": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    0.5
+                  ],
+                  [
+                    20,
+                    0.25
+                  ],
+                  [
+                    30,
+                    0.125
+                  ],
+                  [
+                    40,
+                    0.0625
+                  ],
+                  [
+                    50,
+                    0.03
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Zero order**: a straight line with a constant negative gradient. The rate is constant.",
+            "**First order**: a curve with a falling gradient. The rate falls as the concentration falls.",
+            "The rate at any time is minus the gradient of the tangent at that time. Rate is positive, so ignore the sign.",
+            "The initial rate is the gradient of the tangent at time zero."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A straight line means zero order. A curve with a constant half-life means first order.",
+            "Rate at a time is the gradient of the tangent at that time."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Half-life of a first-order reaction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The half-life is a fixed time for a first-order reaction. This section covers how to measure it and use it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Half-life, t½",
+              "meaning": "The time taken for the concentration of a reactant to fall to half of its value."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "For a **first-order** reaction, t½ is constant. It does not depend on the starting concentration.",
+            "Measure t½ from the graph: the time for [A] to fall from any value to half of that value.",
+            "Check by measuring two or more half-lives. If they are equal, the reaction is first order.",
+            "For a zero-order reaction, each half-life is shorter than the last, because the same amount is used up each second. The half-life is not constant."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Rate constant from half-life (first order)",
+          "formula": "k = ln 2 ÷ t½ = 0.693 ÷ t½",
+          "where": [
+            "k in s⁻¹",
+            "t½ in s"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation of the rate constant of a first-order reaction from its half-life, with new numbers each time.",
+            "question": "A first-order reaction has a half-life of {t} s. Calculate the rate constant k.",
+            "variables": [
+              {
+                "id": "t",
+                "min": 10,
+                "max": 200,
+                "step": 10
+              }
+            ],
+            "answer": {
+              "formula": "0.693 / t",
+              "unit": "s⁻¹",
+              "decimals": 5
+            },
+            "working": [
+              "k = 0.693 ÷ t½",
+              "k = 0.693 ÷ {t} = {answer} s⁻¹"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A constant half-life shows a first-order reaction.",
+            "For first order, k = ln 2 ÷ t½."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Rate–concentration graphs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A rate–concentration graph plots the initial rate against the starting concentration. This section covers how its shape gives the order."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Order",
+            "Shape of rate–concentration graph",
+            "Rate depends on"
+          ],
+          "rows": [
+            [
+              "0",
+              "Horizontal line",
+              "Nothing: rate is constant"
+            ],
+            [
+              "1",
+              "Straight line through the origin",
+              "[A]"
+            ],
+            [
+              "2",
+              "Curve that rises more and more steeply",
+              "[A]²"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "For a first-order reaction the gradient of the straight line is the rate constant k, since rate = k[A].",
+            "The data come from separate initial-rate experiments with different starting concentrations."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Horizontal: order 0. Straight line through the origin: order 1. Upward curve: order 2.",
+            "For first order, the gradient is k."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What the orders say about the rate-determining step",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The rate equation is an experimental result. This section covers what the orders can tell you about the mechanism."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A reactant that appears in the rate equation is involved in or before the rate-determining step.",
+            "A reactant with order 0 is not involved in the rate-determining step.",
+            "The orders give information about the mechanism, but the mechanism cannot be worked out from the orders alone.",
+            "The next note covers this in detail."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Orders give clues about the slow step.",
+            "A reactant of order 0 is not in the slow step."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "How can you tell from a concentration–time graph that a reaction is first order?",
+      "a": "The half-life is constant: the time for the concentration to halve is the same wherever it is measured.",
+      "marks": 1
+    },
+    {
+      "q": "The initial rate is measured at several different starting concentrations of A. The graph of initial rate against [A] is a straight line through the origin. State the order with respect to A and how to find k.",
+      "a": "First order with respect to A. k is the gradient of the line.",
+      "marks": 2
+    },
+    {
+      "q": "A first-order reaction has a half-life of 50 s. Calculate k.",
+      "a": "k = 0.693 ÷ 50 = 0.0139 s⁻¹ (1.39 × 10⁻² s⁻¹).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.1d",
+        "OCR 5.1.1e",
+        "OCR 5.1.1f",
+        "OCR 5.1.1g",
+        "OCR 5.1.1h"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know that continuous monitoring gives concentration–time graphs and that colorimetry is used."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Deduce order 0 or 1 from the shape of a concentration–time graph.",
+                "Deduce order 0, 1 or 2 from a rate–concentration graph.",
+                "Integrated forms of rate equations, such as [A] = [A₀]e⁻ᵏᵗ, are not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 16.3",
+        "EDEX 16.4",
+        "EDEX 16.5",
+        "EDEX 16.6",
+        "EDEX 16.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know the acid-catalysed iodination of propanone, used to find orders by an initial-rate method."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Order 2 can also come from a concentration–time graph. For a second-order reaction the half-life is not constant: each successive half-life is double the one before. Check by drawing tangents at several concentrations and plotting rate against concentration.",
+                "The overall equation is CH₃COCH₃ + I₂ → CH₃COCH₂I + HI. It is catalysed by H⁺.",
+                "Rate data are collected by timing the loss of the brown colour of iodine (colorimetry), or by titrating samples with sodium thiosulfate after stopping the reaction.",
+                "The results show the reaction is first order in propanone and first order in H⁺, and zero order in iodine.",
+                "The rate equation is rate = k[CH₃COCH₃][H⁺]. Propanone and H⁺ are involved in or before the slow step. Iodine reacts after it, in a fast step.",
+                "A possible mechanism: H⁺ and propanone react in the slow step to form an intermediate, which then reacts quickly with iodine."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.9.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know the two required methods: an initial rate method and a continuous monitoring method."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use concentration–time graphs to deduce the rate.",
+                "Use initial concentration–time data to deduce the initial rate.",
+                "Derive the rate equation from the orders, and use the orders for information about the rate-determining step."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 26.1.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Show that the half-life of a first-order reaction is independent of concentration, and use it in calculations."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Measure successive half-lives from a graph and show they are equal.",
+                "Use t½ in calculations, such as k = 0.693 ÷ t½."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "8e745a3d-fcec-4e68-b0d5-e2e97d9d79b2",
+      "15833b9d-dd01-420d-8267-d2be1d2cfe0a",
+      "96fd1f33-bc82-47d7-bfbf-9d31c4335397",
+      "dd98a67c-fcdf-4ec5-912b-eda49ea4dd89",
+      "c3998896-7ee1-4aac-b506-1c31a5985768",
+      "0f315a4a-76bd-4de0-96ac-d711f69d9617",
+      "d42bdff4-cf93-4793-a9c5-18279b8aa43f",
+      "f6e66863-6db2-4a4c-9c4f-1e37488800f8",
+      "e0105598-736b-40f0-917c-1b28c0b09ad2",
+      "fab71208-8556-4de8-81ee-f67110ab0f00",
+      "fde97aa0-c62d-4756-bc6d-6067d4dbc8c9",
+      "137035c8-749d-4f85-817f-388b5659ef2f"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

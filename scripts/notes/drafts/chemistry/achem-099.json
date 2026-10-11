@@ -1,0 +1,287 @@
+{
+  "format": 1,
+  "concept_id": "achem-099",
+  "subject": "chemistry",
+  "title": "Quantitative physical core practicals",
+  "key_idea": "These core practicals measure a quantity and use it in a calculation: molar volume, concentrations by titration, enthalpy change, Ka, cell voltages, redox titration, rate and activation energy. For each, know the method, the measurements, the calculation and the main source of error.",
+  "sections": [
+    {
+      "heading": "Gas volume and titration practicals",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "These practicals use amounts in moles. This section covers the molar volume of a gas and the titration core practicals."
+        },
+        {
+          "type": "subheading",
+          "text": "Molar volume of a gas"
+        },
+        {
+          "type": "list",
+          "items": [
+            "React a weighed mass of a solid, such as magnesium with excess acid, and collect the gas in a gas syringe or an upturned measuring cylinder over water.",
+            "Calculate moles of the solid from mass ÷ M, and use the equation to find the moles of gas.",
+            "Molar volume = volume of gas ÷ moles of gas. At room temperature and pressure it is about 24 dm³ mol⁻¹.",
+            "Sources of error: gas escaping before the bung is replaced, gas dissolving in water, and a small mass with a large percentage uncertainty."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Molar volume",
+          "formula": "molar volume = V ÷ n",
+          "where": [
+            "V = volume of gas in dm³",
+            "n = amount of gas in mol"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Standard solution and sodium hydroxide concentration"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Prepare.",
+              "text": "Weigh a solid acid accurately, dissolve it and make it up to the mark in a volumetric flask to give a standard solution."
+            },
+            {
+              "lead": "Titrate.",
+              "text": "Pipette the standard solution into a conical flask, add indicator and titrate with the sodium hydroxide from a burette."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "Find moles of acid, use the equation ratio to find moles of NaOH, then divide by its volume in dm³."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Concentration of hydrochloric acid"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Titrate the hydrochloric acid against a standard solution, using a suitable indicator, and repeat until titres are concordant.",
+            "Use mean titre from concordant results only, then moles = concentration × volume in dm³."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Molar volume = volume of gas ÷ moles of gas.",
+            "In a titration, find moles of the standard solution, then use the equation ratio."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Enthalpy, Ka and electrochemical cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "These practicals link energy, equilibrium and electrode potential to measurements. This section covers calorimetry, the Ka of a weak acid, cells and redox titration."
+        },
+        {
+          "type": "subheading",
+          "text": "Enthalpy change by Hess's law"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Some enthalpy changes cannot be measured directly. Measure two that can, and combine them with a Hess cycle.",
+            "In each, use a polystyrene cup with a lid. Record temperature before mixing and at regular times after, then extrapolate the graph to the time of mixing to correct for heat loss.",
+            "Use the temperature change to find the heat energy, then divide by moles to find the enthalpy change."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Heat energy transferred",
+          "formula": "q = m c ΔT",
+          "where": [
+            "q in J",
+            "m = mass of solution in g",
+            "c = specific heat capacity, 4.18 J g⁻¹ K⁻¹ for water or solutions",
+            "ΔT = temperature change in K"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Ka of a weak acid"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Measure the pH of a weak acid solution of known concentration with a calibrated pH meter.",
+            "[H⁺] = 10⁻ᵖᴴ. For a weak acid HA, Ka = [H⁺][A⁻] ÷ [HA] ≈ [H⁺]² ÷ [HA].",
+            "A second method is half neutralisation: titrate half the acid with alkali. Then [HA] = [A⁻], so Ka = [H⁺] and pKa = pH."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Electrochemical cells and redox titration"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Build half-cells of metal in a solution of its ions, join with a salt bridge and measure the voltage with a high-resistance voltmeter.",
+            "Use 1.00 mol dm⁻³ solutions at 298 K for standard conditions. Clean the metals, and take the reading when it is steady.",
+            "In a redox titration, titrate an iron(II) solution, acidified with dilute sulfuric acid, with potassium manganate(VII) from a burette.",
+            "Manganate(VII) is its own indicator. The end point is the first permanent pale pink. Read the burette from the top of the meniscus, since the solution is dark.",
+            "Use dilute sulfuric acid, not hydrochloric acid, because chloride ions would be oxidised."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "q = mcΔT, then ΔH = q ÷ moles, with a sign for the direction of heat flow.",
+            "Ka ≈ [H⁺]² ÷ [HA], and [H⁺] = 10⁻ᵖᴴ.",
+            "Manganate(VII) titrations are self-indicating."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Rates and activation energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "These practicals follow how fast a reaction goes. This section covers the iodine–propanone reaction, the clock reaction and activation energy."
+        },
+        {
+          "type": "subheading",
+          "text": "Iodine–propanone reaction"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mix propanone, acid and iodine. Take samples at regular times and add sodium hydrogencarbonate to stop (quench) the reaction.",
+            "Titrate the iodine in each sample with sodium thiosulfate. Plot concentration of iodine against time.",
+            "The graph is a straight line, so the reaction is zero order with respect to iodine. The gradient is the rate.",
+            "Repeat with different concentrations of propanone and acid to find their orders."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "A clock reaction"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In the Harcourt–Esson iodine clock, hydrogen peroxide oxidises iodide ions in acid to iodine. Thiosulfate ions and starch are present.",
+            "Thiosulfate removes the iodine until it is used up, and then the iodine turns the starch blue-black. The time to this point is measured.",
+            "Because the amount of thiosulfate is fixed, rate is proportional to 1 ÷ time. Vary one concentration at a time to find orders."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Activation energy"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Measure the rate at several temperatures, keeping all concentrations the same. Use a water bath and let reagents reach the temperature first.",
+            "Calculate the rate constant k, or use 1 ÷ time as a measure of rate, at each temperature in kelvin.",
+            "Plot ln k against 1 ÷ T. The line has a gradient of −Eₐ ÷ R."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Arrhenius equation (logarithmic form)",
+          "formula": "ln k = −Eₐ ÷ (RT) + ln A",
+          "where": [
+            "k = rate constant",
+            "Eₐ = activation energy in J mol⁻¹",
+            "R = gas constant, 8.31 J K⁻¹ mol⁻¹",
+            "T = temperature in K",
+            "A = pre-exponential factor"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation of activation energy from the gradient of a graph of ln k against 1/T, with new numbers each time.",
+            "question": "A graph of ln k against 1/T has a gradient of −{g} K. Calculate the activation energy in kJ mol⁻¹. (R = 8.31 J K⁻¹ mol⁻¹.)",
+            "variables": [
+              {
+                "id": "g",
+                "min": 3000,
+                "max": 9000,
+                "step": 500
+              }
+            ],
+            "answer": {
+              "formula": "g * 8.31 / 1000",
+              "unit": "kJ mol⁻¹",
+              "decimals": 1
+            },
+            "working": [
+              "gradient = −Eₐ ÷ R, so Eₐ = −gradient × R",
+              "Eₐ = {g} × 8.31 ÷ 1000 = {answer} kJ mol⁻¹"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Quench each sample before titrating it, so the reaction stops at a known time.",
+            "In a clock reaction, rate is proportional to 1 ÷ time.",
+            "Gradient of ln k against 1/T = −Eₐ ÷ R."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A student collects 22.4 cm³ of gas from 0.00100 mol of a reactant that releases 1 mol of gas per mole. Calculate the molar volume in dm³ mol⁻¹.",
+      "a": "22.4 cm³ = 0.0224 dm³; 0.0224 ÷ 0.00100 = 22.4 dm³ mol⁻¹.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why dilute sulfuric acid, not hydrochloric acid, is used in a titration with potassium manganate(VII).",
+      "a": "Hydrochloric acid contains chloride ions, which would be oxidised by manganate(VII), so more manganate(VII) would be used and the titre would be too high.",
+      "marks": 2
+    },
+    {
+      "q": "In the iodine clock reaction, why is the time for the blue-black colour used as a measure of rate?",
+      "a": "The same fixed amount of iodine is formed (or thiosulfate used up) at the end point each time, so rate is proportional to 1 ÷ time.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.CP1",
+        "EDEX 5.CP2",
+        "EDEX 5.CP3",
+        "EDEX 8.CP8",
+        "EDEX 12.CP9",
+        "EDEX 14.CP10",
+        "EDEX 14.CP11",
+        "EDEX 16.CP13",
+        "EDEX 16.CP14"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "a4e6704a-a16b-478e-afb9-1ce34225fd32",
+      "39afc4b2-fcec-4ac5-af75-dbb5127a5f0f",
+      "1a719118-97e6-4b95-a11a-7b6129359c90",
+      "e80b7fc6-6eaf-4ae1-bce9-cb8d37789a86",
+      "d969d019-89fd-4132-a9ec-da30a964367f",
+      "9e294e17-0d9c-40f8-854d-20a487daf600",
+      "508b69ad-9df6-43a4-b483-4e262ba50fa5",
+      "dcb0b8b6-cbee-4399-acfe-01ca64997105",
+      "1e777233-4c48-4b54-82d2-893221452767"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,383 @@
+{
+  "format": 1,
+  "concept_id": "achem-076",
+  "subject": "chemistry",
+  "title": "Alcohols: production and properties",
+  "key_idea": "Alcohols contain the –OH group. They are classified as primary, secondary or tertiary. Hydrogen bonding makes them soluble in water and less volatile than alkanes. Industrially, ethanol is made by hydrating ethene or by fermenting glucose.",
+  "sections": [
+    {
+      "heading": "Classifying alcohols",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Alcohols are classified by the carbon that carries the –OH group. This section covers the three types."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Type",
+            "Carbon bonded to –OH is attached to",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Primary",
+              "one other carbon atom (or none)",
+              "propan-1-ol, CH₃CH₂CH₂OH"
+            ],
+            [
+              "Secondary",
+              "two other carbon atoms",
+              "propan-2-ol, CH₃CH(OH)CH₃"
+            ],
+            [
+              "Tertiary",
+              "three other carbon atoms",
+              "2-methylpropan-2-ol, (CH₃)₃COH"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Some alcohols contain more than one –OH group, for example ethane-1,2-diol. Classify each –OH group separately.",
+            "The type decides how the alcohol is oxidised. See the note on reactions of alcohols."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Count the carbon atoms attached to the C–OH carbon: one, two or three.",
+            "Primary, secondary and tertiary alcohols react differently with oxidising agents."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Physical properties",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The –OH group gives alcohols properties that alkanes lack. This section explains solubility, volatility, combustion and acidity."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The O–H bond is polar. Oxygen is δ– and hydrogen is δ+.",
+            "Alcohol molecules form **hydrogen bonds** with each other. Hydrogen bonds are stronger than the London forces between alkane molecules.",
+            "More energy is needed to separate alcohol molecules, so alcohols have higher boiling points and lower volatility than alkanes of similar size.",
+            "Alcohols form hydrogen bonds with water, so short-chain alcohols dissolve in water.",
+            "Solubility falls as the carbon chain gets longer, because the non-polar chain does not form hydrogen bonds."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Alcohols burn in plenty of air to give carbon dioxide and water, for example C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O.",
+            "Combustion is exothermic, so alcohols are used as fuels."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hydrogen bonding explains the water solubility and low volatility of alcohols compared with alkanes.",
+            "Alcohols burn completely to carbon dioxide and water."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making alcohols",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Industrially, alcohols are made from alkenes, or by fermentation. This section covers hydration of an alkene."
+        },
+        {
+          "type": "equation",
+          "label": "Hydration of ethene",
+          "formula": "CH₂=CH₂(g) + H₂O(g) ⇌ CH₃CH₂OH(g)",
+          "where": [
+            "steam is the reagent",
+            "an acid catalyst, H₃PO₄, is used"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "This is electrophilic addition of steam across the C=C bond.",
+            "The reaction is reversible and exothermic. Typical industrial conditions are about 300 °C and 60–70 atm.",
+            "Alcohols can also be made by substitution of a halogenoalkane with aqueous alkali, as covered in the halogenoalkane notes."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of hydration of ethene and fermentation of glucose as ways to make ethanol.",
+            "items": [
+              "Hydration of ethene",
+              "Fermentation of glucose"
+            ],
+            "rows": [
+              {
+                "feature": "Starting material",
+                "values": [
+                  "Ethene, from crude oil",
+                  "Glucose, from plants"
+                ]
+              },
+              {
+                "feature": "Conditions",
+                "values": [
+                  "Steam, H₃PO₄ catalyst, high temperature and pressure",
+                  "Yeast, about 30–40 °C, no oxygen"
+                ]
+              },
+              {
+                "feature": "Rate",
+                "values": [
+                  "Fast",
+                  "Slow"
+                ]
+              },
+              {
+                "feature": "Product",
+                "values": [
+                  "Pure ethanol",
+                  "Dilute ethanol, then fractional distillation"
+                ]
+              },
+              {
+                "feature": "Process",
+                "values": [
+                  "Continuous",
+                  "Batch"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ethene plus steam with an acid catalyst gives ethanol.",
+            "Fermentation is slower than hydration and uses a renewable raw material."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why ethanol is soluble in water but hexane is not.",
+      "a": "Ethanol forms hydrogen bonds with water molecules. Hexane is non-polar and cannot form hydrogen bonds with water.",
+      "marks": 2
+    },
+    {
+      "q": "Classify (CH₃)₂CHCH₂OH and CH₃CH(OH)CH₂CH₃ as primary, secondary or tertiary.",
+      "a": "(CH₃)₂CHCH₂OH is primary. CH₃CH(OH)CH₂CH₃ is secondary.",
+      "marks": 2
+    },
+    {
+      "q": "Give the reagent and catalyst used to make ethanol from ethene.",
+      "a": "Steam (water vapour) with a phosphoric acid (H₃PO₄) catalyst.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.1a",
+        "OCR 4.2.1b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Explain the polarity of alcohols, and in terms of hydrogen bonding their water solubility and relatively low volatility compared with alkanes.",
+                "Know the combustion of alcohols, and be able to write equations for complete combustion."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 6E.37"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know that alcohols can be classified as primary, secondary or tertiary.",
+                "Know that the type of alcohol decides its oxidation behaviour. This is covered in the next note."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.5.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Fermentation and biofuels"
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Biofuel",
+                  "meaning": "A fuel made from plant or animal material that is renewable on a short timescale."
+                }
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Fermentation of glucose",
+              "formula": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂",
+              "where": [
+                "yeast provides the enzymes",
+                "anaerobic (no oxygen) conditions"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Justify the conditions: about 30–40 °C is the optimum for yeast enzymes. A lower temperature makes the reaction too slow. A higher temperature denatures the enzymes.",
+                "Oxygen is excluded. With oxygen, ethanol would be oxidised to ethanoic acid.",
+                "Ethanol is separated from the mixture by fractional distillation. It can then be used as a biofuel.",
+                "Carbon-neutral claim: the CO₂ released on burning is equal to the CO₂ absorbed by the plants as they grew. Equations: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂, then fermentation, then combustion C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O.",
+                "Why the claim is not valid: fuel is used for farming, transport, fertiliser and distillation, and these release CO₂."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Mechanism of hydration"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Protonation",
+                  "text": "A curly arrow goes from the C=C bond to H⁺ from the acid. A carbocation forms."
+                },
+                {
+                  "lead": "Attack by water",
+                  "text": "A lone pair on the oxygen of a water molecule attacks the carbocation."
+                },
+                {
+                  "lead": "Loss of H⁺",
+                  "text": "The O–H bond breaks and the H⁺ is released, regenerating the acid catalyst. The alcohol forms."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Discuss the environmental and ethical issues of biofuels. These include land used for fuel crops instead of food, deforestation, and the carbon footprint of production.",
+                "Weigh the benefits, such as a renewable source and less use of fossil fuels, against these issues when making decisions."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 16.1.1",
+        "CAIE 16.1.3",
+        "CAIE 16.1.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Routes to alcohols"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Route",
+                "Reagent and conditions"
+              ],
+              "rows": [
+                [
+                  "Alkene (hydration)",
+                  "H₂O(g) with H₃PO₄ catalyst"
+                ],
+                [
+                  "Alkene to a diol",
+                  "cold dilute acidified KMnO₄"
+                ],
+                [
+                  "Halogenoalkane",
+                  "NaOH(aq) and heat"
+                ],
+                [
+                  "Aldehyde or ketone",
+                  "reduction with NaBH₄ or LiAlH₄"
+                ],
+                [
+                  "Carboxylic acid",
+                  "reduction with LiAlH₄"
+                ],
+                [
+                  "Ester",
+                  "hydrolysis with dilute acid or dilute alkali and heat"
+                ]
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Classification and acidity"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Classify alcohols with more than one –OH group, such as ethane-1,2-diol, by looking at each –OH.",
+                "Distinguishing reaction: mild oxidation with acidified K₂Cr₂O₇ gives an orange to green colour change with primary and secondary alcohols but not with tertiary alcohols.",
+                "Alcohols are very weak acids, weaker than water. They do not react with alkalis.",
+                "In an alkoxide ion, RO⁻, the alkyl group pushes electrons towards the oxygen. This makes the negative charge less stable, so ionisation is less likely than for water.",
+                "A tertiary alcohol is even less acidic than a primary alcohol, because it has three electron-donating alkyl groups."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "dca33254-6a9e-4883-a762-05a1914c8498",
+      "33daf6d4-6385-4f57-b800-fa8dd4508cca",
+      "7fb3f6c1-cded-4e1b-916a-2619123d5094",
+      "b8b9ee18-d240-41ee-8a44-dcf31af3fff1",
+      "a5e4509d-9275-422f-865a-18a19adf6546",
+      "40832d51-d63a-4114-87bd-21e67d715088",
+      "294645fb-22a1-4874-a975-5e3728a5a4f0"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

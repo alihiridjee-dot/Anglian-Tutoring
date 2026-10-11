@@ -1,0 +1,379 @@
+{
+  "format": 1,
+  "concept_id": "abio-088",
+  "subject": "biology",
+  "title": "Core practicals: biochemistry and enzymes",
+  "key_idea": "An enzyme reaction is followed by measuring a product forming or a substrate disappearing over time. The initial rate is the fairest comparison. Temperature, pH and concentrations must be controlled. Colorimeters give numerical readings of colour change.",
+  "sections": [
+    {
+      "heading": "Measuring the progress of an enzyme-catalysed reaction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To investigate an enzyme, you follow how fast its substrate is used up or how fast its product forms. The rate is what you compare."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Measure the **rate of formation of a product**, for example the volume of oxygen collected from catalase breaking down hydrogen peroxide.",
+            "Measure the **rate of disappearance of a substrate**, for example the time for amylase to break down all the starch.",
+            "Measure at regular time intervals, so that you can draw a graph of amount against time.",
+            "Any other measure that changes as the reaction proceeds also works, such as a colour change or a pH change."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Product formed against time: steepest at the start, then levelling off.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 100,
+              "ticks": [
+                0,
+                20,
+                40,
+                60,
+                80,
+                100
+              ],
+              "unit": "s"
+            },
+            "y": {
+              "label": "Amount of product"
+            },
+            "series": [
+              {
+                "name": "Product formed",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    10,
+                    0.38
+                  ],
+                  [
+                    20,
+                    0.62
+                  ],
+                  [
+                    40,
+                    0.84
+                  ],
+                  [
+                    60,
+                    0.93
+                  ],
+                  [
+                    100,
+                    0.97
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 10,
+                "label": "Initial rate"
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Initial rate"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **initial rate** is the rate at the very start, when the substrate concentration is highest and little product has built up.",
+            "Find it as the gradient of a tangent drawn to the curve at time zero.",
+            "Using initial rates gives a fair comparison, because the substrate has not yet run low and product is not slowing the reaction."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Rate of reaction",
+          "formula": "rate = amount of product formed (or substrate used) ÷ time",
+          "where": [
+            "amount = the volume, mass or concentration, with its unit",
+            "time = the time taken, in s"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rate is the change in product or substrate per unit time.",
+            "The initial rate is the gradient of the curve at the start."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Setting up a fair test with enzymes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Enzymes are sensitive to conditions, so everything except the independent variable must be controlled."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Keep temperature steady with a water bath, and let the solutions reach that temperature before mixing.",
+            "Use a buffer to hold pH constant.",
+            "Keep the volume and concentration of the enzyme and substrate the same, except for the variable being tested.",
+            "Start timing the instant the enzyme and substrate are mixed.",
+            "Repeat and calculate a mean for each condition."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To test enzyme concentration, make dilutions of the enzyme and keep the substrate the same.",
+            "To test substrate concentration, make dilutions of the substrate and keep the enzyme the same.",
+            "Plot rate against concentration. The rate rises, then levels off when another factor is limiting."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Control temperature, pH and the other concentrations.",
+            "Mix, then time straight away."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how you could find the initial rate of an enzyme-catalysed reaction from a graph of product against time.",
+      "a": "Draw a tangent to the curve at time zero (the start); calculate its gradient (change in product ÷ change in time).",
+      "marks": 2
+    },
+    {
+      "q": "Give two reasons why the initial rate is used to compare enzyme activity under different conditions.",
+      "a": "Substrate concentration is at its highest and has not yet fallen; little product has built up; the enzyme has not begun to denature or be affected by conditions changing during the reaction.",
+      "marks": 2
+    },
+    {
+      "q": "A student measures the rate of an enzyme at several temperatures. State three variables to control.",
+      "a": "Any three from: pH (buffer); enzyme concentration; substrate concentration; volume of enzyme and substrate; time before measurement starts.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 1.CP2",
+        "EDEX 2.CP4",
+        "EDEX 5.CP12"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Core practical: vitamin C content of food and drink"
+            },
+            {
+              "type": "paragraph",
+              "text": "Vitamin C reduces the blue dye DCPIP to colourless. The more vitamin C a sample has, the less of it is needed to decolourise the dye."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Calibrate",
+                  "text": "Add solutions of known vitamin C concentration, drop by drop, to a fixed volume of DCPIP and record the volume needed to decolourise it."
+                },
+                {
+                  "lead": "Plot",
+                  "text": "Plot a calibration graph of volume used against vitamin C concentration."
+                },
+                {
+                  "lead": "Test",
+                  "text": "Repeat with the food or drink, and read the concentration from the graph."
+                },
+                {
+                  "lead": "Repeat",
+                  "text": "Repeat each test and calculate a mean."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Control the volume and concentration of DCPIP, and the temperature.",
+                "Add the juice slowly with a pipette or burette and swirl, so the end point is clear.",
+                "A coloured juice makes the end point hard to see. Dilute it or compare against a colour standard."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Core practical: enzyme and substrate concentrations"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Vary the concentration of the enzyme with the substrate in excess, or vary the substrate with the enzyme held constant.",
+                "Measure the initial rate of reaction at each concentration, and plot it against concentration.",
+                "At low concentration the rate is proportional to concentration. At higher concentration it levels off, as another factor limits the rate."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Core practical: temperature and Q₁₀"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Run the reaction at a range of temperatures in water baths. Measure the initial rate at each.",
+                "The rate rises to an optimum, then falls sharply as the enzyme denatures.",
+                "The **temperature coefficient, Q₁₀**, shows how much the rate changes for a 10 °C rise."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Temperature coefficient",
+              "formula": "Q₁₀ = rate at (T + 10) °C ÷ rate at T °C",
+              "where": [
+                "rate = the rate of reaction at each temperature, in the same unit",
+                "T = the lower temperature, in °C"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "A Q₁₀ of 2 means the rate doubles for each 10 °C rise. For two temperatures not 10 °C apart, use the equation below."
+            },
+            {
+              "type": "equation",
+              "label": "Q₁₀ for any two temperatures",
+              "formula": "Q₁₀ = (R₂ ÷ R₁)^(10 ÷ (T₂ − T₁))",
+              "where": [
+                "R₁, R₂ = the rates at T₁ and T₂",
+                "T₁, T₂ = the two temperatures, in °C, with T₂ greater than T₁"
+              ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "practice",
+                "alt": "A Q10 calculation with new numbers each time.",
+                "question": "An enzyme reaction has a rate of {r1} units at 20 °C and {r2} units at 30 °C. Calculate Q₁₀.",
+                "variables": [
+                  {
+                    "id": "r1",
+                    "min": 10,
+                    "max": 20,
+                    "step": 1
+                  },
+                  {
+                    "id": "r2",
+                    "min": 20,
+                    "max": 36,
+                    "step": 2
+                  }
+                ],
+                "answer": {
+                  "formula": "r2 / r1",
+                  "decimals": 2,
+                  "tolerance_percent": 2
+                },
+                "working": [
+                  "The temperatures are 10 °C apart, so Q₁₀ = rate at 30 °C ÷ rate at 20 °C.",
+                  "Q₁₀ = {r2} ÷ {r1}.",
+                  "Q₁₀ = {answer}"
+                ]
+              }
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "DCPIP decolourises as vitamin C is added.",
+                "Q₁₀ = rate at (T + 10) ÷ rate at T; use it only below the optimum."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 3.1.3",
+        "CAIE 3.1.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Catalase: rate of formation of a product"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Catalase breaks down hydrogen peroxide to water and oxygen.",
+                "Collect the oxygen over water or in a gas syringe, and record the volume at regular time intervals.",
+                "Plot volume against time. The initial rate is the gradient at the start.",
+                "Tissue such as liver or potato is a source of catalase. Use equal masses of the same size pieces."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Amylase: rate of disappearance of a substrate"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Amylase breaks down starch to maltose.",
+                "Add samples of the mixture at regular intervals to iodine solution on a spotting tile.",
+                "The iodine stays blue-black while starch remains and stays orange-brown when all the starch has gone.",
+                "The time taken for the blue-black colour to disappear shows the rate: the shorter the time, the faster the rate."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Using a colorimeter"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A colorimeter measures how much light passes through a coloured solution, in absorbance or transmission.",
+                "It follows a reaction with a colour change, such as starch with iodine as it is broken down.",
+                "Zero it with a blank, choose a filter of a complementary colour and take readings at set times.",
+                "It gives numerical data and avoids judging a colour by eye, so it is more objective."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Catalase: measure product; amylase: measure substrate.",
+                "A colorimeter replaces judging a colour by eye with a numerical reading."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "10250da8-7a94-4268-9f9c-68708419e908",
+      "9858c9a3-32c8-41af-b6da-266de770053f",
+      "b9f7bd57-057a-4300-988f-52b2ea7b82dd",
+      "28935153-21e7-4532-9b0c-16fb7be5bdff",
+      "9e46402c-0650-4bd4-9e3c-699fc02181ee"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

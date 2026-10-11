@@ -1,0 +1,346 @@
+{
+  "format": 1,
+  "concept_id": "aphys-056",
+  "subject": "physics",
+  "title": "Kinetic theory of gases",
+  "key_idea": "Pressure comes from molecules changing momentum at the walls, giving pV = ⅓Nm⟨c²⟩. Comparing this with pV = NkT shows that the mean kinetic energy of a molecule is (3/2)kT, which depends only on temperature.",
+  "sections": [
+    {
+      "heading": "The kinetic theory model",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Kinetic theory explains the behaviour of a gas by the motion of its molecules. This section covers the assumptions and how they give pressure."
+        },
+        {
+          "type": "subheading",
+          "text": "Assumptions"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A gas contains a very large number of molecules in rapid, random motion.",
+            "The molecules occupy a negligible volume compared with the volume of the gas.",
+            "All collisions, with each other and with the walls, are perfectly elastic.",
+            "The time of a collision is negligible compared with the time between collisions.",
+            "There are no forces between molecules except during collisions."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "How molecules cause pressure"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A molecule hitting a wall bounces back, so its **momentum changes**.",
+            "By Newton's second law, the force on the molecule equals its rate of change of momentum. By Newton's third law, the wall feels an equal and opposite force.",
+            "Very many collisions each second give a steady force on the wall.",
+            "Pressure is this force divided by the area of the wall."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Brownian motion is evidence for this model. Visible specks in smoke or pollen grains in water move randomly because unseen molecules hit them unevenly."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Molecules are point-like, elastic and do not attract each other between collisions.",
+            "Pressure comes from the change in momentum of molecules hitting the wall."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The pressure equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Applying Newton's laws to the molecules in a box gives a link between pressure, volume and the speed of the molecules."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "One molecule",
+              "text": "A molecule of mass m moves at speed cₓ along a box of length L. Each wall collision changes its momentum by 2mcₓ."
+            },
+            {
+              "lead": "Time between hits",
+              "text": "It hits the same wall every 2L / cₓ, so it hits cₓ / 2L times each second."
+            },
+            {
+              "lead": "Force from one molecule",
+              "text": "Force = change in momentum per second = 2mcₓ × cₓ / 2L = mcₓ² / L."
+            },
+            {
+              "lead": "Force from N molecules",
+              "text": "F = Nm⟨cₓ²⟩ / L, where ⟨cₓ²⟩ is the mean of cₓ² for all the molecules."
+            },
+            {
+              "lead": "Pressure",
+              "text": "p = F / L² = Nm⟨cₓ²⟩ / L³ = Nm⟨cₓ²⟩ / V."
+            },
+            {
+              "lead": "Three dimensions",
+              "text": "Molecules move randomly in all directions, so ⟨c²⟩ = ⟨cₓ²⟩ + ⟨cᵧ²⟩ + ⟨c_z²⟩ = 3⟨cₓ²⟩, and ⟨cₓ²⟩ = ⅓⟨c²⟩."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Pressure of an ideal gas",
+          "formula": "pV = ⅓Nm⟨c²⟩",
+          "where": [
+            "p is the pressure (Pa)",
+            "V is the volume (m³)",
+            "N is the number of molecules",
+            "m is the mass of one molecule (kg)",
+            "⟨c²⟩ is the mean-square speed (m² s⁻²)"
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Mean-square speed, ⟨c²⟩",
+              "meaning": "The mean of the squares of the speeds of the molecules."
+            },
+            {
+              "term": "Root-mean-square speed, c_rms",
+              "meaning": "The square root of the mean-square speed: c_rms = √⟨c²⟩."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "pV = ⅓Nm⟨c²⟩ follows from momentum change in one dimension, extended to three.",
+            "The rms speed is the square root of the mean-square speed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Molecular kinetic energy and temperature",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Comparing the kinetic theory equation with the equation of state links molecular energy directly to temperature."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Start with two equations",
+              "text": "pV = ⅓Nm⟨c²⟩ and pV = NkT."
+            },
+            {
+              "lead": "Equate them",
+              "text": "⅓Nm⟨c²⟩ = NkT, so ⅓m⟨c²⟩ = kT."
+            },
+            {
+              "lead": "Multiply by 3/2",
+              "text": "½m⟨c²⟩ = (3/2)kT."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Mean translational kinetic energy of a molecule",
+          "formula": "½m⟨c²⟩ = (3/2)kT",
+          "where": [
+            "½m⟨c²⟩ is the mean kinetic energy of one molecule (J)",
+            "k is the Boltzmann constant, 1.38 × 10⁻²³ J K⁻¹",
+            "T is the thermodynamic temperature (K)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The mean kinetic energy of a molecule is proportional to the thermodynamic temperature.",
+            "Using k = R / N_A, the same result is ½m⟨c²⟩ = 3RT / (2N_A).",
+            "In an ideal gas there are no forces between molecules, so there is no potential energy.",
+            "The **internal energy** of an ideal gas is therefore the total kinetic energy of its molecules. For a monatomic gas this is (3/2)NkT or (3/2)nRT.",
+            "At the same temperature, molecules of lower mass have a higher rms speed."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider that changes temperature and gas to show the mean kinetic energy of a molecule and the root-mean-square speed.",
+            "inputs": [
+              {
+                "id": "T",
+                "label": "Temperature",
+                "unit": "K",
+                "min": 100,
+                "max": 1000,
+                "step": 50,
+                "value": 300
+              },
+              {
+                "id": "M",
+                "label": "Gas (molar mass in kg/mol)",
+                "choices": [
+                  {
+                    "label": "Helium",
+                    "value": 0.004
+                  },
+                  {
+                    "label": "Nitrogen",
+                    "value": 0.028
+                  },
+                  {
+                    "label": "Oxygen",
+                    "value": 0.032
+                  }
+                ]
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Mean translational kinetic energy",
+                "unit": "× 10⁻²¹ J",
+                "formula": "1.5 * 1.38 * T / 100",
+                "decimals": 2
+              },
+              {
+                "label": "rms speed",
+                "unit": "m/s",
+                "formula": "sqrt(3 * 8.31 * T / M)",
+                "decimals": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "½m⟨c²⟩ = (3/2)kT: mean kinetic energy depends only on temperature.",
+            "The internal energy of an ideal gas is the kinetic energy of its molecules."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State three assumptions of the kinetic theory of gases.",
+      "a": "Any three: very many molecules in rapid random motion; molecules have negligible volume compared with the gas; collisions are perfectly elastic; collision time is negligible compared with the time between collisions; no forces between molecules except in collisions.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how the molecules of a gas exert a pressure on the walls of a container.",
+      "a": "Molecules collide with the wall and rebound, so their momentum changes. The force on the wall equals the rate of change of momentum. Many collisions give a steady force; pressure is force divided by area.",
+      "marks": 3
+    },
+    {
+      "q": "The mean kinetic energy of a nitrogen molecule at 300 K is 6.2 × 10⁻²¹ J. The mass of a molecule is 4.65 × 10⁻²⁶ kg. Calculate the root-mean-square speed.",
+      "a": "⟨c²⟩ = 2 × 6.2 × 10⁻²¹ / 4.65 × 10⁻²⁶ = 2.7 × 10⁵ m² s⁻². c_rms = √(2.7 × 10⁵) = 5.2 × 10² m/s.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.6.2.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Models and evidence"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The gas laws are empirical: they come from experiments. Kinetic theory is a model that arises from theory and explains them.",
+                "Brownian motion gave evidence for the existence of atoms and molecules.",
+                "Knowledge of gases developed over time: experiments on pressure, volume and temperature came first, and the molecular model explained them later."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 9.149",
+        "EDEX 9.152"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 15.3.1",
+        "CAIE 15.3.2",
+        "CAIE 15.3.3",
+        "CAIE 15.3.4"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.4b",
+        "OCR 5.1.4c",
+        "OCR 5.1.4e",
+        "OCR 5.1.4f",
+        "OCR 5.1.4h",
+        "OCR 5.1.4i"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Derivation and distribution of speeds"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The derivation of pV = ⅓Nm⟨c²⟩ is not required, but the equation and its meaning are.",
+                "The derivation of ½m⟨c²⟩ = (3/2)kT from pV = ⅓Nm⟨c²⟩ and pV = NkT is required."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The molecules in a gas have a range of speeds, shown by a Maxwell–Boltzmann distribution.",
+                "The distribution is not symmetrical. It has a peak and a long tail to high speeds.",
+                "No molecules have zero speed, and the area under the curve is the total number of molecules.",
+                "At a higher temperature the peak moves to a higher speed, and the curve is lower and wider."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "ddb634ab-e31e-4345-8c2a-b713e1cfe430",
+      "adfc29fe-2a6a-4bd2-a242-3fa296be5b27",
+      "1bb023ab-5734-40bd-ab30-3c29520c7a4a",
+      "460f25cf-5ed2-44d7-87f0-c23c5f748cf3",
+      "a08de923-2be0-406b-8c63-27cac4482802",
+      "7660f9e9-06ea-46d4-9bce-ffa9ed4330e3",
+      "d75366fb-2d74-4b52-9378-5c3d49766f52",
+      "355f4ed6-d570-41c0-88b2-72fdd359c9dc",
+      "7b641f6e-bc65-49bb-88d7-072b11b7cdf9",
+      "c7f8739d-5423-4ed1-89c6-2eeec43eb62d",
+      "35e04b01-00cf-4dd2-a199-d7e008d0aa27",
+      "a7928454-21b3-4760-8890-9a8cadabf785",
+      "fe7fce91-d3d4-4b8b-ac19-378c5dc97aaf"
+    ],
+    "exemplar_ids": []
+  }
+}

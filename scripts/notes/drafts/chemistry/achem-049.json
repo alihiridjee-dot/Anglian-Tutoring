@@ -1,0 +1,295 @@
+{
+  "format": 1,
+  "concept_id": "achem-049",
+  "subject": "chemistry",
+  "title": "Electrolysis and the Faraday constant",
+  "key_idea": "In electrolysis, the products depend on the state of the electrolyte, the electrode potentials and the concentration. The charge passed is Q = It. Dividing by the Faraday constant gives the moles of electrons, and the half-equation links them to the amount of product.",
+  "sections": [
+    {
+      "heading": "Predicting the products",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Electrolysis uses an electric current to drive a non-spontaneous reaction. This section covers how to predict what forms at each electrode."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Positive ions (cations) move to the cathode, where they gain electrons. Reduction happens there.",
+            "Negative ions (anions) move to the anode, where they lose electrons. Oxidation happens there.",
+            "In a **molten** compound, only its two ions are present. The metal forms at the cathode and the non-metal at the anode.",
+            "In an **aqueous** solution, water also supplies H⁺ and OH⁻, so there is a choice at each electrode."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Aqueous solutions with inert electrodes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "At the cathode, the species with the more positive Eᶿ is reduced. Ions of metals below hydrogen, such as Cu²⁺ and Ag⁺, form the metal.",
+            "If the metal ion has a very negative Eᶿ, such as Na⁺ or Mg²⁺, then H₂ forms: 2H⁺ + 2e⁻ → H₂.",
+            "At the anode, the species with the less positive Eᶿ is oxidised. In a dilute solution, oxygen forms: 2H₂O → O₂ + 4H⁺ + 4e⁻.",
+            "In a **concentrated** halide solution, the halogen forms instead, for example 2Cl⁻ → Cl₂ + 2e⁻, because its high concentration makes it easier to discharge."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Electrolyte",
+            "Cathode",
+            "Anode"
+          ],
+          "rows": [
+            [
+              "Molten PbBr₂",
+              "Pb",
+              "Br₂"
+            ],
+            [
+              "CuSO₄(aq)",
+              "Cu",
+              "O₂"
+            ],
+            [
+              "Dilute NaCl(aq)",
+              "H₂",
+              "O₂"
+            ],
+            [
+              "Concentrated NaCl(aq)",
+              "H₂",
+              "Cl₂"
+            ],
+            [
+              "Dilute H₂SO₄(aq)",
+              "H₂",
+              "O₂"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reduction at the cathode, oxidation at the anode.",
+            "In aqueous solution, compare Eᶿ values and the concentration to decide the product.",
+            "Molten compounds give the metal at the cathode and the non-metal at the anode."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The Faraday constant and charge",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The charge on one mole of electrons is the Faraday constant, F. This section covers how to find it and the charge passed."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Faraday constant, F",
+              "meaning": "The charge carried by one mole of electrons. F = 96 500 C/mol."
+            },
+            {
+              "term": "Avogadro constant, L",
+              "meaning": "The number of particles in one mole, 6.02 × 10²³ per mole."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Faraday constant",
+          "formula": "F = L × e",
+          "where": [
+            "F is the Faraday constant in C/mol.",
+            "L is the Avogadro constant, 6.02 × 10²³ mol⁻¹.",
+            "e is the charge on one electron, 1.60 × 10⁻¹⁹ C."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Charge passed",
+          "formula": "Q = I × t",
+          "where": [
+            "Q is the charge in coulombs, C.",
+            "I is the current in amps, A.",
+            "t is the time in seconds, s."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Check: 6.02 × 10²³ × 1.60 × 10⁻¹⁹ ≈ 96 000 to 96 500 C/mol."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "F = Le, which is about 96 500 C/mol.",
+            "Q = It. Convert minutes to seconds first."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating mass and volume",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every electrolysis calculation follows the same route from current and time to mass or volume."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find the charge.",
+              "text": "Q = I × t, with t in seconds."
+            },
+            {
+              "lead": "Find moles of electrons.",
+              "text": "Moles of e⁻ = Q ÷ F."
+            },
+            {
+              "lead": "Use the half-equation.",
+              "text": "Cu²⁺ + 2e⁻ → Cu means 2 mol of e⁻ gives 1 mol of Cu. For 4OH⁻ → O₂ + 2H₂O + 4e⁻, 4 mol of e⁻ gives 1 mol of O₂."
+            },
+            {
+              "lead": "Convert.",
+              "text": "Mass = moles × Ar or Mr. Gas volume = moles × 24 dm³/mol at room temperature and pressure."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise finding the mass of copper deposited in electrolysis.",
+            "question": "A current of **{i}** A passes through copper(II) sulfate solution for **{t}** seconds. Calculate the mass of copper deposited at the cathode in g. (F = 96 500 C/mol, Ar of Cu = 63.5)",
+            "variables": [
+              {
+                "id": "i",
+                "min": 0.5,
+                "max": 3,
+                "step": 0.5
+              },
+              {
+                "id": "t",
+                "min": 600,
+                "max": 3600,
+                "step": 300
+              }
+            ],
+            "answer": {
+              "formula": "i * t / (2 * 96500) * 63.5",
+              "unit": "g",
+              "decimals": 3
+            },
+            "working": [
+              "Q = I × t = {i} × {t} C",
+              "Moles of electrons = Q ÷ 96 500",
+              "Cu²⁺ + 2e⁻ → Cu, so moles of Cu = moles of electrons ÷ 2",
+              "Mass of Cu = moles × 63.5 = **{answer}** g"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Q = It, then moles of e⁻ = Q ÷ F, then use the half-equation.",
+            "Check the charge on the ion to find the electrons per atom."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Determining the Avogadro constant",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Avogadro constant can be found from an electrolysis experiment."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up.",
+              "text": "Use two clean, dried copper electrodes in copper(II) sulfate solution. Weigh the cathode."
+            },
+            {
+              "lead": "Run.",
+              "text": "Pass a constant current, measured with an ammeter, for a measured time."
+            },
+            {
+              "lead": "Weigh again.",
+              "text": "Rinse, dry and reweigh the cathode. The increase in mass is the copper deposited."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "Moles of Cu = mass ÷ 63.5. Moles of e⁻ = 2 × moles of Cu. F = Q ÷ moles of e⁻."
+            },
+            {
+              "lead": "Find L.",
+              "text": "L = F ÷ e, with e = 1.60 × 10⁻¹⁹ C."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Keep the current constant, for example by adjusting a rheostat.",
+            "The anode loses mass. Its loss should match the gain at the cathode."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure the cathode's mass gain, the current and the time.",
+            "F = Q ÷ moles of e⁻, then L = F ÷ e."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the products at the cathode and anode when concentrated sodium chloride solution is electrolysed with inert electrodes.",
+      "a": "Cathode: hydrogen. Anode: chlorine.",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the mass of silver deposited when a current of 2.00 A flows for 965 s through silver nitrate solution. (F = 96 500 C/mol, Ar of Ag = 108)",
+      "a": "Q = 2.00 × 965 = 1930 C. Moles of e⁻ = 0.0200. Ag⁺ + e⁻ → Ag, so moles of Ag = 0.0200. Mass = 0.0200 × 108 = 2.16 g.",
+      "marks": 3
+    },
+    {
+      "q": "Calculate the Faraday constant from the Avogadro constant 6.02 × 10²³ mol⁻¹ and the electron charge 1.60 × 10⁻¹⁹ C.",
+      "a": "F = Le = 6.02 × 10²³ × 1.60 × 10⁻¹⁹ = 9.63 × 10⁴ C/mol (about 96 300 C/mol).",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 24.1.1",
+        "CAIE 24.1.2",
+        "CAIE 24.1.3",
+        "CAIE 24.1.4"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "2f892c97-5e4e-4411-bcc5-800ada3a1d61",
+      "a935287d-e086-4b3c-82b9-50730e93ea0f",
+      "ad2928f8-05cf-4bd3-b6c4-1e4d3aac4d30",
+      "a1455c9e-96cb-47c7-b760-abb2070875db"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

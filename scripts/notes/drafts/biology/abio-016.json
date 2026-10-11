@@ -1,0 +1,244 @@
+{
+  "format": 1,
+  "concept_id": "abio-016",
+  "subject": "biology",
+  "title": "Osmosis and water potential",
+  "key_idea": "**Osmosis** is the net movement of water molecules through a partially permeable membrane, from a higher water potential to a lower water potential. It is passive. What it does to a cell depends on the solution around the cell.",
+  "sections": [
+    {
+      "heading": "Osmosis and water potential",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers what osmosis is and how water potential predicts which way water moves." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Osmosis", "meaning": "The net movement of water molecules from a region of higher water potential to a region of lower water potential, through a partially permeable membrane." },
+            { "term": "Water potential", "meaning": "A measure of the tendency of water molecules to move. Symbol ψ, measured in kilopascals (kPa)." },
+            { "term": "Partially permeable membrane", "meaning": "A membrane that lets some molecules through, such as water, but not others, such as larger solutes." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pure water has the highest water potential, which is 0 kPa.",
+            "Dissolved solutes lower the water potential, so solutions have negative values.",
+            "The more concentrated the solution, the more negative the water potential.",
+            "Water molecules are free to move, and they diffuse from high to low water potential across the membrane.",
+            "Water keeps moving until the water potential is equal on both sides, so there is no net movement."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Water molecules move in both directions. The net movement is towards the lower water potential, because more molecules are free to move from the side with the higher potential."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Osmosis is net movement of water across a partially permeable membrane.",
+            "Water moves from a higher to a lower water potential.",
+            "Pure water is 0 kPa, and solutes make the value more negative."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Osmosis in plant and animal cells",
+      "blocks": [
+        { "type": "paragraph", "text": "A cell placed in a solution gains, loses or keeps its water. Plant cells have a cell wall, and animal cells do not." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Turgid", "meaning": "A plant cell full of water, pressing against its cell wall." },
+            { "term": "Plasmolysed", "meaning": "A plant cell that has lost so much water that the cell-surface membrane has pulled away from the cell wall." },
+            { "term": "Lysis", "meaning": "An animal cell bursts after taking in too much water." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a cell and a solution to see what osmosis does",
+            "prompt": "Pick a cell and the solution around it.",
+            "result_labels": ["Water potential compared with the cell", "Net movement of water", "Result"],
+            "options": [
+              { "label": "Plant cell in pure water", "results": ["Outside is higher", "Into the cell", "The cell becomes turgid. The cell wall stops it bursting."] },
+              { "label": "Plant cell in a very concentrated solution", "results": ["Outside is lower", "Out of the cell", "The cell becomes plasmolysed."] },
+              { "label": "Plant cell in a solution of equal water potential", "results": ["Equal", "None", "The cell stays the same size."] },
+              { "label": "Animal cell in pure water", "results": ["Outside is higher", "Into the cell", "The cell swells and bursts, because there is no cell wall."] },
+              { "label": "Animal cell in a very concentrated solution", "results": ["Outside is lower", "Out of the cell", "The cell shrinks and the membrane becomes crinkled."] },
+              { "label": "Animal cell in a solution of equal water potential", "results": ["Equal", "None", "The cell stays the same."] }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Turgid plant cells press against each other and support the plant. Cells that lose water cause wilting.",
+            "An animal cell has no wall, so in a solution of higher water potential it can burst.",
+            "Animal cells need surrounding fluid close to the cell's own water potential to stay the same shape."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Higher outside: cells gain water. A plant cell becomes turgid and an animal cell can burst.",
+            "Lower outside: cells lose water. A plant cell is plasmolysed and an animal cell shrinks.",
+            "The cell wall protects a plant cell from bursting."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating osmosis",
+      "blocks": [
+        { "type": "paragraph", "text": "Osmosis can be shown with non-living materials and with plant tissue." },
+        { "type": "subheading", "text": "Non-living materials" },
+        {
+          "type": "list",
+          "items": [
+            "Fill Visking (dialysis) tubing with a sucrose solution and place it in water. Visking tubing is partially permeable.",
+            "The tubing swells and gains mass as water enters. This shows that water moves towards the lower water potential.",
+            "Agar can be used in a similar way, with different concentrations of solution around it."
+          ]
+        },
+        { "type": "subheading", "text": "Estimating the water potential of plant tissue" },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Make solutions.", "text": "Prepare a dilution series of sucrose solution, from pure water up to a concentrated solution." },
+            { "lead": "Prepare tissue.", "text": "Cut equal-sized pieces of potato and measure the mass of each." },
+            { "lead": "Immerse.", "text": "Place one piece in each solution for the same time and temperature." },
+            { "lead": "Re-measure.", "text": "Blot dry and measure the mass again. Calculate the percentage change in mass." },
+            { "lead": "Plot a graph.", "text": "Plot percentage change in mass against solution concentration or water potential." },
+            { "lead": "Read the intercept.", "text": "Where the line crosses zero, there is no net movement of water. The tissue has the same water potential as that solution." }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Percentage change in mass",
+          "formula": "percentage change = (final mass − initial mass) ÷ initial mass × 100",
+          "where": ["final mass, in g", "initial mass, in g"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A gain in mass is positive and means the tissue gained water. A loss is negative.",
+            "Calculating the percentage lets pieces of different starting mass be compared.",
+            "Control tissue type, piece size, time, temperature and volume of solution."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Visking tubing swells when it is placed in a solution with a higher water potential.",
+            "The concentration where the percentage change is zero matches the tissue's water potential.",
+            "Percentage change in mass allows fair comparison."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define osmosis.",
+      "a": "The net movement of water molecules from a region of higher water potential to a region of lower water potential, through a partially permeable membrane."
+    },
+    {
+      "q": "A plant cell is placed in a concentrated sucrose solution. Explain what happens to it.",
+      "a": "The solution has a lower water potential than the cell. Water leaves the cell by osmosis, so the cell loses volume and the membrane pulls away from the cell wall. The cell is plasmolysed."
+    },
+    {
+      "q": "Pieces of potato are placed in sucrose solutions and their percentage change in mass is plotted. The line crosses zero at 0.3 mol/dm³. Explain what this shows.",
+      "a": "At 0.3 mol/dm³ there is no net gain or loss of water. The water potential of the potato tissue is equal to the water potential of that solution."
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.2.3"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Osmosis is explained in terms of water potential.",
+                "Required practical 3: produce a dilution series of a solute to make a calibration curve, and use it to identify the water potential of plant tissue.",
+                "Differences in water potential gradient affect the rate of movement across cell membranes."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 2.3"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Osmosis can be described as the movement of free water molecules through a partially permeable membrane.",
+                "A solution with more dissolved solute has fewer free water molecules, so water moves into it.",
+                "Using water potential in explanations is not required, but it is correct to use it."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 4.2.2", "CAIE 4.2.5", "CAIE 4.2.6"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Investigate simple diffusion and osmosis using plant tissue and non-living materials, including Visking tubing and agar.",
+                "Estimate the water potential of plant tissue by immersing it in solutions of different water potential and using the results.",
+                "Explain the different effects of water movement on plant cells and animal cells.",
+                "Solute potential and pressure potential are not expected."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": ["OCR 2.1.5e"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Explain osmosis in terms of a water potential gradient across a partially permeable membrane.",
+                "Practical investigations into the effects of solutions of different water potential on plant and animal cells, such as plant tissue in different solutions."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "92d63d05-bb09-46af-ae99-8cf0e986488f",
+      "322f19fe-c307-49d7-ac9b-bf4f220328df",
+      "c5fec759-fa6c-46d0-bb6d-c05c96795b59",
+      "971b6acb-b7c6-4508-a8f9-66a1450d57e3",
+      "ea876ce0-b963-4a7e-be15-21fceffabb5a"
+    ],
+    "exemplar_ids": []
+  }
+}

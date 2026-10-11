@@ -1,0 +1,393 @@
+{
+  "format": 1,
+  "concept_id": "achem-022",
+  "subject": "chemistry",
+  "title": "Born-Haber cycles and lattice enthalpy",
+  "key_idea": "**Lattice enthalpy** measures the strength of the ionic bonding in a giant lattice. It cannot be measured directly, so it is found with a **Born–Haber cycle**, an application of Hess's law. If the experimental value differs from the value for a perfect ionic model, the compound has some covalent character.",
+  "sections": [
+    {
+      "heading": "Lattice enthalpy and the energy terms",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In an ionic solid, oppositely charged ions attract each other in a giant lattice. The energy released when the lattice forms shows how strong that attraction is."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Lattice enthalpy of formation",
+              "meaning": "The enthalpy change when 1 mol of an ionic lattice forms from its gaseous ions. It is always exothermic."
+            },
+            {
+              "term": "Lattice enthalpy of dissociation",
+              "meaning": "The enthalpy change when 1 mol of an ionic lattice breaks up into its gaseous ions. It is the same size with the opposite sign."
+            },
+            {
+              "term": "Enthalpy change of atomisation, ΔatH",
+              "meaning": "The enthalpy change when 1 mol of gaseous atoms forms from an element in its standard state."
+            },
+            {
+              "term": "First ionisation energy",
+              "meaning": "The energy change when 1 mol of electrons is removed from 1 mol of gaseous atoms, forming 1 mol of gaseous 1+ ions."
+            },
+            {
+              "term": "First electron affinity",
+              "meaning": "The enthalpy change when 1 mol of electrons is added to 1 mol of gaseous atoms, forming 1 mol of gaseous 1− ions."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Atomisation is endothermic, because bonds are broken. For a diatomic element such as Cl₂, atomisation is half the bond enthalpy, because only 1 mol of atoms forms: ½Cl₂(g) → Cl(g).",
+            "Ionisation energies are endothermic. Removing a second electron takes more energy than the first.",
+            "The first electron affinity is usually exothermic, because the incoming electron is attracted by the nucleus.",
+            "The second electron affinity is endothermic. Adding an electron to a negative ion needs energy to overcome repulsion, as in O⁻(g) + e⁻ → O²⁻(g).",
+            "The more negative the lattice enthalpy of formation, the stronger the ionic bonding."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Lattice enthalpy of formation: 1 mol of lattice from gaseous ions, exothermic.",
+            "It is a measure of the strength of ionic bonding.",
+            "Know all of the energy terms, including atomisation and electron affinity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Born–Haber cycles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A Born–Haber cycle compares two routes from the elements to the ionic solid. One is the direct route, formation. The other goes through gaseous atoms and ions."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Elements in their standard states.",
+              "text": "Start with Na(s) and ½Cl₂(g)."
+            },
+            {
+              "lead": "Atomise.",
+              "text": "Make gaseous atoms: Na(g) and Cl(g). Both steps are endothermic (arrows up)."
+            },
+            {
+              "lead": "Ionise the metal.",
+              "text": "Na(g) → Na⁺(g) + e⁻. Endothermic (up)."
+            },
+            {
+              "lead": "Add an electron to the non-metal.",
+              "text": "Cl(g) + e⁻ → Cl⁻(g). Exothermic (down)."
+            },
+            {
+              "lead": "Form the lattice.",
+              "text": "Na⁺(g) + Cl⁻(g) → NaCl(s). Exothermic (down). This is the lattice enthalpy."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Born–Haber cycle (Hess's law)",
+          "formula": "ΔfH = ΔatH(metal) + ΔatH(non-metal) + ionisation energy + electron affinity + lattice enthalpy of formation",
+          "where": [
+            "all terms in kJ mol⁻¹",
+            "each term is multiplied by the moles needed to make 1 mol of the compound"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Step for NaCl",
+            "Enthalpy change / kJ mol⁻¹"
+          ],
+          "rows": [
+            [
+              "Atomisation of Na(s)",
+              "+107"
+            ],
+            [
+              "Atomisation of ½Cl₂(g)",
+              "+122"
+            ],
+            [
+              "First ionisation energy of Na",
+              "+496"
+            ],
+            [
+              "First electron affinity of Cl",
+              "−349"
+            ],
+            [
+              "Formation of NaCl(s)",
+              "−411"
+            ],
+            [
+              "Lattice enthalpy of formation",
+              "−787"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise using a Born–Haber cycle for sodium chloride to find the lattice enthalpy of formation.",
+            "question": "For NaCl: ΔfH = −{f}, atomisation of Na = +107, atomisation of ½Cl₂ = +122, first ionisation energy of Na = +{ie}, first electron affinity of Cl = −{ea}, all in kJ mol⁻¹. Calculate the lattice enthalpy of formation.",
+            "variables": [
+              {
+                "id": "f",
+                "min": 405,
+                "max": 415,
+                "step": 1
+              },
+              {
+                "id": "ie",
+                "min": 490,
+                "max": 500,
+                "step": 1
+              },
+              {
+                "id": "ea",
+                "min": 345,
+                "max": 352,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "-f - 107 - 122 - ie + ea",
+              "unit": "kJ mol⁻¹",
+              "decimals": 0
+            },
+            "working": [
+              "Lattice enthalpy = ΔfH − (atomisation of Na + atomisation of Cl + ionisation energy + electron affinity)",
+              "= −{f} − (107 + 122 + {ie} − {ea})",
+              "= **{answer}** kJ mol⁻¹"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "To find a different unknown, such as the electron affinity, rearrange the same cycle.",
+            "For MgCl₂ the cycle needs two Cl atoms, two electron affinities of Cl, and both the first and second ionisation energies of Mg.",
+            "For a Group 16 anion such as O²⁻, the cycle needs the first and second electron affinities."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Draw the cycle with endothermic steps up and exothermic steps down.",
+            "Multiply every term by the moles needed in the formula of the compound.",
+            "The sum of the indirect route equals ΔfH."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Lattice enthalpy, ionic size and covalent character",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The size of the lattice enthalpy depends on the ions. A theoretical value comes from a perfect ionic model, which treats ions as perfect spheres with charges at the centre."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Change",
+            "Effect on the size of the lattice enthalpy",
+            "Reason"
+          ],
+          "rows": [
+            [
+              "Higher ionic charge",
+              "More exothermic",
+              "Stronger attraction between ions"
+            ],
+            [
+              "Larger ionic radius",
+              "Less exothermic",
+              "Charges are further apart, so the attraction is weaker"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Example: MgO has a much more exothermic lattice enthalpy than NaCl, because Mg²⁺ and O²⁻ have a higher charge and are smaller.",
+            "The experimental value comes from a Born–Haber cycle. It uses real data.",
+            "If the experimental and theoretical values agree closely, the compound is close to a perfect ionic model. It is almost entirely ionic.",
+            "If the experimental value is more exothermic than the theoretical value, the compound has some covalent character, which adds to the bonding."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Polarisation",
+              "meaning": "The distortion of the electron cloud of an anion by a nearby cation, which moves charge towards the cation and adds covalent character."
+            },
+            {
+              "term": "Polarising power",
+              "meaning": "How strongly a cation distorts an anion. It is greater for a small cation with a large charge."
+            },
+            {
+              "term": "Polarisability",
+              "meaning": "How easily an anion's electron cloud can be distorted. It is greater for a large anion with a large charge."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Higher charge and smaller ions give a more exothermic lattice enthalpy.",
+            "A gap between experimental and theoretical values shows covalent character.",
+            "Small, highly charged cations and large anions polarise most."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define the lattice enthalpy of formation of sodium chloride.",
+      "a": "The enthalpy change when 1 mol of solid NaCl forms from its gaseous ions, Na⁺(g) and Cl⁻(g).",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the lattice enthalpy of MgO is more exothermic than that of NaCl.",
+      "a": "Mg²⁺ and O²⁻ have a higher charge than Na⁺ and Cl⁻ and are smaller, so the attraction between the ions is stronger.",
+      "marks": 2
+    },
+    {
+      "q": "The lattice enthalpy of silver iodide from a Born–Haber cycle is more exothermic than the value from a perfect ionic model. Explain what this shows.",
+      "a": "The compound has some covalent character. The large I⁻ ion is polarised by the Ag⁺ ion, so there is extra bonding beyond purely ionic attraction.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.1a",
+        "OCR 5.2.1b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Lattice enthalpy must be defined as the formation of 1 mol of ionic lattice from gaseous ions.",
+                "Cycles are for simple ionic solids such as NaCl and MgCl₂. Know definitions for first ionisation energy and enthalpy change of formation only."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 13A.1",
+        "EDEX 13A.2",
+        "EDEX 13A.3",
+        "EDEX 13A.4",
+        "EDEX 13A.5",
+        "EDEX 13A.6",
+        "EDEX 13A.7",
+        "EDEX 13A.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Lattice energy is defined as the energy change when 1 mol of an ionic solid forms from its gaseous ions.",
+                "Compare the experimental value from the Born–Haber cycle with the theoretical value from electrostatic theory to show how covalent the bonding is.",
+                "Polarising power of a cation depends on its radius and charge. Polarisability of an anion depends on its radius and charge."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.8.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Lattice enthalpy can be defined either as the enthalpy of lattice dissociation or the enthalpy of lattice formation. State which one you are using.",
+                "Define enthalpy of formation, ionisation energy, enthalpy of atomisation, bond enthalpy and electron affinity. Bond enthalpy is the enthalpy change when 1 mol of a bond is broken in gaseous molecules. In a cycle for a diatomic element, atomisation is half the bond enthalpy.",
+                "Construct cycles to calculate a lattice enthalpy or one of the other enthalpy changes.",
+                "Compare the lattice enthalpy from a Born–Haber cycle with the one from a perfect ionic model as evidence for covalent character."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 23.1.1",
+        "CAIE 23.1.2",
+        "CAIE 23.1.3",
+        "CAIE 23.1.4",
+        "CAIE 23.1.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Cycles are limited to +1 and +2 cations and −1 and −2 anions.",
+                "Electron affinity depends on the nuclear charge, the atomic radius and the shielding of the added electron. Explain these factors.",
+                "Down Group 17, the electron affinity becomes less exothermic because the atoms are larger and the added electron is further from the nucleus and more shielded.",
+                "Fluorine is the exception in Group 17. Its atom is so small that the added electron is repelled by the electrons already close by, so its electron affinity is less exothermic than that of chlorine.",
+                "For Group 16, the first electron affinity is exothermic and the second is endothermic. The first electron affinity of oxygen is less exothermic than that of sulfur for the same reason, and it then becomes less exothermic down the group."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "ef86c4de-a06d-4f2c-badd-6dffd5ddfb1a",
+      "29032b1a-6eb0-4f58-aa62-1ddd67b28e7d",
+      "b9eb62f6-a681-422b-9735-85581d4a411a",
+      "e0e7115c-9d3d-4fc8-8dac-c863fdbaf9b7",
+      "ebe77e7f-2389-422b-bc4d-6f96f0ff058b",
+      "bb84b02e-d6ca-4883-8893-77b269bf3ea1",
+      "407eca04-f362-4327-b6b7-6a0dce0ea16f",
+      "b65fc7fd-86c7-456c-bae7-3b8e63d8fec1",
+      "0ee2e00c-39fa-4c45-ab0a-3aa977b3e59b",
+      "2ce13ec1-9c6d-4d0e-9ba9-29f73805bc65",
+      "31a0d1e1-89c8-470e-9e99-bf4c5e6d9590",
+      "8859a95d-bd3c-453f-bb35-34945babf40f",
+      "ac5208f1-a93b-425b-90ab-af96f9e0726a",
+      "c390e9e8-79d4-4581-935d-7532df122132",
+      "ebaacfb7-3b0e-4160-bf38-8a3a7ea53353",
+      "7eefc288-6863-47f2-b82a-8845304e31ce"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

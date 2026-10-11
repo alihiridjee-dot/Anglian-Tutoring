@@ -1,0 +1,432 @@
+{
+  "format": 1,
+  "concept_id": "aphys-026",
+  "subject": "physics",
+  "title": "Kirchhoff's laws and series and parallel circuits",
+  "key_idea": "Kirchhoff's first law says the currents into a junction equal the currents out, because charge is conserved. His second law says the e.m.f.s round a loop equal the p.d.s, because energy is conserved. Together they give the rules for resistors in series and in parallel.",
+  "sections": [
+    {
+      "heading": "Circuit symbols and diagrams",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You must draw and read circuit diagrams using standard symbols."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Component",
+            "What the symbol shows"
+          ],
+          "rows": [
+            [
+              "Cell and battery",
+              "A long line (positive) and a short line (negative); a battery is two or more cells"
+            ],
+            [
+              "Resistor",
+              "A rectangle; a variable resistor has an arrow through it"
+            ],
+            [
+              "Ammeter and voltmeter",
+              "A circle containing A or V"
+            ],
+            [
+              "Filament lamp",
+              "A circle with a cross"
+            ],
+            [
+              "Switch and fuse",
+              "A gap with a hinged line; a rectangle with a line through it"
+            ],
+            [
+              "Diode and LED",
+              "A triangle pointing in the direction of conventional current, with a bar; an LED has two outward arrows"
+            ],
+            [
+              "Thermistor and LDR",
+              "A resistor rectangle with a diagonal line; an LDR has two inward arrows"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Connect an ammeter in **series** with the component, so the same current passes through both.",
+            "Connect a voltmeter in **parallel** across the component."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ammeters go in series, voltmeters in parallel.",
+            "Learn the standard symbols for every component in the syllabus."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Kirchhoff's laws",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The two laws are statements of conservation applied to a circuit."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Kirchhoff's first law",
+              "meaning": "The sum of the currents entering a junction equals the sum of the currents leaving it."
+            },
+            {
+              "term": "Kirchhoff's second law",
+              "meaning": "Round any closed loop, the sum of the e.m.f.s equals the sum of the potential differences."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The first law follows from conservation of **charge**. Charge cannot build up at a junction, so what flows in must flow out.",
+            "The second law follows from conservation of **energy**. Energy given to each coulomb by the sources equals the energy it transfers in the components.",
+            "In dc circuits this means the current is shared out at junctions, and the p.d. is shared out around a loop."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "First law",
+          "formula": "ΣI(in) = ΣI(out)"
+        },
+        {
+          "type": "equation",
+          "label": "Second law",
+          "formula": "ΣE = ΣIR (round a loop)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cells in **series** add their e.m.f.s if they point the same way.",
+            "**Identical cells in parallel** give the e.m.f. of one cell, with the current shared between them."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "First law: charge is conserved, so current in = current out.",
+            "Second law: energy is conserved, so e.m.f. = sum of p.d.s round a loop."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Resistors in series and in parallel",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each rule comes from one of Kirchhoff's laws and from V = IR."
+        },
+        {
+          "type": "subheading",
+          "text": "Series"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Same current",
+              "text": "There are no junctions, so the same current I passes through each resistor."
+            },
+            {
+              "lead": "Second law",
+              "text": "The supply p.d. is shared: V = V₁ + V₂ + V₃."
+            },
+            {
+              "lead": "Substitute",
+              "text": "IR = IR₁ + IR₂ + IR₃. Divide by I."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Resistors in series",
+          "formula": "R = R₁ + R₂ + R₃ + …",
+          "where": [
+            "R = total resistance (Ω)"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Parallel"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Same p.d.",
+              "text": "Each resistor is connected across the same two points, so each has the same p.d. V."
+            },
+            {
+              "lead": "First law",
+              "text": "The supply current splits: I = I₁ + I₂ + I₃."
+            },
+            {
+              "lead": "Substitute",
+              "text": "V/R = V/R₁ + V/R₂ + V/R₃. Divide by V."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Resistors in parallel",
+          "formula": "1/R = 1/R₁ + 1/R₂ + 1/R₃ + …",
+          "where": [
+            "R = total resistance (Ω)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In series, the total is larger than the largest resistor.",
+            "In parallel, the total is smaller than the smallest resistor.",
+            "For two resistors in parallel, R = R₁R₂ / (R₁ + R₂)."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the total resistance of two resistors in parallel.",
+            "question": "A {A} Ω resistor and a {B} Ω resistor are connected in parallel. Calculate the total resistance.",
+            "variables": [
+              {
+                "id": "A",
+                "min": 2,
+                "max": 20,
+                "step": 2
+              },
+              {
+                "id": "B",
+                "min": 4,
+                "max": 40,
+                "step": 4
+              }
+            ],
+            "answer": {
+              "formula": "1 / (1 / A + 1 / B)",
+              "unit": "Ω",
+              "decimals": 2
+            },
+            "working": [
+              "1/R = 1/{A} + 1/{B}",
+              "R = {answer} Ω"
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort statements into those true of series and those true of parallel circuits.",
+            "prompt": "Is each statement true of resistors in series or in parallel?",
+            "groups": [
+              "Series",
+              "Parallel"
+            ],
+            "items": [
+              {
+                "text": "The same current passes through each resistor",
+                "group": 0
+              },
+              {
+                "text": "The same p.d. is across each resistor",
+                "group": 1
+              },
+              {
+                "text": "The p.d.s add up to the supply p.d.",
+                "group": 0
+              },
+              {
+                "text": "The currents add up to the supply current",
+                "group": 1
+              },
+              {
+                "text": "The total resistance is larger than any single resistor",
+                "group": 0
+              },
+              {
+                "text": "The total resistance is smaller than any single resistor",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Series: current the same, p.d.s add, resistances add.",
+            "Parallel: p.d. the same, currents add, reciprocals of resistance add."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Analysing circuits",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "For a circuit with series and parallel parts, reduce it step by step, then work back out."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Combine",
+              "text": "Replace each parallel group with a single equivalent resistance, then add series resistances."
+            },
+            {
+              "lead": "Total current",
+              "text": "Use I = E / R for the whole circuit (or the internal resistance too, if given)."
+            },
+            {
+              "lead": "Work back",
+              "text": "Find each p.d. from V = IR, then the current in each branch from I = V / R."
+            },
+            {
+              "lead": "Check",
+              "text": "The currents at each junction and the p.d.s round each loop must obey the two laws."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Once the currents and p.d.s are known, the power in any part is P = IV = I²R = V²/R.",
+            "The energy transferred in a time t is E = IVt."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "More than one source of e.m.f."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Choose directions",
+              "text": "Label a current in each branch with an arrow. A wrong guess just gives a negative answer."
+            },
+            {
+              "lead": "First law",
+              "text": "Write a current equation at a junction."
+            },
+            {
+              "lead": "Second law",
+              "text": "Go round each loop in a chosen direction. An e.m.f. counts positive if you go through the cell from − to +. A p.d. IR counts as a fall, so it is negative if you go with the current and positive if you go against it. The terms must sum to zero round the loop."
+            },
+            {
+              "lead": "Solve",
+              "text": "Solve the simultaneous equations for the unknown currents."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reduce, find the total current, then work back out.",
+            "With several sources, write one junction equation and one loop equation per unknown."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State Kirchhoff's first law and the conservation law it comes from.",
+      "a": "The sum of the currents entering a junction equals the sum leaving it. It follows from conservation of charge.",
+      "marks": 2
+    },
+    {
+      "q": "Derive the formula for the combined resistance of two resistors in parallel.",
+      "a": "The p.d. V is the same across each. By the first law I = I₁ + I₂. Since I = V/R, V/R = V/R₁ + V/R₂. Dividing by V gives 1/R = 1/R₁ + 1/R₂.",
+      "marks": 3
+    },
+    {
+      "q": "A 12 V supply of negligible internal resistance is connected to a 4.0 Ω resistor in series with a parallel pair of 6.0 Ω and 12 Ω resistors. Calculate the current from the supply.",
+      "a": "Parallel pair: 1/R = 1/6.0 + 1/12 = 1/4.0, so R = 4.0 Ω. Total = 4.0 + 4.0 = 8.0 Ω. I = 12 ÷ 8.0 = 1.5 A.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.5.1.4"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 3.34",
+        "EDEX 3.35",
+        "EDEX 3.36"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 10.1.1",
+        "CAIE 10.1.2",
+        "CAIE 10.2.1",
+        "CAIE 10.2.2",
+        "CAIE 10.2.3",
+        "CAIE 10.2.4",
+        "CAIE 10.2.5",
+        "CAIE 10.2.6",
+        "CAIE 10.2.7"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.1.1g",
+        "OCR 4.2.1a",
+        "OCR 4.2.1b",
+        "OCR 4.3.1a",
+        "OCR 4.3.1b",
+        "OCR 4.3.1c",
+        "OCR 4.3.1d",
+        "OCR 4.3.1e",
+        "OCR 4.3.1f"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "963e282b-f23c-4fa0-928b-4b6f2288596e",
+      "952f7ce4-0711-4097-b254-d50b18f01434",
+      "96a12bdf-919e-4c71-ad62-fc272537d2f1",
+      "b5f4c073-892c-4f07-9825-156c4ee9bb19",
+      "84781d92-3091-458f-8fde-f49827062b6e",
+      "50222f9b-9ba6-484f-a155-06852adfcdac",
+      "5f2b082d-69bc-473e-a401-3f4784aad642",
+      "6c9a4868-1e3c-430b-87c3-2ce30708bb01",
+      "bbad96dd-cffc-4bee-83aa-9d4fe94b12e7",
+      "adb2c447-99f5-4096-bdac-78d67ee6afed",
+      "674223fb-c10b-426e-878d-ffe51b6b92cd",
+      "ff31f54e-f1d3-4fd9-b856-fbafba44c57a",
+      "f3332c82-4e64-45d0-b853-604401e0aff6",
+      "e6d6c133-d664-4154-8823-989177a276fd",
+      "80786cc2-b3cb-4df8-9e6f-307d7b40de7f",
+      "27ff4945-d7c9-4f4a-b1b7-96cd6c9cec23",
+      "02e89dca-f7d7-478e-b31e-69cd870c6c7f",
+      "ae9952b9-0b8b-4adc-bcaf-2e081b9255a0",
+      "3c57b972-005b-45b7-9a87-dc083ee395e5",
+      "6a06b3ca-c296-4df6-9ecd-968c99236c0b",
+      "5292ed7d-f446-461b-9adf-9cf855fbaf26",
+      "72827ce6-4d97-4328-adf3-b9da5ec407ec"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,340 @@
+{
+  "format": 1,
+  "concept_id": "aphys-036",
+  "subject": "physics",
+  "title": "Stationary waves",
+  "key_idea": "Two waves of the same frequency travelling in opposite directions form a stationary wave of fixed nodes and antinodes λ/2 apart. A string fixed at both ends has a first harmonic f₁ = (1 / 2l) √(T / μ).",
+  "sections": [
+    {
+      "heading": "How a stationary wave forms",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A stationary wave forms when two waves of the same frequency and similar amplitude travel in opposite directions and superpose. A reflected wave meeting the incoming wave does this."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Two waves",
+              "text": "A wave travels along a string and reflects from a fixed end."
+            },
+            {
+              "lead": "Overlap",
+              "text": "The incoming and reflected waves pass through each other."
+            },
+            {
+              "lead": "Superpose",
+              "text": "At some points they are always in antiphase and cancel. At others they are always in phase and add."
+            },
+            {
+              "lead": "Pattern",
+              "text": "The result is a fixed pattern of nodes and antinodes. The pattern does not travel."
+            }
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Node",
+              "meaning": "A point on a stationary wave where the amplitude is always zero."
+            },
+            {
+              "term": "Antinode",
+              "meaning": "A point where the amplitude is a maximum."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Adjacent nodes, or adjacent antinodes, are λ/2 apart, where λ is the wavelength of the progressive waves forming it.",
+            "A node and the next antinode are λ/4 apart.",
+            "Between two adjacent nodes all points oscillate in phase, with different amplitudes. Points in neighbouring loops are in antiphase.",
+            "If you measure the distance across several loops, divide by the number of loops to find λ/2."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Graphs of a stationary wave"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A displacement–position graph at one instant is a sine curve: zero at the nodes, peaks at the antinodes.",
+            "At other instants the nodes stay in the same places but the heights of the loops change.",
+            "Twice each cycle every point is at zero displacement. Half a period later the loops are at their greatest displacement, with neighbouring loops on opposite sides of the axis.",
+            "A graph of amplitude against position shows zero at each node and the maximum at each antinode."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Stationary and progressive waves compared"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Progressive wave",
+            "Stationary wave"
+          ],
+          "rows": [
+            [
+              "Amplitude",
+              "The same at every point",
+              "Varies from zero at nodes to maximum at antinodes"
+            ],
+            [
+              "Phase",
+              "Changes steadily along the wave",
+              "Same within a loop; antiphase in neighbouring loops"
+            ],
+            [
+              "Energy",
+              "Transferred along the wave",
+              "Not transferred along the wave"
+            ],
+            [
+              "Pattern",
+              "Moves",
+              "Does not move"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stationary wave = two waves of equal frequency travelling in opposite directions.",
+            "Adjacent nodes are λ/2 apart."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Stationary waves on strings and in air",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A string fixed at both ends has a node at each end. Only waves that fit this condition last. These are the harmonics."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The first harmonic has one loop: length L = λ/2, so f₁ = v / 2L.",
+            "The second harmonic has two loops: L = λ, so f₂ = 2f₁.",
+            "The nth harmonic has fn = n f₁, with n loops."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Speed of a transverse wave on a string",
+          "formula": "v = √(T / μ)",
+          "where": [
+            "v = wave speed (m/s)",
+            "T = tension in the string (N)",
+            "μ = mass per unit length (kg/m)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "First harmonic on a string",
+          "formula": "f₁ = (1 / 2l) √(T / μ)",
+          "where": [
+            "f₁ = frequency of the first harmonic (Hz)",
+            "l = length of vibrating string (m)",
+            "T = tension (N)",
+            "μ = mass per unit length (kg/m)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The frequency is higher for a shorter string, a greater tension and a smaller mass per unit length."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the first harmonic frequency of a stretched string.",
+            "question": "A string of length {l} m has a mass per unit length of {mu} g/m and is stretched with a tension of {T} N. Calculate the frequency of the first harmonic.",
+            "variables": [
+              {
+                "id": "l",
+                "min": 0.4,
+                "max": 1.2,
+                "step": 0.1
+              },
+              {
+                "id": "mu",
+                "min": 1,
+                "max": 5,
+                "step": 1
+              },
+              {
+                "id": "T",
+                "min": 20,
+                "max": 100,
+                "step": 10
+              }
+            ],
+            "answer": {
+              "formula": "sqrt(T / (mu * 0.001)) / (2 * l)",
+              "unit": "Hz",
+              "decimals": 0
+            },
+            "working": [
+              "f₁ = (1 / 2l) √(T / μ)",
+              "μ = {mu} × 10⁻³ kg/m",
+              "f₁ = {answer} Hz"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Air columns"
+        },
+        {
+          "type": "list",
+          "items": [
+            "An open tube has an antinode at each open end. The first harmonic has L = λ/2, so f₁ = v / 2L, and all harmonics are present.",
+            "A closed tube has a node at the closed end and an antinode at the open end. The first harmonic has L = λ/4, so f₁ = v / 4L.",
+            "A closed tube gives only odd harmonics: f₁, 3f₁, 5f₁, ...",
+            "End corrections are ignored."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Microwaves: a transmitter faces a metal reflector. A probe moved between them finds nodes and antinodes λ/2 apart.",
+            "Sound: a loudspeaker above a tube of air and a reflecting end give stationary waves of sound."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fixed ends are nodes; open ends of air columns are antinodes.",
+            "A closed tube gives only odd harmonics; an open tube gives all."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State two differences between a stationary wave and a progressive wave.",
+      "a": "In a stationary wave the amplitude varies from zero at nodes to a maximum at antinodes, whereas in a progressive wave it is the same everywhere. A stationary wave does not transfer energy along the wave, whereas a progressive wave does.",
+      "marks": 2
+    },
+    {
+      "q": "Adjacent nodes of a stationary microwave pattern are 14 mm apart. Calculate the wavelength and, with c = 3.00 × 10⁸ m/s, the frequency.",
+      "a": "λ = 2 × 14 mm = 28 mm. f = c / λ = 3.00 × 10⁸ / 0.028 = 1.1 × 10¹⁰ Hz.",
+      "marks": 3
+    },
+    {
+      "q": "A string of length 0.60 m, mass per unit length 2.0 × 10⁻³ kg/m and tension 50 N vibrates in its first harmonic. Calculate its frequency.",
+      "a": "v = √(T / μ) = √(50 / 0.0020) = 158 m/s. λ = 2l = 1.2 m. f = v / λ = 158 / 1.2 = 132 Hz.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.1.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe the lowest frequency as the first harmonic, and the next as the second harmonic.",
+                "Give a graphical explanation of how the two waves superpose to produce nodes and antinodes: draw both waves and add them at each position.",
+                "Investigate how the frequency of stationary waves on a string depends on length, tension and mass per unit length. Change one variable at a time and keep the others constant.",
+                "Plot f against 1/l, f against √T and f against 1/√μ. Each should be a straight line through the origin."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.67",
+        "EDEX 5.68"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 8.1.2",
+        "CAIE 8.1.3",
+        "CAIE 8.1.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know stationary-wave experiments with microwaves, stretched strings and air columns.",
+                "Explain formation by a graphical method: sketch the two waves at several times to show where the sum is always zero (nodes) and where it reaches a maximum (antinodes).",
+                "Find λ from the positions of nodes or antinodes: the distance between adjacent ones is λ/2."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.4.4a",
+        "OCR 4.4.4b",
+        "OCR 4.4.4c",
+        "OCR 4.4.4d",
+        "OCR 4.4.4e",
+        "OCR 4.4.4f",
+        "OCR 4.4.4g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The first harmonic is also called the fundamental mode of vibration.",
+                "Determine the speed of sound with a resonance tube: hold a tuning fork of known frequency over a tube in water, and adjust the water level until the loudest sound is heard.",
+                "The tube length at the first resonance is λ/4 (end correction ignored), so v = fλ = 4fL.",
+                "For better accuracy, find two successive resonances. The difference in tube length is λ/2, which removes the end correction."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "ce55a4f4-6a3d-4391-9c36-baca90ac5661",
+      "a9838eed-ecc0-4b04-95c0-e5050b26f350",
+      "3d78a833-236c-4102-9c6b-fad89cf1749a",
+      "368a59dd-f1ca-4ec0-a272-f6e0c35c2a63",
+      "c5dbf0a1-5a34-4269-b482-5b9407877921",
+      "8289111c-e6a3-421d-8f66-5af58101ae1c",
+      "4232974e-1d38-416e-8b1b-6fe5431f4f61",
+      "80a2be78-28fc-4fbc-a8b9-528829f40bbd",
+      "5e6fbaf5-e1e3-43ee-a82c-83624a457941",
+      "09b9755d-cadb-4ca4-9ab1-3c591c7f083e",
+      "96c57dd2-5f12-4240-8b22-9a9d8959c415",
+      "289934f3-e817-47db-a51e-b9a276e38d51",
+      "544b1e39-e0f5-426c-82c7-85ba95df26c9"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

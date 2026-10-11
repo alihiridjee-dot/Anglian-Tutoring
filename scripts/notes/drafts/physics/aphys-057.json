@@ -1,0 +1,259 @@
+{
+  "format": 1,
+  "concept_id": "aphys-057",
+  "subject": "physics",
+  "title": "Work done by a gas and the first law of thermodynamics",
+  "key_idea": "A gas that expands at constant pressure does work W = pΔV. The first law is energy conservation: heating a gas and doing work on it both increase its internal energy.",
+  "sections": [
+    {
+      "heading": "Work done by and on a gas",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A gas that changes volume against a pressure transfers energy by work. This section covers how to find that work and its direction."
+        },
+        {
+          "type": "equation",
+          "label": "Work done at constant pressure",
+          "formula": "W = pΔV",
+          "where": [
+            "W is the work done (J)",
+            "p is the constant pressure (Pa)",
+            "ΔV is the change in volume (m³)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "When a gas **expands**, it pushes back its surroundings, so the gas does work **on** the surroundings.",
+            "When a gas is **compressed**, the surroundings do work **on** the gas.",
+            "The work done by the gas and the work done on the gas have the same size and opposite signs.",
+            "On a pressure–volume graph, the work done is the area under the line."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "W = pΔV at constant pressure.",
+            "Expansion: the gas does work. Compression: work is done on the gas."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The first law of thermodynamics",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The first law is the conservation of energy applied to a gas. It links heating, work and the change in internal energy."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The internal energy of a gas increases when energy is transferred **to** it by heating.",
+            "It also increases when work is done **on** it, for example when it is compressed.",
+            "In words: increase in internal energy = energy transferred in by heating + work done on the gas.",
+            "Equivalently: energy transferred in by heating = increase in internal energy + work done by the gas.",
+            "For a fixed mass of ideal gas, internal energy depends only on temperature."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Question",
+              "text": "A gas at constant pressure 1.0 × 10⁵ Pa expands from 2.0 × 10⁻³ m³ to 3.5 × 10⁻³ m³. 200 J is transferred to it by heating. Find the increase in internal energy."
+            },
+            {
+              "lead": "Work done by the gas",
+              "text": "W = pΔV = 1.0 × 10⁵ × 1.5 × 10⁻³ = 150 J"
+            },
+            {
+              "lead": "Apply the first law",
+              "text": "Increase in internal energy = 200 − 150"
+            },
+            {
+              "lead": "Answer",
+              "text": "Increase = 50 J"
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Special cases for an ideal gas"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Constant temperature**: internal energy is unchanged, so energy in by heating equals work done by the gas.",
+            "**Constant volume**: no work is done, so all the energy transferred in raises the internal energy.",
+            "**No energy transfer by heating**: the gas is insulated, so the work done on it increases its internal energy."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a process on a gas and see the work, the heating and the change in internal energy.",
+            "prompt": "Choose a process for a fixed mass of ideal gas.",
+            "result_labels": [
+              "Heating",
+              "Work",
+              "Internal energy and temperature"
+            ],
+            "options": [
+              {
+                "label": "Expands slowly at constant temperature",
+                "results": [
+                  "Energy flows into the gas",
+                  "Gas does work on its surroundings",
+                  "Unchanged; temperature constant"
+                ],
+                "explanation": "Internal energy depends only on temperature, so the energy in by heating equals the work done by the gas."
+              },
+              {
+                "label": "Heated at constant volume",
+                "results": [
+                  "Energy flows into the gas",
+                  "No work, because ΔV = 0",
+                  "Increases; temperature rises"
+                ],
+                "explanation": "With no work, all the energy transferred in raises the internal energy."
+              },
+              {
+                "label": "Compressed in an insulated cylinder",
+                "results": [
+                  "No energy transferred by heating",
+                  "Work is done on the gas",
+                  "Increases; temperature rises"
+                ],
+                "explanation": "The work done on the gas is its only energy input, so its internal energy rises."
+              },
+              {
+                "label": "Heated at constant pressure and expands",
+                "results": [
+                  "Energy flows into the gas",
+                  "Gas does work, W = pΔV",
+                  "Increases; temperature rises"
+                ],
+                "explanation": "The energy in by heating covers both the work done by the gas and the rise in internal energy."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Heating and work done on a gas both raise its internal energy.",
+            "For an ideal gas at constant temperature, internal energy does not change."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A gas expands at a constant pressure of 2.0 × 10⁵ Pa from 1.0 × 10⁻³ m³ to 2.5 × 10⁻³ m³. Calculate the work done by the gas.",
+      "a": "W = pΔV = 2.0 × 10⁵ × 1.5 × 10⁻³ = 300 J.",
+      "marks": 2
+    },
+    {
+      "q": "A gas receives 500 J by heating and does 200 J of work on its surroundings. Calculate the increase in its internal energy.",
+      "a": "Increase = 500 − 200 = 300 J.",
+      "marks": 2
+    },
+    {
+      "q": "A fixed mass of ideal gas is compressed rapidly in an insulated cylinder. State and explain what happens to its temperature.",
+      "a": "The temperature rises. Work is done on the gas and no energy is transferred by heating, so the internal energy increases.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 16.2.1",
+        "CAIE 16.2.2"
+      ],
+      "extra": [
+        {
+          "heading": "The first law with symbols",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "First law of thermodynamics",
+              "formula": "ΔU = q + W",
+              "where": [
+                "ΔU is the increase in internal energy (J)",
+                "q is the energy transferred to the system by heating (J)",
+                "W is the work done on the system (J)"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Here W is work done **on** the gas. W is positive for compression and negative when the gas expands.",
+                "q is positive when energy is transferred into the gas by heating, and negative when energy leaves it.",
+                "For expansion at constant pressure, the work done on the gas is −pΔV."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.11.2.1"
+      ],
+      "extra": [
+        {
+          "heading": "The first law with symbols",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "First law of thermodynamics",
+              "formula": "Q = ΔU + W",
+              "where": [
+                "Q is the energy transferred to the system by heating (J)",
+                "ΔU is the increase in internal energy (J)",
+                "W is the work done by the system (J)"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Here W is work done **by** the gas. W is positive when the gas expands and negative when it is compressed.",
+                "Q is positive when energy is transferred into the gas by heating, and negative when energy leaves it.",
+                "For expansion at constant pressure, the work done by the gas is pΔV."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Applications"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Constant temperature (ideal gas): ΔU = 0, so Q = W.",
+                "Constant volume: W = 0, so Q = ΔU.",
+                "Insulated gas: Q = 0, so ΔU = −W. A gas that expands without heating cools down."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "2705d98a-891c-468f-9b98-3bea2fc516b2",
+      "ff08c8e1-f319-4e30-a5e6-0e3579c4eb46",
+      "36c7fb60-b81b-44d1-ba4f-f274d1ffe0f4"
+    ],
+    "exemplar_ids": []
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "format": 1,
+  "concept_id": "achem-015",
+  "subject": "chemistry",
+  "title": "Electronegativity and bond polarity",
+  "key_idea": "Electronegativity is the power of an atom to attract the bonding pair of electrons in a covalent bond. A difference in electronegativity makes a bond polar. A molecule is polar only if its polar bonds do not cancel because of the shape.",
+  "sections": [
+    {
+      "heading": "Electronegativity and its trends",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Electronegativity measures how strongly an atom pulls on the bonding electrons. This section covers the factors and the trends."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Electronegativity", "meaning": "The power of an atom to attract the pair of electrons in a covalent bond." },
+            { "term": "Pauling scale", "meaning": "The scale of electronegativity values. Fluorine is the highest at 4.0." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A greater nuclear charge increases electronegativity.",
+            "A smaller atomic radius increases electronegativity, because the bonding pair is nearer the nucleus.",
+            "More shielding by inner shells decreases electronegativity.",
+            "Across a period, nuclear charge increases and the radius decreases with similar shielding, so electronegativity increases.",
+            "Down a group, the radius and shielding increase, so electronegativity decreases.",
+            "The most electronegative elements are at the top right of the Periodic Table, with fluorine highest."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Electronegativity increases across a period and decreases down a group.",
+            "Fluorine is the most electronegative element."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Bond type and polar bonds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ionic and covalent bonding are two ends of a continuum. This section covers how the electronegativity difference sets the type of bond."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Two identical atoms have no difference, so the pair is shared equally. This is a pure covalent bond.",
+            "A small difference gives an unequal share of the pair. This is a **polar covalent bond**.",
+            "A very large difference means one atom takes the electron completely. This is ionic bonding.",
+            "Between these extremes bonds have some ionic character and some covalent character."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a polar bond the more electronegative atom has a partial negative charge, δ−.",
+            "The other atom has a partial positive charge, δ+.",
+            "For example in HCl, the H atom is δ+ and the Cl atom is δ−.",
+            "The separation of charge is a **permanent dipole**. Its size is the dipole moment."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The bigger the electronegativity difference, the more polar the bond.",
+            "A very large difference gives ionic bonding.",
+            "δ+ goes on the less electronegative atom."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Polar molecules",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A molecule with polar bonds may or may not be polar overall. This section covers how the shape decides."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each polar bond has a dipole with a direction.",
+            "If the dipoles are arranged symmetrically they cancel, and the molecule has no overall dipole.",
+            "If they do not cancel, the molecule has an overall permanent dipole and is polar.",
+            "CO₂ is linear. Its two C=O dipoles point in opposite directions and cancel, so it is non-polar.",
+            "H₂O is non-linear. Its two O–H dipoles do not cancel, so it is polar.",
+            "CCl₄ and BF₃ are symmetrical, so they are non-polar. NH₃ and CHCl₃ are not symmetrical, so they are polar."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort the molecules into polar and non-polar.",
+            "prompt": "Does the molecule have an overall dipole?",
+            "groups": ["Polar molecule", "Non-polar molecule"],
+            "items": [
+              { "text": "H₂O", "group": 0 },
+              { "text": "CO₂", "group": 1 },
+              { "text": "NH₃", "group": 0 },
+              { "text": "CCl₄", "group": 1 },
+              { "text": "BF₃", "group": 1 },
+              { "text": "HCl", "group": 0 },
+              { "text": "CH₄", "group": 1 },
+              { "text": "CHCl₃", "group": 0 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Polar bonds do not always make a polar molecule.",
+            "Symmetrical molecules have dipoles that cancel.",
+            "Use the shape to decide."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define electronegativity.",
+      "a": "The power of an atom to attract the pair of electrons in a covalent bond.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why electronegativity decreases down group 17.",
+      "a": "The atomic radius and the shielding increase down the group. The bonding pair is further from the nucleus and less strongly attracted, even though the nuclear charge is greater.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why CO₂ has polar bonds but is a non-polar molecule, whereas H₂O is polar.",
+      "a": "The C=O bonds are polar because O is more electronegative than C. CO₂ is linear, so the dipoles cancel and there is no overall dipole. H₂O is non-linear, so the O–H dipoles do not cancel and there is an overall dipole.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": ["OCR 2.2.2i", "OCR 2.2.2j"]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 2A.13", "EDEX 2A.14", "EDEX 2A.15"]
+    },
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.1.3.6"]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 3.1.1", "CAIE 3.1.2", "CAIE 3.1.3", "CAIE 3.1.4", "CAIE 3.6.2"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Pauling electronegativity values are given in the question when they are needed.",
+                "Use the difference in values to predict whether a bond is ionic or covalent. As a rough guide, a difference of about 1.8 or more gives ionic bonding, a smaller difference gives polar covalent bonding, and no difference gives non-polar covalent bonding.",
+                "Explain bond polarity and the dipole moment of a molecule in terms of electronegativity."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "fd94f779-8f5a-4891-8cfe-dc1ed116dd4e",
+      "8c78df06-82dd-4451-bb71-b69370d30969",
+      "c30d71e0-ac31-46ba-bc07-25e2ee72a028",
+      "40b7b62b-c4a3-41b8-8040-ae342541e478",
+      "7cfb2d33-b9ab-4a94-9b60-fa5bdc2f869a",
+      "9349aaec-4c20-4f59-81b2-5600d13d6c74",
+      "9eaee845-8d67-458c-83bd-5ade69a50f8c",
+      "4e3f1faa-65db-484d-a721-224d533d394e",
+      "10e2215d-fbf0-417a-b19b-c9a33a41421b",
+      "8be9b360-5c6a-4e42-90cc-8b84d09228d5",
+      "44e97199-b3a8-4281-a220-0b1eb6cb640d"
+    ],
+    "exemplar_ids": []
+  }
+}

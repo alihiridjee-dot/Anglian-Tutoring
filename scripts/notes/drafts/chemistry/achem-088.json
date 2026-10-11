@@ -1,0 +1,390 @@
+{
+  "format": 1,
+  "concept_id": "achem-088",
+  "subject": "chemistry",
+  "title": "Carbon-carbon bond formation and nitriles",
+  "key_idea": "Chain lengthening needs a new C–C bond. CN⁻ adds one carbon to a haloalkane or a carbonyl compound, and the nitrile can then be reduced to an amine or hydrolysed to a carboxylic acid.",
+  "sections": [
+    {
+      "heading": "Why make new C–C bonds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Most reactions you have met change the functional group but keep the same carbon skeleton. To build a bigger molecule, a chemist must form a new carbon-carbon bond. This section covers why that matters and which reactions do it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Chain lengthening adds one or more carbon atoms to a molecule.",
+            "It is how small, cheap starting materials become the larger molecules needed for medicines, plastics and dyes.",
+            "Few reagents do it, so each one is worth knowing."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Nucleophile",
+              "meaning": "A species that donates a lone pair of electrons to form a new bond."
+            },
+            {
+              "term": "Nitrile",
+              "meaning": "A compound containing the –C≡N group. The carbon of the group is a new carbon added to the chain."
+            },
+            {
+              "term": "Hydroxynitrile",
+              "meaning": "A compound with an –OH group and a –C≡N group on the same carbon."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A new C–C bond is needed whenever the carbon skeleton must grow.",
+            "Cyanide ions are the main nucleophile used to add one carbon."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making nitriles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cyanide ion, CN⁻, is a good nucleophile and carries one carbon. There are two ways to use it, depending on the starting material."
+        },
+        {
+          "type": "subheading",
+          "text": "Nitriles from haloalkanes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heat the haloalkane under reflux with **KCN** dissolved in **ethanol**.",
+            "Ethanol is used as the solvent. If water were present, the OH⁻ ion would compete and an alcohol would form.",
+            "The mechanism is nucleophilic substitution: CN⁻ attacks the δ+ carbon and the halide ion leaves."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Haloalkane to nitrile",
+          "formula": "CH₃CH₂Br + CN⁻ → CH₃CH₂CN + Br⁻",
+          "where": [
+            "CH₃CH₂Br: bromoethane, two carbons",
+            "CH₃CH₂CN: propanenitrile, one carbon longer"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Hydroxynitriles from aldehydes and ketones"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Add **HCN** to the carbonyl compound, with KCN as a catalyst, and warm gently.",
+            "The mechanism is nucleophilic addition.",
+            "The product is a hydroxynitrile, one carbon longer."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Attack",
+              "text": "CN⁻ uses its lone pair to attack the δ+ carbon of C=O."
+            },
+            {
+              "lead": "Bond breaks",
+              "text": "The C=O π bond breaks and both electrons move onto oxygen, giving a negative intermediate."
+            },
+            {
+              "lead": "Protonation",
+              "text": "The O⁻ takes H⁺ from HCN (or water), forming the hydroxynitrile and releasing CN⁻ to start again."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The C=O group is planar, so CN⁻ can attack from either face with equal chance. Most hydroxynitriles from aldehydes and unsymmetrical ketones form as a racemic mixture."
+        },
+        {
+          "type": "paragraph",
+          "text": "Hydrogen cyanide and cyanide salts are very toxic. Reactions are done in a fume cupboard, with the HCN made in the flask from the cyanide salt and acid."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Haloalkane + KCN in ethanol, heated, gives a nitrile by nucleophilic substitution.",
+            "Aldehyde or ketone + HCN with KCN catalyst gives a hydroxynitrile by nucleophilic addition.",
+            "Both add exactly one carbon."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reactions of nitriles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A nitrile can be converted into two useful functional groups. This section covers reduction to an amine and hydrolysis to a carboxylic acid."
+        },
+        {
+          "type": "subheading",
+          "text": "Reduction to an amine"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hydrogen gas over a **nickel** catalyst reduces C≡N to a primary amine.",
+            "The product is a primary amine that is one CH₂ longer than the original haloalkane."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Reduction of a nitrile",
+          "formula": "CH₃CH₂CN + 2H₂ → CH₃CH₂CH₂NH₂",
+          "where": [
+            "H₂ with nickel catalyst",
+            "Product: propylamine (1-aminopropane)"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Hydrolysis to a carboxylic acid"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heat the nitrile under reflux with **dilute acid**, such as dilute hydrochloric acid.",
+            "The product is a carboxylic acid, and the nitrogen leaves as an ammonium ion.",
+            "With dilute alkali, the product is a carboxylate salt and ammonia. Acidify afterwards to free the carboxylic acid."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Acid hydrolysis of a nitrile",
+          "formula": "CH₃CH₂CN + 2H₂O + H⁺ → CH₃CH₂COOH + NH₄⁺",
+          "where": [
+            "Product: propanoic acid, plus ammonium ions"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a reaction to see the reagents, the product and the change in chain length.",
+            "prompt": "Pick a step in a chain-lengthening route",
+            "result_labels": [
+              "Reagents and conditions",
+              "Product",
+              "Carbons added"
+            ],
+            "options": [
+              {
+                "label": "Bromoethane to a nitrile",
+                "results": [
+                  "KCN in ethanol, heat under reflux",
+                  "Propanenitrile, CH₃CH₂CN",
+                  "One"
+                ],
+                "explanation": "Nucleophilic substitution: CN⁻ replaces Br⁻."
+              },
+              {
+                "label": "Ethanal to a hydroxynitrile",
+                "results": [
+                  "HCN with KCN catalyst, gentle warming",
+                  "2-hydroxypropanenitrile, CH₃CH(OH)CN",
+                  "One"
+                ],
+                "explanation": "Nucleophilic addition across C=O."
+              },
+              {
+                "label": "Propanenitrile to an amine",
+                "results": [
+                  "H₂ with nickel catalyst",
+                  "Propylamine, CH₃CH₂CH₂NH₂",
+                  "None. The nitrile carbon is already in the chain."
+                ],
+                "explanation": "C≡N is reduced to CH₂NH₂."
+              },
+              {
+                "label": "Propanenitrile to an acid",
+                "results": [
+                  "Dilute HCl, heat under reflux",
+                  "Propanoic acid, CH₃CH₂COOH",
+                  "None. The nitrile carbon becomes the COOH carbon."
+                ],
+                "explanation": "Hydrolysis turns C≡N into COOH."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reduction with H₂ and nickel turns a nitrile into a primary amine.",
+            "Hydrolysis with dilute acid turns a nitrile into a carboxylic acid.",
+            "Bromoethane to propanoic acid is a two-step route that adds one carbon."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give the reagent and conditions that turn 1-bromopropane into butanenitrile, and name the type of mechanism.",
+      "a": "KCN dissolved in ethanol; heat under reflux. Nucleophilic substitution.",
+      "marks": 3
+    },
+    {
+      "q": "Outline the mechanism for the reaction of propanone with HCN and KCN catalyst.",
+      "a": "CN⁻ attacks the δ+ carbon of C=O; the C=O π electrons move to oxygen giving an O⁻ intermediate; O⁻ takes H⁺ from HCN (or water) to give 2-hydroxy-2-methylpropanenitrile and regenerates CN⁻.",
+      "marks": 4
+    },
+    {
+      "q": "Starting from bromoethane, give a two-step route to propanoic acid with reagents.",
+      "a": "Step 1: KCN in ethanol, heat, giving propanenitrile. Step 2: heat under reflux with dilute HCl (or dilute NaOH then acidify) to give propanoic acid.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.2.4a",
+        "OCR 6.2.4b",
+        "OCR 6.2.4c",
+        "OCR 6.2.4d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A benzene ring can also be given a longer side chain. The Friedel–Crafts reaction forms a new C–C bond between the ring and a carbon chain."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Alkylation**: benzene reacts with a haloalkane such as chloromethane, giving an alkylbenzene and HCl.",
+                "**Acylation**: benzene reacts with an acyl chloride such as ethanoyl chloride, giving a phenyl ketone and HCl.",
+                "Both need anhydrous conditions and a **halogen carrier** catalyst, such as AlCl₃ or FeCl₃."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Friedel–Crafts acylation",
+              "formula": "C₆H₆ + CH₃COCl → C₆H₅COCH₃ + HCl",
+              "where": [
+                "C₆H₆: benzene",
+                "CH₃COCl: ethanoyl chloride",
+                "C₆H₅COCH₃: phenylethanone"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The halogen carrier reacts with the haloalkane or acyl chloride to make a positive electrophile (R⁺ or RCO⁺) and AlCl₄⁻.",
+                "The electrophile substitutes for an H on the ring by electrophilic substitution.",
+                "The AlCl₄⁻ removes the H⁺, giving back AlCl₃ and forming HCl, so the catalyst is regenerated."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 18C.20"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Grignard reagents are organomagnesium compounds that add carbon atoms through a new C–C bond. They are made in dry ether and used at once."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Make the reagent by adding **magnesium** to a haloalkane in **dry ether**, such as ethoxyethane.",
+                "The product, RMgBr, has a carbon with a partial negative charge, so it acts as a nucleophile.",
+                "Water must be absent. It would react with the Grignard reagent to give an alkane, RH."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Making a Grignard reagent",
+              "formula": "CH₃CH₂Br + Mg → CH₃CH₂MgBr",
+              "where": [
+                "In dry ether, no water present"
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Reactions of Grignard reagents"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Reacts with",
+                "Product after adding dilute acid"
+              ],
+              "rows": [
+                [
+                  "Carbon dioxide",
+                  "A carboxylic acid, one carbon longer than the Grignard's R group"
+                ],
+                [
+                  "Methanal",
+                  "A primary alcohol"
+                ],
+                [
+                  "Any other aldehyde",
+                  "A secondary alcohol"
+                ],
+                [
+                  "A ketone",
+                  "A tertiary alcohol"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The Grignard's carbon attacks the δ+ carbon of C=O, adding the whole R group to that carbon.",
+                "A second step with dilute acid releases the alcohol or carboxylic acid from its magnesium salt."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 19.2.1",
+        "CAIE 19.2.2",
+        "CAIE 19.2.3"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "b60b802c-999f-4706-93d5-55bb3bbf13bb",
+      "1d309284-75c2-4b6c-92d4-141d3c9b4762",
+      "664642eb-2401-478a-9ea9-b0a7afd48047",
+      "7648990e-9d84-45ab-8768-eabe281462b6",
+      "ac5263c3-dadd-41d1-a364-3620eab3d939",
+      "836d6495-8e8d-428a-a4f0-6f5331bcb278",
+      "99a3a00e-0d68-43aa-9f27-734bcbaa92c0",
+      "3478db87-549b-4ac3-ae51-5e3fb96dda7c"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

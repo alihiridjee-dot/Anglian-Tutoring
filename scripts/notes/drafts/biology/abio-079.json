@@ -1,0 +1,281 @@
+{
+  "format": 1,
+  "concept_id": "abio-079",
+  "subject": "biology",
+  "title": "Genome sequencing and bioinformatics",
+  "key_idea": "Sequencing reads the order of bases in DNA. Automated methods now read whole genomes quickly and cheaply. Computers store and compare the sequences, and this lets scientists predict proteins, compare species and individuals, and tailor medicine.",
+  "sections": [
+    {
+      "heading": "Reading DNA: sequencing methods",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "DNA sequencing finds the order of bases in a piece of DNA. The methods have improved rapidly since the first ones."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Genome",
+              "meaning": "All the DNA in a cell of an organism, including genes and non-coding DNA."
+            },
+            {
+              "term": "Proteome",
+              "meaning": "All the proteins an organism can make, coded for by its genome."
+            },
+            {
+              "term": "Bioinformatics",
+              "meaning": "Using computers to store, search and analyse biological data such as DNA sequences."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Sanger sequencing** copies the DNA many times. Each copy stops at a modified base carrying a fluorescent label.",
+            "The fragments are separated by length. The colour of the label at the end of each fragment shows the base at that position.",
+            "**High-throughput sequencing** reads millions of fragments at the same time. It is far faster and cheaper than Sanger sequencing.",
+            "Sequencing methods are continuously updated and have become automated.",
+            "A computer joins the overlapping fragments to assemble the whole sequence."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sequencing methods have moved from Sanger sequencing to automated high-throughput sequencing.",
+            "Faster sequencing has made whole-genome projects possible."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Genome projects and the proteome",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sequencing projects have read the genomes of a wide range of organisms, including humans. The sequence of a gene can be used to work out the protein it codes for."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The genetic code tells us which amino acid each triplet codes for, so the sequence of amino acids in a polypeptide can be predicted from the gene.",
+            "Knowing the proteome of a pathogen can identify potential **antigens**. These can be used to make vaccines.",
+            "Genomes can be compared between individuals, to find variations linked to disease or to characteristics.",
+            "Genomes can be compared between species, to find how closely related they are and how they evolved.",
+            "Comparing genes between organisms helps work out the function of an unknown gene."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A known gene sequence lets scientists predict the amino acid sequence of its protein.",
+            "Comparing genomes shows differences between individuals and evolutionary relationships between species."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Bioinformatics and databases",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sequencing produces huge amounts of data. Computers are needed to store it and to find patterns in it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sequences are held in databases that scientists around the world can search.",
+            "Computers compare a new sequence with stored ones to find similar genes in other organisms.",
+            "Computational biology uses this data to link genotype to phenotype, to track the spread of disease and to search for evolutionary relationships."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort the uses of sequence data.",
+            "prompt": "Sort each use of sequence data under the right heading.",
+            "groups": [
+              "Comparing sequences",
+              "Using the predicted protein"
+            ],
+            "items": [
+              {
+                "text": "Finding how closely two species are related",
+                "group": 0
+              },
+              {
+                "text": "Finding variations between individuals",
+                "group": 0
+              },
+              {
+                "text": "Identifying a gene's function from a similar gene in another species",
+                "group": 0
+              },
+              {
+                "text": "Choosing an antigen to use in a vaccine",
+                "group": 1
+              },
+              {
+                "text": "Predicting the amino acid sequence of a polypeptide",
+                "group": 1
+              },
+              {
+                "text": "Designing a drug to fit a protein",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Databases let scientists share and compare sequence data worldwide.",
+            "Bioinformatics links DNA sequence to protein, phenotype and evolutionary relationship."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how the sequencing of a pathogen's genome can help in making a vaccine.",
+      "a": "The genome sequence is used to predict the sequences of the pathogen's proteins, its proteome. This identifies proteins that could act as antigens, which can be used in a vaccine.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why computers are essential in modern genome sequencing.",
+      "a": "High-throughput sequencing reads millions of short fragments at once. A computer assembles the overlapping fragments into a complete sequence and stores the huge amount of data in databases that can be searched and compared.",
+      "marks": 3
+    },
+    {
+      "q": "Suggest how comparing the genomes of two species could show how closely they are related.",
+      "a": "The more similar the base sequences are, the more recently the species shared a common ancestor, so the more closely related they are. Fewer differences mean fewer mutations have built up since they diverged.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.8.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Determining the genome of **simpler organisms** allows the sequences of the proteins they make to be worked out.",
+                "In **more complex organisms**, knowledge of the genome cannot easily be translated into the proteome.",
+                "This is because they have **non-coding DNA** and regulatory genes. Not every part of the genome codes for a protein."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.16"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Personalised medicine"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A person's genome can be sequenced to find alleles that affect their risk of disease or their response to a drug.",
+                "Treatment can then be chosen to suit that person, which is **personalised medicine**.",
+                "Benefits: more effective drugs, fewer side effects and early warning of disease risk.",
+                "Social, moral and ethical issues: who owns and can see genetic data, whether insurers or employers could use it, and whether people want to know their risk of an untreatable disease.",
+                "Results can also reveal information about relatives, who have not agreed to be tested."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 19.1.10",
+        "CAIE 19.1.11"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Microarrays"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A **microarray** is a slide with thousands of small spots. Each spot holds a different single-stranded DNA probe.",
+                "To analyse a genome, fluorescently labelled DNA from a sample is added. It binds to complementary probes, and the pattern of fluorescent spots shows which sequences are present.",
+                "To study gene expression, mRNA from cells is converted to labelled complementary DNA (cDNA) and added. Fluorescent spots show which genes were being transcribed."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Benefits of sequence databases"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Databases hold nucleotide sequences of genes and genomes, and amino acid sequences of proteins and protein structures.",
+                "They let scientists identify a gene or protein quickly by matching it to a stored sequence.",
+                "They let scientists compare sequences between species, predict protein structure and function, and avoid repeating work already done."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.3a",
+        "OCR 6.1.3b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You need the principles of sequencing and the rapid advance from Sanger sequencing to high-throughput sequencing. You do not need the details of high-throughput methods.",
+                "Gene sequencing allows **genome-wide comparisons** between individuals and between species.",
+                "It allows the amino acid sequences of polypeptides to be predicted.",
+                "It has allowed the development of **synthetic biology**: designing and building new biological parts, devices or organisms.",
+                "Bioinformatics and computational biology contribute to research on genotype–phenotype relationships, epidemiology and evolutionary relationships."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "cdd25448-8a8a-465f-b882-c2ec049bd140",
+      "4328aa1c-e069-48c4-91b4-abdc76b94b3c",
+      "6669d005-ee39-4d19-b6de-679de7ec1acf",
+      "1eacf6a8-bae4-4902-abf3-87c47eecc9e2",
+      "b306798f-7c01-4134-a658-7bc2b952a43c",
+      "b0c23de2-5106-4073-b1e6-e1e7e5d16b5f"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

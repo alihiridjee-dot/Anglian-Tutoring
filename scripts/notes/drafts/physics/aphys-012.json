@@ -1,0 +1,405 @@
+{
+  "format": 1,
+  "concept_id": "aphys-012",
+  "subject": "physics",
+  "title": "Drag, viscosity and terminal velocity",
+  "key_idea": "Drag is the resistive force on an object moving through a fluid, and it grows with speed. A falling object speeds up until drag plus upthrust equals its weight. The resultant force is then zero, so it falls at a constant terminal velocity.",
+  "sections": [
+    {
+      "heading": "Friction and drag",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Resistive forces oppose motion. This section covers friction between solids and drag in fluids."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Friction",
+              "meaning": "The force between two solid surfaces in contact that opposes their relative motion."
+            },
+            {
+              "term": "Fluid",
+              "meaning": "A liquid or a gas, which can flow."
+            },
+            {
+              "term": "Drag",
+              "meaning": "The frictional (viscous) force on an object moving through a fluid. It acts opposite to the velocity."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Friction between solids does not depend much on the speed.",
+            "Drag depends on the speed. A simple model is that drag increases as speed increases.",
+            "Drag in air is called air resistance.",
+            "Drag is greater for a larger cross-sectional area facing the motion.",
+            "Drag is less for a streamlined shape, which lets the fluid flow smoothly past.",
+            "Drag is greater in a denser or more viscous fluid, such as water compared with air."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Drag is the frictional force on an object moving through a fluid.",
+            "Drag increases with speed, cross-sectional area and the density of the fluid, and decreases with streamlining."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Falling with drag and terminal velocity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In a fluid a falling object does not accelerate for ever. This section covers why it reaches a constant velocity."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Start",
+              "text": "At the instant of release the speed is zero, so drag is zero. In air the acceleration is g. In a liquid it is slightly less, because upthrust already acts."
+            },
+            {
+              "lead": "Speeding up",
+              "text": "As speed rises, drag rises. The resultant force, weight minus drag, falls."
+            },
+            {
+              "lead": "Acceleration falls",
+              "text": "A smaller resultant force gives a smaller acceleration, so the speed rises more slowly."
+            },
+            {
+              "lead": "Terminal velocity",
+              "text": "When drag (plus any upthrust) equals the weight, the resultant force is zero. The acceleration is zero and the velocity stays constant."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A velocity-time graph. Without drag the velocity rises in a straight line. With drag it rises more slowly and levels off at the terminal velocity.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 10,
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "unit": "s"
+            },
+            "y": {
+              "label": "Velocity"
+            },
+            "series": [
+              {
+                "name": "No drag",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0.2
+                  ],
+                  [
+                    4,
+                    0.4
+                  ],
+                  [
+                    6,
+                    0.6
+                  ],
+                  [
+                    8,
+                    0.8
+                  ],
+                  [
+                    10,
+                    1
+                  ]
+                ]
+              },
+              {
+                "name": "With drag",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0.2
+                  ],
+                  [
+                    2,
+                    0.36
+                  ],
+                  [
+                    3,
+                    0.48
+                  ],
+                  [
+                    4,
+                    0.57
+                  ],
+                  [
+                    6,
+                    0.68
+                  ],
+                  [
+                    8,
+                    0.71
+                  ],
+                  [
+                    10,
+                    0.72
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 8,
+                "label": "Terminal velocity reached"
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The gradient of the velocity-time graph is the acceleration. It falls to zero at terminal velocity.",
+            "Terminal velocity is reached when the drag force equals the driving force (weight).",
+            "A skydiver opening a parachute increases the area, so drag exceeds weight. The skydiver decelerates until a new, smaller terminal velocity is reached.",
+            "Upthrust also acts for an object in a liquid, so there weight = drag + upthrust at terminal velocity.",
+            "Without air resistance, objects of different mass fall with the same acceleration g."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Drag rises with speed until it balances the weight. Then there is no resultant force.",
+            "At terminal velocity the acceleration is zero and the velocity is constant.",
+            "A bigger area gives more drag and a lower terminal velocity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating terminal velocity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Terminal velocity is measured by timing an object over a distance after it has stopped accelerating."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up",
+              "text": "Fill a tall measuring cylinder with a viscous liquid, such as glycerol or washing-up liquid."
+            },
+            {
+              "lead": "Mark",
+              "text": "Mark two lines near the bottom, well below the top so the ball is already at constant velocity."
+            },
+            {
+              "lead": "Drop",
+              "text": "Release a ball bearing at the surface of the liquid."
+            },
+            {
+              "lead": "Time",
+              "text": "Time it between the two marks with a stopwatch. Terminal velocity = distance between marks ÷ time."
+            },
+            {
+              "lead": "Repeat",
+              "text": "Repeat and take a mean. Change one variable at a time, such as the ball radius or the temperature."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "For cones or paper cases in air, drop from a measured height and time the fall. Light gates or video analysis improve accuracy.",
+            "Cones of different radius, or a different number of cases, show how area and mass change the terminal velocity.",
+            "Parallax and the stopwatch reaction time cause error. Use a long distance to reduce the percentage uncertainty."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Time over a distance only after the object reaches constant velocity.",
+            "Vary one factor at a time, such as radius, mass, area or temperature."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe and explain the motion of a ball bearing dropped into a deep tank of oil.",
+      "a": "It starts with its greatest acceleration, just under g, because drag is zero and only a small upthrust acts. As its speed increases, drag increases, so the resultant force and acceleration decrease. Eventually drag plus upthrust equals weight, the resultant force is zero and it moves at constant terminal velocity.",
+      "marks": 4
+    },
+    {
+      "q": "A skydiver at terminal velocity opens a parachute. Explain what happens to her velocity.",
+      "a": "The larger area increases the drag so it is greater than her weight. The resultant force is upwards, so she decelerates. As she slows, the drag decreases until it equals her weight again, and she falls at a lower constant terminal velocity.",
+      "marks": 4
+    },
+    {
+      "q": "State two factors that affect the drag on a car.",
+      "a": "Any two of: its speed, its cross-sectional area, its shape (streamlining), the density of the air.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 3.2.1",
+        "CAIE 3.2.2",
+        "CAIE 3.2.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A qualitative understanding of friction and drag is enough. No coefficients of friction or viscosity are required.",
+                "A simple model of drag increasing as speed increases is sufficient.",
+                "Describe and explain qualitatively the motion of objects in a uniform gravitational field with air resistance, including the shape of the velocity-time graph."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.2.2a",
+        "OCR 3.2.2b",
+        "OCR 3.2.2c",
+        "OCR 3.2.2d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Factors for an object travelling through air are its speed, its cross-sectional area and its shape.",
+                "Techniques for terminal velocity include a ball bearing in a viscous liquid and cones in air.",
+                "Investigate the factors that affect terminal velocity, as in the practical above."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4.51"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Viscous drag and Stokes' law"
+            },
+            {
+              "type": "equation",
+              "label": "Stokes' law",
+              "formula": "F = 6πηrv",
+              "where": [
+                "F = viscous drag force (N)",
+                "η = viscosity of the fluid (Pa s)",
+                "r = radius of the sphere (m)",
+                "v = velocity of the sphere (m/s)"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The law applies only to small spherical objects moving at low speeds.",
+                "The flow must be **laminar**: smooth layers of fluid slide past each other with no turbulence.",
+                "At higher speeds the flow becomes turbulent and the law fails.",
+                "Viscosity depends on temperature. The viscosity of a liquid falls as it is heated, so the terminal velocity of a sphere in it rises.",
+                "At terminal velocity, weight = viscous drag + upthrust. This gives a way to find η."
+              ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "practice",
+                "alt": "A practice calculation. Find the viscous drag on a sphere from Stokes' law.",
+                "question": "A steel sphere of radius {r} mm moves at {v} m/s through a liquid of viscosity {n} Pa s. Calculate the viscous drag force in millinewtons.",
+                "variables": [
+                  {
+                    "id": "r",
+                    "min": 1,
+                    "max": 5,
+                    "step": 1
+                  },
+                  {
+                    "id": "v",
+                    "min": 0.02,
+                    "max": 0.2,
+                    "step": 0.02
+                  },
+                  {
+                    "id": "n",
+                    "min": 0.2,
+                    "max": 1.4,
+                    "step": 0.2
+                  }
+                ],
+                "answer": {
+                  "formula": "6 * 3.14159 * n * r * 0.001 * v * 1000",
+                  "unit": "mN",
+                  "decimals": 2
+                },
+                "working": [
+                  "F = 6πηrv",
+                  "r = {r} mm = {r} × 10⁻³ m",
+                  "F = {answer} mN"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "11af4435-8aa7-47de-a77d-78d2bad35e05",
+      "f8ac7172-98ce-46fb-a9d9-94bde1f5c20d",
+      "043dab69-362f-4d88-89ae-f9e7a9675770",
+      "165f33fc-6cf8-431b-94f3-318f917c549a",
+      "7426c811-ace3-463f-82da-d7a28ccb5ec3",
+      "e5f0e16e-dc49-44db-909a-9b09b13d3147",
+      "6c073c49-bb32-4330-b985-54b653b07dbe",
+      "9e2c0b81-d502-4151-a24a-8bd9548af1a6"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

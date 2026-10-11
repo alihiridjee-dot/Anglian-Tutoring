@@ -1,0 +1,398 @@
+{
+  "format": 1,
+  "concept_id": "aphys-054",
+  "subject": "physics",
+  "title": "Specific heat capacity and latent heat",
+  "key_idea": "The energy to change a temperature depends on the mass, the specific heat capacity and the temperature change. The energy to change state depends on the mass and the specific latent heat. In a change of state the potential energy of the particles changes, not their kinetic energy.",
+  "sections": [
+    {
+      "heading": "Raising the temperature of a substance",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Heating a substance raises its internal energy and, usually, its temperature. This section covers how much energy a given temperature rise needs."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Internal energy is the sum of the randomly distributed kinetic and potential energies of the particles in a body.",
+            "It increases when energy is transferred to the body by **heating**, or when **work** is done on it.",
+            "It decreases when energy is transferred out by heating, or when the body does work."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Specific heat capacity, c",
+              "meaning": "The energy needed to raise the temperature of 1 kg of a substance by 1 K, with no change of state."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Energy to change temperature",
+          "formula": "ΔE = mcΔθ",
+          "where": [
+            "ΔE is the energy transferred (J)",
+            "m is the mass (kg)",
+            "c is the specific heat capacity (J kg⁻¹ K⁻¹)",
+            "Δθ is the change in temperature (K or °C)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Question",
+              "text": "A 2.0 kg aluminium block is heated from 20 °C to 70 °C. Its specific heat capacity is 900 J kg⁻¹ K⁻¹. Calculate the energy transferred."
+            },
+            {
+              "lead": "Temperature change",
+              "text": "Δθ = 70 − 20 = 50 K"
+            },
+            {
+              "lead": "Substitute",
+              "text": "ΔE = 2.0 × 900 × 50"
+            },
+            {
+              "lead": "Answer",
+              "text": "ΔE = 9.0 × 10⁴ J"
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question. Find the energy needed to heat water through a temperature rise.",
+            "question": "Calculate the energy needed to raise the temperature of {m} kg of water by {dt} K. The specific heat capacity of water is 4200 J kg⁻¹ K⁻¹.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 0.5,
+                "max": 3,
+                "step": 0.5
+              },
+              {
+                "id": "dt",
+                "min": 10,
+                "max": 80,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "m * 4200 * dt",
+              "unit": "J",
+              "decimals": 0
+            },
+            "working": [
+              "ΔE = mcΔθ",
+              "ΔE = {m} × 4200 × {dt}",
+              "ΔE = {answer} J"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "c is the energy per kilogram needed for a 1 K rise.",
+            "ΔE = mcΔθ applies while the substance stays in the same state."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Changing state",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "During a change of state the temperature stays constant even though energy is supplied. The energy changes the arrangement of the particles."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Specific latent heat, L",
+              "meaning": "The energy needed to change the state of 1 kg of a substance with no change of temperature."
+            },
+            {
+              "term": "Specific latent heat of fusion",
+              "meaning": "The energy per kilogram to change a substance between solid and liquid."
+            },
+            {
+              "term": "Specific latent heat of vaporisation",
+              "meaning": "The energy per kilogram to change a substance between liquid and gas."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Energy to change state",
+          "formula": "ΔE = LΔm",
+          "where": [
+            "ΔE is the energy transferred (J)",
+            "L is the specific latent heat (J kg⁻¹)",
+            "Δm is the mass that changes state (kg)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "During a change of state the **potential energy** of the particles changes, because their separation changes.",
+            "The **kinetic energy** of the particles does not change, so the temperature stays constant.",
+            "Latent heat of vaporisation is much larger than that of fusion, because the particles move from close together to far apart."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Temperature against energy supplied for a substance heated from solid to gas. It rises, flattens during melting, rises again, flattens during boiling, then rises as a gas.",
+            "x": {
+              "label": "Energy supplied",
+              "min": 0,
+              "max": 10,
+              "ticks": [
+                0,
+                10
+              ],
+              "unit": "arbitrary units"
+            },
+            "y": {
+              "label": "Temperature"
+            },
+            "series": [
+              {
+                "name": "Heating curve",
+                "points": [
+                  [
+                    0,
+                    0.05
+                  ],
+                  [
+                    1.5,
+                    0.25
+                  ],
+                  [
+                    2.5,
+                    0.25
+                  ],
+                  [
+                    4,
+                    0.5
+                  ],
+                  [
+                    7,
+                    0.5
+                  ],
+                  [
+                    8,
+                    0.65
+                  ],
+                  [
+                    10,
+                    0.85
+                  ]
+                ]
+              }
+            ],
+            "bands": [
+              {
+                "from": 1.5,
+                "to": 2.5,
+                "label": "Melting"
+              },
+              {
+                "from": 4,
+                "to": 7,
+                "label": "Boiling"
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Latent heat changes the potential energy of the particles, not their kinetic energy.",
+            "Fusion is solid to liquid; vaporisation is liquid to gas.",
+            "Vaporisation needs far more energy per kilogram than fusion."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Calculate the energy needed to raise the temperature of 0.50 kg of water from 20 °C to 100 °C. The specific heat capacity of water is 4200 J kg⁻¹ K⁻¹.",
+      "a": "ΔE = mcΔθ = 0.50 × 4200 × 80 = 1.7 × 10⁵ J (168 000 J).",
+      "marks": 2
+    },
+    {
+      "q": "A solid melts at a steady rate while a heater supplies energy at a constant rate. Explain why its temperature stays constant.",
+      "a": "The energy supplied increases the potential energy of the particles as they move apart. Their kinetic energy does not change, so the temperature stays constant.",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the energy needed to boil away 0.10 kg of water already at 100 °C. The specific latent heat of vaporisation of water is 2.26 × 10⁶ J kg⁻¹.",
+      "a": "ΔE = LΔm = 2.26 × 10⁶ × 0.10 = 2.3 × 10⁵ J (226 000 J).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.6.2.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Internal energy and the first law"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The internal energy of a system is increased when energy is transferred to it by heating or when work is done on it, and decreased in the opposite cases.",
+                "This is a qualitative form of the first law of thermodynamics.",
+                "During a change of state the potential energies of the particles change but their kinetic energies do not.",
+                "The two equations are also written Q = mcΔθ and Q = ml, where Q is the energy transferred and l is the specific latent heat."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Continuous flow"
+            },
+            {
+              "type": "paragraph",
+              "text": "In a continuous-flow heater a fluid passes over a heater at a steady rate. Use the energy transferred each second."
+            },
+            {
+              "type": "equation",
+              "label": "Continuous flow heating",
+              "formula": "P = (Δm / Δt) c Δθ",
+              "where": [
+                "P is the power of the heater (W)",
+                "Δm / Δt is the mass of fluid flowing each second (kg s⁻¹)",
+                "c is the specific heat capacity (J kg⁻¹ K⁻¹)",
+                "Δθ is the temperature rise of the fluid (K)"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Equate the electrical power supplied to the energy gained by the fluid each second. Allow for any energy lost to the surroundings."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 9.144"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 14.3.1",
+        "CAIE 14.3.2"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.3a",
+        "OCR 5.1.3b",
+        "OCR 5.1.3c",
+        "OCR 5.1.3d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The two equations are also written E = mcΔθ and E = ml, where E is the energy transferred and l is the specific latent heat."
+            },
+            {
+              "type": "subheading",
+              "text": "Estimating c by the method of mixtures"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Heat a metal sample of known mass to a known temperature, for example in boiling water.",
+                "Transfer it quickly into a known mass of cool water in an insulated container and stir.",
+                "Record the final steady temperature.",
+                "Energy lost by the metal equals energy gained by the water, assuming no losses, so c can be found."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Electrical method for a metal block"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Place an electric heater and a thermometer in holes in an insulated metal block of known mass. A drop of oil in the thermometer hole improves thermal contact.",
+                "Record the potential difference V, current I, and the time t, or read the energy from a joulemeter.",
+                "Record the temperature rise Δθ and find c using the equation below."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Specific heat capacity, electrical method",
+              "formula": "c = VIt / (mΔθ)",
+              "where": [
+                "V is the potential difference (V)",
+                "I is the current (A)",
+                "t is the time (s)",
+                "m is the mass of the block (kg)",
+                "Δθ is the temperature rise (K)"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "For a liquid, use a heater in a known mass of the liquid in an insulated container, and stir the liquid.",
+                "Lag the apparatus to reduce energy losses; losses make the calculated c too large.",
+                "A graph of temperature against time has a gradient of P / (mc) when the power P is steady."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Electrical method for latent heat"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Fusion: a heater sits in ice in a funnel and the melted water is collected and weighed. A control run with the heater off finds the melting caused by the room.",
+                "Vaporisation: a heater boils a liquid on a balance, and the loss in mass is measured over a known time.",
+                "To remove the effect of energy losses, repeat at two different powers P₁ and P₂ for the same time t.",
+                "Then L = (P₁ − P₂)t / (m₁ − m₂), where m₁ and m₂ are the masses that changed state."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "358686c6-dc69-4273-96fb-83911a784503",
+      "e3679861-41d7-4953-b15c-109e1a7cd919",
+      "47f622e9-3f1a-4b0f-9bfd-274b144f91d6",
+      "d9a4f45d-746a-44f5-b430-5f7eb830bfd1",
+      "24b24baa-e62e-4b2c-9e77-602bb50535ae",
+      "f577acc7-e783-4d07-91b3-57d0d5f923bb",
+      "fb8ab505-0929-4807-8472-9eb6be4acb7c",
+      "c62359af-2c2c-4ab7-a012-5c5adaed4708"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

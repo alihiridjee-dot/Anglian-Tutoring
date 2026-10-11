@@ -1,0 +1,323 @@
+{
+  "format": 1,
+  "concept_id": "abio-086",
+  "subject": "biology",
+  "title": "Data handling and statistics",
+  "key_idea": "Data handling means using the right units and significant figures, processing results, and drawing clear graphs. Mean, percentage change and gradient let you compare and interpret results. Statistical tests show whether a difference or a link is likely to be due to chance.",
+  "sections": [
+    {
+      "heading": "Units, significant figures and presenting data",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Raw measurements need the right units and sensible rounding before they are useful. Present them in a format that makes the pattern clear."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Always give a unit with a measurement, and put it in the column heading of a table, not in each cell.",
+            "Use appropriate units, for example µm for cells, cm³ for volumes of gas and mol dm⁻³ for concentration.",
+            "Convert units before calculating: 1 mm = 1000 µm.",
+            "Use an appropriate number of significant figures: no more than the least precise measurement in the calculation.",
+            "Record raw data to the same number of decimal places, matching the apparatus."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use a table for raw and processed data, with the independent variable in the first column.",
+            "Use a graph to show a trend or compare results.",
+            "Choose the format to fit the data: see the next section."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Put units in table headings and axis labels.",
+            "Give answers to the same number of significant figures as the least precise data."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Processing and analysing results",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Processing turns raw readings into values you can compare. Analysis then uses them to reach a conclusion."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Qualitative data is descriptive, such as a colour change. Quantitative data is numerical.",
+            "Calculate a mean of repeats, leaving out anomalies.",
+            "Calculate a percentage change to compare results that start from different values.",
+            "Calculate a rate, such as volume of gas ÷ time, or the gradient of a graph.",
+            "Calculate a range or standard deviation to show the spread of the data.",
+            "Use ratios, fractions and percentages, and use appropriate mathematical skills when analysing quantitative data."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Percentage change",
+          "formula": "percentage change = ((final value − initial value) ÷ initial value) × 100",
+          "where": [
+            "final value and initial value = measurements in the same unit"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A percentage change calculation with new numbers each time.",
+            "question": "A potato cylinder has a mass of {start} g before being left in a solution and {end} g afterwards. Calculate the percentage change in mass.",
+            "variables": [
+              {
+                "id": "start",
+                "min": 20,
+                "max": 30,
+                "step": 2
+              },
+              {
+                "id": "end",
+                "min": 18,
+                "max": 32,
+                "step": 2
+              }
+            ],
+            "answer": {
+              "formula": "(end - start) / start * 100",
+              "unit": "%",
+              "decimals": 1,
+              "tolerance_percent": 2
+            },
+            "working": [
+              "Change in mass = final − initial = {end} − {start}.",
+              "Percentage change = (change ÷ initial) × 100 = (change ÷ {start}) × 100.",
+              "Percentage change = {answer}%. A negative answer is a loss."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Process the data first, then analyse it.",
+            "A conclusion must be valid: it must follow from the evidence collected."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Plotting and interpreting graphs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A graph shows the relationship between two variables. A clear one has labelled axes, sensible scales and well-placed points."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Put the independent variable on the x axis and the dependent variable on the y axis.",
+            "Label each axis with the quantity and its unit.",
+            "Choose scales that use more than half of the grid, in equal steps.",
+            "Plot points accurately and draw a line of best fit (a smooth curve or a ruled straight line, to suit the pattern).",
+            "Use a line graph for continuous data and a bar chart for categories."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Gradients and intercepts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The gradient of a straight line is the change in y ÷ the change in x. It gives a rate.",
+            "For a curve, draw a tangent at the point and find the gradient of the tangent. This gives the rate at that moment.",
+            "The intercept is where the line crosses an axis. It shows the value of y when x is zero."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Gradient",
+          "formula": "gradient = change in y ÷ change in x",
+          "where": [
+            "change in y = difference in the two y values, with unit",
+            "change in x = difference in the two x values, with unit"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of drawing a graph in order.",
+            "prompt": "Put these steps of drawing a graph in order.",
+            "steps": [
+              "Decide which variable goes on each axis",
+              "Choose scales that use most of the grid",
+              "Label the axes with quantity and unit",
+              "Plot the points accurately",
+              "Draw a line of best fit"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Independent variable on x, dependent variable on y.",
+            "A gradient is a rate: change in y ÷ change in x."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Software, data loggers and computer modelling",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Technology can collect, process and report data faster and more precisely than doing it by hand."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A data logger collects readings automatically, such as temperature, light intensity or pH, at set intervals.",
+            "Data loggers take readings more often and remove human error in timing.",
+            "Spreadsheet software processes data: it calculates means, percentage changes and standard deviation, and draws graphs.",
+            "Computer modelling predicts what happens when conditions change, without doing every experiment.",
+            "Use software and online tools to research, process data and report your findings."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Data loggers give frequent, precise readings.",
+            "Models and software help to process data and test predictions."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "The change in a quantity is shown by a graph that is a straight line from (0, 2) to (10, 12). Calculate its gradient and say what the intercept shows.",
+      "a": "Gradient = (12 − 2) ÷ (10 − 0) = 1.0 (units y per unit x); the intercept is 2: the value of y when x is zero.",
+      "marks": 3
+    },
+    {
+      "q": "A plant shoot has a mass of 8.0 g and, after 24 hours in a salt solution, 6.0 g. Calculate the percentage change in mass.",
+      "a": "(6.0 − 8.0) ÷ 8.0 × 100; = −25% (a 25% decrease).",
+      "marks": 2
+    },
+    {
+      "q": "Give two advantages of using a data logger rather than recording by hand.",
+      "a": "Any two from: readings taken more often or at precise intervals; removes human error in timing or reading; can collect data over a long period or in places hard to reach; data can go straight into software for processing.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 1.1.2b",
+        "OCR 1.1.2c",
+        "OCR 1.1.3a",
+        "OCR 1.1.3b",
+        "OCR 1.1.3c",
+        "OCR 1.1.3d",
+        "OCR 1.2.1g",
+        "OCR 1.2.2l"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 17.1.4",
+        "CAIE 18.2.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course asks you to choose and use statistical tests. The formulae are given in the exam, so concentrate on when to use each test and how to read the result."
+            },
+            {
+              "type": "subheading",
+              "text": "The t-test: comparing the means of two samples"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use it when you have a continuous, normally distributed measurement from two groups, such as the heights of plants in two habitats.",
+                "State the null hypothesis: there is no significant difference between the two means.",
+                "Calculate t, then find the degrees of freedom: (n₁ + n₂) − 2.",
+                "Compare t with the critical value at the 5% level (p = 0.05).",
+                "If t is greater than the critical value, reject the null hypothesis: the difference is significant, and it is unlikely to be due to chance.",
+                "If t is less than the critical value, accept the null hypothesis: the difference could be due to chance."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "t-test",
+              "formula": "t = (x̄₁ − x̄₂) ÷ √(s₁²/n₁ + s₂²/n₂)",
+              "where": [
+                "x̄₁, x̄₂ = the means of the two samples",
+                "s₁, s₂ = the standard deviations of the samples",
+                "n₁, n₂ = the sample sizes"
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Correlation: Spearman's rank and Pearson's linear"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use a correlation test to find whether two variables are related, such as the abundance of a species and an abiotic factor like soil moisture.",
+                "Use Spearman's rank when the data are ranked or the relationship may not be linear.",
+                "Use Pearson's linear correlation when the data are continuous, normally distributed and the relationship looks linear.",
+                "A coefficient near +1 is a strong positive correlation, near −1 a strong negative one and near 0 no correlation.",
+                "Compare the coefficient with the critical value for the sample size at p = 0.05 to decide if it is significant.",
+                "Correlation does not prove that one variable causes the other."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Spearman's rank correlation coefficient",
+              "formula": "rₛ = 1 − (6 × Σd²) ÷ (n³ − n)",
+              "where": [
+                "d = the difference between the ranks of each pair of values",
+                "n = the number of pairs of values"
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "State a null hypothesis, calculate the statistic and compare it with the critical value at p = 0.05.",
+                "A significant correlation shows a relationship, not a cause."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "ac7b1c84-8478-456a-8597-2c306ecd0df8",
+      "d2b0dacb-a2ac-4918-bc7d-9e519023f72d",
+      "fb9087c0-3ca3-4af8-b913-6a1fa1d288c5",
+      "086324be-86b4-44a0-b98c-d6a671d4228c",
+      "893948f4-bd7d-40df-8cf8-cde339413cd5",
+      "c1f49978-7d8e-4558-af02-90b1bab9b1b6",
+      "89cbe921-1e15-41bd-b920-dfece669a549",
+      "7e097745-41de-4abd-9718-539b8e6b5a1c",
+      "d07a8d92-c4fd-4edd-9fed-78dab65fba66",
+      "82bf0859-e9d7-4843-b600-650138471918"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

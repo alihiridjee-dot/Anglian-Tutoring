@@ -1,0 +1,257 @@
+{
+  "format": 1,
+  "concept_id": "abio-045",
+  "subject": "biology",
+  "title": "Variation: genes, environment and phenotype",
+  "key_idea": "Phenotypic variation is caused by genes, by the environment, or by both. Discontinuous variation has distinct categories and is controlled by one or a few genes. Continuous variation has a full range of values and is controlled by many genes, called polygenic inheritance, plus the environment.",
+  "sections": [
+    {
+      "heading": "Causes of phenotypic variation",
+      "blocks": [
+        { "type": "paragraph", "text": "Individuals of the same species differ in their phenotype. The differences have three possible causes." },
+        {
+          "type": "table",
+          "columns": ["Cause", "What it means", "Examples"],
+          "rows": [
+            ["Genetic", "Different alleles are inherited", "ABO blood group; sex; flower colour in peas"],
+            ["Environmental", "Conditions during life change the phenotype", "A scar; a language spoken; a plant grown in the dark"],
+            ["Both", "Genes set the limits; the environment decides where in the range an individual ends up", "Height, body mass, skin colour"]
+          ]
+        },
+        { "type": "paragraph", "text": "Two identical twins have the same genotype. Differences between them are mainly caused by the environment." },
+        {
+          "type": "list",
+          "items": [
+            "Diet affects body mass and growth in animals, whatever alleles they carry.",
+            "A plant grown without light grows long and pale (**etiolation**), though its genes are the same as a plant grown in the light.",
+            "Sun exposure darkens skin, but only within the range the genes allow."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Variation is genetic, environmental or a combination of the two.",
+            "Genes set the potential; the environment affects how much of it is expressed.",
+            "Differences between identical twins are mainly caused by the environment."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Continuous and discontinuous variation",
+      "blocks": [
+        { "type": "paragraph", "text": "Phenotypes vary in two ways. The type of variation tells you how many genes are involved." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of discontinuous and continuous variation by categories, graph, genes involved, effect of the environment and examples.",
+            "items": ["Discontinuous variation", "Continuous variation"],
+            "rows": [
+              { "feature": "Phenotypes", "values": ["Distinct categories, no intermediates", "A full range of values between two extremes"] },
+              { "feature": "Graph", "values": ["Bar chart", "Histogram or line graph, often bell-shaped"] },
+              { "feature": "Genes", "values": ["One or a few genes", "Many genes (polygenic)"] },
+              { "feature": "Environment", "values": ["Little or no effect", "Often a large effect"] },
+              { "feature": "Examples", "values": ["ABO blood group, sex, pea seed shape", "Height, body mass, leaf length"] }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Discontinuous: distinct categories, with no intermediates.",
+            "Continuous: a full range of values between two extremes.",
+            "Plot discontinuous data as a bar chart; plot continuous data as a histogram or line graph."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The genetic basis of each type",
+      "blocks": [
+        { "type": "paragraph", "text": "The number of genes involved is the main difference. This is the reason for the shape of the data." },
+        { "type": "subheading", "text": "Discontinuous variation" },
+        {
+          "type": "list",
+          "items": [
+            "Controlled by **one gene** or a small number of genes, each with different alleles.",
+            "Each genotype gives one of a few distinct phenotypes.",
+            "The environment has little or no effect. A person is blood group A whatever they eat."
+          ]
+        },
+        { "type": "subheading", "text": "Continuous variation" },
+        {
+          "type": "list",
+          "items": [
+            "Controlled by **many genes** at different loci. This is **polygenic inheritance**.",
+            "Each gene has a small additive effect, and each locus can carry different alleles.",
+            "Many different genotype combinations give many different phenotypes, with all values in between.",
+            "The environment also has a large effect, which blurs the steps between genotypes.",
+            "Most individuals are near the mean, so a histogram is a bell-shaped (normal) curve."
+          ]
+        },
+        { "type": "paragraph", "text": "Try sorting these characteristics." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Characteristics are sorted into continuous variation and discontinuous variation.",
+            "prompt": "Is each characteristic continuous or discontinuous?",
+            "groups": ["Continuous variation", "Discontinuous variation"],
+            "items": [
+              { "text": "Human height", "group": 0 },
+              { "text": "Body mass", "group": 0 },
+              { "text": "Leaf length in one tree species", "group": 0 },
+              { "text": "ABO blood group", "group": 1 },
+              { "text": "Pea seed shape (round or wrinkled)", "group": 1 },
+              { "text": "Sex", "group": 1 },
+              { "text": "Skin colour", "group": 0 },
+              { "text": "Albinism (present or absent)", "group": 1 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "One or few genes give discontinuous variation; many genes give continuous variation.",
+            "Polygenic means many genes, each with a small effect.",
+            "The environment adds to continuous variation, so it forms a smooth range."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why human height shows continuous variation.",
+      "a": "Height is controlled by many genes (polygenic inheritance), each with a small additive effect. The environment, such as diet, also affects it. So there is a full range of heights between the extremes, rather than distinct categories.",
+      "marks": 3
+    },
+    {
+      "q": "ABO blood group shows discontinuous variation. Give two features of this type of variation.",
+      "a": "Any two from: distinct categories with no intermediates; controlled by one gene (or a few genes); little or no effect of the environment.",
+      "marks": 2
+    },
+    {
+      "q": "Two seedlings with the same genotype are grown, one in the light and one in the dark. The one in the dark is taller and paler. Explain this difference.",
+      "a": "The genotype is the same, so the difference is caused by the environment (the amount of light). Growth in the dark is etiolated: the plant grows tall and pale to reach light.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 3.15"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            { "type": "paragraph", "text": "Some phenotypes are affected by several alleles at many loci, together with the environment. You need to link this to continuous variation." },
+            {
+              "type": "list",
+              "items": [
+                "Each locus may have more than one allele, and each allele adds a small effect to the phenotype.",
+                "The effects of many loci add together, giving a large number of possible phenotypes.",
+                "Because the environment also acts, the data fit a smooth, bell-shaped curve."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 16.2.6", "CAIE 16.2.7", "CAIE 17.1.1", "CAIE 17.1.2", "CAIE 17.1.3"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            { "type": "paragraph", "text": "A gene codes for a protein, and the protein produces the phenotype. Know the pathway for each of these four examples." },
+            {
+              "type": "table",
+              "columns": ["Gene and protein", "Change in the gene", "Effect on the phenotype"],
+              "rows": [
+                ["TYR gene: the enzyme tyrosinase", "Mutant alleles code for a non-functional enzyme", "Albinism: no melanin is made, so skin, hair and eyes lack pigment (recessive)"],
+                ["HBB gene: the β-globin polypeptide of haemoglobin", "A base substitution changes one amino acid (glutamic acid to valine)", "Sickle cell anaemia: haemoglobin forms fibres at low oxygen and red blood cells sickle (recessive)"],
+                ["F8 gene: factor VIII, a blood clotting protein", "A mutation gives non-functional factor VIII", "Haemophilia: blood clots slowly (X-linked recessive)"],
+                ["HTT gene: huntingtin protein", "A longer than normal run of repeated bases gives an abnormal protein", "Huntington's disease: the protein damages nerve cells in the brain, usually in adulthood (dominant)"]
+              ]
+            },
+            { "type": "subheading", "text": "Gibberellin and stem elongation" },
+            {
+              "type": "list",
+              "items": [
+                "**Gibberellin** is a plant hormone that stimulates stem elongation.",
+                "The dominant allele **Le** codes for a functional enzyme in the gibberellin synthesis pathway.",
+                "The recessive allele **le** codes for a non-functional enzyme, so less active gibberellin is made.",
+                "LeLe and Lele plants make enough gibberellin and grow tall. lele plants are short (dwarf).",
+                "Giving gibberellin to a dwarf plant makes it grow tall, which shows the cause is a lack of the hormone."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "An allele that changes a protein can change the phenotype.",
+                "A non-functional enzyme usually gives a recessive allele.",
+                "Le is dominant because one functional copy of the enzyme is enough."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": ["OCR 4.2.2f", "OCR 6.1.2a", "OCR 6.1.2d"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                { "term": "Intraspecific variation", "meaning": "Differences between individuals of the same species." },
+                { "term": "Interspecific variation", "meaning": "Differences between members of different species." }
+              ]
+            },
+            { "type": "paragraph", "text": "Examples cover plants, animals and microorganisms, with genetic and environmental causes." },
+            {
+              "type": "list",
+              "items": [
+                "Plants: seed shape in peas is genetic. Etiolation in the dark is environmental.",
+                "Animals: body mass varies with genes and with diet.",
+                "Microorganisms: bacteria differ in antibiotic resistance (genetic) and in colony size with nutrient supply (environmental)."
+              ]
+            },
+            { "type": "subheading", "text": "How sexual reproduction creates genetic variation" },
+            {
+              "type": "list",
+              "items": [
+                "In meiosis, crossing over swaps alleles between homologous chromosomes.",
+                "Independent assortment sends maternal and paternal chromosomes into gametes at random.",
+                "Random fusion of gametes at fertilisation joins any sperm to any egg, giving a different combination of alleles each time."
+              ]
+            },
+            { "type": "paragraph", "text": "Continuous variation involves many genes; discontinuous variation involves one or a small number of genes." }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "3f219e74-6a1b-40f8-8bf5-0bbe41043b1a",
+      "ae22e996-ebd4-48f9-a389-fc1b362556c2",
+      "60e27c94-b4b7-49cd-b2b6-1fb99ad287ca",
+      "303eb7e1-0e9c-4805-b56d-2dcfbfd39624",
+      "669798f5-baf5-45d3-9769-5e1f7db42209",
+      "ef61136c-2196-43ca-a1e1-75262353d545",
+      "2cff151b-fc0a-4c06-8d35-f9680858a737",
+      "53cd0d3b-024d-478c-b39b-2aa3094f2e4b",
+      "3d87d7e1-8893-4129-9048-af25a99e2096"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

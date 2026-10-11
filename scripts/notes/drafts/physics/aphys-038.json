@@ -1,0 +1,274 @@
+{
+  "format": 1,
+  "concept_id": "aphys-038",
+  "subject": "physics",
+  "title": "Required practicals: waves",
+  "key_idea": "Wave practicals use v = fλ, the standing-wave condition on a string, Snell's law and d sin θ = nλ. Change one variable at a time, repeat, and use graphs and several orders or wavelengths to reduce uncertainty.",
+  "sections": [
+    {
+      "heading": "Speed of sound with an oscilloscope",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This practical measures the wavelength of sound from the phase of two traces, then finds the speed from v = fλ."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up",
+              "text": "Connect a signal generator to a loudspeaker and to one channel of a two-beam oscilloscope. Connect a microphone to the other channel."
+            },
+            {
+              "lead": "Frequency",
+              "text": "Set a frequency of about 2 kHz. Read the frequency from the generator, or find it from the trace as f = 1 / T."
+            },
+            {
+              "lead": "In phase",
+              "text": "Place the microphone close to the speaker. Adjust the settings until both traces are clear and the same size, in phase."
+            },
+            {
+              "lead": "Move",
+              "text": "Move the microphone slowly away from the speaker. The traces move out of step and then back into step."
+            },
+            {
+              "lead": "Measure",
+              "text": "Measure the distance d moved through n in-phase positions. The wavelength is λ = d / n."
+            },
+            {
+              "lead": "Calculate",
+              "text": "Calculate v = fλ. Repeat at other frequencies and take a mean."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity. Put the steps of the speed of sound practical in the correct order.",
+            "prompt": "Put these steps for finding the speed of sound in the correct order.",
+            "steps": [
+              "Connect the speaker and the microphone to a two-beam oscilloscope.",
+              "Set the frequency on the signal generator.",
+              "Put the microphone next to the speaker with the traces in phase.",
+              "Move the microphone until the traces are next in phase again several times.",
+              "Measure the distance moved and divide by the number of wavelengths.",
+              "Calculate the speed using v = fλ."
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Measuring across many wavelengths gives a smaller percentage error than measuring one.",
+            "Ensure the speaker and microphone are in line and well away from walls, to reduce reflections.",
+            "The speed of sound in air is about 340 m/s at room temperature."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Distance between successive in-phase positions is one wavelength.",
+            "v = fλ, with f from the generator or the trace."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Vibrating strings and light through a grating",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two core practicals use a standing wave on a string and an interference pattern from a laser."
+        },
+        {
+          "type": "subheading",
+          "text": "Frequency of a vibrating string"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up",
+              "text": "Fix a string or wire over a pulley with weights hanging from one end, and a vibrator and signal generator at the other."
+            },
+            {
+              "lead": "Vary one thing",
+              "text": "Change one of length, tension or mass per unit length. Keep the other two fixed."
+            },
+            {
+              "lead": "Find resonance",
+              "text": "Adjust the generator until the string vibrates in the first harmonic with one large loop."
+            },
+            {
+              "lead": "Record",
+              "text": "Record the frequency at resonance. Repeat for a range of values."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tension is the weight of the hanging masses: T = mg.",
+            "Plot f against 1/l (a straight line through the origin), f against √T and f against 1/√μ.",
+            "Each of these graphs should be a straight line through the origin if f₁ = (1 / 2l) √(T / μ)."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Wavelength of light with a diffraction grating"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up",
+              "text": "Shine a laser at right angles to a diffraction grating, with a screen a measured distance D away."
+            },
+            {
+              "lead": "Measure",
+              "text": "Measure the distance from the central maximum to the first-order, second-order and further maxima."
+            },
+            {
+              "lead": "Angle",
+              "text": "Find θ from tan θ = (distance from centre) / D for each order."
+            },
+            {
+              "lead": "Calculate",
+              "text": "Use d sin θ = nλ, with d = 1 / lines per metre, to find λ for each order. Take the mean."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Take measurements for both sides of the centre and use the mean to reduce error.",
+            "A graph of sin θ against n has gradient λ / d.",
+            "Never look along the laser beam, and use a low-power laser."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change one variable at a time; the others stay constant.",
+            "For the grating, a graph of sin θ against n has gradient λ / d."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring the refractive index of a solid",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The refractive index of a transparent block can be found from Snell's law, using a ray box and the block."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up",
+              "text": "Place a rectangular block on paper. Shine a narrow ray from a ray box at one face and mark the incident and emergent rays."
+            },
+            {
+              "lead": "Draw",
+              "text": "Remove the block, join the marks to find the path through it and draw the normal."
+            },
+            {
+              "lead": "Measure",
+              "text": "Measure the angle of incidence i and the angle of refraction r."
+            },
+            {
+              "lead": "Repeat",
+              "text": "Repeat for at least five values of i."
+            },
+            {
+              "lead": "Plot",
+              "text": "Plot sin i against sin r. The gradient is the refractive index n."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "n = sin i / sin r for a ray entering the block from air.",
+            "Use a narrow ray and a protractor with a fine scale to reduce uncertainty in the angles.",
+            "A plotted line gives a better value than a single measurement."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The gradient of sin i against sin r is the refractive index.",
+            "Repeat and plot a graph rather than relying on one reading."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "In the speed of sound practical, the microphone is moved from one in-phase position to the fifth next in-phase position, a distance of 1.70 m. The frequency is 1.0 kHz. Calculate the speed of sound.",
+      "a": "Five wavelengths span 1.70 m, so λ = 1.70 / 5 = 0.34 m. v = fλ = 1000 × 0.34 = 340 m/s.",
+      "marks": 3
+    },
+    {
+      "q": "A laser of wavelength 633 nm falls on a grating with 600 lines per mm. Calculate the angle of the first-order maximum.",
+      "a": "d = 1 / 600 000 = 1.67 × 10⁻⁶ m. sin θ = 633 × 10⁻⁹ / 1.67 × 10⁻⁶ = 0.38, so θ = 22.3°.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how to find the refractive index of a glass block using a ray box.",
+      "a": "Shine a narrow ray at the block at several angles of incidence, mark the incident and emergent rays, and draw the path through the block. Measure i and r, and plot sin i against sin r. The gradient is the refractive index.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.64",
+        "EDEX 5.69",
+        "EDEX 5.74",
+        "EDEX 5.85"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 8.4.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The diffraction grating practical needs the grating spacing and a measured angle; the spectrometer is not needed."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Shine light of unknown wavelength normally on a grating of known spacing d. It forms maxima at angles θ₁, θ₂, ... on each side of the straight-through beam.",
+                "Measure each angle, use d sin θ = nλ to calculate λ for each order, then take a mean."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "c9a8579e-e81d-408a-8ac8-57ca81711e95",
+      "f00f5877-a78d-4681-b790-a5226141a1e6",
+      "8ae12153-7fcd-4539-9594-c60d4c46f510",
+      "c9723113-5596-4ea0-a45c-3adbd37f9268",
+      "b7db8066-27b6-4f2e-ba8b-a4ba3155da42"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

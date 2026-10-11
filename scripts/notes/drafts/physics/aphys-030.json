@@ -1,0 +1,455 @@
+{
+  "format": 1,
+  "concept_id": "aphys-030",
+  "subject": "physics",
+  "title": "Progressive waves",
+  "key_idea": "A progressive wave carries energy from place to place while the medium only oscillates. Its speed is v = fλ, and its frequency is 1 / T. Transverse waves oscillate at right angles to travel; longitudinal waves oscillate along it.",
+  "sections": [
+    {
+      "heading": "Describing a wave",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A progressive wave transfers energy from place to place without transferring matter. The particles of the medium, or the fields in an electromagnetic wave, only oscillate about a fixed position."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Waves on a rope or spring and ripples on water show wave motion you can watch.",
+            "Each point on the wave repeats the motion of the point before it, but a little later.",
+            "Energy travels along the wave. The medium does not travel with it."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Displacement",
+              "meaning": "The distance of a point from its rest position, in a stated direction. It can be positive or negative."
+            },
+            {
+              "term": "Amplitude",
+              "meaning": "The maximum displacement from the rest position."
+            },
+            {
+              "term": "Wavelength (λ)",
+              "meaning": "The distance between two points at the same stage of the cycle on adjacent oscillations, such as crest to crest."
+            },
+            {
+              "term": "Period (T)",
+              "meaning": "The time for one complete oscillation of a point."
+            },
+            {
+              "term": "Frequency (f)",
+              "meaning": "The number of complete oscillations per second, in hertz (Hz)."
+            },
+            {
+              "term": "Wave speed (v)",
+              "meaning": "The distance the wave pattern travels per second."
+            },
+            {
+              "term": "Phase difference",
+              "meaning": "How far one point's oscillation is ahead of or behind another's, as an angle or a fraction of a cycle."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Frequency and period",
+          "formula": "f = 1 / T",
+          "where": [
+            "f = frequency (Hz)",
+            "T = period (s)"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A progressive wave carries energy, not matter.",
+            "Amplitude is a maximum displacement; wavelength is a distance; period is a time."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The wave equation and phase",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The wave equation links speed, frequency and wavelength. It follows from the definitions."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "One period",
+              "text": "In one period T the wave pattern moves forward exactly one wavelength λ."
+            },
+            {
+              "lead": "Speed",
+              "text": "Speed = distance ÷ time = λ / T."
+            },
+            {
+              "lead": "Substitute",
+              "text": "Since f = 1 / T, the speed is v = fλ."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Wave equation",
+          "formula": "v = fλ",
+          "where": [
+            "v = wave speed (m/s)",
+            "f = frequency (Hz)",
+            "λ = wavelength (m)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "For electromagnetic waves in a vacuum the speed is c, so c = fλ."
+        },
+        {
+          "type": "subheading",
+          "text": "Phase difference"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Points a whole number of wavelengths apart oscillate **in phase**: phase difference 0 or 2π rad (360°).",
+            "Points half a wavelength apart oscillate in **antiphase**: phase difference π rad (180°).",
+            "A separation of one-quarter of a wavelength gives a phase difference of π/2 rad (90°).",
+            "Phase difference = 2π × (separation ÷ λ) in radians, or the same fraction of a cycle."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the amplitude, frequency and wavelength of a wave to see its speed and period.",
+            "inputs": [
+              {
+                "id": "A",
+                "label": "Amplitude",
+                "unit": "mm",
+                "min": 1,
+                "max": 10,
+                "step": 1,
+                "value": 5
+              },
+              {
+                "id": "f",
+                "label": "Frequency",
+                "unit": "Hz",
+                "min": 1,
+                "max": 50,
+                "step": 1,
+                "value": 10
+              },
+              {
+                "id": "lam",
+                "label": "Wavelength",
+                "unit": "m",
+                "min": 0.1,
+                "max": 2,
+                "step": 0.1,
+                "value": 0.5
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Wave speed",
+                "unit": "m/s",
+                "formula": "f * lam",
+                "decimals": 1
+              },
+              {
+                "label": "Period",
+                "unit": "s",
+                "formula": "1 / f",
+                "decimals": 3
+              }
+            ],
+            "scene": {
+              "kind": "wave",
+              "amplitude": "A",
+              "frequency": "f"
+            }
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "v = fλ and f = 1 / T.",
+            "In phase means a phase difference of 0 or 2π; antiphase means π."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Transverse and longitudinal waves",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The two types differ in the direction of the oscillation compared with the direction the energy travels."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Transverse",
+            "Longitudinal"
+          ],
+          "rows": [
+            [
+              "Oscillation",
+              "At right angles to the direction of energy travel",
+              "Parallel to the direction of energy travel"
+            ],
+            [
+              "Pattern",
+              "Crests and troughs",
+              "Compressions and rarefactions"
+            ],
+            [
+              "Examples",
+              "Waves on a string, electromagnetic waves, ripples",
+              "Sound, waves along a spring pushed and pulled"
+            ],
+            [
+              "Can be polarised",
+              "Yes",
+              "No"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a longitudinal wave the medium is squeezed at a compression (high pressure) and spread out at a rarefaction (low pressure).",
+            "Particles move to and fro along the direction of travel. The pressure variation moves along with the wave.",
+            "In an electromagnetic wave the electric and magnetic fields oscillate at right angles to the direction of travel.",
+            "All electromagnetic waves travel at the same speed in a vacuum: c = 3.00 × 10⁸ m/s.",
+            "Where the pressure is at its maximum or minimum, the particles are at their rest positions: pressure and displacement are a quarter of a cycle out of phase."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Transverse: oscillation at right angles to travel. Longitudinal: oscillation along travel.",
+            "Only transverse waves can be polarised."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Graphs, the oscilloscope and intensity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "There are two graphs of a wave, and they look the same but show different things. Check the x-axis."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A displacement–distance graph is a snapshot of the whole wave at one instant. Its x-axis gives the wavelength.",
+            "A displacement–time graph follows one point as time passes. Its x-axis gives the period.",
+            "For a longitudinal wave, plot the displacement of the particles along the direction of travel. The graph has the same shape.",
+            "Zero displacement on a longitudinal wave graph is a particle at its rest position.",
+            "A stationary wave graph shows nodes, where the displacement is always zero, and loops that grow and shrink in height."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Finding frequency with an oscilloscope"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Connect",
+              "text": "Connect the signal source to the oscilloscope and set the time base."
+            },
+            {
+              "lead": "Measure",
+              "text": "Read the horizontal length of one cycle in divisions."
+            },
+            {
+              "lead": "Period",
+              "text": "Period = divisions × time base setting."
+            },
+            {
+              "lead": "Frequency",
+              "text": "Calculate f = 1 / T."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Intensity"
+        },
+        {
+          "type": "equation",
+          "label": "Intensity",
+          "formula": "I = P / A",
+          "where": [
+            "I = intensity (W/m²)",
+            "P = power of the wave (W)",
+            "A = area it passes through, at right angles to the wave (m²)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Energy carried by a wave depends on the square of its amplitude, so intensity ∝ amplitude².",
+            "Doubling the amplitude makes the intensity four times greater."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Distance on the x-axis gives wavelength; time gives period.",
+            "Intensity = power ÷ area and I ∝ amplitude²."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A wave has a frequency of 250 Hz and a wavelength of 1.32 m. Calculate its speed.",
+      "a": "v = fλ = 250 × 1.32 = 330 m/s.",
+      "marks": 2
+    },
+    {
+      "q": "Two points on a wave are 0.15 m apart and the wavelength is 0.60 m. State the phase difference in radians.",
+      "a": "0.15 / 0.60 = ¼ of a cycle, so the phase difference is 2π/4 = π/2 rad (about 1.57 rad).",
+      "marks": 2
+    },
+    {
+      "q": "The amplitude of a wave is tripled. State and explain the change in intensity.",
+      "a": "Intensity is proportional to amplitude², so it increases by a factor of 9.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.1.1",
+        "AQA 3.3.1.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Polarisation is evidence that light and other electromagnetic waves are transverse. A polariser lets through only oscillations in one plane."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Polaroid material is a polarising filter used in sunglasses and cameras.",
+                "A transmitting and a receiving aerial must be aligned to give the strongest signal when the signal is plane-polarised.",
+                "Malus's law is not needed for this course."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.59",
+        "EDEX 5.60",
+        "EDEX 5.61",
+        "EDEX 5.62",
+        "EDEX 5.63",
+        "EDEX 5.70"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 7.1.1",
+        "CAIE 7.1.2",
+        "CAIE 7.1.4",
+        "CAIE 7.1.5",
+        "CAIE 7.1.6",
+        "CAIE 7.1.7",
+        "CAIE 7.2.1",
+        "CAIE 7.2.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Rope: moving one end up and down sends a wave along it. Each part of the rope moves up and down, not along the rope.",
+                "Spring: pushing and pulling one end along the spring sends compressions and rarefactions along it.",
+                "Ripple tank: a vibrating dipper makes ripples that spread out across the water. The water moves up and down while the pattern moves outwards."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.4.1a",
+        "OCR 4.4.1b",
+        "OCR 4.4.1c",
+        "OCR 4.4.1d",
+        "OCR 4.4.1e",
+        "OCR 4.4.1g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use an oscilloscope to find a frequency: set the time base, read the cycle length in divisions, find T, then use f = 1 / T.",
+                "Measure several cycles across the screen and divide, to reduce the reading error."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "87acda70-cc7f-45f4-a645-7e3a1fd572d8",
+      "f369fedc-d037-4370-95e6-6b78f176602e",
+      "2ff3da56-0325-45e4-996e-1cfde6e56fa9",
+      "5e44fb7b-c134-492c-90df-b46e886e3c81",
+      "b7a1d97b-e29b-43b5-91a2-205b6462455f",
+      "8c1c2a40-5e92-42aa-9b71-c722564a8d82",
+      "814e7578-7b52-4665-b1b2-ff9a9a5555e2",
+      "f7eb8302-c825-431e-a887-2136f11cd737",
+      "e23d8345-4a9a-473e-9a3b-429c623afe9c",
+      "2f1f5509-4eeb-4d93-b0b5-a5d10fcf7c8b",
+      "ceac5a49-fdc3-4872-ad03-03f7e93eef6b",
+      "98ac894a-1858-47e4-993b-e967af70a30c",
+      "36054eb9-4bc3-408a-8820-066eaf31c244",
+      "b0d1590a-af9a-476a-95d3-a32a4f7f1dd1",
+      "fa9e6b28-aa45-4638-98a7-780fa2e3b4e9",
+      "bdc8f275-6d79-4513-b68b-22dfcfca170c",
+      "5dec8b65-884e-4696-a5a1-a3a6aa8b2b1e",
+      "b2a805d1-3ed5-4317-a825-b200f28fa131",
+      "071df0f2-b3d1-4902-8ce6-23f8f7920720",
+      "26445ceb-b7ce-44a5-beb9-527226063ab5",
+      "c9ad4a91-db6a-4bdd-a004-d8725dd9ddc6",
+      "84e95bc7-9e3e-4e29-a2cd-0f6b41fd8cd6"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}
