@@ -52,9 +52,11 @@ export function FeedbackList({ items }: { items: FeedbackItem[] }) {
                 <span className="chip">{subjectLabel(f.subject)}</span>
                 <p className="mt-1.5 text-sm font-semibold break-words">{f.homeworkTitle}</p>
               </div>
-              <span className="text-muted-foreground shrink-0 text-xs">{timeAgo(f.gradedAt)}</span>
+              <span className="chip shrink-0">{timeAgo(f.gradedAt)}</span>
             </div>
-            <p className="text-muted-foreground mt-2 text-sm leading-relaxed italic">
+            {/* The tutor's words are the point of the card: normal text, not
+                grey italics. */}
+            <p className="mt-2 text-sm leading-relaxed">
               “<SciText text={f.feedback} />”
             </p>
             {(f.grade || f.scorePct != null) && (

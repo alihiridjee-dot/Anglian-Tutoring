@@ -174,7 +174,7 @@ export function StudentRecordPage({ studentId, tab }: { studentId: string; tab: 
           {tab === "overview" && <StudentOverview record={data} email={email} />}
           {tab === "performance" && (
             <Suspense fallback={<Spinner label="Loading performance" className="py-12" />}>
-              <StudentPerformance record={data} name={name} />
+              <StudentPerformance record={data} />
             </Suspense>
           )}
           {tab === "homework" && <StudentHomework studentId={studentId} />}
