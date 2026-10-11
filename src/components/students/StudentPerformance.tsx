@@ -17,7 +17,7 @@ import type { StudentRecord } from "@/lib/students/studentsDal";
  * hooks are identity-agnostic and RLS already lets a tutor read every table
  * they touch, so nothing here is new; it is the parent view, reused.
  */
-export function StudentPerformance({ record, name }: { record: StudentRecord; name: string }) {
+export function StudentPerformance({ record }: { record: StudentRecord }) {
   const studentId = record.profile.id;
   const subjects = record.enrolments.map((e) => e.subject);
 
@@ -53,7 +53,7 @@ export function StudentPerformance({ record, name }: { record: StudentRecord; na
       />
       <TrendsChart points={trends} subjects={subjects} />
       <div className="grid gap-6 lg:grid-cols-2">
-        {engagement && <EngagementStats engagement={engagement} childName={name} />}
+        {engagement && <EngagementStats engagement={engagement} />}
         <FeedbackList items={feedback} />
       </div>
     </div>

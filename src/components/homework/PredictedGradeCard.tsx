@@ -40,13 +40,17 @@ import {
  * plays once — keyed by subject where it is used, so it plays again on a
  * switch — and nothing loops.
  */
-export function PredictedGradeCard({
-  subject,
-  row,
-  level,
-  targetGrade,
-  studentId,
-}: {
+export function PredictedGradeCard(props: GradeRingsProps) {
+  return (
+    <div
+      className={`premium-card inline-flex max-w-full flex-col items-center gap-5 p-5 sm:p-6 ${subjectTint(props.subject)}`}
+    >
+      <GradeRings {...props} />
+    </div>
+  );
+}
+
+interface GradeRingsProps {
   subject: string;
   /** This subject's averages; undefined while they load. */
   row: SubjectAnalytics | undefined;
@@ -54,22 +58,51 @@ export function PredictedGradeCard({
   targetGrade: string | null;
   /** The signed-in student, who may set a missing target. Null in the showcase. */
   studentId: string | null;
-}) {
+  /** Each ring's width in px. */
+  size?: number;
+  /** More chips for the row under the rings. */
+  children?: ReactNode;
+}
+
+/**
+ * The two rings and the chip under them, without a card around them. The
+ * student's own card draws one subject's; the Parent Portal draws one per
+ * subject, so a parent sees the same picture their child does.
+ */
+export function GradeRings({
+  subject,
+  row,
+  level,
+  targetGrade,
+  studentId,
+  size = 116,
+  children,
+}: GradeRingsProps) {
   const scale = gradeOptions(level);
   const predicts = level !== "alevel";
   const working = predicts && row && hasPrediction(row) ? String(row.predictedGrade) : null;
   const toGo = gradesToGo(working, targetGrade, scale);
+  const chip =
+    toGo === null ? null : toGo <= 0 ? (
+      <span className="chip chip-solid">
+        <Target className="size-3.5" aria-hidden /> On target
+      </span>
+    ) : (
+      <span className="chip">
+        <TrendingUp className="size-3.5" aria-hidden /> {toGo} grade
+        {toGo === 1 ? "" : "s"} to go
+      </span>
+    );
 
   return (
-    <div
-      className={`premium-card inline-flex max-w-full flex-col items-center gap-5 p-5 sm:p-6 ${subjectTint(subject)}`}
-    >
+    <>
       <div className="flex flex-wrap items-start justify-center gap-8 sm:gap-10">
         <GradeRing
           label="Target"
           grade={targetGrade}
           fill={gradeFill(targetGrade, scale)}
           soft
+          size={size}
           sparkle={{ className: "-right-3 -top-1", delay: "1s" }}
         >
           {!targetGrade && studentId && (
@@ -80,22 +113,20 @@ export function PredictedGradeCard({
           label="Working towards"
           grade={working}
           fill={gradeFill(working, scale)}
+          size={size}
           sparkle={{ className: "-bottom-1 -left-3", delay: "1.15s" }}
           celebrate={toGo !== null && toGo <= 0}
         />
       </div>
-      {toGo !== null &&
-        (toGo <= 0 ? (
-          <span className="chip chip-solid">
-            <Target className="size-3.5" aria-hidden /> On target
-          </span>
-        ) : (
-          <span className="chip">
-            <TrendingUp className="size-3.5" aria-hidden /> {toGo} grade
-            {toGo === 1 ? "" : "s"} to go
-          </span>
-        ))}
-    </div>
+      {children ? (
+        <div className="flex flex-wrap justify-center gap-2">
+          {chip}
+          {children}
+        </div>
+      ) : (
+        chip
+      )}
+    </>
   );
 }
 
@@ -104,6 +135,7 @@ function GradeRing({
   grade,
   fill,
   soft = false,
+  size,
   sparkle,
   celebrate = false,
   children,
@@ -112,6 +144,7 @@ function GradeRing({
   grade: string | null;
   fill: number;
   soft?: boolean;
+  size: number;
   /** Where this ring's sparkle lands, and when it glitters in. */
   sparkle: { className: string; delay: string };
   /** Reached the target: the ring cheers and confetti falls once its sweep lands. */
@@ -131,7 +164,7 @@ function GradeRing({
           className={celebrate ? "cheer" : undefined}
           style={celebrate ? { animationDelay: "1.05s" } : undefined}
         >
-          <Ring value={fill} size={116} stroke={11} soft={soft}>
+          <Ring value={fill} size={size} stroke={Math.round(size / 10.5)} soft={soft}>
             <span
               className={`numeral pop-in text-4xl ${grade && !soft ? "text-[color:var(--tint)]" : "text-foreground"}`}
               style={{ "--pop-delay": "0.85s" } as CSSProperties}

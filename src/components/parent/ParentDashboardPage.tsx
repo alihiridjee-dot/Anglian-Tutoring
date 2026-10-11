@@ -20,7 +20,7 @@ import {
   type UpcomingSession,
   type WeeklyTrendPoint,
 } from "@/hooks/data/useChildProgress";
-import { GradePredictorCard } from "@/components/parent/GradePredictorCard";
+import { ChildGradesCard } from "@/components/parent/ChildGradesCard";
 import { EngagementStats } from "@/components/parent/EngagementStats";
 import { FeedbackList } from "@/components/parent/FeedbackList";
 import { ParentMessages } from "@/components/parent/ParentMessages";
@@ -28,6 +28,8 @@ import { ChildWeekCard } from "@/components/parent/ChildWeekCard";
 import { ChildBreakCard } from "@/components/parent/ChildBreakCard";
 import { UpcomingSessions } from "@/components/parent/UpcomingSessions";
 import { EnrolmentSummary } from "@/components/CourseBadge";
+import { NewThreadDialog } from "@/components/chat/NewThreadDialog";
+import { MessageSquarePlus } from "lucide-react";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { resolveDisplayName } from "@/lib/profile/displayName";
 import type { SubjectAnalytics } from "@/lib/profile/analytics";
@@ -105,6 +107,7 @@ export function ParentDashboard({ demo }: { demo?: PortalData } = {}) {
     null,
   );
   const [jumpToThread, setJumpToThread] = useState<string | null>(null);
+  const [composing, setComposing] = useState(false);
   const threadsQ = useChatThreads();
   useEffect(() => {
     if (demo || !linkedThreadId || !entryKey || threadLinkEntry === entryKey) return;
@@ -155,6 +158,8 @@ export function ParentDashboard({ demo }: { demo?: PortalData } = {}) {
     sessions: sessionsQ.data ?? EMPTY_SESSIONS,
   };
   const hasChild = !!demo || !!childId;
+  // A real parent with a child to write about; the showcase has no session.
+  const canMessage = !!childId && !childrenQ.error;
 
   // Without the child's subjects and course there is nothing to lay out but the
   // note (and Messages, which need neither).
@@ -221,13 +226,25 @@ export function ParentDashboard({ demo }: { demo?: PortalData } = {}) {
                 Welcome back, {data.parentName}
               </h2>
             </div>
-            {/* The child's course, as their own ribbon states it. */}
-            {hasChild && data.enrolments.length > 0 && (
+            {/* The child's course, as their own ribbon states it, and the one
+                thing a parent comes here to do, a tap from the top. */}
+            {((hasChild && data.enrolments.length > 0) || canMessage) && (
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-primary-foreground/70 text-xs font-semibold">
-                  {data.childName}
-                </span>
-                <EnrolmentSummary enrolments={data.enrolments} level={data.level} />
+                {hasChild && data.enrolments.length > 0 && (
+                  <>
+                    <span className="text-sm font-bold text-white">{data.childName}</span>
+                    <EnrolmentSummary enrolments={data.enrolments} level={data.level} />
+                  </>
+                )}
+                {canMessage && (
+                  <button
+                    type="button"
+                    onClick={() => setComposing(true)}
+                    className="btn-soft tint-primary inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
+                  >
+                    <MessageSquarePlus className="size-4" aria-hidden /> Message a tutor
+                  </button>
+                )}
               </div>
             )}
           </div>
@@ -271,49 +288,54 @@ export function ParentDashboard({ demo }: { demo?: PortalData } = {}) {
           mascot="books"
         />
       ) : (
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          <div className={`space-y-8 ${showSide ? "lg:col-span-2" : "lg:col-span-3"}`}>
-            {sectionError && <ErrorNote error={sectionError} onRetry={retryFailed} />}
-            {childId && <ChildBreakCard childId={childId} childName={childName.split(" ")[0]} />}
-            <div data-tour="parent-grades">
-              <GradePredictorCard
-                analytics={data.analytics}
-                level={data.level}
-                grades={data.enrolments}
-              />
+        <div className="space-y-8">
+          {sectionError && <ErrorNote error={sectionError} onRetry={retryFailed} />}
+          {childId && <ChildBreakCard childId={childId} childName={childName.split(" ")[0]} />}
+          {/* The full width, so each subject's pair of rings has room. */}
+          <div data-tour="parent-grades">
+            <ChildGradesCard
+              analytics={data.analytics}
+              level={data.level}
+              grades={data.enrolments}
+            />
+          </div>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            <div className={`space-y-8 ${showSide ? "lg:col-span-2" : "lg:col-span-3"}`}>
+              {data.week.length > 0 && (
+                <div data-tour="parent-week">
+                  <ChildWeekCard weeks={data.week} />
+                </div>
+              )}
+              <div data-tour="parent-trends">
+                <Suspense
+                  fallback={
+                    <div className="premium-card bg-secondary/40 h-[22rem] animate-pulse" />
+                  }
+                >
+                  <TrendsChart points={data.trends} subjects={data.trendSubjects} />
+                </Suspense>
+              </div>
             </div>
-            {data.week.length > 0 && (
-              <div data-tour="parent-week">
-                <ChildWeekCard weeks={data.week} />
+            {showSide && (
+              <div className="space-y-8">
+                {data.sessions.length > 0 && (
+                  <div data-tour="parent-sessions">
+                    <UpcomingSessions sessions={data.sessions} />
+                  </div>
+                )}
+                {showEngagement && data.engagement && (
+                  <div data-tour="parent-engagement">
+                    <EngagementStats engagement={data.engagement} />
+                  </div>
+                )}
+                {data.feedback.length > 0 && (
+                  <div data-tour="parent-feedback">
+                    <FeedbackList items={data.feedback} />
+                  </div>
+                )}
               </div>
             )}
-            <div data-tour="parent-trends">
-              <Suspense
-                fallback={<div className="premium-card bg-secondary/40 h-[22rem] animate-pulse" />}
-              >
-                <TrendsChart points={data.trends} subjects={data.trendSubjects} />
-              </Suspense>
-            </div>
           </div>
-          {showSide && (
-            <div className="space-y-8">
-              {data.sessions.length > 0 && (
-                <div data-tour="parent-sessions">
-                  <UpcomingSessions sessions={data.sessions} />
-                </div>
-              )}
-              {showEngagement && data.engagement && (
-                <div data-tour="parent-engagement">
-                  <EngagementStats engagement={data.engagement} childName={data.childName} />
-                </div>
-              )}
-              {data.feedback.length > 0 && (
-                <div data-tour="parent-feedback">
-                  <FeedbackList items={data.feedback} />
-                </div>
-              )}
-            </div>
-          )}
         </div>
       )}
 
@@ -329,6 +351,19 @@ export function ParentDashboard({ demo }: { demo?: PortalData } = {}) {
             onOpened={() => setJumpToThread(null)}
           />
         </div>
+      )}
+
+      {/* From the ribbon's button. A new conversation opens in Messages below,
+          the way a reply's notification opens one. */}
+      {composing && canMessage && childId && (
+        <NewThreadDialog
+          about={{ studentId: childId, name: childName }}
+          onClose={() => setComposing(false)}
+          onCreated={(id) => {
+            setComposing(false);
+            setJumpToThread(id);
+          }}
+        />
       )}
     </AppLayout>
   );

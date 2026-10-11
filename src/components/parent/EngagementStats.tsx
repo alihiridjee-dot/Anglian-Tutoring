@@ -3,20 +3,22 @@ import type { LucideIcon } from "lucide-react";
 import type { ChildEngagement } from "@/hooks/data/useChildProgress";
 import { Meter, SectionHeading } from "@/components/Shared";
 
+/**
+ * One measure: its label with the count beside it ("15 of 16"), then the bar.
+ * The count used to be a grey sentence under the bar, saying it again.
+ */
 function Row({
   label,
   icon: Icon,
   done,
   total,
   tint,
-  caption,
 }: {
   label: string;
   icon: LucideIcon;
   done: number;
   total: number;
   tint: string;
-  caption: string;
 }) {
   return (
     <div className={tint}>
@@ -24,10 +26,12 @@ function Row({
         <span className="icon-tile size-7 shrink-0">
           <Icon className="size-3.5" aria-hidden />
         </span>
-        <span className="text-sm font-semibold">{label}</span>
+        <span className="min-w-0 flex-1 text-sm font-semibold">{label}</span>
+        <span className="numeral shrink-0 text-sm">
+          {done} of {total}
+        </span>
       </div>
       <Meter value={(done / total) * 100} label size="sm" />
-      <p className="text-muted-foreground mt-1.5 text-xs">{caption}</p>
     </div>
   );
 }
@@ -37,13 +41,7 @@ function Row({
  * A measure with nothing behind it yet (no sessions held, no homework set) is
  * left out rather than shown as an empty bar.
  */
-export function EngagementStats({
-  engagement,
-  childName,
-}: {
-  engagement: ChildEngagement;
-  childName: string;
-}) {
+export function EngagementStats({ engagement }: { engagement: ChildEngagement }) {
   const { sessionsHeld, sessionsAttended, homeworkSet, homeworkSubmitted } = engagement;
   if (sessionsHeld === 0 && homeworkSet === 0) return null;
 
@@ -58,7 +56,6 @@ export function EngagementStats({
             done={sessionsAttended}
             total={sessionsHeld}
             tint="tint-primary"
-            caption={`${childName} joined ${sessionsAttended} of ${sessionsHeld} live sessions.`}
           />
         )}
         {homeworkSet > 0 && (
@@ -68,7 +65,6 @@ export function EngagementStats({
             done={homeworkSubmitted}
             total={homeworkSet}
             tint="tint-emerald"
-            caption={`${homeworkSubmitted} of ${homeworkSet} set tasks handed in.`}
           />
         )}
       </div>

@@ -42,7 +42,8 @@ export function TrendsChart({
 
   return (
     <div className="premium-card p-4 sm:p-6">
-      <SectionHeading title="Performance trends" hint="Weekly quiz averages, last six weeks">
+      {/* What the lines are, in the title rather than a grey line under it. */}
+      <SectionHeading title="Weekly quiz averages">
         <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs font-semibold">
           {subjects.map((s) => (
             <span
