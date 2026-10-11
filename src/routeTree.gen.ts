@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as FiguresPreviewRouteImport } from './routes/figures-preview'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as OnboardingRouteRouteImport } from './routes/onboarding/route'
 import { Route as OurStoryRouteImport } from './routes/our-story'
@@ -78,6 +79,11 @@ const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FiguresPreviewRoute = FiguresPreviewRouteImport.update({
+  id: '/figures-preview',
+  path: '/figures-preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowItWorksRoute = HowItWorksRouteImport.update({
@@ -359,6 +365,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/onboarding': typeof OnboardingRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/figures-preview': typeof FiguresPreviewRoute
   '/how-it-works': typeof HowItWorksRoute
   '/our-story': typeof OurStoryRoute
   '/privacy': typeof PrivacyRoute
@@ -415,6 +422,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/figures-preview': typeof FiguresPreviewRoute
   '/how-it-works': typeof HowItWorksRoute
   '/our-story': typeof OurStoryRoute
   '/privacy': typeof PrivacyRoute
@@ -474,6 +482,7 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/onboarding': typeof OnboardingRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/figures-preview': typeof FiguresPreviewRoute
   '/how-it-works': typeof HowItWorksRoute
   '/our-story': typeof OurStoryRoute
   '/privacy': typeof PrivacyRoute
@@ -533,6 +542,7 @@ export interface FileRouteTypes {
     | '/'
     | '/onboarding'
     | '/auth'
+    | '/figures-preview'
     | '/how-it-works'
     | '/our-story'
     | '/privacy'
@@ -589,6 +599,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/auth'
+    | '/figures-preview'
     | '/how-it-works'
     | '/our-story'
     | '/privacy'
@@ -647,6 +658,7 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/onboarding'
     | '/auth'
+    | '/figures-preview'
     | '/how-it-works'
     | '/our-story'
     | '/privacy'
@@ -706,6 +718,7 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   OnboardingRouteRoute: typeof OnboardingRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
+  FiguresPreviewRoute: typeof FiguresPreviewRoute
   HowItWorksRoute: typeof HowItWorksRoute
   OurStoryRoute: typeof OurStoryRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -741,6 +754,13 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/figures-preview': {
+      id: '/figures-preview'
+      path: '/figures-preview'
+      fullPath: '/figures-preview'
+      preLoaderRoute: typeof FiguresPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-it-works': {
@@ -1240,6 +1260,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   OnboardingRouteRoute: OnboardingRouteRouteWithChildren,
   AuthRoute: AuthRoute,
+  FiguresPreviewRoute: FiguresPreviewRoute,
   HowItWorksRoute: HowItWorksRoute,
   OurStoryRoute: OurStoryRoute,
   PrivacyRoute: PrivacyRoute,
