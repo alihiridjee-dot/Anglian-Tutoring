@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { GraduationCap } from "lucide-react";
 import { isDemoMode } from "@/lib/auth/session";
+import { boardLabel, levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
+import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { useCourseSummary } from "@/hooks/data/useCourseSummary";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
 
@@ -29,6 +31,40 @@ export function CourseChip({
       {icon && <GraduationCap className="h-3.5 w-3.5 shrink-0" aria-hidden />}
       <CourseParts parts={shown} />
     </span>
+  );
+}
+
+/**
+ * Compact enrolment readout for the welcome ribbon: a shared level chip plus one
+ * pill per subject showing its exam board. Boards can differ per subject, so
+ * they're always shown alongside the subject rather than collapsed.
+ */
+export function EnrolmentSummary({
+  enrolments,
+  level,
+}: {
+  enrolments: { subject: string; board: string }[];
+  level: string | null;
+}) {
+  if (enrolments.length === 0) {
+    return (
+      <p className="text-xs sm:text-sm font-semibold text-primary-foreground">
+        You're not enrolled in any subjects yet — contact your tutor to get set up.
+      </p>
+    );
+  }
+
+  return (
+    <div className="flex flex-wrap items-center gap-1.5">
+      <CourseChip icon parts={[levelLabel(level)]} />
+      {enrolments.map((e) => (
+        <CourseChip
+          key={e.subject}
+          tint={SUBJECT_TINT[e.subject] ?? "tint-primary"}
+          parts={[subjectLabel(e.subject), boardLabel(e.board)]}
+        />
+      ))}
+    </div>
   );
 }
 

@@ -85,6 +85,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
   // its own close button, or simply arriving somewhere.
   const [navOpen, setNavOpen] = useState(false);
   const { data: unreadMessages = 0 } = useChatUnread();
+  const messagesHome = userRole === "parent" ? "/parent-dashboard" : "/messages";
 
   useEffect(() => {
     setNavOpen(false);
@@ -225,8 +226,10 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             const active = pathname === to || pathname.startsWith(to + "/");
             // The rail is collapsed most of the time, so an unread count has to
             // read as a dot on the icon rather than a number beside a hidden
-            // label. It stays visible either way.
-            const badge = to === "/messages" ? unreadMessages : 0;
+            // label. It stays visible either way. It sits on the page that
+            // holds the conversations: Messages, or for a parent, who has no
+            // Messages page, the Portal.
+            const badge = to === messagesHome ? unreadMessages : 0;
             return (
               <Link
                 key={to}

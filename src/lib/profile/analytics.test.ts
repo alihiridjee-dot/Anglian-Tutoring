@@ -5,7 +5,10 @@ import {
   gradesToGo,
   hasPrediction,
   summariseAnalytics,
+  summariseScoredWork,
   trendWeeks,
+  weeklyQuizAverages,
+  type ScoredWorkRow,
 } from "./analytics";
 
 const quiz = (pct: number) => ({ subject: "chemistry", pct });
@@ -126,5 +129,84 @@ describe("trendWeeks", () => {
     } finally {
       process.env.TZ = saved;
     }
+  });
+});
+
+/** A scored_work row; ids only need to be unique. */
+let nextId = 0;
+const row = (
+  kind: "quiz" | "homework",
+  subject: string | null,
+  pct: number | null,
+  scored_at: string,
+): ScoredWorkRow => ({ kind, item_id: `w${nextId++}`, subject, pct, scored_at, title: null });
+
+describe("summariseScoredWork", () => {
+  it("averages quizzes and marked tasks per subject, as the predicted grade reads them", () => {
+    const [chem, bio] = summariseScoredWork(
+      ["chemistry", "biology"],
+      [
+        row("quiz", "chemistry", 80, "2026-10-01T10:00:00Z"),
+        row("quiz", "chemistry", 60, "2026-10-02T10:00:00Z"),
+        row("homework", "chemistry", 50, "2026-10-03T10:00:00Z"),
+        row("quiz", "physics", 100, "2026-10-03T10:00:00Z"),
+      ],
+    );
+    expect(chem).toMatchObject({ mcqAttempts: 2, mcqAverage: 70, hwGraded: 1, hwAverage: 50 });
+    expect(bio).toMatchObject({ subject: "biology", mcqAttempts: 0, hwGraded: 0 });
+  });
+
+  it("counts only the newest 200 of each kind", () => {
+    const old = row("quiz", "chemistry", 0, "2026-01-01T10:00:00Z");
+    const recent = Array.from({ length: 200 }, (_, i) =>
+      row("quiz", "chemistry", 100, new Date(Date.UTC(2026, 8, 1) + i * 60_000).toISOString()),
+    );
+    const [chem] = summariseScoredWork(["chemistry"], [old, ...recent]);
+    expect(chem.mcqAttempts).toBe(200);
+    expect(chem.mcqAverage).toBe(100);
+  });
+});
+
+describe("weeklyQuizAverages", () => {
+  // Sunday 11 Oct 2026: the six weeks run from Monday 31 Aug to Monday 5 Oct.
+  const now = new Date("2026-10-11T12:00:00Z");
+
+  it("averages each subject's quizzes by the UK week they were taken in", () => {
+    const points = weeklyQuizAverages(
+      [
+        row("quiz", "chemistry", 50, "2026-10-06T09:00:00Z"),
+        row("quiz", "chemistry", 75, "2026-10-08T09:00:00Z"),
+        // 23:30 on Sunday 4 Oct in UTC is 00:30 on Monday 5 Oct in London.
+        row("quiz", "biology", 90, "2026-10-04T23:30:00Z"),
+        row("quiz", "biology", 40, "2026-09-30T09:00:00Z"),
+      ],
+      6,
+      now,
+    );
+    expect(points.map((p) => p.weekStart)).toEqual([
+      "2026-08-31",
+      "2026-09-07",
+      "2026-09-14",
+      "2026-09-21",
+      "2026-09-28",
+      "2026-10-05",
+    ]);
+    expect(points[5].averages).toEqual({ chemistry: 63, biology: 90 });
+    expect(points[4].averages).toEqual({ biology: 40 });
+    expect(points[0].averages).toEqual({});
+  });
+
+  it("leaves out tasks, questionless quizzes and work from before the window", () => {
+    const points = weeklyQuizAverages(
+      [
+        row("homework", "chemistry", 20, "2026-10-06T09:00:00Z"),
+        row("quiz", "chemistry", null, "2026-10-06T09:00:00Z"),
+        row("quiz", null, 30, "2026-10-06T09:00:00Z"),
+        row("quiz", "chemistry", 10, "2026-08-20T09:00:00Z"),
+      ],
+      6,
+      now,
+    );
+    expect(points.every((p) => Object.keys(p.averages).length === 0)).toBe(true);
   });
 });
