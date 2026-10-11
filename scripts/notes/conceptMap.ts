@@ -2,7 +2,9 @@
  * The concept map of a subject: the GCSE concepts (concepts/gcse-<subject>.json)
  * merged with the IGCSE file (concepts/igcse-<subject>.json), which holds
  *   - `joins`: IGCSE spec points that join an existing GCSE concept, and
- *   - `concepts`: IGCSE-only concepts, which have their own notes.
+ *   - `concepts`: IGCSE-only concepts, which have their own notes,
+ * and the A-level file (concepts/alevel-<subject>.json), whose `concepts` are
+ * all A-level-only: an A-level note is never shared with GCSE or IGCSE.
  * The GCSE files are never edited for IGCSE. Each ref's `board` is the course
  * key, which is also the key of that course's board layer in a note.
  */
@@ -21,20 +23,32 @@ export type Concept = {
   separate_only: boolean;
   data_note?: string;
   spec_points: Ref[];
-  /** "gcse" for the original concepts, "igcse" for IGCSE-only ones. */
-  level: "gcse" | "igcse";
+  /** "gcse" for the original concepts, "igcse" for IGCSE-only ones, "alevel" for A-level. */
+  level: "gcse" | "igcse" | "alevel";
 };
 
 const here = dirname(fileURLToPath(import.meta.url));
 
-/** aqa_trilogy sits in the AQA layer; every other course is its own layer. */
-export const layerOf = (board: string) => (board.startsWith("aqa") ? "aqa" : board);
+/** aqa_trilogy sits in the AQA layer; every other course (aqa_alevel too) is its own layer. */
+export const layerOf = (board: string) => (board === "aqa_trilogy" ? "aqa" : board);
 
 export function loadConceptMap(subject: string): { concepts: Concept[] } {
   const gcse = JSON.parse(readFileSync(join(here, "concepts", `gcse-${subject}.json`), "utf8"));
   const concepts: Concept[] = gcse.concepts.map((c: Concept) => ({ ...c, level: "gcse" }));
   const file = join(here, "concepts", `igcse-${subject}.json`);
-  if (!existsSync(file)) return { concepts };
+  if (existsSync(file)) mergeIgcse(subject, concepts, file);
+  const alevel = join(here, "concepts", `alevel-${subject}.json`);
+  if (existsSync(alevel)) {
+    const a = JSON.parse(readFileSync(alevel, "utf8")) as { concepts: Omit<Concept, "level">[] };
+    for (const c of a.concepts) {
+      if (concepts.some((x) => x.id === c.id)) throw new Error(`duplicate concept id ${c.id}`);
+      concepts.push({ ...c, level: "alevel" });
+    }
+  }
+  return { concepts };
+}
+
+function mergeIgcse(subject: string, concepts: Concept[], file: string) {
   const igcse = JSON.parse(readFileSync(file, "utf8")) as {
     joins: { concept_id: string; spec_points: Ref[] }[];
     concepts: Omit<Concept, "level">[];
@@ -48,5 +62,4 @@ export function loadConceptMap(subject: string): { concepts: Concept[] } {
     if (concepts.some((x) => x.id === c.id)) throw new Error(`duplicate concept id ${c.id}`);
     concepts.push({ ...c, level: "igcse" });
   }
-  return { concepts };
 }
