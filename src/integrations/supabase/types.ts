@@ -2371,6 +2371,7 @@ export type Database = {
           display_name: string | null;
           email: string;
           id: string;
+          last_active_at: string | null;
           last_sign_in_at: string | null;
           level: Database["public"]["Enums"]["level"] | null;
           onboarding_completed_at: string | null;
