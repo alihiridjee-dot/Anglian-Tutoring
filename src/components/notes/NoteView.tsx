@@ -13,7 +13,7 @@ import {
   PredictorSceneView,
 } from "@/components/notes/SceneLibrary";
 import { BookOpen, Eye, EyeOff, ArrowRight, RotateCcw } from "lucide-react";
-import { PageHeader, SciText } from "@/components/Shared";
+import { DataTable, PageHeader, SciBlock, SciText } from "@/components/Shared";
 import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import {
   inlineRuns,
@@ -40,7 +40,6 @@ import {
   type Pt,
 } from "@/lib/notes/graphLayout";
 
-
 /** Text with **bold** runs, and proper notation (H₂O, Mg²⁺). */
 function Inline({ text }: { text: string }) {
   return (
@@ -64,10 +63,15 @@ export function Reveal({ q, a, marks }: { q: string; a: ReactNode; marks?: numbe
   const [open, setOpen] = useState(false);
   return (
     <div className="premium-card planner-point-row p-4">
-      <div className="flex items-start justify-between gap-3">
-        <p className="font-bold">
-          <Inline text={q} />
-        </p>
+      {/* On a phone the marks sit above the question, so a long one (a table,
+          a method's steps) keeps the card's full width. */}
+      <div className="flex flex-col-reverse items-start gap-2 sm:flex-row sm:justify-between sm:gap-3">
+        {/* A past-paper question keeps its steps, data and tables. */}
+        <SciBlock
+          text={q}
+          inline={(t) => <Inline text={t} />}
+          className="min-w-0 flex-1 self-stretch font-bold"
+        />
         {marks ? (
           <span className="chip shrink-0">
             {marks} {marks === 1 ? "mark" : "marks"}
@@ -339,51 +343,9 @@ function Flow({ d }: { d: FlowDiagram }) {
   );
 }
 
+/** A note's table: the shared one, with each cell's **bold** kept. */
 function Table({ columns, rows }: { columns: string[]; rows: string[][] }) {
-  return (
-    <>
-      <table className="hidden w-full border-collapse text-left text-base sm:table">
-        <thead>
-          <tr className="border-b-2 border-[color-mix(in_oklab,var(--tint)_40%,transparent)]">
-            {columns.map((c) => (
-              <th key={c} className="font-display py-2 pr-4 font-extrabold">
-                <SciText text={c} />
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody className="[&_td]:py-3 [&_td]:pr-4 [&_td]:align-top [&_tr]:border-b [&_tr]:border-border">
-          {rows.map((r, i) => (
-            <tr key={i}>
-              {r.map((cell, j) => (
-                <td key={j} className={j === 0 ? "font-bold" : undefined}>
-                  <Inline text={cell} />
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      {/* On a phone a table becomes stacked blocks, so nothing scrolls sideways. */}
-      <div className="divide-y divide-border sm:hidden">
-        {rows.map((r, i) => (
-          <div key={i} className="py-3">
-            <p className="font-display text-lg font-extrabold">
-              <Inline text={r[0]} />
-            </p>
-            {r.slice(1).map((cell, j) => (
-              <p key={j}>
-                <b>
-                  <SciText text={columns[j + 1]} />:
-                </b>{" "}
-                <Inline text={cell} />
-              </p>
-            ))}
-          </div>
-        ))}
-      </div>
-    </>
-  );
+  return <DataTable columns={columns} rows={rows} cell={(t) => <Inline text={t} />} />;
 }
 
 function Compare({ d }: { d: CompareDiagram }) {

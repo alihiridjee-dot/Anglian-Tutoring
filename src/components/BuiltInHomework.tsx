@@ -16,7 +16,7 @@ import {
 import { isAlreadySubmitted, startMarking } from "@/lib/homework/startMarking";
 import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
-import { Meter, SciText } from "@/components/Shared";
+import { Meter, SciBlock, SciText } from "@/components/Shared";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import { MarkScheme } from "@/components/homework/MarkScheme";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
@@ -550,13 +550,14 @@ function QuestionHeader({
       >
         {answered ? <Check className="pop-in size-5" strokeWidth={3} /> : index + 1}
       </span>
-      <p className="order-last w-full text-base leading-relaxed font-medium break-words whitespace-pre-wrap sm:order-none sm:w-auto sm:min-w-0 sm:flex-1 sm:pt-1.5 sm:text-lg">
+      <div className="order-last w-full text-base leading-relaxed font-medium break-words sm:order-none sm:w-auto sm:min-w-0 sm:flex-1 sm:pt-1.5 sm:text-lg">
         <span className="sr-only">
           Question {index + 1}
           {answered ? ", answered" : ""}:{" "}
         </span>
-        <SciText text={q.prompt} />
-      </p>
+        {/* Its key, a method's steps or a table, as written. */}
+        <SciBlock text={q.prompt} />
+      </div>
       <div className="ml-auto sm:ml-0">
         <MarksBox marks={q.marks} awarded={awarded} />
       </div>

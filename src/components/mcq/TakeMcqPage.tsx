@@ -2,7 +2,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Chip, EmptyState, ErrorNote, SciText, Spinner } from "@/components/Shared";
+import { Chip, EmptyState, ErrorNote, SciBlock, SciText, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { QuestionFlipCard } from "@/components/mcq/QuestionFlipCard";
 import { supabase } from "@/integrations/supabase/client";
@@ -12,6 +12,7 @@ import { toast } from "sonner";
 import { CheckCircle2, Lightbulb, XCircle } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ } from "@/lib/demo/studentDemo";
 import { describeError } from "@/lib/platform/errors";
+import { rowOptions } from "@/lib/platform/textBlocks";
 import {
   attemptIdFor,
   clearMcqAnswers,
@@ -421,6 +422,54 @@ export function TakeMcq() {
             const notation = [q.question, ...q.options].join("\n");
             const mark = marked?.byQuestion[q.id];
             const letter = (i: number) => String.fromCharCode(65 + i);
+            // "Which row…?": each option is a row of the table the question
+            // heads, so the options line up under its headings, as on a paper.
+            const table = rowOptions(q.question, q.options);
+            const columns = table && {
+              gridTemplateColumns: `1.5rem repeat(${table.columns.length}, minmax(0, 1fr)) 1rem`,
+            };
+            const headings = table && (
+              <div
+                className="font-display grid gap-x-3 border border-transparent px-4 text-sm font-extrabold break-words"
+                style={columns!}
+              >
+                <span />
+                {table.columns.map((c, j) => (
+                  <span key={j}>
+                    <SciText text={c} context={notation} />
+                  </span>
+                ))}
+                <span />
+              </div>
+            );
+            // An option as the card draws it, front and back alike: a row under
+            // the headings, or its letter and text.
+            const option = (i: number, text: string, result?: "right" | "wrong") => {
+              const place = table ? "" : "inline ml-2";
+              const icon =
+                result === "right" ? (
+                  <CheckCircle2 className={`w-4 h-4 text-primary ${place}`} />
+                ) : result === "wrong" ? (
+                  <XCircle className={`w-4 h-4 text-destructive ${place}`} />
+                ) : null;
+              return table ? (
+                <span className="grid items-baseline gap-x-3" style={columns!}>
+                  <span className="font-mono text-xs text-muted-foreground">{letter(i)}.</span>
+                  {table.rows[i].map((c, j) => (
+                    <span key={j}>
+                      <SciText text={c} context={notation} />
+                    </span>
+                  ))}
+                  <span className="self-center">{icon}</span>
+                </span>
+              ) : (
+                <>
+                  <span className="font-mono text-xs mr-2 text-muted-foreground">{letter(i)}.</span>
+                  <SciText text={text} context={notation} />
+                  {icon}
+                </>
+              );
+            };
             // The back of the card: the right answer as the front draws it, and
             // the explanation large enough to read on a phone.
             const back = mark?.explanation ? (
@@ -443,12 +492,11 @@ export function TakeMcq() {
                     </Chip>
                   ) : null}
                 </div>
-                <div className="mt-4 rounded-lg border border-primary bg-primary/15 px-4 py-2.5 text-sm break-words">
-                  <span className="font-mono text-xs mr-2 text-muted-foreground">
-                    {letter(mark.correctIndex)}.
-                  </span>
-                  <SciText text={q.options[mark.correctIndex] ?? ""} context={notation} />
-                  <CheckCircle2 className="w-4 h-4 text-primary inline ml-2" />
+                {headings && <div className="mt-4">{headings}</div>}
+                <div
+                  className={`${headings ? "mt-1.5" : "mt-4"} rounded-lg border border-primary bg-primary/15 px-4 py-2.5 text-sm break-words`}
+                >
+                  {option(mark.correctIndex, q.options[mark.correctIndex] ?? "", "right")}
                 </div>
                 <p className="mt-4 text-lg leading-relaxed text-foreground sm:text-xl">
                   <SciText text={mark.explanation} context={notation} />
@@ -464,10 +512,13 @@ export function TakeMcq() {
                     <p className="text-xs uppercase tracking-widest text-primary font-semibold">
                       Question {idx + 1}
                     </p>
-                    <p className="font-display text-lg mt-1">
-                      <SciText text={q.question} context={notation} />
-                    </p>
-                    <div className="mt-3 space-y-2">
+                    <SciBlock
+                      text={table ? table.question : q.question}
+                      context={notation}
+                      className="font-display text-lg mt-1 break-words"
+                    />
+                    {headings && <div className="mt-3">{headings}</div>}
+                    <div className={`${headings ? "mt-1.5" : "mt-3"} space-y-2`}>
                       {q.options.map((opt, i) => {
                         const isChosen = chosen === i;
                         const isCorrect = !!mark && i === mark.correctIndex;
@@ -487,16 +538,7 @@ export function TakeMcq() {
                                     : "bg-secondary/40 border-border hover:border-primary/40"
                             }`}
                           >
-                            <span className="font-mono text-xs mr-2 text-muted-foreground">
-                              {letter(i)}.
-                            </span>
-                            <SciText text={opt} context={notation} />
-                            {isCorrect && (
-                              <CheckCircle2 className="w-4 h-4 text-primary inline ml-2" />
-                            )}
-                            {isWrong && (
-                              <XCircle className="w-4 h-4 text-destructive inline ml-2" />
-                            )}
+                            {option(i, opt, isCorrect ? "right" : isWrong ? "wrong" : undefined)}
                           </button>
                         );
                       })}

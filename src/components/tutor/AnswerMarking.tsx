@@ -1,6 +1,6 @@
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import type { QuestionMark } from "@/hooks/data/useAnswerMarking";
-import { SciText } from "@/components/Shared";
+import { SciBlock, SciText } from "@/components/Shared";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import { MarkScheme } from "@/components/homework/MarkScheme";
 
@@ -38,9 +38,7 @@ export function AnswerMarkingList({
           <li key={q.id} className="rounded-xl bg-card border border-border p-4 space-y-2">
             <div className="flex items-start gap-2">
               <span className="text-xs font-semibold text-muted-foreground shrink-0">Q{i + 1}</span>
-              <p className="text-sm font-medium whitespace-pre-wrap flex-1">
-                <SciText text={q.prompt} />
-              </p>
+              <SciBlock text={q.prompt} className="min-w-0 flex-1 text-sm font-medium" />
               <span className="text-[11px] text-muted-foreground shrink-0">[{q.marks}]</span>
             </div>
             <div className="rounded-lg bg-muted/50 border border-border px-3 py-2">

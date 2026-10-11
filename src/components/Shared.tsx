@@ -19,6 +19,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { describeError } from "@/lib/platform/errors";
 import { sciRuns } from "@/lib/platform/sciNotation";
+import { textBlocks } from "@/lib/platform/textBlocks";
 import { SUBJECT_TINT, subjectLabel } from "@/lib/curriculum/subjectTheme";
 import { Confetti, Mascot, Sparkles, type MascotName, type Mood } from "@/components/Doodles";
 
@@ -585,16 +586,24 @@ export function SubjectToggle({
  * piece of feedback, wherever it is shown. The small figures are drawn in the
  * surrounding face: the web fonts carry no subscript characters, so stored ₂
  * would otherwise fall back to a system font mid-word.
+ *
+ * Every stored line break is drawn, whatever the box around it does with
+ * white space: a key, a method's steps or a list of results written one item
+ * per line must never run together into one sentence.
  */
 export function SciText({
   text,
   context,
+  oneLine,
 }: {
   text: string | null | undefined;
   /** Text shown alongside (a question beside its options), so they are all written alike. */
   context?: string;
+  /** A one-line preview (a message in a list): line breaks become spaces. */
+  oneLine?: boolean;
 }) {
-  const runs = useMemo(() => sciRuns(text ?? "", context), [text, context]);
+  const shown = oneLine ? (text ?? "").replace(/\s*\r?\n\s*/g, " ") : (text ?? "");
+  const runs = useMemo(() => sciRuns(shown, context), [shown, context]);
   const out: ReactNode[] = [];
   for (let i = 0; i < runs.length; i++) {
     const r = runs[i];
@@ -621,7 +630,104 @@ export function SciText({
           {r.text}
         </sup>,
       );
-    else out.push(<Fragment key={i}>{r.text}</Fragment>);
+    else out.push(<Fragment key={i}>{withBreaks(r.text)}</Fragment>);
   }
   return <>{out}</>;
+}
+
+/** Text with each line break drawn as one. */
+function withBreaks(text: string): ReactNode {
+  const lines = text.split(/\r?\n/);
+  return lines.length === 1 ? text : lines.flatMap((l, i) => (i ? [<br key={i} />, l] : [l]));
+}
+
+/**
+ * A table: a header row over its rows on a wider screen. On a phone each row
+ * becomes a block (its first cell as the heading, then each cell under its
+ * column's name), so nothing scrolls sideways. `cell` draws each piece of
+ * text, so a note can keep its **bold** and a question its notation.
+ */
+export function DataTable({
+  columns,
+  rows,
+  cell = (text) => <SciText text={text} />,
+}: {
+  columns: string[];
+  rows: string[][];
+  cell?: (text: string) => ReactNode;
+}) {
+  return (
+    <>
+      {/* Its own weights, inside bold question text too. */}
+      <table className="hidden w-full border-collapse text-left text-base font-normal sm:table">
+        <thead>
+          <tr className="border-b-2 border-[color-mix(in_oklab,var(--tint)_40%,transparent)]">
+            {columns.map((c, i) => (
+              <th key={i} className="font-display py-2 pr-4 font-extrabold">
+                {cell(c)}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="[&_td]:py-3 [&_td]:pr-4 [&_td]:align-top [&_tr]:border-b [&_tr]:border-border">
+          {rows.map((r, i) => (
+            <tr key={i}>
+              {r.map((c, j) => (
+                <td key={j} className={j === 0 ? "font-bold" : undefined}>
+                  {cell(c)}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {/* On a phone a table becomes stacked blocks, so nothing scrolls sideways. */}
+      <div className="divide-y divide-border font-normal sm:hidden">
+        {rows.map((r, i) => (
+          <div key={i} className="py-3">
+            <p className="font-display text-lg font-extrabold">{cell(r[0])}</p>
+            {r.slice(1).map((c, j) => (
+              <p key={j}>
+                <b>{cell(columns[j + 1])}:</b> {cell(c)}
+              </p>
+            ))}
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+/**
+ * Question text as a block: its paragraphs, its lines (a key, a method's
+ * steps, a list of results) and any table written as " | " rows, drawn as a
+ * real table (rules in lib/platform/textBlocks). Use it wherever a question
+ * is shown; `inline` draws the text inside, SciText unless a note brings its
+ * own **bold**.
+ */
+export function SciBlock({
+  text,
+  context,
+  inline,
+  className,
+}: {
+  text: string | null | undefined;
+  /** Text shown alongside (a question beside its options), so they are all written alike. */
+  context?: string;
+  inline?: (text: string) => ReactNode;
+  className?: string;
+}) {
+  const blocks = useMemo(() => textBlocks(text ?? ""), [text]);
+  const draw = inline ?? ((t: string) => <SciText text={t} context={context ?? text ?? ""} />);
+  return (
+    <div className={cn("space-y-3", className)}>
+      {blocks.map((b, i) =>
+        b.kind === "table" ? (
+          <DataTable key={i} columns={b.columns} rows={b.rows} cell={draw} />
+        ) : (
+          <p key={i}>{draw(b.text)}</p>
+        ),
+      )}
+    </div>
+  );
 }
