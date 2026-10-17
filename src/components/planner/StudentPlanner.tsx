@@ -166,9 +166,9 @@ export function StudentPlanner({
         toast.error("Your plan couldn't update just now. Reload the page to try again."),
       );
   }, [data, studentId, activeCourseSubject, activeBoard, level]);
-  // The full plan shows as soon as it is built; it doesn't wait for this
-  // week's tasks and quizzes, which only the week tab lists.
-  const loading = roadQuery.isLoading || (tab === "week" && currentWeek.loading);
+  // Both tabs open as soon as the plan is built. This week's tasks, quizzes and
+  // attempts load inside its own tab, side by side, behind its own spinner.
+  const loading = roadQuery.isLoading;
   useEffect(() => {
     const course = `${studentId}|${activeCourseSubject}|${activeBoard}|${level}`;
     // Nothing to compare until the plan has loaded (see compareFocus).
@@ -456,8 +456,11 @@ function ThisWeekTab({
         )}
       </section>
 
-      {/* An old course's week lists its points above, as what was set. */}
-      {!frozen && !resting && week.pastGap?.kind !== "old-course" && (
+      {/* An old course's week lists its points above, as what was set. This
+          list and the checklist wait for the week's work and attempts, which
+          the panel above is still loading, so no point shows as untouched by
+          mistake. */}
+      {!frozen && !resting && !week.loading && week.pastGap?.kind !== "old-course" && (
         <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
       )}
 
@@ -465,6 +468,7 @@ function ThisWeekTab({
           can be ticked off from either screen. */}
       {!frozen && !resting && (
         <DoNowPanel
+          loading={week.loading}
           points={week.points}
           activity={week.activity}
           coverage={week.coverage}
