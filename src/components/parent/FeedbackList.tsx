@@ -26,7 +26,9 @@ function timeAgo(iso: string): string {
 }
 
 /**
- * Real tutor feedback, straight from marked homework submissions. Only work
+ * Feedback on marked tasks, straight from the submissions. Titled "Task
+ * feedback", not "Tutor feedback": the AI marker writes it and a tutor may or
+ * may not have checked it, so the heading claims no author. Only work
  * whose mark has been released — `graded_at` is stamped at release — so a
  * parent never reads a comment before their child can.
  */
@@ -35,7 +37,7 @@ export function FeedbackList({ items }: { items: FeedbackItem[] }) {
 
   return (
     <div className="premium-card p-4 sm:p-6">
-      <SectionHeading title="Tutor feedback">
+      <SectionHeading title="Task feedback">
         <span className="icon-tile tint-amber size-8">
           <Award className="size-4" aria-hidden />
         </span>
@@ -54,7 +56,7 @@ export function FeedbackList({ items }: { items: FeedbackItem[] }) {
               </div>
               <span className="chip shrink-0">{timeAgo(f.gradedAt)}</span>
             </div>
-            {/* The tutor's words are the point of the card: normal text, not
+            {/* The comment is the point of the card: normal text, not
                 grey italics. */}
             <p className="mt-2 text-sm leading-relaxed">
               “<SciText text={f.feedback} />”
