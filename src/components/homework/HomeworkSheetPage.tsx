@@ -18,6 +18,8 @@ import { plannerDateLabel } from "@/lib/planner/week";
 import { needsMarkingStart, startMarking } from "@/lib/homework/startMarking";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { usePinSubject } from "@/hooks/useActiveSubject";
+import { useNoCopy } from "@/hooks/useNoCopy";
+import { cn } from "@/lib/utils";
 
 export function HomeworkSheetPage() {
   // `strict: false` because this component is mounted twice — here, and again
@@ -27,6 +29,9 @@ export function HomeworkSheetPage() {
   const homeworkId = params.homeworkId ?? "";
   const { isTutor, userId, loading: rolesLoading } = useRoles();
   const demo = isDemoStudent();
+  // A student reads the questions here and nowhere else: they can't be
+  // selected, copied, dragged out or printed. A tutor previewing can.
+  const sheet = useNoCopy<HTMLDivElement>(!isTutor);
   const reload = useInvalidateHomework();
   const { enrolments } = useEnrolments();
   const { data: breaks } = useQuery({
@@ -100,7 +105,14 @@ export function HomeworkSheetPage() {
     <AppLayout title={hw.title}>
       {/* The quiz page's width, so the answer boxes don't run the width of a
           wide screen. */}
-      <div className={`max-w-3xl ${SUBJECT_TINT[hw.subject] ?? "tint-primary"}`}>
+      <div
+        ref={sheet}
+        className={cn(
+          "max-w-3xl",
+          SUBJECT_TINT[hw.subject] ?? "tint-primary",
+          !isTutor && "select-none [-webkit-touch-callout:none] print:hidden",
+        )}
+      >
         <BackLink />
 
         {/* Laid out like the front of an exam paper: the title, one plain line

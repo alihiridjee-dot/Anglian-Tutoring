@@ -19,6 +19,7 @@ import type { LucideIcon } from "lucide-react";
 import { Nav } from "@/components/landing/Nav";
 import { Footer } from "@/components/landing/Footer";
 import { FloatingWhatsApp } from "@/components/landing/FloatingWhatsApp";
+import { ExplainerVideo } from "@/components/how-it-works/ExplainerVideo";
 import { ForgettingCurve } from "@/components/how-it-works/ForgettingCurve";
 import { RevisitSimulator } from "@/components/how-it-works/RevisitSimulator";
 import {
@@ -225,6 +226,14 @@ function HowItWorks() {
             >
               <Sparkles className="h-3.5 w-3.5 text-amber-500" /> Explore the platform
             </Link>
+          </motion.div>
+
+          <motion.div
+            {...fadeUp}
+            transition={{ ...fadeUp.transition, delay: 0.32 }}
+            className="mx-auto mt-12 max-w-3xl"
+          >
+            <ExplainerVideo />
           </motion.div>
         </div>
       </section>
