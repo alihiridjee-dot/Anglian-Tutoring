@@ -31,6 +31,9 @@ function Row({ label, value }: { label: string; value: string }) {
  * The 1–9 scale is GCSE and International GCSE only. An A-Level student is
  * graded A*–E, and there is no calibrated mapping to one yet, so their card
  * shows the averages without inventing a letter.
+ *
+ * This is the tutor's Performance tab's card, with the averages behind each
+ * prediction. A parent sees the child's own rings instead (`ChildGradesCard`).
  */
 export function GradePredictorCard({
   analytics,

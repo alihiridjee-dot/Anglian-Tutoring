@@ -15,7 +15,9 @@ export function ChildWeekCard({ weeks }: { weeks: ChildWeekSubject[] }) {
 
   return (
     <div className="premium-card p-4 sm:p-6">
-      <SectionHeading title="This week" hint={weekRangeLabel(mondayOf())} />
+      <SectionHeading title="This week">
+        <span className="chip">{weekRangeLabel(mondayOf())}</span>
+      </SectionHeading>
       <div className="mt-5 space-y-6">
         {weeks.map((w) => {
           const done = w.points.filter((p) => p.done_at).length;
@@ -23,9 +25,8 @@ export function ChildWeekCard({ weeks }: { weeks: ChildWeekSubject[] }) {
             <section key={w.subject} className={subjectTint(w.subject)}>
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className="chip uppercase">{subjectLabel(w.subject)}</span>
-                <span className="text-muted-foreground text-xs">
-                  <span className="numeral text-foreground text-sm">{done}</span> of{" "}
-                  {w.points.length} done
+                <span className="chip">
+                  {done} of {w.points.length} done
                 </span>
               </div>
               <Meter value={(done / w.points.length) * 100} size="sm" className="mt-3" />

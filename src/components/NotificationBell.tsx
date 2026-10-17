@@ -13,6 +13,8 @@ type Notification = {
   link: string | null;
   read_at: string | null;
   created_at: string;
+  /** The conversation a chat notification is about. */
+  chat_thread_id: string | null;
 };
 
 /**
@@ -41,7 +43,7 @@ export function NotificationBell() {
     if (isDemoMode()) return;
     const { data, error } = await supabase
       .from("notifications")
-      .select("id, type, title, body, link, read_at, created_at")
+      .select("id, type, title, body, link, read_at, created_at, chat_thread_id")
       .order("created_at", { ascending: false })
       .limit(20);
     if (error) {
@@ -163,7 +165,18 @@ export function NotificationBell() {
                 return (
                   <li key={n.id}>
                     {n.link ? (
-                      <Link to={n.link} onClick={() => setOpen(false)} className="block">
+                      <Link
+                        to={n.link}
+                        // A tutor's reply to a parent opens that conversation,
+                        // on the child it is about, not just the Portal's top.
+                        search={
+                          n.link === "/parent-dashboard" && n.chat_thread_id
+                            ? { thread: n.chat_thread_id }
+                            : undefined
+                        }
+                        onClick={() => setOpen(false)}
+                        className="block"
+                      >
                         {body}
                       </Link>
                     ) : (

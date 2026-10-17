@@ -245,7 +245,12 @@ export const pageGuides: Record<string, GuideStep[]> = {
     ),
   ],
   "Parent Portal": [
-    select("select", "Choose a student", "Select a linked student to see their progress."),
+    // The child switcher is a segmented toggle, not a <select>.
+    select(
+      '[role="tablist"][aria-label="Child"]',
+      "Choose a student",
+      "Select a linked student to see their progress.",
+    ),
     select(
       "h2",
       "Follow their learning",
