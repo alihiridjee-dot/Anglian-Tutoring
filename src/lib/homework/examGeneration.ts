@@ -2,12 +2,7 @@
 import { toSciNotationTogether } from "@/lib/platform/sciNotation";
 import { flattenedLayout } from "@/lib/platform/textBlocks";
 import type { KnownBrief } from "@/lib/figures/figure";
-import {
-  FIGURE_BRIEF_SCHEMA,
-  FIGURE_GUIDE,
-  MAX_FIGURES,
-  readBrief,
-} from "@/lib/figures/figureBrief";
+import { FIGURE_FIELD, FIGURE_GUIDE, MAX_FIGURES, readBrief } from "@/lib/figures/figureBrief";
 
 export const FRAMEWORK_VERSION = "exam-generation-v4";
 export type GenerationFormat = "written" | "mcq";
@@ -288,7 +283,7 @@ export function generationSchema(
           explanation: { type: "string" },
           ...assessmentProperties,
         };
-  const properties = figures ? { ...own, figure: FIGURE_BRIEF_SCHEMA } : own;
+  const properties = figures ? { ...own, figure: FIGURE_FIELD } : own;
   return {
     type: "object",
     properties: {
@@ -313,6 +308,11 @@ type Assessment = {
   practical_demand: boolean;
   /** The figure the question is answered from, when the set may have figures and this one has one. */
   figure?: KnownBrief | null;
+  /**
+   * Why the question's figure can't be drawn: its brief didn't read, or the
+   * set had more figures than it may. The question is left out of the set.
+   */
+  figureProblem?: string;
 };
 export type WrittenQuestion = Assessment & {
   prompt: string;
@@ -424,18 +424,30 @@ export function validateQuestions(
     const earlier = seen.get(key);
     if (earlier) throw new Error(`Question ${n} repeats question ${earlier}`);
     seen.set(key, n);
-    // A figure must draw before anything is spent on drawing it: on its axes,
-    // within its room, every part named once.
+    // A figure must read before anything is spent on drawing it: on its axes,
+    // within its room, every part named once. One that doesn't costs its own
+    // question, not the set.
     if (!figures) delete q.figure;
-    else if (q.figure === null || q.figure === undefined) q.figure = null;
     else {
-      const read = readBrief(q.figure);
-      if ("problem" in read) throw new Error(`Question ${n}'s figure ${read.problem}`);
-      q.figure = read.brief;
+      const raw = q.figure as unknown;
+      q.figure = null;
+      if (typeof raw === "string" && raw.trim()) {
+        let brief: unknown = null;
+        try {
+          brief = JSON.parse(raw);
+        } catch {
+          q.figureProblem = "is not JSON";
+        }
+        if (!q.figureProblem) {
+          const read = readBrief(brief);
+          if ("problem" in read) q.figureProblem = read.problem;
+          else if (questions.slice(0, i).filter((p) => p.figure).length >= MAX_FIGURES)
+            q.figureProblem = `is one more than the ${MAX_FIGURES} a set may have`;
+          else q.figure = read.brief;
+        }
+      }
     }
   }
-  if (questions.filter((q) => q.figure).length > MAX_FIGURES)
-    throw new Error(`The set has more than ${MAX_FIGURES} figures`);
   return questions;
 }
 

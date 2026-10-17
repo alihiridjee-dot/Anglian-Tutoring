@@ -1045,7 +1045,9 @@ function wiringProblems(k: CircuitBrief, d: Drawing): string[] {
   const brieflabels = new Set(k.components.map((c) => c.label).filter(Boolean));
   const tags = new Map<number, string>();
   for (const l of d.labels) {
-    if (!brieflabels.has(l.text)) continue;
+    // A label is plain text (qf-text); a meter's letter is bold (qf-strong), and
+    // "A" is both a lamp's label and an ammeter's letter in many a question.
+    if (l.cls !== "qf-text" || !brieflabels.has(l.text)) continue;
     const centre: Pt = [(l.box.x0 + l.box.x1) / 2, (l.box.y0 + l.box.y1) / 2];
     const nearest = d.parts
       .map((p, i) => ({ i, gap: Math.hypot(p.centre[0] - centre[0], p.centre[1] - centre[1]) }))

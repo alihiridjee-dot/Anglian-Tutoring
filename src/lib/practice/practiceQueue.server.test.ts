@@ -652,7 +652,10 @@ const drawing = (reply: unknown) =>
 
 test("a graph is drawn by code and saved with its question; its brief stays on the server", async () => {
   const questions = mcqs();
-  questions[2] = { ...questions[2], figure: velocity } as (typeof questions)[number];
+  questions[2] = {
+    ...questions[2],
+    figure: JSON.stringify(velocity),
+  } as (typeof questions)[number];
   const calls = stub({
     "rpc/claim_practice_jobs": claims(job()),
     "/v1/messages": () => message(questions),
@@ -681,7 +684,7 @@ test("a circuit is drawn by DeepSeek, and checked before it is saved", async () 
   const questions = tasks();
   questions[1] = {
     ...questions[1],
-    figure: seriesExample.request.brief,
+    figure: JSON.stringify(seriesExample.request.brief),
   } as (typeof questions)[number];
   const calls = stub({
     "rpc/claim_practice_jobs": claims(job({ kind: "task" })),
@@ -710,7 +713,7 @@ test("a question whose figure can't be drawn is left out, not saved without it",
   const questions = tasks();
   questions[3] = {
     ...questions[3],
-    figure: seriesExample.request.brief,
+    figure: JSON.stringify(seriesExample.request.brief),
   } as (typeof questions)[number];
   // Both tries draw the lamp's wire straight through it: shorted, so refused.
   const broken = {

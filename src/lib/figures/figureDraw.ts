@@ -118,14 +118,16 @@ type Box = { x0: number; y0: number; x1: number; y1: number };
 
 /**
  * A key for two series, in the first corner of the plot area that no data
- * crosses: a box with each series' sample and name. Null when every corner
- * is taken.
+ * crosses: a box with each series' sample and name. When every corner is
+ * taken (two curves that fill the plot), a row above the plot instead,
+ * beside the y axis's title. Null when that row has no room either.
  */
 function keyFor(
   names: [string, string],
   samples: [(x: number, y: number) => string, (x: number, y: number) => string],
   H: number,
   taken: Box[],
+  yTitle: string,
 ): string | null {
   const size = TEXT_SIZE["qf-text"]!;
   const w = 12 + 24 + 8 + Math.max(...names.map((n) => textWidth(n, size))) + 10;
@@ -149,7 +151,17 @@ function keyFor(
       text("qf-text", x + 44, y + 43, "start", [names[1]]),
     ].join("");
   }
-  return null;
+  const entry = (i: 0 | 1) => 24 + 6 + textWidth(names[i], size);
+  // Out to the canvas's edge, 10 units clear of the title.
+  const first = CANVAS_WIDTH - 8 - entry(0) - 12 - entry(1);
+  if (first < 16 + textWidth(yTitle, size) + 10) return null;
+  const second = first + entry(0) + 12;
+  return [
+    samples[0](first, 17),
+    text("qf-text", first + 30, 22, "start", [names[0]]),
+    samples[1](second, 17),
+    text("qf-text", second + 30, 22, "start", [names[1]]),
+  ].join("");
 }
 
 /** Boxes round a polyline's segments, and round its points, for placing a key clear of them. */
@@ -195,6 +207,7 @@ function drawGraph(b: GraphBrief): DrawnFigure | null {
       [sample("qf-data"), sample("qf-data2")],
       H,
       taken,
+      b.y.title,
     );
     if (!key) return null;
     body.push(key);
@@ -236,6 +249,7 @@ function drawBars(b: BarBrief): DrawnFigure | null {
       [sample("qf-bar"), sample("qf-bar2")],
       H,
       taken,
+      b.y.title,
     );
     if (!key) return null;
     body.push(key);

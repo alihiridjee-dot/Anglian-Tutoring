@@ -445,7 +445,9 @@ describe("figures, for the practice queue's sets only", () => {
       "The graph shows how the velocity of a car changed. How far did it travel in the first 4 s?",
     options: ["8 m", "16 m", "32 m", "4 m"],
     correct_index: 1,
-    figure: graph,
+    // The writer gives a brief as JSON text: a schema with every kind of brief
+    // spelled out was too large for structured outputs.
+    figure: JSON.stringify(graph),
   };
   const items = (figures: boolean) =>
     (
@@ -467,16 +469,17 @@ describe("figures, for the practice queue's sets only", () => {
     expect(buildGenerationPrompt(context, 5, "mcq", "", true).user).toContain("FIGURES");
     expect(items(true).required).toContain("figure");
     const [q, plain] = validateQuestions(
-      { questions: [withFigure, { ...genetics, figure: null }] },
+      { questions: [withFigure, { ...genetics, figure: "" }] },
       2,
       "mcq",
       true,
     );
     expect(q.figure).toEqual(graph as never);
     expect(plain.figure).toBeNull();
+    expect(plain.figureProblem).toBeUndefined();
   });
 
-  test("a figure that wouldn't draw fails the set, naming the question", () => {
+  test("a figure that wouldn't draw costs only its own question", () => {
     const offAxis = {
       ...graph,
       series: [
@@ -489,18 +492,34 @@ describe("figures, for the practice queue's sets only", () => {
         },
       ],
     };
-    expect(() =>
-      validateQuestions({ questions: [{ ...withFigure, figure: offAxis }] }, 1, "mcq", true),
-    ).toThrow("Question 1's figure has a point that is not [x, y] within both axes");
+    const [q, broken] = validateQuestions(
+      {
+        questions: [
+          { ...withFigure, figure: JSON.stringify(offAxis) },
+          { ...genetics, figure: "{ not json" },
+        ],
+      },
+      2,
+      "mcq",
+      true,
+    );
+    expect(q).toMatchObject({
+      figure: null,
+      figureProblem: "has a point that is not [x, y] within both axes",
+    });
+    expect(broken.figureProblem).toBe("is not JSON");
   });
 
-  test("at most two figures in a set", () => {
+  test("at most two figures in a set; a third costs its question", () => {
     const three = [0, 1, 2].map((i) => ({
       ...withFigure,
       question: `${withFigure.question} (${i})`,
     }));
-    expect(() => validateQuestions({ questions: three }, 3, "mcq", true)).toThrow(
-      "The set has more than 2 figures",
-    );
+    const set = validateQuestions({ questions: three }, 3, "mcq", true);
+    expect(set.map((q) => q.figureProblem)).toEqual([
+      undefined,
+      undefined,
+      "is one more than the 2 a set may have",
+    ]);
   });
 });

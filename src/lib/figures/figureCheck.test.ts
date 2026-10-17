@@ -387,6 +387,26 @@ describe("what an answer hangs on is checked, not just the values", () => {
     );
   });
 
+  test("lamps labelled A and B beside an ammeter: a label is plain text, a meter's letter bold", () => {
+    // The trial's first parallel circuit was refused when the ammeter's "A" was
+    // taken for lamp A's label.
+    const labelled = {
+      ...circuitBrief,
+      components: [
+        { type: "cell" },
+        { type: "switch-open" },
+        { type: "ammeter" },
+        { type: "lamp", label: "A" },
+        { type: "lamp", label: "B" },
+      ],
+    } as FigureBrief;
+    const svg = ladder.replace(
+      "</svg>",
+      '<text class="qf-text" x="244" y="145" text-anchor="end">A</text><text class="qf-text" x="336" y="145" text-anchor="start">B</text></svg>',
+    );
+    expect(checkFigure(svg, labelled).problems).toEqual([]);
+  });
+
   test("a brief whose loop leaves out a component", () => {
     const brief = { ...circuitBrief, loop: [0, 1, 2] } as FigureBrief;
     expect(checkFigure(ladder, brief).problems).toContain(

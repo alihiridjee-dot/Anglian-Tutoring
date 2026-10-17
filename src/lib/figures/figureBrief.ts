@@ -22,101 +22,29 @@ const ARROWS = [
   "overall energy change",
 ] as const;
 
-const str = { type: "string" };
-const strict = (properties: Record<string, unknown>) => ({
-  type: "object",
-  properties,
-  required: Object.keys(properties),
-  additionalProperties: false,
-});
-const axis = strict({
-  title: str,
-  min: { type: "number" },
-  max: { type: "number" },
-  step: { type: "number" },
-});
-
 /**
- * The `figure` field of a question in the writer's output: null, or one
- * brief. Structured outputs take no recursive schemas, so a circuit's
- * parallel branches hold components only, one level deep: GCSE circuits
- * need no more.
+ * The `figure` field of a question in the writer's output: the brief as JSON
+ * written out as text, or "" for none. Structured outputs refuse a schema
+ * with every kind of brief spelled out for every question ("the compiled
+ * grammar is too large", found on the first real call, 17 Oct), so the text
+ * is read here instead, by `readBrief`.
  */
-export const FIGURE_BRIEF_SCHEMA = {
-  anyOf: [
-    { type: "null" },
-    strict({
-      kind: { type: "string", enum: ["line-graph", "scatter"] },
-      x: axis,
-      y: axis,
-      series: {
-        type: "array",
-        items: strict({
-          name: str,
-          points: { type: "array", items: { type: "array", items: { type: "number" } } },
-        }),
-      },
-    }),
-    strict({
-      kind: { type: "string", enum: ["bar-chart"] },
-      x: strict({ title: str, categories: { type: "array", items: str } }),
-      y: axis,
-      series: {
-        type: "array",
-        items: strict({ name: str, values: { type: "array", items: { type: "number" } } }),
-      },
-    }),
-    strict({
-      kind: { type: "string", enum: ["circuit"] },
-      components: {
-        type: "array",
-        items: strict({
-          type: { type: "string", enum: COMPONENT_TYPES },
-          label: { anyOf: [str, { type: "null" }] },
-        }),
-      },
-      loop: {
-        type: "array",
-        items: {
-          anyOf: [
-            { type: "integer" },
-            strict({
-              parallel: { type: "array", items: { type: "array", items: { type: "integer" } } },
-            }),
-          ],
-        },
-      },
-      layout: str,
-    }),
-    strict({
-      kind: { type: "string", enum: ["energy-profile"] },
-      reaction: { type: "string", enum: ["exothermic", "endothermic"] },
-      catalyst: { type: "boolean" },
-      reactants: str,
-      products: str,
-      arrows: {
-        type: "array",
-        items: strict({ shows: { type: "string", enum: [...ARROWS] }, letter: str }),
-      },
-    }),
-    strict({
-      kind: { type: "string", enum: ["food-web"] },
-      organisms: { type: "array", items: strict({ name: str, level: { type: "integer" } }) },
-      eaten: { type: "array", items: { type: "array", items: str } },
-    }),
-  ],
+export const FIGURE_FIELD = {
+  type: "string",
+  description: 'The figure brief as one JSON object, or "" for a question without a figure.',
 };
 
 /** What the writer is told about figures, when a set may have them. */
 export const FIGURE_GUIDE = `FIGURES
-At most ${MAX_FIGURES} questions in the set may each come with one figure, where a figure is how an exam paper would give the information: a graph or bar chart of results to read or interpret, a circuit, a reaction profile or a food web. Most questions have none: their figure is null. Never add a figure for decoration, and never ask a student to draw, plot, sketch or label one.
+At most ${MAX_FIGURES} questions in the set may each come with one figure, where a figure is how an exam paper would give the information: a graph or bar chart of results to read or interpret, a circuit, a reaction profile or a food web. Most questions have none: their figure is "". A question with one writes its brief in figure as one JSON object, with "kind" and the fields below. Never add a figure for decoration, and never ask a student to draw, plot, sketch or label one.
 A figure given as a brief is not absent: the website draws it from the brief and shows it below the question's text. The question says what the figure shows ("The graph shows how the velocity of a car changed.") and is answered from it, so it doesn't repeat the figure's data. Nothing in the figure may give the answer away: no title or label names what the question asks for.
 The brief holds every value, label and connection; the figure shows exactly the brief:
 - "line-graph" or "scatter": x and y axes, each {title: quantity and unit as "time in s", min, max, step}, 2 to 12 steps, max − min a whole number of steps, and numbers short enough to fit (at most 3 digits on the x axis). series: one ("scatter": exactly one) or two {name, points: [[x, y], …]}, 2 to 20 points, each within both axes. A line graph joins its points in order with straight lines.
 - "bar-chart": x {title, categories: 2 to 6 short names}, y an axis as above, series: one or two {name, values: one per category, each within the y axis}.
-- "circuit": components, each {type, label: null unless the question names the part, e.g. "X"}; loop: going once round the main loop, each step is a component's index in components (counting from 0), or {"parallel": [[index, …], [index, …]]} for branches side by side between the same two junctions; every component appears exactly once. layout: in words, which wire each part sits on ("the cell on the top wire, the ammeter on the left wire, the two lamps in parallel on the right").
+- "circuit": components, each {type: one of ${COMPONENT_TYPES.join(", ")}; label: null unless the question names the part, e.g. "X"}; loop: going once round the main loop, each step is a component's index in components (counting from 0), or {"parallel": [[index, …], [index, …]]} for branches side by side between the same two junctions; every component appears exactly once. layout: in words, which wire each part sits on ("the cell on the top wire, the ammeter on the left wire, the two lamps in parallel on the right").
 - "energy-profile": reaction "exothermic" or "endothermic", catalyst true or false, reactants and products as they are written under the levels (short: "CH₄ + 2O₂", "CO₂ + 2H₂O"), arrows: only those the question needs, each {shows: "activation energy", "activation energy with a catalyst" (only with a catalyst) or "overall energy change", letter: one capital letter}.
 - "food-web": organisms {name, level: 1 for producers, 2 for what eats them, and so on}, at most 4 on a level and 12 in all; eaten: [food, eater] pairs, one per arrow, using the organisms' names exactly.
+Scale each axis so the values the question turns on are easy to read off: two series of very different sizes (hundreds of rabbits, tens of foxes) don't share one graph.
 Titles and names: plain words and proper notation (cm³, CO₂, °C), at most 28 characters.`;
 
 const SMALL = TEXT_SIZE["qf-small"]!;

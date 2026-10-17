@@ -325,3 +325,52 @@ describe("any brief that passes its check, code draws so the checker passes it",
     expect(drawnCount).toBeGreaterThan(250);
   });
 });
+
+describe("what the first real writer trial turned up (17 Oct)", () => {
+  test("two curves that fill every corner put their key above the plot", () => {
+    // The trial's rabbits and foxes, as the writer gave them.
+    const predators: FigureBrief = {
+      kind: "line-graph",
+      x: { title: "time in years", min: 0, max: 10, step: 1 },
+      y: { title: "number of animals", min: 0, max: 700, step: 100 },
+      series: [
+        {
+          name: "Rabbits",
+          points: [
+            [0, 200],
+            [1, 300],
+            [2, 450],
+            [3, 600],
+            [4, 450],
+            [5, 300],
+            [6, 200],
+            [7, 300],
+            [8, 450],
+            [9, 600],
+            [10, 450],
+          ],
+        },
+        {
+          name: "Foxes",
+          points: [
+            [0, 20],
+            [1, 20],
+            [2, 30],
+            [3, 40],
+            [4, 55],
+            [5, 60],
+            [6, 45],
+            [7, 30],
+            [8, 25],
+            [9, 35],
+            [10, 50],
+          ],
+        },
+      ],
+    };
+    const f = drawn(predators);
+    expect(f.problems).toEqual([]);
+    expect(f.svg).not.toContain('class="qf-box"');
+    expect(f.svg).toContain('y="22" text-anchor="start">Foxes<');
+  });
+});

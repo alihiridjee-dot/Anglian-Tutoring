@@ -70,11 +70,22 @@ const FIGURES_BY_MS = 280_000;
 async function drawFigures(
   job: ClaimedJob,
   subject: string,
-  questions: { question: string; options?: string[]; figure?: KnownBrief | null }[],
+  questions: {
+    question: string;
+    options?: string[];
+    figure?: KnownBrief | null;
+    figureProblem?: string;
+  }[],
   deadline: number,
 ): Promise<(SavedFigure | null | "dropped")[]> {
   return Promise.all(
     questions.map(async (q, i) => {
+      if (q.figureProblem) {
+        console.warn(
+          `[practice-queue] job ${job.job_id} question ${i + 1}: its figure ${q.figureProblem}, so it is left out`,
+        );
+        return "dropped" as const;
+      }
       if (!q.figure) return null;
       const drawn = await drawFigure(
         { subject, question: q.question, options: q.options, brief: q.figure },
@@ -144,7 +155,11 @@ async function writeQuestions(
   const figures = await drawFigures(
     job,
     context.point.subject,
-    questions.map((q) => ({ question: q.prompt, figure: q.figure })),
+    questions.map((q) => ({
+      question: q.prompt,
+      figure: q.figure,
+      figureProblem: q.figureProblem,
+    })),
     deadline,
   );
   const payload = questions.flatMap((q, i) => {
