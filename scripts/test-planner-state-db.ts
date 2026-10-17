@@ -1,5 +1,5 @@
 /** Isolated PostgreSQL checks for planner_state and planner_point_evidence
- * (20261017143927): one read answers a planner open, in the shapes the client's
+ * (20261017150653): one read answers a planner open, in the shapes the client's
  * old reads returned, as the caller and no one else.
  * No production data is read or written.
  *
@@ -171,13 +171,13 @@ const normal = (v: unknown): unknown =>
 
 // 1. The course snapshot answers exactly as before, for the student and for anyone else.
 const rollback = await readFile(
-  new URL("../supabase/rollbacks/20261017143927_planner_state.down.sql", import.meta.url),
+  new URL("../supabase/rollbacks/20261017150653_planner_state.down.sql", import.meta.url),
   "utf8",
 );
 await db.exec(rollback);
 const before = { alex: await snapshot(alex), sam: await snapshot(sam) };
 const migration = await readFile(
-  new URL("../supabase/migrations/20261017143927_planner_state.sql", import.meta.url),
+  new URL("../supabase/migrations/20261017150653_planner_state.sql", import.meta.url),
   "utf8",
 );
 await db.exec(migration);

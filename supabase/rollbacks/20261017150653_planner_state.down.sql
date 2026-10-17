@@ -1,4 +1,4 @@
--- Rollback for 20261017143927_planner_state: the planner reads its course piece
+-- Rollback for 20261017150653_planner_state: the planner reads its course piece
 -- by piece again. Deploy the app without planner_state first; this one needs it.
 begin;
 create or replace function public.planner_course_snapshot(
