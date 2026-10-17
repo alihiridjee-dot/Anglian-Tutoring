@@ -68,8 +68,27 @@ describe("a figure that is wrong is never shown", () => {
     );
   });
 
+  test("a tick number at the end of an axis may come near the edge, but no further", () => {
+    // The trial's velocity–time graph lost its picture when "20" at x = 344 was held to the
+    // lines' 8-unit margin: its retry moved the number off its tick.
+    const wide = swap(
+      graph.reply.svg,
+      'x="344" y="242" text-anchor="middle">10<',
+      'x="344" y="242" text-anchor="middle">100<',
+    );
+    expect(checkFigure(wide).problems).toEqual([]);
+    const past = swap(
+      graph.reply.svg,
+      'x="344" y="242" text-anchor="middle">10<',
+      'x="344" y="242" text-anchor="middle">1000<',
+    );
+    expect(checkFigure(past).problems.join()).toContain(
+      "goes outside the canvas (keep text 2 units clear",
+    );
+  });
+
   test("anything off the canvas, or a canvas of its own size", () => {
-    const off = swap(graph.reply.svg, 'x="204" y="266"', 'x="204" y="276"');
+    const off = swap(graph.reply.svg, 'x="204" y="266"', 'x="204" y="284"');
     expect(problemsOf(off).join()).toContain("goes outside the canvas");
     const stretched = swap(graph.reply.svg, 'viewBox="0 0 360 280"', 'viewBox="0 0 360 290"');
     expect(problemsOf(stretched).join()).toContain("The viewBox is not");
@@ -325,6 +344,20 @@ describe("what an answer hangs on is checked, not just the values", () => {
     expect(checkFigure(series, circuitBrief).problems.join()).toContain(
       "The circuit is not wired as the brief's loop says",
     );
+  });
+
+  test("parts in series in any order round the loop are wired alike; a different parallel set is not", () => {
+    // The trial's voltmeter circuit put its ammeter before the lamp, as its layout said,
+    // where the loop listed it after: the same current and readings either way.
+    const reordered = { ...circuitBrief, loop: [1, 0, 2, { parallel: [[4], [3]] }] } as FigureBrief;
+    expect(checkFigure(ladder, reordered).problems).toEqual([]);
+    const ammeterAcrossLamp = {
+      ...circuitBrief,
+      loop: [0, 1, 4, { parallel: [[3], [2]] }],
+    } as FigureBrief;
+    expect(checkFigure(ladder, ammeterAcrossLamp).problems).toEqual([
+      "The circuit is not wired as the brief's loop says: drawn, it is series(ammeter, cell, parallel(lamp | lamp), switch-open); the loop is series(cell, lamp, parallel(ammeter | lamp), switch-open)",
+    ]);
   });
 
   test("a junction with no dot, a shorted lamp, crossing or slanted wires", () => {

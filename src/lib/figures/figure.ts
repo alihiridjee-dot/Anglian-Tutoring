@@ -13,8 +13,13 @@
 export const CANVAS_WIDTH = 360;
 /** Heights a figure may be: a multiple of 20 from 200 to 480. */
 export const CANVAS_HEIGHTS = Array.from({ length: 15 }, (_, i) => 200 + i * 20);
-/** Nothing is drawn closer than this to the canvas edge. */
+/** No line or shape is drawn closer than this to the canvas edge. */
 export const CANVAS_MARGIN = 8;
+/**
+ * Text may come this close: its box is its letters' full width, wider than
+ * their ink, and a graph's last tick number sits 16 units from the edge.
+ */
+export const TEXT_MARGIN = 2;
 
 /** Every style a figure may use. The stylesheet's .qf rules draw each one. */
 export const FIGURE_CLASSES = {

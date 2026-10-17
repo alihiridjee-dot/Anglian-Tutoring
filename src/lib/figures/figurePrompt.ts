@@ -14,6 +14,7 @@ import {
   MAX_LINE,
   PLOT,
   PROFILE,
+  TEXT_MARGIN,
   type FigureBrief,
   type FigureReply,
 } from "./figure";
@@ -74,7 +75,7 @@ Reply with one JSON object and nothing else:
 CANVAS
 - The root element is exactly <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${CANVAS_WIDTH} H" class="qf" role="img">. H is a multiple of 20 from 200 to 480: the smallest that fits the figure. Give the root no other attribute.
 - The website shows the figure 300 to 420 pixels wide, so one unit is about one pixel on a phone.
-- Keep everything at least ${CANVAS_MARGIN} units inside every edge: x from ${CANVAS_MARGIN} to ${CANVAS_WIDTH - CANVAS_MARGIN}, y from ${CANVAS_MARGIN} to H − ${CANVAS_MARGIN}.
+- Keep every line and shape at least ${CANVAS_MARGIN} units inside every edge: x from ${CANVAS_MARGIN} to ${CANVAS_WIDTH - CANVAS_MARGIN}, y from ${CANVAS_MARGIN} to H − ${CANVAS_MARGIN}. Text may come within ${TEXT_MARGIN} units of an edge, so a tick number stays exactly at its tick even at the end of an axis.
 - Write every number plainly, with at most two decimal places: 187.2, not 187.20000001 or 1.872e2.
 
 STYLE

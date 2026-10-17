@@ -22,6 +22,7 @@ import {
   MAX_LINE,
   PLOT,
   PROFILE,
+  TEXT_MARGIN,
   TEXT_SIZE,
   plotX,
   plotY,
@@ -414,12 +415,13 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
     drawing;
   let owner = 0;
 
-  const inCanvas = (p: Pt) =>
-    p[0] >= CANVAS_MARGIN - 0.5 &&
-    p[0] <= CANVAS_WIDTH - CANVAS_MARGIN + 0.5 &&
-    p[1] >= CANVAS_MARGIN - 0.5 &&
-    p[1] <= height - CANVAS_MARGIN + 0.5;
-  const outside = new Set<string>();
+  const inCanvas = (p: Pt, margin: number) =>
+    p[0] >= margin - 0.5 &&
+    p[0] <= CANVAS_WIDTH - margin + 0.5 &&
+    p[1] >= margin - 0.5 &&
+    p[1] <= height - margin + 0.5;
+  /** What goes outside, and the margin it breaks. */
+  const outside = new Map<string, number>();
 
   /** `inSymbol`: inside a circuit symbol, whose lines are its own, not wires. */
   const visit = (n: Node, m: Matrix, path: string, inSymbol = false) => {
@@ -464,9 +466,9 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
       else own = multiply(m, t);
     }
     const num = (a: string) => Number(n.attrs[a] ?? 0);
-    const keep = (pts: Pt[]) => {
+    const keep = (pts: Pt[], margin = CANVAS_MARGIN) => {
       const abs = pts.map((p) => apply(own, p));
-      if (abs.some((p) => !inCanvas(p))) outside.add(where);
+      if (abs.some((p) => !inCanvas(p, margin))) outside.set(where, margin);
       return abs;
     };
     const arrowOf = (pts: Pt[]) => {
@@ -591,12 +593,15 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
           const w = textWidth(l.text, size);
           const below = (DESCENDS.test(l.text) ? 0.25 : 0.05) * size;
           const x0 = anchor === "middle" ? l.x - w / 2 : anchor === "end" ? l.x - w : l.x;
-          const corners = keep([
-            [x0, l.y - 0.8 * size],
-            [x0 + w, l.y + below],
-            [x0, l.y + below],
-            [x0 + w, l.y - 0.8 * size],
-          ]);
+          const corners = keep(
+            [
+              [x0, l.y - 0.8 * size],
+              [x0 + w, l.y + below],
+              [x0, l.y + below],
+              [x0 + w, l.y - 0.8 * size],
+            ],
+            TEXT_MARGIN,
+          );
           labels.push({
             text: l.text,
             box: boxOf(corners),
@@ -614,8 +619,10 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
   };
   root.children.forEach((c) => visit(c, IDENTITY, "<svg> "));
 
-  for (const w of outside)
-    problems.push(`${w} goes outside the canvas (keep ${CANVAS_MARGIN} units clear of every edge)`);
+  for (const [w, margin] of outside)
+    problems.push(
+      `${w} goes outside the canvas (keep ${w.endsWith("<text>") ? "text" : "lines and shapes"} ${margin} units clear of every edge)`,
+    );
 
   // Text over text, and text over a line: two labels keep 2 units apart, and a
   // label keeps clear of every stroke but a grid line's.
@@ -927,7 +934,7 @@ function webProblems(k: WebBrief, d: Drawing): string[] {
   return out;
 }
 
-/** A component as wiring compares it: its type, and its label when it has one. */
+/** A part as wiring compares it (its type, and its label when it has one) and the two junctions it joins. */
 type Edge = { part: string; a: number; b: number };
 
 /**
@@ -1069,63 +1076,127 @@ function wiringProblems(k: CircuitBrief, d: Drawing): string[] {
       const e = drawn.find((e) => e.a === n || e.b === n)!;
       out.push(`One end of the ${e.part} is joined to nothing else`);
     }
-  if (!sameWiring(drawn, netOf.size, want, nets)) {
-    const show = (edges: Edge[], n: number) =>
-      Array.from({ length: n }, (_, i) =>
-        edges
-          .flatMap((e) => [e.a === i ? e.part : null, e.b === i ? e.part : null])
-          .filter(Boolean)
-          .sort()
-          .join(", "),
+  const show = (edges: Edge[]) =>
+    [...new Set(edges.flatMap((e) => [e.a, e.b]))]
+      .map(
+        (n) =>
+          `[${edges
+            .flatMap((e) => [e.a === n ? e.part : null, e.b === n ? e.part : null])
+            .filter(Boolean)
+            .sort()
+            .join(", ")}]`,
       )
-        .map((s) => `[${s}]`)
-        .sort()
-        .join(" ");
+      .sort()
+      .join(" ");
+  const drawnForm = circuitForm(drawn);
+  const wantForm = circuitForm(want);
+  if (!drawnForm) {
+    if (!out.length)
+      out.push(
+        `The parts don't make one loop of series and parallel sets. Each [ ] is one junction, listing the parts whose ends meet there: ${show(drawn)}`,
+      );
+  } else if (wantForm && drawnForm.key !== wantForm.key)
     out.push(
-      `The circuit is not wired as the brief's loop says. Each [ ] is one junction, listing the parts whose ends meet there. Drawn: ${show(drawn, netOf.size)}. The loop needs: ${show(want, nets)}`,
+      `The circuit is not wired as the brief's loop says: drawn, it is ${drawnForm.shown}; the loop is ${wantForm.shown}`,
     );
-  }
   return out;
 }
 
-/** Whether two circuits are wired alike: some matching of their junctions maps every part onto a part of the same kind. */
-function sameWiring(drawn: Edge[], drawnNets: number, want: Edge[], wantNets: number): boolean {
-  if (drawn.length !== want.length || drawnNets !== wantNets) return false;
-  const map = new Map<number, number>();
-  const usedNets = new Set<number>();
-  const taken = want.map(() => false);
-  const pair = (from: number, to: number, undo: number[]) => {
-    if (map.has(from)) return map.get(from) === to;
-    if (usedNets.has(to)) return false;
-    map.set(from, to);
-    usedNets.add(to);
-    undo.push(from);
-    return true;
-  };
-  const match = (i: number): boolean => {
-    if (i === drawn.length) return true;
-    const e = drawn[i];
-    for (let j = 0; j < want.length; j++) {
-      if (taken[j] || want[j].part !== e.part) continue;
-      for (const [x, y] of [
-        [want[j].a, want[j].b],
-        [want[j].b, want[j].a],
-      ]) {
-        const undo: number[] = [];
-        if (pair(e.a, x, undo) && pair(e.b, y, undo)) {
-          taken[j] = true;
-          if (match(i + 1)) return true;
-          taken[j] = false;
-        }
-        for (const n of undo) {
-          usedNets.delete(map.get(n)!);
-          map.delete(n);
-        }
-      }
+/** A part, or parts in series, or branches in parallel: a circuit as current sees it. */
+type Form = { part: string } | { series: Form[] } | { parallel: Form[] };
+const written = (f: Form): string =>
+  "part" in f
+    ? f.part
+    : "series" in f
+      ? `series(${f.series.map(written).sort().join(", ")})`
+      : `parallel(${f.parallel.map(written).sort().join(" | ")})`;
+const joined = (kind: "series" | "parallel", items: Form[]): Form => {
+  const flat = items.flatMap((f) =>
+    kind === "series" && "series" in f
+      ? f.series
+      : kind === "parallel" && "parallel" in f
+        ? f.parallel
+        : [f],
+  );
+  return kind === "series" ? { series: flat } : { parallel: flat };
+};
+
+/**
+ * The network between two junctions, reduced to series and parallel sets;
+ * null when it won't reduce (a loose end, a short, a part off on its own).
+ */
+function reduced(edges: Edge[], s: number, t: number): Form | null {
+  if (s === t) return null;
+  let es = edges.map((e) => ({ a: e.a, b: e.b, f: { part: e.part } as Form }));
+  for (let changed = true; changed;) {
+    changed = false;
+    if (es.some((e) => e.a === e.b)) return null;
+    // Parts between the same two junctions are in parallel.
+    const groups = new Map<string, typeof es>();
+    for (const e of es) {
+      const key = e.a < e.b ? `${e.a}-${e.b}` : `${e.b}-${e.a}`;
+      groups.set(key, [...(groups.get(key) ?? []), e]);
     }
-    return false;
-  };
-  return match(0);
+    if ([...groups.values()].some((g) => g.length > 1)) {
+      es = [...groups.values()].map((g) =>
+        g.length === 1
+          ? g[0]
+          : {
+              a: g[0].a,
+              b: g[0].b,
+              f: joined(
+                "parallel",
+                g.map((e) => e.f),
+              ),
+            },
+      );
+      changed = true;
+      continue;
+    }
+    // Two parts meeting at a junction nothing else touches are in series.
+    const degree = new Map<number, number>();
+    for (const e of es) for (const n of [e.a, e.b]) degree.set(n, (degree.get(n) ?? 0) + 1);
+    const n = [...degree].find(([n, k]) => k === 2 && n !== s && n !== t)?.[0];
+    if (n !== undefined) {
+      const [x, y] = es.filter((e) => e.a === n || e.b === n);
+      const far = (e: (typeof es)[number]) => (e.a === n ? e.b : e.a);
+      es = [
+        ...es.filter((e) => e !== x && e !== y),
+        { a: far(x), b: far(y), f: joined("series", [x.f, y.f]) },
+      ];
+      changed = true;
+    }
+  }
+  const [only] = es;
+  return es.length === 1 && ((only.a === s && only.b === t) || (only.a === t && only.b === s))
+    ? only.f
+    : null;
+}
+
+/**
+ * A closed circuit written so that order doesn't count: parts in series in
+ * any order round the loop, branches in any order. The loop is cut at each
+ * part in turn and the rest reduced between the cut's two ends; the smallest
+ * result is the key, so two circuits wired alike share it. `shown` is the
+ * loop cut at its cell or battery, for reading. Null when no cut reduces.
+ */
+function circuitForm(edges: Edge[]): { key: string; shown: string } | null {
+  const forms: { form: string; source: boolean }[] = [];
+  edges.forEach((cut, i) => {
+    const rest = reduced(
+      edges.filter((_, j) => j !== i),
+      cut.a,
+      cut.b,
+    );
+    if (rest)
+      forms.push({
+        form: written(joined("series", [{ part: cut.part }, rest])),
+        source: /^(cell|battery)/.test(cut.part),
+      });
+  });
+  if (!forms.length) return null;
+  const key = forms.map((f) => f.form).sort()[0];
+  return { key, shown: forms.find((f) => f.source)?.form ?? key };
 }
 
 /**

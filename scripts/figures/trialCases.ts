@@ -85,7 +85,7 @@ export const TRIAL_CASES: { name: string; request: FigureRequest }[] = [
           { type: "voltmeter" },
           { type: "ammeter" },
         ],
-        loop: [0, 1, { parallel: [[2], [3]] }, 4],
+        loop: [0, 1, 4, { parallel: [[2], [3]] }],
         layout:
           "Main loop: the battery on the top wire, the resistor on the left wire, the lamp on the right wire, the ammeter on the bottom wire. The voltmeter is in parallel with the lamp, beside it on the right.",
       },

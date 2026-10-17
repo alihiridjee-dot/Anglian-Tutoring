@@ -62,7 +62,7 @@ Reply with one JSON object and nothing else:
 CANVAS
 - The root element is exactly <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 H" class="qf" role="img">. H is a multiple of 20 from 200 to 480: the smallest that fits the figure. Give the root no other attribute.
 - The website shows the figure 300 to 420 pixels wide, so one unit is about one pixel on a phone.
-- Keep everything at least 8 units inside every edge: x from 8 to 352, y from 8 to H − 8.
+- Keep every line and shape at least 8 units inside every edge: x from 8 to 352, y from 8 to H − 8. Text may come within 2 units of an edge, so a tick number stays exactly at its tick even at the end of an axis.
 - Write every number plainly, with at most two decimal places: 187.2, not 187.20000001 or 1.872e2.
 
 STYLE
