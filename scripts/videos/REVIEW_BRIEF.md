@@ -71,3 +71,20 @@ object per item, in the batch's order:
 ```
 
 Then reply with a single line: the counts of keep, switch and none.
+
+## A-level batches (added 11 Oct 2026)
+
+Items headed "AQA / OCR / Edexcel / Cambridge A Level" are the A-level
+courses (AQA 7402/7405/7408, OCR A H420/H432/H556, Edexcel 9BN0/9CH0/9PH0,
+Cambridge 9700/9701/9702). Everything above applies, with the level swapped:
+
+- Right level is **A level / AS level**. A GCSE video is too shallow unless
+  the point is plainly GCSE content restated. University depth is fine only
+  when the title shows exactly this point and no A-level option is offered.
+- Cambridge "AS & A Level" videos count as a UK board, not a foreign syllabus.
+- Prefer UK A-level channels (Allery Chemistry, Physics Online, Miss Estruch,
+  Primrose Kitten, Save My Exams, Study Mind, Snap Revise, Mr Exham, Eliot
+  Rintoul, Science Shorts and similar), then strong general channels (Khan
+  Academy, Professor Dave, The Organic Chemistry Tutor, Amoeba Sisters).
+- Reject topic-level matches: a video titled "Enzymes" does not teach
+  "competitive inhibitors and their effect on Vmax"; answer none.

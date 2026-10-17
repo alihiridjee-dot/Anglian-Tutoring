@@ -143,8 +143,9 @@ def score(point: dict, cand: dict, kw: list, topic_kw: list, rank: int, n: int,
         s -= 0.7                                        # topic query, not the point
     if JUNK.search(title):
         s -= 2.5
-    if FOREIGN.search(hay):
-        s -= 1.1
+    f = FOREIGN.search(hay)
+    if f and not (board == "cambridge" and f.group(0).startswith("cambridge")):
+        s -= 1.1                                        # Cambridge AS/A2 is ours on a Cambridge point
     if dur is None:
         s -= 0.3                                        # live/upcoming, not a lesson
     s -= min(2.0, 0.3 * topic_uses[cand["id"]])         # spread within a topic
