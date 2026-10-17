@@ -1,0 +1,296 @@
+{
+  "format": 1,
+  "concept_id": "aphys-003",
+  "subject": "physics",
+  "title": "Planning experiments and working safely",
+  "key_idea": "A good experiment changes one variable, measures another and controls the rest. You choose apparatus to suit the size and precision needed, follow the method exactly, and manage the hazards. The same approach works for familiar and unfamiliar practicals.",
+  "sections": [
+    {
+      "heading": "Designing an investigation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Start from the question you want to answer. Then decide what to change, what to measure and what to keep the same."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Independent variable",
+              "meaning": "The quantity you deliberately change."
+            },
+            {
+              "term": "Dependent variable",
+              "meaning": "The quantity you measure as a result."
+            },
+            {
+              "term": "Control variable",
+              "meaning": "A quantity you keep the same so it cannot affect the result."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "State the aim",
+              "text": "Say what relationship or value you are investigating."
+            },
+            {
+              "lead": "Identify the variables",
+              "text": "Name the independent, dependent and control variables, and how each will be measured or kept constant."
+            },
+            {
+              "lead": "Choose apparatus",
+              "text": "Pick equipment with a suitable range and resolution for the size of the measurements."
+            },
+            {
+              "lead": "Write the method",
+              "text": "List clear steps so someone else could repeat it, including how many values to use and how many repeats."
+            },
+            {
+              "lead": "Plan the analysis",
+              "text": "Say what you will plot or calculate to reach a conclusion."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort the quantities in a pendulum investigation into independent, dependent and control variables.",
+            "prompt": "A student investigates how the length of a pendulum affects its period. Sort each quantity.",
+            "groups": [
+              "Independent variable",
+              "Dependent variable",
+              "Control variable"
+            ],
+            "items": [
+              {
+                "text": "length of the string",
+                "group": 0
+              },
+              {
+                "text": "time for 20 oscillations",
+                "group": 1
+              },
+              {
+                "text": "mass of the bob",
+                "group": 2
+              },
+              {
+                "text": "starting angle",
+                "group": 2
+              },
+              {
+                "text": "the same stopwatch and ruler",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change one independent variable, measure the dependent variable and control the rest.",
+            "Choose apparatus with a suitable range and resolution."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Choosing and evaluating a method",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A method is appropriate only if it can give the result you need. Compare the method with the expected outcome."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use enough values of the independent variable, spread over a wide range, to show a pattern.",
+            "Repeat readings and take a mean to reduce random error.",
+            "Make the measured quantity as large as practical so the percentage uncertainty is small.",
+            "Time many oscillations rather than one, or use a data logger for fast changes.",
+            "Control temperature, starting position and other variables that could change the result."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Is the method suitable?"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Does it give values over a large enough range to test the relationship?",
+            "Is the resolution of the instrument small compared with the readings?",
+            "Does it avoid the hazards and the main sources of error?",
+            "Can it be repeated by someone else to give the same results?"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In an unfamiliar practical, apply the physics from the course. Decide what the equation links, then choose what to measure."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Check that the method can give the outcome you expect, over a wide enough range.",
+            "In an unfamiliar practical, use the relevant equation to decide what to measure."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Working safely",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Before starting, identify what could cause harm and how to reduce the risk. Follow the written instructions exactly."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Hazard",
+              "meaning": "Something that could cause harm."
+            },
+            {
+              "term": "Risk",
+              "meaning": "How likely it is that the hazard causes harm, and how serious it would be."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Hazard",
+            "Way to reduce the risk"
+          ],
+          "rows": [
+            [
+              "hot wires or components",
+              "use a low current and switch off between readings"
+            ],
+            [
+              "falling masses",
+              "use a sand tray and keep feet clear"
+            ],
+            [
+              "laser light",
+              "never look into the beam; remove reflective objects"
+            ],
+            [
+              "ionising radiation",
+              "keep sources in a box, handle with tongs, keep distance, minimise time"
+            ],
+            [
+              "mains electricity",
+              "keep wires and water apart; check leads for damage"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Read all the instructions before starting, then follow them in order.",
+            "Use equipment as it is intended, and set it up securely.",
+            "Tell the teacher straight away about any breakage or spill."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Identify hazards and reduce the risk before you begin.",
+            "Follow written instructions in order and use equipment correctly."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A student investigates how the extension of a spring depends on the force applied. State the independent variable, the dependent variable and one control variable.",
+      "a": "Independent: force (or load). Dependent: extension. Control: the same spring (or temperature, or the same ruler).",
+      "marks": 3
+    },
+    {
+      "q": "Give two ways to improve the reliability of the readings in an experiment.",
+      "a": "Repeat the readings and take a mean; use a wider range of values of the independent variable; control other variables.",
+      "marks": 2
+    },
+    {
+      "q": "A student uses a laser to investigate diffraction. State one hazard and one precaution.",
+      "a": "The beam can damage the eye. Never look directly into the beam, and remove reflective surfaces from the beam path.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 1.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Show your practical skills in both familiar and unfamiliar experiments.",
+                "In a familiar practical, describe the method, the measurements and the analysis.",
+                "In an unfamiliar practical, work out the apparatus and method from the physics given in the question."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 1.1.1a",
+        "OCR 1.1.1b",
+        "OCR 1.1.1c",
+        "OCR 1.2.1a",
+        "OCR 1.2.1b",
+        "OCR 1.2.1c",
+        "OCR 1.2.1j"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Apply your physics knowledge to a practical problem set in a new context.",
+                "Select suitable apparatus, equipment and techniques for the proposed experiment, and justify the choice.",
+                "Use investigative approaches: plan, carry out, record and evaluate, as a problem-solving process.",
+                "Use a wide range of experimental instruments and techniques, matched to the physics in the course.",
+                "Identify potential hazards and explain how to minimise the risks."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "98a34e10-4d23-4190-b0a5-55c453de847c",
+      "29afd456-4227-44d5-b041-e43f74ca4b00",
+      "fdce1380-7729-4d3c-aa23-24a1f4bbe1f5",
+      "f1869182-007b-456a-bb7d-cd6a3f17aebf",
+      "1da8c9c0-9033-428b-a3a2-3c8a88a2ea88",
+      "757d0a76-2c01-4d53-9c3d-5c29630de84e",
+      "c12b4bce-61a2-4936-a719-6663f9288390",
+      "4fd3d05e-5e15-4c0e-99c6-38e9dce99d04"
+    ],
+    "exemplar_ids": []
+  }
+}

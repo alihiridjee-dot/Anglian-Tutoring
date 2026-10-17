@@ -1,0 +1,157 @@
+{
+  "format": 1,
+  "concept_id": "aphys-034",
+  "subject": "physics",
+  "title": "Doppler effect for sound",
+  "key_idea": "When a source of sound moves relative to a stationary observer, the observed frequency differs from the source frequency. Approaching gives a higher frequency, receding a lower one: fₒ = fₛ v / (v ± vₛ).",
+  "sections": [
+    {
+      "heading": "Why the pitch seems to change",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A moving source of sound makes a stationary observer hear a different frequency from the one it emits. This is the Doppler effect."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Emit",
+              "text": "The source emits waves at its source frequency fₛ."
+            },
+            {
+              "lead": "Approaching",
+              "text": "Each wavefront is emitted closer to the observer than the last, so the wavefronts bunch up. The wavelength is shorter."
+            },
+            {
+              "lead": "Hear",
+              "text": "The speed of sound is fixed by the air, so a shorter wavelength means a higher observed frequency."
+            },
+            {
+              "lead": "Receding",
+              "text": "The wavefronts spread out behind the source. The wavelength is longer and the observed frequency is lower."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The effect depends on relative motion along the line between source and observer.",
+            "The source frequency does not change. Only the frequency the observer detects changes.",
+            "The effect for a moving observer and a stationary source is not needed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A source moving towards a stationary observer gives a higher observed frequency.",
+            "A source moving away gives a lower observed frequency."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating the observed frequency",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "For a source moving along the line to a stationary observer, use this expression."
+        },
+        {
+          "type": "equation",
+          "label": "Observed frequency",
+          "formula": "fₒ = fₛ v / (v ± vₛ)",
+          "where": [
+            "fₒ = observed frequency (Hz)",
+            "fₛ = source frequency (Hz)",
+            "v = speed of sound in air (m/s)",
+            "vₛ = speed of the source (m/s)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use v − vₛ when the source moves towards the observer. The denominator is smaller, so fₒ is greater.",
+            "Use v + vₛ when the source moves away. The denominator is larger, so fₒ is smaller."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the frequency heard from an approaching source of sound.",
+            "question": "An ambulance siren has a frequency of {fs} Hz. It moves towards a stationary observer at {vs} m/s. Take the speed of sound as 340 m/s. Calculate the observed frequency.",
+            "variables": [
+              {
+                "id": "fs",
+                "min": 400,
+                "max": 1000,
+                "step": 50
+              },
+              {
+                "id": "vs",
+                "min": 10,
+                "max": 40,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "fs * 340 / (340 - vs)",
+              "unit": "Hz",
+              "decimals": 0
+            },
+            "working": [
+              "fₒ = fₛ v / (v − vₛ)",
+              "fₒ = {fs} × 340 / (340 − {vs})",
+              "fₒ = {answer} Hz"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "fₒ = fₛ v / (v ± vₛ): minus when approaching, plus when receding.",
+            "The expression is for a source moving more slowly than sound."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A source of frequency 600 Hz moves at 20 m/s towards a stationary observer. The speed of sound is 340 m/s. Calculate the observed frequency.",
+      "a": "fₒ = 600 × 340 / (340 − 20) = 638 Hz.",
+      "marks": 2
+    },
+    {
+      "q": "The same source moves away at 20 m/s. Calculate the observed frequency.",
+      "a": "fₒ = 600 × 340 / (340 + 20) = 567 Hz.",
+      "marks": 2
+    },
+    {
+      "q": "Explain, in terms of wavefronts, why the observed frequency rises when a source approaches.",
+      "a": "Successive wavefronts are emitted from positions closer to the observer, so the wavelength reaching the observer is shorter. The wave speed is unchanged, so the frequency (v / λ) is higher.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 7.3.1",
+        "CAIE 7.3.2"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "59fc7a79-425d-4107-adac-24a883275406",
+      "9b57b82e-c067-497f-94f6-576aec5a9636"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

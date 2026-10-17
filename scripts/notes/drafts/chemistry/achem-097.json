@@ -1,0 +1,303 @@
+{
+  "format": 1,
+  "concept_id": "achem-097",
+  "subject": "chemistry",
+  "title": "Recording and processing data",
+  "key_idea": "Good practical work records observations and measurements clearly, with correct units and sensible significant figures. Results are processed with the right mathematics and shown in tables and graphs. Gradients and intercepts of a straight-line graph carry the chemistry.",
+  "sections": [
+    {
+      "heading": "Following instructions and recording",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Records must let someone else follow what you did and what you saw. This section covers instructions, observations, measurements and record keeping."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Read a written method through before starting, and follow it in order.",
+            "Record **observations** as they happen: colour changes, precipitates, gases, temperature changes. Use precise words, such as \"white precipitate\", not \"it went cloudy\".",
+            "Record **measurements** straight into a table, not on scrap paper. Give every reading to the precision of the apparatus.",
+            "Record repeats, and mark any anomaly rather than deleting it.",
+            "Keep dated records of what was done, including changes made to the method."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Type of data",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Qualitative",
+              "Orange solution turns green; effervescence; white precipitate forms"
+            ],
+            [
+              "Quantitative",
+              "Titre 24.35 cm³; temperature rise 7.5 °C; mass 1.52 g"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Record observations precisely and measurements to the precision of the apparatus.",
+            "Record everything as it happens, including anomalies."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Units and significant figures",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every quantity needs a correct unit. This section covers the units used in chemistry and how many figures to give."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use SI units or the standard chemistry units: g, kg, mol, K, °C, Pa, J, kJ mol⁻¹, mol dm⁻³, dm³ and cm³.",
+            "Convert before calculating: 1 dm³ = 1000 cm³, so divide cm³ by 1000 to get dm³.",
+            "In tables, put the quantity and unit in the column heading, such as Volume / cm³ or Time / s. The entries are then numbers only.",
+            "Give a unit for every final answer, including those with compound units such as J K⁻¹ mol⁻¹."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Significant figures",
+              "meaning": "The digits in a number that carry meaning, counting from the first non-zero digit."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Do not round during a calculation. Round the final answer.",
+            "Give a final answer to the same number of significant figures as the least precise data used, often 3 significant figures.",
+            "Record readings to the same number of decimal places throughout a column, such as 24.30 cm³ rather than 24.3 cm³, if the burette reads to 0.05 cm³.",
+            "Trailing zeros after the decimal point count: 0.250 has three significant figures."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Put the unit in the column heading and quote a unit on every answer.",
+            "Round only at the end, to a sensible number of significant figures."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Processing and interpreting results",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Raw results are processed to give a value that answers the question. This section covers the mathematics and drawing conclusions."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Calculate a **mean** from concordant or consistent results only. Leave out anomalies and say why.",
+            "Use ratios, percentages, powers of ten, logarithms and rearranged equations as the calculation needs.",
+            "Check that the answer is sensible, with the right unit and size.",
+            "A valid conclusion follows from the data and is no stronger than the data allow. State what the results show and what they do not."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Spreadsheets and other software can process data, plot graphs and calculate gradients. Use them to process data, carry out research and report findings, and check their output makes sense."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Process only reliable results and state which were left out.",
+            "Conclusions should match the strength of the evidence."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Plotting graphs, gradients and intercepts",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A graph shows the relationship between two variables. This section covers drawing a graph and reading a gradient and intercept."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Choose the axes.",
+              "text": "Plot the independent variable on the x-axis and the dependent variable on the y-axis."
+            },
+            {
+              "lead": "Label them.",
+              "text": "Write the quantity and unit on each axis, such as Concentration / mol dm⁻³."
+            },
+            {
+              "lead": "Choose the scale.",
+              "text": "Use a scale that fills more than half of the grid in each direction, with simple steps such as 2, 5 or 10 per square."
+            },
+            {
+              "lead": "Plot the points.",
+              "text": "Mark each point accurately with a small cross or dot in a circle."
+            },
+            {
+              "lead": "Draw the line of best fit.",
+              "text": "Draw a smooth line or one straight line with points balanced either side. Do not join the dots unless told to."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **gradient** of a straight line is change in y ÷ change in x. Use a large triangle on the line, not the data points.",
+            "The **intercept** is where the line cuts the y-axis, at x = 0. It may need the line extended.",
+            "A line through the origin shows that y is directly proportional to x.",
+            "The units of the gradient are the unit of y divided by the unit of x."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Gradient of a straight line",
+          "formula": "gradient = (y₂ − y₁) ÷ (x₂ − x₁)",
+          "where": [
+            "y₂ and y₁ are two y values read from the line",
+            "x₂ and x₁ are the matching x values"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation of the gradient of a calibration line, with new numbers each time.",
+            "question": "A calibration line of absorbance against concentration (in mol dm⁻³) passes through (0, {a}) and ({x}, {y}). Calculate its gradient.",
+            "variables": [
+              {
+                "id": "a",
+                "min": 0,
+                "max": 0.1,
+                "step": 0.05
+              },
+              {
+                "id": "x",
+                "min": 0.2,
+                "max": 0.6,
+                "step": 0.2
+              },
+              {
+                "id": "y",
+                "min": 0.4,
+                "max": 1.2,
+                "step": 0.2
+              }
+            ],
+            "answer": {
+              "formula": "(y - a) / x",
+              "unit": "dm³ mol⁻¹",
+              "decimals": 2
+            },
+            "working": [
+              "gradient = (y₂ − y₁) ÷ (x₂ − x₁)",
+              "gradient = ({y} − {a}) ÷ ({x} − 0) = {answer} dm³ mol⁻¹"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Chemistry often rearranges an equation into y = mx + c so that a straight-line graph gives a constant. For example, a plot of ln k against 1/T has gradient −Eₐ/R.",
+            "A calibration graph of absorbance against concentration lets an unknown concentration be read from its absorbance."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Independent variable on x, with labelled axes and units.",
+            "Gradient = Δy ÷ Δx, using a large triangle."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A student records the initial and final burette readings as 0 cm³ and 24.3 cm³. State what is wrong with the way the readings are recorded.",
+      "a": "They are not recorded to the precision of the apparatus. A burette is read to two decimal places, so the readings should be 0.00 cm³ and 24.30 cm³.",
+      "marks": 2
+    },
+    {
+      "q": "State what is placed on each axis of a graph, and how the gradient of a straight-line graph is found.",
+      "a": "The independent variable on the x-axis and the dependent variable on the y-axis, each labelled with quantity and unit. Gradient = change in y ÷ change in x, using a large triangle.",
+      "marks": 2
+    },
+    {
+      "q": "A calculation gives a concentration of 0.0412583 mol dm⁻³. The data were given to 3 significant figures. State the answer to be recorded.",
+      "a": "0.0413 mol dm⁻³.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 1.1.2b",
+        "OCR 1.1.2c",
+        "OCR 1.1.3a",
+        "OCR 1.1.3b",
+        "OCR 1.1.3c",
+        "OCR 1.1.3d",
+        "OCR 1.2.1c",
+        "OCR 1.2.1d",
+        "OCR 1.2.1e",
+        "OCR 1.2.1f",
+        "OCR 1.2.1g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know the skills for keeping records and reporting, and the mathematics listed for the course."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Appropriate units for measurements, and observations and data presented in an appropriate format.",
+                "Present information and data in a scientific way, using software where appropriate to process data, carry out research and report findings.",
+                "Use mathematical skills to analyse quantitative data, including significant figures, ratios and graphs.",
+                "Plot suitable graphs from experimental results, with axes selected and labelled with appropriate scales, quantities and units, and measure gradients and intercepts.",
+                "Process, analyse and interpret qualitative and quantitative results, reaching valid conclusions where appropriate."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "b092aba8-c1e5-45d2-ac6c-3f774b5245b1",
+      "a82611e1-f727-4858-936b-e1b4c92158fe",
+      "bf5c079b-7827-4f60-be4e-0b92bdc7e996",
+      "7ef2498d-2a6f-4904-a7a1-ed35dc4db7b7",
+      "98c6baef-5ad4-4627-aebb-d297b99e19bf",
+      "c6dab894-e450-4a4b-972f-263d8536606a",
+      "89a13c9d-1a0f-4be4-8549-77db9f12735a",
+      "94e7393a-a68f-424b-9772-00a5df36209c",
+      "60e04e3a-ea28-43aa-a760-d377dfb13799",
+      "5fbdcf30-63dd-4109-8ff9-48d388fb1cd9",
+      "48073453-8157-456f-afe1-74f7d8c3e467"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,446 @@
+{
+  "format": 1,
+  "concept_id": "abio-078",
+  "subject": "biology",
+  "title": "Plant responses and hormones",
+  "key_idea": "Plants respond to stimuli by changing how they grow, using hormones. Auxin makes cells elongate by acid growth and bends shoots and roots. Gibberellin and abscisic acid control stem growth, germination and stomata.",
+  "sections": [
+    {
+      "heading": "How plants respond",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plants cannot move away from danger, so they respond by growing. This section covers the main types of response."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Tropism",
+              "meaning": "A growth response towards or away from a directional stimulus."
+            },
+            {
+              "term": "Phototropism",
+              "meaning": "Growth in response to the direction of light."
+            },
+            {
+              "term": "Gravitropism (geotropism)",
+              "meaning": "Growth in response to the direction of gravity."
+            },
+            {
+              "term": "Growth factor",
+              "meaning": "A chemical made in one part of a plant that moves to another part and regulates its growth."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A positive tropism is growth towards the stimulus; a negative tropism is growth away from it.",
+            "Shoots are positively phototropic and negatively gravitropic.",
+            "Roots are positively gravitropic. Other tropisms include hydrotropism (water) and thigmotropism (touch).",
+            "Plants also respond to **abiotic stress**, such as drought, cold and flooding, and to attack by herbivores."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A tropism is a directional growth response.",
+            "Growth factors move from growing regions to other tissues to regulate growth."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Auxin (IAA)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Indoleacetic acid (IAA) is the main auxin. This section covers how it produces tropisms and apical dominance."
+        },
+        {
+          "type": "subheading",
+          "text": "Elongation growth"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Auxin is made in the shoot and root tips and moves to other cells.",
+            "It stimulates cells to pump hydrogen ions (protons) into the cell wall using proton pumps.",
+            "The wall becomes acidic, which loosens the bonds between cellulose fibres. This is the **acid growth** effect.",
+            "Water enters by osmosis, the cell becomes turgid and it elongates."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Tropisms"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a shoot, IAA moves to the shaded side (phototropism) or the lower side (gravitropism).",
+            "A high concentration on that side stimulates more elongation, so the shoot bends towards the light or upwards.",
+            "In a root, the same high concentration on the lower side **inhibits** elongation. The upper side grows faster, so the root bends downwards.",
+            "This is why the same hormone gives opposite responses in roots and shoots."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Predict how a plant organ responds to a one-sided stimulus.",
+            "prompt": "Pick an organ and stimulus",
+            "result_labels": [
+              "IAA concentration",
+              "Growth",
+              "Response"
+            ],
+            "options": [
+              {
+                "label": "Shoot, light from the right",
+                "results": [
+                  "Higher on the shaded (left) side",
+                  "Left side elongates more",
+                  "Bends towards the light"
+                ],
+                "explanation": "IAA moves to the shaded side of a shoot, where it stimulates more elongation."
+              },
+              {
+                "label": "Shoot lying horizontally",
+                "results": [
+                  "Higher on the lower side",
+                  "Lower side elongates more",
+                  "Bends upwards"
+                ],
+                "explanation": "Gravity moves IAA to the lower side, so the shoot grows up."
+              },
+              {
+                "label": "Root lying horizontally",
+                "results": [
+                  "Higher on the lower side",
+                  "Lower side grows less; upper side more",
+                  "Bends downwards"
+                ],
+                "explanation": "High IAA inhibits elongation in roots, so the lower side lengthens less."
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Apical dominance"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Auxin made in the **apical bud** passes down the stem and inhibits the growth of lateral buds.",
+            "If the apical bud is removed, lateral buds grow and the plant becomes bushy.",
+            "If auxin is applied to the cut end, the lateral buds stay inhibited. This is the experimental evidence for auxin's role.",
+            "Higher auxin concentrations inhibit lateral buds more strongly."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Auxin loosens cell walls by acid growth, so cells elongate.",
+            "High auxin stimulates elongation in shoots but inhibits it in roots.",
+            "Auxin from the apical bud inhibits lateral buds."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Gibberellin and other plant hormones",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Several hormones work together. This section covers gibberellin, abscisic acid and their effects on growth, germination and leaf loss."
+        },
+        {
+          "type": "subheading",
+          "text": "Gibberellin"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gibberellins stimulate **stem elongation**. Dwarf varieties lack gibberellin and grow tall when it is applied.",
+            "A higher gibberellin concentration gives more stem elongation, up to a limit.",
+            "They also stimulate **seed germination**, by switching on the production of enzymes in the seed."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Water",
+              "text": "A seed takes up water."
+            },
+            {
+              "lead": "Gibberellin",
+              "text": "The embryo releases gibberellin."
+            },
+            {
+              "lead": "Enzyme gene",
+              "text": "Gibberellin stimulates transcription of the gene for amylase in the aleurone layer."
+            },
+            {
+              "lead": "Amylase",
+              "text": "Amylase hydrolyses the stored starch to maltose, which is broken down to glucose."
+            },
+            {
+              "lead": "Growth",
+              "text": "The embryo uses the sugars for respiration and growth."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Abscisic acid and others"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Hormone",
+            "Effect"
+          ],
+          "rows": [
+            [
+              "Abscisic acid (ABA)",
+              "Closes stomata in water stress; maintains seed dormancy"
+            ],
+            [
+              "Gibberellin",
+              "Breaks dormancy and stimulates germination; stem elongation"
+            ],
+            [
+              "Auxin and ethene",
+              "Leaf loss in deciduous trees: falling auxin and rising ethene form an abscission layer at the base of the leaf stalk"
+            ],
+            [
+              "Ethene",
+              "Stimulates fruit ripening"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In drought, **ABA** is made and moves to the guard cells. Potassium ions leave them, water leaves by osmosis and the guard cells become flaccid, so the stomata close.",
+            "Closing stomata reduces water loss by transpiration."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gibberellin stimulates stem elongation and germination.",
+            "ABA closes stomata and maintains dormancy.",
+            "Leaf loss depends on a change in the balance of hormones."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Commercial uses of plant hormones",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plant hormones and synthetic versions are used in farming and horticulture."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Ripening:** ethene makes fruit ripen, so unripe fruit can be transported and ripened with ethene on arrival.",
+            "**Rooting powder:** auxin applied to cuttings makes them grow roots.",
+            "**Weed killers:** synthetic auxins are selective, killing broad-leaved weeds in cereals by causing uncontrolled growth."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hormones control ripening and rooting.",
+            "Synthetic auxins are used as selective weed killers."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why a shoot grows towards light from one side.",
+      "a": "Auxin (IAA) moves to the shaded side of the shoot. A higher concentration there stimulates greater cell elongation on the shaded side, so the shoot bends towards the light.",
+      "marks": 3
+    },
+    {
+      "q": "Explain the role of gibberellin in the germination of a seed.",
+      "a": "The embryo releases gibberellin, which stimulates transcription of the amylase gene. Amylase hydrolyses starch to sugars, which the embryo uses for respiration and growth.",
+      "marks": 3
+    },
+    {
+      "q": "Describe the effect of removing the apical bud on a plant, and explain it.",
+      "a": "Lateral buds grow because the apical bud no longer supplies the auxin that inhibits them. The plant becomes bushy.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.6.1.1"
+      ],
+      "extra": [
+        {
+          "heading": "Simple responses in animals",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Taxes and kineses"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A **taxis** is a directional movement of a whole organism towards or away from a stimulus.",
+                "A **kinesis** is a change in the rate of movement or turning, in response to the intensity of a stimulus, with no direction.",
+                "Both keep a mobile organism in a favourable environment."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Phytochrome"
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Phytochrome",
+                  "meaning": "A pigment protein in plants that exists in two forms, Pr and Pfr, and detects red and far-red light."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Pr** absorbs red light and is converted to **Pfr**. Pfr absorbs far-red light and changes back to Pr.",
+                "Pfr is the active form. In sunlight there is more red than far-red light, so more Pfr is formed. In shade there is more far-red, so Pfr falls.",
+                "Active Pfr moves into the nucleus and activates transcription factors.",
+                "This switches genes on or off, and leads to responses such as seed germination, flowering and stem growth."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "IAA and transcription"
+            },
+            {
+              "type": "list",
+              "items": [
+                "IAA binds to a receptor and this leads to the breakdown of proteins that hold back transcription factors.",
+                "Freed transcription factors turn on genes for cell elongation.",
+                "Responses to environmental cues are therefore changes in gene expression, controlled by phytochrome and IAA."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 15.2.1",
+        "CAIE 15.2.2",
+        "CAIE 15.2.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "The Venus fly trap"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The trap is a modified leaf with two lobes and trigger hairs on their inner surfaces.",
+                "A trigger hair has to be touched twice within about 20 seconds, which prevents false alarms.",
+                "Touch generates action potentials that spread over the lobes.",
+                "Ions and water move rapidly between cells, which changes their turgor and the shape of the lobes. The lobes snap shut and trap the insect.",
+                "This is a rapid response, far faster than a tropism."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.5a",
+        "OCR 5.1.5b",
+        "OCR 5.1.5c",
+        "OCR 5.1.5d",
+        "OCR 5.1.5e",
+        "OCR 5.1.5f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Other responses"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Herbivory is met with chemical defences: **alkaloids** are bitter or toxic and pheromones warn nearby plants.",
+                "Some plants fold their leaves in response to touch, which reduces damage and may deter a herbivore.",
+                "Abiotic stress, such as drought, triggers ABA production."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Practical investigations"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Phototropism and gravitropism are investigated using seedlings with a one-sided stimulus, with the control of no stimulus.",
+                "The effect of plant hormones on growth is investigated using different concentrations of hormone solution, made by **serial dilution**.",
+                "Measure growth, such as stem length, after a set time, and repeat for reliable results.",
+                "Be ready to interpret new experiments on auxin and apical dominance, and gibberellin and stem length."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "edbfb557-ba32-4856-90f6-08ad096c62f5",
+      "f00f50a4-142e-466b-8974-900e1fb921cb",
+      "cf583b07-5833-42a1-8ec0-5265174df4ef",
+      "42b9a0fe-8b7c-4eb7-8d89-6dd59647c7c0",
+      "5fdad034-860c-44d3-868d-777ca926123c",
+      "038ba67f-0a3e-43b0-b9f7-58f764376a54",
+      "65ef585d-730f-4af7-b407-216c8e1ba1cf",
+      "4b8432f7-2509-446b-8ea5-ed8db571da66",
+      "5fd6b376-33d0-436f-9820-da95b3083655",
+      "1eb414a6-5335-4418-944d-2b609164a4ab"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

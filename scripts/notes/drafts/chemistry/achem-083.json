@@ -1,0 +1,537 @@
+{
+  "format": 1,
+  "concept_id": "achem-083",
+  "subject": "chemistry",
+  "title": "Amines",
+  "key_idea": "Amines contain a nitrogen atom with a lone pair, so they act as weak bases and as nucleophiles. They are made from haloalkanes and ammonia, by reducing nitriles, or by reducing nitroarenes. Alkyl groups strengthen the base; a benzene ring weakens it.",
+  "sections": [
+    {
+      "heading": "The amine group and its basic character",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An amine is ammonia with one or more hydrogen atoms replaced by hydrocarbon groups. This section covers the structure, why amines are bases and what they react with."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Primary amine",
+              "meaning": "R–NH₂: nitrogen bonded to one hydrocarbon group, e.g. CH₃CH₂NH₂."
+            },
+            {
+              "term": "Secondary amine",
+              "meaning": "R₂NH: nitrogen bonded to two hydrocarbon groups."
+            },
+            {
+              "term": "Tertiary amine",
+              "meaning": "R₃N: nitrogen bonded to three hydrocarbon groups."
+            },
+            {
+              "term": "Aliphatic amine",
+              "meaning": "An amine whose nitrogen is bonded to an alkyl group. An aromatic amine has nitrogen bonded to a benzene ring, e.g. phenylamine, C₆H₅NH₂."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The nitrogen atom has a **lone pair** of electrons.",
+            "The lone pair accepts a proton (H⁺), so amines are bases (proton acceptors).",
+            "Amines are weak bases: they are only partly ionised in water."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Reactions of a primary amine as a base"
+        },
+        {
+          "type": "equation",
+          "label": "With water: an alkaline solution",
+          "formula": "CH₃CH₂NH₂ + H₂O ⇌ CH₃CH₂NH₃⁺ + OH⁻",
+          "where": [
+            "OH⁻ ions make the solution alkaline",
+            "The equilibrium lies well to the left, so the base is weak"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "With a dilute acid: a salt",
+          "formula": "CH₃CH₂NH₂ + HCl → CH₃CH₂NH₃⁺Cl⁻",
+          "where": [
+            "The salt is an ionic solid, soluble in water",
+            "Adding a strong alkali releases the free amine again"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An amine has a lone pair on nitrogen that accepts H⁺.",
+            "Amines form alkaline solutions with water and salts with acids.",
+            "Primary, secondary and tertiary describe how many hydrocarbon groups are on N."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Comparing the strength of the base",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Base strength depends on how available the nitrogen lone pair is for accepting a proton. This section compares ammonia, aliphatic amines and aromatic amines."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Aliphatic amines** are stronger bases than ammonia. Alkyl groups push electron density towards nitrogen, so the lone pair is more available.",
+            "**Ammonia** has no electron-donating groups, so it is weaker than an aliphatic amine.",
+            "**Phenylamine** is weaker than ammonia. The nitrogen lone pair overlaps with the delocalised ring electrons and is drawn into the ring, so it is less available."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Compound",
+            "Effect on the lone pair",
+            "Base strength"
+          ],
+          "rows": [
+            [
+              "Ethylamine",
+              "Alkyl group donates electrons; lone pair more available",
+              "Strongest"
+            ],
+            [
+              "Ammonia",
+              "No donating or withdrawing group",
+              "Middle"
+            ],
+            [
+              "Phenylamine",
+              "Lone pair delocalised into the ring; less available",
+              "Weakest"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Order of base strength: ethylamine > ammonia > phenylamine.",
+            "Always explain in terms of how available the lone pair on N is.",
+            "Alkyl groups increase availability; the benzene ring decreases it."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making amines",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "There are three main routes to an amine. This section covers each, with its reagents and conditions."
+        },
+        {
+          "type": "subheading",
+          "text": "From a haloalkane and ammonia"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heat the haloalkane with **excess ammonia** dissolved in ethanol, in a sealed tube under pressure.",
+            "Ammonia is a nucleophile and replaces the halogen: nucleophilic substitution.",
+            "Excess ammonia makes the primary amine the main product."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Primary amine from a haloalkane",
+          "formula": "CH₃CH₂Br + 2NH₃ → CH₃CH₂NH₂ + NH₄Br",
+          "where": [
+            "The second NH₃ removes H⁺ from the intermediate to give NH₄⁺"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The primary amine is also a nucleophile, so it can react with more haloalkane.",
+            "Haloalkane + primary amine (in ethanol, heated under pressure) gives a **secondary amine**.",
+            "Further substitution gives a tertiary amine, then a quaternary ammonium salt, R₄N⁺X⁻.",
+            "A mixture forms unless ammonia is in large excess."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "By reduction of a nitrile"
+        },
+        {
+          "type": "equation",
+          "label": "Reduction of a nitrile",
+          "formula": "CH₃CN + 4[H] → CH₃CH₂NH₂",
+          "where": [
+            "Reagent: LiAlH₄ in dry ether, or H₂ with a nickel catalyst",
+            "[H] is hydrogen supplied by the reducing agent"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "By reduction of a nitroarene"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heat a nitro compound such as nitrobenzene under reflux with **tin and concentrated hydrochloric acid**.",
+            "The product is a phenylammonium salt, because the amine is protonated by the acid.",
+            "Adding sodium hydroxide solution releases the free aromatic amine.",
+            "Aromatic amines made this way are used to manufacture dyes."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Nitrobenzene to phenylamine",
+          "formula": "C₆H₅NO₂ + 6[H] → C₆H₅NH₂ + 2H₂O",
+          "where": [
+            "Sn / concentrated HCl, heated under reflux, then NaOH(aq)"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Haloalkane + excess ethanolic NH₃ gives a primary amine; more substitution gives secondary, tertiary and quaternary products.",
+            "Nitriles are reduced to primary amines with LiAlH₄ or H₂/Ni.",
+            "Nitroarenes are reduced with Sn/concentrated HCl, then NaOH(aq) frees the amine."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Amines as nucleophiles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The lone pair also lets an amine attack positive carbon atoms. This section covers its reactions with haloalkanes and acylating agents."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**With a haloalkane**: nucleophilic substitution, as in the preparation above.",
+            "**With an acyl chloride or acid anhydride**: nucleophilic addition–elimination, giving an N-substituted amide.",
+            "Ammonia reacts with an acyl chloride in the same way to give a primary amide."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Primary amine with ethanoyl chloride",
+          "formula": "CH₃COCl + CH₃CH₂NH₂ → CH₃CONHCH₂CH₃ + HCl",
+          "where": [
+            "The product is N-ethylethanamide",
+            "HCl then reacts with more amine to form a salt"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Quaternary ammonium salts have a positive nitrogen with four hydrocarbon groups. Long hydrocarbon chains make them useful as cationic surfactants, for example in fabric softeners."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a reagent and see what a primary amine forms with it.",
+            "prompt": "Pick a reagent to add to ethylamine, CH₃CH₂NH₂.",
+            "result_labels": [
+              "Main product",
+              "Type of reaction"
+            ],
+            "options": [
+              {
+                "label": "Dilute hydrochloric acid",
+                "results": [
+                  "Ethylammonium chloride, CH₃CH₂NH₃⁺Cl⁻",
+                  "Acid–base: amine accepts H⁺"
+                ],
+                "explanation": "The lone pair on nitrogen takes a proton from the acid."
+              },
+              {
+                "label": "Water",
+                "results": [
+                  "CH₃CH₂NH₃⁺ and OH⁻ (alkaline solution)",
+                  "Acid–base: partial ionisation"
+                ],
+                "explanation": "The amine takes H⁺ from water, leaving OH⁻. It is a weak base, so little ionises."
+              },
+              {
+                "label": "Bromoethane (heated in ethanol)",
+                "results": [
+                  "Diethylamine, (CH₃CH₂)₂NH, with a salt",
+                  "Nucleophilic substitution"
+                ],
+                "explanation": "The amine replaces bromine on the haloalkane, making a secondary amine."
+              },
+              {
+                "label": "Ethanoyl chloride",
+                "results": [
+                  "N-ethylethanamide, CH₃CONHCH₂CH₃, and HCl",
+                  "Nucleophilic addition–elimination"
+                ],
+                "explanation": "The amine attacks the C=O carbon, then chloride is lost."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Amines are nucleophiles because of the lone pair on N.",
+            "Haloalkanes give substitution; acyl chlorides give addition–elimination and an amide.",
+            "Quaternary ammonium salts with a long chain are cationic surfactants."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why ethylamine is a stronger base than ammonia, and ammonia stronger than phenylamine.",
+      "a": "Base strength depends on how available the lone pair on N is to accept H⁺. The ethyl group donates electron density, so the lone pair in ethylamine is more available than in ammonia. In phenylamine the lone pair is delocalised into the benzene ring, so it is less available than in ammonia.",
+      "marks": 4
+    },
+    {
+      "q": "State the reagents and conditions to make ethylamine from bromoethane, and say why a large excess of one reagent is used.",
+      "a": "Heat bromoethane with excess ammonia dissolved in ethanol, in a sealed tube under pressure. The excess ammonia makes it likely that ammonia, not the amine, attacks the haloalkane, so further substitution to secondary and tertiary amines is reduced.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how phenylamine is made from nitrobenzene.",
+      "a": "Heat nitrobenzene under reflux with tin and concentrated hydrochloric acid. This forms the phenylammonium salt. Add excess sodium hydroxide solution to release phenylamine.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.2.1a",
+        "OCR 6.2.1b"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 18B.8",
+        "EDEX 18B.9",
+        "EDEX 18B.10",
+        "EDEX 18B.11",
+        "EDEX 18B.12"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the functional groups to identify and the remaining reaction of butylamine. Butylamine, CH₃CH₂CH₂CH₂NH₂, is the example for primary aliphatic amines."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Be able to identify the **amine** group (–NH₂, –NHR, –NR₂) and the **amide** group (–CONH₂ and N-substituted forms).",
+                "An amino acid has both an amine group and a carboxylic acid group, e.g. H₂NCH₂COOH.",
+                "Butylamine reacts with water to give an alkaline solution, and with acids to give salts.",
+                "It reacts with ethanoyl chloride to give an N-substituted amide, and with halogenoalkanes by substitution."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "With copper(II) ions"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Aqueous butylamine acts as a ligand, because the nitrogen lone pair forms a dative bond to Cu²⁺.",
+                "A little amine first gives a pale blue precipitate of copper(II) hydroxide, as the solution is alkaline.",
+                "Excess amine gives a deep blue solution of a complex ion, with amine ligands replacing water ligands."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.11.1",
+        "AQA 3.3.11.2",
+        "AQA 3.3.11.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the two mechanisms you must be able to outline. Curly arrows show the movement of an electron pair."
+            },
+            {
+              "type": "subheading",
+              "text": "Nucleophilic substitution: ammonia with a haloalkane"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Attack",
+                  "text": "The lone pair on the N of NH₃ attacks the δ+ carbon bonded to the halogen."
+                },
+                {
+                  "lead": "Departure",
+                  "text": "The C–X bond breaks and the halide ion leaves, giving R–NH₃⁺."
+                },
+                {
+                  "lead": "Deprotonation",
+                  "text": "A second NH₃ takes H⁺ from the N, forming the amine R–NH₂ and NH₄⁺."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Nucleophilic addition–elimination: ammonia or a primary amine with an acyl chloride"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Addition",
+                  "text": "The lone pair on N attacks the δ+ carbon of C=O. The C=O π bond breaks onto oxygen, forming an intermediate with O⁻ and N⁺."
+                },
+                {
+                  "lead": "Elimination",
+                  "text": "The lone pair on O⁻ reforms C=O and the chloride ion leaves."
+                },
+                {
+                  "lead": "Loss of H⁺",
+                  "text": "N loses H⁺, giving the amide, and HCl forms."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Acid anhydrides react with ammonia and primary amines in the same way, but the leaving group is a carboxylate ion and the by-product is a carboxylic acid."
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 19.1.1",
+        "CAIE 34.1.1",
+        "CAIE 34.1.3",
+        "CAIE 34.2.1",
+        "CAIE 34.2.2",
+        "CAIE 34.2.3",
+        "CAIE 34.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers extra routes to amines, and the chemistry of phenylamine: bromination, diazonium salts and azo dyes."
+            },
+            {
+              "type": "subheading",
+              "text": "More ways to make amines"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Haloalkane + ammonia in ethanol, heated under pressure: a primary amine.",
+                "Haloalkane + a primary amine in ethanol, heated in a sealed tube: a secondary amine.",
+                "Reduction of an **amide** with LiAlH₄ gives an amine.",
+                "Reduction of a nitrile with LiAlH₄ or H₂/Ni gives a primary amine."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Phenylamine from benzene"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Nitration",
+                  "text": "Benzene is warmed with concentrated HNO₃ and concentrated H₂SO₄ to give nitrobenzene."
+                },
+                {
+                  "lead": "Reduction",
+                  "text": "Nitrobenzene is heated with Sn and concentrated HCl, giving the phenylammonium ion."
+                },
+                {
+                  "lead": "Release",
+                  "text": "NaOH(aq) is added to give phenylamine."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Reactions of phenylamine"
+            },
+            {
+              "type": "list",
+              "items": [
+                "With **Br₂(aq)** at room temperature, a white precipitate of 2,4,6-tribromophenylamine forms and the bromine water is decolourised. The –NH₂ group makes the ring very reactive.",
+                "With **HNO₂** (made from NaNO₂ and dilute acid) below 10 °C, phenylamine forms a benzenediazonium salt.",
+                "Warming the diazonium salt with water gives **phenol** and nitrogen gas."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Azo compounds and dyes"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Benzenediazonium chloride couples with phenol in NaOH(aq) to form an **azo compound**.",
+                "The azo group is –N=N–, joining two aromatic rings.",
+                "Azo compounds are brightly coloured and are often used as dyes.",
+                "Other azo dyes are made by a similar route, coupling a diazonium salt with a different aromatic compound."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Basicity in aqueous solution"
+            },
+            {
+              "type": "paragraph",
+              "text": "Ethylamine, ammonia and phenylamine are all weak bases in water. Use the lone pair explanation: ethylamine is strongest, then ammonia, then phenylamine."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "aa967ee2-ec90-43b0-a0d4-19194cff1a03",
+      "d6bed6b0-e7f8-4970-b5e5-59e9510b9f79",
+      "3f9ddbce-f6a7-4c63-a0d7-5c4df92706ba",
+      "59ef0121-d893-4985-8212-1c8f1d8440bf",
+      "2dc517de-b57a-48c0-9b90-a59b64d091b1",
+      "0ba6e76f-009e-49cb-ba47-b5253c88fe66",
+      "94203edf-11e2-447d-a070-cdd37d83feb1",
+      "09988a69-ad8d-4b94-b2f9-a0c91f96db0e",
+      "f3578ef8-d81b-4b74-812a-3e9fc5e9a01a",
+      "967ea669-684a-4317-b002-810d8ad97749",
+      "ddb1cc04-dbb2-495d-baae-3245a8f8f0f8",
+      "39b2b571-f0cf-447f-aa35-2aae0ca49416",
+      "fbf268e9-652b-49ba-a7f1-9bcecc7d5f27",
+      "e2fcc1de-cc65-4c07-bae7-4ffc16a5ab15",
+      "b8cc1cfc-61f0-4358-a171-1d717ff69469",
+      "1dcd79b1-2baa-46ed-9efe-1cf84beef08b",
+      "41757401-8ac8-45ff-812b-2e988d3ad189"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

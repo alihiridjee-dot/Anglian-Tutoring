@@ -1,0 +1,405 @@
+{
+  "format": 1,
+  "concept_id": "achem-038",
+  "subject": "chemistry",
+  "title": "pH, Kw and strong acids and bases",
+  "key_idea": "pH = −log₁₀[H⁺], so each pH unit is a tenfold change in [H⁺]. The ionic product of water, Kw = [H⁺][OH⁻], links [H⁺] and [OH⁻] and lets you find the pH of a strong base.",
+  "sections": [
+    {
+      "heading": "The pH scale",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section defines pH and shows how to convert between pH and [H⁺]. [H⁺] is the concentration of hydrogen ions in mol/dm³."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "pH",
+              "meaning": "The negative logarithm to base 10 of the hydrogen ion concentration."
+            },
+            {
+              "term": "[H⁺]",
+              "meaning": "The concentration of hydrogen ions, in mol/dm³."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "pH from hydrogen ion concentration",
+          "formula": "pH = −log₁₀[H⁺]",
+          "where": [
+            "pH = the pH value, with no unit",
+            "[H⁺] = hydrogen ion concentration (mol/dm³)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Hydrogen ion concentration from pH",
+          "formula": "[H⁺] = 10^(−pH)",
+          "where": [
+            "[H⁺] = hydrogen ion concentration (mol/dm³)",
+            "pH = the pH value"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "[H⁺] covers a very wide range, so a logarithmic scale is used.",
+            "A change of one pH unit is a tenfold change in [H⁺]. Lower pH means higher [H⁺].",
+            "Under standard conditions, pure water has pH 7, acidic solutions have pH below 7 and alkaline solutions have pH above 7."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "[H⁺] (mol/dm³)",
+            "pH"
+          ],
+          "rows": [
+            [
+              "1.0 × 10⁰",
+              "0"
+            ],
+            [
+              "1.0 × 10⁻²",
+              "2"
+            ],
+            [
+              "1.0 × 10⁻⁷",
+              "7"
+            ],
+            [
+              "1.0 × 10⁻¹²",
+              "12"
+            ],
+            [
+              "2.5 × 10⁻⁴",
+              "3.60"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question comparing hydrogen ion concentrations at two pH values.",
+            "question": "How many times greater is [H⁺] in a solution of pH {a} than in a solution of pH {b}?",
+            "variables": [
+              {
+                "id": "a",
+                "min": 1,
+                "max": 4,
+                "step": 1
+              },
+              {
+                "id": "b",
+                "min": 5,
+                "max": 9,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "10^(b-a)",
+              "unit": "times",
+              "decimals": 0
+            },
+            "working": [
+              "The difference in pH is {b} − {a}.",
+              "Each pH unit is a factor of 10 in [H⁺].",
+              "The ratio is 10^({b} − {a}) = {answer}."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "pH = −log₁₀[H⁺] and [H⁺] = 10^(−pH).",
+            "One pH unit is a factor of 10 in [H⁺].",
+            "Water is pH 7 under standard conditions; acids are below and alkalis above."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Strong acids",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A strong acid dissociates completely in water. This means [H⁺] equals the acid concentration for a monobasic acid."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write",
+              "text": "[H⁺] = concentration of the acid. For a dibasic strong acid treated as fully dissociated, such as H₂SO₄, [H⁺] = 2 × concentration."
+            },
+            {
+              "lead": "Substitute",
+              "text": "pH = −log₁₀[H⁺]."
+            },
+            {
+              "lead": "Answer",
+              "text": "Give the pH to two decimal places, as the data allow."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "0.050 mol/dm³ HCl: [H⁺] = 0.050 mol/dm³, so pH = −log₁₀(0.050) = 1.30."
+        },
+        {
+          "type": "list",
+          "items": [
+            "To go the other way, [H⁺] = 10^(−pH). A pH of 2.40 gives [H⁺] = 4.0 × 10⁻³ mol/dm³.",
+            "Diluting a strong acid ten times raises its pH by exactly 1."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A strong acid is fully dissociated, so [H⁺] = [acid] for a monobasic acid.",
+            "Calculate pH with −log₁₀[H⁺]."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The ionic product of water, Kw",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Water is slightly dissociated. This section covers the equilibrium and what it means for strong bases."
+        },
+        {
+          "type": "equation",
+          "label": "Dissociation of water",
+          "formula": "H₂O(l) ⇌ H⁺(aq) + OH⁻(aq)",
+          "where": [
+            "Forward reaction = endothermic"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Ionic product of water",
+          "formula": "Kw = [H⁺][OH⁻]",
+          "where": [
+            "Kw = ionic product of water (mol²/dm⁶)",
+            "[H⁺] = hydrogen ion concentration (mol/dm³)",
+            "[OH⁻] = hydroxide ion concentration (mol/dm³)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Kw comes from the equilibrium constant for the dissociation of water. The concentration of water is constant and is included in Kw.",
+            "At 298 K, Kw = 1.0 × 10⁻¹⁴ mol²/dm⁶.",
+            "The value of Kw changes with temperature. Dissociation is endothermic, so Kw rises as temperature rises.",
+            "In pure water [H⁺] = [OH⁻], so the water is neutral at every temperature. At a higher temperature neutral pH is below 7."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The pH of a strong base"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find [OH⁻]",
+              "text": "For NaOH, [OH⁻] equals the concentration of the base. For Ba(OH)₂, [OH⁻] = 2 × concentration."
+            },
+            {
+              "lead": "Use Kw",
+              "text": "[H⁺] = Kw ÷ [OH⁻]."
+            },
+            {
+              "lead": "Find pH",
+              "text": "pH = −log₁₀[H⁺]."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "0.020 mol/dm³ NaOH: [H⁺] = 1.0 × 10⁻¹⁴ ÷ 0.020 = 5.0 × 10⁻¹³ mol/dm³, so pH = 12.30."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Kw = [H⁺][OH⁻] and is 1.0 × 10⁻¹⁴ mol²/dm⁶ at 298 K.",
+            "Kw increases with temperature.",
+            "For a strong base find [OH⁻], then [H⁺] = Kw ÷ [OH⁻], then pH."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Calculate the pH of 0.0250 mol/dm³ hydrochloric acid.",
+      "a": "[H⁺] = 0.0250 mol/dm³; pH = −log₁₀(0.0250) = 1.60.",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the pH of 0.0100 mol/dm³ sodium hydroxide at 298 K (Kw = 1.0 × 10⁻¹⁴ mol²/dm⁶).",
+      "a": "[OH⁻] = 0.0100; [H⁺] = 1.0 × 10⁻¹⁴ ÷ 0.0100 = 1.0 × 10⁻¹² mol/dm³; pH = 12.00.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why pure water at 323 K, where Kw = 5.5 × 10⁻¹⁴ mol²/dm⁶, is neutral but has a pH below 7.",
+      "a": "[H⁺] = [OH⁻] so it is neutral. [H⁺] = √(5.5 × 10⁻¹⁴) = 2.3 × 10⁻⁷ mol/dm³, so pH = 6.63, which is below 7.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.3d",
+        "OCR 5.1.3e",
+        "OCR 5.1.3f"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 12.4",
+        "EDEX 12.5",
+        "EDEX 12.6",
+        "EDEX 12.8",
+        "EDEX 12.11",
+        "EDEX 12.12"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.12.2",
+        "AQA 3.1.12.3"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 7.2.5",
+        "CAIE 25.1.3",
+        "CAIE 25.1.4"
+      ],
+      "extra": [
+        {
+          "heading": "Weak acids: Ka, pKa and pH",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A weak acid is only partly dissociated, so [H⁺] is much less than the acid concentration. Its dissociation is an equilibrium with its own constant, Ka."
+            },
+            {
+              "type": "equation",
+              "label": "Dissociation of a weak acid",
+              "formula": "HA(aq) ⇌ H⁺(aq) + A⁻(aq)",
+              "where": [
+                "HA = the weak acid",
+                "A⁻ = its conjugate base"
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Acid dissociation constant",
+              "formula": "Ka = [H⁺][A⁻] / [HA]",
+              "where": [
+                "Ka = acid dissociation constant (mol/dm³ for a monobasic acid)",
+                "[H⁺], [A⁻], [HA] = equilibrium concentrations (mol/dm³)"
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "pKa",
+              "formula": "pKa = −log₁₀Ka",
+              "where": [
+                "Ka = 10^(−pKa)",
+                "a smaller pKa means a stronger acid"
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "pH of a weak acid"
+            },
+            {
+              "type": "list",
+              "items": [
+                "In a solution of the acid alone, each HA that dissociates gives one H⁺ and one A⁻, so [H⁺] = [A⁻].",
+                "Very little acid dissociates, so [HA] at equilibrium is taken as the starting concentration.",
+                "Then Ka = [H⁺]² ÷ [HA], so [H⁺] = √(Ka × [HA]).",
+                "Ka changes only with temperature."
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Data",
+                  "text": "0.100 mol/dm³ ethanoic acid, Ka = 1.74 × 10⁻⁵ mol/dm³."
+                },
+                {
+                  "lead": "[H⁺]",
+                  "text": "[H⁺] = √(1.74 × 10⁻⁵ × 0.100) = 1.32 × 10⁻³ mol/dm³."
+                },
+                {
+                  "lead": "pH",
+                  "text": "pH = −log₁₀(1.32 × 10⁻³) = 2.88."
+                }
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Finding Ka",
+                  "text": "A 0.0500 mol/dm³ weak acid has pH 3.00, so [H⁺] = 1.00 × 10⁻³ mol/dm³."
+                },
+                {
+                  "lead": "Ka",
+                  "text": "Ka = (1.00 × 10⁻³)² ÷ 0.0500 = 2.00 × 10⁻⁵ mol/dm³."
+                },
+                {
+                  "lead": "pKa",
+                  "text": "pKa = −log₁₀(2.00 × 10⁻⁵) = 4.70."
+                }
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Ka = [H⁺][A⁻] ÷ [HA] and pKa = −log₁₀Ka.",
+                "For a weak acid, [H⁺] = √(Ka × [HA]).",
+                "Strong acids and alkalis use the full-dissociation working above."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "ae6cab0c-d41e-4aa8-8e27-324b476b9358",
+      "0ee3522b-eddf-406d-bb2a-2e3fa0c1572e",
+      "0537ec44-aac8-470e-a9af-732dc4b44c49",
+      "0b068efc-20ac-4478-87b9-a6f8f09bc2d2",
+      "eabb6f8f-12df-4769-8d5b-b1723ac9e3b8",
+      "18f5c104-7d8c-4185-9be8-7ebb214956f9",
+      "5a6143e3-0b8d-4277-8217-9eb028ff0e32",
+      "0aed6665-d2fc-4218-a5c7-56e8ed14eb43",
+      "55bf6b93-b78e-4b17-82ff-ada832891c90",
+      "ad34491f-a480-4947-b8d4-6bef00339f53",
+      "b1c462e0-d0f8-4d7c-a544-bb3cd4968783",
+      "79310b50-a917-4bc4-9213-824e47aa765e",
+      "dfde5ecb-81e2-4192-89ba-073039f5889f",
+      "6b95bd0a-995f-4b39-966d-adc17bcde6d1"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

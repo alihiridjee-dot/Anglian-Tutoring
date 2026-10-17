@@ -1,0 +1,478 @@
+{
+  "format": 1,
+  "concept_id": "abio-058",
+  "subject": "biology",
+  "title": "Glycolysis, the link reaction and the Krebs cycle",
+  "key_idea": "Aerobic respiration oxidises glucose in four stages. Glycolysis in the cytoplasm makes pyruvate. The link reaction and Krebs cycle in the mitochondrial matrix remove carbon dioxide and load coenzymes with hydrogen. The coenzymes then pass the hydrogen to the electron transport chain.",
+  "sections": [
+    {
+      "heading": "Why organisms need energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every living cell respires to make ATP. Plants, animals and microorganisms all need energy, because living processes cannot happen without it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Active transport uses ATP to move substances against their concentration gradient, for example mineral ions into root hair cells.",
+            "Movement uses ATP, for example in muscle contraction and in cilia and flagella.",
+            "Anabolic (building) reactions use ATP, for example in DNA replication and protein synthesis.",
+            "Maintaining body temperature in mammals and birds uses energy released by respiration."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Respiration makes ATP, which supplies energy for cell processes.",
+            "Active transport, movement and anabolic reactions all need ATP.",
+            "Plants respire as well as photosynthesise."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Mitochondrial structure",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The mitochondrion is the site of the link reaction, the Krebs cycle and oxidative phosphorylation. Its structure suits these jobs."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "An explorer of the parts of a mitochondrion. Tap each part to read its job.",
+            "prompt": "Tap a part of the mitochondrion to see what it does",
+            "parts": [
+              {
+                "name": "Outer membrane",
+                "detail": "A smooth, partially permeable membrane around the organelle. It separates the mitochondrion from the cytoplasm."
+              },
+              {
+                "name": "Intermembrane space",
+                "detail": "The narrow gap between the two membranes. Protons are pumped into it, so a proton gradient builds up."
+              },
+              {
+                "name": "Inner membrane",
+                "detail": "Folded and impermeable to protons. It holds the electron transport chain and ATP synthase, and it is the site of oxidative phosphorylation."
+              },
+              {
+                "name": "Cristae",
+                "detail": "Folds of the inner membrane. They give a large surface area for electron carriers and ATP synthase."
+              },
+              {
+                "name": "Matrix",
+                "detail": "The fluid inside the inner membrane. It holds the enzymes of the link reaction and Krebs cycle, and it is the site of both."
+              },
+              {
+                "name": "Mitochondrial DNA",
+                "detail": "A loop of DNA in the matrix, with ribosomes, so the mitochondrion can make some of its own proteins."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Matrix: link reaction and Krebs cycle.",
+            "Inner membrane and cristae: electron transport chain and ATP synthase.",
+            "Cristae give a large surface area for ATP production."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Glycolysis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Glycolysis happens in the cytoplasm. It does not need oxygen, so it is the first stage of both aerobic and anaerobic respiration."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Phosphorylation.",
+              "text": "Glucose (6C) is phosphorylated using 2 ATP, making hexose bisphosphate (fructose 1,6-bisphosphate, 6C). This makes it more reactive and traps it in the cell."
+            },
+            {
+              "lead": "Splitting.",
+              "text": "The hexose bisphosphate splits into two molecules of triose phosphate (3C)."
+            },
+            {
+              "lead": "Oxidation.",
+              "text": "Each triose phosphate is oxidised by removing hydrogen, which is accepted by NAD to make reduced NAD."
+            },
+            {
+              "lead": "ATP and pyruvate.",
+              "text": "Each triose phosphate is converted to pyruvate (3C), making 2 ATP by substrate-level phosphorylation."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Net yield per glucose: 2 ATP (4 made, 2 used), 2 reduced NAD and 2 pyruvate.",
+            "Glycolysis occurs whether or not oxygen is present."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Glycolysis is in the cytoplasm and is anaerobic.",
+            "Glucose is phosphorylated, split into two triose phosphates, then oxidised to pyruvate.",
+            "Net: 2 ATP, 2 reduced NAD and 2 pyruvate per glucose."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The link reaction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When oxygen is available, pyruvate enters the mitochondrial matrix by active transport. The link reaction then converts it to acetyl coenzyme A."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pyruvate (3C) is decarboxylated: carbon dioxide is removed.",
+            "Pyruvate is also dehydrogenated (oxidised): hydrogen is removed and NAD is reduced to reduced NAD.",
+            "The remaining acetate (2C) combines with coenzyme A to make acetyl coenzyme A (acetyl CoA).",
+            "Coenzyme A carries the acetyl group to the Krebs cycle.",
+            "It happens twice per glucose, once for each pyruvate."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Pyruvate → acetyl CoA + CO₂ + reduced NAD.",
+            "Coenzyme A transfers acetyl (2C) groups to the Krebs cycle.",
+            "Occurs in the matrix, and no ATP is made."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The Krebs cycle",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Krebs cycle takes place in the matrix. It is a cycle of reactions, each catalysed by a specific enzyme."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Citrate forms.",
+              "text": "The acetyl group (2C) from acetyl CoA combines with oxaloacetate (4C) to make citrate (6C). Coenzyme A is released and used again."
+            },
+            {
+              "lead": "Decarboxylation.",
+              "text": "Citrate loses two carbon atoms as CO₂ in a series of steps."
+            },
+            {
+              "lead": "Dehydrogenation.",
+              "text": "Hydrogen is removed from intermediates and accepted by NAD and FAD, making reduced NAD and reduced FAD."
+            },
+            {
+              "lead": "ATP.",
+              "text": "One ATP is made by substrate-level phosphorylation."
+            },
+            {
+              "lead": "Oxaloacetate regenerates.",
+              "text": "The 4C molecule is regenerated so the cycle can continue."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Stage",
+            "Site",
+            "Products per glucose"
+          ],
+          "rows": [
+            [
+              "Glycolysis",
+              "Cytoplasm",
+              "2 pyruvate, net 2 ATP, 2 reduced NAD"
+            ],
+            [
+              "Link reaction",
+              "Matrix",
+              "2 acetyl CoA, 2 CO₂, 2 reduced NAD"
+            ],
+            [
+              "Krebs cycle",
+              "Matrix",
+              "4 CO₂, 6 reduced NAD, 2 reduced FAD, 2 ATP"
+            ],
+            [
+              "Oxidative phosphorylation",
+              "Inner membrane and cristae",
+              "About 26 to 28 ATP, and water"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Acetyl (2C) + oxaloacetate (4C) → citrate (6C).",
+            "Each turn: 2 CO₂, 3 reduced NAD, 1 reduced FAD and 1 ATP.",
+            "The cycle runs twice per glucose."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The role of the coenzymes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Coenzymes are small molecules that carry groups between enzymes. Three are needed in respiration."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "NAD",
+              "meaning": "Accepts hydrogen from glycolysis, the link reaction and the Krebs cycle, becoming reduced NAD."
+            },
+            {
+              "term": "FAD",
+              "meaning": "Accepts hydrogen in the Krebs cycle, becoming reduced FAD."
+            },
+            {
+              "term": "Coenzyme A",
+              "meaning": "Carries acetyl (2C) groups from the link reaction into the Krebs cycle."
+            },
+            {
+              "term": "Decarboxylation",
+              "meaning": "Removal of a carbon dioxide molecule from a compound."
+            },
+            {
+              "term": "Dehydrogenation",
+              "meaning": "Removal of hydrogen from a compound, which oxidises it."
+            },
+            {
+              "term": "Substrate-level phosphorylation",
+              "meaning": "Making ATP by transferring a phosphate group directly from another molecule to ADP."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Reduced NAD and reduced FAD take hydrogen to the inner mitochondrial membrane.",
+            "There they pass hydrogen to carriers in the electron transport chain, which makes most of the ATP.",
+            "This also regenerates NAD and FAD, so glycolysis and the Krebs cycle can continue."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort events into the site where they occur in aerobic respiration.",
+            "prompt": "Sort each event into the place where it happens",
+            "groups": [
+              "Cytoplasm",
+              "Mitochondrial matrix",
+              "Inner mitochondrial membrane"
+            ],
+            "items": [
+              {
+                "text": "Glucose is phosphorylated using ATP",
+                "group": 0
+              },
+              {
+                "text": "Triose phosphate is oxidised to pyruvate",
+                "group": 0
+              },
+              {
+                "text": "Pyruvate is decarboxylated to acetate",
+                "group": 1
+              },
+              {
+                "text": "Acetyl CoA combines with oxaloacetate",
+                "group": 1
+              },
+              {
+                "text": "Citrate is converted back to oxaloacetate",
+                "group": 1
+              },
+              {
+                "text": "ATP synthase makes ATP",
+                "group": 2
+              },
+              {
+                "text": "Reduced NAD passes hydrogen to the electron carriers",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "NAD and FAD carry hydrogen to the electron transport chain.",
+            "Coenzyme A carries acetyl groups.",
+            "Decarboxylation removes CO₂; dehydrogenation removes hydrogen."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State where glycolysis, the link reaction and the Krebs cycle occur in a eukaryotic cell.",
+      "a": "Glycolysis occurs in the cytoplasm. The link reaction and the Krebs cycle occur in the mitochondrial matrix.",
+      "marks": 3
+    },
+    {
+      "q": "Describe what happens to pyruvate in the link reaction.",
+      "a": "Pyruvate is decarboxylated (CO₂ removed) and dehydrogenated (NAD reduced to reduced NAD). The 2C acetate combines with coenzyme A to make acetyl coenzyme A.",
+      "marks": 3
+    },
+    {
+      "q": "Explain the importance of decarboxylation, dehydrogenation and reduced coenzymes in the Krebs cycle.",
+      "a": "Decarboxylation removes carbon from the substrate as CO₂, so citrate (6C) is converted back to oxaloacetate (4C). Dehydrogenation removes hydrogen, which is accepted by NAD and FAD to make reduced NAD and reduced FAD. These carry hydrogen to the electron transport chain, where most ATP is made.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.5.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Pyruvate enters the mitochondrial matrix by active transport.",
+                "Acetyl coenzyme A reacts with a four-carbon molecule, releasing coenzyme A and producing a six-carbon molecule that enters the Krebs cycle.",
+                "In a series of oxidation-reduction reactions the Krebs cycle generates reduced coenzymes and ATP by substrate-level phosphorylation, and carbon dioxide is lost.",
+                "Other respiratory substrates include the breakdown products of lipids and amino acids, which enter the Krebs cycle.",
+                "Required practical 9: investigate the effect of a named variable on the rate of respiration of cultures of single-celled organisms, such as yeast."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.3",
+        "EDEX 7.4",
+        "EDEX 7.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Overall reaction of aerobic respiration: the respiratory substrate is split to release carbon dioxide as a waste product, and hydrogen is joined with atmospheric oxygen to release a large amount of energy.",
+                "Respiration is a many-stepped process. Each step is controlled and catalysed by a specific intracellular enzyme, so energy is released in small amounts.",
+                "Glycolysis: phosphorylation of hexoses, and the production of ATP, reduced coenzyme and pyruvate. Pyruvate becomes lactate in anaerobic conditions. Details of intermediate stages and compounds are not required.",
+                "Explain why the link reaction and Krebs cycle take place in the mitochondria, unlike glycolysis in the cytoplasm: the enzymes and coenzymes are in the matrix, and oxidative phosphorylation is on the inner membrane. Names of other compounds are not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 12.1.1",
+        "CAIE 12.2.1",
+        "CAIE 12.2.2",
+        "CAIE 12.2.3",
+        "CAIE 12.2.4",
+        "CAIE 12.2.5",
+        "CAIE 12.2.6",
+        "CAIE 12.2.7",
+        "CAIE 12.2.9"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "State where each of the four stages occurs: glycolysis in the cytoplasm, the link reaction and Krebs cycle in the matrix, and oxidative phosphorylation on the inner membrane.",
+                "Outline glycolysis using fructose 1,6-bisphosphate (6C) splitting into two triose phosphate (3C), which are oxidised to pyruvate, with ATP and reduced NAD produced.",
+                "When oxygen is available, pyruvate enters the mitochondria for the link reaction.",
+                "Oxaloacetate (4C) is the acceptor of the 2C fragment from acetyl CoA to form citrate (6C), which is converted back to oxaloacetate in a series of small steps.",
+                "Describe the role of NAD and FAD in transferring hydrogen to carriers in the inner mitochondrial membrane.",
+                "Use diagrams and electron micrographs to relate the structure of a mitochondrion to its function. The cristae and matrix are visible."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.2a",
+        "OCR 5.2.2b",
+        "OCR 5.2.2c",
+        "OCR 5.2.2d",
+        "OCR 5.2.2e",
+        "OCR 5.2.2f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Give examples of why plants, animals and microorganisms respire, such as active transport and named metabolic reactions.",
+                "Name the components of a mitochondrion: outer membrane, inner membrane, cristae, matrix and mitochondrial DNA.",
+                "Describe glycolysis as phosphorylation of glucose to hexose bisphosphate, splitting into two triose phosphates, and oxidation to pyruvate, with a small yield of ATP and reduced NAD.",
+                "Describe the importance of decarboxylation, dehydrogenation, reduction of NAD and FAD, and substrate-level phosphorylation in the Krebs cycle. Names of intermediate compounds are not required.",
+                "Explain the importance of the coenzymes NAD, FAD and coenzyme A."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "c6804261-70b6-4849-a11d-6e4bb3d153d8",
+      "57844198-c184-484a-8dc1-dfa0a2163b8f",
+      "9644e78d-0c08-4528-a72e-2a2d2403ccb1",
+      "d8358e44-1c0e-41af-a971-a6b03c52679b",
+      "390053ca-c826-4aeb-9815-c8b66be84cb9",
+      "6d15d67a-7d37-4491-bfda-5783a543bfd9",
+      "08c1b19c-6dea-475c-8be4-327986505c4e",
+      "038b3d68-dcd3-42ac-9fdb-dbfdad664ff3",
+      "dc7ef58d-00fa-40dc-91c1-dee43f539564",
+      "f5d11b77-90ca-4261-9cde-c373adc769dc",
+      "5b51f2f1-ea94-4407-ba59-f5a1f76c8e21",
+      "4c033265-f6e5-4274-8704-d46626c2b079",
+      "5f48e30c-3372-4842-a0ef-5b25b9669c15",
+      "bd0288e9-a2ee-4389-9314-056ebb9e91f0",
+      "a16c553f-4a91-4528-a9a4-2e2e2cefb0df",
+      "4028f011-bc6f-4edd-8f08-c54da22302df",
+      "a0ae78dd-1f8f-4b1c-806c-097db87289d8",
+      "94426a61-86c8-4798-83fa-a20c98507a85",
+      "591c7bee-3712-43da-8807-cfd1d70d0454"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

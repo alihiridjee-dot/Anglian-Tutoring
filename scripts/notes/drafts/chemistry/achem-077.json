@@ -1,0 +1,331 @@
+{
+  "format": 1,
+  "concept_id": "achem-077",
+  "subject": "chemistry",
+  "title": "Reactions of alcohols",
+  "key_idea": "Alcohols are oxidised, dehydrated and substituted. Primary alcohols oxidise to aldehydes and then carboxylic acids. Secondary alcohols oxidise to ketones. Tertiary alcohols do not oxidise easily. Acid and heat remove water to give alkenes.",
+  "sections": [
+    {
+      "heading": "Oxidation of alcohols",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The product of oxidation depends on the type of alcohol and the conditions. The usual oxidising agent is acidified potassium dichromate(VI), shown as [O] in equations."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Alcohol",
+            "Product",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Primary",
+              "aldehyde, then carboxylic acid",
+              "CH₃CH₂OH + [O] → CH₃CHO + H₂O, then CH₃CHO + [O] → CH₃COOH"
+            ],
+            [
+              "Secondary",
+              "ketone",
+              "CH₃CH(OH)CH₃ + [O] → CH₃COCH₃ + H₂O"
+            ],
+            [
+              "Tertiary",
+              "no reaction under these conditions",
+              "the carbon has no hydrogen to lose"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The orange dichromate(VI) ion, Cr₂O₇²⁻, is reduced to green chromium(III), Cr³⁺, when oxidation occurs.",
+            "With a tertiary alcohol the mixture stays orange."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Controlling the product from a primary alcohol"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Distillation**: add the oxidising agent and distil off the aldehyde as it forms. It has a lower boiling point than the alcohol and cannot form hydrogen bonds, so it leaves before it is oxidised further.",
+            "**Reflux** with excess oxidising agent: the aldehyde stays in the flask and is oxidised to the carboxylic acid."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick an alcohol and conditions and see the product and the colour of acidified potassium dichromate afterwards.",
+            "prompt": "Pick an alcohol and the way it is heated with acidified potassium dichromate(VI).",
+            "result_labels": [
+              "Organic product",
+              "Colour of the mixture"
+            ],
+            "options": [
+              {
+                "label": "Propan-1-ol, distil",
+                "results": [
+                  "Propanal, an aldehyde",
+                  "Orange to green"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "After",
+                      "colour": "green"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Propan-1-ol, reflux with excess",
+                "results": [
+                  "Propanoic acid, a carboxylic acid",
+                  "Orange to green"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "After",
+                      "colour": "green"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Propan-2-ol, heat",
+                "results": [
+                  "Propanone, a ketone",
+                  "Orange to green"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "After",
+                      "colour": "green"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "2-methylpropan-2-ol, heat",
+                "results": [
+                  "No oxidation",
+                  "Stays orange"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "After",
+                      "colour": "orange"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Testing for an aldehyde"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Aldehydes are easily oxidised. Ketones are not. This gives a way to tell them apart.",
+            "Fehling's solution (blue) warmed with an aldehyde gives a red-brown precipitate. A ketone gives no change.",
+            "Tollens' reagent warmed with an aldehyde gives a silver mirror. A ketone gives no change."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Primary alcohols give aldehydes (distil) or carboxylic acids (reflux). Secondary give ketones.",
+            "Tertiary alcohols resist oxidation.",
+            "Only aldehydes react with Fehling's solution or Tollens' reagent."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Elimination and substitution",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Alcohols can lose water to give alkenes, or have the –OH group replaced by a halogen. Mechanisms are not required in most courses."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Elimination (dehydration)**: heat the alcohol with an acid catalyst, concentrated H₃PO₄ or H₂SO₄, to remove H₂O and form an alkene.",
+            "Example: CH₃CH₂OH → CH₂=CH₂ + H₂O.",
+            "Alkenes made this way can be used to make addition polymers without using monomers from crude oil."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Substitution**: heating an alcohol with a hydrogen halide, or with a halide salt and acid, replaces –OH by a halogen to make a halogenoalkane.",
+            "Example: CH₃CH₂OH + HBr → CH₃CH₂Br + H₂O. The HBr can be made in the flask from NaBr and H₂SO₄."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Acid and heat turn an alcohol into an alkene and water.",
+            "Acid and a halide ion turn an alcohol into a halogenoalkane."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the product and give the observation when propan-2-ol is heated with acidified potassium dichromate(VI).",
+      "a": "Propanone (a ketone). The solution turns from orange to green.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how to oxidise ethanol to ethanoic acid rather than ethanal.",
+      "a": "Heat under reflux with excess acidified potassium dichromate(VI), so the aldehyde formed is oxidised further.",
+      "marks": 2
+    },
+    {
+      "q": "Give the reagent and conditions to form propene from propan-1-ol, and write the equation.",
+      "a": "Concentrated phosphoric (or sulfuric) acid and heat. CH₃CH₂CH₂OH → CH₃CH=CH₂ + H₂O.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.1c",
+        "OCR 4.2.1d",
+        "OCR 4.2.1e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Write oxidation equations using [O] to represent the oxidising agent, for Cr₂O₇²⁻/H⁺ (K₂Cr₂O₇/H₂SO₄).",
+                "Know how reaction conditions control the oxidation product of a primary alcohol.",
+                "Elimination of H₂O in the presence of an acid catalyst such as H₃PO₄ or H₂SO₄ and heat. Mechanism not required.",
+                "Substitution with halide ions in the presence of acid, for example NaBr/H₂SO₄, to form haloalkanes. Mechanism not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 6E.38"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Combustion with oxygen in air.",
+                "Halogenation: PCl₅ gives chloroalkanes. 50% concentrated sulfuric acid with potassium bromide gives bromoalkanes. Red phosphorus and iodine give iodoalkanes.",
+                "Potassium dichromate(VI) in dilute sulfuric acid oxidises primary alcohols to aldehydes and carboxylic acids, and secondary alcohols to ketones.",
+                "Test for an aldehyde with Benedict's or Fehling's solution: a red precipitate forms.",
+                "Concentrated phosphoric acid forms alkenes by elimination. Descriptions of the mechanisms are not expected."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.5.2",
+        "AQA 3.3.5.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use Fehling's solution and Tollens' reagent to distinguish aldehydes from ketones.",
+                "Explain how the method used to oxidise a primary alcohol decides whether an aldehyde or a carboxylic acid is obtained.",
+                "Outline the mechanism for the elimination of water from an alcohol: the –OH oxygen is protonated by the acid, water leaves, giving a carbocation, and a proton is lost from the adjacent carbon to form C=C.",
+                "Required practical: distillation of a product from a reaction. Use a still head and condenser, and collect the fraction at the right boiling range."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 16.1.2",
+        "CAIE 16.1.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Combustion with oxygen.",
+                "Substitution to form halogenoalkanes using HX(g); KCl with concentrated H₂SO₄ or concentrated H₃PO₄; PCl₃ and heat; PCl₅; or SOCl₂.",
+                "Reaction with sodium metal: 2CH₃CH₂OH + 2Na → 2CH₃CH₂ONa + H₂. Hydrogen is given off.",
+                "Oxidation with acidified K₂Cr₂O₇ or acidified KMnO₄ to carbonyl compounds by distillation, or to carboxylic acids by refluxing. Tertiary alcohols cannot be oxidised.",
+                "Dehydration to an alkene using a heated catalyst such as Al₂O₃, or a concentrated acid.",
+                "Esterification with carboxylic acids using concentrated H₂SO₄ as catalyst, for example ethanol + ethanoic acid ⇌ ethyl ethanoate + water."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Tri-iodomethane test"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Warm the substance with alkaline aqueous iodine, I₂(aq) and NaOH.",
+                "A pale yellow precipitate of tri-iodomethane, CHI₃, shows the presence of a CH₃CH(OH) group attached to R in an alcohol, CH₃CH(OH)R.",
+                "The R part is left as a carboxylate ion, RCO₂⁻.",
+                "Ethanol and propan-2-ol give a positive test. Propan-1-ol does not."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "bea2c889-a715-4036-b91a-90e58487b2b1",
+      "994da21d-ae0b-45f3-882b-89d47f36369a",
+      "338bfa1d-1f12-4c82-912f-abb21857e19d",
+      "126123bd-34ba-4b94-99ef-4e95201920f2",
+      "90d16cf7-972e-490d-8242-a10e0bb5d9df",
+      "3ccf07b7-253a-4d22-b6a1-893677300bb0",
+      "aef92929-34d1-46a0-8595-981201eb4e4d",
+      "6e51ce4c-f931-4b2f-9844-8a0b6aa7f788"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

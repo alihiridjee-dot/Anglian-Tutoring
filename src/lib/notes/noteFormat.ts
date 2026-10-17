@@ -19,19 +19,33 @@ export const NOTE_FORMAT_VERSION = 1;
 
 /**
  * A board layer is keyed by the student's course, i.e. board and level. GCSE
- * layers keep the bare board name; IGCSE layers end in "_igcse", so Edexcel
- * GCSE and Edexcel IGCSE never collide.
+ * layers keep the bare board name; IGCSE layers end in "_igcse" and A-level
+ * layers in "_alevel", so Edexcel GCSE, IGCSE and A-level never collide.
  */
-export const NOTE_BOARDS = ["aqa", "edexcel", "ocr", "cambridge_igcse", "edexcel_igcse"] as const;
+export const NOTE_BOARDS = [
+  "aqa",
+  "edexcel",
+  "ocr",
+  "cambridge_igcse",
+  "edexcel_igcse",
+  "aqa_alevel",
+  "edexcel_alevel",
+  "ocr_alevel",
+  "cambridge_alevel",
+] as const;
 export type NoteBoard = (typeof NOTE_BOARDS)[number];
 
 /** How a layer is named on screen: "IGCSE Biology · Cambridge". */
-export const NOTE_COURSE: Record<NoteBoard, { level: "GCSE" | "IGCSE"; board: string }> = {
+export const NOTE_COURSE: Record<NoteBoard, { level: "GCSE" | "IGCSE" | "A-level"; board: string }> = {
   aqa: { level: "GCSE", board: "AQA" },
   edexcel: { level: "GCSE", board: "Edexcel" },
   ocr: { level: "GCSE", board: "OCR" },
   cambridge_igcse: { level: "IGCSE", board: "Cambridge" },
   edexcel_igcse: { level: "IGCSE", board: "Edexcel" },
+  aqa_alevel: { level: "A-level", board: "AQA" },
+  edexcel_alevel: { level: "A-level", board: "Edexcel" },
+  ocr_alevel: { level: "A-level", board: "OCR" },
+  cambridge_alevel: { level: "A-level", board: "Cambridge" },
 };
 
 /**
@@ -40,7 +54,8 @@ export const NOTE_COURSE: Record<NoteBoard, { level: "GCSE" | "IGCSE"; board: st
  */
 export function noteLayerFor(board: string | undefined, level: string | null | undefined) {
   if (!board) return undefined;
-  const key = level === "igcse" ? `${board}_igcse` : board;
+  const key =
+    level === "igcse" ? `${board}_igcse` : level === "alevel" ? `${board}_alevel` : board;
   return (NOTE_BOARDS as readonly string[]).includes(key) ? (key as NoteBoard) : undefined;
 }
 
@@ -51,7 +66,7 @@ export function pickNoteLayer(
   level: string | null | undefined,
 ): NoteBoard | undefined {
   if (own && layers.includes(own)) return own;
-  const want = level === "igcse" ? "IGCSE" : "GCSE";
+  const want = level === "igcse" ? "IGCSE" : level === "alevel" ? "A-level" : "GCSE";
   return layers.find((b) => NOTE_COURSE[b].level === want);
 }
 

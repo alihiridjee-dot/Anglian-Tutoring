@@ -1,0 +1,211 @@
+{
+  "format": 1,
+  "concept_id": "abio-065",
+  "subject": "biology",
+  "title": "Nutrient cycles and decomposition",
+  "key_idea": "Nutrients are recycled in ecosystems. Microorganisms are vital: saprobionts decompose dead material, and bacteria change nitrogen between its forms. The carbon cycle links photosynthesis, respiration and decomposition.",
+  "sections": [
+    {
+      "heading": "Decomposition by microorganisms",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dead plants, animals and waste contain elements that other organisms need. Microorganisms break these down and return the elements to the environment."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Saprobiont", "meaning": "A decomposer, mostly bacteria and fungi, that feeds on dead organic matter by external digestion." },
+            { "term": "Decomposition", "meaning": "The breakdown of dead organic matter into simple inorganic substances." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Saprobionts secrete **enzymes** onto dead material. This is extracellular digestion.",
+            "They absorb the soluble products, such as sugars and amino acids, for their own use.",
+            "They respire, releasing carbon dioxide, and they release ammonia, ions and minerals into the soil.",
+            "Decomposition is faster when it is warm, moist and has plenty of oxygen."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Saprobionts digest dead material using extracellular enzymes and absorb the products.",
+            "Their activity recycles carbon, nitrogen and other elements for producers to use again."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The nitrogen cycle",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plants and animals need nitrogen to make proteins and nucleic acids. Most of the nitrogen is in the air as N₂, which they cannot use directly. Bacteria convert it between several forms."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "The nitrogen cycle as a loop.",
+            "loop": true,
+            "steps": [
+              "Nitrogen gas in the air",
+              "Ammonium ions (nitrogen fixation)",
+              "Nitrite then nitrate (nitrification)",
+              "Plants take up nitrate and make protein",
+              "Plants and animals die: ammonification returns ammonium ions",
+              "Denitrification turns nitrate back into N₂ gas"
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": ["Process", "What happens", "Bacteria involved"],
+          "rows": [
+            ["Nitrogen fixation", "Nitrogen gas is converted to ammonia or ammonium ions", "Free-living (Azotobacter) or in root nodules (Rhizobium)"],
+            ["Ammonification", "Saprobionts break down proteins and urea in dead matter and waste into ammonia and ammonium ions", "Saprobiotic bacteria and fungi"],
+            ["Nitrification", "Ammonium ions are oxidised to nitrite (Nitrosomonas), then nitrite is oxidised to nitrate (Nitrobacter)", "Nitrifying bacteria"],
+            ["Denitrification", "Nitrate is converted to nitrogen gas, in waterlogged soil with little oxygen", "Denitrifying bacteria"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Plants absorb **nitrate** ions through their roots and use them to make amino acids, proteins and nucleic acids.",
+            "Animals get nitrogen by eating plants or other animals.",
+            "Nitrification needs oxygen, so it is slow in waterlogged soil, where denitrification is favoured."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Nitrogen is cycled by fixation, ammonification, nitrification and denitrification, all carried out by microorganisms.",
+            "Plants take up nitrate; denitrification returns nitrogen to the air."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The carbon cycle",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Carbon moves between the air, living things and the ground. Biological and physical processes both play a part."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Photosynthesis** removes carbon dioxide from the air and builds carbon compounds in plants.",
+            "Animals eat plants and other animals, passing carbon compounds along food chains.",
+            "**Respiration** by all organisms returns carbon dioxide to the air.",
+            "**Decomposition** by saprobionts breaks down dead material and releases carbon dioxide by respiration.",
+            "Some carbon is locked away as fossil fuels, peat and limestone. Burning fossil fuels (combustion) releases CO₂.",
+            "Physical and chemical effects: carbon dioxide dissolves in the oceans, and marine organisms form shells of calcium carbonate."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Photosynthesis takes carbon dioxide out of the air; respiration, decomposition and combustion put it back.",
+            "Decomposition by microorganisms keeps carbon cycling instead of being locked in dead material."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the process by which Rhizobium bacteria help legumes, and state its product.",
+      "a": "Nitrogen fixation: nitrogen gas from the air is converted to ammonia or ammonium ions.",
+      "marks": 2
+    },
+    {
+      "q": "Describe the roles of microorganisms in the nitrogen cycle.",
+      "a": "Saprobionts carry out ammonification, releasing ammonium from dead matter; nitrifying bacteria oxidise ammonium to nitrite and then nitrate; nitrogen-fixing bacteria turn N₂ into ammonium; denitrifying bacteria turn nitrate into N₂.",
+      "marks": 4
+    },
+    {
+      "q": "Explain how saprobionts return carbon to the atmosphere.",
+      "a": "They secrete enzymes to digest dead organic matter, absorb the products and respire them, releasing carbon dioxide into the air.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.5.4"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Nutrients are also recycled in the phosphorus cycle. Phosphate ions in rocks and soil are taken up by plants, passed along food chains and returned by decomposers.",
+                "**Mycorrhizae** are associations between fungi and plant roots. The fungal hyphae increase the surface area for the uptake of water and inorganic ions, and the plant gives the fungus sugars.",
+                "Harvesting plants and removing livestock takes nitrates and phosphates out of the system. Natural fertilisers (manure) and artificial fertilisers replace them.",
+                "**Leaching** washes soluble nitrates and phosphates out of the soil into water.",
+                "**Eutrophication**: nutrients in the water cause algal bloom, which blocks light. Plants die, decomposers multiply and use up the oxygen, and aerobic organisms such as fish die.",
+                "The names of individual bacteria are not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 5.21", "EDEX 6.1", "EDEX 6.2"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Knowledge of the carbon cycle can reduce atmospheric carbon dioxide: protect forests and peat bogs, plant new forests, and use biofuels in place of fossil fuels.",
+                "**Time of death** of a mammal can be worked out from the extent of decomposition, the stage of succession on the body, forensic entomology, body temperature and muscle contraction.",
+                "The body cools after death, and the temperature drop shows how long ago it died.",
+                "**Rigor mortis**, the stiffening of muscles, starts a few hours after death and later passes. The degree of contraction gives an estimate of time.",
+                "Forensic entomology uses the stage of the life cycle of insects, such as blowfly larvae, found on the body.",
+                "Different species colonise a body in a set order as it decomposes, which is a succession."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": ["OCR 6.3.1c"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the named microorganisms in the nitrogen cycle: Azotobacter (free-living nitrogen fixer), Rhizobium (nitrogen fixer in nodules), Nitrosomonas (ammonium to nitrite) and Nitrobacter (nitrite to nitrate).",
+                "Know the role of decomposers in recycling nutrients."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "4ee831ef-98fe-4bb6-8be1-1303f341115d",
+      "beef33dc-c013-449d-bf21-a5f7afaa7fa7",
+      "3f097ccd-2f07-48ba-9851-6d37a5f4dac2",
+      "f69e377b-2394-435b-a5a2-b25b3830cbbc",
+      "d1ca22db-b8bb-4a32-a8be-93a4da76f0a6"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

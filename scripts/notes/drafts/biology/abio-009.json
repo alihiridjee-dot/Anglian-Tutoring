@@ -1,0 +1,412 @@
+{
+  "format": 1,
+  "concept_id": "abio-009",
+  "subject": "biology",
+  "title": "Eukaryotic cell ultrastructure",
+  "key_idea": "Eukaryotic cells have a nucleus and membrane-bound organelles, each with a job. Electron microscopes reveal their ultrastructure. Plant cells also have a cell wall, chloroplasts and a large vacuole. The rER and Golgi apparatus work together to make and export proteins.",
+  "sections": [
+    {
+      "heading": "Organelles of eukaryotic cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "All living organisms are made of cells with some common features: a cell surface membrane, cytoplasm, genetic material and ribosomes. Eukaryotic cells add a nucleus and other organelles."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ultrastructure",
+              "meaning": "The detailed structure of a cell seen with an electron microscope."
+            },
+            {
+              "term": "Organelle",
+              "meaning": "A structure inside a cell with a specific function, often surrounded by a membrane."
+            },
+            {
+              "term": "Eukaryotic cell",
+              "meaning": "A cell whose DNA is held in a nucleus, with membrane-bound organelles."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "The organelles of eukaryotic cells. Tap each one to see its structure and function.",
+            "prompt": "Tap an organelle to see its structure and function.",
+            "parts": [
+              {
+                "name": "Cell surface membrane",
+                "detail": "A phospholipid bilayer around the cell. It controls what enters and leaves."
+              },
+              {
+                "name": "Nucleus",
+                "detail": "Surrounded by a double membrane (the nuclear envelope) with pores. It holds chromosomes of linear DNA bound to proteins, and one or more nucleoli that make ribosomal RNA and assemble ribosomes."
+              },
+              {
+                "name": "Rough endoplasmic reticulum",
+                "detail": "Flattened, membrane-bound sacs with ribosomes on the surface. It makes proteins and folds them and carries them through the sacs."
+              },
+              {
+                "name": "Smooth endoplasmic reticulum",
+                "detail": "Tubular membranes with no ribosomes. It makes and stores lipids and steroids and carbohydrates."
+              },
+              {
+                "name": "Golgi apparatus",
+                "detail": "A stack of flattened sacs with vesicles. It modifies and packages proteins and makes lysosomes."
+              },
+              {
+                "name": "Mitochondrion",
+                "detail": "A double membrane, with the inner one folded into cristae, around a matrix. It is the site of aerobic respiration, making ATP. It has small circular DNA and 70S ribosomes."
+              },
+              {
+                "name": "Chloroplast",
+                "detail": "A double membrane around stroma and stacks of thylakoids called grana. It is the site of photosynthesis. It has small circular DNA and 70S ribosomes."
+              },
+              {
+                "name": "Ribosome",
+                "detail": "A tiny structure of rRNA and protein, with no membrane. It makes proteins. They are 80S in the cytoplasm and on the rER, and 70S in mitochondria and chloroplasts."
+              },
+              {
+                "name": "Lysosome",
+                "detail": "A membrane-bound sac of hydrolytic enzymes. It digests worn organelles and material taken into the cell."
+              },
+              {
+                "name": "Centriole",
+                "detail": "A pair of hollow cylinders of microtubules near the nucleus in animal cells. They help to form the spindle in cell division."
+              },
+              {
+                "name": "Cell wall",
+                "detail": "A rigid layer outside the membrane of plant and algal cells (made of cellulose) and fungal cells (made of chitin). It supports the cell and stops it bursting."
+              },
+              {
+                "name": "Vacuole",
+                "detail": "A large permanent sac in plant cells, surrounded by a membrane called the tonoplast. It holds cell sap and keeps the cell turgid."
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Many organelles are surrounded by a membrane, so a cell can keep different reactions in separate compartments.",
+            "Mitochondria and chloroplasts have a double membrane, their own circular DNA and 70S ribosomes.",
+            "Specialised cells are organised into tissues, tissues into organs and organs into systems."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Learn each organelle's structure and its link to its function.",
+            "Cells with a specific job have more of the organelles that job needs."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Other structures in eukaryotic cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some cells have extra structures that suit their job."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Cilia** are short, hair-like projections that beat to move fluid or mucus over the cell surface.",
+            "**Flagella** are longer, whip-like projections that beat to move the whole cell, for example a sperm.",
+            "**Microvilli** are tiny finger-like folds of the membrane that increase its surface area for absorption.",
+            "**Plasmodesmata** are narrow channels through plant cell walls, which link the cytoplasm of neighbouring cells.",
+            "**Microtubules** are hollow protein tubes. They make up centrioles, cilia, flagella and the spindle, and vesicles and organelles move along them.",
+            "**Pits** are thin areas of the wall where many plasmodesmata are found."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cilia and flagella move things; microvilli increase surface area.",
+            "Plasmodesmata let substances pass between plant cells."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Comparing plant and animal cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plant and animal cells share many organelles. Plant cells also have structures linked to support and photosynthesis."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Animal cell",
+            "Plant cell"
+          ],
+          "rows": [
+            [
+              "Cell wall",
+              "Absent",
+              "Present, made of cellulose, with a middle lamella of pectin between cells"
+            ],
+            [
+              "Chloroplasts",
+              "Absent",
+              "Present in cells exposed to light"
+            ],
+            [
+              "Amyloplasts",
+              "Absent",
+              "Present in storage cells, where they store starch"
+            ],
+            [
+              "Vacuole",
+              "Small and temporary, if present",
+              "Large and permanent, with a tonoplast"
+            ],
+            [
+              "Centrioles",
+              "Present",
+              "Absent in higher plants"
+            ],
+            [
+              "Plasmodesmata and pits",
+              "Absent",
+              "Present in the cell wall"
+            ],
+            [
+              "Shape",
+              "Variable, often rounded",
+              "Fixed, often regular"
+            ],
+            [
+              "Carbohydrate store",
+              "Glycogen",
+              "Starch"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Both have a nucleus, rough and smooth ER, Golgi apparatus, mitochondria, ribosomes, lysosomes and a cell surface membrane.",
+            "The **middle lamella** is a layer of pectin that glues neighbouring plant cells together."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Plant cells have a wall, chloroplasts and a large vacuole; animal cells do not.",
+            "Both types have a nucleus, mitochondria, ER, Golgi apparatus and ribosomes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making and exporting proteins",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Several organelles work in order to make a protein, process it and release it from the cell. Digestive enzymes released from cells are called extracellular enzymes."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "The route of a protein from nucleus to the outside of the cell.",
+            "steps": [
+              "DNA in the nucleus is copied into mRNA",
+              "Ribosomes on the rER make the protein",
+              "Protein enters the rER and is folded",
+              "Vesicle carries protein to the Golgi",
+              "Golgi modifies and packages the protein",
+              "Secretory vesicle fuses with the membrane and releases the protein"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "mRNA leaves the nucleus through a pore and attaches to a ribosome on the rER.",
+            "The protein passes into the inside of the rER, where it is folded into its shape.",
+            "A piece of rER pinches off as a **vesicle** and carries the protein to the Golgi apparatus.",
+            "The Golgi modifies the protein, for example by adding a carbohydrate, and packages it in a secretory vesicle.",
+            "The vesicle moves to the cell surface membrane and fuses with it, releasing the protein by **exocytosis**.",
+            "Some Golgi vesicles stay in the cell as lysosomes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Order: nucleus, ribosome on rER, rER, vesicle, Golgi, vesicle, cell surface membrane.",
+            "Cells that secrete a lot of protein have a lot of rER and Golgi."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Recognising organelles in electron micrographs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In a TEM image, you recognise an organelle by its shape, its membranes and its size. Learn the clues below."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Organelle",
+            "Clue in a micrograph"
+          ],
+          "rows": [
+            [
+              "Nucleus",
+              "Large and round, with a double envelope with gaps (pores) and darker chromatin inside"
+            ],
+            [
+              "Mitochondrion",
+              "Oval or rod shape, double membrane with inner folds (cristae)"
+            ],
+            [
+              "Chloroplast",
+              "Larger oval, with stacks of discs (grana) and often starch grains"
+            ],
+            [
+              "Rough ER",
+              "Flattened sacs studded with tiny dark dots (ribosomes)"
+            ],
+            [
+              "Smooth ER",
+              "Tubes and sacs with no dots"
+            ],
+            [
+              "Golgi apparatus",
+              "Curved stack of flattened sacs, with small vesicles at the edges"
+            ],
+            [
+              "Lysosome",
+              "Small, round, dense, with a single membrane"
+            ],
+            [
+              "Cell wall",
+              "Thick layer outside the cell surface membrane"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A TEM shows a thin slice, so the same organelle may look round, oval or long, depending on the angle of the cut.",
+            "An SEM shows the outside surface in 3D.",
+            "Use the scale bar or the magnification to work out the real size."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use membranes, folds and dots on the surface to name organelles.",
+            "A slice through an organelle can look different depending on the cut."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the structure of a mitochondrion and state its function.",
+      "a": "It has a double membrane, with the inner membrane folded into cristae, around a matrix; it contains small circular DNA and 70S ribosomes. It is the site of aerobic respiration, making ATP.",
+      "marks": 3
+    },
+    {
+      "q": "Describe the route taken by a protein that is made on the rER and secreted from the cell.",
+      "a": "Made on ribosomes on the rER and folded inside it; carried in a vesicle to the Golgi apparatus; modified and packaged in a secretory vesicle; the vesicle fuses with the cell surface membrane and releases the protein by exocytosis.",
+      "marks": 4
+    },
+    {
+      "q": "State three structures found in a plant cell but not in an animal cell.",
+      "a": "Any three from: cellulose cell wall, chloroplasts, large permanent vacuole with tonoplast, plasmodesmata, pits, amyloplasts.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.1.1"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 3.1",
+        "EDEX 3.2",
+        "EDEX 3.3",
+        "EDEX 3.5",
+        "EDEX 4.7",
+        "EDEX 4.8"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 1.2.1",
+        "CAIE 1.2.2",
+        "CAIE 1.2.3"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.1g",
+        "OCR 2.1.1h",
+        "OCR 2.1.1i",
+        "OCR 2.1.1j"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The cytoskeleton is a network of protein fibres in the cytoplasm. It has three jobs."
+            },
+            {
+              "type": "list",
+              "items": [
+                "It gives **mechanical strength** to the cell and helps it keep its shape.",
+                "It aids **transport** inside cells: vesicles and organelles move along microtubules, driven by motor proteins.",
+                "It enables **cell movement**: it moves cilia and flagella, and changes the shape of the cell in amoeboid movement.",
+                "Microtubules also make the spindle in cell division."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The interrelationship of organelles is the route in the protein pathway: nucleus, rER, vesicle, Golgi, vesicle, cell surface membrane."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "5ce4eaf1-a1ee-4e16-b592-fe23b6c98d95",
+      "0c5d3399-cc11-419e-a196-8121c46e1186",
+      "710667b6-fb4e-41b4-801c-c0b74597bac0",
+      "379de9a3-9edc-4d65-a5f8-6d942419b821",
+      "b369e770-9660-41e4-b6f7-6b85bca7a377",
+      "984354a8-b550-4bf0-b26f-6eb106d8834f",
+      "a00975a0-6012-4aa6-9f27-798a24d06d83",
+      "9ac42e85-5e05-4b38-9e5d-c26dc84ee28a",
+      "cf54a3e9-e9b6-45a2-b500-96ac7b8f6d0f",
+      "c0111471-615d-43cf-b9e6-0ffb8210ef5d",
+      "9d6f487e-66fc-40d1-b624-de70d218f02c",
+      "f18e4470-c56b-4e15-be72-b9a6b47a890e",
+      "e134e9af-3fef-4e9a-81a7-64735c9eeec4",
+      "1501bc53-5b96-44d0-81e2-35f059f3844c"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

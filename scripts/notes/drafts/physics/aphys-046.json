@@ -1,0 +1,464 @@
+{
+  "format": 1,
+  "concept_id": "aphys-046",
+  "subject": "physics",
+  "title": "Hadrons, leptons and quarks",
+  "key_idea": "Matter particles are either hadrons, which feel the strong interaction and are made of quarks, or leptons, which are fundamental. Baryons contain three quarks and mesons contain a quark and an antiquark. Up, down and strange quarks have charges of +⅔e, −⅓e and −⅓e.",
+  "sections": [
+    {
+      "heading": "Classifying particles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Particles that feel the strong interaction are hadrons. Particles that do not are leptons or photons."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Hadron",
+              "meaning": "A particle made of quarks, which feels the strong nuclear force."
+            },
+            {
+              "term": "Baryon",
+              "meaning": "A hadron made of three quarks, such as the proton and neutron."
+            },
+            {
+              "term": "Meson",
+              "meaning": "A hadron made of one quark and one antiquark, such as the pion and kaon."
+            },
+            {
+              "term": "Lepton",
+              "meaning": "A fundamental particle that does not feel the strong force, such as the electron and neutrino."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "All hadrons are affected by both the strong and the weak nuclear force.",
+            "All leptons are affected by the weak force but **not** the strong force.",
+            "Leptons are fundamental: they are not made of anything smaller.",
+            "Hadrons are not fundamental: they are made of quarks.",
+            "Every particle has an antiparticle, so there are antibaryons and antileptons as well."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort each particle into baryon, meson or lepton.",
+            "prompt": "Is each particle a baryon, a meson or a lepton?",
+            "groups": [
+              "Baryon",
+              "Meson",
+              "Lepton"
+            ],
+            "items": [
+              {
+                "text": "Proton",
+                "group": 0
+              },
+              {
+                "text": "Neutron",
+                "group": 0
+              },
+              {
+                "text": "Antiproton",
+                "group": 0
+              },
+              {
+                "text": "Pion",
+                "group": 1
+              },
+              {
+                "text": "Kaon",
+                "group": 1
+              },
+              {
+                "text": "Electron",
+                "group": 2
+              },
+              {
+                "text": "Electron neutrino",
+                "group": 2
+              },
+              {
+                "text": "Positron",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hadrons (baryons and mesons) feel the strong force and are made of quarks.",
+            "Leptons are fundamental and do not feel the strong force."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Quarks and their charges",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A quark is a fundamental particle. There are six flavours: up, down, strange, charm, top and bottom. Every quark has an antiquark."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Quark",
+            "Charge (as a fraction of e)",
+            "Antiquark",
+            "Charge"
+          ],
+          "rows": [
+            [
+              "up (u)",
+              "+⅔",
+              "anti-up (ū)",
+              "−⅔"
+            ],
+            [
+              "down (d)",
+              "−⅓",
+              "anti-down (d̄)",
+              "+⅓"
+            ],
+            [
+              "strange (s)",
+              "−⅓",
+              "anti-strange (s̄)",
+              "+⅓"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "An antiquark has the opposite charge to its quark.",
+            "e is the elementary charge, 1.60 × 10⁻¹⁹ C.",
+            "Charges of hadrons are the sum of the charges of their quarks, and are whole numbers of e."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Up has +⅔e. Down and strange have −⅓e.",
+            "Antiquarks have the opposite charge."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Quark make-up of hadrons",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A baryon is three quarks. A meson is a quark and an antiquark. Add the charges to check each answer."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Particle",
+            "Quarks",
+            "Charge"
+          ],
+          "rows": [
+            [
+              "Proton",
+              "uud",
+              "+⅔ + ⅔ − ⅓ = +1"
+            ],
+            [
+              "Neutron",
+              "udd",
+              "+⅔ − ⅓ − ⅓ = 0"
+            ],
+            [
+              "Antiproton",
+              "ū ū d̄",
+              "−1"
+            ],
+            [
+              "Antineutron",
+              "ū d̄ d̄",
+              "0"
+            ],
+            [
+              "Pion π⁺",
+              "u d̄",
+              "+1"
+            ],
+            [
+              "Pion π⁻",
+              "ū d",
+              "−1"
+            ],
+            [
+              "Kaon K⁺",
+              "u s̄",
+              "+1"
+            ],
+            [
+              "Kaon K⁰",
+              "d s̄",
+              "0"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor activity. Choose a hadron and see its quarks, its charge and its class.",
+            "prompt": "Choose a hadron.",
+            "result_labels": [
+              "Quarks",
+              "Charge",
+              "Class"
+            ],
+            "options": [
+              {
+                "label": "Proton",
+                "results": [
+                  "u u d",
+                  "+1",
+                  "Baryon"
+                ]
+              },
+              {
+                "label": "Neutron",
+                "results": [
+                  "u d d",
+                  "0",
+                  "Baryon"
+                ]
+              },
+              {
+                "label": "Antiproton",
+                "results": [
+                  "ū ū d̄",
+                  "−1",
+                  "Antibaryon"
+                ]
+              },
+              {
+                "label": "Pion π⁺",
+                "results": [
+                  "u d̄",
+                  "+1",
+                  "Meson"
+                ]
+              },
+              {
+                "label": "Pion π⁻",
+                "results": [
+                  "ū d",
+                  "−1",
+                  "Meson"
+                ]
+              },
+              {
+                "label": "Kaon K⁺",
+                "results": [
+                  "u s̄",
+                  "+1",
+                  "Meson"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Proton uud, neutron udd.",
+            "Mesons are a quark and an antiquark, such as π⁺ = u d̄.",
+            "The total charge of the quarks is the charge of the hadron."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the quark composition of a proton and a neutron.",
+      "a": "Proton: up, up, down (uud). Neutron: up, down, down (udd).",
+      "marks": 2
+    },
+    {
+      "q": "A meson is made of an up quark and an anti-down quark. Show that its charge is +1e and state whether it is a baryon, a meson or a lepton.",
+      "a": "Charge = +⅔e + (+⅓e) = +1e. It is a meson: a hadron made of a quark and an antiquark.",
+      "marks": 3
+    },
+    {
+      "q": "State two differences between hadrons and leptons.",
+      "a": "Hadrons are made of quarks and feel the strong nuclear force. Leptons are fundamental particles and do not feel the strong force.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.1.5",
+        "AQA 3.2.1.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The proton is the only stable baryon. Other baryons eventually decay into it.",
+                "The pion is the exchange particle of the strong nuclear force. The kaon can decay into pions.",
+                "Leptons include the electron, the muon and the electron and muon neutrinos, and their antiparticles.",
+                "The muon decays into an electron.",
+                "**Baryon number** is a quantum number. Baryons have +1, antibaryons −1 and everything else 0.",
+                "**Lepton number** is a quantum number. Leptons have +1 and antileptons −1. Electron and muon lepton numbers are each conserved.",
+                "Particle physics relies on large teams of scientists and engineers to validate new knowledge."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Strange particles"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Strange particles, such as kaons, are produced through the strong interaction but decay through the weak interaction.",
+                "They are always created in pairs. This is shown by a quantum number called **strangeness** (symbol s).",
+                "Strangeness is conserved in strong interactions. It can change by 0, +1 or −1 in weak interactions."
+              ]
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Quark",
+                "Charge",
+                "Baryon number",
+                "Strangeness"
+              ],
+              "rows": [
+                [
+                  "u",
+                  "+⅔",
+                  "+⅓",
+                  "0"
+                ],
+                [
+                  "d",
+                  "−⅓",
+                  "+⅓",
+                  "0"
+                ],
+                [
+                  "s",
+                  "−⅓",
+                  "+⅓",
+                  "−1"
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "An antiquark has the opposite value of each property. The neutron decays by changing a d quark to a u quark: n → p + e⁻ + ν̄."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.140"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In the standard quark–lepton model, particles are classified as baryons, mesons, leptons and photons.",
+                "Photons are particles of electromagnetic radiation. They are neither hadrons nor leptons.",
+                "The symmetry of the model predicted the top quark before it was found."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 11.2.1",
+        "CAIE 11.2.2",
+        "CAIE 11.2.3",
+        "CAIE 11.2.4",
+        "CAIE 11.2.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "table",
+              "columns": [
+                "Flavour",
+                "Charge (as a fraction of e)"
+              ],
+              "rows": [
+                [
+                  "up (u), charm (c), top (t)",
+                  "+⅔"
+                ],
+                [
+                  "down (d), strange (s), bottom (b)",
+                  "−⅓"
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The antiquark of each flavour has the opposite charge. No other quark properties are needed."
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.4.2c",
+        "OCR 6.4.2d",
+        "OCR 6.4.2e",
+        "OCR 6.4.2f",
+        "OCR 6.4.2g"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "7d79e20c-479d-48e2-b93d-4212abbca0cb",
+      "0bb7baae-14b0-47c8-b3ff-70fa2557c649",
+      "5508da25-80bb-4c7a-ba7f-5abe3531930a",
+      "8b240128-be0f-45a7-a0df-9d977f4ab14e",
+      "eb67826d-2574-4f20-a012-cdfc61389bf7",
+      "6fdc8fd9-0e8f-4814-9aca-24a8e7ade43b",
+      "7f2446e0-4175-4d5a-a91d-7cff19baabee",
+      "be40c4b5-c81f-40fb-a413-9689d19df9ee",
+      "0b4a367c-d00f-49e7-a44f-010c8d5fd365",
+      "e1f96166-ef9c-4638-b60f-56aceb06beb4",
+      "c8027cf1-c27a-4e1a-8a2c-c2cd93ae7e92",
+      "de43f782-caa4-4338-84d5-d1cd5cfa73d8",
+      "2fee512e-37c1-4100-8283-a03d6d90da6b"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

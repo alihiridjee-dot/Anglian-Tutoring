@@ -1,0 +1,474 @@
+{
+  "format": 1,
+  "concept_id": "achem-050",
+  "subject": "chemistry",
+  "title": "Periodicity across Periods 2 and 3",
+  "key_idea": "Properties repeat across each period because the outer electron configuration repeats. Atomic radius falls and first ionisation energy rises across a period. Melting point follows the structure: metallic, then giant covalent, then simple molecular.",
+  "sections": [
+    {
+      "heading": "Blocks and electron configurations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Periodic Table lists elements by increasing proton number. This section covers how position shows the outer electrons."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Periodicity",
+              "meaning": "A repeating pattern in properties of the elements across each period."
+            },
+            {
+              "term": "Block",
+              "meaning": "A region of the table named after the sub-shell that holds the highest-energy outer electron: s, p, d or f."
+            },
+            {
+              "term": "Period",
+              "meaning": "A horizontal row. Elements in it fill the same outer shell."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**s-block**: Groups 1 and 2, where the outer electrons fill an s sub-shell.",
+            "**p-block**: Groups 13 to 18, where the outer electrons fill a p sub-shell.",
+            "**d-block**: the transition elements, where electrons fill a d sub-shell.",
+            "f-block: the lanthanoids and actinoids, set below the main table."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Electron configuration sets chemical properties. Elements in a group have the same outer configuration, so they react in similar ways."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Element",
+            "Na",
+            "Mg",
+            "Al",
+            "Si",
+            "P",
+            "S",
+            "Cl",
+            "Ar"
+          ],
+          "rows": [
+            [
+              "Outer configuration",
+              "3s¹",
+              "3s²",
+              "3s²3p¹",
+              "3s²3p²",
+              "3s²3p³",
+              "3s²3p⁴",
+              "3s²3p⁵",
+              "3s²3p⁶"
+            ],
+            [
+              "Block",
+              "s",
+              "s",
+              "p",
+              "p",
+              "p",
+              "p",
+              "p",
+              "p"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Period 2 follows the same pattern with 2s and 2p. Lithium and beryllium are s-block. Boron to neon are p-block."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Block is set by where the highest-energy electron sits.",
+            "Periods repeat the same outer configurations, so properties repeat too.",
+            "Outer electrons decide whether an element loses, gains or shares electrons."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Atomic radius and first ionisation energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Both quantities depend on the nuclear charge, the distance of the outer electron and the shielding by inner electrons. This section covers each trend across a period."
+        },
+        {
+          "type": "subheading",
+          "text": "Atomic radius"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Atomic radius **decreases** across a period.",
+            "Each element has one more proton, so nuclear charge rises.",
+            "The extra electron goes into the same shell, so shielding hardly changes.",
+            "Outer electrons are pulled in more strongly."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "First ionisation energy"
+        },
+        {
+          "type": "equation",
+          "label": "First ionisation energy",
+          "formula": "X(g) → X⁺(g) + e⁻",
+          "where": [
+            "X: one mole of gaseous atoms",
+            "Energy is in kJ/mol"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "It **increases** across a period overall, for the same reasons as the falling radius.",
+            "It falls sharply from the end of one period to the start of the next. The new outer electron is in a new shell: further out and better shielded.",
+            "Mg to Al falls. The 3p electron of Al is higher in energy than the 3s electrons of Mg and is shielded slightly by them.",
+            "P to S falls. In S the fourth 3p electron pairs with another in one orbital, and the repulsion makes it easier to remove."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Period 2 shows the same two dips, at Be to B and at N to O."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Line graph of first ionisation energy against atomic number for sodium to argon. It rises overall, with small dips at aluminium and sulfur.",
+            "x": {
+              "label": "Atomic number",
+              "min": 11,
+              "max": 18,
+              "ticks": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18
+              ]
+            },
+            "y": {
+              "label": "First ionisation energy (shape only)"
+            },
+            "series": [
+              {
+                "name": "Na to Ar",
+                "points": [
+                  [
+                    11,
+                    0.31
+                  ],
+                  [
+                    12,
+                    0.46
+                  ],
+                  [
+                    13,
+                    0.36
+                  ],
+                  [
+                    14,
+                    0.49
+                  ],
+                  [
+                    15,
+                    0.63
+                  ],
+                  [
+                    16,
+                    0.62
+                  ],
+                  [
+                    17,
+                    0.78
+                  ],
+                  [
+                    18,
+                    0.95
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Atomic radius falls across a period as nuclear charge rises with no extra shell.",
+            "First ionisation energy rises overall, with dips at Group 13 and Group 16.",
+            "Both dips are explained by sub-shell energy and electron pairing."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Melting points and conductivity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Melting point depends on the structure and bonding, not on the atoms alone. This section covers Period 3, then the shape of the pattern."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Element",
+            "Structure",
+            "Bonding to overcome",
+            "Melting point"
+          ],
+          "rows": [
+            [
+              "Na, Mg, Al",
+              "Giant metallic",
+              "Attraction between cations and delocalised electrons",
+              "Rises from Na to Al"
+            ],
+            [
+              "Si",
+              "Giant covalent",
+              "Many strong covalent bonds",
+              "Highest in the period"
+            ],
+            [
+              "P₄, S₈, Cl₂",
+              "Simple molecular",
+              "Weak London forces between molecules",
+              "Low"
+            ],
+            [
+              "Ar",
+              "Single atoms",
+              "Very weak London forces",
+              "Lowest"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Na to Al: more delocalised electrons per atom and a smaller, more highly charged ion. The metallic bonding is stronger.",
+            "Si: a giant covalent lattice, so a very large amount of energy breaks the covalent bonds.",
+            "S₈ is higher than P₄, then Cl₂, then Ar. The larger the molecule, the more electrons and the stronger the London forces.",
+            "Boiling temperatures follow the same pattern as melting points."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Period 2 repeats the pattern. Lithium and beryllium are metallic. Boron and carbon are giant covalent with the highest melting points. N₂, O₂, F₂ and Ne are simple molecular and low."
+        },
+        {
+          "type": "subheading",
+          "text": "Electrical conductivity"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Metals conduct because delocalised electrons move through the lattice. Conductivity rises from Na to Al as more electrons per atom are delocalised.",
+            "Silicon is a semiconductor: it conducts poorly.",
+            "P, S, Cl and Ar do not conduct. Their electrons are held in molecules or atoms and cannot move."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Put each Period 3 element into its structure type.",
+            "prompt": "Sort each element by its structure.",
+            "groups": [
+              "Giant metallic",
+              "Giant covalent",
+              "Simple molecular or atoms"
+            ],
+            "items": [
+              {
+                "text": "Na",
+                "group": 0
+              },
+              {
+                "text": "Mg",
+                "group": 0
+              },
+              {
+                "text": "Al",
+                "group": 0
+              },
+              {
+                "text": "Si",
+                "group": 1
+              },
+              {
+                "text": "P₄",
+                "group": 2
+              },
+              {
+                "text": "S₈",
+                "group": 2
+              },
+              {
+                "text": "Cl₂",
+                "group": 2
+              },
+              {
+                "text": "Ar",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Melting point rises Na to Al, peaks at Si, then drops for molecules.",
+            "Metals conduct because of delocalised electrons. Silicon is a semiconductor.",
+            "Always name the structure, then the bonds or forces that are overcome."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why the first ionisation energy of aluminium is lower than that of magnesium.",
+      "a": "The outer electron removed from Al is in a 3p sub-shell, which is higher in energy than the 3s sub-shell of Mg. The 3p electron is also shielded slightly by the 3s electrons, so it is easier to remove.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why magnesium has a higher melting point than sodium.",
+      "a": "Both have giant metallic lattices. Mg has two delocalised electrons per atom and a smaller ion with a 2+ charge, so the attraction between ions and electrons is stronger. More energy is needed to overcome it.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why sulfur has a higher melting point than chlorine.",
+      "a": "Both are simple molecular, so London forces between molecules are overcome. S₈ is a larger molecule with more electrons than Cl₂, so its London forces are stronger and more energy is needed.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.1a",
+        "OCR 3.1.1b",
+        "OCR 3.1.1g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Periodic Table has been refined as evidence grew. This part covers how the law of periodicity was developed and accepted."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Early tables were ordered by relative atomic mass. Elements were grouped by similar properties.",
+                "Mendeleev left gaps and predicted properties of undiscovered elements. The elements later found, such as gallium and germanium, matched the predictions.",
+                "That success led the scientific community to accept the Periodic Law.",
+                "Ordering by proton number later fixed the pairs that had seemed out of order.",
+                "New elements are accepted once their discovery has been confirmed by other scientists, and the table is extended."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 1.22",
+        "EDEX 1.23",
+        "EDEX 1.24",
+        "EDEX 1.25",
+        "EDEX 1.26"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.1.1",
+        "AQA 3.2.1.2"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 9.1.1",
+        "CAIE 9.1.2",
+        "CAIE 9.3.1",
+        "CAIE 9.3.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers ionic radius and how to use periodicity to predict and deduce."
+            },
+            {
+              "type": "subheading",
+              "text": "Ionic radius across Period 3"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Na⁺, Mg²⁺ and Al³⁺ have the same 10 electrons. More protons pull them in, so the radius **decreases**: Na⁺ > Mg²⁺ > Al³⁺.",
+                "P³⁻, S²⁻ and Cl⁻ have 18 electrons. More protons again, so P³⁻ > S²⁻ > Cl⁻.",
+                "A cation is smaller than its atom because it has lost the outer shell.",
+                "An anion is larger than its atom because extra electrons repel each other.",
+                "Every anion in Period 3 is larger than every cation, because the anions have one more shell."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Predicting and deducing"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Position in a group tells you the outer configuration, so you can predict an element's usual ion, oxide formula and structure.",
+                "A large jump between successive ionisation energies shows the number of outer electrons, and so the group.",
+                "A high melting point with good conductivity suggests a metal. A very high melting point with poor conductivity suggests a giant covalent element.",
+                "Compare an unknown element's data with the known trend to place it in the table."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "abff0a20-31a1-449e-8a4a-528e010d7443",
+      "1d474f83-dcc2-4e81-bd74-3ae29af51a1c",
+      "9e82d572-f72b-47b8-b3f8-6ceb831fa819",
+      "4fc44816-9aa9-4542-9b02-5d0ad533f87e",
+      "687532b2-7996-4da3-a14a-45746d6c71b0",
+      "c85be2d0-b09c-4cd3-a385-99ffc5a699b2",
+      "abc6b629-2fe2-43ad-83c3-14f8397cc356",
+      "a2408ebd-0fe7-4ae2-959b-383c3cee89af",
+      "6e704ad7-0548-4db7-b1ce-d6e59210a2a9",
+      "b23d1040-6c66-4350-ae14-08fd7f26f5c0",
+      "78587de6-5b43-4669-a0aa-b37e47983bec",
+      "e3d1ae2d-ed76-404e-8653-f41d8438eff0",
+      "e47b4421-b061-43b0-ba7e-35ff61cfe46a",
+      "c13f14cd-1157-476c-ae6d-b0b5f6b4e33d"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

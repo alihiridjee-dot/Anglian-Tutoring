@@ -1,0 +1,346 @@
+{
+  "format": 1,
+  "concept_id": "achem-028",
+  "subject": "chemistry",
+  "title": "Catalysts",
+  "key_idea": "A catalyst speeds up a reaction without being used up. It gives an alternative route with a lower activation energy. More molecules then have enough energy to react, so more collisions are effective.",
+  "sections": [
+    {
+      "heading": "How a catalyst works",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A catalyst changes the route of a reaction, not its start or end point. This section covers what it does and why the rate rises."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Catalyst",
+              "meaning": "A substance that increases the rate of a reaction without being changed in chemical composition or amount."
+            },
+            {
+              "term": "Catalysis",
+              "meaning": "The speeding up of a reaction by a catalyst."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The catalyst provides an **alternative reaction route**, with a different mechanism.",
+            "The new route has a **lower activation energy**.",
+            "More collisions have energy of at least the new, lower Eₐ, so more are effective.",
+            "The catalyst is not used up. It is regenerated at the end of the reaction.",
+            "It does not change the enthalpy change, or the position of equilibrium."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A catalyst gives an alternative route with a lower Eₐ.",
+            "It is not used up overall.",
+            "It does not change the reactants, products or enthalpy change."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reaction profiles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A reaction profile shows the energy along the reaction pathway. This section covers how to draw it with and without a catalyst."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick the uncatalysed or the catalysed reaction and see its reaction profile, activation energy, enthalpy change and rate.",
+            "prompt": "Pick a reaction",
+            "result_labels": [
+              "Activation energy",
+              "Enthalpy change",
+              "Rate"
+            ],
+            "options": [
+              {
+                "label": "Uncatalysed",
+                "results": [
+                  "High: one tall peak",
+                  "Same for both",
+                  "Slower"
+                ],
+                "explanation": "The reactants must climb the whole energy barrier.",
+                "scene": {
+                  "kind": "energy-profile",
+                  "direction": "exothermic",
+                  "catalyst": false
+                }
+              },
+              {
+                "label": "Catalysed",
+                "results": [
+                  "Lower: a lower peak on a new route",
+                  "Same for both",
+                  "Faster"
+                ],
+                "explanation": "The lower route has a smaller barrier. The reactants and products are at the same energy as before.",
+                "scene": {
+                  "kind": "energy-profile",
+                  "direction": "exothermic",
+                  "catalyst": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Draw the same reactant and product levels for both reactions.",
+            "Draw the uncatalysed route as a higher peak.",
+            "Draw the catalysed route as a lower peak, and label both activation energies.",
+            "The enthalpy change, ΔH, is the same for both."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Both profiles start and finish at the same levels.",
+            "The catalysed peak is lower.",
+            "ΔH does not change."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Catalysts and the Maxwell–Boltzmann distribution",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The distribution of energies explains why a lower Eₐ gives a faster rate. This section covers how to show it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Draw one Maxwell–Boltzmann curve at one temperature.",
+            "Mark the uncatalysed Eₐ and a second, lower Eₐ for the catalysed route.",
+            "The area to the right of the lower Eₐ is bigger.",
+            "A greater proportion of molecules has enough energy to react, so the rate increases.",
+            "The curve itself does not change, because the temperature is the same."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The curve stays the same. Only Eₐ moves to the left.",
+            "A larger area lies beyond the lower Eₐ."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Homogeneous and heterogeneous catalysts",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Catalysts are grouped by their phase compared with the reactants. This section covers the two types and why catalysts matter in industry."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Homogeneous catalyst",
+              "meaning": "A catalyst in the same phase as the reactants."
+            },
+            {
+              "term": "Heterogeneous catalyst",
+              "meaning": "A catalyst in a different phase from the reactants, usually a solid with gaseous or liquid reactants."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity: decide whether each catalyst is homogeneous or heterogeneous.",
+            "prompt": "Sort each catalyst into the correct group.",
+            "groups": [
+              "Homogeneous",
+              "Heterogeneous"
+            ],
+            "items": [
+              {
+                "text": "Iron in the Haber process",
+                "group": 1
+              },
+              {
+                "text": "Aqueous H⁺ ions catalysing the formation of an ester",
+                "group": 0
+              },
+              {
+                "text": "Platinum in a catalytic converter",
+                "group": 1
+              },
+              {
+                "text": "Aqueous Fe²⁺ ions in a reaction between aqueous ions",
+                "group": 0
+              },
+              {
+                "text": "Vanadium(V) oxide in the contact process",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **heterogeneous** catalyst gives a surface on which gas-phase reactants adsorb and react. A larger surface area is more effective.",
+            "A solid catalyst is easy to separate from the products.",
+            "Catalysts allow lower temperatures and pressures, which reduces energy demand.",
+            "Less energy from burning fossil fuels means lower CO₂ emissions.",
+            "Catalysts often let a reaction use fewer steps or less waste, which makes the process cheaper."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Some catalysts are toxic or hazardous, such as some heavy metal compounds. The benefits to the environment are weighed against this.",
+            "Catalysts can be poisoned by impurities, and some are expensive."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Same phase: homogeneous. Different phase: heterogeneous.",
+            "Catalysts reduce energy use, costs and CO₂ emissions.",
+            "Toxicity of some catalysts must be weighed against these benefits."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how a catalyst increases the rate of a reaction.",
+      "a": "It provides an alternative reaction route with a lower activation energy. A greater proportion of collisions have energy of at least the lower activation energy, so more collisions are effective.",
+      "marks": 3
+    },
+    {
+      "q": "State what a catalyst changes and what it does not change in a reaction profile.",
+      "a": "It lowers the activation energy (the peak). It does not change the energy of the reactants or products, so the enthalpy change is the same.",
+      "marks": 2
+    },
+    {
+      "q": "Explain the difference between a homogeneous and a heterogeneous catalyst, with an example of each.",
+      "a": "A homogeneous catalyst is in the same phase as the reactants, for example aqueous H⁺ ions. A heterogeneous catalyst is in a different phase, for example solid iron in the Haber process.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.2.2c",
+        "OCR 3.2.2d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know the sustainability benefits of catalysts and weigh them against toxicity."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Lower temperatures mean less energy from fossil fuels and so less CO₂.",
+                "Details of the catalysed processes are not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 9.5",
+        "EDEX 9.6",
+        "EDEX 9.7",
+        "EDEX 9.8",
+        "EDEX 9.9"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know the use of a solid (heterogeneous) catalyst in gas-phase industrial reactions, and the economic benefits."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Gas molecules adsorb onto the surface of the solid, react, then leave the surface.",
+                "The surface provides the place for the reaction and a lower Eₐ route.",
+                "A lower temperature or pressure cuts fuel and plant costs, and a faster rate raises output."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.5.5"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 8.3.1",
+        "CAIE 26.2.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Be ready to construct and interpret reaction pathway diagrams, and to explain catalysis using the Boltzmann distribution."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Draw the catalysed and uncatalysed pathways on one set of axes.",
+                "Label Eₐ for each pathway.",
+                "State that the catalysed reaction has a different mechanism."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "37d94771-916e-4d53-b6b3-ba7aa602776c",
+      "97022152-728d-49df-926a-d107105a15a2",
+      "e75b7ab9-6808-47a8-9d20-a8cceb573262",
+      "a40a4dfb-6f5e-4610-83bf-24dcc54c4da9",
+      "38864a19-109a-4dfe-be27-962d1168709a",
+      "b3bd4127-0978-4c85-8cc8-bd9c29fba997",
+      "f005dbb7-fc9f-4ca4-9b5b-cf0a5c1f616b",
+      "bf8b38ac-ac9b-4cf7-91ee-99398d816989",
+      "7dee8875-652a-4343-833e-fb5b060bd8a2",
+      "d84a9026-a5d7-4445-83be-946ae6ff8a30"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

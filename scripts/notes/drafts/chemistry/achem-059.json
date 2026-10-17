@@ -1,0 +1,358 @@
+{
+  "format": 1,
+  "concept_id": "achem-059",
+  "subject": "chemistry",
+  "title": "Transition elements and their properties",
+  "key_idea": "A transition element is a d-block element that forms at least one stable ion with an incomplete d sub-shell. That incomplete d sub-shell gives four typical properties: complex formation, coloured ions, variable oxidation states and catalytic activity.",
+  "sections": [
+    {
+      "heading": "Electron configurations of the d-block",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how to write the configurations of Period 4 d-block atoms and ions, from scandium to zinc."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The 4s sub-shell fills before the 3d sub-shell, because 4s is lower in energy in the atom.",
+            "Argon is 1s²2s²2p⁶3s²3p⁶. Write [Ar] for this core, then add 3d and 4s.",
+            "Iron: 1s²2s²2p⁶3s²3p⁶3d⁶4s², or [Ar] 3d⁶4s².",
+            "Chromium and copper are exceptions. Cr is [Ar] 3d⁵4s¹ and Cu is [Ar] 3d¹⁰4s¹. A half-filled or full 3d sub-shell is more stable."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Forming ions"
+        },
+        {
+          "type": "list",
+          "items": [
+            "When a d-block atom forms a positive ion, the **4s electrons are lost first**, then 3d electrons.",
+            "Fe²⁺ is [Ar] 3d⁶. Fe³⁺ is [Ar] 3d⁵.",
+            "Cu²⁺ is [Ar] 3d⁹. Cu⁺ is [Ar] 3d¹⁰.",
+            "Zn²⁺ is [Ar] 3d¹⁰. Sc³⁺ is [Ar], with no d electrons."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Count electrons.",
+              "text": "Cobalt, atomic number 27, has 27 electrons. Co²⁺ has 25."
+            },
+            {
+              "lead": "Fill in order.",
+              "text": "Fill up to argon (18), then 4s², then 3d⁷ for the atom: [Ar] 3d⁷4s²."
+            },
+            {
+              "lead": "Remove 4s first.",
+              "text": "Take away two electrons from 4s: Co²⁺ is [Ar] 3d⁷."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fill 4s before 3d, but remove 4s electrons first when forming ions.",
+            "Cr is 3d⁵4s¹ and Cu is 3d¹⁰4s¹.",
+            "Count the electrons in the ion, not the atom."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What makes a transition element",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The definition depends on the ion, not on the atom. This section covers the definition and why scandium and zinc are left out."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Transition element",
+              "meaning": "A d-block element that forms one or more stable ions with an incomplete d sub-shell."
+            },
+            {
+              "term": "d-block element",
+              "meaning": "An element whose highest-energy electron is in a d sub-shell."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Element",
+            "Ion",
+            "d electrons",
+            "Transition element?"
+          ],
+          "rows": [
+            [
+              "Scandium",
+              "Sc³⁺",
+              "3d⁰, empty",
+              "No"
+            ],
+            [
+              "Titanium",
+              "Ti³⁺",
+              "3d¹",
+              "Yes"
+            ],
+            [
+              "Iron",
+              "Fe³⁺",
+              "3d⁵",
+              "Yes"
+            ],
+            [
+              "Copper",
+              "Cu²⁺",
+              "3d⁹",
+              "Yes"
+            ],
+            [
+              "Zinc",
+              "Zn²⁺",
+              "3d¹⁰, full",
+              "No"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Scandium only forms Sc³⁺, which has an empty d sub-shell.",
+            "Zinc only forms Zn²⁺, which has a full d sub-shell.",
+            "Neither has an ion with an **incomplete d sub-shell**, so neither is a transition element.",
+            "The transition elements are titanium to copper."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each ion into transition element or not a transition element, using its d electrons.",
+            "prompt": "Each element forms the ion shown. Does that element count as a transition element?",
+            "groups": [
+              "Transition element",
+              "Not a transition element"
+            ],
+            "items": [
+              {
+                "text": "Vanadium: V³⁺ is 3d²",
+                "group": 0
+              },
+              {
+                "text": "Iron: Fe³⁺ is 3d⁵",
+                "group": 0
+              },
+              {
+                "text": "Copper: Cu²⁺ is 3d⁹",
+                "group": 0
+              },
+              {
+                "text": "Titanium: Ti³⁺ is 3d¹",
+                "group": 0
+              },
+              {
+                "text": "Scandium: only Sc³⁺, which is 3d⁰",
+                "group": 1
+              },
+              {
+                "text": "Zinc: only Zn²⁺, which is 3d¹⁰",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Transition elements form an ion with an incomplete d sub-shell.",
+            "Scandium and zinc are d-block elements but not transition elements.",
+            "Copper counts because Cu²⁺ is 3d⁹, even though Cu⁺ is 3d¹⁰."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Properties of transition elements",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The incomplete d sub-shell gives four characteristic properties. Each has its own note later in this chapter."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Property",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Complex formation",
+              "[Cu(H₂O)₆]²⁺, [Fe(CN)₆]⁴⁻"
+            ],
+            [
+              "Coloured ions",
+              "Cu²⁺(aq) is blue, Fe³⁺(aq) is yellow-brown"
+            ],
+            [
+              "Variable oxidation states",
+              "Iron forms Fe²⁺ and Fe³⁺; vanadium forms +2 to +5"
+            ],
+            [
+              "Catalytic activity",
+              "Iron in the Haber process, V₂O₅ in the Contact process"
+            ]
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ligand",
+              "meaning": "A molecule or ion that donates a lone pair of electrons to a central metal atom or ion, forming a coordinate (dative covalent) bond."
+            },
+            {
+              "term": "Complex",
+              "meaning": "A central metal atom or ion surrounded by one or more ligands."
+            },
+            {
+              "term": "Coordination number",
+              "meaning": "The number of coordinate bonds to the central metal atom or ion."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why these properties arise"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Variable oxidation states:** the 3d and 4s sub-shells are very close in energy. Electrons can be lost from both, so several stable ions form.",
+            "**Complexes and catalysis:** the d sub-shell has vacant d orbitals at accessible energy. They can accept lone pairs from ligands and bind reactants.",
+            "**Colour:** electrons can move between d orbitals that have been split in energy by the ligands."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Four properties: complexes, colour, variable oxidation states, catalysis.",
+            "Close 3d and 4s energies explain the variable oxidation states.",
+            "Vacant, accessible d orbitals explain complex formation and catalysis."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write the electron configuration of Fe³⁺ using sub-shell notation.",
+      "a": "1s²2s²2p⁶3s²3p⁶3d⁵ (or [Ar] 3d⁵). The two 4s electrons and one 3d electron are lost from [Ar] 3d⁶4s².",
+      "marks": 2
+    },
+    {
+      "q": "Explain why zinc is a d-block element but not a transition element.",
+      "a": "Zinc only forms the Zn²⁺ ion. Zn²⁺ has a full 3d sub-shell (3d¹⁰), so it has no ion with an incomplete d sub-shell.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why transition elements show variable oxidation states.",
+      "a": "The 3d and 4s sub-shells are very close in energy, so electrons from both can be lost. This allows ions with different charges, each reasonably stable.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.3.1a",
+        "OCR 5.3.1b",
+        "OCR 5.3.1c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Illustrate the properties with at least two transition elements, such as iron and copper.",
+                "Practical examples of catalytic behaviour: Cu²⁺ in the reaction of zinc with acids, and MnO₂ in the decomposition of H₂O₂.",
+                "Catalysts of transition elements and their compounds matter in the industrial manufacture of chemicals."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 15A.1",
+        "EDEX 15A.2",
+        "EDEX 15A.3"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.5.1"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 28.1.1",
+        "CAIE 28.1.3",
+        "CAIE 28.1.4",
+        "CAIE 28.1.6",
+        "CAIE 28.1.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Two of the five 3d orbitals have shapes you must be able to sketch."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**3dxy:** four lobes, lying between the x and y axes in the xy plane.",
+                "**3dz²:** two lobes along the z axis, with a ring (doughnut) of electron density around the nucleus in the xy plane.",
+                "In an isolated atom the five 3d orbitals have the same energy. They are **degenerate**.",
+                "Vacant 3d orbitals that are close in energy to 4s are energetically accessible, so they can form dative bonds with ligands."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "fcb6f375-d8e1-41b6-bdf1-60e97978ae5c",
+      "eefca85d-958e-499e-8fe9-d59f2e6058bc",
+      "dcacbaaf-b4a4-4894-8e59-64091ffc0c9c",
+      "64dda27a-ee18-4abb-be6d-01945ba2cda9",
+      "544820f7-a005-4970-a0c7-48928fd986ac",
+      "551d7b27-ab3b-4e17-ae7e-0f69665267b8",
+      "03fed282-9885-4f5f-9a44-26dd4cc9cad5",
+      "fadc0b2f-c279-4335-82d1-9a2e2a3d7142",
+      "0ec93fb3-17f4-497a-9334-ac9d3b37ff0b",
+      "80797d19-0867-4d0b-8a2e-402b76bdc334",
+      "1b32129e-9104-440f-96ac-ff9eab302b50",
+      "1cf5bba0-5b0b-477b-87f5-a13e7a741b61"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

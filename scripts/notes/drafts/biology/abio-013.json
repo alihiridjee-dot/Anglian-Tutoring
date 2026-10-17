@@ -1,0 +1,377 @@
+{
+  "format": 1,
+  "concept_id": "abio-013",
+  "subject": "biology",
+  "title": "Stem cells and cell specialisation",
+  "key_idea": "Stem cells are undifferentiated cells that divide by mitosis and can become specialised. How many cell types they can form is called their potency. Specialised cells are organised into tissues, organs and systems. Stem cells can replace and repair tissue, and are used in medical therapies.",
+  "sections": [
+    {
+      "heading": "Stem cells and potency",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A stem cell can divide by mitosis again and again and can differentiate. The types of cell it can form depend on its potency."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Stem cell",
+              "meaning": "An undifferentiated cell that can divide by mitosis and differentiate into specialised cells."
+            },
+            {
+              "term": "Differentiation",
+              "meaning": "The process by which a cell becomes specialised for a particular function."
+            },
+            {
+              "term": "Potency",
+              "meaning": "The range of cell types a stem cell can form."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Totipotent** cells can form any type of cell in the organism, and the extra-embryonic cells such as the placenta. They occur only for a short time in the early embryo.",
+            "**Pluripotent** cells can form almost any cell type, but not a whole organism. They are found in embryos.",
+            "**Multipotent** cells form a limited range of cell types, for example blood stem cells in bone marrow. They are found in mature mammals.",
+            "**Unipotent** cells form only one type of cell, for example cells that make cardiomyocytes."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort descriptions into totipotent, pluripotent and multipotent stem cells.",
+            "prompt": "Sort each description into the right type of stem cell.",
+            "groups": [
+              "Totipotent",
+              "Pluripotent",
+              "Multipotent"
+            ],
+            "items": [
+              {
+                "text": "Can form any cell, including the placenta",
+                "group": 0
+              },
+              {
+                "text": "Found only in the early embryo for a short time",
+                "group": 0
+              },
+              {
+                "text": "Can form almost every cell type, but not a whole organism",
+                "group": 1
+              },
+              {
+                "text": "Found in embryos and can divide in unlimited numbers",
+                "group": 1
+              },
+              {
+                "text": "Bone marrow cells that make different blood cells",
+                "group": 2
+              },
+              {
+                "text": "Found in mature mammals, forming a limited range of cells",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Totipotent is any cell; pluripotent is almost any; multipotent is a limited range; unipotent is one type.",
+            "Stem cells in adults are multipotent or unipotent."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How cells become specialised",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every cell in an organism has the same genes. A cell specialises because it translates only some of its genes."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Genes for the structures and enzymes of the cell's job are switched on.",
+            "Other genes are switched off, and are not translated.",
+            "Different proteins make a cell with a different shape and function.",
+            "Stem cells in tissues are a renewing source of undifferentiated cells. They divide by mitosis: some daughter cells stay as stem cells and others differentiate to replace dead or damaged cells, for example in skin and the gut lining."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Specialised cells and how their structure suits their function.",
+            "prompt": "Tap a cell to see how its structure suits its function.",
+            "parts": [
+              {
+                "name": "Erythrocyte",
+                "detail": "A biconcave disc with no nucleus. The shape gives a large surface area and room for haemoglobin to carry oxygen."
+              },
+              {
+                "name": "Neutrophil",
+                "detail": "A white blood cell with a lobed nucleus and many lysosomes. It can squeeze through gaps and digest pathogens by phagocytosis."
+              },
+              {
+                "name": "Squamous epithelial cell",
+                "detail": "A thin, flat cell. It makes a short diffusion distance, for example in the lining of the alveoli."
+              },
+              {
+                "name": "Ciliated epithelial cell",
+                "detail": "Has cilia that beat to move mucus, and many mitochondria for energy."
+              },
+              {
+                "name": "Sperm cell",
+                "detail": "Has a flagellum to swim, many mitochondria for ATP and an acrosome with enzymes to enter the egg."
+              },
+              {
+                "name": "Palisade cell",
+                "detail": "A tall cell with many chloroplasts for photosynthesis, packed beneath the leaf's upper surface."
+              },
+              {
+                "name": "Root hair cell",
+                "detail": "A long extension greatly increases the surface area for absorbing water and mineral ions."
+              },
+              {
+                "name": "Guard cell",
+                "detail": "Pairs of cells that change shape with water content, opening and closing the stoma."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Differentiation happens by switching different genes on and off.",
+            "A specialised cell's structure suits its function."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Tissues, organs and systems",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In a multicellular organism, cells are organised in levels. Each level carries out a bigger job."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Level",
+            "Meaning",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Specialised cell",
+              "A cell adapted to one function",
+              "Ciliated epithelial cell, palisade cell"
+            ],
+            [
+              "Tissue",
+              "A group of similar cells working together",
+              "Squamous epithelium, ciliated epithelium, cartilage, muscle, xylem, phloem"
+            ],
+            [
+              "Organ",
+              "Different tissues working together",
+              "Stomach, lung, leaf"
+            ],
+            [
+              "Organ system",
+              "Organs working together for a major function",
+              "Digestive system, respiratory system, shoot system"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Xylem is a tissue of vessels and other cells. It carries water in plants.",
+            "Phloem is a tissue of sieve tubes and companion cells. It carries sugars in plants.",
+            "A leaf is an organ with palisade tissue, xylem, phloem and epidermis."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cells form tissues, tissues form organs and organs form organ systems.",
+            "Each level gives the organism a more complex function."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Uses of stem cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Stem cells are used to repair or replace damaged tissue. Their use also raises ethical questions."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bone marrow stem cells are used to treat leukaemia and other blood disorders.",
+            "Stem cells can repair damaged tissues and treat neurological conditions where nerve cells have been lost.",
+            "They are used in research into developmental biology and to test new drugs."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "For",
+            "Against"
+          ],
+          "rows": [
+            [
+              "Can treat conditions that are currently incurable",
+              "Embryonic stem cells involve the destruction of an embryo"
+            ],
+            [
+              "Replacement cells from a patient's own stem cells are not rejected",
+              "Cells that divide without control may form a tumour"
+            ],
+            [
+              "Spare embryos from fertility treatment would otherwise be thrown away",
+              "Treatments are expensive and mostly still experimental"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stem cells can replace damaged tissue and may treat serious conditions.",
+            "Ethical objections are mainly to the use of embryos."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Distinguish between a totipotent stem cell and a multipotent stem cell.",
+      "a": "A totipotent cell can differentiate into any type of cell in the organism, whereas a multipotent cell can form only a limited range of cell types.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how cells with the same genes can become different types of specialised cell.",
+      "a": "Different genes are switched on in different cells, so only part of the DNA is translated. Different proteins are made, giving a different structure and function.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how a squamous epithelial cell is adapted to its function.",
+      "a": "It is thin and flat, so there is a short diffusion distance for gases to pass through.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.8.2.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Pluripotent stem cells can divide in unlimited numbers and can be used to treat human disorders.",
+                "**Induced pluripotent stem cells (iPS cells)** are made from adult body (somatic) cells. Protein transcription factors switch on the genes that make the cell pluripotent.",
+                "Unipotent cells are shown by the formation of cardiomyocytes (heart muscle cells).",
+                "iPS cells avoid the ethical objection to embryos, and are a genetic match to the patient so are not rejected."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "To evaluate a treatment, weigh the benefit to the patient against the risks, such as tumours, the cost and the ethical views."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 3.11",
+        "EDEX 3.13"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Society uses scientific knowledge to decide whether stem cells may be used in therapies. The decisions weigh evidence against values."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Scientists provide evidence of the benefits, risks and cost.",
+                "People hold different ethical views about the use of embryos.",
+                "Governments and regulators set laws and licences, so that research is controlled.",
+                "Public debate and consultation take opinions into account."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 5.1.5"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.6h",
+        "OCR 2.1.6i",
+        "OCR 2.1.6j",
+        "OCR 2.1.6k",
+        "OCR 2.1.6l",
+        "OCR 2.1.6m"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Stem cells in the **bone marrow** divide to make both erythrocytes and neutrophils. The erythrocyte loses its nucleus; the neutrophil gets a lobed nucleus.",
+                "Stem cells in the **meristems** of plants make xylem vessels and phloem sieve tubes.",
+                "Xylem vessels become dead, with lignified walls and no end walls, forming hollow tubes.",
+                "Phloem sieve tubes have little cytoplasm and end walls with pores (sieve plates), next to companion cells."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "6a002c33-dd59-42ee-b268-bba1d17c0856",
+      "7aa8539c-3571-4808-a925-7bef2dbd31ac",
+      "129455df-68ea-466b-8133-011072db9162",
+      "d04057f5-ef3a-443b-be85-8bef8617cd4f",
+      "b782dfc3-b35f-478c-a2fa-32c4f044b4a3",
+      "21d5a1a8-86e3-4c56-bdad-b1652e072a07",
+      "2e84b5b2-68bb-43dc-af28-6b4875121b21",
+      "36c53877-b0da-4fc4-8f72-d5e110a0f3c7",
+      "3b73e30e-073e-4217-8fbf-b9231979119d",
+      "9a38d68d-d1b8-4111-bff6-4a9c4c8af2eb"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

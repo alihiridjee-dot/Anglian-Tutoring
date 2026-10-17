@@ -1,0 +1,197 @@
+{
+  "format": 1,
+  "concept_id": "achem-075",
+  "subject": "chemistry",
+  "title": "Ozone depletion by CFCs",
+  "key_idea": "Ozone in the upper atmosphere absorbs harmful ultraviolet radiation. Ultraviolet radiation breaks C–Cl bonds in CFCs and releases chlorine radicals. These radicals catalyse the breakdown of ozone, because they are regenerated in a chain of reactions.",
+  "sections": [
+    {
+      "heading": "Ozone and CFCs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ozone, O₃, forms naturally in the upper atmosphere. This section covers why it matters and how CFCs release chlorine."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ozone absorbs ultraviolet (UV) radiation from the Sun, so it is beneficial in the upper atmosphere.",
+            "CFCs (chlorofluorocarbons) are stable and unreactive at ground level, so they reach the upper atmosphere.",
+            "There, UV radiation has enough energy to break the C–Cl bond, which is weaker than the C–F bond.",
+            "The bond breaks by homolytic fission, giving two radicals. A **radical** has an unpaired electron."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Formation of chlorine radicals from CF₂Cl₂",
+          "formula": "CF₂Cl₂ → CF₂Cl• + Cl•",
+          "where": [
+            "UV radiation supplies the energy",
+            "Cl• is a chlorine radical (atom)"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ozone absorbs ultraviolet radiation.",
+            "UV radiation breaks the C–Cl bond in a CFC, forming chlorine radicals."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How chlorine radicals destroy ozone",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A chlorine radical acts as a catalyst for the breakdown of ozone. This section covers the two steps that repeat."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Step 1",
+              "text": "Cl• + O₃ → ClO• + O₂. The chlorine radical removes an oxygen atom from ozone."
+            },
+            {
+              "lead": "Step 2",
+              "text": "ClO• + O₃ → 2O₂ + Cl•. The chlorine radical is regenerated."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Overall equation",
+          "formula": "2O₃ → 3O₂",
+          "where": [
+            "the Cl• radicals cancel, so chlorine is not used up"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of ozone breakdown by a CFC into the correct order.",
+            "prompt": "Put these stages of ozone breakdown in order.",
+            "steps": [
+              "UV radiation breaks a C–Cl bond in a CFC",
+              "A chlorine radical reacts with ozone to give ClO• and O₂",
+              "ClO• reacts with another ozone molecule to give two O₂ molecules",
+              "The chlorine radical is regenerated and attacks more ozone"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Because the radical is regenerated, one chlorine atom can destroy many thousands of ozone molecules.",
+            "This is why a small amount of CFC can thin the ozone layer and make the hole."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cl• is a catalyst: it is used in step 1 and regenerated in step 2.",
+            "The overall change is 2O₃ → 3O₂."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evidence, legislation and alternatives",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Scientists gathered evidence about ozone loss before action was taken. This section covers the response."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Research by different groups provided evidence that CFCs damage the ozone layer.",
+            "This evidence led to legislation banning the use of CFCs as solvents and refrigerants.",
+            "Chemists developed alternative, chlorine-free compounds, for example hydrofluorocarbons, which contain no C–Cl bonds."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Scientific evidence from several groups led to a ban on CFCs.",
+            "Chlorine-free alternatives do not release chlorine radicals."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how ultraviolet radiation in the upper atmosphere produces chlorine radicals from CCl₂F₂.",
+      "a": "UV radiation provides enough energy to break the C–Cl bond. The bond breaks homolytically, one electron going to each atom, giving Cl• and CF₂Cl•.",
+      "marks": 2
+    },
+    {
+      "q": "Write the two propagation equations showing that chlorine radicals catalyse the breakdown of ozone, and give the overall equation.",
+      "a": "Cl• + O₃ → ClO• + O₂ and ClO• + O₃ → 2O₂ + Cl•. Overall: 2O₃ → 3O₂.",
+      "marks": 3
+    },
+    {
+      "q": "Why is a chlorine radical described as a catalyst in this process?",
+      "a": "It speeds up the breakdown of ozone and is regenerated in the second step, so it is not used up overall.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.2e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Be able to write equations for the production of halogen radicals, for example CF₂Cl₂ → CF₂Cl• + Cl•.",
+                "Chlorine radicals react with ozone, then with oxygen atoms: Cl• + O₃ → ClO• + O₂ and ClO• + O → Cl• + O₂.",
+                "Other radicals also catalyse the breakdown. Nitrogen monoxide, •NO, reacts: •NO + O₃ → •NO₂ + O₂ and •NO₂ + O → •NO + O₂.",
+                "Construct similar equations for any other stated radical. The radical formed in the first step is used in the second and is regenerated."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.3.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use the equations Cl• + O₃ → ClO• + O₂ and ClO• + O₃ → 2O₂ + Cl• to explain how chlorine atoms catalyse the decomposition of ozone.",
+                "Appreciate that the results of research by different groups in the scientific community provided evidence for legislation to ban CFCs as solvents and refrigerants.",
+                "Chemists have now developed alternative chlorine-free compounds."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "4efc107c-e53e-4970-9282-1c5781ad95ed",
+      "307e8767-384e-4769-8f48-1ad9edf71322"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

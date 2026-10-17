@@ -1,0 +1,350 @@
+{
+  "format": 1,
+  "concept_id": "achem-061",
+  "subject": "chemistry",
+  "title": "Coloured ions",
+  "key_idea": "Ligands split the d orbitals of a transition metal ion into two groups of different energy. An electron absorbs visible light of energy ΔE to move up, and the colour we see is what is left. Changing the oxidation state, ligand or coordination number changes ΔE and so the colour.",
+  "sections": [
+    {
+      "heading": "Splitting of the d orbitals",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In a free ion the five 3d orbitals have the same energy. Ligands break that equality."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Degenerate orbitals",
+              "meaning": "Orbitals that have the same energy."
+            },
+            {
+              "term": "Non-degenerate orbitals",
+              "meaning": "Orbitals that have different energies."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ligand lone pairs repel electrons in the d orbitals, but not all orbitals equally.",
+            "The five d orbitals split into two sets of different energy.",
+            "The energy gap between the sets is **ΔE**."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Octahedral and tetrahedral complexes compared: how the five d orbitals split.",
+            "items": [
+              "Octahedral complex",
+              "Tetrahedral complex"
+            ],
+            "rows": [
+              {
+                "feature": "Higher-energy set",
+                "values": [
+                  "Two orbitals",
+                  "Three orbitals"
+                ]
+              },
+              {
+                "feature": "Lower-energy set",
+                "values": [
+                  "Three orbitals",
+                  "Two orbitals"
+                ]
+              },
+              {
+                "feature": "Gap between sets",
+                "values": [
+                  "ΔE",
+                  "ΔE (smaller than for the same ligands in an octahedron)"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ligands split the five d orbitals into two sets.",
+            "Octahedral: three lower, two higher. Tetrahedral: two lower, three higher.",
+            "The energy gap between the sets is ΔE."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why ions are coloured",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Colour comes from light absorbed when an electron is promoted between the two sets of d orbitals."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "White light shines on the ion.",
+              "text": "It contains all visible wavelengths."
+            },
+            {
+              "lead": "One part is absorbed.",
+              "text": "A d electron absorbs light whose energy matches ΔE and moves from the lower set to the higher set."
+            },
+            {
+              "lead": "The rest is transmitted.",
+              "text": "The remaining wavelengths reach the eye. The colour seen is the complement of the colour absorbed."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Energy absorbed",
+          "formula": "ΔE = hν = hc ÷ λ",
+          "where": [
+            "ΔE = energy gap between the d orbital sets (J)",
+            "h = Planck constant, 6.63 × 10⁻³⁴ J s",
+            "ν = frequency of light absorbed (Hz)",
+            "c = speed of light, 3.00 × 10⁸ m/s",
+            "λ = wavelength of light absorbed (m)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Move the wavelength of light absorbed to see the energy gap and frequency.",
+            "inputs": [
+              {
+                "id": "wl",
+                "label": "Wavelength of light absorbed",
+                "unit": "nm",
+                "min": 400,
+                "max": 700,
+                "step": 10,
+                "value": 600
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Energy gap ΔE",
+                "unit": "× 10⁻¹⁹ J",
+                "formula": "6.63 * 3 * 100 / wl",
+                "decimals": 2
+              },
+              {
+                "label": "Frequency ν",
+                "unit": "× 10¹⁴ Hz",
+                "formula": "3000 / wl",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "A bigger ΔE means light of higher frequency and shorter wavelength is absorbed.",
+            "Example: [Cu(H₂O)₆]²⁺ absorbs red-orange light, so it looks blue.",
+            "A solution that absorbs no visible light looks colourless."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why some ions are colourless"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sc³⁺ has an empty 3d sub-shell (3d⁰). There are no d electrons to promote.",
+            "Zn²⁺ and Cu⁺ have a full 3d sub-shell (3d¹⁰). There is no empty space in the higher set.",
+            "Without an electron that can move between d orbitals, no visible light is absorbed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Light matching ΔE is absorbed and a d electron is promoted.",
+            "The colour we see is the complement of the colour absorbed.",
+            "d⁰ and d¹⁰ ions are colourless."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What changes the colour",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Anything that changes ΔE changes the wavelength absorbed, and so the colour."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Change",
+            "Why ΔE changes",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Oxidation number",
+              "A different charge on the metal ion changes how strongly it interacts with the ligands",
+              "Fe²⁺(aq) is pale green; Fe³⁺(aq) is yellow-brown"
+            ],
+            [
+              "Ligand",
+              "Different ligands split the d orbitals by different amounts",
+              "[Cu(H₂O)₆]²⁺ is pale blue; [Cu(NH₃)₄(H₂O)₂]²⁺ is deep blue"
+            ],
+            [
+              "Coordination number",
+              "A change of shape changes the splitting",
+              "[CuCl₄]²⁻ is yellow; [Cu(H₂O)₆]²⁺ is blue"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The same metal ion with a different ligand is a different colour because ΔE is different.",
+            "The effect of ligands is qualitative: you compare the size of ΔE, the light absorbed and the colour seen."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Oxidation number, ligand and coordination number all alter ΔE.",
+            "A new ΔE means a new wavelength absorbed and a new colour.",
+            "A colour change is evidence that one of these has changed."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why a solution of [Cu(H₂O)₆]²⁺ is blue.",
+      "a": "The water ligands split the 3d orbitals into two sets with an energy gap ΔE. A d electron absorbs light of energy ΔE (red-orange light) and moves to the higher set. The remaining light, which looks blue, is transmitted.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a solution containing Zn²⁺ ions is colourless.",
+      "a": "Zn²⁺ has a full 3d sub-shell (3d¹⁰). No d electron can be promoted to a higher d orbital, so no visible light is absorbed.",
+      "marks": 2
+    },
+    {
+      "q": "A complex absorbs light of wavelength 5.00 × 10⁻⁷ m. Calculate ΔE in J.",
+      "a": "ΔE = hc ÷ λ = (6.63 × 10⁻³⁴ × 3.00 × 10⁸) ÷ (5.00 × 10⁻⁷) = 3.98 × 10⁻¹⁹ J.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 15A.7",
+        "EDEX 15A.8",
+        "EDEX 15A.9",
+        "EDEX 15A.10"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Colour of aqueous ions and other complex ions results from the splitting of the d-orbital energy levels by the ligands.",
+                "Some ions are colourless, for example those with an empty or full d sub-shell.",
+                "A colour change shows that the oxidation number, the ligand or the coordination number has changed."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.5.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Transition metal ions can be identified by their colour.",
+                "The absorption of visible light is used in spectroscopy.",
+                "A simple colorimeter can find the concentration of a coloured ion in solution."
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Choose a filter.",
+                  "text": "Use a filter of the colour that the solution absorbs most (the complement of its colour)."
+                },
+                {
+                  "lead": "Calibrate.",
+                  "text": "Measure the absorbance of solutions of known concentration and plot a calibration curve."
+                },
+                {
+                  "lead": "Measure the unknown.",
+                  "text": "Read its concentration from the curve."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 28.3.1",
+        "CAIE 28.3.2",
+        "CAIE 28.3.3",
+        "CAIE 28.3.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use the terms degenerate and non-degenerate d orbitals.",
+                "Octahedral complexes: two higher and three lower d orbitals. Tetrahedral complexes: three higher and two lower.",
+                "Describe the effect of different ligands on ΔE, the frequency of light absorbed, and hence the complementary colour observed.",
+                "A stronger-field ligand gives a larger ΔE, so light of higher frequency is absorbed."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "6e4c215d-f8ee-4447-9dc7-c8c8dff1db31",
+      "02c38e37-4b5d-4f9a-b875-60fe0eb26ce3",
+      "a389fa9a-613f-49a2-8716-b8e0aea7239a",
+      "98ba32ee-31ad-4891-8cc7-665c7ab5da49",
+      "dac8afdf-a370-4596-b1bd-c87162f00f4d",
+      "fcfd893f-2960-445a-83cd-b38e84f3a0f4",
+      "04441f23-4485-44c5-ae2f-14a6c38ead7e",
+      "05680281-6c8d-4ac1-8be0-97a939b97543",
+      "e6476fba-c4b1-4d0a-93f4-92c32647ed1c"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

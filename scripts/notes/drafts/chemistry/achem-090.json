@@ -1,0 +1,359 @@
+{
+  "format": 1,
+  "concept_id": "achem-090",
+  "subject": "chemistry",
+  "title": "Mass spectrometry of organic compounds",
+  "key_idea": "A mass spectrometer ionises molecules and sorts the ions by m/z. The highest peak gives the relative molecular mass, the fragments show parts of the structure, and a precise mass gives the molecular formula.",
+  "sections": [
+    {
+      "heading": "The molecular ion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A mass spectrometer ionises molecules and sorts the ions by mass-to-charge ratio, m/z. This section covers how the spectrum gives the relative molecular mass."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Molecular ion, M⁺",
+              "meaning": "The molecule with one electron removed. It keeps the whole molecule's mass."
+            },
+            {
+              "term": "m/z",
+              "meaning": "Mass-to-charge ratio. For ions with a single positive charge, m/z equals the relative mass of the ion."
+            },
+            {
+              "term": "Fragment ion",
+              "meaning": "A smaller positive ion formed when the molecular ion breaks up."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Forming the molecular ion",
+          "formula": "M(g) → M⁺•(g) + e⁻",
+          "where": [
+            "M: the molecule",
+            "M⁺•: the molecular ion, a radical cation"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The peak with the highest m/z is normally the molecular ion.",
+            "Its m/z value is the **relative molecular mass** of the compound.",
+            "There is often a very small peak one unit higher. It is the [M+1]⁺ peak, from molecules containing carbon-13 (about 1.1% of carbon atoms)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The molecular ion peak is the one with the highest m/z (ignoring the tiny M+1 peak).",
+            "Its m/z value equals the relative molecular mass."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Fragmentation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The molecular ion is unstable. Some break into a positive fragment and an uncharged radical. This section covers reading the fragments."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Only the **positive** fragment is detected. The radical is not charged, so it never reaches the detector.",
+            "The peak at the highest abundance is the base peak. It is the most stable fragment, not always M⁺.",
+            "The difference between M⁺ and a fragment peak is the mass of the piece lost.",
+            "The bonds that break most easily give stable positive ions, such as those next to a C=O group."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Fragmentation",
+          "formula": "M⁺• → X⁺ + Y•",
+          "where": [
+            "X⁺: fragment ion seen in the spectrum",
+            "Y•: uncharged radical, not seen"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "m/z",
+            "Likely ion"
+          ],
+          "rows": [
+            [
+              "15",
+              "CH₃⁺"
+            ],
+            [
+              "29",
+              "C₂H₅⁺ or CHO⁺"
+            ],
+            [
+              "31",
+              "CH₂OH⁺"
+            ],
+            [
+              "43",
+              "C₃H₇⁺ or CH₃CO⁺"
+            ],
+            [
+              "57",
+              "C₄H₉⁺"
+            ],
+            [
+              "77",
+              "C₆H₅⁺"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a peak in a mass spectrum and see which ion is likely and what was lost.",
+            "prompt": "Pick a fragment peak from a molecule with M⁺ at m/z 58",
+            "result_labels": [
+              "Likely ion",
+              "Piece lost from M⁺ at 58"
+            ],
+            "options": [
+              {
+                "label": "m/z 43",
+                "results": [
+                  "CH₃CO⁺ (or C₃H₇⁺)",
+                  "15, a CH₃ radical"
+                ]
+              },
+              {
+                "label": "m/z 29",
+                "results": [
+                  "CHO⁺ (or C₂H₅⁺)",
+                  "29, a CHO or C₂H₅ radical"
+                ]
+              },
+              {
+                "label": "m/z 15",
+                "results": [
+                  "CH₃⁺",
+                  "43, a C₃H₇ or CH₃CO radical"
+                ]
+              },
+              {
+                "label": "m/z 57",
+                "results": [
+                  "C₃H₅O⁺, formed by losing one hydrogen atom",
+                  "1, an H atom. C₄H₉⁺ is not possible for a three-carbon molecule."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Matching fragment peaks to known ions lets you assemble a structure. A peak at 43 with an M⁺ of 58 suggests CH₃CO, so propanone is likely."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Subtract a fragment from M⁺ to find what was lost.",
+            "Learn the common fragment ions in the table.",
+            "Use the fragments to build up a structure piece by piece."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Precise masses and molecular formula",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "High-resolution mass spectrometry measures m/z to four decimal places. This section covers how a precise mass identifies a molecular formula."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Atoms do not have exact whole-number masses (except carbon-12, which is exactly 12).",
+            "Different formulae with the same whole-number mass have slightly different **precise masses**.",
+            "Add up the precise atomic masses for each candidate formula. The match to the measured value gives the formula."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Atom",
+            "Precise mass"
+          ],
+          "rows": [
+            [
+              "¹²C",
+              "12.0000"
+            ],
+            [
+              "¹H",
+              "1.0078"
+            ],
+            [
+              "¹⁴N",
+              "14.0031"
+            ],
+            [
+              "¹⁶O",
+              "15.9949"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Candidate",
+            "Whole mass",
+            "Precise mass"
+          ],
+          "rows": [
+            [
+              "C₃H₆O",
+              "58",
+              "58.0417"
+            ],
+            [
+              "C₂H₂O₂",
+              "58",
+              "58.0054"
+            ],
+            [
+              "C₂H₆N₂",
+              "58",
+              "58.0530"
+            ],
+            [
+              "C₄H₁₀",
+              "58",
+              "58.0780"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A measured value of 58.0419 therefore fits C₃H₆O. The other candidates are too far away."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Whole-number masses cannot tell apart formulae of the same nominal mass.",
+            "Four decimal places can: sum the precise masses and compare."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "The mass spectrum of an alcohol has its highest m/z peak at 60 and a large peak at 31. Suggest what the peak at 31 shows.",
+      "a": "M⁺ at 60 shows the relative molecular mass is 60. The peak at 31 is CH₂OH⁺, so the alcohol is a primary alcohol such as propan-1-ol.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why only some fragments appear as peaks in a mass spectrum.",
+      "a": "Only positively charged fragments are accelerated and detected. Radicals and neutral molecules have no charge, so they are not detected.",
+      "marks": 2
+    },
+    {
+      "q": "A compound has a precise mass of 44.0261. Decide whether it is C₂H₄O (precise masses H 1.0078, C 12.0000, O 15.9949) and show your working.",
+      "a": "C₂H₄O = 24.0000 + 4.0312 + 15.9949 = 44.0261, which matches 44.0261 to four decimal places, so it is C₂H₄O.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.4f",
+        "OCR 4.2.4g"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7A.1",
+        "EDEX 19A.1"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.6.2"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 22.2.3",
+        "CAIE 22.2.4",
+        "CAIE 22.2.5",
+        "CAIE 22.2.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Counting carbon atoms from the M+1 peak"
+            },
+            {
+              "type": "paragraph",
+              "text": "About 1.1% of carbon atoms are carbon-13, so the [M+1]⁺ peak grows with the number of carbons in the molecule."
+            },
+            {
+              "type": "equation",
+              "label": "Number of carbon atoms",
+              "formula": "n = 100 × abundance of [M+1]⁺ ÷ (1.1 × abundance of M⁺)",
+              "where": [
+                "n: number of carbon atoms in the molecule",
+                "abundance: peak height"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "An [M+1]⁺ of 3.3 and an M⁺ of 50 give n = 100 × 3.3 ÷ (1.1 × 50) = 6, so the compound has six carbon atoms."
+            },
+            {
+              "type": "subheading",
+              "text": "Finding bromine or chlorine from the M+2 peak"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Chlorine has two isotopes, ³⁵Cl and ³⁷Cl, in the ratio about 3 : 1. A chlorine compound has an [M+2]⁺ peak about one third the height of M⁺.",
+                "Bromine has two isotopes, ⁷⁹Br and ⁸¹Br, in the ratio about 1 : 1. A bromine compound has an [M+2]⁺ peak about the same height as M⁺.",
+                "Without an M+2 peak of this size, the compound has no chlorine or bromine."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "cdb9dac4-3f9c-41d8-91d9-2edfc8062e36",
+      "cf267d0f-9d45-477e-b181-f0c8bbd2e95f",
+      "994a75ea-008d-4556-87be-a1317daa81cb",
+      "26c05444-eae2-4a90-82c8-125785e89bde",
+      "9cb6dee6-136b-433b-afe7-359c854bfd2b",
+      "624c8b32-d8eb-4a42-95f4-3a47ef1d8b29",
+      "caa36898-ebda-403a-8eb0-6df897a06d9c",
+      "52b75a15-c364-4fe3-8d1e-ea11848e8dab",
+      "978a21bd-f7d3-41d0-9d8b-2943ee287bf1"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

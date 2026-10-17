@@ -1,0 +1,360 @@
+{
+  "format": 1,
+  "concept_id": "aphys-083",
+  "subject": "physics",
+  "title": "The eye and defects of vision",
+  "key_idea": "The cornea and lens refract light to form a real, inverted image on the retina. Rods and cones detect it, and cone spacing sets how fine a detail can be resolved. Short sight, long sight and astigmatism are corrected with lenses of the right power.",
+  "sections": [
+    {
+      "heading": "The eye as a lens system",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The eye is a refracting system that focuses light from an object onto the retina. The cornea and the lens together act as one converging lens."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **cornea** does most of the bending of light, because light slows down a lot as it passes from air into it.",
+            "The **lens** adjusts the focus so that objects at different distances form a sharp image.",
+            "The image on the retina is **real** and **inverted**. The brain turns it the right way up.",
+            "The distance from lens to retina is fixed at about 17 mm, so the eye must change its focal length to see near and far objects."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Principal focus",
+              "meaning": "The point where rays parallel to the principal axis meet after a converging lens."
+            },
+            {
+              "term": "Focal length, f",
+              "meaning": "The distance from the centre of the lens to the principal focus."
+            },
+            {
+              "term": "Power, P",
+              "meaning": "How strongly a lens bends light, measured in dioptres (D)."
+            },
+            {
+              "term": "Accommodation",
+              "meaning": "The eye changing the shape of its lens to focus on objects at different distances."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Power of a lens",
+          "formula": "P = 1 ÷ f",
+          "where": [
+            "P = power (D, dioptres)",
+            "f = focal length (m)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Lens equation",
+          "formula": "1 ÷ u + 1 ÷ v = 1 ÷ f",
+          "where": [
+            "u = distance from object to lens (m)",
+            "v = distance from lens to image (m)",
+            "f = focal length (m)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Linear magnification",
+          "formula": "m = v ÷ u",
+          "where": [
+            "m = magnification (no unit)",
+            "v = image distance (m)",
+            "u = object distance (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A converging lens has a positive focal length and positive power.",
+            "A diverging lens has a negative focal length and negative power.",
+            "Use real-is-positive: a real object or image has a positive distance, and a virtual image has a negative distance.",
+            "Powers of lenses placed close together add."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To see a **distant** object, the ciliary muscles relax and the lens is thin, so f is long.",
+            "To see a **near** object, the ciliary muscles contract and the lens is fat, so f is short.",
+            "The normal eye can focus from about 25 cm (the near point) to infinity (the far point).",
+            "The whole eye has a power of about 60 D."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The cornea and lens focus a real, inverted image on the retina.",
+            "Power in dioptres is 1 ÷ f, with f in metres.",
+            "The lens changes shape to focus on near and far objects."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Sensitivity and resolution",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The retina is the eye's photodetector. Its light-sensitive cells are rods and cones, and they decide how sensitive the eye is and how much detail it can resolve."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Rods",
+            "Cones"
+          ],
+          "rows": [
+            [
+              "Works best in",
+              "Dim light",
+              "Bright light"
+            ],
+            [
+              "Colour",
+              "No colour vision",
+              "Three types give colour vision"
+            ],
+            [
+              "Where",
+              "Mostly away from the centre of the retina",
+              "Packed densely at the fovea"
+            ],
+            [
+              "Connection to nerve fibres",
+              "Many rods share one nerve fibre",
+              "Each cone at the fovea has its own nerve fibre"
+            ],
+            [
+              "Sensitivity",
+              "Very sensitive",
+              "Less sensitive"
+            ],
+            [
+              "Resolution",
+              "Poor",
+              "Good"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The eye responds to wavelengths from about 400 nm (violet) to 700 nm (red).",
+            "Its sensitivity is not the same at every wavelength. The **spectral response** peaks near 555 nm in bright light, in the green-yellow.",
+            "The rods peak at a slightly shorter wavelength, near 500 nm.",
+            "The three types of cone respond most to red, green and blue light. The brain compares their signals to give colour."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Two points",
+              "text": "Two points of light make two small images on the retina."
+            },
+            {
+              "lead": "Different cones",
+              "text": "They can only be seen as separate if they fall on different cones."
+            },
+            {
+              "lead": "A gap between",
+              "text": "There must also be a cone between them that is not stimulated, or they blur into one."
+            },
+            {
+              "lead": "Closest pair",
+              "text": "The smallest angle that can be resolved is about 1 minute of arc, roughly 3 × 10⁻⁴ rad."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The fovea has the best resolution, because its cones are very small and close together and each has its own nerve fibre.",
+            "Away from the fovea, rods share nerve fibres, so the brain cannot tell which rod was stimulated and resolution is poor.",
+            "That is why you look straight at the thing you want to see in detail."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rods are sensitive but give poor resolution and no colour.",
+            "Cones give colour and good resolution in bright light.",
+            "Two points are resolved only if their images fall on different cones with an unstimulated cone between."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Defects of vision and correcting them",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A defect of vision means the eye cannot form a sharp image on the retina. A lens placed in front of the eye changes the way light arrives so that the eye can focus it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Myopia",
+              "meaning": "Short sight. Distant objects are blurred because the image forms in front of the retina."
+            },
+            {
+              "term": "Hypermetropia",
+              "meaning": "Long sight. Near objects are blurred because the image would form behind the retina."
+            },
+            {
+              "term": "Astigmatism",
+              "meaning": "Blurring in one direction, because the cornea or lens is not equally curved in all directions."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Short sight (myopia)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The eyeball is too long, or the lens is too powerful, so the far point is closer than infinity.",
+            "A **diverging** lens spreads the rays slightly before they enter the eye.",
+            "The lens must make a distant object look as if it is at the far point of the eye.",
+            "So the image from the lens is virtual and at the far point. Its focal length is minus the far point distance."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Long sight (hypermetropia)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The eyeball is too short, or the lens is too weak, so the near point is further than 25 cm.",
+            "A **converging** lens makes the rays converge slightly before they enter the eye.",
+            "The lens must make an object placed at 25 cm look as if it is at the near point of the eye.",
+            "So the image from the lens is virtual and at the near point."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Choose u and v",
+              "text": "For long sight, the object is at u = 0.25 m. The virtual image is at the near point, so v = −d."
+            },
+            {
+              "lead": "Use the lens equation",
+              "text": "1 ÷ f = 1 ÷ 0.25 + 1 ÷ (−d) = 4 − 1 ÷ d."
+            },
+            {
+              "lead": "Find the power",
+              "text": "P = 1 ÷ f, which is positive, so the lens is converging."
+            },
+            {
+              "lead": "For short sight",
+              "text": "Use u = ∞ and v = −(far point). Then P = −1 ÷ far point, which is negative, so the lens is diverging."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question. Work out the power of the converging lens that corrects a long-sighted eye with a given near point.",
+            "question": "A long-sighted eye has a near point of {d} m. Find the power of the lens that lets it see an object 0.25 m away clearly.",
+            "variables": [
+              {
+                "id": "d",
+                "min": 0.5,
+                "max": 2.0,
+                "step": 0.1
+              }
+            ],
+            "answer": {
+              "formula": "4 - 1 / d",
+              "unit": "D",
+              "decimals": 1,
+              "tolerance_percent": 3
+            },
+            "working": [
+              "The object is at u = 0.25 m and the virtual image is at v = −{d} m.",
+              "1 ÷ f = 1 ÷ 0.25 − 1 ÷ {d}",
+              "P = 1 ÷ f = {answer} D"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Astigmatism"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The cornea is shaped more like a rugby ball than a football, so it has a different focal length in different directions.",
+            "Lines in one direction are in focus while lines at right angles are blurred.",
+            "It is corrected with a **cylindrical** lens, which is curved in one direction only.",
+            "A prescription gives the sphere power (D), the cylinder power (D) and the axis (an angle from 0° to 180°) of the cylinder."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "For example, −1.50 / −0.75 × 90 means a sphere power of −1.50 D, a cylinder power of −0.75 D and an axis of 90°."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Short sight is corrected with a diverging lens, long sight with a converging lens.",
+            "Find the power with 1 ÷ u + 1 ÷ v = 1 ÷ f, putting the virtual image at the far or near point.",
+            "Astigmatism needs a cylindrical lens, written as sphere / cylinder × axis."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State two reasons why the fovea has better resolution than the rest of the retina.",
+      "a": "It contains only cones, which are small and packed closely together. Each cone has its own nerve fibre, so the brain can tell which cone was stimulated.",
+      "marks": 2
+    },
+    {
+      "q": "A short-sighted person has a far point of 2.0 m. Calculate the power of the lens that corrects their sight, and state its type.",
+      "a": "The lens must form a virtual image at 2.0 m of a distant object, so f = −2.0 m. P = 1 ÷ f = −0.50 D. It is a diverging lens.",
+      "marks": 3
+    },
+    {
+      "q": "Explain, using a ray diagram idea, how a converging lens corrects hypermetropia.",
+      "a": "The eye cannot focus light from near objects because its lens is too weak or the eyeball too short. A converging lens makes the rays from a near object converge a little before entering the eye, so the eye can focus them on the retina. Rays appear to come from the near point.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.10.1.1",
+        "AQA 3.10.1.2"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "94acba6f-9fdb-4e2c-b8eb-fbf7eb677cbb",
+      "c78d578a-02a2-48cc-9055-463ecb028d6a"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

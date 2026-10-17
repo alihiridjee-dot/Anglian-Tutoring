@@ -1,0 +1,286 @@
+{
+  "format": 1,
+  "concept_id": "abio-061",
+  "subject": "biology",
+  "title": "Respiratory substrates, RQ and respiration rate",
+  "key_idea": "Lipids release more energy per gram than carbohydrates or proteins, because they hold more hydrogen. The respiratory quotient, RQ, is carbon dioxide produced divided by oxygen taken in, and it shows which substrate is being respired. Respirometers and redox indicators measure the rate of respiration.",
+  "sections": [
+    {
+      "heading": "Energy values of respiratory substrates",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Carbohydrates are the usual respiratory substrate. Lipids and proteins can be respired when carbohydrate runs short."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Substrate",
+            "Approximate energy per gram",
+            "Why"
+          ],
+          "rows": [
+            [
+              "Carbohydrate",
+              "About 16 kJ/g",
+              "Already partly oxidised, with fewer hydrogen atoms per gram"
+            ],
+            [
+              "Protein",
+              "About 17 kJ/g",
+              "Must be deaminated first. The amino group is lost, so some energy is lost as urea."
+            ],
+            [
+              "Lipid",
+              "About 39 kJ/g",
+              "Many C–H bonds, so more hydrogen per gram"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hydrogen atoms are the source of the electrons that drive oxidative phosphorylation.",
+            "A molecule with more hydrogen atoms per gram gives more reduced NAD and reduced FAD, so more ATP.",
+            "Lipids have long hydrocarbon chains, so they have the most hydrogen and the highest energy value.",
+            "Fatty acids are broken into 2C units that enter as acetyl CoA, and glycerol enters at glycolysis.",
+            "Amino acids are deaminated, and the carbon skeletons enter the Krebs cycle."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Lipid > protein ≈ carbohydrate for energy per gram.",
+            "More hydrogen per gram means more reduced coenzymes and more ATP.",
+            "Protein is the last substrate used, and only after deamination."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The respiratory quotient",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The **respiratory quotient (RQ)** compares the carbon dioxide produced with the oxygen taken in. It shows what is being respired."
+        },
+        {
+          "type": "equation",
+          "label": "Respiratory quotient",
+          "formula": "RQ = CO₂ produced ÷ O₂ consumed",
+          "where": [
+            "CO₂ produced = molecules or volume of carbon dioxide produced",
+            "O₂ consumed = molecules or volume of oxygen taken in, in the same unit and time"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Glucose.",
+              "text": "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O. RQ = 6 ÷ 6 = 1.0."
+            },
+            {
+              "lead": "A fatty acid (oleic acid).",
+              "text": "2C₁₈H₃₄O₂ + 51O₂ → 36CO₂ + 34H₂O. RQ = 36 ÷ 51 = 0.71."
+            },
+            {
+              "lead": "Protein.",
+              "text": "About 0.9, because the amino acids contain less hydrogen than lipid and more than carbohydrate."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "RQ about 1.0 shows carbohydrate is the substrate.",
+            "RQ about 0.7 shows lipid is the substrate. Lipids have little oxygen, so more oxygen is needed to oxidise them.",
+            "RQ about 0.9 shows protein, or a mixture of substrates.",
+            "RQ above 1.0 shows some anaerobic respiration, because carbon dioxide is produced without oxygen being used."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question: calculate the respiratory quotient from the volumes of carbon dioxide produced and oxygen consumed.",
+            "question": "A culture produced {co2} cm³ of carbon dioxide and used {o2} cm³ of oxygen in the same time. Calculate the RQ.",
+            "variables": [
+              {
+                "id": "co2",
+                "min": 60,
+                "max": 100,
+                "step": 5
+              },
+              {
+                "id": "o2",
+                "min": 80,
+                "max": 100,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "co2 / o2",
+              "decimals": 2,
+              "tolerance_percent": 2
+            },
+            "working": [
+              "RQ = CO₂ produced ÷ O₂ consumed",
+              "RQ = {co2} ÷ {o2}",
+              "RQ = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "RQ = CO₂ produced ÷ O₂ consumed.",
+            "Carbohydrate 1.0, protein about 0.9, lipid about 0.7.",
+            "RQ above 1.0 suggests anaerobic respiration."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring the rate of respiration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Respiration rate can be found from the oxygen used, the carbon dioxide made, or the speed at which a redox indicator changes colour."
+        },
+        {
+          "type": "subheading",
+          "text": "Simple respirometers"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Put germinating seeds or small invertebrates, such as blowfly larvae, in a sealed tube connected to a capillary tube containing coloured liquid.",
+            "Soda lime (or potassium hydroxide) absorbs the carbon dioxide made, so the volume change is the oxygen used. The liquid moves towards the organisms.",
+            "Measure the distance moved in a set time. Volume = πr² × distance, using the radius of the capillary tube.",
+            "Use a control tube with glass beads of the same volume instead of organisms, and a water bath to keep the temperature constant.",
+            "To find the RQ, also run a tube without soda lime. The volume change is then the difference between the O₂ used and the CO₂ produced, so CO₂ produced can be calculated."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Effect of temperature and of substrate"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Place the respirometer in water baths at different temperatures. The rate rises with temperature until enzymes denature.",
+            "Compare different substrates, for example glucose, a lipid or an amino acid, with a culture of yeast or other cells."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Redox indicators and yeast"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mix yeast, a substrate (such as glucose) and a redox indicator such as DCPIP or methylene blue.",
+            "As yeast respires, hydrogen from reduced coenzymes reduces the indicator and it loses its colour.",
+            "A shorter time to decolourise means a faster rate of respiration.",
+            "Vary temperature or substrate concentration, and control everything else."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Soda lime absorbs CO₂, so the movement of liquid shows the oxygen used.",
+            "A control of glass beads corrects for changes in temperature and pressure.",
+            "A redox indicator loses its colour faster when respiration is faster."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why lipids release more energy per gram than carbohydrates.",
+      "a": "Lipids contain more hydrogen atoms per gram. More hydrogen produces more reduced NAD and reduced FAD, which pass more electrons to the electron transport chain. More ATP is made by oxidative phosphorylation.",
+      "marks": 3
+    },
+    {
+      "q": "Seeds in a respirometer produced 24 cm³ of carbon dioxide and used 34 cm³ of oxygen. Calculate the RQ and suggest which substrate is being respired.",
+      "a": "RQ = 24 ÷ 34 = 0.71. The substrate is mainly lipid.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how a simple respirometer shows the rate of oxygen uptake by blowfly larvae, and why a control is needed.",
+      "a": "Soda lime absorbs the carbon dioxide produced, so the pressure falls as oxygen is used. Coloured liquid in the capillary tube moves towards the larvae, and the distance moved in a set time gives the volume of oxygen used. A control tube with glass beads of the same volume shows changes in temperature or pressure that are not due to the larvae.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 12.1.4",
+        "CAIE 12.1.5",
+        "CAIE 12.1.6",
+        "CAIE 12.1.7",
+        "CAIE 12.2.13",
+        "CAIE 12.2.14"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "State that RQ is the ratio of the number of molecules of carbon dioxide produced to the number of molecules of oxygen taken in.",
+                "Calculate RQ values for different substrates from balanced respiration equations.",
+                "Investigate RQ with simple respirometers, using germinating seeds or small invertebrates such as blowfly larvae.",
+                "Investigate the effects of temperature and substrate concentration on the rate of respiration of yeast, using redox indicators such as DCPIP and methylene blue.",
+                "Investigate the effect of temperature on respiration using simple respirometers."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.2j",
+        "OCR 5.2.2k",
+        "OCR 5.2.2l"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Interpret RQ values, including calculating RQ with RQ = CO₂ produced ÷ O₂ consumed.",
+                "Plan practical investigations into the effect of temperature, substrate concentration and different respiratory substrates on the rate of respiration, including the use of respirometers."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "39174455-fb98-46b7-8d0d-a6c3811ebae3",
+      "dfdf6faa-e64d-46ea-8ab9-5caa241ee3a5",
+      "7a9ddcf4-50cd-4dd3-bd30-cc009e802d1f",
+      "48922f4d-36d5-4b75-bcae-8f66c483fd96",
+      "5f758a95-e7b2-46aa-95e2-257310ea3ead",
+      "f702e0f6-d28f-45e8-ad8b-70f961198e39",
+      "2504b017-e400-4702-93a3-b833260849c8",
+      "46a12f29-bec6-43a6-aaec-29f52a3b7332",
+      "332a37b6-6ef6-45b1-adfc-f966219d5cbe"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,580 @@
+{
+  "format": 1,
+  "concept_id": "abio-021",
+  "subject": "biology",
+  "title": "Circulatory systems, blood vessels and tissue fluid",
+  "key_idea": "Large, active animals cannot rely on diffusion, so they have a **circulatory system** that carries blood close to every cell. Blood vessels are built for their job. **Tissue fluid** forms when pressure pushes plasma out of capillaries, and bathes the cells.",
+  "sections": [
+    {
+      "heading": "Why animals need a circulatory system",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Small animals can exchange substances over their body surface. Larger animals cannot, so they need a transport system. This section covers why, and the different kinds of system."
+        },
+        {
+          "type": "list",
+          "items": [
+            "As an animal gets bigger, its surface area to volume ratio (**SA:V**) falls. The surface is too small to supply all the cells inside.",
+            "Diffusion is too slow over long distances. The distance from the surface to the centre is large.",
+            "Active animals have a high metabolic rate. Their cells use oxygen and glucose quickly and make a lot of carbon dioxide.",
+            "A circulatory system moves substances in **mass transport**. It keeps a steep concentration gradient at every exchange surface."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Open circulation",
+              "meaning": "Blood is pumped into a body cavity and bathes the organs directly. It is not kept inside vessels."
+            },
+            {
+              "term": "Closed circulation",
+              "meaning": "Blood stays inside vessels all the time. The heart pumps it round the body."
+            },
+            {
+              "term": "Single circulation",
+              "meaning": "Blood passes through the heart once on each full circuit of the body."
+            },
+            {
+              "term": "Double circulation",
+              "meaning": "Blood passes through the heart twice on each circuit: once to the lungs and once to the body."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Animal",
+            "Type of system",
+            "Key features"
+          ],
+          "rows": [
+            [
+              "Insect",
+              "Open",
+              "A tube-like heart pumps blood into the body cavity. Blood moves slowly at low pressure and is not used to carry oxygen, because tracheae do that."
+            ],
+            [
+              "Fish",
+              "Closed, single",
+              "Blood goes from the heart to the gills, then straight on to the body. The pressure drops after the gills, so the body gets slower flow."
+            ],
+            [
+              "Mammal",
+              "Closed, double",
+              "The right side pumps blood to the lungs and the left side pumps it to the body. Blood returns to the heart between the two, so it is pumped at high pressure twice."
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A double circulation lets blood reach the body at higher pressure. This supports the high metabolic rate of mammals, which also keep their body warm."
+        },
+        {
+          "type": "subheading",
+          "text": "The main vessels of the mammalian circulation"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Vessel",
+            "Carries blood",
+            "Function"
+          ],
+          "rows": [
+            [
+              "Pulmonary artery",
+              "From the right ventricle to the lungs",
+              "Carries deoxygenated blood to the lungs. Unlike most arteries, it carries deoxygenated blood."
+            ],
+            [
+              "Pulmonary vein",
+              "From the lungs to the left atrium",
+              "Carries oxygenated blood back to the heart."
+            ],
+            [
+              "Aorta",
+              "From the left ventricle to the body",
+              "Carries oxygenated blood at high pressure. The coronary arteries branch off it to supply the heart muscle."
+            ],
+            [
+              "Vena cava",
+              "From the body to the right atrium",
+              "Carries deoxygenated blood back to the heart."
+            ],
+            [
+              "Renal artery and vein",
+              "To and from the kidneys",
+              "The artery brings blood to the kidney. The vein takes blood away after it has been filtered."
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Large size and a high metabolic rate mean diffusion alone is too slow, so a transport system is needed.",
+            "Mammals have a closed, double circulation. Insects have an open one. Fish have a closed, single one.",
+            "The pulmonary circuit goes to the lungs. The systemic circuit goes to the rest of the body."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Arteries, veins and capillaries",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Blood vessels carry blood to and from the tissues. Each type has a wall built for the pressure it faces and the job it does."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Endothelium",
+              "meaning": "A single layer of flat cells lining every blood vessel. It is smooth, so blood flows with little friction."
+            },
+            {
+              "term": "Elastic fibres",
+              "meaning": "Fibres that stretch when pressure rises and recoil when it falls."
+            },
+            {
+              "term": "Smooth muscle",
+              "meaning": "Muscle in vessel walls that contracts to narrow the lumen."
+            },
+            {
+              "term": "Lumen",
+              "meaning": "The space in the middle of a vessel that blood flows through."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Vessel",
+            "Wall and lumen",
+            "How this suits its function"
+          ],
+          "rows": [
+            [
+              "Artery",
+              "Thick wall with a lot of elastic fibres, some smooth muscle and collagen. Narrow lumen.",
+              "Carries blood away from the heart at high pressure. The wall stretches and recoils with each heartbeat, which evens out the flow and stops the wall bursting."
+            ],
+            [
+              "Arteriole",
+              "Thinner wall than an artery with more smooth muscle and fewer elastic fibres.",
+              "Smooth muscle contracts or relaxes to narrow or widen the vessel. This controls how much blood enters a capillary bed."
+            ],
+            [
+              "Capillary",
+              "Wall is one endothelial cell thick, with no muscle or elastic fibres. Lumen only just wide enough for a red blood cell.",
+              "Short diffusion distance. Slows blood so there is time for exchange. Small gaps between cells let fluid and small molecules pass."
+            ],
+            [
+              "Venule and vein",
+              "Thin wall with little muscle and few elastic fibres. Wide lumen. Veins have valves.",
+              "Blood is at low pressure, so a wide lumen reduces resistance. Valves stop backflow. Muscles squeezing the veins push blood on towards the heart."
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Capillaries form dense **capillary beds**. These give a huge total surface area, so they act as the exchange surface between blood and cells."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort statements about blood vessel walls into artery, capillary and vein.",
+            "prompt": "Sort each description into the vessel it fits.",
+            "groups": [
+              "Artery",
+              "Capillary",
+              "Vein"
+            ],
+            "items": [
+              {
+                "text": "Thick wall with many elastic fibres",
+                "group": 0
+              },
+              {
+                "text": "Stretches and recoils to even out the flow",
+                "group": 0
+              },
+              {
+                "text": "Wall is one cell thick",
+                "group": 1
+              },
+              {
+                "text": "Allows exchange by diffusion",
+                "group": 1
+              },
+              {
+                "text": "Valves stop backflow",
+                "group": 2
+              },
+              {
+                "text": "Wide lumen and thin wall",
+                "group": 2
+              },
+              {
+                "text": "Carries blood at the highest pressure",
+                "group": 0
+              },
+              {
+                "text": "Lumen only just wide enough for one red blood cell",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Arteries have thick, elastic walls for high pressure. Veins have valves and a wide lumen for low pressure.",
+            "Capillary walls are one cell thick, which gives a short diffusion distance.",
+            "Arterioles use smooth muscle to control the blood flow into each capillary bed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Tissue fluid",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Blood cells and large proteins stay in the capillaries. The rest of the plasma can leak out and bathe the cells. This is how cells get their supplies."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Tissue fluid",
+              "meaning": "Plasma that has leaked out of capillaries. It contains water, oxygen, glucose, amino acids, ions and hormones, but no red cells and few proteins."
+            },
+            {
+              "term": "Hydrostatic pressure",
+              "meaning": "The pressure of the blood pushing fluid out through the capillary wall."
+            },
+            {
+              "term": "Oncotic pressure",
+              "meaning": "The tendency of water to move into the blood because plasma proteins make its water potential low."
+            },
+            {
+              "term": "Lymph",
+              "meaning": "The fluid inside lymph vessels. It is tissue fluid that has drained away from the cells."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "How tissue fluid forms and returns"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Arteriole end.",
+              "text": "Blood is at high hydrostatic pressure. This is greater than the oncotic pressure, so fluid is forced out through gaps in the capillary wall. This is ultrafiltration."
+            },
+            {
+              "lead": "Exchange.",
+              "text": "Oxygen and nutrients in the tissue fluid diffuse into cells. Carbon dioxide and waste diffuse the other way."
+            },
+            {
+              "lead": "Venule end.",
+              "text": "Hydrostatic pressure has fallen because fluid has left. Plasma proteins stay behind, so the water potential of the blood is low. Water moves back in by osmosis."
+            },
+            {
+              "lead": "Lymph.",
+              "text": "About 10% of the fluid does not return to the blood. It drains into the lymph system and goes back to the blood near the heart."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Net movement of fluid out of a capillary",
+          "formula": "net outward pressure = hydrostatic pressure − oncotic pressure",
+          "where": [
+            "hydrostatic pressure, in kPa",
+            "oncotic pressure, in kPa",
+            "a positive answer means fluid moves out of the capillary"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing net outward pressure at a capillary. Reduce the hydrostatic pressure to see the net pressure fall and then become negative, so fluid returns to the blood.",
+            "inputs": [
+              {
+                "id": "hydro",
+                "label": "Hydrostatic pressure",
+                "unit": "kPa",
+                "min": 1,
+                "max": 5,
+                "step": 0.1,
+                "value": 4.3
+              },
+              {
+                "id": "onc",
+                "label": "Oncotic pressure",
+                "unit": "kPa",
+                "min": 2,
+                "max": 4,
+                "step": 0.1,
+                "value": 3.3
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Net outward pressure",
+                "unit": "kPa",
+                "formula": "hydro - onc",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Blood",
+            "Tissue fluid",
+            "Lymph"
+          ],
+          "rows": [
+            [
+              "Red blood cells",
+              "Present",
+              "None",
+              "None"
+            ],
+            [
+              "Plasma proteins",
+              "Many",
+              "Few",
+              "Few"
+            ],
+            [
+              "Lymphocytes",
+              "Some",
+              "None",
+              "Many"
+            ],
+            [
+              "Oxygen and glucose",
+              "High",
+              "Lower",
+              "Lower"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "High hydrostatic pressure at the arteriole end forces plasma out of the capillary to form tissue fluid.",
+            "Plasma proteins stay in the blood and lower its water potential, so water returns by osmosis at the venule end.",
+            "Fluid that does not return drains into the lymph system."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why a mammal needs a circulatory system but a flatworm does not.",
+      "a": "A mammal is large with a small surface area to volume ratio and a high metabolic rate. Diffusion would be too slow over the distances involved to supply all its cells. A flatworm is thin and flat, so it has a large surface area to volume ratio and a short diffusion distance.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how the structure of an artery is suited to its function.",
+      "a": "The wall is thick and contains elastic fibres. These stretch as blood is pumped out under high pressure and recoil afterwards, which keeps the blood flowing smoothly. The thick wall and collagen stop it bursting. The narrow lumen helps keep the pressure high.",
+      "marks": 4
+    },
+    {
+      "q": "Describe how tissue fluid is formed and how most of it returns to the blood.",
+      "a": "At the arteriole end, hydrostatic pressure is high and forces plasma, without large proteins, out through the capillary wall. As fluid leaves, hydrostatic pressure falls. Plasma proteins remain, so the water potential of the blood is low. At the venule end, water moves back into the capillary by osmosis.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.4.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You need to name only the coronary arteries and the vessels entering and leaving the heart, lungs and kidneys. The table of main vessels above covers them."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The coronary arteries branch from the aorta and supply the heart muscle with blood.",
+                "Capillary beds are exchange surfaces because their total surface area is large and their walls are very thin.",
+                "In the dissection practical, cut across an artery and a vein. The artery wall is thicker and more rounded, and the vein lumen is wider."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.2a",
+        "OCR 3.1.2b",
+        "OCR 3.1.2c",
+        "OCR 3.1.2d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Where the tissues are in the vessel wall"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Tissue",
+                "Artery",
+                "Vein",
+                "Capillary"
+              ],
+              "rows": [
+                [
+                  "Endothelium (innermost)",
+                  "Present",
+                  "Present",
+                  "Only layer present"
+                ],
+                [
+                  "Elastic tissue",
+                  "Thick layer",
+                  "Thin layer",
+                  "None"
+                ],
+                [
+                  "Smooth muscle",
+                  "Thick layer",
+                  "Thin layer",
+                  "None"
+                ],
+                [
+                  "Collagen (outermost)",
+                  "Thick layer",
+                  "Thick layer",
+                  "None"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Arterioles have a thicker layer of smooth muscle than arteries relative to their size. Venules have a thin wall with very little muscle.",
+                "Oncotic pressure comes from the plasma proteins. Tissue fluid has a higher water potential than plasma because it contains fewer proteins.",
+                "Lymph has fewer nutrients and oxygen than tissue fluid, because cells have used them, and has more fats from the gut and more lymphocytes."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 1.1",
+        "EDEX 1.3"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 8.1.1",
+        "CAIE 8.1.2",
+        "CAIE 8.1.3",
+        "CAIE 8.1.4",
+        "CAIE 8.1.5",
+        "CAIE 8.1.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Muscular and elastic arteries"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Feature",
+                "Elastic artery",
+                "Muscular artery"
+              ],
+              "rows": [
+                [
+                  "Example",
+                  "Aorta, pulmonary artery",
+                  "Arteries to organs, such as the renal artery"
+                ],
+                [
+                  "Main tissue in wall",
+                  "Lots of elastic tissue",
+                  "More smooth muscle, less elastic tissue"
+                ],
+                [
+                  "Function",
+                  "Stretches and recoils to smooth out the pulse of blood from the heart",
+                  "Contracts or relaxes to change how much blood goes to an organ"
+                ]
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Recognising vessels and blood cells"
+            },
+            {
+              "type": "list",
+              "items": [
+                "In transverse section, an artery has a thick wall and a small, round lumen. A vein has a thinner wall and a larger, often irregular lumen.",
+                "In a plan diagram, draw only the outlines of the tissue layers. Do not draw individual cells.",
+                "A longitudinal section of a vein can show a valve. A capillary appears as a very narrow tube with a wall one cell thick.",
+                "Red blood cells are small, round biconcave discs with no nucleus.",
+                "Neutrophils have a lobed nucleus with 3 to 5 lobes and granular cytoplasm. Lymphocytes are small with a large round nucleus and little cytoplasm. Monocytes are the largest, with a kidney-shaped nucleus."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "2450573e-9579-421b-845d-65862221457e",
+      "cce53957-7744-4a5f-89c6-0a0cdeff41ac",
+      "fee8a16d-686f-465e-8b9a-ecb1819abc54",
+      "ad887165-ce32-4c5b-b0fd-7884864c724e",
+      "39692d17-424d-4149-9c26-ad782a52fbe3",
+      "9362dc9e-3b39-409a-a5d6-2c85c1e80276",
+      "49531fda-5fbf-4bce-812f-35ab2c536c8c",
+      "9e24c726-5b36-4f99-a95e-d93af022b92c",
+      "956909e4-0444-4b0d-a0bd-7ce813a1e1b7",
+      "07927d15-6eed-4eb6-b31c-ef2dc0d57f49",
+      "2da78858-39de-48c7-b05f-3a1cb0675411",
+      "73d00bb4-7785-4dda-99c8-848aa4e9e6c1",
+      "966fb3c3-d957-4c28-aa54-35a6a689cbd2"
+    ],
+    "exemplar_ids": []
+  }
+}

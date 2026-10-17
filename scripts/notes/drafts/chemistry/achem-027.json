@@ -1,0 +1,369 @@
+{
+  "format": 1,
+  "concept_id": "achem-027",
+  "subject": "chemistry",
+  "title": "The Maxwell-Boltzmann distribution and temperature",
+  "key_idea": "Molecules in a gas have a spread of energies, shown by the Maxwell–Boltzmann distribution. Only the molecules to the right of the activation energy can react. A small rise in temperature greatly increases that fraction, so the rate rises sharply.",
+  "sections": [
+    {
+      "heading": "The Maxwell–Boltzmann distribution",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Molecules in a gas do not all have the same energy. This section covers the curve that shows the spread."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Maxwell–Boltzmann distribution",
+              "meaning": "A curve showing how many molecules in a gas have each value of energy, at one temperature."
+            },
+            {
+              "term": "Most probable energy",
+              "meaning": "The energy at the peak of the curve, which more molecules have than any other energy."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The x axis is molecular energy. The y axis is the number (or fraction) of molecules with that energy.",
+            "The curve starts at the origin, because no molecules have zero energy.",
+            "It is skewed and never touches the x axis at high energy, so there is no maximum energy.",
+            "The area under the curve is the total number of molecules. It does not change with temperature.",
+            "The activation energy is marked on the x axis. The area to the right of Eₐ is the number of molecules that can react."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The curve starts at the origin and does not touch the x axis again.",
+            "The area under the curve is constant for a fixed number of molecules.",
+            "Only the area beyond Eₐ represents molecules that can react."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The effect of temperature",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Raising the temperature changes the shape of the curve. This section covers how and why the rate rises."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Two Maxwell–Boltzmann curves. The lower temperature curve has a higher, narrower peak at lower energy. The higher temperature curve has a lower peak further right and a longer tail. A marker shows the activation energy, with more area beyond it for the higher temperature.",
+            "x": {
+              "label": "Molecular energy",
+              "min": 0,
+              "max": 10,
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10
+              ]
+            },
+            "y": {
+              "label": "Number of molecules"
+            },
+            "series": [
+              {
+                "name": "Lower temperature",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0.45
+                  ],
+                  [
+                    2,
+                    0.8
+                  ],
+                  [
+                    3,
+                    0.9
+                  ],
+                  [
+                    4,
+                    0.75
+                  ],
+                  [
+                    5,
+                    0.55
+                  ],
+                  [
+                    6,
+                    0.38
+                  ],
+                  [
+                    7,
+                    0.25
+                  ],
+                  [
+                    8,
+                    0.16
+                  ],
+                  [
+                    9,
+                    0.1
+                  ],
+                  [
+                    10,
+                    0.06
+                  ]
+                ]
+              },
+              {
+                "name": "Higher temperature",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0.25
+                  ],
+                  [
+                    2,
+                    0.42
+                  ],
+                  [
+                    3,
+                    0.52
+                  ],
+                  [
+                    4,
+                    0.55
+                  ],
+                  [
+                    5,
+                    0.52
+                  ],
+                  [
+                    6,
+                    0.46
+                  ],
+                  [
+                    7,
+                    0.38
+                  ],
+                  [
+                    8,
+                    0.3
+                  ],
+                  [
+                    9,
+                    0.23
+                  ],
+                  [
+                    10,
+                    0.17
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 6,
+                "label": "Eₐ"
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The peak moves to the right and gets lower. The curve flattens and spreads out.",
+            "The area under both curves is the same.",
+            "The most probable energy and the mean energy both increase.",
+            "A larger proportion of molecules has energy of at least Eₐ."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Molecules also move faster, so they collide more often.",
+            "The bigger effect is that a much greater proportion of collisions are effective.",
+            "A small rise in temperature gives a large rise in the area beyond Eₐ, so the rate rises sharply.",
+            "The activation energy itself does not change."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Higher temperature: lower, wider curve with the peak further right.",
+            "More molecules have energy of at least Eₐ, so more collisions are effective.",
+            "A small temperature rise can cause a large rise in rate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating temperature and rate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The effect of temperature on rate is tested by changing only the temperature. This section covers a typical method."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up.",
+              "text": "Use the same volume and concentration of each reactant in every run. Warm one reactant to the chosen temperature in a water bath."
+            },
+            {
+              "lead": "Start.",
+              "text": "Mix the reactants and start a stopwatch."
+            },
+            {
+              "lead": "Measure.",
+              "text": "Time a fixed change, such as a mark disappearing, or measure a quantity at regular times."
+            },
+            {
+              "lead": "Repeat.",
+              "text": "Repeat at several temperatures, keeping everything else the same."
+            },
+            {
+              "lead": "Analyse.",
+              "text": "A shorter time means a faster rate. The rate is proportional to 1 ÷ time."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change only the temperature and keep everything else constant.",
+            "Rate is proportional to 1 ÷ time for a fixed change."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State two features of a Maxwell–Boltzmann distribution curve.",
+      "a": "Any two of: it starts at the origin; it does not touch the x axis at high energy; the area under the curve is the total number of molecules; it has a peak at the most probable energy.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how the Maxwell–Boltzmann curve changes when the temperature is raised.",
+      "a": "The peak moves to the right and becomes lower. The curve spreads out. The area under the curve stays the same.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a small increase in temperature can cause a large increase in rate.",
+      "a": "A much larger proportion of molecules has energy of at least the activation energy. More collisions are effective, so the rate increases greatly.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.2.2f",
+        "OCR 3.2.2g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Use the distribution to explain how the proportion of molecules exceeding Eₐ changes, and so the rate."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Describe the relationship between the Boltzmann distribution and Eₐ.",
+                "The same model is used again to explain catalysts."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 9.4"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.5.2",
+        "AQA 3.1.5.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Be ready to draw and interpret distribution curves for different temperatures, and to carry out an investigation of rate against temperature."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Label the axes: energy on x, number of molecules on y.",
+                "Draw both curves from the origin, with the same area, the higher temperature curve lower and further right.",
+                "Mark Eₐ and shade the area beyond it on each curve."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 8.2.2",
+        "CAIE 8.2.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Explain temperature effects in terms of both the distribution and the frequency of effective collisions."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Sketch the distribution and mark Eₐ.",
+                "Say that molecules collide more often at a higher temperature.",
+                "Say that a greater proportion of collisions are effective, and that this is the larger effect."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "22004eae-2aed-4bac-ad5d-1ef590b351c7",
+      "181c66c6-928d-40c2-816b-6acb82578150",
+      "a0fe2fb3-b174-4fec-b769-ff419366f4d7",
+      "8ed30013-ebc4-4c3a-8927-b3b6181dbbe9",
+      "51774642-c14a-4b22-b75e-454b78cc99d0",
+      "592a2caf-3212-40bd-9da6-20dcc49ce218",
+      "1bfdf8f4-6552-4068-a6d8-808b1ee46f04"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

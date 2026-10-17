@@ -1,0 +1,321 @@
+{
+  "format": 1,
+  "concept_id": "achem-086",
+  "subject": "chemistry",
+  "title": "Optical isomerism",
+  "key_idea": "A carbon atom bonded to four different groups is a chiral centre. It gives two optical isomers, enantiomers, which are non-superimposable mirror images. They rotate plane-polarised light in opposite directions, and an equal mixture, a racemic mixture, has no effect.",
+  "sections": [
+    {
+      "heading": "Chiral centres and enantiomers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Optical isomerism is a type of stereoisomerism: the atoms are bonded in the same order but arranged differently in space. This section covers what causes it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Chiral centre",
+              "meaning": "An asymmetric carbon atom, bonded to four different atoms or groups."
+            },
+            {
+              "term": "Enantiomers",
+              "meaning": "Optical isomers: a pair of molecules that are non-superimposable mirror images of each other."
+            },
+            {
+              "term": "Chiral molecule",
+              "meaning": "A molecule that cannot be superimposed on its mirror image."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A chiral centre has four different groups arranged tetrahedrally around the carbon.",
+            "There are two different ways to arrange four different groups in 3-D.",
+            "The two arrangements are mirror images, like left and right hands, and cannot be placed on top of each other.",
+            "A molecule with one chiral centre has exactly two enantiomers."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Drawing enantiomers"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Draw the chiral carbon with two bonds in the plane of the paper.",
+            "Show one bond as a solid wedge (towards the viewer) and one as a dashed wedge (away from the viewer).",
+            "Draw the second enantiomer as the mirror image: reflect the first in a vertical line, keeping the same groups.",
+            "Swapping any two groups on the chiral centre gives the other enantiomer."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A chiral centre is a carbon bonded to four different groups.",
+            "Enantiomers are non-superimposable mirror images.",
+            "One chiral centre gives two enantiomers."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Spotting a chiral centre",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To find a chiral centre, look at each carbon atom in turn and ask whether its four groups are all different. This section gives a method and examples."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Skip",
+              "text": "Ignore carbon atoms in C=C or C=O bonds, or with fewer than four attached groups. Ignore any carbon with two identical groups, such as CH₃ or CH₂."
+            },
+            {
+              "lead": "List",
+              "text": "For each remaining carbon, write down the four groups attached."
+            },
+            {
+              "lead": "Compare",
+              "text": "If all four groups are different, it is a chiral centre. Compare whole groups, not just the first atom."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Butan-2-ol, CH₃CH(OH)CH₂CH₃: carbon 2 has H, OH, CH₃ and CH₂CH₃, so it is chiral.",
+            "2-hydroxypropanoic acid (lactic acid), CH₃CH(OH)COOH: carbon 2 has H, OH, CH₃ and COOH, so it is chiral.",
+            "Alanine, CH₃CH(NH₂)COOH, is chiral. Glycine, H₂NCH₂COOH, is not, because it has two H atoms on the central carbon.",
+            "Propan-2-ol, (CH₃)₂CHOH, is not chiral, because carbon 2 has two CH₃ groups."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each molecule by whether it has a chiral centre.",
+            "prompt": "Does the molecule contain a chiral centre?",
+            "groups": [
+              "Has a chiral centre",
+              "No chiral centre"
+            ],
+            "items": [
+              {
+                "text": "Butan-2-ol",
+                "group": 0
+              },
+              {
+                "text": "Propan-2-ol",
+                "group": 1
+              },
+              {
+                "text": "2-chlorobutane",
+                "group": 0
+              },
+              {
+                "text": "1-chlorobutane",
+                "group": 1
+              },
+              {
+                "text": "Alanine",
+                "group": 0
+              },
+              {
+                "text": "Glycine",
+                "group": 1
+              },
+              {
+                "text": "3-methylhexane",
+                "group": 0
+              },
+              {
+                "text": "2-methylbutan-2-ol",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Check every carbon: it is chiral only if all four attached groups differ.",
+            "A carbon with two identical groups (e.g. two H or two CH₃) cannot be chiral.",
+            "Compare whole groups, not single atoms."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Optical activity and racemic mixtures",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Enantiomers have the same melting point, boiling point and chemical reactions, apart from reactions with other chiral molecules. They differ in how they affect plane-polarised light."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Plane-polarised light",
+              "meaning": "Light whose waves vibrate in one plane only. It is also monochromatic (one wavelength) when used to test optical activity."
+            },
+            {
+              "term": "Optical activity",
+              "meaning": "The ability of a single enantiomer to rotate the plane of plane-polarised light."
+            },
+            {
+              "term": "Racemic mixture (racemate)",
+              "meaning": "A mixture of equal amounts of two enantiomers."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "One enantiomer rotates the plane of polarisation clockwise; the other rotates it by the same angle anticlockwise.",
+            "A racemic mixture has equal and opposite rotations that cancel, so it is **optically inactive**.",
+            "Enantiomers have identical physical and chemical properties, except for this rotation and their reactions with other chiral molecules (such as enzymes)."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "How a racemic mixture forms"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In the nucleophilic addition of HCN to an aldehyde or an unsymmetrical ketone, the C=O group is trigonal planar.",
+            "The cyanide ion attacks from either side of the plane with equal probability.",
+            "Equal amounts of each enantiomer form, so the product is a racemic mixture, which is optically inactive.",
+            "Any reaction that forms a chiral centre from a flat starting group, with no chiral influence, gives a racemic mixture."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Each enantiomer rotates plane-polarised light, by equal angles in opposite directions.",
+            "A racemic mixture is a 50:50 mixture of enantiomers and is optically inactive.",
+            "Racemates form when a planar group is attacked equally from both sides."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain what is meant by a chiral centre, and identify it in 2-chlorobutane, CH₃CHClCH₂CH₃.",
+      "a": "A chiral centre is a carbon atom bonded to four different atoms or groups. In 2-chlorobutane it is carbon 2, which is bonded to H, Cl, CH₃ and CH₂CH₃.",
+      "marks": 3
+    },
+    {
+      "q": "State two ways in which the two enantiomers of a compound are the same and one way in which they differ.",
+      "a": "They have the same melting point and boiling point (or the same chemical reactions). They differ in the direction in which they rotate the plane of plane-polarised light.",
+      "marks": 3
+    },
+    {
+      "q": "HCN adds to ethanal, CH₃CHO, to form 2-hydroxypropanenitrile. Explain why the product does not rotate plane-polarised light.",
+      "a": "The C=O group is planar, so cyanide ions attack from either side with equal probability. Equal amounts of the two enantiomers form, which is a racemic mixture. Their rotations cancel, so the mixture is optically inactive.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.2.2c",
+        "OCR 6.2.2d"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 17A.1",
+        "EDEX 17A.2",
+        "EDEX 17A.3",
+        "EDEX 17A.4",
+        "EDEX 17A.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers how optical activity gives evidence about the mechanism of nucleophilic substitution of a haloalkane."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Start with a single enantiomer of a chiral haloalkane, which is optically active, and measure the product.",
+                "**SN₁**: the haloalkane first forms a planar carbocation. The nucleophile attacks from either side equally, so a racemic mixture forms. The product is optically inactive.",
+                "**SN₂**: the nucleophile attacks from the side opposite to the leaving group in one step. The product is a single enantiomer, with the arrangement inverted, and it stays optically active.",
+                "So an optically active reactant that gives an optically inactive product points to SN₁. One that gives an optically active product points to SN₂."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.7"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 13.4.4",
+        "CAIE 29.4.1",
+        "CAIE 29.4.2",
+        "CAIE 29.4.3",
+        "CAIE 29.4.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers why chirality matters when drug molecules are made. A compound can contain more than one chiral centre, but meso compounds are not needed."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The two enantiomers of a drug can have **different biological activity**. One may be the useful drug while the other is inactive or harmful.",
+                "Many chemical syntheses make a racemic mixture, so the two enantiomers must be separated to obtain a pure drug.",
+                "Separation is difficult and costly, because enantiomers have the same physical properties.",
+                "A **chiral catalyst** can be used to make one enantiomer only, so no separation is needed and waste is reduced.",
+                "Use the terms: optically active means the sample rotates plane-polarised light; a racemic mixture is equal amounts of two enantiomers and is not optically active."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "169f332f-e44a-4f22-b7e6-b948455ece6f",
+      "e8ce08b5-76ff-475c-8fa6-42565f128914",
+      "223215f4-b71f-4961-af03-634c5728815b",
+      "51b16c1b-bfc8-489a-b784-d6c96745cd48",
+      "e0c2482c-6c75-4929-b833-859b180be365",
+      "b767d903-fad3-47d9-ad18-b8ddf37e23c0",
+      "5f4e6c88-72b4-4767-a81a-33bf88687ec3",
+      "7b3bfa2f-1976-407f-84fb-6e58f72a121d",
+      "69d44192-62f7-4d57-bf97-3980c996b71d",
+      "21bea71a-0a24-4109-b30d-bb6e5f04b360",
+      "31eaf3f9-f226-4891-939b-1e194696ef65",
+      "56b6311d-5465-45b9-b4a8-704a96b2d3f6",
+      "55b18939-e860-4dff-a0fc-bcf415b41a14"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

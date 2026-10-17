@@ -1,0 +1,324 @@
+{
+  "format": 1,
+  "concept_id": "aphys-096",
+  "subject": "physics",
+  "title": "Semiconductor components and sensors",
+  "key_idea": "A MOSFET is a voltage-controlled switch with a very high input resistance. A Zener diode holds a steady voltage in reverse breakdown. A photodiode turns light into current, and a Hall effect sensor turns a magnetic field into a voltage.",
+  "sections": [
+    {
+      "heading": "The MOSFET",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A MOSFET is a three-terminal transistor. The voltage on one terminal controls the current between the other two."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Gate",
+              "meaning": "The control terminal. It is insulated from the rest of the device."
+            },
+            {
+              "term": "Source",
+              "meaning": "The terminal the current leaves the channel by (the 0 V side in a simple switch)."
+            },
+            {
+              "term": "Drain",
+              "meaning": "The terminal the channel current enters, connected through a load to the supply."
+            },
+            {
+              "term": "Threshold voltage, Vₜₕ",
+              "meaning": "The gate-source voltage at which the MOSFET starts to conduct."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Only the N-channel, enhancement mode MOSFET is needed.",
+            "**V_GS** is the gate-source voltage. **V_DS** is the drain-source voltage. The drain current is **I_D**.",
+            "The gate is insulated, so almost no current enters it. The input resistance is very high."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Characteristics and behaviour"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Below Vₜₕ there is no channel. The MOSFET is off and the drain current is almost zero.",
+            "Above Vₜₕ a channel forms. The drain current rises quickly as V_GS rises.",
+            "For a given V_GS, raising V_DS makes the drain current rise and then level off at a saturation value, written I_DSS. A larger V_GS gives a larger saturation current.",
+            "A gate-source voltage well above Vₜₕ turns the device fully on."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Uses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "As a **switch**: a small voltage at the gate switches a much larger current through a load such as a motor or lamp.",
+            "As a device with a very high input resistance: it can be driven by a weak sensor signal without drawing current from it."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "V_GS above Vₜₕ switches an N-channel enhancement MOSFET on.",
+            "The insulated gate gives a very high input resistance.",
+            "Drain current levels off at I_DSS."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The Zener diode",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A Zener diode has an anode and a cathode. It conducts like an ordinary diode when forward biased, and is built to work safely in reverse breakdown."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In the reverse direction almost no current flows until the **Zener breakdown voltage** is reached.",
+            "At that voltage the current rises steeply, above a typical minimum operating current.",
+            "In breakdown the voltage across the diode stays almost constant as the current changes."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Characteristic curve of a Zener diode. For forward voltage the current rises after about 0.6 volts. In reverse the current is almost zero until the breakdown voltage, then rises steeply while the voltage stays almost constant.",
+            "x": {
+              "label": "Voltage across diode",
+              "min": -6,
+              "max": 2,
+              "ticks": [
+                -6,
+                -4,
+                -2,
+                0,
+                2
+              ],
+              "unit": "V"
+            },
+            "y": {
+              "label": "Current through diode",
+              "zero": 0.5
+            },
+            "series": [
+              {
+                "name": "Zener diode",
+                "points": [
+                  [
+                    -6,
+                    0.05
+                  ],
+                  [
+                    -5,
+                    0.15
+                  ],
+                  [
+                    -4.9,
+                    0.3
+                  ],
+                  [
+                    -4.8,
+                    0.48
+                  ],
+                  [
+                    -0.5,
+                    0.5
+                  ],
+                  [
+                    0.4,
+                    0.5
+                  ],
+                  [
+                    0.8,
+                    0.7
+                  ],
+                  [
+                    1.2,
+                    0.95
+                  ],
+                  [
+                    1.4,
+                    1
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": -4.9,
+                "label": "Breakdown voltage"
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Uses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Constant voltage source**: connect the Zener in reverse across the output, in series with a resistor. The resistor takes the surplus voltage.",
+            "**Reference voltage**: the steady Zener voltage is compared with another voltage, for example at a comparator input.",
+            "Use as a stabiliser is not required."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A Zener diode is used in reverse breakdown, where its voltage stays almost constant.",
+            "With a series resistor it gives a constant voltage or a reference voltage."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The photodiode",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A photodiode is a diode whose current depends on the light falling on it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In **photo-conductive mode** it is reverse biased. Light creates charge carriers, so the reverse current rises as the light gets brighter.",
+            "The current is almost zero in the dark and grows in proportion to the light intensity.",
+            "It is used as a detector in optical systems, such as a receiver for light pulses from an optic fibre.",
+            "Its **characteristic curves** show current against voltage for different light levels."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **spectral response curve** shows how sensitive the photodiode is at each wavelength.",
+            "It has a peak sensitivity at one wavelength and responds less to wavelengths either side of it.",
+            "With a **scintillator**, which gives a flash of light when an atomic particle hits it, a photodiode detects the particle."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "In photo-conductive mode, reverse current rises with light intensity.",
+            "A scintillator and photodiode together detect atomic particles."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The Hall effect sensor",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A Hall effect sensor gives an output voltage that depends on the magnetic field through it. The principles of operation are not required."
+        },
+        {
+          "type": "list",
+          "items": [
+            "As a **magnetic field sensor** it monitors attitude, the orientation of an object, by sensing the Earth's field direction.",
+            "In a **tachometer** a magnet on a rotating shaft passes the sensor once per turn. Each pass gives a pulse, and the pulse rate gives the rotation rate."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Match each use to the component that provides it.",
+            "prompt": "Which component is used for each job?",
+            "groups": [
+              "MOSFET",
+              "Zener diode",
+              "Photodiode"
+            ],
+            "items": [
+              {
+                "text": "Switching a large current with a small gate voltage",
+                "group": 0
+              },
+              {
+                "text": "Very high input resistance",
+                "group": 0
+              },
+              {
+                "text": "Reference voltage",
+                "group": 1
+              },
+              {
+                "text": "Constant voltage with a series resistor",
+                "group": 1
+              },
+              {
+                "text": "Detector with a scintillator",
+                "group": 2
+              },
+              {
+                "text": "Detector in an optical system",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A Hall effect sensor senses magnetic field.",
+            "It is used to monitor attitude and in a tachometer."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what happens to an N-channel enhancement MOSFET when V_GS is below the threshold voltage, and why its input resistance is very high.",
+      "a": "It is off (no channel, drain current almost zero). The gate is insulated from the channel, so almost no current flows into it.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how a Zener diode and a resistor give a constant voltage source.",
+      "a": "The Zener is connected in reverse, in series with the resistor. Above the breakdown voltage the voltage across the Zener stays almost constant, so the output across it is constant. The resistor takes the rest of the supply voltage.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how a photodiode in photo-conductive mode and a scintillator detect an atomic particle.",
+      "a": "The particle makes the scintillator give a flash of light. The light falls on the reverse-biased photodiode, so its reverse current rises, which is detected.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.13.1.1",
+        "AQA 3.13.1.2",
+        "AQA 3.13.1.3",
+        "AQA 3.13.1.4"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "a5fe90a5-dca7-4cbc-b1a6-d43f14f14a0a",
+      "e7e983f5-b69f-45cc-baca-51b0f5c2b2c2",
+      "f4aeead4-ddb5-4891-bfbf-37c883ac290a",
+      "e5591511-a945-488f-a5c4-89786cca774f"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

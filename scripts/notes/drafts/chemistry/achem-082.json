@@ -1,0 +1,427 @@
+{
+  "format": 1,
+  "concept_id": "achem-082",
+  "subject": "chemistry",
+  "title": "Phenols and directing effects",
+  "key_idea": "Phenol has an –OH group joined to a benzene ring. It is a weak acid, and the oxygen donates electrons into the ring, so phenol substitutes much more easily than benzene. Substituents on a ring direct new groups to the 2- and 4-positions, or to the 3-position.",
+  "sections": [
+    {
+      "heading": "Phenol and its acidity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In phenol, C₆H₅OH, the –OH group is attached directly to the ring. This section covers why it is a weak acid."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Phenol is a weak acid: C₆H₅OH ⇌ C₆H₅O⁻ + H⁺.",
+            "It reacts with sodium hydroxide, a neutralisation, to form sodium phenoxide and water.",
+            "It does **not** react with carbonates, so no carbon dioxide is given off.",
+            "Carboxylic acids do react with carbonates, so this separates them from phenols."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Phenol with sodium hydroxide",
+          "formula": "C₆H₅OH + NaOH → C₆H₅ONa + H₂O"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A lone pair on the oxygen of the phenoxide ion overlaps with the π system of the ring.",
+            "The negative charge is spread into the ring. This stabilises the phenoxide ion.",
+            "Phenol is therefore more acidic than an alcohol, where the charge stays on oxygen.",
+            "Phenol is less acidic than a carboxylic acid, where the charge is spread over two oxygen atoms."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Phenol is a weak acid that reacts with NaOH but not with carbonates.",
+            "The phenoxide ion is stabilised by delocalisation into the ring."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why phenol substitutes more easily than benzene",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Phenol reacts with bromine and nitric acid under much milder conditions than benzene. The explanation is the lone pair on oxygen."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A lone pair in a p orbital on the oxygen overlaps with the delocalised π system of the ring.",
+            "This donates electron density into the ring, so the ring has a **higher electron density** than benzene.",
+            "The ring is more susceptible to attack by electrophiles, and it polarises Br₂ so it does not need a catalyst."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Reaction",
+            "Benzene",
+            "Phenol"
+          ],
+          "rows": [
+            [
+              "Bromination",
+              "Br₂ with a halogen carrier such as FeBr₃",
+              "Aqueous bromine at room temperature, no catalyst"
+            ],
+            [
+              "Product of bromination",
+              "Bromobenzene (one Br)",
+              "2,4,6-tribromophenol (three Br)"
+            ],
+            [
+              "Nitration",
+              "Concentrated HNO₃ and concentrated H₂SO₄, 25–60 °C",
+              "Dilute HNO₃ at room temperature"
+            ],
+            [
+              "Product of nitration",
+              "Nitrobenzene",
+              "Mixture of 2-nitrophenol and 4-nitrophenol"
+            ]
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Phenol with bromine water",
+          "formula": "C₆H₅OH + 3Br₂ → C₆H₂Br₃OH + 3HBr"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bromine water is decolourised and a **white precipitate** of 2,4,6-tribromophenol forms.",
+            "Nitration of phenol needs no concentrated sulfuric acid catalyst.",
+            "The –OH group directs the new groups to the 2-, 4- and 6-positions."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Oxygen's lone pair donates electron density into the ring.",
+            "Phenol reacts with bromine water and dilute nitric acid, with no catalyst.",
+            "Bromine water gives a white precipitate of 2,4,6-tribromophenol."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Directing effects of substituents",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A group already on the ring decides where the next group goes, and how fast it goes. Pick a substituent to see its effect."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick a substituent on a benzene ring to see whether it donates or withdraws electrons, how it changes reactivity and where a second group goes.",
+            "prompt": "Pick a substituent on the benzene ring.",
+            "result_labels": [
+              "Electron effect on the ring",
+              "Reactivity of the ring",
+              "Second group goes to"
+            ],
+            "options": [
+              {
+                "label": "–OH",
+                "results": [
+                  "Donates electrons",
+                  "More reactive than benzene",
+                  "2- and 4-positions"
+                ]
+              },
+              {
+                "label": "–NH₂",
+                "results": [
+                  "Donates electrons",
+                  "More reactive than benzene",
+                  "2- and 4-positions"
+                ]
+              },
+              {
+                "label": "Alkyl, –R",
+                "results": [
+                  "Donates electrons",
+                  "More reactive than benzene",
+                  "2- and 4-positions"
+                ]
+              },
+              {
+                "label": "–NO₂",
+                "results": [
+                  "Withdraws electrons",
+                  "Less reactive than benzene",
+                  "3-position"
+                ]
+              },
+              {
+                "label": "–COOH",
+                "results": [
+                  "Withdraws electrons",
+                  "Less reactive than benzene",
+                  "3-position"
+                ]
+              },
+              {
+                "label": "–COR",
+                "results": [
+                  "Withdraws electrons",
+                  "Less reactive than benzene",
+                  "3-position"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Electron-donating** groups (–OH, –NH₂, alkyl) push electron density into the ring. They direct to the **2- and 4-positions**.",
+            "**Electron-withdrawing** groups (–NO₂, –COOH, –COR) pull electron density from the ring. They direct to the **3-position**.",
+            "With –OH and –NH₂, all of the 2-, 4- and 6-positions are activated, so three substituents can add."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Predicting products"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Identify.",
+              "text": "Find the group on the ring, and decide whether it donates or withdraws electrons."
+            },
+            {
+              "lead": "Position.",
+              "text": "Donating groups send the new group to the 2- and 4-positions. Withdrawing groups send it to the 3-position."
+            },
+            {
+              "lead": "Order.",
+              "text": "In a synthesis, add the groups in the order that puts them in the right places."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Nitrobenzene is brominated at the 3-position, giving 3-bromonitrobenzene.",
+            "Methylbenzene is nitrated at the 2- and 4-positions.",
+            "To make 3-nitrobenzoic acid, oxidise methylbenzene to benzoic acid first, then nitrate. The –COOH group sends the –NO₂ group to the 3-position.",
+            "If methylbenzene is nitrated first and then oxidised, the nitro group ends up in the 2- or 4-position."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Electron-donating groups direct to 2- and 4-, and make the ring more reactive.",
+            "Electron-withdrawing groups direct to 3-, and make the ring less reactive.",
+            "The order of steps in a synthesis decides the position."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe a test that distinguishes phenol from ethanoic acid, and give the result for each.",
+      "a": "Add sodium carbonate (or sodium hydrogencarbonate). Ethanoic acid fizzes, giving off carbon dioxide. Phenol gives no reaction, because it is too weak an acid.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why phenol reacts with bromine water without a catalyst, but benzene does not.",
+      "a": "A lone pair on oxygen overlaps with the π system of the ring and donates electron density into it. The ring has a higher electron density than benzene, so it polarises Br₂ and is more readily attacked by the electrophile.",
+      "marks": 3
+    },
+    {
+      "q": "Name the main organic product when nitrobenzene is brominated using bromine and iron(III) bromide, and explain the position of the bromine.",
+      "a": "3-bromonitrobenzene. The –NO₂ group withdraws electron density from the ring, so it directs the incoming electrophile to the 3-position.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.1h",
+        "OCR 6.1.1i",
+        "OCR 6.1.1j",
+        "OCR 6.1.1k",
+        "OCR 6.1.1l"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the limits of what is expected for directing effects."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Know the 2- and 4-directing effect of –OH and –NH₂, and the 3-directing effect of –NO₂.",
+                "You are not expected to know other electron-donating or electron-withdrawing groups. Data is supplied in the examination.",
+                "Explain the greater ease of phenol in terms of the ring being more susceptible to attack, with electron-pair donation from an oxygen p orbital to the π system.",
+                "Nitration of phenol needs dilute nitric acid only, and gives 2-nitrophenol and 4-nitrophenol."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 18A.6",
+        "EDEX 18A.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the bromine water reaction in the form it is examined."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Phenol and bromine water react at room temperature to give 2,4,6-tribromophenol and HBr.",
+                "The observation is a white precipitate and the orange colour of bromine disappearing.",
+                "Compare benzene: it needs bromine with a catalyst, and gives only a monobromo product."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 30.1.4",
+        "CAIE 32.2.1",
+        "CAIE 32.2.2",
+        "CAIE 32.2.3",
+        "CAIE 32.2.4",
+        "CAIE 32.2.5",
+        "CAIE 32.2.6",
+        "CAIE 32.2.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers making phenol, more reactions of phenol, and relative acidities."
+            },
+            {
+              "type": "subheading",
+              "text": "Making phenol"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Diazotise.",
+                  "text": "Phenylamine with HNO₂ (from NaNO₂ and dilute acid) below 10 °C gives a diazonium salt."
+                },
+                {
+                  "lead": "Warm.",
+                  "text": "Warming the diazonium salt with water gives phenol."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Reactions of phenol"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Reagent",
+                "Product"
+              ],
+              "rows": [
+                [
+                  "NaOH(aq)",
+                  "Sodium phenoxide, C₆H₅ONa, and water"
+                ],
+                [
+                  "Na(s)",
+                  "Sodium phenoxide and H₂(g)"
+                ],
+                [
+                  "Diazonium salt in NaOH(aq)",
+                  "An azo compound"
+                ],
+                [
+                  "Dilute HNO₃(aq), room temperature",
+                  "2-nitrophenol and 4-nitrophenol"
+                ],
+                [
+                  "Br₂(aq)",
+                  "2,4,6-tribromophenol"
+                ]
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Phenol with sodium",
+              "formula": "2C₆H₅OH + 2Na → 2C₆H₅ONa + H₂"
+            },
+            {
+              "type": "paragraph",
+              "text": "Other phenolic compounds, such as naphthol, react in the same way. Apply the reactions of phenol to them."
+            },
+            {
+              "type": "subheading",
+              "text": "Relative acidities"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Order of acidity: carboxylic acids > phenol > water > ethanol.",
+                "In ethoxide the alkyl group pushes electrons onto oxygen, so the charge is concentrated and the ion is unstable. Ethanol is the weakest acid.",
+                "In phenoxide the charge is partly spread into the ring, so phenol is more acidic than water and ethanol.",
+                "Phenol is too weak to react with carbonates. Its position is between the carboxylic acids and water."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "b737216c-6bf1-4010-804c-e24b441a7fdc",
+      "ea770f38-b855-42b9-a701-9271e269f5f6",
+      "4303ffcd-d4da-49fb-99d5-bd80c1f2b5c1",
+      "9cfa1ebb-0b2a-417a-8444-45d24906c3dc",
+      "819987f1-d742-4d1a-8029-c0b67c388501",
+      "1003b828-3b9c-44c0-b203-d1d5f0460b39",
+      "ea503bc7-ad17-4ade-8037-952d4b99e505",
+      "b1fe73b6-502e-49fc-985a-58cb578950fb",
+      "e6dd3ecd-94c0-4595-b3e9-94a7fd97f8f3",
+      "706de986-36e4-4adb-8964-155ebc9533bc",
+      "017e2ff2-e71f-427b-b469-622a33bc9f2a",
+      "cb09dffb-6d32-42e2-8e2a-124f2c4b9f74",
+      "2ebf307b-cf6d-4cda-834b-7aea801268fc",
+      "f66467e3-ddd6-4548-b32d-d527550c394d",
+      "f0ea984a-aaad-4681-9184-15e09e856c22"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

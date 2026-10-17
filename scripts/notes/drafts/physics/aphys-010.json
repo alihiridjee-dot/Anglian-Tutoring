@@ -1,0 +1,258 @@
+{
+  "format": 1,
+  "concept_id": "aphys-010",
+  "subject": "physics",
+  "title": "Projectile motion",
+  "key_idea": "A projectile moves with constant velocity horizontally and constant acceleration g vertically. The two motions are independent, so each is solved separately using the equations of uniform acceleration, and linked only by the time of flight.",
+  "sections": [
+    {
+      "heading": "Independent horizontal and vertical motion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A projectile moves freely under gravity alone. This section covers how its motion splits into two independent parts."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of the horizontal and the vertical motion of a projectile.",
+            "items": [
+              "Horizontal",
+              "Vertical"
+            ],
+            "rows": [
+              {
+                "feature": "Force",
+                "values": [
+                  "None (ignoring air resistance)",
+                  "Weight, mg downwards"
+                ]
+              },
+              {
+                "feature": "Acceleration",
+                "values": [
+                  "Zero",
+                  "g = 9.81 m/s² downwards"
+                ]
+              },
+              {
+                "feature": "Velocity",
+                "values": [
+                  "Constant",
+                  "Changes by g every second"
+                ]
+              },
+              {
+                "feature": "Equation",
+                "values": [
+                  "x = vₓt",
+                  "v = u + gt, s = ut + ½gt²"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The horizontal component of velocity stays the same throughout the flight.",
+            "The vertical component changes steadily because of gravity.",
+            "A ball dropped and a ball fired horizontally from the same height hit the ground at the same time. Their vertical motions are identical.",
+            "The time of flight is the only quantity shared by the two motions."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Horizontal: no acceleration, constant velocity.",
+            "Vertical: constant acceleration g downwards.",
+            "Time links the two motions."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Solving projectile problems",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Resolve the initial velocity into components. Then apply the equations of uniform acceleration to each direction."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Resolve",
+              "text": "Split the launch velocity v at angle θ above the horizontal into vₓ = v cos θ and v_y = v sin θ."
+            },
+            {
+              "lead": "Vertical",
+              "text": "Use s = ut + ½at² or v = u + at with u = v_y and a = −g (upwards positive)."
+            },
+            {
+              "lead": "Time",
+              "text": "Find the time of flight from the vertical motion. For a launch and landing at the same height, the vertical displacement is zero."
+            },
+            {
+              "lead": "Horizontal",
+              "text": "Use range = vₓ × t with that time."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "For a horizontal launch, the initial vertical velocity is zero. The time to fall a height h comes from h = ½gt².",
+            "At the highest point of a projectile launched upwards, the vertical velocity is zero. The horizontal velocity is not.",
+            "Speed at any time is found by combining the two components: v = √(vₓ² + v_y²).",
+            "Its direction is given by tan θ = v_y / vₓ.",
+            "The path of the projectile is a parabola."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider for an object launched horizontally. Changing the launch speed and the height changes the time of fall and how far it lands from the base.",
+            "inputs": [
+              {
+                "id": "vx",
+                "label": "Horizontal launch speed",
+                "unit": "m/s",
+                "min": 1,
+                "max": 30,
+                "step": 1,
+                "value": 10
+              },
+              {
+                "id": "h",
+                "label": "Launch height",
+                "unit": "m",
+                "min": 1,
+                "max": 80,
+                "step": 1,
+                "value": 20
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Time of fall t = √(2h / g)",
+                "unit": "s",
+                "formula": "sqrt(2 * h / 9.81)",
+                "decimals": 2
+              },
+              {
+                "label": "Horizontal distance x = vₓt",
+                "unit": "m",
+                "formula": "vx * sqrt(2 * h / 9.81)",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Question",
+              "text": "A ball is kicked horizontally at 12 m/s from a cliff 45 m high. Find the distance from the base where it lands."
+            },
+            {
+              "lead": "Time",
+              "text": "45 = ½ × 9.81 × t², so t = 3.0 s"
+            },
+            {
+              "lead": "Distance",
+              "text": "x = 12 × 3.0 = 36 m"
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Resolve the launch velocity first. Use the vertical motion to find the time.",
+            "Horizontal distance = horizontal velocity × time of flight."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A stone is thrown horizontally at 8.0 m/s from a bridge 20 m above water. Calculate the time to reach the water. (g = 9.81 m/s²)",
+      "a": "20 = ½ × 9.81 × t², so t² = 4.08 and t = 2.0 s.",
+      "marks": 2
+    },
+    {
+      "q": "For the stone in the previous question, calculate the horizontal distance travelled before it hits the water.",
+      "a": "Distance = 8.0 × 2.0 = 16 m.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why a projectile has constant horizontal velocity but changing vertical velocity.",
+      "a": "The only force is weight, which acts vertically downwards. There is no horizontal force (ignoring air resistance), so no horizontal acceleration. Gravity gives a constant vertical acceleration g, so the vertical velocity changes.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.1.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course also asks for a qualitative understanding of resistive forces and their effect on motion."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Friction** opposes relative motion between surfaces in contact. The difference between static and dynamic friction is not tested.",
+                "**Drag** is the resistive force on an object moving through a fluid such as air. **Lift** is a force at right angles to the motion of an object moving through a fluid.",
+                "Air resistance increases with speed.",
+                "A falling object reaches **terminal speed** when the drag force equals the driving force. The resultant force is then zero.",
+                "Air resistance shortens the range and height of a projectile. The path is no longer symmetrical, and falls more steeply than it rises.",
+                "The maximum speed of a vehicle is reached when the drag equals the driving force from the engine. A streamlined shape and a smaller frontal area increase it."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.15"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 2.1.9"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.3a",
+        "OCR 3.1.3b"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "89ceb3c5-1516-4827-9131-02854d3dbdd3",
+      "7adab59f-5159-4c06-bc57-d394c7a12696",
+      "fab64ec9-dd7b-440a-85a1-b57073be2951",
+      "ec08f2a9-25d2-4c08-bad0-13bb056b8533",
+      "4458b073-817b-4f45-9196-e8cb7e493595"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

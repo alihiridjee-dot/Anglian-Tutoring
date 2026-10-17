@@ -1,0 +1,333 @@
+{
+  "format": 1,
+  "concept_id": "aphys-060",
+  "subject": "physics",
+  "title": "Simple harmonic motion",
+  "key_idea": "Simple harmonic motion happens when the acceleration is proportional to the displacement from a fixed point and always points back towards it. Displacement, velocity and acceleration then all vary as sine or cosine waves.",
+  "sections": [
+    {
+      "heading": "Describing an oscillation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section gives the words and equations used for any repeating back-and-forth motion."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Displacement, x", "meaning": "The distance and direction of the object from its equilibrium position." },
+            { "term": "Amplitude, A", "meaning": "The maximum displacement from the equilibrium position." },
+            { "term": "Period, T", "meaning": "The time for one complete oscillation." },
+            { "term": "Frequency, f", "meaning": "The number of complete oscillations per second." },
+            { "term": "Angular frequency, ω", "meaning": "2π times the frequency; the rate of change of phase angle, in rad/s." },
+            { "term": "Phase difference", "meaning": "How far one oscillation is ahead of or behind another, as a fraction of a cycle or an angle in radians." }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Period, frequency and angular frequency",
+          "formula": "T = 1 / f = 2π / ω",
+          "where": ["T = period (s)", "f = frequency (Hz)", "ω = angular frequency (rad/s), with ω = 2πf"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Two oscillations in step have a phase difference of 0.",
+            "Two oscillations exactly opposite have a phase difference of π rad (180°), called antiphase.",
+            "A phase difference of 2π rad is one whole cycle, which looks the same as 0."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Amplitude is the maximum displacement from equilibrium.",
+            "T = 1 / f and ω = 2πf.",
+            "Phase difference is measured in radians, with 2π equal to one cycle."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The condition for SHM",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An oscillator is in simple harmonic motion (SHM) only when one condition is met."
+        },
+        {
+          "type": "equation",
+          "label": "Defining equation of SHM",
+          "formula": "a = −ω²x",
+          "where": ["a = acceleration (m/s²)", "ω = angular frequency (rad/s)", "x = displacement from equilibrium (m)"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The acceleration is **proportional to the displacement**.",
+            "The minus sign means it is always in the opposite direction, towards the equilibrium position.",
+            "The acceleration is zero at the centre and largest at the ends.",
+            "ω² is the constant of proportionality, so ω fixes the period: T = 2π / ω."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Because the period depends only on ω, it does not depend on the amplitude. An oscillator with this property is called isochronous."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "SHM: a ∝ −x, written a = −ω²x.",
+            "The acceleration always points to the equilibrium position.",
+            "The period does not depend on the amplitude."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Displacement, velocity and acceleration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The equation a = −ω²x has sine and cosine solutions. Which one you use depends on where the object is at t = 0."
+        },
+        {
+          "type": "equation",
+          "label": "Displacement, starting from maximum displacement",
+          "formula": "x = A cos ωt",
+          "where": ["x = displacement (m)", "A = amplitude (m)", "ω = angular frequency (rad/s)", "t = time (s)"]
+        },
+        {
+          "type": "paragraph",
+          "text": "If the timing starts at the equilibrium position, the solution is x = A sin ωt instead. Differentiating x = A cos ωt gives the other two."
+        },
+        {
+          "type": "equation",
+          "label": "Velocity and acceleration against time",
+          "formula": "v = −Aω sin ωt     a = −Aω² cos ωt",
+          "where": ["v = velocity (m/s)", "a = acceleration (m/s²)"]
+        },
+        {
+          "type": "equation",
+          "label": "Velocity at a given displacement",
+          "formula": "v = ±ω√(A² − x²)",
+          "where": ["v = speed at displacement x (m/s)", "± = either direction of travel"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "At the centre (x = 0) the speed is greatest: **maximum speed = ωA**.",
+            "At the ends (x = ±A) the speed is zero.",
+            "At the ends the acceleration is greatest: **maximum acceleration = ω²A**.",
+            "At the centre the acceleration is zero."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question. Find the speed of an oscillator at a given displacement using v = ω√(A² − x²).",
+            "question": "An oscillator has amplitude {A} m and angular frequency {w} rad/s. Calculate its speed when its displacement is {x} m.",
+            "variables": [
+              { "id": "A", "min": 0.05, "max": 0.2, "step": 0.05 },
+              { "id": "w", "min": 2, "max": 10, "step": 1 },
+              { "id": "x", "min": 0.01, "max": 0.04, "step": 0.01 }
+            ],
+            "answer": { "formula": "w * sqrt(A * A - x * x)", "unit": "m/s", "decimals": 3 },
+            "working": [
+              "v = ω√(A² − x²)",
+              "v = {w} × √({A}² − {x}²)",
+              "v = {answer} m/s"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "x = A cos ωt from maximum displacement; x = A sin ωt from equilibrium.",
+            "v = ±ω√(A² − x²), with maximum speed ωA at the centre.",
+            "Maximum acceleration is ω²A, at the ends."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Graphs of SHM",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The three graphs against time are linked by gradients. Each is a sine or cosine curve with the same period."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Displacement, velocity and acceleration of an oscillator against time over one period, starting from maximum displacement. Velocity is a quarter of a cycle ahead of displacement, and acceleration is opposite to displacement.",
+            "x": { "label": "Time", "unit": "s", "min": 0, "max": 4, "ticks": [0, 1, 2, 3, 4] },
+            "y": { "label": "Value (shape only)", "zero": 0.5 },
+            "series": [
+              { "name": "Displacement", "points": [[0, 1], [0.5, 0.85], [1, 0.5], [1.5, 0.15], [2, 0], [2.5, 0.15], [3, 0.5], [3.5, 0.85], [4, 1]] },
+              { "name": "Velocity", "points": [[0, 0.5], [0.5, 0.15], [1, 0], [1.5, 0.15], [2, 0.5], [2.5, 0.85], [3, 1], [3.5, 0.85], [4, 0.5]] },
+              { "name": "Acceleration", "points": [[0, 0], [0.5, 0.15], [1, 0.5], [1.5, 0.85], [2, 1], [2.5, 0.85], [3, 0.5], [3.5, 0.15], [4, 0]] }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The gradient of the displacement–time graph is the velocity.",
+            "The gradient of the velocity–time graph is the acceleration.",
+            "Velocity is greatest where displacement is zero, and zero where displacement is at a maximum.",
+            "Acceleration is always opposite to displacement: when one is at a peak the other is at a trough.",
+            "Velocity leads displacement by a quarter of a cycle (π/2 rad). Acceleration is in antiphase with displacement."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gradient of x–t is v; gradient of v–t is a.",
+            "Velocity peaks where x = 0.",
+            "Acceleration is in antiphase with displacement."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the two conditions that must be met for an object to be in simple harmonic motion.",
+      "a": "The acceleration is proportional to the displacement from a fixed point, and is directed towards that point (opposite in direction to the displacement).",
+      "marks": 2
+    },
+    {
+      "q": "An oscillator has a frequency of 2.5 Hz and an amplitude of 0.060 m. Calculate its maximum speed and its maximum acceleration.",
+      "a": "ω = 2π × 2.5 = 15.7 rad/s. Maximum speed = ωA = 15.7 × 0.060 = 0.94 m/s. Maximum acceleration = ω²A = 15.7² × 0.060 = 15 m/s².",
+      "marks": 4
+    },
+    {
+      "q": "Describe how the velocity of an oscillator is found from its displacement–time graph, and state where the velocity is zero.",
+      "a": "The velocity is the gradient of the graph at that time. It is zero at the peaks and troughs, where the displacement is at its maximum (the gradient is zero).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.6.1.2"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "State the condition as a ∝ −x, and the defining equation a = −ω²x.",
+                "Use x = A cos ωt and v = ±ω√(A² − x²).",
+                "Know that the v–t graph comes from the gradient of the x–t graph, and the a–t graph from the gradient of the v–t graph."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 13.181", "EDEX 13.182", "EDEX 13.183", "EDEX 13.184", "EDEX 13.185"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "Force condition for SHM",
+              "formula": "F = −kx",
+              "where": ["F = restoring force (N)", "k = constant (N/m)", "x = displacement (m)"]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A restoring force proportional to displacement and directed towards equilibrium gives SHM. With F = ma, this gives a = −(k/m)x, so ω² = k/m.",
+                "To identify SHM in a situation, check that the resultant force is proportional to displacement and acts towards the equilibrium position.",
+                "Use T = 2π√(m/k) for a mass on a spring and T = 2π√(l/g) for a simple pendulum."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 17.1.1", "CAIE 17.1.2", "CAIE 17.1.3", "CAIE 17.1.4", "CAIE 17.1.5"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The amplitude is written x₀, so the solution is x = x₀ sin ωt.",
+                "The velocity is v = v₀ cos ωt, where v₀ = ωx₀ is the maximum speed.",
+                "Also use v = ±ω√(x₀² − x²).",
+                "Phase difference is part of the vocabulary: use it to compare two oscillators, or an oscillator and a driver."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": ["OCR 5.3.1a", "OCR 5.3.1b", "OCR 5.3.1c", "OCR 5.3.1d", "OCR 5.3.1e", "OCR 5.3.1f", "OCR 5.3.1g"],
+      "extra": [
+        {
+          "heading": "Finding the period of an oscillator",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You must know how to measure the period or frequency of a simple harmonic oscillator, such as a mass on a spring or a pendulum."
+            },
+            {
+              "type": "steps",
+              "items": [
+                { "lead": "Set up", "text": "Displace the mass a small distance and release it. Place a fiducial marker at the centre of the oscillation." },
+                { "lead": "Time", "text": "Time 10 or more complete oscillations, starting and stopping as the mass passes the marker." },
+                { "lead": "Divide", "text": "Divide by the number of oscillations to get T. Repeat and find a mean." },
+                { "lead": "Check", "text": "Repeat with a different amplitude. The period should not change." }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Timing from the centre is more precise because the mass moves fastest there.",
+                "Timing many oscillations reduces the percentage uncertainty from reaction time."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "spec_point_ids": [
+      "4d05954d-7f35-497d-9468-b62ff8c225dd",
+      "605796e4-6a6c-4dbb-b4e8-e7f6a682a4de",
+      "a6e5e510-b6df-48fe-abf9-764694433952",
+      "7d79cf1b-8380-46e8-bd43-1575ba2e009f",
+      "240f8422-9b1f-42f6-b40a-fb7f4f48f2ef",
+      "4fae513d-e6ab-4bb2-801a-647606d094a6",
+      "5235e633-6a30-4cbc-bc9b-cd05a8c7cbdf",
+      "7d537a25-80e8-4fe0-8331-dc3798551f91",
+      "d9bbc4dc-15dd-499e-892b-0204f7b06794",
+      "631588ce-62d4-4e82-9f41-e2885393e856",
+      "e547c20f-e0be-4e42-b3e1-3ad34ebbff90",
+      "87927616-3ace-42eb-a52b-0af7afddfd3b",
+      "da5c3a37-74b7-47fc-8de3-b9ca9889c5ed",
+      "d403e220-5513-463b-9660-4212ae7678c5",
+      "f525cafb-c93f-45e8-bae1-52589594c12e",
+      "ebdc848c-4ea3-42f4-ae29-cc0740e3b647",
+      "dca2bebf-7fba-476e-85b4-d96fc2cb636a",
+      "a7be54a3-6d6f-46cc-9c78-7d01b279b37f"
+    ],
+    "exemplar_ids": []
+  }
+}

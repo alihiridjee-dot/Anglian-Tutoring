@@ -1,0 +1,429 @@
+{
+  "format": 1,
+  "concept_id": "aphys-051",
+  "subject": "physics",
+  "title": "Mass defect and binding energy",
+  "key_idea": "A nucleus has less mass than its separate nucleons. The missing mass, the mass defect, is the energy that binds the nucleus together, given by E = mc². Binding energy per nucleon shows how stable a nucleus is.",
+  "sections": [
+    {
+      "heading": "Mass and energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mass and energy are equivalent. Any change in the energy of a system comes with a change in its mass."
+        },
+        {
+          "type": "equation",
+          "label": "Mass–energy equivalence",
+          "formula": "ΔE = c²Δm",
+          "where": [
+            "ΔE = change in energy in J",
+            "Δm = change in mass in kg",
+            "c = speed of light, 3.00 × 10⁸ m/s"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "E = mc² applies to all energy changes, but the mass change is only noticeable in nuclear reactions.",
+            "A reaction that releases energy loses mass. One that absorbs energy gains mass.",
+            "The mass of a nucleus is much smaller than the kilogram, so it is given in atomic mass units."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Unified atomic mass unit (u)",
+              "meaning": "One twelfth of the mass of a carbon-12 atom. 1 u = 1.66 × 10⁻²⁷ kg."
+            },
+            {
+              "term": "Megaelectronvolt (MeV)",
+              "meaning": "A unit of energy. 1 MeV = 1.60 × 10⁻¹³ J."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The two units link: **1 u = 931.5 MeV**.",
+            "To convert, multiply a mass in u by 931.5 to give the energy in MeV.",
+            "Mass in kg is found by multiplying the mass in u by 1.66 × 10⁻²⁷."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Energy released or absorbed in a reaction is ΔE = c²Δm.",
+            "1 u = 1.66 × 10⁻²⁷ kg = 931.5 MeV.",
+            "A reaction that releases energy loses mass."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Mass defect and binding energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A nucleus weighs less than the protons and neutrons it contains. This section covers why, and how to calculate the energy involved."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Mass defect",
+              "meaning": "The difference between the mass of the separate nucleons and the mass of the nucleus."
+            },
+            {
+              "term": "Binding energy",
+              "meaning": "The energy needed to separate a nucleus into its individual nucleons. It is also the energy released when the nucleus forms."
+            },
+            {
+              "term": "Binding energy per nucleon",
+              "meaning": "The binding energy divided by the number of nucleons. It measures how stable a nucleus is."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Work must be done to pull a nucleus apart, so the separate nucleons have more energy and more mass.",
+            "The mass defect is the mass equivalent of the binding energy.",
+            "A higher binding energy per nucleon means a more stable nucleus."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Mass defect",
+          "formula": "Δm = Zm_p + (A − Z)m_n − m_nucleus",
+          "where": [
+            "Z = number of protons",
+            "A − Z = number of neutrons",
+            "m_p, m_n = masses of a proton and a neutron",
+            "m_nucleus = mass of the nucleus"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Mass defect.",
+              "text": "Helium-4: 2(1.00728) + 2(1.00867) − 4.00151 = 0.03039 u."
+            },
+            {
+              "lead": "Binding energy.",
+              "text": "0.03039 × 931.5 = 28.3 MeV."
+            },
+            {
+              "lead": "Per nucleon.",
+              "text": "28.3 ÷ 4 = 7.08 MeV per nucleon."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation of binding energy in MeV from a mass defect in atomic mass units.",
+            "question": "A nucleus has a mass defect of {dm} u. Calculate its binding energy in MeV. Use 1 u = 931.5 MeV.",
+            "variables": [
+              {
+                "id": "dm",
+                "min": 0.02,
+                "max": 0.3,
+                "step": 0.01
+              }
+            ],
+            "answer": {
+              "formula": "dm * 931.5",
+              "unit": "MeV",
+              "decimals": 1,
+              "tolerance_percent": 2
+            },
+            "working": [
+              "Binding energy = mass defect × 931.5.",
+              "{dm} × 931.5 = {answer} MeV."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mass defect is the mass lost when nucleons bind to form a nucleus.",
+            "Binding energy = c²Δm, or Δm in u × 931.5 MeV.",
+            "Higher binding energy per nucleon means a more stable nucleus."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The binding energy per nucleon curve",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plotting binding energy per nucleon against nucleon number shows which reactions release energy."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Binding energy per nucleon rises steeply for very light nuclei, peaks at iron-56 at about 8.8 MeV, then falls slowly for heavier nuclei.",
+            "x": {
+              "label": "Nucleon number A",
+              "min": 0,
+              "max": 250,
+              "ticks": [
+                0,
+                50,
+                100,
+                150,
+                200,
+                250
+              ]
+            },
+            "y": {
+              "label": "Binding energy per nucleon"
+            },
+            "series": [
+              {
+                "name": "Binding energy per nucleon",
+                "points": [
+                  [
+                    1,
+                    0
+                  ],
+                  [
+                    2,
+                    0.11
+                  ],
+                  [
+                    4,
+                    0.71
+                  ],
+                  [
+                    12,
+                    0.77
+                  ],
+                  [
+                    16,
+                    0.8
+                  ],
+                  [
+                    30,
+                    0.85
+                  ],
+                  [
+                    56,
+                    0.88
+                  ],
+                  [
+                    120,
+                    0.85
+                  ],
+                  [
+                    200,
+                    0.79
+                  ],
+                  [
+                    238,
+                    0.76
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 56,
+                "label": "Iron-56, the most stable"
+              }
+            ],
+            "bands": [
+              {
+                "from": 1,
+                "to": 56,
+                "label": "Fusion releases energy"
+              },
+              {
+                "from": 56,
+                "to": 250,
+                "label": "Fission releases energy"
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The curve rises steeply to helium-4, which is unusually stable, then more slowly to a peak of about 8.8 MeV per nucleon at iron-56.",
+            "Beyond iron-56 it falls gently, to about 7.6 MeV per nucleon for uranium-238.",
+            "Joining light nuclei (**fusion**) gives a nucleus with a higher binding energy per nucleon, so energy is released.",
+            "Splitting a heavy nucleus (**fission**) gives fragments with a higher binding energy per nucleon, so energy is released.",
+            "Energy released = total binding energy after minus total binding energy before."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Energy released in a reaction",
+          "formula": "E = c²Δm",
+          "where": [
+            "E = energy released in J",
+            "Δm = total mass before minus total mass after, in kg",
+            "c = 3.00 × 10⁸ m/s"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "If the total mass after the reaction is less than before, energy is released.",
+            "If it is greater, energy must be supplied, so the reaction absorbs energy.",
+            "Use nuclear masses, or atomic masses if the electrons balance on both sides."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Iron-56 has the highest binding energy per nucleon, so it is the most stable.",
+            "Fusion of light nuclei and fission of heavy nuclei both move towards the peak and release energy.",
+            "Energy released = c² × (mass before − mass after)."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define mass defect.",
+      "a": "The difference between the total mass of the separated nucleons and the mass of the nucleus they form.",
+      "marks": 1
+    },
+    {
+      "q": "A reaction has a total mass loss of 3.0 × 10⁻²⁹ kg. Calculate the energy released.",
+      "a": "E = c²Δm = (3.00 × 10⁸)² × 3.0 × 10⁻²⁹ = 2.7 × 10⁻¹² J.",
+      "marks": 2
+    },
+    {
+      "q": "Explain, using the binding energy per nucleon curve, why energy is released when a uranium nucleus splits.",
+      "a": "Uranium is a heavy nucleus with a lower binding energy per nucleon than the fragments formed. The fragments are nearer the peak, so the products are more tightly bound and the difference is released as energy.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.8.1.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You may be asked to mark on the curve the regions where fission or fusion releases energy.",
+                "The right-hand side of the peak is the region for fission. The left-hand side is the region for fusion.",
+                "Knowing the physics of nuclear energy lets society weigh up its benefits and risks when it makes decisions about energy."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 11.164",
+        "EDEX 11.165",
+        "EDEX 11.166"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 11.1.12",
+        "CAIE 23.1.1",
+        "CAIE 23.1.2",
+        "CAIE 23.1.3",
+        "CAIE 23.1.4",
+        "CAIE 23.1.6",
+        "CAIE 23.1.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Nuclear equations for simple reactions"
+            },
+            {
+              "type": "equation",
+              "label": "A simple nuclear reaction",
+              "formula": "¹⁴₇N + ⁴₂He → ¹⁷₈O + ¹₁H",
+              "where": [
+                "Total nucleon number is 18 on each side",
+                "Total proton number is 9 on each side"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Balance the nucleon number and the proton number on both sides.",
+                "Define and use the terms mass defect and binding energy.",
+                "Sketch the curve of binding energy per nucleon against nucleon number: a steep rise, a peak near iron, then a slow fall."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.4.4a",
+        "OCR 6.4.4b",
+        "OCR 6.4.4d",
+        "OCR 6.4.4e",
+        "OCR 6.4.4f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use ΔE = Δmc² with the masses of nuclei to find the binding energy of a nucleus.",
+                "Find the energy released, or absorbed, in a simple nuclear reaction from the masses before and after.",
+                "Divide the binding energy by the nucleon number to find the binding energy per nucleon."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "f8a44dcf-5962-4dd3-8b1f-a525330b9f28",
+      "86fa8a85-4986-4189-8c22-04163cb0a1cb",
+      "3da55aff-ad44-4978-b4f1-27a7a48d52e5",
+      "4cb40101-bf05-4b3c-8698-09f08f68f251",
+      "f1954967-96f2-4d7b-acfb-15d0ef28d812",
+      "8b78430d-8f57-4b53-acf3-b8b616ca9c40",
+      "912ce9d2-c599-4ddf-8e86-154221a82ca1",
+      "a52a12ad-a388-4693-8f08-9d83721e8efe",
+      "0a9e4091-096c-473c-ba7f-6ea2abdf7424",
+      "df247183-77d2-4837-838d-ef815fa3e41e",
+      "8f65e63a-e728-4750-bda1-be6f3b2aebd1",
+      "53488df5-a891-4134-9b0e-82ed3097e135",
+      "998648fe-7028-4541-a008-c589c1034f53",
+      "60ff84fd-ca0c-4072-bfb6-74e6ce18a6ca",
+      "63f3c8f5-b3af-4f69-a12b-c5fc72e8e56e",
+      "ade5df95-7eb5-4729-8597-07457423b04e"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

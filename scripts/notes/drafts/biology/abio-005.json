@@ -1,0 +1,513 @@
+{
+  "format": 1,
+  "concept_id": "abio-005",
+  "subject": "biology",
+  "title": "Testing for biological molecules and chromatography",
+  "key_idea": "Chemical tests identify sugars, starch, lipids and protein by a colour change or an emulsion. Comparing a test with standards of known concentration gives an estimate of concentration. Chromatography separates mixtures by how far each solute moves.",
+  "sections": [
+    {
+      "heading": "The four food tests",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each test uses a reagent that changes in a recognisable way when a particular molecule is present."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Test",
+            "For",
+            "Method",
+            "Positive result"
+          ],
+          "rows": [
+            [
+              "Benedict's",
+              "Reducing sugars",
+              "Add Benedict's solution to the sample. Heat in a water bath at about 80 °C for several minutes.",
+              "Blue to green, yellow, orange, then brick-red precipitate"
+            ],
+            [
+              "Iodine",
+              "Starch",
+              "Add iodine in potassium iodide solution to the sample.",
+              "Orange-brown to blue-black"
+            ],
+            [
+              "Emulsion",
+              "Lipids",
+              "Shake the sample with ethanol. Pour the mixture into water.",
+              "Cloudy white emulsion"
+            ],
+            [
+              "Biuret",
+              "Protein",
+              "Add sodium hydroxide, then dilute copper(II) sulfate solution.",
+              "Blue to purple (lilac)"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a food sample and see the result of the Benedict's, iodine, biuret and emulsion tests on it.",
+            "prompt": "Pick a sample to test",
+            "result_labels": [
+              "Benedict's test",
+              "Iodine test",
+              "Biuret test",
+              "Emulsion test"
+            ],
+            "options": [
+              {
+                "label": "Glucose solution",
+                "results": [
+                  "Brick-red precipitate: reducing sugar",
+                  "Stays orange-brown: no starch",
+                  "Stays blue: no protein",
+                  "Stays clear: no lipid"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Benedict's",
+                      "colour": "blue",
+                      "precipitate": "brick-red"
+                    },
+                    {
+                      "label": "Iodine",
+                      "colour": "brown"
+                    },
+                    {
+                      "label": "Biuret",
+                      "colour": "pale-blue"
+                    },
+                    {
+                      "label": "Emulsion",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Sucrose solution",
+                "results": [
+                  "Stays blue: non-reducing sugar",
+                  "Stays orange-brown: no starch",
+                  "Stays blue: no protein",
+                  "Stays clear: no lipid"
+                ],
+                "explanation": "Sucrose is a non-reducing sugar, so the Benedict's test is negative until it is hydrolysed with acid.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Benedict's",
+                      "colour": "blue"
+                    },
+                    {
+                      "label": "Iodine",
+                      "colour": "brown"
+                    },
+                    {
+                      "label": "Biuret",
+                      "colour": "pale-blue"
+                    },
+                    {
+                      "label": "Emulsion",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Starch suspension",
+                "results": [
+                  "Stays blue: no reducing sugar",
+                  "Blue-black: starch present",
+                  "Stays blue: no protein",
+                  "Stays clear: no lipid"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Benedict's",
+                      "colour": "blue"
+                    },
+                    {
+                      "label": "Iodine",
+                      "colour": "blue-black"
+                    },
+                    {
+                      "label": "Biuret",
+                      "colour": "pale-blue"
+                    },
+                    {
+                      "label": "Emulsion",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Egg white (protein)",
+                "results": [
+                  "Stays blue: no reducing sugar",
+                  "Stays orange-brown: no starch",
+                  "Purple: protein present",
+                  "Stays clear: no lipid"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Benedict's",
+                      "colour": "blue"
+                    },
+                    {
+                      "label": "Iodine",
+                      "colour": "brown"
+                    },
+                    {
+                      "label": "Biuret",
+                      "colour": "purple"
+                    },
+                    {
+                      "label": "Emulsion",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Vegetable oil",
+                "results": [
+                  "Stays blue: no reducing sugar",
+                  "Stays orange-brown: no starch",
+                  "Stays blue: no protein",
+                  "Cloudy white emulsion: lipid present"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Benedict's",
+                      "colour": "blue"
+                    },
+                    {
+                      "label": "Iodine",
+                      "colour": "brown"
+                    },
+                    {
+                      "label": "Biuret",
+                      "colour": "pale-blue"
+                    },
+                    {
+                      "label": "Emulsion",
+                      "colour": "white"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Distilled water",
+                "results": [
+                  "Stays blue: negative",
+                  "Stays orange-brown: negative",
+                  "Stays blue: negative",
+                  "Stays clear: negative"
+                ],
+                "explanation": "Water is the negative control: it shows what each reagent looks like when nothing is present.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Benedict's",
+                      "colour": "blue"
+                    },
+                    {
+                      "label": "Iodine",
+                      "colour": "brown"
+                    },
+                    {
+                      "label": "Biuret",
+                      "colour": "pale-blue"
+                    },
+                    {
+                      "label": "Emulsion",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Benedict's detects reducing sugars (brick-red), iodine detects starch (blue-black).",
+            "Biuret detects protein (purple); the emulsion test detects lipid (cloudy white).",
+            "A negative control with water shows the reagent's starting colour."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Testing for a non-reducing sugar",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sucrose does not reduce Benedict's solution. It must first be hydrolysed to release reducing sugars."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Test first.",
+              "text": "Do a Benedict's test on the sample. It stays blue, so there is no reducing sugar."
+            },
+            {
+              "lead": "Hydrolyse.",
+              "text": "Boil a fresh sample with dilute hydrochloric acid. The acid breaks the glycosidic bond."
+            },
+            {
+              "lead": "Neutralise.",
+              "text": "Add sodium hydrogencarbonate until the fizzing stops. Benedict's solution only works in alkaline conditions."
+            },
+            {
+              "lead": "Test again.",
+              "text": "Heat with Benedict's solution. A brick-red precipitate shows a non-reducing sugar was present."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Negative before hydrolysis and positive after: a non-reducing sugar.",
+            "Positive before hydrolysis: a reducing sugar was already present."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Estimating concentration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Colour tests can be made semi-quantitative. The result for an unknown is compared with results for known concentrations."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Make a **serial dilution** of a stock solution to give a range of known concentrations (standards), for example by halving the concentration each time.",
+            "**Standardise** the test: use the same volume of reagent and sample, the same temperature and the same heating time each time.",
+            "Test the unknown in the same way and compare it with the standards.",
+            "Repeat each test and use a negative control, so that any difference is due to concentration."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Standards of known concentration are made by serial dilution.",
+            "Every variable except concentration is kept the same."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A solution gives no colour change with Benedict's solution. After boiling with dilute acid, neutralising and heating with Benedict's solution it gives a brick-red precipitate. What does this show, and why?",
+      "a": "It contains a non-reducing sugar, such as sucrose. Acid hydrolysis broke the glycosidic bond and released reducing sugars, which give a positive Benedict's test.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how to test a solution for protein and state the positive result.",
+      "a": "Add sodium hydroxide, then dilute copper(II) sulfate solution (biuret reagent) and mix. A purple (lilac) colour shows protein is present; it stays blue if not.",
+      "marks": 2
+    },
+    {
+      "q": "Why is a serial dilution used when estimating the concentration of a reducing sugar?",
+      "a": "It gives a series of standard solutions of known concentration to compare with the unknown. The unknown's concentration is estimated from the standard it matches.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 2.1.1",
+        "CAIE 2.1.2",
+        "CAIE 2.1.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Semi-quantitative Benedict's test"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Standardise** the test: same volumes of sample and Benedict's solution, same water bath temperature, same type of tube.",
+                "Method 1: measure the **time to the first colour change**. The higher the concentration, the shorter the time.",
+                "Method 2: compare the colour after a fixed time with **colour standards** made from known concentrations. The more concentrated the sugar, the further the colour moves towards brick-red.",
+                "Use the results from the standards to estimate the concentration of the unknown."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.2q",
+        "OCR 2.1.2r",
+        "OCR 2.1.2s"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Colorimetry"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A **colorimeter** measures how much light a coloured solution absorbs. Absorbance rises with concentration.",
+                "Use a filter whose colour is complementary to the solution, so the solution absorbs it strongly.",
+                "Set the colorimeter to zero using a blank of the solvent, usually water, or the reagent without the test substance.",
+                "Measure the absorbance of the standards from a serial dilution. Plot a **calibration curve** of absorbance against concentration.",
+                "Measure the unknown and read its concentration from the curve."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Paper and thin layer chromatography"
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Stationary phase",
+                  "meaning": "The paper, or the thin layer of silica or cellulose on a plate, which holds still."
+                },
+                {
+                  "term": "Mobile phase",
+                  "meaning": "The solvent that moves up the stationary phase and carries the solutes."
+                },
+                {
+                  "term": "Solvent front",
+                  "meaning": "The highest point the solvent reaches."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Different solutes dissolve in the solvent to different extents and stick to the stationary phase to different extents.",
+                "A solute that is more soluble in the solvent, and less attracted to the stationary phase, travels further.",
+                "Chromatography separates biological molecules such as amino acids, proteins, carbohydrates, vitamins and nucleic acids."
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Baseline.",
+                  "text": "Draw a pencil line near the bottom. Pencil does not dissolve in the solvent."
+                },
+                {
+                  "lead": "Spot.",
+                  "text": "Put small, concentrated spots of each sample on the line, and a spot of known compounds to compare."
+                },
+                {
+                  "lead": "Run.",
+                  "text": "Stand the paper or plate in a covered container with solvent below the baseline. Let the solvent rise."
+                },
+                {
+                  "lead": "Stop and mark.",
+                  "text": "Remove it before the solvent reaches the top and mark the solvent front at once."
+                },
+                {
+                  "lead": "Locate.",
+                  "text": "Many biological molecules are colourless, so spray with a locating agent such as ninhydrin for amino acids, or use UV light."
+                }
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Rf value",
+              "formula": "Rf = distance moved by the solute ÷ distance moved by the solvent",
+              "where": [
+                "Both distances are measured from the baseline, in the same unit.",
+                "Rf has no unit and is always between 0 and 1."
+              ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "practice",
+                "alt": "Calculate an Rf value from a solute distance and a solvent distance.",
+                "question": "A spot moves {solute} mm from the baseline. The solvent front moves {solvent} mm. Calculate the Rf value.",
+                "variables": [
+                  {
+                    "id": "solute",
+                    "min": 10,
+                    "max": 80,
+                    "step": 2
+                  },
+                  {
+                    "id": "solvent",
+                    "min": 90,
+                    "max": 120,
+                    "step": 5
+                  }
+                ],
+                "answer": {
+                  "formula": "solute / solvent",
+                  "decimals": 2,
+                  "tolerance_percent": 2
+                },
+                "working": [
+                  "Rf = distance moved by solute ÷ distance moved by solvent.",
+                  "Rf = {solute} ÷ {solvent} = {answer}."
+                ]
+              }
+            },
+            {
+              "type": "list",
+              "items": [
+                "Identify a substance by matching its Rf value to the Rf of a known compound in the same solvent.",
+                "Thin layer chromatography usually separates faster and gives sharper spots than paper chromatography."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "b39f25bf-9797-42ea-a7c1-579164e3f6c9",
+      "56aef77c-1540-4277-a8ac-b7b689875800",
+      "52625db2-9c15-4fd3-b014-abc960d7c4c9",
+      "5776fbfa-9c4f-445c-b342-559acb40c4b4",
+      "40fd749e-c4fa-4822-8b57-2eb32bd795ba",
+      "25fa9ef9-c30b-4a84-9e0f-24e40c8b0478"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

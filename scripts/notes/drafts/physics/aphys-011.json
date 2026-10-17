@@ -1,0 +1,450 @@
+{
+  "format": 1,
+  "concept_id": "aphys-011",
+  "subject": "physics",
+  "title": "Newton's laws and free-body diagrams",
+  "key_idea": "The resultant force on an object equals its mass times its acceleration, F = ma, and the acceleration is in the direction of the resultant force. A free-body diagram shows all the forces on one object, so the resultant can be found and Newton's laws applied.",
+  "sections": [
+    {
+      "heading": "Mass, weight and the newton",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mass and weight are different quantities. This section covers what each means and how the newton is defined."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Mass",
+              "meaning": "The property of an object that resists a change in its motion. A scalar, in kg."
+            },
+            {
+              "term": "Weight",
+              "meaning": "The force on an object due to a gravitational field acting on its mass. A vector, in N."
+            },
+            {
+              "term": "Newton (N)",
+              "meaning": "The force that gives a mass of 1 kg an acceleration of 1 m/s²."
+            },
+            {
+              "term": "Gravitational field strength",
+              "meaning": "The force per unit mass on a mass in a gravitational field."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Weight",
+          "formula": "W = mg",
+          "where": [
+            "W = weight (N)",
+            "m = mass (kg)",
+            "g = gravitational field strength, equal to the acceleration of free fall (N/kg or m/s²)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Gravitational field strength",
+          "formula": "g = F / m",
+          "where": [
+            "g = gravitational field strength (N/kg)",
+            "F = gravitational force on the mass (N)",
+            "m = mass (kg)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Near the Earth's surface g is about 9.81 N/kg. The weight of an object equals its mass times the acceleration of free fall.",
+            "Mass stays the same everywhere. Weight changes with g, so it is different on the Moon.",
+            "Weight acts downwards, through the centre of gravity of the object."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mass resists changes in motion. Weight is a force, W = mg.",
+            "1 N gives 1 kg an acceleration of 1 m/s²."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Newton's three laws",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Newton's laws link force and motion. Each law applies to the forces acting on one object."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "First law",
+              "text": "An object stays at rest, or moves at constant velocity, unless a resultant force acts on it."
+            },
+            {
+              "lead": "Second law",
+              "text": "The resultant force on an object is proportional to its rate of change of momentum, and acts in the same direction. For a constant mass this means the force is proportional to the acceleration."
+            },
+            {
+              "lead": "Third law",
+              "text": "If body A exerts a force on body B, then B exerts an equal and opposite force on A."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Newton's second law (constant mass)",
+          "formula": "ΣF = ma",
+          "where": [
+            "ΣF = resultant (net) force (N)",
+            "m = mass (kg)",
+            "a = acceleration (m/s²)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "If the resultant force is zero then a = 0. The object is at rest or moving at constant velocity, which is the first law.",
+            "Acceleration and resultant force are always in the same direction.",
+            "A greater resultant force gives a greater acceleration. A greater mass gives a smaller acceleration.",
+            "A resultant force changes the velocity of an object. It does not keep the object moving.",
+            "The second law in the form ΣF = ma applies when the mass is constant."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Question",
+              "text": "A 1200 kg car has a driving force of 3000 N and resistive forces of 1200 N. Find its acceleration."
+            },
+            {
+              "lead": "Resultant",
+              "text": "ΣF = 3000 − 1200 = 1800 N"
+            },
+            {
+              "lead": "Acceleration",
+              "text": "a = ΣF / m = 1800 / 1200 = 1.5 m/s²"
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice calculation. Find the acceleration of an object from the driving force, the resistive force and the mass.",
+            "question": "A trolley of mass {m} kg is pulled by a force of {F} N. A resistive force of {f} N opposes the motion. Calculate its acceleration.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 2,
+                "max": 20,
+                "step": 1
+              },
+              {
+                "id": "F",
+                "min": 30,
+                "max": 80,
+                "step": 5
+              },
+              {
+                "id": "f",
+                "min": 5,
+                "max": 25,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "(F - f) / m",
+              "unit": "m/s²",
+              "decimals": 2
+            },
+            "working": [
+              "ΣF = F − f = {F} − {f}",
+              "a = ΣF / m",
+              "a = {answer} m/s²"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Zero resultant force means constant velocity (first law).",
+            "ΣF = ma, with the acceleration in the direction of the resultant force.",
+            "Forces come in pairs between two bodies (third law)."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Force pairs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Newton's third law describes a pair of forces. A pair always has the same set of matching properties."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The two forces are equal in magnitude.",
+            "They act in opposite directions.",
+            "They are the same type of force, for example both gravitational or both contact.",
+            "They act on two different bodies, never on the same one.",
+            "They act along the same line, at the same time."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The Earth pulls a book down with its weight. The book pulls the Earth up with an equal gravitational force. This is a pair.",
+            "A book on a table has its weight and the normal contact force acting on it. These are not a pair, because they act on the same object and are different types of force."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort each pair of forces into Newton's third law pairs and pairs that are not.",
+            "prompt": "Is each pair of forces a Newton's third law pair?",
+            "groups": [
+              "Third law pair",
+              "Not a third law pair"
+            ],
+            "items": [
+              {
+                "text": "The Earth pulls a book down. The book pulls the Earth up.",
+                "group": 0
+              },
+              {
+                "text": "A swimmer pushes water backwards. The water pushes the swimmer forwards.",
+                "group": 0
+              },
+              {
+                "text": "A rocket pushes gas downwards. The gas pushes the rocket upwards.",
+                "group": 0
+              },
+              {
+                "text": "The weight of a book on a table and the table's contact force on it.",
+                "group": 1
+              },
+              {
+                "text": "The weight of a skydiver and the drag on the skydiver.",
+                "group": 1
+              },
+              {
+                "text": "The tension in a rope and the weight of the load it holds.",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A third law pair acts on two different bodies, is equal and opposite and is the same type of force.",
+            "Two forces on the same body that balance are not a third law pair."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Types of force and free-body diagrams",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A free-body diagram shows one object and every force acting on it. This section covers the forces and how to draw the diagram."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Tension",
+              "meaning": "The pulling force along a stretched rope, string or cable."
+            },
+            {
+              "term": "Normal contact force",
+              "meaning": "The push of a surface on an object, at right angles to the surface."
+            },
+            {
+              "term": "Upthrust",
+              "meaning": "The upward force on an object in a fluid, because pressure is greater at the bottom than the top."
+            },
+            {
+              "term": "Friction",
+              "meaning": "The force between surfaces in contact that opposes relative motion or its tendency."
+            },
+            {
+              "term": "Terminal velocity",
+              "meaning": "The constant velocity reached when the resistive force equals the driving force."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Isolate",
+              "text": "Draw the object alone, as a dot or a simple shape. A particle, or an extended rigid body."
+            },
+            {
+              "lead": "Weight",
+              "text": "Draw weight from the centre of gravity, straight down."
+            },
+            {
+              "lead": "Contact forces",
+              "text": "Add a force for every surface or rope touching the object. Normal forces are at right angles to the surface, and friction is along it."
+            },
+            {
+              "lead": "Label",
+              "text": "Label each arrow with its name. Make lengths match the sizes."
+            },
+            {
+              "lead": "Resolve",
+              "text": "Find the resultant by resolving along two perpendicular directions, then apply ΣF = ma."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Draw only forces on the object, not forces it exerts on others.",
+            "Do not include a separate force for the acceleration or for 'momentum'.",
+            "If the arrows balance, the object is at rest or at constant velocity.",
+            "A falling object with drag has weight down and drag up. At terminal velocity these are equal, so a = 0 and Newton's first law applies."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A free-body diagram shows every force on one object only.",
+            "Equal and opposite forces on one object give zero resultant and no acceleration."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State Newton's third law, and explain why the weight of a book on a table and the table's contact force on it are not a third law pair.",
+      "a": "If body A exerts a force on body B, B exerts an equal and opposite force on A. The weight and contact force both act on the same body (the book), and they are different types of force.",
+      "marks": 3
+    },
+    {
+      "q": "A 0.60 kg trolley accelerates at 2.5 m/s². Calculate the resultant force on it.",
+      "a": "ΣF = ma = 0.60 × 2.5 = 1.5 N.",
+      "marks": 2
+    },
+    {
+      "q": "A skydiver falls at a constant velocity. Use Newton's laws to explain why.",
+      "a": "At constant velocity there is no acceleration, so by the first law the resultant force is zero. The upward drag equals her weight downwards, so the forces are balanced.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.1.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Apply the three laws of motion in appropriate situations.",
+                "F = ma is used for situations where the mass is constant."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.16",
+        "EDEX 2.17",
+        "EDEX 2.18",
+        "EDEX 2.20"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Draw and interpret free-body force diagrams for a particle and for an extended rigid body.",
+                "Use the term terminal velocity: the velocity at which ΣF = 0 for an object moving through a resistive medium.",
+                "Know the properties of a pair of forces in an interaction between two bodies."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 3.1.1",
+        "CAIE 3.1.2",
+        "CAIE 3.1.5",
+        "CAIE 3.1.6"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.2.1a",
+        "OCR 3.2.1b",
+        "OCR 3.2.1c",
+        "OCR 3.2.1d",
+        "OCR 3.2.1e",
+        "OCR 3.2.1f",
+        "OCR 3.5.1a"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Recall F = ma and W = mg.",
+                "Describe motion in one and two dimensions under a constant force. Split the force into components, then apply ΣF = ma to each direction.",
+                "A constant force at right angles to the initial velocity gives a parabolic path, as for a projectile."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "65da9b92-fae3-49d3-884d-31210531b0a4",
+      "f85034ed-ebbd-443a-b862-4e1035ecfeee",
+      "fa68cecd-a6b9-4939-8d01-c102d74115e9",
+      "0456bb2f-d031-4e3f-81fe-33ad889329bc",
+      "9e4930c2-c963-42ee-a2db-b60255efd756",
+      "cc158d50-a5e3-496b-9e79-e3fdad4a4391",
+      "a3477abf-cf6f-41d8-8b1e-8ab53b820615",
+      "da750e2a-b6df-47fe-a5ec-bf86d092ae4f",
+      "4126156b-f0ce-4b21-8fd8-67cb91b25c23",
+      "6d0585b8-34cd-4432-a992-2a89561b5a2a",
+      "19976c05-bd17-4bc1-94f4-40bf25b3ee70",
+      "638de0cf-8a46-46b2-95f9-1d3c2dc2248a",
+      "33bd188f-43c7-4177-b487-7adab0cfd3c8",
+      "7032063d-13e7-498e-8ac3-86dfabc12e4a",
+      "9f9ad5b4-766d-41ff-9004-675182a4b0fd",
+      "cf2038bd-bb55-4b38-96cc-abfbbd12691e"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

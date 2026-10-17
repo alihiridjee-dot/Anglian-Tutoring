@@ -1,0 +1,382 @@
+{
+  "format": 1,
+  "concept_id": "abio-011",
+  "subject": "biology",
+  "title": "The cell cycle and mitosis",
+  "key_idea": "The cell cycle is the series of events between one cell division and the next: interphase, mitosis and cytokinesis. Mitosis makes two daughter cells with identical copies of the parent's DNA. It is used for growth, repair and asexual reproduction. If it is not controlled, it can form a tumour.",
+  "sections": [
+    {
+      "heading": "The cell cycle",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Eukaryotic cells that keep the ability to divide go through the cell cycle. Not all cells do: some in a multicellular organism stop dividing."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "The cell cycle: G1, S, G2, mitosis and cytokinesis, then back to G1.",
+            "steps": [
+              "G₁: cell grows",
+              "S: DNA replicates",
+              "G₂: cell grows and prepares",
+              "Mitosis: nucleus divides",
+              "Cytokinesis: cytoplasm divides"
+            ],
+            "loop": true
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Interphase** is the longest part. It has three phases: G₁, S and G₂.",
+            "In G₁ the cell grows, makes proteins and copies its organelles.",
+            "In the S phase the DNA is replicated, so that each chromosome has two identical sister chromatids.",
+            "In G₂ the cell grows further, makes more proteins and checks the copied DNA.",
+            "**Mitosis** divides the nucleus into two nuclei with identical DNA.",
+            "**Cytokinesis** divides the cytoplasm to form two daughter cells."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "DNA replicates in the S phase of interphase, not in mitosis.",
+            "The result of one cycle is two genetically identical cells."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The stages of mitosis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mitosis has four stages. Chromosomes, the nuclear envelope and the spindle each change at every stage."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of the cell cycle in the right order.",
+            "prompt": "Put the stages in the order they happen.",
+            "steps": [
+              "Interphase: DNA replicates",
+              "Prophase: chromosomes condense",
+              "Metaphase: chromosomes line up at the equator",
+              "Anaphase: chromatids pulled to opposite poles",
+              "Telophase: nuclear envelopes re-form",
+              "Cytokinesis: cytoplasm divides"
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Stage",
+            "Chromosomes",
+            "Nuclear envelope and spindle"
+          ],
+          "rows": [
+            [
+              "Prophase",
+              "Condense and become visible, as two sister chromatids joined at a centromere",
+              "Nucleolus disappears. Centrioles move to opposite poles and spindle fibres form. Nuclear envelope breaks down"
+            ],
+            [
+              "Metaphase",
+              "Line up on the equator, each attached to spindle fibres by its centromere",
+              "Spindle is complete"
+            ],
+            [
+              "Anaphase",
+              "Centromeres divide. Sister chromatids are pulled to opposite poles, centromere first",
+              "Spindle fibres shorten"
+            ],
+            [
+              "Telophase",
+              "Arrive at the poles and uncoil, becoming less visible",
+              "Nuclear envelopes re-form around each set. Spindle breaks down. Nucleolus reappears"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Spindle fibres are protein microtubules. They shorten using energy (ATP) from mitochondria.",
+            "In an **animal cell**, the cell surface membrane pinches in at the equator in cytokinesis.",
+            "In a **plant cell**, vesicles gather at the equator, form a cell plate and make a new cell wall. Plant cells have no centrioles."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Order: prophase, metaphase, anaphase, telophase, then cytokinesis.",
+            "In anaphase the sister chromatids separate and move to opposite poles."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Looking at mitosis in root tips",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cells in a root tip divide often, so many are in mitosis. A stained squash lets you see them with a light microscope."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Cut",
+              "text": "Cut a thin tip from a growing root."
+            },
+            {
+              "lead": "Soften",
+              "text": "Warm it in hydrochloric acid, which breaks down the middle lamella so that the cells separate."
+            },
+            {
+              "lead": "Stain",
+              "text": "Stain with a dye such as acetic orcein, which colours the chromosomes."
+            },
+            {
+              "lead": "Squash",
+              "text": "Place the tip on a slide under a cover slip and press down so that the cells form a single layer."
+            },
+            {
+              "lead": "Observe",
+              "text": "Find cells in each stage and draw labelled diagrams of the chromosomes you see."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cells in prophase show condensed chromosomes with no clear nuclear envelope.",
+            "In metaphase the chromosomes are in a line across the middle of the cell.",
+            "In anaphase there are two groups of V-shaped chromatids moving apart.",
+            "In telophase there are two groups of chromosomes at opposite poles, often with a new nuclear envelope.",
+            "Cells in interphase have a clear nucleus and nucleolus, with chromosomes not visible."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Acid, stain and squash give a single layer of stained cells.",
+            "Identify the stage from the position and shape of the chromosomes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why mitosis matters, and when it goes wrong",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mitosis produces genetically identical cells. These are needed in four situations."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Growth** of a multicellular organism, as the number of cells increases.",
+            "**Replacement** of dead or damaged cells, such as skin and gut lining.",
+            "**Repair** of tissues, by cell replacement in a wound.",
+            "**Asexual reproduction**, which makes offspring identical to the parent, for example plant runners, budding in yeast and Hydra."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Mitosis is a controlled process. If control is lost, cells divide again and again."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A mutation in a gene that controls the cell cycle can make a cell ignore the signals that stop division.",
+            "The cell divides repeatedly by mitosis and forms a mass of cells, called a **tumour**.",
+            "A malignant tumour invades surrounding tissue, and cells can spread to other parts of the body.",
+            "A benign tumour stays in one place."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mitosis is used for growth, replacement, repair and asexual reproduction.",
+            "Uncontrolled mitosis forms a tumour."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what happens to the chromosomes during anaphase.",
+      "a": "The centromeres divide. The spindle fibres shorten and pull the sister chromatids to opposite poles of the cell, centromere first.",
+      "marks": 3
+    },
+    {
+      "q": "State what happens in the S phase of the cell cycle and why it is needed before mitosis.",
+      "a": "The DNA is replicated, so each chromosome has two identical sister chromatids. Each daughter cell can then receive a complete, identical copy of the DNA.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how mitosis can cause a tumour.",
+      "a": "If the control of the cell cycle is lost, for example by a mutation, the cell divides repeatedly and uncontrollably by mitosis, forming a mass of cells, a tumour.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Mitotic index and actual size"
+            },
+            {
+              "type": "equation",
+              "label": "Mitotic index",
+              "formula": "mitotic index = number of cells with visible chromosomes ÷ total number of cells observed",
+              "where": [
+                "The number of cells in a stage of mitosis counted in the field of view"
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Actual size",
+              "formula": "actual size = size of image ÷ magnification",
+              "where": [
+                "Measure the apparent size of the cell in the image in a convenient unit, then convert the answer to µm"
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Cancer, binary fission and viruses"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Many cancer treatments control the rate of cell division. Some block DNA replication in the S phase, and some stop the spindle from forming.",
+                "**Binary fission** is how prokaryotic cells divide. The circular DNA and the plasmids replicate, then the cytoplasm divides.",
+                "Each daughter cell has a single copy of the circular DNA and a variable number of copies of plasmids.",
+                "Viruses are non-living, so they do not divide. The infected host cell replicates the virus particles after the nucleic acid is injected."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 3.10"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 5.1.1",
+        "CAIE 5.1.2",
+        "CAIE 5.1.3",
+        "CAIE 5.1.4",
+        "CAIE 5.1.6",
+        "CAIE 5.2.1",
+        "CAIE 5.2.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Structure of a chromosome"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A chromosome is made of one DNA molecule wound around **histone** proteins.",
+                "After replication, it has two identical **sister chromatids** held together at the **centromere**.",
+                "**Telomeres** are repeated, non-coding sequences at the ends of the chromosomes."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Telomeres"
+            },
+            {
+              "type": "list",
+              "items": [
+                "DNA replication cannot copy the very end of a linear chromosome, so each replication shortens it.",
+                "The telomere is lost, rather than genes. This protects the genes at the end of the chromosome.",
+                "Telomeres get shorter each time a cell divides."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Interphase is described as G₁ and G₂ (growth) with DNA replication in the S phase. The nuclear envelope, cell surface membrane and spindle behave as in the stage table above."
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.6a",
+        "OCR 2.1.6b",
+        "OCR 2.1.6c",
+        "OCR 2.1.6d",
+        "OCR 2.1.6e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The cell cycle is regulated by checkpoints. A checkpoint stops the cycle until the cell is ready to go on."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**G₁ checkpoint**: checks that the cell is large enough, has nutrients and its DNA is undamaged.",
+                "**G₂ checkpoint**: checks that the DNA has been replicated and is undamaged.",
+                "**Spindle checkpoint** in metaphase: checks that every chromosome is attached to the spindle before anaphase.",
+                "A cell that fails a check stops, tries to repair the damage, or is destroyed by apoptosis."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Mitosis is significant in the life cycles of plants, animals and fungi: it gives growth, tissue repair and asexual reproduction."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "4c131db5-eee1-4a36-ad50-a0f01f125fd2",
+      "c6b5d0c4-6aa0-4931-ae47-13a0c1352675",
+      "b4bbeb2c-6f40-4d5c-af51-b81631a1908f",
+      "bcfaaaed-0cef-4101-bd42-561c8978820d",
+      "6443e545-966e-406c-8bb1-9052583cc0c5",
+      "cca0f6b0-3d10-45ba-a885-0deaf6b98dce",
+      "3093304f-c66c-4e19-bca2-469c43a1c4c8",
+      "c5bef2b5-173f-4e39-9a2f-e6be475b57a1",
+      "1428272f-469a-42cf-81c2-9162fbc65e60",
+      "50ed7fb0-def0-4655-abad-9265812edf28",
+      "5c0a3d77-8970-4f24-9c4c-d081b2431af0",
+      "e670a622-b39d-4459-9e95-a5fb23d06db2",
+      "2900f1d1-2683-4220-a4e8-eb146df0b42c",
+      "418bfb72-907f-4753-b154-262f3b10ea75"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

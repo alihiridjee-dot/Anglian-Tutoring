@@ -1,0 +1,228 @@
+{
+  "format": 1,
+  "concept_id": "achem-057",
+  "subject": "chemistry",
+  "title": "Nitrogen and its compounds",
+  "key_idea": "Nitrogen is unreactive because of its strong, non-polar triple bond. Ammonia is a Brønsted–Lowry base that forms the ammonium ion. Oxides of nitrogen cause smog and acid rain, and catalytic converters remove them from exhaust gases.",
+  "sections": [
+    {
+      "heading": "Why nitrogen is unreactive",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Nitrogen makes up most of the air yet reacts very little. This section covers why."
+        },
+        {
+          "type": "list",
+          "items": [
+            "N₂ has a **triple bond**, N≡N. Its bond enthalpy is very large, about 944 kJ/mol.",
+            "A lot of energy is needed to break the bond, so the activation energy of its reactions is very high.",
+            "The molecule is **non-polar**, so polar reagents have no partial charge to attack.",
+            "Nitrogen reacts only under extreme conditions: lightning, hot engines or the Haber process."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The N≡N bond is very strong.",
+            "N₂ is non-polar, so it is not attacked by polar reagents."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Ammonia and the ammonium ion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ammonia is a base, and it forms the ammonium ion. This section covers the basicity, the structure of NH₄⁺ and how ammonia is displaced from its salts."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ammonia has a lone pair on N. It accepts a proton, so it is a **Brønsted–Lowry base**: NH₃ + H⁺ → NH₄⁺.",
+            "In water: NH₃ + H₂O ⇌ NH₄⁺ + OH⁻. The solution is weakly alkaline.",
+            "NH₃ reacts with acids to form ammonium salts: NH₃ + HCl → NH₄Cl."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In NH₄⁺, N forms four bonds in a tetrahedral shape, with bond angles of 109.5°.",
+            "One N–H bond is a **dative covalent bond**. Both electrons come from the lone pair on N.",
+            "The ammonium ion forms in an acid–base reaction, when ammonia accepts H⁺."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Displacing ammonia"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A stronger base removes H⁺ from NH₄⁺ and displaces ammonia: NH₄⁺ + OH⁻ → NH₃ + H₂O.",
+            "So warming an ammonium salt with sodium hydroxide gives off ammonia: NH₄Cl + NaOH → NaCl + NH₃ + H₂O.",
+            "This is also an acid–base reaction, because the ammonium ion acts as the acid."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ammonia is a base because its lone pair accepts H⁺.",
+            "NH₄⁺ is tetrahedral and contains one dative bond.",
+            "A strong base such as OH⁻ displaces NH₃ from ammonium salts."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Oxides of nitrogen",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Nitrogen oxides form in several ways and cause pollution. This section covers their sources, their removal, smog and acid rain."
+        },
+        {
+          "type": "subheading",
+          "text": "Where they come from"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Lightning and hot engines give enough energy to break the N≡N bond: N₂ + O₂ → 2NO.",
+            "NO is oxidised in air to NO₂: 2NO + O₂ → 2NO₂.",
+            "Natural sources include lightning and bacteria in soil. Man-made sources include car engines, power stations and aircraft."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort the sources of nitrogen oxides into natural and man-made.",
+            "prompt": "Natural or man-made source?",
+            "groups": [
+              "Natural",
+              "Man-made"
+            ],
+            "items": [
+              {
+                "text": "Lightning",
+                "group": 0
+              },
+              {
+                "text": "Bacteria in soil",
+                "group": 0
+              },
+              {
+                "text": "Car engines",
+                "group": 1
+              },
+              {
+                "text": "Power stations",
+                "group": 1
+              },
+              {
+                "text": "Aircraft engines",
+                "group": 1
+              },
+              {
+                "text": "Industrial furnaces",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Removal from exhaust gases"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A catalytic converter contains platinum, palladium and rhodium on a honeycomb.",
+            "It converts NO to N₂ and CO to CO₂: 2NO + 2CO → N₂ + 2CO₂.",
+            "Unburned hydrocarbons are also oxidised to CO₂ and H₂O."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Smog and acid rain"
+        },
+        {
+          "type": "list",
+          "items": [
+            "NO and NO₂ react with unburned hydrocarbons in sunlight. They form **peroxyacetyl nitrate (PAN)**, a component of photochemical smog.",
+            "NO₂ dissolves in rain to make nitric acid: 4NO₂ + O₂ + 2H₂O → 4HNO₃.",
+            "NO₂ also helps make sulfuric acid. It oxidises SO₂: NO₂ + SO₂ → NO + SO₃. Oxygen in air then regenerates the NO₂: 2NO + O₂ → 2NO₂.",
+            "NO₂ is regenerated, so it acts as a catalyst. SO₃ then reacts with water: SO₃ + H₂O → H₂SO₄."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "A loop showing NO₂ oxidising sulfur dioxide and being regenerated by oxygen.",
+            "loop": true,
+            "steps": [
+              "NO₂ oxidises SO₂ to SO₃",
+              "NO₂ is reduced to NO",
+              "NO is oxidised back to NO₂ by O₂",
+              "SO₃ dissolves in rain to form H₂SO₄"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "NO forms where there is enough energy to break N≡N, and NO₂ forms from NO and oxygen.",
+            "Catalytic converters change NO and CO into N₂ and CO₂.",
+            "NO₂ forms acid rain directly and acts as a catalyst in making sulfuric acid."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why nitrogen is unreactive.",
+      "a": "The N≡N triple bond is very strong, so a lot of energy is needed to break it. The molecule is also non-polar, so it is not attacked by polar reagents.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why ammonia acts as a Brønsted–Lowry base.",
+      "a": "Ammonia has a lone pair of electrons on nitrogen. It uses it to accept a proton (H⁺) from an acid, forming NH₄⁺.",
+      "marks": 2
+    },
+    {
+      "q": "Write the equation for the removal of NO and CO in a catalytic converter.",
+      "a": "2NO + 2CO → N₂ + 2CO₂",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 12.1.1",
+        "CAIE 12.1.2",
+        "CAIE 12.1.3",
+        "CAIE 12.1.4",
+        "CAIE 12.1.5"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "5060c863-ef7b-4b48-8024-249c8f739245",
+      "66d8eaa9-6b59-49e9-9ca9-f86a596b5d2b",
+      "45568033-63a5-4a79-8362-814af5f7f017",
+      "e23c40df-8263-4c2d-9d4d-4da8a2562ca8",
+      "59ed2dd4-be85-4d59-a573-1ddd71827f57"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

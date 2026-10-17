@@ -1,0 +1,385 @@
+{
+  "format": 1,
+  "concept_id": "abio-068",
+  "subject": "biology",
+  "title": "Nerve impulses",
+  "key_idea": "A neurone at rest is negative inside, about −70 mV. A stimulus that reaches the threshold opens sodium ion channels and triggers an all-or-nothing action potential. A refractory period follows. Myelin makes the impulse jump between nodes.",
+  "sections": [
+    {
+      "heading": "The resting potential",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A neurone at rest has a potential difference across its membrane. The inside is negative compared with the outside."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The resting potential is about −70 mV.",
+            "The sodium-potassium pump uses ATP to move 3 Na⁺ out of the neurone and 2 K⁺ in.",
+            "This leaves a high Na⁺ concentration outside and a high K⁺ concentration inside.",
+            "The membrane is more permeable to K⁺ than to Na⁺, because there are more open potassium ion channels.",
+            "K⁺ diffuses out down its concentration gradient, but Na⁺ cannot easily diffuse in.",
+            "The result is a net loss of positive charge from the inside, which sets up the electrochemical gradient."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Resting potential",
+              "meaning": "The potential difference across a neurone membrane when it is not conducting an impulse."
+            },
+            {
+              "term": "Electrochemical gradient",
+              "meaning": "The combined effect of a concentration gradient and an electrical gradient on an ion."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The sodium-potassium pump moves 3 Na⁺ out and 2 K⁺ in using ATP.",
+            "The membrane is far more permeable to K⁺ than to Na⁺ at rest.",
+            "The inside is about −70 mV relative to the outside."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The action potential",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A stimulus that reaches the threshold opens voltage-gated channels and the membrane potential changes rapidly."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Stimulus",
+              "text": "Some sodium ion channels open and Na⁺ diffuses in, so the membrane starts to depolarise."
+            },
+            {
+              "lead": "Threshold",
+              "text": "If the potential reaches about −50 mV, many more voltage-gated sodium ion channels open. This is positive feedback."
+            },
+            {
+              "lead": "Depolarisation",
+              "text": "Na⁺ floods in and the inside becomes positive, reaching about +40 mV."
+            },
+            {
+              "lead": "Sodium channels close",
+              "text": "Voltage-gated sodium ion channels close and voltage-gated potassium ion channels open."
+            },
+            {
+              "lead": "Repolarisation",
+              "text": "K⁺ diffuses out, so the inside becomes negative again."
+            },
+            {
+              "lead": "Hyperpolarisation",
+              "text": "Too much K⁺ leaves, so the potential dips below −70 mV. Potassium channels then close and the resting potential is restored."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A line graph of membrane potential against time. It rests, rises sharply to a peak, falls below the resting level, then returns to rest.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 6,
+              "ticks": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "unit": "ms"
+            },
+            "y": {
+              "label": "Membrane potential (low to high)"
+            },
+            "series": [
+              {
+                "name": "Membrane potential",
+                "points": [
+                  [
+                    0,
+                    0.2
+                  ],
+                  [
+                    1,
+                    0.2
+                  ],
+                  [
+                    1.5,
+                    0.4
+                  ],
+                  [
+                    2,
+                    0.9
+                  ],
+                  [
+                    2.5,
+                    0.55
+                  ],
+                  [
+                    3,
+                    0.1
+                  ],
+                  [
+                    3.5,
+                    0.05
+                  ],
+                  [
+                    4.5,
+                    0.15
+                  ],
+                  [
+                    5,
+                    0.2
+                  ],
+                  [
+                    6,
+                    0.2
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 1.5,
+                "label": "Threshold"
+              },
+              {
+                "x": 2,
+                "label": "Peak"
+              }
+            ],
+            "bands": [
+              {
+                "from": 2,
+                "to": 4.5,
+                "label": "Refractory period"
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The all-or-nothing principle: if the stimulus does not reach the threshold, no action potential occurs. If it does, the action potential is always the same size.",
+            "A bigger stimulus does not give a bigger action potential. It gives more action potentials per second."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Depolarisation is Na⁺ entering. Repolarisation is K⁺ leaving.",
+            "Opening of sodium channels is positive feedback, because Na⁺ entry opens more channels.",
+            "An action potential is all or nothing."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The refractory period",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "After an action potential, the section of membrane cannot be stimulated for a short time."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Voltage-gated sodium ion channels are closed and cannot open straight away, so no new action potential can start.",
+            "The potassium channels are open, and the resting potential is restored during this time.",
+            "This ensures impulses are discrete, with a gap between each one.",
+            "It ensures impulses travel in one direction only, because the part of the axon behind cannot fire again.",
+            "It limits the frequency of impulses, because a new action potential must wait for recovery."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The refractory period stops a new action potential starting straight away.",
+            "It keeps impulses separate and moving in one direction.",
+            "It sets a maximum frequency of impulses."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Moving the impulse along the axon",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An action potential at one point causes the next point to depolarise, so the impulse moves along the axon."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a non-myelinated axon, local currents of Na⁺ spread to the next section and open its sodium channels. The impulse travels along the whole length of the membrane.",
+            "In a myelinated axon, myelin stops ions crossing the membrane, so action potentials occur only at the nodes of Ranvier.",
+            "Local circuits of ions carry the depolarisation from one node to the next. The impulse appears to jump, which is called **saltatory conduction**.",
+            "Less of the membrane has to depolarise, so the impulse travels much faster."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Factors that affect conduction speed"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Factor",
+            "Effect on speed",
+            "Reason"
+          ],
+          "rows": [
+            [
+              "Myelination",
+              "Faster",
+              "Saltatory conduction between nodes"
+            ],
+            [
+              "Axon diameter",
+              "Faster in a wider axon",
+              "Less resistance to the flow of ions"
+            ],
+            [
+              "Temperature",
+              "Faster when warmer, up to a limit",
+              "Ions diffuse faster and enzymes in respiration work faster"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Saltatory conduction is jumping between nodes of Ranvier.",
+            "Myelin, a wider axon and a higher temperature all increase speed.",
+            "A non-myelinated axon conducts along its whole length, which is slower."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how a resting potential is maintained across the membrane of a neurone.",
+      "a": "The sodium-potassium pump uses ATP to move 3 Na⁺ out and 2 K⁺ in. The membrane is more permeable to K⁺ than Na⁺, so K⁺ diffuses out. This makes the inside negative compared with the outside, about −70 mV.",
+      "marks": 4
+    },
+    {
+      "q": "Explain what happens when the membrane potential reaches the threshold.",
+      "a": "Voltage-gated sodium ion channels open and Na⁺ diffuses in. The entry of Na⁺ opens more channels (positive feedback). The inside becomes positive, an action potential results, and it is the same size whatever the stimulus (all or nothing).",
+      "marks": 4
+    },
+    {
+      "q": "Give two reasons why the refractory period is important.",
+      "a": "It makes impulses discrete and separate. It means impulses travel in one direction only. It limits the frequency of impulses (any two).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.6.2.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the structure of a myelinated motor neurone: cell body, dendrites, axon, Schwann cells, myelin sheath and nodes of Ranvier.",
+                "The refractory period must be described as producing discrete impulses and limiting the frequency of impulse transmission.",
+                "Know the passage of an action potential along both non-myelinated and myelinated axons."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Explain conduction of an action potential in terms of changes in membrane permeability to sodium and potassium ions, and the role of myelination in saltatory conduction."
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 15.1.6",
+        "CAIE 15.1.7",
+        "CAIE 15.1.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe the resting potential, the events of an action potential and the way the resting potential is restored during the refractory period.",
+                "Explain the importance of the refractory period in determining the frequency of impulses: a higher frequency needs a shorter recovery time, and the refractory period sets an upper limit."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.3c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know that the opening of sodium channels in the generation of an action potential is an example of positive feedback.",
+                "Know the significance of the frequency of impulse transmission: a stronger stimulus produces more impulses per second, not a bigger impulse."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "300bcbf1-e0ce-4329-a037-00c90a96785d",
+      "3b4b8215-4e30-47c1-86ee-03834a7b1d3e",
+      "41fcd722-7dba-42f0-80e1-6e1ac4be871c",
+      "11442192-509b-40b2-904b-8aa1528ab854",
+      "73219676-1115-45c6-b6a1-99a5eeae4041",
+      "fe03e505-dcb3-4f59-b3a4-5cfe8a6aea53"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

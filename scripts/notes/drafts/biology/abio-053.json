@@ -1,0 +1,192 @@
+{
+  "format": 1,
+  "concept_id": "abio-053",
+  "subject": "biology",
+  "title": "ATP",
+  "key_idea": "ATP is the molecule cells use to pass energy to reactions. Hydrolysis of ATP to ADP and Pi releases a small, usable amount of energy at once. Respiration and photosynthesis use energy to join ADP and Pi back into ATP.",
+  "sections": [
+    {
+      "heading": "The structure of ATP",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "ATP (adenosine triphosphate) is a phosphorylated nucleotide. It is made of three parts joined together."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ribose, a pentose (five-carbon) sugar.",
+            "Adenine, a nitrogenous base.",
+            "Three phosphate groups in a chain, joined to the ribose.",
+            "ADP (adenosine diphosphate) has the same structure but only two phosphate groups."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Nucleotide",
+              "meaning": "A pentose sugar joined to a nitrogenous base and one or more phosphate groups."
+            },
+            {
+              "term": "Pi",
+              "meaning": "An inorganic phosphate group, a free phosphate ion."
+            },
+            {
+              "term": "Phosphorylation",
+              "meaning": "Adding a phosphate group to a molecule."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ATP = ribose + adenine + three phosphate groups.",
+            "ADP has two phosphate groups, ATP has three.",
+            "ATP is a nucleotide derivative, closely related to the nucleotides in RNA."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Hydrolysis and synthesis of ATP",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "ATP is broken down by hydrolysis when a cell needs energy. It is rebuilt by condensation when energy is available."
+        },
+        {
+          "type": "subheading",
+          "text": "Hydrolysis"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The enzyme ATP hydrolase catalyses the hydrolysis of ATP to ADP and Pi.",
+            "The reaction releases energy, which can be coupled to an energy-requiring reaction in the cell.",
+            "The released Pi can phosphorylate other compounds. This often makes them more reactive."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Synthesis"
+        },
+        {
+          "type": "list",
+          "items": [
+            "ADP and Pi are joined by a condensation reaction.",
+            "The enzyme ATP synthase catalyses it, during respiration and during photosynthesis.",
+            "This phosphorylation of ADP needs energy, which comes from the oxidation of respiratory substrates or from light."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "ATP and ADP",
+          "formula": "ATP + H₂O ⇌ ADP + Pi + energy",
+          "where": [
+            "Forward reaction: hydrolysis, catalysed by ATP hydrolase",
+            "Reverse reaction: condensation, catalysed by ATP synthase"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ATP hydrolase breaks ATP down to ADP and Pi, releasing energy.",
+            "ATP synthase joins ADP and Pi, using energy.",
+            "Pi from ATP can phosphorylate a compound and make it more reactive."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why ATP is the universal energy currency",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every living cell uses ATP, which is why it is called the universal energy currency. Its features suit this job."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hydrolysis releases a small amount of energy, so little is wasted as heat and the energy can be matched to one reaction.",
+            "It releases energy in a single step, so the supply is immediate.",
+            "It is soluble and can move around the cell to where it is needed.",
+            "It cannot leave the cell, so each cell keeps its own supply.",
+            "It is made in respiration and in photosynthesis, then used in many different reactions."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "ATP cannot be stored in large amounts. Cells turn it over constantly, so it is resynthesised as fast as it is used."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cells use ATP from respiration for active transport, movement such as muscle contraction, and anabolic reactions such as making proteins and DNA."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ATP releases a small, manageable amount of energy in one step.",
+            "It is made in all cells, and used by all cells.",
+            "It is a short-term energy carrier, not a long-term store."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the three parts of an ATP molecule.",
+      "a": "Ribose (a pentose sugar), adenine (a nitrogenous base) and three phosphate groups.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how the hydrolysis of ATP can supply energy to a cell, and name the enzyme that catalyses it.",
+      "a": "ATP is hydrolysed to ADP and Pi, catalysed by ATP hydrolase. This releases energy, which is coupled to an energy-requiring reaction. The Pi can also phosphorylate another compound, making it more reactive.",
+      "marks": 4
+    },
+    {
+      "q": "Give two features of ATP that make it suitable as the universal energy currency.",
+      "a": "Any two from: it releases a small amount of energy at a time, so little is wasted; it releases energy in one step, so supply is immediate; it is soluble and moves around the cell; it is made in all cells by respiration or photosynthesis and used by many reactions.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.6"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.6"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 12.1.2",
+        "CAIE 1.2.4"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.3c"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "c228e71e-9614-4263-850b-f73e33ca8cbe",
+      "cdace6a3-aed8-4f6a-ad73-db921ff8949b",
+      "795be7a8-d9cd-4914-8c17-eac7bac279eb",
+      "25a5f480-12db-4f1c-bdf3-aa276e16001b",
+      "cad67040-3099-4269-887d-c23686317586"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

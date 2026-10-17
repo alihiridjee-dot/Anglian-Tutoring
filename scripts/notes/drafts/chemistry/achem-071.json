@@ -1,0 +1,477 @@
+{
+  "format": 1,
+  "concept_id": "achem-071",
+  "subject": "chemistry",
+  "title": "Alkenes and electrophilic addition",
+  "key_idea": "**Alkenes** are unsaturated hydrocarbons with a C=C double bond, made of a σ bond and a weaker π bond. The π bond is a region of high electron density, so alkenes are attacked by **electrophiles**. They react by electrophilic addition, and the major product follows the stability of the carbocation.",
+  "sections": [
+    {
+      "heading": "Bonding and shape in alkenes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An alkene has at least one C=C bond. This section covers how that bond is made, its shape and why it makes alkenes reactive."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Unsaturated",
+              "meaning": "Containing at least one multiple carbon–carbon bond."
+            },
+            {
+              "term": "σ bond",
+              "meaning": "Formed by orbitals overlapping directly between the two atoms."
+            },
+            {
+              "term": "π bond",
+              "meaning": "Formed by sideways overlap of adjacent p orbitals, above and below the line between the two carbon atoms."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The general formula of an alkene is **CₙH₂ₙ**. Cycloalkenes are also unsaturated hydrocarbons.",
+            "The C=C bond is one **σ bond** and one **π bond**.",
+            "The π bond cannot rotate, so rotation about the C=C is restricted.",
+            "Each carbon of the C=C has three bonding pairs and no lone pairs, so the shape around it is **trigonal planar**.",
+            "The bond angle is **120°**."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why alkenes are reactive"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The π bond has a **low bond enthalpy**, so it breaks more easily than a σ bond.",
+            "The π bond is a centre of **high electron density**, which attracts electrophiles.",
+            "A reaction breaks the π bond and makes two new σ bonds."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "C=C is a σ bond plus a π bond. The shape around each carbon is trigonal planar, with 120° bond angles.",
+            "The π bond is weaker and electron-rich, so alkenes react by addition."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Addition reactions of alkenes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Alkenes react by addition, where the C=C bond opens and two new atoms or groups join. The reagents and products are below."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Reagent",
+            "Conditions",
+            "Product",
+            "Example with propene"
+          ],
+          "rows": [
+            [
+              "H₂",
+              "Nickel catalyst (Pt or Ni), heat",
+              "Alkane",
+              "Propane"
+            ],
+            [
+              "Br₂ or Cl₂",
+              "Room temperature",
+              "Dihaloalkane",
+              "1,2-dibromopropane"
+            ],
+            [
+              "HBr or HCl",
+              "Room temperature",
+              "Haloalkane",
+              "2-bromopropane (major)"
+            ],
+            [
+              "Steam, H₂O(g)",
+              "H₃PO₄ catalyst",
+              "Alcohol",
+              "Propan-2-ol (major)"
+            ],
+            [
+              "Cold, dilute, acidified KMnO₄",
+              "Room temperature",
+              "Diol",
+              "Propane-1,2-diol"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hydrogenation of unsaturated vegetable oils with a nickel catalyst makes margarine.",
+            "In hydrogenation, the alkene turns into an alkane: C₂H₄ + H₂ → C₂H₆.",
+            "In the manganate(VII) reaction, the purple solution turns colourless as the double bond is oxidised to a diol."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Test for a C=C bond"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Shake the compound with **bromine water**, or add bromine.",
+            "An alkene turns the orange or brown solution **colourless**, because the bromine adds across the C=C.",
+            "An alkane does not decolourise bromine water in the dark."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Alkenes add H₂, halogens, hydrogen halides and steam across the C=C bond.",
+            "Bromine water going from orange to colourless is the test for unsaturation."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The mechanism of electrophilic addition",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An electrophile is attracted to the π bond. The reaction goes in two steps through a carbocation intermediate."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Electrophile",
+              "meaning": "An electron-pair acceptor."
+            },
+            {
+              "term": "Carbocation",
+              "meaning": "An ion with a positively charged carbon atom, formed as an intermediate."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Polarisation.",
+              "text": "HBr is already polar, with δ+ on hydrogen. Br₂ is non-polar, but the π electrons of the C=C repel its bonding pair and polarise it."
+            },
+            {
+              "lead": "Attack.",
+              "text": "A curly arrow from the C=C bond goes to the δ+ hydrogen, and a curly arrow from the H–Br bond goes to the bromine."
+            },
+            {
+              "lead": "Intermediate.",
+              "text": "This gives a carbocation and a Br⁻ ion."
+            },
+            {
+              "lead": "Capture.",
+              "text": "A curly arrow from a lone pair on Br⁻ goes to the positive carbon, which makes the C–Br bond."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Curly arrows start from a **bond** or a **lone pair**, never from an atom.",
+            "In the reaction with a halogen, the intermediate may be drawn as a carbocation or as a halonium ion.",
+            "The bond breaks heterolytically, because Br⁻ takes both electrons of the H–Br bond."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The electrophile is attracted to the C=C. The first step makes a carbocation, and the second step adds the negative ion.",
+            "Curly arrows begin at a bond or a lone pair."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Unsymmetrical alkenes and Markovnikov's rule",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When HBr adds to an unsymmetrical alkene such as propene, two products are possible. One is formed in greater amount."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The H⁺ can add to either carbon of the C=C, giving a **primary** or a **secondary** carbocation.",
+            "Alkyl groups push electron density towards the positive carbon, which stabilises it. This is the **inductive effect**.",
+            "Stability increases in the order **primary < secondary < tertiary**.",
+            "The more stable carbocation forms more easily and in greater amount, so it leads to the **major product**."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Carbocation",
+            "Alkyl groups on the C⁺",
+            "Stability"
+          ],
+          "rows": [
+            [
+              "Primary",
+              "1",
+              "Least stable"
+            ],
+            [
+              "Secondary",
+              "2",
+              "Middle"
+            ],
+            [
+              "Tertiary",
+              "3",
+              "Most stable"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Propene + HBr: the secondary carbocation gives **2-bromopropane** as the major product.",
+            "The primary carbocation gives 1-bromopropane as the minor product.",
+            "Markovnikov's rule: the hydrogen adds to the carbon that already has more hydrogens, so the halogen ends up on the more substituted carbon."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor: pick an alkene and see the major product when it reacts with hydrogen bromide.",
+            "prompt": "Pick an alkene that reacts with HBr",
+            "result_labels": [
+              "More stable carbocation",
+              "Major product"
+            ],
+            "options": [
+              {
+                "label": "Ethene",
+                "results": [
+                  "Primary (only one possible)",
+                  "Bromoethane"
+                ],
+                "explanation": "Ethene is symmetrical, so both carbons give the same primary carbocation."
+              },
+              {
+                "label": "Propene",
+                "results": [
+                  "Secondary",
+                  "2-bromopropane"
+                ],
+                "explanation": "H adds to the CH₂ carbon, leaving the positive charge on the middle carbon."
+              },
+              {
+                "label": "But-1-ene",
+                "results": [
+                  "Secondary",
+                  "2-bromobutane"
+                ],
+                "explanation": "The positive charge sits on carbon 2, which has two alkyl groups attached."
+              },
+              {
+                "label": "2-methylpropene",
+                "results": [
+                  "Tertiary",
+                  "2-bromo-2-methylpropane"
+                ],
+                "explanation": "The positive charge sits on the carbon with three alkyl groups, which is the most stable carbocation."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carbocation stability rises from primary to secondary to tertiary.",
+            "The more stable carbocation gives the major product."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what you would see when ethene is shaken with bromine water, and explain the result.",
+      "a": "The orange bromine water turns colourless. Bromine adds across the C=C double bond, so it is no longer present as Br₂.",
+      "marks": 2
+    },
+    {
+      "q": "Outline the mechanism for the addition of HBr to ethene.",
+      "a": "The C=C π bond attacks the δ+ H of H–Br. The H–Br bond breaks heterolytically and both electrons go to Br, giving Br⁻. A carbocation CH₃CH₂⁺ forms. A lone pair on Br⁻ attacks the positive carbon to make CH₃CH₂Br.",
+      "marks": 4
+    },
+    {
+      "q": "Explain why the main product of the reaction of HBr with propene is 2-bromopropane.",
+      "a": "The intermediate carbocation can be primary or secondary. Alkyl groups donate electron density by the inductive effect, so the secondary carbocation is more stable. It forms more readily, so 2-bromopropane is the major product.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.1.3a",
+        "OCR 4.1.3b",
+        "OCR 4.1.3e",
+        "OCR 4.1.3f",
+        "OCR 4.1.3g",
+        "OCR 4.1.3h",
+        "OCR 4.1.3i"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Hybridisation is not required.",
+                "The reactivity of alkenes is explained by the relatively low bond enthalpy of the π bond.",
+                "Know the term electrophile: an electron pair acceptor.",
+                "The rule used for the major product is Markownikoff's rule, in terms of carbocation stability. Limited to primary, secondary and tertiary. Explaining why they differ in stability is not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 6C.18",
+        "EDEX 6C.19",
+        "EDEX 6C.20",
+        "EDEX 6C.21",
+        "EDEX 6C.22",
+        "EDEX 6C.24",
+        "EDEX 6C.25"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Margarine manufacture by catalytic hydrogenation of unsaturated vegetable oils is expected.",
+                "Oxidation by acidified potassium manganate(VII) gives a diol.",
+                "Give mechanisms with curly arrows for halogens and hydrogen halides, and for other binary compounds that are given.",
+                "Know the relative stability of primary, secondary and tertiary carbocations.",
+                "Know the bromine or bromine water test for a C=C bond."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.4.1",
+        "AQA 3.3.4.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the mechanisms for the reactions of alkenes with HBr, H₂SO₄ and Br₂.",
+                "The reaction with H₂SO₄ gives an alkyl hydrogensulfate, such as CH₃CH₂OSO₂OH from ethene.",
+                "Water then hydrolyses the hydrogensulfate to an alcohol.",
+                "Explain major and minor products by the relative stability of primary, secondary and tertiary carbocations."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 14.2.1",
+        "CAIE 14.2.2",
+        "CAIE 14.2.3",
+        "CAIE 14.2.4",
+        "CAIE 14.2.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Recall how alkenes are made: elimination of HX from a halogenoalkane with ethanolic NaOH and heat, dehydration of an alcohol with heated Al₂O₃ or concentrated H₂SO₄, and cracking of a longer alkane.",
+                "Hot, concentrated, acidified KMnO₄ cleaves the C=C. The products show where the double bond was in a larger molecule.",
+                "Use bromine/ethene and hydrogen bromide/propene as the mechanism examples.",
+                "Use aqueous bromine to show a C=C bond.",
+                "In addition polymerisation, many alkene molecules join with no other product. Ethene gives poly(ethene), repeat unit –CH₂–CH₂–, and propene gives poly(propene), repeat unit –CH₂–CH(CH₃)–."
+              ]
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Oxidation",
+                "Product at a C=C carbon"
+              ],
+              "rows": [
+                [
+                  "Carbon with two alkyl groups (=CR₂)",
+                  "Ketone"
+                ],
+                [
+                  "Carbon with one alkyl group and one H (=CHR)",
+                  "Carboxylic acid"
+                ],
+                [
+                  "Terminal =CH₂",
+                  "Carbon dioxide and water"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "7edd8dac-43dd-4af6-ac95-8ed0c5ab61fa",
+      "1660daf5-5920-4b38-9cf0-29103f6a3b56",
+      "1b3675ce-b758-419a-9830-b1c4cb8d1b64",
+      "eb1b3e7d-941c-43de-afdc-601dafb1a9e9",
+      "b6ba4c07-7629-4d21-89ce-ebd152f5ba33",
+      "64298530-2ec4-46bf-8cac-6231c350694a",
+      "4d522490-0a3e-40c0-be9d-17aa1ff7854c",
+      "07d5083b-eada-4010-9d10-5e63a2105486",
+      "4e63430c-899a-445b-8d45-71c16999233b",
+      "9682f99d-f879-4c0b-a4a4-06edc6a66652",
+      "d67f3f72-d909-4e30-9e57-65b0a12b0a7c",
+      "3cef4d98-63fd-4862-b0a1-18e7ee1f27ee",
+      "aa7738fa-10a2-423f-8d6b-5b88591970fd",
+      "cb52c6d5-e410-4407-ae2e-8f8c3b31be96",
+      "be219f6b-6136-45b1-aa00-1bbfb32a61aa",
+      "f7152e2c-9c8a-482a-be5e-1fb29615706c",
+      "4913a93a-3f80-45c1-90b9-93c8d0eae971",
+      "4db6616f-738a-4553-baaa-113e402c4a17",
+      "b1d0a4e5-3b4b-4b3b-b044-6b66ecdd62ec",
+      "178d21f4-21b9-47eb-bc7c-ae61b771baed",
+      "a4703762-43e2-41aa-9bc4-125f23f81100"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

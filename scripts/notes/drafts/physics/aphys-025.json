@@ -1,0 +1,381 @@
+{
+  "format": 1,
+  "concept_id": "aphys-025",
+  "subject": "physics",
+  "title": "Resistivity, thermistors and LDRs",
+  "key_idea": "Resistivity is a property of a material, and the resistance of a wire is R = ρL / A. Heating a metal raises its resistance, but heating an NTC thermistor or lighting an LDR frees more charge carriers and lowers it. Superconductors have zero resistivity below a critical temperature.",
+  "sections": [
+    {
+      "heading": "Resistivity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The resistance of a wire depends on its shape and on what it is made of. Resistivity describes the material alone."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Resistivity, ρ",
+              "meaning": "A property of a material equal to RA / L. It is the resistance of a sample of unit length and unit cross-sectional area."
+            },
+            {
+              "term": "Ohm metre (Ω m)",
+              "meaning": "The unit of resistivity."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Resistance of a uniform conductor",
+          "formula": "R = ρ L / A",
+          "where": [
+            "R = resistance (Ω)",
+            "ρ = resistivity of the material (Ω m)",
+            "L = length (m)",
+            "A = cross-sectional area (m²)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Resistance is directly proportional to length: doubling L doubles R.",
+            "Resistance is inversely proportional to area: doubling A halves R.",
+            "For a wire of circular cross-section, A = π d² / 4, so doubling the diameter divides R by four."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the material, length and cross-sectional area of a wire to see its resistance.",
+            "inputs": [
+              {
+                "id": "rho",
+                "label": "Material (ρ in units of 10⁻⁸ Ω m)",
+                "choices": [
+                  {
+                    "label": "Copper: 1.7",
+                    "value": 1.7
+                  },
+                  {
+                    "label": "Constantan: 49",
+                    "value": 49
+                  },
+                  {
+                    "label": "Nichrome: 110",
+                    "value": 110
+                  }
+                ]
+              },
+              {
+                "id": "L",
+                "label": "Length",
+                "unit": "m",
+                "min": 0.5,
+                "max": 5,
+                "step": 0.5,
+                "value": 2
+              },
+              {
+                "id": "A",
+                "label": "Cross-sectional area",
+                "unit": "mm²",
+                "min": 0.1,
+                "max": 2,
+                "step": 0.1,
+                "value": 0.5
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Resistance",
+                "unit": "Ω",
+                "formula": "rho * L / (A * 100)",
+                "decimals": 3
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ρ = RA / L, measured in Ω m.",
+            "R rises with length and falls with cross-sectional area.",
+            "Resistivity belongs to the material; resistance belongs to the sample."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Resistance and temperature",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Temperature changes resistance through two effects: how hard the ions vibrate, and how many carriers are free to move."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Negative temperature coefficient (NTC) thermistor",
+              "meaning": "A semiconductor component whose resistance decreases as its temperature increases."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Metals"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heating makes the lattice ions vibrate with larger amplitude.",
+            "Conduction electrons collide with the ions more often.",
+            "The number of conduction electrons barely changes, so resistivity and resistance rise with temperature."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "NTC thermistors and semiconductors"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heating releases many more electrons from their atoms, so the number of conduction electrons rises a great deal.",
+            "This outweighs the extra lattice vibrations, so resistivity and resistance fall as temperature rises.",
+            "Thermistors are used as temperature sensors."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Graph of resistance against temperature. The metal's resistance rises steadily. The NTC thermistor's resistance falls steeply, then levels off.",
+            "x": {
+              "label": "Temperature",
+              "min": 0,
+              "max": 100,
+              "ticks": [
+                0,
+                25,
+                50,
+                75,
+                100
+              ],
+              "unit": "°C"
+            },
+            "y": {
+              "label": "Resistance"
+            },
+            "series": [
+              {
+                "name": "Metal wire",
+                "points": [
+                  [
+                    0,
+                    0.3
+                  ],
+                  [
+                    50,
+                    0.45
+                  ],
+                  [
+                    100,
+                    0.6
+                  ]
+                ]
+              },
+              {
+                "name": "NTC thermistor",
+                "points": [
+                  [
+                    0,
+                    0.95
+                  ],
+                  [
+                    20,
+                    0.55
+                  ],
+                  [
+                    40,
+                    0.35
+                  ],
+                  [
+                    70,
+                    0.2
+                  ],
+                  [
+                    100,
+                    0.12
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metal: more vibration, same number of electrons, so R rises.",
+            "NTC thermistor: far more carriers released, so R falls."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Light-dependent resistors",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An LDR is a semiconductor whose resistance depends on how bright the light on it is."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In the dark an LDR has a very high resistance.",
+            "Light gives electrons the energy to break free from their atoms, so more conduction electrons are available.",
+            "The resistance **decreases** as the light intensity increases.",
+            "LDRs are used in light-sensing circuits."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Brighter light means more conduction electrons and a lower resistance.",
+            "The LDR and the NTC thermistor both fall in resistance when their carriers increase."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring the resistivity of a wire",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Resistivity is found from the resistance of a known length of wire of known diameter."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Diameter",
+              "text": "Measure the diameter with a micrometer at several places and in two perpendicular directions. Find the mean and calculate A = πd²/4."
+            },
+            {
+              "lead": "Circuit",
+              "text": "Connect the wire in series with an ammeter and a variable supply, with a voltmeter across the wire."
+            },
+            {
+              "lead": "Vary L",
+              "text": "Measure V and I for several lengths of wire, using a metre rule and a crocodile clip."
+            },
+            {
+              "lead": "Resistance",
+              "text": "Calculate R = V / I for each length. Keep the current small so the wire does not heat up."
+            },
+            {
+              "lead": "Graph",
+              "text": "Plot R against L. The gradient is ρ / A, so ρ = gradient × A."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ρ = gradient of the R against L graph × A.",
+            "Keep the current small to stop heating from changing the resistance."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A wire has resistance 6.0 Ω. A second wire of the same material has twice the length and twice the diameter. Calculate its resistance.",
+      "a": "Doubling L doubles R. Doubling d multiplies A by four, so R is divided by four. New R = 6.0 × 2 ÷ 4 = 3.0 Ω.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why the resistance of a metal wire rises and the resistance of an NTC thermistor falls as each is heated.",
+      "a": "In both, the ions vibrate more and collide more often with conduction electrons. In the metal the number of conduction electrons barely changes, so the resistance rises. In the thermistor many more electrons are released, which outweighs the vibration effect, so the resistance falls.",
+      "marks": 4
+    },
+    {
+      "q": "Explain why the resistance of an LDR falls when light shines on it.",
+      "a": "Light gives electrons energy to escape from their atoms. The number of conduction electrons increases, so the resistance decreases.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.5.1.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Only NTC thermistors are considered. You must know applications and the idea of superconductivity."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A thermistor in a temperature sensor gives a resistance that you read off a resistance-temperature graph.",
+                "A **superconductor** has zero resistivity at and below a critical temperature, which depends on the material.",
+                "Superconductors make very strong magnetic fields, because large currents flow with no heating.",
+                "Superconducting cables would reduce the energy lost when electric power is transmitted.",
+                "Critical field is not assessed."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 3.39",
+        "EDEX 3.47",
+        "EDEX 3.48"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 9.3.6",
+        "CAIE 9.3.7",
+        "CAIE 9.3.8"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.3d",
+        "OCR 4.2.4a",
+        "OCR 4.2.4b",
+        "OCR 4.2.4c"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "a2215506-e1f3-4beb-b793-bd64b1a0de72",
+      "9f12ab7d-ca9d-4972-a110-126e96240123",
+      "b8b62033-c3f8-452c-9afe-9ad2bbd8f374",
+      "89dbf6e6-29fb-4fd4-a39c-fdc22000659f",
+      "48792464-8c0b-4192-9d6f-7b50517de73f",
+      "eb2d6f42-5e6c-4ba7-9b47-2a1ec1a4cf40",
+      "6b99b00e-bdac-4d97-b36a-f493c9efa3e2",
+      "48d2f6cd-1aef-4197-abc7-43cd1975d6df",
+      "d92c2847-898f-405e-aaeb-102ab2f8eb2d",
+      "356f4c78-332e-4ac7-a051-82c7928d3ebd",
+      "845c2140-9a4f-4c16-a845-81dfefedeff6"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

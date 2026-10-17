@@ -1,0 +1,366 @@
+{
+  "format": 1,
+  "concept_id": "aphys-004",
+  "subject": "physics",
+  "title": "Measuring instruments and techniques",
+  "key_idea": "Choose the instrument for the size and speed of the quantity and read it with care. Use callipers or micrometers for small lengths, light gates or timers for time, and a cathode-ray oscilloscope for changing voltages. Methods such as timing many oscillations improve accuracy.",
+  "sections": [
+    {
+      "heading": "Reading instruments accurately",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Analogue instruments have a scale you read by eye. Digital instruments show a number. Each has a resolution that limits the reading."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Interpolate",
+              "meaning": "Estimate a reading between two marks on a scale."
+            },
+            {
+              "term": "Fiducial marker",
+              "meaning": "A fixed pointer or mark used as a reference for judging a position or timing a moving object."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Read an analogue scale by interpolating to about half of the smallest division.",
+            "Look at right angles to the scale to avoid parallax error.",
+            "Use analogue apparatus for length, temperature, pressure, force, angle and volume.",
+            "Use digital instruments, including a multimeter, for time, current, voltage, resistance and mass.",
+            "Record every reading to the resolution of the instrument and with its unit."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Improving accuracy"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Time **multiple oscillations**, then divide, to reduce the effect of reaction time.",
+            "Use a **fiducial marker** at the centre of an oscillation, so you start and stop on the same point.",
+            "Use a set square to check that a rule is vertical or at right angles.",
+            "Use a plumb line to check that a stand or string is vertical."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Interpolate analogue scales and read them at right angles.",
+            "Timing many oscillations and using a fiducial marker improve accuracy."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring small lengths and short times",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A ruler is too coarse for small dimensions. Callipers and micrometers read much smaller lengths. Timing needs a stopwatch or light gates."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Instrument",
+            "Used for",
+            "Typical resolution"
+          ],
+          "rows": [
+            [
+              "metre rule",
+              "lengths of a few cm to 1 m",
+              "1 mm"
+            ],
+            [
+              "vernier or digital calliper",
+              "diameters and thicknesses of a few mm to cm",
+              "0.1 mm or 0.01 mm"
+            ],
+            [
+              "micrometer",
+              "wire diameters and small thicknesses",
+              "0.01 mm"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Check for a zero error by closing the jaws with nothing between them. Subtract it from every reading.",
+            "Take several readings of a wire's diameter along its length and in different directions, then average.",
+            "On a vernier scale, read the main scale and add the vernier division that lines up with a main-scale mark.",
+            "On a micrometer, tighten with the ratchet so the same force is used every time."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Timing"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **stopwatch** has a resolution of 0.01 s, but human reaction time (about 0.2 s) is the larger error.",
+            "A **light gate** switches a timer on and off as an object cuts the beam, so there is no reaction-time error.",
+            "Use two gates to find a speed or acceleration, or one gate with a card of known width to find an average speed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Callipers and micrometers measure small lengths; check the zero error first.",
+            "Light gates remove reaction-time error from timing."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The cathode-ray oscilloscope",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An oscilloscope (CRO) displays a changing voltage against time. The screen is divided into squares called divisions."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Time-base",
+              "meaning": "The setting that gives the time represented by one horizontal division, for example 5 ms/div."
+            },
+            {
+              "term": "Y-gain",
+              "meaning": "The setting that gives the voltage represented by one vertical division, for example 2 V/div."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find the period",
+              "text": "Count the horizontal divisions for one complete cycle, then multiply by the time-base setting."
+            },
+            {
+              "lead": "Find the frequency",
+              "text": "Use f = 1 ÷ T, with T in seconds."
+            },
+            {
+              "lead": "Find the amplitude",
+              "text": "Count the vertical divisions from the centre line to a peak, then multiply by the y-gain setting."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Frequency from the period",
+          "formula": "f = 1 ÷ T",
+          "where": [
+            "f is the frequency in hertz (Hz)",
+            "T is the period in seconds (s)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "An interactive. Change the oscilloscope settings and trace to see the period, frequency and amplitude.",
+            "inputs": [
+              {
+                "id": "cyc",
+                "label": "Divisions for one cycle",
+                "min": 2,
+                "max": 8,
+                "step": 1,
+                "value": 4
+              },
+              {
+                "id": "tb",
+                "label": "Time-base",
+                "unit": "ms/div",
+                "min": 0.5,
+                "max": 10,
+                "step": 0.5,
+                "value": 2
+              },
+              {
+                "id": "pk",
+                "label": "Divisions to a peak",
+                "min": 1,
+                "max": 4,
+                "step": 0.5,
+                "value": 2
+              },
+              {
+                "id": "yg",
+                "label": "Y-gain",
+                "unit": "V/div",
+                "min": 0.5,
+                "max": 5,
+                "step": 0.5,
+                "value": 1
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Period",
+                "unit": "ms",
+                "formula": "cyc * tb",
+                "decimals": 1
+              },
+              {
+                "label": "Frequency",
+                "unit": "Hz",
+                "formula": "1000 / (cyc * tb)",
+                "decimals": 1
+              },
+              {
+                "label": "Amplitude",
+                "unit": "V",
+                "formula": "pk * yg",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Period = horizontal divisions × time-base; amplitude = vertical divisions × y-gain.",
+            "Frequency is 1 ÷ period, with the period in seconds."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how to measure the diameter of a thin wire accurately with a micrometer.",
+      "a": "Check and correct the zero error. Tighten with the ratchet. Measure at several places along the wire and in different directions, then take a mean.",
+      "marks": 3
+    },
+    {
+      "q": "One cycle of a waveform covers 5.0 divisions on an oscilloscope with a time-base of 2.0 ms/div. Calculate the frequency.",
+      "a": "T = 5.0 × 2.0 = 10 ms = 0.010 s. f = 1 ÷ 0.010 = 100 Hz.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a light gate gives a more accurate time than a hand-held stopwatch for a falling card.",
+      "a": "The gate switches the timer automatically as the card cuts the beam, so there is no reaction-time error; a stopwatch has a delay of about 0.2 s at start and stop.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 1.1.2a",
+        "OCR 1.1.2b",
+        "OCR 1.2.2a",
+        "OCR 1.2.2b",
+        "OCR 1.2.2c",
+        "OCR 1.2.2d",
+        "OCR 1.2.2e",
+        "OCR 1.2.2f",
+        "OCR 1.2.2g",
+        "OCR 1.2.2h",
+        "OCR 1.2.2i",
+        "OCR 1.2.2j",
+        "OCR 1.2.2k",
+        "OCR 1.2.2l"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Electrical circuits"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Build a circuit from a circuit diagram using a DC supply, cells and components, in the right order and with the correct polarity for meters, diodes and LEDs.",
+                "Connect ammeters in series and voltmeters in parallel with the component.",
+                "Design a circuit, build it and check each part works before taking readings."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Waves and light"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use a signal generator with a loudspeaker, or an oscilloscope with a microphone, to generate and measure sound waves.",
+                "Generate and measure waves with a ripple tank, a vibration transducer or a microwave or radio-wave source.",
+                "Use a laser or other light source to investigate interference and diffraction. Never look into the beam."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Data and radiation"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use a data logger with sensors, computer modelling or software to collect and process data.",
+                "Use ionising radiation and detectors safely: keep sources shielded, handle with tongs, keep distance and minimise time.",
+                "Choose the correct unit for each measurement and quote it with the reading."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 7.1.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use the time-base and y-gain to determine the frequency and amplitude of a signal from its trace.",
+                "A trace with a horizontal line means the time-base is on and no signal is applied; a vertical line means the time-base is off.",
+                "Amplitude is measured from the centre line, so a peak-to-peak height is halved."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "06277529-b37c-4bc1-8c99-c8dfe296613b",
+      "d46da4cd-044a-425a-83d8-fb90afe4f96a",
+      "50c1e017-aac6-48e0-a957-e3092c7c5d88",
+      "c9d08a0b-8af8-405a-afd7-9163719cecf4",
+      "c34c7ecd-83b4-4342-b666-2c1d462799b7",
+      "cbf41cf9-9fe3-44f8-b633-a89ff3351ba4",
+      "2ccdacf3-420a-438b-bfd5-2736688a6774",
+      "1b8a8c1b-c9d6-4a0b-b807-01278968c649",
+      "1df9839a-0777-46e9-b41a-e742c5ed78a9",
+      "44a30f12-5f03-4ca9-9628-b711e325974a",
+      "37b4961e-267b-4a8b-80f0-28ef66c9b779",
+      "0152e6ae-d01d-4e71-a246-248b98d05cf0",
+      "10efed2a-eb62-4de3-9481-a280c710b8ff",
+      "246bafb8-b267-41f7-8f5b-c17c985c3e8a",
+      "658f3137-b4db-41c9-85da-00325265b814"
+    ],
+    "exemplar_ids": []
+  }
+}

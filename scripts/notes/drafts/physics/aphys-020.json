@@ -1,0 +1,484 @@
+{
+  "format": 1,
+  "concept_id": "aphys-020",
+  "subject": "physics",
+  "title": "Stress, strain and the Young modulus",
+  "key_idea": "Stress is force per unit cross-sectional area and strain is extension per unit original length. Their ratio, for a material obeying Hooke's law, is the Young modulus. It describes the material itself, not the size of the sample.",
+  "sections": [
+    {
+      "heading": "Stress and strain",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Force and extension depend on the size of the sample. Stress and strain remove that, so materials can be compared."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Stress",
+              "meaning": "The force applied per unit cross-sectional area. It can be tensile or compressive."
+            },
+            {
+              "term": "Strain",
+              "meaning": "The change in length per unit original length."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Stress",
+          "formula": "σ = F / A",
+          "where": [
+            "σ = stress, in Pa (N/m²)",
+            "F = force, in N",
+            "A = cross-sectional area, in m²"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Strain",
+          "formula": "ε = ΔL / L",
+          "where": [
+            "ε = strain, no unit",
+            "ΔL = change in length (extension or compression), in m",
+            "L = original length, in m"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Strain is a ratio of two lengths, so it has no unit. It is often written as a percentage.",
+            "A thicker wire has a larger area, so the same force gives a smaller stress.",
+            "A longer wire gives a larger extension for the same strain."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stress = force ÷ cross-sectional area, in Pa.",
+            "Strain = extension ÷ original length, with no unit."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The Young modulus",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "For a material that obeys Hooke's law, stress is directly proportional to strain."
+        },
+        {
+          "type": "equation",
+          "label": "Young modulus",
+          "formula": "E = σ / ε = FL / AΔL",
+          "where": [
+            "E = Young modulus, in Pa",
+            "σ = stress, in Pa",
+            "ε = strain, no unit",
+            "F = force, in N",
+            "L = original length, in m",
+            "A = cross-sectional area, in m²",
+            "ΔL = extension, in m"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing a wire under tension. For a chosen metal, force and cross-sectional area, it shows the stress, the strain and the extension.",
+            "inputs": [
+              {
+                "id": "E",
+                "label": "Metal",
+                "choices": [
+                  {
+                    "label": "Steel (200 GPa)",
+                    "value": 200
+                  },
+                  {
+                    "label": "Copper (120 GPa)",
+                    "value": 120
+                  },
+                  {
+                    "label": "Aluminium (70 GPa)",
+                    "value": 70
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "label": "Force",
+                "unit": "N",
+                "min": 10,
+                "max": 100,
+                "step": 10,
+                "value": 50
+              },
+              {
+                "id": "A",
+                "label": "Cross-sectional area",
+                "unit": "mm²",
+                "min": 1,
+                "max": 4,
+                "step": 0.5,
+                "value": 1
+              },
+              {
+                "id": "L",
+                "label": "Original length",
+                "unit": "m",
+                "min": 0.5,
+                "max": 3,
+                "step": 0.5,
+                "value": 2
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Stress",
+                "unit": "MPa",
+                "formula": "F / A",
+                "decimals": 1
+              },
+              {
+                "label": "Strain",
+                "unit": "× 10⁻³",
+                "formula": "F / (A * E)",
+                "decimals": 2
+              },
+              {
+                "label": "Extension",
+                "unit": "mm",
+                "formula": "F * L / (A * E)",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The Young modulus is the stress divided by the strain. It is a property of the **material**.",
+            "A material with a large Young modulus is stiff: a large stress gives only a small strain.",
+            "On a stress–strain graph, the gradient of the straight part is the Young modulus.",
+            "The units of E are the same as stress: pascals. Common metals have values of about 7 × 10¹⁰ to 2 × 10¹¹ Pa.",
+            "The same value applies to tension and compression."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Young modulus = stress ÷ strain, in Pa.",
+            "It is the gradient of the straight part of a stress–strain graph."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Stress–strain graphs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A stress–strain graph shows how a material behaves, whatever the size of the sample."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Stress–strain graphs for a ductile metal, a brittle material and a polymer. The metal rises steeply, yields, peaks and breaks. The brittle material is a steep straight line that stops at fracture. The polymer is a gentle curve.",
+            "x": {
+              "label": "Strain (not to scale)",
+              "min": 0,
+              "max": 10,
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10
+              ]
+            },
+            "y": {
+              "label": "Stress"
+            },
+            "series": [
+              {
+                "name": "Ductile metal",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0.6
+                  ],
+                  [
+                    1.5,
+                    0.65
+                  ],
+                  [
+                    3,
+                    0.8
+                  ],
+                  [
+                    5,
+                    0.92
+                  ],
+                  [
+                    6,
+                    0.9
+                  ],
+                  [
+                    8,
+                    0.8
+                  ]
+                ]
+              },
+              {
+                "name": "Brittle material",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1.5,
+                    0.9
+                  ]
+                ]
+              },
+              {
+                "name": "Polymer",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0.12
+                  ],
+                  [
+                    5,
+                    0.25
+                  ],
+                  [
+                    8,
+                    0.38
+                  ],
+                  [
+                    10,
+                    0.45
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ultimate tensile strength (UTS)",
+              "meaning": "The maximum stress a material can withstand before it starts to break."
+            },
+            {
+              "term": "Breaking stress",
+              "meaning": "The stress at which the material fractures."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **ductile** material, such as copper, shows a lot of plastic deformation before it breaks. It can be drawn into wires.",
+            "A **brittle** material, such as glass, fractures with almost no plastic deformation.",
+            "A **polymeric** material, such as polythene, has a low Young modulus and a curved graph, and it stretches a long way.",
+            "Strain is plotted on the horizontal axis and stress on the vertical axis.",
+            "The area under a stress–strain graph is the energy stored per unit volume."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ductile: much plastic deformation. Brittle: breaks with almost none.",
+            "UTS is the highest stress reached. Breaking stress is the stress at fracture."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Finding the Young modulus of a metal wire",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A long thin wire gives a large strain for a small force, so the extension is easy to measure."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up",
+              "text": "Clamp a long wire at one end. Pass it over a pulley and hang a weight hanger on the other end. Fix a marker on the wire next to a ruler."
+            },
+            {
+              "lead": "Length",
+              "text": "Measure the original length L from the clamp to the marker with a metre rule."
+            },
+            {
+              "lead": "Diameter",
+              "text": "Measure the diameter with a micrometer at several places and take a mean. Calculate A = πd² / 4."
+            },
+            {
+              "lead": "Load",
+              "text": "Add masses in equal steps. Record the extension each time, then take the readings again on unloading."
+            },
+            {
+              "lead": "Plot",
+              "text": "Plot stress against strain, or force against extension. Use the gradient to find E."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The gradient of a force–extension graph is F/ΔL, so E = gradient × L / A.",
+            "The diameter has the biggest effect on the result, because the area depends on d².",
+            "Keep the loads small enough to stay within the limit of proportionality.",
+            "Use a long, thin wire and a reference wire to allow for changes in room temperature and a sagging support."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure L, the diameter and the extension for different loads.",
+            "Find E from the gradient of the graph and E = gradient × L / A."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A wire of cross-sectional area 0.50 mm² carries a tension of 80 N. Calculate the stress in the wire.",
+      "a": "σ = F / A = 80 / (0.50 × 10⁻⁶) = 1.6 × 10⁸ Pa (160 MPa).",
+      "marks": 2
+    },
+    {
+      "q": "A 2.0 m wire extends by 1.0 mm. Its Young modulus is 2.0 × 10¹¹ Pa. Calculate the stress in the wire.",
+      "a": "Strain = 1.0 × 10⁻³ / 2.0 = 5.0 × 10⁻⁴. Stress = Eε = 2.0 × 10¹¹ × 5.0 × 10⁻⁴ = 1.0 × 10⁸ Pa.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how the stress–strain graph of a ductile material differs from that of a brittle material.",
+      "a": "A ductile material shows a large amount of plastic deformation, so the graph continues after the elastic region and reaches a maximum stress before it breaks. A brittle material gives a straight line that ends suddenly at fracture, with almost no plastic deformation.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.2.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Write the Young modulus as E = FL / AΔL, from tensile stress ÷ tensile strain.",
+                "Use stress–strain graphs to find the Young modulus. Take the gradient of the straight part.",
+                "One simple method of measurement is required. The wire method above is a suitable one, and it is the basis of Required practical 4."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4.54",
+        "EDEX 4.56"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The equations work for **tensile or compressive** stress and strain.",
+                "Be able to draw and interpret tensile or compressive stress–strain graphs.",
+                "Know the term **breaking stress**: the stress at which the material breaks."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 6.1.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You must be able to **define** stress, strain and the Young modulus, and to use them.",
+                "State the definitions in words: stress is force per unit cross-sectional area, strain is extension per unit original length, and the Young modulus is stress divided by strain."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.4.2c",
+        "OCR 3.4.2d",
+        "OCR 3.4.2e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the terms stress, strain and **ultimate tensile strength**.",
+                "Write the Young modulus as E = σ / ε.",
+                "Be able to sketch and compare stress–strain graphs for typical ductile, brittle and polymeric materials.",
+                "Know the techniques and procedures for determining the Young modulus of a metal."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "d8d2b2b4-08d6-40c1-91e3-5e39990e3fc4",
+      "81518750-1bce-49f0-897c-0741332e04e8",
+      "9f7bf7c2-ed3b-42d5-a271-8662f33f7234",
+      "738374bd-cc7c-4d87-b4f9-ed6f76af670f",
+      "bc787c3c-2f36-43ff-b2a6-b4e41d546553",
+      "f6672c19-1a76-4ebc-80f4-75395b382718",
+      "1e49e970-4b89-482a-8299-0facbc530bc1"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

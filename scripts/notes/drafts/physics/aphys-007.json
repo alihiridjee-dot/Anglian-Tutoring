@@ -1,0 +1,448 @@
+{
+  "format": 1,
+  "concept_id": "aphys-007",
+  "subject": "physics",
+  "title": "Scalars, vectors and resolving",
+  "key_idea": "A scalar has size only. A vector has size and direction. Vectors are added tip to tail, and any vector can be split into two perpendicular components, F cos θ and F sin θ, that act independently.",
+  "sections": [
+    {
+      "heading": "Scalars and vectors",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Physical quantities are either scalars or vectors. This section covers the difference and how vectors are written."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Scalar",
+              "meaning": "A quantity with magnitude (size) only."
+            },
+            {
+              "term": "Vector",
+              "meaning": "A quantity with both magnitude and direction."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Scalars",
+            "Vectors"
+          ],
+          "rows": [
+            [
+              "distance",
+              "displacement"
+            ],
+            [
+              "speed",
+              "velocity"
+            ],
+            [
+              "mass",
+              "force and weight"
+            ],
+            [
+              "time, energy, temperature",
+              "acceleration"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A vector is written in bold (**F**) or with an arrow over the letter.",
+            "Its magnitude is written without the bold or arrow, for example F.",
+            "A vector is drawn as an arrow. Its length shows the magnitude and the arrowhead shows the direction.",
+            "A negative vector has the same magnitude but the opposite direction."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort each quantity into scalar or vector.",
+            "prompt": "Is each quantity a scalar or a vector?",
+            "groups": [
+              "Scalar",
+              "Vector"
+            ],
+            "items": [
+              {
+                "text": "Speed",
+                "group": 0
+              },
+              {
+                "text": "Mass",
+                "group": 0
+              },
+              {
+                "text": "Distance",
+                "group": 0
+              },
+              {
+                "text": "Velocity",
+                "group": 1
+              },
+              {
+                "text": "Displacement",
+                "group": 1
+              },
+              {
+                "text": "Acceleration",
+                "group": 1
+              },
+              {
+                "text": "Weight",
+                "group": 1
+              },
+              {
+                "text": "Force",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Scalars have size only. Vectors have size and direction.",
+            "Distance, speed and mass are scalars. Displacement, velocity, acceleration and force are vectors."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Adding and subtracting vectors",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Vectors cannot be added as plain numbers. This section covers how to find the resultant of two coplanar vectors, which lie in the same plane."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Resultant",
+              "meaning": "The single vector that has the same effect as the vectors added together."
+            },
+            {
+              "term": "Coplanar",
+              "meaning": "Lying in the same plane."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "By scale drawing (any angle)"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Scale",
+              "text": "Choose a scale, such as 1 cm for 10 N."
+            },
+            {
+              "lead": "First vector",
+              "text": "Draw the first vector as an arrow with the correct length and direction."
+            },
+            {
+              "lead": "Tip to tail",
+              "text": "Draw the second vector starting from the tip of the first."
+            },
+            {
+              "lead": "Resultant",
+              "text": "Join the tail of the first to the tip of the second. This is the resultant."
+            },
+            {
+              "lead": "Measure",
+              "text": "Measure its length and convert with the scale. Measure its angle with a protractor."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "By calculation (vectors at right angles)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Two vectors at right angles form a right-angled triangle, with the resultant as the hypotenuse."
+        },
+        {
+          "type": "equation",
+          "label": "Magnitude of the resultant",
+          "formula": "R = √(A² + B²)",
+          "where": [
+            "R = magnitude of the resultant",
+            "A, B = magnitudes of the two perpendicular vectors (same unit)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Direction of the resultant",
+          "formula": "tan θ = B / A",
+          "where": [
+            "θ = angle between the resultant and vector A (degrees)",
+            "B = the vector opposite θ, A = the vector next to θ"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To subtract a vector, add its negative: **A** − **B** = **A** + (−**B**).",
+            "Reverse the arrow of **B**, then add tip to tail as before.",
+            "Vectors in a straight line add by plain addition, using + and − for the two directions."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice calculation. Find the magnitude of the resultant of two perpendicular forces.",
+            "question": "Two forces of {a} N and {b} N act at right angles to each other on an object. Calculate the magnitude of the resultant force.",
+            "variables": [
+              {
+                "id": "a",
+                "min": 3,
+                "max": 12,
+                "step": 1
+              },
+              {
+                "id": "b",
+                "min": 4,
+                "max": 15,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "sqrt(a * a + b * b)",
+              "unit": "N",
+              "decimals": 1
+            },
+            "working": [
+              "R² = A² + B²",
+              "R² = {a}² + {b}²",
+              "R = {answer} N"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Add vectors tip to tail. The resultant joins the start to the end.",
+            "At right angles use R = √(A² + B²) and tan θ = B / A.",
+            "Subtract a vector by adding its negative."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Resolving a vector into components",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A vector can be split into two perpendicular components. Each component acts independently of the other."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Component",
+              "meaning": "The effect of a vector in one direction. Two components at right angles can replace the original vector."
+            },
+            {
+              "term": "Resolving",
+              "meaning": "Splitting a vector into two perpendicular components."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Component along the direction at angle θ",
+          "formula": "Fx = F cos θ",
+          "where": [
+            "Fx = component next to the angle θ (N)",
+            "F = magnitude of the vector (N)",
+            "θ = angle between the vector and the x direction (degrees)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Component perpendicular to that direction",
+          "formula": "Fy = F sin θ",
+          "where": [
+            "Fy = component opposite the angle θ (N)",
+            "F = magnitude of the vector (N)",
+            "θ = angle between the vector and the x direction (degrees)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Draw the vector as the hypotenuse of a right-angled triangle.",
+            "Cos goes with the side next to the angle. Sin goes with the side opposite it.",
+            "The two components can be used in place of the vector, for example one along a line and one perpendicular to it.",
+            "Always check which angle is given before choosing sin or cos."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "An inclined plane"
+        },
+        {
+          "type": "list",
+          "items": [
+            "On a slope at angle θ to the horizontal, the weight W acts vertically downwards.",
+            "The component of weight along the slope is W sin θ.",
+            "The component of weight perpendicular to the slope is W cos θ.",
+            "The component along the slope pulls the object down it. The perpendicular component presses it into the surface."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Question",
+              "text": "A 20 N force acts at 30° above the horizontal. Find its horizontal and vertical components."
+            },
+            {
+              "lead": "Horizontal",
+              "text": "Fx = 20 cos 30° = 17.3 N"
+            },
+            {
+              "lead": "Vertical",
+              "text": "Fy = 20 sin 30° = 10 N"
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fx = F cos θ and Fy = F sin θ for the components next to and opposite the angle.",
+            "On a slope, weight resolves into W sin θ along it and W cos θ perpendicular to it."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the difference between a scalar and a vector, and give one example of each.",
+      "a": "A scalar has magnitude only (for example speed or mass). A vector has magnitude and direction (for example velocity or force).",
+      "marks": 3
+    },
+    {
+      "q": "Two forces of 6.0 N and 8.0 N act at right angles on an object. Calculate the magnitude of the resultant force.",
+      "a": "R = √(6.0² + 8.0²) = √100 = 10 N.",
+      "marks": 2
+    },
+    {
+      "q": "A box of weight 50 N rests on a slope at 20° to the horizontal. Calculate the component of the weight along the slope.",
+      "a": "Component = W sin θ = 50 × sin 20° = 17 N.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.1.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Calculations add two vectors at right angles. Scale drawings may use vectors at any angle."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Examples of scalars and vectors include velocity and speed, mass, force and weight, acceleration, displacement and distance.",
+                "Problems can be solved either by resolving the forces or by drawing a closed triangle of forces.",
+                "A body is in **equilibrium** when it is at rest or moving at constant velocity. The resultant force is then zero.",
+                "Two forces in equilibrium must be equal and opposite.",
+                "Three coplanar forces acting at a point are in equilibrium when their vectors form a closed triangle, tip to tail."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.12",
+        "EDEX 2.13",
+        "EDEX 2.14"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know examples of scalar and vector quantities and recognise vector notation.",
+                "Resolve a vector into two components at right angles by drawing and by calculation.",
+                "Find the resultant of two coplanar vectors at any angle by drawing, and at right angles by calculation."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 1.4.1",
+        "CAIE 1.4.2",
+        "CAIE 1.4.3"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.3.1a",
+        "OCR 2.3.1b",
+        "OCR 2.3.1c",
+        "OCR 2.3.1d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use a vector triangle to find the resultant of any two coplanar vectors, by calculation or by scale drawing.",
+                "Resolve a vector into two perpendicular components with Fx = F cos θ and Fy = F sin θ."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "fe014784-e739-475a-917b-be3483df26df",
+      "40316877-fc26-4274-b9f5-2e510d5cf2cc",
+      "224ff7f7-80c8-4215-8b8a-490dc1781ac6",
+      "94f3ae6b-9608-4445-817a-46b5a125cca5",
+      "07fc5624-42ba-45a6-9e4c-c401aacd33e6",
+      "e630a0fa-4b82-4f0f-a1ff-74d8de9855d6",
+      "6956330a-6311-4921-9fb3-8b81e6e31c3c",
+      "a399c326-db26-4f24-aea3-c16aa4af57ec",
+      "bdad17cd-b377-44ae-b76e-30b13bdfae37",
+      "90b57a1f-867d-4e0d-afdc-0710705f4486",
+      "e56132b9-4c77-4e3a-8038-d028d98079dd"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

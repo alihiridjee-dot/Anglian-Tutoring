@@ -1,0 +1,335 @@
+{
+  "format": 1,
+  "concept_id": "abio-040",
+  "subject": "biology",
+  "title": "Control of gene expression",
+  "key_idea": "Not every gene is active in every cell. Gene expression is controlled before transcription, after transcription and after translation. In prokaryotes the lac operon switches genes on when lactose is present. In eukaryotes, transcription factors and RNA interference control which proteins are made.",
+  "sections": [
+    {
+      "heading": "Why gene expression is controlled",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every body cell has the same genes, but each cell type uses only some of them."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Differential gene expression** is the switching on of some genes and off of others in different cells.",
+            "Active genes make mRNA, which is translated into proteins that control cell processes or determine cell structure.",
+            "This is how cells become specialised, in animals and in plants.",
+            "Making only the proteins that are needed saves energy and resources."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Specialised cells use different genes from the same genome.",
+            "Active genes give mRNA and then proteins that decide the cell's structure and function."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Control in prokaryotes: the lac operon",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In bacteria such as E. coli, genes that work together are grouped in an operon. The lac operon controls lactose digestion."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Structural gene",
+              "meaning": "A gene that codes for a protein with a function in the cell, such as an enzyme."
+            },
+            {
+              "term": "Regulatory gene",
+              "meaning": "A gene that codes for a protein that controls the expression of other genes."
+            },
+            {
+              "term": "Inducible enzyme",
+              "meaning": "An enzyme made only when its substrate is present, such as lactose-digesting enzymes."
+            },
+            {
+              "term": "Repressible enzyme",
+              "meaning": "An enzyme whose production is switched off when its product is present in excess."
+            },
+            {
+              "term": "Operon",
+              "meaning": "A group of structural genes next to a promoter and operator, controlled together."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The lac operon has structural genes: **lacZ** codes for β-galactosidase, which digests lactose to glucose and galactose, and **lacY** codes for a permease that brings lactose into the cell.",
+            "A regulatory gene, **lacI**, codes for a **repressor protein**.",
+            "The **promoter** is where RNA polymerase binds. The **operator** is where the repressor binds."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "No lactose present"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The repressor protein binds to the operator.",
+            "This blocks RNA polymerase from binding to the promoter and so from transcribing the structural genes.",
+            "The enzymes are not made, so no energy is wasted."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Lactose present"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Lactose binds to the repressor protein and changes its shape.",
+            "The repressor can no longer bind to the operator.",
+            "RNA polymerase binds to the promoter and transcribes the structural genes.",
+            "The enzymes are made and lactose is digested. The enzymes are **inducible**: lactose is the inducer."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Choose the conditions in the cell and see what happens at the lac operon.",
+            "prompt": "Pick the conditions in the bacterium",
+            "result_labels": [
+              "Repressor protein",
+              "RNA polymerase",
+              "Lactose-digesting enzymes"
+            ],
+            "options": [
+              {
+                "label": "Lactose absent",
+                "results": [
+                  "Bound to the operator",
+                  "Blocked from the promoter",
+                  "Not made"
+                ],
+                "explanation": "The repressor switches the structural genes off."
+              },
+              {
+                "label": "Lactose present",
+                "results": [
+                  "Bound to lactose, so it leaves the operator",
+                  "Binds to the promoter and transcribes",
+                  "Made"
+                ],
+                "explanation": "Lactose is the inducer that switches the genes on."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Repressor on the operator blocks transcription; lactose changes the repressor's shape so it lets go.",
+            "Structural genes make enzymes; the regulatory gene makes the repressor.",
+            "Only the enzymes that are needed are made."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Control in eukaryotes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Eukaryotes control expression at several stages. This section covers each stage in turn."
+        },
+        {
+          "type": "subheading",
+          "text": "Transcription factors"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Transcription factors** are proteins that bind to specific base sequences on DNA.",
+            "They increase or decrease the rate of transcription of a target gene.",
+            "A factor that increases transcription helps RNA polymerase bind to the promoter. One that decreases it blocks RNA polymerase.",
+            "Some are made in the cytoplasm and move into the nucleus to switch a gene on or off.",
+            "Steroid hormones such as oestrogen are lipid-soluble. They pass through the cell surface membrane and bind to a receptor to form a hormone–receptor complex, which acts as a transcription factor.",
+            "The complex enters the nucleus and binds to DNA, stimulating transcription of target genes."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Gibberellin and DELLA proteins in plants"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "No gibberellin.",
+              "text": "DELLA proteins are present. They bind to and inhibit transcription factors that would promote transcription, so the genes stay off."
+            },
+            {
+              "lead": "Gibberellin binds.",
+              "text": "Gibberellin binds to its receptor in the cell."
+            },
+            {
+              "lead": "DELLA breakdown.",
+              "text": "The gibberellin–receptor complex causes the breakdown of DELLA proteins."
+            },
+            {
+              "lead": "Genes on.",
+              "text": "The transcription factors are free to bind to DNA. Transcription of genes, such as those for amylase in germinating seeds, is activated."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "After transcription and translation"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Post-transcriptional control:** pre-mRNA is edited. Introns are removed and exons joined to give mature mRNA. Different exon combinations can give different proteins from one gene.",
+            "**RNA interference (RNAi):** short double-stranded RNA is split, and a single strand binds to the mRNA by complementary base pairing. The mRNA is then broken down or blocked. This stops it being translated. It happens in eukaryotes and some prokaryotes.",
+            "**Post-translational control:** proteins are activated after they are made, for example by the addition of cyclic AMP (cAMP)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Transcription factors bind to DNA and raise or lower the rate of transcription.",
+            "Gibberellin removes DELLA repressors so genes switch on.",
+            "Control also acts on mRNA (editing, RNAi) and on proteins after translation."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how the lac operon is switched on when lactose is present.",
+      "a": "Lactose binds to the repressor protein and changes its shape, so it can no longer bind to the operator. RNA polymerase can then bind to the promoter and transcribe the structural genes. The enzymes, such as β-galactosidase, are made.",
+      "marks": 4
+    },
+    {
+      "q": "Describe the role of a transcription factor in a eukaryotic cell.",
+      "a": "It is a protein that binds to a specific base sequence on DNA near a target gene. It increases or decreases the rate of transcription, for example by helping or blocking the binding of RNA polymerase.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how gibberellin causes genes to be expressed in a plant cell.",
+      "a": "In the absence of gibberellin, DELLA proteins inhibit transcription factors that promote transcription. Gibberellin causes the breakdown of the DELLA proteins. The transcription factors can then bind to DNA and activate the genes.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.8.2.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In eukaryotes, transcription of target genes is stimulated or inhibited when specific transcription factors move from the cytoplasm into the nucleus.",
+                "The role of oestrogen: it enters the cell, binds to a receptor on a transcription factor, and the complex moves into the nucleus. It binds to DNA and so initiates transcription.",
+                "In eukaryotes and some prokaryotes, translation of mRNA can be inhibited by RNA interference (RNAi).",
+                "Be able to interpret data from investigations into gene expression, and evaluate data for the relative influences of genetic and environmental factors on phenotype.",
+                "Epigenetic control is covered in the next note."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 3.12",
+        "EDEX 7.16"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Cells become specialised through differential gene expression: active mRNA is produced and then translated into proteins that control cell processes or determine structure, in animals and in plants.",
+                "Know the lac operon as an example of genes being switched on and off.",
+                "Genes can be switched on and off by DNA transcription factors, including hormones such as oestrogen and gibberellin."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 16.3.1",
+        "CAIE 16.3.2",
+        "CAIE 16.3.3",
+        "CAIE 16.3.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Give the differences between structural genes and regulatory genes, and between repressible and inducible enzymes.",
+                "Explain control of protein production in the lac operon. The role of cAMP is not expected.",
+                "Transcription factors in eukaryotes are proteins that bind to DNA and decrease or increase the rate of transcription.",
+                "Gibberellin activates genes by causing the breakdown of DELLA protein repressors, which normally inhibit factors that promote transcription."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.1b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Control at three levels: transcriptional (lac operon, and the general role of transcription factors in eukaryotes), post-transcriptional (editing of primary mRNA by removing introns to give mature mRNA) and post-translational (activation of proteins by cyclic AMP).",
+                "Specific transcription factors do not need to be recalled.",
+                "Cyclic AMP binds to a protein and changes its shape, which activates it. For example, it activates protein kinase A, which then acts on other proteins."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "70102e8d-ffa4-4db7-b2f6-3a2be717ad24",
+      "928966a2-1ab6-4983-a91d-141f1f3130d7",
+      "fedaabf8-85b0-451f-8794-9929573711ea",
+      "a47c96ff-4370-4afd-a6d2-868faf41b45c",
+      "8476f403-15e4-43b9-9da2-4d497d16ee88",
+      "742f3b07-d5d1-470c-831e-88817da12ea1",
+      "73f1ecca-301b-4752-b536-57cc501eaa31",
+      "6a71df0c-acf6-4cfd-93a0-6e69f8ca0319"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

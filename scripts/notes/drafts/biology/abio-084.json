@@ -1,0 +1,372 @@
+{
+  "format": 1,
+  "concept_id": "abio-084",
+  "subject": "biology",
+  "title": "Microorganisms and enzymes in biotechnology",
+  "key_idea": "Biotechnology uses microorganisms and enzymes to make useful products. Microorganisms grow fast and cheaply under controlled conditions. Immobilised enzymes can be reused and give a purer product.",
+  "sections": [
+    {
+      "heading": "Why use microorganisms",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Bacteria and fungi are used to make food, drugs and other products. They suit industry for several reasons."
+        },
+        {
+          "type": "list",
+          "items": [
+            "They have a **short life cycle** and reproduce quickly, so product is made fast.",
+            "Their growth requirements are simple and cheap, often using waste materials as a nutrient source.",
+            "They can be grown in any country, at any time of year, and in small spaces.",
+            "They can be genetically modified to make human proteins.",
+            "There are fewer ethical issues than with using animals."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Food from microorganisms"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bacterial sources: yoghurt and cheese, made by lactic acid bacteria.",
+            "Fungal sources: yeast in bread and beer, and mycoprotein from a fungus.",
+            "Advantages: a protein source that is low in fat, needing little land and water, and quick to produce.",
+            "Disadvantages: some people dislike the taste or texture, the product must be free of toxins and contaminants, and some people are allergic."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Microorganisms grow fast, on cheap materials, with simple requirements.",
+            "Microbial food is a good protein source but has acceptability and safety issues."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Growing microorganisms",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Microorganisms need the right conditions to grow. Cultures must be kept free from contaminants."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Nutrients**: a carbon source, a nitrogen source and mineral ions.",
+            "**Temperature**: the optimum for their enzymes.",
+            "**pH**: kept in the optimum range, often with a buffer.",
+            "**Oxygen**: supplied for aerobes and excluded for anaerobes.",
+            "**Water**: needed in the medium.",
+            "**Aseptic technique** keeps out unwanted organisms: sterilise equipment and media, flame the necks of containers and work near a flame."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Serial dilutions reduce a dense culture to a countable number of colonies on an agar plate."
+        },
+        {
+          "type": "subheading",
+          "text": "Batch and continuous fermentation"
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Batch and continuous fermentation compared.",
+            "items": [
+              "Batch",
+              "Continuous"
+            ],
+            "rows": [
+              {
+                "feature": "Method",
+                "values": [
+                  "Fermenter filled once and emptied when finished",
+                  "Nutrients added and product removed all the time"
+                ]
+              },
+              {
+                "feature": "Output",
+                "values": [
+                  "Stops at the end of each batch",
+                  "Steady and ongoing"
+                ]
+              },
+              {
+                "feature": "Contamination",
+                "values": [
+                  "A single batch is lost",
+                  "Harder to control over a long run"
+                ]
+              },
+              {
+                "feature": "Best for",
+                "values": [
+                  "Products made late in growth, such as antibiotics",
+                  "Products made during growth"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "In both, the growing conditions are manipulated to maximise the yield of product.",
+            "Temperature, pH, oxygen and nutrient supply are monitored and controlled."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Control nutrients, temperature, pH and oxygen, and use aseptic technique.",
+            "Batch fermentation is filled and emptied; continuous fermentation runs all the time."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The growth curve in a closed culture",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In a closed culture no nutrients are added and no waste is removed. The population follows a standard growth curve."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "The four phases of the growth curve.",
+            "steps": [
+              "Lag phase: cells adapt, little division",
+              "Log phase: exponential growth",
+              "Stationary phase: growth equals death",
+              "Death phase: nutrients run out and waste builds up"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Lag**: cells synthesise enzymes and grow, but numbers hardly change.",
+            "**Log**: nutrients are plentiful and the population doubles at regular intervals.",
+            "**Stationary**: nutrients become limiting and toxic waste builds up, so deaths equal new cells.",
+            "**Death**: deaths exceed new cells, and the population falls."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Number of organisms after n divisions",
+          "formula": "N = N₀ × 2ⁿ",
+          "where": [
+            "N: number of organisms after n divisions",
+            "N₀: starting number of organisms",
+            "n: number of divisions (generations)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the number of bacteria after several divisions.",
+            "question": "A culture starts with {N0} bacteria. Each divides once every 20 minutes. How many bacteria are there after {n} divisions?",
+            "variables": [
+              {
+                "id": "N0",
+                "min": 10,
+                "max": 100,
+                "step": 10
+              },
+              {
+                "id": "n",
+                "min": 2,
+                "max": 8,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "N0 * 2 ^ n",
+              "decimals": 0
+            },
+            "working": [
+              "N = N₀ × 2ⁿ",
+              "N = {N0} × 2^{n}",
+              "N = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The curve has lag, log, stationary and death phases.",
+            "In the log phase the number doubles each generation: N = N₀ × 2ⁿ."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Immobilised enzymes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An immobilised enzyme is fixed to an inert support so that it does not mix with the product. The substrate flows past it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Adsorption**: the enzyme sticks to the surface of a support such as glass beads or a resin.",
+            "**Entrapment**: the enzyme is trapped in a gel such as alginate beads, or in a membrane.",
+            "**Covalent bonding**: the enzyme is bonded to a support such as cellulose.",
+            "**Encapsulation**: the enzyme is held inside a semi-permeable capsule."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Advantages",
+            "Disadvantages"
+          ],
+          "rows": [
+            [
+              "Can be reused, which lowers cost",
+              "Immobilising is an extra cost"
+            ],
+            [
+              "Product is not contaminated with enzyme",
+              "Activity can be lower, since the substrate must reach the enzyme"
+            ],
+            [
+              "Enzymes are more stable to changes in temperature and pH",
+              "Equipment is more complex"
+            ],
+            [
+              "Suited to continuous processes",
+              "Contamination of the support by microbes is possible"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Glucose isomerase turns glucose to fructose, which is sweeter.",
+            "Lactase hydrolyses lactose to glucose and galactose, giving lactose-free milk.",
+            "Penicillin acylase helps to make semi-synthetic penicillins."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Immobilised enzymes are fixed to a support and can be reused.",
+            "They give a purer product but cost more to set up."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give three reasons why microorganisms are used in biotechnology.",
+      "a": "They have a short life cycle so reproduce quickly. They need simple, cheap growth requirements. They can be grown in controlled conditions all year, and can be genetically modified to make human proteins.",
+      "marks": 3
+    },
+    {
+      "q": "A culture of 500 bacteria divides every 30 minutes. Calculate the number after 3 hours, assuming exponential growth.",
+      "a": "3 hours is 6 divisions. N = 500 × 2⁶ = 500 × 64 = 32 000 bacteria.",
+      "marks": 3
+    },
+    {
+      "q": "Explain two advantages of using immobilised enzymes in industry.",
+      "a": "The enzyme can be reused, so the cost is lower. The product is not contaminated with enzyme, so no separation step is needed. Also, immobilised enzymes are more tolerant of changes in temperature and pH.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4.14"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Learn the conditions needed for bacterial growth: a source of carbon and nitrogen, mineral ions, a suitable temperature and pH, and oxygen for aerobic bacteria.",
+                "Growth is slowed or stopped when conditions are not right, for example when too cold or too acid."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 3.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Enzyme immobilised in alginate"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Mix the enzyme with sodium alginate solution and drop it into calcium chloride solution. Beads form with the enzyme trapped inside.",
+                "Compare the activity with the same enzyme free in solution, by measuring the rate of product formation at several temperatures or pH values.",
+                "The immobilised enzyme is usually more stable, can be recovered and reused, and does not contaminate the product.",
+                "The free enzyme reacts faster at first, because there is no gel for the substrate to pass through."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.2.1e",
+        "OCR 6.2.1f",
+        "OCR 6.2.1g",
+        "OCR 6.2.1h",
+        "OCR 6.2.1i"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Practical work: serial dilutions, culturing on agar plates and using broth to investigate the factors that affect growth.",
+                "Evaluate the use of immobilised enzymes. You are not asked to recall examples but must be able to apply your knowledge to one given.",
+                "Examples: aminoacylase makes pure L-amino acids, and glucoamylase converts dextrins to glucose."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "1270e661-38b6-4313-866c-1cfc21130f14",
+      "e2144dfa-7e79-41a5-a814-844a3f016be0",
+      "d8fd817b-3298-44f6-9d3f-e2e0e7858a8f",
+      "85469ba4-1731-40e0-bcfe-9ac7b5d9656f",
+      "d80171ba-5ccc-4ef2-966f-ce4a16a0cd1b",
+      "8033d460-221e-4805-99ad-afa0b2805004",
+      "c261682b-1590-40a5-be88-abb3e9a22668"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

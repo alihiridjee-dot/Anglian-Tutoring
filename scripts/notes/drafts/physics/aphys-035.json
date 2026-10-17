@@ -1,0 +1,370 @@
+{
+  "format": 1,
+  "concept_id": "aphys-035",
+  "subject": "physics",
+  "title": "Superposition and interference",
+  "key_idea": "When waves meet, their displacements add. Waves from coherent sources interfere to give a stable pattern: constructive at path difference nλ and destructive at (n + ½)λ. Young's double slit gives light fringes with λ = ax / D.",
+  "sections": [
+    {
+      "heading": "The principle of superposition",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When two or more waves meet at a point, they pass through each other and carry on unchanged. Where they meet, their effects add."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Principle of superposition",
+              "meaning": "When two or more waves meet at a point, the resultant displacement is the vector sum of the displacements of the separate waves at that point."
+            },
+            {
+              "term": "Wavefront",
+              "meaning": "A line or surface joining points of a wave that are at the same stage of their oscillation."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Adding waves graphically"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Draw",
+              "text": "Draw the two waves on the same axes, with the same x-axis."
+            },
+            {
+              "lead": "Choose points",
+              "text": "Pick positions along the axis, such as every crest, trough and zero crossing."
+            },
+            {
+              "lead": "Add",
+              "text": "At each position, add the two displacements with their signs."
+            },
+            {
+              "lead": "Join",
+              "text": "Plot each sum and join the points with a smooth curve."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Crest meeting crest gives a bigger crest. Trough meeting crest of equal size gives zero.",
+            "Displacements in opposite directions subtract."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Resultant displacement = sum of the separate displacements, with signs.",
+            "Waves pass through one another and are not changed afterwards."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Interference and coherence",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Interference is the effect of superposition when the waves come from sources that keep the same phase relationship."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Interference",
+              "meaning": "The formation of regions of increased and decreased amplitude where waves from coherent sources overlap."
+            },
+            {
+              "term": "Coherent sources",
+              "meaning": "Sources that emit waves of the same frequency with a constant phase difference."
+            },
+            {
+              "term": "Path difference",
+              "meaning": "The difference in the distances from two sources to a point."
+            },
+            {
+              "term": "Phase difference",
+              "meaning": "How far one wave is ahead of the other at a point, as an angle or fraction of a cycle."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Phase and path difference",
+          "formula": "phase difference = 2π × (path difference / λ)",
+          "where": [
+            "phase difference = the angle between the waves (rad)",
+            "path difference = difference in distance travelled (m)",
+            "λ = wavelength (m)"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Constructive interference",
+            "Destructive interference"
+          ],
+          "rows": [
+            [
+              "Path difference",
+              "0, λ, 2λ, ... = nλ",
+              "½λ, 1½λ, ... = (n + ½)λ"
+            ],
+            [
+              "Phase difference",
+              "0, 2π, 4π, ... (waves in phase)",
+              "π, 3π, 5π, ... (waves in antiphase)"
+            ],
+            [
+              "Result",
+              "Maximum amplitude: loud, bright",
+              "Minimum amplitude: quiet, dark"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Two independent light sources are not coherent, because their phase relationship changes randomly many times a second.",
+            "Coherent light can come from one source split in two, or from a laser."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Constructive: path difference nλ. Destructive: path difference (n + ½)λ.",
+            "Interference needs coherent sources."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Two-source experiments and Young's double slit",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two-source interference can be shown with any type of wave. You look for a pattern of maxima and minima that stays still."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Water waves: two dippers in a ripple tank give lines of large and small ripples.",
+            "Sound: two loudspeakers on the same signal generator. Walking across in front of them, the sound rises and falls in loudness.",
+            "Microwaves: two slits in a metal plate in front of one transmitter. A probe moved along a line finds alternating maxima and minima.",
+            "Light: a laser shone through two slits, or a single source passing through a single slit and then two slits, gives bright and dark fringes."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "For light, the two slits act as coherent sources, because both are lit by the same wavefront."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light from the slits overlaps and meets on a screen at a distance D.",
+            "Where the path difference is a whole number of wavelengths, the waves add and there is a bright fringe.",
+            "Where it is an odd number of half wavelengths, they cancel and there is a dark fringe.",
+            "The fringes are equally spaced when a ≪ D."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Double-slit equation",
+          "formula": "λ = ax / D",
+          "where": [
+            "λ = wavelength (m)",
+            "a = slit separation (m)",
+            "x = fringe spacing (m)",
+            "D = distance from slits to screen (m)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the fringe spacing on a screen from the wavelength, slit separation and distance.",
+            "question": "Light of wavelength {lam} nm passes through two slits {a} mm apart. The screen is {D} m from the slits. Calculate the fringe spacing in mm.",
+            "variables": [
+              {
+                "id": "lam",
+                "min": 400,
+                "max": 700,
+                "step": 50
+              },
+              {
+                "id": "a",
+                "min": 0.2,
+                "max": 1.0,
+                "step": 0.1
+              },
+              {
+                "id": "D",
+                "min": 1,
+                "max": 4,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "lam * D / (a * 1000)",
+              "unit": "mm",
+              "decimals": 2
+            },
+            "working": [
+              "x = λD / a",
+              "x = ({lam} × 10⁻⁹ × {D}) / ({a} × 10⁻³)",
+              "x = {answer} mm"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "White light gives a white central fringe with coloured fringes on each side. Each colour has its own fringe spacing, with blue closer in than red.",
+            "Young's experiment showed light interfering, which gave a classical confirmation of its wave nature."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fringes need coherent sources: one wavefront through two slits.",
+            "λ = ax / D, with fringe spacing x measured between neighbouring bright fringes."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the condition for destructive interference between two coherent waves in terms of path difference.",
+      "a": "The path difference is an odd number of half wavelengths: (n + ½)λ.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why two filament lamps cannot be used as the sources in a double-slit experiment.",
+      "a": "They are not coherent: the phase difference between their waves changes randomly, so no stable interference pattern forms.",
+      "marks": 2
+    },
+    {
+      "q": "Light of wavelength 600 nm is used with slits 0.50 mm apart and a screen 2.0 m away. Calculate the fringe spacing.",
+      "a": "x = λD / a = (600 × 10⁻⁹ × 2.0) / (0.50 × 10⁻³) = 2.4 × 10⁻³ m = 2.4 mm.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.2.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The fringe spacing is written w = λD / s, where s is the slit separation. It is the same relationship as λ = ax / D.",
+                "Laser safety: never look into a laser beam or its direct reflections. Use a low-power laser and keep the beam below eye level.",
+                "White light gives a central white fringe with coloured fringes either side, because each colour has a different wavelength.",
+                "Understanding of the nature of electromagnetic radiation has changed over time: Newton's particle model, Young's wave evidence, and later the photon model.",
+                "Describe and explain interference with sound and with electromagnetic waves, using path difference."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.65",
+        "EDEX 5.66"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 8.1.1",
+        "CAIE 8.3.1",
+        "CAIE 8.3.2",
+        "CAIE 8.3.3",
+        "CAIE 8.3.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "To see two-source fringes, these conditions must be met."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The sources must be coherent.",
+                "The waves must overlap, and must have similar amplitudes for clear fringes.",
+                "The waves must be unpolarised or polarised in the same plane.",
+                "The slit separation must be very small compared with D."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.4.3a",
+        "OCR 4.4.3b",
+        "OCR 4.4.3c",
+        "OCR 4.4.3d",
+        "OCR 4.4.3e",
+        "OCR 4.4.3f",
+        "OCR 4.4.3g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "λ = ax / D applies to all waves, provided a ≪ D.",
+                "Use the principle of superposition to explain experiments with sound, light and microwaves.",
+                "Use research on the ideas of Newton and Huygens about the nature of light: Newton favoured a stream of particles, Huygens a wave."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "e7d34a70-0f64-4a1b-ad3c-d2d606f36c54",
+      "ba632c0b-1255-4031-b439-9d8801276a1e",
+      "c5490573-9509-46f1-9c5a-2628f4ed3b47",
+      "84a63273-761d-46d0-865a-49ded59451a4",
+      "0c9df1c2-1ecd-41e3-b5e0-1c0e5a87bc69",
+      "ef2874cb-7f6f-4dd6-8d44-939de0e04ee3",
+      "a19d1ae1-cc6a-4f2c-b8f1-cb6ff72fb331",
+      "b13aff3c-ba7d-4e4a-bc40-786cc259ef4c",
+      "e5907c39-8542-4ae8-979c-c11a7de34861",
+      "fd3a4e27-4872-411c-bc0c-f05dbd715b16",
+      "26fc978c-904c-4291-83bb-f1d28aee2f96",
+      "a453c9a5-88df-4aa2-9e6e-4186854ae6a8",
+      "c8244231-4125-49cf-91ea-fffb31552bea",
+      "a327f72a-fe65-430a-841b-0f5895bc523b",
+      "a75bb139-deb2-4ce7-bc96-ac0a899d7a69"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

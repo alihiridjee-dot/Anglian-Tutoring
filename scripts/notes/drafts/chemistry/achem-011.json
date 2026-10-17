@@ -1,0 +1,291 @@
+{
+  "format": 1,
+  "concept_id": "achem-011",
+  "subject": "chemistry",
+  "title": "Ionic bonding",
+  "key_idea": "Ionic bonding is the strong electrostatic attraction between oppositely charged ions. Metals lose electrons to form cations and non-metals gain electrons to form anions. The ions pack into a giant lattice, and this explains the properties of ionic compounds.",
+  "sections": [
+    {
+      "heading": "Forming ions and ionic bonds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ions form when atoms lose or gain electrons to reach a full outer shell. This section covers how ions form and how to draw them."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Ionic bonding", "meaning": "The strong electrostatic attraction between oppositely charged ions." },
+            { "term": "Cation", "meaning": "A positively charged ion, formed when an atom loses electrons." },
+            { "term": "Anion", "meaning": "A negatively charged ion, formed when an atom gains electrons." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Metals lose their outer electrons to form cations, for example Na → Na⁺ + e⁻.",
+            "Non-metals gain electrons to form anions, for example Cl + e⁻ → Cl⁻.",
+            "The charge on a simple ion follows from the group: group 1 gives 1+, group 2 gives 2+, group 13 gives 3+, group 15 gives 3−, group 16 gives 2− and group 17 gives 1−.",
+            "The number of electrons lost by one atom equals the number gained by the others, so the compound is neutral overall."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Dot-and-cross diagrams"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Draw only the outer shell of each ion, and put square brackets round it with the charge at the top right.",
+            "Show the electrons from one atom as dots and from the other as crosses.",
+            "A cation shows the full shell beneath the one it lost. An anion shows eight electrons in its outer shell, including those it gained.",
+            "In NaCl, Na gives one electron to Cl. Both ions now have eight electrons in the outer shell.",
+            "In MgO, Mg gives two electrons to O. In CaF₂, Ca gives one electron to each of two F atoms."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metals form cations by losing electrons. Non-metals form anions by gaining electrons.",
+            "The group number gives the charge on a simple ion.",
+            "The total positive charge equals the total negative charge in the formula."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The giant ionic lattice and bond strength",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In a solid, ions are arranged in a regular pattern called a lattice. This section covers the lattice and what makes ionic bonding stronger or weaker."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each ion is attracted to all the oppositely charged ions around it, in all directions.",
+            "In sodium chloride each Na⁺ ion is surrounded by six Cl⁻ ions, and each Cl⁻ ion by six Na⁺ ions.",
+            "The lattice is called a **giant ionic lattice** because the pattern repeats in three dimensions without end.",
+            "The formula shows the simplest ratio of ions, for example NaCl, MgO and CaF₂."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "What makes the bonding stronger"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A higher ionic charge gives a stronger attraction between the ions.",
+            "A smaller ionic radius lets the ions get closer together, so the attraction is stronger.",
+            "MgO has Mg²⁺ and O²⁻ ions, which are smaller and more highly charged than the ions in NaCl, so its ionic bonding is stronger and its melting point is much higher."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A giant ionic lattice has strong attraction in all directions between oppositely charged ions.",
+            "Bonding is stronger with higher charge and smaller ions."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Ionic radii",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The size of an ion depends on its number of electron shells and the pull of its nucleus. This section covers the trends in ionic radius."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Down a group, ionic radius increases because each ion has an extra electron shell.",
+            "Across a period, atomic radius decreases because the nuclear charge increases while the shielding stays about the same, so the outer electrons are pulled in.",
+            "A cation is smaller than its atom because it has lost electrons, usually its whole outer shell, and the same protons now pull fewer electrons.",
+            "An anion is larger than its atom because it has gained electrons and the electron repulsion increases."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Isoelectronic ions"
+        },
+        {
+          "type": "paragraph",
+          "text": "Isoelectronic ions have the same number of electrons. N³⁻, O²⁻, F⁻, Na⁺, Mg²⁺ and Al³⁺ all have ten electrons."
+        },
+        {
+          "type": "list",
+          "items": [
+            "They have the same electron arrangement and the same shielding.",
+            "From N³⁻ to Al³⁺ the number of protons increases, so the nuclear attraction on the electrons increases.",
+            "The ionic radius therefore decreases from N³⁻ to Al³⁺."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ionic radius increases down a group because of extra shells.",
+            "For isoelectronic ions, more protons means a smaller ion."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Properties and evidence for ions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The properties of ionic compounds follow from the lattice. This section covers the properties and the evidence that ions exist."
+        },
+        {
+          "type": "table",
+          "columns": ["Property", "Explanation"],
+          "rows": [
+            ["High melting and boiling points", "Strong electrostatic attraction in all directions needs a lot of energy to overcome."],
+            ["Hard but brittle", "A blow shifts layers so that ions of the same charge line up and repel, and the lattice splits."],
+            ["Do not conduct when solid", "The ions are held in fixed positions, so no charge can flow."],
+            ["Conduct when molten or aqueous", "The ions are free to move and carry the charge."],
+            ["Many dissolve in water", "Polar water molecules attract the ions and pull them out of the lattice."]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Evidence that ions exist"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The physical properties above, such as high melting points and conduction only when molten or dissolved, fit a lattice of ions.",
+            "Migration of ions: when a coloured ionic compound is placed on damp filter paper with a voltage across it, the coloured ion moves towards the electrode of opposite charge.",
+            "For example, purple MnO₄⁻ ions move towards the positive electrode, and blue Cu²⁺ ions move towards the negative electrode."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort the ionic substances into those that conduct electricity and those that do not.",
+            "prompt": "Does the substance conduct electricity?",
+            "groups": ["Conducts electricity", "Does not conduct electricity"],
+            "items": [
+              { "text": "Solid sodium chloride", "group": 1 },
+              { "text": "Molten sodium chloride", "group": 0 },
+              { "text": "Aqueous sodium chloride", "group": 0 },
+              { "text": "Solid magnesium oxide", "group": 1 },
+              { "text": "Molten calcium fluoride", "group": 0 },
+              { "text": "Solid calcium fluoride", "group": 1 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ionic compounds conduct only when the ions can move: molten or dissolved.",
+            "Properties and the migration of coloured ions are evidence for ions."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why magnesium oxide has a higher melting point than sodium chloride.",
+      "a": "The Mg²⁺ and O²⁻ ions have higher charges and are smaller than Na⁺ and Cl⁻. The electrostatic attraction between the ions is stronger, so more energy is needed to overcome it.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why the ionic radius decreases from O²⁻ to Mg²⁺.",
+      "a": "The ions are isoelectronic, with the same number of electrons and shielding. Mg²⁺ has more protons, so the nuclear attraction on the electrons is greater and the ion is smaller.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why solid sodium chloride does not conduct electricity but molten sodium chloride does.",
+      "a": "In the solid the ions are fixed in the lattice and cannot move. When molten the ions are free to move and carry charge.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": ["OCR 2.2.2a", "OCR 2.2.2b", "OCR 2.2.2c"]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 2A.1", "EDEX 2A.2", "EDEX 2A.3", "EDEX 2A.4", "EDEX 2A.5", "EDEX 2A.6"]
+    },
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.1.3.1"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You must know the formulas of compound ions and be able to construct the formula of an ionic compound."
+            },
+            {
+              "type": "table",
+              "columns": ["Ion", "Formula"],
+              "rows": [
+                ["Sulfate", "SO₄²⁻"],
+                ["Hydroxide", "OH⁻"],
+                ["Nitrate", "NO₃⁻"],
+                ["Carbonate", "CO₃²⁻"],
+                ["Ammonium", "NH₄⁺"]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Balance the charges so that the total positive charge equals the total negative charge.",
+                "Use brackets round a compound ion when you need more than one, for example Al₂(SO₄)₃ and Mg(OH)₂."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 3.2.1", "CAIE 3.2.2", "CAIE 3.7.1", "CAIE 1.1.7"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe the ionic bonding in sodium chloride (Na⁺ and Cl⁻), magnesium oxide (Mg²⁺ and O²⁻) and calcium fluoride (Ca²⁺ and two F⁻).",
+                "Dot-and-cross diagrams cover ionic, covalent and coordinate bonding together, so practise drawing all three.",
+                "Radius trends are asked for across a period as well as down a group. Atomic radius increases down a group and decreases across a period.",
+                "Across Period 3, the cations get smaller from Na⁺ to Al³⁺ and the anions get smaller from P³⁻ to Cl⁻. Each anion is larger than each cation, because it has an extra shell of electrons."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "c9f693fe-c256-44a7-925e-adc1bf2bab9c",
+      "48483383-0717-4c3c-b6d7-95d8d9c0fcd4",
+      "13937e1a-7943-473c-8aa9-42e14a7d37a9",
+      "fdf30b8e-6b44-4580-a22c-47f0b27cfe21",
+      "ce64d7df-3b8e-4b68-ab5b-9ee035bd1f75",
+      "171ee0ed-9df9-456d-8425-0a2ed3ce47e2",
+      "252f5c01-fe1f-4336-9170-4d4052fa4a56",
+      "7c524e18-5588-43b0-abbf-1c498b256d55",
+      "15ea22e5-0391-4bc9-a22c-40b6b912f1c2",
+      "485ee39f-0534-45f5-8ed1-85aae75694e8",
+      "22a0144e-ceb5-4b53-86de-c2e0344ebe6d",
+      "388f76c6-d3fe-455e-9a47-4729c4fbcec6",
+      "a0b172bd-c94f-4e8e-8b1c-3ad8dd2e083f",
+      "6a33faac-9d7c-4309-9926-1b3841f3e93b"
+    ],
+    "exemplar_ids": []
+  }
+}

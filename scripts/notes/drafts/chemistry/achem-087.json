@@ -1,0 +1,456 @@
+{
+  "format": 1,
+  "concept_id": "achem-087",
+  "subject": "chemistry",
+  "title": "Condensation polymers",
+  "key_idea": "Condensation polymers form when monomers with two functional groups join and lose a small molecule each time. Polyesters link by ester bonds and polyamides by amide bonds. These links can be hydrolysed, so the polymers can biodegrade, unlike poly(alkenes).",
+  "sections": [
+    {
+      "heading": "Condensation polymerisation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In condensation polymerisation, monomers join and a small molecule, usually water or HCl, is lost at each link. This section covers the type of monomer needed."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Condensation polymer",
+              "meaning": "A polymer made by joining monomers with the loss of a small molecule at each link."
+            },
+            {
+              "term": "Repeat unit",
+              "meaning": "The smallest section of the chain that repeats. Its bonds at each end go on to join the next unit."
+            },
+            {
+              "term": "Dicarboxylic acid",
+              "meaning": "A molecule with a –COOH group at each end, e.g. hexanedioic acid, HOOC(CH₂)₄COOH."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each monomer has **two functional groups**, one at each end, so it can join to two others.",
+            "A **polyester** forms from a dicarboxylic acid and a diol (two –OH groups), or from a hydroxycarboxylic acid.",
+            "A **polyamide** forms from a dicarboxylic acid and a diamine (two –NH₂ groups), or from an amino acid.",
+            "A dicarboxylic acid can be replaced by its acyl chloride (a dioyl chloride). Then HCl is lost, not water."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Condensation monomers have two functional groups.",
+            "Acid + alcohol groups give polyesters; acid + amine groups give polyamides.",
+            "A small molecule (H₂O or HCl) is lost at every link."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Polyesters and polyamides",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each polymer type is named after the link between its repeat units. This section covers how each forms and the common examples."
+        },
+        {
+          "type": "equation",
+          "label": "Making a polyester",
+          "formula": "n HOOC–R–COOH + n HO–R′–OH → [–OC–R–COO–R′–O–]ₙ + 2n H₂O",
+          "where": [
+            "The link –COO– is an ester link",
+            "One H₂O is lost for each ester link formed"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Making a polyamide",
+          "formula": "n HOOC–R–COOH + n H₂N–R′–NH₂ → [–OC–R–CONH–R′–NH–]ₙ + 2n H₂O",
+          "where": [
+            "The link –CONH– is an amide (peptide) link",
+            "Using a dioyl chloride instead of the acid loses HCl"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Polymer",
+            "Monomers",
+            "Link"
+          ],
+          "rows": [
+            [
+              "Terylene (polyester)",
+              "Benzene-1,4-dicarboxylic acid + ethane-1,2-diol",
+              "Ester"
+            ],
+            [
+              "Nylon 6,6 (polyamide)",
+              "Hexanedioic acid + hexane-1,6-diamine",
+              "Amide"
+            ],
+            [
+              "Kevlar (polyamide)",
+              "Benzene-1,4-dicarboxylic acid + benzene-1,4-diamine",
+              "Amide"
+            ],
+            [
+              "Polyamide from amino acids",
+              "Amino acids, H₂NCHRCOOH",
+              "Peptide (amide)"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A monomer with both groups, such as a hydroxycarboxylic acid HO–R–COOH or an aminocarboxylic acid H₂N–R–COOH, can join to itself.",
+            "Typical uses: Terylene for fibres in clothing and for bottles; nylon 6,6 for ropes, fabrics and gears; Kevlar for bulletproof vests and protective clothing.",
+            "Between chains of **polyesters**, there are permanent dipole–dipole attractions between the polar C=O and C–O bonds, and London forces.",
+            "Between chains of **polyamides**, there are strong hydrogen bonds between N–H and C=O groups, so the fibres are strong.",
+            "Kevlar's rigid benzene rings and regular hydrogen bonding between chains make it especially strong."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Polyesters have –COO– links; polyamides have –CONH– links.",
+            "Nylon 6,6, Terylene and Kevlar are the standard examples.",
+            "Hydrogen bonding between polyamide chains makes strong fibres."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Repeat units and monomers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You may be asked to work from monomers to a repeat unit, or from a section of polymer back to its monomers. This section gives the method."
+        },
+        {
+          "type": "subheading",
+          "text": "Monomers to repeat unit"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find the groups",
+              "text": "Identify the two functional groups on each monomer, e.g. –COOH and –OH."
+            },
+            {
+              "lead": "Remove the small molecule",
+              "text": "Take –OH from the acid and –H from the alcohol or amine (or Cl from an acyl chloride)."
+            },
+            {
+              "lead": "Join",
+              "text": "Form the new ester or amide link. Show open bonds at both ends of the repeat unit."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Nylon 6,6 repeat unit: –[NH(CH₂)₆NHCO(CH₂)₄CO]–.",
+            "Terylene repeat unit: –[OCH₂CH₂OCO–C₆H₄–CO]–, with the benzene ring joined at positions 1 and 4.",
+            "For an amino acid H₂NCHRCOOH, the repeat unit is –[NHCHRCO]–."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Polymer section to monomers"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find the links",
+              "text": "Locate each ester (–COO–) or amide (–CONH–) link."
+            },
+            {
+              "lead": "Break each link",
+              "text": "Split the link and add –OH to the C=O carbon (or Cl for an acyl chloride)."
+            },
+            {
+              "lead": "Complete the ends",
+              "text": "Add H to the O or N on the other side. The pieces are the dicarboxylic acid and the diol or diamine."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Addition or condensation?"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Addition",
+            "Condensation"
+          ],
+          "rows": [
+            [
+              "Monomer",
+              "Contains C=C",
+              "Two functional groups, e.g. –COOH and –OH or –NH₂"
+            ],
+            [
+              "Small molecule lost",
+              "No",
+              "Yes: H₂O or HCl"
+            ],
+            [
+              "Polymer backbone",
+              "Carbon–carbon chain only",
+              "Contains ester or amide links"
+            ],
+            [
+              "Repeat unit",
+              "Same atoms as the monomer",
+              "Fewer atoms than the monomers combined"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each monomer or pair of monomers by the type of polymerisation.",
+            "prompt": "Which type of polymerisation does each monomer, or pair of monomers, undergo?",
+            "groups": [
+              "Addition",
+              "Condensation"
+            ],
+            "items": [
+              {
+                "text": "Propene",
+                "group": 0
+              },
+              {
+                "text": "Chloroethene",
+                "group": 0
+              },
+              {
+                "text": "Tetrafluoroethene",
+                "group": 0
+              },
+              {
+                "text": "Hexanedioic acid + hexane-1,6-diamine",
+                "group": 1
+              },
+              {
+                "text": "Ethane-1,2-diol + benzene-1,4-dicarboxylic acid",
+                "group": 1
+              },
+              {
+                "text": "6-aminohexanoic acid",
+                "group": 1
+              },
+              {
+                "text": "Glycine + alanine",
+                "group": 1
+              },
+              {
+                "text": "Phenylethene",
+                "group": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Repeat unit: join the monomers, lose the small molecule, and show open bonds at both ends.",
+            "Monomers: break each ester or amide link and restore –OH and –H.",
+            "C=C monomers give addition polymers; two functional groups give condensation polymers."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Hydrolysis and biodegradability",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Polyesters and polyamides contain polar links that water can attack. This section covers hydrolysis, and how it compares with poly(alkenes)."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Acid hydrolysis**: heating with aqueous acid breaks the ester or amide links. A polyester gives a dicarboxylic acid and a diol; a polyamide gives a dicarboxylic acid and the diamine as its ammonium salt.",
+            "**Base hydrolysis**: heating with aqueous alkali gives the diol (from a polyester) or the diamine (from a polyamide), and the dicarboxylic acid as its sodium salt.",
+            "Hydrolysis is the reverse of the condensation that made the polymer."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The C=O carbon in an ester or amide link is δ+, so it can be attacked by water, H⁺ or OH⁻. Polyesters and polyamides are therefore biodegradable.",
+            "**Poly(alkenes)** have only non-polar C–C and C–H bonds. They are chemically inert and are difficult to biodegrade.",
+            "Some polymers can also be broken down by the action of **light** (photodegradable polymers)."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Disposing of polymers"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Method",
+            "Advantage",
+            "Disadvantage"
+          ],
+          "rows": [
+            [
+              "Landfill",
+              "Cheap and simple",
+              "Uses land; non-biodegradable polymers remain for years"
+            ],
+            [
+              "Incineration",
+              "Releases energy that can generate electricity",
+              "Produces CO₂ and can release toxic gases, e.g. HCl from PVC"
+            ],
+            [
+              "Recycling",
+              "Saves raw materials and energy",
+              "Needs sorting; quality may fall"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Polyesters and polyamides are hydrolysed by acid or alkali because their links are polar.",
+            "Poly(alkenes) are inert and non-biodegradable.",
+            "Disposal methods each have advantages and disadvantages."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Draw the repeat unit of the polyamide formed from hexanedioic acid and hexane-1,6-diamine, and state the small molecule lost.",
+      "a": "–[NH(CH₂)₆NHCO(CH₂)₄CO]– with open bonds at both ends. Water is lost at each link.",
+      "marks": 3
+    },
+    {
+      "q": "The section –OCH₂CH₂OCO–C₆H₄–CO– is part of a polymer chain. Name the type of polymer and give the two monomers.",
+      "a": "It is a polyester (condensation polymer). The monomers are ethane-1,2-diol and benzene-1,4-dicarboxylic acid.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why polyesters can be hydrolysed but poly(ethene) cannot.",
+      "a": "Polyesters have ester links with a polar C=O group, so the δ+ carbon is attacked by water, H⁺ or OH⁻. Poly(ethene) has only non-polar C–C and C–H bonds, so it is chemically inert and not attacked.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.2.3a",
+        "OCR 6.2.3b",
+        "OCR 6.2.3c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the products of hydrolysis of each polymer and the prediction skills for both types of polymer."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Polyester + aqueous acid: dicarboxylic acid + diol. Polyester + aqueous alkali: dicarboxylate salt + diol.",
+                "Polyamide + aqueous acid: dicarboxylic acid + diammonium salt. Polyamide + aqueous alkali: dicarboxylate salt + diamine.",
+                "For an addition polymer, the repeat unit is the monomer with its C=C opened: propene gives –[CH₂CH(CH₃)]–.",
+                "Given a section of chain, decide the type: a carbon-only chain is addition; ester or amide links mean condensation."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 17C.16",
+        "EDEX 18B.14",
+        "EDEX 18B.15"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.12.1",
+        "AQA 3.3.12.2"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 35.1.1",
+        "CAIE 35.1.2",
+        "CAIE 35.1.3",
+        "CAIE 35.1.4",
+        "CAIE 35.2.1",
+        "CAIE 35.2.2",
+        "CAIE 35.3.1",
+        "CAIE 35.3.2",
+        "CAIE 35.3.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the ways a polymer can be broken down and the prediction skills."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Polyesters and polyamides are biodegradable through **acidic and alkaline hydrolysis**.",
+                "Poly(alkenes) are inert, so they are difficult to biodegrade.",
+                "Some polymers are degraded by light, which breaks bonds in the chain.",
+                "Predict the type of polymerisation from the monomers: C=C gives addition; two functional groups give condensation.",
+                "Deduce the type from a polymer section in the same way: look for the ester or amide link."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "46093ac3-f4be-4e36-82b8-f9ffbebf8df8",
+      "c59f4d16-98a3-4810-8f1d-345ec998b7a7",
+      "576c64a4-1a86-483a-9956-bc8cb1ba471c",
+      "bf9a68bb-93cd-4b04-8def-9adc21b4dcb8",
+      "6c008389-9416-4fd9-9edd-16e575aebd6e",
+      "06250ba1-0ace-4def-8ccc-04151e4439e0",
+      "b570576c-03b7-4b3c-8187-bc7c0e69752d",
+      "cd603797-48c2-4f88-a36b-18be1023a76c",
+      "8c348558-35d3-4830-a79e-3bb85d0aaab3",
+      "0495b93f-9af3-4e44-9861-9aef11443a93",
+      "bee25b15-1f9a-43ea-b4c4-336d65e64948",
+      "60a0606f-4144-49c6-83e9-ad7a477177fe",
+      "27aec0f9-edf6-4de2-bac2-f12254d39e95",
+      "64c7e972-0dc9-4e95-baf5-cd1c5c66419f",
+      "bd4bab30-dbcc-46de-a832-9b09125536ce",
+      "170b8da0-ba40-49bd-b0c8-ffa8f81c34de",
+      "dda051dd-0c65-4d2d-b31d-d7205c2fe824"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

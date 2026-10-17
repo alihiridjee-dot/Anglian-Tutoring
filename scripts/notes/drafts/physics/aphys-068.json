@@ -1,0 +1,260 @@
+{
+  "format": 1,
+  "concept_id": "aphys-068",
+  "subject": "physics",
+  "title": "Uniform electric fields and charged particles",
+  "key_idea": "Between two charged parallel plates the field is uniform, with strength E = V/d. A charged particle in it feels a constant force F = QE. Entering at right angles to the field, it follows a parabola, like a projectile.",
+  "sections": [
+    {
+      "heading": "The field between parallel plates",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two parallel plates with a potential difference between them make a uniform field. The field lines are straight, parallel and equally spaced."
+        },
+        {
+          "type": "equation",
+          "label": "Uniform field strength",
+          "formula": "E = V / d",
+          "where": [
+            "E = electric field strength (V/m)",
+            "V = potential difference between the plates (V)",
+            "d = separation of the plates (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The field strength is the same at every point between the plates, except near the edges.",
+            "The field lines run from the positive plate to the negative plate, at right angles to both.",
+            "The force on a charge Q is F = QE, the same everywhere in the field.",
+            "Halving the separation, at the same p.d., doubles the field strength."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why E = V/d"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Work done",
+              "text": "Moving a charge Q across the gap against the force F does work Fd."
+            },
+            {
+              "lead": "Potential difference",
+              "text": "The work done moving charge Q through a p.d. V is QV."
+            },
+            {
+              "lead": "Equate",
+              "text": "Fd = QV."
+            },
+            {
+              "lead": "Substitute",
+              "text": "F = QE, so QEd = QV and E = V/d."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation of the field strength between parallel plates, with new numbers each time.",
+            "question": "Two parallel plates {d} mm apart have a potential difference of {V} V across them. Calculate the electric field strength between them in kV/m.",
+            "variables": [
+              {
+                "id": "V",
+                "min": 50,
+                "max": 500,
+                "step": 50
+              },
+              {
+                "id": "d",
+                "min": 2,
+                "max": 10,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "V / d",
+              "unit": "kV/m",
+              "decimals": 1,
+              "tolerance_percent": 2
+            },
+            "working": [
+              "E = V/d",
+              "E = {V} ÷ ({d} × 10⁻³) V/m",
+              "E = {answer} kV/m"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "E = V/d is uniform between parallel plates.",
+            "The force on a charge is F = QE and is constant.",
+            "Derived from Fd = QΔV."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Charged particles in a uniform field",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In a uniform field a charged particle feels a constant force. The motion is then found with the equations of motion."
+        },
+        {
+          "type": "equation",
+          "label": "Acceleration of a charged particle",
+          "formula": "a = F / m = Q E / m = Q V / (m d)",
+          "where": [
+            "a = acceleration (m/s²)",
+            "Q = charge (C)",
+            "E = field strength (V/m)",
+            "m = mass of the particle (kg)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A particle released from rest, or moving **along** the field, speeds up or slows down in a straight line.",
+            "Positive charges accelerate along the field; negative charges accelerate against it.",
+            "Energy gained by a charge Q crossing a p.d. V is QV, so ½mv² = QV when starting from rest."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Entering at right angles to the field"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The field has no component across the plates, so the horizontal velocity stays **constant**.",
+            "The force is at right angles to this velocity, so the particle accelerates uniformly in the field direction.",
+            "The path is a **parabola**, as for a projectile in a gravitational field.",
+            "After time t = L/v the sideways displacement is y = ½at², where L is the length of the plates and v the entry speed.",
+            "On leaving the field the particle moves in a straight line."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing the field strength between plates and the deflection of an electron that enters at right angles to the field.",
+            "inputs": [
+              {
+                "id": "V",
+                "label": "Potential difference",
+                "unit": "V",
+                "min": 20,
+                "max": 200,
+                "step": 10,
+                "value": 100
+              },
+              {
+                "id": "D",
+                "label": "Plate separation",
+                "unit": "cm",
+                "min": 2,
+                "max": 6,
+                "step": 0.5,
+                "value": 4
+              },
+              {
+                "id": "v",
+                "label": "Entry speed of the electron",
+                "unit": "× 10⁶ m/s",
+                "min": 20,
+                "max": 40,
+                "step": 1,
+                "value": 20
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Field strength",
+                "unit": "V/m",
+                "formula": "100 * V / D",
+                "decimals": 0
+              },
+              {
+                "label": "Deflection over 5 cm of plate",
+                "unit": "mm",
+                "formula": "22 * V / (D * v * v)",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Along the field the particle accelerates in a straight line, with a = QE/m.",
+            "At right angles to the field the path is a parabola.",
+            "Horizontal velocity is constant; the acceleration is in the field direction."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Two parallel plates are 4.0 mm apart with a potential difference of 600 V. Calculate the field strength between them.",
+      "a": "E = V/d = 600 ÷ 4.0 × 10⁻³ = 1.5 × 10⁵ V/m.",
+      "marks": 2
+    },
+    {
+      "q": "An electron enters a uniform field between plates at right angles to the field lines. Describe and explain its path while it is between the plates.",
+      "a": "It follows a curved (parabolic) path. The force on it is constant and in the direction of the field (towards the positive plate). Its velocity parallel to the plates is unchanged, while its velocity along the field increases uniformly.",
+      "marks": 3
+    },
+    {
+      "q": "Show that the field between plates can be written E = V/d, starting from the work done moving a charge Q across the gap.",
+      "a": "Work done moving Q across the gap is Fd. This also equals QV. So Fd = QV. Since F = QE, QEd = QV, giving E = V/d.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.3.2"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.113"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 18.2.1",
+        "CAIE 18.2.2"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.2.3a",
+        "OCR 6.2.3c"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "92d1387c-f766-4227-88b4-c8349374a980",
+      "2a250222-a1ef-4828-ae96-8df2978f6385",
+      "6997ba26-5908-4129-ae6e-10a5d50c726f",
+      "2755fe4f-86bb-49ec-a7fa-7b23df4d296b",
+      "d480f418-3ba3-42e0-90ce-ea80c98692c5",
+      "d0bfb236-8adc-4644-aa25-2ff2cd7d3477"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

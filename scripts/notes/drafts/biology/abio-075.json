@@ -1,0 +1,475 @@
+{
+  "format": 1,
+  "concept_id": "abio-075",
+  "subject": "biology",
+  "title": "Hormones and blood glucose",
+  "key_idea": "Hormones are secreted into the blood and detected by target cells. Insulin lowers blood glucose; glucagon and adrenaline raise it, acting through the second messenger cAMP. Negative feedback keeps glucose steady, and diabetes is a failure of this control.",
+  "sections": [
+    {
+      "heading": "Hormones and the endocrine system",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Hormones are chemical messengers made by endocrine glands. This section covers how they travel and how the adrenal glands and pancreas are organised."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Endocrine gland",
+              "meaning": "A gland that secretes hormones directly into the blood."
+            },
+            {
+              "term": "Hormone",
+              "meaning": "A chemical messenger carried in the blood that changes the activity of target cells."
+            },
+            {
+              "term": "Target cell",
+              "meaning": "A cell with receptors on its surface that fit one hormone."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A gland **secretes** the hormone into the blood.",
+            "The blood **transports** it round the whole body.",
+            "Target cells **detect** it, because only they have the complementary receptors.",
+            "Hormones act more slowly than nerve impulses, but their effects last longer."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The adrenal glands"
+        },
+        {
+          "type": "list",
+          "items": [
+            "There is one adrenal gland above each kidney. Each has an outer **cortex** and an inner **medulla**.",
+            "The cortex secretes steroid hormones. Cortisol helps to raise blood glucose and aldosterone controls sodium ion balance.",
+            "The medulla secretes **adrenaline** and noradrenaline for the short-term response to stress.",
+            "Adrenaline raises heart rate, widens airways and stimulates the liver to release glucose, so more glucose reaches the muscles."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The pancreas"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The pancreas is both an exocrine and an endocrine gland.",
+            "Most of it is **exocrine** tissue: clusters of cells (acini) that secrete digestive enzymes into a duct.",
+            "Scattered through it are **islets of Langerhans**, the endocrine tissue. They look paler and are surrounded by capillaries.",
+            "In an islet, **alpha cells** secrete glucagon and **beta cells** secrete insulin."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hormones are secreted into the blood and detected by target cells with specific receptors.",
+            "The adrenal cortex and medulla secrete different hormones.",
+            "Islets of Langerhans hold the alpha and beta cells of the pancreas."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Control of blood glucose",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Blood glucose is kept steady by negative feedback. This section covers the hormones, the liver and the mechanism."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Glycogenesis",
+              "meaning": "Conversion of glucose to glycogen for storage."
+            },
+            {
+              "term": "Glycogenolysis",
+              "meaning": "Breakdown of glycogen to glucose."
+            },
+            {
+              "term": "Gluconeogenesis",
+              "meaning": "Making glucose from non-carbohydrates such as glycerol and amino acids."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Blood glucose rises after a meal containing carbohydrate.",
+            "It falls with exercise and between meals, as cells use glucose in respiration.",
+            "The **liver** is the main target organ: it stores, releases and makes glucose."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Hormone",
+            "Made by",
+            "Effect on target cells",
+            "Effect on blood glucose"
+          ],
+          "rows": [
+            [
+              "Insulin",
+              "Beta cells",
+              "More glucose channel proteins in the membrane; enzymes that make glycogen are activated",
+              "Falls"
+            ],
+            [
+              "Glucagon",
+              "Alpha cells",
+              "Enzymes that break down glycogen are activated; glycerol and amino acids are converted to glucose",
+              "Rises"
+            ],
+            [
+              "Adrenaline",
+              "Adrenal medulla",
+              "Enzymes that break down glycogen are activated",
+              "Rises"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "How insulin works"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Insulin attaches to **receptors** on the surface of target cells, such as liver and muscle cells.",
+            "This leads to more glucose channel proteins being included in the surface membrane, so more glucose is taken up by facilitated diffusion.",
+            "Insulin also activates enzymes that convert glucose to glycogen (glycogenesis).",
+            "Glucose then leaves the blood, so blood glucose falls."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "How glucagon and adrenaline work"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Glucagon attaches to receptors on liver cells and activates enzymes that convert glycogen to glucose (glycogenolysis).",
+            "Glucagon also activates enzymes that convert glycerol and amino acids into glucose (gluconeogenesis).",
+            "Adrenaline also attaches to receptors and activates enzymes that convert glycogen to glucose.",
+            "Glucose leaves the liver cells and blood glucose rises."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Negative feedback"
+        },
+        {
+          "type": "list",
+          "items": [
+            "When blood glucose rises, beta cells secrete more insulin and alpha cells secrete less glucagon.",
+            "When blood glucose falls, alpha cells secrete more glucagon and beta cells secrete less insulin.",
+            "Each change reverses the original one, so glucose returns towards its normal level."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Insulin lowers blood glucose; glucagon and adrenaline raise it.",
+            "The liver converts glucose to glycogen, glycogen to glucose, and makes glucose from other molecules.",
+            "Separate hormones for rises and falls give tight control."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The second messenger model",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Glucagon and adrenaline do not enter cells. They act through a chain of events inside the cell, triggered at the surface."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "The order of events when glucagon acts on a liver cell.",
+            "prompt": "Put the events of glucagon action in order.",
+            "steps": [
+              "Glucagon binds to its receptor on the cell surface membrane",
+              "The receptor changes shape and a G-protein is activated",
+              "The G-protein activates adenylyl cyclase",
+              "Adenylyl cyclase converts ATP to cyclic AMP (cAMP)",
+              "cAMP activates protein kinase A",
+              "Protein kinase A starts an enzyme cascade by phosphorylation",
+              "The final enzyme catalyses the breakdown of glycogen to glucose"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "cAMP is the **second messenger**. The hormone is the first messenger.",
+            "Each enzyme in the cascade activates many of the next, by adding phosphate groups (phosphorylation).",
+            "This **amplifies** the signal, so a few hormone molecules cause a large release of glucose.",
+            "Adrenaline also acts through the cAMP pathway in liver cells."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The hormone binds to a surface receptor; cAMP carries the message inside.",
+            "Adenylyl cyclase makes cAMP and protein kinase A starts the cascade.",
+            "The cascade amplifies the signal."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Diabetes mellitus",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Diabetes is a failure to control blood glucose. This section covers the two types and how they are treated."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Type 1",
+            "Type 2"
+          ],
+          "rows": [
+            [
+              "Cause",
+              "Immune system destroys beta cells, so little or no insulin is made",
+              "Target cells lose sensitivity to insulin; insulin may also be too little"
+            ],
+            [
+              "Usual onset",
+              "Childhood or early adult life",
+              "Later in life, linked to obesity and diet"
+            ],
+            [
+              "Treatment",
+              "Insulin injections or pump, with diet and monitoring",
+              "Controlled diet, exercise and weight loss; drugs; insulin if needed"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In both types, blood glucose stays high after a meal and glucose appears in the urine.",
+            "Insulin for treatment is made by **genetically modified bacteria** that carry the human insulin gene. It is human, cheap and can be made in large amounts.",
+            "Possible new treatments use **stem cells** that are made to develop into beta cells, so the body can make its own insulin again."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Type 1 is a lack of insulin; type 2 is a poor response to insulin.",
+            "Type 1 needs insulin; type 2 is controlled mainly by diet and exercise first.",
+            "Bacteria make human insulin; stem cells are a possible future treatment."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how insulin lowers blood glucose concentration.",
+      "a": "Insulin binds to receptors on target cell surfaces. More glucose channel proteins are included in the membrane, so more glucose is taken up. Enzymes that convert glucose to glycogen are activated, so glucose is stored.",
+      "marks": 4
+    },
+    {
+      "q": "Explain why a small amount of glucagon can cause a large increase in blood glucose.",
+      "a": "Glucagon causes the formation of cAMP, which activates protein kinase A. This starts an enzyme cascade in which each enzyme activates many more by phosphorylation. The signal is amplified, so a lot of glycogen is broken down.",
+      "marks": 4
+    },
+    {
+      "q": "Give two differences between type 1 and type 2 diabetes.",
+      "a": "Type 1 is caused by destruction of beta cells so no insulin is made; type 2 is caused by target cells not responding to insulin. Type 1 is treated with insulin; type 2 is usually first controlled by diet and exercise.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.6.4.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Evaluating the rise in type 2 diabetes"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Health advisers link type 2 diabetes to obesity and a diet high in sugar and fat, and advise lower intake and more exercise.",
+                "The food industry may argue that products can be part of a balanced diet and that the individual chooses what to eat.",
+                "Evaluate each position by looking at the evidence behind it and who gains from it."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Calibration curve for glucose"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Dilute",
+                  "text": "Make a dilution series of a glucose solution of known concentration."
+                },
+                {
+                  "lead": "Test",
+                  "text": "Add the same volume of Benedict's reagent to each, heat, and measure absorbance or transmission with a colorimeter."
+                },
+                {
+                  "lead": "Plot",
+                  "text": "Plot a calibration curve of colorimeter reading against glucose concentration."
+                },
+                {
+                  "lead": "Read",
+                  "text": "Test the unknown 'urine' sample and read its glucose concentration from the curve."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 14.1.9",
+        "CAIE 14.1.10",
+        "CAIE 14.1.11",
+        "CAIE 15.1.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Test strips and biosensors"
+            },
+            {
+              "type": "paragraph",
+              "text": "Glucose oxidase is specific to glucose, so a strip or sensor responds only to glucose in blood or urine."
+            },
+            {
+              "type": "equation",
+              "formula": "glucose + O₂ + H₂O → gluconic acid + H₂O₂",
+              "label": "Reaction catalysed by glucose oxidase"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Test strip:** the hydrogen peroxide made is used by **peroxidase** to oxidise a colourless chemical to a coloured one.",
+                "The colour depth is compared with a chart, or read by a meter, to give the glucose concentration.",
+                "**Biosensor:** the reaction at the enzyme produces a small electrical current. A meter converts the current to a glucose concentration.",
+                "The stronger the current or colour, the higher the glucose concentration."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Insulin and glucagon in negative feedback"
+            },
+            {
+              "type": "list",
+              "items": [
+                "In muscle and liver cells, insulin increases glucose uptake and the conversion of glucose to glycogen.",
+                "Glucagon acts on liver cells, activating the breakdown of glycogen to glucose.",
+                "The effects reverse a rise or a fall, so blood glucose stays steady."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.4a",
+        "OCR 5.1.4b",
+        "OCR 5.1.4c",
+        "OCR 5.1.4d",
+        "OCR 5.1.4e",
+        "OCR 5.1.4f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Control of insulin secretion"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Entry",
+                  "text": "A high blood glucose concentration means more glucose enters a beta cell, by a glucose transporter."
+                },
+                {
+                  "lead": "Respiration",
+                  "text": "More respiration makes more ATP."
+                },
+                {
+                  "lead": "Potassium channels",
+                  "text": "ATP closes the potassium channels, so potassium ions build up inside."
+                },
+                {
+                  "lead": "Depolarisation",
+                  "text": "The membrane potential becomes less negative, which opens voltage-gated calcium channels."
+                },
+                {
+                  "lead": "Exocytosis",
+                  "text": "Calcium ions enter the beta cell and make vesicles of insulin fuse with the membrane and release insulin."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Histology and examination of the pancreas"
+            },
+            {
+              "type": "list",
+              "items": [
+                "In a stained section, islets are paler and less densely stained than the surrounding acini.",
+                "When drawing a section, draw what you see, label the islets and the acinar tissue, and show relative sizes."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "985426e3-13ef-48ad-a418-b4b5c359b648",
+      "d2883f46-936a-49c5-8342-d6fd8152433b",
+      "680d152b-7885-400e-8ca0-878ffe0a1abb",
+      "ed5206b6-1136-4ce4-9533-908e66527603",
+      "bd561149-a3ad-45d4-8b05-49b70671cdb4",
+      "afaa2963-4f4d-4934-a11f-976e2bea7773",
+      "ac2d4a17-51d0-4382-b39c-8d89b51aac17",
+      "f2d89089-ef63-4b18-830b-84794267d9f0",
+      "324ddd42-18b0-4881-9778-bb3c90b06fcc",
+      "d7421329-56d2-4431-89f6-5ed6a543fab5",
+      "88c9cb6e-b8b0-403b-afa1-3b7dac0a975d"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

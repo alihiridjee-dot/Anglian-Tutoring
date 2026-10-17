@@ -1,0 +1,380 @@
+{
+  "format": 1,
+  "concept_id": "abio-077",
+  "subject": "biology",
+  "title": "The kidney and osmoregulation",
+  "key_idea": "The nephron makes urine by ultrafiltration and selective reabsorption. The loop of Henle builds a sodium ion gradient in the medulla. ADH makes the collecting duct more permeable, so negative feedback controls blood water potential.",
+  "sections": [
+    {
+      "heading": "Structure of the kidney and nephron",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The kidney filters blood and makes urine. This section covers its structure from whole organ to nephron."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The outer layer is the **fibrous capsule**. Under it is the **cortex**, then the **medulla**.",
+            "Urine drains into the **renal pelvis** and leaves in the **ureter**.",
+            "Blood arrives in the **renal artery**, which branches into smaller vessels, and leaves in the **renal vein**."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Nephron",
+              "meaning": "The functional unit of the kidney, about a million in each kidney."
+            },
+            {
+              "term": "Glomerulus",
+              "meaning": "A knot of capillaries in the Bowman's capsule where blood is filtered."
+            },
+            {
+              "term": "Osmoregulation",
+              "meaning": "Control of the water potential of the blood."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Part of nephron",
+            "Where",
+            "Main job"
+          ],
+          "rows": [
+            [
+              "Bowman's capsule with glomerulus",
+              "Cortex",
+              "Ultrafiltration"
+            ],
+            [
+              "Proximal convoluted tubule",
+              "Cortex",
+              "Selective reabsorption"
+            ],
+            [
+              "Loop of Henle",
+              "Medulla",
+              "Makes a sodium ion gradient in the medulla"
+            ],
+            [
+              "Distal convoluted tubule",
+              "Cortex",
+              "Adjusts water and ion balance"
+            ],
+            [
+              "Collecting duct",
+              "Cortex to medulla",
+              "Reabsorbs water, under the control of ADH"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The kidney has a cortex, medulla, renal pelvis and ureter.",
+            "The nephron runs from the Bowman's capsule to the collecting duct."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Forming urine",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Urine is made in two steps. This section covers ultrafiltration, selective reabsorption and the loop of Henle."
+        },
+        {
+          "type": "subheading",
+          "text": "Ultrafiltration"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Blood enters the glomerulus in the **afferent arteriole**, which is wider than the **efferent arteriole** that carries blood away.",
+            "This builds high hydrostatic pressure in the glomerulus.",
+            "Water, glucose, amino acids, urea and ions are forced out through the capillary wall and basement membrane into the capsule. This is the **glomerular filtrate**.",
+            "Blood cells and large proteins are too big to pass through, so stay in the blood."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Selective reabsorption in the proximal convoluted tubule"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Glucose is reabsorbed by active transport and facilitated diffusion, so none is normally left in the urine.",
+            "Water follows by osmosis, along with amino acids and ions.",
+            "The cells lining the tubule have many microvilli and mitochondria. This gives a large surface area and a large supply of ATP for active transport."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The loop of Henle"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The loop of Henle creates a gradient of sodium ions in the medulla, so the medulla has a very low water potential at the tip.",
+            "In the ascending limb, sodium ions are pumped out into the medulla. This limb is impermeable to water.",
+            "In the descending limb, water leaves by osmosis into the concentrated medulla.",
+            "A long loop makes a steeper gradient, so more water can be reabsorbed. Animals in dry habitats have long loops."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Distal convoluted tubule and collecting duct"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The distal tubule adjusts ion concentrations.",
+            "In the collecting duct, water leaves by osmosis down the water potential gradient set up in the medulla.",
+            "How much water leaves depends on how permeable the collecting duct is, which is controlled by **ADH**."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "High pressure in the glomerulus forces small molecules into the capsule by ultrafiltration.",
+            "The proximal tubule reabsorbs all glucose and much of the water.",
+            "The loop of Henle makes the sodium ion gradient that lets water be reabsorbed from the collecting duct."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Osmoregulation and ADH",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The blood water potential is kept steady by negative feedback. This section covers the role of ADH."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "ADH (antidiuretic hormone)",
+              "meaning": "A hormone made by the hypothalamus, released from the posterior pituitary gland, which makes the collecting duct more permeable to water."
+            },
+            {
+              "term": "Osmoreceptor",
+              "meaning": "A cell in the hypothalamus that detects the water potential of the blood."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Detection",
+              "text": "Low blood water potential is detected by osmoreceptors in the hypothalamus."
+            },
+            {
+              "lead": "Release",
+              "text": "The hypothalamus makes ADH, which is released from the posterior pituitary gland into the blood."
+            },
+            {
+              "lead": "Target",
+              "text": "ADH acts on the cells of the distal tubule and collecting duct."
+            },
+            {
+              "lead": "Permeability",
+              "text": "More aquaporins are inserted in the membrane, so the walls become more permeable to water."
+            },
+            {
+              "lead": "Result",
+              "text": "More water is reabsorbed and a small volume of concentrated urine is made."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "If the blood water potential is high, less ADH is released and the collecting duct stays less permeable.",
+            "Less water is reabsorbed, so a large volume of dilute urine is made.",
+            "The change reverses the original, so this is negative feedback."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Predict how the body responds to different changes in water balance.",
+            "prompt": "Pick a situation",
+            "result_labels": [
+              "Blood water potential",
+              "ADH released",
+              "Collecting duct",
+              "Urine"
+            ],
+            "options": [
+              {
+                "label": "Sweating heavily without drinking",
+                "results": [
+                  "Falls",
+                  "More",
+                  "More permeable to water",
+                  "Small volume, concentrated"
+                ],
+                "explanation": "Water is lost, so osmoreceptors detect a lower water potential and ADH release increases."
+              },
+              {
+                "label": "Drinking a large volume of water",
+                "results": [
+                  "Rises",
+                  "Less",
+                  "Less permeable to water",
+                  "Large volume, dilute"
+                ],
+                "explanation": "A higher water potential means less ADH, so less water is reabsorbed."
+              },
+              {
+                "label": "Eating a very salty meal",
+                "results": [
+                  "Falls",
+                  "More",
+                  "More permeable to water",
+                  "Small volume, concentrated"
+                ],
+                "explanation": "Extra salt in the blood lowers its water potential, so ADH release increases."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Osmoreceptors in the hypothalamus detect blood water potential.",
+            "ADH makes the collecting duct more permeable to water.",
+            "Negative feedback restores the water potential."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why glucose is not normally found in urine.",
+      "a": "All glucose in the filtrate is reabsorbed in the proximal convoluted tubule, by active transport and facilitated diffusion, so none passes on into the urine.",
+      "marks": 2
+    },
+    {
+      "q": "Describe the role of the loop of Henle in the production of concentrated urine.",
+      "a": "The ascending limb pumps out sodium ions into the medulla. This lowers the water potential of the medulla. Water can then leave the collecting duct by osmosis.",
+      "marks": 3
+    },
+    {
+      "q": "A person has not drunk for many hours. Explain the change in the amount of ADH released.",
+      "a": "Blood water potential falls, detected by osmoreceptors in the hypothalamus. More ADH is released from the posterior pituitary gland. The collecting duct becomes more permeable, so more water is reabsorbed.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.6.4.3"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 14.1.4",
+        "CAIE 14.1.5",
+        "CAIE 14.1.6",
+        "CAIE 14.1.7",
+        "CAIE 14.1.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Bowman's capsule and proximal tubule structure"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The capillary endothelium has gaps (fenestrations), so small molecules pass through.",
+                "The basement membrane acts as a filter that stops large proteins.",
+                "Podocytes, cells with finger-like projections, leave slits for the filtrate to pass.",
+                "The proximal tubule cells have microvilli for surface area and many mitochondria for ATP for active transport."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Aquaporins"
+            },
+            {
+              "type": "list",
+              "items": [
+                "ADH binds to receptors on collecting duct cells and starts a response that inserts vesicles carrying aquaporins into the surface membrane.",
+                "**Aquaporins** are water channel proteins. More of them means water moves out of the duct by osmosis more quickly.",
+                "With little ADH, the aquaporins are taken back into the cell and the duct becomes less permeable."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.2c",
+        "OCR 5.1.2d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Examining the kidney"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A dissected kidney shows the capsule, cortex, medulla, renal pelvis and ureter.",
+                "In a stained section of the cortex, glomeruli and cut sections of tubules are visible. The proximal tubule has a brush border of microvilli.",
+                "Draw what you see, label the Bowman's capsule, glomerulus and tubule sections, and do not shade."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Osmoreceptors"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Osmoreceptors in the hypothalamus shrink when blood water potential is low and stimulate neurosecretory cells.",
+                "These cells make ADH, which passes to the posterior pituitary gland and is released into the blood."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "0869b857-562b-4b33-b43d-37139a90f049",
+      "7ee10adc-d35a-43f9-9e6b-b73c5146aaf4",
+      "dac10bed-ce69-4f6f-a4a7-10b65a12b8a7",
+      "76dc9212-4d02-4f79-9b64-17a7d3c64b12",
+      "ce2dba4a-81df-4e89-8fd1-7aa9cd4eff1f",
+      "fa3a3a61-d8cf-48df-a766-863b4e7937d5",
+      "8e0daf18-56f6-43d6-9969-38e2ef24fb6b",
+      "5f32215c-066e-435e-8934-7934062ad68d"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

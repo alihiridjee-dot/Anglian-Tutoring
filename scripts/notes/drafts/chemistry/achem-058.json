@@ -1,0 +1,385 @@
+{
+  "format": 1,
+  "concept_id": "achem-058",
+  "subject": "chemistry",
+  "title": "Tests for ions",
+  "key_idea": "Anions and ammonium ions are identified by simple test-tube reactions. Carbonate gives CO₂ with acid, sulfate gives a white precipitate with barium ions, halides give coloured precipitates with silver ions, and ammonium gives ammonia with warm alkali. The tests are done in the order carbonate, sulfate, halide.",
+  "sections": [
+    {
+      "heading": "Tests for anions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each anion has a test that gives a clear result. This section covers carbonate, sulfate and halide ions."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Ion",
+            "Test",
+            "Result",
+            "Ionic equation"
+          ],
+          "rows": [
+            [
+              "Carbonate, CO₃²⁻",
+              "Add dilute acid",
+              "Fizzing. The gas turns limewater milky",
+              "CO₃²⁻ + 2H⁺ → H₂O + CO₂"
+            ],
+            [
+              "Hydrogencarbonate, HCO₃⁻",
+              "Add dilute acid",
+              "Fizzing. The gas turns limewater milky",
+              "HCO₃⁻ + H⁺ → H₂O + CO₂"
+            ],
+            [
+              "Sulfate, SO₄²⁻",
+              "Add acidified barium chloride",
+              "White precipitate",
+              "Ba²⁺ + SO₄²⁻ → BaSO₄"
+            ],
+            [
+              "Chloride, Cl⁻",
+              "Add acidified silver nitrate",
+              "White precipitate, soluble in dilute ammonia",
+              "Ag⁺ + Cl⁻ → AgCl"
+            ],
+            [
+              "Bromide, Br⁻",
+              "Add acidified silver nitrate",
+              "Cream precipitate, soluble in concentrated ammonia",
+              "Ag⁺ + Br⁻ → AgBr"
+            ],
+            [
+              "Iodide, I⁻",
+              "Add acidified silver nitrate",
+              "Pale yellow precipitate, insoluble in ammonia",
+              "Ag⁺ + I⁻ → AgI"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The barium chloride is acidified with hydrochloric acid to remove carbonate ions, which would give a white precipitate of BaCO₃.",
+            "The silver nitrate is acidified with nitric acid to remove carbonate ions, which would give a precipitate of Ag₂CO₃.",
+            "Ammonia is then used to tell the three halides apart."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carbonate gives CO₂ with acid. Sulfate gives a white precipitate with barium ions.",
+            "Halides give coloured precipitates with silver ions, and ammonia tells them apart."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The order of the tests",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When you test an unknown compound for anions, the order matters. The order is carbonate, then sulfate, then halide."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Carbonate is tested first because it would give a precipitate in the sulfate and halide tests: BaCO₃ and Ag₂CO₃ are both insoluble.",
+            "Sulfate is tested before halide because silver sulfate is only sparingly soluble. Sulfate could give a precipitate with silver ions.",
+            "After the carbonate and sulfate are removed, a precipitate with silver nitrate must be due to a halide."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity. Put the tests for the anions in the correct order.",
+            "prompt": "Put the tests in order.",
+            "steps": [
+              "Add dilute acid. Fizzing shows carbonate",
+              "Add acidified barium chloride. A white precipitate shows sulfate",
+              "Add acidified silver nitrate. A coloured precipitate shows a halide",
+              "Add ammonia. Dissolving tells you which halide"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Test for carbonate, then sulfate, then halide.",
+            "The earlier tests remove ions that would interfere with the later ones."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Test for ammonium ions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ammonium ions are the cation tested here. This section covers the test and the equation."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Add alkali",
+              "text": "Add sodium hydroxide solution to the sample."
+            },
+            {
+              "lead": "Warm",
+              "text": "Warm the mixture gently. Ammonia gas is given off."
+            },
+            {
+              "lead": "Test the gas",
+              "text": "Hold damp red litmus paper at the mouth of the tube. It turns blue."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Ammonium ions with hydroxide",
+          "formula": "NH₄⁺(aq) + OH⁻(aq) → NH₃(g) + H₂O(l)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Ammonia has a sharp smell. Hydrogen chloride from concentrated hydrochloric acid gives white smoke with it."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick an ion to see the test, the result and the ionic equation.",
+            "prompt": "Pick an ion.",
+            "result_labels": [
+              "Reagent",
+              "What you see",
+              "Ionic equation"
+            ],
+            "options": [
+              {
+                "label": "Carbonate",
+                "results": [
+                  "Dilute acid",
+                  "Fizzing, limewater turns milky",
+                  "CO₃²⁻ + 2H⁺ → H₂O + CO₂"
+                ]
+              },
+              {
+                "label": "Sulfate",
+                "results": [
+                  "Acidified barium chloride",
+                  "White precipitate",
+                  "Ba²⁺ + SO₄²⁻ → BaSO₄"
+                ]
+              },
+              {
+                "label": "Chloride",
+                "results": [
+                  "Acidified silver nitrate",
+                  "White precipitate",
+                  "Ag⁺ + Cl⁻ → AgCl"
+                ]
+              },
+              {
+                "label": "Bromide",
+                "results": [
+                  "Acidified silver nitrate",
+                  "Cream precipitate",
+                  "Ag⁺ + Br⁻ → AgBr"
+                ]
+              },
+              {
+                "label": "Iodide",
+                "results": [
+                  "Acidified silver nitrate",
+                  "Pale yellow precipitate",
+                  "Ag⁺ + I⁻ → AgI"
+                ]
+              },
+              {
+                "label": "Ammonium",
+                "results": [
+                  "Sodium hydroxide, warmed",
+                  "Ammonia gas turns damp red litmus blue",
+                  "NH₄⁺ + OH⁻ → NH₃ + H₂O"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ammonium ions give ammonia when warmed with alkali.",
+            "Ammonia turns damp red litmus paper blue."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the test for sulfate ions and write the ionic equation.",
+      "a": "Add dilute hydrochloric acid, then barium chloride solution. A white precipitate forms. Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s)",
+      "marks": 3
+    },
+    {
+      "q": "A solid gives bubbles with dilute acid, then a cream precipitate with acidified silver nitrate. Name the two anions.",
+      "a": "Carbonate, from the bubbles of CO₂. Bromide, from the cream precipitate.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the test for carbonate is done before the test for halide ions.",
+      "a": "Carbonate ions give a precipitate of Ag₂CO₃ with silver nitrate, which could be mistaken for a halide. The acid removes the carbonate ions first.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.4a",
+        "OCR 5.3.2a"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the test-tube tests for some transition metal ions. Each gives a hydroxide precipitate with sodium hydroxide."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Ion",
+                "With a little NaOH(aq)",
+                "With excess NaOH(aq)",
+                "With excess NH₃(aq)"
+              ],
+              "rows": [
+                [
+                  "Cu²⁺",
+                  "Pale blue precipitate",
+                  "Does not dissolve",
+                  "Dissolves to a deep blue solution"
+                ],
+                [
+                  "Fe²⁺",
+                  "Green precipitate, going brown in air",
+                  "Does not dissolve",
+                  "Does not dissolve"
+                ],
+                [
+                  "Fe³⁺",
+                  "Orange-brown precipitate",
+                  "Does not dissolve",
+                  "Does not dissolve"
+                ],
+                [
+                  "Mn²⁺",
+                  "Pale brown precipitate, darkening in air",
+                  "Does not dissolve",
+                  "Does not dissolve"
+                ],
+                [
+                  "Cr³⁺",
+                  "Grey-green precipitate",
+                  "Dissolves to a dark green solution",
+                  "Dissolves slightly"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The precipitates are the metal hydroxides, for example Cu²⁺ + 2OH⁻ → Cu(OH)₂.",
+                "Cr(OH)₃ is amphoteric, so it dissolves in excess alkali.",
+                "Iron(II) and manganese(II) hydroxides are oxidised by air, so they darken on standing."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4C.15"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers simple test-tube reactions of some metal ions in aqueous solution."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Ion",
+                "With NaOH(aq)",
+                "With excess NH₃(aq)",
+                "With Na₂CO₃(aq)"
+              ],
+              "rows": [
+                [
+                  "Cu²⁺",
+                  "Pale blue precipitate, insoluble in excess",
+                  "Deep blue solution",
+                  "Blue-green precipitate of CuCO₃"
+                ],
+                [
+                  "Fe²⁺",
+                  "Green precipitate, insoluble in excess",
+                  "Green precipitate remains",
+                  "Green precipitate of FeCO₃"
+                ],
+                [
+                  "Fe³⁺",
+                  "Orange-brown precipitate, insoluble in excess",
+                  "Orange-brown precipitate remains",
+                  "Orange-brown precipitate and bubbles of CO₂"
+                ],
+                [
+                  "Al³⁺",
+                  "White precipitate, dissolves in excess",
+                  "White precipitate remains",
+                  "White precipitate and bubbles of CO₂"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "M³⁺ ions are more acidic than M²⁺ ions. Their carbonates are not formed, and CO₂ is given off instead.",
+                "The higher charge on M³⁺ makes the charge/size ratio larger, so it polarises the water ligands more and releases H⁺ more easily.",
+                "Al(OH)₃ is amphoteric: it dissolves in both acid and excess sodium hydroxide."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "27e5a7ff-d006-4e3c-93be-0eac4d4c7435",
+      "483886ee-a49e-416e-8814-c94f5b412b5b",
+      "8e57b864-9ec1-4a60-95bc-29cfc9e7a170"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

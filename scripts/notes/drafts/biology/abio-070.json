@@ -1,0 +1,409 @@
+{
+  "format": 1,
+  "concept_id": "abio-070",
+  "subject": "biology",
+  "title": "The nervous system, brain and responses",
+  "key_idea": "The nervous system is split into the central and peripheral systems. The brain has regions with different jobs. Reflexes, taxes and kineses are simple responses. Nervous and hormonal coordination differ in speed and duration.",
+  "sections": [
+    {
+      "heading": "Organisation of the nervous system",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The nervous system is organised by where its parts are and by what they control."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Division",
+            "Parts",
+            "Job"
+          ],
+          "rows": [
+            [
+              "Central nervous system (CNS)",
+              "Brain and spinal cord",
+              "Processes information and coordinates responses"
+            ],
+            [
+              "Peripheral nervous system",
+              "Neurones outside the CNS",
+              "Carries information to and from the CNS"
+            ],
+            [
+              "Somatic nervous system",
+              "Part of the peripheral system",
+              "Voluntary control of skeletal muscles"
+            ],
+            [
+              "Autonomic nervous system",
+              "Part of the peripheral system",
+              "Involuntary control of smooth muscle, cardiac muscle and glands"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The CNS is the brain and spinal cord.",
+            "The peripheral system is divided into the somatic (voluntary) and autonomic (involuntary) systems."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Regions of the brain",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Different regions of the brain have different jobs."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap a region of the brain to learn its job, then test yourself.",
+            "prompt": "Tap a region of the brain to see what it does",
+            "parts": [
+              {
+                "name": "Cerebrum (cerebral hemispheres)",
+                "detail": "Controls conscious thought, memory, language, voluntary movement and the senses. It is split into left and right hemispheres."
+              },
+              {
+                "name": "Cerebellum",
+                "detail": "Coordinates balance, posture and smooth, precise movement."
+              },
+              {
+                "name": "Medulla oblongata",
+                "detail": "Controls automatic functions such as heart rate and breathing rate."
+              },
+              {
+                "name": "Hypothalamus",
+                "detail": "Monitors the temperature and water content of the blood and controls the pituitary gland."
+              },
+              {
+                "name": "Pituitary gland",
+                "detail": "Releases hormones that control other glands, under the control of the hypothalamus."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The cerebrum handles conscious thought, the cerebellum movement and balance.",
+            "The medulla oblongata controls heart and breathing rate.",
+            "The hypothalamus controls the pituitary gland."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reflexes and simple responses",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A reflex is a rapid, automatic response to a stimulus. It does not involve conscious thought."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Stimulus",
+              "text": "A receptor detects the stimulus."
+            },
+            {
+              "lead": "Sensory neurone",
+              "text": "An impulse passes to the spinal cord."
+            },
+            {
+              "lead": "Relay neurone",
+              "text": "It connects to a motor neurone in the CNS, with no need for the brain."
+            },
+            {
+              "lead": "Motor neurone",
+              "text": "An impulse passes to the effector."
+            },
+            {
+              "lead": "Response",
+              "text": "The effector, such as a muscle, responds."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "This three-neurone pathway is fast because it has few synapses and does not involve the brain.",
+            "A reflex protects the body from harm, such as pulling a hand away from heat, and is the same every time.",
+            "The knee jerk is a stretch reflex that helps maintain posture. The sensory neurone synapses directly with the motor neurone, so there is no relay neurone."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Taxes and kineses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **taxis** is a directed movement towards or away from a stimulus, such as an organism moving towards light.",
+            "A **kinesis** is a change in the rate of movement or turning that depends on the intensity of the stimulus, but not its direction.",
+            "Both are simple responses that keep a mobile organism in a favourable environment."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A reflex uses sensory, relay and motor neurones, and bypasses conscious thought.",
+            "A taxis is directed, a kinesis is not."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The pupil reflex and effectors",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The iris contains circular muscle and radial muscle, which act as effectors. They are antagonistic."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Light",
+            "Circular muscle",
+            "Radial muscle",
+            "Pupil"
+          ],
+          "rows": [
+            [
+              "Bright",
+              "Contracts",
+              "Relaxes",
+              "Constricts, so less light enters"
+            ],
+            [
+              "Dim",
+              "Relaxes",
+              "Contracts",
+              "Dilates, so more light enters"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The reflex protects the retina from damage in bright light and lets in more light in dim conditions.",
+            "Receptors in the retina send impulses via sensory neurones to the brain, and motor neurones carry the response to the iris."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The pupil reflex is controlled by circular and radial muscles in the iris.",
+            "Bright light makes the pupil smaller."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Nervous and hormonal coordination",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Both systems detect changes and bring about responses. They work in different ways."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of the nervous system and the endocrine system.",
+            "items": [
+              "Nervous system",
+              "Endocrine system"
+            ],
+            "rows": [
+              {
+                "feature": "Signal",
+                "values": [
+                  "Electrical impulses along neurones, with chemical neurotransmitters at synapses",
+                  "Hormones carried in the blood"
+                ]
+              },
+              {
+                "feature": "Speed",
+                "values": [
+                  "Very fast",
+                  "Slower"
+                ]
+              },
+              {
+                "feature": "Duration of effect",
+                "values": [
+                  "Short-lived",
+                  "Long-lasting"
+                ]
+              },
+              {
+                "feature": "Target",
+                "values": [
+                  "Precise, specific muscles or glands",
+                  "Widespread, any cells with the right receptors"
+                ]
+              },
+              {
+                "feature": "Type of response",
+                "values": [
+                  "Rapid, often involuntary",
+                  "Slower, longer-term"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Fight or flight"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In danger the adrenal glands release adrenaline, which prepares the body to run or fight.",
+            "Adrenaline cannot enter cells. It binds to a receptor on the cell surface membrane, so it is the first messenger.",
+            "This activates the enzyme adenylyl cyclase, which makes cyclic AMP (cAMP) from ATP.",
+            "Cyclic AMP is the second messenger. It activates enzymes inside the cell that bring about the response, such as breaking down glycogen to glucose."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Nervous coordination is fast and short-lived. Hormonal coordination is slower and lasts longer.",
+            "Adrenaline works through a first messenger and a second messenger, cyclic AMP."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the pathway of a simple reflex.",
+      "a": "Receptor detects the stimulus, then a sensory neurone carries an impulse to the CNS, a relay neurone passes it to a motor neurone, and the motor neurone carries it to an effector, which responds.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how the pupil constricts in bright light.",
+      "a": "Receptors in the retina detect bright light. Impulses go to the brain, and motor neurones stimulate the circular muscle to contract and the radial muscle to relax. The pupil gets smaller and less light enters, protecting the retina.",
+      "marks": 4
+    },
+    {
+      "q": "Compare nervous and hormonal coordination.",
+      "a": "Nervous: electrical impulses, fast, short-lived, specific targets. Hormonal: hormones in the blood, slower, longer-lasting, widespread effects.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.6.1.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know that plant growth factors such as indoleacetic acid (IAA) move from growing regions to other tissues and regulate growth in response to directional stimuli (tropisms).",
+                "Different concentrations of IAA affect cell elongation in shoots and roots: a high IAA concentration promotes elongation in shoots but inhibits it in roots.",
+                "Phototropism: IAA moves to the shaded side of a shoot, so cells there elongate more and the shoot bends towards the light.",
+                "Gravitropism: IAA moves to the lower side of a horizontal root, which inhibits elongation there, so the root bends downwards. In a horizontal shoot the lower side elongates more, so the shoot bends upwards.",
+                "Taxes and kineses can be investigated using a choice chamber or a maze to study the effect of an environmental variable on the movement of an animal.",
+                "A simple reflex is exemplified by a three-neurone reflex arc. Details of the spinal cord and the dorsal and ventral roots are not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.2",
+        "EDEX 8.7",
+        "EDEX 8.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Effectors respond to stimuli: muscles contract and glands secrete in response to nerve impulses.",
+                "The pupil dilates and contracts through the antagonistic action of radial and circular muscles in the iris.",
+                "Know the location and functions of the cerebral hemispheres, hypothalamus, cerebellum and medulla oblongata."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 15.1.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Compare the features of the nervous system and the endocrine system: type of signal, speed, how long the effect lasts, and the targets, as in the shared table."
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.5g",
+        "OCR 5.1.5h",
+        "OCR 5.1.5i",
+        "OCR 5.1.5j"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the structure and function of the central, peripheral, somatic and autonomic nervous systems, as in the shared note.",
+                "Know the gross structure of the brain, including the pituitary gland attached below the hypothalamus.",
+                "Know the knee jerk reflex and its survival value.",
+                "Know the action of adrenaline as a first messenger, with adenylyl cyclase and cyclic AMP as the second messenger."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "a9b1f967-1004-44ab-abb9-b53d2cd1b5ec",
+      "ab961ffd-8c67-48ee-af02-3a0984bed74b",
+      "fff66807-26c1-46bf-adbc-11ff41a61093",
+      "d4fd1803-0d5a-44ce-a723-ca3e091b62ac",
+      "e653196a-5381-49c2-8818-bac17d13fed3",
+      "0adefaf4-8a7e-4ef0-94e9-3d6871b1dc9b",
+      "75f897c7-070d-4815-bc05-af25e6ea4654",
+      "a07e82b7-2a11-4e0f-b7f9-70cb3dd7d1f2",
+      "1c41dfd3-e204-4ae9-9c4e-7b36a997e52b"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

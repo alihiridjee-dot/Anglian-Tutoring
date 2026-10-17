@@ -1,0 +1,327 @@
+{
+  "format": 1,
+  "concept_id": "abio-032",
+  "subject": "biology",
+  "title": "Vaccination and types of immunity",
+  "key_idea": "Immunity can be active, where the body makes its own antibodies and memory cells, or passive, where antibodies are given ready-made. Vaccines give safe active immunity. If enough people are vaccinated, the pathogen cannot spread easily, but pathogens evolve ways of evading the immune system.",
+  "sections": [
+    {
+      "heading": "Active, passive, natural and artificial immunity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Immunity is classed in two ways: how the antibodies are made, and how the person gets the antigen or antibodies."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Active immunity",
+              "meaning": "The body makes its own antibodies after exposure to an antigen. Memory cells are formed."
+            },
+            {
+              "term": "Passive immunity",
+              "meaning": "Antibodies are given to the body from outside. The body makes no antibodies and no memory cells."
+            },
+            {
+              "term": "Natural immunity",
+              "meaning": "Gained through normal events, such as catching a disease or breast feeding."
+            },
+            {
+              "term": "Artificial immunity",
+              "meaning": "Gained through a medical procedure, such as a vaccine or an injection of antibodies."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Type",
+            "How it is gained",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Natural active",
+              "The person catches the disease and makes antibodies.",
+              "Recovering from chickenpox."
+            ],
+            [
+              "Artificial active",
+              "A vaccine gives antigens, and the person makes antibodies.",
+              "MMR vaccine."
+            ],
+            [
+              "Natural passive",
+              "Antibodies cross the placenta or pass in breast milk.",
+              "A baby protected by its mother's antibodies."
+            ],
+            [
+              "Artificial passive",
+              "Antibodies made elsewhere are injected.",
+              "Anti-venom or tetanus antibodies after a deep wound."
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort statements into active and passive immunity.",
+            "prompt": "Is each statement about active or passive immunity?",
+            "groups": [
+              "Active immunity",
+              "Passive immunity"
+            ],
+            "items": [
+              {
+                "text": "Memory cells are made",
+                "group": 0
+              },
+              {
+                "text": "Protection is short-lived",
+                "group": 1
+              },
+              {
+                "text": "The person makes their own antibodies",
+                "group": 0
+              },
+              {
+                "text": "Antibodies cross the placenta",
+                "group": 1
+              },
+              {
+                "text": "Takes days or weeks to develop",
+                "group": 0
+              },
+              {
+                "text": "Immediate protection",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Active immunity: own antibodies, memory cells, long-lasting.",
+            "Passive immunity: antibodies given, no memory cells, short-lived.",
+            "Natural comes from normal events; artificial comes from medical treatment."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Vaccines and how they work",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A vaccine contains antigens that stimulate an immune response without causing the disease. It gives artificial active immunity."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Vaccines may contain dead or weakened (attenuated) pathogens, purified antigens, or inactivated toxins.",
+            "The vaccine is injected or swallowed.",
+            "B and T cells with matching receptors are selected and cloned, and memory cells are made.",
+            "If the real pathogen arrives later, memory cells give a fast, large secondary response and the person does not become ill."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A booster dose is often needed. It raises the number of memory cells and makes immunity last longer."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Vaccines contain antigens that trigger the primary response and make memory cells.",
+            "Memory cells give long-term immunity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Vaccination programmes and herd immunity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A vaccination programme tries to vaccinate enough of a population to stop a disease spreading."
+        },
+        {
+          "type": "list",
+          "items": [
+            "When a large enough proportion of the population is vaccinated, the pathogen finds few susceptible hosts. This is **herd immunity**.",
+            "The chain of transmission is broken, so people who cannot be vaccinated, such as babies or the immunosuppressed, are also protected.",
+            "Routine vaccinations are given to everyone at set ages, such as childhood vaccines.",
+            "High coverage prevents epidemics. Eradication is possible if the pathogen has no animal reservoir, as with smallpox."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Programmes change because pathogens and populations change."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Influenza antigens change often, so the flu vaccine is updated each year.",
+            "Vaccines are changed when a safer or more effective one is made.",
+            "Global issues include cost, supply and storage in poor countries, war and travel, and fear or distrust of vaccines. Falling coverage allows outbreaks."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Herd immunity breaks transmission and protects the unvaccinated.",
+            "Programmes need high coverage and must change as pathogens change."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The evolutionary race between pathogens and hosts",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Pathogens that avoid the immune system survive and spread, so natural selection favours them. Hosts evolve better defences. This is the evolutionary race."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Antigenic variation**: mutation changes surface antigens, so memory cells no longer recognise them. Examples: influenza and HIV.",
+            "**Hiding inside cells**: HIV and TB live inside host cells where antibodies cannot reach them.",
+            "**Destroying immune cells**: HIV kills helper T cells.",
+            "**Suppressing the response**: some pathogens release chemicals that reduce inflammation or block phagocytosis.",
+            "**Protective capsules** can stop phagocytes engulfing bacteria."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Pathogens that evade the immune system are selected for.",
+            "Evasion mechanisms are evidence for an evolutionary race."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Distinguish between active and passive immunity.",
+      "a": "In active immunity the body makes its own antibodies and memory cells after exposure to an antigen, and the protection is long-lasting. In passive immunity antibodies are supplied from outside; no memory cells are made and the protection is short-lived.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how vaccination programmes help to control the spread of an infectious disease.",
+      "a": "Vaccination gives immunity to a large proportion of the population, so there are few susceptible hosts. The pathogen cannot pass easily from person to person, so transmission is broken. This is herd immunity and also protects those who are not vaccinated. It prevents epidemics.",
+      "marks": 4
+    },
+    {
+      "q": "Explain why a new influenza vaccine is needed each year.",
+      "a": "Influenza viruses mutate, so the antigens on their surfaces change (antigenic variation). Memory cells from earlier infection or vaccination have receptors that no longer match the new antigens. A vaccine with the current antigens is needed to make matching memory cells.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 6.12",
+        "EDEX 6.13"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Understand all four types of immunity: natural active, artificial active, natural passive and artificial passive.",
+                "The evolutionary race is supported by the pathogens' evasion mechanisms, such as antigenic variation in influenza and HIV, and HIV attacking helper T cells.",
+                "Be ready to link an evasion mechanism to why it helps the pathogen survive."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 11.2.4",
+        "CAIE 11.2.5",
+        "CAIE 11.2.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Vaccines contain antigens that stimulate an immune response, giving long-term immunity by forming memory cells.",
+                "Vaccination programmes help to control spread by creating a high proportion of immune people (herd immunity).",
+                "Discuss limits: antigenic variation, cost, people who refuse vaccines, and diseases with no vaccine."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.1.1j",
+        "OCR 4.1.1l"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Give an example of each type of immunity.",
+                "Know the principle of vaccination and the role of programmes in preventing epidemics.",
+                "Know routine vaccinations, such as those given in childhood, and reasons for change: mutation of the pathogen, new vaccines, new diseases, and global travel and supply."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Vaccines protect individuals and populations. The concept of herd immunity applies to populations.",
+                "Discuss the ethical issues of vaccines: possible side effects, testing on animals and people, whether vaccination should be compulsory, and fairness of access.",
+                "Evaluate methodology, evidence and data. For example, compare infection rates in vaccinated and unvaccinated groups, and ask about sample size and control groups."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "bc758a5e-7e8c-42c0-9321-1410369b24d5",
+      "9704b71a-335e-4d72-a674-7b10332389fd",
+      "3fdc0677-918c-4264-8cfe-2bf7ee654e80",
+      "810cbe19-49b6-4bde-bb8f-0679f9a3cf06",
+      "d1340955-b5a4-47a8-b08c-9958932ef230",
+      "b2c03832-9622-4dc3-a1de-c09f85777216",
+      "fedc6ab6-a709-46f9-9774-7c26ad8e4401"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

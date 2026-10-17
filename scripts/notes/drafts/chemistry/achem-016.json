@@ -1,0 +1,218 @@
+{
+  "format": 1,
+  "concept_id": "achem-016",
+  "subject": "chemistry",
+  "title": "Intermolecular forces",
+  "key_idea": "Intermolecular forces act between molecules and are much weaker than covalent bonds. There are three types: London forces, permanent dipole–dipole forces and hydrogen bonds. The stronger the forces between molecules, the higher the melting and boiling points.",
+  "sections": [
+    {
+      "heading": "The three types of force",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Intermolecular forces are weak attractions between molecules. This section covers how each of the three types arises."
+        },
+        {
+          "type": "table",
+          "columns": ["Force", "Where it acts", "How it arises"],
+          "rows": [
+            ["London (dispersion) forces", "Between all molecules and atoms", "Electrons move, giving a temporary dipole. This induces a dipole in a neighbouring molecule, and the two attract."],
+            ["Permanent dipole–dipole forces", "Between polar molecules", "The δ+ end of one molecule attracts the δ− end of another."],
+            ["Hydrogen bonds", "Between molecules with H bonded to N, O or F", "A strong dipole–dipole attraction between the δ+ H atom and a lone pair on N, O or F in a neighbouring molecule."]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "London forces are also called induced dipole–dipole, instantaneous dipole–induced dipole or id-id forces.",
+            "London forces increase with the number of electrons, because a bigger electron cloud is more easily distorted.",
+            "Hydrogen bonds need an H atom attached to N, O or F, and a lone pair on an N, O or F atom of the other molecule.",
+            "The H–N, H–O or H–F bond is highly polar, because N, O and F are small and very electronegative.",
+            "In general, ionic, covalent and metallic bonds are much stronger than intermolecular forces."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort the substances by the strongest type of intermolecular force between their molecules.",
+            "prompt": "What is the strongest type of intermolecular force?",
+            "groups": ["London forces only", "Permanent dipole–dipole", "Hydrogen bonding"],
+            "items": [
+              { "text": "Bromine, Br₂", "group": 0 },
+              { "text": "Methane, CH₄", "group": 0 },
+              { "text": "Carbon dioxide, CO₂", "group": 0 },
+              { "text": "Hydrogen chloride, HCl", "group": 1 },
+              { "text": "Propanone, CH₃COCH₃", "group": 1 },
+              { "text": "Ammonia, NH₃", "group": 2 },
+              { "text": "Ethanol, C₂H₅OH", "group": 2 },
+              { "text": "Hydrogen fluoride, HF", "group": 2 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "London forces act between all molecules and grow with the number of electrons.",
+            "Permanent dipole–dipole forces act between polar molecules.",
+            "Hydrogen bonds need H bonded to N, O or F."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Boiling points and intermolecular forces",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Melting and boiling a molecular substance only overcomes the forces between molecules. This section covers the trends you need to explain."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Alkane boiling points rise with chain length, because longer molecules have more electrons and a larger surface in contact, so the London forces are stronger.",
+            "A branched alkane boils at a lower temperature than its straight-chain isomer. The molecules are more compact, have less surface contact and pack less closely, so the London forces are weaker.",
+            "An alcohol boils at a higher temperature than an alkane with a similar number of electrons, because it has hydrogen bonds as well as London forces.",
+            "HCl, HBr and HI rise in boiling point as the number of electrons increases and the London forces strengthen.",
+            "HF has the highest boiling point of the hydrogen halides, because it forms hydrogen bonds."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stronger intermolecular forces mean a higher boiling point.",
+            "More electrons strengthens London forces. Branching weakens them.",
+            "Hydrogen bonding raises the boiling point sharply."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Hydrogen bonding in water, ammonia and hydrogen fluoride",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Hydrogen bonding explains the unusual properties of water. This section covers how it forms and what it does."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In H₂O, each O atom has two lone pairs and two H atoms, so each molecule can make up to four hydrogen bonds.",
+            "In liquid NH₃ and liquid HF, hydrogen bonds form between the δ+ H atom and the lone pair on N or F of a neighbour.",
+            "A hydrogen bond is drawn as a dotted line from the H atom to the lone pair, in a straight line with the covalent bond. The angle at H is 180°.",
+            "Analogous molecules that have H bonded to N, O or F, such as alcohols, amines and carboxylic acids, also hydrogen bond."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Anomalous properties of water"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Water has high melting and boiling points for its small size, because extra energy is needed to break the hydrogen bonds.",
+            "Ice is less dense than liquid water. In ice each molecule is held in an open lattice by four hydrogen bonds, so the molecules are further apart.",
+            "When ice melts the lattice collapses and the molecules move closer together.",
+            "Water also has a high surface tension, because the hydrogen bonds pull surface molecules inwards."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hydrogen bonding gives water high melting and boiling points.",
+            "Ice floats because hydrogen bonds hold the molecules in an open lattice."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how London forces arise between non-polar molecules.",
+      "a": "The electrons in a molecule move, giving a temporary dipole. This induces a dipole in a neighbouring molecule, and the opposite charges attract.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why ethanol has a higher boiling point than propane, which has a similar number of electrons.",
+      "a": "Ethanol molecules form hydrogen bonds between the δ+ H of the O–H group and the lone pair on O of another molecule. Propane has only London forces. More energy is needed to overcome hydrogen bonds.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why ice is less dense than liquid water.",
+      "a": "In ice each molecule forms hydrogen bonds with four others in an open lattice. The molecules are further apart than in liquid water.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": ["OCR 2.2.2k", "OCR 2.2.2l", "OCR 2.2.2m"]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 2A.16", "EDEX 2A.17", "EDEX 2A.18", "EDEX 2A.19", "EDEX 2A.20", "EDEX 2A.21"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Intermolecular forces help you choose a solvent. A solute dissolves best when the new forces it forms with the solvent are about as strong as those it loses."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Water dissolves some ionic compounds, because its polar molecules hydrate the ions. The δ− O atoms surround cations and the δ+ H atoms surround anions.",
+                "Water dissolves simple alcohols, because the alcohol forms hydrogen bonds with water.",
+                "Water is a poor solvent for compounds such as halogenoalkanes, even though they have polar bonds. They cannot form hydrogen bonds with water.",
+                "Non-aqueous solvents dissolve compounds that have similar intermolecular forces to the solvent."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.1.3.7"]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 3.6.1", "CAIE 3.6.3", "CAIE 3.6.4"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Van der Waals' forces is the generic term for all intermolecular forces, which are the forces between molecules other than those from bond formation.",
+                "The types are instantaneous dipole–induced dipole (id-id) and permanent dipole–permanent dipole (pd-pd) forces. Hydrogen bonding is a special case of pd-pd.",
+                "Hydrogen bonding is limited to molecules containing N–H and O–H groups, with NH₃ and H₂O as the examples."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "9858944b-0f87-4867-93eb-04a4d08666e8",
+      "dbf302f9-1bfd-4ea9-9954-bf2e58402709",
+      "5a22827e-17be-424b-bed0-80e020173c80",
+      "448947d8-0b24-4d23-b705-7f4b76946b3c",
+      "298c2e73-7ba1-429f-92da-b6d1c2bd7a02",
+      "090a6f5f-bd30-40e8-887c-8ff368898772",
+      "1cd77b70-4df8-4fcf-8536-3fddc6825420",
+      "88e4c5bf-7bc9-41bd-bbc4-70728f10a2e6",
+      "7f283c49-f9df-42bb-88af-4c5554c27952",
+      "4a4fda54-73e5-4ae4-9141-a5a91f55026a",
+      "d982f18f-b201-4773-9859-aed56bfba357",
+      "1c246e24-de1e-4f97-800b-fb50153b79f7",
+      "6b73c7c9-6ad6-4462-ad9c-ffae6dab5502"
+    ],
+    "exemplar_ids": []
+  }
+}

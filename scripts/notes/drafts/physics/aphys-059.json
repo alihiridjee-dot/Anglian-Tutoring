@@ -1,0 +1,302 @@
+{
+  "format": 1,
+  "concept_id": "aphys-059",
+  "subject": "physics",
+  "title": "Circular motion",
+  "key_idea": "An object moving in a circle at constant speed is always accelerating, because its direction keeps changing. The acceleration, and the resultant force that causes it, point to the centre of the circle.",
+  "sections": [
+    {
+      "heading": "Angles and angular speed",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how to measure an angle in radians and how fast an object turns round a circle."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Radian", "meaning": "The angle at the centre of a circle when the arc length equals the radius." },
+            { "term": "Angular displacement", "meaning": "The angle, in radians, through which an object has turned about the centre." },
+            { "term": "Period, T", "meaning": "The time for one complete revolution." },
+            { "term": "Frequency, f", "meaning": "The number of complete revolutions per second." },
+            { "term": "Angular speed, ω", "meaning": "The angle turned per unit time, in rad/s." }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Angle in radians",
+          "formula": "θ = s / r",
+          "where": ["θ = angle at the centre (rad)", "s = arc length (m)", "r = radius (m)"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A full circle has an arc length of 2πr, so it is **2π radians**.",
+            "2π rad = 360°, so π rad = 180°.",
+            "To change degrees to radians, multiply by π / 180. To change radians to degrees, multiply by 180 / π.",
+            "A radian has no unit in calculations, but it is written as rad."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Angular speed",
+          "formula": "ω = Δθ / Δt = 2π / T = 2πf",
+          "where": ["ω = angular speed (rad/s)", "Δθ = angle turned (rad)", "Δt = time taken (s)", "T = period (s)", "f = frequency (Hz)"]
+        },
+        {
+          "type": "equation",
+          "label": "Linear speed in a circle",
+          "formula": "v = ωr",
+          "where": ["v = speed along the circle (m/s)", "ω = angular speed (rad/s)", "r = radius (m)"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Every point on a spinning object has the same ω.",
+            "A point further from the centre has a larger r, so it has a larger v.",
+            "The speed v is constant but the velocity is not, because the direction keeps changing."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "One radian is the angle when arc length equals radius; 2π rad = 360°.",
+            "ω = 2π / T = 2πf, and v = ωr.",
+            "Constant speed in a circle means changing velocity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Centripetal acceleration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Velocity is a vector, so a change of direction is a change of velocity. That change is an acceleration."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The velocity is along the tangent to the circle at every instant.",
+            "The change in velocity points towards the centre.",
+            "So the acceleration is towards the centre. It is called **centripetal acceleration**.",
+            "It changes the direction of the velocity but not the speed."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Centripetal acceleration",
+          "formula": "a = v² / r = ω²r",
+          "where": ["a = centripetal acceleration (m/s²)", "v = speed (m/s)", "ω = angular speed (rad/s)", "r = radius (m)"]
+        },
+        {
+          "type": "paragraph",
+          "text": "The two forms agree because v = ωr. Use v²/r when you know the speed, and ω²r when you know the angular speed or the period."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Centripetal acceleration points to the centre and is perpendicular to the velocity.",
+            "a = v² / r = ω²r.",
+            "It changes the direction of motion, not the speed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Centripetal force",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Newton's second law says an acceleration needs a resultant force. For circular motion this is the centripetal force."
+        },
+        {
+          "type": "equation",
+          "label": "Centripetal force",
+          "formula": "F = ma = mv² / r = mω²r",
+          "where": ["F = resultant force towards the centre (N)", "m = mass (kg)", "v = speed (m/s)", "ω = angular speed (rad/s)", "r = radius (m)"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The force has constant size and is always perpendicular to the direction of motion.",
+            "A force perpendicular to the motion does no work, so the speed stays constant.",
+            "Centripetal force is not a new kind of force. It is the name for the resultant force towards the centre.",
+            "Something real provides it: tension in a string, friction on a tyre, gravity on a satellite, or the normal contact force."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing how centripetal acceleration and force change with mass, speed and radius.",
+            "inputs": [
+              { "id": "m", "label": "Mass", "unit": "kg", "min": 0.5, "max": 5, "step": 0.5, "value": 1 },
+              { "id": "v", "label": "Speed", "unit": "m/s", "min": 1, "max": 20, "step": 1, "value": 5 },
+              { "id": "r", "label": "Radius", "unit": "m", "min": 1, "max": 20, "step": 1, "value": 5 }
+            ],
+            "outputs": [
+              { "label": "Centripetal acceleration", "unit": "m/s²", "formula": "v * v / r", "decimals": 1 },
+              { "label": "Centripetal force", "unit": "N", "formula": "m * v * v / r", "decimals": 1 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A resultant force towards the centre is needed to keep an object in a circle.",
+            "F = mv² / r = mω²r.",
+            "Doubling the speed quadruples the force needed."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A car travels at a constant 20 m/s round a bend of radius 50 m. Explain why it is accelerating, and calculate the acceleration.",
+      "a": "Its direction, and so its velocity, is changing, so it accelerates. a = v² / r = 20² / 50 = 8.0 m/s², towards the centre of the bend.",
+      "marks": 3
+    },
+    {
+      "q": "A wheel turns at 120 revolutions per minute. Calculate its angular speed in rad/s.",
+      "a": "f = 120 / 60 = 2.0 Hz. ω = 2πf = 2π × 2.0 = 12.6 rad/s (4π).",
+      "marks": 2
+    },
+    {
+      "q": "A 0.40 kg mass moves in a horizontal circle of radius 0.80 m at 3.0 rad/s. Calculate the centripetal force, and state what provides it if the mass is on a string.",
+      "a": "F = mω²r = 0.40 × 3.0² × 0.80 = 2.9 N. It is provided by the tension in the string.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.6.1.1"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Angular speed is written ω = v / r = 2πf.",
+                "The direction of angular velocity is not considered, so treat ω as a size only.",
+                "You use the formulae for centripetal acceleration but do not have to derive them."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 6.103", "EDEX 6.104", "EDEX 6.105", "EDEX 6.106", "EDEX 6.107"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You must be able to use vector diagrams to derive a = v² / r."
+            },
+            {
+              "type": "steps",
+              "items": [
+                { "lead": "Draw two velocities", "text": "Draw the velocity vectors v₁ and v₂ at two points a small angle Δθ apart. They have the same length v." },
+                { "lead": "Draw the change", "text": "Place them tail to tail. The change in velocity Δv joins their tips and points towards the centre." },
+                { "lead": "Small angle", "text": "For a small angle, Δv ≈ vΔθ." },
+                { "lead": "Divide by time", "text": "a = Δv / Δt = v × Δθ / Δt = vω." },
+                { "lead": "Substitute", "text": "Using ω = v / r gives a = v² / r, and using v = ωr gives a = ω²r." }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use T = 2π / ω to link the period to the angular speed.",
+                "Convert between degrees and radians in any angular displacement."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 12.1.1", "CAIE 12.1.2", "CAIE 12.1.3", "CAIE 12.2.1", "CAIE 12.2.2", "CAIE 12.2.3", "CAIE 12.2.4"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Define the radian: the angle subtended at the centre of a circle by an arc equal in length to the radius.",
+                "A force of constant magnitude that is always perpendicular to the motion causes centripetal acceleration.",
+                "Centripetal acceleration produces circular motion with a constant angular speed."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": ["OCR 5.2.1a", "OCR 5.2.1b", "OCR 5.2.1c", "OCR 5.2.2a", "OCR 5.2.2b", "OCR 5.2.2c", "OCR 5.2.2d"],
+      "extra": [
+        {
+          "heading": "Investigating circular motion with a whirling bung",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A rubber bung on a string is whirled in a horizontal circle. The string passes through a tube, and weights hang from the lower end to give the tension."
+            },
+            {
+              "type": "steps",
+              "items": [
+                { "lead": "Set up", "text": "Hang a known weight below the tube. Its weight W gives the tension, which is the centripetal force." },
+                { "lead": "Whirl", "text": "Whirl the bung so the marker on the string stays just below the tube. This keeps the radius constant." },
+                { "lead": "Time", "text": "Time 10 or more revolutions with a stopwatch and divide to find the period T." },
+                { "lead": "Calculate", "text": "Find v = 2πr / T, or ω = 2π / T, and compare F = mv² / r with the weight." },
+                { "lead": "Vary", "text": "Change the weight, then the radius, one at a time to see how T changes." }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Timing many revolutions reduces the effect of reaction time.",
+                "The string is not exactly horizontal, so the measured tension is slightly different from the true centripetal force."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "spec_point_ids": [
+      "9687413b-1910-49ca-938d-53d3fac346ab",
+      "088c39d9-9e2c-4a4c-9b25-4221d60ace44",
+      "8eb9b1e2-242f-4278-b289-1bd0041c3a91",
+      "5398d974-9085-40b9-9b0a-6bb6ac37cdc3",
+      "0fc63c15-9313-462d-aca2-4040906c6cb4",
+      "522fe140-057d-45c8-b4c7-304c72a0e8c5",
+      "12232504-9087-4639-a0fa-ac34cc6b326d",
+      "774deca3-5f1b-426e-ac06-24cf31ba9f12",
+      "9c1df26f-716f-4645-8786-9e70e7b08e79",
+      "a4a42293-766c-42db-acb4-b24bb321c866",
+      "c190057c-3166-4473-b6da-b0a3c32ebfad",
+      "e7ed1340-3e7d-446d-923f-6736f9dfc0b2",
+      "94435df1-1b20-4052-a66e-38daa5a527ee",
+      "99ddd8f4-07cd-4932-b4cb-a1135df222dd",
+      "ecce0db2-a51c-4df1-91cc-bc78a0dbf6f7",
+      "9fd6f020-ec7e-4a83-92e4-ca449a069fdb",
+      "e1f2de6b-6fc4-4dfb-92d0-50bf7a188177",
+      "10764c55-bafb-454c-8b3f-f01ac56b6f66",
+      "0ad45295-dee6-45ed-89fe-9bbe0f74f345",
+      "d189d2f3-6455-462f-80b8-4a23df635333"
+    ],
+    "exemplar_ids": []
+  }
+}

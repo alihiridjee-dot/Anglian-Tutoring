@@ -1,0 +1,310 @@
+{
+  "format": 1,
+  "concept_id": "aphys-097",
+  "subject": "physics",
+  "title": "Operational amplifiers",
+  "key_idea": "An ideal operational amplifier has infinite open-loop gain and infinite input resistance. With negative feedback it becomes an amplifier whose gain is set by two resistors. Used with no feedback, it is a comparator.",
+  "sections": [
+    {
+      "heading": "The ideal operational amplifier",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An operational amplifier (op-amp) is a system building block with two inputs and one output. It needs a power supply as well as the signal connections."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **inverting input** is marked V₋ and the **non-inverting input** is marked V₊.",
+            "It has a positive and a negative power supply connection, and the output voltage can never go beyond them.",
+            "The signal connections are the two inputs and the output."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Open-loop transfer function",
+          "formula": "Vₒᵤₜ = A_OL (V₊ − V₋)",
+          "where": [
+            "Vₒᵤₜ = output voltage (V)",
+            "A_OL = open-loop gain (no unit)",
+            "V₊, V₋ = voltages at the two inputs (V)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "An ideal op-amp has **infinite open-loop gain**.",
+            "An ideal op-amp has **infinite input resistance**, so no current enters either input.",
+            "A real op-amp has a very large but finite gain, so the output saturates at about the supply voltages."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Use as a comparator"
+        },
+        {
+          "type": "list",
+          "items": [
+            "With no feedback the gain is huge, so a tiny difference between the inputs drives the output to saturation.",
+            "If V₊ is greater than V₋, the output goes to the positive supply voltage.",
+            "If V₊ is less than V₋, the output goes to the negative supply voltage.",
+            "The circuit compares an input voltage with a reference voltage."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Vₒᵤₜ = A_OL (V₊ − V₋), and the output cannot exceed the supply voltages.",
+            "An ideal op-amp has infinite gain and infinite input resistance.",
+            "With no feedback it works as a comparator."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Inverting and non-inverting amplifiers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Negative feedback joins the output back to the inverting input through a feedback resistor R_f. The gain then depends only on the resistors."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Virtual earth",
+              "meaning": "In the inverting amplifier the non-inverting input is at 0 V, and feedback holds the inverting input at almost 0 V too."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Inverting amplifier"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Virtual earth",
+              "text": "V₊ is at 0 V and the gain is huge, so V₋ is also almost 0 V."
+            },
+            {
+              "lead": "No input current",
+              "text": "No current enters the op-amp, so all the current through Rᵢₙ passes through R_f."
+            },
+            {
+              "lead": "Current in",
+              "text": "The current is I = Vᵢₙ ÷ Rᵢₙ, because the voltage across Rᵢₙ is Vᵢₙ − 0."
+            },
+            {
+              "lead": "Voltage out",
+              "text": "The voltage across R_f is 0 − Vₒᵤₜ, so Vₒᵤₜ = −I R_f."
+            },
+            {
+              "lead": "Combine",
+              "text": "Substituting I gives the gain equation."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Inverting amplifier gain",
+          "formula": "Vₒᵤₜ ÷ Vᵢₙ = −R_f ÷ Rᵢₙ",
+          "where": [
+            "R_f = feedback resistance (Ω)",
+            "Rᵢₙ = input resistance (Ω)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The minus sign means the output is the inverse of the input: it is in antiphase."
+        },
+        {
+          "type": "subheading",
+          "text": "Non-inverting amplifier"
+        },
+        {
+          "type": "equation",
+          "label": "Non-inverting amplifier gain",
+          "formula": "Vₒᵤₜ ÷ Vᵢₙ = 1 + R_f ÷ R₁",
+          "where": [
+            "R_f = feedback resistance (Ω)",
+            "R₁ = resistor from the inverting input to 0 V (Ω)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The input goes to V₊, and the output is in phase with the input.",
+            "The gain is always at least 1.",
+            "Derivation is not required."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question. Calculate the output voltage of an inverting amplifier from the two resistances and the input voltage.",
+            "question": "An inverting amplifier has Rᵢₙ = {Rin} kΩ and R_f = {Rf} kΩ. The input voltage is {Vin} V. Calculate the output voltage.",
+            "variables": [
+              {
+                "id": "Rin",
+                "min": 2,
+                "max": 10,
+                "step": 1
+              },
+              {
+                "id": "Rf",
+                "min": 10,
+                "max": 50,
+                "step": 10
+              },
+              {
+                "id": "Vin",
+                "min": 0.1,
+                "max": 0.5,
+                "step": 0.1
+              }
+            ],
+            "answer": {
+              "formula": "-Rf / Rin * Vin",
+              "unit": "V",
+              "decimals": 2
+            },
+            "working": [
+              "Vₒᵤₜ = −(R_f ÷ Rᵢₙ) × Vᵢₙ",
+              "Vₒᵤₜ = −({Rf} ÷ {Rin}) × {Vin}",
+              "Vₒᵤₜ = {answer} V"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Inverting gain = −R_f ÷ Rᵢₙ, found using a virtual earth at the inverting input.",
+            "Non-inverting gain = 1 + R_f ÷ R₁."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Summing and difference amplifiers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The inverting amplifier can add several inputs. A different arrangement subtracts two inputs. Neither derivation is required."
+        },
+        {
+          "type": "equation",
+          "label": "Summing amplifier",
+          "formula": "Vₒᵤₜ = −R_f (V₁ ÷ R₁ + V₂ ÷ R₂ + V₃ ÷ R₃ + …)",
+          "where": [
+            "V₁, V₂, V₃ = input voltages (V)",
+            "R₁, R₂, R₃ = their input resistors (Ω)",
+            "R_f = feedback resistance (Ω)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Difference amplifier",
+          "formula": "Vₒᵤₜ = (V₊ − V₋)(R_f ÷ R₁)",
+          "where": [
+            "V₊, V₋ = the two input voltages (V)",
+            "R_f ÷ R₁ = gain set by the resistors"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A summing amplifier gives the inverted, weighted sum of its inputs.",
+            "A difference amplifier amplifies the difference between its two inputs."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Real operational amplifiers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A real op-amp falls short of the ideal in several ways."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The open-loop gain is large but finite, and it falls as the signal frequency rises.",
+            "The input resistance is high but finite.",
+            "The output cannot go beyond the supply voltages, so a large output is clipped.",
+            "The **frequency response curve** plots gain against frequency. The gain is flat at low frequency and then falls."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Gain-bandwidth product",
+          "formula": "gain × bandwidth = constant",
+          "where": [
+            "gain = closed-loop voltage gain (no unit)",
+            "bandwidth = range of frequencies amplified (Hz)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The constant is fixed for a given device.",
+            "A higher gain from the feedback resistors therefore means a smaller bandwidth."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Real op-amps have finite gain and input resistance, and gain falls at high frequency.",
+            "Gain × bandwidth is constant for a given device."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "An op-amp is used as a comparator. State the output when V₊ is greater than V₋.",
+      "a": "The output saturates at the positive supply voltage.",
+      "marks": 1
+    },
+    {
+      "q": "An inverting amplifier has Rᵢₙ = 2.0 kΩ and R_f = 20 kΩ. Calculate the output for an input of 0.30 V.",
+      "a": "Gain = −R_f ÷ Rᵢₙ = −10. Vₒᵤₜ = −10 × 0.30 = −3.0 V.",
+      "marks": 3
+    },
+    {
+      "q": "A device has a gain-bandwidth product of 1.0 × 10⁶ Hz. Calculate the bandwidth when the closed-loop gain is 50.",
+      "a": "Bandwidth = 1.0 × 10⁶ ÷ 50 = 2.0 × 10⁴ Hz.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.13.3.2",
+        "AQA 3.13.4.1",
+        "AQA 3.13.4.2",
+        "AQA 3.13.4.3",
+        "AQA 3.13.4.4"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "4765f909-f526-4c6a-96c6-c205d053d2b8",
+      "1530e8c0-8ab8-4caf-959b-c49ab290f451",
+      "5fa9dc28-f041-49eb-9920-b3928b866934",
+      "9f8c286a-538f-41df-8f3a-d4fd6088253d",
+      "9d69a163-00dc-41a0-91a3-0c7d89232bd4"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

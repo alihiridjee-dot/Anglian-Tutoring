@@ -1,0 +1,285 @@
+{
+  "format": 1,
+  "concept_id": "abio-048",
+  "subject": "biology",
+  "title": "Population genetics and the Hardy-Weinberg principle",
+  "key_idea": "A population's gene pool is all its alleles, and allele frequency is how common each allele is. The Hardy-Weinberg principle predicts that frequencies stay constant if no evolutionary force acts. Selection, drift, the bottleneck effect and the founder effect change allele frequencies.",
+  "sections": [
+    {
+      "heading": "Populations, gene pools and allele frequency",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Species exist as one or more populations. Populations are the units in which allele frequencies change."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Population",
+              "meaning": "A group of organisms of the same species, living in a particular place at a particular time, that can potentially interbreed."
+            },
+            {
+              "term": "Gene pool",
+              "meaning": "All the alleles of all the genes in a population at a given time."
+            },
+            {
+              "term": "Allele frequency",
+              "meaning": "How often an allele occurs in the gene pool, as a proportion of all the alleles of that gene."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Allele frequency is the proportion of all the alleles of a gene that are one particular allele.",
+            "Evolution is a change in allele frequency in the gene pool."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The Hardy-Weinberg principle",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Hardy-Weinberg principle is a mathematical model. It predicts that allele frequencies will not change from generation to generation, so it can show when a population is changing."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The population is large, so chance has little effect.",
+            "Mating is random.",
+            "There is no selection: all genotypes survive and reproduce equally well.",
+            "There is no mutation.",
+            "There is no migration (no gene flow) into or out of the population."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Allele frequencies",
+          "formula": "p + q = 1",
+          "where": [
+            "p = frequency of the dominant allele",
+            "q = frequency of the recessive allele"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Genotype frequencies",
+          "formula": "p² + 2pq + q² = 1",
+          "where": [
+            "p² = frequency of the homozygous dominant genotype",
+            "2pq = frequency of the heterozygous genotype",
+            "q² = frequency of the homozygous recessive genotype"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find q².",
+              "text": "The only genotype you can see for certain is the homozygous recessive. Its frequency is q²."
+            },
+            {
+              "lead": "Find q.",
+              "text": "Take the square root of q²."
+            },
+            {
+              "lead": "Find p.",
+              "text": "p = 1 − q."
+            },
+            {
+              "lead": "Find 2pq.",
+              "text": "This is the frequency of heterozygotes, the carriers."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Example: 4 in 100 people have a recessive condition, so q² = 0.04 and q = 0.2. Then p = 0.8 and 2pq = 2 × 0.8 × 0.2 = 0.32."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A Hardy-Weinberg practice question with new numbers each time: find the carrier frequency from the frequency of the recessive condition.",
+            "question": "A recessive condition affects {a} people in every 10 000. Assuming the population is in Hardy-Weinberg equilibrium, calculate the frequency of carriers (2pq) to 3 decimal places.",
+            "variables": [
+              {
+                "id": "a",
+                "min": 25,
+                "max": 400,
+                "step": 25
+              }
+            ],
+            "answer": {
+              "formula": "2 * sqrt(a / 10000) * (1 - sqrt(a / 10000))",
+              "decimals": 3,
+              "tolerance_percent": 2
+            },
+            "working": [
+              "q² = {a} ÷ 10 000, so q is the square root of that value.",
+              "p = 1 − q.",
+              "2pq = 2 × p × q = {answer}."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Start from q², the homozygous recessive, and work out q, then p, then 2pq.",
+            "The principle only holds when there is no selection, mutation or migration, mating is random and the population is large.",
+            "If allele frequencies change over generations, one of these conditions is not met."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Selection, genetic drift and the founder effect",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Selection is not the only force that changes allele frequencies. Chance can also change them."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Selection** changes allele frequencies when some genotypes survive and reproduce better. Stabilising selection keeps the mean, and directional selection moves the mean to one extreme.",
+            "**Genetic drift** is a random change in allele frequencies from one generation to the next, as some alleles are passed on by chance and others are not.",
+            "Drift matters only in small populations. In a large population, random events average out.",
+            "In a small population, an allele can be lost completely or become fixed (the only allele) by chance."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Effect",
+            "How it happens",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Bottleneck effect",
+              "A large population is cut to a few survivors by a disaster, such as disease or hunting.",
+              "The survivors carry only some of the alleles, so genetic diversity is low and frequencies differ from before."
+            ],
+            [
+              "Founder effect",
+              "A few individuals leave to start a new population in a new place.",
+              "The new population has only the alleles of its founders, so frequencies differ from the original population."
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Genetic drift is a change in allele frequency by chance, important only in small populations.",
+            "Both the bottleneck effect and the founder effect reduce genetic diversity.",
+            "The new allele frequencies after either event are due to chance, not to the alleles being advantageous."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State three conditions needed for the Hardy-Weinberg principle to apply.",
+      "a": "Any three from: a large population; random mating; no selection; no mutation; no migration.",
+      "marks": 3
+    },
+    {
+      "q": "In a population, 1 in 2 500 babies is born with a recessive condition. Calculate the frequency of carriers.",
+      "a": "q² = 1 ÷ 2500 = 0.0004, so q = 0.02. p = 1 − 0.02 = 0.98. 2pq = 2 × 0.98 × 0.02 = 0.039 (3.9%, accept 0.04).",
+      "marks": 4
+    },
+    {
+      "q": "Explain why genetic drift has a greater effect on allele frequencies in a small population than in a large one.",
+      "a": "In a small population, chance events change the proportion of alleles passed on by a larger amount, so an allele can be lost or become fixed. In a large population, random changes average out and have little effect on allele frequency.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.2"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use the Hardy-Weinberg equation to see whether allele frequency is changing: calculate the frequencies in one generation, compare them with the next, and a difference shows that a factor such as selection is acting.",
+                "Reproductive isolation lets populations accumulate different genetic information over time, which can lead to new species (see Speciation)."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 17.2.3",
+        "CAIE 17.2.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You must be able to explain how selection, the founder effect and genetic drift, including the bottleneck effect, affect allele frequencies.",
+                "Both Hardy-Weinberg equations are provided in the exam, but you must state the conditions under which the principle applies.",
+                "Use the principle to calculate allele and genotype frequencies."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.2e",
+        "OCR 6.1.2f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Factors that affect the evolution of a species: stabilising selection, directional selection, genetic drift, genetic bottleneck and the founder effect.",
+                "The equations p² + 2pq + q² = 1 and p + q = 1 are provided where needed, so you do not need to recall them."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "6bc086f1-b298-4718-9ea2-a986e3319e38",
+      "a99d2b0d-90db-4456-8ac4-7792ec1abd22",
+      "75938dc9-ec7d-49f7-93de-bac15ae30ac6",
+      "12132720-ce43-46a0-8f0f-f205888a97f3",
+      "76cd7ba7-35ba-4edb-864b-13948a756288",
+      "0b02cc2e-cda3-4b5a-95ee-eb81f11de878"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

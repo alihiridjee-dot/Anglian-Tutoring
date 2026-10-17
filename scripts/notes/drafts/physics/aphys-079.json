@@ -1,0 +1,514 @@
+{
+  "format": 1,
+  "concept_id": "aphys-079",
+  "subject": "physics",
+  "title": "Black-body radiation and stellar temperature",
+  "key_idea": "A star radiates like a black body, so its spectrum depends only on its surface temperature. Wien's law links the peak wavelength to that temperature. The Stefan–Boltzmann law links luminosity to temperature and radius, and lets us estimate a star's size.",
+  "sections": [
+    {
+      "heading": "Black-body radiation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every hot object emits electromagnetic radiation. A black body is the idealised case, and stars are close to it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Black body",
+              "meaning": "A perfect absorber of all radiation that hits it, and a perfect emitter. Its spectrum depends only on its temperature."
+            },
+            {
+              "term": "Radiation curve",
+              "meaning": "A graph of the intensity emitted at each wavelength, for one temperature."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Reading the radiation curves"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each curve has a single peak at the wavelength λₘₐₓ, where most radiation is emitted.",
+            "At a higher temperature the peak moves to a shorter wavelength.",
+            "At every wavelength a hotter body emits more, so a hotter curve is always above a cooler one.",
+            "The area under a curve is the total power emitted per unit area, which rises steeply with temperature.",
+            "The curves are continuous, with no gaps, as the radiation covers a range of wavelengths."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Three black-body radiation curves for stars at 4000 K, 5000 K and 6000 K. Each rises to a single peak and then falls. The hotter the star, the higher and further left its peak. The vertical scale shows shape, not exact values.",
+            "x": {
+              "label": "Wavelength",
+              "min": 0,
+              "max": 2000,
+              "ticks": [
+                0,
+                500,
+                1000,
+                1500,
+                2000
+              ],
+              "unit": "nm"
+            },
+            "y": {
+              "label": "Intensity emitted"
+            },
+            "series": [
+              {
+                "name": "6000 K",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    200,
+                    0.07
+                  ],
+                  [
+                    300,
+                    0.5
+                  ],
+                  [
+                    400,
+                    0.9
+                  ],
+                  [
+                    480,
+                    0.98
+                  ],
+                  [
+                    600,
+                    0.89
+                  ],
+                  [
+                    800,
+                    0.59
+                  ],
+                  [
+                    1000,
+                    0.37
+                  ],
+                  [
+                    1500,
+                    0.12
+                  ],
+                  [
+                    2000,
+                    0.05
+                  ]
+                ]
+              },
+              {
+                "name": "5000 K",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    200,
+                    0.01
+                  ],
+                  [
+                    300,
+                    0.1
+                  ],
+                  [
+                    400,
+                    0.27
+                  ],
+                  [
+                    580,
+                    0.39
+                  ],
+                  [
+                    800,
+                    0.31
+                  ],
+                  [
+                    1000,
+                    0.22
+                  ],
+                  [
+                    1500,
+                    0.08
+                  ],
+                  [
+                    2000,
+                    0.035
+                  ]
+                ]
+              },
+              {
+                "name": "4000 K",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    300,
+                    0.01
+                  ],
+                  [
+                    400,
+                    0.045
+                  ],
+                  [
+                    500,
+                    0.09
+                  ],
+                  [
+                    725,
+                    0.13
+                  ],
+                  [
+                    1000,
+                    0.1
+                  ],
+                  [
+                    1500,
+                    0.05
+                  ],
+                  [
+                    2000,
+                    0.02
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "We assume a star is a black body. This lets us use its spectrum to find its surface temperature."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A black body absorbs and emits perfectly, and its spectrum depends only on its temperature.",
+            "As temperature rises, the peak moves to a shorter wavelength and the curve rises at every wavelength.",
+            "A star is assumed to be a black body."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Wien's displacement law",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Wien's law gives the exact link between the peak wavelength and the temperature of a black body."
+        },
+        {
+          "type": "equation",
+          "label": "Wien's displacement law",
+          "formula": "λₘₐₓ T = constant = 2.9 × 10⁻³ m K",
+          "where": [
+            "λₘₐₓ = wavelength at which the curve peaks (m)",
+            "T = surface temperature of the black body (K)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Equivalently, λₘₐₓ is proportional to 1 ÷ T.",
+            "Doubling the temperature halves the peak wavelength.",
+            "Temperature must be in kelvin: add 273 to a temperature in °C.",
+            "The more precise value of the constant is 2.898 × 10⁻³ m K."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Question",
+              "text": "The Sun's spectrum peaks at a wavelength of 500 nm. Estimate its surface temperature."
+            },
+            {
+              "lead": "Rearrange",
+              "text": "T = 2.9 × 10⁻³ ÷ λₘₐₓ"
+            },
+            {
+              "lead": "Substitute",
+              "text": "T = 2.9 × 10⁻³ ÷ (500 × 10⁻⁹)"
+            },
+            {
+              "lead": "Answer",
+              "text": "T = 5800 K"
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "λₘₐₓ T is constant, so λₘₐₓ ∝ 1 ÷ T.",
+            "Use Wien's law to estimate a star's peak surface temperature from its peak wavelength.",
+            "Convert wavelengths to metres and temperatures to kelvin."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The Stefan–Boltzmann law",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The luminosity of a black body depends on its surface area and, very strongly, on its temperature."
+        },
+        {
+          "type": "equation",
+          "label": "Stefan–Boltzmann law",
+          "formula": "L = σAT⁴",
+          "where": [
+            "L = luminosity, the total power radiated (W)",
+            "σ = Stefan–Boltzmann constant, 5.67 × 10⁻⁸ W m⁻² K⁻⁴",
+            "A = surface area (m²)",
+            "T = surface temperature (K)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A star is a sphere of radius r, so its surface area is 4πr². This gives the form used for stars."
+        },
+        {
+          "type": "equation",
+          "label": "Stefan–Boltzmann law for a star",
+          "formula": "L = 4πσr²T⁴",
+          "where": [
+            "r = radius of the star (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Doubling the temperature increases the luminosity by a factor of 2⁴ = 16.",
+            "Doubling the radius increases the luminosity by a factor of 2² = 4.",
+            "A cool star can still be very luminous if it is very large, as red giants are."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing how a star's surface temperature and radius change its peak wavelength and its luminosity compared with the Sun.",
+            "inputs": [
+              {
+                "id": "T",
+                "label": "Surface temperature",
+                "unit": "K",
+                "min": 3000,
+                "max": 30000,
+                "step": 500,
+                "value": 6000
+              },
+              {
+                "id": "R",
+                "label": "Radius",
+                "unit": "× the Sun's radius",
+                "min": 0.5,
+                "max": 50,
+                "step": 0.5,
+                "value": 1
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Peak wavelength",
+                "unit": "nm",
+                "formula": "2898000 / T",
+                "decimals": 0
+              },
+              {
+                "label": "Luminosity",
+                "unit": "× the Sun's luminosity",
+                "formula": "R * R * (T / 5800) * (T / 5800) * (T / 5800) * (T / 5800)",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "L = σAT⁴, which becomes L = 4πσr²T⁴ for a spherical star.",
+            "Luminosity is proportional to r² and to T⁴.",
+            "Doubling T makes a star 16 times more luminous."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Estimating the radius of a star",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Wien's law gives the temperature and the Stefan–Boltzmann law then gives the radius. Together they let us size a star we cannot see as a disc."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Peak",
+              "text": "Find the wavelength λₘₐₓ at which the star's spectrum peaks."
+            },
+            {
+              "lead": "Temperature",
+              "text": "Use Wien's law, T = 2.9 × 10⁻³ ÷ λₘₐₓ."
+            },
+            {
+              "lead": "Luminosity",
+              "text": "Find L from the measured intensity and distance, using L = 4πd²I."
+            },
+            {
+              "lead": "Radius",
+              "text": "Rearrange L = 4πσr²T⁴ to give r = √(L ÷ 4πσT⁴)."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Worked example"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Question",
+              "text": "A star has λₘₐₓ = 290 nm and a luminosity of 4.0 × 10²⁸ W. Estimate its radius."
+            },
+            {
+              "lead": "Temperature",
+              "text": "T = 2.9 × 10⁻³ ÷ (290 × 10⁻⁹) = 1.0 × 10⁴ K"
+            },
+            {
+              "lead": "Radius squared",
+              "text": "r² = L ÷ (4πσT⁴) = 4.0 × 10²⁸ ÷ (4π × 5.67 × 10⁻⁸ × (1.0 × 10⁴)⁴) = 5.6 × 10¹⁸ m²"
+            },
+            {
+              "lead": "Answer",
+              "text": "r = 2.4 × 10⁹ m"
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Find T from Wien's law, then r from L = 4πσr²T⁴.",
+            "If L is not given, find it from the intensity and distance using L = 4πd²I."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "The spectrum of a star peaks at a wavelength of 725 nm. Estimate its surface temperature.",
+      "a": "T = 2.9 × 10⁻³ ÷ λₘₐₓ = 2.9 × 10⁻³ ÷ (725 × 10⁻⁹) = 4.0 × 10³ K.",
+      "marks": 2
+    },
+    {
+      "q": "A star has a radius of 1.5 × 10⁹ m and a surface temperature of 4000 K. Calculate its luminosity. The Stefan–Boltzmann constant is 5.67 × 10⁻⁸ W m⁻² K⁻⁴.",
+      "a": "L = 4πσr²T⁴ = 4π × 5.67 × 10⁻⁸ × (1.5 × 10⁹)² × 4000⁴ = 4.1 × 10²⁶ W.",
+      "marks": 3
+    },
+    {
+      "q": "Star X has twice the radius of star Y but half its surface temperature. Compare their luminosities.",
+      "a": "L ∝ r²T⁴. For X, r² is 4 times as large and T⁴ is (½)⁴ = 1/16 as large. So L of X is 4 × 1/16 = ¼ of the luminosity of Y.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.9.2.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for: comparing stars",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Stefan's law is used to compare the power output, temperature and size of stars. Work with ratios, so the constants cancel."
+            },
+            {
+              "type": "equation",
+              "label": "Stefan's law",
+              "formula": "P = σAT⁴",
+              "where": [
+                "P = power output of the star (W)",
+                "A = surface area of the star (m²)",
+                "T = surface temperature (K)"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Two stars of the same temperature: the larger star has the greater power, in proportion to A, so to r².",
+                "Two stars of the same power: the cooler star must be larger.",
+                "Assumption: the star is a black body.",
+                "The inverse square law assumes the star radiates equally in all directions and nothing absorbs the radiation on its way to us."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Use P = σAT⁴ as a ratio to compare the power, size and temperature of two stars.",
+                "Assumptions: the star is a black body and its radiation spreads equally with no absorption."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 9.153",
+        "EDEX 9.154",
+        "EDEX 9.155"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 25.2.1",
+        "CAIE 25.2.2",
+        "CAIE 25.2.3"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.5.2i",
+        "OCR 5.5.2j",
+        "OCR 5.5.2k"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "199a8236-a3d6-4f8f-8a7e-6149593881e9",
+      "d200e880-34c9-4eb1-b3db-dd097425d9c8",
+      "67679e4b-5c09-4fa2-9d76-2ce25e8b2229",
+      "06098e9c-ecef-4469-89a7-14f997e49887",
+      "5d74bcea-c26b-4bac-a404-2489117d84f0",
+      "a1dfce7e-c96e-4848-8d79-f8b45e9ff9e3",
+      "957e4b86-8b10-4bee-b284-f136cee815f4",
+      "f88eabea-e2ac-4882-a1e8-6cc0774d0787",
+      "4cde1326-29f7-4f89-8f4b-fa53b68b7e61",
+      "1d26be5f-6eb1-4d28-8c7e-e0a2fe22b4ec"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

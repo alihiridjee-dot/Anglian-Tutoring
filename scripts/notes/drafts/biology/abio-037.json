@@ -1,0 +1,271 @@
+{
+  "format": 1,
+  "concept_id": "abio-037",
+  "subject": "biology",
+  "title": "Genes, chromosomes and the genetic code",
+  "key_idea": "A gene is a base sequence of DNA that codes for the amino acid sequence of a polypeptide, or for a functional RNA. DNA is packaged with histones into chromosomes in eukaryotes. The genetic code is triplet, non-overlapping, degenerate and universal.",
+  "sections": [
+    {
+      "heading": "DNA, genes and chromosomes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "DNA is stored differently in prokaryotes and eukaryotes. This section covers where it is found and what a gene is."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Prokaryotic DNA",
+            "Eukaryotic nuclear DNA"
+          ],
+          "rows": [
+            [
+              "Shape",
+              "Short and circular",
+              "Very long and linear"
+            ],
+            [
+              "Associated proteins",
+              "Not associated with proteins",
+              "Associated with proteins called histones"
+            ],
+            [
+              "Form",
+              "A single circular DNA molecule",
+              "Chromosomes: a DNA molecule and its histones"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The DNA in mitochondria and chloroplasts is like prokaryotic DNA: short, circular and not associated with protein.",
+            "A eukaryotic **chromosome** is one DNA molecule wound around histones, which packages the long molecule into the nucleus.",
+            "A **gene** is a base sequence of DNA that codes for the amino acid sequence of a polypeptide, or for a functional RNA such as ribosomal RNA or tRNA.",
+            "A gene occupies a fixed position, called a **locus**, on a particular DNA molecule."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Introns and exons"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Much of the nuclear DNA of eukaryotes does not code for polypeptides.",
+            "There are non-coding multiple repeats of base sequences between genes.",
+            "Within a gene, **exons** code for amino acid sequences.",
+            "Exons are separated by one or more non-coding sequences called **introns**."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Prokaryotes: short circular DNA, no histones. Eukaryotic nucleus: long linear DNA with histones.",
+            "A gene codes for a polypeptide or a functional RNA, and has a fixed locus.",
+            "Exons code for amino acids; introns do not."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The genetic code",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The base sequence of a gene is a code for the sequence of amino acids in a polypeptide, which is its primary structure."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A sequence of three DNA bases, a **triplet**, codes for a specific amino acid.",
+            "Some triplets are not amino acids: a start triplet marks where a gene begins and stop triplets mark where it ends.",
+            "Three bases per amino acid give 64 possible triplets, which is more than enough for 20 amino acids."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Triplet code",
+              "meaning": "Three bases code for one amino acid."
+            },
+            {
+              "term": "Non-overlapping",
+              "meaning": "Each base is part of only one triplet. The code is read in order, three bases at a time."
+            },
+            {
+              "term": "Degenerate",
+              "meaning": "Most amino acids are coded for by more than one triplet."
+            },
+            {
+              "term": "Universal",
+              "meaning": "The same triplets code for the same amino acids in almost all organisms."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "What these features mean"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Because the code is degenerate, a change to one base does not always change the amino acid. This is covered in the note on gene mutations.",
+            "Because the code is non-overlapping, adding or removing a base shifts how every later triplet is read.",
+            "Because the code is universal, a gene from one species can be read by another, as in genetic engineering."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort statements into the features of the genetic code.",
+            "prompt": "Match each statement to the feature of the genetic code it describes.",
+            "groups": [
+              "Degenerate",
+              "Non-overlapping",
+              "Universal"
+            ],
+            "items": [
+              {
+                "text": "Most amino acids are coded for by more than one triplet",
+                "group": 0
+              },
+              {
+                "text": "Different triplets can code for the same amino acid",
+                "group": 0
+              },
+              {
+                "text": "Each base is part of only one triplet",
+                "group": 1
+              },
+              {
+                "text": "The code is read three bases at a time without sharing bases",
+                "group": 1
+              },
+              {
+                "text": "The same triplet codes for the same amino acid in nearly all organisms",
+                "group": 2
+              },
+              {
+                "text": "A human gene can be read by a bacterium",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A triplet of bases codes for one amino acid, or marks a start or stop.",
+            "Degenerate: more than one triplet per amino acid. Non-overlapping: no shared bases. Universal: same in nearly all organisms.",
+            "A gene sets the primary structure of a polypeptide."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State three differences between the DNA of a prokaryotic cell and the DNA in the nucleus of a eukaryotic cell.",
+      "a": "Prokaryotic DNA is short and circular and is not associated with proteins. Eukaryotic nuclear DNA is very long and linear and is associated with histones, forming chromosomes.",
+      "marks": 3
+    },
+    {
+      "q": "Explain what is meant by a genetic code that is degenerate and non-overlapping.",
+      "a": "Degenerate: most amino acids are coded for by more than one triplet of bases. Non-overlapping: each base is part of only one triplet, so the code is read in separate groups of three.",
+      "marks": 2
+    },
+    {
+      "q": "Distinguish between an exon and an intron.",
+      "a": "An exon is a part of a gene that codes for amino acids. An intron is a non-coding sequence within a gene that separates exons.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A gene can code for a functional RNA, including ribosomal RNA and tRNA, as well as for a polypeptide.",
+                "Mitochondria and chloroplasts of eukaryotic cells also contain short, circular DNA that is not associated with protein.",
+                "In eukaryotes, much nuclear DNA is non-coding, including multiple repeats of base sequences between genes."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.7",
+        "EDEX 2.8"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 6.2.1",
+        "CAIE 6.2.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A polypeptide is coded for by a gene, which is a sequence of nucleotides forming part of a DNA molecule.",
+                "Different triplets of DNA bases either code for specific amino acids or correspond to start and stop codons.",
+                "A start codon signals where translation begins, and a stop codon signals that the polypeptide is complete."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.3f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Be able to explain how a gene determines the sequence of amino acids in a polypeptide, which is the primary structure of a protein.",
+                "Use all four features of the code: triplet, non-overlapping, degenerate and universal."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "ee2e7698-37c0-4387-8836-a8db8c30c79c",
+      "b573ff82-d2b8-4188-bdfd-1bc3ea74b24a",
+      "aa4b4d68-45a4-48f7-bb81-753978ae473c",
+      "ad2a8448-aa58-4971-b6bc-7950d1a0d9ad",
+      "43d3063f-fb84-4e31-97a9-3e7ff095b699",
+      "7898aa81-6272-43fe-91f8-12b2f8c0cd4d"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

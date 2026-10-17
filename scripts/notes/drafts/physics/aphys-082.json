@@ -1,0 +1,280 @@
+{
+  "format": 1,
+  "concept_id": "aphys-082",
+  "subject": "physics",
+  "title": "Quasars and exoplanets",
+  "key_idea": "Quasars are extremely luminous, very distant objects powered by active supermassive black holes. Exoplanets are planets orbiting other stars. They are too faint to see directly, so we detect them by the small effects they have on their star.",
+  "sections": [
+    {
+      "heading": "Quasars",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Quasars were found as very bright sources of radio waves. Photographs showed a point of light like a star at the position of each one."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Their spectra show very large optical redshifts.",
+            "By Hubble's law a large redshift means a very large distance.",
+            "Quasars are the most distant measurable objects.",
+            "We see them as they were billions of years ago, because their light took that long to reach us."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Estimating the power of a quasar"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Redshift",
+              "text": "Find the redshift from the spectral lines and calculate the speed of recession."
+            },
+            {
+              "lead": "Distance",
+              "text": "Use Hubble's law, d = v ÷ H₀, to find the distance."
+            },
+            {
+              "lead": "Intensity",
+              "text": "Measure the intensity I of the radiation received at the Earth."
+            },
+            {
+              "lead": "Power",
+              "text": "Find the power output from L = 4πd²I."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Question",
+              "text": "A quasar is at a distance of 1.0 × 10²⁶ m, and the intensity received from it is 1.0 × 10⁻¹⁴ W/m². Estimate its power output."
+            },
+            {
+              "lead": "Substitute",
+              "text": "L = 4πd²I = 4π × (1.0 × 10²⁶)² × 1.0 × 10⁻¹⁴"
+            },
+            {
+              "lead": "Answer",
+              "text": "L = 1.3 × 10³⁹ W, about 3 × 10¹² times the luminosity of the Sun"
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "What powers a quasar"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Quasars form from active supermassive black holes at the centres of galaxies.",
+            "Matter spirals towards the black hole and forms a hot disc around it.",
+            "The disc heats up and radiates enormous power before the matter falls in.",
+            "The power output can exceed that of a whole galaxy of stars, from a region little bigger than the Solar System."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Quasars have very large redshifts, so they are very far away and are the most distant measurable objects.",
+            "To be seen from so far, their power output must be enormous.",
+            "They are powered by active supermassive black holes at the centres of galaxies."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Detecting exoplanets",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An exoplanet is a planet that orbits a star other than the Sun. Direct detection is very difficult."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A planet shines only by reflected starlight, so it is extremely faint.",
+            "Its star is many millions of times brighter, and its glare drowns out the planet.",
+            "The planet is very close to its star in angle, so a telescope must resolve a tiny separation.",
+            "The distances to other stars are enormous."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "So astronomers look for the effect of the planet on its star. Two methods are used."
+        },
+        {
+          "type": "subheading",
+          "text": "The radial velocity method"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Orbit",
+              "text": "A star and its planet both orbit their common centre of mass, so the star moves in a small circle."
+            },
+            {
+              "lead": "Motion",
+              "text": "Seen from the Earth, the star moves alternately towards us and away from us."
+            },
+            {
+              "lead": "Shift",
+              "text": "Its spectral lines shift to shorter wavelengths, then to longer wavelengths, by the Doppler effect."
+            },
+            {
+              "lead": "Period",
+              "text": "The time for one cycle of the shift is the orbital period of the planet."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The transit method"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Orbit",
+              "text": "The planet's orbit is seen edge-on, so the planet passes in front of its star."
+            },
+            {
+              "lead": "Dip",
+              "text": "The planet blocks a small fraction of the starlight, so the star's brightness drops slightly."
+            },
+            {
+              "lead": "Repeat",
+              "text": "The dip repeats every orbit, and the time between dips is the orbital period."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A typical transit light curve. The brightness of the star is steady, drops sharply when a planet passes in front, stays low during the transit, then returns to the steady level. The drop repeats one orbit later. The vertical scale shows shape, not exact values.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 20,
+              "ticks": [
+                0,
+                5,
+                10,
+                15,
+                20
+              ]
+            },
+            "y": {
+              "label": "Brightness of the star"
+            },
+            "series": [
+              {
+                "name": "Star brightness",
+                "points": [
+                  [
+                    0,
+                    0.9
+                  ],
+                  [
+                    3,
+                    0.9
+                  ],
+                  [
+                    3.4,
+                    0.8
+                  ],
+                  [
+                    5.6,
+                    0.8
+                  ],
+                  [
+                    6,
+                    0.9
+                  ],
+                  [
+                    13,
+                    0.9
+                  ],
+                  [
+                    13.4,
+                    0.8
+                  ],
+                  [
+                    15.6,
+                    0.8
+                  ],
+                  [
+                    16,
+                    0.9
+                  ],
+                  [
+                    20,
+                    0.9
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "A bigger planet blocks more light, so the dip is deeper.",
+            "The planet's orbit must be almost edge-on to us, so many planets pass unnoticed.",
+            "The radial velocity method gives a bigger shift for a massive planet close to its star."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Exoplanets are hard to see directly, as they are faint and lost in the glare of their star.",
+            "Radial velocity: the star's spectral lines shift back and forth, by the Doppler effect.",
+            "Transit: the star's brightness dips regularly as the planet crosses its face."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how the spectrum of a quasar shows that it is very distant.",
+      "a": "Its spectral lines have a very large redshift, so it is receding at high speed. By Hubble's law, v = H₀d, speed is proportional to distance, so a large recession speed means a very large distance.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why it is difficult to detect an exoplanet directly.",
+      "a": "The planet is very faint, as it only reflects light from its star. The star is much brighter and its glare swamps the light from the planet. The planet is also very close to the star in angle, and the star is very far away, so the two are hard to resolve.",
+      "marks": 3
+    },
+    {
+      "q": "Describe the transit method of detecting an exoplanet, and say what the light curve looks like.",
+      "a": "The brightness of the star is monitored. If a planet passes in front of the star it blocks some of the light. The light curve is steady, falls briefly during the transit, then returns to the steady level. The dip repeats once per orbit, and the time between dips gives the orbital period.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.9.3.3",
+        "AQA 3.9.3.4"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "167b93e9-2bf5-42c0-8d35-49f0051a6cee",
+      "e1bf6bc5-174e-46da-af17-df2bb7667fa6"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

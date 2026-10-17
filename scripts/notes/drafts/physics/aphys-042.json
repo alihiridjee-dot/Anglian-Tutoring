@@ -1,0 +1,280 @@
+{
+  "format": 1,
+  "concept_id": "aphys-042",
+  "subject": "physics",
+  "title": "Wave-particle duality and electron diffraction",
+  "key_idea": "Radiation can behave as particles and particles can behave as waves. Electrons fired through graphite diffract, which only waves do. The wavelength of a particle is λ = h/p.",
+  "sections": [
+    {
+      "heading": "Waves and particles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some experiments show waves and some show particles. Both kinds of behaviour are needed to describe light and matter."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Evidence",
+            "Shows"
+          ],
+          "rows": [
+            [
+              "Interference and diffraction of light",
+              "Electromagnetic radiation behaves as a wave"
+            ],
+            [
+              "The photoelectric effect",
+              "Electromagnetic radiation behaves as particles (photons)"
+            ],
+            [
+              "Diffraction of electrons",
+              "Particles such as electrons behave as waves"
+            ]
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Wave-particle duality",
+              "meaning": "The idea that radiation and matter show both wave and particle behaviour."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Light shows wave and particle behaviour.",
+            "Electrons show wave behaviour as well as particle behaviour."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Electron diffraction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Fast electrons in a vacuum tube pass through a thin slice of polycrystalline graphite. They hit a fluorescent screen."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The graphite atoms are regularly spaced, so they act like a diffraction grating for the electrons.",
+            "The screen shows a pattern of concentric rings around a central spot.",
+            "Rings are produced by waves that diffract at the atoms and interfere. A stream of simple particles would give a single central spot.",
+            "This is evidence for the wave nature of electrons."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bright rings are where the electron waves interfere constructively.",
+            "Many tiny crystals point in random directions, which turns spots into full rings.",
+            "The spacing of the atoms is about the same size as the electron wavelength. That is why diffraction occurs."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Electrons diffracted by graphite make a ring pattern.",
+            "Diffraction is a wave property, so electrons behave as waves."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The de Broglie wavelength",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A moving particle has an associated wavelength, called the de Broglie wavelength. It depends on the particle's momentum."
+        },
+        {
+          "type": "equation",
+          "label": "de Broglie wavelength",
+          "formula": "λ = h/p = h/mv",
+          "where": [
+            "λ = de Broglie wavelength (m)",
+            "h = Planck constant, 6.63 × 10⁻³⁴ J s",
+            "p = momentum (kg m/s)",
+            "m = mass (kg)",
+            "v = speed (m/s)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A bigger momentum gives a shorter wavelength.",
+            "Everyday objects have huge momentum, so their wavelength is far too small to notice.",
+            "Electrons have tiny mass, so their wavelength is similar to atomic spacing."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice calculation. Given the speed of an electron, find its de Broglie wavelength in nanometres.",
+            "question": "An electron travels at {v} × 10⁶ m/s. Calculate its de Broglie wavelength in nm. (h = 6.63 × 10⁻³⁴ J s, electron mass = 9.11 × 10⁻³¹ kg)",
+            "variables": [
+              {
+                "id": "v",
+                "min": 1,
+                "max": 10,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "0.7278 / v",
+              "unit": "nm",
+              "decimals": 3
+            },
+            "working": [
+              "p = mv = 9.11 × 10⁻³¹ × {v} × 10⁶ kg m/s",
+              "λ = h/p = 6.63 × 10⁻³⁴ ÷ p",
+              "λ = {answer} nm"
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Changing the momentum changes the diffraction pattern."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Faster electrons have more momentum and a shorter wavelength. The rings become smaller and closer to the centre.",
+            "Slower electrons have a longer wavelength. The rings spread out and are wider.",
+            "Diffraction is greatest when the wavelength is comparable to the gap spacing."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "λ = h/p: more momentum means a shorter wavelength.",
+            "More momentum gives less diffraction: the rings shrink."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what is seen when electrons pass through thin graphite onto a fluorescent screen, and state what it shows.",
+      "a": "A pattern of concentric rings appears around a central spot. This shows that electrons diffract, so they behave as waves.",
+      "marks": 3
+    },
+    {
+      "q": "Calculate the de Broglie wavelength of an electron with momentum 1.2 × 10⁻²⁴ kg m/s. (h = 6.63 × 10⁻³⁴ J s)",
+      "a": "λ = h/p = 6.63 × 10⁻³⁴ ÷ 1.2 × 10⁻²⁴ = 5.5 × 10⁻¹⁰ m.",
+      "marks": 2
+    },
+    {
+      "q": "The accelerating voltage on the electrons increases. State and explain the effect on the diffraction rings.",
+      "a": "The electrons gain more momentum, so their wavelength falls. The rings get smaller (closer to the centre).",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Our understanding of the nature of matter has changed over time."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Particles were first thought to be purely particles, and radiation purely waves.",
+                "New evidence, such as electron diffraction, led to a new model.",
+                "Such changes are checked by peer review and must be validated by the scientific community before they are accepted.",
+                "Details of particular methods of particle diffraction are not required."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Scientific models change when new evidence appears.",
+                "Peer review and the scientific community validate the change."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.86",
+        "EDEX 5.87"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 22.3.1",
+        "CAIE 22.3.2",
+        "CAIE 22.3.3",
+        "CAIE 22.3.4"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.5.3a",
+        "OCR 4.5.3b",
+        "OCR 4.5.3c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "In graphite, the diffraction is caused by the spacing between the atoms, which act as a grating."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Two different spacings in the graphite crystal give two rings.",
+                "A larger electron wavelength gives larger angles of diffraction.",
+                "The pattern is evidence of wave-like behaviour of particles."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Electrons diffract at the atoms of graphite and the spaces between them.",
+                "A longer wavelength gives a larger angle of diffraction."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "c24aa191-eec9-420d-b578-a10fe545fcb5",
+      "c1e211be-569a-4f3b-b885-204378392695",
+      "632a4def-0cc8-4f9d-b827-9fff077f3f4a",
+      "0301df5f-899d-4d45-b108-e1d7ba137811",
+      "bdce563c-9533-42e3-bd8e-00010f7c95f1",
+      "c6240575-f9a6-4dc1-99f9-ae7f3775e359",
+      "33d4506c-6e4b-48d1-ae17-230871f6941c",
+      "8c88fa91-7afd-475f-b72f-9c093271f00b",
+      "691e8cca-5690-487d-8898-bf0b4c83c261",
+      "3d2c521d-0b18-4548-b512-ade8036befba"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

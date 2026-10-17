@@ -1,0 +1,462 @@
+{
+  "format": 1,
+  "concept_id": "abio-007",
+  "subject": "biology",
+  "title": "Factors affecting enzyme activity",
+  "key_idea": "Enzyme activity depends on temperature, pH, enzyme concentration, substrate concentration and inhibitors. Heat and extreme pH change the tertiary structure and denature the enzyme. Inhibitors reduce the rate by blocking or distorting the active site.",
+  "sections": [
+    {
+      "heading": "Temperature",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Temperature changes both the energy of the molecules and the shape of the enzyme."
+        },
+        {
+          "type": "list",
+          "items": [
+            "As temperature rises, molecules have more kinetic energy. They collide more often and more forcefully, so more enzyme-substrate complexes form per second.",
+            "At the **optimum temperature** the rate is highest.",
+            "Above the optimum, vibrations break the hydrogen and ionic bonds that hold the tertiary structure. The active site changes shape and the substrate no longer fits: the enzyme is **denatured**.",
+            "Denaturation by heat is usually irreversible.",
+            "At low temperature the enzyme is not denatured. It has little kinetic energy, so few complexes form."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Move the temperature and watch the enzyme's active site and its relative activity change.",
+            "inputs": [
+              {
+                "id": "t",
+                "label": "Temperature",
+                "unit": "°C",
+                "min": 0,
+                "max": 70,
+                "step": 1,
+                "value": 20
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Relative enzyme activity",
+                "unit": "%",
+                "formula": "max(0, 100 - 0.06 * (t - 40) ^ 2) * min(1, max(0, (65 - t) / 15))",
+                "decimals": 0
+              }
+            ],
+            "scene": {
+              "kind": "enzyme",
+              "condition": "t",
+              "optimum": 40,
+              "denatures_at": 25
+            }
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rate rises with temperature up to the optimum.",
+            "Above the optimum the tertiary structure is lost and the enzyme is denatured.",
+            "Cold slows an enzyme but does not denature it."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "pH",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each enzyme has an optimum pH. Changes in pH change the charges on the R groups of the enzyme."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Extra H⁺ or OH⁻ alters the charges on R groups in the active site, so the substrate is not attracted as well.",
+            "Ionic and hydrogen bonds that hold the tertiary structure break, so the active site changes shape and the enzyme is denatured.",
+            "Optimum pH differs: pepsin in the stomach works best at about pH 2, and amylase in saliva at about pH 7.",
+            "Investigations use **buffer solutions** to hold the pH constant."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Each enzyme has an optimum pH.",
+            "Away from the optimum, bonds break and the active site is distorted."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Enzyme and substrate concentration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "These two factors set how many active sites are available and how many are used."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Rate of reaction against substrate concentration for two enzyme concentrations. Both curves rise and then level off. The curve with twice the enzyme concentration levels off at twice the rate.",
+            "x": {
+              "label": "Substrate concentration",
+              "min": 0,
+              "max": 10,
+              "ticks": [
+                0,
+                5,
+                10
+              ]
+            },
+            "y": {
+              "label": "Rate of reaction"
+            },
+            "series": [
+              {
+                "name": "Enzyme concentration × 1",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0.25
+                  ],
+                  [
+                    2,
+                    0.38
+                  ],
+                  [
+                    4,
+                    0.46
+                  ],
+                  [
+                    7,
+                    0.5
+                  ],
+                  [
+                    10,
+                    0.5
+                  ]
+                ]
+              },
+              {
+                "name": "Enzyme concentration × 2",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0.5
+                  ],
+                  [
+                    2,
+                    0.76
+                  ],
+                  [
+                    4,
+                    0.92
+                  ],
+                  [
+                    7,
+                    1
+                  ],
+                  [
+                    10,
+                    1
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Substrate concentration**: at low concentration, rate rises steeply, because more substrate collides with active sites. At high concentration all active sites are occupied. The enzyme is saturated and the rate reaches a maximum, **Vmax**.",
+            "At the plateau, substrate concentration is no longer limiting. Enzyme concentration (or temperature or pH) is.",
+            "**Enzyme concentration**: with plenty of substrate, rate is proportional to enzyme concentration, because there are more active sites.",
+            "If substrate is limited, adding more enzyme does not increase the rate."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rate rises with substrate concentration, then levels off at Vmax.",
+            "Doubling enzyme concentration doubles the maximum rate if substrate is in excess."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Inhibitors",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An inhibitor reduces the rate of an enzyme-controlled reaction. Reversible inhibitors are of two kinds."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Competitive inhibitor",
+            "Non-competitive inhibitor"
+          ],
+          "rows": [
+            [
+              "Shape",
+              "Similar to the substrate",
+              "Not like the substrate"
+            ],
+            [
+              "Where it binds",
+              "The active site",
+              "Another site on the enzyme"
+            ],
+            [
+              "Effect on the enzyme",
+              "Blocks the active site, so the substrate cannot bind",
+              "Changes the tertiary structure, so the active site no longer fits the substrate"
+            ],
+            [
+              "Effect of more substrate",
+              "Reduces the inhibition, because the substrate outcompetes the inhibitor",
+              "Does not remove the inhibition"
+            ],
+            [
+              "Effect on maximum rate",
+              "Same Vmax can still be reached",
+              "Vmax is lowered"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A higher concentration of inhibitor gives a greater reduction in rate.",
+            "A **reversible** inhibitor binds weakly and can leave the enzyme, so its effect can be reduced."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Competitive inhibitors compete with the substrate for the active site.",
+            "Non-competitive inhibitors bind elsewhere and alter the active site.",
+            "More substrate overcomes competitive inhibition only."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating the rate of an enzyme-controlled reaction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To investigate one variable, change it and keep all the others the same."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Measure rate as product formed ÷ time, or as 1 ÷ time for a colour change such as the disappearance of starch with iodine.",
+            "Control temperature with a water bath, pH with a buffer, and the concentrations and volumes of enzyme and substrate.",
+            "Use a range of at least five values of the independent variable, and repeat to find a mean.",
+            "Prepare a range of concentrations by serial dilution.",
+            "Examples: oxygen from catalase and hydrogen peroxide; disappearance of starch with amylase; clearing of milk by protease."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change one variable and control the rest.",
+            "Rate = amount of product ÷ time, or 1 ÷ time."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why the rate of an enzyme-controlled reaction falls at temperatures above the optimum.",
+      "a": "Hydrogen and ionic bonds in the tertiary structure break. The active site changes shape, so the substrate no longer fits and fewer enzyme-substrate complexes form. The enzyme is denatured.",
+      "marks": 3
+    },
+    {
+      "q": "The rate of an enzyme reaction levels off as substrate concentration increases. Explain why.",
+      "a": "All the active sites are occupied by substrate (the enzyme is saturated), so extra substrate cannot increase the rate. Enzyme concentration has become limiting.",
+      "marks": 2
+    },
+    {
+      "q": "Distinguish between competitive and non-competitive inhibition and say how each is affected by raising substrate concentration.",
+      "a": "A competitive inhibitor is similar in shape to the substrate and binds to the active site, so the substrate cannot bind. More substrate reduces the inhibition. A non-competitive inhibitor binds elsewhere and changes the shape of the active site. More substrate does not remove the inhibition.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.16"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Temperature and its impact on organisms"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Plants**: photosynthesis and growth speed up as temperature rises towards the optimum. High temperatures denature enzymes, so growth slows and leaves can be damaged.",
+                "**Animals**: mammals and birds keep a constant body temperature near the optimum for their enzymes. A high fever can denature enzymes. In ectotherms, activity falls in the cold.",
+                "**Microorganisms**: different species have different optima. Thermophilic bacteria live in hot springs, with enzymes that are stable at high temperatures. Psychrophilic species grow in the cold.",
+                "Cooling slows microbial enzymes, which preserves food. Cooking denatures them."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 3.2.1",
+        "CAIE 3.2.2",
+        "CAIE 3.2.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Vmax and the Michaelis–Menten constant"
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Vmax",
+                  "meaning": "The maximum rate of reaction, reached when every active site is occupied."
+                },
+                {
+                  "term": "Km",
+                  "meaning": "The Michaelis–Menten constant: the substrate concentration at which the rate is half of Vmax."
+                }
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find Vmax.",
+                  "text": "Read the maximum rate from the plateau of the graph of rate against substrate concentration."
+                },
+                {
+                  "lead": "Halve it.",
+                  "text": "Find the rate that is ½ Vmax."
+                },
+                {
+                  "lead": "Read across.",
+                  "text": "The substrate concentration at that rate is Km."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A **low Km** means the enzyme reaches half its maximum rate at a low substrate concentration. It has a high affinity for its substrate.",
+                "A **high Km** means a lot of substrate is needed. The enzyme has a low affinity.",
+                "Km allows the affinity of different enzymes for their substrates to be compared.",
+                "A competitive inhibitor raises Km but leaves Vmax unchanged. A non-competitive inhibitor lowers Vmax."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.4d",
+        "OCR 2.1.4e",
+        "OCR 2.1.4f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Temperature coefficient"
+            },
+            {
+              "type": "equation",
+              "label": "Temperature coefficient (Q₁₀)",
+              "formula": "Q₁₀ = R₂ ÷ R₁",
+              "where": [
+                "R₁ = rate at the lower temperature",
+                "R₂ = rate at a temperature 10 °C higher"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "A Q₁₀ of 2 means the rate doubles for a 10 °C rise. It applies only below the optimum."
+            },
+            {
+              "type": "subheading",
+              "text": "Cofactors and coenzymes"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Some enzymes need a non-protein helper to work.",
+                "A **cofactor** is an inorganic ion. Chloride ions are a cofactor for amylase.",
+                "A **coenzyme** is an organic molecule. Many coenzymes are made from vitamins, for example NAD from niacin.",
+                "Without the cofactor or coenzyme the active site cannot bind the substrate properly."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Further types of inhibition"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Irreversible inhibitors** bind permanently, often by a covalent bond, and the enzyme cannot recover. Adding substrate does not help.",
+                "**End-product inhibition**: the product of a pathway inhibits an earlier enzyme in that pathway. As product builds up, its production slows, which is negative feedback.",
+                "A serial dilution is a good way to make a range of enzyme or substrate concentrations."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.4.2"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "24526010-6df5-4159-bee2-a8686440fdf0",
+      "3b9bbc17-dcd7-4b26-bebc-bddcee7df66f",
+      "14b89544-c1a6-4825-884d-c2b0950019cf",
+      "88baf2af-2957-4f38-80bf-4f032870276a",
+      "a55a4e68-9e9d-4784-b525-6df3ccdd6e93",
+      "c4ecf857-4a0e-4c1b-b491-992e097a3e01",
+      "44d2734c-eeaa-4148-a29a-3418f376f0e0"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}
