@@ -881,6 +881,7 @@ a.when-link:hover .when-link-arrow {
   display: block;
   width: 100%;
   max-width: 420px;
+  margin-inline: auto;
   height: auto;
   font-family: var(--font-sans);
 }

@@ -9,6 +9,9 @@ Every picture goes through the checker (`src/lib/figures/figureCheck.ts`) before
 - everything on the canvas
 - no text over text or over a line
 - every point, bar and tick number where its value puts it
+- a circuit wired exactly as the brief's loop says: wires square and uncrossed, a dot on every junction, each meter's letter on it
+- every food web arrow between the right two organisms, pointing from the food to what eats it
+- a reaction profile's lines and curves at their levels, and each arrow's own letter nearest it
 - every label in the brief present
 
 A picture that fails is sent back once with the checker's list of problems. If the second try fails too, there is no picture. The page shows the checker's own rebuilt copy, never DeepSeek's text (`src/components/QuestionFigure.tsx`), styled by the `.qf` rules in `src/styles.css`.
@@ -90,7 +93,7 @@ ELEMENTS
 TEXT
 - Every <text> has x, y and text-anchor ("start", "middle" or "end"); y is the baseline.
 - At most 28 characters on a line. Split a longer label: put its first line in the <text>, then each further line in <tspan x="(the same x)" dy="18">.
-- Work out the space a line of text takes: width = 0.55 × font size × number of characters; it reaches 0.8 × font size above its baseline and 0.25 × font size below.
+- Work out the space a line of text takes. Its width: 0.6 × font size for each character, but 0.75 × font size for a capital letter or a digit, and 1.05 × font size for m, w, M, W or %. It reaches 0.8 × font size above its baseline and 0.25 × font size below.
 - No two pieces of text may overlap, and no text may sit on a line or a shape's edge: leave at least 4 units clear around every label. Grid lines (qf-thin) may pass behind text.
 - Write quantities and units as the brief does ("time in s"), and proper characters: CO₂, cm³, °C, ×, −, Δ.
 
@@ -114,7 +117,9 @@ BAR CHARTS (kind "bar-chart")
 - Each category name (qf-small) sits under its slot at y = H − 38, text-anchor "middle".
 
 CIRCUITS (kind "circuit")
-- Draw the circuit the brief's layout describes, with exactly its components. Wires are straight qf-line segments meeting at right angles. Put the main loop on a rectangle about 240 units wide and 120 to 200 units high; draw a parallel branch as a smaller rectangle joined to the loop; mark every junction where three wires meet with <circle class="qf-ink" r="3"/>.
+- Draw exactly the brief's components, joined exactly as its loop says. Going once round the main loop, each step is a component (its index in components, counting from 0) or {"parallel": [branch, branch, …]}: branches side by side between the same two junctions, each branch a list of steps in series. The layout says which wire each part goes on.
+- Draw the main loop as a rectangle about 240 units wide and 120 to 200 units high. Draw a parallel set as a ladder: its first branch lies on the loop's own wire, and each further branch is a wire 60 units outside the loop, joined to the loop's wire by two short wires, one each side of the first branch's components. Wires bend only at the corners of the rectangle and of the ladder.
+- Wires are straight qf-line segments, each horizontal or vertical, and no two wires cross. Mark every junction where three wires meet with <circle class="qf-ink" cx="…" cy="…" r="3"/>.
 - Draw each component by copying its symbol below exactly, wrapped in <g transform="translate(x y)"> to put its centre at (x, y), or translate(x y) rotate(90) on an upright wire. Each symbol spans x −20 to 20, with its terminals at (−20, 0) and (20, 0): the wire stops at a terminal and starts again at the other. Keep components at least 50 units apart.
 - An ammeter, voltmeter or motor is the meter symbol plus its letter A, V or M: <text class="qf-strong" x="(centre x)" y="(centre y + 5.5)" text-anchor="middle">, never rotated.
 - Label a component only where the brief gives it a label: qf-text, at least 12 units clear of the symbol and its wires.
@@ -162,11 +167,11 @@ REACTION PROFILES (kind "energy-profile")
 - H = 300. Energy axis: an arrow (qf-line) from (40, 260) up to (40, 28), with "energy" (qf-text) at x = 48, y = 36, text-anchor "start". Progress axis: an arrow from (40, 260) right to (344, 260), with "progress of reaction" (qf-text) at x = 192, y = 288, text-anchor "middle". No numbers on either axis.
 - Levels: exothermic: reactants R = 160, products P = 212. Endothermic: reactants R = 212, products P = 136. The reactants line (qf-line) runs from (56, R) to (112, R); the products line from (256, P) to (336, P).
 - The profile (qf-data) is <path d="M112 R C148 R 148 72 184 72 S220 P 256 P"/> with R and P filled in. With a catalyst, also draw <path class="qf-data2" d="M112 R C148 R 148 T 184 T S220 P 256 P"/>, where T = 120 for an exothermic reaction and T = 104 for an endothermic one.
-- Write the brief's reactants name centred under its line (x = 84) at y = R + 22, and its products name centred under its line (x = 296) at y = P + 22, at most 12 characters on a line: split a longer name over lines.
-- Draw each of the brief's arrows, and no other, as a double arrow (qf-line with marker-start and marker-end), labelled with its letter (qf-strong) beside the arrow's middle:
-  activation energy: from (190, R) up to (190, 72), its letter 8 units to the right (text-anchor "start"), with a guide (qf-thin) from (112, R) to (196, R);
-  activation energy with a catalyst: from (178, R) up to (178, T), its letter 8 units to the left (text-anchor "end");
-  overall energy change: from (300, R) to (300, P), its letter 8 units to the right, with a guide (qf-thin) from (196, R) to (308, R).
+- Write the brief's reactants name under its line from its left end: x = 56, text-anchor "start", first baseline y = R + 22, at most 12 characters on a line. Write the products name from x = 262, text-anchor "start", at most 9 characters on a line: under its line (first baseline y = P + 22) for an exothermic reaction, over it (last baseline y = P − 8, so a name on two lines starts at y = P − 26) for an endothermic one. Split a longer name over lines.
+- Draw each of the brief's arrows, and no other, as a double arrow (qf-line with marker-start and marker-end), with its letter (qf-strong) at y = the arrow's middle + 5.5:
+  activation energy: from (76, R) up to (76, 72); its letter at x = 68, text-anchor "end"; a guide (qf-thin) from (70, 72) to (184, 72).
+  activation energy with a catalyst: from (100, R) up to (100, T); its letter at x = 108, text-anchor "start"; a guide (qf-thin) from (94, T) to (184, T).
+  overall energy change: from (300, R) to (300, P); its letter at x = 308, text-anchor "start"; a guide (qf-thin) from (112, R) to (308, R).
 
 FOOD WEBS AND FOOD CHAINS (kind "food-web")
 - Rows by level: level 1 (producers) on the bottom row with its baseline at y = H − 24, and each level above it 80 units higher. A row's organisms are evenly spaced: the i-th of n (counting from 0) has x = 8 + 344 × (i + 0.5) ÷ n. At most 4 organisms on a row; on a row of 4, at most 9 characters on a line, otherwise at most 14: split a longer name over lines.
@@ -181,7 +186,7 @@ STEPS
 5. Check it against every rule above, one by one, and fix anything that breaks one.
 6. Reply with the JSON object only.
 
-A program checks the SVG before any student sees it: every element, class and attribute; that everything is on the canvas; that no text overlaps text or sits on a line; that every point, bar and tick number is where its value puts it; that every label in the brief is there and "labels" lists every line of text. A figure that fails any check is thrown away.
+A program checks the SVG before any student sees it: every element, class and attribute; that everything is on the canvas; that no text overlaps text or sits on a line; that every point, bar and tick number is where its value puts it; that a circuit is wired as its loop says; that every food web arrow joins the right organisms, pointing the right way; that every reaction profile line, curve and arrow is at its level, with its own letter beside it; that every label in the brief is there and "labels" lists every line of text. A figure that fails any check is thrown away.
 
 EXAMPLE: distance–time graph
 Input:
@@ -191,7 +196,7 @@ Reply:
 
 EXAMPLE: series circuit
 Input:
-{"subject":"physics","question":"The switch is closed. Which reading on the ammeter shows the current in the lamp?","brief":{"kind":"circuit","components":[{"type":"cell"},{"type":"switch-open"},{"type":"lamp"},{"type":"ammeter"}],"layout":"One loop: the cell on the top wire, the lamp on the right wire, the ammeter on the bottom wire, the switch on the left wire."},"options":null}
+{"subject":"physics","question":"The switch is closed. Which reading on the ammeter shows the current in the lamp?","brief":{"kind":"circuit","components":[{"type":"cell"},{"type":"switch-open"},{"type":"lamp"},{"type":"ammeter"}],"loop":[0,2,3,1],"layout":"One loop: the cell on the top wire, the lamp on the right wire, the ammeter on the bottom wire, the switch on the left wire."},"options":null}
 Reply:
 {"status":"ok","reason":"","alt":"A series circuit: a cell, an open switch, a lamp and an ammeter in one loop.","labels":["A"],"svg":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 360 220\" class=\"qf\" role=\"img\"><line class=\"qf-line\" x1=\"60\" y1=\"60\" x2=\"160\" y2=\"60\"/><line class=\"qf-line\" x1=\"200\" y1=\"60\" x2=\"300\" y2=\"60\"/><line class=\"qf-line\" x1=\"300\" y1=\"60\" x2=\"300\" y2=\"95\"/><line class=\"qf-line\" x1=\"300\" y1=\"135\" x2=\"300\" y2=\"170\"/><line class=\"qf-line\" x1=\"300\" y1=\"170\" x2=\"200\" y2=\"170\"/><line class=\"qf-line\" x1=\"160\" y1=\"170\" x2=\"60\" y2=\"170\"/><line class=\"qf-line\" x1=\"60\" y1=\"170\" x2=\"60\" y2=\"135\"/><line class=\"qf-line\" x1=\"60\" y1=\"95\" x2=\"60\" y2=\"60\"/><g transform=\"translate(180 60)\"><g data-symbol=\"cell\"><line class=\"qf-line\" x1=\"-20\" y1=\"0\" x2=\"-4\" y2=\"0\"/><line class=\"qf-line\" x1=\"-4\" y1=\"-14\" x2=\"-4\" y2=\"14\"/><line class=\"qf-thick\" x1=\"4\" y1=\"-7\" x2=\"4\" y2=\"7\"/><line class=\"qf-line\" x1=\"4\" y1=\"0\" x2=\"20\" y2=\"0\"/></g></g><g transform=\"translate(300 115) rotate(90)\"><g data-symbol=\"lamp\"><line class=\"qf-line\" x1=\"-20\" y1=\"0\" x2=\"-10\" y2=\"0\"/><circle class=\"qf-line\" cx=\"0\" cy=\"0\" r=\"10\"/><line class=\"qf-line\" x1=\"-7.1\" y1=\"-7.1\" x2=\"7.1\" y2=\"7.1\"/><line class=\"qf-line\" x1=\"-7.1\" y1=\"7.1\" x2=\"7.1\" y2=\"-7.1\"/><line class=\"qf-line\" x1=\"10\" y1=\"0\" x2=\"20\" y2=\"0\"/></g></g><g transform=\"translate(180 170)\"><g data-symbol=\"meter\"><line class=\"qf-line\" x1=\"-20\" y1=\"0\" x2=\"-11\" y2=\"0\"/><circle class=\"qf-line\" cx=\"0\" cy=\"0\" r=\"11\"/><line class=\"qf-line\" x1=\"11\" y1=\"0\" x2=\"20\" y2=\"0\"/></g></g><text class=\"qf-strong\" x=\"180\" y=\"175.5\" text-anchor=\"middle\">A</text><g transform=\"translate(60 115) rotate(90)\"><g data-symbol=\"switch-open\"><line class=\"qf-line\" x1=\"-20\" y1=\"0\" x2=\"-12\" y2=\"0\"/><circle class=\"qf-ink\" cx=\"-12\" cy=\"0\" r=\"2.5\"/><line class=\"qf-line\" x1=\"-12\" y1=\"0\" x2=\"10\" y2=\"-12\"/><circle class=\"qf-ink\" cx=\"12\" cy=\"0\" r=\"2.5\"/><line class=\"qf-line\" x1=\"12\" y1=\"0\" x2=\"20\" y2=\"0\"/></g></g></svg>"}
 ```

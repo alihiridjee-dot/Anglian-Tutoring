@@ -7,9 +7,11 @@
  * classes, plain numbers. Then the drawing is checked: everything on the
  * canvas, no text over text or over a line, every plotted point and bar where
  * its value puts it, every tick number where its value is, every label the
- * brief names. A figure with any problem is never shown. A figure that passes
- * reaches the page only as `svg`, rebuilt from the parsed tree, so nothing the
- * contract doesn't name can get through.
+ * brief names, and what decides an answer: a circuit's wiring, a food web's
+ * arrows, a reaction profile's levels and which letter labels which arrow. A
+ * figure with any problem is never shown. A figure that passes reaches the
+ * page only as `svg`, rebuilt from the parsed tree, so nothing the contract
+ * doesn't name can get through.
  */
 import {
   ARROW_DEFS,
@@ -19,12 +21,18 @@ import {
   FIGURE_CLASSES,
   MAX_LINE,
   PLOT,
+  PROFILE,
   TEXT_SIZE,
   plotX,
   plotY,
+  textWidth,
+  type CircuitBrief,
+  type CircuitStep,
   type FigureBrief,
   type FigureClass,
   type KnownBrief,
+  type ProfileBrief,
+  type WebBrief,
   type FigureReply,
 } from "./figure";
 
@@ -196,7 +204,7 @@ function pathPolylines(d: string): Pt[][] | null {
   let line: Pt[] = [];
   let i = 0;
   const num = () => Number(tokens[i++]);
-  const bezier = (p: Pt[], steps = 8) => {
+  const bezier = (p: Pt[], steps = 16) => {
     for (let k = 1; k <= steps; k++) {
       const t = k / steps;
       const pt =
@@ -280,6 +288,28 @@ const boxOf = (pts: Pt[]): Box => ({
   x1: Math.max(...pts.map((p) => p[0])),
   y1: Math.max(...pts.map((p) => p[1])),
 });
+/** How far a point is from a box: 0 inside it. */
+const distanceTo = ([x, y]: Pt, b: Box) =>
+  Math.hypot(Math.max(b.x0 - x, 0, x - b.x1), Math.max(b.y0 - y, 0, y - b.y1));
+/** How far a point is from a segment. */
+function distanceToSegment(p: Pt, [a, b]: [Pt, Pt]): number {
+  const [dx, dy] = [b[0] - a[0], b[1] - a[1]];
+  const t = Math.max(
+    0,
+    Math.min(1, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / (dx * dx + dy * dy || 1)),
+  );
+  return Math.hypot(p[0] - a[0] - t * dx, p[1] - a[1] - t * dy);
+}
+/** Half of each line style's stroke: text must clear the stroke, not just its centre line. */
+const STROKE_HALF: Partial<Record<string, number>> = {
+  "qf-line": 1,
+  "qf-thick": 2,
+  "qf-data": 1.5,
+  "qf-data2": 1.5,
+  "qf-box": 0.75,
+};
+/** Characters that reach below the baseline. */
+const DESCENDS = /[gjpqy,;()₂₃₄]/;
 
 /** Whether a segment crosses a box (Liang–Barsky). */
 function crosses([a, b]: [Pt, Pt], box: Box): boolean {
@@ -314,6 +344,27 @@ type Label = {
   y: number;
   anchor: string;
 };
+/** A line with an arrowhead: from its first point to its last, with a head at its start, its end or both. */
+type Arrow = { from: Pt; to: Pt; start: boolean; end: boolean };
+/** A circuit symbol as placed: its type, its centre and its two terminals. */
+type Part = { type: string; centre: Pt; ends: [Pt, Pt] };
+/** Everything the drawing holds that a brief is checked against. */
+type Drawing = {
+  H: number;
+  labels: Label[];
+  segments: { seg: [Pt, Pt]; cls: string }[];
+  dots: { at: Pt; x: number; y: number; cls: string }[];
+  bars: { box: Box; value: number; cls: string }[];
+  dataLines: { pts: Pt[]; cls: string }[];
+  /** Each qf-data or qf-data2 path, sampled. */
+  curves: { pts: Pt[]; cls: string }[];
+  arrows: Arrow[];
+  parts: Part[];
+  /** Circuit wires: qf-line segments outside the symbols. */
+  wires: [Pt, Pt][];
+  /** Junction dots: qf-ink circles outside the symbols. */
+  junctions: Pt[];
+};
 
 // ── The check ───────────────────────────────────────────────────────────────
 
@@ -346,12 +397,21 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
   if (root.attrs.role !== "img") problems.push('The <svg> lacks role="img"');
 
   const height = Number.isFinite(H) ? H : 480;
-  const labels: Label[] = [];
-  const segments: { seg: [Pt, Pt]; cls: string }[] = [];
-  const dots: { at: Pt; x: number; y: number; cls: string }[] = [];
-  const bars: { box: Box; value: number; cls: string }[] = [];
-  const dataLines: { pts: Pt[]; cls: string }[] = [];
-  const symbols: string[] = [];
+  const drawing: Drawing = {
+    H: height,
+    labels: [],
+    segments: [],
+    dots: [],
+    bars: [],
+    dataLines: [],
+    curves: [],
+    arrows: [],
+    parts: [],
+    wires: [],
+    junctions: [],
+  };
+  const { labels, segments, dots, bars, dataLines, curves, arrows, parts, wires, junctions } =
+    drawing;
   let owner = 0;
 
   const inCanvas = (p: Pt) =>
@@ -361,7 +421,8 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
     p[1] <= height - CANVAS_MARGIN + 0.5;
   const outside = new Set<string>();
 
-  const visit = (n: Node, m: Matrix, path: string) => {
+  /** `inSymbol`: inside a circuit symbol, whose lines are its own, not wires. */
+  const visit = (n: Node, m: Matrix, path: string, inSymbol = false) => {
     const allowed = ELEMENTS[n.name];
     const where = `${path}<${n.name}>`;
     if (!allowed) {
@@ -408,18 +469,31 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
       if (abs.some((p) => !inCanvas(p))) outside.add(where);
       return abs;
     };
+    const arrowOf = (pts: Pt[]) => {
+      const [start, end] = ["marker-start", "marker-end"].map((a) => a in n.attrs);
+      if (start || end) arrows.push({ from: pts[0], to: pts[pts.length - 1], start, end });
+    };
 
     switch (n.name) {
-      case "g":
-        if (n.attrs["data-symbol"]) symbols.push(n.attrs["data-symbol"]);
-        n.children.forEach((c) => visit(c, own, `${where} `));
+      case "g": {
+        const symbol = n.attrs["data-symbol"];
+        if (symbol)
+          parts.push({
+            type: symbol,
+            centre: apply(own, [0, 0]),
+            ends: [apply(own, [-20, 0]), apply(own, [20, 0])],
+          });
+        n.children.forEach((c) => visit(c, own, `${where} `, inSymbol || !!symbol));
         return;
+      }
       case "line": {
         const [a, b] = keep([
           [num("x1"), num("y1")],
           [num("x2"), num("y2")],
         ]);
         segments.push({ seg: [a, b], cls: cls ?? "" });
+        if (cls === "qf-line" && !inSymbol) wires.push([a, b]);
+        arrowOf([a, b]);
         break;
       }
       case "polyline":
@@ -431,9 +505,13 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
         }
         const abs = keep(pts);
         if (n.name === "polygon") abs.push(abs[0]);
-        for (let k = 1; k < abs.length; k++)
+        for (let k = 1; k < abs.length; k++) {
           segments.push({ seg: [abs[k - 1], abs[k]], cls: cls ?? "" });
+          if (cls === "qf-line" && !inSymbol && n.name === "polyline")
+            wires.push([abs[k - 1], abs[k]]);
+        }
         if (cls === "qf-data" || cls === "qf-data2") dataLines.push({ pts: abs, cls });
+        if (n.name === "polyline") arrowOf(abs);
         break;
       }
       case "rect": {
@@ -459,6 +537,8 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
         ]);
         if (cls === "qf-dot" && "data-x" in n.attrs)
           dots.push({ at: apply(own, [cx, cy]), x: num("data-x"), y: num("data-y"), cls });
+        if (cls === "qf-ink" && n.name === "circle" && !inSymbol)
+          junctions.push(apply(own, [cx, cy]));
         break;
       }
       case "path": {
@@ -467,11 +547,15 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
           problems.push(`${where} d may use only the absolute commands M L H V C S Q Z`);
           break;
         }
+        const all: Pt[] = [];
         for (const l of lines) {
           const abs = keep(l);
+          all.push(...abs);
           for (let k = 1; k < abs.length; k++)
             segments.push({ seg: [abs[k - 1], abs[k]], cls: cls ?? "" });
         }
+        if ((cls === "qf-data" || cls === "qf-data2") && all.length) curves.push({ pts: all, cls });
+        if (all.length) arrowOf(all);
         break;
       }
       case "text": {
@@ -503,12 +587,14 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
           const chars = [...l.text].length;
           if (chars > MAX_LINE)
             problems.push(`Text "${l.text}" is longer than ${MAX_LINE} characters on one line`);
-          const w = 0.55 * size * chars;
+          // As wide as the site's face draws it; as deep as its letters reach.
+          const w = textWidth(l.text, size);
+          const below = (DESCENDS.test(l.text) ? 0.25 : 0.05) * size;
           const x0 = anchor === "middle" ? l.x - w / 2 : anchor === "end" ? l.x - w : l.x;
           const corners = keep([
             [x0, l.y - 0.8 * size],
-            [x0 + w, l.y + 0.25 * size],
-            [x0, l.y + 0.25 * size],
+            [x0 + w, l.y + below],
+            [x0, l.y + below],
             [x0 + w, l.y - 0.8 * size],
           ]);
           labels.push({
@@ -531,24 +617,26 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
   for (const w of outside)
     problems.push(`${w} goes outside the canvas (keep ${CANVAS_MARGIN} units clear of every edge)`);
 
-  // Text over text, and text over a line.
+  // Text over text, and text over a line: two labels keep 2 units apart, and a
+  // label keeps clear of every stroke but a grid line's.
   for (let a = 0; a < labels.length; a++)
     for (let b = a + 1; b < labels.length; b++)
       if (
         labels[a].owner !== labels[b].owner &&
-        overlaps(grow(labels[a].box, 2), grow(labels[b].box, 2))
+        overlaps(grow(labels[a].box, 1), grow(labels[b].box, 1))
       )
         problems.push(`Text "${labels[a].text}" overlaps text "${labels[b].text}"`);
   for (const l of labels) {
-    const inner = grow(l.box, -1);
-    const hit = segments.find((s) => s.cls !== "qf-thin" && crosses(s.seg, inner));
-    if (hit) problems.push(`Text "${l.text}" sits on a line`);
+    const hit = segments.find(
+      (s) => s.cls !== "qf-thin" && crosses(s.seg, grow(l.box, STROKE_HALF[s.cls] ?? 0)),
+    );
+    if (hit)
+      problems.push(
+        `Text "${l.text}" sits on a line (the ${hit.cls} from (${fmt(hit.seg[0][0])}, ${fmt(hit.seg[0][1])}) to (${fmt(hit.seg[1][0])}, ${fmt(hit.seg[1][1])}))`,
+      );
   }
 
-  if (brief)
-    problems.push(
-      ...briefProblems(brief, height, labels, dots, bars, dataLines, segments, symbols),
-    );
+  if (brief) problems.push(...briefProblems(brief, drawing));
   return {
     problems,
     svg: serialize(root),
@@ -561,16 +649,8 @@ const near = (a: number, b: number, by = 0.6) => Math.abs(a - b) <= by;
 const fmt = (v: number) => String(Number(v.toFixed(2)));
 
 /** What the brief asks for that the drawing doesn't show, or shows in the wrong place. */
-function briefProblems(
-  brief: FigureBrief,
-  H: number,
-  labels: Label[],
-  dots: { at: Pt; x: number; y: number; cls: string }[],
-  bars: { box: Box; value: number; cls: string }[],
-  dataLines: { pts: Pt[]; cls: string }[],
-  segments: { seg: [Pt, Pt]; cls: string }[],
-  symbols: string[],
-): string[] {
+function briefProblems(brief: FigureBrief, d: Drawing): string[] {
+  const { H, labels, dots, bars, dataLines, segments } = d;
   const out: string[] = [];
   const texts = labels.map((l) => l.text);
   // A label split over lines (tspans) counts as written in full.
@@ -584,23 +664,23 @@ function briefProblems(
     if (!texts.includes(t.trim()) && !whole.includes(t.trim()))
       out.push(`The ${what} "${t}" is missing`);
   };
+  const hasLine = (a: Pt, c: Pt) =>
+    segments.some(
+      (s) =>
+        s.cls === "qf-line" &&
+        ((near(s.seg[0][0], a[0]) &&
+          near(s.seg[0][1], a[1]) &&
+          near(s.seg[1][0], c[0]) &&
+          near(s.seg[1][1], c[1])) ||
+          (near(s.seg[1][0], a[0]) &&
+            near(s.seg[1][1], a[1]) &&
+            near(s.seg[0][0], c[0]) &&
+            near(s.seg[0][1], c[1]))),
+    );
   const k = brief as KnownBrief;
 
   if (k.kind === "line-graph" || k.kind === "scatter" || k.kind === "bar-chart") {
     const bottom = H - PLOT.bottomGap;
-    const hasLine = (a: Pt, c: Pt) =>
-      segments.some(
-        (s) =>
-          s.cls === "qf-line" &&
-          ((near(s.seg[0][0], a[0]) &&
-            near(s.seg[0][1], a[1]) &&
-            near(s.seg[1][0], c[0]) &&
-            near(s.seg[1][1], c[1])) ||
-            (near(s.seg[1][0], a[0]) &&
-              near(s.seg[1][1], a[1]) &&
-              near(s.seg[0][0], c[0]) &&
-              near(s.seg[0][1], c[1]))),
-      );
     if (!hasLine([PLOT.left, bottom], [PLOT.right, bottom]))
       out.push("The x axis is not drawn where the plot area says");
     if (!hasLine([PLOT.left, PLOT.top], [PLOT.left, bottom]))
@@ -625,9 +705,9 @@ function briefProblems(
     case "scatter": {
       const wanted = k.series.flatMap((s) => s.points);
       for (const [x, y] of wanted) {
-        const d = dots.find((p) => p.x === x && p.y === y);
-        if (!d) out.push(`The point (${fmt(x)}, ${fmt(y)}) is missing or has no data-x/data-y`);
-        else if (!near(d.at[0], plotX(x, k.x)) || !near(d.at[1], plotY(y, k.y, H)))
+        const p = dots.find((p) => p.x === x && p.y === y);
+        if (!p) out.push(`The point (${fmt(x)}, ${fmt(y)}) is missing or has no data-x/data-y`);
+        else if (!near(p.at[0], plotX(x, k.x)) || !near(p.at[1], plotY(y, k.y, H)))
           out.push(`The point (${fmt(x)}, ${fmt(y)}) is not where its values put it`);
       }
       if (dots.length !== wanted.length)
@@ -656,7 +736,8 @@ function briefProblems(
       break;
     }
     case "circuit": {
-      const count = (t: string) => symbols.filter((s) => s === t).length;
+      const types = d.parts.map((p) => p.type);
+      const count = (t: string) => types.filter((s) => s === t).length;
       const wanted = new Map<string, number>();
       for (const c of k.components) {
         const t = ["ammeter", "voltmeter", "motor"].includes(c.type) ? "meter" : c.type;
@@ -666,7 +747,7 @@ function briefProblems(
       for (const [t, n] of wanted)
         if (count(t) !== n)
           out.push(`The circuit has ${count(t)} ${t} symbol(s); the brief has ${n}`);
-      for (const s of new Set(symbols))
+      for (const s of new Set(types))
         if (!wanted.has(s)) out.push(`The circuit has a ${s} the brief doesn't`);
       for (const [type, letter] of [
         ["ammeter", "A"],
@@ -678,18 +759,373 @@ function briefProblems(
           k.components.filter((c) => c.type === type).length
         )
           out.push(`Every ${type} needs its letter ${letter}`);
+      // The wiring is only worth comparing once every part is there.
+      if (!out.length) out.push(...wiringProblems(k, d));
       break;
     }
     case "energy-profile":
       need(k.reactants, "reactants name");
       need(k.products, "products name");
       k.arrows.forEach((a) => need(a.letter, `letter for the ${a.shows} arrow`));
+      out.push(...profileProblems(k, d, hasLine));
       break;
     case "food-web":
       k.organisms.forEach((o) => need(o.name, "organism"));
+      out.push(...webProblems(k, d));
       break;
   }
   return out;
+}
+
+const at = (p: Pt) => `(${fmt(p[0])}, ${fmt(p[1])})`;
+
+/**
+ * A reaction profile drawn at its fixed levels (figure.ts PROFILE): the two
+ * level lines, each curve from reactants to products over its top, and each
+ * of the brief's arrows between its levels with its own letter nearest it.
+ * These decide answers: which reaction gives out energy, which arrow is which.
+ */
+function profileProblems(
+  k: ProfileBrief,
+  d: Drawing,
+  hasLine: (a: Pt, c: Pt) => boolean,
+): string[] {
+  const out: string[] = [];
+  const levels = PROFILE.levels[k.reaction];
+  if (!levels) return ['The brief\'s reaction must be "exothermic" or "endothermic"'];
+  const { R, P, T } = levels;
+  const top = PROFILE.top;
+  if (!hasLine([56, R], [112, R]))
+    out.push(`The reactants line is not at its ${k.reaction} level: (56, ${R}) to (112, ${R})`);
+  if (!hasLine([256, P], [336, P]))
+    out.push(`The products line is not at its ${k.reaction} level: (256, ${P}) to (336, ${P})`);
+
+  const runs = (c: { pts: Pt[] }, peak: number) => {
+    const [first, last] = [c.pts[0], c.pts[c.pts.length - 1]];
+    return (
+      near(first[0], 112, 1) &&
+      near(first[1], R, 1) &&
+      near(last[0], 256, 1) &&
+      near(last[1], P, 1) &&
+      near(Math.min(...c.pts.map((p) => p[1])), peak, 1)
+    );
+  };
+  const solid = d.curves.filter((c) => c.cls === "qf-data");
+  if (solid.length !== 1 || !runs(solid[0], top))
+    out.push(
+      `The profile (qf-data) must be one path from the reactants (112, ${R}) over its top at y = ${top} to the products (256, ${P})`,
+    );
+  const dashed = d.curves.filter((c) => c.cls === "qf-data2");
+  if (k.catalyst && (dashed.length !== 1 || !runs(dashed[0], T)))
+    out.push(
+      `The catalysed profile (qf-data2) must be one path from (112, ${R}) over its top at y = ${T} to (256, ${P})`,
+    );
+  if (!k.catalyst && dashed.length)
+    out.push("The brief has no catalyst, so there is no second profile");
+
+  const spans: Record<string, [number, number]> = {
+    "activation energy": [R, top],
+    "activation energy with a catalyst": [R, T],
+    "overall energy change": [R, P],
+  };
+  const isSpan = (a: Arrow, [y1, y2]: [number, number]) =>
+    near(a.from[0], a.to[0], 1) &&
+    ((near(a.from[1], y1, 1) && near(a.to[1], y2, 1)) ||
+      (near(a.from[1], y2, 1) && near(a.to[1], y1, 1)));
+  const doubles = d.arrows.filter((a) => a.start && a.end);
+  const letters = d.labels.filter((l) => l.cls === "qf-strong");
+  for (const want of k.arrows) {
+    const span = spans[want.shows];
+    if (!span) {
+      out.push(`The brief's arrow "${want.shows}" is not one a reaction profile has`);
+      continue;
+    }
+    const found = doubles.filter((a) => isSpan(a, span));
+    if (found.length !== 1) {
+      out.push(
+        found.length
+          ? `There are ${found.length} ${want.shows} arrows; the brief has one`
+          : `The ${want.shows} arrow is missing: a double arrow from y = ${span[0]} to y = ${span[1]}`,
+      );
+      continue;
+    }
+    const middle: Pt = [
+      (found[0].from[0] + found[0].to[0]) / 2,
+      (found[0].from[1] + found[0].to[1]) / 2,
+    ];
+    const nearest = letters
+      .map((l) => ({ l, gap: distanceTo(middle, l.box) }))
+      .sort((a, b) => a.gap - b.gap)[0];
+    if (!nearest || nearest.gap > 20)
+      out.push(`The letter "${want.letter}" is not beside the ${want.shows} arrow`);
+    else if (nearest.l.text !== want.letter)
+      out.push(
+        `The letter beside the ${want.shows} arrow is "${nearest.l.text}"; the brief gives it "${want.letter}"`,
+      );
+  }
+  for (const a of doubles)
+    if (!k.arrows.some((w) => spans[w.shows] && isSpan(a, spans[w.shows])))
+      out.push(`The double arrow from ${at(a.from)} to ${at(a.to)} is not one the brief asks for`);
+  return out;
+}
+
+/**
+ * A food web's arrows, each read from its tail to its head and matched to the
+ * names nearest its two ends: exactly the brief's [food, eater] pairs, each
+ * pointing from the food to what eats it.
+ */
+function webProblems(k: WebBrief, d: Drawing): string[] {
+  const out: string[] = [];
+  // Each organism's name as one box, its lines together.
+  const names = [...new Set(d.labels.map((l) => l.owner))].map((o) => {
+    const lines = d.labels.filter((l) => l.owner === o);
+    return {
+      name: lines.map((l) => l.text).join(" "),
+      box: boxOf(lines.flatMap((l) => [[l.box.x0, l.box.y0] as Pt, [l.box.x1, l.box.y1] as Pt])),
+    };
+  });
+  const nameAt = (p: Pt) =>
+    names
+      .map((n) => ({ ...n, gap: distanceTo(p, n.box) }))
+      .filter((n) => n.gap <= 16)
+      .sort((a, b) => a.gap - b.gap)[0]?.name;
+  const drawn = new Map<string, number>();
+  for (const a of d.arrows) {
+    if (a.start === a.end) {
+      out.push(
+        `The arrow from ${at(a.from)} to ${at(a.to)} needs one head, at the end by what eats the food`,
+      );
+      continue;
+    }
+    const [tail, head] = a.end ? [a.from, a.to] : [a.to, a.from];
+    const food = nameAt(tail);
+    const eater = nameAt(head);
+    if (!food || !eater) {
+      out.push(
+        `The arrow from ${at(tail)} to ${at(head)} ${food ? "ends" : "starts"} away from every name`,
+      );
+      continue;
+    }
+    drawn.set(`${food}→${eater}`, (drawn.get(`${food}→${eater}`) ?? 0) + 1);
+  }
+  const wanted = new Set(k.eaten.map(([food, eater]) => `${food}→${eater}`));
+  for (const [food, eater] of k.eaten) {
+    const n = drawn.get(`${food}→${eater}`) ?? 0;
+    if (n > 1) out.push(`There are ${n} arrows from ${food} to ${eater}`);
+    else if (!n)
+      out.push(
+        drawn.has(`${eater}→${food}`)
+          ? `The arrow between ${food} and ${eater} points the wrong way: it must point from ${food} to ${eater}, the food to what eats it`
+          : `There is no arrow from ${food} to ${eater}`,
+      );
+  }
+  for (const pair of drawn.keys()) {
+    const [food, eater] = pair.split("→");
+    if (!wanted.has(pair) && !wanted.has(`${eater}→${food}`))
+      out.push(`The arrow from ${food} to ${eater} is not in the brief`);
+  }
+  return out;
+}
+
+/** A component as wiring compares it: its type, and its label when it has one. */
+type Edge = { part: string; a: number; b: number };
+
+/**
+ * The circuit's wiring: which component ends each wire joins (a wire's end
+ * on another wire's middle joins it; wires that cross don't), compared with
+ * the brief's loop. Also: wires straight and square, none crossing, a dot on
+ * every junction.
+ */
+function wiringProblems(k: CircuitBrief, d: Drawing): string[] {
+  const out: string[] = [];
+  const named = (c: CircuitBrief["components"][number]) =>
+    c.label ? `${c.type} "${c.label}"` : c.type;
+
+  // The loop the brief describes, as nets (numbered junctions) and the parts between them.
+  const want: Edge[] = [];
+  const used: number[] = [];
+  let nets = 1;
+  let brokenBrief = false;
+  const walk = (steps: CircuitStep[], from: number, to: number) => {
+    if (!steps.length) brokenBrief = true;
+    let here = from;
+    steps.forEach((s, i) => {
+      const next = i === steps.length - 1 ? to : nets++;
+      if (typeof s === "number") {
+        used.push(s);
+        if (k.components[s]) want.push({ part: named(k.components[s]), a: here, b: next });
+        else brokenBrief = true;
+      } else for (const branch of s.parallel ?? []) walk(branch, here, next);
+      here = next;
+    });
+  };
+  walk(k.loop ?? [], 0, 0);
+  if (
+    brokenBrief ||
+    (k.loop ?? []).length < 2 ||
+    used.length !== k.components.length ||
+    new Set(used).size !== used.length
+  )
+    return ["The brief's loop must name every component once, in at least two steps"];
+
+  // The wires as drawn.
+  for (const [a, b] of d.wires)
+    if (!near(a[0], b[0], 0.5) && !near(a[1], b[1], 0.5))
+      out.push(`The wire from ${at(a)} to ${at(b)} is slanted: wires run across or up and down`);
+  for (let i = 0; i < d.wires.length; i++)
+    for (let j = i + 1; j < d.wires.length; j++) {
+      const [s, t] = [d.wires[i], d.wires[j]];
+      const ends = [...s, ...t];
+      const meet = ends.some(
+        (p) => distanceToSegment(p, s) < 0.75 && distanceToSegment(p, t) < 0.75,
+      );
+      if (!meet && crosses(s, boxOf([t[0], t[1]])) && crosses(t, boxOf([s[0], s[1]])))
+        out.push(`The wires from ${at(s[0])} and from ${at(t[0])} cross: route them apart`);
+    }
+
+  // Points, joined into nets by the wires.
+  const points: Pt[] = [];
+  const id = (p: Pt) => {
+    const i = points.findIndex((q) => near(q[0], p[0], 0.75) && near(q[1], p[1], 0.75));
+    if (i >= 0) return i;
+    points.push(p);
+    return points.length - 1;
+  };
+  const parent: number[] = [];
+  const root = (i: number): number =>
+    parent[i] === undefined || parent[i] === i ? i : (parent[i] = root(parent[i]));
+  const join = (a: number, b: number) => {
+    parent[root(a)] = root(b);
+  };
+  for (const [a, b] of d.wires) join(id(a), id(b));
+  const ends = d.parts.map((p) => p.ends.map(id) as [number, number]);
+  // A wire's end, or a terminal, on another wire's middle joins that wire.
+  const meets = points.map(() => 0);
+  for (const [a, b] of d.wires) {
+    meets[id(a)]++;
+    meets[id(b)]++;
+  }
+  for (const [x, y] of ends) {
+    meets[x]++;
+    meets[y]++;
+  }
+  points.forEach((p, i) => {
+    for (const w of d.wires)
+      if (
+        distanceToSegment(p, w) < 0.75 &&
+        Math.hypot(p[0] - w[0][0], p[1] - w[0][1]) > 0.75 &&
+        Math.hypot(p[0] - w[1][0], p[1] - w[1][1]) > 0.75
+      ) {
+        join(i, id(w[0]));
+        meets[i] += 2;
+      }
+  });
+  points.forEach((p, i) => {
+    if (meets[i] >= 3 && !d.junctions.some((j) => near(j[0], p[0], 1.5) && near(j[1], p[1], 1.5)))
+      out.push(`The junction at ${at(p)} needs a dot: <circle class="qf-ink" r="3"/>`);
+  });
+
+  // Each part between its two nets, typed as drawn: a meter by the letter at its centre,
+  // a labelled part by the label nearest it.
+  const meterLetter: Record<string, string> = { A: "ammeter", V: "voltmeter", M: "motor" };
+  const brieflabels = new Set(k.components.map((c) => c.label).filter(Boolean));
+  const tags = new Map<number, string>();
+  for (const l of d.labels) {
+    if (!brieflabels.has(l.text)) continue;
+    const centre: Pt = [(l.box.x0 + l.box.x1) / 2, (l.box.y0 + l.box.y1) / 2];
+    const nearest = d.parts
+      .map((p, i) => ({ i, gap: Math.hypot(p.centre[0] - centre[0], p.centre[1] - centre[1]) }))
+      .sort((a, b) => a.gap - b.gap)[0];
+    if (nearest && nearest.gap <= 48) tags.set(nearest.i, l.text);
+  }
+  const netOf = new Map<number, number>();
+  const net = (i: number) => {
+    const r = root(i);
+    if (!netOf.has(r)) netOf.set(r, netOf.size);
+    return netOf.get(r)!;
+  };
+  const drawn: Edge[] = d.parts.map((p, i) => {
+    let type = p.type;
+    if (type === "meter") {
+      const letter = d.labels.find(
+        (l) =>
+          l.cls === "qf-strong" &&
+          near(l.x, p.centre[0], 1.5) &&
+          near(l.y, p.centre[1] + 5.5, 1.5) &&
+          meterLetter[l.text],
+      );
+      type = letter ? meterLetter[letter.text] : "meter";
+    }
+    const tag = tags.get(i);
+    return { part: tag ? `${type} "${tag}"` : type, a: net(ends[i][0]), b: net(ends[i][1]) };
+  });
+
+  for (const e of drawn)
+    if (e.a === e.b) out.push(`The ${e.part} is shorted: a wire joins its two ends`);
+  const loose = new Map<number, number>();
+  for (const e of drawn) for (const n of [e.a, e.b]) loose.set(n, (loose.get(n) ?? 0) + 1);
+  for (const [n, count] of loose)
+    if (count === 1) {
+      const e = drawn.find((e) => e.a === n || e.b === n)!;
+      out.push(`One end of the ${e.part} is joined to nothing else`);
+    }
+  if (!sameWiring(drawn, netOf.size, want, nets)) {
+    const show = (edges: Edge[], n: number) =>
+      Array.from({ length: n }, (_, i) =>
+        edges
+          .flatMap((e) => [e.a === i ? e.part : null, e.b === i ? e.part : null])
+          .filter(Boolean)
+          .sort()
+          .join(", "),
+      )
+        .map((s) => `[${s}]`)
+        .sort()
+        .join(" ");
+    out.push(
+      `The circuit is not wired as the brief's loop says. Each [ ] is one junction, listing the parts whose ends meet there. Drawn: ${show(drawn, netOf.size)}. The loop needs: ${show(want, nets)}`,
+    );
+  }
+  return out;
+}
+
+/** Whether two circuits are wired alike: some matching of their junctions maps every part onto a part of the same kind. */
+function sameWiring(drawn: Edge[], drawnNets: number, want: Edge[], wantNets: number): boolean {
+  if (drawn.length !== want.length || drawnNets !== wantNets) return false;
+  const map = new Map<number, number>();
+  const usedNets = new Set<number>();
+  const taken = want.map(() => false);
+  const pair = (from: number, to: number, undo: number[]) => {
+    if (map.has(from)) return map.get(from) === to;
+    if (usedNets.has(to)) return false;
+    map.set(from, to);
+    usedNets.add(to);
+    undo.push(from);
+    return true;
+  };
+  const match = (i: number): boolean => {
+    if (i === drawn.length) return true;
+    const e = drawn[i];
+    for (let j = 0; j < want.length; j++) {
+      if (taken[j] || want[j].part !== e.part) continue;
+      for (const [x, y] of [
+        [want[j].a, want[j].b],
+        [want[j].b, want[j].a],
+      ]) {
+        const undo: number[] = [];
+        if (pair(e.a, x, undo) && pair(e.b, y, undo)) {
+          taken[j] = true;
+          if (match(i + 1)) return true;
+          taken[j] = false;
+        }
+        for (const n of undo) {
+          usedNets.delete(map.get(n)!);
+          map.delete(n);
+        }
+      }
+    }
+    return false;
+  };
+  return match(0);
 }
 
 /**

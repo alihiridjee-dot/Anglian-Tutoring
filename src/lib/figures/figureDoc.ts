@@ -26,6 +26,9 @@ Every picture goes through the checker (\`src/lib/figures/figureCheck.ts\`) befo
 - everything on the canvas
 - no text over text or over a line
 - every point, bar and tick number where its value puts it
+- a circuit wired exactly as the brief's loop says: wires square and uncrossed, a dot on every junction, each meter's letter on it
+- every food web arrow between the right two organisms, pointing from the food to what eats it
+- a reaction profile's lines and curves at their levels, and each arrow's own letter nearest it
 - every label in the brief present
 
 A picture that fails is sent back once with the checker's list of problems. If the second try fails too, there is no picture. The page shows the checker's own rebuilt copy, never DeepSeek's text (\`src/components/QuestionFigure.tsx\`), styled by the \`.qf\` rules in \`src/styles.css\`.

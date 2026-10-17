@@ -13,6 +13,7 @@ import {
   FIGURE_CLASSES,
   MAX_LINE,
   PLOT,
+  PROFILE,
   type FigureBrief,
   type FigureReply,
 } from "./figure";
@@ -49,6 +50,11 @@ const symbols = Object.entries(CIRCUIT_SYMBOLS)
 
 const bottom = `H − ${PLOT.bottomGap}`;
 const plotWidth = PLOT.right - PLOT.left;
+const { exothermic: exo, endothermic: endo } = PROFILE.levels;
+const top = PROFILE.top;
+const ea = PROFILE.arrowX["activation energy"];
+const eaCat = PROFILE.arrowX["activation energy with a catalyst"];
+const dH = PROFILE.arrowX["overall energy change"];
 
 export const FIGURE_SYSTEM = `You draw one exam-style figure for a UK GCSE or IGCSE science question, as a single SVG, for a website where 14 to 16 year olds answer questions on their phones. Students answer from your figure, so it must be exactly right, easy to read at phone size, and never cluttered.
 
@@ -87,7 +93,7 @@ ${ARROW_DEFS}
 TEXT
 - Every <text> has x, y and text-anchor ("start", "middle" or "end"); y is the baseline.
 - At most ${MAX_LINE} characters on a line. Split a longer label: put its first line in the <text>, then each further line in <tspan x="(the same x)" dy="18">.
-- Work out the space a line of text takes: width = 0.55 × font size × number of characters; it reaches 0.8 × font size above its baseline and 0.25 × font size below.
+- Work out the space a line of text takes. Its width: 0.6 × font size for each character, but 0.75 × font size for a capital letter or a digit, and 1.05 × font size for m, w, M, W or %. It reaches 0.8 × font size above its baseline and 0.25 × font size below.
 - No two pieces of text may overlap, and no text may sit on a line or a shape's edge: leave at least 4 units clear around every label. Grid lines (qf-thin) may pass behind text.
 - Write quantities and units as the brief does ("time in s"), and proper characters: CO₂, cm³, °C, ×, −, Δ.
 
@@ -111,7 +117,9 @@ BAR CHARTS (kind "bar-chart")
 - Each category name (qf-small) sits under its slot at y = H − 38, text-anchor "middle".
 
 CIRCUITS (kind "circuit")
-- Draw the circuit the brief's layout describes, with exactly its components. Wires are straight qf-line segments meeting at right angles. Put the main loop on a rectangle about 240 units wide and 120 to 200 units high; draw a parallel branch as a smaller rectangle joined to the loop; mark every junction where three wires meet with <circle class="qf-ink" r="3"/>.
+- Draw exactly the brief's components, joined exactly as its loop says. Going once round the main loop, each step is a component (its index in components, counting from 0) or {"parallel": [branch, branch, …]}: branches side by side between the same two junctions, each branch a list of steps in series. The layout says which wire each part goes on.
+- Draw the main loop as a rectangle about 240 units wide and 120 to 200 units high. Draw a parallel set as a ladder: its first branch lies on the loop's own wire, and each further branch is a wire 60 units outside the loop, joined to the loop's wire by two short wires, one each side of the first branch's components. Wires bend only at the corners of the rectangle and of the ladder.
+- Wires are straight qf-line segments, each horizontal or vertical, and no two wires cross. Mark every junction where three wires meet with <circle class="qf-ink" cx="…" cy="…" r="3"/>.
 - Draw each component by copying its symbol below exactly, wrapped in <g transform="translate(x y)"> to put its centre at (x, y), or translate(x y) rotate(90) on an upright wire. Each symbol spans x −20 to 20, with its terminals at (−20, 0) and (20, 0): the wire stops at a terminal and starts again at the other. Keep components at least 50 units apart.
 - An ammeter, voltmeter or motor is the meter symbol plus its letter A, V or M: <text class="qf-strong" x="(centre x)" y="(centre y + 5.5)" text-anchor="middle">, never rotated.
 - Label a component only where the brief gives it a label: qf-text, at least 12 units clear of the symbol and its wires.
@@ -119,14 +127,14 @@ CIRCUITS (kind "circuit")
 ${symbols}
 
 REACTION PROFILES (kind "energy-profile")
-- H = 300. Energy axis: an arrow (qf-line) from (40, 260) up to (40, 28), with "energy" (qf-text) at x = 48, y = 36, text-anchor "start". Progress axis: an arrow from (40, 260) right to (344, 260), with "progress of reaction" (qf-text) at x = 192, y = 288, text-anchor "middle". No numbers on either axis.
-- Levels: exothermic: reactants R = 160, products P = 212. Endothermic: reactants R = 212, products P = 136. The reactants line (qf-line) runs from (56, R) to (112, R); the products line from (256, P) to (336, P).
-- The profile (qf-data) is <path d="M112 R C148 R 148 72 184 72 S220 P 256 P"/> with R and P filled in. With a catalyst, also draw <path class="qf-data2" d="M112 R C148 R 148 T 184 T S220 P 256 P"/>, where T = 120 for an exothermic reaction and T = 104 for an endothermic one.
-- Write the brief's reactants name centred under its line (x = 84) at y = R + 22, and its products name centred under its line (x = 296) at y = P + 22, at most 12 characters on a line: split a longer name over lines.
-- Draw each of the brief's arrows, and no other, as a double arrow (qf-line with marker-start and marker-end), labelled with its letter (qf-strong) beside the arrow's middle:
-  activation energy: from (190, R) up to (190, 72), its letter 8 units to the right (text-anchor "start"), with a guide (qf-thin) from (112, R) to (196, R);
-  activation energy with a catalyst: from (178, R) up to (178, T), its letter 8 units to the left (text-anchor "end");
-  overall energy change: from (300, R) to (300, P), its letter 8 units to the right, with a guide (qf-thin) from (196, R) to (308, R).
+- H = ${PROFILE.height}. Energy axis: an arrow (qf-line) from (40, 260) up to (40, 28), with "energy" (qf-text) at x = 48, y = 36, text-anchor "start". Progress axis: an arrow from (40, 260) right to (344, 260), with "progress of reaction" (qf-text) at x = 192, y = 288, text-anchor "middle". No numbers on either axis.
+- Levels: exothermic: reactants R = ${exo.R}, products P = ${exo.P}. Endothermic: reactants R = ${endo.R}, products P = ${endo.P}. The reactants line (qf-line) runs from (56, R) to (112, R); the products line from (256, P) to (336, P).
+- The profile (qf-data) is <path d="M112 R C148 R 148 ${top} 184 ${top} S220 P 256 P"/> with R and P filled in. With a catalyst, also draw <path class="qf-data2" d="M112 R C148 R 148 T 184 T S220 P 256 P"/>, where T = ${exo.T} for an exothermic reaction and T = ${endo.T} for an endothermic one.
+- Write the brief's reactants name under its line from its left end: x = 56, text-anchor "start", first baseline y = R + 22, at most 12 characters on a line. Write the products name from x = 262, text-anchor "start", at most 9 characters on a line: under its line (first baseline y = P + 22) for an exothermic reaction, over it (last baseline y = P − 8, so a name on two lines starts at y = P − 26) for an endothermic one. Split a longer name over lines.
+- Draw each of the brief's arrows, and no other, as a double arrow (qf-line with marker-start and marker-end), with its letter (qf-strong) at y = the arrow's middle + 5.5:
+  activation energy: from (${ea}, R) up to (${ea}, ${top}); its letter at x = ${ea - 8}, text-anchor "end"; a guide (qf-thin) from (${ea - 6}, ${top}) to (184, ${top}).
+  activation energy with a catalyst: from (${eaCat}, R) up to (${eaCat}, T); its letter at x = ${eaCat + 8}, text-anchor "start"; a guide (qf-thin) from (${eaCat - 6}, T) to (184, T).
+  overall energy change: from (${dH}, R) to (${dH}, P); its letter at x = ${dH + 8}, text-anchor "start"; a guide (qf-thin) from (112, R) to (${dH + 8}, R).
 
 FOOD WEBS AND FOOD CHAINS (kind "food-web")
 - Rows by level: level 1 (producers) on the bottom row with its baseline at y = H − 24, and each level above it 80 units higher. A row's organisms are evenly spaced: the i-th of n (counting from 0) has x = 8 + 344 × (i + 0.5) ÷ n. At most 4 organisms on a row; on a row of 4, at most 9 characters on a line, otherwise at most 14: split a longer name over lines.
@@ -141,7 +149,7 @@ STEPS
 5. Check it against every rule above, one by one, and fix anything that breaks one.
 6. Reply with the JSON object only.
 
-A program checks the SVG before any student sees it: every element, class and attribute; that everything is on the canvas; that no text overlaps text or sits on a line; that every point, bar and tick number is where its value puts it; that every label in the brief is there and "labels" lists every line of text. A figure that fails any check is thrown away.`;
+A program checks the SVG before any student sees it: every element, class and attribute; that everything is on the canvas; that no text overlaps text or sits on a line; that every point, bar and tick number is where its value puts it; that a circuit is wired as its loop says; that every food web arrow joins the right organisms, pointing the right way; that every reaction profile line, curve and arrow is at its level, with its own letter beside it; that every label in the brief is there and "labels" lists every line of text. A figure that fails any check is thrown away.`;
 
 /** A question and the figure it needs, as the model is given them. */
 export type FigureRequest = {
@@ -280,6 +288,7 @@ export const FIGURE_EXAMPLES: { name: string; request: FigureRequest; reply: Fig
           { type: "lamp" },
           { type: "ammeter" },
         ],
+        loop: [0, 2, 3, 1],
         layout:
           "One loop: the cell on the top wire, the lamp on the right wire, the ammeter on the bottom wire, the switch on the left wire.",
       },

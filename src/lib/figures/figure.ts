@@ -42,6 +42,58 @@ export const TEXT_SIZE: Partial<Record<FigureClass, number>> = {
   "qf-small": 14,
 };
 
+/**
+ * How wide each character is drawn, as a share of the font size: the widest of
+ * the three text styles in the site's face, Plus Jakarta Sans (measured in the
+ * browser, 17 Oct 2026). A character not listed counts as 0.75.
+ */
+const CHAR_WIDTHS: [number, string][] = [
+  [0.18, " "],
+  [0.26, "ijl"],
+  [0.29, "I"],
+  [0.33, "'"],
+  [0.36, "⁺⁻"],
+  [0.38, "₂"],
+  [0.39, "r,"],
+  [0.4, "J₃"],
+  [0.41, "1f.:₄()"],
+  [0.42, "t²"],
+  [0.43, ";³"],
+  [0.49, "z"],
+  [0.52, "s"],
+  [0.53, "/"],
+  [0.55, "LT°"],
+  [0.56, "7"],
+  [0.58, "avxZ"],
+  [0.59, "kF"],
+  [0.6, "269hnuy"],
+  [0.61, "3ceE"],
+  [0.62, "5"],
+  [0.63, "8-"],
+  [0.65, "oPS"],
+  [0.66, "4g"],
+  [0.67, "bdpqRY"],
+  [0.68, "X+−–=×"],
+  [0.69, "BK"],
+  [0.71, "V"],
+  [0.72, "0U"],
+  [0.73, "AΔ"],
+  [0.74, "DHN"],
+  [0.78, "C"],
+  [0.82, "G"],
+  [0.88, "OQ"],
+  [0.91, "wM"],
+  [0.93, "m"],
+  [0.94, "→"],
+  [1.03, "W"],
+  [1.07, "%"],
+];
+const CHAR_WIDTH = new Map(CHAR_WIDTHS.flatMap(([w, cs]) => [...cs].map((c) => [c, w] as const)));
+
+/** The width of a line of text at a font size, in units. */
+export const textWidth = (text: string, size: number) =>
+  [...text].reduce((sum, c) => sum + (CHAR_WIDTH.get(c) ?? 0.75), 0) * size;
+
 /** Characters per line of text, at most. */
 export const MAX_LINE = 28;
 
@@ -52,6 +104,27 @@ export const PLOT = {
   top: 40,
   /** bottom = H − 56 */
   bottomGap: 56,
+} as const;
+
+/**
+ * A reaction profile's fixed drawing, 300 units high: the reactants (R) and
+ * products (P) levels, the top of the curve, and the catalysed curve's top
+ * (T). The two activation energy arrows stand on the reactants line, left of
+ * the curve, where no curve or label can crowd their letters; the overall
+ * energy change stands right of the curve, over the products line.
+ */
+export const PROFILE = {
+  height: 300,
+  levels: {
+    exothermic: { R: 160, P: 212, T: 120 },
+    endothermic: { R: 212, P: 136, T: 104 },
+  },
+  top: 72,
+  arrowX: {
+    "activation energy": 76,
+    "activation energy with a catalyst": 100,
+    "overall energy change": 300,
+  },
 } as const;
 
 /** The arrowhead every arrow ends with, copied verbatim as the svg's first child. */
@@ -111,10 +184,18 @@ export type BarBrief = {
   /** One value per category, in the categories' order. */
   series: { name: string; values: number[] }[];
 };
+/**
+ * One step round a circuit's loop: a component (its index in `components`),
+ * or branches side by side between the same two junctions, each branch its
+ * own steps in series.
+ */
+export type CircuitStep = number | { parallel: CircuitStep[][] };
 export type CircuitBrief = {
   kind: "circuit";
   components: { type: CircuitSymbol | "ammeter" | "voltmeter" | "motor"; label?: string }[];
-  /** Where each part goes, in words: "cell, switch and ammeter in series; two lamps in parallel". */
+  /** How the components are joined, once round the main loop. The checker holds the wiring to it. */
+  loop: CircuitStep[];
+  /** Where each part goes, in words: "the cell on the top wire, the ammeter on the left wire". */
   layout: string;
 };
 export type ProfileBrief = {
