@@ -421,3 +421,86 @@ describe("generated set validation", () => {
     expect(item("mcq").correct_index.enum).toEqual([0, 1, 2, 3]);
   });
 });
+
+describe("figures, for the practice queue's sets only", () => {
+  const graph = {
+    kind: "line-graph",
+    x: { title: "time in s", min: 0, max: 20, step: 4 },
+    y: { title: "velocity in m/s", min: 0, max: 12, step: 2 },
+    series: [
+      {
+        name: "car",
+        points: [
+          [0, 0],
+          [4, 8],
+          [12, 8],
+          [20, 0],
+        ],
+      },
+    ],
+  };
+  const withFigure = {
+    ...genetics,
+    question:
+      "The graph shows how the velocity of a car changed. How far did it travel in the first 4 s?",
+    options: ["8 m", "16 m", "32 m", "4 m"],
+    correct_index: 1,
+    figure: graph,
+  };
+  const items = (figures: boolean) =>
+    (
+      generationSchema("mcq", figures) as {
+        properties: {
+          questions: { items: { properties: Record<string, unknown>; required: string[] } };
+        };
+      }
+    ).properties.questions.items;
+
+  test("without figures, the prompt, schema and questions are as before", () => {
+    expect(buildGenerationPrompt(context, 5, "mcq").user).not.toContain("FIGURES");
+    expect(items(false).properties.figure).toBeUndefined();
+    const [q] = validateQuestions({ questions: [withFigure] }, 1, "mcq");
+    expect("figure" in q).toBe(false);
+  });
+
+  test("with figures, the writer is told how, and every question says whether it has one", () => {
+    expect(buildGenerationPrompt(context, 5, "mcq", "", true).user).toContain("FIGURES");
+    expect(items(true).required).toContain("figure");
+    const [q, plain] = validateQuestions(
+      { questions: [withFigure, { ...genetics, figure: null }] },
+      2,
+      "mcq",
+      true,
+    );
+    expect(q.figure).toEqual(graph as never);
+    expect(plain.figure).toBeNull();
+  });
+
+  test("a figure that wouldn't draw fails the set, naming the question", () => {
+    const offAxis = {
+      ...graph,
+      series: [
+        {
+          name: "car",
+          points: [
+            [0, 0],
+            [24, 8],
+          ],
+        },
+      ],
+    };
+    expect(() =>
+      validateQuestions({ questions: [{ ...withFigure, figure: offAxis }] }, 1, "mcq", true),
+    ).toThrow("Question 1's figure has a point that is not [x, y] within both axes");
+  });
+
+  test("at most two figures in a set", () => {
+    const three = [0, 1, 2].map((i) => ({
+      ...withFigure,
+      question: `${withFigure.question} (${i})`,
+    }));
+    expect(() => validateQuestions({ questions: three }, 3, "mcq", true)).toThrow(
+      "The set has more than 2 figures",
+    );
+  });
+});

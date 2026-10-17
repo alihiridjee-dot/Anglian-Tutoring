@@ -1,5 +1,7 @@
 import "@tanstack/react-start/server-only";
 import crypto from "node:crypto";
+import { drawFigure, type SavedFigure } from "../figures/drawFigure.server";
+import type { KnownBrief } from "../figures/figure";
 import {
   CALL_LIMITS,
   GenerationError,
@@ -54,15 +56,62 @@ export type JobOutcome =
       status_after: string;
     };
 
-/** The model's questions for a job, trimmed to what the save stores. */
+/**
+ * Figures are drawn by this long after a job starts: the model call takes up
+ * to 200 s, and the worker has 300 s.
+ */
+const FIGURES_BY_MS = 280_000;
+
+/**
+ * Each question's figure, drawn side by side: null for a question without
+ * one, "dropped" for one whose figure couldn't be drawn and checked in time.
+ * A dropped question isn't saved: its text says what the figure shows.
+ */
+async function drawFigures(
+  job: ClaimedJob,
+  subject: string,
+  questions: { question: string; options?: string[]; figure?: KnownBrief | null }[],
+  deadline: number,
+): Promise<(SavedFigure | null | "dropped")[]> {
+  return Promise.all(
+    questions.map(async (q, i) => {
+      if (!q.figure) return null;
+      const drawn = await drawFigure(
+        { subject, question: q.question, options: q.options, brief: q.figure },
+        deadline,
+      );
+      if ("ok" in drawn) return drawn.ok;
+      console.warn(
+        `[practice-queue] job ${job.job_id} question ${i + 1}: its ${q.figure.kind} wasn't drawn, so it is left out: ${drawn.failed}`,
+      );
+      return "dropped" as const;
+    }),
+  );
+}
+
+/** A drawn figure as the save takes it: the student's copy, and the server's. */
+const figureFields = (f: SavedFigure | null) =>
+  f ? { figure: f.figure, figure_brief: f.brief } : {};
+
+/**
+ * The model's questions for a job, each with its drawn figure, trimmed to
+ * what the save stores.
+ */
 async function writeQuestions(
   job: ClaimedJob,
 ): Promise<{ payload: Record<string, unknown>[]; runId: string | null }> {
+  const started = Date.now();
   const context = await fetchGenerationContext(job.spec_point_id);
   // Three run side by side within the worker's 300 s, and the database's lease
   // (360 s) outlasts them, so a job is never handed to a second worker while
   // the first could still save it.
-  const options: GenerateOptions = { ...CALL_LIMITS, source: "queue", jobId: job.job_id };
+  const options: GenerateOptions = {
+    ...CALL_LIMITS,
+    source: "queue",
+    jobId: job.job_id,
+    figures: true,
+  };
+  const deadline = started + FIGURES_BY_MS;
   if (job.kind === "quiz") {
     const { questions, runId } = await generateExamQuestions(
       context,
@@ -70,12 +119,20 @@ async function writeQuestions(
       "mcq",
       options,
     );
-    const payload = questions.map((q) => ({
-      question: q.question.trim(),
-      options: q.options.map((o) => o.trim()),
-      correct_index: q.correct_index,
-      explanation: q.explanation.trim(),
-    }));
+    const figures = await drawFigures(job, context.point.subject, questions, deadline);
+    const payload = questions.flatMap((q, i) => {
+      const f = figures[i];
+      if (f === "dropped") return [];
+      return [
+        {
+          question: q.question.trim(),
+          options: q.options.map((o) => o.trim()),
+          correct_index: q.correct_index,
+          explanation: q.explanation.trim(),
+          ...figureFields(f),
+        },
+      ];
+    });
     return { payload, runId };
   }
   const { questions, runId } = await generateExamQuestions(
@@ -84,12 +141,25 @@ async function writeQuestions(
     "written",
     options,
   );
-  const payload = questions.map((q) => ({
-    prompt: q.prompt.trim(),
-    marks: q.marks,
-    answer_type: q.answer_type,
-    mark_scheme: q.mark_scheme.trim(),
-  }));
+  const figures = await drawFigures(
+    job,
+    context.point.subject,
+    questions.map((q) => ({ question: q.prompt, figure: q.figure })),
+    deadline,
+  );
+  const payload = questions.flatMap((q, i) => {
+    const f = figures[i];
+    if (f === "dropped") return [];
+    return [
+      {
+        prompt: q.prompt.trim(),
+        marks: q.marks,
+        answer_type: q.answer_type,
+        mark_scheme: q.mark_scheme.trim(),
+        ...figureFields(f),
+      },
+    ];
+  });
   return { payload, runId };
 }
 

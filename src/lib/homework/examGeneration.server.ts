@@ -45,6 +45,12 @@ export interface GenerateOptions {
   notes?: string;
   /** The practice-queue job this call writes for. */
   jobId?: number | null;
+  /**
+   * Up to two questions may come with a figure brief, to be drawn before the
+   * set is saved. Only the practice queue draws them; every other caller
+   * keeps sets of text alone.
+   */
+  figures?: boolean;
   /** Passed to the Anthropic client when given; its own defaults otherwise. */
   timeoutMs?: number;
   maxRetries?: number;
@@ -204,6 +210,7 @@ function readQuestions(
   text: string,
   count: number,
   format: GenerationFormat,
+  figures: boolean,
 ): WrittenQuestion[] | McqQuestion[] {
   if (stopReason !== "end_turn") throw new Error("AI did not complete the question set");
   let value: unknown;
@@ -212,7 +219,7 @@ function readQuestions(
   } catch {
     throw new Error("AI returned invalid JSON");
   }
-  return validateQuestions(value, count, format);
+  return validateQuestions(value, count, format, figures);
 }
 
 /** The first characters of a text, never half of one: the database refuses a split pair. */
@@ -262,7 +269,8 @@ export async function generateExamQuestions(
   const apiKey = process.env.ANTHROPIC_API_KEY;
   // No call, so no run row. Every job would fail the same way, so it pauses the queue.
   if (!apiKey) throw new GenerationError("ANTHROPIC_API_KEY not configured", "outage", 30, null);
-  const prompt = buildGenerationPrompt(context, count, format, opts.notes);
+  const figures = opts.figures ?? false;
+  const prompt = buildGenerationPrompt(context, count, format, opts.notes, figures);
   const client = new Anthropic({
     apiKey,
     ...(opts.timeoutMs !== undefined ? { timeout: opts.timeoutMs } : {}),
@@ -271,7 +279,7 @@ export async function generateExamQuestions(
   // What every run row says about this call, whatever its outcome.
   const call = {
     spec_point_id: context.point.id,
-    framework_version: FRAMEWORK_VERSION,
+    framework_version: figures ? `${FRAMEWORK_VERSION}+figures` : FRAMEWORK_VERSION,
     model: MODEL,
     format,
     grounding: prompt.grounding,
@@ -294,7 +302,7 @@ export async function generateExamQuestions(
       output_config: {
         // The model's default, pinned so a change of default can't change the questions.
         effort: "high",
-        format: { type: "json_schema", schema: generationSchema(format) },
+        format: { type: "json_schema", schema: generationSchema(format, figures) },
       },
       messages: [{ role: "user", content: prompt.user }],
     });
@@ -353,7 +361,7 @@ export async function generateExamQuestions(
     .join("");
   let questions: WrittenQuestion[] | McqQuestion[];
   try {
-    questions = readQuestions(response.stop_reason, text, count, format);
+    questions = readQuestions(response.stop_reason, text, count, format, figures);
   } catch (error) {
     // Paid for, and worth reading later: the row keeps what came back.
     const message = error instanceof Error ? error.message : String(error);

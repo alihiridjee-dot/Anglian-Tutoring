@@ -1,0 +1,328 @@
+/**
+ * Figures drawn by code: line and scatter graphs, bar charts and reaction
+ * profiles. Every position in these follows from the brief by the contract's
+ * formulas (figure.ts), so code draws them exactly, free and the same every
+ * time. DeepSeek is left the figures whose layout needs deciding: circuits
+ * and food webs (`figurePrompt`). Whatever is drawn here still goes through
+ * `checkFigure` before it is saved, and the tests hold every drawing to it.
+ */
+import {
+  ARROW_DEFS,
+  CANVAS_WIDTH,
+  PLOT,
+  PROFILE,
+  TEXT_SIZE,
+  plotX,
+  plotY,
+  textWidth,
+  type Axis,
+  type BarBrief,
+  type FigureBrief,
+  type GraphBrief,
+  type ProfileBrief,
+} from "./figure";
+
+/** The kinds drawn here; every other kind goes to DeepSeek. */
+export const CODE_DRAWN = ["line-graph", "scatter", "bar-chart", "energy-profile"] as const;
+export const drawnByCode = (brief: FigureBrief) =>
+  (CODE_DRAWN as readonly string[]).includes(brief.kind);
+
+/** A drawing and what it shows, for a screen reader, without the answer. */
+export type DrawnFigure = { svg: string; alt: string };
+
+/** Canvas height of every graph and bar chart: a plot area 184 units high. */
+const GRAPH_HEIGHT = 280;
+
+const num = (v: number) => String(Number(v.toFixed(2)));
+/** A value as a label: a true minus sign, at most two decimal places. */
+const label = (v: number) => num(v).replace(/^-/, "−");
+const esc = (s: string) =>
+  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+const line = (cls: string, x1: number, y1: number, x2: number, y2: number, extra = "") =>
+  `<line class="${cls}" x1="${num(x1)}" y1="${num(y1)}" x2="${num(x2)}" y2="${num(y2)}"${extra}/>`;
+const text = (cls: string, x: number, y: number, anchor: string, lines: string[]) =>
+  `<text class="${cls}" x="${num(x)}" y="${num(y)}" text-anchor="${anchor}">${esc(lines[0])}${lines
+    .slice(1)
+    .map((l) => `<tspan x="${num(x)}" dy="18">${esc(l)}</tspan>`)
+    .join("")}</text>`;
+const svgOf = (H: number, body: string[]) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${CANVAS_WIDTH} ${H}" class="qf" role="img">${body.join("")}</svg>`;
+
+/** An axis's tick values, from min to max in steps. */
+export function ticks(a: Axis): number[] {
+  const count = Math.round((a.max - a.min) / a.step);
+  return Array.from({ length: count + 1 }, (_, i) => Number((a.min + i * a.step).toFixed(6)));
+}
+
+/**
+ * Number every `k`-th tick, the smallest k that keeps neighbouring numbers
+ * apart: `room` is the gap one number needs from the next.
+ */
+function every(spacing: number, room: number): number {
+  for (const k of [1, 2, 4, 5, 10]) if (k * spacing >= room) return k;
+  return Infinity;
+}
+
+/**
+ * Words over lines no wider than `width` at `size`; null when a single word
+ * is wider, which no line break can fix.
+ */
+export function wrap(name: string, width: number, size: number): string[] | null {
+  const lines: string[] = [];
+  for (const word of name.trim().split(/\s+/)) {
+    if (textWidth(word, size) > width) return null;
+    const last = lines[lines.length - 1];
+    if (last !== undefined && textWidth(`${last} ${word}`, size) <= width)
+      lines[lines.length - 1] = `${last} ${word}`;
+    else lines.push(word);
+  }
+  return lines;
+}
+
+/** The plot area's axes, grid, tick numbers and titles. */
+function frame(H: number, x: Axis | null, y: Axis, xTitle: string): string[] {
+  const bottom = H - PLOT.bottomGap;
+  const out: string[] = [];
+  if (x)
+    for (const v of ticks(x)) out.push(line("qf-thin", plotX(v, x), PLOT.top, plotX(v, x), bottom));
+  for (const v of ticks(y))
+    out.push(line("qf-thin", PLOT.left, plotY(v, y, H), PLOT.right, plotY(v, y, H)));
+  out.push(line("qf-line", PLOT.left, bottom, PLOT.right, bottom));
+  out.push(line("qf-line", PLOT.left, PLOT.top, PLOT.left, bottom));
+  const small = TEXT_SIZE["qf-small"]!;
+  // The corner is numbered once: an x axis whose first number is wider than
+  // a digit or two would crowd the y axis's lowest number, so that one goes.
+  let corner = false;
+  if (x) {
+    const xs = ticks(x);
+    const widest = Math.max(...xs.map((v) => textWidth(label(v), small)));
+    const k = every((PLOT.right - PLOT.left) / (xs.length - 1), Math.max(28, widest + 6));
+    xs.forEach((v, i) => {
+      if (i % k === 0) out.push(text("qf-small", plotX(v, x), H - 38, "middle", [label(v)]));
+    });
+    corner = textWidth(label(xs[0]), small) > 12;
+  }
+  const ys = ticks(y);
+  const k = every((bottom - PLOT.top) / (ys.length - 1), 18);
+  ys.forEach((v, i) => {
+    if (i % k === 0 && !(i === 0 && corner))
+      out.push(text("qf-small", PLOT.left - 8, plotY(v, y, H) + 5, "end", [label(v)]));
+  });
+  out.push(text("qf-text", 204, H - 14, "middle", [xTitle]));
+  out.push(text("qf-text", 16, 22, "start", [y.title]));
+  return out;
+}
+
+type Box = { x0: number; y0: number; x1: number; y1: number };
+
+/**
+ * A key for two series, in the first corner of the plot area that no data
+ * crosses: a box with each series' sample and name. Null when every corner
+ * is taken.
+ */
+function keyFor(
+  names: [string, string],
+  samples: [(x: number, y: number) => string, (x: number, y: number) => string],
+  H: number,
+  taken: Box[],
+): string | null {
+  const size = TEXT_SIZE["qf-text"]!;
+  const w = 12 + 24 + 8 + Math.max(...names.map((n) => textWidth(n, size))) + 10;
+  const h = 52;
+  const bottom = H - PLOT.bottomGap;
+  const corners: [number, number][] = [
+    [PLOT.left + 8, PLOT.top + 4],
+    [PLOT.right - 8 - w, PLOT.top + 4],
+    [PLOT.right - 8 - w, bottom - 8 - h],
+    [PLOT.left + 8, bottom - 8 - h],
+  ];
+  for (const [x, y] of corners) {
+    const box = { x0: x - 4, y0: y - 4, x1: x + w + 4, y1: y + h + 4 };
+    if (taken.some((t) => t.x0 < box.x1 && box.x0 < t.x1 && t.y0 < box.y1 && box.y0 < t.y1))
+      continue;
+    return [
+      `<rect class="qf-box" x="${num(x)}" y="${num(y)}" width="${num(w)}" height="${h}" rx="6"/>`,
+      samples[0](x + 12, y + 16),
+      text("qf-text", x + 44, y + 21, "start", [names[0]]),
+      samples[1](x + 12, y + 38),
+      text("qf-text", x + 44, y + 43, "start", [names[1]]),
+    ].join("");
+  }
+  return null;
+}
+
+/** Boxes round a polyline's segments, and round its points, for placing a key clear of them. */
+function segmentBoxes(pts: [number, number][]): Box[] {
+  const boxes = pts.map(([x, y]) => ({ x0: x - 5, y0: y - 5, x1: x + 5, y1: y + 5 }));
+  for (let i = 1; i < pts.length; i++) {
+    // A slanted segment is boxed in short steps, so its bounding box doesn't claim the whole corner.
+    const [[ax, ay], [bx, by]] = [pts[i - 1], pts[i]];
+    const steps = Math.max(1, Math.ceil(Math.hypot(bx - ax, by - ay) / 8));
+    for (let s = 0; s <= steps; s++) {
+      const [x, y] = [ax + ((bx - ax) * s) / steps, ay + ((by - ay) * s) / steps];
+      boxes.push({ x0: x - 3, y0: y - 3, x1: x + 3, y1: y + 3 });
+    }
+  }
+  return boxes;
+}
+
+function drawGraph(b: GraphBrief): DrawnFigure | null {
+  const H = GRAPH_HEIGHT;
+  const body = frame(H, b.x, b.y, b.x.title);
+  const taken: Box[] = [];
+  b.series.forEach((s, i) => {
+    const pts = s.points.map(([x, y]) => [plotX(x, b.x), plotY(y, b.y, H)] as [number, number]);
+    taken.push(...segmentBoxes(b.kind === "line-graph" ? pts : []));
+    taken.push(...pts.map(([x, y]) => ({ x0: x - 5, y0: y - 5, x1: x + 5, y1: y + 5 })));
+    if (b.kind === "line-graph")
+      body.push(
+        `<polyline class="${i ? "qf-data2" : "qf-data"}" points="${pts.map(([x, y]) => `${num(x)},${num(y)}`).join(" ")}"/>`,
+      );
+    s.points.forEach(([x, y], j) =>
+      body.push(
+        `<circle class="qf-dot" cx="${num(pts[j][0])}" cy="${num(pts[j][1])}" r="3.5" data-x="${num(x)}" data-y="${num(y)}"/>`,
+      ),
+    );
+  });
+  if (b.series.length === 2) {
+    const sample = (cls: string) => (x: number, y: number) =>
+      b.kind === "line-graph"
+        ? line(cls, x, y, x + 24, y)
+        : `<circle class="qf-dot" cx="${num(x + 12)}" cy="${num(y)}" r="3.5"/>`;
+    const key = keyFor(
+      [b.series[0].name, b.series[1].name],
+      [sample("qf-data"), sample("qf-data2")],
+      H,
+      taken,
+    );
+    if (!key) return null;
+    body.push(key);
+  }
+  const describe = (s: GraphBrief["series"][number]) =>
+    `${b.series.length > 1 ? `${s.name}: ` : ""}${s.points.map(([x, y]) => `(${label(x)}, ${label(y)})`).join(", ")}`;
+  return {
+    svg: svgOf(H, body),
+    alt: `A ${b.kind === "scatter" ? "scatter graph" : "line graph"} of ${b.y.title} from ${label(b.y.min)} to ${label(b.y.max)} against ${b.x.title} from ${label(b.x.min)} to ${label(b.x.max)}. Points: ${b.series.map(describe).join("; ")}.`,
+  };
+}
+
+function drawBars(b: BarBrief): DrawnFigure | null {
+  const H = GRAPH_HEIGHT;
+  const body = frame(H, null, b.y, b.x.title);
+  const n = b.x.categories.length;
+  const slot = (PLOT.right - PLOT.left) / n;
+  const bottom = H - PLOT.bottomGap;
+  const two = b.series.length === 2;
+  const width = two ? Math.min(24, 0.35 * slot) : Math.min(40, 0.6 * slot);
+  const taken: Box[] = [];
+  b.x.categories.forEach((c, i) => {
+    const centre = PLOT.left + slot * (i + 0.5);
+    b.series.forEach((s, j) => {
+      const x = two ? (j ? centre + 2 : centre - 2 - width) : centre - width / 2;
+      const top = plotY(s.values[i], b.y, H);
+      taken.push({ x0: x, y0: top, x1: x + width, y1: bottom });
+      body.push(
+        `<rect class="${j ? "qf-bar2" : "qf-bar"}" x="${num(x)}" y="${num(top)}" width="${num(width)}" height="${num(bottom - top)}" data-y="${num(s.values[i])}"/>`,
+      );
+    });
+    body.push(text("qf-small", centre, H - 38, "middle", [c]));
+  });
+  if (two) {
+    const sample = (cls: string) => (x: number, y: number) =>
+      `<rect class="${cls}" x="${num(x)}" y="${num(y - 6)}" width="24" height="12"/>`;
+    const key = keyFor(
+      [b.series[0].name, b.series[1].name],
+      [sample("qf-bar"), sample("qf-bar2")],
+      H,
+      taken,
+    );
+    if (!key) return null;
+    body.push(key);
+  }
+  const values = (s: BarBrief["series"][number]) =>
+    b.x.categories.map((c, i) => `${c}: ${label(s.values[i])}`).join(", ");
+  return {
+    svg: svgOf(H, body),
+    alt: `A bar chart of ${b.y.title} for each ${b.x.title}. ${b.series.map((s) => `${two ? `${s.name}: ` : ""}${values(s)}`).join("; ")}.`,
+  };
+}
+
+/** How wide a reactants or products name may run before it wraps. */
+export const PROFILE_NAME_WIDTH = { reactants: 160, products: 88 } as const;
+
+function drawProfile(b: ProfileBrief): DrawnFigure | null {
+  const levels = PROFILE.levels[b.reaction];
+  if (!levels) return null;
+  const { R, P, T } = levels;
+  const top = PROFILE.top;
+  const size = TEXT_SIZE["qf-text"]!;
+  const reactants = wrap(b.reactants, PROFILE_NAME_WIDTH.reactants, size);
+  const products = wrap(b.products, PROFILE_NAME_WIDTH.products, size);
+  if (!reactants || !products) return null;
+  const head = ' marker-end="url(#qf-head)"';
+  const both = ' marker-start="url(#qf-head)" marker-end="url(#qf-head)"';
+  const body = [
+    ARROW_DEFS,
+    line("qf-line", 40, 260, 40, 28, head),
+    line("qf-line", 40, 260, 344, 260, head),
+    text("qf-text", 48, 36, "start", ["energy"]),
+    text("qf-text", 192, 288, "middle", ["progress of reaction"]),
+    line("qf-line", 56, R, 112, R),
+    line("qf-line", 256, P, 336, P),
+    `<path class="qf-data" d="M112 ${R} C148 ${R} 148 ${top} 184 ${top} S220 ${P} 256 ${P}"/>`,
+  ];
+  if (b.catalyst)
+    body.push(
+      `<path class="qf-data2" d="M112 ${R} C148 ${R} 148 ${T} 184 ${T} S220 ${P} 256 ${P}"/>`,
+    );
+  const ends = {
+    "activation energy": top,
+    "activation energy with a catalyst": T,
+    "overall energy change": P,
+  } as const;
+  for (const a of b.arrows) {
+    const x = PROFILE.arrowX[a.shows];
+    const to = ends[a.shows];
+    if (x === undefined || to === undefined) return null;
+    if (a.shows === "activation energy") body.push(line("qf-thin", x - 6, top, 184, top));
+    if (a.shows === "activation energy with a catalyst")
+      body.push(line("qf-thin", x - 6, T, 184, T));
+    if (a.shows === "overall energy change") body.push(line("qf-thin", 112, R, x + 8, R));
+    body.push(line("qf-line", x, R, x, to, both));
+    const left = a.shows === "activation energy";
+    body.push(
+      text("qf-strong", left ? x - 8 : x + 8, (R + to) / 2 + 5.5, left ? "end" : "start", [
+        a.letter,
+      ]),
+    );
+  }
+  body.push(text("qf-text", 56, R + 22, "start", reactants));
+  // Under an exothermic reaction's products line; over an endothermic one's.
+  const productsY = b.reaction === "exothermic" ? P + 22 : P - 8 - 18 * (products.length - 1);
+  body.push(text("qf-text", 262, productsY, "start", products));
+  const letters = b.arrows.map((a) => a.letter);
+  const listed =
+    letters.length > 1
+      ? `${letters.slice(0, -1).join(", ")} and ${letters[letters.length - 1]}`
+      : letters[0];
+  return {
+    svg: svgOf(PROFILE.height, body),
+    alt: `A reaction profile for an ${b.reaction} reaction, from ${b.reactants} to ${b.products}${b.catalyst ? ", with and without a catalyst" : ""}.${letters.length ? ` ${letters.length === 1 ? "A double-headed arrow is" : `${letters.length} double-headed arrows are`} labelled ${listed}.` : ""}`,
+  };
+}
+
+/** The figure for a brief that code draws; null for one it doesn't, or can't fit. */
+export function drawWithCode(brief: FigureBrief): DrawnFigure | null {
+  switch (brief.kind) {
+    case "line-graph":
+    case "scatter":
+      return drawGraph(brief as GraphBrief);
+    case "bar-chart":
+      return drawBars(brief as BarBrief);
+    case "energy-profile":
+      return drawProfile(brief as ProfileBrief);
+    default:
+      return null;
+  }
+}

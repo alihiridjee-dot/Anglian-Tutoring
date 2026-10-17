@@ -7,7 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
  * {@link withMarkSchemes} instead, once the server agrees to release it.
  */
 export const QUESTION_COLUMNS =
-  "id, resource_id, position, prompt, marks, answer_type, spec_point_id";
+  "id, resource_id, position, prompt, marks, answer_type, spec_point_id, figure";
 
 /**
  * Attach each question's mark scheme where `homework_mark_schemes` releases it:

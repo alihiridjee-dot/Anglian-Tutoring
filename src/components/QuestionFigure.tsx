@@ -38,3 +38,14 @@ export function QuestionFigure({
     </figure>
   );
 }
+
+/**
+ * A question's saved figure as its row holds it, `{ svg, alt }`; nothing for
+ * a question without one. The figure was checked against its brief when it
+ * was drawn; here it is checked again, as a drawing, before it is shown.
+ */
+export function StoredFigure({ figure, className }: { figure: unknown; className?: string }) {
+  const f = figure as { svg?: unknown; alt?: unknown } | null | undefined;
+  if (!f || typeof f.svg !== "string" || typeof f.alt !== "string") return null;
+  return <QuestionFigure svg={f.svg} alt={f.alt} className={className} />;
+}

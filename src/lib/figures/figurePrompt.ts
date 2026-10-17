@@ -114,7 +114,7 @@ LINE GRAPHS AND SCATTER GRAPHS (kind "line-graph" or "scatter")
 BAR CHARTS (kind "bar-chart")
 - Same plot area, formulas, axes, y grid lines, y tick numbers and titles as a line graph; no x grid lines and no x tick numbers.
 - With n categories each takes a slot ${plotWidth} ÷ n wide. A bar is centred in its slot, min(40, 0.6 × slot) wide, and runs from the x axis up to its value's y position: <rect class="qf-bar" … data-y="(the value)"/>.
-- With two series, the slot holds two bars side by side (qf-bar, then qf-bar2), each min(24, 0.35 × slot) wide, 4 units apart, and a key as for a line graph.
+- With two series, the slot holds two bars side by side (qf-bar, then qf-bar2), each min(24, 0.35 × slot) wide, 4 units apart, and a key as for a line graph, whose samples are small rects (qf-bar, qf-bar2) with no data-y.
 - Each category name (qf-small) sits under its slot at y = H − 38, text-anchor "middle".
 
 CIRCUITS (kind "circuit")

@@ -525,8 +525,15 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
           [x, y + h],
         ]);
         for (let k = 0; k < 4; k++) segments.push({ seg: [c[k], c[(k + 1) % 4]], cls: cls ?? "" });
-        if (cls === "qf-bar" || cls === "qf-bar2")
-          bars.push({ box: boxOf(c), value: Number(n.attrs["data-y"]), cls });
+        // A bar stands on the x axis and carries its value; a key's small sample doesn't.
+        if (cls === "qf-bar" || cls === "qf-bar2") {
+          if ("data-y" in n.attrs)
+            bars.push({ box: boxOf(c), value: Number(n.attrs["data-y"]), cls });
+          else if (Math.abs(boxOf(c).y1 - (height - PLOT.bottomGap)) <= 1)
+            problems.push(
+              `${where} stands on the x axis without data-y: every bar carries its value`,
+            );
+        }
         break;
       }
       case "circle":
