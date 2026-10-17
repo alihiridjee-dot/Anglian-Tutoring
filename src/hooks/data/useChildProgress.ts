@@ -147,7 +147,7 @@ export interface FeedbackItem {
 }
 
 /**
- * The most recent pieces of real tutor feedback on the child's homework.
+ * The most recent feedback on the child's marked tasks.
  *
  * Two reads, one of them shared: the comments from the submissions, and each
  * sheet's subject and title from the scored work the predicted grades already
