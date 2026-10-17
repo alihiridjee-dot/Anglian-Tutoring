@@ -1,4 +1,4 @@
-/** Isolated PostgreSQL checks for question figures (20261017170000_question_figures).
+/** Isolated PostgreSQL checks for question figures (20261017145754_question_figures).
  * No production data is read or written.
  *
  *   PGLITE_MODULE=/path/to/@electric-sql/pglite/dist/index.js bun scripts/test-question-figures-db.ts

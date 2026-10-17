@@ -1,4 +1,4 @@
--- Rollback for 20261017170000_question_figures: questions are text alone
+-- Rollback for 20261017145754_question_figures: questions are text alone
 -- again. The two writers go back to their 20261005220000 bodies first, so
 -- nothing writes the columns while they go; the figures go with them.
 create or replace function private.save_generated_quiz(_spec_point_id uuid, _questions jsonb)
