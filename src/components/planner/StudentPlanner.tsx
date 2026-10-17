@@ -166,7 +166,9 @@ export function StudentPlanner({
         toast.error("Your plan couldn't update just now. Reload the page to try again."),
       );
   }, [data, studentId, activeCourseSubject, activeBoard, level]);
-  const loading = roadQuery.isLoading || currentWeek.loading;
+  // The full plan shows as soon as it is built; it doesn't wait for this
+  // week's tasks and quizzes, which only the week tab lists.
+  const loading = roadQuery.isLoading || (tab === "week" && currentWeek.loading);
   useEffect(() => {
     const course = `${studentId}|${activeCourseSubject}|${activeBoard}|${level}`;
     // Nothing to compare until the plan has loaded (see compareFocus).
