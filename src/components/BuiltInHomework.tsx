@@ -418,10 +418,11 @@ export function AnswerForm({
                 value={draftOf(q.id).text}
                 onValueChange={(text) => edit(q.id, text)}
                 context={q.prompt}
+                noPaste
                 placeholder={TYPE_HINT[q.answer_type]}
                 aria-label={`Answer to question ${i + 1}`}
                 style={linesStyle(q)}
-                className="premium-input answer-lines w-full text-base"
+                className="premium-input answer-lines w-full text-base select-text"
               />
             </div>
           </li>
