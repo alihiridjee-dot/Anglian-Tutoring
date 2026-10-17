@@ -1,9 +1,13 @@
 import { useRef, useState } from "react";
 import { Play } from "lucide-react";
 
-/** The parents' explainer, its cover frame and its length, served from `public/videos`. */
+/**
+ * The parents' explainer, its cover frame and its length, served from
+ * `public/videos`. Browsers keep the file for four hours, so bump `?v=` when
+ * the video is replaced or a visitor can go on hearing the old cut.
+ */
 const VIDEO = {
-  src: "/videos/how-it-works.mp4",
+  src: "/videos/how-it-works.mp4?v=2",
   poster: "/videos/how-it-works.jpg",
   length: "1:14",
 };
