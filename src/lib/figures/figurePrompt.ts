@@ -68,7 +68,7 @@ Reply with one JSON object and nothing else:
 - status "not_needed": the brief is text the website lays out itself: a dichotomous key, a list, a table of results, a set of steps.
 - status "cannot_draw": the brief needs a realistic picture (a cell, an organ, a leaf, an animal, a microscope image, laboratory apparatus), or a kind with no rules below, or it breaks a rule below.
 - reason: one short sentence saying why, when status is not "ok"; otherwise "".
-- alt: one plain sentence describing the figure for a screen reader, without giving the answer.
+- alt: plain sentences, under 600 characters, telling a screen reader what is drawn: where each part is and what it is joined to (for a food web, every arrow, as "grass to rabbit"). Describe, never conclude: not "a series circuit", not "an exothermic reaction", nothing the question asks.
 - labels: every line of text in the SVG, exactly as written, in reading order.
 - svg: the whole SVG document as one string; "" when status is not "ok".
 
@@ -297,7 +297,7 @@ export const FIGURE_EXAMPLES: { name: string; request: FigureRequest; reply: Fig
     reply: {
       status: "ok",
       reason: "",
-      alt: "A series circuit: a cell, an open switch, a lamp and an ammeter in one loop.",
+      alt: "A circuit drawn as a rectangle: a cell on the top wire, a lamp on the right wire, an ammeter on the bottom wire and an open switch on the left wire.",
       labels: ["A"],
       svg: [
         `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" class="qf" role="img">`,

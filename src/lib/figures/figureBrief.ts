@@ -40,11 +40,11 @@ At most ${MAX_FIGURES} questions in the set may each come with one figure, where
 A figure given as a brief is not absent: the website draws it from the brief and shows it below the question's text. The question says what the figure shows ("The graph shows how the velocity of a car changed.") and is answered from it, so it doesn't repeat the figure's data. Nothing in the figure may give the answer away: no title or label names what the question asks for.
 The brief holds every value, label and connection; the figure shows exactly the brief:
 - "line-graph" or "scatter": x and y axes, each {title: quantity and unit as "time in s", min, max, step}, 2 to 12 steps, max − min a whole number of steps, and numbers short enough to fit (at most 3 digits on the x axis). series: one ("scatter": exactly one) or two {name, points: [[x, y], …]}, 2 to 20 points, each within both axes. A line graph joins its points in order with straight lines.
-- "bar-chart": x {title, categories: 2 to 6 short names}, y an axis as above, series: one or two {name, values: one per category, each within the y axis}.
+- "bar-chart": x {title, categories: 2 to 6 names, each short enough to fit under its bar: at most 15 characters with 2 bars, 10 with 3, 7 with 4, 5 with 5 and 4 with 6}, y an axis as above starting at 0, series: one or two {name, values: one per category, each within the y axis}.
 - "circuit": components, each {type: one of ${COMPONENT_TYPES.join(", ")}; label: null unless the question names the part, e.g. "X"}; loop: going once round the main loop, each step is a component's index in components (counting from 0), or {"parallel": [[index, …], [index, …]]} for branches side by side between the same two junctions; every component appears exactly once. layout: in words, which wire each part sits on ("the cell on the top wire, the ammeter on the left wire, the two lamps in parallel on the right").
 - "energy-profile": reaction "exothermic" or "endothermic", catalyst true or false, reactants and products as they are written under the levels (short: "CH₄ + 2O₂", "CO₂ + 2H₂O"), arrows: only those the question needs, each {shows: "activation energy", "activation energy with a catalyst" (only with a catalyst) or "overall energy change", letter: one capital letter}.
-- "food-web": organisms {name, level: 1 for producers, 2 for what eats them, and so on}, at most 4 on a level and 12 in all; eaten: [food, eater] pairs, one per arrow, using the organisms' names exactly.
-Scale each axis so the values the question turns on are easy to read off: two series of very different sizes (hundreds of rabbits, tens of foxes) don't share one graph.
+- "food-web": organisms {name, level: 1 for producers, 2 for what eats them, and so on}, at most 4 on a level and 12 in all; eaten: [food, eater] pairs, one per arrow, using the organisms' names exactly, each eater on a higher level than its food.
+Scale each axis so the values the question turns on are easy to read off: put them on grid lines, and don't share one graph between two series of very different sizes (hundreds of rabbits, tens of foxes).
 Titles and names: plain words and proper notation (cm³, CO₂, °C), at most 28 characters.`;
 
 const SMALL = TEXT_SIZE["qf-small"]!;
@@ -121,6 +121,9 @@ export function readBrief(value: unknown): { brief: KnownBrief } | { problem: st
         return { problem: "has a category name too long for its bar" };
       const problem = axisProblem(b.y, "y", false);
       if (problem) return { problem };
+      // A bar stands on zero: from any other axis start, its height misstates its value.
+      if ((b.y as Axis).min !== 0)
+        return { problem: "y axis must start at 0, where the bars stand" };
       const series = b.series as { name: unknown; values: unknown }[];
       if (!Array.isArray(series) || series.length < 1 || series.length > 2)
         return { problem: "needs one or two series" };
@@ -232,6 +235,7 @@ export function readBrief(value: unknown): { brief: KnownBrief } | { problem: st
       const eaten = b.eaten as unknown[];
       if (!Array.isArray(eaten) || eaten.length < 1 || eaten.length > 16)
         return { problem: "needs 1 to 16 [food, eater] pairs" };
+      const level = new Map(organisms.map((o) => [(o.name as string).trim(), o.level as number]));
       const pairs = new Set<string>();
       for (const p of eaten) {
         if (
@@ -241,6 +245,10 @@ export function readBrief(value: unknown): { brief: KnownBrief } | { problem: st
           p[0] === p[1]
         )
           return { problem: "has a [food, eater] pair that doesn't name two of its organisms" };
+        // Food is eaten by something on a higher level: a pair the other way round
+        // would have its arrow drawn, and checked, pointing the wrong way.
+        if (level.get(String(p[0]).trim())! >= level.get(String(p[1]).trim())!)
+          return { problem: `has ${p[0]} eaten by ${p[1]}, which is not on a higher level` };
         pairs.add(`${p[0]}→${p[1]}`);
       }
       if (pairs.size !== eaten.length) return { problem: "has the same arrow twice" };

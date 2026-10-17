@@ -431,7 +431,8 @@ export function validateQuestions(
     else {
       const raw = q.figure as unknown;
       q.figure = null;
-      if (typeof raw === "string" && raw.trim()) {
+      // "", "null", "none" or "{}": a question without a figure, however it says so.
+      if (typeof raw === "string" && !/^(|null|none|\{\s*\})$/i.test(raw.trim())) {
         let brief: unknown = null;
         try {
           brief = JSON.parse(raw);

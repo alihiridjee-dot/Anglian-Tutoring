@@ -23,8 +23,12 @@ export type SavedFigure = {
 
 export type DrawResult = { ok: SavedFigure } | { failed: string };
 
-/** One DeepSeek call's limit: a figure takes 10–60 s, thinking included. */
-const ATTEMPT_MS = 75_000;
+/**
+ * One DeepSeek call's limit. A figure takes 10–70 s, thinking included: a
+ * 12-organism food web took 70 s in the 17 Oct trial. A call that runs out
+ * gets the other try, if the deadline leaves time for it.
+ */
+const ATTEMPT_MS = 120_000;
 /** No call starts with less time than this left before the deadline. */
 const LEAST_MS = 20_000;
 
@@ -36,6 +40,18 @@ const LEAST_MS = 20_000;
  * question is not saved.
  */
 export async function drawFigure(request: FigureRequest, deadline: number): Promise<DrawResult> {
+  try {
+    return await draw(request, deadline);
+  } catch (error) {
+    // The checker reads what a model wrote: whatever it trips on costs this
+    // question alone, never the set.
+    return {
+      failed: `couldn't be checked: ${error instanceof Error ? error.message : String(error)}`,
+    };
+  }
+}
+
+async function draw(request: FigureRequest, deadline: number): Promise<DrawResult> {
   const brief = request.brief as KnownBrief;
   if (drawnByCode(brief)) {
     const drawn = drawWithCode(brief);
@@ -74,9 +90,13 @@ export async function drawFigure(request: FigureRequest, deadline: number): Prom
         `[figures] ${brief.kind} try ${attempt}: ${body?.usage?.prompt_tokens ?? "?"} in, ${body?.usage?.completion_tokens ?? "?"} out, ${body?.choices?.[0]?.finish_reason ?? "?"}`,
       );
     } catch (error) {
-      return {
-        failed: `DeepSeek call failed: ${error instanceof Error ? error.message : String(error)}`,
-      };
+      const message = error instanceof Error ? error.message : String(error);
+      // Too slow this time is worth the other try, while there is time for it.
+      if (error instanceof Error && error.name === "TimeoutError" && attempt < 2) {
+        last = `timed out after ${Math.round(Math.min(ATTEMPT_MS, left - 5_000) / 1000)} s`;
+        continue;
+      }
+      return { failed: `DeepSeek call failed: ${message}` };
     }
     let reply: unknown = null;
     try {

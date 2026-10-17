@@ -11,6 +11,11 @@
  * Each run is saved to scripts/figures/out/<case>.json (not committed): every
  * attempt's reply, its usage and cost, and the checker's problems. The dev
  * server shows them at /figures-preview.
+ *
+ * `run` is paid (DeepSeek, a few cents): show Ali the dry run and run it only
+ * after a clear yes, every time (AGENTS.md, rule 12). It only draws figures for
+ * the questions in trialCases.ts; quiz and task writing goes through
+ * scripts/practice-queue.ts alone.
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";

@@ -322,7 +322,8 @@ function drawProfile(b: ProfileBrief): DrawnFigure | null {
       : letters[0];
   return {
     svg: svgOf(PROFILE.height, body),
-    alt: `A reaction profile for an ${b.reaction} reaction, from ${b.reactants} to ${b.products}${b.catalyst ? ", with and without a catalyst" : ""}.${letters.length ? ` ${letters.length === 1 ? "A double-headed arrow is" : `${letters.length} double-headed arrows are`} labelled ${listed}.` : ""}`,
+    // What is drawn, never what it means: "exothermic" may be the answer.
+    alt: `A reaction profile from ${b.reactants} to ${b.products}. The products line is ${b.reaction === "exothermic" ? "below" : "above"} the reactants line${b.catalyst ? ", and a dashed second curve rises to a lower peak" : ""}.${letters.length ? ` ${letters.length === 1 ? "A double-headed arrow is" : `${letters.length} double-headed arrows are`} labelled ${listed}.` : ""}`,
   };
 }
 

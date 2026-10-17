@@ -479,6 +479,27 @@ describe("figures, for the practice queue's sets only", () => {
     expect(plain.figureProblem).toBeUndefined();
   });
 
+  test('"null", "none" and "{}" mean no figure, not a broken one', () => {
+    const set = validateQuestions(
+      {
+        questions: ["null", "none", "{}", " { } "].map((figure, i) => ({
+          ...genetics,
+          question: `${genetics.question} (${i})`,
+          figure,
+        })),
+      },
+      4,
+      "mcq",
+      true,
+    );
+    expect(set.map((q) => [q.figure, q.figureProblem])).toEqual([
+      [null, undefined],
+      [null, undefined],
+      [null, undefined],
+      [null, undefined],
+    ]);
+  });
+
   test("a figure that wouldn't draw costs only its own question", () => {
     const offAxis = {
       ...graph,

@@ -132,10 +132,12 @@ describe("code draws graphs, bar charts and reaction profiles that pass the chec
     expect(f.svg).toContain(">−1.5<");
   });
 
-  test("the alt text describes the figure without the answer", () => {
+  test("the alt text says what is drawn, never what it means", () => {
+    // "Exothermic" may be the answer, and the alt is in the page for anyone to read.
     expect(drawWithCode(peroxide)!.alt).toBe(
-      "A reaction profile for an exothermic reaction, from hydrogen peroxide to water + oxygen, with and without a catalyst. 3 double-headed arrows are labelled A, B and C.",
+      "A reaction profile from hydrogen peroxide to water + oxygen. The products line is below the reactants line, and a dashed second curve rises to a lower peak. 3 double-headed arrows are labelled A, B and C.",
     );
+    expect(drawWithCode(limestone)!.alt).not.toMatch(/thermic/);
     expect(drawWithCode(velocity)!.alt).toContain("(4, 8), (12, 8)");
   });
 
@@ -179,6 +181,28 @@ describe("a brief is checked before anything draws it", () => {
     expect(
       problem({ ...bars, x: { title: "food", categories: ["bread and butter", "rice", "pasta"] } }),
     ).toBe("needs 2 to 6 category names");
+  });
+
+  test("a bar chart stands on zero; a food web's food sits below what eats it", () => {
+    // Bars up from −10 or from 50 misstate every value.
+    expect(problem({ ...bars, y: { title: "change in °C", min: -10, max: 10, step: 5 } })).toBe(
+      "y axis must start at 0, where the bars stand",
+    );
+    // The brief's own levels say which way an arrow must point.
+    expect(
+      problem({
+        kind: "food-web",
+        organisms: [
+          { name: "grass", level: 1 },
+          { name: "rabbit", level: 2 },
+          { name: "fox", level: 3 },
+        ],
+        eaten: [
+          ["grass", "rabbit"],
+          ["fox", "rabbit"],
+        ],
+      }),
+    ).toBe("has fox eaten by rabbit, which is not on a higher level");
   });
 
   test("a profile's arrows must be its own, each once", () => {
