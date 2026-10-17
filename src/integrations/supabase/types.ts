@@ -379,6 +379,8 @@ export type Database = {
         Row: {
           answer_type: string;
           created_at: string;
+          figure: Json | null;
+          figure_brief: Json | null;
           id: string;
           image_name: string | null;
           image_path: string | null;
@@ -392,6 +394,8 @@ export type Database = {
         Insert: {
           answer_type?: string;
           created_at?: string;
+          figure?: Json | null;
+          figure_brief?: Json | null;
           id?: string;
           image_name?: string | null;
           image_path?: string | null;
@@ -405,6 +409,8 @@ export type Database = {
         Update: {
           answer_type?: string;
           created_at?: string;
+          figure?: Json | null;
+          figure_brief?: Json | null;
           id?: string;
           image_name?: string | null;
           image_path?: string | null;
@@ -576,6 +582,8 @@ export type Database = {
           correct_index: number;
           created_at: string;
           explanation: string | null;
+          figure: Json | null;
+          figure_brief: Json | null;
           id: string;
           options: Json;
           position: number;
@@ -587,6 +595,8 @@ export type Database = {
           correct_index: number;
           created_at?: string;
           explanation?: string | null;
+          figure?: Json | null;
+          figure_brief?: Json | null;
           id?: string;
           options: Json;
           position?: number;
@@ -598,6 +608,8 @@ export type Database = {
           correct_index?: number;
           created_at?: string;
           explanation?: string | null;
+          figure?: Json | null;
+          figure_brief?: Json | null;
           id?: string;
           options?: Json;
           position?: number;

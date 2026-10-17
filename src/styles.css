@@ -871,6 +871,87 @@ a.when-link:hover .when-link-arrow {
   vertical-align: baseline;
 }
 
+/* A question's figure (lib/figures): a graph, circuit, reaction profile or
+   food web drawn as SVG with these classes only, so every figure takes the
+   site's ink, the subject's colour and the body face. The canvas is 360
+   units wide and shown 300–420 px, so 16-unit labels read at phone size.
+   A second series is rose and dashed, told apart without colour too. */
+.qf {
+  --qf-second: oklch(0.6 0.2 15);
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+  height: auto;
+  font-family: var(--font-sans);
+}
+.qf .qf-line,
+.qf .qf-thick,
+.qf .qf-data,
+.qf .qf-data2 {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.qf .qf-line {
+  stroke: var(--foreground);
+  stroke-width: 2;
+}
+.qf .qf-thick {
+  stroke: var(--foreground);
+  stroke-width: 4;
+}
+.qf .qf-thin {
+  fill: none;
+  stroke: color-mix(in oklab, var(--foreground) 14%, transparent);
+  stroke-width: 1;
+}
+.qf .qf-data {
+  stroke: var(--tint);
+  stroke-width: 3;
+}
+.qf .qf-data2 {
+  stroke: var(--qf-second);
+  stroke-width: 3;
+  stroke-dasharray: 8 6;
+}
+.qf .qf-dot {
+  fill: var(--tint);
+  stroke: var(--card);
+  stroke-width: 1.5;
+}
+.qf .qf-ink {
+  fill: var(--foreground);
+}
+.qf .qf-bar {
+  fill: var(--tint);
+}
+.qf .qf-bar2 {
+  fill: var(--qf-second);
+}
+.qf .qf-box {
+  fill: color-mix(in oklab, var(--tint) 8%, var(--card));
+  stroke: color-mix(in oklab, var(--tint) 40%, transparent);
+  stroke-width: 1.5;
+}
+.qf .qf-text,
+.qf .qf-strong,
+.qf .qf-small {
+  fill: var(--foreground);
+}
+.qf .qf-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+.qf .qf-strong {
+  font-size: 16px;
+  font-weight: 800;
+}
+.qf .qf-small {
+  font-size: 14px;
+  font-weight: 600;
+}
+
 /* ════════════════════════════════════════════════════════════════════════════
    NAV, BARS, INPUTS
    ════════════════════════════════════════════════════════════════════════════ */
