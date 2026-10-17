@@ -62,6 +62,29 @@ const pointRow = (id: string, origin: string, done_at: string | null = null) => 
     topics: { title: "Topic", sort_order: 1 },
   },
 });
+/**
+ * A week as `getPlan` reads it, in one request: each point's spec point
+ * carries its topic, and the course that topic is on, from `spec_points`.
+ */
+const embeddedWeeks = () =>
+  tables.student_weekly_plans.map((plan) => ({
+    ...(plan as object),
+    student_weekly_plan_points: (
+      tables.student_weekly_plan_points as ReturnType<typeof pointRow>[]
+    ).map((row) => {
+      const spec = (
+        tables.spec_points as { id: string; topic_id: string | null; topics: object | null }[]
+      ).find((s) => s.id === row.spec_points.id);
+      return {
+        ...row,
+        spec_points: {
+          ...row.spec_points,
+          topic_id: spec?.topic_id ?? null,
+          topics: spec?.topics ? { ...row.spec_points.topics, ...spec.topics } : null,
+        },
+      };
+    }),
+  }));
 beforeEach(() => {
   denied = null;
   refused = null;
@@ -107,7 +130,8 @@ beforeEach(() => {
       return new Response(null, { status: 201 });
     }
     if (!(name in tables)) throw new Error(`Unexpected read: ${url.pathname}`);
-    return new Response(JSON.stringify(tables[name]), {
+    const embeds = url.searchParams.get("select")?.includes("student_weekly_plan_points(");
+    return new Response(JSON.stringify(embeds ? embeddedWeeks() : tables[name]), {
       headers: { "Content-Type": "application/json" },
     });
   }) as typeof fetch);

@@ -1,14 +1,15 @@
 import { afterEach, beforeEach, expect, setSystemTime, spyOn, test } from "bun:test";
 import { ProgramDAL } from "./programDal";
-import { ScheduleDAL, type ProgressPoint, type TopicProgress } from "./scheduleDal";
-import { WeeklyPlanDAL, type PlanPoint, type PlanPointOrigin } from "./weeklyPlanDal";
-import { WeeklyActivityDAL } from "./weeklyActivityDal";
+import { type ProgressPoint, type TopicProgress } from "./scheduleDal";
+import { type PlanPoint, type PlanPointOrigin, type SavedWeek } from "./weeklyPlanDal";
 import { SubjectPauseDAL, type PauseRecord } from "./pausesDal";
-import { BreakDAL } from "./breaksDal";
+import { toOverride } from "./planOverridesDal";
 import type { StudentBreak } from "./breaks";
 import { computePacing, type PacingBand } from "./pacing";
 import { reorderTopics } from "./topicOrder";
 import { weekKeyToDate } from "./week";
+import * as courseState from "./courseState";
+import { dbError } from "../platform/errors";
 import * as session from "../auth/session";
 
 // The real client is built and `fetch` is stubbed below, so these only have to
@@ -24,6 +25,9 @@ process.env.SUPABASE_PUBLISHABLE_KEY ??= "sb_publishable_test";
  * right, only that a change to them is a change someone meant to make. Each one
  * snapshots the roadmap *and* the ordered log of reads and writes, because the
  * order and arguments of the I/O are behaviour too.
+ *
+ * Since 17 Oct 2026 the course is read in one trip ([[courseState]]), so the
+ * log holds that one read where it held seven. The roadmaps did not change.
  */
 
 // A Wednesday, so "this Monday" is 2026-09-21 and the exam year is 2027.
@@ -134,7 +138,6 @@ const planPoint = (
   done_at,
 });
 
-type SavedWeek = NonNullable<Awaited<ReturnType<typeof WeeklyPlanDAL.getPlan>>>;
 const savedWeek = (points: PlanPoint[], withheld: SavedWeek["withheld"] = []): SavedWeek => ({
   plan: {
     id: "plan",
@@ -172,28 +175,12 @@ function arrange(world: {
   profileFails?: boolean;
 }) {
   spies = [
-    spyOn(ScheduleDAL, "getTopicProgress").mockImplementation(async (args) => {
-      io.push(["getTopicProgress", args]);
-      return world.progress ?? progress;
-    }),
-    spyOn(WeeklyPlanDAL, "getPlan").mockImplementation(async (...args) => {
-      io.push(["getPlan", args]);
-      return world.saved ?? null;
-    }),
-    spyOn(WeeklyActivityDAL, "getDeliveryLedger").mockImplementation(async (...args) => {
-      io.push(["getDeliveryLedger", args]);
-      return {
-        done: new Set(world.ledger?.done ?? []),
-        outstanding: new Set(world.ledger?.outstanding ?? []),
-      };
-    }),
-    spyOn(SubjectPauseDAL, "history").mockImplementation(async (...args) => {
-      io.push(["pauseHistory", args]);
-      return world.pauses ?? [];
-    }),
-    spyOn(BreakDAL, "list").mockImplementation(async (...args) => {
-      io.push(["breaks", args]);
-      return world.breaks ?? [];
+    spyOn(courseState, "readCourseState").mockImplementation(async (args) => {
+      io.push(["readCourseState", args]);
+      // The one read fails as a whole, whichever part the database refused.
+      if (baselineFails) throw dbError({ message: "permission denied", code: "42501" });
+      if (world.profileFails) throw dbError({ message: "statement timeout", code: "57014" });
+      return stateOf(world);
     }),
     spyOn(SubjectPauseDAL, "resumeProgramme").mockImplementation(async (args) => {
       io.push([
@@ -223,34 +210,34 @@ function arrange(world: {
         table,
         method === "GET" ? url.search : JSON.parse(String(init?.body ?? "null")),
       ]);
-      // The tutor's overrides are read alongside the baseline; these worlds have none.
-      if (table === "student_plan_overrides" && method === "GET")
-        return new Response(JSON.stringify(world.overrides ?? []), {
-          headers: { "Content-Type": "application/json" },
-        });
-      // The exam year from sign-up, read only while the subject has no plan.
-      if (table === "profiles" && method === "GET") {
-        if (world.profileFails)
-          return new Response(JSON.stringify({ message: "statement timeout", code: "57014" }), {
-            status: 500,
-          });
-        return new Response(JSON.stringify([{ exam_year: world.examYear ?? null }]), {
-          headers: { "Content-Type": "application/json" },
-        });
-      }
-      if (table !== "student_program_plan") throw new Error(`Unexpected request: ${url.pathname}`);
-      if (method === "GET") {
-        if (baselineFails)
-          return new Response(JSON.stringify({ message: "permission denied", code: "42501" }), {
-            status: 403,
-          });
-        return new Response(JSON.stringify(baseline ? [baseline] : []), {
-          headers: { "Content-Type": "application/json" },
-        });
-      }
+      // Everything is read with the course's state; only the first view's seed is written here.
+      if (table !== "student_program_plan" || method === "GET")
+        throw new Error(`Unexpected request: ${method} ${url.pathname}`);
       return new Response(null, { status: 201 });
     }) as typeof fetch),
   ];
+}
+
+/** The world as the course's one read hands it over. Only what loadRoadmap reads is filled. */
+function stateOf(world: Parameters<typeof arrange>[0]): courseState.CourseState {
+  return {
+    course: { studentId: "student", ...course },
+    weekStart: THIS_MONDAY,
+    progress: world.progress ?? progress,
+    // Through JSON, as it arrives from the database.
+    baseline: baseline && JSON.parse(JSON.stringify(baseline)),
+    examYear: world.examYear ?? null,
+    pauses: world.pauses ?? [],
+    pause: null,
+    breaks: world.breaks ?? [],
+    overrides: (world.overrides ?? []).map((r) => toOverride(r as never)),
+    ledger: {
+      done: new Set(world.ledger?.done ?? []),
+      outstanding: new Set(world.ledger?.outstanding ?? []),
+    },
+    week: world.saved ?? null,
+    facts: { pacing: [], examDate: undefined, boards: [], level: null },
+  };
 }
 
 beforeEach(() => {
@@ -265,7 +252,7 @@ afterEach(() => {
   setSystemTime();
 });
 
-const load = (extra: { projectOnly?: boolean; progress?: TopicProgress[] } = {}) =>
+const load = (extra: { projectOnly?: boolean; state?: courseState.CourseState } = {}) =>
   ProgramDAL.loadRoadmap({ studentId: "student", ...course, ...extra });
 
 test("no curriculum: answers null and reads nothing else", async () => {
@@ -366,14 +353,15 @@ test("custom topic order is re-spread when the exam date has moved", async () =>
   expect({ result: await load(), io }).toMatchSnapshot();
 });
 
-test("caller-supplied progress is used instead of reading it", async () => {
+test("a caller-supplied state is used instead of reading it", async () => {
   baseline = {
     program_start: "2026-09-07",
     exam_date: "2027-06-07",
     pacing: seeded("2026-09-07", "2027-06-07"),
   };
   arrange({});
-  expect({ result: await load({ progress: progress.slice(0, 2) }), io }).toMatchSnapshot();
+  const state = stateOf({ progress: progress.slice(0, 2) });
+  expect({ result: await load({ state }), io }).toMatchSnapshot();
 });
 
 test("a failed baseline read throws rather than posing as a first view", async () => {
@@ -393,7 +381,6 @@ const seedOf = () =>
   (
     io.find((e) => Array.isArray(e) && e[0] === "db" && e[1] === "POST") as unknown[] | undefined
   )?.[3] as { exam_date: string } | undefined;
-const readExamYear = () => io.some((e) => Array.isArray(e) && e[0] === "db" && e[2] === "profiles");
 
 test("first view by a Year 10: the plan runs to the summer after next", async () => {
   arrange({ examYear: 2028 });
@@ -409,7 +396,7 @@ test("first view with no exam year given: the nearest summer, as before", async 
   expect(seedOf()?.exam_date).toBe("2027-06-07");
 });
 
-test("a plan that exists keeps its own date and never reads the exam year", async () => {
+test("a plan that exists keeps its own date, whatever the exam year", async () => {
   baseline = {
     program_start: "2026-09-07",
     exam_date: "2027-06-07",
@@ -418,7 +405,7 @@ test("a plan that exists keeps its own date and never reads the exam year", asyn
   arrange({ examYear: 2028 });
   const result = await load();
   expect(result!.examDate).toBe("2027-06-07");
-  expect(readExamYear()).toBe(false);
+  expect(seedOf()).toBeUndefined();
 });
 
 test("an unreadable stored date is repaired to the exam year", async () => {
