@@ -200,12 +200,13 @@ Return only the structured result requested. Never expose reference answers or m
  * their work is marked, drawn by `layoutMarkScheme`: this is the shape that
  * draws cleanly, where a paragraph of points joined by semicolons does not.
  */
-export const MARK_SCHEME_LAYOUT = `Lay out each mark_scheme as plain lines, one item per line, with no Markdown, HTML or blank lines:
+export const MARK_SCHEME_LAYOUT = `Lay out each mark_scheme as plain lines, one item per line, with no HTML, no blank lines and no Markdown except key terms:
 - Each creditworthy point is its own line starting "- " and ending with its credit when it carries one: "- Light is focused in front of the retina (1)". Never join points with semicolons or run them into a paragraph.
 - A line that introduces a list ends with a colon: "Any two from:" or "Indicative content:".
 - A question in parts puts each part label on its own line, "(a)", above that part's points.
 - A levels-of-response scheme gives its indicative content as points, then "Levels:" and one line per level from the top: "- Level 3 (5–6 marks): …", down to "- 0 marks: no relevant content."
-- Acceptable alternatives, rejections, error carried forward and other conditions come after the points they qualify, under a "Guidance:" line, one per line starting "- ".`;
+- Acceptable alternatives, rejections, error carried forward and other conditions come after the points they qualify, under a "Guidance:" line, one per line starting "- ".
+- Wrap each key scientific term a student must use in double asterisks, the first time it appears in a point: "- **Alleles** are different versions of a **gene** (1)". Mark single terms or short names only, one to three per point, never a whole sentence, a part label, a level label, a credit or the words Accept, Allow or Do not.`;
 
 const block = (name: string, value: unknown) =>
   `<${name}>\n${JSON.stringify(value).replace(/</g, "\\u003c")}\n</${name}>`;

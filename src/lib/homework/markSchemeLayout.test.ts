@@ -1,5 +1,10 @@
 import { describe, expect, test } from "bun:test";
-import { layoutMarkScheme, type MarkSchemeRow } from "@/lib/homework/markSchemeLayout";
+import {
+  keyTermRuns,
+  layoutMarkScheme,
+  sectionMarkScheme,
+  type MarkSchemeRow,
+} from "@/lib/homework/markSchemeLayout";
 import { MARK_SCHEME_LAYOUT, buildGenerationPrompt } from "@/lib/homework/examGeneration";
 import { toSciNotation } from "@/lib/platform/sciNotation";
 
@@ -318,5 +323,124 @@ describe("the layout the generator is asked for", () => {
     } as unknown as Parameters<typeof buildGenerationPrompt>[0];
     expect(buildGenerationPrompt(context, 5, "written").user).toContain(MARK_SCHEME_LAYOUT);
     expect(buildGenerationPrompt(context, 8, "mcq").user).not.toContain(MARK_SCHEME_LAYOUT);
+  });
+});
+
+/** Each section as "kind: first row … last row", the way the page heads them. */
+const sections = (scheme: string) =>
+  sectionMarkScheme(layoutMarkScheme(scheme)).map(
+    (s) => `${s.kind}${s.part ? ` ${s.part}` : ""}: ${picture(s.rows).join(" / ")}`,
+  );
+
+describe("the scheme in signposted sections", () => {
+  test("the generator's layout: points, levels, tips, with their headings taken away", () => {
+    const scheme = [
+      "Indicative content:",
+      "- **Genes** are sections of DNA found on **chromosomes** (1)",
+      "- Each **gamete** carries one **allele** (1)",
+      "Levels:",
+      "- Level 2 (3–4 marks): links the alleles to the phenotype.",
+      "- Level 1 (1–2 marks): uses a few key terms.",
+      "- 0 marks: no relevant content.",
+      "Guidance:",
+      "- Accept a Punnett square described in words.",
+      "- Do not credit confusing gene with allele.",
+    ].join("\n");
+    expect(sections(scheme)).toEqual([
+      "points: • **Genes** are sections of DNA found on **chromosomes** (1) / • Each **gamete** carries one **allele** (1)",
+      "levels: • Level 2 (3–4 marks): links the alleles to the phenotype. / • Level 1 (1–2 marks): uses a few key terms. / • 0 marks: no relevant content.",
+      "guidance: • Accept a Punnett square described in words. / • Do not credit confusing gene with allele.",
+    ]);
+  });
+
+  test("a scheme of points alone is one section", () => {
+    expect(sections(SHAPES.showcase)).toHaveLength(1);
+    expect(sectionMarkScheme(layoutMarkScheme(SHAPES.showcase))[0].kind).toBe("points");
+  });
+
+  test("levels written first start the levels, and their indicative content follows", () => {
+    expect(sectionMarkScheme(layoutMarkScheme(SHAPES.levelsInOneLine)).map((s) => s.kind)).toEqual([
+      "levels",
+      "points",
+    ]);
+  });
+
+  test("guidance run into one line becomes tips, one to a row", () => {
+    expect(sections(SHAPES.guidanceBySemicolons)).toEqual([
+      "points: • RNA polymerase (1)",
+      "guidance: • do not accept DNA polymerase / • do not accept helicase / • do not accept 'polymerase' on its own.",
+    ]);
+  });
+
+  test("a part after a part's tips starts the points again", () => {
+    const scheme =
+      "(a)\n- X is iron (1)\nGuidance:\n- Accept Fe.\n(b)\n- Z is calcium carbonate (1)";
+    expect(sectionMarkScheme(layoutMarkScheme(scheme)).map((s) => s.kind)).toEqual([
+      "points",
+      "guidance",
+      "points",
+    ]);
+  });
+
+  test("guidance for one part keeps its part", () => {
+    const scheme = "- 19 (1)\nGuidance for (b):\n- Allow 19.0.";
+    expect(sectionMarkScheme(layoutMarkScheme(scheme))[1]).toMatchObject({
+      kind: "guidance",
+      part: "(b)",
+    });
+  });
+
+  test("no row is lost to a section", () => {
+    for (const scheme of Object.values(SHAPES)) {
+      const rows = layoutMarkScheme(scheme).filter(
+        (r) =>
+          !(
+            r.kind === "line" &&
+            /^(?:indicative content|levels?|guidance|notes?)\b/i.test(r.label ?? r.text)
+          ),
+      );
+      const kept = sectionMarkScheme(layoutMarkScheme(scheme)).flatMap((s) => s.rows);
+      expect(kept.length).toBeGreaterThanOrEqual(rows.length);
+    }
+  });
+});
+
+describe("key terms", () => {
+  test("**term** is marked, the rest is plain", () => {
+    expect(keyTermRuns("A **gene** has two **alleles** (1)")).toEqual([
+      { text: "A ", key: false },
+      { text: "gene", key: true },
+      { text: " has two ", key: false },
+      { text: "alleles", key: true },
+      { text: " (1)", key: false },
+    ]);
+  });
+
+  test("a stray ** left by a split never shows", () => {
+    expect(keyTermRuns("the **dominant allele")).toEqual([
+      { text: "the dominant allele", key: false },
+    ]);
+  });
+
+  test("an old scheme without them reads as before", () => {
+    expect(keyTermRuns("RNA polymerase (1)")).toEqual([{ text: "RNA polymerase (1)", key: false }]);
+  });
+
+  test("they change nothing about the layout", () => {
+    const marked = "- **Genes** are on **chromosomes** (1)\n- **Rr** is **heterozygous** (1)";
+    const plain = marked.replace(/\*\*/g, "");
+    const strip = (rows: MarkSchemeRow[]) => picture(rows).map((l) => l.replace(/\*\*/g, ""));
+    expect(strip(layoutMarkScheme(marked))).toEqual(picture(layoutMarkScheme(plain)));
+  });
+
+  test("they survive the notation pass", () => {
+    expect(toSciNotation("- **Mg2+** and **Cl-** ions form **MgCl2** (1)")).toBe(
+      "- **Mg²⁺** and **Cl⁻** ions form **MgCl₂** (1)",
+    );
+  });
+
+  test("the generator is asked for them", () => {
+    expect(MARK_SCHEME_LAYOUT).toContain("double asterisks");
+    expect(MARK_SCHEME_LAYOUT).not.toContain("with no Markdown, HTML");
   });
 });

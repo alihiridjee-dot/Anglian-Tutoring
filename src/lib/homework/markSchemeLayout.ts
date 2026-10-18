@@ -542,3 +542,83 @@ export function layoutMarkScheme(scheme: string | null | undefined): MarkSchemeR
     return [line(part, ""), ...rows];
   });
 }
+
+/**
+ * A part of the scheme, which the page puts under a heading a student reads:
+ * what earns marks, how the levels give them, and the examiner's tips.
+ */
+export type MarkSchemeSection = {
+  kind: "points" | "levels" | "guidance";
+  /** "(a)" when the scheme's guidance names its part: "Guidance for (a):". */
+  part: string | null;
+  rows: MarkSchemeRow[];
+};
+
+/** A level of response, as `layoutMarkScheme` labels it. */
+export const isLevelRow = (row: MarkSchemeRow) =>
+  row.kind === "point" && /^(?:Level\s*\d|0\s+marks?)/i.test(row.label ?? "");
+
+/**
+ * The heading a line names, if it is only a heading: "Indicative content:",
+ * "Indicative content (not exhaustive):", "Levels:", "Guidance:".
+ */
+function headingOf(
+  row: MarkSchemeRow,
+): { kind: MarkSchemeSection["kind"]; part: string | null } | null {
+  if (row.kind !== "line") return null;
+  const name = (row.label ?? row.text).trim();
+  if (/^indicative content\b[^:]{0,60}:$/i.test(name)) return { kind: "points", part: null };
+  if (/^levels?\b[^:]{0,30}:$/i.test(name)) return { kind: "levels", part: null };
+  const guidance = /^(?:(?:additional\s+)?guidance(?:\s+for\s+(\([a-z]+\)))?|notes?)\s*:$/i.exec(
+    name,
+  );
+  return guidance ? { kind: "guidance", part: guidance[1] ?? null } : null;
+}
+
+/**
+ * The rows in their sections. A heading line starts its section (its own
+ * words give way to the page's heading); a level starts the levels if no
+ * heading did, and a part or a plain point after the levels or the guidance
+ * starts the points again.
+ */
+export function sectionMarkScheme(rows: MarkSchemeRow[]): MarkSchemeSection[] {
+  const sections: MarkSchemeSection[] = [];
+  let current: MarkSchemeSection = { kind: "points", part: null, rows: [] };
+  const start = (kind: MarkSchemeSection["kind"], part: string | null) => {
+    if (current.rows.length) sections.push(current);
+    current = { kind, part, rows: [] };
+  };
+  for (const row of rows) {
+    const heading = headingOf(row);
+    if (heading) {
+      start(heading.kind, heading.part);
+      if (row.label && row.text) current.rows.push(line(null, row.text));
+      current.rows.push(...row.items.map((i) => point(i.label, i.text)));
+      continue;
+    }
+    const level = isLevelRow(row);
+    if (level && current.kind !== "levels") start("levels", null);
+    else if (!level && current.kind !== "points") {
+      // "(b)" alone, or "(b) Z is calcium carbonate (1)" when each part is one point.
+      const part = PART.test(row.label ?? "");
+      const plainPoint = row.kind === "point" && current.kind === "levels";
+      if (part || plainPoint) start("points", null);
+    }
+    current.rows.push(row);
+  }
+  if (current.rows.length) sections.push(current);
+  return sections;
+}
+
+/** Text with its **key terms** marked; a stray "**" left by a split is dropped. */
+export function keyTermRuns(text: string): { text: string; key: boolean }[] {
+  return text
+    .split(/(\*\*[^*\n]+?\*\*)/g)
+    .filter(Boolean)
+    .map((t) =>
+      /^\*\*[^*\n]+?\*\*$/.test(t)
+        ? { text: t.slice(2, -2), key: true }
+        : { text: t.replace(/\*\*/g, ""), key: false },
+    )
+    .filter((r) => r.text);
+}
