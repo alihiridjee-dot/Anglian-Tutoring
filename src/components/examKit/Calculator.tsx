@@ -199,17 +199,6 @@ export function Calculator({
   return (
     <div className="flex flex-col gap-3">
       <div className="rounded-xl border-[1.5px] border-[color:color-mix(in_oklab,var(--tint)_24%,var(--edge))] bg-[color:color-mix(in_oklab,var(--tint)_5%,var(--card))] p-3">
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => onChange({ ...state, mode: state.mode === "deg" ? "rad" : "deg" })}
-            className="chip cursor-pointer"
-            aria-label={`Angles in ${state.mode === "deg" ? "degrees" : "radians"}. Switch`}
-          >
-            {state.mode === "deg" ? "DEG" : "RAD"}
-          </button>
-          {shift && <span className="chip chip-solid tint-amber">SHIFT</span>}
-        </div>
         <input
           ref={input}
           value={state.expr}
@@ -226,35 +215,58 @@ export function Calculator({
           }}
           onSelect={(e) => (caret.current = e.currentTarget.selectionStart)}
           onKeyDown={onKeyDown}
-          className="mt-2 w-full bg-transparent font-sans text-base font-semibold outline-none"
+          className="w-full bg-transparent font-sans text-base font-semibold outline-none"
         />
-        <output
-          aria-live="polite"
-          className="mt-1 block min-h-9 text-right"
-          aria-label={
-            state.result
-              ? "value" in state.result
-                ? showText(state.result.value)
-                : state.result.error
-              : undefined
-          }
-        >
-          {state.result && "error" in state.result ? (
-            <span className="font-display text-lg font-extrabold text-destructive">
-              {state.result.error}
-            </span>
-          ) : shown ? (
-            <span className="numeral text-3xl">
-              {shown.digits.replace("-", "−")}
-              {shown.exponent !== null && (
-                <>
-                  {" "}
-                  × 10<sup className="text-lg">{String(shown.exponent).replace("-", "−")}</sup>
-                </>
-              )}
-            </span>
-          ) : null}
-        </output>
+        {/* The mode and Shift beside the answer, so the display stays two lines
+            tall: on a phone every line of it covers the question. */}
+        <div className="mt-1 flex min-h-9 items-end justify-between gap-2">
+          <div className="flex shrink-0 items-center gap-1.5 pb-1">
+            <button
+              type="button"
+              onClick={() => onChange({ ...state, mode: state.mode === "deg" ? "rad" : "deg" })}
+              className="chip cursor-pointer"
+              aria-label={`Angles in ${state.mode === "deg" ? "degrees" : "radians"}. Switch`}
+            >
+              {state.mode === "deg" ? "DEG" : "RAD"}
+            </button>
+            {shift && <span className="chip chip-solid tint-amber">SHIFT</span>}
+          </div>
+          <output
+            aria-live="polite"
+            className="min-w-0 text-right"
+            aria-label={
+              state.result
+                ? "value" in state.result
+                  ? showText(state.result.value)
+                  : state.result.error
+                : undefined
+            }
+          >
+            {state.result && "error" in state.result ? (
+              <span className="font-display text-lg font-extrabold text-destructive">
+                {state.result.error}
+              </span>
+            ) : shown ? (
+              <span
+                className={cn(
+                  "numeral",
+                  // A long answer drops a size rather than wrapping its power of ten.
+                  shown.digits.length + (shown.exponent === null ? 0 : 5) > 10
+                    ? "text-2xl"
+                    : "text-3xl",
+                )}
+              >
+                {shown.digits.replace("-", "−")}
+                {shown.exponent !== null && (
+                  <>
+                    {" "}
+                    × 10<sup className="text-lg">{String(shown.exponent).replace("-", "−")}</sup>
+                  </>
+                )}
+              </span>
+            ) : null}
+          </output>
+        </div>
       </div>
 
       <div className="flex flex-col gap-1.5">

@@ -75,7 +75,7 @@ export function ExamKit({
           "premium-card p-4 print:hidden",
           // Beside the sheet, pinned under the header while the questions
           // scroll, taking what width the sheet leaves (the table wants it).
-          "xl:sticky xl:top-24 xl:block xl:max-h-[calc(100dvh-7rem)] xl:max-w-md xl:min-w-80 xl:flex-1 xl:overflow-y-auto",
+          "xl:sticky xl:top-28 xl:block xl:max-h-[calc(100dvh-8rem)] xl:max-w-md xl:min-w-80 xl:flex-1 xl:overflow-y-auto",
           // Narrower: up from the bottom on a phone, a card in the corner on a
           // tablet, and gone until asked for.
           open

@@ -112,6 +112,9 @@ export function HomeworkSheetPage() {
       <div
         className={cn(
           "xl:flex xl:items-start xl:gap-8",
+          // Room to scroll the last answer and Submit clear of the exam kit's
+          // button, which sits over the page's bottom corner below `xl`.
+          questions.length > 0 && "max-xl:pb-20",
           SUBJECT_TINT[hw.subject] ?? "tint-primary",
         )}
       >

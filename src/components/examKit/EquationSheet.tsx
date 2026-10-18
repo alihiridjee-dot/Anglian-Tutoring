@@ -19,19 +19,22 @@ export function EquationSheet({ sheet }: { sheet: Sheet }) {
 
   return (
     <div className="flex flex-col gap-3">
-      <label className="relative block">
-        <Search
-          className="text-muted-foreground pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2"
-          aria-hidden
-        />
-        <input
-          type="search"
-          value={find}
-          onChange={(e) => setFind(e.target.value)}
-          placeholder="Find an equation"
-          aria-label="Find an equation"
-          className={`${inputCls} pl-9`}
-        />
+      {/* Pinned to the top of the panel, so it is there halfway down the list. */}
+      <label className="bg-card sticky -top-4 z-10 block py-1">
+        <span className="relative block">
+          <Search
+            className="text-muted-foreground pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2"
+            aria-hidden
+          />
+          <input
+            type="search"
+            value={find}
+            onChange={(e) => setFind(e.target.value)}
+            placeholder="Find an equation"
+            aria-label="Find an equation"
+            className={`${inputCls} pl-9`}
+          />
+        </span>
       </label>
 
       <ol className="flex flex-col gap-2">
