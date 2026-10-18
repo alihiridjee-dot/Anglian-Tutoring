@@ -60,6 +60,7 @@ export function DoNowPanel({
   subject,
   editable,
   onToggle,
+  loading = false,
 }: {
   points: PlanPoint[];
   activity: Activity;
@@ -70,6 +71,9 @@ export function DoNowPanel({
   /** Past weeks are read-only — you can look, but you can't tick history. */
   editable: boolean;
   onToggle: (specPointId: string, done: boolean) => void;
+  /** The week's work or attempts are still on their way: nothing is shown yet,
+   *  so no point reads as untouched by mistake, but its notes are already read. */
+  loading?: boolean;
 }) {
   const [playing, setPlaying] = useState<{ item: PointWorkItem } | null>(null);
   const { data: notes } = useSpecPointNotes(points.map((p) => p.spec_point_id));
@@ -86,7 +90,7 @@ export function DoNowPanel({
   // who opens the dashboard with no plan of their own still has somewhere to go.
   const next = points.find((p) => !isDone(p)) ?? null;
 
-  if (total === 0) return null;
+  if (loading || total === 0) return null;
 
   const embed = playing ? parseVideoUrl(playing.item.videoUrl) : null;
 
