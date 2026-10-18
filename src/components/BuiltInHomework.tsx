@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { useQueryClient } from "@tanstack/react-query";
+import { useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { Check, Clock3, Loader2, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -16,7 +17,8 @@ import {
 import { isAlreadySubmitted, startMarking } from "@/lib/homework/startMarking";
 import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
-import { Meter, SciBlock, SciText } from "@/components/Shared";
+import { Meter, SciBlock, SciText, Spinner } from "@/components/Shared";
+import { Confetti, Mascot, Sparkles } from "@/components/Doodles";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import { MarkScheme } from "@/components/homework/MarkScheme";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
@@ -184,7 +186,28 @@ export function AnswerForm({
   const [saving, setSaving] = useState(false);
   const [restored, setRestored] = useState(false);
   const [confirming, setConfirming] = useState(false);
+  const [handedIn, setHandedIn] = useState(false);
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
+
+  // Handed in: a moment of well done, then off to the Weekly task list, where
+  // this task now shows as handed in. The sheet reloads only as this form
+  // goes; reloading straight away would swap it for the answers, and take the
+  // well-done screen with it.
+  useEffect(() => {
+    if (!handedIn) return;
+    // Only a student hands in, so their own dashboard, at the list (DoNowPanel).
+    const go = setTimeout(() => {
+      // From the top, as any page opens. The router leaves a `#` address at
+      // the old offset until the list it names has loaded.
+      window.scrollTo({ top: 0, behavior: "instant" });
+      void navigate({ to: "/student-dashboard", hash: "weekly-task-list" });
+    }, 2400);
+    return () => {
+      clearTimeout(go);
+      onChanged();
+    };
+  }, [handedIn, navigate, onChanged]);
 
   const draftOf = (id: string): Draft => ({ text: work.answers[id] ?? "" });
   // Answers only. The sheet no longer has a box for a note to the tutor, so a
@@ -336,7 +359,7 @@ export function AnswerForm({
       setWork(EMPTY_WORK);
       setRestored(false);
       setConfirming(false);
-      onChanged();
+      setHandedIn(true);
       // The weekly task list reads hand-ins too; without this it kept offering
       // "Start" on the task just handed in until its cache went stale.
       void invalidatePlanner(queryClient, userId);
@@ -401,6 +424,8 @@ export function AnswerForm({
       }}
       className="space-y-5"
     >
+      {(saving || handedIn) && <HandInScreen done={handedIn} />}
+
       {restored && (
         <p className="tint-primary premium-card px-4 py-2.5 text-sm font-medium">
           We brought back what you&apos;d typed last time.
@@ -468,6 +493,55 @@ export function AnswerForm({
         </button>
       )}
     </form>
+  );
+}
+
+/**
+ * Handing a task in, then a well done.
+ *
+ * It covers the sheet from the moment the answers are sent, so nothing on it
+ * can be pressed twice. Once they are in, the rocket cheers, the sticker lands
+ * and the confetti falls, for the moment before the student is taken to their
+ * task list. A failed hand-in closes it again, leaving the answers to resend.
+ */
+function HandInScreen({ done }: { done: boolean }) {
+  return (
+    <div
+      role="status"
+      aria-live="polite"
+      className="bg-primary-deep/50 fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
+    >
+      <div className="premium-card pop-in relative flex w-full max-w-sm flex-col items-center overflow-hidden px-6 pt-8 text-center">
+        {done && (
+          <>
+            <Confetti />
+            {/* A second burst, mirrored and a beat behind, so it falls both ways. */}
+            <Confetti delay="0.45s" className="-scale-x-100" />
+          </>
+        )}
+        <Mascot
+          name="rocket"
+          mood={done ? "proud" : "happy"}
+          size={112}
+          idle={!done}
+          inheritTint
+          className={cn(done && "cheer")}
+        />
+        {done && (
+          <span className="sticker stamp-in mt-4">
+            <Sparkles className="size-3.5 text-[color:var(--pop-ink)]" />
+            Well done!
+          </span>
+        )}
+        <h2 className="mt-3 text-2xl font-extrabold">
+          {done ? "Task handed in" : "Handing it in"}
+        </h2>
+        <Spinner
+          label={done ? "Taking you to your task list" : "Sending your answers"}
+          className="pt-4 pb-7"
+        />
+      </div>
+    </div>
   );
 }
 

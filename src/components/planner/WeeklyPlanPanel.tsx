@@ -244,6 +244,7 @@ export function WeeklyPlanPanel({
           onToggle={(id, done) => {
             void week.setPointDone(id, done);
           }}
+          settled={!week.loading}
         />
       )}
     </>
