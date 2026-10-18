@@ -208,7 +208,8 @@
     },
     "aqa_alevel": {
       "spec_codes": [
-        "AQA 3.5.1"
+        "AQA 3.5.1b",
+        "AQA 3.5.1c"
       ],
       "extra": [
         {
@@ -237,7 +238,9 @@
       "5961bf0a-23da-40ff-b51d-f1c0b70bb48a",
       "35213df7-8c9d-4a09-ba93-f9e1d99e4a4d",
       "b81b3c63-87da-4846-8ee0-61aacd20c1a9",
-      "78e46e42-371f-4360-b0ce-ea936242a9f8"
+      "78e46e42-371f-4360-b0ce-ea936242a9f8",
+      "5f1b7d08-0457-4480-9ab5-cb851d9b2c5b",
+      "3c3bd2cf-4de7-4b3a-a448-d249adee100e"
     ],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",

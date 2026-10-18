@@ -297,7 +297,7 @@
   "boards": {
     "aqa_alevel": {
       "spec_codes": [
-        "AQA 3.3.4.2"
+        "AQA 3.3.4.2a"
       ]
     },
     "ocr_alevel": {
@@ -419,7 +419,6 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",
     "spec_point_ids": [
-      "7ca9c5a1-f365-43f2-b6cc-98085c0f684c",
       "b79e4b70-fc0f-44d3-b94a-ad916ce91ad3",
       "2d2fe71a-fa4b-417c-9aa8-f627904089e6",
       "d7e0e8e6-1540-4464-968c-57e4a305b750",
@@ -430,7 +429,8 @@
       "ca575bc9-c6a9-4737-af12-d2cb267465e5",
       "40102cff-0d1f-4d65-a845-bdae84331cbd",
       "e875b769-495c-4e41-89dc-cc2bf952e4a3",
-      "163b2e6e-13e0-4df5-ab06-9bf9e80a06b4"
+      "163b2e6e-13e0-4df5-ab06-9bf9e80a06b4",
+      "e50c1d7a-3ee4-40d5-85db-4d0c1fa2d742"
     ],
     "exemplar_ids": []
   }

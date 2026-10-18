@@ -8,7 +8,10 @@
     {
       "heading": "Dihybrid crosses",
       "blocks": [
-        { "type": "paragraph", "text": "A dihybrid cross follows two genes on different chromosomes. The genes are inherited independently, because homologous pairs line up and separate at random in meiosis." },
+        {
+          "type": "paragraph",
+          "text": "A dihybrid cross follows two genes on different chromosomes. The genes are inherited independently, because homologous pairs line up and separate at random in meiosis."
+        },
         {
           "type": "list",
           "items": [
@@ -18,14 +21,29 @@
             "RrYy × RrYy gives 9 round yellow : 3 round green : 3 wrinkled yellow : 1 wrinkled green."
           ]
         },
-        { "type": "paragraph", "text": "In this example R is round and Y is yellow, and both are dominant." },
+        {
+          "type": "paragraph",
+          "text": "In this example R is round and Y is yellow, and both are dominant."
+        },
         {
           "type": "table",
-          "columns": ["Cross", "Offspring phenotype ratio"],
+          "columns": [
+            "Cross",
+            "Offspring phenotype ratio"
+          ],
           "rows": [
-            ["RrYy × RrYy (both heterozygous)", "9 : 3 : 3 : 1"],
-            ["RrYy × rryy (test cross)", "1 : 1 : 1 : 1"],
-            ["RRYY × rryy (pure-breeding parents)", "All RrYy, then 9 : 3 : 3 : 1 in the next generation"]
+            [
+              "RrYy × RrYy (both heterozygous)",
+              "9 : 3 : 3 : 1"
+            ],
+            [
+              "RrYy × rryy (test cross)",
+              "1 : 1 : 1 : 1"
+            ],
+            [
+              "RRYY × rryy (pure-breeding parents)",
+              "All RrYy, then 9 : 3 : 3 : 1 in the next generation"
+            ]
           ]
         },
         {
@@ -41,7 +59,10 @@
     {
       "heading": "Sex linkage",
       "blocks": [
-        { "type": "paragraph", "text": "A **sex-linked** gene is on a sex chromosome, usually the X. The Y chromosome carries very few of the same genes." },
+        {
+          "type": "paragraph",
+          "text": "A **sex-linked** gene is on a sex chromosome, usually the X. The Y chromosome carries very few of the same genes."
+        },
         {
           "type": "list",
           "items": [
@@ -52,34 +73,61 @@
             "Haemophilia and red-green colour blindness are X-linked recessive conditions."
           ]
         },
-        { "type": "paragraph", "text": "In the cross below, Xᴴ is the normal allele and Xʰ is the recessive allele. Pick a mother and a father." },
+        {
+          "type": "paragraph",
+          "text": "In the cross below, Xᴴ is the normal allele and Xʰ is the recessive allele. Pick a mother and a father."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "predictor",
             "alt": "A predictor for an X-linked recessive condition. Pick the parents and see the daughters, the sons and the chance that a child is affected.",
             "prompt": "Pick the parents' genotypes",
-            "result_labels": ["Daughters", "Sons", "Chance a child is affected"],
+            "result_labels": [
+              "Daughters",
+              "Sons",
+              "Chance a child is affected"
+            ],
             "options": [
               {
                 "label": "Carrier mother (XᴴXʰ) × unaffected father (XᴴY)",
-                "results": ["All unaffected; half are carriers", "Half unaffected, half affected", "1 in 4"]
+                "results": [
+                  "All unaffected; half are carriers",
+                  "Half unaffected, half affected",
+                  "1 in 4"
+                ]
               },
               {
                 "label": "Carrier mother (XᴴXʰ) × affected father (XʰY)",
-                "results": ["Half carriers, half affected", "Half unaffected, half affected", "1 in 2"]
+                "results": [
+                  "Half carriers, half affected",
+                  "Half unaffected, half affected",
+                  "1 in 2"
+                ]
               },
               {
                 "label": "Affected mother (XʰXʰ) × unaffected father (XᴴY)",
-                "results": ["All carriers", "All affected", "1 in 2"]
+                "results": [
+                  "All carriers",
+                  "All affected",
+                  "1 in 2"
+                ]
               },
               {
                 "label": "Unaffected mother (XᴴXᴴ) × affected father (XʰY)",
-                "results": ["All carriers", "All unaffected", "None affected"]
+                "results": [
+                  "All carriers",
+                  "All unaffected",
+                  "None affected"
+                ]
               },
               {
                 "label": "Affected mother (XʰXʰ) × affected father (XʰY)",
-                "results": ["All affected", "All affected", "All affected"]
+                "results": [
+                  "All affected",
+                  "All affected",
+                  "All affected"
+                ]
               }
             ]
           }
@@ -97,7 +145,10 @@
     {
       "heading": "Autosomal linkage",
       "blocks": [
-        { "type": "paragraph", "text": "Genes on the same autosome are **linked**. They are on the same chromosome, so they are inherited together." },
+        {
+          "type": "paragraph",
+          "text": "Genes on the same autosome are **linked**. They are on the same chromosome, so they are inherited together."
+        },
         {
           "type": "list",
           "items": [
@@ -107,7 +158,10 @@
             "The closer two loci are, the less often crossing over separates them, so the fewer recombinants there are."
           ]
         },
-        { "type": "paragraph", "text": "A ratio of offspring that is not 1 : 1 : 1 : 1 in a test cross, with two phenotypes much more common than the other two, points to linkage." },
+        {
+          "type": "paragraph",
+          "text": "A ratio of offspring that is not 1 : 1 : 1 : 1 in a test cross, with two phenotypes much more common than the other two, points to linkage."
+        },
         {
           "type": "key-points",
           "items": [
@@ -121,7 +175,10 @@
     {
       "heading": "Epistasis",
       "blocks": [
-        { "type": "paragraph", "text": "In **epistasis**, an allele at one locus affects or masks the expression of alleles at a second locus. The two genes may be on different chromosomes, but they do not act separately." },
+        {
+          "type": "paragraph",
+          "text": "In **epistasis**, an allele at one locus affects or masks the expression of alleles at a second locus. The two genes may be on different chromosomes, but they do not act separately."
+        },
         {
           "type": "list",
           "items": [
@@ -131,7 +188,10 @@
             "The 16 combinations still add up, but the albino classes look the same, so fewer phenotypes appear."
           ]
         },
-        { "type": "paragraph", "text": "Other epistatic crosses give ratios such as 9 : 7 or 12 : 3 : 1. A modified ratio that still totals 16 suggests epistasis." },
+        {
+          "type": "paragraph",
+          "text": "Other epistatic crosses give ratios such as 9 : 7 or 12 : 3 : 1. A modified ratio that still totals 16 suggests epistasis."
+        },
         {
           "type": "key-points",
           "items": [
@@ -145,22 +205,44 @@
     {
       "heading": "The chi-squared test",
       "blocks": [
-        { "type": "paragraph", "text": "Real results never match the expected ratio exactly. The chi-squared test checks whether the difference is just chance." },
+        {
+          "type": "paragraph",
+          "text": "Real results never match the expected ratio exactly. The chi-squared test checks whether the difference is just chance."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Null hypothesis.", "text": "State that there is no significant difference between the observed and expected results." },
-            { "lead": "Expected numbers.", "text": "Share the total in the expected ratio. For 3 : 1 and 160 offspring, expect 120 and 40." },
-            { "lead": "Calculate χ².", "text": "Use the formula below, for every class, and add the answers." },
-            { "lead": "Degrees of freedom.", "text": "Number of classes minus 1." },
-            { "lead": "Compare.", "text": "Find the critical value at probability 0.05 (5%) in the table you are given." }
+            {
+              "lead": "Null hypothesis.",
+              "text": "State that there is no significant difference between the observed and expected results."
+            },
+            {
+              "lead": "Expected numbers.",
+              "text": "Share the total in the expected ratio. For 3 : 1 and 160 offspring, expect 120 and 40."
+            },
+            {
+              "lead": "Calculate χ².",
+              "text": "Use the formula below, for every class, and add the answers."
+            },
+            {
+              "lead": "Degrees of freedom.",
+              "text": "Number of classes minus 1."
+            },
+            {
+              "lead": "Compare.",
+              "text": "Find the critical value at probability 0.05 (5%) in the table you are given."
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Chi-squared",
           "formula": "χ² = Σ (O − E)² ÷ E",
-          "where": ["O = observed number in a class", "E = expected number in that class", "Σ = the sum over all classes"]
+          "where": [
+            "O = observed number in a class",
+            "E = expected number in that class",
+            "Σ = the sum over all classes"
+          ]
         },
         {
           "type": "list",
@@ -170,7 +252,10 @@
             "Use counts, never percentages, in the formula."
           ]
         },
-        { "type": "paragraph", "text": "Try one with new numbers. A 3 : 1 ratio has two classes, so there is 1 degree of freedom." },
+        {
+          "type": "paragraph",
+          "text": "Try one with new numbers. A 3 : 1 ratio has two classes, so there is 1 degree of freedom."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -178,8 +263,18 @@
             "alt": "A chi-squared practice question with new numbers each time, for an expected 3 : 1 ratio.",
             "question": "A cross is expected to give a 3 : 1 ratio. The observed offspring are {a} with the dominant phenotype and {b} with the recessive phenotype. Calculate χ² to 2 decimal places.",
             "variables": [
-              { "id": "a", "min": 130, "max": 170, "step": 1 },
-              { "id": "b", "min": 40, "max": 60, "step": 1 }
+              {
+                "id": "a",
+                "min": 130,
+                "max": 170,
+                "step": 1
+              },
+              {
+                "id": "b",
+                "min": 40,
+                "max": 60,
+                "step": 1
+              }
             ],
             "answer": {
               "formula": "(a - 0.75 * (a + b)) * (a - 0.75 * (a + b)) / (0.75 * (a + b)) + (b - 0.25 * (a + b)) * (b - 0.25 * (a + b)) / (0.25 * (a + b))",
@@ -196,11 +291,23 @@
         },
         {
           "type": "table",
-          "columns": ["Degrees of freedom", "Critical value at p = 0.05"],
+          "columns": [
+            "Degrees of freedom",
+            "Critical value at p = 0.05"
+          ],
           "rows": [
-            ["1", "3.84"],
-            ["2", "5.99"],
-            ["3", "7.82"]
+            [
+              "1",
+              "3.84"
+            ],
+            [
+              "2",
+              "5.99"
+            ],
+            [
+              "3",
+              "7.82"
+            ]
           ]
         },
         {
@@ -233,15 +340,23 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": ["AQA 3.7.1"]
+      "spec_codes": [
+        "AQA 3.7.1f",
+        "AQA 3.7.1e"
+      ]
     },
     "edexcel_alevel": {
-      "spec_codes": ["EDEX 3.8"],
+      "spec_codes": [
+        "EDEX 3.8"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
           "blocks": [
-            { "type": "paragraph", "text": "A locus (plural loci) is the location of a gene on a chromosome. You need to link loci to linkage and sex linkage." },
+            {
+              "type": "paragraph",
+              "text": "A locus (plural loci) is the location of a gene on a chromosome. You need to link loci to linkage and sex linkage."
+            },
             {
               "type": "list",
               "items": [
@@ -255,7 +370,10 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": ["CAIE 16.2.3", "CAIE 16.2.5"],
+      "spec_codes": [
+        "CAIE 16.2.3",
+        "CAIE 16.2.5"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -273,7 +391,10 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": ["OCR 6.1.2b", "OCR 6.1.2c"],
+      "spec_codes": [
+        "OCR 6.1.2b",
+        "OCR 6.1.2c"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -300,7 +421,8 @@
       "22161438-c914-4b59-95d8-b70770b1e7ff",
       "58767acd-9a6d-4550-8304-c49b6ccd06e1",
       "26c934da-8d2d-445b-a6e4-46fe8ad8ae7a",
-      "404b9835-c329-4a27-97c6-04670f405c3d"
+      "404b9835-c329-4a27-97c6-04670f405c3d",
+      "393f6b9a-83f1-4d70-925d-07e4709bfa0c"
     ],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",
