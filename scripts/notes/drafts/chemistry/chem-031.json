@@ -3,14 +3,14 @@
   "concept_id": "chem-031",
   "subject": "chemistry",
   "title": "The mole and the Avogadro constant",
-  "key_idea": "(AQA: Higher tier) A mole is a fixed number of particles: 6.02 × 10²³, the Avogadro constant. The mass of one mole of a substance in grams is its relative formula mass. This lets you convert between mass, moles and number of particles.",
+  "key_idea": "(Higher tier) A mole is a fixed number of particles: 6.02 × 10²³, the Avogadro constant. The mass of one mole of a substance in grams is its relative formula mass. This lets you convert between mass, moles and number of particles.",
   "sections": [
     {
       "heading": "What a mole is",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Atoms and molecules are far too small to count one by one. Chemists count them in moles instead. This section covers what a mole is."
+          "text": "(Higher tier) Atoms and molecules are far too small to count one by one. Chemists count them in moles instead. This section covers what a mole is."
         },
         {
           "type": "definitions",
@@ -57,7 +57,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Use the Mr to turn a mass in grams into a number of moles, or back again."
+          "text": "(Higher tier) Use the Mr to turn a mass in grams into a number of moles, or back again."
         },
         {
           "type": "equation",
@@ -132,7 +132,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Multiply moles by the Avogadro constant to get the number of particles."
+          "text": "(Higher tier) Multiply moles by the Avogadro constant to get the number of particles."
         },
         {
           "type": "equation",

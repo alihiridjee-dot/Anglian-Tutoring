@@ -3,14 +3,14 @@
   "concept_id": "chem-073",
   "subject": "chemistry",
   "title": "Le Chatelier's principle",
-  "key_idea": "(AQA: Higher tier) If a change is made to a system at equilibrium, the system responds to counteract the change. This is **Le Chatelier's principle**. It predicts how concentration, temperature and pressure shift the position of equilibrium.",
+  "key_idea": "(Higher tier) If a change is made to a system at equilibrium, the system responds to counteract the change. This is **Le Chatelier's principle**. It predicts how concentration, temperature and pressure shift the position of equilibrium.",
   "sections": [
     {
-      "heading": "Le Chatelier's principle (AQA: Higher tier)",
+      "heading": "Le Chatelier's principle (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) The amounts of reactants and products at equilibrium depend on the conditions. Changing a condition changes them."
+          "text": "(Higher tier) The amounts of reactants and products at equilibrium depend on the conditions. Changing a condition changes them."
         },
         {
           "type": "definitions",
@@ -47,11 +47,11 @@
       ]
     },
     {
-      "heading": "Concentration, temperature and pressure (AQA: Higher tier)",
+      "heading": "Concentration, temperature and pressure (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Each change has a rule. The Haber process is a standard example."
+          "text": "(Higher tier) Each change has a rule. The Haber process is a standard example."
         },
         {
           "type": "equation",
@@ -212,11 +212,11 @@
       ]
     },
     {
-      "heading": "Choosing conditions in industry (AQA: Higher tier)",
+      "heading": "Choosing conditions in industry (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) The conditions for the Haber process balance rate, yield and cost."
+          "text": "(Higher tier) The conditions for the Haber process balance rate, yield and cost."
         },
         {
           "type": "table",
@@ -258,17 +258,17 @@
   ],
   "checks": [
     {
-      "q": "(AQA: Higher tier) State Le Chatelier's principle.",
+      "q": "(Higher tier) State Le Chatelier's principle.",
       "a": "If a change is made to a system at equilibrium, the system responds to counteract the change.",
       "marks": 1
     },
     {
-      "q": "(AQA: Higher tier) In the reaction 2SO₂(g) + O₂(g) ⇌ 2SO₃(g), explain the effect of increasing the pressure on the position of equilibrium.",
+      "q": "(Higher tier) In the reaction 2SO₂(g) + O₂(g) ⇌ 2SO₃(g), explain the effect of increasing the pressure on the position of equilibrium.",
       "a": "The position shifts to the right. There are fewer molecules of gas on the right (2) than on the left (3).",
       "marks": 2
     },
     {
-      "q": "(AQA: Higher tier) The forward reaction is exothermic. Explain the effect of increasing the temperature on the amount of product at equilibrium.",
+      "q": "(Higher tier) The forward reaction is exothermic. Explain the effect of increasing the temperature on the amount of product at equilibrium.",
       "a": "The amount of product decreases. The system shifts in the endothermic direction, to the left.",
       "marks": 2
     }

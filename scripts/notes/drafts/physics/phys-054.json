@@ -239,8 +239,8 @@
           "items": [
             "The acceleration is the gradient of the velocity–time graph.",
             "To find the acceleration, divide the change in velocity by the change in time between two points on the line.",
-            "The distance travelled is the area between the graph line and the time axis.",
-            "For a straight line, split the area into a rectangle and a triangle, or count squares.",
+            "(AQA and OCR: Higher tier) The distance travelled is the area between the graph line and the time axis.",
+            "(AQA and OCR: Higher tier) For a straight line, split the area into a rectangle and a triangle, or count squares.",
             "Comparing two lines: the steeper line has the greater acceleration."
           ]
         },
@@ -248,7 +248,7 @@
           "type": "key-points",
           "items": [
             "Gradient of a velocity–time graph is acceleration.",
-            "Area under a velocity–time graph is distance travelled.",
+            "(AQA and OCR: Higher tier) Area under a velocity–time graph is distance travelled.",
             "A horizontal line means constant velocity."
           ]
         }
@@ -295,7 +295,7 @@
             {
               "type": "list",
               "items": [
-                "(AQA: Higher tier) The distance travelled, or the displacement, is the area under a velocity–time graph. Measure the area by counting squares when needed.",
+                "(Higher tier) The distance travelled, or the displacement, is the area under a velocity–time graph. Measure the area by counting squares when needed.",
                 "Near the Earth's surface any object falling freely under gravity has an acceleration of about 9.8 m/s²."
               ]
             }

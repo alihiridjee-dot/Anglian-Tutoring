@@ -3,7 +3,7 @@
   "concept_id": "chem-039",
   "subject": "chemistry",
   "title": "Atom economy",
-  "key_idea": "(Separate chemistry) The atom economy of a reaction is the percentage of the mass of the reactants that ends up as the desired product. A high atom economy means less waste. A reaction pathway is chosen using atom economy, yield, rate, cost and by-products.",
+  "key_idea": "(Separate chemistry) The atom economy of a reaction is the percentage of the mass of the reactants that ends up as the desired product. A high atom economy means less waste. (Higher tier) A reaction pathway is chosen using atom economy, yield, rate, cost and by-products.",
   "sections": [
     {
       "heading": "What atom economy measures",
@@ -138,7 +138,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier for AQA) Atom economy is not the only factor. Industry chooses a pathway using several types of data."
+          "text": "(Higher tier) Atom economy is not the only factor. Industry chooses a pathway using several types of data."
         },
         {
           "type": "table",
@@ -185,7 +185,7 @@
       "marks": 3
     },
     {
-      "q": "Give two factors, other than atom economy, to consider when choosing a reaction pathway.",
+      "q": "(Higher tier) Give two factors, other than atom economy, to consider when choosing a reaction pathway.",
       "a": "Any two from: percentage yield, rate of reaction, equilibrium position, usefulness of by-products, cost of raw materials, energy requirement.",
       "marks": 2
     }

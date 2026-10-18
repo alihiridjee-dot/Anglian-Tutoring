@@ -3,14 +3,14 @@
   "concept_id": "phys-071",
   "subject": "physics",
   "title": "Sound waves and hearing",
-  "key_idea": "Sound travels through solids by particles vibrating and passing the vibration on. The ear changes sound waves into vibrations and then nerve impulses, but only over about 20 Hz to 20 kHz. Entering a new material, frequency stays the same while speed and wavelength change.",
+  "key_idea": "(AQA: Higher tier) Sound travels through solids by particles vibrating and passing the vibration on. The ear changes sound waves into vibrations and then nerve impulses, but only over about 20 Hz to 20 kHz. Entering a new material, frequency stays the same while speed and wavelength change.",
   "sections": [
     {
       "heading": "Sound in solids and across boundaries",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Separate science) Sound is a longitudinal wave. It needs particles to carry it, and it can travel through solids as well as gases and liquids."
+          "text": "(Separate science) Sound is a longitudinal wave. (Higher tier) It needs particles to carry it, and it can travel through solids as well as gases and liquids."
         },
         {
           "type": "list",
@@ -106,7 +106,7 @@
         {
           "type": "key-points",
           "items": [
-            "Sound travels through solids as vibrations passed from particle to particle.",
+            "(Higher tier) Sound travels through solids as vibrations passed from particle to particle.",
             "Crossing into a new material, frequency stays the same.",
             "Speed and wavelength change together: higher speed, longer wavelength."
           ]
@@ -114,7 +114,7 @@
       ]
     },
     {
-      "heading": "How the ear works",
+      "heading": "How the ear works (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -190,7 +190,7 @@
       ]
     },
     {
-      "heading": "The limits of human hearing",
+      "heading": "The limits of human hearing (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -235,12 +235,12 @@
   ],
   "checks": [
     {
-      "q": "State the range of frequencies that humans can normally hear.",
+      "q": "(Higher tier) State the range of frequencies that humans can normally hear.",
       "a": "From 20 Hz to 20 000 Hz (20 kHz).",
       "marks": 1
     },
     {
-      "q": "Describe how sound travels through the ear.",
+      "q": "(Higher tier) Describe how sound travels through the ear.",
       "a": "The outer ear and ear canal carry the sound to the ear drum. The ear drum vibrates. The vibrations pass to the ossicles, which vibrate and amplify them. Liquid in the cochlea carries the movement to small hairs, which vibrate and send nerve impulses to the brain.",
       "marks": 3
     },

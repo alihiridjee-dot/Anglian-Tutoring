@@ -3,7 +3,7 @@
   "concept_id": "phys-050",
   "subject": "physics",
   "title": "Pressure and pressure in liquids",
-  "key_idea": "(Separate science) Pressure is force per unit area, **p = F ÷ A**. A fluid pushes at right angles on any surface it touches. (AQA: Higher tier) In a liquid, pressure increases with depth and with density, **p = h × ρ × g**.",
+  "key_idea": "(Separate science) Pressure is force per unit area, **p = F ÷ A**. A fluid pushes at right angles on any surface it touches. (Higher tier) In a liquid, pressure increases with depth and with density, **p = h × ρ × g**.",
   "sections": [
     {
       "heading": "Pressure, force and area",
@@ -114,7 +114,7 @@
       ]
     },
     {
-      "heading": "Pressure in a liquid",
+      "heading": "Pressure in a liquid (AQA and OCR: Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -125,13 +125,13 @@
           "items": [
             "Pressure in a liquid increases with depth.",
             "Pressure at the same depth is greater in a denser liquid.",
-            "The weight of the column of liquid above a point pushes down on it.",
-            "A deeper point has a taller column above it, so the pressure is greater."
+            "(Higher tier) The weight of the column of liquid above a point pushes down on it.",
+            "(Higher tier) A deeper point has a taller column above it, so the pressure is greater."
           ]
         },
         {
           "type": "equation",
-          "label": "Pressure due to a column of liquid",
+          "label": "(Higher tier) Pressure due to a column of liquid",
           "formula": "p = h × ρ × g",
           "where": [
             "p is pressure in pascals (Pa).",
@@ -159,7 +159,7 @@
         },
         {
           "type": "paragraph",
-          "text": "To find the increase in pressure between two depths, use the difference in depth for h."
+          "text": "(Higher tier) To find the increase in pressure between two depths, use the difference in depth for h."
         },
         {
           "type": "diagram",
@@ -212,8 +212,8 @@
           "type": "key-points",
           "items": [
             "Pressure in a liquid increases with depth and with density.",
-            "p = h × ρ × g gives the pressure due to a column of liquid.",
-            "For a change in pressure, use the change in depth."
+            "(Higher tier) p = h × ρ × g gives the pressure due to a column of liquid.",
+            "(Higher tier) For a change in pressure, use the change in depth."
           ]
         }
       ]
@@ -231,7 +231,7 @@
       "marks": 3
     },
     {
-      "q": "The top of a block is 6.6 m below the surface of water of density 1000 kg/m³. g = 10 N/kg. Calculate the pressure on the top of the block.",
+      "q": "(Higher tier) The top of a block is 6.6 m below the surface of water of density 1000 kg/m³. g = 10 N/kg. Calculate the pressure on the top of the block.",
       "a": "p = h × ρ × g = 6.6 × 1000 × 10 = 66 000 Pa.",
       "marks": 2
     }
@@ -258,7 +258,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(AQA: Higher tier) For this course, the pressure due to a column of liquid, p = h × ρ × g, and how it changes with depth and density are Higher tier only. Pressure from force and area is for all students."
+              "text": "(Higher tier) For this course, the pressure due to a column of liquid, p = h × ρ × g, and how it changes with depth and density are Higher tier only. Pressure from force and area is for all students."
             }
           ]
         },

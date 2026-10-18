@@ -108,7 +108,7 @@
         },
         {
           "type": "subheading",
-          "text": "Finding the theoretical yield (Higher tier for AQA)"
+          "text": "Finding the theoretical yield (AQA: Higher tier)"
         },
         {
           "type": "steps",
@@ -146,7 +146,7 @@
           "type": "key-points",
           "items": [
             "Percentage yield = actual ÷ theoretical × 100.",
-            "Find the theoretical mass from the equation using moles.",
+            "(AQA: Higher tier) Find the theoretical mass from the equation using moles.",
             "Rearrange to find the actual or theoretical yield."
           ]
         }

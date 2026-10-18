@@ -3,14 +3,14 @@
   "concept_id": "chem-033",
   "subject": "chemistry",
   "title": "Using moles to balance equations",
-  "key_idea": "(AQA: Higher tier) The balancing numbers in an equation are the mole ratio of the substances. Convert each mass to moles, divide by the smallest number of moles, and write the simplest whole-number ratio. Those numbers are the balancing numbers.",
+  "key_idea": "(Higher tier) The balancing numbers in an equation are the mole ratio of the substances. Convert each mass to moles, divide by the smallest number of moles, and write the simplest whole-number ratio. Those numbers are the balancing numbers.",
   "sections": [
     {
       "heading": "Finding balancing numbers from masses",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Experiments can show how many moles of each substance react. This section covers how to turn masses into balancing numbers."
+          "text": "(Higher tier) Experiments can show how many moles of each substance react. This section covers how to turn masses into balancing numbers."
         },
         {
           "type": "steps",
@@ -100,7 +100,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) A question may give two possible equations. Calculate the mole ratio from the data and see which equation matches."
+          "text": "(Higher tier) A question may give two possible equations. Calculate the mole ratio from the data and see which equation matches."
         },
         {
           "type": "steps",

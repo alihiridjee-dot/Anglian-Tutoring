@@ -3,14 +3,14 @@
   "concept_id": "chem-062",
   "subject": "chemistry",
   "title": "Bond energies",
-  "key_idea": "Breaking bonds takes in energy and making bonds releases energy. The overall energy change is the energy needed to break bonds minus the energy released making bonds. A negative result means the reaction is exothermic.",
+  "key_idea": "(AQA and OCR: Higher tier) Breaking bonds takes in energy and making bonds releases energy. The overall energy change is the energy needed to break bonds minus the energy released making bonds. A negative result means the reaction is exothermic.",
   "sections": [
     {
       "heading": "Bond breaking and bond making",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) This section covers where the energy change in a reaction comes from."
+          "text": "(AQA and OCR: Higher tier) This section covers where the energy change in a reaction comes from."
         },
         {
           "type": "definitions",
@@ -44,7 +44,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Add up the bond energies for the bonds broken and the bonds made, then find the difference."
+          "text": "(Higher tier) Add up the bond energies for the bonds broken and the bonds made, then find the difference."
         },
         {
           "type": "equation",
@@ -224,17 +224,17 @@
   ],
   "checks": [
     {
-      "q": "(AQA: Higher tier) Explain why a reaction is exothermic in terms of bond breaking and bond making.",
+      "q": "(AQA and OCR: Higher tier) Explain why a reaction is exothermic in terms of bond breaking and bond making.",
       "a": "Energy is needed to break bonds and energy is released when bonds form. More energy is released making bonds than is needed to break bonds.",
       "marks": 3
     },
     {
-      "q": "(AQA: Higher tier) In a reaction, the bonds broken need 1000 kJ/mol and the bonds made release 1300 kJ/mol. Calculate the overall energy change and state the type of reaction.",
+      "q": "(Higher tier) In a reaction, the bonds broken need 1000 kJ/mol and the bonds made release 1300 kJ/mol. Calculate the overall energy change and state the type of reaction.",
       "a": "1000 − 1300 = −300 kJ/mol. Exothermic.",
       "marks": 2
     },
     {
-      "q": "(AQA: Higher tier) Why must you multiply a bond energy by a number in a calculation?",
+      "q": "(Higher tier) Why must you multiply a bond energy by a number in a calculation?",
       "a": "The balanced equation can have more than one of that bond, such as 2 H–Cl bonds in 2HCl.",
       "marks": 1
     }

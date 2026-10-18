@@ -60,7 +60,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) In a circular orbit the speed stays the same but the velocity keeps changing."
+          "text": "(AQA and OCR: Higher tier) In a circular orbit the speed stays the same but the velocity keeps changing."
         },
         {
           "type": "list",
@@ -105,7 +105,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) A satellite can only keep a stable orbit at one radius for each speed. This is qualitative: no calculation is needed."
+          "text": "(AQA and OCR: Higher tier) A satellite can only keep a stable orbit at one radius for each speed. This is qualitative: no calculation is needed."
         },
         {
           "type": "list",
@@ -160,12 +160,12 @@
       "marks": 1
     },
     {
-      "q": "Explain why the velocity of a satellite in a circular orbit changes while its speed stays the same.",
+      "q": "(AQA and OCR: Higher tier) Explain why the velocity of a satellite in a circular orbit changes while its speed stays the same.",
       "a": "Gravity acts towards the centre and accelerates the satellite. This changes its direction of motion but not its speed. A change in direction means the velocity changes.",
       "marks": 3
     },
     {
-      "q": "A satellite in a stable orbit moves more slowly. Describe the change to its orbit.",
+      "q": "(AQA and OCR: Higher tier) A satellite in a stable orbit moves more slowly. Describe the change to its orbit.",
       "a": "The orbit moves to a larger radius (a higher orbit), where gravity is weaker.",
       "marks": 2
     }

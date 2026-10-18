@@ -69,11 +69,11 @@
       ]
     },
     {
-      "heading": "Absorbed and emitted radiation",
+      "heading": "Absorbed and emitted radiation (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Separate science) This section covers how the balance between absorbing and emitting sets a body's temperature. On AQA this is Higher tier only."
+          "text": "(Separate science) This section covers how the balance between absorbing and emitting sets a body's temperature."
         },
         {
           "type": "list",
@@ -190,11 +190,11 @@
       ]
     },
     {
-      "heading": "The temperature of the Earth",
+      "heading": "The temperature of the Earth (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Separate science) This section covers what controls the Earth's temperature. On AQA this is Higher tier only."
+          "text": "(Separate science) This section covers what controls the Earth's temperature."
         },
         {
           "type": "list",
@@ -224,12 +224,12 @@
   ],
   "checks": [
     {
-      "q": "Describe what happens to the temperature of a body that absorbs radiation faster than it emits radiation.",
+      "q": "(Higher tier) Describe what happens to the temperature of a body that absorbs radiation faster than it emits radiation.",
       "a": "The temperature of the body increases.",
       "marks": 1
     },
     {
-      "q": "Explain why the temperature of a cube in front of an infrared heater stops rising after a few minutes.",
+      "q": "(Higher tier) Explain why the temperature of a cube in front of an infrared heater stops rising after a few minutes.",
       "a": "The hotter the cube, the greater the rate at which it emits infrared. Eventually it emits at the same rate as it absorbs, so the temperature is constant.",
       "marks": 3
     },
@@ -261,7 +261,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(AQA: Higher tier) The balance between absorbed and emitted radiation, and the factors that decide the temperature of the Earth, are Higher tier only."
+              "text": "(Higher tier) The balance between absorbed and emitted radiation, and the factors that decide the temperature of the Earth, are Higher tier only."
             }
           ]
         }

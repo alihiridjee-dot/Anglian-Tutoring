@@ -3,7 +3,7 @@
   "concept_id": "phys-051",
   "subject": "physics",
   "title": "Upthrust and floating",
-  "key_idea": "(Separate science) A fluid pushes up on an object in it because pressure increases with depth. This upward force is the upthrust, and it equals the weight of fluid displaced. An object floats when its upthrust equals its weight.",
+  "key_idea": "(Higher tier, Separate science) A fluid pushes up on an object in it because pressure increases with depth. This upward force is the upthrust, and it equals the weight of fluid displaced. An object floats when its upthrust equals its weight.",
   "sections": [
     {
       "heading": "Why there is an upthrust",
@@ -211,7 +211,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(AQA: Higher tier) In this specification, explaining upthrust, floating and sinking is Higher tier only. A partially or totally submerged object has a greater pressure on its bottom surface than on its top surface."
+              "text": "(Higher tier) In this specification, explaining upthrust, floating and sinking is Higher tier only. A partially or totally submerged object has a greater pressure on its bottom surface than on its top surface."
             }
           ]
         },
