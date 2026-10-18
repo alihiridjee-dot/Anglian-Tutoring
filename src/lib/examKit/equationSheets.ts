@@ -1,16 +1,18 @@
 /**
- * The physics equation sheets the boards hand out with GCSE papers.
+ * The physics equation sheets the boards hand out with the papers.
  *
  * Ofqual has GCSE Physics and Combined Science papers in England come with an
- * equation sheet, and that sheet carries every equation in the specification,
- * the ones students used to learn by heart as well as the ones always given.
- * Each board writes its own, in its own words and symbols, so each list here is
- * copied from that board's specification appendix, in its order, with the
- * Higher-tier-only equations marked as the board marks them.
+ * equation sheet (2025–2027, then for the life of the current GCSEs), and the
+ * sheet carries every equation in the specification, the ones students used
+ * to learn by heart as well as the ones always given. Pearson does the same
+ * for International GCSE Physics from 2025. Each board writes its own, in its
+ * own words and symbols, so each list here is copied from that board's sheet
+ * or specification, in its order, with its own markers: Higher tier only, or
+ * Paper 2 only on the International GCSE.
  *
- * The international GCSEs give no sheet: Cambridge and Edexcel IGCSE students
- * learn the equations, so they get none here either. A-level data and formulae
- * booklets aren't here yet: there are no A-level tasks.
+ * Cambridge IGCSE gives no sheet (every equation is "recall and use"), so its
+ * students get none here either. A-level data and formulae booklets aren't
+ * here yet: there are no A-level tasks.
  *
  * Symbol equations write a fraction as `{top|bottom}`, drawn stacked.
  */
@@ -21,8 +23,8 @@ export interface Equation {
   word: string;
   /** Empty where the board gives only the words (efficiency, magnification). */
   symbol: string;
-  /** Higher tier papers only. */
-  higher?: boolean;
+  /** Set when the equation is only for some papers: "Higher" tier, or "Paper 2". */
+  only?: "Higher" | "Paper 2";
   /** Physics only: not on the Combined Science sheet. */
   separate?: boolean;
 }
@@ -38,9 +40,10 @@ const e = (word: string, symbol: string, flags: Partial<Equation> = {}): Equatio
   symbol,
   ...flags,
 });
-const HT = { higher: true };
+const HT = { only: "Higher" } as const;
 const SEP = { separate: true };
-const HT_SEP = { higher: true, separate: true };
+const HT_SEP = { only: "Higher", separate: true } as const;
+const P2 = { only: "Paper 2" } as const;
 
 /** AQA 8463 Appendix A, then the 8464 sheet is the same list without the physics-only lines. */
 const AQA: Equation[] = [
@@ -221,6 +224,64 @@ const OCR: Equation[] = [
   ),
 ];
 
+/**
+ * Pearson Edexcel International GCSE Physics 4PH1 equation list (W84708A,
+ * May–June 2025, unchanged since). It prints efficiency over "total energy
+ * output", a slip for input; written here as it should read.
+ */
+const EDEXCEL_IGCSE: Equation[] = [
+  e("average speed = {distance moved|time taken}", ""),
+  e("acceleration = {change in velocity|time taken}", "a = {(v − u)|t}"),
+  e(
+    "(final speed)² = (initial speed)² + (2 × acceleration × distance moved)",
+    "v² = u² + (2 × a × s)",
+  ),
+  e("force = mass × acceleration", "F = m × a"),
+  e("weight = mass × gravitational field strength", "W = m × g"),
+  e("power = current × voltage", "P = I × V"),
+  e("energy transferred = current × voltage × time", "E = I × V × t"),
+  e("voltage = current × resistance", "V = I × R"),
+  e("charge = current × time", "Q = I × t"),
+  e("energy transferred = charge × voltage", "E = Q × V"),
+  e("wave speed = frequency × wavelength", "v = f × λ"),
+  e("frequency = {1|time period}", "f = {1|T}"),
+  e("refractive index = {sin(angle of incidence)|sin(angle of refraction)}", "n = {sin i|sin r}"),
+  e("sin(critical angle) = {1|refractive index}", "sin c = {1|n}"),
+  e("efficiency = {useful energy output|total energy input} × 100%", ""),
+  e("work done = force × distance moved", "W = F × d"),
+  e(
+    "gravitational potential energy = mass × gravitational field strength × height",
+    "GPE = m × g × h",
+  ),
+  e("kinetic energy = ½ × mass × speed²", "KE = ½ × m × v²"),
+  e("power = {work done|time taken}", "P = {W|t}"),
+  e("density = {mass|volume}", "ρ = {m|V}"),
+  e("pressure = {force|area}", "p = {F|A}"),
+  e("pressure difference = height × density × gravitational field strength", "p = h × ρ × g"),
+  e("{pressure|temperature} = constant", "{p₁|T₁} = {p₂|T₂}"),
+  e("pressure × volume = constant", "p₁ × V₁ = p₂ × V₂"),
+  e("orbital speed = {2 × π × orbital radius|time period}", "v = {2 × π × r|T}"),
+  e("momentum = mass × velocity", "p = m × v", P2),
+  e("force = {change in momentum|time taken}", "F = {(mv − mu)|t}", P2),
+  e("moment = force × perpendicular distance from the pivot", "", P2),
+  e(
+    "change in thermal energy = mass × specific heat capacity × change in temperature",
+    "ΔQ = m × c × ΔT",
+    P2,
+  ),
+  e(
+    "for a transformer: {input (primary) voltage|output (secondary) voltage} = {primary turns|secondary turns}",
+    "",
+    P2,
+  ),
+  e("input power = output power, for 100% efficiency", "Vₚ Iₚ = Vₛ Iₛ", P2),
+  e(
+    "{change in wavelength|reference wavelength} = {velocity of a galaxy|speed of light}",
+    "{(λ − λ₀)|λ₀} = {Δλ|λ₀} = {v|c}",
+    P2,
+  ),
+];
+
 export const EQUATION_SHEETS = {
   aqa: { label: "AQA GCSE Physics", equations: AQA },
   aqaCombined: {
@@ -229,11 +290,13 @@ export const EQUATION_SHEETS = {
   },
   edexcel: { label: "Edexcel GCSE Physics", equations: EDEXCEL },
   ocr: { label: "OCR GCSE Physics", equations: OCR },
+  edexcelIgcse: { label: "Edexcel International GCSE Physics", equations: EDEXCEL_IGCSE },
 } satisfies Record<string, EquationSheet>;
 
 /** The sheet a student's physics paper comes with, or null where it comes with none. */
 export function equationSheetFor(board: BoardV | null, level: LevelV): EquationSheet | null {
   if (level === "gcse_trilogy") return board === "aqa" ? EQUATION_SHEETS.aqaCombined : null;
+  if (level === "igcse") return board === "edexcel" ? EQUATION_SHEETS.edexcelIgcse : null;
   if (level !== "gcse") return null;
   if (board === "aqa") return EQUATION_SHEETS.aqa;
   if (board === "edexcel") return EQUATION_SHEETS.edexcel;

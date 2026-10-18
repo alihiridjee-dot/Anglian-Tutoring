@@ -7,7 +7,9 @@
  * every A-level data booklet give masses to one decimal place (Fe 55.8). A
  * student's sums only match their mark scheme with their own board's values,
  * so each sheet here is copied from that board's paper, mass for mass, with the
- * notes printed under it.
+ * notes printed under it. The Edexcel and Cambridge tables were read off
+ * their papers; AQA's and OCR's are loose inserts, read off the inserts the
+ * boards publish (AQA 8465-PT June 2023, OCR J248 Data Sheet June 2027).
  */
 
 import type { BoardV, LevelV } from "@/lib/curriculum/taxonomy";
@@ -73,16 +75,22 @@ export const fColumn = (z: number) => (z >= 89 ? z - 89 : z - 57) + 3;
 export interface PeriodicSheet {
   /** Whose sheet this is, as the panel names it: "Edexcel GCSE". */
   label: string;
-  /** The relative atomic mass as printed, keyed by atomic number: "35.5", "[98]", "–". */
+  /**
+   * The relative atomic mass as printed, keyed by atomic number: "35.5",
+   * "[98]", "–", or "" where the cell has no mass at all (OCR).
+   */
   masses: Record<number, string>;
   /** The last element printed in the main table. */
   lastZ: number;
+  /** Elements before `lastZ` the sheet leaves out (OCR stops at Lv with no 113 or 115). */
+  skip?: number[];
   /**
    * What happens to the lanthanoids and actinoids: "omit" leaves them out and
-   * puts La and Ac in group 3, marked *; "rows" prints them as two rows
-   * underneath, with a placeholder in group 3.
+   * puts La and Ac in group 3, marked *; "placeholder" puts "57–71" and
+   * "89–103" in group 3 and prints no more; "rows" does that and prints them
+   * as two rows underneath.
    */
-  fBlock: "omit" | "rows";
+  fBlock: "omit" | "placeholder" | "rows";
   /** The top of a cell reads mass first (AQA, Edexcel) or atomic number first (Cambridge, OCR). */
   massFirst: boolean;
   /** The labels over the eight main-group columns (groups 1, 2 and 13–18). */
@@ -93,20 +101,31 @@ export interface PeriodicSheet {
   dataNotes: string[];
 }
 
-/** Whole numbers but chlorine and copper, as Edexcel and AQA print them (elements 1–111). */
-const WHOLE: Record<number, string> = {};
-(
+const fill = (into: Record<number, string>, from: number, list: string) =>
+  list.split(" ").forEach((m, i) => (into[from + i] = m));
+
+/** Whole numbers but chlorine and copper, as Edexcel prints them (elements 1–111). */
+const EDEXCEL: Record<number, string> = {};
+fill(
+  EDEXCEL,
+  1,
   "1 4 7 9 11 12 14 16 19 20 23 24 27 28 31 32 35.5 40 39 40 45 48 51 52 55 56 59 59 63.5 65 " +
-  "70 73 75 79 80 84 85 88 89 91 93 96 [98] 101 103 106 108 112 115 119 122 128 127 131 133 137 139"
-)
-  .split(" ")
-  .forEach((m, i) => (WHOLE[i + 1] = m));
-"178 181 184 186 190 192 195 197 201 204 207 209 [209] [210] [222] [223] [226] [227]"
-  .split(" ")
-  .forEach((m, i) => (WHOLE[i + 72] = m));
-"[261] [262] [266] [264] [277] [268] [271] [272]"
-  .split(" ")
-  .forEach((m, i) => (WHOLE[i + 104] = m));
+    "70 73 75 79 80 84 85 88 89 91 93 96 [98] 101 103 106 108 112 115 119 122 128 127 131 133 137 139",
+);
+fill(
+  EDEXCEL,
+  72,
+  "178 181 184 186 190 192 195 197 201 204 207 209 [209] [210] [222] [223] [226] [227]",
+);
+fill(EDEXCEL, 104, "[261] [262] [266] [264] [277] [268] [271] [272]");
+
+/** AQA's insert: Edexcel's masses but technetium [97], and on to oganesson. */
+const AQA: Record<number, string> = { ...EDEXCEL, 43: "[97]" };
+fill(
+  AQA,
+  104,
+  "[267] [270] [269] [270] [270] [278] [281] [281] [285] [286] [289] [289] [293] [293] [294]",
+);
 
 /**
  * Cambridge IGCSE 0620: whole numbers but chlorine, copper rounded to 64, a
@@ -114,63 +133,61 @@ const WHOLE: Record<number, string> = {};
  */
 const CAMBRIDGE: Record<number, string> = {};
 for (let z = 1; z <= 118; z++) {
-  const m = WHOLE[z];
+  const m = EDEXCEL[z];
   CAMBRIDGE[z] = m && !m.startsWith("[") ? m : "–";
 }
 CAMBRIDGE[29] = "64";
-"139 140 141 144 – 150 152 157 159 163 165 167 169 173 175"
-  .split(" ")
-  .forEach((m, i) => (CAMBRIDGE[i + 57] = m));
-"– 232 231 238 – – – – – – – – – – –".split(" ").forEach((m, i) => (CAMBRIDGE[i + 89] = m));
+fill(CAMBRIDGE, 57, "139 140 141 144 – 150 152 157 159 163 165 167 169 173 175");
+fill(CAMBRIDGE, 89, "– 232 231 238 – – – – – – – – – – –");
 
-/** One decimal place, as OCR's data sheet and the A-level data booklets print them. */
-const ONE_DP: Record<number, string> = {};
-(
+/**
+ * OCR's data sheet: one decimal place, and no mass at all for the elements
+ * with no stable isotope.
+ */
+const OCR: Record<number, string> = {};
+for (let z = 1; z <= 118; z++) OCR[z] = "";
+fill(
+  OCR,
+  1,
   "1.0 4.0 6.9 9.0 10.8 12.0 14.0 16.0 19.0 20.2 23.0 24.3 27.0 28.1 31.0 32.1 35.5 39.9 39.1 40.1 " +
-  "45.0 47.9 50.9 52.0 54.9 55.8 58.9 58.7 63.5 65.4 69.7 72.6 74.9 79.0 79.9 83.8 85.5 87.6 88.9 91.2 " +
-  "92.9 95.9 – 101.1 102.9 106.4 107.9 112.4 114.8 118.7 121.8 127.6 126.9 131.3 132.9 137.3 138.9 140.1 140.9 144.2 " +
-  "– 150.4 152.0 157.2 158.9 162.5 164.9 167.3 168.9 173.0 175.0 178.5 180.9 183.8 186.2 190.2 192.2 195.1 197.0 200.6 " +
-  "204.4 207.2 209.0 – – – – – – 232.0 231.0 238.1"
-)
-  .split(" ")
-  .forEach((m, i) => (ONE_DP[i + 1] = m));
-for (let z = 93; z <= 118; z++) ONE_DP[z] = "–";
+    "45.0 47.9 50.9 52.0 54.9 55.8 58.9 58.7 63.5 65.4 69.7 72.6 74.9 79.0 79.9 83.8 85.5 87.6 88.9 91.2 " +
+    "92.9 95.9 _ 101.1 102.9 106.4 107.9 112.4 114.8 118.7 121.8 127.6 126.9 131.3 132.9 137.3",
+);
+fill(OCR, 72, "178.5 180.9 183.8 186.2 190.2 192.2 195.1 197.0 200.6 204.4 207.2 209.0");
+OCR[43] = "";
 
 const ARABIC = ["1", "2", "3", "4", "5", "6", "7", "0"];
-
-const ROUNDING_NOTE =
-  "The relative atomic masses of copper and chlorine have not been rounded to the nearest whole number.";
 
 export const PERIODIC_SHEETS = {
   aqa: {
     label: "AQA GCSE",
-    masses: WHOLE,
-    lastZ: 111,
+    masses: AQA,
+    lastZ: 118,
     fBlock: "omit",
     massFirst: true,
     groups: ARABIC,
     notes: [
-      "* The lanthanides (atomic numbers 58–71) and the actinides (atomic numbers 90–103) have been omitted.",
-      ROUNDING_NOTE,
+      "* The Lanthanides (atomic numbers 58–71) and the Actinides (atomic numbers 90–103) have been omitted.",
+      "Relative atomic masses for Cu and Cl have not been rounded to the nearest whole number.",
     ],
     dataNotes: [],
   },
   edexcel: {
     label: "Edexcel GCSE",
-    masses: WHOLE,
+    masses: EDEXCEL,
     lastZ: 86,
     fBlock: "omit",
     massFirst: true,
     groups: ARABIC,
     notes: [
       "* The elements with atomic numbers from 58 to 71 are omitted from this part of the periodic table.",
-      ROUNDING_NOTE,
+      "The relative atomic masses of copper and chlorine have not been rounded to the nearest whole number.",
     ],
     dataNotes: [],
   },
   edexcelIgcse: {
     label: "Edexcel International GCSE",
-    masses: WHOLE,
+    masses: EDEXCEL,
     lastZ: 111,
     fBlock: "omit",
     massFirst: true,
@@ -178,7 +195,7 @@ export const PERIODIC_SHEETS = {
     notes: [
       "Elements with atomic numbers 112–116 have been reported but not fully authenticated.",
       "* The lanthanoids (atomic numbers 58–71) and the actinoids (atomic numbers 90–103) have been omitted.",
-      ROUNDING_NOTE,
+      "The relative atomic masses of copper and chlorine have not been rounded to the nearest whole number.",
     ],
     dataNotes: [],
   },
@@ -198,15 +215,61 @@ export const PERIODIC_SHEETS = {
   },
   ocr: {
     label: "OCR GCSE",
-    masses: ONE_DP,
+    masses: OCR,
     lastZ: 116,
-    fBlock: "omit",
+    skip: [113, 115],
+    fBlock: "placeholder",
     massFirst: false,
     groups: ARABIC,
     notes: [],
     dataNotes: [],
   },
 } satisfies Record<string, PeriodicSheet>;
+
+export interface SheetCell {
+  key: string;
+  row: number;
+  col: number;
+  element?: Element;
+  /** Group 3's stand-in for a row left out or printed underneath. */
+  placeholder?: { range: string; name: string };
+  /** La and Ac where the rest of their row is left out. */
+  starred?: boolean;
+}
+
+/** Every cell the sheet prints, placed on an 18-column grid (rows 10 and 11 are the f-block). */
+export function sheetCells(sheet: PeriodicSheet): SheetCell[] {
+  const cells: SheetCell[] = [];
+  for (const el of ELEMENTS) {
+    if (el.z > sheet.lastZ) break;
+    if (sheet.skip?.includes(el.z)) continue;
+    const pos = position(el.z);
+    if (sheet.fBlock === "omit") {
+      if (!pos) continue;
+      // The group labels sit on row 1, so periods start on row 2.
+      cells.push({
+        key: el.symbol,
+        row: pos.period + 1,
+        col: pos.group,
+        element: el,
+        starred: el.z === 57 || el.z === 89,
+      });
+    } else if (isFBlock(el.z)) {
+      if (sheet.fBlock === "rows")
+        cells.push({ key: el.symbol, row: el.z < 89 ? 10 : 11, col: fColumn(el.z), element: el });
+    } else if (pos) {
+      cells.push({ key: el.symbol, row: pos.period + 1, col: pos.group, element: el });
+    }
+  }
+  if (sheet.fBlock !== "omit") {
+    cells.push({ key: "lanthanoids", row: 7, col: 3, placeholder: LANTHANOIDS });
+    if (sheet.lastZ >= 89) cells.push({ key: "actinoids", row: 8, col: 3, placeholder: ACTINOIDS });
+  }
+  return cells;
+}
+
+const LANTHANOIDS = { range: "57–71", name: "lanthanoids" };
+const ACTINOIDS = { range: "89–103", name: "actinoids" };
 
 /**
  * The table a student's chemistry paper prints, or null where there's none to

@@ -245,11 +245,11 @@ export function Calculator({
             </span>
           ) : shown ? (
             <span className="numeral text-3xl">
-              {shown.digits}
+              {shown.digits.replace("-", "−")}
               {shown.exponent !== null && (
                 <>
                   {" "}
-                  × 10<sup className="text-lg">{shown.exponent}</sup>
+                  × 10<sup className="text-lg">{String(shown.exponent).replace("-", "−")}</sup>
                 </>
               )}
             </span>

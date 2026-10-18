@@ -4,7 +4,7 @@ import { Calculator } from "@/components/examKit/Calculator";
 import { EMPTY_CALC, type CalcState } from "@/lib/examKit/calculator";
 import { PeriodicTable } from "@/components/examKit/PeriodicTable";
 import { EquationSheet } from "@/components/examKit/EquationSheet";
-import { SegmentedToggle } from "@/components/Shared";
+import { SectionHeading, SegmentedToggle } from "@/components/Shared";
 import { examKitFor, type ExamTool } from "@/lib/examKit/examKit";
 import type { BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 import { cn } from "@/lib/utils";
@@ -73,8 +73,9 @@ export function ExamKit({
         aria-label="Exam kit"
         className={cn(
           "premium-card p-4 print:hidden",
-          // Beside the sheet, pinned under the header while the questions scroll.
-          "xl:sticky xl:top-24 xl:block xl:max-h-[calc(100dvh-7rem)] xl:w-80 xl:shrink-0 xl:overflow-y-auto 2xl:w-96",
+          // Beside the sheet, pinned under the header while the questions
+          // scroll, taking what width the sheet leaves (the table wants it).
+          "xl:sticky xl:top-24 xl:block xl:max-h-[calc(100dvh-7rem)] xl:max-w-md xl:min-w-80 xl:flex-1 xl:overflow-y-auto",
           // Narrower: up from the bottom on a phone, a card in the corner on a
           // tablet, and gone until asked for.
           open
@@ -82,11 +83,8 @@ export function ExamKit({
             : "max-xl:hidden",
         )}
       >
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex min-w-0 flex-wrap items-center gap-2">
-            <h2 className="text-lg">Exam kit</h2>
-            {sheetLabel && <span className="chip">{sheetLabel}</span>}
-          </div>
+        <SectionHeading title="Exam kit">
+          {sheetLabel && <span className="chip">{sheetLabel}</span>}
           <button
             type="button"
             onClick={() => setOpen(false)}
@@ -95,7 +93,7 @@ export function ExamKit({
           >
             <X className="size-5" aria-hidden />
           </button>
-        </div>
+        </SectionHeading>
 
         {kit.tools.length > 1 && (
           <div className="mt-3">

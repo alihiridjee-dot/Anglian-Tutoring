@@ -1,58 +1,16 @@
 import { useEffect, useState } from "react";
 import { Maximize2, X } from "lucide-react";
 import {
-  ELEMENTS,
-  fColumn,
-  isFBlock,
-  position,
+  sheetCells,
   type Element,
   type PeriodicSheet,
+  type SheetCell,
 } from "@/lib/examKit/periodicTable";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { cn } from "@/lib/utils";
 
 /** The main-group columns the sheet labels (groups 1, 2, 13–18). */
 const LABELLED = [1, 2, 13, 14, 15, 16, 17, 18];
-
-interface Cell {
-  key: string;
-  row: number;
-  col: number;
-  element?: Element;
-  /** Group 3's stand-in for a row printed underneath ("57–71"). */
-  placeholder?: string;
-  /** La and Ac where the rest of their row is left out. */
-  starred?: boolean;
-}
-
-/** Every cell the sheet prints, placed on an 18-column grid (rows 8 and up are the f-block). */
-function cellsFor(sheet: PeriodicSheet): Cell[] {
-  const cells: Cell[] = [];
-  for (const el of ELEMENTS) {
-    if (el.z > sheet.lastZ) break;
-    const pos = position(el.z);
-    if (sheet.fBlock === "omit") {
-      if (!pos) continue;
-      // Group 1 headers sit on row 1, so periods start on row 2.
-      cells.push({
-        key: el.symbol,
-        row: pos.period + 1,
-        col: pos.group,
-        element: el,
-        starred: el.z === 57 || el.z === 89,
-      });
-    } else if (isFBlock(el.z)) {
-      cells.push({ key: el.symbol, row: el.z < 89 ? 10 : 11, col: fColumn(el.z), element: el });
-    } else if (pos) {
-      cells.push({ key: el.symbol, row: pos.period + 1, col: pos.group, element: el });
-    }
-  }
-  if (sheet.fBlock === "rows") {
-    cells.push({ key: "lanthanoids", row: 7, col: 3, placeholder: "57–71" });
-    if (sheet.lastZ >= 89) cells.push({ key: "actinoids", row: 8, col: 3, placeholder: "89–103" });
-  }
-  return cells;
-}
 
 /**
  * The board's periodic table, small enough for the side panel: tap an element
@@ -62,7 +20,7 @@ function cellsFor(sheet: PeriodicSheet): Cell[] {
 export function PeriodicTable({ sheet }: { sheet: PeriodicSheet }) {
   const [picked, setPicked] = useState<Element | null>(null);
   const [full, setFull] = useState(false);
-  const cells = cellsFor(sheet);
+  const cells = sheetCells(sheet);
 
   return (
     <div className="flex flex-col gap-3">
@@ -90,7 +48,7 @@ export function PeriodicTable({ sheet }: { sheet: PeriodicSheet }) {
               type="button"
               onClick={() => setPicked(c.element!)}
               aria-pressed={picked?.z === c.element.z}
-              aria-label={`${c.element.name}, ${sheet.masses[c.element.z]}`}
+              aria-label={[c.element.name, sheet.masses[c.element.z]].filter(Boolean).join(", ")}
               style={{ gridRow: c.row, gridColumn: c.col }}
               className={cn(
                 "font-display flex aspect-square cursor-pointer items-center justify-center rounded-[3px] text-[0.55rem] leading-none font-bold transition sm:text-[0.6rem]",
@@ -109,7 +67,7 @@ export function PeriodicTable({ sheet }: { sheet: PeriodicSheet }) {
               className="flex aspect-square items-center justify-center rounded-[3px] border border-dashed border-[color:color-mix(in_oklab,var(--tint)_30%,transparent)] text-[0.4rem] leading-none font-bold"
               aria-hidden
             >
-              {c.placeholder}
+              {c.placeholder?.range}
             </span>
           ),
         )}
@@ -157,9 +115,11 @@ function ElementCard({ sheet, element }: { sheet: PeriodicSheet; element: Elemen
             <span className="chip">
               Atomic number <span className="numeral">{element.z}</span>
             </span>
-            <span className="chip">
-              Relative atomic mass <span className="numeral">{mass}</span>
-            </span>
+            {mass && (
+              <span className="chip">
+                Relative atomic mass <span className="numeral">{mass}</span>
+              </span>
+            )}
           </div>
         </div>
       ) : (
@@ -190,7 +150,7 @@ function FullTable({
   onClose,
 }: {
   sheet: PeriodicSheet;
-  cells: Cell[];
+  cells: SheetCell[];
   onClose: () => void;
 }) {
   useBodyScrollLock(true);
@@ -214,7 +174,7 @@ function FullTable({
     >
       <div className="premium-card flex max-h-[calc(100dvh-2rem)] w-full max-w-6xl flex-col overflow-hidden shadow-xl">
         <div className="border-border flex shrink-0 items-center justify-between gap-3 border-b p-4 short:p-2">
-          <h2 id="periodic-full-title" className="text-lg">
+          <h2 id="periodic-full-title" className="font-display text-lg font-extrabold">
             {sheet.label} periodic table
           </h2>
           <button
@@ -266,7 +226,10 @@ function FullTable({
                     </span>
                   </>
                 ) : (
-                  <span className="text-[0.65rem] font-bold">{c.placeholder}</span>
+                  <>
+                    <span className="numeral text-[0.7rem]">{c.placeholder?.range}</span>
+                    <span className="text-[0.55rem] font-semibold">{c.placeholder?.name}</span>
+                  </>
                 )}
               </div>
             ))}

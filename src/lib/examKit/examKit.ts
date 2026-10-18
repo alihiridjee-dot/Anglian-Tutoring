@@ -5,7 +5,8 @@
  * Every GCSE, IGCSE and A-level science paper allows a calculator. Chemistry
  * papers print the board's periodic table. Physics papers come with an
  * equation sheet only where the board prints one (see equationSheets.ts):
- * GCSE in England does, the international GCSEs don't.
+ * GCSE in England and Edexcel's International GCSE do, Cambridge IGCSE
+ * doesn't. Biology papers give nothing else.
  */
 
 import type { BoardV, LevelV } from "@/lib/curriculum/taxonomy";

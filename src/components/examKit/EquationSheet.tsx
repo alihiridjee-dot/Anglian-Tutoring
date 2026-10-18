@@ -46,7 +46,7 @@ export function EquationSheet({ sheet }: { sheet: Sheet }) {
               ) : (
                 <span />
               )}
-              {e.higher && <span className="chip shrink-0">Higher</span>}
+              {e.only && <span className="chip shrink-0">{e.only}</span>}
             </div>
             <Formula text={e.word} className={cn("text-sm leading-snug", e.symbol && "mt-1.5")} />
           </li>

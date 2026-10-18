@@ -120,7 +120,7 @@ export function HomeworkSheetPage() {
         <div
           ref={sheet}
           className={cn(
-            "max-w-3xl min-w-0 xl:flex-1",
+            "max-w-3xl min-w-0 xl:w-3xl xl:shrink-0",
             !isTutor && "select-none [-webkit-touch-callout:none] print:hidden",
           )}
         >
