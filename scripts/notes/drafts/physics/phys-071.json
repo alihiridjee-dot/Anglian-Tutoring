@@ -285,7 +285,21 @@
           "They cause neighbouring particles to vibrate, and the vibrations are passed along the rod."
         ],
         "tip": "Atoms, ions or molecules are accepted for particles. Longitudinal waves, or compressions and rarefactions, are also credited."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The frequency does not change, so wavelength is **directly proportional** to speed: wavelength = speed ÷ frequency.",
+                "For example, a sound of wavelength 80 cm in air enters water, where its speed is 4 times greater. Its wavelength in water is 80 × 4 = 320 cm."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR P5.1f", "OCR P5.1h", "OCR P5.1i"],
@@ -303,7 +317,23 @@
           "The small hairs (cilia) vibrate."
         ],
         "tip": "The ear drum moving in and out is accepted for vibrates."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The frequency does not change, so wavelength is **directly proportional** to speed: wavelength = speed ÷ frequency.",
+                "For example, a sound of wavelength 80 cm in air enters water, where its speed is 4 times greater. Its wavelength in water is 80 × 4 = 320 cm.",
+                "(Higher tier) As a person gets older, the highest frequency they can hear **decreases**.",
+                "(Higher tier) This is because the small hairs (cilia) in the cochlea become damaged, so high frequencies no longer start nerve impulses."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 3.4.3", "CAIE 3.4.11S"],

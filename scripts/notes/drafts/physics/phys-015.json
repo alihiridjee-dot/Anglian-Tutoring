@@ -329,7 +329,52 @@
           "The maximum is with all four in series: 6 + 4 + 5 + 4 = 19 Ω."
         ],
         "tip": "Error carried forward is allowed from the earlier resistance values."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Energy in series and parallel circuits",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Potential difference is energy transferred per unit of charge, so it follows where the charge goes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "In series, each charge passes through every component. The energy it gets from the supply is **shared** between the components, so the potential difference is shared.",
+                "In parallel, each charge passes through only one branch. It transfers all its energy in that branch, so each branch has the full supply potential difference.",
+                "In both, the total energy transferred in the components equals the energy transferred by the supply."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Calculating currents in a parallel circuit",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Use V = I × R for each branch, then add the currents."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Branch currents",
+                  "text": "Each branch has the supply potential difference across it. Find each branch current with I = V ÷ R."
+                },
+                {
+                  "lead": "Total current",
+                  "text": "Add the branch currents to find the current from the supply."
+                },
+                {
+                  "lead": "Total resistance",
+                  "text": "Divide the supply potential difference by the total current, R = V ÷ I. The answer is less than the smallest branch resistance."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

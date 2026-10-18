@@ -281,6 +281,19 @@
               "text": "Uses of ultrasound and infrasound include sonar, foetal scanning and the exploration of the Earth's core. The seismic wave evidence is in the section above."
             }
           ]
+        },
+        {
+          "heading": "(Higher tier, Separate science) Uses of infrasound",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Earthquakes produce seismic waves that are **infrasound**. Detecting them at different places on the Earth is how the Earth's core is explored.",
+                "Infrasound detectors can also pick up meteors and other seismic activity.",
+                "Some animals, such as elephants and whales, communicate using infrasound."
+              ]
+            }
+          ]
         }
       ],
       "worked_example": {
@@ -305,7 +318,47 @@
           "Evaluate: distance = 2.1 × 10⁻⁴ m."
         ],
         "tip": "The time is divided by 2 because the wave travels to the boundary and back."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Imaging inside the body",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Different waves show structures inside the body in different ways."
+            },
+            {
+              "type": "table",
+              "columns": ["Wave", "How it shows what is inside the body"],
+              "rows": [
+                [
+                  "Ultrasound",
+                  "Partly reflected at each boundary between tissues. The echo times give the depth of each boundary."
+                ],
+                [
+                  "X-rays",
+                  "Absorbed by bone but pass through soft tissue, so bones show on the image."
+                ],
+                [
+                  "Gamma rays",
+                  "Emitted by a tracer put into the body. A gamma camera detects them, showing where the tracer has gone."
+                ],
+                [
+                  "Infrared",
+                  "Emitted by the body. Warmer areas emit more, so a scan shows differences in temperature."
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "X-rays and gamma rays are **ionising**, so they can damage cells.",
+                "Ultrasound is not ionising, so it is a safer alternative, for example for scanning a foetus."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 3.4.9", "CAIE 3.4.12S", "CAIE 3.3.9S"],

@@ -277,7 +277,22 @@
           "It transfers to one of: elastic (potential energy store), thermal (energy of ball / wall / surroundings), or dissipates (to surroundings)"
         ],
         "tip": "One mark for the kinetic store and one for where the energy goes. Heat is allowed for thermal. Gravitational potential energy is ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Object projected up a slope**: the kinetic store decreases and the gravitational potential store increases. Work done against friction increases the thermal store of the object and the surroundings.",
+                "To calculate the energy transferred to the surroundings, subtract the useful energy at the end from the energy at the start.",
+                "For a toy car rolling down a slope: energy transferred to the surroundings = gravitational potential energy at the top − kinetic energy at the bottom."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR P7.1a", "OCR P7.1b"],
@@ -291,7 +306,22 @@
           "It is transferred thermally to the (store of) thermal energy / heat (in the brakes, pads, discs or tyres)"
         ],
         "tip": "One mark for the kinetic store and one for the thermal store it is transferred to."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Object projected up a slope**: the kinetic store decreases and the gravitational potential store increases. Work done against friction increases the thermal store of the object and the surroundings.",
+                "The energy in the stores at the end can never be more than the energy at the start. So the kinetic energy at the bottom of a ramp is at most the gravitational potential energy at the top.",
+                "A dropped ball cannot bounce higher than the height it was dropped from. That would need more energy than the system started with."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

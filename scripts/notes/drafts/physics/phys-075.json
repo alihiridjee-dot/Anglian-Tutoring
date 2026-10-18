@@ -229,7 +229,21 @@
           "The exposure time for gamma rays is longer."
         ],
         "tip": "One mark for each point. Make each point a comparison between the two methods."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Using radiation dose data",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "To compare two risks, compare the doses. An X-ray of an arm (0.1 mSv) carries a lower risk than a CT scan of the arm (6.0 mSv), by a **factor** of 60.",
+                "A dose much smaller than the smallest dose linked to an increased risk of cancer is unlikely to cause harm."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.20", "EDEX 5.21"],

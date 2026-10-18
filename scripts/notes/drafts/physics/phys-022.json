@@ -199,7 +199,22 @@
         "marks": 2,
         "answer_points": ["Sphere A has an electric field.", "Sphere B is in it."],
         "tip": "Do not write about the nature of the force, such as repulsion. It is ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The field around a **point charge** has the same pattern as around an isolated charged sphere: straight lines pointing directly away from or towards the charge.",
+                "Induction: the electric field of a charged comb acts on the charges in nearby paper. Electrons move, so the nearest part of the paper gets the opposite charge and is attracted.",
+                "Lightning: a strong electric field builds up between the charged base of a cloud and the ground. It ionises the air, so charge flows through the air."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR P3.1d"],
@@ -210,7 +225,21 @@
         "marks": 1,
         "answer_points": ["High voltages can cause electric shocks or electrocution."],
         "tip": "Unqualified answers such as dangerous or heating are ignored. Electrocution, with damage to the nervous system or heart, is also credited."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A positive charge in an electric field feels a force along the field lines. A **negative charge** feels a force in the opposite direction.",
+                "So the field of a positive sphere pushes a positive charge away (**repulsion**) and pulls a negative charge towards it (attraction)."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 4.2.1.8S", "CAIE 4.2.1.9S", "CAIE 4.2.1.10S"],

@@ -330,6 +330,18 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "An atom that loses outer electrons has more protons than electrons, so it has an overall **positive charge**.",
+                "In **fluorescence**, electrons absorb ultraviolet radiation and move to higher energy levels. As they fall back, the energy is emitted as visible light, which has a lower frequency than the ultraviolet absorbed."
+              ]
+            }
+          ]
         }
       ],
       "worked_example": {

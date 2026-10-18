@@ -217,7 +217,60 @@
           "object height = 1.5 mm"
         ],
         "tip": "An answer of 1.5 mm scores all 3 marks. The equation is on the equation sheet, so you do not need to remember it, but you do need to rearrange it."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Drawing a lens ray diagram",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Convex (converging) lens"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Ray 1.",
+                  "text": "From the top of the object, draw a ray parallel to the principal axis. After the lens it passes through the principal focus on the far side."
+                },
+                {
+                  "lead": "Ray 2.",
+                  "text": "Draw a ray from the top of the object through the centre of the lens. It does not change direction."
+                },
+                {
+                  "lead": "Real image.",
+                  "text": "Where the two rays cross is the top of the image. A real image is on the far side of the lens and inverted."
+                },
+                {
+                  "lead": "Virtual image.",
+                  "text": "If the object is closer than the principal focus, the rays spread out after the lens. Extend them backwards as dashed lines. Where they meet is the top of an upright, virtual image on the same side as the object."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Concave (diverging) lens"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Ray 1.",
+                  "text": "A ray parallel to the principal axis spreads out after the lens. Extend it backwards as a dashed line to the principal focus on the same side as the object."
+                },
+                {
+                  "lead": "Ray 2.",
+                  "text": "A ray from the top of the object through the centre of the lens does not change direction."
+                },
+                {
+                  "lead": "Virtual image.",
+                  "text": "Where the dashed line meets ray 2 is the top of the image. It is upright, virtual and on the same side as the object. It gets smaller as the object moves further from the lens."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.4P", "EDEX 5.5P", "EDEX 5.6P"],
@@ -309,6 +362,57 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "(Separate science) Drawing a lens ray diagram",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Convex (converging) lens"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Ray 1.",
+                  "text": "From the top of the object, draw a ray parallel to the principal axis. After the lens it passes through the principal focus on the far side."
+                },
+                {
+                  "lead": "Ray 2.",
+                  "text": "Draw a ray from the top of the object through the centre of the lens. It does not change direction."
+                },
+                {
+                  "lead": "Real image.",
+                  "text": "Where the two rays cross is the top of the image. A real image is on the far side of the lens and inverted."
+                },
+                {
+                  "lead": "Virtual image.",
+                  "text": "If the object is closer than the principal focus, the rays spread out after the lens. Extend them backwards as dashed lines. Where they meet is the top of an upright, virtual image on the same side as the object."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Concave (diverging) lens"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Ray 1.",
+                  "text": "A ray parallel to the principal axis spreads out after the lens. Extend it backwards as a dashed line to the principal focus on the same side as the object."
+                },
+                {
+                  "lead": "Ray 2.",
+                  "text": "A ray from the top of the object through the centre of the lens does not change direction."
+                },
+                {
+                  "lead": "Virtual image.",
+                  "text": "Where the dashed line meets ray 2 is the top of the image. It is upright, virtual and on the same side as the object."
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -324,7 +428,73 @@
           "A convex lens refracts the light inwards, so it focuses on the retina."
         ],
         "tip": "A near object focused behind the retina, or an eyeball that is too short, is also accepted for the first mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Drawing a lens ray diagram",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Convex (converging) lens"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Ray 1.",
+                  "text": "From the top of the object, draw a ray parallel to the principal axis. After the lens it passes through the principal focus on the far side."
+                },
+                {
+                  "lead": "Ray 2.",
+                  "text": "Draw a ray from the top of the object through the centre of the lens. It does not change direction."
+                },
+                {
+                  "lead": "Real image.",
+                  "text": "Where the two rays cross is the top of the image. A real image is on the far side of the lens and inverted."
+                },
+                {
+                  "lead": "Virtual image.",
+                  "text": "If the object is closer than the principal focus, the rays spread out after the lens. Extend them backwards as dashed lines. Where they meet is the top of an upright, virtual image on the same side as the object."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Concave (diverging) lens"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Ray 1.",
+                  "text": "A ray parallel to the principal axis spreads out after the lens. Extend it backwards as a dashed line to the principal focus on the same side as the object."
+                },
+                {
+                  "lead": "Ray 2.",
+                  "text": "A ray from the top of the object through the centre of the lens does not change direction."
+                },
+                {
+                  "lead": "Virtual image.",
+                  "text": "Where the dashed line meets ray 2 is the top of the image. It is upright, virtual and on the same side as the object."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Correcting short sight",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In short sight, rays from a distant object are focused in front of the retina.",
+                "A **concave lens** spreads the rays out before they enter the eye, so they focus on the retina.",
+                "Long sight is corrected with a convex lens and short sight with a concave lens."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

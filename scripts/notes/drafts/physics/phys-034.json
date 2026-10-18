@@ -249,7 +249,21 @@
           "Observation 2: the atom has a positively charged nucleus."
         ],
         "tip": "One mark for empty space, one for positively charged and one for nucleus. A very small nucleus is also allowed."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Thomson** discovered the electron, which led to his plum pudding model.",
+                "In the **Bohr** model, electrons can only move in fixed orbits called electron shells, each at a set energy level."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

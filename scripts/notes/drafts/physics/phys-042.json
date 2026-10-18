@@ -291,6 +291,20 @@
               }
             }
           ]
+        },
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Electrostatic repulsion",
+                  "meaning": "The force pushing apart two charges of the same sign. In fusion it acts between the protons in the two nuclei, so fusion does not happen at low temperatures and pressures."
+                }
+              ]
+            }
+          ]
         }
       ]
     },

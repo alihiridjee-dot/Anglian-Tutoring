@@ -350,7 +350,47 @@
           "Divide the distance by the time."
         ],
         "tip": "The third mark is only given if the first two are scored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Required practical: waves on a stretched string",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The waves in a solid are measured on a stretched string. The string is made to show a steady, stationary wave pattern, so its wavelength can be measured."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "A signal generator drives a vibration generator attached to the string. Masses hang from the other end to stretch it."
+                },
+                {
+                  "lead": "Get a steady pattern.",
+                  "text": "Adjust the frequency, or move the wooden bridge, until a stationary wave pattern is seen."
+                },
+                {
+                  "lead": "Measure the wavelength.",
+                  "text": "Use a **metre rule** or tape measure. A short ruler is not suitable for a wavelength of about 80 cm."
+                },
+                {
+                  "lead": "Read the frequency.",
+                  "text": "Read it from the signal generator."
+                },
+                {
+                  "lead": "Calculate.",
+                  "text": "Wave speed = frequency × wavelength."
+                },
+                {
+                  "lead": "Repeat.",
+                  "text": "Keep the number of masses the same and repeat at different frequencies, to see how the wavelength changes."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 4.7", "EDEX 4.17"],
@@ -365,7 +405,27 @@
           "Measure the specified distance, for example the radius of the pond."
         ],
         "tip": "Using v = f × λ and counting waves in a measured time is also accepted."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Core practical: choosing suitable equipment",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Equipment is suitable when it can follow the wave being measured. Ripples in a fluid are slow enough to watch, but waves in a solid are not."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A stop clock and a ruler suit ripples, because each wave can be seen and counted as it passes a point.",
+                "Counting by eye fails when the **frequency** is high. The waves arrive too fast to count, and waves inside a solid cannot be seen.",
+                "Sound travels faster in a solid than in air, so its travel time over a short distance is too small to measure with a hand-held stop clock.",
+                "For these waves, use a detector, such as a **microphone** connected to an oscilloscope or an electronic timer, instead of eyes and a stop clock."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 3.4.6", "CAIE 3.1.8", "CAIE 3.4.5"],

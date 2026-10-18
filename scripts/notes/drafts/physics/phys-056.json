@@ -159,7 +159,23 @@
           "Until drag is equal to weight, so the velocity is constant"
         ],
         "tip": "Four marks, one for each step of the explanation. Drag can be called a resistive or frictional force. Ignore upthrust."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Inertia",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Inertia",
+                  "meaning": "The tendency of objects to continue in their state of rest or of uniform motion."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 2.14"],

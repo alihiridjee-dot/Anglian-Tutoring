@@ -180,7 +180,46 @@
           "So the temperature of the wire is kept constant."
         ],
         "tip": "Three linked steps: resistance of the circuit, current kept the same, temperature of the wire constant."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Required practical: resistors in series and parallel",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part of the practical finds how the total resistance changes as identical resistors are added in series or in parallel."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Measure one resistor",
+                  "text": "Find the resistance of one resistor with an ohmmeter, or with an ammeter, a voltmeter and R = V ÷ I."
+                },
+                {
+                  "lead": "Add in series",
+                  "text": "Connect identical resistors in series, adding one at a time. Measure the total resistance each time."
+                },
+                {
+                  "lead": "Add in parallel",
+                  "text": "Repeat with the resistors connected in parallel."
+                },
+                {
+                  "lead": "Repeat",
+                  "text": "Take each reading three times and calculate a mean."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "In series, the **total resistance** increases with each resistor added. Divide the total by the number of identical resistors to find the resistance of one.",
+                "In parallel, the total resistance decreases with each resistor added. It is less than the resistance of one resistor."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -198,7 +237,87 @@
           "Because the current heats up the wire (this can replace one of the other points)."
         ],
         "tip": "Any two linked points score. Adjusting the variable resistor to keep the current constant or small gets both marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Core practical: testing series and parallel circuits",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The second part of the core practical tests series and parallel circuits built from resistors or filament lamps."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Build in series",
+                  "text": "Connect two resistors or two lamps in series with the power supply."
+                },
+                {
+                  "lead": "Measure",
+                  "text": "Use an ammeter to measure the current at different points and a voltmeter to measure the potential difference across each component and the supply."
+                },
+                {
+                  "lead": "Build in parallel",
+                  "text": "Connect the same components in parallel and repeat, measuring the current in each branch."
+                },
+                {
+                  "lead": "Change the number",
+                  "text": "Remove one resistor at a time and measure again."
+                },
+                {
+                  "lead": "Calculate",
+                  "text": "Find the total resistance with R = V ÷ I, using the supply current and potential difference."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Series: each resistor added makes the supply current smaller, so the **total resistance** increases.",
+                "Parallel: each resistor removed makes the supply current smaller at the same potential difference, so the total resistance increases."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Exploring thermistors and LDRs",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The same meters show how the resistance of a thermistor or an LDR changes with its surroundings."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up",
+                  "text": "Connect the component in series with an ammeter, with a voltmeter in parallel across it."
+                },
+                {
+                  "lead": "Change the condition",
+                  "text": "For a thermistor, change its temperature and measure it with a thermometer. For an LDR, change the light intensity, for example by moving a lamp nearer."
+                },
+                {
+                  "lead": "Measure",
+                  "text": "At each setting, record the current and the potential difference."
+                },
+                {
+                  "lead": "Calculate and plot",
+                  "text": "Find the resistance with R = V ÷ I. Plot resistance against temperature or against light intensity."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Keep the current small and switch off between readings, so the current does not heat the component.",
+                "The resistance decreases as the temperature or the light intensity increases."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -214,7 +333,46 @@
           "Measure the current for different potential differences."
         ],
         "tip": "Repeating the experiment is also allowed for the second mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Exploring thermistors and LDRs",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The same meters show how the resistance of an NTC thermistor or an LDR changes with its surroundings."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up",
+                  "text": "Connect the component in series with an ammeter, with a voltmeter in parallel across it."
+                },
+                {
+                  "lead": "Change the condition",
+                  "text": "For a thermistor, change its temperature and measure it with a thermometer. For an LDR, change the light intensity, for example by moving a lamp nearer."
+                },
+                {
+                  "lead": "Measure",
+                  "text": "At each setting, record the current and the potential difference."
+                },
+                {
+                  "lead": "Calculate and plot",
+                  "text": "Find the resistance with R = V ÷ I. Plot resistance against temperature or against light intensity."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Keep the current small and switch the circuit off between readings. This keeps the component at room temperature, so the current does not heat it.",
+                "The resistance decreases as the temperature or the light intensity increases."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

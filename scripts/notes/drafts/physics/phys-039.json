@@ -263,6 +263,18 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Waste from nuclear power stations has a **long half-life**, so it stays hazardous for a very long time.",
+                "To reduce the hazard, the waste is stored in sealed metal containers or cooling ponds, covered in concrete or buried, and moved in secure containers."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -286,7 +298,21 @@
           "Wear a radiation badge (dosimeter)."
         ],
         "tip": "This is a level-marked question. For top marks give a detailed explanation of both the dangers and the protection."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A source with a **short half-life** has a high activity at first. Time, distance and shielding matter most then, and its activity soon falls to a safe level.",
+                "A source with a **long half-life** stays hazardous for a long time, so it must be stored safely for a long time. Nuclear waste is sealed in metal containers, covered in concrete or buried."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [

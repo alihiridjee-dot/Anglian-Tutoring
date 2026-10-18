@@ -162,6 +162,18 @@
               "text": "You also need to know that dark mass and dark energy are not yet understood."
             }
           ]
+        },
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Scientists build theories from observations. New observations or data that do not fit an existing theory should be **peer reviewed** before the theory is changed.",
+                "In peer review, other scientists check the work. It checks the observations are correct and detects mistakes, false claims or bias."
+              ]
+            }
+          ]
         }
       ],
       "worked_example": {

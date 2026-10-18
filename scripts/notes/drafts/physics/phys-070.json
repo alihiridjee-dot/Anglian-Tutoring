@@ -216,10 +216,44 @@
           "Repeat for a range of angles of incidence, in 10 degree intervals from 10 degrees to 80 degrees."
         ],
         "tip": "A six-mark question is marked by level. Give all the key steps, in a logical order."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Refraction by different substances",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The practical also compares how much different substances refract light, for example a glass block and a plastic block.",
+                "Use the same method with each block. Keep the **angles of incidence** the same for both blocks, so the comparison is fair.",
+                "Compare the angles of refraction at each angle of incidence. The block that gives the smaller angle of refraction bends the light more."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.9"]
+      "spec_codes": ["EDEX 5.9"],
+      "extra": [
+        {
+          "heading": "Explaining the results",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The ray bends because the light changes speed when it moves between air and glass."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Light travels more slowly in glass than in air. It **slows down** as it enters the block, so it bends towards the normal.",
+                "As it leaves the block, it speeds up again and bends **away from the normal**.",
+                "The two sides of a rectangular block are parallel, so the ray that leaves the block is parallel to the ray that went in."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 3.2.2.2"],

@@ -234,10 +234,160 @@
           "Compare in one unit: 110 km/h is less than 130 km/h"
         ],
         "tip": "One mark for converting a unit and one mark for the evaluation. A correct answer without working still scores full marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Each physical quantity has one SI unit. Learn the unit and its symbol for the quantities used across the course."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Quantity",
+                "SI unit",
+                "Symbol"
+              ],
+              "rows": [
+                [
+                  "Mass",
+                  "kilogram",
+                  "kg"
+                ],
+                [
+                  "Length, distance",
+                  "metre",
+                  "m"
+                ],
+                [
+                  "Time",
+                  "second",
+                  "s"
+                ],
+                [
+                  "Current",
+                  "ampere",
+                  "A"
+                ],
+                [
+                  "Temperature",
+                  "kelvin",
+                  "K"
+                ],
+                [
+                  "Force, weight",
+                  "newton",
+                  "N"
+                ],
+                [
+                  "Energy, work done",
+                  "joule",
+                  "J"
+                ],
+                [
+                  "Power",
+                  "watt",
+                  "W"
+                ],
+                [
+                  "Frequency",
+                  "hertz",
+                  "Hz"
+                ],
+                [
+                  "Charge",
+                  "coulomb",
+                  "C"
+                ],
+                [
+                  "Potential difference",
+                  "volt",
+                  "V"
+                ],
+                [
+                  "Resistance",
+                  "ohm",
+                  "Ω"
+                ],
+                [
+                  "Pressure",
+                  "pascal",
+                  "Pa"
+                ],
+                [
+                  "Speed, velocity",
+                  "metre per second",
+                  "m/s"
+                ],
+                [
+                  "Acceleration",
+                  "metre per second squared",
+                  "m/s²"
+                ],
+                [
+                  "Density",
+                  "kilogram per cubic metre",
+                  "kg/m³"
+                ],
+                [
+                  "Momentum",
+                  "kilogram metre per second",
+                  "kg m/s"
+                ],
+                [
+                  "Gravitational field strength",
+                  "newton per kilogram",
+                  "N/kg"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
-      "spec_codes": ["OCR P2.1c", "OCR P8.1c"]
+      "spec_codes": ["OCR P2.1c", "OCR P8.1c"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Some questions give a non-SI unit, such as the mile, with a conversion factor. Use proportional reasoning to change it into SI units."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Write the link.",
+                  "text": "Use the factor in the question, such as 1 mile = 1609 m."
+                },
+                {
+                  "lead": "Scale it.",
+                  "text": "Multiply by the number of units. 4 leagues, with 1 league = 4800 m, is 4 × 4800 = 19 200 m."
+                },
+                {
+                  "lead": "Convert the time.",
+                  "text": "For a speed per hour, divide by 3600. 70 mph = 70 × 1609 ÷ 3600 = 31 m/s."
+                },
+                {
+                  "lead": "Go back the other way.",
+                  "text": "Divide by the factor. 5000 m = 5000 ÷ 1609 = 3.1 miles."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A **rate** is a quantity per unit time, such as speed in m/s or power in J/s.",
+                "A **ratio** compares two quantities in the same unit. An aeroplane at 150 m/s and a person at 1.5 m/s give 150 : 1.5 = 100 : 1."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel_igcse": {
       "spec_codes": [

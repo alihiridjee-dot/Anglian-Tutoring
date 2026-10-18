@@ -321,7 +321,35 @@
           "distance = 487.5 ÷ 160 = 3.05 m, which rounds to 3 m (490 ÷ 160 gives 3.1 m)"
         ],
         "tip": "Marks are for substitution, rearrangement and evaluation. Any value that rounds to 3 is accepted, and a power of ten error loses marks. Full marks for the correct answer without working."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In a push-up, the arms give the upward force and the body turns about the feet, which act as the **pivot**.",
+                "A claw hammer pulling out a nail is a lever that turns about a pivot.",
+                "A plotting compass needle turns about the pivot at its centre.",
+                "On a bicycle, the force on the pedals turns the large gear wheel."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Gears joined by a chain"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Gears joined by a chain turn in the same direction.",
+                "The chain moves the same distance round each gear, so turns × teeth is the same for both gears.",
+                "A 48-tooth gear driving a 12-tooth gear has a **gear ratio** of 4:1. The small gear turns 4 times for each turn of the large gear."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR P2.3k", "OCR P2.3l", "OCR P2.3m"],
@@ -337,7 +365,41 @@
           "Moment = 1260 N m"
         ],
         "tip": "A correct answer of 1260 N m, or 1300 N m, scores all 4 marks. Using mass instead of weight loses a mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Pivots and turning direction"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A see-saw turns about a pivot at its centre.",
+                "A diving board is fixed at the wall, so the wall end is the pivot.",
+                "A wheelbarrow turns about its wheel.",
+                "A spanner turns a nut about the centre of the nut.",
+                "A downward force to the right of a pivot turns the object **clockwise**. To the left of the pivot it turns the object **anticlockwise**."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Ratios and force multipliers"
+            },
+            {
+              "type": "list",
+              "items": [
+                "In a balanced lever, the force ratio is the inverse of the distance ratio. An effort 4 times further from the pivot than the load needs a quarter of the load's force.",
+                "The **gear ratio** compares the numbers of teeth. A 60-tooth gear and a 20-tooth gear have a gear ratio of 3:1, so the small gear turns 3 times for each turn of the large gear.",
+                "The force at the teeth is the same on both gears, but the larger gear has the larger radius.",
+                "So when a small gear drives a large gear, the moment is multiplied by the gear ratio and the speed of turning is divided by it."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

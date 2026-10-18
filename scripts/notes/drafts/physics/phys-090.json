@@ -182,6 +182,15 @@
               "text": "The ideas about changing velocity and about radius changing with speed are Higher tier only in this course."
             }
           ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Planets and moons are alike in two ways: both have circular orbits, and neither gives out its own visible light."
+            }
+          ]
         }
       ],
       "worked_example": {
@@ -230,7 +239,18 @@
           "So the planet is accelerating."
         ],
         "tip": "Any three points score."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Tier",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The ideas about changing velocity with unchanged speed, and about orbit radius changing with speed, are Higher tier only in this course."
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

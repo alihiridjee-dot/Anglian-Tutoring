@@ -226,7 +226,26 @@
           "Show the effect is temporary: remove the magnet and the paper clips are no longer attracted, or they fall off."
         ],
         "tip": "One mark each for producing the induced magnetism, showing its magnetic properties, and showing the effect is temporary."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Different magnetic materials suit different uses, depending on whether the magnetism needs to stay."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Iron** is magnetised easily and loses its magnetism easily. It is used for temporary magnets, such as the core of an electromagnet.",
+                "An iron rod in a coil picks up iron filings when the current is switched on. The filings fall off when it is switched off.",
+                "**Steel** keeps its magnetism. It is used for permanent magnets, not temporary ones."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR P4.1a", "OCR P4.1b"],
@@ -240,7 +259,26 @@
           "OR permanent magnets retain their magnetism when away from a magnetic field."
         ],
         "tip": "Any one of the two points scores the mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Field line diagrams show whether two bar magnets attract or repel."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Unlike poles facing (**attraction**): field lines run across the gap from the north pole of one magnet to the south pole of the other.",
+                "Like poles facing (**repulsion**): field lines from each pole bend away from the other magnet. No lines cross the gap.",
+                "Field lines never cross each other. Midway between two like poles the field is very weak."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

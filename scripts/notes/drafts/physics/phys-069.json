@@ -241,6 +241,36 @@
               "text": "Explaining refraction with wavefront diagrams, and how absorption, transmission and refraction vary with wavelength, are Higher tier content in this course."
             }
           ]
+        },
+        {
+          "heading": "Drawing a refraction ray diagram",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Boundary.",
+                  "text": "Draw the boundary between the two materials with a ruler."
+                },
+                {
+                  "lead": "Normal.",
+                  "text": "Draw the normal at 90° to the boundary, where the ray meets it."
+                },
+                {
+                  "lead": "Incident ray.",
+                  "text": "Draw the ray arriving at the boundary, with an arrow to show its direction."
+                },
+                {
+                  "lead": "Refracted ray.",
+                  "text": "Into a slower material such as glass, bend it towards the normal, so the angle of refraction is less than the angle of incidence. Into a faster material, bend it away from the normal."
+                },
+                {
+                  "lead": "Label.",
+                  "text": "Mark the angle of incidence and the angle of refraction, both measured from the normal."
+                }
+              ]
+            }
+          ]
         }
       ]
     },

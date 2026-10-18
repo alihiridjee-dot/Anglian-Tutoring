@@ -298,6 +298,18 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A thickness gauge for paper uses **beta** radiation. Alpha would be stopped by the paper and gamma would pass through almost unchanged, so neither would show a change in thickness.",
+                "A **gamma** source can also be placed inside the body, next to the tumour. X-rays are applied only from outside the body."
+              ]
+            }
+          ]
         }
       ]
     },

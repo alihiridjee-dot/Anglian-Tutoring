@@ -276,7 +276,42 @@
           "k = 192 N/m"
         ],
         "tip": "One mark each for converting, substituting, rearranging and the answer. Without the conversion, the later method marks can still be awarded."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Energy transfers from a spring",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "When a stretched or compressed spring is released, its **elastic potential energy** is transferred to other stores, such as the kinetic energy store of a toy car or the gravitational potential energy store of a jumping gymnast.",
+                "For the maximum possible speed or height, assume all of the stored energy is transferred."
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Energy stored.",
+                  "text": "A spring with k = 64 N/m is compressed by 0.075 m: Ee = ½ × 64 × 0.075² = 0.18 J."
+                },
+                {
+                  "lead": "Kinetic energy.",
+                  "text": "All 0.18 J goes to the kinetic energy store of a 0.052 kg toy car: 0.18 = ½ × 0.052 × v²."
+                },
+                {
+                  "lead": "Rearrange.",
+                  "text": "v² = 0.18 ÷ (½ × 0.052)"
+                },
+                {
+                  "lead": "Calculate.",
+                  "text": "v = 2.6 m/s to 2 significant figures."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 15.1", "EDEX 15.2", "EDEX 15.3", "EDEX 15.4", "EDEX 15.5"],
@@ -315,7 +350,21 @@
           "67 N/m to 2 significant figures"
         ],
         "tip": "Any two matching values from the table can be used. The final mark is for rounding to 2 significant figures."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Springs side by side, in **parallel**, share the force between them.",
+                "For the same force, the extension is inversely proportional to the number of springs in parallel. Doubling the number of springs halves the extension."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 1.5.1.1", "CAIE 1.5.1.2", "CAIE 1.5.1.9S", "CAIE 1.5.1.10S"],

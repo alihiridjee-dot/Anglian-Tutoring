@@ -194,7 +194,21 @@
           "It is microwaves because of cooling, and is detected from all over the sky."
         ],
         "tip": "A six-mark level-marked answer. Higher levels need accurate, detailed and logically structured physics for both ideas."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The **Steady State** theory has no beginning, so it cannot explain CMB radiation.",
+                "The Big Bang theory explains both red-shift and CMB radiation. So the discovery of CMB radiation was evidence that only the Big Bang theory could explain."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR P8.3b"],

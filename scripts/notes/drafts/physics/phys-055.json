@@ -290,7 +290,38 @@
           "Acceleration is between 0.5 and 3.0 m/s²"
         ],
         "tip": "Check the answer first: any value from 0.5 to 3.0 m/s² scores all 3 marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "An Olympic sprinter runs at about **10 m/s**, much faster than a typical person running.",
+                "A typical acceleration of a family car is about **3 m/s²**, much smaller than the acceleration in free fall."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Estimating a car's acceleration from mph"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Convert the speed.",
+                  "text": "A car reaches 60 mph in about 9 s. Using 1 m/s = 2.24 mph, 60 ÷ 2.24 = about 27 m/s."
+                },
+                {
+                  "lead": "Divide by the time.",
+                  "text": "a = 27 ÷ 9 = about 3 m/s²."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 1.2.8", "CAIE 3.4.5"],

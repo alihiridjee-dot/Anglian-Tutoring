@@ -296,6 +296,18 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The mass number is also called the **nucleon number**. A nucleon is a proton or a neutron.",
+                "After alpha or beta decay, a nucleus often undergoes **nuclear rearrangement**, losing energy as gamma radiation."
+              ]
+            }
+          ]
         }
       ],
       "worked_example": {

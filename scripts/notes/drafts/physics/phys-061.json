@@ -319,7 +319,68 @@
           "So the driver is more likely to have a collision before stopping in an emergency."
         ],
         "tip": "One mark for each linked step: reaction time, thinking distance, then the risk of a collision."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Braking and large decelerations",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "When the brakes are applied, **work done** by the friction force between the brakes and the wheel reduces the kinetic energy of the vehicle. The energy is transferred to thermal energy, so the **temperature of the brakes** increases.",
+                "The greater the speed, the greater the braking force needed to stop the vehicle in a certain distance. More work is done by the brakes, so the risk of the brakes overheating is greater.",
+                "The greater the braking force, the greater the **deceleration**.",
+                "Large decelerations are dangerous. The brakes may overheat and stop working properly, or the wheels may lock and skid, so the driver **loses control**. The large forces can also injure people."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "(Higher tier) Estimating a braking force"
+            },
+            {
+              "type": "equation",
+              "label": "Deceleration from braking distance",
+              "formula": "a = u² ÷ (2 × s)",
+              "where": [
+                "a: deceleration in metres per second squared, m/s²",
+                "u: speed when the brakes are applied, in metres per second, m/s",
+                "s: braking distance in metres, m"
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Choose typical values",
+                  "text": "Use a typical speed, braking distance and mass for the vehicle."
+                },
+                {
+                  "lead": "Find the deceleration",
+                  "text": "Put the speed and braking distance into the equation above."
+                },
+                {
+                  "lead": "Find the force",
+                  "text": "Use force = mass × deceleration. The answer is an estimate, so round it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Thinking distance** is directly proportional to speed. The reaction time stays the same, so when the speed doubles, the thinking distance doubles.",
+                "**Braking distance** is proportional to speed², for a given braking force. When the speed doubles, the kinetic energy and the braking distance increase four times.",
+                "Reaction time can also be measured with an online or computer test, in milliseconds. The results vary from test to test, so repeat it.",
+                "In the ruler test, drop the ruler from the same height above the hand each time. Testing only a few people may not give results typical of a whole class."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 2.27", "EDEX 2.28", "EDEX 2.29", "EDEX 2.30", "EDEX 2.32P"],
@@ -330,7 +391,22 @@
         "marks": 3,
         "answer_points": ["46 = 31 × t", "t = 46 ÷ 31 = 1.48(3) s", "t = 1.5 s"],
         "tip": "One mark for substitution, one for the evaluation and one for giving 2 significant figures."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Stopping distance at different speeds",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Thinking distance** is directly proportional to speed. The reaction time stays the same, so when the speed doubles, the thinking distance doubles.",
+                "**Braking distance** is proportional to speed², for a given braking force. When the speed doubles, the kinetic energy and the braking distance increase four times.",
+                "So as the speed increases, the braking distance grows faster than the thinking distance."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR P8.1d", "OCR P8.1e", "OCR P8.1f"],
@@ -345,7 +421,24 @@
           "Reaction time = 0.75 s."
         ],
         "tip": "A correct answer of 0.75 s scores all 3 marks. A correct substitution is ignored if it is not rearranged."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Thinking distance** is directly proportional to speed. The reaction time stays the same, so when the speed doubles, the thinking distance doubles.",
+                "**Braking distance** is proportional to speed², for a given braking force. When the speed doubles, the kinetic energy and the braking distance increase four times.",
+                "So as the speed increases, the braking distance grows faster than the thinking distance.",
+                "For an accurate ruler test, drop the ruler from the same height above the hand, and change the wait before each drop so the catcher cannot predict it.",
+                "Keep the catcher's hand still, with the fingers the same distance apart each time."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel_igcse": {
       "spec_codes": ["IGCSE 1.19", "IGCSE 1.20"],

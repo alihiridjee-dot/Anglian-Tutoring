@@ -214,6 +214,18 @@
               "text": "(AQA: Higher tier) In this specification, explaining upthrust, floating and sinking is Higher tier only. A partially or totally submerged object has a greater pressure on its bottom surface than on its top surface."
             }
           ]
+        },
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "An object that has sunk and rests on the bottom has three forces on it: its weight down, the upthrust up and the **normal contact force** up from the bottom.",
+                "When it is stationary, weight = upthrust + normal contact force, so the resultant force is zero."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -247,7 +259,22 @@
           "The weight of water displaced by the boat is equal to the weight of the boat."
         ],
         "tip": "Any three points score. Saying only that the boat is hollow or contains air scores a maximum of 1 mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The pressure at a point in a liquid is caused by the weight of the liquid above it.",
+                "A deeper point has a taller column of liquid above it, so the pressure is greater.",
+                "A denser liquid has more weight in the same column, so the pressure at the same depth is greater."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 1.4.3", "CAIE 1.4.4S"],

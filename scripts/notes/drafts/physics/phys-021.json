@@ -272,7 +272,22 @@
           "This leaves an excess positive charge on the comb."
         ],
         "tip": "Link any three of the four points. Do not write about positive electrons or positive charge moving."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Earthing a **positively charged** object makes electrons flow from the ground, through the conductor, to the object. This neutralises it.",
+                "A neutral metal disc held near a negative charge has its electrons repelled. If the disc is briefly earthed, electrons flow from it to earth and it is left **positively charged**.",
+                "Paint sprayers work like insecticide sprayers. The object being painted is earthed by a metal wire, so it gains an opposite induced charge and does not build up the same charge as the drops."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR P3.1a", "OCR P3.1b", "OCR P3.1c"],
