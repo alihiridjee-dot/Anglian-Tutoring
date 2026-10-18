@@ -3,14 +3,14 @@
   "concept_id": "phys-064",
   "subject": "physics",
   "title": "Changes in momentum and safety features",
-  "key_idea": "(Higher tier) Force equals the rate of change of momentum. Safety features such as air bags and crash mats make the stopping time longer. The momentum changes at a lower rate, so the force on a person is smaller.",
+  "key_idea": "(AQA and Edexcel: Higher tier) Force equals the rate of change of momentum. Safety features such as air bags and crash mats make the stopping time longer. The momentum changes at a lower rate, so the force on a person is smaller.",
   "sections": [
     {
       "heading": "Force and rate of change of momentum",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) When a force acts on a moving object, its momentum changes. This section links force, acceleration and change in momentum."
+          "text": "(AQA and Edexcel: Higher tier) When a force acts on a moving object, its momentum changes. This section links force, acceleration and change in momentum."
         },
         {
           "type": "list",
@@ -96,7 +96,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier) Safety features do not remove the change in momentum. They spread it over a longer time."
+          "text": "(AQA and Edexcel: Higher tier) Safety features do not remove the change in momentum. They spread it over a longer time."
         },
         {
           "type": "list",

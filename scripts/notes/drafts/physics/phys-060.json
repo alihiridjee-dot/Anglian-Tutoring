@@ -3,7 +3,7 @@
   "concept_id": "phys-060",
   "subject": "physics",
   "title": "Circular motion",
-  "key_idea": "(AQA: separate science, Higher tier) An object moving in a circle at constant speed has a changing velocity, because its direction keeps changing. So it is accelerating. This needs a resultant force towards the centre, called the centripetal force.",
+  "key_idea": "(Higher tier, AQA: separate science) An object moving in a circle at constant speed has a changing velocity, because its direction keeps changing. So it is accelerating. This needs a resultant force towards the centre, called the centripetal force.",
   "sections": [
     {
       "heading": "Constant speed, changing velocity",
@@ -192,11 +192,11 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(AQA: Higher tier) For circular orbits, explain qualitatively how the force of gravity leads to a changing velocity but an unchanged speed."
+              "text": "(Higher tier) For circular orbits, explain qualitatively how the force of gravity leads to a changing velocity but an unchanged speed."
             },
             {
               "type": "paragraph",
-              "text": "(AQA: Higher tier) For a stable orbit, the radius must change if the speed changes."
+              "text": "(Higher tier) For a stable orbit, the radius must change if the speed changes."
             }
           ]
         }

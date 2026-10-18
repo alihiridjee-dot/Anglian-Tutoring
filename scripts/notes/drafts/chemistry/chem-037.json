@@ -3,7 +3,7 @@
   "concept_id": "chem-037",
   "subject": "chemistry",
   "title": "Titration calculations",
-  "key_idea": "(Separate chemistry) A titration finds the volumes of an acid and an alkali that react exactly. (AQA: Higher tier) Find the moles of the solution you know, use the equation ratio to get the moles of the other, then divide by its volume.",
+  "key_idea": "(Separate chemistry) A titration finds the volumes of an acid and an alkali that react exactly. (Higher tier) Find the moles of the solution you know, use the equation ratio to get the moles of the other, then divide by its volume.",
   "sections": [
     {
       "heading": "Carrying out a titration",
@@ -71,7 +71,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) The calculation always follows the same four steps. The equation ratio links the two solutions."
+          "text": "(Higher tier) The calculation always follows the same four steps. The equation ratio links the two solutions."
         },
         {
           "type": "equation",
@@ -141,7 +141,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) The same method can find a volume, or a concentration in g/dm³."
+          "text": "(Higher tier) The same method can find a volume, or a concentration in g/dm³."
         },
         {
           "type": "list",
@@ -168,12 +168,12 @@
       "marks": 1
     },
     {
-      "q": "25.0 cm³ of 0.124 mol/dm³ sodium carbonate is neutralised by 23.6 cm³ of nitric acid: Na₂CO₃ + 2HNO₃ → 2NaNO₃ + CO₂ + H₂O. Calculate the concentration of the nitric acid to 3 significant figures.",
+      "q": "(Higher tier) 25.0 cm³ of 0.124 mol/dm³ sodium carbonate is neutralised by 23.6 cm³ of nitric acid: Na₂CO₃ + 2HNO₃ → 2NaNO₃ + CO₂ + H₂O. Calculate the concentration of the nitric acid to 3 significant figures.",
       "a": "Moles Na₂CO₃ = 25.0 ÷ 1000 × 0.124 = 0.0031. Moles HNO₃ = 2 × 0.0031 = 0.0062. Concentration = 0.0062 × 1000 ÷ 23.6 = 0.263 mol/dm³.",
       "marks": 5
     },
     {
-      "q": "Why is the volume of the titre divided by 1000 in the calculation?",
+      "q": "(Higher tier) Why is the volume of the titre divided by 1000 in the calculation?",
       "a": "To convert cm³ to dm³, because concentration is in mol/dm³.",
       "marks": 1
     }

@@ -3,7 +3,7 @@
   "concept_id": "chem-108",
   "subject": "chemistry",
   "title": "Choosing conditions for industrial processes",
-  "key_idea": "Industrial conditions are a compromise between rate, equilibrium yield and cost. In the Haber process a higher temperature speeds up the reaction but lowers the yield, a higher pressure raises both but costs more, and a catalyst speeds up the reaction without changing the yield. (Higher tier, Separate science)",
+  "key_idea": "(Higher tier, Separate science) Industrial conditions are a compromise between rate, equilibrium yield and cost. In the Haber process a higher temperature speeds up the reaction but lowers the yield, a higher pressure raises both but costs more, and a catalyst speeds up the reaction without changing the yield.",
   "sections": [
     {
       "heading": "Rate and yield (Higher tier, Separate science)",
@@ -135,7 +135,7 @@
         },
         {
           "type": "subheading",
-          "text": "The compromise (AQA: Higher tier)"
+          "text": "The compromise (Higher tier)"
         },
         {
           "type": "list",

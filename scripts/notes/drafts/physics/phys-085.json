@@ -3,14 +3,14 @@
   "concept_id": "phys-085",
   "subject": "physics",
   "title": "Electromagnetic induction",
-  "key_idea": "(AQA: Higher tier, separate science only) A potential difference is induced across a conductor when it moves relative to a magnetic field, or when the field around it changes. If the conductor is in a complete circuit, a current flows. This is the **generator effect**.",
+  "key_idea": "(Higher tier, AQA: separate science only) A potential difference is induced across a conductor when it moves relative to a magnetic field, or when the field around it changes. If the conductor is in a complete circuit, a current flows. This is the **generator effect**.",
   "sections": [
     {
       "heading": "Inducing a potential difference",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) This section explains how a potential difference and a current can be produced using a magnetic field."
+          "text": "(Higher tier) This section explains how a potential difference and a current can be produced using a magnetic field."
         },
         {
           "type": "definitions",

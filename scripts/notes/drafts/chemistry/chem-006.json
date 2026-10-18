@@ -45,7 +45,7 @@
       ]
     },
     {
-      "heading": "Calculating relative atomic mass",
+      "heading": "Calculating relative atomic mass (Edexcel: Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -180,7 +180,7 @@
       "marks": 2
     },
     {
-      "q": "An element has two isotopes: mass number 10 (20% of atoms) and mass number 11 (80%). Calculate its relative atomic mass.",
+      "q": "(Edexcel: Higher tier) An element has two isotopes: mass number 10 (20% of atoms) and mass number 11 (80%). Calculate its relative atomic mass.",
       "a": "(10 × 20 + 11 × 80) ÷ 100 = 1080 ÷ 100 = 10.8.",
       "marks": 2
     },

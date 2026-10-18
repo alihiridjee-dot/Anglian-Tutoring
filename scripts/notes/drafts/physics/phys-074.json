@@ -126,7 +126,7 @@
       ]
     },
     {
-      "heading": "Radio waves and electrical circuits",
+      "heading": "Radio waves and electrical circuits (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -182,12 +182,12 @@
   ],
   "checks": [
     {
-      "q": "Describe how a radio signal in a transmitter produces a signal in a receiver.",
+      "q": "(Higher tier) Describe how a radio signal in a transmitter produces a signal in a receiver.",
       "a": "An alternating current (oscillations) in the transmitter produces radio waves. The waves are absorbed by the receiver and induce an alternating current (oscillations) in the receiver at the same frequency.",
       "marks": 3
     },
     {
-      "q": "Explain why X-rays are used to produce images of bones.",
+      "q": "(AQA: Higher tier) Explain why X-rays are used to produce images of bones.",
       "a": "X-rays are absorbed by bone but pass through soft tissue (flesh).",
       "marks": 2
     },
@@ -217,7 +217,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(AQA: Higher tier) Radio waves can be produced by oscillations in electrical circuits and can induce oscillations when absorbed. Brief explanations of why each wave suits its use are also Higher tier."
+              "text": "(Higher tier) Radio waves can be produced by oscillations in electrical circuits and can induce oscillations when absorbed. Brief explanations of why each wave suits its use are also Higher tier."
             }
           ]
         }

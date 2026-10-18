@@ -3,14 +3,14 @@
   "concept_id": "phys-083",
   "subject": "physics",
   "title": "The motor effect",
-  "key_idea": "(AQA: Higher tier) A wire carrying a current in a magnetic field experiences a force, and the magnet experiences an equal and opposite force. Fleming's left-hand rule gives the direction of the force. For a wire at right angles to the field, F = B × I × l.",
+  "key_idea": "(Higher tier) A wire carrying a current in a magnetic field experiences a force, and the magnet experiences an equal and opposite force. Fleming's left-hand rule gives the direction of the force. For a wire at right angles to the field, F = B × I × l.",
   "sections": [
     {
       "heading": "What the motor effect is",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) A wire carrying a current in a magnetic field experiences a force. This is the motor effect."
+          "text": "(Higher tier) A wire carrying a current in a magnetic field experiences a force. This is the motor effect."
         },
         {
           "type": "definitions",
@@ -48,7 +48,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Fleming's left-hand rule gives the direction of the force. Use your left hand."
+          "text": "(Higher tier) Fleming's left-hand rule gives the direction of the force. Use your left hand."
         },
         {
           "type": "steps",
@@ -85,7 +85,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) For a conductor at right angles to the magnetic field, the force depends on the field, the current and the length in the field."
+          "text": "(Higher tier) For a conductor at right angles to the magnetic field, the force depends on the field, the current and the length in the field."
         },
         {
           "type": "equation",

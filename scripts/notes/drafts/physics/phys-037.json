@@ -208,7 +208,7 @@
       ]
     },
     {
-      "heading": "Calculating after a number of half-lives",
+      "heading": "Calculating after a number of half-lives (OCR: Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -257,7 +257,7 @@
         },
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) The net decline can be written as a ratio. After n half-lives, the final activity to the initial activity is 1 : 2ⁿ. After 3 half-lives this is 1 : 8."
+          "text": "(AQA and OCR: Higher tier) The net decline can be written as a ratio. After n half-lives, the final activity to the initial activity is 1 : 2ⁿ. After 3 half-lives this is 1 : 8."
         },
         {
           "type": "diagram",
@@ -296,7 +296,7 @@
           "items": [
             "Number of half-lives = time ÷ half-life.",
             "Halve the starting value once for each half-life.",
-            "(AQA: Higher tier) After n half-lives the ratio of final to initial activity is 1 : 2ⁿ."
+            "(AQA and OCR: Higher tier) After n half-lives the ratio of final to initial activity is 1 : 2ⁿ."
           ]
         }
       ]
@@ -335,7 +335,7 @@
       "marks": 2
     },
     {
-      "q": "A source has an activity of 800 Bq and a half-life of 6 hours. Calculate its activity after 18 hours.",
+      "q": "(OCR: Higher tier) A source has an activity of 800 Bq and a half-life of 6 hours. Calculate its activity after 18 hours.",
       "a": "18 ÷ 6 = 3 half-lives. 800 → 400 → 200 → 100. The activity is 100 Bq.",
       "marks": 3
     },

@@ -42,7 +42,7 @@
         },
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) At each electrode a half equation shows what happens. These are for an acidic electrolyte."
+          "text": "(AQA and OCR: Higher tier) At each electrode a half equation shows what happens. These are for an acidic electrolyte."
         },
         {
           "type": "equation",
@@ -59,7 +59,7 @@
         {
           "type": "list",
           "items": [
-            "(AQA: Higher tier) For an alkaline electrolyte the half equations are H₂ + 2OH⁻ → 2H₂O + 2e⁻ and O₂ + 2H₂O + 4e⁻ → 4OH⁻.",
+            "(AQA and OCR: Higher tier) For an alkaline electrolyte the half equations are H₂ + 2OH⁻ → 2H₂O + 2e⁻ and O₂ + 2H₂O + 4e⁻ → 4OH⁻.",
             "Doubling the first half equation and adding the second gives the overall reaction, for either electrolyte."
           ]
         },

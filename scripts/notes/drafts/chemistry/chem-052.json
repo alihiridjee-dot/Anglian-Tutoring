@@ -217,7 +217,7 @@
       },
       "extra": [
         {
-          "heading": "(Separate science) and (AQA: Higher tier) content",
+          "heading": "(Separate science) and (Higher tier) content",
           "blocks": [
             {
               "type": "paragraph",
@@ -225,7 +225,7 @@
             },
             {
               "type": "paragraph",
-              "text": "(AQA: Higher tier) You may also be asked for calculations of concentration in mol/dm³ and g/dm³ from titration results. This note covers the practical technique only."
+              "text": "(Higher tier) You may also be asked for calculations of concentration in mol/dm³ and g/dm³ from titration results. This note covers the practical technique only."
             }
           ]
         }

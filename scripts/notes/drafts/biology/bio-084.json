@@ -3,14 +3,14 @@
   "concept_id": "bio-084",
   "subject": "biology",
   "title": "Adrenaline, thyroxine and negative feedback",
-  "key_idea": "(AQA: Higher tier) Adrenaline prepares the body for fight or flight. Thyroxine stimulates the basal metabolic rate. Thyroxine level is kept steady by negative feedback: a change causes a response that reverses it.",
+  "key_idea": "(Higher tier) Adrenaline prepares the body for fight or flight. Thyroxine stimulates the basal metabolic rate. Thyroxine level is kept steady by negative feedback: a change causes a response that reverses it.",
   "sections": [
     {
       "heading": "Adrenaline",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Adrenaline is produced by the adrenal glands in times of fear or stress. It prepares the body for \"fight or flight\"."
+          "text": "(Higher tier) Adrenaline is produced by the adrenal glands in times of fear or stress. It prepares the body for \"fight or flight\"."
         },
         {
           "type": "definitions",
@@ -52,7 +52,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Thyroxine is released by the thyroid gland. It stimulates the basal metabolic rate."
+          "text": "(Higher tier) Thyroxine is released by the thyroid gland. It stimulates the basal metabolic rate."
         },
         {
           "type": "list",
@@ -123,7 +123,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Thyroxine is controlled by negative feedback. A change is detected, and the response reverses it."
+          "text": "(Higher tier) Thyroxine is controlled by negative feedback. A change is detected, and the response reverses it."
         },
         {
           "type": "definitions",

@@ -3,14 +3,14 @@
   "concept_id": "chem-034",
   "subject": "chemistry",
   "title": "Limiting reactants",
-  "key_idea": "(AQA: Higher tier) In a reaction with two reactants, one is often in excess. The reactant that is completely used up is the limiting reactant. It limits the amount of product, so the amount of product is worked out from the limiting reactant.",
+  "key_idea": "(Higher tier) In a reaction with two reactants, one is often in excess. The reactant that is completely used up is the limiting reactant. It limits the amount of product, so the amount of product is worked out from the limiting reactant.",
   "sections": [
     {
       "heading": "Limiting and excess reactants",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Reactants are not always mixed in exactly the right amounts. This section covers what happens when one runs out first."
+          "text": "(Higher tier) Reactants are not always mixed in exactly the right amounts. This section covers what happens when one runs out first."
         },
         {
           "type": "definitions",
@@ -58,7 +58,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Compare the moles you have with the moles the equation needs. The ratio from the equation is essential."
+          "text": "(Higher tier) Compare the moles you have with the moles the equation needs. The ratio from the equation is essential."
         },
         {
           "type": "steps",

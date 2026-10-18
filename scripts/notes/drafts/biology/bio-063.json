@@ -65,7 +65,7 @@
             },
             {
               "term": "Oxygen debt",
-              "meaning": "The extra oxygen the body needs after exercise to react with the lactic acid and remove it from the cells."
+              "meaning": "(Higher tier) The extra oxygen the body needs after exercise to react with the lactic acid and remove it from the cells."
             },
             {
               "term": "Muscle fatigue",
@@ -111,8 +111,8 @@
           "items": [
             "Heart rate stays high, then slowly falls back to its resting rate.",
             "Breathing stays fast and deep, then slowly returns to normal.",
-            "The extra oxygen breathed in pays back the oxygen debt, by reacting with the lactic acid and removing it from the cells.",
-            "(AQA: Higher tier) Blood flowing through the muscles carries lactic acid to the liver, where some is converted back into glucose. The oxygen debt itself is the oxygen needed to remove the lactic acid."
+            "(Higher tier) The extra oxygen breathed in pays back the oxygen debt, by reacting with the lactic acid and removing it from the cells.",
+            "(Higher tier) Blood flowing through the muscles carries lactic acid to the liver, where some is converted back into glucose. The oxygen debt itself is the oxygen needed to remove the lactic acid."
           ]
         },
         {
@@ -175,7 +175,7 @@
           "items": [
             "After exercise, heart rate and breathing rate stay high to repay the oxygen debt.",
             "A shorter recovery time and a lower resting rate suggest greater fitness.",
-            "(AQA: Higher tier) Lactic acid is taken to the liver and converted back to glucose."
+            "(Higher tier) Lactic acid is taken to the liver and converted back to glucose."
           ]
         }
       ]
@@ -238,7 +238,7 @@
           "Insufficient oxygen is supplied during prolonged vigorous exercise, so lactic acid is formed by anaerobic respiration and an oxygen debt is created.",
           "Lactic acid causes the muscles to become fatigued, so they stop contracting efficiently.",
           "After exercise, heart rate and breathing rate stay high and fall slowly, to pay back the oxygen debt.",
-          "The oxygen debt is the oxygen needed to break down the lactic acid. (AQA: Higher tier) Some lactic acid is transported to the liver and converted back into glucose."
+          "The oxygen debt is the oxygen needed to break down the lactic acid. (Higher tier) Some lactic acid is transported to the liver and converted back into glucose."
         ],
         "tip": "A six-mark answer links changes during exercise and after it, and must include lactic acid and its removal."
       }

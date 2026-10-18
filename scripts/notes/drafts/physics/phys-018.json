@@ -223,7 +223,7 @@
         },
         {
           "type": "subheading",
-          "text": "Reducing unwanted energy transfer"
+          "text": "(Higher tier) Reducing unwanted energy transfer"
         },
         {
           "type": "list",
@@ -238,7 +238,7 @@
           "items": [
             "Electrons collide with ions in the lattice. The ions vibrate more and the wire heats up.",
             "Higher resistance means more collisions and more heating.",
-            "Low resistance wires reduce unwanted energy transfer."
+            "(Higher tier) Low resistance wires reduce unwanted energy transfer."
           ]
         }
       ]
