@@ -242,6 +242,7 @@ exports[`refreshWeek a re-cut keeps what a person chose or the student touched, 
           "c2": null,
           "c3": null,
         },
+        "facts": undefined,
         "level": "gcse",
         "origin": "ai",
         "origins": {
@@ -328,6 +329,7 @@ exports[`refreshWeek the same set is still rewritten when withheld rows need cle
       {
         "board": "aqa",
         "carriedFroms": {},
+        "facts": undefined,
         "level": "gcse",
         "origin": "ai",
         "origins": {
@@ -379,6 +381,7 @@ exports[`refreshWeek repair turns a quarantined no-evidence review into teaching
         "carriedFroms": {
           "b2": null,
         },
+        "facts": undefined,
         "level": "gcse",
         "origin": "ai",
         "origins": {
@@ -454,6 +457,7 @@ exports[`refreshWeek a preview that still matches is applied 1`] = `
         "carriedFroms": {
           "c2": null,
         },
+        "facts": undefined,
         "level": "gcse",
         "origin": "ai",
         "origins": {
@@ -506,6 +510,7 @@ exports[`refreshWeek with no roadmap handed in, it loads one for projection only
         "carriedFroms": {
           "c2": null,
         },
+        "facts": undefined,
         "level": "gcse",
         "origin": "ai",
         "origins": {
@@ -532,6 +537,7 @@ exports[`refreshWeek with no roadmap handed in, it loads one for projection only
         "board": "aqa",
         "level": "gcse",
         "projectOnly": true,
+        "state": undefined,
         "studentId": "student",
         "subject": "biology",
       },

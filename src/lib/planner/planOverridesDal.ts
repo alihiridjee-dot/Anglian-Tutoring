@@ -37,6 +37,17 @@ type Row = {
   created_at: string;
 };
 
+/** One `student_plan_overrides` row, as the planner holds it. */
+export const toOverride = (r: Row): PlanOverride => ({
+  id: r.id,
+  specPointId: r.spec_point_id,
+  kind: r.kind,
+  weekStart: r.week_start,
+  note: r.note,
+  createdBy: r.created_by,
+  createdAt: r.created_at,
+});
+
 const OVERRIDES_TABLE = "student_plan_overrides";
 const NOT_INSTALLED =
   "The planner override update is not installed on the database yet. Nothing was changed.";
@@ -79,15 +90,7 @@ export class PlanOverridesDAL {
       if (notInstalled(error)) return [];
       throw new Error(error.message);
     }
-    return ((data ?? []) as Row[]).map((r) => ({
-      id: r.id,
-      specPointId: r.spec_point_id,
-      kind: r.kind,
-      weekStart: r.week_start,
-      note: r.note,
-      createdBy: r.created_by,
-      createdAt: r.created_at,
-    }));
+    return ((data ?? []) as Row[]).map(toOverride);
   }
 
   /** Whether the database carries the override rule (scheduler version 5 or later). */

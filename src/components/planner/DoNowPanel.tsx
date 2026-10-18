@@ -62,7 +62,7 @@ export function DoNowPanel({
   subject,
   editable,
   onToggle,
-  settled = true,
+  loading = false,
 }: {
   points: PlanPoint[];
   activity: Activity;
@@ -73,8 +73,9 @@ export function DoNowPanel({
   /** Past weeks are read-only — you can look, but you can't tick history. */
   editable: boolean;
   onToggle: (specPointId: string, done: boolean) => void;
-  /** False while the rest of the week is still loading in above the list. */
-  settled?: boolean;
+  /** The week's work or attempts are still on their way: nothing is shown yet,
+   *  so no point reads as untouched by mistake, but its notes are already read. */
+  loading?: boolean;
 }) {
   const [playing, setPlaying] = useState<{ item: PointWorkItem } | null>(null);
   const { data: notes } = useSpecPointNotes(points.map((p) => p.spec_point_id));
@@ -97,14 +98,14 @@ export function DoNowPanel({
   // Once per visit, so Back to the dashboard returns to what was clicked.
   const cardRef = useRef<HTMLDivElement>(null);
   const [arrived, setArrived] = useEntryState("weekly-task-list.arrived", false);
-  const shown = total > 0;
+  const shown = !loading && total > 0;
   useEffect(() => {
-    if (!shown || !settled || arrived || window.location.hash !== "#weekly-task-list") return;
+    if (!shown || arrived || window.location.hash !== "#weekly-task-list") return;
     setArrived(true);
     if (cardRef.current) landOn(cardRef.current);
-  }, [shown, settled, arrived, setArrived]);
+  }, [shown, arrived, setArrived]);
 
-  if (total === 0) return null;
+  if (loading || total === 0) return null;
 
   const embed = playing ? parseVideoUrl(playing.item.videoUrl) : null;
 

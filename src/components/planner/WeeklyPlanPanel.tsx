@@ -236,6 +236,7 @@ export function WeeklyPlanPanel({
           week is and why, this one says what to press. */}
       {!frozen && !resting && (
         <DoNowPanel
+          loading={week.loading}
           points={week.points}
           activity={week.activity}
           coverage={week.coverage}
@@ -244,7 +245,6 @@ export function WeeklyPlanPanel({
           onToggle={(id, done) => {
             void week.setPointDone(id, done);
           }}
-          settled={!week.loading}
         />
       )}
     </>

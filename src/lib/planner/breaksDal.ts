@@ -2,6 +2,21 @@ import { supabase } from "@/integrations/supabase/client";
 import { isDemoMode } from "@/lib/auth/session";
 import type { BreakReason, StudentBreak } from "./breaks";
 
+/** One `student_breaks` row, as the planner holds it. */
+export const toBreak = (r: {
+  id: string;
+  starts_on: string;
+  ends_on: string;
+  reason: string;
+  recorded_at: string | null;
+}): StudentBreak => ({
+  id: r.id,
+  startsOn: r.starts_on,
+  endsOn: r.ends_on,
+  reason: r.reason as BreakReason,
+  recordedAt: r.recorded_at,
+});
+
 /**
  * Reads and writes of `student_breaks`. Writes go through `book_break` and
  * `end_break`, which check who is asking and every rule; nobody writes the
@@ -23,13 +38,7 @@ export class BreakDAL {
         .is("cancelled_at", null)
         .order("starts_on");
       if (error) throw error;
-      return (data ?? []).map((r) => ({
-        id: r.id,
-        startsOn: r.starts_on,
-        endsOn: r.ends_on,
-        reason: r.reason as BreakReason,
-        recordedAt: r.recorded_at,
-      }));
+      return (data ?? []).map(toBreak);
     } catch (e) {
       console.warn("[planner] couldn't read the student's breaks", e);
       return [];
