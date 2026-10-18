@@ -32,15 +32,7 @@ export function PeriodicTable({ sheet }: { sheet: PeriodicSheet }) {
         role="group"
         aria-label={`${sheet.label} periodic table`}
       >
-        {LABELLED.map((g, i) => (
-          <span
-            key={`g${g}`}
-            style={{ gridRow: 1, gridColumn: g }}
-            className="font-display text-center text-[0.6rem] font-extrabold text-[color:var(--tint)]"
-          >
-            {sheet.groups[i]}
-          </span>
-        ))}
+        <GroupLabels sheet={sheet} size="text-[0.6rem]" small="text-[0.45rem]" />
         {cells.map((c) =>
           c.element ? (
             <button
@@ -58,7 +50,7 @@ export function PeriodicTable({ sheet }: { sheet: PeriodicSheet }) {
               )}
             >
               {c.element.symbol}
-              {c.starred && "*"}
+              {c.starred && mark(sheet, c.element.z)}
             </button>
           ) : (
             <span
@@ -72,7 +64,8 @@ export function PeriodicTable({ sheet }: { sheet: PeriodicSheet }) {
           ),
         )}
         {/* A gap row between the main table and the f-block, as printed. */}
-        {sheet.fBlock === "rows" && <span style={{ gridRow: 9, gridColumn: 1 }} className="h-1" />}
+        {hasRows(sheet) && <span style={{ gridRow: 9, gridColumn: 1 }} className="h-1" />}
+        <RowLabels sheet={sheet} className="text-[0.45rem]" />
       </div>
 
       {sheet.dataNotes.map((n) => (
@@ -92,6 +85,75 @@ export function PeriodicTable({ sheet }: { sheet: PeriodicSheet }) {
 
       {full && <FullTable sheet={sheet} cells={cells} onClose={() => setFull(false)} />}
     </div>
+  );
+}
+
+const hasRows = (sheet: PeriodicSheet) => sheet.fBlock === "rows" || sheet.fBlock === "starredRows";
+const mark = (sheet: PeriodicSheet, z: number) => sheet.marks?.[z] ?? "*";
+
+/**
+ * The group numbers as the sheet prints them: over the main-group columns
+ * (two ways, where the sheet numbers them both ways), and over groups 3–12
+ * above the transition metals where the sheet numbers those too.
+ */
+function GroupLabels({
+  sheet,
+  size,
+  small,
+}: {
+  sheet: PeriodicSheet;
+  size: string;
+  small: string;
+}) {
+  return (
+    <>
+      {LABELLED.map((g, i) => (
+        <span
+          key={`g${g}`}
+          style={{ gridRow: 1, gridColumn: g }}
+          className={cn(
+            "font-display flex flex-col items-center justify-end text-center leading-tight font-extrabold text-[color:var(--tint)]",
+            size,
+          )}
+        >
+          {sheet.groups[i]}
+          {sheet.subGroups && <span className={cn("font-bold", small)}>{sheet.subGroups[i]}</span>}
+        </span>
+      ))}
+      {sheet.transitionGroups?.map((label, i) => (
+        <span
+          key={`t${label}`}
+          // Period 3's row is empty over the transition metals: the labels sit there.
+          style={{ gridRow: 4, gridColumn: i + 3 }}
+          className={cn(
+            "font-display self-end text-center leading-tight font-bold text-[color:var(--tint)]",
+            small,
+          )}
+        >
+          {label}
+        </span>
+      ))}
+    </>
+  );
+}
+
+/** The names some sheets print beside the two rows underneath the table. */
+function RowLabels({ sheet, className }: { sheet: PeriodicSheet; className: string }) {
+  if (!sheet.fRowLabels) return null;
+  // The rows start in group 4 when La and Ac stay in the table, else group 3.
+  const span = sheet.fBlock === "starredRows" ? "1 / 4" : "1 / 3";
+  return (
+    <>
+      {sheet.fRowLabels.map((label, i) => (
+        <span
+          key={label}
+          style={{ gridRow: 10 + i, gridColumn: span }}
+          className={cn("flex items-center pr-1 leading-tight font-bold", className)}
+        >
+          {label}
+        </span>
+      ))}
+    </>
   );
 }
 
@@ -191,15 +253,7 @@ function FullTable({
             className="grid min-w-[52rem] gap-[3px]"
             style={{ gridTemplateColumns: "repeat(18, minmax(0, 1fr))" }}
           >
-            {LABELLED.map((g, i) => (
-              <span
-                key={`g${g}`}
-                style={{ gridRow: 1, gridColumn: g }}
-                className="font-display text-center text-sm font-extrabold text-[color:var(--tint)]"
-              >
-                {sheet.groups[i]}
-              </span>
-            ))}
+            <GroupLabels sheet={sheet} size="text-sm" small="text-xs" />
             {cells.map((c) => (
               <div
                 key={c.key}
@@ -218,7 +272,7 @@ function FullTable({
                     </span>
                     <span className="font-display text-base font-extrabold">
                       {c.element.symbol}
-                      {c.starred && "*"}
+                      {c.starred && mark(sheet, c.element.z)}
                     </span>
                     <span className="text-[0.55rem] font-semibold">{c.element.name}</span>
                     <span className="numeral text-[0.7rem]">
@@ -233,9 +287,8 @@ function FullTable({
                 )}
               </div>
             ))}
-            {sheet.fBlock === "rows" && (
-              <span style={{ gridRow: 9, gridColumn: 1 }} className="h-2" />
-            )}
+            {hasRows(sheet) && <span style={{ gridRow: 9, gridColumn: 1 }} className="h-2" />}
+            <RowLabels sheet={sheet} className="text-sm" />
           </div>
           {sheet.notes.length > 0 && (
             <div className="mt-4 space-y-1 text-sm font-semibold">

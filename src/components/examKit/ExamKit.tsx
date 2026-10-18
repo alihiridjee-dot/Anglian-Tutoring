@@ -4,6 +4,7 @@ import { Calculator } from "@/components/examKit/Calculator";
 import { EMPTY_CALC, type CalcState } from "@/lib/examKit/calculator";
 import { PeriodicTable } from "@/components/examKit/PeriodicTable";
 import { EquationSheet } from "@/components/examKit/EquationSheet";
+import { DataBooklet } from "@/components/examKit/DataBooklet";
 import { SectionHeading, SegmentedToggle } from "@/components/Shared";
 import { examKitFor, type ExamTool } from "@/lib/examKit/examKit";
 import type { BoardV, LevelV } from "@/lib/curriculum/taxonomy";
@@ -13,13 +14,15 @@ const TOOL_LABEL: Record<ExamTool, string> = {
   calculator: "Calculator",
   periodic: "Periodic table",
   equations: "Equations",
+  data: "Data",
 };
 
 /**
  * What the exam room gives a student for this paper, beside the task sheet:
- * a calculator always, the periodic table in chemistry, and the equation
- * sheet in physics where the board prints one. Nothing the exam doesn't give,
- * so practice here is practice for the day.
+ * a calculator always, the periodic table in chemistry, the equation sheet in
+ * physics where the board prints one, and at A-level the board's data
+ * booklet. Nothing the exam doesn't give, so practice here is practice for
+ * the day.
  *
  * On a wide screen it is a column beside the questions, pinned while they
  * scroll. Narrower, a button opens it over the bottom of the page without
@@ -51,7 +54,13 @@ export function ExamKit({
   }, [open]);
 
   const sheetLabel =
-    tool === "periodic" ? kit.periodic?.label : tool === "equations" ? kit.equations?.label : null;
+    tool === "periodic"
+      ? kit.periodic?.label
+      : tool === "equations"
+        ? kit.equations?.label
+        : tool === "data"
+          ? kit.data?.label
+          : null;
 
   return (
     <>
@@ -102,7 +111,10 @@ export function ExamKit({
               label="Tool"
               value={tool}
               onChange={(v) => setTool(v as ExamTool)}
-              items={kit.tools.map((t) => ({ value: t, label: TOOL_LABEL[t] }))}
+              items={kit.tools.map((t) => ({
+                value: t,
+                label: t === "data" && kit.data ? kit.data.tab : TOOL_LABEL[t],
+              }))}
             />
           </div>
         )}
@@ -112,6 +124,8 @@ export function ExamKit({
             <PeriodicTable sheet={kit.periodic} />
           ) : tool === "equations" && kit.equations ? (
             <EquationSheet sheet={kit.equations} />
+          ) : tool === "data" && kit.data ? (
+            <DataBooklet booklet={kit.data} />
           ) : (
             <Calculator state={calc} onChange={setCalc} />
           )}

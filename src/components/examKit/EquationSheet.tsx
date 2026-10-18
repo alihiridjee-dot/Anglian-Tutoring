@@ -3,6 +3,7 @@ import { Search } from "lucide-react";
 import { inputCls } from "@/components/tutor/Field";
 import { cn } from "@/lib/utils";
 import type { EquationSheet as Sheet } from "@/lib/examKit/equationSheets";
+import { parseFormula, plainFormula, type FormulaNode } from "@/lib/examKit/formula";
 
 /**
  * The physics equation sheet the student's paper comes with, in the paper's
@@ -13,7 +14,7 @@ export function EquationSheet({ sheet }: { sheet: Sheet }) {
   const q = find.trim().toLowerCase();
   const shown = q
     ? sheet.equations.filter((e) =>
-        `${e.word} ${e.symbol}`.replace(/[{}|]/g, " ").toLowerCase().includes(q),
+        `${plainFormula(e.word)} ${plainFormula(e.symbol)}`.toLowerCase().includes(q),
       )
     : sheet.equations;
 
@@ -63,23 +64,68 @@ export function EquationSheet({ sheet }: { sheet: Sheet }) {
 }
 
 /**
- * A symbol equation with its fractions stacked, as the sheet prints them.
- * `{F|A}` is F over A; everything else is written as it stands.
+ * An equation drawn the way the sheet prints it: `{F|A}` is F over A, and
+ * the rest of the notation in formula.ts (roots, powers, subscripts) is drawn
+ * too. Anything it can't read is written as it stands.
  */
 export function Formula({ text, className }: { text: string; className?: string }) {
-  const parts = text.split(/(\{[^{}|]+\|[^{}]+\})/);
-  return (
-    <span className={cn("inline-flex flex-wrap items-center gap-x-1", className)}>
-      {parts.map((p, i) => {
-        const frac = /^\{([^{}|]+)\|([^{}]+)\}$/.exec(p);
-        if (!frac) return p ? <Fragment key={i}>{p}</Fragment> : null;
+  let nodes: FormulaNode[];
+  try {
+    nodes = parseFormula(text);
+  } catch {
+    nodes = [{ kind: "text", text }];
+  }
+  return <span className={cn("block", className)}>{draw(nodes)}</span>;
+}
+
+function draw(nodes: FormulaNode[]) {
+  return nodes.map((n, i) => {
+    switch (n.kind) {
+      case "text":
+        return <Fragment key={i}>{n.text}</Fragment>;
+      case "frac":
         return (
-          <span key={i} className="inline-flex flex-col items-center px-0.5 leading-tight">
-            <span className="px-1">{frac[1]}</span>
-            <span className="w-full border-t-[1.5px] border-current px-1">{frac[2]}</span>
+          <span
+            key={i}
+            className="mx-0.5 inline-flex flex-col items-center px-0.5 align-middle leading-tight"
+          >
+            <span className="px-1">{draw(n.top)}</span>
+            <span className="w-full border-t-[1.5px] border-current px-1 text-center">
+              {draw(n.bottom)}
+            </span>
           </span>
         );
-      })}
-    </span>
-  );
+      case "root":
+        return (
+          <span key={i} className="inline-flex items-stretch align-middle">
+            <span aria-hidden>√</span>
+            <span className="border-t-[1.5px] border-current pl-0.5">{draw(n.body)}</span>
+          </span>
+        );
+      case "sup":
+        return (
+          <sup key={i} className="text-[0.7em]">
+            {draw(n.body)}
+          </sup>
+        );
+      case "sub":
+        return (
+          <sub key={i} className="text-[0.7em]">
+            {draw(n.body)}
+          </sub>
+        );
+      case "bar":
+        return (
+          <span key={i} className="overline">
+            {draw(n.body)}
+          </span>
+        );
+      case "bold":
+        return (
+          <strong key={i} className="font-extrabold">
+            {draw(n.body)}
+          </strong>
+        );
+    }
+  });
 }

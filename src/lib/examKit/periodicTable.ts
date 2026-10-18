@@ -10,9 +10,17 @@
  * notes printed under it. The Edexcel and Cambridge tables were read off
  * their papers; AQA's and OCR's are loose inserts, read off the inserts the
  * boards publish (AQA 8465-PT June 2023, OCR J248 Data Sheet June 2027).
+ * The A-level tables are in booklets/periodicALevel.ts, with their sources.
  */
 
 import type { BoardV, LevelV } from "@/lib/curriculum/taxonomy";
+import {
+  ALEVEL_SHEET_FACTS,
+  AQA_ALEVEL_MASSES,
+  CAMBRIDGE_ALEVEL_MASSES,
+  EDEXCEL_ALEVEL_MASSES,
+  OCR_ALEVEL_MASSES,
+} from "@/lib/examKit/booklets/periodicALevel";
 
 export interface Element {
   z: number;
@@ -88,13 +96,22 @@ export interface PeriodicSheet {
    * What happens to the lanthanoids and actinoids: "omit" leaves them out and
    * puts La and Ac in group 3, marked *; "placeholder" puts "57–71" and
    * "89–103" in group 3 and prints no more; "rows" does that and prints them
-   * as two rows underneath.
+   * as two rows underneath; "starredRows" puts La and Ac in group 3, marked,
+   * and prints 58–71 and 90–103 underneath (AQA and Edexcel A-level).
    */
-  fBlock: "omit" | "placeholder" | "rows";
+  fBlock: "omit" | "placeholder" | "rows" | "starredRows";
+  /** The mark on La and Ac where it isn't * (AQA marks Ac †). */
+  marks?: Record<number, string>;
+  /** The names printed beside the two rows underneath ("* 58 – 71 Lanthanides"). */
+  fRowLabels?: [string, string];
   /** The top of a cell reads mass first (AQA, Edexcel) or atomic number first (Cambridge, OCR). */
   massFirst: boolean;
   /** The labels over the eight main-group columns (groups 1, 2 and 13–18). */
   groups: string[];
+  /** A second label under each of those, where the sheet numbers groups both ways: "(13)". */
+  subGroups?: string[];
+  /** The labels over groups 3–12, where the sheet numbers them. */
+  transitionGroups?: string[];
   /** The lines printed under the table, word for word. */
   notes: string[];
   /** The notes that are data a calculation needs (molar gas volume), shown in the panel too. */
@@ -157,6 +174,9 @@ fill(OCR, 72, "178.5 180.9 183.8 186.2 190.2 192.2 195.1 197.0 200.6 204.4 207.2
 OCR[43] = "";
 
 const ARABIC = ["1", "2", "3", "4", "5", "6", "7", "0"];
+const IUPAC = ["1", "2", "13", "14", "15", "16", "17", "18"];
+const TRANSITION = ["3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+const bracket = (labels: string[]) => labels.map((g) => `(${g})`);
 
 export const PERIODIC_SHEETS = {
   aqa: {
@@ -224,6 +244,61 @@ export const PERIODIC_SHEETS = {
     notes: [],
     dataNotes: [],
   },
+  aqaAlevel: {
+    label: "AQA A-level",
+    masses: AQA_ALEVEL_MASSES,
+    lastZ: ALEVEL_SHEET_FACTS.aqa.lastZ,
+    skip: ALEVEL_SHEET_FACTS.aqa.skip,
+    fBlock: "starredRows",
+    marks: { 57: "*", 89: "†" },
+    fRowLabels: ["* 58 – 71 Lanthanides", "† 90 – 103 Actinides"],
+    massFirst: true,
+    groups: ARABIC,
+    subGroups: bracket(IUPAC),
+    transitionGroups: bracket(TRANSITION),
+    notes: ALEVEL_SHEET_FACTS.aqa.notes,
+    dataNotes: [],
+  },
+  edexcelAlevel: {
+    label: "Edexcel A level",
+    masses: EDEXCEL_ALEVEL_MASSES,
+    lastZ: ALEVEL_SHEET_FACTS.edexcel.lastZ,
+    skip: ALEVEL_SHEET_FACTS.edexcel.skip,
+    fBlock: "starredRows",
+    fRowLabels: ["* Lanthanide series", "* Actinide series"],
+    massFirst: true,
+    groups: ["1", "2", "3", "4", "5", "6", "7", "0 (8)"],
+    subGroups: bracket(IUPAC),
+    transitionGroups: bracket(TRANSITION),
+    notes: ALEVEL_SHEET_FACTS.edexcel.notes,
+    dataNotes: [],
+  },
+  ocrAlevel: {
+    label: "OCR A Level",
+    masses: OCR_ALEVEL_MASSES,
+    lastZ: ALEVEL_SHEET_FACTS.ocr.lastZ,
+    skip: ALEVEL_SHEET_FACTS.ocr.skip,
+    fBlock: "rows",
+    massFirst: false,
+    groups: IUPAC,
+    subGroups: bracket(["1", "2", "3", "4", "5", "6", "7", "0"]),
+    transitionGroups: TRANSITION,
+    notes: ALEVEL_SHEET_FACTS.ocr.notes,
+    dataNotes: [],
+  },
+  cambridgeAlevel: {
+    label: "Cambridge International A Level",
+    masses: CAMBRIDGE_ALEVEL_MASSES,
+    lastZ: ALEVEL_SHEET_FACTS.cambridge.lastZ,
+    skip: ALEVEL_SHEET_FACTS.cambridge.skip,
+    fBlock: "rows",
+    fRowLabels: ["lanthanoids", "actinoids"],
+    massFirst: false,
+    groups: IUPAC,
+    transitionGroups: TRANSITION,
+    notes: ALEVEL_SHEET_FACTS.cambridge.notes,
+    dataNotes: [],
+  },
 } satisfies Record<string, PeriodicSheet>;
 
 export interface SheetCell {
@@ -233,7 +308,7 @@ export interface SheetCell {
   element?: Element;
   /** Group 3's stand-in for a row left out or printed underneath. */
   placeholder?: { range: string; name: string };
-  /** La and Ac where the rest of their row is left out. */
+  /** La and Ac, marked, where the rest of their row is left out or printed underneath. */
   starred?: boolean;
 }
 
@@ -254,14 +329,16 @@ export function sheetCells(sheet: PeriodicSheet): SheetCell[] {
         element: el,
         starred: el.z === 57 || el.z === 89,
       });
+    } else if (sheet.fBlock === "starredRows" && pos && (el.z === 57 || el.z === 89)) {
+      cells.push({ key: el.symbol, row: pos.period + 1, col: pos.group, element: el, starred: true });
     } else if (isFBlock(el.z)) {
-      if (sheet.fBlock === "rows")
+      if (sheet.fBlock !== "placeholder")
         cells.push({ key: el.symbol, row: el.z < 89 ? 10 : 11, col: fColumn(el.z), element: el });
     } else if (pos) {
       cells.push({ key: el.symbol, row: pos.period + 1, col: pos.group, element: el });
     }
   }
-  if (sheet.fBlock !== "omit") {
+  if (sheet.fBlock === "rows" || sheet.fBlock === "placeholder") {
     cells.push({ key: "lanthanoids", row: 7, col: 3, placeholder: LANTHANOIDS });
     if (sheet.lastZ >= 89) cells.push({ key: "actinoids", row: 8, col: 3, placeholder: ACTINOIDS });
   }
@@ -276,7 +353,8 @@ const ACTINOIDS = { range: "89–103", name: "actinoids" };
  * copy yet.
  *
  * A task set for every board (no board of its own) takes the student's.
- * A-level data booklets aren't here yet: there are no A-level tasks.
+ * At A-level the boards' masses differ (molybdenum, technetium), so a brief
+ * for every board, seen by a tutor, gets none.
  */
 export function periodicSheetFor(board: BoardV | null, level: LevelV): PeriodicSheet | null {
   if (level === "gcse" || level === "gcse_trilogy") {
@@ -290,6 +368,12 @@ export function periodicSheetFor(board: BoardV | null, level: LevelV): PeriodicS
     if (board === "cambridge") return PERIODIC_SHEETS.cambridgeIgcse;
     if (board === "edexcel") return PERIODIC_SHEETS.edexcelIgcse;
     return null;
+  }
+  if (level === "alevel") {
+    if (board === "aqa") return PERIODIC_SHEETS.aqaAlevel;
+    if (board === "edexcel") return PERIODIC_SHEETS.edexcelAlevel;
+    if (board === "ocr") return PERIODIC_SHEETS.ocrAlevel;
+    if (board === "cambridge") return PERIODIC_SHEETS.cambridgeAlevel;
   }
   return null;
 }
