@@ -26,7 +26,7 @@ import type { SpecPointNote } from "@/hooks/data/useNotes";
  * change: under a column already headed "Homework" the word is redundant, and
  * the space is better spent on a verb.
  */
-const CHIP = "chip tap-target inline-flex text-[11px] hover:brightness-95";
+const CHIP = "chip tap-target inline-flex whitespace-nowrap shrink-0 text-[11px] hover:brightness-95";
 
 export function VideoChip({
   item,
@@ -86,9 +86,9 @@ export function HomeworkChip({
       {done && coverage?.homeworkScore != null ? (
         <span className="tabular-nums font-semibold">{coverage.homeworkScore}%</span>
       ) : done ? (
-        // Handed in but not marked yet: the layout's verb ("Start") would ask
-        // the student to do it again.
-        "Handed in"
+        // Handed in but not marked yet: the tick alone says it. The layout's
+        // verb ("Start") would ask the student to do it again.
+        <span className="sr-only">Handed in</span>
       ) : (
         label
       )}
