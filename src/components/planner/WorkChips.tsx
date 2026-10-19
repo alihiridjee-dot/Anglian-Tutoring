@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
-import { BookOpen, CheckCircle2, ClipboardList, ListChecks, PlayCircle } from "lucide-react";
+import { BookOpen, CheckCircle2, ClipboardList, ListChecks, PlayCircle, Sparkle } from "lucide-react";
 import {
   type PointCoverage,
   type PointWork,
@@ -80,7 +80,7 @@ export function HomeworkChip({
       to={isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"}
       params={{ homeworkId: item.id }}
       title={chipTitle(item, "Task", done, coverage?.homeworkScore)}
-      className={`${CHIP} ${done ? "tint-emerald" : ""}`}
+      className={`${CHIP} ${done ? "tint-emerald chip-done" : ""}`}
     >
       {done ? <CheckCircle2 className="w-3 h-3" /> : <ClipboardList className="w-3 h-3" />}
       {done && coverage?.homeworkScore != null ? (
@@ -88,7 +88,10 @@ export function HomeworkChip({
       ) : done ? (
         // Handed in but not marked yet: the tick alone says it. The layout's
         // verb ("Start") would ask the student to do it again.
-        <span className="sr-only">Handed in</span>
+        <>
+          <Sparkle className="chip-sparkle" fill="currentColor" aria-hidden />
+          <span className="sr-only">Handed in</span>
+        </>
       ) : (
         label
       )}
@@ -111,7 +114,7 @@ export function QuizChip({
       to={isDemoStudent() ? "/demo/student/mcq/$setId" : "/mcq/$setId"}
       params={{ setId: item.id }}
       title={chipTitle(item, "Quiz", done, coverage?.quizScore)}
-      className={`${CHIP} ${done ? "tint-emerald" : ""}`}
+      className={`${CHIP} ${done ? "tint-emerald chip-done" : ""}`}
     >
       {done ? <CheckCircle2 className="w-3 h-3" /> : <ListChecks className="w-3 h-3" />}
       {done && coverage?.quizScore != null ? (
