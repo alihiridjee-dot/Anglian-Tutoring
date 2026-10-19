@@ -30,6 +30,7 @@ import {
   ProgrammeMock,
   QuizMock,
 } from "@/components/how-it-works/ServicePreviews";
+import { canonical } from "@/lib/platform/seo";
 
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
@@ -41,6 +42,7 @@ export const Route = createFileRoute("/how-it-works")({
           "Up to 3 live sessions a week, tasks marked by the tutor who taught it, a weekly quiz, a direct line to your tutor — and a spaced-repetition scheduler that brings every topic back just before your child would forget it.",
       },
     ],
+    links: [canonical("/how-it-works")],
   }),
   component: HowItWorks,
 });

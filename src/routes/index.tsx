@@ -8,17 +8,19 @@ import { ContactSection } from "@/components/landing/ContactSection";
 import { Footer } from "@/components/landing/Footer";
 import { FloatingWhatsApp } from "@/components/landing/FloatingWhatsApp";
 import { TrialOfferPopup } from "@/components/landing/TrialOfferPopup";
+import { canonical } from "@/lib/platform/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Anglia Educate — Live Science Tutoring" },
+      { title: "Anglia Educate — Live Online Science Tutoring for KS3, GCSE & A Level" },
       {
         name: "description",
         content:
-          "Live online Biology, Chemistry and Physics tutoring with Dr Nadia and Ali. Weekly quizzes, task marking, and a real grade predictor. Book a place today.",
+          "Live online Biology, Chemistry and Physics tutoring for KS3, GCSE and A Level with Dr Nadia and Ali. Weekly quizzes, task marking, and a real grade predictor. Book a place today.",
       },
     ],
+    links: [canonical("/")],
   }),
   component: Landing,
 });

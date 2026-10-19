@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ShieldCheck } from "lucide-react";
 import { Nav } from "@/components/landing/Nav";
 import { Footer } from "@/components/landing/Footer";
+import { canonical } from "@/lib/platform/seo";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
@@ -13,6 +14,7 @@ export const Route = createFileRoute("/privacy")({
           "What information Anglia Educate collects about students, parents and visitors, why, who it's shared with, how long it's kept, and your rights.",
       },
     ],
+    links: [canonical("/privacy")],
   }),
   component: PrivacyPage,
 });
