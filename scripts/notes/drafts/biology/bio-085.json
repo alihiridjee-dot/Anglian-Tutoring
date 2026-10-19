@@ -3,7 +3,7 @@
   "concept_id": "bio-085",
   "subject": "biology",
   "title": "Plant hormones and tropisms",
-  "key_idea": "(Separate science) Plants respond to light and gravity by growing towards or away from them. Auxin is unevenly distributed, so one side of a shoot or root elongates faster than the other, and the plant bends. Gibberellins and ethene control other processes.",
+  "key_idea": "(Separate science) Plants respond to light and gravity by growing towards or away from them. Auxin is unevenly distributed, so one side of a shoot or root elongates faster than the other, and the plant bends. (AQA and OCR: Higher tier) Gibberellins and ethene control other processes.",
   "sections": [
     {
       "heading": "Tropisms and auxin",
@@ -133,7 +133,7 @@
       ]
     },
     {
-      "heading": "Other plant hormones",
+      "heading": "Other plant hormones (AQA and OCR: Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -169,7 +169,7 @@
       "marks": 2
     },
     {
-      "q": "Describe one effect of gibberellins and one effect of ethene on plants.",
+      "q": "(AQA and OCR: Higher tier) Describe one effect of gibberellins and one effect of ethene on plants.",
       "a": "Gibberellins break seed dormancy (or elongate shoots). Ethene stimulates fruit ripening.",
       "marks": 2
     }

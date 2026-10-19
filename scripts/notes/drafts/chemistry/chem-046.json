@@ -3,14 +3,14 @@
   "concept_id": "chem-046",
   "subject": "chemistry",
   "title": "Strong and weak acids",
-  "key_idea": "(AQA: Higher tier) A strong acid is completely ionised in water and a weak acid is only partially ionised. Strength is not the same as concentration. Each fall of one pH unit means ten times more hydrogen ions.",
+  "key_idea": "(Higher tier) A strong acid is completely ionised in water and a weak acid is only partially ionised. Strength is not the same as concentration. Each fall of one pH unit means ten times more hydrogen ions.",
   "sections": [
     {
       "heading": "Strong and weak acids",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) This section covers strength: how far an acid ionises in water. This topic is examined in the Higher tier papers."
+          "text": "(Higher tier) This section covers strength: how far an acid ionises in water. This topic is examined in the Higher tier papers."
         },
         {
           "type": "definitions",
@@ -82,7 +82,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Concentration describes how much acid is dissolved in a given volume. It is a different idea from strength."
+          "text": "(Higher tier) Concentration describes how much acid is dissolved in a given volume. It is a different idea from strength."
         },
         {
           "type": "definitions",
@@ -121,7 +121,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) The pH depends on the concentration of hydrogen ions. Only whole-number changes in pH are needed."
+          "text": "(Higher tier) The pH depends on the concentration of hydrogen ions. Only whole-number changes in pH are needed."
         },
         {
           "type": "list",

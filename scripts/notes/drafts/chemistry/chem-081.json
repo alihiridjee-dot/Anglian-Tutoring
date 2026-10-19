@@ -157,11 +157,11 @@
         },
         {
           "type": "subheading",
-          "text": "Reaction with alcohols (Higher tier)"
+          "text": "Reaction with alcohols"
         },
         {
           "type": "paragraph",
-          "text": "(Higher tier) A carboxylic acid reacts with an alcohol to make an ester and water. Ethyl ethanoate is the only ester you need to name."
+          "text": "A carboxylic acid reacts with an alcohol to make an ester and water. Ethyl ethanoate is the only ester you need to name."
         },
         {
           "type": "equation",
@@ -173,7 +173,7 @@
           "items": [
             "Carboxylic acid solutions are acidic: pH below 7 and blue litmus turns red.",
             "With a carbonate they make a salt, carbon dioxide and water.",
-            "(Higher tier) With an alcohol they make an ester and water."
+            "With an alcohol they make an ester and water."
           ]
         }
       ]

@@ -103,7 +103,7 @@
           "items": [
             "A mug on a table: the mug pushes down on the table, and the table pushes up on the mug.",
             "A rocket: the rocket pushes water down, and the water pushes the rocket up.",
-            "A racket and ball: the force on the ball is equal and opposite to the force on the racket.",
+            "(Edexcel: Higher tier) A racket and ball: the force on the ball is equal and opposite to the force on the racket.",
             "Two skaters: if A pushes B with 30 N, B pushes A with 30 N in the opposite direction."
           ]
         },
@@ -181,7 +181,7 @@
       },
       "extra": [
         {
-          "heading": "Collisions and momentum",
+          "heading": "Collisions and momentum (Higher tier)",
           "blocks": [
             {
               "type": "paragraph",

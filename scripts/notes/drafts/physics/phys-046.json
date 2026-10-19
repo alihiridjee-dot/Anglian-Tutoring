@@ -100,7 +100,7 @@
       ]
     },
     {
-      "heading": "Free body diagrams",
+      "heading": "Free body diagrams (AQA and Edexcel: Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -118,7 +118,7 @@
         },
         {
           "type": "subheading",
-          "text": "Balanced forces: resultant force of zero"
+          "text": "Balanced forces: resultant force of zero (Higher tier)"
         },
         {
           "type": "list",
@@ -130,7 +130,7 @@
         },
         {
           "type": "subheading",
-          "text": "Unbalanced forces: a resultant force"
+          "text": "Unbalanced forces: a resultant force (Higher tier)"
         },
         {
           "type": "list",
@@ -184,8 +184,8 @@
           "type": "key-points",
           "items": [
             "A free body diagram has one object and an arrow for each force on it.",
-            "Balanced forces mean no resultant force and no change in velocity.",
-            "Unbalanced forces mean a resultant force and a change in velocity."
+            "(Higher tier) Balanced forces mean no resultant force and no change in velocity.",
+            "(Higher tier) Unbalanced forces mean a resultant force and a change in velocity."
           ]
         }
       ]
@@ -195,7 +195,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Forces do not always act in a straight line. This section covers scale drawings for two forces at right angles."
+          "text": "(Higher tier) Forces do not always act in a straight line. This section covers scale drawings for two forces at right angles."
         },
         {
           "type": "list",
@@ -253,12 +253,12 @@
       "marks": 2
     },
     {
-      "q": "A car accelerates to its maximum speed. Explain why the car stops accelerating.",
+      "q": "(Higher tier) A car accelerates to its maximum speed. Explain why the car stops accelerating.",
       "a": "As speed increases, air resistance increases. At maximum speed air resistance equals the driving force. The resultant force is zero, so there is no acceleration.",
       "marks": 3
     },
     {
-      "q": "A block stays at rest on a table. Name the two forces acting on it and compare their sizes.",
+      "q": "(Higher tier) A block stays at rest on a table. Name the two forces acting on it and compare their sizes.",
       "a": "The weight acts downwards and the normal contact force acts upwards. They are equal in size and opposite in direction.",
       "marks": 2
     }
@@ -277,7 +277,7 @@
           "The magnitude of the resultant is between 300 N and 320 N (a calculation gives about 312 N).",
           "The angle of the resultant to the vertical is between 38° and 42° (a calculation gives about 40°)."
         ],
-        "tip": "(AQA: Higher tier) Choose a scale such as 1 cm to 40 N. One mark each for the diagram, the arrow direction, the magnitude and the angle."
+        "tip": "(Higher tier) Choose a scale such as 1 cm to 40 N. One mark each for the diagram, the arrow direction, the magnitude and the angle."
       }
     },
     "edexcel": {

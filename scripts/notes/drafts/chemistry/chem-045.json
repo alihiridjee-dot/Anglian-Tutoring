@@ -69,8 +69,8 @@
             "A solution with **pH 7** is neutral.",
             "Acidic solutions have a pH less than 7. A lower pH means a more acidic solution.",
             "Alkaline solutions have a pH greater than 7. A higher pH means a more alkaline solution.",
-            "The higher the concentration of hydrogen ions in an acidic solution, the lower the pH.",
-            "The higher the concentration of hydroxide ions in an alkaline solution, the higher the pH.",
+            "(Higher tier) The higher the concentration of hydrogen ions in an acidic solution, the lower the pH.",
+            "(Higher tier) The higher the concentration of hydroxide ions in an alkaline solution, the higher the pH.",
             "Water and sodium chloride solution are neutral, with a pH of 7."
           ]
         },
@@ -167,7 +167,7 @@
           "type": "key-points",
           "items": [
             "pH 7 is neutral, below 7 is acidic and above 7 is alkaline.",
-            "More H⁺ ions means a lower pH. More OH⁻ ions means a higher pH."
+            "(Higher tier) More H⁺ ions means a lower pH. More OH⁻ ions means a higher pH."
           ]
         }
       ]

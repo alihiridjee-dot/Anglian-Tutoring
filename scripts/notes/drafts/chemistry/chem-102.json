@@ -1,14 +1,14 @@
 {
   "concept_id": "chem-102",
   "title": "Biological methods of metal extraction",
-  "key_idea": "Copper ores are becoming scarce, so low-grade ores are worked using living things. Phytomining uses plants to absorb metal compounds, and bioleaching uses bacteria to make solutions of metal compounds. The metal is then obtained from the compounds.",
+  "key_idea": "(Higher tier) Copper ores are becoming scarce, so low-grade ores are worked using living things. Phytomining uses plants to absorb metal compounds, and bioleaching uses bacteria to make solutions of metal compounds. The metal is then obtained from the compounds.",
   "sections": [
     {
       "heading": "Why biological methods are used",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) The Earth's metal ores are limited. This section covers why new extraction methods are needed."
+          "text": "(Higher tier) The Earth's metal ores are limited. This section covers why new extraction methods are needed."
         },
         {
           "type": "list",

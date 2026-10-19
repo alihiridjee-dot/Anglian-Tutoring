@@ -3,14 +3,14 @@
   "concept_id": "phys-069",
   "subject": "physics",
   "title": "Refraction",
-  "key_idea": "Refraction is the change in direction of a wave when its speed changes at a boundary. A wave bends towards the normal when it slows down and away when it speeds up. Different wavelengths change speed by different amounts, so they refract differently.",
+  "key_idea": "Refraction is the change in direction of a wave when its speed changes at a boundary. A wave bends towards the normal when it slows down and away when it speeds up. (Higher tier) Different wavelengths change speed by different amounts, so they refract differently.",
   "sections": [
     {
       "heading": "Why waves refract",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Refraction is a change of direction when a wave crosses a boundary. It happens because the wave changes speed in the new material."
+          "text": "Refraction is a change of direction when a wave crosses a boundary. (Higher tier) It happens because the wave changes speed in the new material."
         },
         {
           "type": "definitions",
@@ -32,7 +32,7 @@
         {
           "type": "list",
           "items": [
-            "Light travels more slowly in glass than in air, so it slows down when it enters glass.",
+            "(Higher tier) Light travels more slowly in glass than in air, so it slows down when it enters glass.",
             "Entering a slower material, the wave bends towards the normal.",
             "Entering a faster material, the wave bends away from the normal.",
             "A wave hitting the boundary along the normal (at 90°) changes speed but does not change direction.",
@@ -77,7 +77,7 @@
         {
           "type": "key-points",
           "items": [
-            "Refraction is caused by a change in wave speed at a boundary.",
+            "(Higher tier) Refraction is caused by a change in wave speed at a boundary.",
             "Slower material: bends towards the normal. Faster material: bends away.",
             "Along the normal there is no change of direction."
           ]
@@ -85,7 +85,7 @@
       ]
     },
     {
-      "heading": "Explaining refraction with wavefronts",
+      "heading": "Explaining refraction with wavefronts (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -154,7 +154,7 @@
       ]
     },
     {
-      "heading": "Refraction and wavelength",
+      "heading": "Refraction and wavelength (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -202,7 +202,7 @@
   ],
   "checks": [
     {
-      "q": "Explain why light bends towards the normal when it enters glass from air.",
+      "q": "(Higher tier) Explain why light bends towards the normal when it enters glass from air.",
       "a": "The light travels more slowly in glass. The edge of the wavefront entering the glass slows down first, while the part in the air continues at the higher speed, so the wavefront changes direction.",
       "marks": 3
     },
@@ -212,7 +212,7 @@
       "marks": 2
     },
     {
-      "q": "Explain why white light splits into colours when it passes into glass.",
+      "q": "(Higher tier) Explain why white light splits into colours when it passes into glass.",
       "a": "Different colours have different wavelengths, so they travel at different speeds in glass and are refracted by different amounts.",
       "marks": 3
     }

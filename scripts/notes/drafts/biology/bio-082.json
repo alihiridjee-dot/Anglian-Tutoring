@@ -181,7 +181,7 @@
   "checks": [
     {
       "q": "Explain how the contraceptive pill prevents pregnancy.",
-      "a": "It contains hormones that inhibit FSH, so eggs do not mature. (Higher tier: progesterone also inhibits LH, so ovulation does not happen.)",
+      "a": "It contains hormones that inhibit FSH, so eggs do not mature. Progesterone also inhibits LH, so ovulation does not happen.",
       "marks": 2
     },
     {
