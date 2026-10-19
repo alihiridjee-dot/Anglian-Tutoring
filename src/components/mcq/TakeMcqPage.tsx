@@ -24,12 +24,15 @@ import {
 import { retakeOpensAt } from "@/lib/mcq/retakeLock";
 import { plannerDateLabel } from "@/lib/planner/week";
 import type { Json } from "@/integrations/supabase/types";
+import { StoredFigure } from "@/components/QuestionFigure";
 
 type Q = {
   id: string;
   position: number;
   question: string;
   options: string[];
+  /** The figure the question is answered from, `{ svg, alt }`, or null. */
+  figure?: Json | null;
 };
 
 type SetRow = {
@@ -151,7 +154,7 @@ async function fetchPaper(setId: string): Promise<Paper | null> {
       .maybeSingle(),
     supabase
       .from("mcq_questions")
-      .select("id, position, question, options")
+      .select("id, position, question, options, figure")
       .eq("set_id", setId)
       .order("position"),
   ]);
@@ -537,6 +540,7 @@ export function TakeMcq() {
                       context={notation}
                       className="font-display text-lg mt-1 break-words"
                     />
+                    <StoredFigure figure={q.figure} className="mt-3" />
                     {headings && <div className="mt-3 hidden sm:block">{headings}</div>}
                     <div className={`${headings ? "mt-3 sm:mt-1.5" : "mt-3"} space-y-2`}>
                       {q.options.map((opt, i) => {

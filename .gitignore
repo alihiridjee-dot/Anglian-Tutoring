@@ -57,3 +57,6 @@ scripts/notes/.sources/
 
 # Video pipeline output: YouTube search cache and run files (see scripts/videos).
 scripts/videos/out/
+
+# DeepSeek figure trial replies (bun scripts/figure-trial.ts run)
+scripts/figures/out/

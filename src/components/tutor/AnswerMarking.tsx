@@ -3,6 +3,7 @@ import type { QuestionMark } from "@/hooks/data/useAnswerMarking";
 import { SciBlock, SciText } from "@/components/Shared";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import { MarkScheme } from "@/components/homework/MarkScheme";
+import { StoredFigure } from "@/components/QuestionFigure";
 
 /**
  * Marking a built-in homework question by question.
@@ -41,6 +42,7 @@ export function AnswerMarkingList({
               <SciBlock text={q.prompt} className="min-w-0 flex-1 text-sm font-medium" />
               <span className="text-[11px] text-muted-foreground shrink-0">[{q.marks}]</span>
             </div>
+            <StoredFigure figure={q.figure} className="max-w-md" />
             <div className="rounded-lg bg-muted/50 border border-border px-3 py-2">
               <p className="text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground mb-1">
                 Student's answer

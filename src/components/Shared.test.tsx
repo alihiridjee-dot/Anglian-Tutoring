@@ -55,3 +55,20 @@ describe("science text keeps the layout it was written with", () => {
     expect(out).toContain("<b>protons:</b> 3");
   });
 });
+
+describe("a question's figure is shown only when it passes the figure check", () => {
+  test("a figure that passes is drawn from the check's own copy", async () => {
+    const { QuestionFigure } = await import("@/components/QuestionFigure");
+    const { FIGURE_EXAMPLES } = await import("@/lib/figures/figurePrompt");
+    const [graph] = FIGURE_EXAMPLES;
+    const out = html(
+      <QuestionFigure svg={graph.reply.svg} alt={graph.reply.alt} brief={graph.request.brief} />,
+    );
+    expect(out).toContain('role="img"');
+    expect(out).toContain('class="qf"');
+    const wrong = graph.reply.svg.replace('cx="232" cy="150.4"', 'cx="232" cy="120"');
+    expect(
+      html(<QuestionFigure svg={wrong} alt={graph.reply.alt} brief={graph.request.brief} />),
+    ).toBe("");
+  });
+});

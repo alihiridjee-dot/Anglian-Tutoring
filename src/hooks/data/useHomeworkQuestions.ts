@@ -21,6 +21,8 @@ export type HomeworkQuestion = {
   answer_type: "short" | "long" | "numeric";
   mark_scheme: string | null;
   spec_point_id: string | null;
+  /** The figure the question is answered from, `{ svg, alt }`, or null. */
+  figure?: unknown;
 };
 
 export type HomeworkAnswer = {

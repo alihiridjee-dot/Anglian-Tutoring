@@ -22,6 +22,7 @@ import { Confetti, Mascot, Sparkles } from "@/components/Doodles";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import { MarkScheme } from "@/components/homework/MarkScheme";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
+import { StoredFigure } from "@/components/QuestionFigure";
 
 /**
  * The body of a homework sheet: the questions, and either the boxes to answer
@@ -632,8 +633,9 @@ function QuestionHeader({
           Question {index + 1}
           {answered ? ", answered" : ""}:{" "}
         </span>
-        {/* Its key, a method's steps or a table, as written. */}
+        {/* Its key, a method's steps or a table, as written; then its figure. */}
         <SciBlock text={q.prompt} />
+        <StoredFigure figure={q.figure} className="mt-3" />
       </div>
       <div className="ml-auto sm:ml-0">
         <MarksBox marks={q.marks} awarded={awarded} />

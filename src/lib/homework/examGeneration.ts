@@ -1,6 +1,8 @@
 /** Pure selection, prompting and response validation; no credentials or DB access. */
 import { toSciNotationTogether } from "@/lib/platform/sciNotation";
 import { flattenedLayout } from "@/lib/platform/textBlocks";
+import type { KnownBrief } from "@/lib/figures/figure";
+import { FIGURE_FIELD, FIGURE_GUIDE, MAX_FIGURES, readBrief } from "@/lib/figures/figureBrief";
 
 export const FRAMEWORK_VERSION = "exam-generation-v4";
 export type GenerationFormat = "written" | "mcq";
@@ -211,11 +213,17 @@ export const MARK_SCHEME_LAYOUT = `Lay out each mark_scheme as plain lines, one 
 const block = (name: string, value: unknown) =>
   `<${name}>\n${JSON.stringify(value).replace(/</g, "\\u003c")}\n</${name}>`;
 
+/**
+ * The prompt for one set. With `figures`, up to `MAX_FIGURES` questions may
+ * each carry a figure brief (`FIGURE_GUIDE`), drawn before the set is saved;
+ * without, every question is text alone, as before figures existed.
+ */
 export function buildGenerationPrompt(
   context: GenerationContext,
   count: number,
   format: GenerationFormat,
   notes = "",
+  figures = false,
 ) {
   if (!Number.isInteger(count) || count < 1 || count > 20)
     throw new Error("Invalid question count");
@@ -237,6 +245,7 @@ export function buildGenerationPrompt(
         ? `Write exactly ${count} written questions. answer_type is short, long or numeric. marks is an integer from 1 to 30, justified by the rubric. mark_scheme must contain the answer and all credit rules.`
         : `Write exactly ${count} MCQs. Each has exactly four distinct, plausible options and one correct answer. correct_index is a zero-based integer from 0 to 3. Vary its position across the set. explanation must identify why the keyed answer is correct.`,
       ...(format === "written" ? [MARK_SCHEME_LAYOUT] : []),
+      ...(figures ? [FIGURE_GUIDE] : []),
       "For each item record assessment_objectives (AO1/AO2/AO3 where applicable), mathematical_demand and practical_demand separately. These are internal labels, not student-facing text.",
     ].join("\n\n"),
   };
@@ -248,8 +257,11 @@ const assessmentProperties = {
   practical_demand: { type: "boolean" },
 };
 
-export function generationSchema(format: GenerationFormat): Record<string, unknown> {
-  const properties =
+export function generationSchema(
+  format: GenerationFormat,
+  figures = false,
+): Record<string, unknown> {
+  const own =
     format === "written"
       ? {
           prompt: { type: "string" },
@@ -272,6 +284,7 @@ export function generationSchema(format: GenerationFormat): Record<string, unkno
           explanation: { type: "string" },
           ...assessmentProperties,
         };
+  const properties = figures ? { ...own, figure: FIGURE_FIELD } : own;
   return {
     type: "object",
     properties: {
@@ -294,6 +307,13 @@ type Assessment = {
   assessment_objectives: string[];
   mathematical_demand: boolean;
   practical_demand: boolean;
+  /** The figure the question is answered from, when the set may have figures and this one has one. */
+  figure?: KnownBrief | null;
+  /**
+   * Why the question's figure can't be drawn: its brief didn't read, or the
+   * set had more figures than it may. The question is left out of the set.
+   */
+  figureProblem?: string;
 };
 export type WrittenQuestion = Assessment & {
   prompt: string;
@@ -335,17 +355,25 @@ export function validateQuestions(
   value: unknown,
   count: number,
   format: "written",
+  figures?: boolean,
 ): WrittenQuestion[];
-export function validateQuestions(value: unknown, count: number, format: "mcq"): McqQuestion[];
+export function validateQuestions(
+  value: unknown,
+  count: number,
+  format: "mcq",
+  figures?: boolean,
+): McqQuestion[];
 export function validateQuestions(
   value: unknown,
   count: number,
   format: GenerationFormat,
+  figures?: boolean,
 ): WrittenQuestion[] | McqQuestion[];
 export function validateQuestions(
   value: unknown,
   count: number,
   format: GenerationFormat,
+  figures = false,
 ): WrittenQuestion[] | McqQuestion[] {
   const raw = (value as { questions?: unknown } | null)?.questions;
   // More than asked for is still a full set: the extras are dropped rather than
@@ -397,6 +425,29 @@ export function validateQuestions(
     const earlier = seen.get(key);
     if (earlier) throw new Error(`Question ${n} repeats question ${earlier}`);
     seen.set(key, n);
+    // A figure must read before anything is spent on drawing it: on its axes,
+    // within its room, every part named once. One that doesn't costs its own
+    // question, not the set.
+    if (!figures) delete q.figure;
+    else {
+      const raw = q.figure as unknown;
+      q.figure = null;
+      if (typeof raw === "string" && raw.trim()) {
+        let brief: unknown = null;
+        try {
+          brief = JSON.parse(raw);
+        } catch {
+          q.figureProblem = "is not JSON";
+        }
+        if (!q.figureProblem) {
+          const read = readBrief(brief);
+          if ("problem" in read) q.figureProblem = read.problem;
+          else if (questions.slice(0, i).filter((p) => p.figure).length >= MAX_FIGURES)
+            q.figureProblem = `is one more than the ${MAX_FIGURES} a set may have`;
+          else q.figure = read.brief;
+        }
+      }
+    }
   }
   return questions;
 }

@@ -6,3 +6,6 @@ pnpm-lock.yaml
 package-lock.json
 bun.lock
 routeTree.gen.ts
+
+# Printed from src/lib/figures/figurePrompt.ts (bun scripts/figure-trial.ts doc); a test keeps it equal to the code.
+docs/prompts/deepseek-figure-prompt.md

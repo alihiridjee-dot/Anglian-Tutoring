@@ -18,6 +18,11 @@ export type BuilderQuestion = DraftQuestion & {
    * against it while its wording is corrected.
    */
   id?: string;
+  /**
+   * A generated question's figure, `{ svg, alt }`, shown while its wording is
+   * edited. Never saved from here: the practice queue drew and checked it.
+   */
+  figure?: unknown;
 };
 
 /** An empty question, optionally pre-tagged to a spec point. */
