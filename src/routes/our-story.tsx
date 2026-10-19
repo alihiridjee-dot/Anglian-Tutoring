@@ -4,6 +4,7 @@ import { ArrowRight, Heart } from "lucide-react";
 import { Nav } from "@/components/landing/Nav";
 import { Footer } from "@/components/landing/Footer";
 import { FloatingWhatsApp } from "@/components/landing/FloatingWhatsApp";
+import { canonical } from "@/lib/platform/seo";
 
 export const Route = createFileRoute("/our-story")({
   head: () => ({
@@ -15,6 +16,7 @@ export const Route = createFileRoute("/our-story")({
           "Our tutoring grew through word of mouth. Anglia Educate is how we bring the same personal, high-quality teaching to more students.",
       },
     ],
+    links: [canonical("/our-story")],
   }),
   component: OurStory,
 });
