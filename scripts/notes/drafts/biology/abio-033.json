@@ -156,7 +156,9 @@
     },
     "aqa_alevel": {
       "spec_codes": [
-        "AQA 3.2.4"
+        "AQA 3.2.4j",
+        "AQA 3.2.4l",
+        "AQA 3.2.4k"
       ],
       "extra": [
         {
@@ -208,7 +210,9 @@
     "written_at": "2026-10-11",
     "spec_point_ids": [
       "10d89409-3eff-43ca-88ca-05f803d177cf",
-      "6b2d34f4-0e86-49e8-88a5-bf389534132d"
+      "6b2d34f4-0e86-49e8-88a5-bf389534132d",
+      "cab2e5e9-5df8-4a8b-a0e6-5b95350faaa8",
+      "be78792f-f43e-44d7-b5cf-8a4d02b5e7af"
     ],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",

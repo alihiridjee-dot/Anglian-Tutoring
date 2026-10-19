@@ -8,7 +8,10 @@
     {
       "heading": "What causes cystic fibrosis",
       "blocks": [
-        { "type": "paragraph", "text": "Cystic fibrosis (CF) is a genetic disease caused by a mutation in the CFTR gene on chromosome 7. The allele is recessive, so a person needs two copies to be affected." },
+        {
+          "type": "paragraph",
+          "text": "Cystic fibrosis (CF) is a genetic disease caused by a mutation in the CFTR gene on chromosome 7. The allele is recessive, so a person needs two copies to be affected."
+        },
         {
           "type": "list",
           "items": [
@@ -19,7 +22,10 @@
             "People with one normal allele and one CF allele are carriers. They are healthy, but they can pass the allele on."
           ]
         },
-        { "type": "paragraph", "text": "Two carriers have a 1 in 4 chance of an affected child, a 1 in 2 chance of a carrier child and a 1 in 4 chance of an unaffected non-carrier." },
+        {
+          "type": "paragraph",
+          "text": "Two carriers have a 1 in 4 chance of an affected child, a 1 in 2 chance of a carrier child and a 1 in 4 chance of an unaffected non-carrier."
+        },
         {
           "type": "key-points",
           "items": [
@@ -33,14 +39,33 @@
     {
       "heading": "How cystic fibrosis affects the body",
       "blocks": [
-        { "type": "paragraph", "text": "Thick mucus blocks tubes in several organ systems. Three are important." },
+        {
+          "type": "paragraph",
+          "text": "Thick mucus blocks tubes in several organ systems. Three are important."
+        },
         {
           "type": "table",
-          "columns": ["System", "What happens", "Result"],
+          "columns": [
+            "System",
+            "What happens",
+            "Result"
+          ],
           "rows": [
-            ["Gaseous exchange", "Thick mucus builds up in the airways and cilia cannot move it. Bacteria are trapped and multiply.", "Repeated chest infections, damaged lungs, a smaller surface area for gas exchange, breathlessness"],
-            ["Digestive", "Mucus blocks the pancreatic duct, so digestive enzymes cannot reach the small intestine.", "Poor digestion and absorption of fats and other food, poor growth, malnutrition"],
-            ["Reproductive", "In males, the tubes (vas deferens) that carry sperm are blocked or missing. In females, thick mucus in the cervix blocks sperm.", "Reduced fertility, or infertility"]
+            [
+              "Gaseous exchange",
+              "Thick mucus builds up in the airways and cilia cannot move it. Bacteria are trapped and multiply.",
+              "Repeated chest infections, damaged lungs, a smaller surface area for gas exchange, breathlessness"
+            ],
+            [
+              "Digestive",
+              "Mucus blocks the pancreatic duct, so digestive enzymes cannot reach the small intestine.",
+              "Poor digestion and absorption of fats and other food, poor growth, malnutrition"
+            ],
+            [
+              "Reproductive",
+              "In males, the tubes (vas deferens) that carry sperm are blocked or missing. In females, thick mucus in the cervix blocks sperm.",
+              "Reduced fertility, or infertility"
+            ]
           ]
         },
         {
@@ -56,7 +81,10 @@
     {
       "heading": "Genetic screening",
       "blocks": [
-        { "type": "paragraph", "text": "**Genetic screening** tests DNA for particular alleles. It can be used at different stages." },
+        {
+          "type": "paragraph",
+          "text": "**Genetic screening** tests DNA for particular alleles. It can be used at different stages."
+        },
         {
           "type": "list",
           "items": [
@@ -66,7 +94,10 @@
             "Testing babies and adults for alleles that increase the risk of disease."
           ]
         },
-        { "type": "subheading", "text": "Advantages" },
+        {
+          "type": "subheading",
+          "text": "Advantages"
+        },
         {
           "type": "list",
           "items": [
@@ -88,23 +119,53 @@
     {
       "heading": "Social and ethical issues",
       "blocks": [
-        { "type": "paragraph", "text": "Screening gives information, but it does not tell people what to do with it. People disagree because they hold different ethical viewpoints." },
+        {
+          "type": "paragraph",
+          "text": "Screening gives information, but it does not tell people what to do with it. People disagree because they hold different ethical viewpoints."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "sort",
             "alt": "A sorting activity. Statements about genetic screening are sorted into arguments in favour and concerns.",
             "prompt": "Is each statement an argument in favour of screening, or a concern about it?",
-            "groups": ["In favour", "A concern"],
+            "groups": [
+              "In favour",
+              "A concern"
+            ],
             "items": [
-              { "text": "Parents can prepare for an affected child", "group": 0 },
-              { "text": "Embryos or fetuses may be destroyed, which some people believe is wrong", "group": 1 },
-              { "text": "Early treatment can improve a person's health", "group": 0 },
-              { "text": "Results could be used by employers or insurers", "group": 1 },
-              { "text": "A positive test for an untreatable condition may cause anxiety", "group": 1 },
-              { "text": "Carriers can choose whether to risk passing an allele on", "group": 0 },
-              { "text": "Screening could lead to people with a condition being seen as less valuable", "group": 1 },
-              { "text": "A result can tell relatives that they may be carriers", "group": 1 }
+              {
+                "text": "Parents can prepare for an affected child",
+                "group": 0
+              },
+              {
+                "text": "Embryos or fetuses may be destroyed, which some people believe is wrong",
+                "group": 1
+              },
+              {
+                "text": "Early treatment can improve a person's health",
+                "group": 0
+              },
+              {
+                "text": "Results could be used by employers or insurers",
+                "group": 1
+              },
+              {
+                "text": "A positive test for an untreatable condition may cause anxiety",
+                "group": 1
+              },
+              {
+                "text": "Carriers can choose whether to risk passing an allele on",
+                "group": 0
+              },
+              {
+                "text": "Screening could lead to people with a condition being seen as less valuable",
+                "group": 1
+              },
+              {
+                "text": "A result can tell relatives that they may be carriers",
+                "group": 1
+              }
             ]
           }
         },
@@ -148,12 +209,19 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": ["AQA 3.8.4.2"],
+      "spec_codes": [
+        "AQA 3.8.4.2a",
+        "AQA 3.8.4.2b",
+        "AQA 3.8.4.2c"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
           "blocks": [
-            { "type": "subheading", "text": "DNA probes and hybridisation" },
+            {
+              "type": "subheading",
+              "text": "DNA probes and hybridisation"
+            },
             {
               "type": "list",
               "items": [
@@ -164,7 +232,10 @@
                 "Unattached probe is washed away. A signal shows where the probe is bound, and so the allele has been located."
               ]
             },
-            { "type": "subheading", "text": "Using the information" },
+            {
+              "type": "subheading",
+              "text": "Using the information"
+            },
             {
               "type": "list",
               "items": [
@@ -173,28 +244,59 @@
                 "In personalised medicine, a patient's alleles are used to choose the drug and dose most likely to work for them, with fewer side effects."
               ]
             },
-            { "type": "paragraph", "text": "You may be given screening data and asked to evaluate it. Look at how accurate the test is, the risk if the allele is present, and the benefit of knowing." }
+            {
+              "type": "paragraph",
+              "text": "You may be given screening data and asked to evaluate it. Look at how accurate the test is, the risk if the allele is present, and the benefit of knowing."
+            }
           ]
         }
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": ["EDEX 2.14", "EDEX 2.15", "EDEX 2.16"],
+      "spec_codes": [
+        "EDEX 2.14",
+        "EDEX 2.15",
+        "EDEX 2.16"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
           "blocks": [
-            { "type": "subheading", "text": "Prenatal testing" },
+            {
+              "type": "subheading",
+              "text": "Prenatal testing"
+            },
             {
               "type": "table",
-              "columns": ["Test", "When", "What is taken", "Notes"],
+              "columns": [
+                "Test",
+                "When",
+                "What is taken",
+                "Notes"
+              ],
               "rows": [
-                ["Chorionic villus sampling (CVS)", "From about 11 weeks", "A sample of cells from the chorionic villi, in the placenta", "Earlier result, but slightly higher risk of miscarriage"],
-                ["Amniocentesis", "From about 15 weeks", "A sample of amniotic fluid containing fetal cells", "Later result, small risk of miscarriage"]
+                [
+                  "Chorionic villus sampling (CVS)",
+                  "From about 11 weeks",
+                  "A sample of cells from the chorionic villi, in the placenta",
+                  "Earlier result, but slightly higher risk of miscarriage"
+                ],
+                [
+                  "Amniocentesis",
+                  "From about 15 weeks",
+                  "A sample of amniotic fluid containing fetal cells",
+                  "Later result, small risk of miscarriage"
+                ]
               ]
             },
-            { "type": "paragraph", "text": "The fetal cells are tested for the allele or for chromosome changes. Both tests carry some risk to the fetus." },
-            { "type": "subheading", "text": "Pre-implantation genetic diagnosis (PGD)" },
+            {
+              "type": "paragraph",
+              "text": "The fetal cells are tested for the allele or for chromosome changes. Both tests carry some risk to the fetus."
+            },
+            {
+              "type": "subheading",
+              "text": "Pre-implantation genetic diagnosis (PGD)"
+            },
             {
               "type": "diagram",
               "diagram": {
@@ -210,7 +312,10 @@
                 ]
               }
             },
-            { "type": "paragraph", "text": "PGD avoids the decision to end a pregnancy, but it needs IVF, which is costly and may not succeed." },
+            {
+              "type": "paragraph",
+              "text": "PGD avoids the decision to end a pregnancy, but it needs IVF, which is costly and may not succeed."
+            },
             {
               "type": "list",
               "items": [
@@ -224,22 +329,47 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": ["CAIE 19.2.2", "CAIE 19.2.4"],
+      "spec_codes": [
+        "CAIE 19.2.2",
+        "CAIE 19.2.4"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
           "blocks": [
-            { "type": "subheading", "text": "Advantages of screening: three examples" },
+            {
+              "type": "subheading",
+              "text": "Advantages of screening: three examples"
+            },
             {
               "type": "table",
-              "columns": ["Condition", "What is screened", "Advantage of screening"],
+              "columns": [
+                "Condition",
+                "What is screened",
+                "Advantage of screening"
+              ],
               "rows": [
-                ["Breast cancer", "Mutant alleles of BRCA1 or BRCA2, which increase the risk of breast and ovarian cancer", "Regular checks, early treatment, or preventive surgery can reduce the risk of dying from cancer"],
-                ["Huntington's disease", "The dominant HTT allele with extra repeats, which causes late-onset nerve damage", "Informs family-planning decisions before symptoms start, as there is no cure"],
-                ["Cystic fibrosis", "Carriers of the recessive CF allele, and embryos or fetuses", "Carriers can decide whether to risk an affected child; early diagnosis starts treatment sooner"]
+                [
+                  "Breast cancer",
+                  "Mutant alleles of BRCA1 or BRCA2, which increase the risk of breast and ovarian cancer",
+                  "Regular checks, early treatment, or preventive surgery can reduce the risk of dying from cancer"
+                ],
+                [
+                  "Huntington's disease",
+                  "The dominant HTT allele with extra repeats, which causes late-onset nerve damage",
+                  "Informs family-planning decisions before symptoms start, as there is no cure"
+                ],
+                [
+                  "Cystic fibrosis",
+                  "Carriers of the recessive CF allele, and embryos or fetuses",
+                  "Carriers can decide whether to risk an affected child; early diagnosis starts treatment sooner"
+                ]
               ]
             },
-            { "type": "subheading", "text": "Gene therapy" },
+            {
+              "type": "subheading",
+              "text": "Gene therapy"
+            },
             {
               "type": "list",
               "items": [
@@ -249,7 +379,10 @@
                 "Concerns: safety and long-term effects, cost, who decides which conditions to treat, and the risk of moving from treating disease to choosing traits."
               ]
             },
-            { "type": "paragraph", "text": "Discuss the social and ethical issues of screening and gene therapy with reasons on both sides, not a one-sided list." }
+            {
+              "type": "paragraph",
+              "text": "Discuss the social and ethical issues of screening and gene therapy with reasons on both sides, not a one-sided list."
+            }
           ]
         }
       ]
@@ -260,12 +393,14 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",
     "spec_point_ids": [
-      "ec49c5e7-3f31-41ad-8dbc-3f1401428a20",
       "4804e260-35aa-48e6-bd8c-0c4b56e51d0b",
       "71059e9e-81ac-49fa-822c-61ab3f286984",
       "3149bc3d-64ac-42b0-b014-b88275c8b6ae",
       "212fdcd2-cae8-4a50-8938-edc445662653",
-      "47a958f0-8e9f-4b95-b0e5-7d45ab75d7fd"
+      "47a958f0-8e9f-4b95-b0e5-7d45ab75d7fd",
+      "74c45eae-ace3-44c7-869d-a71a42bea489",
+      "6daf5ad9-a552-444b-8a11-da84adf565b0",
+      "08665a87-f658-4b60-ad4c-7bbb667dd8ca"
     ],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",

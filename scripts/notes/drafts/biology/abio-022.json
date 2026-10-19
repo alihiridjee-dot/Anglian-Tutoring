@@ -295,7 +295,7 @@
   "boards": {
     "aqa_alevel": {
       "spec_codes": [
-        "AQA 3.3.4.1"
+        "AQA 3.3.4.1e"
       ]
     },
     "ocr_alevel": {
@@ -392,7 +392,8 @@
       "09d04fcb-21fc-44bf-acc0-404cc9a8431e",
       "4bc45cff-340e-4b8f-bfe8-234fa74ae6cc",
       "1a793a08-bcd9-4a18-9c2d-0bdd5d26c1c6",
-      "c38559ed-172a-4841-908d-805b20148905"
+      "c38559ed-172a-4841-908d-805b20148905",
+      "d985a100-b15b-44b7-8cc4-aed965e1ff84"
     ],
     "exemplar_ids": []
   }

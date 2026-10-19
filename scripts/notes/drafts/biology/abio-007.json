@@ -438,7 +438,8 @@
     },
     "aqa_alevel": {
       "spec_codes": [
-        "AQA 3.1.4.2"
+        "AQA 3.1.4.2 RP1",
+        "AQA 3.1.4.2c"
       ]
     }
   },
@@ -453,7 +454,8 @@
       "88baf2af-2957-4f38-80bf-4f032870276a",
       "a55a4e68-9e9d-4784-b525-6df3ccdd6e93",
       "c4ecf857-4a0e-4c1b-b491-992e097a3e01",
-      "44d2734c-eeaa-4148-a29a-3418f376f0e0"
+      "44d2734c-eeaa-4148-a29a-3418f376f0e0",
+      "e603c3da-199d-461a-883e-425b97a1b2fe"
     ],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",

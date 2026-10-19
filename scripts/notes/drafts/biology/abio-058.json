@@ -344,7 +344,12 @@
   "boards": {
     "aqa_alevel": {
       "spec_codes": [
-        "AQA 3.5.2"
+        "AQA 3.5.2a",
+        "AQA 3.5.2b",
+        "AQA 3.5.2c",
+        "AQA 3.5.2e",
+        "AQA 3.5.2f",
+        "AQA 3.5.2 RP9"
       ],
       "extra": [
         {
@@ -451,7 +456,6 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",
     "spec_point_ids": [
-      "c6804261-70b6-4849-a11d-6e4bb3d153d8",
       "57844198-c184-484a-8dc1-dfa0a2163b8f",
       "9644e78d-0c08-4528-a72e-2a2d2403ccb1",
       "d8358e44-1c0e-41af-a971-a6b03c52679b",
@@ -469,7 +473,13 @@
       "4028f011-bc6f-4edd-8f08-c54da22302df",
       "a0ae78dd-1f8f-4b1c-806c-097db87289d8",
       "94426a61-86c8-4798-83fa-a20c98507a85",
-      "591c7bee-3712-43da-8807-cfd1d70d0454"
+      "591c7bee-3712-43da-8807-cfd1d70d0454",
+      "4aca4155-c875-4f6e-9562-cca114b13e05",
+      "eba6698d-b8bc-46c8-9f9c-bd149ada7fe7",
+      "cb15c71d-ca6b-4d82-99e9-7287de366ffd",
+      "05f4b564-c78c-4828-b1d2-fa9227c6e2b8",
+      "e10f14f7-8c38-4112-8d93-4182cb6be9c6",
+      "81d33927-90b2-43fe-a150-79f09d7539b9"
     ],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",

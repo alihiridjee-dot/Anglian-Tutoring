@@ -96,7 +96,9 @@ bun run scripts/spec-weights/score_db.ts --check   # also re-score the weighted 
 ```
 
 AQA courses (any level) are content sections and use the section rules; every
-other board is one statement per point and uses the statement rules. Three
+other board is one statement per point and uses the statement rules. The one
+exception is AQA A level Biology, re-cut on 18 Oct 2026 into one point per
+statement (`AQA 3.1.2a`, practicals `AQA 3.1.4.2 RP1`): it uses the statement rules. Three
 differences from the PDF scripts: "be able to" is skipped to find the command
 word, inline sub-items `(a)`, `(ii)` count like bullets, and maths/apparatus
 skill tags are not scored (the descriptions leave them out). `--check` re-scores
@@ -106,8 +108,8 @@ over 68 teaching weeks (two years).
 
 First loaded 6 Oct 2026 for 29 courses (5,822 points). Two things weights
 cannot fix: every topic gets at least one week, so a tiny topic is a light week;
-and AQA A level Biology's 53 whole-section points leave empty weeks in a
-two-year plan.
+and (until the 18 Oct 2026 re-cut into 255 statement points) AQA A level
+Biology's 53 whole-section points left empty weeks in a two-year plan.
 
 ## Loading them
 

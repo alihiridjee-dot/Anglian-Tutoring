@@ -8,7 +8,10 @@
     {
       "heading": "Gas exchange in single-celled organisms",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers the simplest case, which the other systems are compared with." },
+        {
+          "type": "paragraph",
+          "text": "This section covers the simplest case, which the other systems are compared with."
+        },
         {
           "type": "list",
           "items": [
@@ -29,14 +32,29 @@
     {
       "heading": "Bony fish",
       "blocks": [
-        { "type": "paragraph", "text": "Water contains much less oxygen than air, so fish need an efficient gill system." },
+        {
+          "type": "paragraph",
+          "text": "Water contains much less oxygen than air, so fish need an efficient gill system."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Gill filament", "meaning": "A thin, flat structure that projects from the gill arch. There are many on each gill." },
-            { "term": "Gill lamella", "meaning": "A fold on a gill filament, which has a large surface area and a rich blood supply. Also called a gill plate." },
-            { "term": "Operculum", "meaning": "A bony flap that covers the gills." },
-            { "term": "Countercurrent flow", "meaning": "Blood and water flow in opposite directions across the lamellae." }
+            {
+              "term": "Gill filament",
+              "meaning": "A thin, flat structure that projects from the gill arch. There are many on each gill."
+            },
+            {
+              "term": "Gill lamella",
+              "meaning": "A fold on a gill filament, which has a large surface area and a rich blood supply. Also called a gill plate."
+            },
+            {
+              "term": "Operculum",
+              "meaning": "A bony flap that covers the gills."
+            },
+            {
+              "term": "Countercurrent flow",
+              "meaning": "Blood and water flow in opposite directions across the lamellae."
+            }
           ]
         },
         {
@@ -54,7 +72,10 @@
             ]
           }
         },
-        { "type": "subheading", "text": "Why countercurrent flow is efficient" },
+        {
+          "type": "subheading",
+          "text": "Why countercurrent flow is efficient"
+        },
         {
           "type": "list",
           "items": [
@@ -77,7 +98,10 @@
     {
       "heading": "Insects",
       "blocks": [
-        { "type": "paragraph", "text": "Insects have an exoskeleton, which is waterproof but also gas-tight. Air reaches the cells through a network of tubes." },
+        {
+          "type": "paragraph",
+          "text": "Insects have an exoskeleton, which is waterproof but also gas-tight. Air reaches the cells through a network of tubes."
+        },
         {
           "type": "list",
           "items": [
@@ -108,7 +132,10 @@
     {
       "heading": "Leaves of dicotyledonous plants",
       "blocks": [
-        { "type": "paragraph", "text": "Plants take in carbon dioxide for photosynthesis and release oxygen. The leaf is the main exchange surface." },
+        {
+          "type": "paragraph",
+          "text": "Plants take in carbon dioxide for photosynthesis and release oxygen. The leaf is the main exchange surface."
+        },
         {
           "type": "list",
           "items": [
@@ -132,13 +159,28 @@
     {
       "heading": "Limiting water loss",
       "blocks": [
-        { "type": "paragraph", "text": "An exchange surface that lets gases in also lets water out. Land organisms balance these two needs." },
+        {
+          "type": "paragraph",
+          "text": "An exchange surface that lets gases in also lets water out. Land organisms balance these two needs."
+        },
         {
           "type": "table",
-          "columns": ["Organism", "How water loss is limited", "The compromise"],
+          "columns": [
+            "Organism",
+            "How water loss is limited",
+            "The compromise"
+          ],
           "rows": [
-            ["Insect", "Waterproof waxy cuticle. Spiracles close. Hairs around the spiracles trap humid air.", "Spiracles must open for gas exchange, so some water is lost."],
-            ["Xerophytic plant", "Thick waxy cuticle. Sunken stomata, rolled leaves and hairs trap humid air. Reduced leaf surface area.", "Stomata must open for photosynthesis, so some water is lost."]
+            [
+              "Insect",
+              "Waterproof waxy cuticle. Spiracles close. Hairs around the spiracles trap humid air.",
+              "Spiracles must open for gas exchange, so some water is lost."
+            ],
+            [
+              "Xerophytic plant",
+              "Thick waxy cuticle. Sunken stomata, rolled leaves and hairs trap humid air. Reduced leaf surface area.",
+              "Stomata must open for photosynthesis, so some water is lost."
+            ]
           ]
         },
         {
@@ -174,7 +216,10 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": ["AQA 3.3.2"],
+      "spec_codes": [
+        "AQA 3.3.2a",
+        "AQA 3.3.2b"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -197,7 +242,10 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": ["OCR 3.1.1f", "OCR 3.1.1g"],
+      "spec_codes": [
+        "OCR 3.1.1f",
+        "OCR 3.1.1g"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -222,9 +270,10 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",
     "spec_point_ids": [
-      "c6d2d9ab-36c8-4784-b4d6-1dd0e59b8184",
       "8135e0a6-0548-4f35-a1a8-b8e05f53b192",
-      "1b83cbd0-54b9-40df-81cc-aa6daf8298df"
+      "1b83cbd0-54b9-40df-81cc-aa6daf8298df",
+      "faa6d21c-71da-4ef6-a06e-bd922656fd8d",
+      "fcb9c9b5-da0b-45f2-be60-4ff230ca9996"
     ],
     "exemplar_ids": []
   }

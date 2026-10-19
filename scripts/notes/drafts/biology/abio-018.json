@@ -8,7 +8,10 @@
     {
       "heading": "Gas exchange surfaces and Fick's law",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers what makes a surface good at gas exchange and how the rate of diffusion is worked out." },
+        {
+          "type": "paragraph",
+          "text": "This section covers what makes a surface good at gas exchange and how the rate of diffusion is worked out."
+        },
         {
           "type": "list",
           "items": [
@@ -21,7 +24,11 @@
           "type": "equation",
           "label": "Fick's law of diffusion",
           "formula": "rate of diffusion ∝ (surface area × difference in concentration) ÷ thickness of the exchange surface",
-          "where": ["surface area, in m²", "difference in concentration between the two sides", "thickness (diffusion distance), in µm"]
+          "where": [
+            "surface area, in m²",
+            "difference in concentration between the two sides",
+            "thickness (diffusion distance), in µm"
+          ]
         },
         {
           "type": "diagram",
@@ -29,12 +36,41 @@
             "kind": "slider",
             "alt": "Change area, gradient and thickness to see the relative rate of diffusion",
             "inputs": [
-              { "id": "area", "label": "Surface area", "unit": "m²", "min": 10, "max": 100, "step": 10, "value": 50 },
-              { "id": "gradient", "label": "Difference in concentration", "unit": "arbitrary units", "min": 1, "max": 10, "step": 1, "value": 5 },
-              { "id": "thickness", "label": "Thickness of surface", "unit": "µm", "min": 0.5, "max": 5, "step": 0.5, "value": 1 }
+              {
+                "id": "area",
+                "label": "Surface area",
+                "unit": "m²",
+                "min": 10,
+                "max": 100,
+                "step": 10,
+                "value": 50
+              },
+              {
+                "id": "gradient",
+                "label": "Difference in concentration",
+                "unit": "arbitrary units",
+                "min": 1,
+                "max": 10,
+                "step": 1,
+                "value": 5
+              },
+              {
+                "id": "thickness",
+                "label": "Thickness of surface",
+                "unit": "µm",
+                "min": 0.5,
+                "max": 5,
+                "step": 0.5,
+                "value": 1
+              }
             ],
             "outputs": [
-              { "label": "Relative rate of diffusion", "unit": "units", "formula": "area * gradient / thickness", "decimals": 0 }
+              {
+                "label": "Relative rate of diffusion",
+                "unit": "units",
+                "formula": "area * gradient / thickness",
+                "decimals": 0
+              }
             ]
           }
         },
@@ -59,23 +95,55 @@
     {
       "heading": "Structure of the gas exchange system",
       "blocks": [
-        { "type": "paragraph", "text": "Air travels down the trachea, the bronchi and the bronchioles to the alveoli, which are surrounded by a capillary network." },
+        {
+          "type": "paragraph",
+          "text": "Air travels down the trachea, the bronchi and the bronchioles to the alveoli, which are surrounded by a capillary network."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Ciliated epithelium", "meaning": "Lining cells with cilia that beat to move mucus upwards, away from the lungs." },
-            { "term": "Goblet cell", "meaning": "A cell that makes and secretes mucus, which traps dust and microorganisms." },
-            { "term": "Squamous epithelium", "meaning": "A layer of flat, very thin cells, as in the alveolar wall." }
+            {
+              "term": "Ciliated epithelium",
+              "meaning": "Lining cells with cilia that beat to move mucus upwards, away from the lungs."
+            },
+            {
+              "term": "Goblet cell",
+              "meaning": "A cell that makes and secretes mucus, which traps dust and microorganisms."
+            },
+            {
+              "term": "Squamous epithelium",
+              "meaning": "A layer of flat, very thin cells, as in the alveolar wall."
+            }
           ]
         },
         {
           "type": "table",
-          "columns": ["Region", "What is in the wall", "Job"],
+          "columns": [
+            "Region",
+            "What is in the wall",
+            "Job"
+          ],
           "rows": [
-            ["Trachea", "C-shaped rings of cartilage, smooth muscle, elastic fibres, ciliated epithelium and goblet cells", "Cartilage keeps the airway open when pressure is low. Cilia and mucus clear trapped particles."],
-            ["Bronchi", "Cartilage in smaller pieces, smooth muscle, elastic fibres, ciliated epithelium and goblet cells", "As in the trachea, with branches into each lung."],
-            ["Bronchioles", "No cartilage, smooth muscle, elastic fibres and a thinner epithelium", "Smooth muscle contracts to narrow the tube and relaxes to widen it. This controls airflow."],
-            ["Alveoli", "Squamous epithelium and a few elastic fibres, with capillaries around them", "Gas exchange. Elastic fibres stretch to fill and recoil to push air out."]
+            [
+              "Trachea",
+              "C-shaped rings of cartilage, smooth muscle, elastic fibres, ciliated epithelium and goblet cells",
+              "Cartilage keeps the airway open when pressure is low. Cilia and mucus clear trapped particles."
+            ],
+            [
+              "Bronchi",
+              "Cartilage in smaller pieces, smooth muscle, elastic fibres, ciliated epithelium and goblet cells",
+              "As in the trachea, with branches into each lung."
+            ],
+            [
+              "Bronchioles",
+              "No cartilage, smooth muscle, elastic fibres and a thinner epithelium",
+              "Smooth muscle contracts to narrow the tube and relaxes to widen it. This controls airflow."
+            ],
+            [
+              "Alveoli",
+              "Squamous epithelium and a few elastic fibres, with capillaries around them",
+              "Gas exchange. Elastic fibres stretch to fill and recoil to push air out."
+            ]
           ]
         },
         {
@@ -100,7 +168,10 @@
     {
       "heading": "The alveolus and gas exchange",
       "blocks": [
-        { "type": "paragraph", "text": "The alveolus and the capillary next to it are adapted for rapid diffusion." },
+        {
+          "type": "paragraph",
+          "text": "The alveolus and the capillary next to it are adapted for rapid diffusion."
+        },
         {
           "type": "list",
           "items": [
@@ -113,9 +184,18 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Oxygen.", "text": "Oxygen diffuses from the alveolar air, across the alveolar epithelium and capillary wall, into the blood. It is carried by haemoglobin in red blood cells." },
-            { "lead": "Carbon dioxide.", "text": "Carbon dioxide diffuses from the blood into the alveolar air, and is breathed out." },
-            { "lead": "Gradient.", "text": "Blood flow and ventilation keep the gradient steep for both gases." }
+            {
+              "lead": "Oxygen.",
+              "text": "Oxygen diffuses from the alveolar air, across the alveolar epithelium and capillary wall, into the blood. It is carried by haemoglobin in red blood cells."
+            },
+            {
+              "lead": "Carbon dioxide.",
+              "text": "Carbon dioxide diffuses from the blood into the alveolar air, and is breathed out."
+            },
+            {
+              "lead": "Gradient.",
+              "text": "Blood flow and ventilation keep the gradient steep for both gases."
+            }
           ]
         },
         {
@@ -131,7 +211,10 @@
     {
       "heading": "Ventilation",
       "blocks": [
-        { "type": "paragraph", "text": "Breathing changes the volume of the thorax. This changes the pressure, so air moves in or out." },
+        {
+          "type": "paragraph",
+          "text": "Breathing changes the volume of the thorax. This changes the pressure, so air moves in or out."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -149,14 +232,42 @@
         },
         {
           "type": "table",
-          "columns": ["Feature", "Inspiration", "Expiration"],
+          "columns": [
+            "Feature",
+            "Inspiration",
+            "Expiration"
+          ],
           "rows": [
-            ["External intercostal muscles", "Contract", "Relax"],
-            ["Diaphragm", "Contracts and flattens", "Relaxes and domes upwards"],
-            ["Rib cage", "Moves up and out", "Moves down and in"],
-            ["Volume of thorax", "Increases", "Decreases"],
-            ["Pressure in lungs", "Falls below atmospheric", "Rises above atmospheric"],
-            ["Air movement", "Into the lungs", "Out of the lungs"]
+            [
+              "External intercostal muscles",
+              "Contract",
+              "Relax"
+            ],
+            [
+              "Diaphragm",
+              "Contracts and flattens",
+              "Relaxes and domes upwards"
+            ],
+            [
+              "Rib cage",
+              "Moves up and out",
+              "Moves down and in"
+            ],
+            [
+              "Volume of thorax",
+              "Increases",
+              "Decreases"
+            ],
+            [
+              "Pressure in lungs",
+              "Falls below atmospheric",
+              "Rises above atmospheric"
+            ],
+            [
+              "Air movement",
+              "Into the lungs",
+              "Out of the lungs"
+            ]
           ]
         },
         {
@@ -180,21 +291,40 @@
     {
       "heading": "Lung volumes and the spirometer",
       "blocks": [
-        { "type": "paragraph", "text": "A spirometer records the volume of air breathed in and out. It can also measure oxygen uptake." },
+        {
+          "type": "paragraph",
+          "text": "A spirometer records the volume of air breathed in and out. It can also measure oxygen uptake."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Tidal volume", "meaning": "The volume of air breathed in or out in one normal breath." },
-            { "term": "Vital capacity", "meaning": "The greatest volume of air that can be breathed out after the deepest possible breath in." },
-            { "term": "Breathing rate", "meaning": "The number of breaths per minute." },
-            { "term": "Oxygen uptake", "meaning": "The volume of oxygen absorbed into the blood per unit time." }
+            {
+              "term": "Tidal volume",
+              "meaning": "The volume of air breathed in or out in one normal breath."
+            },
+            {
+              "term": "Vital capacity",
+              "meaning": "The greatest volume of air that can be breathed out after the deepest possible breath in."
+            },
+            {
+              "term": "Breathing rate",
+              "meaning": "The number of breaths per minute."
+            },
+            {
+              "term": "Oxygen uptake",
+              "meaning": "The volume of oxygen absorbed into the blood per unit time."
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Ventilation rate",
           "formula": "ventilation rate = tidal volume × breathing rate",
-          "where": ["ventilation rate, in dm³ per minute", "tidal volume, in dm³", "breathing rate, in breaths per minute"]
+          "where": [
+            "ventilation rate, in dm³ per minute",
+            "tidal volume, in dm³",
+            "breathing rate, in breaths per minute"
+          ]
         },
         {
           "type": "list",
@@ -232,7 +362,11 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": ["AQA 3.3.2"],
+      "spec_codes": [
+        "AQA 3.3.2c",
+        "AQA 3.3.2d",
+        "AQA 3.3.2e"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -253,7 +387,9 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": ["EDEX 2.1"],
+      "spec_codes": [
+        "EDEX 2.1"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -271,7 +407,15 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": ["CAIE 9.1.1", "CAIE 9.1.2", "CAIE 9.1.3", "CAIE 9.1.4", "CAIE 9.1.5", "CAIE 9.1.6", "CAIE 9.1.7"],
+      "spec_codes": [
+        "CAIE 9.1.1",
+        "CAIE 9.1.2",
+        "CAIE 9.1.3",
+        "CAIE 9.1.4",
+        "CAIE 9.1.5",
+        "CAIE 9.1.6",
+        "CAIE 9.1.7"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -292,7 +436,12 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": ["OCR 3.1.1c", "OCR 3.1.1d", "OCR 3.1.1e", "OCR 3.1.1h"],
+      "spec_codes": [
+        "OCR 3.1.1c",
+        "OCR 3.1.1d",
+        "OCR 3.1.1e",
+        "OCR 3.1.1h"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -329,7 +478,10 @@
       "9ec49c90-7495-4590-a8f4-26ca34158e7f",
       "64555eeb-3077-4328-a7b2-e7a3eaeaef07",
       "62dadb6f-7935-4c7c-87d5-a1110422d1ba",
-      "f09296a0-994a-4aa5-9f98-a814df553497"
+      "f09296a0-994a-4aa5-9f98-a814df553497",
+      "15b1bba5-984c-4989-8fc2-b0ee12ae4335",
+      "7d753be8-7dc8-4ff5-8027-f5c4bfbd7938",
+      "9142b125-0723-440e-b1e3-34a1612c960f"
     ],
     "exemplar_ids": []
   }

@@ -205,9 +205,17 @@ for (const c of courses.values()) {
   for (const list of c.points.values()) list.sort((a, b) => a.sort_order - b.sort_order);
 }
 
-function score(board: string, p: Point): number {
+/**
+ * AQA A level Biology was re-cut on 18 Oct 2026 into one point per spec statement
+ * (codes "AQA 3.1.2a", practicals "AQA 3.1.4.2 RP1"), so it is scored like the
+ * other statement courses, not as whole sections.
+ */
+const STATEMENT_COURSES = new Set(["aqa-alevel-biology"]);
+
+function score(course: string, p: Point): number {
   const text = `${p.description ?? ""}`.trim() || p.title;
-  return board === "aqa" ? scoreSection(text) : scoreStatement(text);
+  const board = course.split("-")[0];
+  return board === "aqa" && !STATEMENT_COURSES.has(course) ? scoreSection(text) : scoreStatement(text);
 }
 
 // ------------------------------------------------------------ week balance
@@ -298,7 +306,7 @@ for (const [name, c] of [...courses.entries()].sort()) {
   const weighted = all.some((p) => Number(p.weight) !== 1);
   if (weighted && !check) continue;
 
-  const scored = new Map(all.map((p) => [p.id, score(board, p)]));
+  const scored = new Map(all.map((p) => [p.id, score(name, p)]));
   if (weighted) {
     // Validation: how closely does reading the saved wording reproduce the PDF-based weights?
     const xs = all.map((p) => Number(p.weight)),

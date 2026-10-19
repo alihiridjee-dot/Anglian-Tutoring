@@ -8,13 +8,25 @@
     {
       "heading": "Osmosis and water potential",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers what osmosis is and how water potential predicts which way water moves." },
+        {
+          "type": "paragraph",
+          "text": "This section covers what osmosis is and how water potential predicts which way water moves."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Osmosis", "meaning": "The net movement of water molecules from a region of higher water potential to a region of lower water potential, through a partially permeable membrane." },
-            { "term": "Water potential", "meaning": "A measure of the tendency of water molecules to move. Symbol ψ, measured in kilopascals (kPa)." },
-            { "term": "Partially permeable membrane", "meaning": "A membrane that lets some molecules through, such as water, but not others, such as larger solutes." }
+            {
+              "term": "Osmosis",
+              "meaning": "The net movement of water molecules from a region of higher water potential to a region of lower water potential, through a partially permeable membrane."
+            },
+            {
+              "term": "Water potential",
+              "meaning": "A measure of the tendency of water molecules to move. Symbol ψ, measured in kilopascals (kPa)."
+            },
+            {
+              "term": "Partially permeable membrane",
+              "meaning": "A membrane that lets some molecules through, such as water, but not others, such as larger solutes."
+            }
           ]
         },
         {
@@ -44,13 +56,25 @@
     {
       "heading": "Osmosis in plant and animal cells",
       "blocks": [
-        { "type": "paragraph", "text": "A cell placed in a solution gains, loses or keeps its water. Plant cells have a cell wall, and animal cells do not." },
+        {
+          "type": "paragraph",
+          "text": "A cell placed in a solution gains, loses or keeps its water. Plant cells have a cell wall, and animal cells do not."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Turgid", "meaning": "A plant cell full of water, pressing against its cell wall." },
-            { "term": "Plasmolysed", "meaning": "A plant cell that has lost so much water that the cell-surface membrane has pulled away from the cell wall." },
-            { "term": "Lysis", "meaning": "An animal cell bursts after taking in too much water." }
+            {
+              "term": "Turgid",
+              "meaning": "A plant cell full of water, pressing against its cell wall."
+            },
+            {
+              "term": "Plasmolysed",
+              "meaning": "A plant cell that has lost so much water that the cell-surface membrane has pulled away from the cell wall."
+            },
+            {
+              "term": "Lysis",
+              "meaning": "An animal cell bursts after taking in too much water."
+            }
           ]
         },
         {
@@ -59,14 +83,60 @@
             "kind": "predictor",
             "alt": "Pick a cell and a solution to see what osmosis does",
             "prompt": "Pick a cell and the solution around it.",
-            "result_labels": ["Water potential compared with the cell", "Net movement of water", "Result"],
+            "result_labels": [
+              "Water potential compared with the cell",
+              "Net movement of water",
+              "Result"
+            ],
             "options": [
-              { "label": "Plant cell in pure water", "results": ["Outside is higher", "Into the cell", "The cell becomes turgid. The cell wall stops it bursting."] },
-              { "label": "Plant cell in a very concentrated solution", "results": ["Outside is lower", "Out of the cell", "The cell becomes plasmolysed."] },
-              { "label": "Plant cell in a solution of equal water potential", "results": ["Equal", "None", "The cell stays the same size."] },
-              { "label": "Animal cell in pure water", "results": ["Outside is higher", "Into the cell", "The cell swells and bursts, because there is no cell wall."] },
-              { "label": "Animal cell in a very concentrated solution", "results": ["Outside is lower", "Out of the cell", "The cell shrinks and the membrane becomes crinkled."] },
-              { "label": "Animal cell in a solution of equal water potential", "results": ["Equal", "None", "The cell stays the same."] }
+              {
+                "label": "Plant cell in pure water",
+                "results": [
+                  "Outside is higher",
+                  "Into the cell",
+                  "The cell becomes turgid. The cell wall stops it bursting."
+                ]
+              },
+              {
+                "label": "Plant cell in a very concentrated solution",
+                "results": [
+                  "Outside is lower",
+                  "Out of the cell",
+                  "The cell becomes plasmolysed."
+                ]
+              },
+              {
+                "label": "Plant cell in a solution of equal water potential",
+                "results": [
+                  "Equal",
+                  "None",
+                  "The cell stays the same size."
+                ]
+              },
+              {
+                "label": "Animal cell in pure water",
+                "results": [
+                  "Outside is higher",
+                  "Into the cell",
+                  "The cell swells and bursts, because there is no cell wall."
+                ]
+              },
+              {
+                "label": "Animal cell in a very concentrated solution",
+                "results": [
+                  "Outside is lower",
+                  "Out of the cell",
+                  "The cell shrinks and the membrane becomes crinkled."
+                ]
+              },
+              {
+                "label": "Animal cell in a solution of equal water potential",
+                "results": [
+                  "Equal",
+                  "None",
+                  "The cell stays the same."
+                ]
+              }
             ]
           }
         },
@@ -91,8 +161,14 @@
     {
       "heading": "Investigating osmosis",
       "blocks": [
-        { "type": "paragraph", "text": "Osmosis can be shown with non-living materials and with plant tissue." },
-        { "type": "subheading", "text": "Non-living materials" },
+        {
+          "type": "paragraph",
+          "text": "Osmosis can be shown with non-living materials and with plant tissue."
+        },
+        {
+          "type": "subheading",
+          "text": "Non-living materials"
+        },
         {
           "type": "list",
           "items": [
@@ -101,23 +177,47 @@
             "Agar can be used in a similar way, with different concentrations of solution around it."
           ]
         },
-        { "type": "subheading", "text": "Estimating the water potential of plant tissue" },
+        {
+          "type": "subheading",
+          "text": "Estimating the water potential of plant tissue"
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Make solutions.", "text": "Prepare a dilution series of sucrose solution, from pure water up to a concentrated solution." },
-            { "lead": "Prepare tissue.", "text": "Cut equal-sized pieces of potato and measure the mass of each." },
-            { "lead": "Immerse.", "text": "Place one piece in each solution for the same time and temperature." },
-            { "lead": "Re-measure.", "text": "Blot dry and measure the mass again. Calculate the percentage change in mass." },
-            { "lead": "Plot a graph.", "text": "Plot percentage change in mass against solution concentration or water potential." },
-            { "lead": "Read the intercept.", "text": "Where the line crosses zero, there is no net movement of water. The tissue has the same water potential as that solution." }
+            {
+              "lead": "Make solutions.",
+              "text": "Prepare a dilution series of sucrose solution, from pure water up to a concentrated solution."
+            },
+            {
+              "lead": "Prepare tissue.",
+              "text": "Cut equal-sized pieces of potato and measure the mass of each."
+            },
+            {
+              "lead": "Immerse.",
+              "text": "Place one piece in each solution for the same time and temperature."
+            },
+            {
+              "lead": "Re-measure.",
+              "text": "Blot dry and measure the mass again. Calculate the percentage change in mass."
+            },
+            {
+              "lead": "Plot a graph.",
+              "text": "Plot percentage change in mass against solution concentration or water potential."
+            },
+            {
+              "lead": "Read the intercept.",
+              "text": "Where the line crosses zero, there is no net movement of water. The tissue has the same water potential as that solution."
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Percentage change in mass",
           "formula": "percentage change = (final mass − initial mass) ÷ initial mass × 100",
-          "where": ["final mass, in g", "initial mass, in g"]
+          "where": [
+            "final mass, in g",
+            "initial mass, in g"
+          ]
         },
         {
           "type": "list",
@@ -154,7 +254,10 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": ["AQA 3.2.3"],
+      "spec_codes": [
+        "AQA 3.2.3 RP3",
+        "AQA 3.2.3c"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -172,7 +275,9 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": ["EDEX 2.3"],
+      "spec_codes": [
+        "EDEX 2.3"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -190,7 +295,11 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": ["CAIE 4.2.2", "CAIE 4.2.5", "CAIE 4.2.6"],
+      "spec_codes": [
+        "CAIE 4.2.2",
+        "CAIE 4.2.5",
+        "CAIE 4.2.6"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -209,7 +318,9 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": ["OCR 2.1.5e"],
+      "spec_codes": [
+        "OCR 2.1.5e"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -237,7 +348,8 @@
       "322f19fe-c307-49d7-ac9b-bf4f220328df",
       "c5fec759-fa6c-46d0-bb6d-c05c96795b59",
       "971b6acb-b7c6-4508-a8f9-66a1450d57e3",
-      "ea876ce0-b963-4a7e-be15-21fceffabb5a"
+      "ea876ce0-b963-4a7e-be15-21fceffabb5a",
+      "577ebf28-f582-40df-b3ea-455e6f82a866"
     ],
     "exemplar_ids": []
   }

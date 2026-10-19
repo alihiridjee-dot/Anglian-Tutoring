@@ -41,10 +41,22 @@
         {
           "type": "definitions",
           "items": [
-            { "term": "Abundance", "meaning": "How many individuals of a species there are in an area." },
-            { "term": "Distribution", "meaning": "Where in the habitat a species is found." },
-            { "term": "Quadrat", "meaning": "A square frame of known area placed on the ground to count or estimate the organisms inside." },
-            { "term": "Transect", "meaning": "A line or belt laid across a habitat along which samples are taken." }
+            {
+              "term": "Abundance",
+              "meaning": "How many individuals of a species there are in an area."
+            },
+            {
+              "term": "Distribution",
+              "meaning": "Where in the habitat a species is found."
+            },
+            {
+              "term": "Quadrat",
+              "meaning": "A square frame of known area placed on the ground to count or estimate the organisms inside."
+            },
+            {
+              "term": "Transect",
+              "meaning": "A line or belt laid across a habitat along which samples are taken."
+            }
           ]
         },
         {
@@ -92,10 +104,22 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Capture", "text": "Catch a sample of animals and count them (n₁)." },
-            { "lead": "Mark", "text": "Mark each one in a harmless way, for example with a dot of paint." },
-            { "lead": "Release", "text": "Release them and allow time for them to mix back into the population." },
-            { "lead": "Recapture", "text": "Catch a second sample (n₂) and count how many are marked (m)." }
+            {
+              "lead": "Capture",
+              "text": "Catch a sample of animals and count them (n₁)."
+            },
+            {
+              "lead": "Mark",
+              "text": "Mark each one in a harmless way, for example with a dot of paint."
+            },
+            {
+              "lead": "Release",
+              "text": "Release them and allow time for them to mix back into the population."
+            },
+            {
+              "lead": "Recapture",
+              "text": "Catch a second sample (n₂) and count how many are marked (m)."
+            }
           ]
         },
         {
@@ -116,11 +140,29 @@
             "alt": "Calculate a population size using the Lincoln index.",
             "question": "In a first sample, {n1} animals are caught and marked. In a second sample, {n2} animals are caught and {m} of them are marked. Estimate the population size.",
             "variables": [
-              { "id": "n1", "min": 20, "max": 60, "step": 10 },
-              { "id": "n2", "min": 20, "max": 60, "step": 10 },
-              { "id": "m", "min": 5, "max": 10, "step": 5 }
+              {
+                "id": "n1",
+                "min": 20,
+                "max": 60,
+                "step": 10
+              },
+              {
+                "id": "n2",
+                "min": 20,
+                "max": 60,
+                "step": 10
+              },
+              {
+                "id": "m",
+                "min": 5,
+                "max": 10,
+                "step": 5
+              }
             ],
-            "answer": { "formula": "n1 * n2 / m", "decimals": 0 },
+            "answer": {
+              "formula": "n1 * n2 / m",
+              "decimals": 0
+            },
             "working": [
               "N = (n₁ × n₂) ÷ m",
               "N = ({n1} × {n2}) ÷ {m}",
@@ -160,12 +202,27 @@
         },
         {
           "type": "table",
-          "columns": ["Method", "Used to sample"],
+          "columns": [
+            "Method",
+            "Used to sample"
+          ],
           "rows": [
-            ["Sweep net", "Insects and other small animals in long grass or foliage"],
-            ["Pitfall trap", "Small animals that walk on the ground, such as beetles"],
-            ["Pooter", "Small insects, sucked gently into a tube from a surface"],
-            ["Quadrat", "Plants and slow-moving or non-motile animals"]
+            [
+              "Sweep net",
+              "Insects and other small animals in long grass or foliage"
+            ],
+            [
+              "Pitfall trap",
+              "Small animals that walk on the ground, such as beetles"
+            ],
+            [
+              "Pooter",
+              "Small insects, sucked gently into a tube from a surface"
+            ],
+            [
+              "Quadrat",
+              "Plants and slow-moving or non-motile animals"
+            ]
           ]
         },
         {
@@ -197,7 +254,10 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": ["AQA 3.7.4"],
+      "spec_codes": [
+        "AQA 3.7.4d",
+        "AQA 3.7.4 RP12"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -215,7 +275,10 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": ["CAIE 18.2.3", "CAIE 18.2.4"],
+      "spec_codes": [
+        "CAIE 18.2.3",
+        "CAIE 18.2.4"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -233,7 +296,10 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": ["OCR 4.2.1b", "OCR 6.3.1e"],
+      "spec_codes": [
+        "OCR 4.2.1b",
+        "OCR 6.3.1e"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -260,7 +326,9 @@
       "10db45a1-b4d8-4ce5-aa3f-c86be42c845f",
       "d1a3671b-358a-4ec6-aef4-9a3d712897f8",
       "df2852a1-65ad-456b-ac1a-f7e3e3bb4d30",
-      "1660b9ab-a883-439b-af16-1ac09ac365b2"
+      "1660b9ab-a883-439b-af16-1ac09ac365b2",
+      "df750488-bf75-4cbe-918e-8b6396150b61",
+      "72350d32-e429-41fb-a876-388f530ddf06"
     ],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",
