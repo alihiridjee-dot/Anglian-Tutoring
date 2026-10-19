@@ -741,6 +741,8 @@ a.when-link:hover .when-link-arrow {
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  justify-content: center;
+  min-width: 4.5rem;
   background: linear-gradient(
     180deg,
     color-mix(in oklab, var(--tint) 78%, white) 0%,

@@ -91,6 +91,8 @@ export function HomeworkChip({
         <>
           <Sparkle className="chip-sparkle" fill="currentColor" aria-hidden />
           <span className="sr-only">Handed in</span>
+          {/* Keeps the text line so the pill is as tall as its neighbours. */}
+          <span aria-hidden>{"\u200b"}</span>
         </>
       ) : (
         label
