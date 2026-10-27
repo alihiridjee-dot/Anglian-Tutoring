@@ -192,7 +192,21 @@
           "Compromise: the temperature is a compromise between rate, equilibrium position and cost. The pressure is a compromise between yield, rate and cost."
         ],
         "tip": "Marked in levels. The top level needs the points to be detailed and logically linked in a clear account."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier, Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A higher pressure is also more dangerous, because there is a greater risk of explosion.",
+                "In a table or graph of percentage yield against pressure, state the trend and quote values. For example, in one table at a fixed temperature, the yield of ammonia rises from 20% at 50 atmospheres to 64% at 300 atmospheres."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -211,7 +225,24 @@
           "Because there is a decrease in the number of molecules (four molecules of gas become two)."
         ],
         "tip": "One mark each. Moving to fewer molecules is allowed in place of the last point."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier, Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Concentration:** a higher concentration of a reactant gives more frequent collisions, so equilibrium is reached faster. It also shifts the equilibrium towards the products, so the equilibrium yield increases.",
+                "An excess of one reactant, such as excess air, is used to raise the equilibrium yield.",
+                "A **catalyst** speeds up the forward and the backward reactions equally. The rate of attainment of equilibrium increases, but the equilibrium yield does not change.",
+                "For an exothermic reaction, a catalyst reduces the need for a high temperature, so a lower temperature with a better yield can still give a fast rate.",
+                "Discuss each condition for both the rate of attainment of equilibrium and the equilibrium yield, and give a reason for each effect."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -231,7 +262,47 @@
           "The catalyst in A does not affect the position of equilibrium, but increases the rate of reaching equilibrium."
         ],
         "tip": "Any four. Unqualified answers are taken to refer to A."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) The Contact process",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Contact process makes sulfur trioxide, which is used to make sulfuric acid. The same trade-off between rate and equilibrium applies as in the Haber process."
+            },
+            {
+              "type": "equation",
+              "label": "The Contact process",
+              "formula": "2SO₂ + O₂ ⇌ 2SO₃",
+              "where": [
+                "SO₂ = sulfur dioxide, O₂ = oxygen, SO₃ = sulfur trioxide",
+                "the forward reaction is exothermic"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Temperature:** the usual temperature is 450 °C. A higher temperature gives a faster rate, because more particles have energy above the activation energy. It also shifts the equilibrium to the left, so the yield is lower.",
+                "**Pressure:** three molecules of gas become two, so a higher pressure shifts the equilibrium to the right. A lower pressure gives fewer collisions per second and a slower rate.",
+                "A pressure much higher than the one used is not worth it. The yield is already high, a higher pressure needs more energy and stronger vessels, which cost more, and the risk of explosion is greater."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Higher tier) Interpreting graphs of conditions",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In a table or graph of rate or yield against a condition, describe the trend and then quote values.",
+                "For example, in one table at a fixed temperature, the percentage yield of ammonia rises from 20% at 50 atmospheres to 64% at 300 atmospheres."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -298,6 +369,6 @@
       "b7009332-1d1f-43b0-88d6-716e68cdd431"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

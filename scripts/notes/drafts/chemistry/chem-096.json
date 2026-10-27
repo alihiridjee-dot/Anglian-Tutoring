@@ -253,7 +253,21 @@
           "OR more farmland is required, so there is more deforestation."
         ],
         "tip": "Both marks are linked: the need, then the activity. A named fossil fuel is allowed."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Scientists communicate their results to a **wide range of audiences**, not only to other scientists.",
+                "Some scientists doubt the link because there may be **other reasons** for changes in the mean temperature, such as the Earth's own cycles of temperature change."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 8.25"],
@@ -293,7 +307,21 @@
           "OR more farmland, or land for housing and industry, is required, so there is more deforestation."
         ],
         "tip": "More electricity, transport or manufacturing is allowed for more energy. Answers in terms of respiration are ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Intensive use of **fertilisers** on farmland is a further human activity that can enhance the greenhouse effect.",
+                "**Cement** manufacture is another, because it releases carbon dioxide."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 10.3.2"]
@@ -315,6 +343,6 @@
       "e60126bb-82a1-4661-a91e-24a76bed96a8"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

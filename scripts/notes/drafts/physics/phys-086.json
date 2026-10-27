@@ -397,15 +397,16 @@
     "edexcel_igcse": {
       "spec_codes": ["IGCSE 6.16"],
       "worked_example": {
-        "exemplar_id": "bdcef167-1412-4d52-8fb6-038278e9327b",
-        "source": "EDEXCEL jun 2024, Paper 1 (PR), Q10(a)",
-        "question": "A small wind turbine contains a generator. The generator is connected to a lamp and the windmill blades.\nWhen the coil rotates, the ammeter displays a small current.\nExplain how the generator produces a current.",
-        "marks": 2,
+        "exemplar_id": "17e457c8-1977-42d4-bb03-48326660a682",
+        "source": "EDEXCEL nov 2020, Paper 1 (PR), Q10(b)(ii)",
+        "question": "A bar magnet is used in a bicycle dynamo.\n\nThe dynamo has a rotating wheel that presses against the tyre of the bicycle.\n\nThe rotating wheel is connected to a bar magnet by a spindle.\n\nWhen the rotating wheel spins, the bar magnet spins.\n\nSuggest a disadvantage of using the dynamo to power the bicycle lights.",
+        "marks": 1,
         "answer_points": [
-          "The coil rotates through the magnetic field, cutting field lines.",
-          "A voltage is induced."
+          "Friction from the dynamo wheel makes the bicycle harder to pedal.",
+          "The brightness of the lights changes with how fast the bicycle is moving.",
+          "The lights go off when the bicycle stops."
         ],
-        "tip": "Say the coil cuts the field lines, then that this induces a voltage."
+        "tip": "Any one of these disadvantages scores the mark. Saying the current or brightness depends on the speed of the bicycle is accepted."
       },
       "extra": [
         {
@@ -441,7 +442,7 @@
       "d65d82b3-01e8-4574-be6a-6ba966fea55f",
       "b2923f90-ab4f-4030-a2be-d620e13a7507",
       "87474b5c-3e08-4270-84f9-d3e16f2aa77a",
-      "bdcef167-1412-4d52-8fb6-038278e9327b"
+      "17e457c8-1977-42d4-bb03-48326660a682"
     ],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-27"

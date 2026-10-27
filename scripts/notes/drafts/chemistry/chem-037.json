@@ -194,7 +194,24 @@
           "Concentration = 0.001162 × 1000 ÷ 25 = 0.0465 mol/dm³ (1)"
         ],
         "tip": "Marks follow your own working, so a mistake in one step does not lose the later marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Required practical: titration",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The required practical uses only strong acids (sulfuric, hydrochloric or nitric acid) with strong alkalis.",
+                "A **pipette** measures a fixed volume of alkali accurately. A **burette** adds variable volumes, drop by drop. Both are more accurate than a measuring cylinder.",
+                "With acid added to alkali, methyl orange changes from yellow to red. Phenolphthalein changes from pink to colourless. Adding alkali to acid reverses each change.",
+                "Rinse the burette with the solution it will hold and the pipette with the solution it will measure. Read the burette at eye level, at the bottom of the meniscus.",
+                "An anomalous titre can come from adding the acid too fast, not swirling, not rinsing the apparatus or misreading the burette."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.10C"]
@@ -236,7 +253,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

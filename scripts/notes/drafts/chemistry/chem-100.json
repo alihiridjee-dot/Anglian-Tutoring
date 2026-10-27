@@ -256,7 +256,37 @@
           "Does not fill up landfill."
         ],
         "tip": "One mark for each advantage, up to two. Cost arguments and vague statements about the environment are ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Recycling metals: energy and cost",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Extracting aluminium by electrolysis uses large amounts of **electricity**, which is expensive. Recycling avoids this.",
+                "Extracting iron needs large amounts of heat and releases carbon dioxide when the carbon burns. Recycling avoids both.",
+                "Using less energy conserves **fossil fuels** as well as cutting greenhouse gas emissions.",
+                "Link any cost point to the energy saved. A bare statement that recycling is cheaper is not credited."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Separate science) Polymers: making, recycling and disposal",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Making polymers uses crude oil, which is finite, and cracking needs a lot of energy. Generating that energy may release carbon dioxide.",
+                "Sorting polymers by hand takes time, containers may need washing first, and some polymers cannot be recycled.",
+                "Polymers are hard to break down into their **monomers**, and recycling can need a lot of energy.",
+                "Burning polymers also releases carbon dioxide, a greenhouse gas. Polymer litter on land and in the sea can harm wildlife."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -274,7 +304,54 @@
           "Other credited ideas: aluminium is not wasted, it is a finite resource, less waste or less greenhouse gas is produced, or less landfill is needed."
         ],
         "tip": "Any three marks. The answer must be comparative, and numbers alone are ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "A recycling process: aluminium",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Sort",
+                  "text": "Separate the aluminium from other metals and materials."
+                },
+                {
+                  "lead": "Shred",
+                  "text": "Crush or shred it into small pieces."
+                },
+                {
+                  "lead": "Melt",
+                  "text": "Heat the pieces until the aluminium melts."
+                },
+                {
+                  "lead": "Cast",
+                  "text": "Pour the molten aluminium into moulds and let it cool to a solid."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "This is viable because recycling needs much less energy than extracting aluminium from bauxite, and it gives far more metal from the same mass of starting material."
+            }
+          ]
+        },
+        {
+          "heading": "Factors that affect decisions on recycling",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "How **scarce** the material is: the less there is in the Earth's crust, the more important it is to recycle.",
+                "How much the material **costs**: a metal that costs more per kilogram is more worth recycling.",
+                "The energy saved and the carbon dioxide saved by recycling, compared with making new material.",
+                "The mass of raw materials needed and the percentage of the product that is recycled.",
+                "Compare the figures. Quoting a value on its own is not credited, and a cost point needs an explanation."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -333,7 +410,7 @@
       "2f615415-7375-4616-88bb-d19bccd8870c"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   },
   "format": 1,
   "subject": "chemistry"

@@ -200,7 +200,35 @@
           "= 58 (%) (1)"
         ],
         "tip": "Marks are given for the mass of oxygen, the fraction, the unrounded value and the rounded answer."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "In a balanced equation, multiply each Mr by the number in front of its formula before you add. Ar: Mg = 24, O = 16."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Reactants.",
+                  "text": "2Mg + O₂: (2 × 24) + (2 × 16) = 80."
+                },
+                {
+                  "lead": "Products.",
+                  "text": "2MgO: 2 × (24 + 16) = 80."
+                },
+                {
+                  "lead": "Compare.",
+                  "text": "Both totals are 80, so the masses balance."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 1.43"],
@@ -230,7 +258,42 @@
           "48.0 + 10.0 + 16.0 = 74.0 (1)"
         ],
         "tip": "Count each type of atom first, then add."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "In a balanced equation, multiply each Mr by the number in front of its formula before you add. Ar: Mg = 24, O = 16."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Reactants.",
+                  "text": "2Mg + O₂: (2 × 24) + (2 × 16) = 80."
+                },
+                {
+                  "lead": "Products.",
+                  "text": "2MgO: 2 × (24 + 16) = 80."
+                },
+                {
+                  "lead": "Compare.",
+                  "text": "Both totals are 80, so the masses balance."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "If every atom of an element in a sample is one **isotope**, use that isotope's mass in place of the Ar. MgSO₄ made only with sulfur-33 has Mr = 24.3 + 33 + (4 × 16.0) = 121.3.",
+                "To find how many atoms of an element a formula holds, subtract the other atoms from the Mr, then divide by that element's Ar. A product of ethene and bromine has Mr = 187.8, 2 C and 4 H: 187.8 − 28.0 = 159.8, and 159.8 ÷ 79.9 = 2 bromine atoms."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 3.2.2", "CAIE 3.2.3", "CAIE 3.3.8S"],
@@ -283,6 +346,6 @@
       "040a58da-c60b-4dce-bcbb-d5b7e3bfc177"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

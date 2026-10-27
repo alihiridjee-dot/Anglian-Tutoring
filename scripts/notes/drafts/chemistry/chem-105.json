@@ -298,7 +298,54 @@
           "So the layers cannot easily slide over each other."
         ],
         "tip": "Ions are allowed for atoms throughout."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Uses of alloys",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Low carbon steel** is used for horseshoes, because it is easily shaped.",
+                "**Stainless steel** is used for cutlery such as spoons, because it is hard and does not corrode.",
+                "**High carbon steel** is used for the bars and wires that strengthen pre-stressed concrete, because it is strong.",
+                "Brass is also used for ornaments, hinges, knobs and screws.",
+                "Aluminium alloys are also used for window frames, because they are harder and stronger than pure aluminium."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Separate science) Interpreting alloy data",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Alloys conduct electricity less well than pure metals. The distorted layers restrict the movement of the **delocalised electrons**.",
+                "The proportions of the metals in an alloy change its properties. Solders with different proportions of metals have different melting points.",
+                "Solder is used to join metals together. Lead is toxic, so solders are now often made without it, and an alloy used in the body must not be toxic."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Percentage of an element in an alloy",
+              "formula": "percentage of the element = (mass of the element ÷ mass of the alloy) × 100",
+              "where": [
+                "mass of the element in grams (g)",
+                "mass of the alloy in grams (g), the total of all the elements in it"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "If the other percentages are given, the main metal is 100 minus their total.",
+                "For atoms in a diagram, divide the number of atoms of the element by the total number of atoms, then multiply by 100.",
+                "To find the mass of an alloy from the mass of some of its elements, divide their mass by their percentage and multiply by 100."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -317,7 +364,40 @@
           "In an alloy the layers of atoms cannot easily slide over each other."
         ],
         "tip": "Reject molecules once only."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Alloys and alloy steels",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In the model, the layers can be called rows or sheets. Write atoms, ions or particles, never **molecules**.",
+                "Alloys are stronger than pure metals, but less malleable and less ductile.",
+                "Pure iron is soft and bends easily, and it corrodes. Iron is alloyed with other elements to make **alloy steels**, which are stronger.",
+                "Adding chromium to steel increases its resistance to corrosion. Steel also contains the non-metal carbon.",
+                "Stainless steel suits cutlery, because it does not corrode and so no rust contaminates the food."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Separate science) Properties and uses of metals and alloys",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Metals and alloys both conduct heat and electricity, because of their **delocalised electrons**.",
+                "Aluminium resists corrosion because of its oxide layer, and it has a low density. It is used for cooking foil and food trays.",
+                "Copper is also used for roofing, because it is unreactive.",
+                "Aluminium alloys, such as magnalium, are used for aircraft parts, vehicles and ladders. Magnesium atoms are lighter than aluminium atoms, so magnalium still has a low density.",
+                "Copper alloys are used for coins, brass instruments, jewellery and plug pins.",
+                "Gold is unreactive, so it does not react with skin. A gold alloy is harder, so jewellery is more hard wearing and keeps its shape. Gold alloys also repair teeth, because they can be hammered into shape, do not corrode and are non-toxic."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -334,7 +414,45 @@
           "Magnalium has a higher resistance to corrosion than aluminium or magnesium."
         ],
         "tip": "Each point must be a comparison, not just a quoted value."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Steel uses: **low carbon steel** is easily shaped, for example for horseshoes. **Stainless steel** does not corrode, for example in cutlery.",
+                "Solder is used to join metals together. The proportions of the metals in a solder change its melting point.",
+                "Lead is toxic, so solders with silver and copper instead of lead are used for health reasons.",
+                "Aircraft parts need a low density, so the aircraft is lighter, more fuel efficient and able to carry more load. They need high strength so they are not damaged, and high resistance to corrosion so they last longer.",
+                "An alloy for a hip replacement must also be non-toxic, as well as strong and not too dense."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Alloy composition data",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "Percentage of a metal in an alloy",
+              "formula": "percentage of the metal = (mass of the metal ÷ total mass of the alloy) × 100",
+              "where": [
+                "mass of the metal in grams (g)",
+                "total mass of the alloy in grams (g), found by adding the masses of all the metals in it"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Divide by the total mass of the alloy, not by the mass of the other metal alone.",
+                "If the percentages of the other metals are given, the remaining metal is 100 minus their total. To find its mass, divide that percentage by 100 and multiply by the mass of the alloy."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -455,6 +573,6 @@
       "0991ce46-2a34-42bc-9545-9e894ee1c437"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

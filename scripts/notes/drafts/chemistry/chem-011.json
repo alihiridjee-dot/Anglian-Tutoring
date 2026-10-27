@@ -242,7 +242,22 @@
           "So the atom loses an electron more easily."
         ],
         "tip": "State the trend first, then give the chain of reasons. More shielding is also accepted."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "With oxygen, each metal atom **loses one electron** and each oxygen atom **gains two electrons**.",
+                "So two metal atoms react with one oxygen atom, as in Li₂O, Na₂O and K₂O.",
+                "The ions formed, such as Na⁺ and O²⁻, have full outer shells."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -262,7 +277,39 @@
           "Therefore the electron is harder to lose."
         ],
         "tip": "Fewer shells, a smaller atomic radius or less shielding all score the first point. The reverse argument for potassium is also credited."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Practical: alkali metals with water",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Protect.",
+                  "text": "Wear safety glasses, use a safety screen and keep the class well back."
+                },
+                {
+                  "lead": "Prepare.",
+                  "text": "Use tongs to take the metal out of its oil, remove the oil and cut a small piece."
+                },
+                {
+                  "lead": "React.",
+                  "text": "Add equal-sized pieces of each metal, one at a time, to equal volumes of water in a large trough. More water absorbs more of the heat given out."
+                },
+                {
+                  "lead": "Test.",
+                  "text": "Collect the gas in a test tube, because in the open it spreads out, then hold a lighted splint to it. Dip universal indicator paper into the solution."
+                },
+                {
+                  "lead": "Compare.",
+                  "text": "The faster the metal moves and fizzes, the more reactive it is."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -280,7 +327,21 @@
           "The outer electron is lost more easily."
         ],
         "tip": "Each point is marked independently. Refer to the outer shell electron at least once to get all 3 marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Boiling points decrease going down the group, as well as melting points, so the value for a missing element is lower than the one for the element above it.",
+                "Group 1 atoms are reactive because losing the one outer electron gives a **full outer shell**. Group 0 atoms already have a full outer shell, so they are unreactive."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -337,7 +398,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

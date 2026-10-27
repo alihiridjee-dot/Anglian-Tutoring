@@ -188,7 +188,29 @@
           "Repeat with different masses, using the same volume of water each time."
         ],
         "tip": "This is a levels question. For the top level, show how the temperature change is found for different masses in the same quantity of water."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Required practical: comparing metals and changing the mass",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Acid with a metal, and displacement of one metal by another, are tested in the same way."
+            },
+            {
+              "type": "list",
+              "items": [
+                "To compare metals, use the **same mass** of each metal in the same form, such as powder, and the same volume and concentration of acid or solution.",
+                "The more reactive the metal, the larger the temperature change. Put the metals in order of reactivity using their temperature changes.",
+                "A metal that does not react gives no temperature change. Copper does not react with dilute hydrochloric acid.",
+                "To test the mass of a solid, you can also add successive masses to the same mixture.",
+                "Instead of the highest temperature, you can record the temperature after a set time.",
+                "Repeat results that vary slightly show **random error**. Different starting temperatures and inconsistent stirring can cause it."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.9"],
@@ -310,6 +332,6 @@
       "0ede73ca-9822-4c43-923d-14ede3893fa0"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

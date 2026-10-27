@@ -239,22 +239,54 @@
     "aqa": {
       "spec_codes": ["AQA 4.6.1.2", "AQA T 5.6.1.2"],
       "worked_example": {
-        "exemplar_id": "05e17128-dcec-44c9-ab9e-acc4161a2283",
-        "source": "AQA jun 2018, Paper 2 (H), Q05.2",
-        "question": "Sodium thiosulfate solution reacts with dilute hydrochloric acid, becoming cloudy as the reaction proceeds.\n\nPlan an investigation to show how the concentration of the sodium thiosulfate solution affects the rate of the reaction with dilute hydrochloric acid.\n\nYour plan should give valid results.",
+        "exemplar_id": "43f41f0f-89c1-4ee1-b762-d3e9b3788874",
+        "source": "AQA jun 2020, Paper 2 (H), Q02.1",
+        "question": "Some students investigated the effect of temperature on the rate of reaction.\nThe students reacted sodium thiosulfate solution with hydrochloric acid.\nThis is the method used.\n1. Use a beaker to measure 50 cm³ of heated sodium thiosulfate solution into a conical flask.\n2. Measure the temperature of the room.\n3. Put the conical flask on a black cross drawn on a piece of paper.\n4. Start a timer.\n5. Use the same beaker to measure 10 cm³ of hydrochloric acid into the conical flask.\n6. Stop the timer when the cross is no longer visible.\nThe students repeated the experiment at a different room temperature.\nThe method contains errors and does not produce accurate results.\n\nDescribe a method the students should use to produce accurate results.\nYou do not need to write about safety precautions.",
         "marks": 6,
         "answer_points": [
-          "Measure a volume of sodium thiosulfate and place it in a conical flask.",
-          "Measure a volume of hydrochloric acid.",
-          "Place the flask on a cross (or between a light source and a light sensor).",
-          "Add the hydrochloric acid, swirl, and start a stopwatch.",
-          "Measure the time for the cross to become no longer visible.",
-          "Repeat and find the mean.",
-          "Repeat for different concentrations of sodium thiosulfate, by changing the ratio of thiosulfate volume to water volume.",
-          "Control variables: concentration of the hydrochloric acid, volume of the hydrochloric acid, and total volume of sodium thiosulfate solution."
+          "Use a measuring cylinder (or a pipette or burette) to measure 50 cm³ of sodium thiosulfate solution into the conical flask.",
+          "Use a different measuring cylinder to measure 10 cm³ of hydrochloric acid.",
+          "Heat the sodium thiosulfate solution to the chosen temperature, for example in a water bath.",
+          "Put the flask on the black cross. Start the timer at the moment the acid is added.",
+          "Stop the timer when the cross is no longer visible.",
+          "Measure the temperature of the mixture after the acid is added and again at the end. Calculate the mean temperature.",
+          "Repeat the experiment at several different temperatures.",
+          "Keep the same volume and the same concentration of sodium thiosulfate solution and of hydrochloric acid each time."
         ],
-        "tip": "This is a levels question. Marks go for the key steps in a logical order and for naming the control variables."
-      }
+        "tip": "This is a levels question. The top level needs the key steps in a logical order, with each error put right: for example, measure the temperature of the mixture, not the room."
+      },
+      "extra": [
+        {
+          "heading": "Required practical: concentration and rate",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Start with a **hypothesis**, a testable prediction with a reason. For example, a higher concentration of acid gives a faster reaction, because there are more particles in the same volume, so collisions are more frequent."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Measure.",
+                  "text": "Pour a measured volume of hydrochloric acid into a conical flask."
+                },
+                {
+                  "lead": "React.",
+                  "text": "Add a weighed piece of magnesium. Put in the stopper, with a delivery tube to a gas syringe, as quickly as possible to reduce loss of gas. Start the timer."
+                },
+                {
+                  "lead": "Record.",
+                  "text": "Record the volume of gas at set time intervals, or the time to collect a fixed volume."
+                },
+                {
+                  "lead": "Repeat.",
+                  "text": "Repeat with other concentrations of acid. Keep the temperature, the volume of acid and the mass and form of magnesium the same. Repeat each one and find a mean."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.1", "EDEX 7.2"],
@@ -269,7 +301,57 @@
           "Stop the timer when the cross is obscured."
         ],
         "tip": "The second and third marks depend on placing the flask over a cross."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Core practical: gas from marble chips and acid",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Put a measured volume of dilute hydrochloric acid in a conical flask. Add a weighed mass of marble chips, connect the gas syringe at once and start the stopwatch."
+                },
+                {
+                  "lead": "Measure.",
+                  "text": "Record the volume of carbon dioxide at regular times, for example every minute, until no more gas is made."
+                },
+                {
+                  "lead": "Change one condition.",
+                  "text": "Repeat with a different concentration of acid, a different temperature (in a water bath) or a different size of chips. Keep every other variable the same."
+                },
+                {
+                  "lead": "Analyse.",
+                  "text": "Plot volume against time for each run. A steeper line means a faster rate."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Core practical: disappearing cross at different temperatures",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Warm.",
+                  "text": "Warm a measured volume of sodium thiosulfate solution in a conical flask to a chosen temperature in a water bath. Record the temperature."
+                },
+                {
+                  "lead": "Time.",
+                  "text": "Stand the flask on a cross. Add a measured volume of hydrochloric acid and start the stopwatch. Stop it when the cross can no longer be seen."
+                },
+                {
+                  "lead": "Repeat.",
+                  "text": "Repeat at other temperatures with the same volumes and concentrations. Plot the time taken against the temperature."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C5.2a"],
@@ -284,7 +366,35 @@
           "Mean rate = 1.67 × 10⁻³ g/s."
         ],
         "tip": "The answer 1.67 × 10⁻³ g/s scores all 3 marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Practical: marble chips or magnesium with acid",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Put a measured volume of dilute hydrochloric acid in a conical flask. Add a weighed mass of marble chips or magnesium and start the stopwatch."
+                },
+                {
+                  "lead": "Measure.",
+                  "text": "Either time how long the solid takes to react completely, or collect the gas and record its volume at regular times. A gas syringe or an upturned burette measures the gas."
+                },
+                {
+                  "lead": "Change one condition.",
+                  "text": "Repeat with a different temperature, concentration or surface area. Keep every other variable the same."
+                },
+                {
+                  "lead": "Analyse.",
+                  "text": "A shorter reaction time means a faster reaction. For gas volumes, plot volume against time. A steeper line means a faster reaction."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 6.2.3", "CAIE 6.2.8S"],
@@ -411,13 +521,13 @@
       "2cbe4ba3-63f3-46b4-b233-c036950ced0b"
     ],
     "exemplar_ids": [
-      "05e17128-dcec-44c9-ab9e-acc4161a2283",
+      "43f41f0f-89c1-4ee1-b762-d3e9b3788874",
       "602bb273-a37d-474e-87ed-4cba193e66eb",
       "77a0ee1f-f1e1-4d04-a2aa-477cb1c8090f",
       "65e5d250-070d-4f57-b5b4-970913167758",
       "90b93268-59fe-44f2-9d0c-938b9c5e8d39"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

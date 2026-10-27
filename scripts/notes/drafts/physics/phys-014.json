@@ -227,16 +227,19 @@
         "EDEX 10.21"
       ],
       "worked_example": {
-        "exemplar_id": "f4481dfd-e4fe-44e8-a9e4-b120a9afe29f",
-        "source": "EDEXCEL jun 2023, Paper 2 (F), Q8(c)(iv)",
-        "question": "Students determine the resistance of a piece of iron wire. Their circuit has a power supply, an ammeter, a voltmeter and a variable resistor.\n\nThe variable resistor is used to prevent the iron wire from becoming too hot.\n\nExplain how the variable resistor is used to prevent the iron wire from becoming too hot.",
-        "marks": 2,
+        "exemplar_id": "c0e5817a-c56f-4424-9175-411299ad70a5",
+        "source": "EDEXCEL jun 2018, Paper 2 (H), Q10(b)",
+        "question": "Explain, with the aid of a circuit diagram, the method a student could use to investigate how the resistance of a single lamp changes with the potential difference across the lamp.",
+        "marks": 6,
         "answer_points": [
-          "The variable resistor increases the resistance of the circuit.",
-          "So the current is kept constant (or smaller).",
-          "Because the current heats up the wire (this can replace one of the other points)."
+          "Circuit: a power supply and a filament lamp, with an ammeter in series with the lamp, a voltmeter in parallel across it, and a variable resistor (or variable power supply) to change the potential difference.",
+          "Measure the current through the lamp with the ammeter.",
+          "Measure the potential difference across the lamp with the voltmeter.",
+          "Use the variable resistor to change the potential difference, and take readings for a range of values.",
+          "Calculate the resistance for each pair of readings using R = V ÷ I.",
+          "Repeat the readings and compare how the resistance changes as the potential difference increases."
         ],
-        "tip": "Any two linked points score. Adjusting the variable resistor to keep the current constant or small gets both marks."
+        "tip": "This is a level-marked question. For top marks draw a correct circuit and describe the method in a logical order, from taking readings to calculating R = V ÷ I."
       },
       "extra": [
         {
@@ -324,15 +327,17 @@
         "OCR P3.2f"
       ],
       "worked_example": {
-        "exemplar_id": "95ba9a1c-7409-4d77-b13b-c1b73ecdfa0b",
-        "source": "OCR nov 2020, Paper 1, Q17(b)(iii)",
-        "question": "A student sets up a circuit to investigate the resistance of a lamp. The circuit has an ammeter and a voltmeter.\n\nExplain how you could use the same circuit to investigate the resistance of a fixed resistor instead of a lamp.",
-        "marks": 2,
+        "exemplar_id": "02d778ff-a56f-4799-8ed5-69069b84ae04",
+        "source": "OCR jun 2024, Paper 3, Q18(c)",
+        "question": "This question is about electricity.\n\nA student has written two sentences about the resistance of different electrical components.\n\nThe resistance of a filament lamp is so high in one direction, that no current can pass through.\n\nThe resistance of a thermistor changes as the light intensity changes.\n\nThe student has made two mistakes about the components.\n\nIdentify the mistakes and write the correct word or words to replace each of them.\n\nMistake 1 ______\n\nCorrect word(s) 1 ______\n\nMistake 2 ______\n\nCorrect word(s) 2 ______",
+        "marks": 4,
         "answer_points": [
-          "Change the lamp for a (fixed) resistor.",
-          "Measure the current for different potential differences."
+          "Mistake 1: filament lamp.",
+          "Correct word 1: diode, which has a very high resistance in the reverse direction.",
+          "Mistake 2: thermistor.",
+          "Correct words 2: light-dependent resistor (LDR). Or the mistake is light intensity, and the correct word is temperature."
         ],
-        "tip": "Repeating the experiment is also allowed for the second mark."
+        "tip": "One mark for each mistake and one for each correction. A light-emitting diode (LED) is also accepted for the first correction."
       },
       "extra": [
         {
@@ -438,9 +443,8 @@
       "af05081f-55c8-4450-809f-68068891d334",
       "163ab3f7-17ac-443e-b142-b4bc68a46937",
       "c0e5817a-c56f-4424-9175-411299ad70a5",
-      "95ba9a1c-7409-4d77-b13b-c1b73ecdfa0b",
+      "02d778ff-a56f-4799-8ed5-69069b84ae04",
       "37ba9fde-e1b2-42bd-92bc-c3e04e956416",
-      "f4481dfd-e4fe-44e8-a9e4-b120a9afe29f",
       "0d2734c3-fe7f-417d-a0e7-c749e28c8bf0",
       "3ca57c51-a02c-4241-b477-4c2526a3ff91"
     ],

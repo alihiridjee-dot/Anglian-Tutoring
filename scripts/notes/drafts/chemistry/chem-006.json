@@ -243,7 +243,31 @@
           "Total: 48.0 + 10.0 + 16.0 = 74.0"
         ],
         "tip": "A correct answer of 74 scores all 3 marks. Units are ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "If every atom of an element in a formula is one named isotope, use that isotope's mass number in place of the element's Ar."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Replace.",
+                  "text": "In MgSO₄ with every sulfur atom as sulfur-33, use 33 for sulfur."
+                },
+                {
+                  "lead": "Add.",
+                  "text": "With Ar: O = 16 and Mg = 24.3, Mr = 24.3 + 33 + (4 × 16) = 121.3."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -300,7 +324,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
