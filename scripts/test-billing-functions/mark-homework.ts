@@ -138,4 +138,23 @@ r = await call();
 assert.deepEqual(r.body, { marked: false, reason: "in_progress" });
 assert.equal(ANTHROPIC.calls.length, 0, "A second run paid for another model call");
 
+// 6. The rules that stop wrong science earning a mark reach the model on every
+//    call: false as written scores nothing, a wrong general claim is never the
+//    converse, one idea is one mark, and comments name the error in the
+//    student's own words rather than quietly correcting it.
+world();
+ANTHROPIC.reply = () => ({ questions: [mark(Q1, 2), mark(Q2, 0)], summary: "" });
+await call();
+const system = ANTHROPIC.calls[0].system as string;
+for (const [rule, pattern] of [
+  ["false as written earns nothing", /scientifically wrong as written earns no mark/],
+  ["no guessing what the student meant", /Do not guess what the student meant/],
+  ["a wrong general claim is not the converse", /wrong general claim never earns the mark/],
+  ["one idea, one mark", /One idea earns one mark/],
+  ["comments name a false statement", /scientifically false, name it and say why it is wrong/],
+  ["comments keep the student's words", /never a corrected version/],
+] as const) {
+  assert.match(system, pattern, `The marking prompt lost a rule: ${rule}`);
+}
+
 console.log("mark-homework: all checks passed");
