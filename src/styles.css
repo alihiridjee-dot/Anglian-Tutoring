@@ -413,6 +413,37 @@
   }
 }
 
+/* The header bell with something unread: a quick jingle every few seconds,
+   swinging from its top like a real bell. Still under reduced motion. */
+@keyframes bell-ring {
+  0%,
+  82%,
+  100% {
+    transform: rotate(0);
+  }
+  85% {
+    transform: rotate(16deg);
+  }
+  88% {
+    transform: rotate(-14deg);
+  }
+  91% {
+    transform: rotate(9deg);
+  }
+  94% {
+    transform: rotate(-5deg);
+  }
+}
+.bell-ring {
+  transform-origin: 50% 10%;
+  animation: bell-ring 4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bell-ring {
+    animation: none;
+  }
+}
+
 /* A spec point's week, as a button into the planner: a tinted ticket with an
    icon tile, the date, and an arrow that nudges forward on hover. */
 .when-link {

@@ -1,9 +1,28 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+  type CSSProperties,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { Link } from "@tanstack/react-router";
-import { Bell, Check } from "lucide-react";
+import {
+  Bell,
+  Check,
+  CheckCheck,
+  ClipboardCheck,
+  Clock,
+  MessageCircle,
+  Palmtree,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoMode } from "@/lib/auth/session";
-import { ErrorNote } from "@/components/Shared";
+import { Chip, EmptyState, ErrorNote } from "@/components/Shared";
+import { scoreTint, timeAgo } from "@/components/students/studentPresentation";
+import { cn } from "@/lib/utils";
 
 type Notification = {
   id: string;
@@ -16,6 +35,25 @@ type Notification = {
   /** The conversation a chat notification is about. */
   chat_thread_id: string | null;
 };
+
+/** Each kind of notice wears its own icon and colour, so a glance says which is which. */
+const KIND: Record<string, { icon: LucideIcon; tint: string }> = {
+  homework_marked: { icon: ClipboardCheck, tint: "tint-primary" },
+  feedback_acknowledged: { icon: CheckCheck, tint: "tint-emerald" },
+  chat_message: { icon: MessageCircle, tint: "tint-accent" },
+  parent_invite: { icon: Users, tint: "tint-pop" },
+  break_booked: { icon: Palmtree, tint: "tint-amber" },
+};
+const OTHER_KIND = { icon: Bell, tint: "tint-slate" };
+
+/**
+ * A marked task's body ends " — 33%" (see `notify_when_tutor_publishes`). The
+ * score comes off it and is shown as a coloured badge; the rest is the title.
+ */
+function splitScore(body: string | null): { text: string | null; pct: number | null } {
+  const m = body?.match(/^(.*?)\s+—\s+(\d{1,3})%$/);
+  return m ? { text: m[1], pct: Number(m[2]) } : { text: body, pct: null };
+}
 
 /**
  * Header bell showing this user's notifications.
@@ -102,9 +140,9 @@ export function NotificationBell() {
         aria-label={unread > 0 ? `Notifications (${unread} unread)` : "Notifications"}
         className="relative size-11 sm:pointer-fine:size-9 rounded-lg border border-border hover:bg-muted flex items-center justify-center cursor-pointer"
       >
-        <Bell className="w-4 h-4" />
+        <Bell className={cn("w-4 h-4", unread > 0 && "bell-ring")} />
         {unread > 0 && (
-          <span className="absolute -top-1 -right-1 min-w-4 h-4 px-1 rounded-full bg-red-500 text-white text-[10px] font-bold flex items-center justify-center">
+          <span className="chip chip-solid tint-rose pop-in absolute -top-1.5 -right-1.5 min-w-5 h-5 justify-center px-1 text-[10px]">
             {unread > 9 ? "9+" : unread}
           </span>
         )}
@@ -114,16 +152,26 @@ export function NotificationBell() {
         <div
           ref={panelRef}
           style={{ right: -shift }}
-          className="absolute top-12 sm:top-11 w-[min(20rem,calc(100vw-2rem))] max-h-[min(24rem,70dvh)] overflow-auto rounded-xl premium-card shadow-xl z-50"
+          className="tint-primary pop-in absolute top-12 sm:top-11 w-[min(22rem,calc(100vw-2rem))] max-h-[min(28rem,70dvh)] overflow-auto rounded-2xl premium-card shadow-xl z-50"
         >
-          <div className="flex items-center justify-between px-4 py-3 border-b border-border sticky top-0 bg-card">
-            <span className="text-sm font-semibold">Notifications</span>
+          <div className="flex items-center justify-between gap-2 px-4 py-3 border-b border-border sticky top-0 z-10 bg-card">
+            <div className="flex items-center gap-2">
+              <span className="icon-tile icon-tile-solid size-8">
+                <Bell className="size-4" aria-hidden />
+              </span>
+              <h3 className="text-base font-bold">Notifications</h3>
+              {unread > 0 && (
+                <Chip tint="tint-rose" className="chip-solid">
+                  {unread} new
+                </Chip>
+              )}
+            </div>
             {unread > 0 && (
               <button
                 onClick={markAllRead}
-                className="text-xs text-muted-foreground hover:text-foreground inline-flex min-h-11 items-center gap-1 -my-2 cursor-pointer"
+                className="btn-premium inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1 px-2.5 py-1 text-xs font-bold cursor-pointer"
               >
-                <Check className="w-3 h-3" /> Mark all read
+                <Check className="size-3.5" aria-hidden /> All read
               </button>
             )}
           </div>
@@ -135,35 +183,55 @@ export function NotificationBell() {
           )}
           {items.length === 0 ? (
             !loadError && (
-              <p className="text-muted-foreground px-4 py-8 text-center text-sm">
-                You&apos;re all caught up.
-              </p>
+              <div className="p-3">
+                <EmptyState title="You're all caught up" mascot="owl" mood="happy" />
+              </div>
             )
           ) : (
-            <ul className="divide-y divide-border">
-              {items.map((n) => {
+            <ul className="space-y-2 p-2.5">
+              {items.map((n, i) => {
+                const kind = KIND[n.type] ?? OTHER_KIND;
+                const Icon = kind.icon;
+                const { text, pct } = splitScore(n.body);
+                const unseen = !n.read_at;
                 const body = (
                   <div
-                    className={`px-4 py-3 hover:bg-muted/40 ${n.read_at ? "" : "bg-primary/[0.04]"}`}
+                    className={cn(
+                      "flex items-start gap-3 rounded-xl border-[1.5px] px-3 py-2.5 transition-transform hover:-translate-y-0.5",
+                      kind.tint,
+                      unseen
+                        ? "border-[color-mix(in_oklab,var(--tint)_35%,transparent)] bg-[color-mix(in_oklab,var(--tint)_8%,var(--card))]"
+                        : "border-border bg-card",
+                    )}
                   >
-                    <div className="flex items-start gap-2">
-                      {!n.read_at && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
-                      )}
-                      <div className="min-w-0">
-                        <p className="text-sm font-medium leading-snug">{n.title}</p>
-                        {n.body && (
-                          <p className="text-xs text-muted-foreground truncate mt-0.5">{n.body}</p>
-                        )}
-                        <p className="text-[11px] text-muted-foreground mt-1">
-                          {new Date(n.created_at).toLocaleString()}
-                        </p>
-                      </div>
+                    <span className={cn("icon-tile size-10 shrink-0", unseen && "icon-tile-solid")}>
+                      <Icon className="size-5" aria-hidden />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-bold leading-snug">{n.title}</p>
+                      {text && <p className="text-sm leading-snug mt-0.5 line-clamp-2">{text}</p>}
+                      <Chip icon={Clock} tint="tint-slate" className="mt-1.5">
+                        {timeAgo(n.created_at)}
+                      </Chip>
                     </div>
+                    {pct != null && (
+                      <span
+                        className={cn(
+                          "numeral icon-tile icon-tile-solid h-10 min-w-12 shrink-0 justify-center px-2 text-base",
+                          scoreTint(pct),
+                        )}
+                      >
+                        {pct}%
+                      </span>
+                    )}
                   </div>
                 );
                 return (
-                  <li key={n.id}>
+                  <li
+                    key={n.id}
+                    className="rise-in"
+                    style={{ "--rise-delay": `${Math.min(i, 8) * 0.04}s` } as CSSProperties}
+                  >
                     {n.link ? (
                       <Link
                         to={n.link}
