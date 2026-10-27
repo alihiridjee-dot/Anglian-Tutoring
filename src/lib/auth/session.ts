@@ -39,7 +39,12 @@ export interface AuthSession {
  */
 export function isDemoMode(): boolean {
   if (typeof window === "undefined") return false;
-  return window.location.pathname.startsWith("/demo");
+  return isDemoPath(window.location.pathname);
+}
+
+/** True for a path inside the showcase. `isDemoMode` asks it of the current URL. */
+export function isDemoPath(pathname: string): boolean {
+  return pathname.startsWith("/demo");
 }
 
 /** The persona the showcase is previewing, or null outside the showcase. */

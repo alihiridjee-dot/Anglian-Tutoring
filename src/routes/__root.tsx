@@ -16,6 +16,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Mascot } from "@/components/Doodles";
 import { markHydrated } from "@/lib/auth/hydration";
 import { createAuthChangeHandler } from "@/lib/auth/authChange";
+import { createDemoCrossingHandler } from "@/lib/auth/demoCrossing";
 import { installReturnSpots } from "@/lib/shell/returnSpot";
 import { SITE_URL } from "@/lib/platform/seo";
 
@@ -170,6 +171,22 @@ function RootComponent() {
       onAuthChange(event, session?.user.id ?? null),
     );
     return () => sub.subscription.unsubscribe();
+  }, [router, queryClient]);
+
+  // Going into or out of /demo empties the cache, so neither side is shown the
+  // other's answers (see `demoCrossing`). Moving around inside one side doesn't.
+  useEffect(() => {
+    const crossing = createDemoCrossingHandler(queryClient, router.state.location.pathname);
+    const stopNavigating = router.subscribe("onBeforeNavigate", ({ toLocation }) =>
+      crossing.navigating(toLocation.pathname),
+    );
+    const stopMounting = router.subscribe("onBeforeRouteMount", ({ toLocation }) =>
+      crossing.mounting(toLocation.pathname),
+    );
+    return () => {
+      stopNavigating();
+      stopMounting();
+    };
   }, [router, queryClient]);
 
   return (
