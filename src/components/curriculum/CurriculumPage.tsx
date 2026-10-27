@@ -210,15 +210,21 @@ export function Curriculum() {
     if (search.topic) setOpenTopicId(search.topic);
   }, [search.topic, setOpenTopicId]);
 
+  // Each load is numbered and only the newest may land. A student's page asks
+  // for the default course first and their own board a moment later, and the
+  // older reply can arrive last — it must not paint the wrong board's topics.
+  const loadSeq = useRef(0);
   const loadTopics = async () => {
+    const seq = ++loadSeq.current;
     setLoading(true);
     try {
       const data = await CurriculumDAL.getTopics(level, board, subject);
-      setTopics(data);
+      if (seq === loadSeq.current) setTopics(data);
     } catch (e: unknown) {
-      toast.error(e instanceof Error ? e.message : "Failed to load curriculum");
+      if (seq === loadSeq.current)
+        toast.error(e instanceof Error ? e.message : "Failed to load curriculum");
     } finally {
-      setLoading(false);
+      if (seq === loadSeq.current) setLoading(false);
     }
   };
 
