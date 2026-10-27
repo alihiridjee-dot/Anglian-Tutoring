@@ -147,11 +147,21 @@ export function selectWeek(roadmap: RoadmapResult | null, weekStart: string): We
      * the one lane that cannot, the fixed teaching slice, and for any caller
      * that hands in a roadmap built without them.
      */
-    const { selection: allowed, suppressed } = applyOverrides(
+    const { selection: afterOverrides, suppressed } = applyOverrides(
       { specPointIds, origins: lanes },
       indexOverrides(roadmap.overrides),
       weekStart,
     );
+    // `save_weekly_plan` refuses a week of more than MAX_WEEK_POINTS, and a
+    // week's first save is this cut as it stands. Catch-up is uncapped by
+    // design, so a student far behind could be given more than that in the
+    // last weeks before the exam: the save was refused on every load, and the
+    // planner showed an error all week. Catch-up comes last in the cut, so it
+    // is what waits; whatever doesn't fit stays owed.
+    const allowed = {
+      specPointIds: afterOverrides.specPointIds.slice(0, MAX_WEEK_POINTS),
+      origins: afterOverrides.origins,
+    };
     const kept = new Set(allowed.specPointIds);
     const keptCatchUp = catchUpIds.filter((id) => kept.has(id));
     const keptFocus =

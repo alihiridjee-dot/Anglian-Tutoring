@@ -1,4 +1,4 @@
-import { customSchedule, reorderTopics, resumeAfterPause } from "./topicOrder";
+import { customSchedule, reorderTopics, resumeAfterPause, spineMatchesExam } from "./topicOrder";
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
 import { dbError } from "@/lib/platform/errors";
@@ -276,6 +276,12 @@ export class ProgramDAL {
     const stored = p.baseline.pacing as unknown as PacingBand[];
     // A spine for another course is rebuilt from this week anyway.
     if (spineIsForAnotherCourse(stored, p.progress)) return null;
+    // The exam moved and the spine hasn't followed yet. Laying a break now
+    // stamped the new date on the old spine, so the move was never noticed:
+    // the weeks before the break kept the old pace and everything else was
+    // crammed in after it. The move is applied first (applyPending, on sight),
+    // and the break is laid over the new spine on the next load.
+    if (!spineMatchesExam(stored, p.baseline.exam_date)) return null;
     const bands = stored.filter(isTeachBand);
     const laid = layBreaksOver({
       bands,

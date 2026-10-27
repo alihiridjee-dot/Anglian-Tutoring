@@ -261,6 +261,10 @@ for (const file of [
   "20261005160000_student_breaks.sql",
   "20261005161000_break_pickup.sql",
   "20261005163000_break_notice_existing_parents.sql",
+  // end_break as it stands after the scheduler fixes (calling off a break that
+  // began this week takes the breaks after it too), so every check below runs
+  // on it. Its own checks are in test-scheduler-fixes-db.ts.
+  "20261028090000_scheduler_fixes.sql",
 ])
   await db.exec(await readFile(new URL(`../supabase/migrations/${file}`, import.meta.url), "utf8"));
 
@@ -828,7 +832,26 @@ const extension = await book(alex, alex, mon(3), 2, "holiday");
 // ── 14. The rollback removes all of it, and puts the erase back ─────────
 {
   await refuses(() => planWeek(alex, mon(2)), "23514", "on_a_break", "still a break week");
-  // The notice fix first: book_break as 20261005160000 left it.
+  // The scheduler fixes first: end_break as 20261005161000 left it.
+  await db.exec(
+    await readFile(
+      new URL("../supabase/rollbacks/20261028090000_scheduler_fixes.down.sql", import.meta.url),
+      "utf8",
+    ),
+  );
+  const pickupSrc = (
+    await db.query<{ src: string }>("select prosrc as src from pg_proc where proname = 'end_break'")
+  ).rows[0].src;
+  assert.ok(
+    (
+      await readFile(
+        new URL("../supabase/migrations/20261005161000_break_pickup.sql", import.meta.url),
+        "utf8",
+      )
+    ).includes(`as $function$${pickupSrc}$function$;`),
+    "end_break as 20261005161000 left it",
+  );
+  // The notice fix next: book_break as 20261005160000 left it.
   await db.exec(
     await readFile(
       new URL(

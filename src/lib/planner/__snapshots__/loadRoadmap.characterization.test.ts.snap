@@ -2146,7 +2146,8 @@ exports[`exam date moved: proposes changes and asks for acknowledgement 1`] = `
     "backlogByTopic": [],
     "bands": [
       {
-        "endWeek": "2026-12-07",
+        "endWeek": "2026-09-14",
+        "fixedPoints": true,
         "pointsByWeek": {
           "2026-09-07": [
             {
@@ -2164,6 +2165,22 @@ exports[`exam date moved: proposes changes and asks for acknowledgement 1`] = `
               "weight": 2,
             },
           ],
+        },
+        "schedule": {
+          "examDate": "2027-05-10",
+          "from": "2026-09-21",
+          "version": 1,
+        },
+        "startWeek": "2026-09-07",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 2,
+      },
+      {
+        "endWeek": "2026-10-19",
+        "fixedPoints": true,
+        "openedWeek": "2026-09-07",
+        "pointsByWeek": {
           "2026-09-21": [
             {
               "code": "A3",
@@ -2173,10 +2190,16 @@ exports[`exam date moved: proposes changes and asks for acknowledgement 1`] = `
             },
           ],
         },
-        "startWeek": "2026-09-07",
+        "reviewStartWeek": "2026-09-07",
+        "schedule": {
+          "examDate": "2027-05-10",
+          "from": "2026-09-21",
+          "version": 1,
+        },
+        "startWeek": "2026-09-21",
         "title": "Topic t1",
         "topicId": "t1",
-        "weeks": 14,
+        "weeks": 5,
       },
       {
         "endWeek": "2026-09-21",
@@ -2215,9 +2238,11 @@ exports[`exam date moved: proposes changes and asks for acknowledgement 1`] = `
         "weeks": 1,
       },
       {
-        "endWeek": "2027-01-25",
+        "endWeek": "2026-12-21",
+        "fixedPoints": true,
+        "openedWeek": undefined,
         "pointsByWeek": {
-          "2026-12-14": [
+          "2026-10-26": [
             {
               "code": "B1",
               "specPointId": "b1",
@@ -2225,7 +2250,7 @@ exports[`exam date moved: proposes changes and asks for acknowledgement 1`] = `
               "weight": 1,
             },
           ],
-          "2026-12-21": [
+          "2026-11-02": [
             {
               "code": "B2",
               "specPointId": "b2",
@@ -2234,10 +2259,49 @@ exports[`exam date moved: proposes changes and asks for acknowledgement 1`] = `
             },
           ],
         },
-        "startWeek": "2026-12-14",
+        "reviewStartWeek": "2026-10-26",
+        "schedule": {
+          "examDate": "2027-05-10",
+          "from": "2026-09-21",
+          "version": 1,
+        },
+        "startWeek": "2026-10-26",
         "title": "Topic t2",
         "topicId": "t2",
-        "weeks": 7,
+        "weeks": 9,
+      },
+      {
+        "endWeek": "2027-05-03",
+        "fixedPoints": true,
+        "openedWeek": undefined,
+        "pointsByWeek": {
+          "2026-12-28": [
+            {
+              "code": "C1",
+              "specPointId": "c1",
+              "title": "Point c1",
+              "weight": 3,
+            },
+          ],
+          "2027-01-04": [
+            {
+              "code": "C2",
+              "specPointId": "c2",
+              "title": "Point c2",
+              "weight": 1,
+            },
+          ],
+        },
+        "reviewStartWeek": "2026-12-28",
+        "schedule": {
+          "examDate": "2027-05-10",
+          "from": "2026-09-21",
+          "version": 1,
+        },
+        "startWeek": "2026-12-28",
+        "title": "Topic t3",
+        "topicId": "t3",
+        "weeks": 19,
       },
       {
         "endWeek": "2026-12-28",
@@ -2256,31 +2320,6 @@ exports[`exam date moved: proposes changes and asks for acknowledgement 1`] = `
         "title": "Topic t2",
         "topicId": "t2",
         "weeks": 1,
-      },
-      {
-        "endWeek": "2027-05-03",
-        "pointsByWeek": {
-          "2027-02-01": [
-            {
-              "code": "C1",
-              "specPointId": "c1",
-              "title": "Point c1",
-              "weight": 3,
-            },
-          ],
-          "2027-02-08": [
-            {
-              "code": "C2",
-              "specPointId": "c2",
-              "title": "Point c2",
-              "weight": 1,
-            },
-          ],
-        },
-        "startWeek": "2027-02-01",
-        "title": "Topic t3",
-        "topicId": "t3",
-        "weeks": 14,
       },
     ],
     "baselineBands": [
@@ -2321,25 +2360,34 @@ exports[`exam date moved: proposes changes and asks for acknowledgement 1`] = `
         "title": "Topic t1",
         "to": "2026-09-07",
         "topicId": "t1",
-        "weeks": 14,
+        "weeks": 2,
+      },
+      {
+        "from": "2026-09-07",
+        "fromWeeks": 16,
+        "kind": "moved",
+        "title": "Topic t1",
+        "to": "2026-09-21",
+        "topicId": "t1",
+        "weeks": 5,
       },
       {
         "from": "2026-12-28",
         "fromWeeks": 8,
         "kind": "moved",
         "title": "Topic t2",
-        "to": "2026-12-14",
+        "to": "2026-10-26",
         "topicId": "t2",
-        "weeks": 7,
+        "weeks": 9,
       },
       {
         "from": "2027-02-22",
         "fromWeeks": 15,
         "kind": "moved",
         "title": "Topic t3",
-        "to": "2027-02-01",
+        "to": "2026-12-28",
         "topicId": "t3",
-        "weeks": 14,
+        "weeks": 19,
       },
     ],
     "completedPointIds": [],

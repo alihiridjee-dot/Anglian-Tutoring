@@ -1,4 +1,10 @@
-import { customSchedule, orderInputs, reorderTopics, type OrderTopic } from "./topicOrder";
+import {
+  customSchedule,
+  orderInputs,
+  reorderTopics,
+  spineMatchesExam,
+  type OrderTopic,
+} from "./topicOrder";
 import { addWeeks, toDateKey, weekKeyToDate } from "./week";
 import { type TopicProgress } from "./scheduleDal";
 import {
@@ -471,8 +477,13 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
 
 /**
  * The spine as it would be cut today. Curriculum order is recomputed from the
- * topic weights. A custom order is kept as stored, and is only re-spread over
- * the topics still to come when the exam date has moved since it was chosen.
+ * topic weights. A custom order is kept as stored. When the exam date has
+ * moved since the spine was cut, either kind is re-spread over the topics
+ * still to come, from this week: what earlier weeks promised stands.
+ * Recomputing curriculum order from the programme start instead re-dealt the
+ * weeks already gone, so moving the exam earlier told a student who had done
+ * everything that they'd missed work, and moving it later handed them weeks
+ * of points they had already covered.
  */
 function liveSpine(params: {
   topics: PacingInput[];
@@ -487,17 +498,19 @@ function liveSpine(params: {
   const computed = computePacing(topics, start, examMonday);
   const stored = baseline ? baseline.pacing : [];
   const custom = customSchedule(stored);
-  if (!custom || !baseline) return computed;
-  if (custom.examDate === baseline.exam_date) return stored;
+  if (!baseline) return computed;
+  // As it stood when it was cut: still the spine for this exam date.
+  const unmoved = custom ? stored : computed;
+  if (spineMatchesExam(stored, baseline.exam_date)) return unmoved;
 
-  const from = [custom.from, toDateKey(thisMonday)].sort().at(-1)!;
+  const from = [custom?.from ?? baseline.program_start, toDateKey(thisMonday)].sort().at(-1)!;
   const orderTopics = progress.map((t) => ({
     topicId: t.topicId,
     title: t.title,
     points: pointsByTopic.get(t.topicId)!,
   }));
   const remaining = orderInputs(stored, orderTopics, from).remaining;
-  if (!remaining.length) return stored;
+  if (!remaining.length) return unmoved;
   try {
     return reorderTopics({
       bands: stored,
@@ -505,13 +518,15 @@ function liveSpine(params: {
       order: remaining.map((t) => t.topicId),
       from,
       examDate: baseline.exam_date,
+      today: toDateKey(thisMonday),
     });
   } catch (e) {
-    // Too few weeks left, or the exams have passed: the stored spine still cuts
-    // weeks, and `unscheduledTopicTitles` reports what it cannot hold. Throwing
-    // here took the whole planner down — including the date box that fixes it.
-    console.warn("[planner] couldn't re-spread the custom order to the new exam date", e);
-    return stored;
+    // Too few weeks left, or the exams have passed: the spine as it was still
+    // cuts weeks, and `unscheduledTopicTitles` reports what it cannot hold.
+    // Throwing here took the whole planner down — including the date box that
+    // fixes it.
+    console.warn("[planner] couldn't re-spread the plan to the new exam date", e);
+    return unmoved;
   }
 }
 

@@ -90,6 +90,26 @@ describe("selectWeek", () => {
     expect(cut.specPointIds).toEqual([]);
     expect(cut.rationale.length).toBeGreaterThan(0);
   });
+  test("a first cut never holds more than the cap: catch-up waits, teaching stays", () => {
+    const week = spine[1].startWeek;
+    const owed = Array.from({ length: MAX_WEEK_POINTS + 20 }, (_, i) => ({
+      specPointId: `owed${i}`,
+      topicId: "t1",
+      topicTitle: "Topic t1",
+      code: `O${i}`,
+      title: `Owed ${i}`,
+      weight: 1,
+      plannedWeek: spine[0].startWeek,
+    }));
+    const roadmap = roadmapFor();
+    const cut = selectWeek(
+      { ...roadmap, backlog: owed, catchUpSchedule: { weeks: { [week]: owed }, held: [] } },
+      week,
+    );
+    expect(cut.specPointIds).toHaveLength(MAX_WEEK_POINTS);
+    expect(cut.specPointIds).toContain("b1");
+    expect(cut.rationale).toContain("more missed points are queued");
+  });
 });
 
 describe("mergeWeek", () => {
@@ -121,6 +141,43 @@ describe("mergeWeek", () => {
     })!;
     expect(merged.specPointIds).toHaveLength(MAX_WEEK_POINTS);
     for (const p of pinned) expect(merged.specPointIds).toContain(p.spec_point_id);
+  });
+});
+
+describe("buildRoadmap after the exam date moves on a curriculum-order spine", () => {
+  // Topic t1 ran 7–21 Sep and the student did both its points.
+  const doneT1 = { ...ledger, done: new Set(["a1", "a2"]) };
+  // The date is saved, the re-flowed spine is accepted (applyPending), and the
+  // planner is opened again on it.
+  const movedAndAccepted = (examDate: string) => {
+    const at = {
+      examMonday: weekKeyToDate(examDate),
+      thisMonday: weekKeyToDate("2026-09-28"),
+      ledger: doneT1,
+    };
+    const proposed = roadmapFor({
+      ...at,
+      baseline: { program_start: "2026-09-07", exam_date: examDate, pacing: spine },
+    });
+    expect(proposed.needsAck).toBe(true);
+    const accepted = proposed.bands.filter((b) => !b.kind || b.kind === "teach");
+    return roadmapFor({
+      ...at,
+      baseline: { program_start: "2026-09-07", exam_date: examDate, pacing: accepted },
+    });
+  };
+  test("an earlier exam doesn't turn weeks already gone into missed work", () => {
+    const result = movedAndAccepted("2026-10-12");
+    expect(result.needsAck).toBe(false);
+    expect(result.backlog).toEqual([]);
+    expect(selectWeek(result, "2026-09-28").specPointIds.some((id) => id.startsWith("b"))).toBe(
+      true,
+    );
+  });
+  test("a later exam doesn't hand back a week of points already covered", () => {
+    const result = movedAndAccepted("2026-12-07");
+    expect(result.backlog).toEqual([]);
+    expect(selectWeek(result, "2026-09-28").specPointIds.length).toBeGreaterThan(0);
   });
 });
 

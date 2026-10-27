@@ -15,6 +15,18 @@ export function practiceInWeek(at: string, weekStart?: string): boolean {
   return time >= start.getTime() && time < addWeeks(start, 1).getTime();
 }
 
+/**
+ * A task is handed in once (`homework_submissions` is unique per task and
+ * student), so a point that comes back in a later week — a review, a carry —
+ * can never be handed in again. A hand-in from before the week still counts as
+ * its task done; `plan_point_tick_state` says the same.
+ */
+export function handedInBefore(at: string, weekStart?: string): boolean {
+  const time = new Date(at).getTime();
+  if (!weekStart || !Number.isFinite(time)) return false;
+  return time < weekKeyToDate(weekStart).getTime();
+}
+
 /** A score at or above this (percent) counts as "solid" on a point. */
 export const STRONG_THRESHOLD = 70;
 

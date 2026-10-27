@@ -23,3 +23,11 @@ export const examDatesQuery = (studentId: string) =>
     queryFn: () => BreakDAL.examDates(studentId),
     staleTime: 60_000,
   });
+
+/** Each programme's spine and points, for the booking form's fit rule (BreakDAL.courses). */
+export const breakCoursesQuery = (studentId: string) =>
+  queryOptions({
+    queryKey: [...plannerKey(studentId), "break-courses"],
+    queryFn: () => BreakDAL.courses(studentId),
+    staleTime: 60_000,
+  });

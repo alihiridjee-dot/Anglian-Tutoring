@@ -5,11 +5,12 @@ import { toast } from "sonner";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { cn } from "@/lib/utils";
 import { BreakDAL } from "@/lib/planner/breaksDal";
-import { examDatesQuery, studentBreaksQuery } from "@/lib/planner/breakQueries";
+import { breakCoursesQuery, examDatesQuery, studentBreaksQuery } from "@/lib/planner/breakQueries";
 import {
   BREAK_REASONS,
   MAX_BREAK_WEEKS,
   breakDay,
+  breakFits,
   mondayKeyOf,
   overlapsBreak,
   runWeeks,
@@ -56,7 +57,9 @@ function Choice({
  * The booking form for a break: when it starts, when the student is back, and
  * why. All three are needed. Weeks the database would refuse — too close to an
  * exam, clashing with a break already booked, or running past four weeks in a
- * row — can't be picked, and `book_break` checks them all again.
+ * row — can't be picked, and `book_break` checks them all again. Nor can a
+ * break that leaves a course too few weeks for its remaining topics
+ * (`breakFits`); that one is checked here only.
  *
  * Booked by the student for themselves, or by a parent or tutor, who see the
  * student's name in the questions.
@@ -83,8 +86,11 @@ export function TakeABreakDialog({
 
   const { data: breaks = [] } = useQuery(studentBreaksQuery(studentId));
   const { data: exams = [] } = useQuery(examDatesQuery(studentId));
+  const { data: courses = [] } = useQuery(breakCoursesQuery(studentId));
   // Breaks that are over can't clash with a new one, which starts this week at the earliest.
   const standing = useMemo(() => breaks.filter((b) => b.endsOn >= thisWeek), [breaks, thisWeek]);
+  // What the planner lays over each spine: the breaks not yet saved into it.
+  const ahead = useMemo(() => breaks.filter((b) => !b.recordedAt), [breaks]);
 
   const startsOn =
     start === "this"
@@ -102,6 +108,8 @@ export function TakeABreakDialog({
       return "Too close to an exam";
     if (overlapsBreak(standing, startsOn, w)) return "Clashes with a break already booked";
     if (runWeeks(standing, startsOn, w) > MAX_BREAK_WEEKS) return "More than 4 weeks in a row";
+    if (courses.some((c) => !breakFits({ ...c, breaks: ahead, startsOn, weeks: w })))
+      return "Too few weeks left to finish the course";
     return null;
   };
   const options = Array.from({ length: MAX_BREAK_WEEKS }, (_, i) => i + 1).map((w) => ({
