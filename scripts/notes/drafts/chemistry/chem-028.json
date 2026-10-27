@@ -214,7 +214,22 @@
           "The carbon dioxide escapes from the flask."
         ],
         "tip": "One mark for the decrease, one for naming carbon dioxide and one for the gas escaping."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A **multiplier** in normal script in front of a formula multiplies the whole formula. 3H₂O contains 6 H atoms and 3 O atoms.",
+                "A **subscript** number inside a formula multiplies only the atom, or bracket, just before it. Ca(OH)₂ contains 1 Ca, 2 O and 2 H atoms.",
+                "Given a balanced equation, look for the state symbol (g). A gas reactant makes the mass in an open container go up. A gas product makes it go down."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 1.47"],

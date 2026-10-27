@@ -319,7 +319,23 @@
           "The forces between the particles are weaker in the gas."
         ],
         "tip": "Any three score one mark each. Answers must compare the gas with the solid."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In a chemical change the particles themselves change: the atoms are **rearranged** to make a new substance.",
+                "Signs that a chemical change has happened: the product has different properties, there is a colour change, or there is an energy (temperature) change.",
+                "Melting and boiling points depend on **pressure**, so data may give different values at different pressures.",
+                "If the data give a **sublimation point**, the substance is a solid below it and a gas above it. It cannot be a liquid at that pressure."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

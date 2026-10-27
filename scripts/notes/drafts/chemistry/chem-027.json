@@ -313,7 +313,37 @@
           "State symbols: Na₂O(s) + H₂O(l) → 2NaOH(aq) (1)"
         ],
         "tip": "The state symbols mark is independent, so you can score it even if the balancing is wrong."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "All the Group 7 elements are molecules of two atoms: F₂, Cl₂, Br₂ and I₂.",
+                "The Group 0 elements exist as single atoms, so they are written He, Ne and Ar.",
+                "Metals, and carbon, are written as the symbol alone, such as Na, Mg and C.",
+                "The state symbol depends on the conditions. Water made as **steam** or water vapour is H₂O(g), and a solid heated above its **melting point** is (l)."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Higher tier) Half equations",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A **half equation** shows one species gaining or losing electrons, written as e⁻.",
+                "Electrons gained go on the left: Cu²⁺ + 2e⁻ → Cu.",
+                "Electrons lost go on the right: 2Cl⁻ → Cl₂ + 2e⁻.",
+                "Balance the atoms first, then add electrons so the total charge is the same on both sides."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 3.1.4", "CAIE 3.1.7S", "CAIE 3.1.8S"],

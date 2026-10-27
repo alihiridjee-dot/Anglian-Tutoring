@@ -293,7 +293,21 @@
           "L conducts because its delocalised electrons can move."
         ],
         "tip": "A six-mark question is marked by level. Identify all three structures, then explain each property with a clear line of reasoning."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In a **polymer**, the atoms in each long chain are joined by strong covalent bonds.",
+                "The chains are held to each other by **intermolecular forces**, which are weaker than the covalent bonds in the chains."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {

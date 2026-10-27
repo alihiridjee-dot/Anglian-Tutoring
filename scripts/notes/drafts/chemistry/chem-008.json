@@ -200,7 +200,21 @@
           "Some elements were in different positions."
         ],
         "tip": "Any two score one mark each. Answers about the modern table that are the reverse of these are also credited."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "To predict a missing element, Mendeleev compared the elements around the gap in the **same group** and the same period.",
+                "He then followed the **trend** in each property down the group or across the period, so a predicted value lies between the values of the elements either side."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C2.2i"],
@@ -215,7 +229,22 @@
           "He left gaps for elements that had not been discovered."
         ],
         "tip": "Any two score one mark each. Increasing mass number is also accepted."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Atomic number** is the number of protons in an atom. The chemical properties of an element follow its atomic number, not its mass.",
+                "Relative atomic mass also counts the neutrons, so the order by mass and the order by atomic number do not always agree.",
+                "In order of atomic number, tellurium (52) comes before iodine (53) with no swap needed, and every element sits in the group that matches its properties."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
