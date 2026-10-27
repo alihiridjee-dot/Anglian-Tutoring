@@ -270,7 +270,38 @@
           "The energy moves in the direction of the wave."
         ],
         "tip": "Any two of the three points score the marks. Statements repeated from the question are ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Measuring the speed of ripples and of sound",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Both speeds can be found by timing the wave over a measured distance."
+            },
+            {
+              "type": "equation",
+              "label": "Wave speed from distance and time",
+              "formula": "wave speed = distance ÷ time",
+              "where": [
+                "wave speed, in metres per second (m/s)",
+                "distance, in metres (m)",
+                "time, in seconds (s)"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Ripples: measure the distance one ripple travels, such as the length of a ripple tank, with a **metre rule** or tape measure. Time it with a stopwatch.",
+                "Ripples can also be measured by finding their frequency and wavelength, then multiplying the two.",
+                "Sound: a hammer hits a metal plate. Two **microphones** a measured distance apart start and stop an electronic timer.",
+                "Without microphones, time a clap and its echo from a distant wall. The sound travels there and back, so use double the distance to the wall.",
+                "Repeat each timing and calculate a mean."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -372,6 +403,6 @@
       "c6be8e98-170f-45aa-aaef-4627bcae4a40"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

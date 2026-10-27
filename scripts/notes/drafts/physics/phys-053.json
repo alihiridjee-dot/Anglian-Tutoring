@@ -329,6 +329,20 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A displacement is given as a **magnitude** and a **direction**, for example a distance in metres and a compass direction.",
+                "On a route that is not straight, the total distance travelled is greater than the magnitude of the displacement.",
+                "It is not only moving objects that have varying speed. The speed of sound and the speed of the wind also vary.",
+                "To draw a distance–time graph from measurements, plot time on the x-axis and distance on the y-axis, then draw a straight line or smooth curve of best fit."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -346,7 +360,28 @@
           "Use speed = distance ÷ time."
         ],
         "tip": "Any three points score. Using a light gate, not over the whole slope, is also accepted."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Laboratory methods for measuring speed",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Each method measures a distance and a time, then uses speed = distance ÷ time."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Two light gates**: measure the distance between the gates with a ruler. The electronic timer records the time taken to travel from one gate to the other.",
+                "**One light gate**: fix a card of measured length to the trolley. The timer records how long the card blocks the beam. Speed = length of card ÷ time.",
+                "**Ticker-tape**: the timer prints dots on the tape at equal time intervals. Measure the distance between the dots.",
+                "A video camera, a speed camera or a data logger can also record the time.",
+                "Electronic timing removes human reaction time, so it gives a more accurate time than a hand-operated stopwatch."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR P2.1a", "OCR P2.1b", "OCR P2.1g"],
@@ -361,7 +396,21 @@
           "Speed = distance travelled ÷ time taken."
         ],
         "tip": "Measuring the distance a ripple travels in a set time, or the time it takes to travel a set distance, scores 2 marks. There is a second method using wavelength × frequency."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Outside the laboratory, measure a long distance with a **tape measure** or a **trundle wheel**.",
+                "To find the mean speed of a car, mark two points along the road and measure the distance between them. Use a stopwatch to time the car from one point to the other."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -471,6 +520,6 @@
       "a3ad4156-ba58-4e45-9bab-83a08bc170a1"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

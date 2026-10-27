@@ -345,7 +345,37 @@
           "specific heat capacity = 480 J/kg °C"
         ],
         "tip": "A correct answer of 480 scores 4 marks. 0.48 or 4.8 × 10 to another power scores 3 marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Heating is not the only way to raise the temperature of a system. Work done by a force or by an electric current can also increase its thermal energy store."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Work done by a force**: lead pellets falling inside a tube that is turned over lose gravitational potential energy. Their thermal energy store increases, so their temperature rises.",
+                "**Work done by a current**: the current in a heater transfers energy electrically to the thermal energy store of the heater, then of the water or block.",
+                "The energy transferred either way can be used as ΔE in ΔE = m c Δθ. Here ΔE is the change in **internal energy** of the material."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Energy transferred by a current",
+              "formula": "energy transferred = potential difference × current × time    (E = V × I × t)",
+              "where": [
+                "E = energy transferred, in joules (J)",
+                "V = potential difference, in volts (V)",
+                "I = current, in amperes (A)",
+                "t = time, in seconds (s)"
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 2.2.2.3S", "CAIE 2.2.2.4S"],
@@ -406,6 +436,6 @@
       "8baad51e-d795-4aad-a7d5-401aebed9ede"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

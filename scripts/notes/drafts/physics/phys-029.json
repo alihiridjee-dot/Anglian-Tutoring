@@ -239,6 +239,74 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "Practical: hot block in cold water",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This method finds the specific heat capacity of a metal. The energy lost by the hot block equals the energy gained by the cold water."
+            },
+            {
+              "type": "equation",
+              "label": "Energy lost by the block = energy gained by the water",
+              "formula": "m₁ × c₁ × Δθ₁ = m₂ × c₂ × Δθ₂",
+              "where": [
+                "m₁ = mass of the block, in kilograms (kg)",
+                "c₁ = specific heat capacity of the block, in J/kg °C",
+                "Δθ₁ = temperature fall of the block, in degrees Celsius (°C)",
+                "m₂ = mass of the water, in kilograms (kg)",
+                "c₂ = specific heat capacity of water, in J/kg °C",
+                "Δθ₂ = temperature rise of the water, in degrees Celsius (°C)"
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Heat the block.",
+                  "text": "Leave it in boiling water until it reaches the temperature of the water. Measure that temperature with a thermometer."
+                },
+                {
+                  "lead": "Measure the cold water.",
+                  "text": "Find the masses of the water and the block with a balance. Measure the starting temperature of the water."
+                },
+                {
+                  "lead": "Transfer the block.",
+                  "text": "Move it into the cold water and stir the water."
+                },
+                {
+                  "lead": "Record the highest temperature.",
+                  "text": "Subtract to find the temperature rise of the water and the temperature fall of the block."
+                },
+                {
+                  "lead": "Calculate.",
+                  "text": "Find the energy gained by the water, then divide it by the mass of the block × its temperature fall to find c₁."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Cover or insulate the beaker, and transfer the block quickly.",
+                "Use a larger block or less water, so the temperature rise is larger and easier to measure."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Practical: melting crushed ice",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Put crushed ice and a thermometer in a beaker. Heat it with an electric heater, or without electricity using a water bath.",
+                "Read the temperature at regular time intervals with a stopwatch, then plot the temperature-time graph.",
+                "Do not touch the heater while it is switched on, and use a low-voltage supply, not the mains.",
+                "Use gloves or a cloth to handle the hot beaker or heater, to prevent burns."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -281,7 +349,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "spec_point_ids": [
       "60e73727-82bc-489c-9aec-4905102a2a7b",
       "920d5b82-0da1-4056-ae3e-efd5805bc95c",

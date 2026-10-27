@@ -220,7 +220,22 @@
           "Divide the change in velocity by the time taken to give the acceleration"
         ],
         "tip": "Speed can be used instead of velocity throughout. Using v² = u² + 2as is also allowed."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The mass hanger must not hit the floor before the trolley passes the second light gate, or the resultant force and the acceleration drop to zero. Move the second gate closer to the first or shorten the string.",
+                "Raising the end of the runway further makes a component of the trolley's weight act along the runway. The resultant force increases, so the acceleration increases.",
+                "Repeat each run and calculate the mean to reduce the effect of **random errors**."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 2.19"],
@@ -235,7 +250,23 @@
           "The force of gravity on the trolley balances the forces of friction"
         ],
         "tip": "One mark for raising one end of the runway and one for the reason. Methods that reduce friction directly, such as oiling the wheels, are also credited."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Core practical: other ways to measure the acceleration",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Fix an **interrupter card** to the trolley. A data logger uses the time the card blocks each light gate to find the trolley's velocity at each gate.",
+                "A ticker-tape timer, or an ultrasonic sensor connected to a data logger, can also measure the velocity and time.",
+                "Use a = (v − u) ÷ t, or a = (v² − u²) ÷ 2s with s as the distance between the two gates.",
+                "Increasing the slope of the runway makes more of the trolley's weight act along it, so the accelerating force increases."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -248,6 +279,6 @@
       "76c374e3-778b-4a08-8939-d358de72609b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-27"
   }
 }

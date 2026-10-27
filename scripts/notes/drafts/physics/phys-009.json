@@ -230,7 +230,24 @@
           "There are not enough wind turbines in the UK"
         ],
         "tip": "Any two of these points score the 2 marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Burning **bio-fuels** such as wood causes air pollution. Using wood as a fuel can lead to deforestation and destruction of habitats. Bio-fuels are described as carbon neutral.",
+                "Soot and particulates from burning fossil fuels cause **global dimming** and breathing problems.",
+                "For the same energy generated, a gas-fired power station releases less carbon dioxide than a coal-fired one, and no sulfur dioxide or particulates.",
+                "Science can identify the environmental problems an energy resource causes. It cannot always solve them, because of **political, social, ethical or economic** considerations.",
+                "For example, generating all electricity from renewables will take many years. So many generators are needed that it is very expensive."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.13", "EDEX 3.14", "EDEX 6.36P"],
@@ -418,7 +435,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "a8e6bb33-445e-477e-8e46-2fa0b75aeeee",

@@ -286,7 +286,42 @@
           "At constant temperature, each cube emits infrared at the same rate that it absorbs infrared."
         ],
         "tip": "One mark for each point. References to heat are ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Required practical: absorption with wax and drawing pins",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Use wax to stick a drawing pin to each of several metal sheets with different surfaces."
+                },
+                {
+                  "lead": "Heat.",
+                  "text": "Place each sheet the same distance from an infrared heater and start a stopclock."
+                },
+                {
+                  "lead": "Measure.",
+                  "text": "Time how long each pin takes to fall off as the wax melts."
+                },
+                {
+                  "lead": "Conclude.",
+                  "text": "The pin on the best absorber falls first. Write the conclusion as a comparison, such as 'matt black is a better absorber than shiny silver'."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The surface is the **independent variable**, the time for the pin to fall is the **dependent variable** and the distance from the heater is a control variable.",
+                "In this method the main hazard is the infrared heater. With boiling water in a cube, reduce the risk by standing up, using slightly cooler water and not touching the cube."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.19P"],
@@ -343,6 +378,6 @@
       "949f6942-e066-416a-9f1a-30ae7d8ef4b8"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

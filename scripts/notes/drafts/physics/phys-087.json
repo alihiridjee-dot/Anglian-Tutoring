@@ -366,7 +366,39 @@
           "Evaluate: 9.7 A."
         ],
         "tip": "Substitution and rearrangement can be in any order. Check the answer line first: 9.7 A gains all three marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Practical: secondary p.d. and number of turns",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You can test how the secondary p.d. depends on the number of turns on the secondary coil."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Build",
+                  "text": "Wind a primary coil and a secondary coil of insulated wire around a soft iron rod."
+                },
+                {
+                  "lead": "Connect",
+                  "text": "Connect the primary coil to an a.c. supply. Connect a voltmeter across the secondary coil."
+                },
+                {
+                  "lead": "Measure",
+                  "text": "Change the number of turns on the secondary coil. Record the secondary p.d. each time."
+                },
+                {
+                  "lead": "Control",
+                  "text": "Keep the p.d. of the supply and the number of turns on the primary coil the same."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -459,6 +491,6 @@
       "4caa31c1-df83-4f15-9322-bd7170fa5361"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

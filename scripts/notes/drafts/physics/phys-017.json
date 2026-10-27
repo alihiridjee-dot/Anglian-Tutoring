@@ -289,7 +289,21 @@
           "A plastic case is an insulator, so an earth wire is not required."
         ],
         "tip": "One mark for the earth wire preventing a shock with a metal case, and one for the plastic case being an insulator."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Insulation** around each wire stops the live wire touching the case, another wire or a person.",
+                "A **double-insulated** appliance has insulated wiring inside a case that does not conduct, so no part a person can touch can become live."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -461,7 +475,7 @@
       "bc371361-fced-4bc7-8657-a11dbc873751"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "exemplar_ids": [
       "9067ff27-e96d-4c2c-88df-d5a2eb8908be",
       "d464d7e7-e7c4-4042-badc-610414999d28",
