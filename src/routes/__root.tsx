@@ -17,6 +17,7 @@ import { Mascot } from "@/components/Doodles";
 import { markHydrated } from "@/lib/auth/hydration";
 import { createAuthChangeHandler } from "@/lib/auth/authChange";
 import { installReturnSpots } from "@/lib/shell/returnSpot";
+import { SITE_URL } from "@/lib/platform/seo";
 
 function NotFoundComponent() {
   return (
@@ -65,6 +66,18 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
   );
 }
 
+const ORGANIZATION_LD = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: "Anglia Educate",
+  url: SITE_URL,
+  logo: `${SITE_URL}/apple-touch-icon.png`,
+  email: "angliaeducate@gmail.com",
+  description:
+    "Live online Biology, Chemistry and Physics tutoring for KS3, GCSE, IGCSE and A Level students.",
+  areaServed: "GB",
+};
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
@@ -73,25 +86,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       // indicator, so `env(safe-area-inset-*)` resolves and the shell can pad
       // for them (see `styles.css` — MOBILE).
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
-      { title: "Anglia Educate — GCSE & KS3 Science Tutoring" },
+      { title: "Anglia Educate — Online Science Tutoring for KS3, GCSE & A Level" },
       {
         name: "description",
         content:
-          "Expert-led online Biology, Chemistry and Physics tutoring for KS3 and GCSE. Live lessons, weekly quizzes, task marking and grade tracking.",
+          "Live online Biology, Chemistry and Physics tutoring for KS3, GCSE, IGCSE and A Level. AQA, Edexcel, OCR and Cambridge. Weekly quizzes, marked tasks and grade tracking.",
       },
-      { property: "og:title", content: "Anglia Educate — GCSE & KS3 Science Tutoring" },
+      { property: "og:site_name", content: "Anglia Educate" },
+      {
+        property: "og:title",
+        content: "Anglia Educate — Online Science Tutoring for KS3, GCSE & A Level",
+      },
       {
         property: "og:description",
         content:
-          "Live lessons with Dr Nadia and Ali. Curriculum-aligned to Edexcel, AQA, and OCR. Grade predictor, weekly MCQs, and interactive tasks.",
+          "Live lessons with Dr Nadia and Ali. Curriculum-aligned to AQA, Edexcel, OCR and Cambridge. Grade predictor, weekly MCQs, and interactive tasks.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_GB" },
+      // Link previews (WhatsApp, iMessage, Facebook) need an absolute URL.
+      { property: "og:image", content: `${SITE_URL}/videos/how-it-works.jpg` },
+      { property: "og:image:width", content: "1920" },
+      { property: "og:image:height", content: "1080" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Anglia Educate" },
       {
         name: "twitter:description",
-        content: "Live GCSE & KS3 science tutoring with Dr Nadia and Ali.",
+        content: "Live KS3, GCSE & A Level science tutoring with Dr Nadia and Ali.",
       },
+      { name: "twitter:image", content: `${SITE_URL}/videos/how-it-works.jpg` },
     ],
     links: [
       // The SVG is the icon and the PNG its fallback, the pairing Safari shows
@@ -109,6 +132,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "stylesheet", href: appCss },
     ],
+    // Tells Google what the business is, for richer search results.
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(ORGANIZATION_LD) }],
   }),
   shellComponent: RootShell,
   component: RootComponent,

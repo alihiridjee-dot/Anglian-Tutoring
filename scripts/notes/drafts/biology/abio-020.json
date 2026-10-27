@@ -8,21 +8,42 @@
     {
       "heading": "Digestion of carbohydrates",
       "blocks": [
-        { "type": "paragraph", "text": "Large biological molecules are too big to cross cell membranes. Digestion hydrolyses them into smaller molecules that can be absorbed." },
+        {
+          "type": "paragraph",
+          "text": "Large biological molecules are too big to cross cell membranes. Digestion hydrolyses them into smaller molecules that can be absorbed."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Hydrolysis", "meaning": "A reaction in which a bond is broken by adding water." },
-            { "term": "Amylase", "meaning": "An enzyme that hydrolyses the glycosidic bonds in starch to give maltose." },
-            { "term": "Membrane-bound disaccharidase", "meaning": "An enzyme in the cell-surface membrane of ileum epithelial cells that hydrolyses a disaccharide into monosaccharides." }
+            {
+              "term": "Hydrolysis",
+              "meaning": "A reaction in which a bond is broken by adding water."
+            },
+            {
+              "term": "Amylase",
+              "meaning": "An enzyme that hydrolyses the glycosidic bonds in starch to give maltose."
+            },
+            {
+              "term": "Membrane-bound disaccharidase",
+              "meaning": "An enzyme in the cell-surface membrane of ileum epithelial cells that hydrolyses a disaccharide into monosaccharides."
+            }
           ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Starch.", "text": "Salivary amylase, and then pancreatic amylase in the small intestine, hydrolyse starch to maltose." },
-            { "lead": "Maltose.", "text": "Maltase, bound to the membrane of epithelial cells, hydrolyses maltose to two glucose molecules." },
-            { "lead": "Other sugars.", "text": "Sucrase hydrolyses sucrose to glucose and fructose. Lactase hydrolyses lactose to glucose and galactose." }
+            {
+              "lead": "Starch.",
+              "text": "Salivary amylase, and then pancreatic amylase in the small intestine, hydrolyse starch to maltose."
+            },
+            {
+              "lead": "Maltose.",
+              "text": "Maltase, bound to the membrane of epithelial cells, hydrolyses maltose to two glucose molecules."
+            },
+            {
+              "lead": "Other sugars.",
+              "text": "Sucrase hydrolyses sucrose to glucose and fructose. Lactase hydrolyses lactose to glucose and galactose."
+            }
           ]
         },
         {
@@ -38,7 +59,10 @@
     {
       "heading": "Digestion of lipids",
       "blocks": [
-        { "type": "paragraph", "text": "Lipids are insoluble in water, so they need bile salts as well as an enzyme." },
+        {
+          "type": "paragraph",
+          "text": "Lipids are insoluble in water, so they need bile salts as well as an enzyme."
+        },
         {
           "type": "list",
           "items": [
@@ -59,7 +83,10 @@
     {
       "heading": "Digestion of proteins",
       "blocks": [
-        { "type": "paragraph", "text": "Three types of peptidase work together to hydrolyse peptide bonds." },
+        {
+          "type": "paragraph",
+          "text": "Three types of peptidase work together to hydrolyse peptide bonds."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -67,12 +94,30 @@
             "alt": "The enzymes that digest carbohydrates, lipids and proteins",
             "prompt": "Tap an enzyme to see what it does.",
             "parts": [
-              { "name": "Amylase", "detail": "Hydrolyses starch to maltose. Made in the salivary glands and the pancreas." },
-              { "name": "Membrane-bound disaccharidases", "detail": "Hydrolyse disaccharides, such as maltose, sucrose and lactose, to monosaccharides. Found on the epithelial cell membrane." },
-              { "name": "Lipase", "detail": "Hydrolyses triglycerides to monoglycerides and fatty acids. Made in the pancreas." },
-              { "name": "Endopeptidases", "detail": "Hydrolyse peptide bonds within a polypeptide, which makes shorter chains and creates more ends." },
-              { "name": "Exopeptidases", "detail": "Hydrolyse peptide bonds at the ends of a polypeptide, removing single amino acids." },
-              { "name": "Membrane-bound dipeptidases", "detail": "Hydrolyse a dipeptide into two amino acids. Found on the epithelial cell membrane." }
+              {
+                "name": "Amylase",
+                "detail": "Hydrolyses starch to maltose. Made in the salivary glands and the pancreas."
+              },
+              {
+                "name": "Membrane-bound disaccharidases",
+                "detail": "Hydrolyse disaccharides, such as maltose, sucrose and lactose, to monosaccharides. Found on the epithelial cell membrane."
+              },
+              {
+                "name": "Lipase",
+                "detail": "Hydrolyses triglycerides to monoglycerides and fatty acids. Made in the pancreas."
+              },
+              {
+                "name": "Endopeptidases",
+                "detail": "Hydrolyse peptide bonds within a polypeptide, which makes shorter chains and creates more ends."
+              },
+              {
+                "name": "Exopeptidases",
+                "detail": "Hydrolyse peptide bonds at the ends of a polypeptide, removing single amino acids."
+              },
+              {
+                "name": "Membrane-bound dipeptidases",
+                "detail": "Hydrolyse a dipeptide into two amino acids. Found on the epithelial cell membrane."
+              }
             ]
           }
         },
@@ -97,17 +142,35 @@
     {
       "heading": "Absorption in the ileum",
       "blocks": [
-        { "type": "paragraph", "text": "The cells lining the ileum absorb the products of digestion. The mechanism depends on the molecule." },
+        {
+          "type": "paragraph",
+          "text": "The cells lining the ileum absorb the products of digestion. The mechanism depends on the molecule."
+        },
         {
           "type": "table",
-          "columns": ["Product", "How it is absorbed"],
+          "columns": [
+            "Product",
+            "How it is absorbed"
+          ],
           "rows": [
-            ["Monosaccharides, such as glucose", "Co-transport with sodium ions, by a carrier protein. Glucose then leaves the cell by facilitated diffusion."],
-            ["Amino acids", "Co-transport with sodium ions, by carrier proteins."],
-            ["Monoglycerides and fatty acids", "Carried in micelles, then diffuse across the membrane."]
+            [
+              "Monosaccharides, such as glucose",
+              "Co-transport with sodium ions, by a carrier protein. Glucose then leaves the cell by facilitated diffusion."
+            ],
+            [
+              "Amino acids",
+              "Co-transport with sodium ions, by carrier proteins."
+            ],
+            [
+              "Monoglycerides and fatty acids",
+              "Carried in micelles, then diffuse across the membrane."
+            ]
           ]
         },
-        { "type": "subheading", "text": "Co-transport" },
+        {
+          "type": "subheading",
+          "text": "Co-transport"
+        },
         {
           "type": "list",
           "items": [
@@ -117,7 +180,10 @@
             "The solute then diffuses into the blood, which keeps the concentration in the cell lower than in the gut."
           ]
         },
-        { "type": "subheading", "text": "Micelles and lipid absorption" },
+        {
+          "type": "subheading",
+          "text": "Micelles and lipid absorption"
+        },
         {
           "type": "list",
           "items": [
@@ -153,7 +219,11 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": ["AQA 3.3.3"]
+      "spec_codes": [
+        "AQA 3.3.3a",
+        "AQA 3.3.3b",
+        "AQA 3.3.3c"
+      ]
     }
   },
   "meta": {
@@ -163,7 +233,9 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",
     "spec_point_ids": [
-      "dbef2b0a-f29e-4782-8301-8d181ba04c3b"
+      "84614c53-8ce2-43d1-8d33-2e8104dd75f0",
+      "d3026fe3-5f2e-48ca-9697-dac9c0fdd410",
+      "5d50b449-a25c-45eb-b5a6-7ac5c660568b"
     ],
     "exemplar_ids": []
   }

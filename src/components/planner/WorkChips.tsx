@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
-import { BookOpen, CheckCircle2, ClipboardList, ListChecks, PlayCircle } from "lucide-react";
+import { BookOpen, CheckCircle2, ClipboardList, ListChecks, PlayCircle, Sparkle } from "lucide-react";
 import {
   type PointCoverage,
   type PointWork,
@@ -26,7 +26,7 @@ import type { SpecPointNote } from "@/hooks/data/useNotes";
  * change: under a column already headed "Homework" the word is redundant, and
  * the space is better spent on a verb.
  */
-const CHIP = "chip tap-target inline-flex text-[11px] hover:brightness-95";
+const CHIP = "chip tap-target inline-flex whitespace-nowrap shrink-0 text-[11px] hover:brightness-95";
 
 export function VideoChip({
   item,
@@ -80,15 +80,20 @@ export function HomeworkChip({
       to={isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"}
       params={{ homeworkId: item.id }}
       title={chipTitle(item, "Task", done, coverage?.homeworkScore)}
-      className={`${CHIP} ${done ? "tint-emerald" : ""}`}
+      className={`${CHIP} ${done ? "tint-emerald chip-done" : ""}`}
     >
       {done ? <CheckCircle2 className="w-3 h-3" /> : <ClipboardList className="w-3 h-3" />}
       {done && coverage?.homeworkScore != null ? (
         <span className="tabular-nums font-semibold">{coverage.homeworkScore}%</span>
       ) : done ? (
-        // Handed in but not marked yet: the layout's verb ("Start") would ask
-        // the student to do it again.
-        "Handed in"
+        // Handed in but not marked yet: the tick alone says it. The layout's
+        // verb ("Start") would ask the student to do it again.
+        <>
+          <Sparkle className="chip-sparkle" fill="currentColor" aria-hidden />
+          <span className="sr-only">Handed in</span>
+          {/* Keeps the text line so the pill is as tall as its neighbours. */}
+          <span aria-hidden>{"\u200b"}</span>
+        </>
       ) : (
         label
       )}
@@ -111,7 +116,7 @@ export function QuizChip({
       to={isDemoStudent() ? "/demo/student/mcq/$setId" : "/mcq/$setId"}
       params={{ setId: item.id }}
       title={chipTitle(item, "Quiz", done, coverage?.quizScore)}
-      className={`${CHIP} ${done ? "tint-emerald" : ""}`}
+      className={`${CHIP} ${done ? "tint-emerald chip-done" : ""}`}
     >
       {done ? <CheckCircle2 className="w-3 h-3" /> : <ListChecks className="w-3 h-3" />}
       {done && coverage?.quizScore != null ? (

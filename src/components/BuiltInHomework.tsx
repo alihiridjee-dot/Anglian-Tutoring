@@ -139,6 +139,7 @@ export function AnsweredView({
                   <MarkScheme
                     scheme={q.mark_scheme}
                     context={notation}
+                    marks={q.marks}
                     className="mt-1.5 text-sm"
                   />
                 </div>
@@ -390,6 +391,7 @@ export function AnswerForm({
                   <MarkScheme
                     scheme={q.mark_scheme}
                     context={q.prompt}
+                    marks={q.marks}
                     className="mt-1.5 text-sm"
                   />
                 </div>
