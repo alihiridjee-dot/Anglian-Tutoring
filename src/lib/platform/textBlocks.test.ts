@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { flattenedLayout, rowOptions, textBlocks } from "./textBlocks";
+import { flattenedLayout, questionLayout, rowOptions, spacedLines, textBlocks } from "./textBlocks";
 
 const lines = (...l: string[]) => l.join("\n");
 
@@ -142,5 +142,111 @@ describe("Which row…? questions", () => {
     ).toBeNull();
     // A question whose last lines are a whole table.
     expect(rowOptions(lines("Results:", "P | Q | R", "1 | 2 | 3"), options)).toBeNull();
+  });
+});
+
+describe("a task question in steps", () => {
+  test("lettered parts come apart from the facts, each with its own marks", () => {
+    const q = lines(
+      "The gene for human ABO blood group has three alleles: Iᴬ, Iᴮ and i.",
+      "The allele i is recessive to both Iᴬ and Iᴮ.",
+      "(a) Give the genotype of a person with blood group O. (1 mark)",
+      "(b) Explain why the ABO blood group gene is described as having multiple alleles. [1]",
+    );
+    expect(questionLayout(q)).toEqual({
+      stem: lines(
+        "The gene for human ABO blood group has three alleles: Iᴬ, Iᴮ and i.",
+        "The allele i is recessive to both Iᴬ and Iᴮ.",
+      ),
+      parts: [
+        { label: "a", text: "Give the genotype of a person with blood group O.", marks: 1 },
+        {
+          label: "b",
+          text: "Explain why the ABO blood group gene is described as having multiple alleles.",
+          marks: 1,
+        },
+      ],
+      ask: null,
+    });
+  });
+
+  test("a part keeps its own lines, and a mention of another part stays in it", () => {
+    const q = lines(
+      "An embryo's cells divide every 40 minutes.",
+      "",
+      "(a) Calculate the number of cells after 4 hours.",
+      "",
+      "(b) Use your answer to (a) to find how many have differentiated.",
+      "number of cells = ________",
+    );
+    const { parts } = questionLayout(q);
+    expect(parts.map((p) => p.label)).toEqual(["a", "b"]);
+    expect(parts[1]).toEqual({
+      label: "b",
+      text: "Use your answer to (a) to find how many have differentiated.\nnumber of cells = ________",
+      marks: null,
+    });
+  });
+
+  test("an equation's number is not a mark", () => {
+    const q = lines("Two parts.", "(a) Use equation (2)", "(b) Explain why.");
+    expect(questionLayout(q).parts[0]).toEqual({
+      label: "a",
+      text: "Use equation (2)",
+      marks: null,
+    });
+  });
+
+  test("the last line that asks is set apart from the facts", () => {
+    const q = lines(
+      "A person with the genotype IᴬIᴮ has blood group AB.",
+      "The alleles Iᴬ and Iᴮ are codominant.",
+      "Explain why the person with genotype IᴬIᴮ has blood group AB.",
+    );
+    expect(questionLayout(q)).toEqual({
+      stem: lines(
+        "A person with the genotype IᴬIᴮ has blood group AB.",
+        "The alleles Iᴬ and Iᴮ are codominant.",
+      ),
+      parts: [],
+      ask: "Explain why the person with genotype IᴬIᴮ has blood group AB.",
+    });
+  });
+
+  test("how to answer stays with the line that asks", () => {
+    const q = lines(
+      "In a study, 320 children were born.",
+      "Calculate the number expected to have blood group A.",
+      "",
+      "Show your working.",
+    );
+    expect(questionLayout(q)).toEqual({
+      stem: "In a study, 320 children were born.",
+      parts: [],
+      ask: "Calculate the number expected to have blood group A.\n\nShow your working.",
+    });
+  });
+
+  test("anything else is drawn as stored", () => {
+    // Parts run into one line, a lone part, a list of (i)s, one line, no command.
+    for (const q of [
+      "Two black mice are bred. (a) State the genotype. (b) Give the percentage.",
+      lines("Facts.", "(a) Only one part."),
+      lines("State the symbol for each element:", "(i) sodium", "(ii) chlorine"),
+      "Explain why ice floats.",
+      lines("Some facts.", "number of cells = ________"),
+    ])
+      expect(questionLayout(q)).toEqual({ stem: q, parts: [], ask: null });
+  });
+
+  test("each stated fact is its own paragraph, but a table stays a table", () => {
+    expect(textBlocks(spacedLines(lines("Fact one.", "Fact two.")))).toEqual([
+      { kind: "text", text: "Fact one." },
+      { kind: "text", text: "Fact two." },
+    ]);
+    expect(textBlocks(spacedLines(lines("Results:", "a | b", "1 | 2")))).toEqual([
+      { kind: "text", text: "Results:" },
+      { kind: "table", columns: ["a", "b"], rows: [["1", "2"]] },
+    ]);
   });
 });

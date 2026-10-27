@@ -206,6 +206,21 @@ describe("sciRuns", () => {
     ]);
   });
 
+  test("genetics letters (Iᴬ, Xʰ) are drawn small in the text's own face", () => {
+    expect(sciRuns("IᴬIᴮ and Xʰ")).toEqual([
+      { text: "I", kind: "text" },
+      { text: "A", kind: "sup" },
+      { text: "I", kind: "text" },
+      { text: "B", kind: "sup" },
+      { text: " and X", kind: "text" },
+      { text: "h", kind: "sup" },
+    ]);
+  });
+
+  test("the x² button still types ordinary capitals", () => {
+    expect(scriptTyped("I", "IA", 2, "sup").value).toBe("IA");
+  });
+
   test("plain text is one run", () => {
     expect(sciRuns("Left blank")).toEqual([{ text: "Left blank", kind: "text" }]);
     expect(sciRuns("")).toEqual([]);
