@@ -13,6 +13,7 @@ import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as OurStoryRouteImport } from './routes/our-story'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as FiguresPreviewRouteImport } from './routes/figures-preview'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as OnboardingRouteRouteImport } from './routes/onboarding/route'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
@@ -84,6 +85,11 @@ const OurStoryRoute = OurStoryRouteImport.update({
 const HowItWorksRoute = HowItWorksRouteImport.update({
   id: '/how-it-works',
   path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FiguresPreviewRoute = FiguresPreviewRouteImport.update({
+  id: '/figures-preview',
+  path: '/figures-preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -360,6 +366,7 @@ export interface FileRoutesByFullPath {
   '/onboarding': typeof OnboardingRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/figures-preview': typeof FiguresPreviewRoute
   '/our-story': typeof OurStoryRoute
   '/privacy': typeof PrivacyRoute
   '/reset-password': typeof ResetPasswordRoute
@@ -416,6 +423,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/figures-preview': typeof FiguresPreviewRoute
   '/our-story': typeof OurStoryRoute
   '/privacy': typeof PrivacyRoute
   '/reset-password': typeof ResetPasswordRoute
@@ -475,6 +483,7 @@ export interface FileRoutesById {
   '/onboarding': typeof OnboardingRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/figures-preview': typeof FiguresPreviewRoute
   '/our-story': typeof OurStoryRoute
   '/privacy': typeof PrivacyRoute
   '/reset-password': typeof ResetPasswordRoute
@@ -534,6 +543,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/auth'
     | '/how-it-works'
+    | '/figures-preview'
     | '/our-story'
     | '/privacy'
     | '/reset-password'
@@ -590,6 +600,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/how-it-works'
+    | '/figures-preview'
     | '/our-story'
     | '/privacy'
     | '/reset-password'
@@ -648,6 +659,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/auth'
     | '/how-it-works'
+    | '/figures-preview'
     | '/our-story'
     | '/privacy'
     | '/reset-password'
@@ -707,6 +719,7 @@ export interface RootRouteChildren {
   OnboardingRouteRoute: typeof OnboardingRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
   HowItWorksRoute: typeof HowItWorksRoute
+  FiguresPreviewRoute: typeof FiguresPreviewRoute
   OurStoryRoute: typeof OurStoryRoute
   PrivacyRoute: typeof PrivacyRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
@@ -748,6 +761,13 @@ declare module '@tanstack/react-router' {
       path: '/how-it-works'
       fullPath: '/how-it-works'
       preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/figures-preview': {
+      id: '/figures-preview'
+      path: '/figures-preview'
+      fullPath: '/figures-preview'
+      preLoaderRoute: typeof FiguresPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -1241,6 +1261,7 @@ const rootRouteChildren: RootRouteChildren = {
   OnboardingRouteRoute: OnboardingRouteRouteWithChildren,
   AuthRoute: AuthRoute,
   HowItWorksRoute: HowItWorksRoute,
+  FiguresPreviewRoute: FiguresPreviewRoute,
   OurStoryRoute: OurStoryRoute,
   PrivacyRoute: PrivacyRoute,
   ResetPasswordRoute: ResetPasswordRoute,

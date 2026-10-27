@@ -9,6 +9,7 @@ import { blankQuestion, type BuilderQuestion } from "@/lib/homework/builderQuest
 import { inputCls } from "./Field";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
+import { StoredFigure } from "@/components/QuestionFigure";
 
 /**
  * The questions themselves, built in the homework form.
@@ -211,6 +212,7 @@ export function QuestionBuilder({
                 aria-label="Question prompt"
                 className="w-full min-h-20 rounded-lg bg-secondary border border-border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
               />
+              <StoredFigure figure={q.figure} className="max-w-md" />
 
               <div className="flex flex-wrap items-center gap-3">
                 <label className="inline-flex items-center gap-2 text-xs text-muted-foreground">

@@ -7,6 +7,7 @@ import {
   type ClaimedJob,
 } from "./practiceQueue.server";
 import type { GenerationContext } from "../homework/examGeneration";
+import { FIGURE_EXAMPLES } from "../figures/figurePrompt";
 
 const originalFetch = globalThis.fetch;
 const envNames = [
@@ -621,4 +622,123 @@ test("the worker route answers JSON when even the claim fails", async () => {
   expect(response.status).toBe(500);
   expect(response.headers.get("content-type")).toContain("application/json");
   expect((await response.json()).error).toContain("database request failed (500)");
+});
+
+// ── Figures ─────────────────────────────────────────────────────────────────
+
+const velocity = {
+  kind: "line-graph",
+  x: { title: "time in s", min: 0, max: 20, step: 4 },
+  y: { title: "velocity in m/s", min: 0, max: 12, step: 2 },
+  series: [
+    {
+      name: "car",
+      points: [
+        [0, 0],
+        [4, 8],
+        [12, 8],
+        [20, 0],
+      ],
+    },
+  ],
+};
+const [, seriesExample] = FIGURE_EXAMPLES;
+/** DeepSeek's answer, as its chat completions endpoint sends it. */
+const drawing = (reply: unknown) =>
+  Response.json({
+    choices: [{ message: { content: JSON.stringify(reply) }, finish_reason: "stop" }],
+    usage: { prompt_tokens: 7000, completion_tokens: 2000 },
+  });
+
+test("a graph is drawn by code and saved with its question; its brief stays on the server", async () => {
+  const questions = mcqs();
+  questions[2] = {
+    ...questions[2],
+    figure: JSON.stringify(velocity),
+  } as (typeof questions)[number];
+  const calls = stub({
+    "rpc/claim_practice_jobs": claims(job()),
+    "/v1/messages": () => message(questions),
+    "rpc/complete_practice_job": saved("written", "set-1"),
+  });
+  const [outcome] = await drainPracticeQueue();
+  expect(outcome).toMatchObject({ result: "written" });
+  expect(JSON.stringify(calls["/v1/messages"][0])).toContain("FIGURES");
+  const saved_ = calls["rpc/complete_practice_job"][0]._questions as Record<string, unknown>[];
+  expect(saved_).toHaveLength(8);
+  const { figure, figure_brief } = saved_[2] as {
+    figure: { svg: string; alt: string };
+    figure_brief: unknown;
+  };
+  expect(figure.svg).toStartWith('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280"');
+  expect(figure.alt).toContain("(4, 8)");
+  expect(figure_brief).toEqual({ brief: velocity, drawn_by: "code" });
+  expect(saved_[0]).not.toHaveProperty("figure");
+  // Code drew it: nothing went to DeepSeek.
+  expect(calls["/chat/completions"]).toBeUndefined();
+});
+
+test("a circuit is drawn by DeepSeek, and checked before it is saved", async () => {
+  process.env.DEEPSEEK_API_KEY = "deepseek-test";
+  restore.push(spyOn(console, "log").mockImplementation(() => {}));
+  const questions = tasks();
+  questions[1] = {
+    ...questions[1],
+    figure: JSON.stringify(seriesExample.request.brief),
+  } as (typeof questions)[number];
+  const calls = stub({
+    "rpc/claim_practice_jobs": claims(job({ kind: "task" })),
+    "/v1/messages": () => message(questions),
+    "/chat/completions": () => drawing(seriesExample.reply),
+    "rpc/complete_practice_job": saved("written", "sheet-1"),
+  });
+  try {
+    await drainPracticeQueue();
+  } finally {
+    delete process.env.DEEPSEEK_API_KEY;
+  }
+  expect(calls["/chat/completions"]).toHaveLength(1);
+  const saved_ = calls["rpc/complete_practice_job"][0]._questions as Record<string, unknown>[];
+  expect(saved_).toHaveLength(5);
+  expect(saved_[1]).toMatchObject({
+    figure: { alt: seriesExample.reply.alt },
+    figure_brief: { drawn_by: "deepseek" },
+  });
+});
+
+test("a question whose figure can't be drawn is left out, not saved without it", async () => {
+  process.env.DEEPSEEK_API_KEY = "deepseek-test";
+  restore.push(spyOn(console, "warn").mockImplementation(() => {}));
+  restore.push(spyOn(console, "log").mockImplementation(() => {}));
+  const questions = tasks();
+  questions[3] = {
+    ...questions[3],
+    figure: JSON.stringify(seriesExample.request.brief),
+  } as (typeof questions)[number];
+  // Both tries draw the lamp's wire straight through it: shorted, so refused.
+  const broken = {
+    ...seriesExample.reply,
+    svg: seriesExample.reply.svg.replace(
+      '<line class="qf-line" x1="300" y1="60" x2="300" y2="95"/>',
+      '<line class="qf-line" x1="300" y1="60" x2="300" y2="170"/>',
+    ),
+  };
+  const calls = stub({
+    "rpc/claim_practice_jobs": claims(job({ kind: "task" })),
+    "/v1/messages": () => message(questions),
+    "/chat/completions": () => drawing(broken),
+    "rpc/complete_practice_job": saved("written", "sheet-1"),
+  });
+  try {
+    await drainPracticeQueue();
+  } finally {
+    delete process.env.DEEPSEEK_API_KEY;
+  }
+  expect(calls["/chat/completions"]).toHaveLength(2);
+  const saved_ = calls["rpc/complete_practice_job"][0]._questions as { prompt: string }[];
+  expect(saved_.map((q) => q.prompt)).toEqual(
+    tasks()
+      .filter((_, i) => i !== 3)
+      .map((q) => q.prompt.trim()),
+  );
 });
