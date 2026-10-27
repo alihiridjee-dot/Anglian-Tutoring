@@ -2,6 +2,7 @@ import { User, Users, BookOpen, MailCheck } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchEnabledSsoProviders } from "@/lib/auth/ssoIntent";
 import { OtpInput } from "@/components/OtpInput";
+import { PASSWORD_MIN } from "@/lib/auth/validation";
 import { OTP_LENGTH, type AuthFlow } from "./useAuthFlow";
 
 /** The code screen shown once a sign-up email has gone out. */
@@ -192,13 +193,15 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
           <input
             id="auth-password"
             required
-            minLength={6}
+            // Sign-up checks PASSWORD_MIN on submit, in the site's words, rather
+            // than the browser's. Sign-in keeps the old floor of 6.
+            minLength={mode === "signin" ? 6 : undefined}
             type="password"
             autoComplete={mode === "signin" ? "current-password" : "new-password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className={inputCls}
-            placeholder="At least 6 characters"
+            placeholder={`At least ${mode === "signin" ? 6 : PASSWORD_MIN} characters`}
           />
         </Field>
 

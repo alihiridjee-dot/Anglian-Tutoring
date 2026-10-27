@@ -111,7 +111,11 @@ export function ParentMessages({
               </button>
               <div className="min-h-0 flex-1">
                 {selected && userId && (
+                  // Keyed by thread, as on the Messages page: a send still in
+                  // flight when the parent switches child or conversation
+                  // can't reach into the next one.
                   <ThreadView
+                    key={selected.id}
                     thread={selected}
                     viewerId={userId}
                     isTutor={false}

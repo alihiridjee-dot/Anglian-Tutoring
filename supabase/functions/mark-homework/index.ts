@@ -110,11 +110,14 @@ How to mark:
 - Award marks strictly against the mark scheme. Each credit-worthy point in the scheme is worth one mark unless the scheme says otherwise.
 - Credit correct science expressed in the student's own words. Do not require the mark scheme's exact phrasing.
 - Do not award marks for a point the student did not make, however close they came.
+- A statement that is scientifically wrong as written earns no mark, even if a correct point close to it is on the mark scheme. Mark what the words say. Do not guess what the student meant when what they wrote is false.
+- A wrong general claim never earns the mark for a correct specific one, even where the scheme allows the converse. "Eukaryotic cells have no cell wall" is false, because plant and fungal cells are eukaryotic and have one, so it does not earn the mark for "animal cells have no cell wall".
+- One idea earns one mark, even if it matches two points in the scheme or the student makes it twice in different words.
 - Where no mark scheme is given, judge the answer against the question and the marks available, and mark conservatively.
 - A blank or irrelevant answer scores zero.
 - Never award more than the marks available for a question, and never award a negative number.
 
-The comment for each question is written to the student, in the second person, at most two sentences. Say what earned credit and what was missing. Be specific about the science rather than encouraging in general terms. If full marks were earned, say briefly what made the answer work.
+The comment for each question is written to the student, in the second person, at most two sentences, or three when it has to name a false statement. Say what earned credit and what was missing. If the answer says something scientifically false, name it and say why it is wrong. When you describe a point the student made, describe what they actually wrote, never a corrected version of it. Be specific about the science rather than encouraging in general terms. If full marks were earned, say briefly what made the answer work.
 
 The summary is two or three sentences to the student about the paper as a whole: the pattern across their answers, and the single most useful thing to work on next.
 
