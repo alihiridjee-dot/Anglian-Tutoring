@@ -54,8 +54,12 @@ to test on:
 - **They are real accounts on the live project, so their writes are real.**
   Submitting a quiz files an attempt; handing in homework is final; a parent's
   message reaches a real tutor. Know what a test will write before running it.
-- **Credentials are not kept in this repository.** Ask Ali. Never commit them,
-  and never paste them into a doc, a test or a script.
+- **Credentials.** The student's password is not in this repository, which is
+  public: it is kept in the Claude project memory for this repo on Ali's Mac
+  (`test-account-not-demo.md`). Claude sessions read it there and sign the
+  student in on `localhost` themselves, without asking (Ali's rule, 17 Oct
+  2026). Never commit it, and never paste it into a doc, a test or a script.
+  The parent is a Google account: only Ali can sign it in.
 
 A feature with no real data to show yet (no target grades set, no session
 scheduled) is **untested**, not tested in the showcase. Create the data on the
