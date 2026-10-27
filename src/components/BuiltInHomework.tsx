@@ -1,8 +1,24 @@
-import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
-import { Check, Clock3, Loader2, Send } from "lucide-react";
+import {
+  Check,
+  ClipboardCheck,
+  Clock3,
+  Loader2,
+  PenLine,
+  Send,
+  type LucideIcon,
+} from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 import { dbError } from "@/lib/platform/errors";
@@ -15,6 +31,7 @@ import {
   type TimestampedDraft,
 } from "@/lib/homework/homeworkDrafts";
 import { isAlreadySubmitted, startMarking } from "@/lib/homework/startMarking";
+import { creditRuns, creditsToShow } from "@/lib/homework/creditedQuotes";
 import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import { Meter, SciBlock, SciText, Spinner } from "@/components/Shared";
@@ -120,36 +137,142 @@ export function AnsweredView({
                 index={i}
                 awarded={a?.awarded_marks != null ? Number(a.awarded_marks) : undefined}
               />
-              <p className="mt-3 text-base leading-relaxed whitespace-pre-wrap">
-                {a?.answer_text ? (
-                  <SciText text={a.answer_text} context={notation} />
-                ) : (
-                  <span className="text-muted-foreground italic">Left blank</span>
-                )}
-              </p>
+              <MarkedAnswer q={q} index={i} answer={a} notation={notation} />
               {a?.feedback && (
-                <p className="mt-2 text-sm leading-relaxed font-medium whitespace-pre-wrap text-[color:var(--tint)]">
-                  <SciText text={a.feedback} context={notation} />
-                </p>
+                <TitledBox icon={PenLine} title="Feedback">
+                  <p className="text-sm leading-relaxed font-medium whitespace-pre-wrap">
+                    <SciText text={a.feedback} context={notation} />
+                  </p>
+                </TitledBox>
               )}
               {/* The mark scheme is the answer — it stays hidden until the work
                   has actually been marked. */}
               {marked && q.mark_scheme && (
-                <div className="border-border mt-2 border-t pt-2">
-                  <p className="eyebrow-bare">Mark scheme</p>
+                <TitledBox icon={ClipboardCheck} title="Mark scheme">
                   <MarkScheme
                     scheme={q.mark_scheme}
                     context={notation}
                     marks={q.marks}
-                    className="mt-1.5 text-sm"
+                    className="text-sm"
                   />
-                </div>
+                </TitledBox>
               )}
             </li>
           );
         })}
       </ol>
     </div>
+  );
+}
+
+/**
+ * What the student typed, on the same ruled lines they typed it on, with the
+ * words that earned each mark under the highlighter and a tick after them.
+ * Tapping a tick names the mark-scheme point it earned. The ticks are the
+ * marker's own quotes (see `creditedQuotes`); an answer marked before they
+ * were kept, or whose mark a tutor changed, shows without them.
+ */
+function MarkedAnswer({
+  q,
+  index,
+  answer,
+  notation,
+}: {
+  q: HomeworkQuestion;
+  index: number;
+  answer: HomeworkAnswer | undefined;
+  notation: string;
+}) {
+  const text = answer?.answer_text ?? "";
+  const credits = useMemo(
+    () =>
+      creditsToShow(
+        answer?.credited,
+        answer?.awarded_marks != null ? Number(answer.awarded_marks) : null,
+      ),
+    [answer?.credited, answer?.awarded_marks],
+  );
+  const runs = useMemo(() => creditRuns(text, credits), [text, credits]);
+  const [open, setOpen] = useState<number | null>(null);
+  const shown = open != null ? credits[open] : undefined;
+
+  return (
+    <div className="mt-4">
+      <div
+        style={linesStyle(q)}
+        aria-label={`Your answer to question ${index + 1}`}
+        className="premium-input answer-lines w-full text-base break-words whitespace-pre-wrap"
+      >
+        {!text.trim() ? (
+          <span className="text-muted-foreground italic">Left blank</span>
+        ) : (
+          runs.map((r, k) => {
+            if (r.credit == null) return <SciText key={k} text={r.text} context={notation} />;
+            const c = credits[r.credit];
+            const on = open === r.credit;
+            return (
+              <span key={k} className="tint-emerald">
+                <mark className="marker bg-transparent text-inherit">
+                  <SciText text={r.text} context={notation} />
+                </mark>
+                <button
+                  type="button"
+                  onClick={() => setOpen(on ? null : r.credit!)}
+                  aria-pressed={on}
+                  aria-label={`${c.marks} mark${c.marks === 1 ? "" : "s"}${c.point ? `: ${c.point}` : ""}`}
+                  title={c.point || undefined}
+                  className={cn(
+                    "chip mx-0.5 gap-0.5 px-1.5 py-0 align-[0.08em] text-[0.7rem]",
+                    on && "chip-solid",
+                  )}
+                >
+                  <Check className="size-3" strokeWidth={3.25} aria-hidden />
+                  {c.marks}
+                </button>
+              </span>
+            );
+          })
+        )}
+      </div>
+      {shown?.point && (
+        <p className="tint-emerald mt-2 flex gap-1.5 text-sm font-bold" role="status">
+          <Check
+            className="mt-[0.2em] size-[1.1em] shrink-0 text-[color:var(--tint)]"
+            strokeWidth={2.75}
+            aria-hidden
+          />
+          <span>
+            {shown.marks} mark{shown.marks === 1 ? "" : "s"}:{" "}
+            <SciText text={shown.point} context={notation} />
+          </span>
+        </p>
+      )}
+    </div>
+  );
+}
+
+/** A boxed part of a marked question — the feedback, the mark scheme — under its own heading. */
+function TitledBox({
+  icon: Icon,
+  title,
+  className,
+  children,
+}: {
+  icon: LucideIcon;
+  title: string;
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <section className={cn("premium-card wash-top mt-3 p-3.5 sm:p-4", className)}>
+      <div className="mb-3 flex items-center gap-2.5">
+        <span className="icon-tile size-8 shrink-0" aria-hidden>
+          <Icon className="size-4" />
+        </span>
+        <h4 className="text-base font-extrabold">{title}</h4>
+      </div>
+      {children}
+    </section>
   );
 }
 
@@ -387,15 +510,14 @@ export function AnswerForm({
             <QuestionHeader q={q} index={i} />
             {showMarkScheme ? (
               q.mark_scheme && (
-                <div className="border-border mt-4 border-t pt-3">
-                  <p className="eyebrow-bare">Mark scheme</p>
+                <TitledBox icon={ClipboardCheck} title="Mark scheme" className="mt-4">
                   <MarkScheme
                     scheme={q.mark_scheme}
                     context={q.prompt}
                     marks={q.marks}
-                    className="mt-1.5 text-sm"
+                    className="text-sm"
                   />
-                </div>
+                </TitledBox>
               )
             ) : (
               <textarea

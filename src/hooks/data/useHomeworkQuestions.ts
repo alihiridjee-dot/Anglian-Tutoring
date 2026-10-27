@@ -32,6 +32,8 @@ export type HomeworkAnswer = {
   answer_text: string | null;
   awarded_marks: number | null;
   feedback: string | null;
+  /** The words that earned the marks, `[{quote, point, marks}]` (see `creditedQuotes`). */
+  credited?: unknown;
 };
 
 /** How much work a brief holds, without pulling the work itself. */
@@ -122,7 +124,7 @@ export function useHomeworkAnswers(submissionIds: string[], enabled = true) {
 
       const { data, error } = await supabase
         .from("homework_answers")
-        .select("id, submission_id, question_id, answer_text, awarded_marks, feedback")
+        .select("id, submission_id, question_id, answer_text, awarded_marks, feedback, credited")
         .in("submission_id", ids);
       if (error) throw error;
 

@@ -236,6 +236,8 @@ Deno.serve(async (req) => {
         submission_id: submissionId,
         marks: result.questions,
         summary: result.summary,
+        // The words behind each mark, for the student's marked sheet.
+        credited: result.credited,
         model: MODEL,
       },
       { onConflict: "submission_id" },
