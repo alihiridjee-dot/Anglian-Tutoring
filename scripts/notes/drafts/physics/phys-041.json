@@ -244,7 +244,22 @@
           "Gamma rays are emitted."
         ],
         "tip": "One mark each. An atom splitting into two parts can score if the first point is not given."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A **fission diagram** shows a neutron going into a large nucleus. Two smaller nuclei and two or three neutrons come out, with gamma rays and energy.",
+                "A **chain reaction** diagram shows each released neutron going into another large nucleus, which then splits too.",
+                "If each fission releases three neutrons and each one causes a fission, the number of nuclei splitting triples at each step: 1, 3, 9."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -268,7 +283,21 @@
           "Moderator: it slows down the neutrons, which makes them more likely to cause fission."
         ],
         "tip": "Level-marked. For the top level, give detail on two of chain reaction, control rods and moderator, and mention the third."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The two smaller nuclei formed when a uranium-235 nucleus splits are called **daughter nuclei**.",
+                "Fission, fusion and radioactive decay are all **nuclear reactions** that can be a source of energy."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -404,6 +433,6 @@
       "0f2d6dc6-e0c5-41d7-b2fd-a0c851438a77"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

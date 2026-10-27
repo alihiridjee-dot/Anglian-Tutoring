@@ -287,7 +287,23 @@
           "So less energy or power is wasted in the cables, which increases efficiency."
         ],
         "tip": "Link any two points. Thermal energy is accepted for heat energy, and 'reduces heat energy loss' scores both marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Step-down transformers are used in each locality because a lower p.d. is **safer** for consumers.",
+                "(Higher tier, Separate science) Long transmission cables have **resistance**. A large current would cause a large p.d. across the cables, so a lower p.d. would reach consumers.",
+                "(Higher tier, Separate science) The cables in a locality are much shorter, so the energy lost in them after the p.d. is stepped down matters less.",
+                "(Higher tier, Separate science) Power lost is the energy wasted each second (P = E ÷ t). A smaller I²R loss means less energy is wasted every second."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR P8.2c", "OCR P8.2d", "OCR P8.2e", "OCR P8.2f"],
@@ -302,7 +318,21 @@
           "Transformers decrease power or energy losses."
         ],
         "tip": "Any two of the three points. Do not write that energy losses stop completely."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The step-up transformer at a power station has more **turns** on its secondary coil than on its primary coil.",
+                "The p.d. rises by the same ratio as the turns. Power in equals power out, so the current falls by that ratio and the I²R loss in the cables falls even more."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 4.5.6.4", "CAIE 4.5.6.5", "CAIE 4.5.6.8S"],
@@ -373,7 +403,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "spec_point_ids": [
       "bac89603-adb4-493d-afa7-3891eab71e00",
       "0e6ba1a4-54d2-44aa-aadb-823b6d927f13",

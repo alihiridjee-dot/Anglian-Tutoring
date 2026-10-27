@@ -226,7 +226,23 @@
           "Americium has an atomic number of 95, and B has an atomic number of 94."
         ],
         "tip": "The reason scores only if B is chosen. Proton number is accepted for atomic number."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The number in an isotope's name is its mass number. Carbon-14 is the isotope of carbon with mass number 14.",
+                "The atomic number gives the element and the **relative charge** of the nucleus, because each proton has a relative charge of +1 and neutrons have none.",
+                "The mass number gives the **relative mass** of the nucleus, because protons and neutrons each have a relative mass of 1.",
+                "²⁹₁₅P and ³²₁₅P are both phosphorus, and both nuclei have a relative charge of +15. Their relative masses are 29 and 32, so ³²₁₅P has 3 more neutrons."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -243,7 +259,31 @@
           "Carbon-14: 8 neutrons and 6 electrons."
         ],
         "tip": "One mark for each column, so both numbers in the column must be right."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Nucleon",
+                  "meaning": "A proton or a neutron, the particles found in the nucleus."
+                },
+                {
+                  "term": "Proton number",
+                  "meaning": "Another name for the atomic number, the number of protons."
+                },
+                {
+                  "term": "Nucleon number",
+                  "meaning": "Another name for the mass number, the total number of protons and neutrons."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -261,7 +301,23 @@
           "Difference: a different number of neutrons (a different mass number is also allowed)."
         ],
         "tip": "Carbon-12 has 6 protons and 6 neutrons. Say which particle is the same and which is different."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The number in an isotope's name is its mass number. Carbon-14 is the isotope of carbon with mass number 14.",
+                "The atomic number gives the element and the **relative charge** of the nucleus, because each proton has a relative charge of +1 and neutrons have none.",
+                "The mass number gives the **relative mass** of the nucleus, because protons and neutrons each have a relative mass of 1.",
+                "²⁹₁₅P and ³²₁₅P are both phosphorus, and both nuclei have a relative charge of +15. Their relative masses are 29 and 32, so ³²₁₅P has 3 more neutrons."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -334,7 +390,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "spec_point_ids": [
       "4214a5da-b95b-420c-a248-d29d6aa0384c",
       "acd7d4d4-03e3-4a81-99e3-435d86d8e979",

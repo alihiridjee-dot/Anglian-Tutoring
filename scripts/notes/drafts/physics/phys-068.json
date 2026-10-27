@@ -267,7 +267,46 @@
           "Any one cause: the student's eye or head was not in the same position each time (parallax); the centre of the ray was not marked correctly; the mirror or ray box was not placed correctly each time."
         ],
         "tip": "One mark for the type of error and one for a specific cause."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Required practical: reflection by different surfaces",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Put a plane mirror on a sheet of paper. Draw a line along the mirror and a normal at 90° to it."
+                },
+                {
+                  "lead": "Shine a ray.",
+                  "text": "Aim a narrow ray from a ray box at the point where the normal meets the mirror. Mark the centre of the incident and reflected rays with crosses."
+                },
+                {
+                  "lead": "Measure.",
+                  "text": "Join the crosses with a ruler. Use a **protractor** to measure the angle of incidence and the angle of reflection from the normal."
+                },
+                {
+                  "lead": "Repeat.",
+                  "text": "Test a range of angles of incidence. Repeat each one and calculate a mean."
+                },
+                {
+                  "lead": "Change the surface.",
+                  "text": "Replace the mirror with an irregular reflecting surface to investigate diffuse reflection."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use a ray that is as narrow as possible. It is harder to judge the centre of a wide ray, which gives a larger uncertainty.",
+                "Estimate the **uncertainty** in a mean angle as half the range of the repeat readings."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 4.9P", "EDEX 5.1P", "EDEX 5.2P"],
@@ -312,6 +351,41 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "(Separate science) Sharing energy at a boundary",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "At a boundary, the energy of the incident wave is shared between the reflected, absorbed and transmitted parts."
+            },
+            {
+              "type": "equation",
+              "label": "Energy at a boundary",
+              "formula": "incident energy = reflected energy + absorbed energy + transmitted energy",
+              "where": ["each energy, in joules (J), or as a percentage of the incident energy (%)"]
+            },
+            {
+              "type": "list",
+              "items": [
+                "If 67% of the incident energy is absorbed and 15% is reflected, then 100 − 67 − 15 = 18% is transmitted.",
+                "A thicker or more absorbing board transmits less of the sound energy."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Separate science) Finding the critical angle",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Shine a ray through the curved side of a **semicircular glass block**, aimed at the centre of its flat side.",
+                "The ray enters along a normal, so it does not change direction until it reaches the flat side.",
+                "Increase the angle of incidence until the refracted ray travels along the flat side. This angle of incidence is the critical angle."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -327,7 +401,27 @@
           "The amplitude of the sound decreases with distance, or some of the sound energy is absorbed by the cliff or the air."
         ],
         "tip": "One mark for the echo and one for the reason the echo is quieter."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Ultrasound and sonar",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Ultrasound is reflected, transmitted and absorbed at boundaries inside the body and under the sea."
+            },
+            {
+              "type": "list",
+              "items": [
+                "In a scan, ultrasound is **partially reflected** at each boundary between tissues, such as the front and the back of a kidney. The rest is transmitted to deeper layers or absorbed.",
+                "Each boundary sends back an echo at a different time. A thicker layer gives a longer time between echoes.",
+                "In **sonar**, a ship sends an ultrasound pulse down through the water. It reflects from the seabed and the echo returns to the ship.",
+                "The echo time and the speed of ultrasound give the distance. The pulse travels there and back, so use half the time."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -565,6 +659,6 @@
       "fb7d4a65-25b7-4bf6-8a9a-a8be8832b6c3"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

@@ -240,6 +240,34 @@
               "text": "Moons are natural satellites. Artificial satellites are made by people and launched into orbit."
             }
           ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Minor planet",
+                  "meaning": "A smaller body that orbits the Sun, such as a dwarf planet or an asteroid."
+                },
+                {
+                  "term": "Geostationary orbit",
+                  "meaning": "An orbit above the equator that takes one day, so the satellite stays above the same point on the Earth."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Planets and moons both have circular orbits, and neither gives out its own visible light.",
+                "Natural and artificial satellites are both kept in orbit by **gravity**.",
+                "A geostationary satellite is used for communications, such as satellite television.",
+                "A **polar orbit** is lower than a geostationary orbit. The satellite moves faster and makes several orbits each day.",
+                "As the Earth turns beneath it, a polar orbit satellite passes over the whole surface. It is used for mapping, weather and surveillance."
+              ]
+            }
+          ]
         }
       ],
       "worked_example": {
@@ -360,6 +388,6 @@
       "89a0079a-291a-4c8a-854b-67582f2c3536"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

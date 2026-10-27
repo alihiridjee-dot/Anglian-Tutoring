@@ -299,7 +299,18 @@
           "Unit: N (newtons)"
         ],
         "tip": "One mark for the substitution, one for the evaluation and one for the unit. The unit is a separate mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Inertial mass from rest",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Inertial mass also measures how difficult it is to start a stationary object moving, because getting an object moving from rest is a change in its velocity."
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR P2.2i", "OCR P2.2j", "OCR P2.2l"],
@@ -396,6 +407,6 @@
       "1f98bf6c-ff80-45e0-a896-914aa2c28d3f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

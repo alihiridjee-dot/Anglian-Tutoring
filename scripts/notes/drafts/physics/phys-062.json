@@ -330,7 +330,32 @@
         "marks": 3,
         "answer_points": ["Estimate the mass of the car as 1500 kg.", "F = 1500 × 6", "F = 9000 N"],
         "tip": "Any answer from 2400 N to 21 000 N scores 3 marks. A mass estimate from 400 kg to 3500 kg is allowed."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "Acceleration",
+              "formula": "a = (v − u) ÷ t",
+              "where": [
+                "a: acceleration in metres per second squared, m/s² (negative for a deceleration)",
+                "v: final velocity in metres per second, m/s",
+                "u: initial velocity in metres per second, m/s",
+                "t: time taken in seconds, s"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "To estimate a deceleration, use a typical speed and the **time taken to stop**. The shorter the time, the larger the deceleration.",
+                "Stopping in a tenth of the time gives ten times the deceleration. By force = mass × acceleration, the force on the people inside is also ten times greater, which can cause injury."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -355,6 +380,6 @@
       "c4eb2704-2047-4904-a75f-6c154d296c8a"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-27"
   }
 }
