@@ -1,4 +1,4 @@
--- Rollback for 20261027130500_quizzes_follow_paid_subjects: the live
+-- Rollback for 20261027131300_quizzes_follow_paid_subjects: the live
 -- definitions before it (pg_policies / pg_get_functiondef, 27 Oct 2026). Every
 -- student and parent with access reads every subject's quizzes again, and
 -- anyone with access can be marked.

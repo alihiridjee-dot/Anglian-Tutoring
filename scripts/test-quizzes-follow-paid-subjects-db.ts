@@ -1,4 +1,4 @@
-/** Isolated PostgreSQL regression checks for 20261027130500_quizzes_follow_paid_subjects.
+/** Isolated PostgreSQL regression checks for 20261027131300_quizzes_follow_paid_subjects.
  * No production data is read or written.
  *
  *   PGLITE_MODULE=/path/to/@electric-sql/pglite/dist/index.js bun scripts/test-quizzes-follow-paid-subjects-db.ts
@@ -172,14 +172,14 @@ insert into mcq_questions (id, set_id, position, question, options, correct_inde
 
 const migration = await readFile(
   new URL(
-    "../supabase/migrations/20261027130500_quizzes_follow_paid_subjects.sql",
+    "../supabase/migrations/20261027131300_quizzes_follow_paid_subjects.sql",
     import.meta.url,
   ),
   "utf8",
 );
 const before = await readFile(
   new URL(
-    "../supabase/rollbacks/20261027130500_quizzes_follow_paid_subjects.down.sql",
+    "../supabase/rollbacks/20261027131300_quizzes_follow_paid_subjects.down.sql",
     import.meta.url,
   ),
   "utf8",
