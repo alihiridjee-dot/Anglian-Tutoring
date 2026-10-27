@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Chip, EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
+import { getSessionUserId } from "@/lib/auth/session";
 import { CalendarCheck, ChevronRight } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ, DEMO_MCQ_ATTEMPTS, DEMO_MCQ_SETS } from "@/lib/demo/studentDemo";
 import { useRoles } from "@/hooks/useRole";
@@ -141,9 +142,12 @@ function StudentMCQs() {
         return;
       }
 
-      const { data: auth } = await supabase.auth.getUser();
+      // The session held locally, not a call to the auth API: when that call
+      // failed (a dropped connection, an auth hiccup) it came back as no user,
+      // and the page said "No quizzes yet" to a student with a week of them.
+      // The guard has already checked the session; RLS checks every read below.
+      const uid = await getSessionUserId();
       if (cancelled) return;
-      const uid = auth?.user?.id;
       if (!uid) {
         settle();
         return;
@@ -323,12 +327,15 @@ function StudentMCQs() {
           )}
 
           {dueCount === 0 && marked.length === 0 ? (
-            <EmptyState
-              mascot="pencil"
-              mood="sleepy"
-              title={`No ${subjectLabel(subject)} quizzes yet`}
-              body="Nothing has been written for this subject so far. It'll appear here as soon as your plan reaches a spec point with a quiz behind it."
-            />
+            // With the week unread, the error above is the whole story.
+            due.error ? null : (
+              <EmptyState
+                mascot="pencil"
+                mood="sleepy"
+                title={`No ${subjectLabel(subject)} quizzes yet`}
+                body="Nothing has been written for this subject so far. It'll appear here as soon as your plan reaches a spec point with a quiz behind it."
+              />
+            )
           ) : (
             <>
               <div className="mb-5 overflow-x-auto">
