@@ -1,7 +1,7 @@
 /** Isolated PostgreSQL regression checks for S-12 and S-15: a submission is
  * scored out of the questions it was set, and a tutor's "Confirm & publish" is
- * one write the timer can't half-overwrite. No production data is read or
- * written.
+ * one write the timer can't half-overwrite. Then that it tells the student,
+ * once, as the timer does. No production data is read or written.
  *
  *   PGLITE_MODULE=/path/to/@electric-sql/pglite/dist/index.js bun scripts/test-homework-publish-db.ts
  */
@@ -303,6 +303,76 @@ await db.exec("set role authenticated");
     2,
     "A tutor couldn't correct a published mark",
   );
+}
+
+// ── Confirm & publish tells the student, once ─────────────────────────────
+await db.exec("reset role");
+await as(null);
+await db.exec(await sql("migrations/20261006174500_notify_when_tutor_publishes.sql"));
+const notices = async (sub: string) =>
+  (
+    await db.query<{ user_id: string; type: string; title: string; body: string; link: string }>(
+      "select user_id, type, title, body, link from notifications where submission_id = $1",
+      [sub],
+    )
+  ).rows;
+{
+  const { hw, qs, sub } = await handedIn([2, 3], ["Osmosis", "Nucleus"]);
+  await db.exec("set role authenticated");
+
+  // Refused or failed part-way: nothing published, nobody told.
+  await as(student);
+  await assert.rejects(() => confirm(sub, [], 100, null), /Only tutors/);
+  await as(tutor);
+  await assert.rejects(() =>
+    confirm(sub, [{ question_id: qs[0], marks: "lots", feedback: "" }], 80, null),
+  );
+  assert.equal((await notices(sub)).length, 0, "The student was told about marks never published");
+
+  // The tutor publishes before the timer: the timer's notification, word for word.
+  await confirm(
+    sub,
+    [
+      { question_id: qs[0], marks: 2, feedback: "" },
+      { question_id: qs[1], marks: 1, feedback: "" },
+    ],
+    60,
+    null,
+  );
+  assert.deepEqual(await notices(sub), [
+    {
+      user_id: student,
+      type: "homework_marked",
+      title: "Your task has been marked",
+      body: "Cells — 60%",
+      link: `/homework/${hw}`,
+    },
+  ]);
+
+  // "Update mark" afterwards, then the timer: neither tells them again.
+  await confirm(sub, [{ question_id: qs[1], marks: 3, feedback: "" }], 100, null);
+  await db.exec("reset role");
+  await as(null);
+  assert.equal(await publish(sub), false);
+  assert.equal((await notices(sub)).length, 1, "The student was told twice");
+}
+{
+  // The timer publishes first and tells them; the tutor's correction doesn't again.
+  const { qs, sub } = await handedIn([2], ["Osmosis"]);
+  await stage(sub, [{ question_id: qs[0], marks: 0 }]);
+  assert.equal(await publish(sub), true);
+  await db.exec("set role authenticated");
+  await as(tutor);
+  await confirm(sub, [{ question_id: qs[0], marks: 2, feedback: "Regraded" }], 100, null);
+  assert.equal((await notices(sub)).length, 1, "Update mark told the student a second time");
+}
+{
+  // Published with no overall score: the title alone, as the timer words it.
+  await db.exec("reset role");
+  const { qs, sub } = await handedIn([2], ["Osmosis"]);
+  await db.exec("set role authenticated");
+  await confirm(sub, [{ question_id: qs[0], marks: null, feedback: "See me" }], null, null);
+  assert.equal((await notices(sub))[0]?.body, "Cells");
 }
 
 console.log("homework publish: all checks passed");
